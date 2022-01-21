@@ -14,7 +14,7 @@ import (
 // BuildHandler is a named request handler for building volcstackquery protocol requests
 var BuildHandler = request.NamedHandler{Name: "volcstacksdk.volcstackquery.Build", Fn: Build}
 
-// Build builds a request for an AWS Query service.
+// Build builds a request for a Volcstack Query service.
 func Build(r *request.Request) {
 	body := url.Values{
 		"Action":  {r.Operation.Name},

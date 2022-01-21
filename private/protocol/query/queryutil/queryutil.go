@@ -126,13 +126,13 @@ func (q *queryParser) parseList(v url.Values, value reflect.Value, prefix string
 	}
 
 	// check for unflattened list member
-	if !q.isEC2 && tag.Get("flattened") == "" {
-		if listName := tag.Get("locationNameList"); listName == "" {
-			prefix += ".member"
-		} else {
-			prefix += "." + listName
-		}
-	}
+	//if !q.isEC2 && tag.Get("flattened") == "" {
+	//	if listName := tag.Get("locationNameList"); listName == "" {
+	//		prefix += ".member"
+	//	} else {
+	//		prefix += "." + listName
+	//	}
+	//}
 
 	for i := 0; i < value.Len(); i++ {
 		slicePrefix := prefix

@@ -6,10 +6,9 @@
 // It is important to note that this interface will have breaking changes
 // when the service model is updated and adds new API operations, paginators,
 // and waiters.
-package vpciface
+package vpc
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/service/vpc"
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
 )
@@ -25,8 +24,8 @@ import (
 //
 //    // myFunc uses an SDK service client to make a request to
 //    // vpc.
-//    func myFunc(svc vpciface.VpcAPI) bool {
-//        // Make svc.CreateVpcCommon request
+//    func myFunc(svc VpcAPI) bool {
+//        // Make svc.CreateVpc request
 //    }
 //
 //    func main() {
@@ -40,9 +39,9 @@ import (
 //
 //    // Define a mock struct to be used in your unit tests of myFunc.
 //    type mockVpcClient struct {
-//        vpciface.VpcAPI
+//        VpcAPI
 //    }
-//    func (m *mockVpcClient) CreateVpcCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+//    func (m *mockVpcClient) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
 //        // mock response/functionality
 //    }
 //
@@ -64,9 +63,17 @@ type VpcAPI interface {
 	CreateVpcCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateVpcCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
+	CreateVpc(*CreateVpcInput) (*CreateVpcOutput, error)
+	CreateVpcWithContext(volcstack.Context, *CreateVpcInput, ...request.Option) (*CreateVpcOutput, error)
+	CreateVpcRequest(*CreateVpcInput) (*request.Request, *CreateVpcOutput)
+
 	DeleteVpcCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVpcCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteVpcCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeVpcAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeVpcAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeVpcAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
 	DescribeVpcsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpcsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -77,4 +84,4 @@ type VpcAPI interface {
 	ModifyVpcAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 }
 
-var _ VpcAPI = (*vpc.Vpc)(nil)
+var _ VpcAPI = (*Vpc)(nil)
