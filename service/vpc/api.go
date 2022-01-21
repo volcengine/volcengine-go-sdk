@@ -5,6 +5,7 @@ package vpc
 import (
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 const opCreateVpcCommon = "CreateVpc"
@@ -77,6 +78,76 @@ func (c *Vpc) CreateVpcCommonWithContext(ctx volcstack.Context, input *map[strin
 	return out, req.Send()
 }
 
+const opCreateVpc = "CreateVpc"
+
+// CreateVpcRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateVpc operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateVpc for more information on using the CreateVpc
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateVpcRequest method.
+//    req, resp := client.CreateVpcRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *Vpc) CreateVpcRequest(input *CreateVpcInput) (req *request.Request, output *CreateVpcOutput) {
+	op := &request.Operation{
+		Name:       opCreateVpc,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateVpcInput{}
+	}
+
+	output = &CreateVpcOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateVpc API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateVpc for usage and error information.
+func (c *Vpc) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
+	req, out := c.CreateVpcRequest(input)
+	return out, req.Send()
+}
+
+// CreateVpcWithContext is the same as CreateVpc with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateVpc for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Vpc) CreateVpcWithContext(ctx volcstack.Context, input *CreateVpcInput, opts ...request.Option) (*CreateVpcOutput, error) {
+	req, out := c.CreateVpcRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteVpcCommon = "DeleteVpc"
 
 // DeleteVpcCommonRequest generates a "volcstack/request.Request" representing the
@@ -142,6 +213,76 @@ func (c *Vpc) DeleteVpcCommon(input *map[string]interface{}) (*map[string]interf
 // for more information on using Contexts.
 func (c *Vpc) DeleteVpcCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteVpcCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpcAttributesCommon = "DescribeVpcAttributes"
+
+// DescribeVpcAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpcAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeVpcAttributesCommon for more information on using the DescribeVpcAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeVpcAttributesCommonRequest method.
+//    req, resp := client.DescribeVpcAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *Vpc) DescribeVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeVpcAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpcAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeVpcAttributesCommon for usage and error information.
+func (c *Vpc) DescribeVpcAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpcAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpcAttributesCommonWithContext is the same as DescribeVpcAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpcAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Vpc) DescribeVpcAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpcAttributesCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -285,4 +426,94 @@ func (c *Vpc) ModifyVpcAttributesCommonWithContext(ctx volcstack.Context, input 
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
+}
+
+type CreateVpcInput struct {
+	_ struct{} `type:"structure"`
+
+	// CidrBlock is a required field
+	CidrBlock *string `type:"string" required:"true"`
+
+	Description *string `type:"string"`
+
+	DnsServers []*string `type:"list"`
+
+	VpcName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateVpcInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateVpcInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateVpcInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateVpcInput"}
+	if s.CidrBlock == nil {
+		invalidParams.Add(request.NewErrParamRequired("CidrBlock"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *CreateVpcInput) SetCidrBlock(v string) *CreateVpcInput {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateVpcInput) SetDescription(v string) *CreateVpcInput {
+	s.Description = &v
+	return s
+}
+
+// SetDnsServers sets the DnsServers field's value.
+func (s *CreateVpcInput) SetDnsServers(v []*string) *CreateVpcInput {
+	s.DnsServers = v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *CreateVpcInput) SetVpcName(v string) *CreateVpcInput {
+	s.VpcName = &v
+	return s
+}
+
+type CreateVpcOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateVpcOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateVpcOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateVpcOutput) SetRequestId(v string) *CreateVpcOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *CreateVpcOutput) SetVpcId(v string) *CreateVpcOutput {
+	s.VpcId = &v
+	return s
 }
