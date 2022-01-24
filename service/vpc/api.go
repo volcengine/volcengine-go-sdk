@@ -8,6 +8,2386 @@ import (
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
+const opAllocateEipAddressCommon = "AllocateEipAddress"
+
+// AllocateEipAddressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AllocateEipAddressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AllocateEipAddressCommon for more information on using the AllocateEipAddressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AllocateEipAddressCommonRequest method.
+//    req, resp := client.AllocateEipAddressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AllocateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAllocateEipAddressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AllocateEipAddressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AllocateEipAddressCommon for usage and error information.
+func (c *VpcSdk) AllocateEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AllocateEipAddressCommonRequest(input)
+	return out, req.Send()
+}
+
+// AllocateEipAddressCommonWithContext is the same as AllocateEipAddressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AllocateEipAddressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AllocateEipAddressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AllocateEipAddressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAllocateEipAddress = "AllocateEipAddress"
+
+// AllocateEipAddressRequest generates a "volcstack/request.Request" representing the
+// client's request for the AllocateEipAddress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AllocateEipAddress for more information on using the AllocateEipAddress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AllocateEipAddressRequest method.
+//    req, resp := client.AllocateEipAddressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AllocateEipAddressRequest(input *AllocateEipAddressInput) (req *request.Request, output *AllocateEipAddressOutput) {
+	op := &request.Operation{
+		Name:       opAllocateEipAddress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AllocateEipAddressInput{}
+	}
+
+	output = &AllocateEipAddressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AllocateEipAddress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AllocateEipAddress for usage and error information.
+func (c *VpcSdk) AllocateEipAddress(input *AllocateEipAddressInput) (*AllocateEipAddressOutput, error) {
+	req, out := c.AllocateEipAddressRequest(input)
+	return out, req.Send()
+}
+
+// AllocateEipAddressWithContext is the same as AllocateEipAddress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AllocateEipAddress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AllocateEipAddressWithContext(ctx volcstack.Context, input *AllocateEipAddressInput, opts ...request.Option) (*AllocateEipAddressOutput, error) {
+	req, out := c.AllocateEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssignAuxiliaryCidrBlocksCommon = "AssignAuxiliaryCidrBlocks"
+
+// AssignAuxiliaryCidrBlocksCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignAuxiliaryCidrBlocksCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssignAuxiliaryCidrBlocksCommon for more information on using the AssignAuxiliaryCidrBlocksCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssignAuxiliaryCidrBlocksCommonRequest method.
+//    req, resp := client.AssignAuxiliaryCidrBlocksCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssignAuxiliaryCidrBlocksCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssignAuxiliaryCidrBlocksCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignAuxiliaryCidrBlocksCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssignAuxiliaryCidrBlocksCommon for usage and error information.
+func (c *VpcSdk) AssignAuxiliaryCidrBlocksCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssignAuxiliaryCidrBlocksCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssignAuxiliaryCidrBlocksCommonWithContext is the same as AssignAuxiliaryCidrBlocksCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignAuxiliaryCidrBlocksCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssignAuxiliaryCidrBlocksCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssignAuxiliaryCidrBlocksCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssignAuxiliaryCidrBlocks = "AssignAuxiliaryCidrBlocks"
+
+// AssignAuxiliaryCidrBlocksRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignAuxiliaryCidrBlocks operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssignAuxiliaryCidrBlocks for more information on using the AssignAuxiliaryCidrBlocks
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssignAuxiliaryCidrBlocksRequest method.
+//    req, resp := client.AssignAuxiliaryCidrBlocksRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssignAuxiliaryCidrBlocksRequest(input *AssignAuxiliaryCidrBlocksInput) (req *request.Request, output *AssignAuxiliaryCidrBlocksOutput) {
+	op := &request.Operation{
+		Name:       opAssignAuxiliaryCidrBlocks,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssignAuxiliaryCidrBlocksInput{}
+	}
+
+	output = &AssignAuxiliaryCidrBlocksOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignAuxiliaryCidrBlocks API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssignAuxiliaryCidrBlocks for usage and error information.
+func (c *VpcSdk) AssignAuxiliaryCidrBlocks(input *AssignAuxiliaryCidrBlocksInput) (*AssignAuxiliaryCidrBlocksOutput, error) {
+	req, out := c.AssignAuxiliaryCidrBlocksRequest(input)
+	return out, req.Send()
+}
+
+// AssignAuxiliaryCidrBlocksWithContext is the same as AssignAuxiliaryCidrBlocks with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignAuxiliaryCidrBlocks for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssignAuxiliaryCidrBlocksWithContext(ctx volcstack.Context, input *AssignAuxiliaryCidrBlocksInput, opts ...request.Option) (*AssignAuxiliaryCidrBlocksOutput, error) {
+	req, out := c.AssignAuxiliaryCidrBlocksRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssignIPv6AddressesCommon = "AssignIPv6Addresses"
+
+// AssignIPv6AddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignIPv6AddressesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssignIPv6AddressesCommon for more information on using the AssignIPv6AddressesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssignIPv6AddressesCommonRequest method.
+//    req, resp := client.AssignIPv6AddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssignIPv6AddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssignIPv6AddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignIPv6AddressesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssignIPv6AddressesCommon for usage and error information.
+func (c *VpcSdk) AssignIPv6AddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssignIPv6AddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssignIPv6AddressesCommonWithContext is the same as AssignIPv6AddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignIPv6AddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssignIPv6AddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssignIPv6AddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssignIPv6Addresses = "AssignIPv6Addresses"
+
+// AssignIPv6AddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignIPv6Addresses operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssignIPv6Addresses for more information on using the AssignIPv6Addresses
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssignIPv6AddressesRequest method.
+//    req, resp := client.AssignIPv6AddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssignIPv6AddressesRequest(input *AssignIPv6AddressesInput) (req *request.Request, output *AssignIPv6AddressesOutput) {
+	op := &request.Operation{
+		Name:       opAssignIPv6Addresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssignIPv6AddressesInput{}
+	}
+
+	output = &AssignIPv6AddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignIPv6Addresses API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssignIPv6Addresses for usage and error information.
+func (c *VpcSdk) AssignIPv6Addresses(input *AssignIPv6AddressesInput) (*AssignIPv6AddressesOutput, error) {
+	req, out := c.AssignIPv6AddressesRequest(input)
+	return out, req.Send()
+}
+
+// AssignIPv6AddressesWithContext is the same as AssignIPv6Addresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignIPv6Addresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssignIPv6AddressesWithContext(ctx volcstack.Context, input *AssignIPv6AddressesInput, opts ...request.Option) (*AssignIPv6AddressesOutput, error) {
+	req, out := c.AssignIPv6AddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssignPrivateIpAddressesCommon = "AssignPrivateIpAddresses"
+
+// AssignPrivateIpAddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignPrivateIpAddressesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssignPrivateIpAddressesCommon for more information on using the AssignPrivateIpAddressesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssignPrivateIpAddressesCommonRequest method.
+//    req, resp := client.AssignPrivateIpAddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssignPrivateIpAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssignPrivateIpAddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignPrivateIpAddressesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssignPrivateIpAddressesCommon for usage and error information.
+func (c *VpcSdk) AssignPrivateIpAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssignPrivateIpAddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssignPrivateIpAddressesCommonWithContext is the same as AssignPrivateIpAddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignPrivateIpAddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssignPrivateIpAddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssignPrivateIpAddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssignPrivateIpAddresses = "AssignPrivateIpAddresses"
+
+// AssignPrivateIpAddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignPrivateIpAddresses operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssignPrivateIpAddresses for more information on using the AssignPrivateIpAddresses
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssignPrivateIpAddressesRequest method.
+//    req, resp := client.AssignPrivateIpAddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssignPrivateIpAddressesRequest(input *AssignPrivateIpAddressesInput) (req *request.Request, output *AssignPrivateIpAddressesOutput) {
+	op := &request.Operation{
+		Name:       opAssignPrivateIpAddresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssignPrivateIpAddressesInput{}
+	}
+
+	output = &AssignPrivateIpAddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignPrivateIpAddresses API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssignPrivateIpAddresses for usage and error information.
+func (c *VpcSdk) AssignPrivateIpAddresses(input *AssignPrivateIpAddressesInput) (*AssignPrivateIpAddressesOutput, error) {
+	req, out := c.AssignPrivateIpAddressesRequest(input)
+	return out, req.Send()
+}
+
+// AssignPrivateIpAddressesWithContext is the same as AssignPrivateIpAddresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignPrivateIpAddresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssignPrivateIpAddressesWithContext(ctx volcstack.Context, input *AssignPrivateIpAddressesInput, opts ...request.Option) (*AssignPrivateIpAddressesOutput, error) {
+	req, out := c.AssignPrivateIpAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateEipAddressCommon = "AssociateEipAddress"
+
+// AssociateEipAddressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateEipAddressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssociateEipAddressCommon for more information on using the AssociateEipAddressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssociateEipAddressCommonRequest method.
+//    req, resp := client.AssociateEipAddressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssociateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssociateEipAddressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateEipAddressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssociateEipAddressCommon for usage and error information.
+func (c *VpcSdk) AssociateEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssociateEipAddressCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssociateEipAddressCommonWithContext is the same as AssociateEipAddressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateEipAddressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssociateEipAddressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssociateEipAddressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateEipAddress = "AssociateEipAddress"
+
+// AssociateEipAddressRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateEipAddress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssociateEipAddress for more information on using the AssociateEipAddress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssociateEipAddressRequest method.
+//    req, resp := client.AssociateEipAddressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssociateEipAddressRequest(input *AssociateEipAddressInput) (req *request.Request, output *AssociateEipAddressOutput) {
+	op := &request.Operation{
+		Name:       opAssociateEipAddress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssociateEipAddressInput{}
+	}
+
+	output = &AssociateEipAddressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateEipAddress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssociateEipAddress for usage and error information.
+func (c *VpcSdk) AssociateEipAddress(input *AssociateEipAddressInput) (*AssociateEipAddressOutput, error) {
+	req, out := c.AssociateEipAddressRequest(input)
+	return out, req.Send()
+}
+
+// AssociateEipAddressWithContext is the same as AssociateEipAddress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateEipAddress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssociateEipAddressWithContext(ctx volcstack.Context, input *AssociateEipAddressInput, opts ...request.Option) (*AssociateEipAddressOutput, error) {
+	req, out := c.AssociateEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateHaVipCommon = "AssociateHaVip"
+
+// AssociateHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateHaVipCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssociateHaVipCommon for more information on using the AssociateHaVipCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssociateHaVipCommonRequest method.
+//    req, resp := client.AssociateHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssociateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssociateHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateHaVipCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssociateHaVipCommon for usage and error information.
+func (c *VpcSdk) AssociateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssociateHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssociateHaVipCommonWithContext is the same as AssociateHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssociateHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssociateHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateHaVip = "AssociateHaVip"
+
+// AssociateHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateHaVip operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssociateHaVip for more information on using the AssociateHaVip
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssociateHaVipRequest method.
+//    req, resp := client.AssociateHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssociateHaVipRequest(input *AssociateHaVipInput) (req *request.Request, output *AssociateHaVipOutput) {
+	op := &request.Operation{
+		Name:       opAssociateHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssociateHaVipInput{}
+	}
+
+	output = &AssociateHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateHaVip API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssociateHaVip for usage and error information.
+func (c *VpcSdk) AssociateHaVip(input *AssociateHaVipInput) (*AssociateHaVipOutput, error) {
+	req, out := c.AssociateHaVipRequest(input)
+	return out, req.Send()
+}
+
+// AssociateHaVipWithContext is the same as AssociateHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssociateHaVipWithContext(ctx volcstack.Context, input *AssociateHaVipInput, opts ...request.Option) (*AssociateHaVipOutput, error) {
+	req, out := c.AssociateHaVipRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateRouteTableCommon = "AssociateRouteTable"
+
+// AssociateRouteTableCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateRouteTableCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssociateRouteTableCommon for more information on using the AssociateRouteTableCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssociateRouteTableCommonRequest method.
+//    req, resp := client.AssociateRouteTableCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssociateRouteTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssociateRouteTableCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateRouteTableCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssociateRouteTableCommon for usage and error information.
+func (c *VpcSdk) AssociateRouteTableCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssociateRouteTableCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssociateRouteTableCommonWithContext is the same as AssociateRouteTableCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateRouteTableCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssociateRouteTableCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssociateRouteTableCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateRouteTable = "AssociateRouteTable"
+
+// AssociateRouteTableRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateRouteTable operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssociateRouteTable for more information on using the AssociateRouteTable
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssociateRouteTableRequest method.
+//    req, resp := client.AssociateRouteTableRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AssociateRouteTableRequest(input *AssociateRouteTableInput) (req *request.Request, output *AssociateRouteTableOutput) {
+	op := &request.Operation{
+		Name:       opAssociateRouteTable,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssociateRouteTableInput{}
+	}
+
+	output = &AssociateRouteTableOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateRouteTable API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AssociateRouteTable for usage and error information.
+func (c *VpcSdk) AssociateRouteTable(input *AssociateRouteTableInput) (*AssociateRouteTableOutput, error) {
+	req, out := c.AssociateRouteTableRequest(input)
+	return out, req.Send()
+}
+
+// AssociateRouteTableWithContext is the same as AssociateRouteTable with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateRouteTable for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AssociateRouteTableWithContext(ctx volcstack.Context, input *AssociateRouteTableInput, opts ...request.Option) (*AssociateRouteTableOutput, error) {
+	req, out := c.AssociateRouteTableRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAttachNetworkInterfaceCommon = "AttachNetworkInterface"
+
+// AttachNetworkInterfaceCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AttachNetworkInterfaceCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AttachNetworkInterfaceCommon for more information on using the AttachNetworkInterfaceCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AttachNetworkInterfaceCommonRequest method.
+//    req, resp := client.AttachNetworkInterfaceCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AttachNetworkInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAttachNetworkInterfaceCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AttachNetworkInterfaceCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AttachNetworkInterfaceCommon for usage and error information.
+func (c *VpcSdk) AttachNetworkInterfaceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AttachNetworkInterfaceCommonRequest(input)
+	return out, req.Send()
+}
+
+// AttachNetworkInterfaceCommonWithContext is the same as AttachNetworkInterfaceCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AttachNetworkInterfaceCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AttachNetworkInterfaceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AttachNetworkInterfaceCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAttachNetworkInterface = "AttachNetworkInterface"
+
+// AttachNetworkInterfaceRequest generates a "volcstack/request.Request" representing the
+// client's request for the AttachNetworkInterface operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AttachNetworkInterface for more information on using the AttachNetworkInterface
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AttachNetworkInterfaceRequest method.
+//    req, resp := client.AttachNetworkInterfaceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AttachNetworkInterfaceRequest(input *AttachNetworkInterfaceInput) (req *request.Request, output *AttachNetworkInterfaceOutput) {
+	op := &request.Operation{
+		Name:       opAttachNetworkInterface,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AttachNetworkInterfaceInput{}
+	}
+
+	output = &AttachNetworkInterfaceOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AttachNetworkInterface API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AttachNetworkInterface for usage and error information.
+func (c *VpcSdk) AttachNetworkInterface(input *AttachNetworkInterfaceInput) (*AttachNetworkInterfaceOutput, error) {
+	req, out := c.AttachNetworkInterfaceRequest(input)
+	return out, req.Send()
+}
+
+// AttachNetworkInterfaceWithContext is the same as AttachNetworkInterface with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AttachNetworkInterface for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AttachNetworkInterfaceWithContext(ctx volcstack.Context, input *AttachNetworkInterfaceInput, opts ...request.Option) (*AttachNetworkInterfaceOutput, error) {
+	req, out := c.AttachNetworkInterfaceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAuthorizeSecurityGroupEgressCommon = "AuthorizeSecurityGroupEgress"
+
+// AuthorizeSecurityGroupEgressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AuthorizeSecurityGroupEgressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AuthorizeSecurityGroupEgressCommon for more information on using the AuthorizeSecurityGroupEgressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AuthorizeSecurityGroupEgressCommonRequest method.
+//    req, resp := client.AuthorizeSecurityGroupEgressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AuthorizeSecurityGroupEgressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAuthorizeSecurityGroupEgressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AuthorizeSecurityGroupEgressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AuthorizeSecurityGroupEgressCommon for usage and error information.
+func (c *VpcSdk) AuthorizeSecurityGroupEgressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AuthorizeSecurityGroupEgressCommonRequest(input)
+	return out, req.Send()
+}
+
+// AuthorizeSecurityGroupEgressCommonWithContext is the same as AuthorizeSecurityGroupEgressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AuthorizeSecurityGroupEgressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AuthorizeSecurityGroupEgressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AuthorizeSecurityGroupEgressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAuthorizeSecurityGroupEgress = "AuthorizeSecurityGroupEgress"
+
+// AuthorizeSecurityGroupEgressRequest generates a "volcstack/request.Request" representing the
+// client's request for the AuthorizeSecurityGroupEgress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AuthorizeSecurityGroupEgress for more information on using the AuthorizeSecurityGroupEgress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AuthorizeSecurityGroupEgressRequest method.
+//    req, resp := client.AuthorizeSecurityGroupEgressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AuthorizeSecurityGroupEgressRequest(input *AuthorizeSecurityGroupEgressInput) (req *request.Request, output *AuthorizeSecurityGroupEgressOutput) {
+	op := &request.Operation{
+		Name:       opAuthorizeSecurityGroupEgress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AuthorizeSecurityGroupEgressInput{}
+	}
+
+	output = &AuthorizeSecurityGroupEgressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AuthorizeSecurityGroupEgress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AuthorizeSecurityGroupEgress for usage and error information.
+func (c *VpcSdk) AuthorizeSecurityGroupEgress(input *AuthorizeSecurityGroupEgressInput) (*AuthorizeSecurityGroupEgressOutput, error) {
+	req, out := c.AuthorizeSecurityGroupEgressRequest(input)
+	return out, req.Send()
+}
+
+// AuthorizeSecurityGroupEgressWithContext is the same as AuthorizeSecurityGroupEgress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AuthorizeSecurityGroupEgress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AuthorizeSecurityGroupEgressWithContext(ctx volcstack.Context, input *AuthorizeSecurityGroupEgressInput, opts ...request.Option) (*AuthorizeSecurityGroupEgressOutput, error) {
+	req, out := c.AuthorizeSecurityGroupEgressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAuthorizeSecurityGroupIngressCommon = "AuthorizeSecurityGroupIngress"
+
+// AuthorizeSecurityGroupIngressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AuthorizeSecurityGroupIngressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AuthorizeSecurityGroupIngressCommon for more information on using the AuthorizeSecurityGroupIngressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AuthorizeSecurityGroupIngressCommonRequest method.
+//    req, resp := client.AuthorizeSecurityGroupIngressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AuthorizeSecurityGroupIngressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAuthorizeSecurityGroupIngressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AuthorizeSecurityGroupIngressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AuthorizeSecurityGroupIngressCommon for usage and error information.
+func (c *VpcSdk) AuthorizeSecurityGroupIngressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AuthorizeSecurityGroupIngressCommonRequest(input)
+	return out, req.Send()
+}
+
+// AuthorizeSecurityGroupIngressCommonWithContext is the same as AuthorizeSecurityGroupIngressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AuthorizeSecurityGroupIngressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AuthorizeSecurityGroupIngressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AuthorizeSecurityGroupIngressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAuthorizeSecurityGroupIngress = "AuthorizeSecurityGroupIngress"
+
+// AuthorizeSecurityGroupIngressRequest generates a "volcstack/request.Request" representing the
+// client's request for the AuthorizeSecurityGroupIngress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AuthorizeSecurityGroupIngress for more information on using the AuthorizeSecurityGroupIngress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AuthorizeSecurityGroupIngressRequest method.
+//    req, resp := client.AuthorizeSecurityGroupIngressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) AuthorizeSecurityGroupIngressRequest(input *AuthorizeSecurityGroupIngressInput) (req *request.Request, output *AuthorizeSecurityGroupIngressOutput) {
+	op := &request.Operation{
+		Name:       opAuthorizeSecurityGroupIngress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AuthorizeSecurityGroupIngressInput{}
+	}
+
+	output = &AuthorizeSecurityGroupIngressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AuthorizeSecurityGroupIngress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation AuthorizeSecurityGroupIngress for usage and error information.
+func (c *VpcSdk) AuthorizeSecurityGroupIngress(input *AuthorizeSecurityGroupIngressInput) (*AuthorizeSecurityGroupIngressOutput, error) {
+	req, out := c.AuthorizeSecurityGroupIngressRequest(input)
+	return out, req.Send()
+}
+
+// AuthorizeSecurityGroupIngressWithContext is the same as AuthorizeSecurityGroupIngress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AuthorizeSecurityGroupIngress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) AuthorizeSecurityGroupIngressWithContext(ctx volcstack.Context, input *AuthorizeSecurityGroupIngressInput, opts ...request.Option) (*AuthorizeSecurityGroupIngressOutput, error) {
+	req, out := c.AuthorizeSecurityGroupIngressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opConvertEipAddressBillingTypeCommon = "ConvertEipAddressBillingType"
+
+// ConvertEipAddressBillingTypeCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ConvertEipAddressBillingTypeCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ConvertEipAddressBillingTypeCommon for more information on using the ConvertEipAddressBillingTypeCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ConvertEipAddressBillingTypeCommonRequest method.
+//    req, resp := client.ConvertEipAddressBillingTypeCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ConvertEipAddressBillingTypeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opConvertEipAddressBillingTypeCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ConvertEipAddressBillingTypeCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ConvertEipAddressBillingTypeCommon for usage and error information.
+func (c *VpcSdk) ConvertEipAddressBillingTypeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ConvertEipAddressBillingTypeCommonRequest(input)
+	return out, req.Send()
+}
+
+// ConvertEipAddressBillingTypeCommonWithContext is the same as ConvertEipAddressBillingTypeCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ConvertEipAddressBillingTypeCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ConvertEipAddressBillingTypeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ConvertEipAddressBillingTypeCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opConvertEipAddressBillingType = "ConvertEipAddressBillingType"
+
+// ConvertEipAddressBillingTypeRequest generates a "volcstack/request.Request" representing the
+// client's request for the ConvertEipAddressBillingType operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ConvertEipAddressBillingType for more information on using the ConvertEipAddressBillingType
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ConvertEipAddressBillingTypeRequest method.
+//    req, resp := client.ConvertEipAddressBillingTypeRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ConvertEipAddressBillingTypeRequest(input *ConvertEipAddressBillingTypeInput) (req *request.Request, output *ConvertEipAddressBillingTypeOutput) {
+	op := &request.Operation{
+		Name:       opConvertEipAddressBillingType,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ConvertEipAddressBillingTypeInput{}
+	}
+
+	output = &ConvertEipAddressBillingTypeOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ConvertEipAddressBillingType API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ConvertEipAddressBillingType for usage and error information.
+func (c *VpcSdk) ConvertEipAddressBillingType(input *ConvertEipAddressBillingTypeInput) (*ConvertEipAddressBillingTypeOutput, error) {
+	req, out := c.ConvertEipAddressBillingTypeRequest(input)
+	return out, req.Send()
+}
+
+// ConvertEipAddressBillingTypeWithContext is the same as ConvertEipAddressBillingType with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ConvertEipAddressBillingType for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ConvertEipAddressBillingTypeWithContext(ctx volcstack.Context, input *ConvertEipAddressBillingTypeInput, opts ...request.Option) (*ConvertEipAddressBillingTypeOutput, error) {
+	req, out := c.ConvertEipAddressBillingTypeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateHaVipCommon = "CreateHaVip"
+
+// CreateHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateHaVipCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateHaVipCommon for more information on using the CreateHaVipCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateHaVipCommonRequest method.
+//    req, resp := client.CreateHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateHaVipCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateHaVipCommon for usage and error information.
+func (c *VpcSdk) CreateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateHaVipCommonWithContext is the same as CreateHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateHaVip = "CreateHaVip"
+
+// CreateHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateHaVip operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateHaVip for more information on using the CreateHaVip
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateHaVipRequest method.
+//    req, resp := client.CreateHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateHaVipRequest(input *CreateHaVipInput) (req *request.Request, output *CreateHaVipOutput) {
+	op := &request.Operation{
+		Name:       opCreateHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateHaVipInput{}
+	}
+
+	output = &CreateHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateHaVip API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateHaVip for usage and error information.
+func (c *VpcSdk) CreateHaVip(input *CreateHaVipInput) (*CreateHaVipOutput, error) {
+	req, out := c.CreateHaVipRequest(input)
+	return out, req.Send()
+}
+
+// CreateHaVipWithContext is the same as CreateHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateHaVipWithContext(ctx volcstack.Context, input *CreateHaVipInput, opts ...request.Option) (*CreateHaVipOutput, error) {
+	req, out := c.CreateHaVipRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateNetworkInterfaceCommon = "CreateNetworkInterface"
+
+// CreateNetworkInterfaceCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateNetworkInterfaceCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateNetworkInterfaceCommon for more information on using the CreateNetworkInterfaceCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateNetworkInterfaceCommonRequest method.
+//    req, resp := client.CreateNetworkInterfaceCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateNetworkInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateNetworkInterfaceCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateNetworkInterfaceCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateNetworkInterfaceCommon for usage and error information.
+func (c *VpcSdk) CreateNetworkInterfaceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateNetworkInterfaceCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateNetworkInterfaceCommonWithContext is the same as CreateNetworkInterfaceCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateNetworkInterfaceCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateNetworkInterfaceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateNetworkInterfaceCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateNetworkInterface = "CreateNetworkInterface"
+
+// CreateNetworkInterfaceRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateNetworkInterface operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateNetworkInterface for more information on using the CreateNetworkInterface
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateNetworkInterfaceRequest method.
+//    req, resp := client.CreateNetworkInterfaceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateNetworkInterfaceRequest(input *CreateNetworkInterfaceInput) (req *request.Request, output *CreateNetworkInterfaceOutput) {
+	op := &request.Operation{
+		Name:       opCreateNetworkInterface,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateNetworkInterfaceInput{}
+	}
+
+	output = &CreateNetworkInterfaceOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateNetworkInterface API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateNetworkInterface for usage and error information.
+func (c *VpcSdk) CreateNetworkInterface(input *CreateNetworkInterfaceInput) (*CreateNetworkInterfaceOutput, error) {
+	req, out := c.CreateNetworkInterfaceRequest(input)
+	return out, req.Send()
+}
+
+// CreateNetworkInterfaceWithContext is the same as CreateNetworkInterface with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateNetworkInterface for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateNetworkInterfaceWithContext(ctx volcstack.Context, input *CreateNetworkInterfaceInput, opts ...request.Option) (*CreateNetworkInterfaceOutput, error) {
+	req, out := c.CreateNetworkInterfaceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateRouteEntryCommon = "CreateRouteEntry"
+
+// CreateRouteEntryCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateRouteEntryCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateRouteEntryCommon for more information on using the CreateRouteEntryCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateRouteEntryCommonRequest method.
+//    req, resp := client.CreateRouteEntryCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateRouteEntryCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateRouteEntryCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateRouteEntryCommon for usage and error information.
+func (c *VpcSdk) CreateRouteEntryCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateRouteEntryCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateRouteEntryCommonWithContext is the same as CreateRouteEntryCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateRouteEntryCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateRouteEntryCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateRouteEntryCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateRouteEntry = "CreateRouteEntry"
+
+// CreateRouteEntryRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateRouteEntry operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateRouteEntry for more information on using the CreateRouteEntry
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateRouteEntryRequest method.
+//    req, resp := client.CreateRouteEntryRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateRouteEntryRequest(input *CreateRouteEntryInput) (req *request.Request, output *CreateRouteEntryOutput) {
+	op := &request.Operation{
+		Name:       opCreateRouteEntry,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateRouteEntryInput{}
+	}
+
+	output = &CreateRouteEntryOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateRouteEntry API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateRouteEntry for usage and error information.
+func (c *VpcSdk) CreateRouteEntry(input *CreateRouteEntryInput) (*CreateRouteEntryOutput, error) {
+	req, out := c.CreateRouteEntryRequest(input)
+	return out, req.Send()
+}
+
+// CreateRouteEntryWithContext is the same as CreateRouteEntry with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateRouteEntry for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateRouteEntryWithContext(ctx volcstack.Context, input *CreateRouteEntryInput, opts ...request.Option) (*CreateRouteEntryOutput, error) {
+	req, out := c.CreateRouteEntryRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateRouteTableCommon = "CreateRouteTable"
+
+// CreateRouteTableCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateRouteTableCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateRouteTableCommon for more information on using the CreateRouteTableCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateRouteTableCommonRequest method.
+//    req, resp := client.CreateRouteTableCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateRouteTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateRouteTableCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateRouteTableCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateRouteTableCommon for usage and error information.
+func (c *VpcSdk) CreateRouteTableCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateRouteTableCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateRouteTableCommonWithContext is the same as CreateRouteTableCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateRouteTableCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateRouteTableCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateRouteTableCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateRouteTable = "CreateRouteTable"
+
+// CreateRouteTableRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateRouteTable operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateRouteTable for more information on using the CreateRouteTable
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateRouteTableRequest method.
+//    req, resp := client.CreateRouteTableRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateRouteTableRequest(input *CreateRouteTableInput) (req *request.Request, output *CreateRouteTableOutput) {
+	op := &request.Operation{
+		Name:       opCreateRouteTable,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateRouteTableInput{}
+	}
+
+	output = &CreateRouteTableOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateRouteTable API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateRouteTable for usage and error information.
+func (c *VpcSdk) CreateRouteTable(input *CreateRouteTableInput) (*CreateRouteTableOutput, error) {
+	req, out := c.CreateRouteTableRequest(input)
+	return out, req.Send()
+}
+
+// CreateRouteTableWithContext is the same as CreateRouteTable with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateRouteTable for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateRouteTableWithContext(ctx volcstack.Context, input *CreateRouteTableInput, opts ...request.Option) (*CreateRouteTableOutput, error) {
+	req, out := c.CreateRouteTableRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateSecurityGroupCommon = "CreateSecurityGroup"
+
+// CreateSecurityGroupCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateSecurityGroupCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateSecurityGroupCommon for more information on using the CreateSecurityGroupCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateSecurityGroupCommonRequest method.
+//    req, resp := client.CreateSecurityGroupCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateSecurityGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateSecurityGroupCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateSecurityGroupCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateSecurityGroupCommon for usage and error information.
+func (c *VpcSdk) CreateSecurityGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateSecurityGroupCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateSecurityGroupCommonWithContext is the same as CreateSecurityGroupCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateSecurityGroupCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateSecurityGroupCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateSecurityGroupCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateSecurityGroup = "CreateSecurityGroup"
+
+// CreateSecurityGroupRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateSecurityGroup operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateSecurityGroup for more information on using the CreateSecurityGroup
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateSecurityGroupRequest method.
+//    req, resp := client.CreateSecurityGroupRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateSecurityGroupRequest(input *CreateSecurityGroupInput) (req *request.Request, output *CreateSecurityGroupOutput) {
+	op := &request.Operation{
+		Name:       opCreateSecurityGroup,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateSecurityGroupInput{}
+	}
+
+	output = &CreateSecurityGroupOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateSecurityGroup API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateSecurityGroup for usage and error information.
+func (c *VpcSdk) CreateSecurityGroup(input *CreateSecurityGroupInput) (*CreateSecurityGroupOutput, error) {
+	req, out := c.CreateSecurityGroupRequest(input)
+	return out, req.Send()
+}
+
+// CreateSecurityGroupWithContext is the same as CreateSecurityGroup with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateSecurityGroup for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateSecurityGroupWithContext(ctx volcstack.Context, input *CreateSecurityGroupInput, opts ...request.Option) (*CreateSecurityGroupOutput, error) {
+	req, out := c.CreateSecurityGroupRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateSubnetCommon = "CreateSubnet"
+
+// CreateSubnetCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateSubnetCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateSubnetCommon for more information on using the CreateSubnetCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateSubnetCommonRequest method.
+//    req, resp := client.CreateSubnetCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateSubnetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateSubnetCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateSubnetCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateSubnetCommon for usage and error information.
+func (c *VpcSdk) CreateSubnetCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateSubnetCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateSubnetCommonWithContext is the same as CreateSubnetCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateSubnetCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateSubnetCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateSubnetCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateSubnet = "CreateSubnet"
+
+// CreateSubnetRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateSubnet operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateSubnet for more information on using the CreateSubnet
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateSubnetRequest method.
+//    req, resp := client.CreateSubnetRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) CreateSubnetRequest(input *CreateSubnetInput) (req *request.Request, output *CreateSubnetOutput) {
+	op := &request.Operation{
+		Name:       opCreateSubnet,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateSubnetInput{}
+	}
+
+	output = &CreateSubnetOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateSubnet API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation CreateSubnet for usage and error information.
+func (c *VpcSdk) CreateSubnet(input *CreateSubnetInput) (*CreateSubnetOutput, error) {
+	req, out := c.CreateSubnetRequest(input)
+	return out, req.Send()
+}
+
+// CreateSubnetWithContext is the same as CreateSubnet with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateSubnet for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) CreateSubnetWithContext(ctx volcstack.Context, input *CreateSubnetInput, opts ...request.Option) (*CreateSubnetOutput, error) {
+	req, out := c.CreateSubnetRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateVpcCommon = "CreateVpc"
 
 // CreateVpcCommonRequest generates a "volcstack/request.Request" representing the
@@ -32,7 +2412,7 @@ const opCreateVpcCommon = "CreateVpc"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *Vpc) CreateVpcCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *VpcSdk) CreateVpcCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateVpcCommon,
 		HTTPMethod: "GET",
@@ -57,7 +2437,7 @@ func (c *Vpc) CreateVpcCommonRequest(input *map[string]interface{}) (req *reques
 //
 // See the VOLCSTACK API reference guide for vpc's
 // API operation CreateVpcCommon for usage and error information.
-func (c *Vpc) CreateVpcCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+func (c *VpcSdk) CreateVpcCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateVpcCommonRequest(input)
 	return out, req.Send()
 }
@@ -71,7 +2451,7 @@ func (c *Vpc) CreateVpcCommon(input *map[string]interface{}) (*map[string]interf
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *Vpc) CreateVpcCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+func (c *VpcSdk) CreateVpcCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateVpcCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
@@ -102,7 +2482,7 @@ const opCreateVpc = "CreateVpc"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *Vpc) CreateVpcRequest(input *CreateVpcInput) (req *request.Request, output *CreateVpcOutput) {
+func (c *VpcSdk) CreateVpcRequest(input *CreateVpcInput) (req *request.Request, output *CreateVpcOutput) {
 	op := &request.Operation{
 		Name:       opCreateVpc,
 		HTTPMethod: "GET",
@@ -127,7 +2507,7 @@ func (c *Vpc) CreateVpcRequest(input *CreateVpcInput) (req *request.Request, out
 //
 // See the VOLCSTACK API reference guide for vpc's
 // API operation CreateVpc for usage and error information.
-func (c *Vpc) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
+func (c *VpcSdk) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
 	req, out := c.CreateVpcRequest(input)
 	return out, req.Send()
 }
@@ -141,8 +2521,848 @@ func (c *Vpc) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *Vpc) CreateVpcWithContext(ctx volcstack.Context, input *CreateVpcInput, opts ...request.Option) (*CreateVpcOutput, error) {
+func (c *VpcSdk) CreateVpcWithContext(ctx volcstack.Context, input *CreateVpcInput, opts ...request.Option) (*CreateVpcOutput, error) {
 	req, out := c.CreateVpcRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteHaVipCommon = "DeleteHaVip"
+
+// DeleteHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteHaVipCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteHaVipCommon for more information on using the DeleteHaVipCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteHaVipCommonRequest method.
+//    req, resp := client.DeleteHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteHaVipCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteHaVipCommon for usage and error information.
+func (c *VpcSdk) DeleteHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteHaVipCommonWithContext is the same as DeleteHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteHaVip = "DeleteHaVip"
+
+// DeleteHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteHaVip operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteHaVip for more information on using the DeleteHaVip
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteHaVipRequest method.
+//    req, resp := client.DeleteHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteHaVipRequest(input *DeleteHaVipInput) (req *request.Request, output *DeleteHaVipOutput) {
+	op := &request.Operation{
+		Name:       opDeleteHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteHaVipInput{}
+	}
+
+	output = &DeleteHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteHaVip API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteHaVip for usage and error information.
+func (c *VpcSdk) DeleteHaVip(input *DeleteHaVipInput) (*DeleteHaVipOutput, error) {
+	req, out := c.DeleteHaVipRequest(input)
+	return out, req.Send()
+}
+
+// DeleteHaVipWithContext is the same as DeleteHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteHaVipWithContext(ctx volcstack.Context, input *DeleteHaVipInput, opts ...request.Option) (*DeleteHaVipOutput, error) {
+	req, out := c.DeleteHaVipRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteNetworkInterfaceCommon = "DeleteNetworkInterface"
+
+// DeleteNetworkInterfaceCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteNetworkInterfaceCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteNetworkInterfaceCommon for more information on using the DeleteNetworkInterfaceCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteNetworkInterfaceCommonRequest method.
+//    req, resp := client.DeleteNetworkInterfaceCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteNetworkInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteNetworkInterfaceCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteNetworkInterfaceCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteNetworkInterfaceCommon for usage and error information.
+func (c *VpcSdk) DeleteNetworkInterfaceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteNetworkInterfaceCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteNetworkInterfaceCommonWithContext is the same as DeleteNetworkInterfaceCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteNetworkInterfaceCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteNetworkInterfaceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteNetworkInterfaceCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteNetworkInterface = "DeleteNetworkInterface"
+
+// DeleteNetworkInterfaceRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteNetworkInterface operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteNetworkInterface for more information on using the DeleteNetworkInterface
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteNetworkInterfaceRequest method.
+//    req, resp := client.DeleteNetworkInterfaceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteNetworkInterfaceRequest(input *DeleteNetworkInterfaceInput) (req *request.Request, output *DeleteNetworkInterfaceOutput) {
+	op := &request.Operation{
+		Name:       opDeleteNetworkInterface,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteNetworkInterfaceInput{}
+	}
+
+	output = &DeleteNetworkInterfaceOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteNetworkInterface API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteNetworkInterface for usage and error information.
+func (c *VpcSdk) DeleteNetworkInterface(input *DeleteNetworkInterfaceInput) (*DeleteNetworkInterfaceOutput, error) {
+	req, out := c.DeleteNetworkInterfaceRequest(input)
+	return out, req.Send()
+}
+
+// DeleteNetworkInterfaceWithContext is the same as DeleteNetworkInterface with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteNetworkInterface for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteNetworkInterfaceWithContext(ctx volcstack.Context, input *DeleteNetworkInterfaceInput, opts ...request.Option) (*DeleteNetworkInterfaceOutput, error) {
+	req, out := c.DeleteNetworkInterfaceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteRouteEntryCommon = "DeleteRouteEntry"
+
+// DeleteRouteEntryCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteRouteEntryCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteRouteEntryCommon for more information on using the DeleteRouteEntryCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteRouteEntryCommonRequest method.
+//    req, resp := client.DeleteRouteEntryCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteRouteEntryCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteRouteEntryCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteRouteEntryCommon for usage and error information.
+func (c *VpcSdk) DeleteRouteEntryCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteRouteEntryCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteRouteEntryCommonWithContext is the same as DeleteRouteEntryCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteRouteEntryCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteRouteEntryCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteRouteEntryCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteRouteEntry = "DeleteRouteEntry"
+
+// DeleteRouteEntryRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteRouteEntry operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteRouteEntry for more information on using the DeleteRouteEntry
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteRouteEntryRequest method.
+//    req, resp := client.DeleteRouteEntryRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteRouteEntryRequest(input *DeleteRouteEntryInput) (req *request.Request, output *DeleteRouteEntryOutput) {
+	op := &request.Operation{
+		Name:       opDeleteRouteEntry,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteRouteEntryInput{}
+	}
+
+	output = &DeleteRouteEntryOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteRouteEntry API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteRouteEntry for usage and error information.
+func (c *VpcSdk) DeleteRouteEntry(input *DeleteRouteEntryInput) (*DeleteRouteEntryOutput, error) {
+	req, out := c.DeleteRouteEntryRequest(input)
+	return out, req.Send()
+}
+
+// DeleteRouteEntryWithContext is the same as DeleteRouteEntry with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteRouteEntry for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteRouteEntryWithContext(ctx volcstack.Context, input *DeleteRouteEntryInput, opts ...request.Option) (*DeleteRouteEntryOutput, error) {
+	req, out := c.DeleteRouteEntryRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteRouteTableCommon = "DeleteRouteTable"
+
+// DeleteRouteTableCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteRouteTableCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteRouteTableCommon for more information on using the DeleteRouteTableCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteRouteTableCommonRequest method.
+//    req, resp := client.DeleteRouteTableCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteRouteTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteRouteTableCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteRouteTableCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteRouteTableCommon for usage and error information.
+func (c *VpcSdk) DeleteRouteTableCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteRouteTableCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteRouteTableCommonWithContext is the same as DeleteRouteTableCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteRouteTableCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteRouteTableCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteRouteTableCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteRouteTable = "DeleteRouteTable"
+
+// DeleteRouteTableRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteRouteTable operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteRouteTable for more information on using the DeleteRouteTable
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteRouteTableRequest method.
+//    req, resp := client.DeleteRouteTableRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteRouteTableRequest(input *DeleteRouteTableInput) (req *request.Request, output *DeleteRouteTableOutput) {
+	op := &request.Operation{
+		Name:       opDeleteRouteTable,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteRouteTableInput{}
+	}
+
+	output = &DeleteRouteTableOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteRouteTable API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteRouteTable for usage and error information.
+func (c *VpcSdk) DeleteRouteTable(input *DeleteRouteTableInput) (*DeleteRouteTableOutput, error) {
+	req, out := c.DeleteRouteTableRequest(input)
+	return out, req.Send()
+}
+
+// DeleteRouteTableWithContext is the same as DeleteRouteTable with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteRouteTable for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteRouteTableWithContext(ctx volcstack.Context, input *DeleteRouteTableInput, opts ...request.Option) (*DeleteRouteTableOutput, error) {
+	req, out := c.DeleteRouteTableRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteSecurityGroupCommon = "DeleteSecurityGroup"
+
+// DeleteSecurityGroupCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteSecurityGroupCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteSecurityGroupCommon for more information on using the DeleteSecurityGroupCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteSecurityGroupCommonRequest method.
+//    req, resp := client.DeleteSecurityGroupCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteSecurityGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteSecurityGroupCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteSecurityGroupCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteSecurityGroupCommon for usage and error information.
+func (c *VpcSdk) DeleteSecurityGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteSecurityGroupCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteSecurityGroupCommonWithContext is the same as DeleteSecurityGroupCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteSecurityGroupCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteSecurityGroupCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteSecurityGroupCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteSecurityGroup = "DeleteSecurityGroup"
+
+// DeleteSecurityGroupRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteSecurityGroup operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteSecurityGroup for more information on using the DeleteSecurityGroup
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteSecurityGroupRequest method.
+//    req, resp := client.DeleteSecurityGroupRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteSecurityGroupRequest(input *DeleteSecurityGroupInput) (req *request.Request, output *DeleteSecurityGroupOutput) {
+	op := &request.Operation{
+		Name:       opDeleteSecurityGroup,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteSecurityGroupInput{}
+	}
+
+	output = &DeleteSecurityGroupOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteSecurityGroup API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteSecurityGroup for usage and error information.
+func (c *VpcSdk) DeleteSecurityGroup(input *DeleteSecurityGroupInput) (*DeleteSecurityGroupOutput, error) {
+	req, out := c.DeleteSecurityGroupRequest(input)
+	return out, req.Send()
+}
+
+// DeleteSecurityGroupWithContext is the same as DeleteSecurityGroup with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteSecurityGroup for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteSecurityGroupWithContext(ctx volcstack.Context, input *DeleteSecurityGroupInput, opts ...request.Option) (*DeleteSecurityGroupOutput, error) {
+	req, out := c.DeleteSecurityGroupRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteSubnetCommon = "DeleteSubnet"
+
+// DeleteSubnetCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteSubnetCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteSubnetCommon for more information on using the DeleteSubnetCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteSubnetCommonRequest method.
+//    req, resp := client.DeleteSubnetCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteSubnetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteSubnetCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteSubnetCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteSubnetCommon for usage and error information.
+func (c *VpcSdk) DeleteSubnetCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteSubnetCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteSubnetCommonWithContext is the same as DeleteSubnetCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteSubnetCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteSubnetCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteSubnetCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteSubnet = "DeleteSubnet"
+
+// DeleteSubnetRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteSubnet operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteSubnet for more information on using the DeleteSubnet
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteSubnetRequest method.
+//    req, resp := client.DeleteSubnetRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteSubnetRequest(input *DeleteSubnetInput) (req *request.Request, output *DeleteSubnetOutput) {
+	op := &request.Operation{
+		Name:       opDeleteSubnet,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteSubnetInput{}
+	}
+
+	output = &DeleteSubnetOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteSubnet API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteSubnet for usage and error information.
+func (c *VpcSdk) DeleteSubnet(input *DeleteSubnetInput) (*DeleteSubnetOutput, error) {
+	req, out := c.DeleteSubnetRequest(input)
+	return out, req.Send()
+}
+
+// DeleteSubnetWithContext is the same as DeleteSubnet with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteSubnet for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteSubnetWithContext(ctx volcstack.Context, input *DeleteSubnetInput, opts ...request.Option) (*DeleteSubnetOutput, error) {
+	req, out := c.DeleteSubnetRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -172,7 +3392,7 @@ const opDeleteVpcCommon = "DeleteVpc"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *Vpc) DeleteVpcCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *VpcSdk) DeleteVpcCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteVpcCommon,
 		HTTPMethod: "GET",
@@ -197,7 +3417,7 @@ func (c *Vpc) DeleteVpcCommonRequest(input *map[string]interface{}) (req *reques
 //
 // See the VOLCSTACK API reference guide for vpc's
 // API operation DeleteVpcCommon for usage and error information.
-func (c *Vpc) DeleteVpcCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+func (c *VpcSdk) DeleteVpcCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteVpcCommonRequest(input)
 	return out, req.Send()
 }
@@ -211,8 +3431,1898 @@ func (c *Vpc) DeleteVpcCommon(input *map[string]interface{}) (*map[string]interf
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *Vpc) DeleteVpcCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+func (c *VpcSdk) DeleteVpcCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteVpcCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteVpc = "DeleteVpc"
+
+// DeleteVpcRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteVpc operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteVpc for more information on using the DeleteVpc
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteVpcRequest method.
+//    req, resp := client.DeleteVpcRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DeleteVpcRequest(input *DeleteVpcInput) (req *request.Request, output *DeleteVpcOutput) {
+	op := &request.Operation{
+		Name:       opDeleteVpc,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteVpcInput{}
+	}
+
+	output = &DeleteVpcOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteVpc API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DeleteVpc for usage and error information.
+func (c *VpcSdk) DeleteVpc(input *DeleteVpcInput) (*DeleteVpcOutput, error) {
+	req, out := c.DeleteVpcRequest(input)
+	return out, req.Send()
+}
+
+// DeleteVpcWithContext is the same as DeleteVpc with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteVpc for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DeleteVpcWithContext(ctx volcstack.Context, input *DeleteVpcInput, opts ...request.Option) (*DeleteVpcOutput, error) {
+	req, out := c.DeleteVpcRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeEipAddressAttributesCommon = "DescribeEipAddressAttributes"
+
+// DescribeEipAddressAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddressAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeEipAddressAttributesCommon for more information on using the DescribeEipAddressAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeEipAddressAttributesCommonRequest method.
+//    req, resp := client.DescribeEipAddressAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeEipAddressAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddressAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddressAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeEipAddressAttributesCommon for usage and error information.
+func (c *VpcSdk) DescribeEipAddressAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressAttributesCommonWithContext is the same as DescribeEipAddressAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddressAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeEipAddressAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeEipAddressAttributes = "DescribeEipAddressAttributes"
+
+// DescribeEipAddressAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddressAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeEipAddressAttributes for more information on using the DescribeEipAddressAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeEipAddressAttributesRequest method.
+//    req, resp := client.DescribeEipAddressAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeEipAddressAttributesRequest(input *DescribeEipAddressAttributesInput) (req *request.Request, output *DescribeEipAddressAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddressAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeEipAddressAttributesInput{}
+	}
+
+	output = &DescribeEipAddressAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddressAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeEipAddressAttributes for usage and error information.
+func (c *VpcSdk) DescribeEipAddressAttributes(input *DescribeEipAddressAttributesInput) (*DescribeEipAddressAttributesOutput, error) {
+	req, out := c.DescribeEipAddressAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressAttributesWithContext is the same as DescribeEipAddressAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddressAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeEipAddressAttributesWithContext(ctx volcstack.Context, input *DescribeEipAddressAttributesInput, opts ...request.Option) (*DescribeEipAddressAttributesOutput, error) {
+	req, out := c.DescribeEipAddressAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeEipAddressesCommon = "DescribeEipAddresses"
+
+// DescribeEipAddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddressesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeEipAddressesCommon for more information on using the DescribeEipAddressesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeEipAddressesCommonRequest method.
+//    req, resp := client.DescribeEipAddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeEipAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddressesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeEipAddressesCommon for usage and error information.
+func (c *VpcSdk) DescribeEipAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressesCommonWithContext is the same as DescribeEipAddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeEipAddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeEipAddresses = "DescribeEipAddresses"
+
+// DescribeEipAddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddresses operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeEipAddresses for more information on using the DescribeEipAddresses
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeEipAddressesRequest method.
+//    req, resp := client.DescribeEipAddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeEipAddressesRequest(input *DescribeEipAddressesInput) (req *request.Request, output *DescribeEipAddressesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeEipAddressesInput{}
+	}
+
+	output = &DescribeEipAddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddresses API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeEipAddresses for usage and error information.
+func (c *VpcSdk) DescribeEipAddresses(input *DescribeEipAddressesInput) (*DescribeEipAddressesOutput, error) {
+	req, out := c.DescribeEipAddressesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressesWithContext is the same as DescribeEipAddresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeEipAddressesWithContext(ctx volcstack.Context, input *DescribeEipAddressesInput, opts ...request.Option) (*DescribeEipAddressesOutput, error) {
+	req, out := c.DescribeEipAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeEipAddressesBillingCommon = "DescribeEipAddressesBilling"
+
+// DescribeEipAddressesBillingCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddressesBillingCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeEipAddressesBillingCommon for more information on using the DescribeEipAddressesBillingCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeEipAddressesBillingCommonRequest method.
+//    req, resp := client.DescribeEipAddressesBillingCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeEipAddressesBillingCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddressesBillingCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddressesBillingCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeEipAddressesBillingCommon for usage and error information.
+func (c *VpcSdk) DescribeEipAddressesBillingCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressesBillingCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressesBillingCommonWithContext is the same as DescribeEipAddressesBillingCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddressesBillingCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeEipAddressesBillingCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressesBillingCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeEipAddressesBilling = "DescribeEipAddressesBilling"
+
+// DescribeEipAddressesBillingRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddressesBilling operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeEipAddressesBilling for more information on using the DescribeEipAddressesBilling
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeEipAddressesBillingRequest method.
+//    req, resp := client.DescribeEipAddressesBillingRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeEipAddressesBillingRequest(input *DescribeEipAddressesBillingInput) (req *request.Request, output *DescribeEipAddressesBillingOutput) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddressesBilling,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeEipAddressesBillingInput{}
+	}
+
+	output = &DescribeEipAddressesBillingOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddressesBilling API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeEipAddressesBilling for usage and error information.
+func (c *VpcSdk) DescribeEipAddressesBilling(input *DescribeEipAddressesBillingInput) (*DescribeEipAddressesBillingOutput, error) {
+	req, out := c.DescribeEipAddressesBillingRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressesBillingWithContext is the same as DescribeEipAddressesBilling with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddressesBilling for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeEipAddressesBillingWithContext(ctx volcstack.Context, input *DescribeEipAddressesBillingInput, opts ...request.Option) (*DescribeEipAddressesBillingOutput, error) {
+	req, out := c.DescribeEipAddressesBillingRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHaVipAttributesCommon = "DescribeHaVipAttributes"
+
+// DescribeHaVipAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHaVipAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeHaVipAttributesCommon for more information on using the DescribeHaVipAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeHaVipAttributesCommonRequest method.
+//    req, resp := client.DescribeHaVipAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeHaVipAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeHaVipAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHaVipAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeHaVipAttributesCommon for usage and error information.
+func (c *VpcSdk) DescribeHaVipAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeHaVipAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHaVipAttributesCommonWithContext is the same as DescribeHaVipAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHaVipAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeHaVipAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeHaVipAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHaVipAttributes = "DescribeHaVipAttributes"
+
+// DescribeHaVipAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHaVipAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeHaVipAttributes for more information on using the DescribeHaVipAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeHaVipAttributesRequest method.
+//    req, resp := client.DescribeHaVipAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeHaVipAttributesRequest(input *DescribeHaVipAttributesInput) (req *request.Request, output *DescribeHaVipAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeHaVipAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeHaVipAttributesInput{}
+	}
+
+	output = &DescribeHaVipAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHaVipAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeHaVipAttributes for usage and error information.
+func (c *VpcSdk) DescribeHaVipAttributes(input *DescribeHaVipAttributesInput) (*DescribeHaVipAttributesOutput, error) {
+	req, out := c.DescribeHaVipAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHaVipAttributesWithContext is the same as DescribeHaVipAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHaVipAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeHaVipAttributesWithContext(ctx volcstack.Context, input *DescribeHaVipAttributesInput, opts ...request.Option) (*DescribeHaVipAttributesOutput, error) {
+	req, out := c.DescribeHaVipAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHaVipsCommon = "DescribeHaVips"
+
+// DescribeHaVipsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHaVipsCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeHaVipsCommon for more information on using the DescribeHaVipsCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeHaVipsCommonRequest method.
+//    req, resp := client.DescribeHaVipsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeHaVipsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeHaVipsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHaVipsCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeHaVipsCommon for usage and error information.
+func (c *VpcSdk) DescribeHaVipsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeHaVipsCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHaVipsCommonWithContext is the same as DescribeHaVipsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHaVipsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeHaVipsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeHaVipsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHaVips = "DescribeHaVips"
+
+// DescribeHaVipsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHaVips operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeHaVips for more information on using the DescribeHaVips
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeHaVipsRequest method.
+//    req, resp := client.DescribeHaVipsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeHaVipsRequest(input *DescribeHaVipsInput) (req *request.Request, output *DescribeHaVipsOutput) {
+	op := &request.Operation{
+		Name:       opDescribeHaVips,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeHaVipsInput{}
+	}
+
+	output = &DescribeHaVipsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHaVips API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeHaVips for usage and error information.
+func (c *VpcSdk) DescribeHaVips(input *DescribeHaVipsInput) (*DescribeHaVipsOutput, error) {
+	req, out := c.DescribeHaVipsRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHaVipsWithContext is the same as DescribeHaVips with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHaVips for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeHaVipsWithContext(ctx volcstack.Context, input *DescribeHaVipsInput, opts ...request.Option) (*DescribeHaVipsOutput, error) {
+	req, out := c.DescribeHaVipsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeNetworkInterfaceAttributesCommon = "DescribeNetworkInterfaceAttributes"
+
+// DescribeNetworkInterfaceAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeNetworkInterfaceAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeNetworkInterfaceAttributesCommon for more information on using the DescribeNetworkInterfaceAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeNetworkInterfaceAttributesCommonRequest method.
+//    req, resp := client.DescribeNetworkInterfaceAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeNetworkInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeNetworkInterfaceAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeNetworkInterfaceAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeNetworkInterfaceAttributesCommon for usage and error information.
+func (c *VpcSdk) DescribeNetworkInterfaceAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeNetworkInterfaceAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeNetworkInterfaceAttributesCommonWithContext is the same as DescribeNetworkInterfaceAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeNetworkInterfaceAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeNetworkInterfaceAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeNetworkInterfaceAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeNetworkInterfaceAttributes = "DescribeNetworkInterfaceAttributes"
+
+// DescribeNetworkInterfaceAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeNetworkInterfaceAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeNetworkInterfaceAttributes for more information on using the DescribeNetworkInterfaceAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeNetworkInterfaceAttributesRequest method.
+//    req, resp := client.DescribeNetworkInterfaceAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeNetworkInterfaceAttributesRequest(input *DescribeNetworkInterfaceAttributesInput) (req *request.Request, output *DescribeNetworkInterfaceAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeNetworkInterfaceAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeNetworkInterfaceAttributesInput{}
+	}
+
+	output = &DescribeNetworkInterfaceAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeNetworkInterfaceAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeNetworkInterfaceAttributes for usage and error information.
+func (c *VpcSdk) DescribeNetworkInterfaceAttributes(input *DescribeNetworkInterfaceAttributesInput) (*DescribeNetworkInterfaceAttributesOutput, error) {
+	req, out := c.DescribeNetworkInterfaceAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeNetworkInterfaceAttributesWithContext is the same as DescribeNetworkInterfaceAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeNetworkInterfaceAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeNetworkInterfaceAttributesWithContext(ctx volcstack.Context, input *DescribeNetworkInterfaceAttributesInput, opts ...request.Option) (*DescribeNetworkInterfaceAttributesOutput, error) {
+	req, out := c.DescribeNetworkInterfaceAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeNetworkInterfacesCommon = "DescribeNetworkInterfaces"
+
+// DescribeNetworkInterfacesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeNetworkInterfacesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeNetworkInterfacesCommon for more information on using the DescribeNetworkInterfacesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeNetworkInterfacesCommonRequest method.
+//    req, resp := client.DescribeNetworkInterfacesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeNetworkInterfacesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeNetworkInterfacesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeNetworkInterfacesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeNetworkInterfacesCommon for usage and error information.
+func (c *VpcSdk) DescribeNetworkInterfacesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeNetworkInterfacesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeNetworkInterfacesCommonWithContext is the same as DescribeNetworkInterfacesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeNetworkInterfacesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeNetworkInterfacesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeNetworkInterfacesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeNetworkInterfaces = "DescribeNetworkInterfaces"
+
+// DescribeNetworkInterfacesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeNetworkInterfaces operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeNetworkInterfaces for more information on using the DescribeNetworkInterfaces
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeNetworkInterfacesRequest method.
+//    req, resp := client.DescribeNetworkInterfacesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeNetworkInterfacesRequest(input *DescribeNetworkInterfacesInput) (req *request.Request, output *DescribeNetworkInterfacesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeNetworkInterfaces,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeNetworkInterfacesInput{}
+	}
+
+	output = &DescribeNetworkInterfacesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeNetworkInterfaces API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeNetworkInterfaces for usage and error information.
+func (c *VpcSdk) DescribeNetworkInterfaces(input *DescribeNetworkInterfacesInput) (*DescribeNetworkInterfacesOutput, error) {
+	req, out := c.DescribeNetworkInterfacesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeNetworkInterfacesWithContext is the same as DescribeNetworkInterfaces with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeNetworkInterfaces for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeNetworkInterfacesWithContext(ctx volcstack.Context, input *DescribeNetworkInterfacesInput, opts ...request.Option) (*DescribeNetworkInterfacesOutput, error) {
+	req, out := c.DescribeNetworkInterfacesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeRouteEntryListCommon = "DescribeRouteEntryList"
+
+// DescribeRouteEntryListCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeRouteEntryListCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeRouteEntryListCommon for more information on using the DescribeRouteEntryListCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeRouteEntryListCommonRequest method.
+//    req, resp := client.DescribeRouteEntryListCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeRouteEntryListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeRouteEntryListCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeRouteEntryListCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeRouteEntryListCommon for usage and error information.
+func (c *VpcSdk) DescribeRouteEntryListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeRouteEntryListCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeRouteEntryListCommonWithContext is the same as DescribeRouteEntryListCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeRouteEntryListCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeRouteEntryListCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeRouteEntryListCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeRouteEntryList = "DescribeRouteEntryList"
+
+// DescribeRouteEntryListRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeRouteEntryList operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeRouteEntryList for more information on using the DescribeRouteEntryList
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeRouteEntryListRequest method.
+//    req, resp := client.DescribeRouteEntryListRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeRouteEntryListRequest(input *DescribeRouteEntryListInput) (req *request.Request, output *DescribeRouteEntryListOutput) {
+	op := &request.Operation{
+		Name:       opDescribeRouteEntryList,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeRouteEntryListInput{}
+	}
+
+	output = &DescribeRouteEntryListOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeRouteEntryList API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeRouteEntryList for usage and error information.
+func (c *VpcSdk) DescribeRouteEntryList(input *DescribeRouteEntryListInput) (*DescribeRouteEntryListOutput, error) {
+	req, out := c.DescribeRouteEntryListRequest(input)
+	return out, req.Send()
+}
+
+// DescribeRouteEntryListWithContext is the same as DescribeRouteEntryList with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeRouteEntryList for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeRouteEntryListWithContext(ctx volcstack.Context, input *DescribeRouteEntryListInput, opts ...request.Option) (*DescribeRouteEntryListOutput, error) {
+	req, out := c.DescribeRouteEntryListRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeRouteTableListCommon = "DescribeRouteTableList"
+
+// DescribeRouteTableListCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeRouteTableListCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeRouteTableListCommon for more information on using the DescribeRouteTableListCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeRouteTableListCommonRequest method.
+//    req, resp := client.DescribeRouteTableListCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeRouteTableListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeRouteTableListCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeRouteTableListCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeRouteTableListCommon for usage and error information.
+func (c *VpcSdk) DescribeRouteTableListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeRouteTableListCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeRouteTableListCommonWithContext is the same as DescribeRouteTableListCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeRouteTableListCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeRouteTableListCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeRouteTableListCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeRouteTableList = "DescribeRouteTableList"
+
+// DescribeRouteTableListRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeRouteTableList operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeRouteTableList for more information on using the DescribeRouteTableList
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeRouteTableListRequest method.
+//    req, resp := client.DescribeRouteTableListRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeRouteTableListRequest(input *DescribeRouteTableListInput) (req *request.Request, output *DescribeRouteTableListOutput) {
+	op := &request.Operation{
+		Name:       opDescribeRouteTableList,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeRouteTableListInput{}
+	}
+
+	output = &DescribeRouteTableListOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeRouteTableList API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeRouteTableList for usage and error information.
+func (c *VpcSdk) DescribeRouteTableList(input *DescribeRouteTableListInput) (*DescribeRouteTableListOutput, error) {
+	req, out := c.DescribeRouteTableListRequest(input)
+	return out, req.Send()
+}
+
+// DescribeRouteTableListWithContext is the same as DescribeRouteTableList with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeRouteTableList for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeRouteTableListWithContext(ctx volcstack.Context, input *DescribeRouteTableListInput, opts ...request.Option) (*DescribeRouteTableListOutput, error) {
+	req, out := c.DescribeRouteTableListRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeSecurityGroupAttributesCommon = "DescribeSecurityGroupAttributes"
+
+// DescribeSecurityGroupAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSecurityGroupAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeSecurityGroupAttributesCommon for more information on using the DescribeSecurityGroupAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeSecurityGroupAttributesCommonRequest method.
+//    req, resp := client.DescribeSecurityGroupAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeSecurityGroupAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeSecurityGroupAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeSecurityGroupAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeSecurityGroupAttributesCommon for usage and error information.
+func (c *VpcSdk) DescribeSecurityGroupAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeSecurityGroupAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeSecurityGroupAttributesCommonWithContext is the same as DescribeSecurityGroupAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeSecurityGroupAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeSecurityGroupAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeSecurityGroupAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeSecurityGroupAttributes = "DescribeSecurityGroupAttributes"
+
+// DescribeSecurityGroupAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSecurityGroupAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeSecurityGroupAttributes for more information on using the DescribeSecurityGroupAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeSecurityGroupAttributesRequest method.
+//    req, resp := client.DescribeSecurityGroupAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeSecurityGroupAttributesRequest(input *DescribeSecurityGroupAttributesInput) (req *request.Request, output *DescribeSecurityGroupAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeSecurityGroupAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeSecurityGroupAttributesInput{}
+	}
+
+	output = &DescribeSecurityGroupAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeSecurityGroupAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeSecurityGroupAttributes for usage and error information.
+func (c *VpcSdk) DescribeSecurityGroupAttributes(input *DescribeSecurityGroupAttributesInput) (*DescribeSecurityGroupAttributesOutput, error) {
+	req, out := c.DescribeSecurityGroupAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeSecurityGroupAttributesWithContext is the same as DescribeSecurityGroupAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeSecurityGroupAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeSecurityGroupAttributesWithContext(ctx volcstack.Context, input *DescribeSecurityGroupAttributesInput, opts ...request.Option) (*DescribeSecurityGroupAttributesOutput, error) {
+	req, out := c.DescribeSecurityGroupAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeSecurityGroupsCommon = "DescribeSecurityGroups"
+
+// DescribeSecurityGroupsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSecurityGroupsCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeSecurityGroupsCommon for more information on using the DescribeSecurityGroupsCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeSecurityGroupsCommonRequest method.
+//    req, resp := client.DescribeSecurityGroupsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeSecurityGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeSecurityGroupsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeSecurityGroupsCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeSecurityGroupsCommon for usage and error information.
+func (c *VpcSdk) DescribeSecurityGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeSecurityGroupsCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeSecurityGroupsCommonWithContext is the same as DescribeSecurityGroupsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeSecurityGroupsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeSecurityGroupsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeSecurityGroupsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeSecurityGroups = "DescribeSecurityGroups"
+
+// DescribeSecurityGroupsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSecurityGroups operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeSecurityGroups for more information on using the DescribeSecurityGroups
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeSecurityGroupsRequest method.
+//    req, resp := client.DescribeSecurityGroupsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeSecurityGroupsRequest(input *DescribeSecurityGroupsInput) (req *request.Request, output *DescribeSecurityGroupsOutput) {
+	op := &request.Operation{
+		Name:       opDescribeSecurityGroups,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeSecurityGroupsInput{}
+	}
+
+	output = &DescribeSecurityGroupsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeSecurityGroups API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeSecurityGroups for usage and error information.
+func (c *VpcSdk) DescribeSecurityGroups(input *DescribeSecurityGroupsInput) (*DescribeSecurityGroupsOutput, error) {
+	req, out := c.DescribeSecurityGroupsRequest(input)
+	return out, req.Send()
+}
+
+// DescribeSecurityGroupsWithContext is the same as DescribeSecurityGroups with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeSecurityGroups for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeSecurityGroupsWithContext(ctx volcstack.Context, input *DescribeSecurityGroupsInput, opts ...request.Option) (*DescribeSecurityGroupsOutput, error) {
+	req, out := c.DescribeSecurityGroupsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeSubnetAttributesCommon = "DescribeSubnetAttributes"
+
+// DescribeSubnetAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSubnetAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeSubnetAttributesCommon for more information on using the DescribeSubnetAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeSubnetAttributesCommonRequest method.
+//    req, resp := client.DescribeSubnetAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeSubnetAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeSubnetAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeSubnetAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeSubnetAttributesCommon for usage and error information.
+func (c *VpcSdk) DescribeSubnetAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeSubnetAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeSubnetAttributesCommonWithContext is the same as DescribeSubnetAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeSubnetAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeSubnetAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeSubnetAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeSubnetAttributes = "DescribeSubnetAttributes"
+
+// DescribeSubnetAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSubnetAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeSubnetAttributes for more information on using the DescribeSubnetAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeSubnetAttributesRequest method.
+//    req, resp := client.DescribeSubnetAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeSubnetAttributesRequest(input *DescribeSubnetAttributesInput) (req *request.Request, output *DescribeSubnetAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeSubnetAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeSubnetAttributesInput{}
+	}
+
+	output = &DescribeSubnetAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeSubnetAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeSubnetAttributes for usage and error information.
+func (c *VpcSdk) DescribeSubnetAttributes(input *DescribeSubnetAttributesInput) (*DescribeSubnetAttributesOutput, error) {
+	req, out := c.DescribeSubnetAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeSubnetAttributesWithContext is the same as DescribeSubnetAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeSubnetAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeSubnetAttributesWithContext(ctx volcstack.Context, input *DescribeSubnetAttributesInput, opts ...request.Option) (*DescribeSubnetAttributesOutput, error) {
+	req, out := c.DescribeSubnetAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeSubnetsCommon = "DescribeSubnets"
+
+// DescribeSubnetsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSubnetsCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeSubnetsCommon for more information on using the DescribeSubnetsCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeSubnetsCommonRequest method.
+//    req, resp := client.DescribeSubnetsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeSubnetsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeSubnetsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeSubnetsCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeSubnetsCommon for usage and error information.
+func (c *VpcSdk) DescribeSubnetsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeSubnetsCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeSubnetsCommonWithContext is the same as DescribeSubnetsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeSubnetsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeSubnetsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeSubnetsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeSubnets = "DescribeSubnets"
+
+// DescribeSubnetsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSubnets operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeSubnets for more information on using the DescribeSubnets
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeSubnetsRequest method.
+//    req, resp := client.DescribeSubnetsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeSubnetsRequest(input *DescribeSubnetsInput) (req *request.Request, output *DescribeSubnetsOutput) {
+	op := &request.Operation{
+		Name:       opDescribeSubnets,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeSubnetsInput{}
+	}
+
+	output = &DescribeSubnetsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeSubnets API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeSubnets for usage and error information.
+func (c *VpcSdk) DescribeSubnets(input *DescribeSubnetsInput) (*DescribeSubnetsOutput, error) {
+	req, out := c.DescribeSubnetsRequest(input)
+	return out, req.Send()
+}
+
+// DescribeSubnetsWithContext is the same as DescribeSubnets with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeSubnets for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeSubnetsWithContext(ctx volcstack.Context, input *DescribeSubnetsInput, opts ...request.Option) (*DescribeSubnetsOutput, error) {
+	req, out := c.DescribeSubnetsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -242,7 +5352,7 @@ const opDescribeVpcAttributesCommon = "DescribeVpcAttributes"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *Vpc) DescribeVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *VpcSdk) DescribeVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcAttributesCommon,
 		HTTPMethod: "GET",
@@ -267,7 +5377,7 @@ func (c *Vpc) DescribeVpcAttributesCommonRequest(input *map[string]interface{}) 
 //
 // See the VOLCSTACK API reference guide for vpc's
 // API operation DescribeVpcAttributesCommon for usage and error information.
-func (c *Vpc) DescribeVpcAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+func (c *VpcSdk) DescribeVpcAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeVpcAttributesCommonRequest(input)
 	return out, req.Send()
 }
@@ -281,8 +5391,78 @@ func (c *Vpc) DescribeVpcAttributesCommon(input *map[string]interface{}) (*map[s
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *Vpc) DescribeVpcAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+func (c *VpcSdk) DescribeVpcAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeVpcAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpcAttributes = "DescribeVpcAttributes"
+
+// DescribeVpcAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpcAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeVpcAttributes for more information on using the DescribeVpcAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeVpcAttributesRequest method.
+//    req, resp := client.DescribeVpcAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeVpcAttributesRequest(input *DescribeVpcAttributesInput) (req *request.Request, output *DescribeVpcAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeVpcAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeVpcAttributesInput{}
+	}
+
+	output = &DescribeVpcAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpcAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeVpcAttributes for usage and error information.
+func (c *VpcSdk) DescribeVpcAttributes(input *DescribeVpcAttributesInput) (*DescribeVpcAttributesOutput, error) {
+	req, out := c.DescribeVpcAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpcAttributesWithContext is the same as DescribeVpcAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpcAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeVpcAttributesWithContext(ctx volcstack.Context, input *DescribeVpcAttributesInput, opts ...request.Option) (*DescribeVpcAttributesOutput, error) {
+	req, out := c.DescribeVpcAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -312,7 +5492,7 @@ const opDescribeVpcsCommon = "DescribeVpcs"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *Vpc) DescribeVpcsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *VpcSdk) DescribeVpcsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcsCommon,
 		HTTPMethod: "GET",
@@ -337,7 +5517,7 @@ func (c *Vpc) DescribeVpcsCommonRequest(input *map[string]interface{}) (req *req
 //
 // See the VOLCSTACK API reference guide for vpc's
 // API operation DescribeVpcsCommon for usage and error information.
-func (c *Vpc) DescribeVpcsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+func (c *VpcSdk) DescribeVpcsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeVpcsCommonRequest(input)
 	return out, req.Send()
 }
@@ -351,8 +5531,1898 @@ func (c *Vpc) DescribeVpcsCommon(input *map[string]interface{}) (*map[string]int
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *Vpc) DescribeVpcsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+func (c *VpcSdk) DescribeVpcsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeVpcsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpcs = "DescribeVpcs"
+
+// DescribeVpcsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpcs operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeVpcs for more information on using the DescribeVpcs
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeVpcsRequest method.
+//    req, resp := client.DescribeVpcsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DescribeVpcsRequest(input *DescribeVpcsInput) (req *request.Request, output *DescribeVpcsOutput) {
+	op := &request.Operation{
+		Name:       opDescribeVpcs,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeVpcsInput{}
+	}
+
+	output = &DescribeVpcsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpcs API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DescribeVpcs for usage and error information.
+func (c *VpcSdk) DescribeVpcs(input *DescribeVpcsInput) (*DescribeVpcsOutput, error) {
+	req, out := c.DescribeVpcsRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpcsWithContext is the same as DescribeVpcs with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpcs for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DescribeVpcsWithContext(ctx volcstack.Context, input *DescribeVpcsInput, opts ...request.Option) (*DescribeVpcsOutput, error) {
+	req, out := c.DescribeVpcsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDetachNetworkInterfaceCommon = "DetachNetworkInterface"
+
+// DetachNetworkInterfaceCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DetachNetworkInterfaceCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DetachNetworkInterfaceCommon for more information on using the DetachNetworkInterfaceCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DetachNetworkInterfaceCommonRequest method.
+//    req, resp := client.DetachNetworkInterfaceCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DetachNetworkInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDetachNetworkInterfaceCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DetachNetworkInterfaceCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DetachNetworkInterfaceCommon for usage and error information.
+func (c *VpcSdk) DetachNetworkInterfaceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DetachNetworkInterfaceCommonRequest(input)
+	return out, req.Send()
+}
+
+// DetachNetworkInterfaceCommonWithContext is the same as DetachNetworkInterfaceCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DetachNetworkInterfaceCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DetachNetworkInterfaceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DetachNetworkInterfaceCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDetachNetworkInterface = "DetachNetworkInterface"
+
+// DetachNetworkInterfaceRequest generates a "volcstack/request.Request" representing the
+// client's request for the DetachNetworkInterface operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DetachNetworkInterface for more information on using the DetachNetworkInterface
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DetachNetworkInterfaceRequest method.
+//    req, resp := client.DetachNetworkInterfaceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DetachNetworkInterfaceRequest(input *DetachNetworkInterfaceInput) (req *request.Request, output *DetachNetworkInterfaceOutput) {
+	op := &request.Operation{
+		Name:       opDetachNetworkInterface,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DetachNetworkInterfaceInput{}
+	}
+
+	output = &DetachNetworkInterfaceOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DetachNetworkInterface API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DetachNetworkInterface for usage and error information.
+func (c *VpcSdk) DetachNetworkInterface(input *DetachNetworkInterfaceInput) (*DetachNetworkInterfaceOutput, error) {
+	req, out := c.DetachNetworkInterfaceRequest(input)
+	return out, req.Send()
+}
+
+// DetachNetworkInterfaceWithContext is the same as DetachNetworkInterface with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DetachNetworkInterface for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DetachNetworkInterfaceWithContext(ctx volcstack.Context, input *DetachNetworkInterfaceInput, opts ...request.Option) (*DetachNetworkInterfaceOutput, error) {
+	req, out := c.DetachNetworkInterfaceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisassociateEipAddressCommon = "DisassociateEipAddress"
+
+// DisassociateEipAddressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateEipAddressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DisassociateEipAddressCommon for more information on using the DisassociateEipAddressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DisassociateEipAddressCommonRequest method.
+//    req, resp := client.DisassociateEipAddressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DisassociateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDisassociateEipAddressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateEipAddressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DisassociateEipAddressCommon for usage and error information.
+func (c *VpcSdk) DisassociateEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DisassociateEipAddressCommonRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateEipAddressCommonWithContext is the same as DisassociateEipAddressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateEipAddressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DisassociateEipAddressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DisassociateEipAddressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisassociateEipAddress = "DisassociateEipAddress"
+
+// DisassociateEipAddressRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateEipAddress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DisassociateEipAddress for more information on using the DisassociateEipAddress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DisassociateEipAddressRequest method.
+//    req, resp := client.DisassociateEipAddressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DisassociateEipAddressRequest(input *DisassociateEipAddressInput) (req *request.Request, output *DisassociateEipAddressOutput) {
+	op := &request.Operation{
+		Name:       opDisassociateEipAddress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DisassociateEipAddressInput{}
+	}
+
+	output = &DisassociateEipAddressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateEipAddress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DisassociateEipAddress for usage and error information.
+func (c *VpcSdk) DisassociateEipAddress(input *DisassociateEipAddressInput) (*DisassociateEipAddressOutput, error) {
+	req, out := c.DisassociateEipAddressRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateEipAddressWithContext is the same as DisassociateEipAddress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateEipAddress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DisassociateEipAddressWithContext(ctx volcstack.Context, input *DisassociateEipAddressInput, opts ...request.Option) (*DisassociateEipAddressOutput, error) {
+	req, out := c.DisassociateEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisassociateHaVipCommon = "DisassociateHaVip"
+
+// DisassociateHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateHaVipCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DisassociateHaVipCommon for more information on using the DisassociateHaVipCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DisassociateHaVipCommonRequest method.
+//    req, resp := client.DisassociateHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DisassociateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDisassociateHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateHaVipCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DisassociateHaVipCommon for usage and error information.
+func (c *VpcSdk) DisassociateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DisassociateHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateHaVipCommonWithContext is the same as DisassociateHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DisassociateHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DisassociateHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisassociateHaVip = "DisassociateHaVip"
+
+// DisassociateHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateHaVip operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DisassociateHaVip for more information on using the DisassociateHaVip
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DisassociateHaVipRequest method.
+//    req, resp := client.DisassociateHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DisassociateHaVipRequest(input *DisassociateHaVipInput) (req *request.Request, output *DisassociateHaVipOutput) {
+	op := &request.Operation{
+		Name:       opDisassociateHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DisassociateHaVipInput{}
+	}
+
+	output = &DisassociateHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateHaVip API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DisassociateHaVip for usage and error information.
+func (c *VpcSdk) DisassociateHaVip(input *DisassociateHaVipInput) (*DisassociateHaVipOutput, error) {
+	req, out := c.DisassociateHaVipRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateHaVipWithContext is the same as DisassociateHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DisassociateHaVipWithContext(ctx volcstack.Context, input *DisassociateHaVipInput, opts ...request.Option) (*DisassociateHaVipOutput, error) {
+	req, out := c.DisassociateHaVipRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisassociateRouteTableCommon = "DisassociateRouteTable"
+
+// DisassociateRouteTableCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateRouteTableCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DisassociateRouteTableCommon for more information on using the DisassociateRouteTableCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DisassociateRouteTableCommonRequest method.
+//    req, resp := client.DisassociateRouteTableCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DisassociateRouteTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDisassociateRouteTableCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateRouteTableCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DisassociateRouteTableCommon for usage and error information.
+func (c *VpcSdk) DisassociateRouteTableCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DisassociateRouteTableCommonRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateRouteTableCommonWithContext is the same as DisassociateRouteTableCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateRouteTableCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DisassociateRouteTableCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DisassociateRouteTableCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisassociateRouteTable = "DisassociateRouteTable"
+
+// DisassociateRouteTableRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateRouteTable operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DisassociateRouteTable for more information on using the DisassociateRouteTable
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DisassociateRouteTableRequest method.
+//    req, resp := client.DisassociateRouteTableRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) DisassociateRouteTableRequest(input *DisassociateRouteTableInput) (req *request.Request, output *DisassociateRouteTableOutput) {
+	op := &request.Operation{
+		Name:       opDisassociateRouteTable,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DisassociateRouteTableInput{}
+	}
+
+	output = &DisassociateRouteTableOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateRouteTable API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation DisassociateRouteTable for usage and error information.
+func (c *VpcSdk) DisassociateRouteTable(input *DisassociateRouteTableInput) (*DisassociateRouteTableOutput, error) {
+	req, out := c.DisassociateRouteTableRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateRouteTableWithContext is the same as DisassociateRouteTable with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateRouteTable for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) DisassociateRouteTableWithContext(ctx volcstack.Context, input *DisassociateRouteTableInput, opts ...request.Option) (*DisassociateRouteTableOutput, error) {
+	req, out := c.DisassociateRouteTableRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyEipAddressAttributesCommon = "ModifyEipAddressAttributes"
+
+// ModifyEipAddressAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyEipAddressAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyEipAddressAttributesCommon for more information on using the ModifyEipAddressAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyEipAddressAttributesCommonRequest method.
+//    req, resp := client.ModifyEipAddressAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyEipAddressAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyEipAddressAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyEipAddressAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyEipAddressAttributesCommon for usage and error information.
+func (c *VpcSdk) ModifyEipAddressAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyEipAddressAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyEipAddressAttributesCommonWithContext is the same as ModifyEipAddressAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyEipAddressAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyEipAddressAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyEipAddressAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyEipAddressAttributes = "ModifyEipAddressAttributes"
+
+// ModifyEipAddressAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyEipAddressAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyEipAddressAttributes for more information on using the ModifyEipAddressAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyEipAddressAttributesRequest method.
+//    req, resp := client.ModifyEipAddressAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyEipAddressAttributesRequest(input *ModifyEipAddressAttributesInput) (req *request.Request, output *ModifyEipAddressAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyEipAddressAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyEipAddressAttributesInput{}
+	}
+
+	output = &ModifyEipAddressAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyEipAddressAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyEipAddressAttributes for usage and error information.
+func (c *VpcSdk) ModifyEipAddressAttributes(input *ModifyEipAddressAttributesInput) (*ModifyEipAddressAttributesOutput, error) {
+	req, out := c.ModifyEipAddressAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyEipAddressAttributesWithContext is the same as ModifyEipAddressAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyEipAddressAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyEipAddressAttributesWithContext(ctx volcstack.Context, input *ModifyEipAddressAttributesInput, opts ...request.Option) (*ModifyEipAddressAttributesOutput, error) {
+	req, out := c.ModifyEipAddressAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyHaVipAttributesCommon = "ModifyHaVipAttributes"
+
+// ModifyHaVipAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyHaVipAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyHaVipAttributesCommon for more information on using the ModifyHaVipAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyHaVipAttributesCommonRequest method.
+//    req, resp := client.ModifyHaVipAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyHaVipAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyHaVipAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyHaVipAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyHaVipAttributesCommon for usage and error information.
+func (c *VpcSdk) ModifyHaVipAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyHaVipAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyHaVipAttributesCommonWithContext is the same as ModifyHaVipAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyHaVipAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyHaVipAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyHaVipAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyHaVipAttributes = "ModifyHaVipAttributes"
+
+// ModifyHaVipAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyHaVipAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyHaVipAttributes for more information on using the ModifyHaVipAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyHaVipAttributesRequest method.
+//    req, resp := client.ModifyHaVipAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyHaVipAttributesRequest(input *ModifyHaVipAttributesInput) (req *request.Request, output *ModifyHaVipAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyHaVipAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyHaVipAttributesInput{}
+	}
+
+	output = &ModifyHaVipAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyHaVipAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyHaVipAttributes for usage and error information.
+func (c *VpcSdk) ModifyHaVipAttributes(input *ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error) {
+	req, out := c.ModifyHaVipAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyHaVipAttributesWithContext is the same as ModifyHaVipAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyHaVipAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyHaVipAttributesWithContext(ctx volcstack.Context, input *ModifyHaVipAttributesInput, opts ...request.Option) (*ModifyHaVipAttributesOutput, error) {
+	req, out := c.ModifyHaVipAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyNetworkInterfaceAttributesCommon = "ModifyNetworkInterfaceAttributes"
+
+// ModifyNetworkInterfaceAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyNetworkInterfaceAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyNetworkInterfaceAttributesCommon for more information on using the ModifyNetworkInterfaceAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyNetworkInterfaceAttributesCommonRequest method.
+//    req, resp := client.ModifyNetworkInterfaceAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyNetworkInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyNetworkInterfaceAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyNetworkInterfaceAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyNetworkInterfaceAttributesCommon for usage and error information.
+func (c *VpcSdk) ModifyNetworkInterfaceAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyNetworkInterfaceAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyNetworkInterfaceAttributesCommonWithContext is the same as ModifyNetworkInterfaceAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyNetworkInterfaceAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyNetworkInterfaceAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyNetworkInterfaceAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyNetworkInterfaceAttributes = "ModifyNetworkInterfaceAttributes"
+
+// ModifyNetworkInterfaceAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyNetworkInterfaceAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyNetworkInterfaceAttributes for more information on using the ModifyNetworkInterfaceAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyNetworkInterfaceAttributesRequest method.
+//    req, resp := client.ModifyNetworkInterfaceAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyNetworkInterfaceAttributesRequest(input *ModifyNetworkInterfaceAttributesInput) (req *request.Request, output *ModifyNetworkInterfaceAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyNetworkInterfaceAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyNetworkInterfaceAttributesInput{}
+	}
+
+	output = &ModifyNetworkInterfaceAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyNetworkInterfaceAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyNetworkInterfaceAttributes for usage and error information.
+func (c *VpcSdk) ModifyNetworkInterfaceAttributes(input *ModifyNetworkInterfaceAttributesInput) (*ModifyNetworkInterfaceAttributesOutput, error) {
+	req, out := c.ModifyNetworkInterfaceAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyNetworkInterfaceAttributesWithContext is the same as ModifyNetworkInterfaceAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyNetworkInterfaceAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyNetworkInterfaceAttributesWithContext(ctx volcstack.Context, input *ModifyNetworkInterfaceAttributesInput, opts ...request.Option) (*ModifyNetworkInterfaceAttributesOutput, error) {
+	req, out := c.ModifyNetworkInterfaceAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyRouteEntryCommon = "ModifyRouteEntry"
+
+// ModifyRouteEntryCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyRouteEntryCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyRouteEntryCommon for more information on using the ModifyRouteEntryCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyRouteEntryCommonRequest method.
+//    req, resp := client.ModifyRouteEntryCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyRouteEntryCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyRouteEntryCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyRouteEntryCommon for usage and error information.
+func (c *VpcSdk) ModifyRouteEntryCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyRouteEntryCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyRouteEntryCommonWithContext is the same as ModifyRouteEntryCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyRouteEntryCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyRouteEntryCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyRouteEntryCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyRouteEntry = "ModifyRouteEntry"
+
+// ModifyRouteEntryRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyRouteEntry operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyRouteEntry for more information on using the ModifyRouteEntry
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyRouteEntryRequest method.
+//    req, resp := client.ModifyRouteEntryRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyRouteEntryRequest(input *ModifyRouteEntryInput) (req *request.Request, output *ModifyRouteEntryOutput) {
+	op := &request.Operation{
+		Name:       opModifyRouteEntry,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyRouteEntryInput{}
+	}
+
+	output = &ModifyRouteEntryOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyRouteEntry API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyRouteEntry for usage and error information.
+func (c *VpcSdk) ModifyRouteEntry(input *ModifyRouteEntryInput) (*ModifyRouteEntryOutput, error) {
+	req, out := c.ModifyRouteEntryRequest(input)
+	return out, req.Send()
+}
+
+// ModifyRouteEntryWithContext is the same as ModifyRouteEntry with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyRouteEntry for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyRouteEntryWithContext(ctx volcstack.Context, input *ModifyRouteEntryInput, opts ...request.Option) (*ModifyRouteEntryOutput, error) {
+	req, out := c.ModifyRouteEntryRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyRouteTableAttributesCommon = "ModifyRouteTableAttributes"
+
+// ModifyRouteTableAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyRouteTableAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyRouteTableAttributesCommon for more information on using the ModifyRouteTableAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyRouteTableAttributesCommonRequest method.
+//    req, resp := client.ModifyRouteTableAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyRouteTableAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyRouteTableAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyRouteTableAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyRouteTableAttributesCommon for usage and error information.
+func (c *VpcSdk) ModifyRouteTableAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyRouteTableAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyRouteTableAttributesCommonWithContext is the same as ModifyRouteTableAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyRouteTableAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyRouteTableAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyRouteTableAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyRouteTableAttributes = "ModifyRouteTableAttributes"
+
+// ModifyRouteTableAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyRouteTableAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyRouteTableAttributes for more information on using the ModifyRouteTableAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyRouteTableAttributesRequest method.
+//    req, resp := client.ModifyRouteTableAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyRouteTableAttributesRequest(input *ModifyRouteTableAttributesInput) (req *request.Request, output *ModifyRouteTableAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyRouteTableAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyRouteTableAttributesInput{}
+	}
+
+	output = &ModifyRouteTableAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyRouteTableAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyRouteTableAttributes for usage and error information.
+func (c *VpcSdk) ModifyRouteTableAttributes(input *ModifyRouteTableAttributesInput) (*ModifyRouteTableAttributesOutput, error) {
+	req, out := c.ModifyRouteTableAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyRouteTableAttributesWithContext is the same as ModifyRouteTableAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyRouteTableAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyRouteTableAttributesWithContext(ctx volcstack.Context, input *ModifyRouteTableAttributesInput, opts ...request.Option) (*ModifyRouteTableAttributesOutput, error) {
+	req, out := c.ModifyRouteTableAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifySecurityGroupAttributesCommon = "ModifySecurityGroupAttributes"
+
+// ModifySecurityGroupAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifySecurityGroupAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifySecurityGroupAttributesCommon for more information on using the ModifySecurityGroupAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifySecurityGroupAttributesCommonRequest method.
+//    req, resp := client.ModifySecurityGroupAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifySecurityGroupAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifySecurityGroupAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifySecurityGroupAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifySecurityGroupAttributesCommon for usage and error information.
+func (c *VpcSdk) ModifySecurityGroupAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifySecurityGroupAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifySecurityGroupAttributesCommonWithContext is the same as ModifySecurityGroupAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifySecurityGroupAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifySecurityGroupAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifySecurityGroupAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifySecurityGroupAttributes = "ModifySecurityGroupAttributes"
+
+// ModifySecurityGroupAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifySecurityGroupAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifySecurityGroupAttributes for more information on using the ModifySecurityGroupAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifySecurityGroupAttributesRequest method.
+//    req, resp := client.ModifySecurityGroupAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifySecurityGroupAttributesRequest(input *ModifySecurityGroupAttributesInput) (req *request.Request, output *ModifySecurityGroupAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifySecurityGroupAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifySecurityGroupAttributesInput{}
+	}
+
+	output = &ModifySecurityGroupAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifySecurityGroupAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifySecurityGroupAttributes for usage and error information.
+func (c *VpcSdk) ModifySecurityGroupAttributes(input *ModifySecurityGroupAttributesInput) (*ModifySecurityGroupAttributesOutput, error) {
+	req, out := c.ModifySecurityGroupAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifySecurityGroupAttributesWithContext is the same as ModifySecurityGroupAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifySecurityGroupAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifySecurityGroupAttributesWithContext(ctx volcstack.Context, input *ModifySecurityGroupAttributesInput, opts ...request.Option) (*ModifySecurityGroupAttributesOutput, error) {
+	req, out := c.ModifySecurityGroupAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifySecurityGroupRuleDescriptionsEgressCommon = "ModifySecurityGroupRuleDescriptionsEgress"
+
+// ModifySecurityGroupRuleDescriptionsEgressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifySecurityGroupRuleDescriptionsEgressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifySecurityGroupRuleDescriptionsEgressCommon for more information on using the ModifySecurityGroupRuleDescriptionsEgressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressCommonRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsEgressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsEgressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifySecurityGroupRuleDescriptionsEgressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifySecurityGroupRuleDescriptionsEgressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifySecurityGroupRuleDescriptionsEgressCommon for usage and error information.
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsEgressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifySecurityGroupRuleDescriptionsEgressCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifySecurityGroupRuleDescriptionsEgressCommonWithContext is the same as ModifySecurityGroupRuleDescriptionsEgressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifySecurityGroupRuleDescriptionsEgressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsEgressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifySecurityGroupRuleDescriptionsEgressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifySecurityGroupRuleDescriptionsEgress = "ModifySecurityGroupRuleDescriptionsEgress"
+
+// ModifySecurityGroupRuleDescriptionsEgressRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifySecurityGroupRuleDescriptionsEgress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifySecurityGroupRuleDescriptionsEgress for more information on using the ModifySecurityGroupRuleDescriptionsEgress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsEgressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsEgressRequest(input *ModifySecurityGroupRuleDescriptionsEgressInput) (req *request.Request, output *ModifySecurityGroupRuleDescriptionsEgressOutput) {
+	op := &request.Operation{
+		Name:       opModifySecurityGroupRuleDescriptionsEgress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifySecurityGroupRuleDescriptionsEgressInput{}
+	}
+
+	output = &ModifySecurityGroupRuleDescriptionsEgressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifySecurityGroupRuleDescriptionsEgress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifySecurityGroupRuleDescriptionsEgress for usage and error information.
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsEgress(input *ModifySecurityGroupRuleDescriptionsEgressInput) (*ModifySecurityGroupRuleDescriptionsEgressOutput, error) {
+	req, out := c.ModifySecurityGroupRuleDescriptionsEgressRequest(input)
+	return out, req.Send()
+}
+
+// ModifySecurityGroupRuleDescriptionsEgressWithContext is the same as ModifySecurityGroupRuleDescriptionsEgress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifySecurityGroupRuleDescriptionsEgress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsEgressWithContext(ctx volcstack.Context, input *ModifySecurityGroupRuleDescriptionsEgressInput, opts ...request.Option) (*ModifySecurityGroupRuleDescriptionsEgressOutput, error) {
+	req, out := c.ModifySecurityGroupRuleDescriptionsEgressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifySecurityGroupRuleDescriptionsIngressCommon = "ModifySecurityGroupRuleDescriptionsIngress"
+
+// ModifySecurityGroupRuleDescriptionsIngressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifySecurityGroupRuleDescriptionsIngressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifySecurityGroupRuleDescriptionsIngressCommon for more information on using the ModifySecurityGroupRuleDescriptionsIngressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressCommonRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsIngressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsIngressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifySecurityGroupRuleDescriptionsIngressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifySecurityGroupRuleDescriptionsIngressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifySecurityGroupRuleDescriptionsIngressCommon for usage and error information.
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsIngressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifySecurityGroupRuleDescriptionsIngressCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifySecurityGroupRuleDescriptionsIngressCommonWithContext is the same as ModifySecurityGroupRuleDescriptionsIngressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifySecurityGroupRuleDescriptionsIngressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsIngressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifySecurityGroupRuleDescriptionsIngressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifySecurityGroupRuleDescriptionsIngress = "ModifySecurityGroupRuleDescriptionsIngress"
+
+// ModifySecurityGroupRuleDescriptionsIngressRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifySecurityGroupRuleDescriptionsIngress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifySecurityGroupRuleDescriptionsIngress for more information on using the ModifySecurityGroupRuleDescriptionsIngress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsIngressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsIngressRequest(input *ModifySecurityGroupRuleDescriptionsIngressInput) (req *request.Request, output *ModifySecurityGroupRuleDescriptionsIngressOutput) {
+	op := &request.Operation{
+		Name:       opModifySecurityGroupRuleDescriptionsIngress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifySecurityGroupRuleDescriptionsIngressInput{}
+	}
+
+	output = &ModifySecurityGroupRuleDescriptionsIngressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifySecurityGroupRuleDescriptionsIngress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifySecurityGroupRuleDescriptionsIngress for usage and error information.
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsIngress(input *ModifySecurityGroupRuleDescriptionsIngressInput) (*ModifySecurityGroupRuleDescriptionsIngressOutput, error) {
+	req, out := c.ModifySecurityGroupRuleDescriptionsIngressRequest(input)
+	return out, req.Send()
+}
+
+// ModifySecurityGroupRuleDescriptionsIngressWithContext is the same as ModifySecurityGroupRuleDescriptionsIngress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifySecurityGroupRuleDescriptionsIngress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifySecurityGroupRuleDescriptionsIngressWithContext(ctx volcstack.Context, input *ModifySecurityGroupRuleDescriptionsIngressInput, opts ...request.Option) (*ModifySecurityGroupRuleDescriptionsIngressOutput, error) {
+	req, out := c.ModifySecurityGroupRuleDescriptionsIngressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifySubnetAttributesCommon = "ModifySubnetAttributes"
+
+// ModifySubnetAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifySubnetAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifySubnetAttributesCommon for more information on using the ModifySubnetAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifySubnetAttributesCommonRequest method.
+//    req, resp := client.ModifySubnetAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifySubnetAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifySubnetAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifySubnetAttributesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifySubnetAttributesCommon for usage and error information.
+func (c *VpcSdk) ModifySubnetAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifySubnetAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifySubnetAttributesCommonWithContext is the same as ModifySubnetAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifySubnetAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifySubnetAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifySubnetAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifySubnetAttributes = "ModifySubnetAttributes"
+
+// ModifySubnetAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifySubnetAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifySubnetAttributes for more information on using the ModifySubnetAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifySubnetAttributesRequest method.
+//    req, resp := client.ModifySubnetAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifySubnetAttributesRequest(input *ModifySubnetAttributesInput) (req *request.Request, output *ModifySubnetAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifySubnetAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifySubnetAttributesInput{}
+	}
+
+	output = &ModifySubnetAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifySubnetAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifySubnetAttributes for usage and error information.
+func (c *VpcSdk) ModifySubnetAttributes(input *ModifySubnetAttributesInput) (*ModifySubnetAttributesOutput, error) {
+	req, out := c.ModifySubnetAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifySubnetAttributesWithContext is the same as ModifySubnetAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifySubnetAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifySubnetAttributesWithContext(ctx volcstack.Context, input *ModifySubnetAttributesInput, opts ...request.Option) (*ModifySubnetAttributesOutput, error) {
+	req, out := c.ModifySubnetAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -382,7 +7452,7 @@ const opModifyVpcAttributesCommon = "ModifyVpcAttributes"
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *Vpc) ModifyVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *VpcSdk) ModifyVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVpcAttributesCommon,
 		HTTPMethod: "GET",
@@ -407,7 +7477,7 @@ func (c *Vpc) ModifyVpcAttributesCommonRequest(input *map[string]interface{}) (r
 //
 // See the VOLCSTACK API reference guide for vpc's
 // API operation ModifyVpcAttributesCommon for usage and error information.
-func (c *Vpc) ModifyVpcAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+func (c *VpcSdk) ModifyVpcAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyVpcAttributesCommonRequest(input)
 	return out, req.Send()
 }
@@ -421,11 +7491,2937 @@ func (c *Vpc) ModifyVpcAttributesCommon(input *map[string]interface{}) (*map[str
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *Vpc) ModifyVpcAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+func (c *VpcSdk) ModifyVpcAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyVpcAttributesCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
+}
+
+const opModifyVpcAttributes = "ModifyVpcAttributes"
+
+// ModifyVpcAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyVpcAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyVpcAttributes for more information on using the ModifyVpcAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyVpcAttributesRequest method.
+//    req, resp := client.ModifyVpcAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ModifyVpcAttributesRequest(input *ModifyVpcAttributesInput) (req *request.Request, output *ModifyVpcAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyVpcAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyVpcAttributesInput{}
+	}
+
+	output = &ModifyVpcAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyVpcAttributes API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ModifyVpcAttributes for usage and error information.
+func (c *VpcSdk) ModifyVpcAttributes(input *ModifyVpcAttributesInput) (*ModifyVpcAttributesOutput, error) {
+	req, out := c.ModifyVpcAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyVpcAttributesWithContext is the same as ModifyVpcAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyVpcAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ModifyVpcAttributesWithContext(ctx volcstack.Context, input *ModifyVpcAttributesInput, opts ...request.Option) (*ModifyVpcAttributesOutput, error) {
+	req, out := c.ModifyVpcAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opReleaseEipAddressCommon = "ReleaseEipAddress"
+
+// ReleaseEipAddressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ReleaseEipAddressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ReleaseEipAddressCommon for more information on using the ReleaseEipAddressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ReleaseEipAddressCommonRequest method.
+//    req, resp := client.ReleaseEipAddressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ReleaseEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opReleaseEipAddressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ReleaseEipAddressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ReleaseEipAddressCommon for usage and error information.
+func (c *VpcSdk) ReleaseEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ReleaseEipAddressCommonRequest(input)
+	return out, req.Send()
+}
+
+// ReleaseEipAddressCommonWithContext is the same as ReleaseEipAddressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ReleaseEipAddressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ReleaseEipAddressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ReleaseEipAddressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opReleaseEipAddress = "ReleaseEipAddress"
+
+// ReleaseEipAddressRequest generates a "volcstack/request.Request" representing the
+// client's request for the ReleaseEipAddress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ReleaseEipAddress for more information on using the ReleaseEipAddress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ReleaseEipAddressRequest method.
+//    req, resp := client.ReleaseEipAddressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) ReleaseEipAddressRequest(input *ReleaseEipAddressInput) (req *request.Request, output *ReleaseEipAddressOutput) {
+	op := &request.Operation{
+		Name:       opReleaseEipAddress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ReleaseEipAddressInput{}
+	}
+
+	output = &ReleaseEipAddressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ReleaseEipAddress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation ReleaseEipAddress for usage and error information.
+func (c *VpcSdk) ReleaseEipAddress(input *ReleaseEipAddressInput) (*ReleaseEipAddressOutput, error) {
+	req, out := c.ReleaseEipAddressRequest(input)
+	return out, req.Send()
+}
+
+// ReleaseEipAddressWithContext is the same as ReleaseEipAddress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ReleaseEipAddress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) ReleaseEipAddressWithContext(ctx volcstack.Context, input *ReleaseEipAddressInput, opts ...request.Option) (*ReleaseEipAddressOutput, error) {
+	req, out := c.ReleaseEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRenewEipAddressCommon = "RenewEipAddress"
+
+// RenewEipAddressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the RenewEipAddressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RenewEipAddressCommon for more information on using the RenewEipAddressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the RenewEipAddressCommonRequest method.
+//    req, resp := client.RenewEipAddressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) RenewEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opRenewEipAddressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RenewEipAddressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation RenewEipAddressCommon for usage and error information.
+func (c *VpcSdk) RenewEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.RenewEipAddressCommonRequest(input)
+	return out, req.Send()
+}
+
+// RenewEipAddressCommonWithContext is the same as RenewEipAddressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RenewEipAddressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) RenewEipAddressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.RenewEipAddressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRenewEipAddress = "RenewEipAddress"
+
+// RenewEipAddressRequest generates a "volcstack/request.Request" representing the
+// client's request for the RenewEipAddress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RenewEipAddress for more information on using the RenewEipAddress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the RenewEipAddressRequest method.
+//    req, resp := client.RenewEipAddressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) RenewEipAddressRequest(input *RenewEipAddressInput) (req *request.Request, output *RenewEipAddressOutput) {
+	op := &request.Operation{
+		Name:       opRenewEipAddress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RenewEipAddressInput{}
+	}
+
+	output = &RenewEipAddressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RenewEipAddress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation RenewEipAddress for usage and error information.
+func (c *VpcSdk) RenewEipAddress(input *RenewEipAddressInput) (*RenewEipAddressOutput, error) {
+	req, out := c.RenewEipAddressRequest(input)
+	return out, req.Send()
+}
+
+// RenewEipAddressWithContext is the same as RenewEipAddress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RenewEipAddress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) RenewEipAddressWithContext(ctx volcstack.Context, input *RenewEipAddressInput, opts ...request.Option) (*RenewEipAddressOutput, error) {
+	req, out := c.RenewEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRevokeSecurityGroupEgressCommon = "RevokeSecurityGroupEgress"
+
+// RevokeSecurityGroupEgressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the RevokeSecurityGroupEgressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RevokeSecurityGroupEgressCommon for more information on using the RevokeSecurityGroupEgressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the RevokeSecurityGroupEgressCommonRequest method.
+//    req, resp := client.RevokeSecurityGroupEgressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) RevokeSecurityGroupEgressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opRevokeSecurityGroupEgressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RevokeSecurityGroupEgressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation RevokeSecurityGroupEgressCommon for usage and error information.
+func (c *VpcSdk) RevokeSecurityGroupEgressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.RevokeSecurityGroupEgressCommonRequest(input)
+	return out, req.Send()
+}
+
+// RevokeSecurityGroupEgressCommonWithContext is the same as RevokeSecurityGroupEgressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RevokeSecurityGroupEgressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) RevokeSecurityGroupEgressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.RevokeSecurityGroupEgressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRevokeSecurityGroupEgress = "RevokeSecurityGroupEgress"
+
+// RevokeSecurityGroupEgressRequest generates a "volcstack/request.Request" representing the
+// client's request for the RevokeSecurityGroupEgress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RevokeSecurityGroupEgress for more information on using the RevokeSecurityGroupEgress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the RevokeSecurityGroupEgressRequest method.
+//    req, resp := client.RevokeSecurityGroupEgressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) RevokeSecurityGroupEgressRequest(input *RevokeSecurityGroupEgressInput) (req *request.Request, output *RevokeSecurityGroupEgressOutput) {
+	op := &request.Operation{
+		Name:       opRevokeSecurityGroupEgress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RevokeSecurityGroupEgressInput{}
+	}
+
+	output = &RevokeSecurityGroupEgressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RevokeSecurityGroupEgress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation RevokeSecurityGroupEgress for usage and error information.
+func (c *VpcSdk) RevokeSecurityGroupEgress(input *RevokeSecurityGroupEgressInput) (*RevokeSecurityGroupEgressOutput, error) {
+	req, out := c.RevokeSecurityGroupEgressRequest(input)
+	return out, req.Send()
+}
+
+// RevokeSecurityGroupEgressWithContext is the same as RevokeSecurityGroupEgress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RevokeSecurityGroupEgress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) RevokeSecurityGroupEgressWithContext(ctx volcstack.Context, input *RevokeSecurityGroupEgressInput, opts ...request.Option) (*RevokeSecurityGroupEgressOutput, error) {
+	req, out := c.RevokeSecurityGroupEgressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRevokeSecurityGroupIngressCommon = "RevokeSecurityGroupIngress"
+
+// RevokeSecurityGroupIngressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the RevokeSecurityGroupIngressCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RevokeSecurityGroupIngressCommon for more information on using the RevokeSecurityGroupIngressCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the RevokeSecurityGroupIngressCommonRequest method.
+//    req, resp := client.RevokeSecurityGroupIngressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) RevokeSecurityGroupIngressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opRevokeSecurityGroupIngressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RevokeSecurityGroupIngressCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation RevokeSecurityGroupIngressCommon for usage and error information.
+func (c *VpcSdk) RevokeSecurityGroupIngressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.RevokeSecurityGroupIngressCommonRequest(input)
+	return out, req.Send()
+}
+
+// RevokeSecurityGroupIngressCommonWithContext is the same as RevokeSecurityGroupIngressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RevokeSecurityGroupIngressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) RevokeSecurityGroupIngressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.RevokeSecurityGroupIngressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRevokeSecurityGroupIngress = "RevokeSecurityGroupIngress"
+
+// RevokeSecurityGroupIngressRequest generates a "volcstack/request.Request" representing the
+// client's request for the RevokeSecurityGroupIngress operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RevokeSecurityGroupIngress for more information on using the RevokeSecurityGroupIngress
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the RevokeSecurityGroupIngressRequest method.
+//    req, resp := client.RevokeSecurityGroupIngressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) RevokeSecurityGroupIngressRequest(input *RevokeSecurityGroupIngressInput) (req *request.Request, output *RevokeSecurityGroupIngressOutput) {
+	op := &request.Operation{
+		Name:       opRevokeSecurityGroupIngress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RevokeSecurityGroupIngressInput{}
+	}
+
+	output = &RevokeSecurityGroupIngressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RevokeSecurityGroupIngress API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation RevokeSecurityGroupIngress for usage and error information.
+func (c *VpcSdk) RevokeSecurityGroupIngress(input *RevokeSecurityGroupIngressInput) (*RevokeSecurityGroupIngressOutput, error) {
+	req, out := c.RevokeSecurityGroupIngressRequest(input)
+	return out, req.Send()
+}
+
+// RevokeSecurityGroupIngressWithContext is the same as RevokeSecurityGroupIngress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RevokeSecurityGroupIngress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) RevokeSecurityGroupIngressWithContext(ctx volcstack.Context, input *RevokeSecurityGroupIngressInput, opts ...request.Option) (*RevokeSecurityGroupIngressOutput, error) {
+	req, out := c.RevokeSecurityGroupIngressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opSetEipAddressRenewalCommon = "SetEipAddressRenewal"
+
+// SetEipAddressRenewalCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the SetEipAddressRenewalCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See SetEipAddressRenewalCommon for more information on using the SetEipAddressRenewalCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the SetEipAddressRenewalCommonRequest method.
+//    req, resp := client.SetEipAddressRenewalCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) SetEipAddressRenewalCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opSetEipAddressRenewalCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// SetEipAddressRenewalCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation SetEipAddressRenewalCommon for usage and error information.
+func (c *VpcSdk) SetEipAddressRenewalCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.SetEipAddressRenewalCommonRequest(input)
+	return out, req.Send()
+}
+
+// SetEipAddressRenewalCommonWithContext is the same as SetEipAddressRenewalCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SetEipAddressRenewalCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) SetEipAddressRenewalCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.SetEipAddressRenewalCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opSetEipAddressRenewal = "SetEipAddressRenewal"
+
+// SetEipAddressRenewalRequest generates a "volcstack/request.Request" representing the
+// client's request for the SetEipAddressRenewal operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See SetEipAddressRenewal for more information on using the SetEipAddressRenewal
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the SetEipAddressRenewalRequest method.
+//    req, resp := client.SetEipAddressRenewalRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) SetEipAddressRenewalRequest(input *SetEipAddressRenewalInput) (req *request.Request, output *SetEipAddressRenewalOutput) {
+	op := &request.Operation{
+		Name:       opSetEipAddressRenewal,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &SetEipAddressRenewalInput{}
+	}
+
+	output = &SetEipAddressRenewalOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// SetEipAddressRenewal API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation SetEipAddressRenewal for usage and error information.
+func (c *VpcSdk) SetEipAddressRenewal(input *SetEipAddressRenewalInput) (*SetEipAddressRenewalOutput, error) {
+	req, out := c.SetEipAddressRenewalRequest(input)
+	return out, req.Send()
+}
+
+// SetEipAddressRenewalWithContext is the same as SetEipAddressRenewal with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SetEipAddressRenewal for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) SetEipAddressRenewalWithContext(ctx volcstack.Context, input *SetEipAddressRenewalInput, opts ...request.Option) (*SetEipAddressRenewalOutput, error) {
+	req, out := c.SetEipAddressRenewalRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUnassignAuxiliaryCidrBlocksCommon = "UnassignAuxiliaryCidrBlocks"
+
+// UnassignAuxiliaryCidrBlocksCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignAuxiliaryCidrBlocksCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UnassignAuxiliaryCidrBlocksCommon for more information on using the UnassignAuxiliaryCidrBlocksCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UnassignAuxiliaryCidrBlocksCommonRequest method.
+//    req, resp := client.UnassignAuxiliaryCidrBlocksCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) UnassignAuxiliaryCidrBlocksCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opUnassignAuxiliaryCidrBlocksCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignAuxiliaryCidrBlocksCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation UnassignAuxiliaryCidrBlocksCommon for usage and error information.
+func (c *VpcSdk) UnassignAuxiliaryCidrBlocksCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.UnassignAuxiliaryCidrBlocksCommonRequest(input)
+	return out, req.Send()
+}
+
+// UnassignAuxiliaryCidrBlocksCommonWithContext is the same as UnassignAuxiliaryCidrBlocksCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignAuxiliaryCidrBlocksCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) UnassignAuxiliaryCidrBlocksCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.UnassignAuxiliaryCidrBlocksCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUnassignAuxiliaryCidrBlocks = "UnassignAuxiliaryCidrBlocks"
+
+// UnassignAuxiliaryCidrBlocksRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignAuxiliaryCidrBlocks operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UnassignAuxiliaryCidrBlocks for more information on using the UnassignAuxiliaryCidrBlocks
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UnassignAuxiliaryCidrBlocksRequest method.
+//    req, resp := client.UnassignAuxiliaryCidrBlocksRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) UnassignAuxiliaryCidrBlocksRequest(input *UnassignAuxiliaryCidrBlocksInput) (req *request.Request, output *UnassignAuxiliaryCidrBlocksOutput) {
+	op := &request.Operation{
+		Name:       opUnassignAuxiliaryCidrBlocks,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UnassignAuxiliaryCidrBlocksInput{}
+	}
+
+	output = &UnassignAuxiliaryCidrBlocksOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignAuxiliaryCidrBlocks API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation UnassignAuxiliaryCidrBlocks for usage and error information.
+func (c *VpcSdk) UnassignAuxiliaryCidrBlocks(input *UnassignAuxiliaryCidrBlocksInput) (*UnassignAuxiliaryCidrBlocksOutput, error) {
+	req, out := c.UnassignAuxiliaryCidrBlocksRequest(input)
+	return out, req.Send()
+}
+
+// UnassignAuxiliaryCidrBlocksWithContext is the same as UnassignAuxiliaryCidrBlocks with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignAuxiliaryCidrBlocks for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) UnassignAuxiliaryCidrBlocksWithContext(ctx volcstack.Context, input *UnassignAuxiliaryCidrBlocksInput, opts ...request.Option) (*UnassignAuxiliaryCidrBlocksOutput, error) {
+	req, out := c.UnassignAuxiliaryCidrBlocksRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUnassignIPv6AddressesCommon = "UnassignIPv6Addresses"
+
+// UnassignIPv6AddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignIPv6AddressesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UnassignIPv6AddressesCommon for more information on using the UnassignIPv6AddressesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UnassignIPv6AddressesCommonRequest method.
+//    req, resp := client.UnassignIPv6AddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) UnassignIPv6AddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opUnassignIPv6AddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignIPv6AddressesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation UnassignIPv6AddressesCommon for usage and error information.
+func (c *VpcSdk) UnassignIPv6AddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.UnassignIPv6AddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// UnassignIPv6AddressesCommonWithContext is the same as UnassignIPv6AddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignIPv6AddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) UnassignIPv6AddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.UnassignIPv6AddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUnassignIPv6Addresses = "UnassignIPv6Addresses"
+
+// UnassignIPv6AddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignIPv6Addresses operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UnassignIPv6Addresses for more information on using the UnassignIPv6Addresses
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UnassignIPv6AddressesRequest method.
+//    req, resp := client.UnassignIPv6AddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) UnassignIPv6AddressesRequest(input *UnassignIPv6AddressesInput) (req *request.Request, output *UnassignIPv6AddressesOutput) {
+	op := &request.Operation{
+		Name:       opUnassignIPv6Addresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UnassignIPv6AddressesInput{}
+	}
+
+	output = &UnassignIPv6AddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignIPv6Addresses API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation UnassignIPv6Addresses for usage and error information.
+func (c *VpcSdk) UnassignIPv6Addresses(input *UnassignIPv6AddressesInput) (*UnassignIPv6AddressesOutput, error) {
+	req, out := c.UnassignIPv6AddressesRequest(input)
+	return out, req.Send()
+}
+
+// UnassignIPv6AddressesWithContext is the same as UnassignIPv6Addresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignIPv6Addresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) UnassignIPv6AddressesWithContext(ctx volcstack.Context, input *UnassignIPv6AddressesInput, opts ...request.Option) (*UnassignIPv6AddressesOutput, error) {
+	req, out := c.UnassignIPv6AddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUnassignPrivateIpAddressesCommon = "UnassignPrivateIpAddresses"
+
+// UnassignPrivateIpAddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignPrivateIpAddressesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UnassignPrivateIpAddressesCommon for more information on using the UnassignPrivateIpAddressesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UnassignPrivateIpAddressesCommonRequest method.
+//    req, resp := client.UnassignPrivateIpAddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) UnassignPrivateIpAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opUnassignPrivateIpAddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignPrivateIpAddressesCommon API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation UnassignPrivateIpAddressesCommon for usage and error information.
+func (c *VpcSdk) UnassignPrivateIpAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.UnassignPrivateIpAddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// UnassignPrivateIpAddressesCommonWithContext is the same as UnassignPrivateIpAddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignPrivateIpAddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) UnassignPrivateIpAddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.UnassignPrivateIpAddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUnassignPrivateIpAddresses = "UnassignPrivateIpAddresses"
+
+// UnassignPrivateIpAddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignPrivateIpAddresses operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UnassignPrivateIpAddresses for more information on using the UnassignPrivateIpAddresses
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UnassignPrivateIpAddressesRequest method.
+//    req, resp := client.UnassignPrivateIpAddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VpcSdk) UnassignPrivateIpAddressesRequest(input *UnassignPrivateIpAddressesInput) (req *request.Request, output *UnassignPrivateIpAddressesOutput) {
+	op := &request.Operation{
+		Name:       opUnassignPrivateIpAddresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UnassignPrivateIpAddressesInput{}
+	}
+
+	output = &UnassignPrivateIpAddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignPrivateIpAddresses API operation for vpc.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for vpc's
+// API operation UnassignPrivateIpAddresses for usage and error information.
+func (c *VpcSdk) UnassignPrivateIpAddresses(input *UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error) {
+	req, out := c.UnassignPrivateIpAddressesRequest(input)
+	return out, req.Send()
+}
+
+// UnassignPrivateIpAddressesWithContext is the same as UnassignPrivateIpAddresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignPrivateIpAddresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VpcSdk) UnassignPrivateIpAddressesWithContext(ctx volcstack.Context, input *UnassignPrivateIpAddressesInput, opts ...request.Option) (*UnassignPrivateIpAddressesOutput, error) {
+	req, out := c.UnassignPrivateIpAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+type AllocateEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	Description *string `type:"string"`
+
+	ISP *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s AllocateEipAddressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllocateEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AllocateEipAddressInput) SetAllocationId(v string) *AllocateEipAddressInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *AllocateEipAddressInput) SetBandwidth(v int64) *AllocateEipAddressInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *AllocateEipAddressInput) SetBillingType(v int64) *AllocateEipAddressInput {
+	s.BillingType = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AllocateEipAddressInput) SetDescription(v string) *AllocateEipAddressInput {
+	s.Description = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *AllocateEipAddressInput) SetISP(v string) *AllocateEipAddressInput {
+	s.ISP = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *AllocateEipAddressInput) SetName(v string) *AllocateEipAddressInput {
+	s.Name = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *AllocateEipAddressInput) SetPeriod(v int64) *AllocateEipAddressInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *AllocateEipAddressInput) SetPeriodUnit(v int64) *AllocateEipAddressInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type AllocateEipAddressOutput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AllocateEipAddressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllocateEipAddressOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AllocateEipAddressOutput) SetAllocationId(v string) *AllocateEipAddressOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *AllocateEipAddressOutput) SetEipAddress(v string) *AllocateEipAddressOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AllocateEipAddressOutput) SetRequestId(v string) *AllocateEipAddressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type AssignAuxiliaryCidrBlocksInput struct {
+	_ struct{} `type:"structure"`
+
+	AuxiliaryCidrBlocks []*string `type:"list"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s AssignAuxiliaryCidrBlocksInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignAuxiliaryCidrBlocksInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssignAuxiliaryCidrBlocksInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssignAuxiliaryCidrBlocksInput"}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAuxiliaryCidrBlocks sets the AuxiliaryCidrBlocks field's value.
+func (s *AssignAuxiliaryCidrBlocksInput) SetAuxiliaryCidrBlocks(v []*string) *AssignAuxiliaryCidrBlocksInput {
+	s.AuxiliaryCidrBlocks = v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *AssignAuxiliaryCidrBlocksInput) SetVpcId(v string) *AssignAuxiliaryCidrBlocksInput {
+	s.VpcId = &v
+	return s
+}
+
+type AssignAuxiliaryCidrBlocksOutput struct {
+	_ struct{} `type:"structure"`
+
+	AuxiliaryCidrBlocks []*string `type:"list"`
+
+	RequestId *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssignAuxiliaryCidrBlocksOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignAuxiliaryCidrBlocksOutput) GoString() string {
+	return s.String()
+}
+
+// SetAuxiliaryCidrBlocks sets the AuxiliaryCidrBlocks field's value.
+func (s *AssignAuxiliaryCidrBlocksOutput) SetAuxiliaryCidrBlocks(v []*string) *AssignAuxiliaryCidrBlocksOutput {
+	s.AuxiliaryCidrBlocks = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssignAuxiliaryCidrBlocksOutput) SetRequestId(v string) *AssignAuxiliaryCidrBlocksOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *AssignAuxiliaryCidrBlocksOutput) SetVpcId(v string) *AssignAuxiliaryCidrBlocksOutput {
+	s.VpcId = &v
+	return s
+}
+
+type AssignIPv6AddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	IPv6Address []*string `type:"list"`
+
+	IPv6AddressCount *int64 `type:"integer"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s AssignIPv6AddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignIPv6AddressesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssignIPv6AddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssignIPv6AddressesInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetIPv6Address sets the IPv6Address field's value.
+func (s *AssignIPv6AddressesInput) SetIPv6Address(v []*string) *AssignIPv6AddressesInput {
+	s.IPv6Address = v
+	return s
+}
+
+// SetIPv6AddressCount sets the IPv6AddressCount field's value.
+func (s *AssignIPv6AddressesInput) SetIPv6AddressCount(v int64) *AssignIPv6AddressesInput {
+	s.IPv6AddressCount = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AssignIPv6AddressesInput) SetNetworkInterfaceId(v string) *AssignIPv6AddressesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+type AssignIPv6AddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	IPv6SetList []*string `type:"list"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssignIPv6AddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignIPv6AddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetIPv6SetList sets the IPv6SetList field's value.
+func (s *AssignIPv6AddressesOutput) SetIPv6SetList(v []*string) *AssignIPv6AddressesOutput {
+	s.IPv6SetList = v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AssignIPv6AddressesOutput) SetNetworkInterfaceId(v string) *AssignIPv6AddressesOutput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssignIPv6AddressesOutput) SetRequestId(v string) *AssignIPv6AddressesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type AssignPrivateIpAddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+
+	PrivateIpAddress []*string `type:"list"`
+
+	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s AssignPrivateIpAddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignPrivateIpAddressesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssignPrivateIpAddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssignPrivateIpAddressesInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AssignPrivateIpAddressesInput) SetNetworkInterfaceId(v string) *AssignPrivateIpAddressesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *AssignPrivateIpAddressesInput) SetPrivateIpAddress(v []*string) *AssignPrivateIpAddressesInput {
+	s.PrivateIpAddress = v
+	return s
+}
+
+// SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
+func (s *AssignPrivateIpAddressesInput) SetSecondaryPrivateIpAddressCount(v int64) *AssignPrivateIpAddressesInput {
+	s.SecondaryPrivateIpAddressCount = &v
+	return s
+}
+
+type AssignPrivateIpAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	PrivateIpSetList []*string `type:"list"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssignPrivateIpAddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignPrivateIpAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AssignPrivateIpAddressesOutput) SetNetworkInterfaceId(v string) *AssignPrivateIpAddressesOutput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetPrivateIpSetList sets the PrivateIpSetList field's value.
+func (s *AssignPrivateIpAddressesOutput) SetPrivateIpSetList(v []*string) *AssignPrivateIpAddressesOutput {
+	s.PrivateIpSetList = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssignPrivateIpAddressesOutput) SetRequestId(v string) *AssignPrivateIpAddressesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type AssociateCen struct {
+	_ struct{} `type:"structure"`
+
+	CenId *string `type:"string"`
+
+	CenOwnerId *string `type:"string"`
+
+	CenStatus *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateCen) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateCen) GoString() string {
+	return s.String()
+}
+
+// SetCenId sets the CenId field's value.
+func (s *AssociateCen) SetCenId(v string) *AssociateCen {
+	s.CenId = &v
+	return s
+}
+
+// SetCenOwnerId sets the CenOwnerId field's value.
+func (s *AssociateCen) SetCenOwnerId(v string) *AssociateCen {
+	s.CenOwnerId = &v
+	return s
+}
+
+// SetCenStatus sets the CenStatus field's value.
+func (s *AssociateCen) SetCenStatus(v string) *AssociateCen {
+	s.CenStatus = &v
+	return s
+}
+
+type AssociateEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true"`
+
+	PrivateIpAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateEipAddressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssociateEipAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssociateEipAddressInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AssociateEipAddressInput) SetAllocationId(v string) *AssociateEipAddressInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AssociateEipAddressInput) SetInstanceId(v string) *AssociateEipAddressInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *AssociateEipAddressInput) SetInstanceType(v string) *AssociateEipAddressInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *AssociateEipAddressInput) SetPrivateIpAddress(v string) *AssociateEipAddressInput {
+	s.PrivateIpAddress = &v
+	return s
+}
+
+type AssociateEipAddressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateEipAddressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateEipAddressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssociateEipAddressOutput) SetRequestId(v string) *AssociateEipAddressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type AssociateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	InstanceType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssociateHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssociateHaVipInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *AssociateHaVipInput) SetHaVipId(v string) *AssociateHaVipInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AssociateHaVipInput) SetInstanceId(v string) *AssociateHaVipInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *AssociateHaVipInput) SetInstanceType(v string) *AssociateHaVipInput {
+	s.InstanceType = &v
+	return s
+}
+
+type AssociateHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssociateHaVipOutput) SetRequestId(v string) *AssociateHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
+type AssociateRouteTableInput struct {
+	_ struct{} `type:"structure"`
+
+	// RouteTableId is a required field
+	RouteTableId *string `type:"string" required:"true"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s AssociateRouteTableInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateRouteTableInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssociateRouteTableInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssociateRouteTableInput"}
+	if s.RouteTableId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *AssociateRouteTableInput) SetRouteTableId(v string) *AssociateRouteTableInput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *AssociateRouteTableInput) SetSubnetId(v string) *AssociateRouteTableInput {
+	s.SubnetId = &v
+	return s
+}
+
+type AssociateRouteTableOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateRouteTableOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateRouteTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssociateRouteTableOutput) SetRequestId(v string) *AssociateRouteTableOutput {
+	s.RequestId = &v
+	return s
+}
+
+type AssociatedInstance struct {
+	_ struct{} `type:"structure"`
+
+	InstanceID *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociatedInstance) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociatedInstance) GoString() string {
+	return s.String()
+}
+
+// SetInstanceID sets the InstanceID field's value.
+func (s *AssociatedInstance) SetInstanceID(v string) *AssociatedInstance {
+	s.InstanceID = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *AssociatedInstance) SetInstanceType(v string) *AssociatedInstance {
+	s.InstanceType = &v
+	return s
+}
+
+type AttachNetworkInterfaceInput struct {
+	_ struct{} `type:"structure"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s AttachNetworkInterfaceInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttachNetworkInterfaceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AttachNetworkInterfaceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AttachNetworkInterfaceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AttachNetworkInterfaceInput) SetInstanceId(v string) *AttachNetworkInterfaceInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AttachNetworkInterfaceInput) SetNetworkInterfaceId(v string) *AttachNetworkInterfaceInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+type AttachNetworkInterfaceOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AttachNetworkInterfaceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttachNetworkInterfaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AttachNetworkInterfaceOutput) SetRequestId(v string) *AttachNetworkInterfaceOutput {
+	s.RequestId = &v
+	return s
+}
+
+type AuthorizeSecurityGroupEgressInput struct {
+	_ struct{} `type:"structure"`
+
+	// CidrIp is a required field
+	CidrIp *string `type:"string" required:"true"`
+
+	Description *string `type:"string"`
+
+	Policy *string `type:"string"`
+
+	// PortEnd is a required field
+	PortEnd *int64 `type:"integer" required:"true"`
+
+	// PortStart is a required field
+	PortStart *int64 `type:"integer" required:"true"`
+
+	Priority *int64 `type:"integer"`
+
+	// Protocol is a required field
+	Protocol *string `type:"string" required:"true"`
+
+	// SecurityGroupId is a required field
+	SecurityGroupId *string `type:"string" required:"true"`
+
+	SourceGroupId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AuthorizeSecurityGroupEgressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthorizeSecurityGroupEgressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AuthorizeSecurityGroupEgressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AuthorizeSecurityGroupEgressInput"}
+	if s.CidrIp == nil {
+		invalidParams.Add(request.NewErrParamRequired("CidrIp"))
+	}
+	if s.PortEnd == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortEnd"))
+	}
+	if s.PortStart == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortStart"))
+	}
+	if s.Protocol == nil {
+		invalidParams.Add(request.NewErrParamRequired("Protocol"))
+	}
+	if s.SecurityGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCidrIp sets the CidrIp field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetCidrIp(v string) *AuthorizeSecurityGroupEgressInput {
+	s.CidrIp = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetDescription(v string) *AuthorizeSecurityGroupEgressInput {
+	s.Description = &v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetPolicy(v string) *AuthorizeSecurityGroupEgressInput {
+	s.Policy = &v
+	return s
+}
+
+// SetPortEnd sets the PortEnd field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetPortEnd(v int64) *AuthorizeSecurityGroupEgressInput {
+	s.PortEnd = &v
+	return s
+}
+
+// SetPortStart sets the PortStart field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetPortStart(v int64) *AuthorizeSecurityGroupEgressInput {
+	s.PortStart = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetPriority(v int64) *AuthorizeSecurityGroupEgressInput {
+	s.Priority = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetProtocol(v string) *AuthorizeSecurityGroupEgressInput {
+	s.Protocol = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetSecurityGroupId(v string) *AuthorizeSecurityGroupEgressInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSourceGroupId sets the SourceGroupId field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetSourceGroupId(v string) *AuthorizeSecurityGroupEgressInput {
+	s.SourceGroupId = &v
+	return s
+}
+
+type AuthorizeSecurityGroupEgressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AuthorizeSecurityGroupEgressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthorizeSecurityGroupEgressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AuthorizeSecurityGroupEgressOutput) SetRequestId(v string) *AuthorizeSecurityGroupEgressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type AuthorizeSecurityGroupIngressInput struct {
+	_ struct{} `type:"structure"`
+
+	// CidrIp is a required field
+	CidrIp *string `type:"string" required:"true"`
+
+	Description *string `type:"string"`
+
+	Policy *string `type:"string"`
+
+	// PortEnd is a required field
+	PortEnd *int64 `type:"integer" required:"true"`
+
+	// PortStart is a required field
+	PortStart *int64 `type:"integer" required:"true"`
+
+	Priority *int64 `type:"integer"`
+
+	// Protocol is a required field
+	Protocol *string `type:"string" required:"true"`
+
+	// SecurityGroupId is a required field
+	SecurityGroupId *string `type:"string" required:"true"`
+
+	SourceGroupId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AuthorizeSecurityGroupIngressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthorizeSecurityGroupIngressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AuthorizeSecurityGroupIngressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AuthorizeSecurityGroupIngressInput"}
+	if s.CidrIp == nil {
+		invalidParams.Add(request.NewErrParamRequired("CidrIp"))
+	}
+	if s.PortEnd == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortEnd"))
+	}
+	if s.PortStart == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortStart"))
+	}
+	if s.Protocol == nil {
+		invalidParams.Add(request.NewErrParamRequired("Protocol"))
+	}
+	if s.SecurityGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCidrIp sets the CidrIp field's value.
+func (s *AuthorizeSecurityGroupIngressInput) SetCidrIp(v string) *AuthorizeSecurityGroupIngressInput {
+	s.CidrIp = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AuthorizeSecurityGroupIngressInput) SetDescription(v string) *AuthorizeSecurityGroupIngressInput {
+	s.Description = &v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *AuthorizeSecurityGroupIngressInput) SetPolicy(v string) *AuthorizeSecurityGroupIngressInput {
+	s.Policy = &v
+	return s
+}
+
+// SetPortEnd sets the PortEnd field's value.
+func (s *AuthorizeSecurityGroupIngressInput) SetPortEnd(v int64) *AuthorizeSecurityGroupIngressInput {
+	s.PortEnd = &v
+	return s
+}
+
+// SetPortStart sets the PortStart field's value.
+func (s *AuthorizeSecurityGroupIngressInput) SetPortStart(v int64) *AuthorizeSecurityGroupIngressInput {
+	s.PortStart = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *AuthorizeSecurityGroupIngressInput) SetPriority(v int64) *AuthorizeSecurityGroupIngressInput {
+	s.Priority = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *AuthorizeSecurityGroupIngressInput) SetProtocol(v string) *AuthorizeSecurityGroupIngressInput {
+	s.Protocol = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *AuthorizeSecurityGroupIngressInput) SetSecurityGroupId(v string) *AuthorizeSecurityGroupIngressInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSourceGroupId sets the SourceGroupId field's value.
+func (s *AuthorizeSecurityGroupIngressInput) SetSourceGroupId(v string) *AuthorizeSecurityGroupIngressInput {
+	s.SourceGroupId = &v
+	return s
+}
+
+type AuthorizeSecurityGroupIngressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AuthorizeSecurityGroupIngressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AuthorizeSecurityGroupIngressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AuthorizeSecurityGroupIngressOutput) SetRequestId(v string) *AuthorizeSecurityGroupIngressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ConvertEipAddressBillingTypeInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	// BillingType is a required field
+	BillingType *int64 `type:"integer" required:"true"`
+
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s ConvertEipAddressBillingTypeInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertEipAddressBillingTypeInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertEipAddressBillingTypeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertEipAddressBillingTypeInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+	if s.BillingType == nil {
+		invalidParams.Add(request.NewErrParamRequired("BillingType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *ConvertEipAddressBillingTypeInput) SetAllocationId(v string) *ConvertEipAddressBillingTypeInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *ConvertEipAddressBillingTypeInput) SetBandwidth(v int64) *ConvertEipAddressBillingTypeInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *ConvertEipAddressBillingTypeInput) SetBillingType(v int64) *ConvertEipAddressBillingTypeInput {
+	s.BillingType = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *ConvertEipAddressBillingTypeInput) SetPeriod(v int64) *ConvertEipAddressBillingTypeInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *ConvertEipAddressBillingTypeInput) SetPeriodUnit(v int64) *ConvertEipAddressBillingTypeInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type ConvertEipAddressBillingTypeOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertEipAddressBillingTypeOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertEipAddressBillingTypeOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ConvertEipAddressBillingTypeOutput) SetRequestId(v string) *ConvertEipAddressBillingTypeOutput {
+	s.RequestId = &v
+	return s
+}
+
+type CreateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	HaVipName *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateHaVipInput"}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateHaVipInput) SetDescription(v string) *CreateHaVipInput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *CreateHaVipInput) SetHaVipName(v string) *CreateHaVipInput {
+	s.HaVipName = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *CreateHaVipInput) SetIpAddress(v string) *CreateHaVipInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *CreateHaVipInput) SetSubnetId(v string) *CreateHaVipInput {
+	s.SubnetId = &v
+	return s
+}
+
+type CreateHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	HaVipId *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *CreateHaVipOutput) SetHaVipId(v string) *CreateHaVipOutput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *CreateHaVipOutput) SetIpAddress(v string) *CreateHaVipOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateHaVipOutput) SetRequestId(v string) *CreateHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
+type CreateNetworkInterfaceInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	NetworkInterfaceName *string `type:"string"`
+
+	PortSecurityEnabled *bool `type:"boolean"`
+
+	PrimaryIpAddress *string `type:"string"`
+
+	// SecurityGroupIds is a required field
+	SecurityGroupIds []*string `type:"list" required:"true"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateNetworkInterfaceInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateNetworkInterfaceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateNetworkInterfaceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateNetworkInterfaceInput"}
+	if s.SecurityGroupIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateNetworkInterfaceInput) SetDescription(v string) *CreateNetworkInterfaceInput {
+	s.Description = &v
+	return s
+}
+
+// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
+func (s *CreateNetworkInterfaceInput) SetNetworkInterfaceName(v string) *CreateNetworkInterfaceInput {
+	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetPortSecurityEnabled sets the PortSecurityEnabled field's value.
+func (s *CreateNetworkInterfaceInput) SetPortSecurityEnabled(v bool) *CreateNetworkInterfaceInput {
+	s.PortSecurityEnabled = &v
+	return s
+}
+
+// SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
+func (s *CreateNetworkInterfaceInput) SetPrimaryIpAddress(v string) *CreateNetworkInterfaceInput {
+	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *CreateNetworkInterfaceInput) SetSecurityGroupIds(v []*string) *CreateNetworkInterfaceInput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *CreateNetworkInterfaceInput) SetSubnetId(v string) *CreateNetworkInterfaceInput {
+	s.SubnetId = &v
+	return s
+}
+
+type CreateNetworkInterfaceOutput struct {
+	_ struct{} `type:"structure"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateNetworkInterfaceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateNetworkInterfaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *CreateNetworkInterfaceOutput) SetNetworkInterfaceId(v string) *CreateNetworkInterfaceOutput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateNetworkInterfaceOutput) SetRequestId(v string) *CreateNetworkInterfaceOutput {
+	s.RequestId = &v
+	return s
+}
+
+type CreateRouteEntryInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// DestinationCidrBlock is a required field
+	DestinationCidrBlock *string `type:"string" required:"true"`
+
+	// NextHopId is a required field
+	NextHopId *string `type:"string" required:"true"`
+
+	NextHopName *string `type:"string"`
+
+	// NextHopType is a required field
+	NextHopType *string `type:"string" required:"true"`
+
+	RouteEntryName *string `type:"string"`
+
+	// RouteTableId is a required field
+	RouteTableId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateRouteEntryInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateRouteEntryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateRouteEntryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateRouteEntryInput"}
+	if s.DestinationCidrBlock == nil {
+		invalidParams.Add(request.NewErrParamRequired("DestinationCidrBlock"))
+	}
+	if s.NextHopId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NextHopId"))
+	}
+	if s.NextHopType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NextHopType"))
+	}
+	if s.RouteTableId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateRouteEntryInput) SetDescription(v string) *CreateRouteEntryInput {
+	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *CreateRouteEntryInput) SetDestinationCidrBlock(v string) *CreateRouteEntryInput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *CreateRouteEntryInput) SetNextHopId(v string) *CreateRouteEntryInput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopName sets the NextHopName field's value.
+func (s *CreateRouteEntryInput) SetNextHopName(v string) *CreateRouteEntryInput {
+	s.NextHopName = &v
+	return s
+}
+
+// SetNextHopType sets the NextHopType field's value.
+func (s *CreateRouteEntryInput) SetNextHopType(v string) *CreateRouteEntryInput {
+	s.NextHopType = &v
+	return s
+}
+
+// SetRouteEntryName sets the RouteEntryName field's value.
+func (s *CreateRouteEntryInput) SetRouteEntryName(v string) *CreateRouteEntryInput {
+	s.RouteEntryName = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *CreateRouteEntryInput) SetRouteTableId(v string) *CreateRouteEntryInput {
+	s.RouteTableId = &v
+	return s
+}
+
+type CreateRouteEntryOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+
+	RouteEntryId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateRouteEntryOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateRouteEntryOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateRouteEntryOutput) SetRequestId(v string) *CreateRouteEntryOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *CreateRouteEntryOutput) SetRouteEntryId(v string) *CreateRouteEntryOutput {
+	s.RouteEntryId = &v
+	return s
+}
+
+type CreateRouteTableInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	RouteTableName *string `type:"string"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateRouteTableInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateRouteTableInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateRouteTableInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateRouteTableInput"}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateRouteTableInput) SetDescription(v string) *CreateRouteTableInput {
+	s.Description = &v
+	return s
+}
+
+// SetRouteTableName sets the RouteTableName field's value.
+func (s *CreateRouteTableInput) SetRouteTableName(v string) *CreateRouteTableInput {
+	s.RouteTableName = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *CreateRouteTableInput) SetVpcId(v string) *CreateRouteTableInput {
+	s.VpcId = &v
+	return s
+}
+
+type CreateRouteTableOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateRouteTableOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateRouteTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateRouteTableOutput) SetRequestId(v string) *CreateRouteTableOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *CreateRouteTableOutput) SetRouteTableId(v string) *CreateRouteTableOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+type CreateSecurityGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	SecurityGroupName *string `type:"string"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateSecurityGroupInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateSecurityGroupInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateSecurityGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateSecurityGroupInput"}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateSecurityGroupInput) SetDescription(v string) *CreateSecurityGroupInput {
+	s.Description = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *CreateSecurityGroupInput) SetSecurityGroupName(v string) *CreateSecurityGroupInput {
+	s.SecurityGroupName = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *CreateSecurityGroupInput) SetVpcId(v string) *CreateSecurityGroupInput {
+	s.VpcId = &v
+	return s
+}
+
+type CreateSecurityGroupOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+
+	SecurityGroupId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateSecurityGroupOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateSecurityGroupOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateSecurityGroupOutput) SetRequestId(v string) *CreateSecurityGroupOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *CreateSecurityGroupOutput) SetSecurityGroupId(v string) *CreateSecurityGroupOutput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+type CreateSubnetInput struct {
+	_ struct{} `type:"structure"`
+
+	// CidrBlock is a required field
+	CidrBlock *string `type:"string" required:"true"`
+
+	Description *string `type:"string"`
+
+	IPv6CidrBlock *int64 `type:"integer"`
+
+	SubnetName *string `type:"string"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
+
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateSubnetInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateSubnetInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateSubnetInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateSubnetInput"}
+	if s.CidrBlock == nil {
+		invalidParams.Add(request.NewErrParamRequired("CidrBlock"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *CreateSubnetInput) SetCidrBlock(v string) *CreateSubnetInput {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateSubnetInput) SetDescription(v string) *CreateSubnetInput {
+	s.Description = &v
+	return s
+}
+
+// SetIPv6CidrBlock sets the IPv6CidrBlock field's value.
+func (s *CreateSubnetInput) SetIPv6CidrBlock(v int64) *CreateSubnetInput {
+	s.IPv6CidrBlock = &v
+	return s
+}
+
+// SetSubnetName sets the SubnetName field's value.
+func (s *CreateSubnetInput) SetSubnetName(v string) *CreateSubnetInput {
+	s.SubnetName = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *CreateSubnetInput) SetVpcId(v string) *CreateSubnetInput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *CreateSubnetInput) SetZoneId(v string) *CreateSubnetInput {
+	s.ZoneId = &v
+	return s
+}
+
+type CreateSubnetOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateSubnetOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateSubnetOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateSubnetOutput) SetRequestId(v string) *CreateSubnetOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *CreateSubnetOutput) SetSubnetId(v string) *CreateSubnetOutput {
+	s.SubnetId = &v
+	return s
 }
 
 type CreateVpcInput struct {
@@ -437,6 +10433,10 @@ type CreateVpcInput struct {
 	Description *string `type:"string"`
 
 	DnsServers []*string `type:"list"`
+
+	EnableIPv6 *string `type:"string"`
+
+	IPv6CidrBlock *string `type:"string"`
 
 	VpcName *string `type:"string"`
 }
@@ -482,6 +10482,18 @@ func (s *CreateVpcInput) SetDnsServers(v []*string) *CreateVpcInput {
 	return s
 }
 
+// SetEnableIPv6 sets the EnableIPv6 field's value.
+func (s *CreateVpcInput) SetEnableIPv6(v string) *CreateVpcInput {
+	s.EnableIPv6 = &v
+	return s
+}
+
+// SetIPv6CidrBlock sets the IPv6CidrBlock field's value.
+func (s *CreateVpcInput) SetIPv6CidrBlock(v string) *CreateVpcInput {
+	s.IPv6CidrBlock = &v
+	return s
+}
+
 // SetVpcName sets the VpcName field's value.
 func (s *CreateVpcInput) SetVpcName(v string) *CreateVpcInput {
 	s.VpcName = &v
@@ -492,6 +10504,8 @@ type CreateVpcOutput struct {
 	_ struct{} `type:"structure"`
 
 	RequestId *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
 
 	VpcId *string `type:"string"`
 }
@@ -512,8 +10526,5734 @@ func (s *CreateVpcOutput) SetRequestId(v string) *CreateVpcOutput {
 	return s
 }
 
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *CreateVpcOutput) SetRouteTableId(v string) *CreateVpcOutput {
+	s.RouteTableId = &v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *CreateVpcOutput) SetVpcId(v string) *CreateVpcOutput {
 	s.VpcId = &v
+	return s
+}
+
+type DeleteHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteHaVipInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *DeleteHaVipInput) SetHaVipId(v string) *DeleteHaVipInput {
+	s.HaVipId = &v
+	return s
+}
+
+type DeleteHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteHaVipOutput) SetRequestId(v string) *DeleteHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DeleteNetworkInterfaceInput struct {
+	_ struct{} `type:"structure"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteNetworkInterfaceInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteNetworkInterfaceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteNetworkInterfaceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteNetworkInterfaceInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *DeleteNetworkInterfaceInput) SetNetworkInterfaceId(v string) *DeleteNetworkInterfaceInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+type DeleteNetworkInterfaceOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteNetworkInterfaceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteNetworkInterfaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteNetworkInterfaceOutput) SetRequestId(v string) *DeleteNetworkInterfaceOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DeleteRouteEntryInput struct {
+	_ struct{} `type:"structure"`
+
+	// RouteEntryId is a required field
+	RouteEntryId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteRouteEntryInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteRouteEntryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteRouteEntryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteRouteEntryInput"}
+	if s.RouteEntryId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteEntryId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *DeleteRouteEntryInput) SetRouteEntryId(v string) *DeleteRouteEntryInput {
+	s.RouteEntryId = &v
+	return s
+}
+
+type DeleteRouteEntryOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteRouteEntryOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteRouteEntryOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteRouteEntryOutput) SetRequestId(v string) *DeleteRouteEntryOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DeleteRouteTableInput struct {
+	_ struct{} `type:"structure"`
+
+	// RouteTableId is a required field
+	RouteTableId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteRouteTableInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteRouteTableInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteRouteTableInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteRouteTableInput"}
+	if s.RouteTableId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *DeleteRouteTableInput) SetRouteTableId(v string) *DeleteRouteTableInput {
+	s.RouteTableId = &v
+	return s
+}
+
+type DeleteRouteTableOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteRouteTableOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteRouteTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteRouteTableOutput) SetRequestId(v string) *DeleteRouteTableOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DeleteSecurityGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	// SecurityGroupId is a required field
+	SecurityGroupId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteSecurityGroupInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteSecurityGroupInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteSecurityGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteSecurityGroupInput"}
+	if s.SecurityGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *DeleteSecurityGroupInput) SetSecurityGroupId(v string) *DeleteSecurityGroupInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+type DeleteSecurityGroupOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteSecurityGroupOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteSecurityGroupOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteSecurityGroupOutput) SetRequestId(v string) *DeleteSecurityGroupOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DeleteSubnetInput struct {
+	_ struct{} `type:"structure"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteSubnetInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteSubnetInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteSubnetInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteSubnetInput"}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DeleteSubnetInput) SetSubnetId(v string) *DeleteSubnetInput {
+	s.SubnetId = &v
+	return s
+}
+
+type DeleteSubnetOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteSubnetOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteSubnetOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteSubnetOutput) SetRequestId(v string) *DeleteSubnetOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DeleteVpcInput struct {
+	_ struct{} `type:"structure"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteVpcInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteVpcInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteVpcInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteVpcInput"}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DeleteVpcInput) SetVpcId(v string) *DeleteVpcInput {
+	s.VpcId = &v
+	return s
+}
+
+type DeleteVpcOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteVpcOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteVpcOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteVpcOutput) SetRequestId(v string) *DeleteVpcOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DescribeEipAddressAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeEipAddressAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeEipAddressAttributesInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *DescribeEipAddressAttributesInput) SetAllocationId(v string) *DescribeEipAddressAttributesInput {
+	s.AllocationId = &v
+	return s
+}
+
+type DescribeEipAddressAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	AllocationTime *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+
+	ExpiredTime *string `type:"string"`
+
+	ISP *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	LockReason *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetAllocationId(v string) *DescribeEipAddressAttributesOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetAllocationTime sets the AllocationTime field's value.
+func (s *DescribeEipAddressAttributesOutput) SetAllocationTime(v string) *DescribeEipAddressAttributesOutput {
+	s.AllocationTime = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *DescribeEipAddressAttributesOutput) SetBandwidth(v int64) *DescribeEipAddressAttributesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *DescribeEipAddressAttributesOutput) SetBillingType(v int64) *DescribeEipAddressAttributesOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *DescribeEipAddressAttributesOutput) SetBusinessStatus(v string) *DescribeEipAddressAttributesOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *DescribeEipAddressAttributesOutput) SetDeletedTime(v string) *DescribeEipAddressAttributesOutput {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeEipAddressAttributesOutput) SetDescription(v string) *DescribeEipAddressAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *DescribeEipAddressAttributesOutput) SetEipAddress(v string) *DescribeEipAddressAttributesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *DescribeEipAddressAttributesOutput) SetExpiredTime(v string) *DescribeEipAddressAttributesOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *DescribeEipAddressAttributesOutput) SetISP(v string) *DescribeEipAddressAttributesOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetInstanceId(v string) *DescribeEipAddressAttributesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DescribeEipAddressAttributesOutput) SetInstanceType(v string) *DescribeEipAddressAttributesOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *DescribeEipAddressAttributesOutput) SetLockReason(v string) *DescribeEipAddressAttributesOutput {
+	s.LockReason = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DescribeEipAddressAttributesOutput) SetName(v string) *DescribeEipAddressAttributesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *DescribeEipAddressAttributesOutput) SetOverdueTime(v string) *DescribeEipAddressAttributesOutput {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeEipAddressAttributesOutput) SetProjectName(v string) *DescribeEipAddressAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetRequestId(v string) *DescribeEipAddressAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeEipAddressAttributesOutput) SetStatus(v string) *DescribeEipAddressAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DescribeEipAddressAttributesOutput) SetUpdatedAt(v string) *DescribeEipAddressAttributesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type DescribeEipAddressesBillingInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationIds is a required field
+	AllocationIds []*string `type:"list" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressesBillingInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressesBillingInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeEipAddressesBillingInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeEipAddressesBillingInput"}
+	if s.AllocationIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationIds sets the AllocationIds field's value.
+func (s *DescribeEipAddressesBillingInput) SetAllocationIds(v []*string) *DescribeEipAddressesBillingInput {
+	s.AllocationIds = v
+	return s
+}
+
+type DescribeEipAddressesBillingOutput struct {
+	_ struct{} `type:"structure"`
+
+	EipAddresses []*EipAddresse `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressesBillingOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressesBillingOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddresses sets the EipAddresses field's value.
+func (s *DescribeEipAddressesBillingOutput) SetEipAddresses(v []*EipAddresse) *DescribeEipAddressesBillingOutput {
+	s.EipAddresses = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeEipAddressesBillingOutput) SetPageNumber(v int64) *DescribeEipAddressesBillingOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeEipAddressesBillingOutput) SetPageSize(v int64) *DescribeEipAddressesBillingOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeEipAddressesBillingOutput) SetRequestId(v string) *DescribeEipAddressesBillingOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeEipAddressesBillingOutput) SetTotalCount(v int64) *DescribeEipAddressesBillingOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeEipAddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationIds []*string `type:"list"`
+
+	AssociatedInstanceId *string `type:"string"`
+
+	AssociatedInstanceType *string `type:"string"`
+
+	EipAddresses []*EipAddresse `type:"list"`
+
+	ISP *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressesInput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationIds sets the AllocationIds field's value.
+func (s *DescribeEipAddressesInput) SetAllocationIds(v []*string) *DescribeEipAddressesInput {
+	s.AllocationIds = v
+	return s
+}
+
+// SetAssociatedInstanceId sets the AssociatedInstanceId field's value.
+func (s *DescribeEipAddressesInput) SetAssociatedInstanceId(v string) *DescribeEipAddressesInput {
+	s.AssociatedInstanceId = &v
+	return s
+}
+
+// SetAssociatedInstanceType sets the AssociatedInstanceType field's value.
+func (s *DescribeEipAddressesInput) SetAssociatedInstanceType(v string) *DescribeEipAddressesInput {
+	s.AssociatedInstanceType = &v
+	return s
+}
+
+// SetEipAddresses sets the EipAddresses field's value.
+func (s *DescribeEipAddressesInput) SetEipAddresses(v []*EipAddresse) *DescribeEipAddressesInput {
+	s.EipAddresses = v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *DescribeEipAddressesInput) SetISP(v string) *DescribeEipAddressesInput {
+	s.ISP = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DescribeEipAddressesInput) SetName(v string) *DescribeEipAddressesInput {
+	s.Name = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeEipAddressesInput) SetPageNumber(v int64) *DescribeEipAddressesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeEipAddressesInput) SetPageSize(v int64) *DescribeEipAddressesInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeEipAddressesInput) SetStatus(v string) *DescribeEipAddressesInput {
+	s.Status = &v
+	return s
+}
+
+type DescribeEipAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	EipAddresses []*EipAddresse `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddresses sets the EipAddresses field's value.
+func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddresse) *DescribeEipAddressesOutput {
+	s.EipAddresses = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeEipAddressesOutput) SetPageNumber(v int64) *DescribeEipAddressesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeEipAddressesOutput) SetPageSize(v int64) *DescribeEipAddressesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeEipAddressesOutput) SetRequestId(v string) *DescribeEipAddressesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeEipAddressesOutput) SetTotalCount(v int64) *DescribeEipAddressesOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeHaVipAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeHaVipAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHaVipAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeHaVipAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeHaVipAttributesInput"}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeHaVipAttributesInput) SetSubnetId(v string) *DescribeHaVipAttributesInput {
+	s.SubnetId = &v
+	return s
+}
+
+type DescribeHaVipAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociatedEipAddress *string `type:"string"`
+
+	AssociatedInstances []*AssociatedInstance `type:"list"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	HaVipId *string `type:"string"`
+
+	HaVipName *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	MasterInstanceId *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeHaVipAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHaVipAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeHaVipAttributesOutput) SetAccountId(v string) *DescribeHaVipAttributesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociatedEipAddress sets the AssociatedEipAddress field's value.
+func (s *DescribeHaVipAttributesOutput) SetAssociatedEipAddress(v string) *DescribeHaVipAttributesOutput {
+	s.AssociatedEipAddress = &v
+	return s
+}
+
+// SetAssociatedInstances sets the AssociatedInstances field's value.
+func (s *DescribeHaVipAttributesOutput) SetAssociatedInstances(v []*AssociatedInstance) *DescribeHaVipAttributesOutput {
+	s.AssociatedInstances = v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DescribeHaVipAttributesOutput) SetCreatedAt(v string) *DescribeHaVipAttributesOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeHaVipAttributesOutput) SetDescription(v string) *DescribeHaVipAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *DescribeHaVipAttributesOutput) SetHaVipId(v string) *DescribeHaVipAttributesOutput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *DescribeHaVipAttributesOutput) SetHaVipName(v string) *DescribeHaVipAttributesOutput {
+	s.HaVipName = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *DescribeHaVipAttributesOutput) SetIpAddress(v string) *DescribeHaVipAttributesOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetMasterInstanceId sets the MasterInstanceId field's value.
+func (s *DescribeHaVipAttributesOutput) SetMasterInstanceId(v string) *DescribeHaVipAttributesOutput {
+	s.MasterInstanceId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeHaVipAttributesOutput) SetProjectName(v string) *DescribeHaVipAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeHaVipAttributesOutput) SetRequestId(v string) *DescribeHaVipAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeHaVipAttributesOutput) SetStatus(v string) *DescribeHaVipAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeHaVipAttributesOutput) SetSubnetId(v string) *DescribeHaVipAttributesOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DescribeHaVipAttributesOutput) SetUpdatedAt(v string) *DescribeHaVipAttributesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeHaVipAttributesOutput) SetVpcId(v string) *DescribeHaVipAttributesOutput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeHaVipsInput struct {
+	_ struct{} `type:"structure"`
+
+	HaVipId *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeHaVipsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHaVipsInput) GoString() string {
+	return s.String()
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *DescribeHaVipsInput) SetHaVipId(v string) *DescribeHaVipsInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *DescribeHaVipsInput) SetIpAddress(v string) *DescribeHaVipsInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeHaVipsInput) SetPageNumber(v int64) *DescribeHaVipsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeHaVipsInput) SetPageSize(v int64) *DescribeHaVipsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeHaVipsInput) SetStatus(v string) *DescribeHaVipsInput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeHaVipsInput) SetSubnetId(v string) *DescribeHaVipsInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeHaVipsInput) SetVpcId(v string) *DescribeHaVipsInput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeHaVipsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociatedEipAddress *string `type:"string"`
+
+	AssociatedInstances []*AssociatedInstance `type:"list"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	HaVipId *string `type:"string"`
+
+	HaVipName *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	MasterInstanceId *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeHaVipsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHaVipsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeHaVipsOutput) SetAccountId(v string) *DescribeHaVipsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociatedEipAddress sets the AssociatedEipAddress field's value.
+func (s *DescribeHaVipsOutput) SetAssociatedEipAddress(v string) *DescribeHaVipsOutput {
+	s.AssociatedEipAddress = &v
+	return s
+}
+
+// SetAssociatedInstances sets the AssociatedInstances field's value.
+func (s *DescribeHaVipsOutput) SetAssociatedInstances(v []*AssociatedInstance) *DescribeHaVipsOutput {
+	s.AssociatedInstances = v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DescribeHaVipsOutput) SetCreatedAt(v string) *DescribeHaVipsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeHaVipsOutput) SetDescription(v string) *DescribeHaVipsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *DescribeHaVipsOutput) SetHaVipId(v string) *DescribeHaVipsOutput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *DescribeHaVipsOutput) SetHaVipName(v string) *DescribeHaVipsOutput {
+	s.HaVipName = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *DescribeHaVipsOutput) SetIpAddress(v string) *DescribeHaVipsOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetMasterInstanceId sets the MasterInstanceId field's value.
+func (s *DescribeHaVipsOutput) SetMasterInstanceId(v string) *DescribeHaVipsOutput {
+	s.MasterInstanceId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeHaVipsOutput) SetProjectName(v string) *DescribeHaVipsOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeHaVipsOutput) SetRequestId(v string) *DescribeHaVipsOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeHaVipsOutput) SetStatus(v string) *DescribeHaVipsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeHaVipsOutput) SetSubnetId(v string) *DescribeHaVipsOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DescribeHaVipsOutput) SetUpdatedAt(v string) *DescribeHaVipsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeHaVipsOutput) SetVpcId(v string) *DescribeHaVipsOutput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeNetworkInterfaceAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeNetworkInterfaceAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeNetworkInterfaceAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeNetworkInterfaceAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeNetworkInterfaceAttributesInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *DescribeNetworkInterfaceAttributesInput) SetNetworkInterfaceId(v string) *DescribeNetworkInterfaceAttributesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+type DescribeNetworkInterfaceAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociatedElasticIp *string `type:"string"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DeviceId *string `type:"string"`
+
+	IPv6Sets []*string `type:"list"`
+
+	MacAddress *string `type:"string"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	NetworkInterfaceName *string `type:"string"`
+
+	PortSecurityEnabled *bool `type:"boolean"`
+
+	PrimaryIpAddress *string `type:"string"`
+
+	PrivateIpAddresses []*string `type:"list"`
+
+	ProjectName *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeNetworkInterfaceAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeNetworkInterfaceAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetAccountId(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetAssociatedElasticIp(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.AssociatedElasticIp = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetCreatedAt(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetDescription(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDeviceId sets the DeviceId field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetDeviceId(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.DeviceId = &v
+	return s
+}
+
+// SetIPv6Sets sets the IPv6Sets field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetIPv6Sets(v []*string) *DescribeNetworkInterfaceAttributesOutput {
+	s.IPv6Sets = v
+	return s
+}
+
+// SetMacAddress sets the MacAddress field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetMacAddress(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.MacAddress = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetNetworkInterfaceId(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetNetworkInterfaceName(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetPortSecurityEnabled sets the PortSecurityEnabled field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetPortSecurityEnabled(v bool) *DescribeNetworkInterfaceAttributesOutput {
+	s.PortSecurityEnabled = &v
+	return s
+}
+
+// SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetPrimaryIpAddress(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetPrivateIpAddresses sets the PrivateIpAddresses field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetPrivateIpAddresses(v []*string) *DescribeNetworkInterfaceAttributesOutput {
+	s.PrivateIpAddresses = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetProjectName(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetRequestId(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetSecurityGroupIds(v []*string) *DescribeNetworkInterfaceAttributesOutput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetStatus(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetSubnetId(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetType(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.Type = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetUpdatedAt(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetVpcId(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetVpcName(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.VpcName = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetZoneId(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type DescribeNetworkInterfacesInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceId *string `type:"string"`
+
+	NetworkInterfaceIds []*string `type:"list"`
+
+	NetworkInterfaceName *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	PrimaryIpAddresses []*string `type:"list"`
+
+	SecurityGroupId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeNetworkInterfacesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeNetworkInterfacesInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeNetworkInterfacesInput) SetInstanceId(v string) *DescribeNetworkInterfacesInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetNetworkInterfaceIds sets the NetworkInterfaceIds field's value.
+func (s *DescribeNetworkInterfacesInput) SetNetworkInterfaceIds(v []*string) *DescribeNetworkInterfacesInput {
+	s.NetworkInterfaceIds = v
+	return s
+}
+
+// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
+func (s *DescribeNetworkInterfacesInput) SetNetworkInterfaceName(v string) *DescribeNetworkInterfacesInput {
+	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeNetworkInterfacesInput) SetPageNumber(v int64) *DescribeNetworkInterfacesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeNetworkInterfacesInput) SetPageSize(v int64) *DescribeNetworkInterfacesInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetPrimaryIpAddresses sets the PrimaryIpAddresses field's value.
+func (s *DescribeNetworkInterfacesInput) SetPrimaryIpAddresses(v []*string) *DescribeNetworkInterfacesInput {
+	s.PrimaryIpAddresses = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *DescribeNetworkInterfacesInput) SetSecurityGroupId(v string) *DescribeNetworkInterfacesInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeNetworkInterfacesInput) SetStatus(v string) *DescribeNetworkInterfacesInput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeNetworkInterfacesInput) SetSubnetId(v string) *DescribeNetworkInterfacesInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeNetworkInterfacesInput) SetType(v string) *DescribeNetworkInterfacesInput {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeNetworkInterfacesInput) SetVpcId(v string) *DescribeNetworkInterfacesInput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	NetworkInterfaceSets []*NetworkInterfaceSet `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeNetworkInterfacesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetNetworkInterfaceSets sets the NetworkInterfaceSets field's value.
+func (s *DescribeNetworkInterfacesOutput) SetNetworkInterfaceSets(v []*NetworkInterfaceSet) *DescribeNetworkInterfacesOutput {
+	s.NetworkInterfaceSets = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeNetworkInterfacesOutput) SetPageNumber(v int64) *DescribeNetworkInterfacesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeNetworkInterfacesOutput) SetPageSize(v int64) *DescribeNetworkInterfacesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeNetworkInterfacesOutput) SetRequestId(v string) *DescribeNetworkInterfacesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeNetworkInterfacesOutput) SetTotalCount(v int64) *DescribeNetworkInterfacesOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeRouteEntryListInput struct {
+	_ struct{} `type:"structure"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	NextHopType *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RouteEntryId *string `type:"string"`
+
+	RouteEntryName *string `type:"string"`
+
+	RouteEntryType *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeRouteEntryListInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeRouteEntryListInput) GoString() string {
+	return s.String()
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *DescribeRouteEntryListInput) SetDestinationCidrBlock(v string) *DescribeRouteEntryListInput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *DescribeRouteEntryListInput) SetNextHopId(v string) *DescribeRouteEntryListInput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopType sets the NextHopType field's value.
+func (s *DescribeRouteEntryListInput) SetNextHopType(v string) *DescribeRouteEntryListInput {
+	s.NextHopType = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeRouteEntryListInput) SetPageNumber(v int64) *DescribeRouteEntryListInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeRouteEntryListInput) SetPageSize(v int64) *DescribeRouteEntryListInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *DescribeRouteEntryListInput) SetRouteEntryId(v string) *DescribeRouteEntryListInput {
+	s.RouteEntryId = &v
+	return s
+}
+
+// SetRouteEntryName sets the RouteEntryName field's value.
+func (s *DescribeRouteEntryListInput) SetRouteEntryName(v string) *DescribeRouteEntryListInput {
+	s.RouteEntryName = &v
+	return s
+}
+
+// SetRouteEntryType sets the RouteEntryType field's value.
+func (s *DescribeRouteEntryListInput) SetRouteEntryType(v string) *DescribeRouteEntryListInput {
+	s.RouteEntryType = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *DescribeRouteEntryListInput) SetRouteTableId(v string) *DescribeRouteEntryListInput {
+	s.RouteTableId = &v
+	return s
+}
+
+type DescribeRouteEntryListOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	RouteEntries []*RouteEntrie `type:"list"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeRouteEntryListOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeRouteEntryListOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeRouteEntryListOutput) SetPageNumber(v int64) *DescribeRouteEntryListOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeRouteEntryListOutput) SetPageSize(v int64) *DescribeRouteEntryListOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeRouteEntryListOutput) SetRequestId(v string) *DescribeRouteEntryListOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetRouteEntries sets the RouteEntries field's value.
+func (s *DescribeRouteEntryListOutput) SetRouteEntries(v []*RouteEntrie) *DescribeRouteEntryListOutput {
+	s.RouteEntries = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeRouteEntryListOutput) SetTotalCount(v int64) *DescribeRouteEntryListOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeRouteTableListInput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RouteTableId *string `type:"string"`
+
+	RouteTableName *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeRouteTableListInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeRouteTableListInput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeRouteTableListInput) SetPageNumber(v int64) *DescribeRouteTableListInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeRouteTableListInput) SetPageSize(v int64) *DescribeRouteTableListInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *DescribeRouteTableListInput) SetRouteTableId(v string) *DescribeRouteTableListInput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableName sets the RouteTableName field's value.
+func (s *DescribeRouteTableListInput) SetRouteTableName(v string) *DescribeRouteTableListInput {
+	s.RouteTableName = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeRouteTableListInput) SetVpcId(v string) *DescribeRouteTableListInput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeRouteTableListOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	RouterTableList []*RouterTable `type:"list"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeRouteTableListOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeRouteTableListOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeRouteTableListOutput) SetPageNumber(v int64) *DescribeRouteTableListOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeRouteTableListOutput) SetPageSize(v int64) *DescribeRouteTableListOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeRouteTableListOutput) SetRequestId(v string) *DescribeRouteTableListOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetRouterTableList sets the RouterTableList field's value.
+func (s *DescribeRouteTableListOutput) SetRouterTableList(v []*RouterTable) *DescribeRouteTableListOutput {
+	s.RouterTableList = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeRouteTableListOutput) SetTotalCount(v int64) *DescribeRouteTableListOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeSecurityGroupAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Direction *string `type:"string"`
+
+	// SecurityGroupId is a required field
+	SecurityGroupId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeSecurityGroupAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSecurityGroupAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSecurityGroupAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSecurityGroupAttributesInput"}
+	if s.SecurityGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDirection sets the Direction field's value.
+func (s *DescribeSecurityGroupAttributesInput) SetDirection(v string) *DescribeSecurityGroupAttributesInput {
+	s.Direction = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *DescribeSecurityGroupAttributesInput) SetSecurityGroupId(v string) *DescribeSecurityGroupAttributesInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+type DescribeSecurityGroupAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	Permissions []*Permission `type:"list"`
+
+	ProjectName *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	SecurityGroupId *string `type:"string"`
+
+	SecurityGroupName *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeSecurityGroupAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSecurityGroupAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetCreationTime(v string) *DescribeSecurityGroupAttributesOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetDescription(v string) *DescribeSecurityGroupAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetPermissions sets the Permissions field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetPermissions(v []*Permission) *DescribeSecurityGroupAttributesOutput {
+	s.Permissions = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetProjectName(v string) *DescribeSecurityGroupAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetRequestId(v string) *DescribeSecurityGroupAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetSecurityGroupId(v string) *DescribeSecurityGroupAttributesOutput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetSecurityGroupName(v string) *DescribeSecurityGroupAttributesOutput {
+	s.SecurityGroupName = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetType(v string) *DescribeSecurityGroupAttributesOutput {
+	s.Type = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetUpdateTime(v string) *DescribeSecurityGroupAttributesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetVpcId(v string) *DescribeSecurityGroupAttributesOutput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeSecurityGroupsInput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	SecurityGroupNames []*string `type:"list"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeSecurityGroupsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSecurityGroupsInput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeSecurityGroupsInput) SetPageNumber(v int64) *DescribeSecurityGroupsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeSecurityGroupsInput) SetPageSize(v int64) *DescribeSecurityGroupsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *DescribeSecurityGroupsInput) SetSecurityGroupIds(v []*string) *DescribeSecurityGroupsInput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetSecurityGroupNames sets the SecurityGroupNames field's value.
+func (s *DescribeSecurityGroupsInput) SetSecurityGroupNames(v []*string) *DescribeSecurityGroupsInput {
+	s.SecurityGroupNames = v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeSecurityGroupsInput) SetVpcId(v string) *DescribeSecurityGroupsInput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeSecurityGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	SecurityGroups []*SecurityGroup `type:"list"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeSecurityGroupsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSecurityGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeSecurityGroupsOutput) SetPageNumber(v int64) *DescribeSecurityGroupsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeSecurityGroupsOutput) SetPageSize(v int64) *DescribeSecurityGroupsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeSecurityGroupsOutput) SetRequestId(v string) *DescribeSecurityGroupsOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetSecurityGroups sets the SecurityGroups field's value.
+func (s *DescribeSecurityGroupsOutput) SetSecurityGroups(v []*SecurityGroup) *DescribeSecurityGroupsOutput {
+	s.SecurityGroups = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeSecurityGroupsOutput) SetTotalCount(v int64) *DescribeSecurityGroupsOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeSubnetAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeSubnetAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSubnetAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSubnetAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSubnetAttributesInput"}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeSubnetAttributesInput) SetSubnetId(v string) *DescribeSubnetAttributesInput {
+	s.SubnetId = &v
+	return s
+}
+
+type DescribeSubnetAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AvailableIpAddressCount *int64 `type:"integer"`
+
+	CidrBlock *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	IPv6CidrBlock *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	RouteTable *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	SubnetName *string `type:"string"`
+
+	TotalIpv4Count *int64 `type:"integer"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeSubnetAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSubnetAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeSubnetAttributesOutput) SetAccountId(v string) *DescribeSubnetAttributesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAvailableIpAddressCount sets the AvailableIpAddressCount field's value.
+func (s *DescribeSubnetAttributesOutput) SetAvailableIpAddressCount(v int64) *DescribeSubnetAttributesOutput {
+	s.AvailableIpAddressCount = &v
+	return s
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *DescribeSubnetAttributesOutput) SetCidrBlock(v string) *DescribeSubnetAttributesOutput {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *DescribeSubnetAttributesOutput) SetCreationTime(v string) *DescribeSubnetAttributesOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeSubnetAttributesOutput) SetDescription(v string) *DescribeSubnetAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetIPv6CidrBlock sets the IPv6CidrBlock field's value.
+func (s *DescribeSubnetAttributesOutput) SetIPv6CidrBlock(v string) *DescribeSubnetAttributesOutput {
+	s.IPv6CidrBlock = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeSubnetAttributesOutput) SetProjectName(v string) *DescribeSubnetAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeSubnetAttributesOutput) SetRequestId(v string) *DescribeSubnetAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetRouteTable sets the RouteTable field's value.
+func (s *DescribeSubnetAttributesOutput) SetRouteTable(v string) *DescribeSubnetAttributesOutput {
+	s.RouteTable = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeSubnetAttributesOutput) SetStatus(v string) *DescribeSubnetAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeSubnetAttributesOutput) SetSubnetId(v string) *DescribeSubnetAttributesOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetSubnetName sets the SubnetName field's value.
+func (s *DescribeSubnetAttributesOutput) SetSubnetName(v string) *DescribeSubnetAttributesOutput {
+	s.SubnetName = &v
+	return s
+}
+
+// SetTotalIpv4Count sets the TotalIpv4Count field's value.
+func (s *DescribeSubnetAttributesOutput) SetTotalIpv4Count(v int64) *DescribeSubnetAttributesOutput {
+	s.TotalIpv4Count = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DescribeSubnetAttributesOutput) SetUpdateTime(v string) *DescribeSubnetAttributesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeSubnetAttributesOutput) SetVpcId(v string) *DescribeSubnetAttributesOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeSubnetAttributesOutput) SetZoneId(v string) *DescribeSubnetAttributesOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type DescribeSubnetsInput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RouteTableId *string `type:"string"`
+
+	SubnetIds []*string `type:"list"`
+
+	SubnetName *string `type:"string"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeSubnetsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSubnetsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSubnetsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSubnetsInput"}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeSubnetsInput) SetPageNumber(v int64) *DescribeSubnetsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeSubnetsInput) SetPageSize(v int64) *DescribeSubnetsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *DescribeSubnetsInput) SetRouteTableId(v string) *DescribeSubnetsInput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *DescribeSubnetsInput) SetSubnetIds(v []*string) *DescribeSubnetsInput {
+	s.SubnetIds = v
+	return s
+}
+
+// SetSubnetName sets the SubnetName field's value.
+func (s *DescribeSubnetsInput) SetSubnetName(v string) *DescribeSubnetsInput {
+	s.SubnetName = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeSubnetsInput) SetVpcId(v string) *DescribeSubnetsInput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeSubnetsInput) SetZoneId(v string) *DescribeSubnetsInput {
+	s.ZoneId = &v
+	return s
+}
+
+type DescribeSubnetsOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	Subnets []*Subnet `type:"list"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeSubnetsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSubnetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeSubnetsOutput) SetPageNumber(v int64) *DescribeSubnetsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeSubnetsOutput) SetPageSize(v int64) *DescribeSubnetsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeSubnetsOutput) SetRequestId(v string) *DescribeSubnetsOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetSubnets sets the Subnets field's value.
+func (s *DescribeSubnetsOutput) SetSubnets(v []*Subnet) *DescribeSubnetsOutput {
+	s.Subnets = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeSubnetsOutput) SetTotalCount(v int64) *DescribeSubnetsOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeVpcAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeVpcAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpcAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeVpcAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeVpcAttributesInput"}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeVpcAttributesInput) SetVpcId(v string) *DescribeVpcAttributesInput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeVpcAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociateCens []*AssociateCen `type:"list"`
+
+	AuxiliaryCidrBlocks []*string `type:"list"`
+
+	CidrBlock *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DnsServers []*string `type:"list"`
+
+	IPv6CidrBlock *string `type:"string"`
+
+	NatGatewayIds []*string `type:"list"`
+
+	ProjectName *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	RouteTableIds []*string `type:"list"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	Status *string `type:"string"`
+
+	SubnetIds []*string `type:"list"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeVpcAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpcAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeVpcAttributesOutput) SetAccountId(v string) *DescribeVpcAttributesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociateCens sets the AssociateCens field's value.
+func (s *DescribeVpcAttributesOutput) SetAssociateCens(v []*AssociateCen) *DescribeVpcAttributesOutput {
+	s.AssociateCens = v
+	return s
+}
+
+// SetAuxiliaryCidrBlocks sets the AuxiliaryCidrBlocks field's value.
+func (s *DescribeVpcAttributesOutput) SetAuxiliaryCidrBlocks(v []*string) *DescribeVpcAttributesOutput {
+	s.AuxiliaryCidrBlocks = v
+	return s
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *DescribeVpcAttributesOutput) SetCidrBlock(v string) *DescribeVpcAttributesOutput {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *DescribeVpcAttributesOutput) SetCreationTime(v string) *DescribeVpcAttributesOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeVpcAttributesOutput) SetDescription(v string) *DescribeVpcAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDnsServers sets the DnsServers field's value.
+func (s *DescribeVpcAttributesOutput) SetDnsServers(v []*string) *DescribeVpcAttributesOutput {
+	s.DnsServers = v
+	return s
+}
+
+// SetIPv6CidrBlock sets the IPv6CidrBlock field's value.
+func (s *DescribeVpcAttributesOutput) SetIPv6CidrBlock(v string) *DescribeVpcAttributesOutput {
+	s.IPv6CidrBlock = &v
+	return s
+}
+
+// SetNatGatewayIds sets the NatGatewayIds field's value.
+func (s *DescribeVpcAttributesOutput) SetNatGatewayIds(v []*string) *DescribeVpcAttributesOutput {
+	s.NatGatewayIds = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpcAttributesOutput) SetProjectName(v string) *DescribeVpcAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeVpcAttributesOutput) SetRequestId(v string) *DescribeVpcAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetRouteTableIds sets the RouteTableIds field's value.
+func (s *DescribeVpcAttributesOutput) SetRouteTableIds(v []*string) *DescribeVpcAttributesOutput {
+	s.RouteTableIds = v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *DescribeVpcAttributesOutput) SetSecurityGroupIds(v []*string) *DescribeVpcAttributesOutput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpcAttributesOutput) SetStatus(v string) *DescribeVpcAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *DescribeVpcAttributesOutput) SetSubnetIds(v []*string) *DescribeVpcAttributesOutput {
+	s.SubnetIds = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DescribeVpcAttributesOutput) SetUpdateTime(v string) *DescribeVpcAttributesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeVpcAttributesOutput) SetVpcId(v string) *DescribeVpcAttributesOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *DescribeVpcAttributesOutput) SetVpcName(v string) *DescribeVpcAttributesOutput {
+	s.VpcName = &v
+	return s
+}
+
+type DescribeVpcsInput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	VpcIds []*string `type:"list"`
+
+	VpcName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeVpcsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpcsInput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpcsInput) SetPageNumber(v int64) *DescribeVpcsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpcsInput) SetPageSize(v int64) *DescribeVpcsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetVpcIds sets the VpcIds field's value.
+func (s *DescribeVpcsInput) SetVpcIds(v []*string) *DescribeVpcsInput {
+	s.VpcIds = v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *DescribeVpcsInput) SetVpcName(v string) *DescribeVpcsInput {
+	s.VpcName = &v
+	return s
+}
+
+type DescribeVpcsOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+
+	Vpcs []*Vpc `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeVpcsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpcsOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpcsOutput) SetPageNumber(v int64) *DescribeVpcsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpcsOutput) SetPageSize(v int64) *DescribeVpcsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeVpcsOutput) SetRequestId(v string) *DescribeVpcsOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeVpcsOutput) SetTotalCount(v int64) *DescribeVpcsOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetVpcs sets the Vpcs field's value.
+func (s *DescribeVpcsOutput) SetVpcs(v []*Vpc) *DescribeVpcsOutput {
+	s.Vpcs = v
+	return s
+}
+
+type DetachNetworkInterfaceInput struct {
+	_ struct{} `type:"structure"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DetachNetworkInterfaceInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DetachNetworkInterfaceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DetachNetworkInterfaceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DetachNetworkInterfaceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DetachNetworkInterfaceInput) SetInstanceId(v string) *DetachNetworkInterfaceInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *DetachNetworkInterfaceInput) SetNetworkInterfaceId(v string) *DetachNetworkInterfaceInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+type DetachNetworkInterfaceOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DetachNetworkInterfaceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DetachNetworkInterfaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DetachNetworkInterfaceOutput) SetRequestId(v string) *DetachNetworkInterfaceOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DisassociateEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisassociateEipAddressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisassociateEipAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisassociateEipAddressInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *DisassociateEipAddressInput) SetAllocationId(v string) *DisassociateEipAddressInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DisassociateEipAddressInput) SetInstanceId(v string) *DisassociateEipAddressInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DisassociateEipAddressInput) SetInstanceType(v string) *DisassociateEipAddressInput {
+	s.InstanceType = &v
+	return s
+}
+
+type DisassociateEipAddressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisassociateEipAddressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateEipAddressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DisassociateEipAddressOutput) SetRequestId(v string) *DisassociateEipAddressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DisassociateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	InstanceType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisassociateHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisassociateHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisassociateHaVipInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *DisassociateHaVipInput) SetHaVipId(v string) *DisassociateHaVipInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DisassociateHaVipInput) SetInstanceId(v string) *DisassociateHaVipInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DisassociateHaVipInput) SetInstanceType(v string) *DisassociateHaVipInput {
+	s.InstanceType = &v
+	return s
+}
+
+type DisassociateHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisassociateHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DisassociateHaVipOutput) SetRequestId(v string) *DisassociateHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DisassociateRouteTableInput struct {
+	_ struct{} `type:"structure"`
+
+	// RouteTableId is a required field
+	RouteTableId *string `type:"string" required:"true"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DisassociateRouteTableInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateRouteTableInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisassociateRouteTableInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisassociateRouteTableInput"}
+	if s.RouteTableId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *DisassociateRouteTableInput) SetRouteTableId(v string) *DisassociateRouteTableInput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DisassociateRouteTableInput) SetSubnetId(v string) *DisassociateRouteTableInput {
+	s.SubnetId = &v
+	return s
+}
+
+type DisassociateRouteTableOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisassociateRouteTableOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateRouteTableOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DisassociateRouteTableOutput) SetRequestId(v string) *DisassociateRouteTableOutput {
+	s.RequestId = &v
+	return s
+}
+
+type EipAddresse struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	AllocationTime *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+
+	ExpiredTime *string `type:"string"`
+
+	ISP *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	LockReason *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EipAddresse) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipAddresse) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *EipAddresse) SetAllocationId(v string) *EipAddresse {
+	s.AllocationId = &v
+	return s
+}
+
+// SetAllocationTime sets the AllocationTime field's value.
+func (s *EipAddresse) SetAllocationTime(v string) *EipAddresse {
+	s.AllocationTime = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *EipAddresse) SetBandwidth(v int64) *EipAddresse {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *EipAddresse) SetBillingType(v int64) *EipAddresse {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *EipAddresse) SetBusinessStatus(v string) *EipAddresse {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *EipAddresse) SetDeletedTime(v string) *EipAddresse {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *EipAddresse) SetDescription(v string) *EipAddresse {
+	s.Description = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipAddresse) SetEipAddress(v string) *EipAddresse {
+	s.EipAddress = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *EipAddresse) SetExpiredTime(v string) *EipAddresse {
+	s.ExpiredTime = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *EipAddresse) SetISP(v string) *EipAddresse {
+	s.ISP = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *EipAddresse) SetInstanceId(v string) *EipAddresse {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *EipAddresse) SetInstanceType(v string) *EipAddresse {
+	s.InstanceType = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *EipAddresse) SetLockReason(v string) *EipAddresse {
+	s.LockReason = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *EipAddresse) SetName(v string) *EipAddresse {
+	s.Name = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *EipAddresse) SetOverdueTime(v string) *EipAddresse {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *EipAddresse) SetProjectName(v string) *EipAddresse {
+	s.ProjectName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *EipAddresse) SetStatus(v string) *EipAddresse {
+	s.Status = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EipAddresse) SetUpdatedAt(v string) *EipAddresse {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ModifyEipAddressAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	Description *string `type:"string"`
+
+	Name *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyEipAddressAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyEipAddressAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyEipAddressAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyEipAddressAttributesInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *ModifyEipAddressAttributesInput) SetAllocationId(v string) *ModifyEipAddressAttributesInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *ModifyEipAddressAttributesInput) SetBandwidth(v int64) *ModifyEipAddressAttributesInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyEipAddressAttributesInput) SetDescription(v string) *ModifyEipAddressAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ModifyEipAddressAttributesInput) SetName(v string) *ModifyEipAddressAttributesInput {
+	s.Name = &v
+	return s
+}
+
+type ModifyEipAddressAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyEipAddressAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyEipAddressAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyEipAddressAttributesOutput) SetRequestId(v string) *ModifyEipAddressAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifyHaVipAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+
+	HaVipName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyHaVipAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHaVipAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyHaVipAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyHaVipAttributesInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyHaVipAttributesInput) SetDescription(v string) *ModifyHaVipAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *ModifyHaVipAttributesInput) SetHaVipId(v string) *ModifyHaVipAttributesInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *ModifyHaVipAttributesInput) SetHaVipName(v string) *ModifyHaVipAttributesInput {
+	s.HaVipName = &v
+	return s
+}
+
+type ModifyHaVipAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyHaVipAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHaVipAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyHaVipAttributesOutput) SetRequestId(v string) *ModifyHaVipAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifyNetworkInterfaceAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+
+	NetworkInterfaceName *string `type:"string"`
+
+	SecurityGroupIds []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s ModifyNetworkInterfaceAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyNetworkInterfaceAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyNetworkInterfaceAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyNetworkInterfaceAttributesInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyNetworkInterfaceAttributesInput) SetDescription(v string) *ModifyNetworkInterfaceAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *ModifyNetworkInterfaceAttributesInput) SetNetworkInterfaceId(v string) *ModifyNetworkInterfaceAttributesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
+func (s *ModifyNetworkInterfaceAttributesInput) SetNetworkInterfaceName(v string) *ModifyNetworkInterfaceAttributesInput {
+	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *ModifyNetworkInterfaceAttributesInput) SetSecurityGroupIds(v []*string) *ModifyNetworkInterfaceAttributesInput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+type ModifyNetworkInterfaceAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyNetworkInterfaceAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyNetworkInterfaceAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyNetworkInterfaceAttributesOutput) SetRequestId(v string) *ModifyNetworkInterfaceAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifyRouteEntryInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// RouteEntryId is a required field
+	RouteEntryId *string `type:"string" required:"true"`
+
+	RouteEntryName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyRouteEntryInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyRouteEntryInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyRouteEntryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyRouteEntryInput"}
+	if s.RouteEntryId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteEntryId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyRouteEntryInput) SetDescription(v string) *ModifyRouteEntryInput {
+	s.Description = &v
+	return s
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *ModifyRouteEntryInput) SetRouteEntryId(v string) *ModifyRouteEntryInput {
+	s.RouteEntryId = &v
+	return s
+}
+
+// SetRouteEntryName sets the RouteEntryName field's value.
+func (s *ModifyRouteEntryInput) SetRouteEntryName(v string) *ModifyRouteEntryInput {
+	s.RouteEntryName = &v
+	return s
+}
+
+type ModifyRouteEntryOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyRouteEntryOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyRouteEntryOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyRouteEntryOutput) SetRequestId(v string) *ModifyRouteEntryOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifyRouteTableAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// RouteTableId is a required field
+	RouteTableId *string `type:"string" required:"true"`
+
+	RouteTableName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyRouteTableAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyRouteTableAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyRouteTableAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyRouteTableAttributesInput"}
+	if s.RouteTableId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyRouteTableAttributesInput) SetDescription(v string) *ModifyRouteTableAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *ModifyRouteTableAttributesInput) SetRouteTableId(v string) *ModifyRouteTableAttributesInput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableName sets the RouteTableName field's value.
+func (s *ModifyRouteTableAttributesInput) SetRouteTableName(v string) *ModifyRouteTableAttributesInput {
+	s.RouteTableName = &v
+	return s
+}
+
+type ModifyRouteTableAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyRouteTableAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyRouteTableAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyRouteTableAttributesOutput) SetRequestId(v string) *ModifyRouteTableAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifySecurityGroupAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// SecurityGroupId is a required field
+	SecurityGroupId *string `type:"string" required:"true"`
+
+	SecurityGroupName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifySecurityGroupAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifySecurityGroupAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifySecurityGroupAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifySecurityGroupAttributesInput"}
+	if s.SecurityGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifySecurityGroupAttributesInput) SetDescription(v string) *ModifySecurityGroupAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *ModifySecurityGroupAttributesInput) SetSecurityGroupId(v string) *ModifySecurityGroupAttributesInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *ModifySecurityGroupAttributesInput) SetSecurityGroupName(v string) *ModifySecurityGroupAttributesInput {
+	s.SecurityGroupName = &v
+	return s
+}
+
+type ModifySecurityGroupAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifySecurityGroupAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifySecurityGroupAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifySecurityGroupAttributesOutput) SetRequestId(v string) *ModifySecurityGroupAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifySecurityGroupRuleDescriptionsEgressInput struct {
+	_ struct{} `type:"structure"`
+
+	// CidrIp is a required field
+	CidrIp *string `type:"string" required:"true"`
+
+	Description *string `type:"string"`
+
+	Policy *string `type:"string"`
+
+	// PortEnd is a required field
+	PortEnd *int64 `type:"integer" required:"true"`
+
+	// PortStart is a required field
+	PortStart *int64 `type:"integer" required:"true"`
+
+	Priority *int64 `type:"integer"`
+
+	// Protocol is a required field
+	Protocol *string `type:"string" required:"true"`
+
+	// SecurityGroupId is a required field
+	SecurityGroupId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ModifySecurityGroupRuleDescriptionsEgressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifySecurityGroupRuleDescriptionsEgressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifySecurityGroupRuleDescriptionsEgressInput"}
+	if s.CidrIp == nil {
+		invalidParams.Add(request.NewErrParamRequired("CidrIp"))
+	}
+	if s.PortEnd == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortEnd"))
+	}
+	if s.PortStart == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortStart"))
+	}
+	if s.Protocol == nil {
+		invalidParams.Add(request.NewErrParamRequired("Protocol"))
+	}
+	if s.SecurityGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCidrIp sets the CidrIp field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetCidrIp(v string) *ModifySecurityGroupRuleDescriptionsEgressInput {
+	s.CidrIp = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetDescription(v string) *ModifySecurityGroupRuleDescriptionsEgressInput {
+	s.Description = &v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPolicy(v string) *ModifySecurityGroupRuleDescriptionsEgressInput {
+	s.Policy = &v
+	return s
+}
+
+// SetPortEnd sets the PortEnd field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPortEnd(v int64) *ModifySecurityGroupRuleDescriptionsEgressInput {
+	s.PortEnd = &v
+	return s
+}
+
+// SetPortStart sets the PortStart field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPortStart(v int64) *ModifySecurityGroupRuleDescriptionsEgressInput {
+	s.PortStart = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPriority(v int64) *ModifySecurityGroupRuleDescriptionsEgressInput {
+	s.Priority = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetProtocol(v string) *ModifySecurityGroupRuleDescriptionsEgressInput {
+	s.Protocol = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetSecurityGroupId(v string) *ModifySecurityGroupRuleDescriptionsEgressInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+type ModifySecurityGroupRuleDescriptionsEgressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifySecurityGroupRuleDescriptionsEgressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifySecurityGroupRuleDescriptionsEgressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressOutput) SetRequestId(v string) *ModifySecurityGroupRuleDescriptionsEgressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifySecurityGroupRuleDescriptionsIngressInput struct {
+	_ struct{} `type:"structure"`
+
+	// CidrIp is a required field
+	CidrIp *string `type:"string" required:"true"`
+
+	Description *string `type:"string"`
+
+	Policy *string `type:"string"`
+
+	// PortEnd is a required field
+	PortEnd *int64 `type:"integer" required:"true"`
+
+	// PortStart is a required field
+	PortStart *int64 `type:"integer" required:"true"`
+
+	Priority *int64 `type:"integer"`
+
+	// Protocol is a required field
+	Protocol *string `type:"string" required:"true"`
+
+	// SecurityGroupId is a required field
+	SecurityGroupId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ModifySecurityGroupRuleDescriptionsIngressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifySecurityGroupRuleDescriptionsIngressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifySecurityGroupRuleDescriptionsIngressInput"}
+	if s.CidrIp == nil {
+		invalidParams.Add(request.NewErrParamRequired("CidrIp"))
+	}
+	if s.PortEnd == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortEnd"))
+	}
+	if s.PortStart == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortStart"))
+	}
+	if s.Protocol == nil {
+		invalidParams.Add(request.NewErrParamRequired("Protocol"))
+	}
+	if s.SecurityGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCidrIp sets the CidrIp field's value.
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetCidrIp(v string) *ModifySecurityGroupRuleDescriptionsIngressInput {
+	s.CidrIp = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetDescription(v string) *ModifySecurityGroupRuleDescriptionsIngressInput {
+	s.Description = &v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPolicy(v string) *ModifySecurityGroupRuleDescriptionsIngressInput {
+	s.Policy = &v
+	return s
+}
+
+// SetPortEnd sets the PortEnd field's value.
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortEnd(v int64) *ModifySecurityGroupRuleDescriptionsIngressInput {
+	s.PortEnd = &v
+	return s
+}
+
+// SetPortStart sets the PortStart field's value.
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortStart(v int64) *ModifySecurityGroupRuleDescriptionsIngressInput {
+	s.PortStart = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPriority(v int64) *ModifySecurityGroupRuleDescriptionsIngressInput {
+	s.Priority = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetProtocol(v string) *ModifySecurityGroupRuleDescriptionsIngressInput {
+	s.Protocol = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetSecurityGroupId(v string) *ModifySecurityGroupRuleDescriptionsIngressInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+type ModifySecurityGroupRuleDescriptionsIngressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifySecurityGroupRuleDescriptionsIngressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifySecurityGroupRuleDescriptionsIngressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifySecurityGroupRuleDescriptionsIngressOutput) SetRequestId(v string) *ModifySecurityGroupRuleDescriptionsIngressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifySubnetAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	EnableIPv6 *bool `type:"boolean"`
+
+	IPv6CidrBlock *int64 `type:"integer"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+
+	SubnetName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifySubnetAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifySubnetAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifySubnetAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifySubnetAttributesInput"}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifySubnetAttributesInput) SetDescription(v string) *ModifySubnetAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetEnableIPv6 sets the EnableIPv6 field's value.
+func (s *ModifySubnetAttributesInput) SetEnableIPv6(v bool) *ModifySubnetAttributesInput {
+	s.EnableIPv6 = &v
+	return s
+}
+
+// SetIPv6CidrBlock sets the IPv6CidrBlock field's value.
+func (s *ModifySubnetAttributesInput) SetIPv6CidrBlock(v int64) *ModifySubnetAttributesInput {
+	s.IPv6CidrBlock = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *ModifySubnetAttributesInput) SetSubnetId(v string) *ModifySubnetAttributesInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetSubnetName sets the SubnetName field's value.
+func (s *ModifySubnetAttributesInput) SetSubnetName(v string) *ModifySubnetAttributesInput {
+	s.SubnetName = &v
+	return s
+}
+
+type ModifySubnetAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifySubnetAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifySubnetAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifySubnetAttributesOutput) SetRequestId(v string) *ModifySubnetAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifyVpcAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	DnsServers []*string `type:"list"`
+
+	EnableIPv6 *string `type:"string"`
+
+	IPv6CidrBlock *string `type:"string"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
+
+	VpcName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyVpcAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyVpcAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyVpcAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyVpcAttributesInput"}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyVpcAttributesInput) SetDescription(v string) *ModifyVpcAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetDnsServers sets the DnsServers field's value.
+func (s *ModifyVpcAttributesInput) SetDnsServers(v []*string) *ModifyVpcAttributesInput {
+	s.DnsServers = v
+	return s
+}
+
+// SetEnableIPv6 sets the EnableIPv6 field's value.
+func (s *ModifyVpcAttributesInput) SetEnableIPv6(v string) *ModifyVpcAttributesInput {
+	s.EnableIPv6 = &v
+	return s
+}
+
+// SetIPv6CidrBlock sets the IPv6CidrBlock field's value.
+func (s *ModifyVpcAttributesInput) SetIPv6CidrBlock(v string) *ModifyVpcAttributesInput {
+	s.IPv6CidrBlock = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *ModifyVpcAttributesInput) SetVpcId(v string) *ModifyVpcAttributesInput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *ModifyVpcAttributesInput) SetVpcName(v string) *ModifyVpcAttributesInput {
+	s.VpcName = &v
+	return s
+}
+
+type ModifyVpcAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyVpcAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyVpcAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyVpcAttributesOutput) SetRequestId(v string) *ModifyVpcAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type NetworkInterfaceSet struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociatedElasticIp *string `type:"string"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DeviceId *string `type:"string"`
+
+	IPv6Sets []*string `type:"list"`
+
+	MacAddress *string `type:"string"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	NetworkInterfaceName *string `type:"string"`
+
+	PortSecurityEnabled *bool `type:"boolean"`
+
+	PrimaryIpAddress *string `type:"string"`
+
+	PrivateIpAddresses []*string `type:"list"`
+
+	ProjectName *string `type:"string"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s NetworkInterfaceSet) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkInterfaceSet) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *NetworkInterfaceSet) SetAccountId(v string) *NetworkInterfaceSet {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
+func (s *NetworkInterfaceSet) SetAssociatedElasticIp(v string) *NetworkInterfaceSet {
+	s.AssociatedElasticIp = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *NetworkInterfaceSet) SetCreatedAt(v string) *NetworkInterfaceSet {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *NetworkInterfaceSet) SetDescription(v string) *NetworkInterfaceSet {
+	s.Description = &v
+	return s
+}
+
+// SetDeviceId sets the DeviceId field's value.
+func (s *NetworkInterfaceSet) SetDeviceId(v string) *NetworkInterfaceSet {
+	s.DeviceId = &v
+	return s
+}
+
+// SetIPv6Sets sets the IPv6Sets field's value.
+func (s *NetworkInterfaceSet) SetIPv6Sets(v []*string) *NetworkInterfaceSet {
+	s.IPv6Sets = v
+	return s
+}
+
+// SetMacAddress sets the MacAddress field's value.
+func (s *NetworkInterfaceSet) SetMacAddress(v string) *NetworkInterfaceSet {
+	s.MacAddress = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *NetworkInterfaceSet) SetNetworkInterfaceId(v string) *NetworkInterfaceSet {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
+func (s *NetworkInterfaceSet) SetNetworkInterfaceName(v string) *NetworkInterfaceSet {
+	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetPortSecurityEnabled sets the PortSecurityEnabled field's value.
+func (s *NetworkInterfaceSet) SetPortSecurityEnabled(v bool) *NetworkInterfaceSet {
+	s.PortSecurityEnabled = &v
+	return s
+}
+
+// SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
+func (s *NetworkInterfaceSet) SetPrimaryIpAddress(v string) *NetworkInterfaceSet {
+	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetPrivateIpAddresses sets the PrivateIpAddresses field's value.
+func (s *NetworkInterfaceSet) SetPrivateIpAddresses(v []*string) *NetworkInterfaceSet {
+	s.PrivateIpAddresses = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *NetworkInterfaceSet) SetProjectName(v string) *NetworkInterfaceSet {
+	s.ProjectName = &v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *NetworkInterfaceSet) SetSecurityGroupIds(v []*string) *NetworkInterfaceSet {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *NetworkInterfaceSet) SetStatus(v string) *NetworkInterfaceSet {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *NetworkInterfaceSet) SetSubnetId(v string) *NetworkInterfaceSet {
+	s.SubnetId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *NetworkInterfaceSet) SetType(v string) *NetworkInterfaceSet {
+	s.Type = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *NetworkInterfaceSet) SetUpdatedAt(v string) *NetworkInterfaceSet {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *NetworkInterfaceSet) SetVpcId(v string) *NetworkInterfaceSet {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *NetworkInterfaceSet) SetVpcName(v string) *NetworkInterfaceSet {
+	s.VpcName = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *NetworkInterfaceSet) SetZoneId(v string) *NetworkInterfaceSet {
+	s.ZoneId = &v
+	return s
+}
+
+type Permission struct {
+	_ struct{} `type:"structure"`
+
+	CidrIp *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	Direction *string `type:"string"`
+
+	Policy *string `type:"string"`
+
+	PortEnd *int64 `type:"integer"`
+
+	PortStart *int64 `type:"integer"`
+
+	Priority *int64 `type:"integer"`
+
+	Protocol *string `type:"string"`
+
+	SourceGroupId *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Permission) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Permission) GoString() string {
+	return s.String()
+}
+
+// SetCidrIp sets the CidrIp field's value.
+func (s *Permission) SetCidrIp(v string) *Permission {
+	s.CidrIp = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *Permission) SetCreationTime(v string) *Permission {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *Permission) SetDescription(v string) *Permission {
+	s.Description = &v
+	return s
+}
+
+// SetDirection sets the Direction field's value.
+func (s *Permission) SetDirection(v string) *Permission {
+	s.Direction = &v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *Permission) SetPolicy(v string) *Permission {
+	s.Policy = &v
+	return s
+}
+
+// SetPortEnd sets the PortEnd field's value.
+func (s *Permission) SetPortEnd(v int64) *Permission {
+	s.PortEnd = &v
+	return s
+}
+
+// SetPortStart sets the PortStart field's value.
+func (s *Permission) SetPortStart(v int64) *Permission {
+	s.PortStart = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *Permission) SetPriority(v int64) *Permission {
+	s.Priority = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *Permission) SetProtocol(v string) *Permission {
+	s.Protocol = &v
+	return s
+}
+
+// SetSourceGroupId sets the SourceGroupId field's value.
+func (s *Permission) SetSourceGroupId(v string) *Permission {
+	s.SourceGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *Permission) SetUpdateTime(v string) *Permission {
+	s.UpdateTime = &v
+	return s
+}
+
+type ReleaseEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ReleaseEipAddressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReleaseEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ReleaseEipAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ReleaseEipAddressInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *ReleaseEipAddressInput) SetAllocationId(v string) *ReleaseEipAddressInput {
+	s.AllocationId = &v
+	return s
+}
+
+type ReleaseEipAddressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ReleaseEipAddressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReleaseEipAddressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ReleaseEipAddressOutput) SetRequestId(v string) *ReleaseEipAddressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type RenewEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s RenewEipAddressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RenewEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RenewEipAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RenewEipAddressInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *RenewEipAddressInput) SetAllocationId(v string) *RenewEipAddressInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *RenewEipAddressInput) SetPeriod(v int64) *RenewEipAddressInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *RenewEipAddressInput) SetPeriodUnit(v int64) *RenewEipAddressInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type RenewEipAddressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RenewEipAddressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RenewEipAddressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *RenewEipAddressOutput) SetRequestId(v string) *RenewEipAddressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type RevokeSecurityGroupEgressInput struct {
+	_ struct{} `type:"structure"`
+
+	// CidrIp is a required field
+	CidrIp *string `type:"string" required:"true"`
+
+	Description *string `type:"string"`
+
+	Policy *string `type:"string"`
+
+	// PortEnd is a required field
+	PortEnd *int64 `type:"integer" required:"true"`
+
+	// PortStart is a required field
+	PortStart *int64 `type:"integer" required:"true"`
+
+	Priority *int64 `type:"integer"`
+
+	// Protocol is a required field
+	Protocol *string `type:"string" required:"true"`
+
+	// SecurityGroupId is a required field
+	SecurityGroupId *string `type:"string" required:"true"`
+
+	SourceGroupId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RevokeSecurityGroupEgressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RevokeSecurityGroupEgressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RevokeSecurityGroupEgressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RevokeSecurityGroupEgressInput"}
+	if s.CidrIp == nil {
+		invalidParams.Add(request.NewErrParamRequired("CidrIp"))
+	}
+	if s.PortEnd == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortEnd"))
+	}
+	if s.PortStart == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortStart"))
+	}
+	if s.Protocol == nil {
+		invalidParams.Add(request.NewErrParamRequired("Protocol"))
+	}
+	if s.SecurityGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCidrIp sets the CidrIp field's value.
+func (s *RevokeSecurityGroupEgressInput) SetCidrIp(v string) *RevokeSecurityGroupEgressInput {
+	s.CidrIp = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *RevokeSecurityGroupEgressInput) SetDescription(v string) *RevokeSecurityGroupEgressInput {
+	s.Description = &v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *RevokeSecurityGroupEgressInput) SetPolicy(v string) *RevokeSecurityGroupEgressInput {
+	s.Policy = &v
+	return s
+}
+
+// SetPortEnd sets the PortEnd field's value.
+func (s *RevokeSecurityGroupEgressInput) SetPortEnd(v int64) *RevokeSecurityGroupEgressInput {
+	s.PortEnd = &v
+	return s
+}
+
+// SetPortStart sets the PortStart field's value.
+func (s *RevokeSecurityGroupEgressInput) SetPortStart(v int64) *RevokeSecurityGroupEgressInput {
+	s.PortStart = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *RevokeSecurityGroupEgressInput) SetPriority(v int64) *RevokeSecurityGroupEgressInput {
+	s.Priority = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *RevokeSecurityGroupEgressInput) SetProtocol(v string) *RevokeSecurityGroupEgressInput {
+	s.Protocol = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *RevokeSecurityGroupEgressInput) SetSecurityGroupId(v string) *RevokeSecurityGroupEgressInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSourceGroupId sets the SourceGroupId field's value.
+func (s *RevokeSecurityGroupEgressInput) SetSourceGroupId(v string) *RevokeSecurityGroupEgressInput {
+	s.SourceGroupId = &v
+	return s
+}
+
+type RevokeSecurityGroupEgressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RevokeSecurityGroupEgressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RevokeSecurityGroupEgressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *RevokeSecurityGroupEgressOutput) SetRequestId(v string) *RevokeSecurityGroupEgressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type RevokeSecurityGroupIngressInput struct {
+	_ struct{} `type:"structure"`
+
+	// CidrIp is a required field
+	CidrIp *string `type:"string" required:"true"`
+
+	Description *string `type:"string"`
+
+	Policy *string `type:"string"`
+
+	// PortEnd is a required field
+	PortEnd *int64 `type:"integer" required:"true"`
+
+	// PortStart is a required field
+	PortStart *int64 `type:"integer" required:"true"`
+
+	Priority *int64 `type:"integer"`
+
+	// Protocol is a required field
+	Protocol *string `type:"string" required:"true"`
+
+	// SecurityGroupId is a required field
+	SecurityGroupId *string `type:"string" required:"true"`
+
+	SourceGroupId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RevokeSecurityGroupIngressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RevokeSecurityGroupIngressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RevokeSecurityGroupIngressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RevokeSecurityGroupIngressInput"}
+	if s.CidrIp == nil {
+		invalidParams.Add(request.NewErrParamRequired("CidrIp"))
+	}
+	if s.PortEnd == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortEnd"))
+	}
+	if s.PortStart == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortStart"))
+	}
+	if s.Protocol == nil {
+		invalidParams.Add(request.NewErrParamRequired("Protocol"))
+	}
+	if s.SecurityGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCidrIp sets the CidrIp field's value.
+func (s *RevokeSecurityGroupIngressInput) SetCidrIp(v string) *RevokeSecurityGroupIngressInput {
+	s.CidrIp = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *RevokeSecurityGroupIngressInput) SetDescription(v string) *RevokeSecurityGroupIngressInput {
+	s.Description = &v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *RevokeSecurityGroupIngressInput) SetPolicy(v string) *RevokeSecurityGroupIngressInput {
+	s.Policy = &v
+	return s
+}
+
+// SetPortEnd sets the PortEnd field's value.
+func (s *RevokeSecurityGroupIngressInput) SetPortEnd(v int64) *RevokeSecurityGroupIngressInput {
+	s.PortEnd = &v
+	return s
+}
+
+// SetPortStart sets the PortStart field's value.
+func (s *RevokeSecurityGroupIngressInput) SetPortStart(v int64) *RevokeSecurityGroupIngressInput {
+	s.PortStart = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *RevokeSecurityGroupIngressInput) SetPriority(v int64) *RevokeSecurityGroupIngressInput {
+	s.Priority = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *RevokeSecurityGroupIngressInput) SetProtocol(v string) *RevokeSecurityGroupIngressInput {
+	s.Protocol = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *RevokeSecurityGroupIngressInput) SetSecurityGroupId(v string) *RevokeSecurityGroupIngressInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSourceGroupId sets the SourceGroupId field's value.
+func (s *RevokeSecurityGroupIngressInput) SetSourceGroupId(v string) *RevokeSecurityGroupIngressInput {
+	s.SourceGroupId = &v
+	return s
+}
+
+type RevokeSecurityGroupIngressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RevokeSecurityGroupIngressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RevokeSecurityGroupIngressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *RevokeSecurityGroupIngressOutput) SetRequestId(v string) *RevokeSecurityGroupIngressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type RouteEntrie struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	NextHopName *string `type:"string"`
+
+	NextHopType *string `type:"string"`
+
+	RouteEntryId *string `type:"string"`
+
+	RouteEntryName *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RouteEntrie) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RouteEntrie) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *RouteEntrie) SetDescription(v string) *RouteEntrie {
+	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *RouteEntrie) SetDestinationCidrBlock(v string) *RouteEntrie {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *RouteEntrie) SetNextHopId(v string) *RouteEntrie {
+	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopName sets the NextHopName field's value.
+func (s *RouteEntrie) SetNextHopName(v string) *RouteEntrie {
+	s.NextHopName = &v
+	return s
+}
+
+// SetNextHopType sets the NextHopType field's value.
+func (s *RouteEntrie) SetNextHopType(v string) *RouteEntrie {
+	s.NextHopType = &v
+	return s
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *RouteEntrie) SetRouteEntryId(v string) *RouteEntrie {
+	s.RouteEntryId = &v
+	return s
+}
+
+// SetRouteEntryName sets the RouteEntryName field's value.
+func (s *RouteEntrie) SetRouteEntryName(v string) *RouteEntrie {
+	s.RouteEntryName = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteEntrie) SetRouteTableId(v string) *RouteEntrie {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *RouteEntrie) SetStatus(v string) *RouteEntrie {
+	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RouteEntrie) SetType(v string) *RouteEntrie {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RouteEntrie) SetVpcId(v string) *RouteEntrie {
+	s.VpcId = &v
+	return s
+}
+
+type RouteEntry struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	NextHopName *string `type:"string"`
+
+	NextHopType *string `type:"string"`
+
+	RouteEntryId *string `type:"string"`
+
+	RouteEntryName *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RouteEntry) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RouteEntry) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *RouteEntry) SetDescription(v string) *RouteEntry {
+	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *RouteEntry) SetDestinationCidrBlock(v string) *RouteEntry {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *RouteEntry) SetNextHopId(v string) *RouteEntry {
+	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopName sets the NextHopName field's value.
+func (s *RouteEntry) SetNextHopName(v string) *RouteEntry {
+	s.NextHopName = &v
+	return s
+}
+
+// SetNextHopType sets the NextHopType field's value.
+func (s *RouteEntry) SetNextHopType(v string) *RouteEntry {
+	s.NextHopType = &v
+	return s
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *RouteEntry) SetRouteEntryId(v string) *RouteEntry {
+	s.RouteEntryId = &v
+	return s
+}
+
+// SetRouteEntryName sets the RouteEntryName field's value.
+func (s *RouteEntry) SetRouteEntryName(v string) *RouteEntry {
+	s.RouteEntryName = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteEntry) SetRouteTableId(v string) *RouteEntry {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *RouteEntry) SetStatus(v string) *RouteEntry {
+	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RouteEntry) SetType(v string) *RouteEntry {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RouteEntry) SetVpcId(v string) *RouteEntry {
+	s.VpcId = &v
+	return s
+}
+
+type RouterTable struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RouteEntryList []*RouteEntry `type:"list"`
+
+	RouteTableId *string `type:"string"`
+
+	RouteTableName *string `type:"string"`
+
+	RouteTableType *string `type:"string"`
+
+	SubnetIds []*string `type:"list"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RouterTable) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RouterTable) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *RouterTable) SetAccountId(v string) *RouterTable {
+	s.AccountId = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *RouterTable) SetCreationTime(v string) *RouterTable {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *RouterTable) SetDescription(v string) *RouterTable {
+	s.Description = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *RouterTable) SetProjectName(v string) *RouterTable {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRouteEntryList sets the RouteEntryList field's value.
+func (s *RouterTable) SetRouteEntryList(v []*RouteEntry) *RouterTable {
+	s.RouteEntryList = v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouterTable) SetRouteTableId(v string) *RouterTable {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableName sets the RouteTableName field's value.
+func (s *RouterTable) SetRouteTableName(v string) *RouterTable {
+	s.RouteTableName = &v
+	return s
+}
+
+// SetRouteTableType sets the RouteTableType field's value.
+func (s *RouterTable) SetRouteTableType(v string) *RouterTable {
+	s.RouteTableType = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *RouterTable) SetSubnetIds(v []*string) *RouterTable {
+	s.SubnetIds = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *RouterTable) SetUpdateTime(v string) *RouterTable {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RouterTable) SetVpcId(v string) *RouterTable {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *RouterTable) SetVpcName(v string) *RouterTable {
+	s.VpcName = &v
+	return s
+}
+
+type SecurityGroup struct {
+	_ struct{} `type:"structure"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	SecurityGroupId *string `type:"string"`
+
+	SecurityGroupName *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SecurityGroup) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroup) GoString() string {
+	return s.String()
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *SecurityGroup) SetCreationTime(v string) *SecurityGroup {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SecurityGroup) SetDescription(v string) *SecurityGroup {
+	s.Description = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *SecurityGroup) SetProjectName(v string) *SecurityGroup {
+	s.ProjectName = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroup) SetSecurityGroupId(v string) *SecurityGroup {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroup) SetSecurityGroupName(v string) *SecurityGroup {
+	s.SecurityGroupName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SecurityGroup) SetStatus(v string) *SecurityGroup {
+	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SecurityGroup) SetType(v string) *SecurityGroup {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *SecurityGroup) SetVpcId(v string) *SecurityGroup {
+	s.VpcId = &v
+	return s
+}
+
+type SetEipAddressRenewalInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+
+	RemainRenewTimes *int64 `type:"integer"`
+
+	RenewPeriodTimes *int64 `type:"integer"`
+
+	// RenewType is a required field
+	RenewType *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s SetEipAddressRenewalInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetEipAddressRenewalInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SetEipAddressRenewalInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SetEipAddressRenewalInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+	if s.RenewType == nil {
+		invalidParams.Add(request.NewErrParamRequired("RenewType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *SetEipAddressRenewalInput) SetAllocationId(v string) *SetEipAddressRenewalInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetRemainRenewTimes sets the RemainRenewTimes field's value.
+func (s *SetEipAddressRenewalInput) SetRemainRenewTimes(v int64) *SetEipAddressRenewalInput {
+	s.RemainRenewTimes = &v
+	return s
+}
+
+// SetRenewPeriodTimes sets the RenewPeriodTimes field's value.
+func (s *SetEipAddressRenewalInput) SetRenewPeriodTimes(v int64) *SetEipAddressRenewalInput {
+	s.RenewPeriodTimes = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *SetEipAddressRenewalInput) SetRenewType(v int64) *SetEipAddressRenewalInput {
+	s.RenewType = &v
+	return s
+}
+
+type SetEipAddressRenewalOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SetEipAddressRenewalOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetEipAddressRenewalOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *SetEipAddressRenewalOutput) SetRequestId(v string) *SetEipAddressRenewalOutput {
+	s.RequestId = &v
+	return s
+}
+
+type Subnet struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AvailableIpAddressCount *int64 `type:"integer"`
+
+	CidrBlock *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	IPv6CidrBlock *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RouteTable *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	SubnetName *string `type:"string"`
+
+	TotalIpv4Count *int64 `type:"integer"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Subnet) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Subnet) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *Subnet) SetAccountId(v string) *Subnet {
+	s.AccountId = &v
+	return s
+}
+
+// SetAvailableIpAddressCount sets the AvailableIpAddressCount field's value.
+func (s *Subnet) SetAvailableIpAddressCount(v int64) *Subnet {
+	s.AvailableIpAddressCount = &v
+	return s
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *Subnet) SetCidrBlock(v string) *Subnet {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *Subnet) SetCreationTime(v string) *Subnet {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *Subnet) SetDescription(v string) *Subnet {
+	s.Description = &v
+	return s
+}
+
+// SetIPv6CidrBlock sets the IPv6CidrBlock field's value.
+func (s *Subnet) SetIPv6CidrBlock(v string) *Subnet {
+	s.IPv6CidrBlock = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *Subnet) SetProjectName(v string) *Subnet {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRouteTable sets the RouteTable field's value.
+func (s *Subnet) SetRouteTable(v string) *Subnet {
+	s.RouteTable = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *Subnet) SetStatus(v string) *Subnet {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *Subnet) SetSubnetId(v string) *Subnet {
+	s.SubnetId = &v
+	return s
+}
+
+// SetSubnetName sets the SubnetName field's value.
+func (s *Subnet) SetSubnetName(v string) *Subnet {
+	s.SubnetName = &v
+	return s
+}
+
+// SetTotalIpv4Count sets the TotalIpv4Count field's value.
+func (s *Subnet) SetTotalIpv4Count(v int64) *Subnet {
+	s.TotalIpv4Count = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *Subnet) SetUpdateTime(v string) *Subnet {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *Subnet) SetVpcId(v string) *Subnet {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *Subnet) SetZoneId(v string) *Subnet {
+	s.ZoneId = &v
+	return s
+}
+
+type UnassignAuxiliaryCidrBlocksInput struct {
+	_ struct{} `type:"structure"`
+
+	AuxiliaryCidrBlocks []*string `type:"list"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s UnassignAuxiliaryCidrBlocksInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignAuxiliaryCidrBlocksInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UnassignAuxiliaryCidrBlocksInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UnassignAuxiliaryCidrBlocksInput"}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAuxiliaryCidrBlocks sets the AuxiliaryCidrBlocks field's value.
+func (s *UnassignAuxiliaryCidrBlocksInput) SetAuxiliaryCidrBlocks(v []*string) *UnassignAuxiliaryCidrBlocksInput {
+	s.AuxiliaryCidrBlocks = v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *UnassignAuxiliaryCidrBlocksInput) SetVpcId(v string) *UnassignAuxiliaryCidrBlocksInput {
+	s.VpcId = &v
+	return s
+}
+
+type UnassignAuxiliaryCidrBlocksOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s UnassignAuxiliaryCidrBlocksOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignAuxiliaryCidrBlocksOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *UnassignAuxiliaryCidrBlocksOutput) SetRequestId(v string) *UnassignAuxiliaryCidrBlocksOutput {
+	s.RequestId = &v
+	return s
+}
+
+type UnassignIPv6AddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	// IPv6Address is a required field
+	IPv6Address []*string `type:"list" required:"true"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s UnassignIPv6AddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignIPv6AddressesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UnassignIPv6AddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UnassignIPv6AddressesInput"}
+	if s.IPv6Address == nil {
+		invalidParams.Add(request.NewErrParamRequired("IPv6Address"))
+	}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetIPv6Address sets the IPv6Address field's value.
+func (s *UnassignIPv6AddressesInput) SetIPv6Address(v []*string) *UnassignIPv6AddressesInput {
+	s.IPv6Address = v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *UnassignIPv6AddressesInput) SetNetworkInterfaceId(v string) *UnassignIPv6AddressesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+type UnassignIPv6AddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s UnassignIPv6AddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignIPv6AddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *UnassignIPv6AddressesOutput) SetRequestId(v string) *UnassignIPv6AddressesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type UnassignPrivateIpAddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+
+	PrivateIpAddress []*string `type:"list"`
+
+	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s UnassignPrivateIpAddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignPrivateIpAddressesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UnassignPrivateIpAddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UnassignPrivateIpAddressesInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *UnassignPrivateIpAddressesInput) SetNetworkInterfaceId(v string) *UnassignPrivateIpAddressesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *UnassignPrivateIpAddressesInput) SetPrivateIpAddress(v []*string) *UnassignPrivateIpAddressesInput {
+	s.PrivateIpAddress = v
+	return s
+}
+
+// SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
+func (s *UnassignPrivateIpAddressesInput) SetSecondaryPrivateIpAddressCount(v int64) *UnassignPrivateIpAddressesInput {
+	s.SecondaryPrivateIpAddressCount = &v
+	return s
+}
+
+type UnassignPrivateIpAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s UnassignPrivateIpAddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignPrivateIpAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *UnassignPrivateIpAddressesOutput) SetRequestId(v string) *UnassignPrivateIpAddressesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type Vpc struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociateCens []*AssociateCen `type:"list"`
+
+	AuxiliaryCidrBlocks []*string `type:"list"`
+
+	CidrBlock *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DnsServers []*string `type:"list"`
+
+	IPv6CidrBlock *string `type:"string"`
+
+	NatGatewayIds []*string `type:"list"`
+
+	ProjectName *string `type:"string"`
+
+	RouteTableIds []*string `type:"list"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	Status *string `type:"string"`
+
+	SubnetIds []*string `type:"list"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Vpc) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Vpc) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *Vpc) SetAccountId(v string) *Vpc {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociateCens sets the AssociateCens field's value.
+func (s *Vpc) SetAssociateCens(v []*AssociateCen) *Vpc {
+	s.AssociateCens = v
+	return s
+}
+
+// SetAuxiliaryCidrBlocks sets the AuxiliaryCidrBlocks field's value.
+func (s *Vpc) SetAuxiliaryCidrBlocks(v []*string) *Vpc {
+	s.AuxiliaryCidrBlocks = v
+	return s
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *Vpc) SetCidrBlock(v string) *Vpc {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *Vpc) SetCreationTime(v string) *Vpc {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *Vpc) SetDescription(v string) *Vpc {
+	s.Description = &v
+	return s
+}
+
+// SetDnsServers sets the DnsServers field's value.
+func (s *Vpc) SetDnsServers(v []*string) *Vpc {
+	s.DnsServers = v
+	return s
+}
+
+// SetIPv6CidrBlock sets the IPv6CidrBlock field's value.
+func (s *Vpc) SetIPv6CidrBlock(v string) *Vpc {
+	s.IPv6CidrBlock = &v
+	return s
+}
+
+// SetNatGatewayIds sets the NatGatewayIds field's value.
+func (s *Vpc) SetNatGatewayIds(v []*string) *Vpc {
+	s.NatGatewayIds = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *Vpc) SetProjectName(v string) *Vpc {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRouteTableIds sets the RouteTableIds field's value.
+func (s *Vpc) SetRouteTableIds(v []*string) *Vpc {
+	s.RouteTableIds = v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *Vpc) SetSecurityGroupIds(v []*string) *Vpc {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *Vpc) SetStatus(v string) *Vpc {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *Vpc) SetSubnetIds(v []*string) *Vpc {
+	s.SubnetIds = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *Vpc) SetUpdateTime(v string) *Vpc {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *Vpc) SetVpcId(v string) *Vpc {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *Vpc) SetVpcName(v string) *Vpc {
+	s.VpcName = &v
 	return s
 }

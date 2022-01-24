@@ -13,8 +13,8 @@ import (
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
 )
 
-// VpcAPI provides an interface to enable mocking the
-// vpc.Vpc service client's API operation,
+// VpcSdkAPI provides an interface to enable mocking the
+// vpc.VpcSdk service client's API operation,
 // paginators, and waiters. This make unit testing your code that calls out
 // to the SDK's service client's calls easier.
 //
@@ -24,8 +24,8 @@ import (
 //
 //    // myFunc uses an SDK service client to make a request to
 //    // vpc.
-//    func myFunc(svc VpcAPI) bool {
-//        // Make svc.CreateVpc request
+//    func myFunc(svc VpcSdkAPI) bool {
+//        // Make svc.AllocateEipAddress request
 //    }
 //
 //    func main() {
@@ -38,16 +38,16 @@ import (
 // In your _test.go file:
 //
 //    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockVpcClient struct {
-//        VpcAPI
+//    type mockVpcSdkClient struct {
+//        VpcSdkAPI
 //    }
-//    func (m *mockVpcClient) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
+//    func (m *mockVpcSdkClient) AllocateEipAddress(input *AllocateEipAddressInput) (*AllocateEipAddressOutput, error) {
 //        // mock response/functionality
 //    }
 //
 //    func TestMyFunc(t *testing.T) {
 //        // Setup Test
-//        mockSvc := &mockVpcClient{}
+//        mockSvc := &mockVpcSdkClient{}
 //
 //        myfunc(mockSvc)
 //
@@ -58,7 +58,143 @@ import (
 // when the service model is updated and adds new API operations, paginators,
 // and waiters. Its suggested to use the pattern above for testing, or using
 // tooling to generate mocks to satisfy the interfaces.
-type VpcAPI interface {
+type VpcSdkAPI interface {
+	AllocateEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AllocateEipAddressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AllocateEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AllocateEipAddress(*AllocateEipAddressInput) (*AllocateEipAddressOutput, error)
+	AllocateEipAddressWithContext(volcstack.Context, *AllocateEipAddressInput, ...request.Option) (*AllocateEipAddressOutput, error)
+	AllocateEipAddressRequest(*AllocateEipAddressInput) (*request.Request, *AllocateEipAddressOutput)
+
+	AssignAuxiliaryCidrBlocksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssignAuxiliaryCidrBlocksCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssignAuxiliaryCidrBlocksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssignAuxiliaryCidrBlocks(*AssignAuxiliaryCidrBlocksInput) (*AssignAuxiliaryCidrBlocksOutput, error)
+	AssignAuxiliaryCidrBlocksWithContext(volcstack.Context, *AssignAuxiliaryCidrBlocksInput, ...request.Option) (*AssignAuxiliaryCidrBlocksOutput, error)
+	AssignAuxiliaryCidrBlocksRequest(*AssignAuxiliaryCidrBlocksInput) (*request.Request, *AssignAuxiliaryCidrBlocksOutput)
+
+	AssignIPv6AddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssignIPv6AddressesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssignIPv6AddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssignIPv6Addresses(*AssignIPv6AddressesInput) (*AssignIPv6AddressesOutput, error)
+	AssignIPv6AddressesWithContext(volcstack.Context, *AssignIPv6AddressesInput, ...request.Option) (*AssignIPv6AddressesOutput, error)
+	AssignIPv6AddressesRequest(*AssignIPv6AddressesInput) (*request.Request, *AssignIPv6AddressesOutput)
+
+	AssignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssignPrivateIpAddressesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssignPrivateIpAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssignPrivateIpAddresses(*AssignPrivateIpAddressesInput) (*AssignPrivateIpAddressesOutput, error)
+	AssignPrivateIpAddressesWithContext(volcstack.Context, *AssignPrivateIpAddressesInput, ...request.Option) (*AssignPrivateIpAddressesOutput, error)
+	AssignPrivateIpAddressesRequest(*AssignPrivateIpAddressesInput) (*request.Request, *AssignPrivateIpAddressesOutput)
+
+	AssociateEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateEipAddressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateEipAddress(*AssociateEipAddressInput) (*AssociateEipAddressOutput, error)
+	AssociateEipAddressWithContext(volcstack.Context, *AssociateEipAddressInput, ...request.Option) (*AssociateEipAddressOutput, error)
+	AssociateEipAddressRequest(*AssociateEipAddressInput) (*request.Request, *AssociateEipAddressOutput)
+
+	AssociateHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateHaVipCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateHaVip(*AssociateHaVipInput) (*AssociateHaVipOutput, error)
+	AssociateHaVipWithContext(volcstack.Context, *AssociateHaVipInput, ...request.Option) (*AssociateHaVipOutput, error)
+	AssociateHaVipRequest(*AssociateHaVipInput) (*request.Request, *AssociateHaVipOutput)
+
+	AssociateRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateRouteTableCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateRouteTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateRouteTable(*AssociateRouteTableInput) (*AssociateRouteTableOutput, error)
+	AssociateRouteTableWithContext(volcstack.Context, *AssociateRouteTableInput, ...request.Option) (*AssociateRouteTableOutput, error)
+	AssociateRouteTableRequest(*AssociateRouteTableInput) (*request.Request, *AssociateRouteTableOutput)
+
+	AttachNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AttachNetworkInterfaceCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AttachNetworkInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AttachNetworkInterface(*AttachNetworkInterfaceInput) (*AttachNetworkInterfaceOutput, error)
+	AttachNetworkInterfaceWithContext(volcstack.Context, *AttachNetworkInterfaceInput, ...request.Option) (*AttachNetworkInterfaceOutput, error)
+	AttachNetworkInterfaceRequest(*AttachNetworkInterfaceInput) (*request.Request, *AttachNetworkInterfaceOutput)
+
+	AuthorizeSecurityGroupEgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AuthorizeSecurityGroupEgressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AuthorizeSecurityGroupEgressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AuthorizeSecurityGroupEgress(*AuthorizeSecurityGroupEgressInput) (*AuthorizeSecurityGroupEgressOutput, error)
+	AuthorizeSecurityGroupEgressWithContext(volcstack.Context, *AuthorizeSecurityGroupEgressInput, ...request.Option) (*AuthorizeSecurityGroupEgressOutput, error)
+	AuthorizeSecurityGroupEgressRequest(*AuthorizeSecurityGroupEgressInput) (*request.Request, *AuthorizeSecurityGroupEgressOutput)
+
+	AuthorizeSecurityGroupIngressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AuthorizeSecurityGroupIngressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AuthorizeSecurityGroupIngressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AuthorizeSecurityGroupIngress(*AuthorizeSecurityGroupIngressInput) (*AuthorizeSecurityGroupIngressOutput, error)
+	AuthorizeSecurityGroupIngressWithContext(volcstack.Context, *AuthorizeSecurityGroupIngressInput, ...request.Option) (*AuthorizeSecurityGroupIngressOutput, error)
+	AuthorizeSecurityGroupIngressRequest(*AuthorizeSecurityGroupIngressInput) (*request.Request, *AuthorizeSecurityGroupIngressOutput)
+
+	ConvertEipAddressBillingTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ConvertEipAddressBillingTypeCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ConvertEipAddressBillingTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ConvertEipAddressBillingType(*ConvertEipAddressBillingTypeInput) (*ConvertEipAddressBillingTypeOutput, error)
+	ConvertEipAddressBillingTypeWithContext(volcstack.Context, *ConvertEipAddressBillingTypeInput, ...request.Option) (*ConvertEipAddressBillingTypeOutput, error)
+	ConvertEipAddressBillingTypeRequest(*ConvertEipAddressBillingTypeInput) (*request.Request, *ConvertEipAddressBillingTypeOutput)
+
+	CreateHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateHaVipCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateHaVip(*CreateHaVipInput) (*CreateHaVipOutput, error)
+	CreateHaVipWithContext(volcstack.Context, *CreateHaVipInput, ...request.Option) (*CreateHaVipOutput, error)
+	CreateHaVipRequest(*CreateHaVipInput) (*request.Request, *CreateHaVipOutput)
+
+	CreateNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNetworkInterfaceCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNetworkInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNetworkInterface(*CreateNetworkInterfaceInput) (*CreateNetworkInterfaceOutput, error)
+	CreateNetworkInterfaceWithContext(volcstack.Context, *CreateNetworkInterfaceInput, ...request.Option) (*CreateNetworkInterfaceOutput, error)
+	CreateNetworkInterfaceRequest(*CreateNetworkInterfaceInput) (*request.Request, *CreateNetworkInterfaceOutput)
+
+	CreateRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRouteEntryCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRouteEntry(*CreateRouteEntryInput) (*CreateRouteEntryOutput, error)
+	CreateRouteEntryWithContext(volcstack.Context, *CreateRouteEntryInput, ...request.Option) (*CreateRouteEntryOutput, error)
+	CreateRouteEntryRequest(*CreateRouteEntryInput) (*request.Request, *CreateRouteEntryOutput)
+
+	CreateRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRouteTableCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRouteTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRouteTable(*CreateRouteTableInput) (*CreateRouteTableOutput, error)
+	CreateRouteTableWithContext(volcstack.Context, *CreateRouteTableInput, ...request.Option) (*CreateRouteTableOutput, error)
+	CreateRouteTableRequest(*CreateRouteTableInput) (*request.Request, *CreateRouteTableOutput)
+
+	CreateSecurityGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSecurityGroupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSecurityGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSecurityGroup(*CreateSecurityGroupInput) (*CreateSecurityGroupOutput, error)
+	CreateSecurityGroupWithContext(volcstack.Context, *CreateSecurityGroupInput, ...request.Option) (*CreateSecurityGroupOutput, error)
+	CreateSecurityGroupRequest(*CreateSecurityGroupInput) (*request.Request, *CreateSecurityGroupOutput)
+
+	CreateSubnetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSubnetCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSubnetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSubnet(*CreateSubnetInput) (*CreateSubnetOutput, error)
+	CreateSubnetWithContext(volcstack.Context, *CreateSubnetInput, ...request.Option) (*CreateSubnetOutput, error)
+	CreateSubnetRequest(*CreateSubnetInput) (*request.Request, *CreateSubnetOutput)
+
 	CreateVpcCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateVpcCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateVpcCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -67,21 +203,357 @@ type VpcAPI interface {
 	CreateVpcWithContext(volcstack.Context, *CreateVpcInput, ...request.Option) (*CreateVpcOutput, error)
 	CreateVpcRequest(*CreateVpcInput) (*request.Request, *CreateVpcOutput)
 
+	DeleteHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteHaVipCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteHaVip(*DeleteHaVipInput) (*DeleteHaVipOutput, error)
+	DeleteHaVipWithContext(volcstack.Context, *DeleteHaVipInput, ...request.Option) (*DeleteHaVipOutput, error)
+	DeleteHaVipRequest(*DeleteHaVipInput) (*request.Request, *DeleteHaVipOutput)
+
+	DeleteNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNetworkInterfaceCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNetworkInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNetworkInterface(*DeleteNetworkInterfaceInput) (*DeleteNetworkInterfaceOutput, error)
+	DeleteNetworkInterfaceWithContext(volcstack.Context, *DeleteNetworkInterfaceInput, ...request.Option) (*DeleteNetworkInterfaceOutput, error)
+	DeleteNetworkInterfaceRequest(*DeleteNetworkInterfaceInput) (*request.Request, *DeleteNetworkInterfaceOutput)
+
+	DeleteRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRouteEntryCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRouteEntry(*DeleteRouteEntryInput) (*DeleteRouteEntryOutput, error)
+	DeleteRouteEntryWithContext(volcstack.Context, *DeleteRouteEntryInput, ...request.Option) (*DeleteRouteEntryOutput, error)
+	DeleteRouteEntryRequest(*DeleteRouteEntryInput) (*request.Request, *DeleteRouteEntryOutput)
+
+	DeleteRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRouteTableCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRouteTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRouteTable(*DeleteRouteTableInput) (*DeleteRouteTableOutput, error)
+	DeleteRouteTableWithContext(volcstack.Context, *DeleteRouteTableInput, ...request.Option) (*DeleteRouteTableOutput, error)
+	DeleteRouteTableRequest(*DeleteRouteTableInput) (*request.Request, *DeleteRouteTableOutput)
+
+	DeleteSecurityGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSecurityGroupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSecurityGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSecurityGroup(*DeleteSecurityGroupInput) (*DeleteSecurityGroupOutput, error)
+	DeleteSecurityGroupWithContext(volcstack.Context, *DeleteSecurityGroupInput, ...request.Option) (*DeleteSecurityGroupOutput, error)
+	DeleteSecurityGroupRequest(*DeleteSecurityGroupInput) (*request.Request, *DeleteSecurityGroupOutput)
+
+	DeleteSubnetCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSubnetCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSubnetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSubnet(*DeleteSubnetInput) (*DeleteSubnetOutput, error)
+	DeleteSubnetWithContext(volcstack.Context, *DeleteSubnetInput, ...request.Option) (*DeleteSubnetOutput, error)
+	DeleteSubnetRequest(*DeleteSubnetInput) (*request.Request, *DeleteSubnetOutput)
+
 	DeleteVpcCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVpcCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteVpcCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVpc(*DeleteVpcInput) (*DeleteVpcOutput, error)
+	DeleteVpcWithContext(volcstack.Context, *DeleteVpcInput, ...request.Option) (*DeleteVpcOutput, error)
+	DeleteVpcRequest(*DeleteVpcInput) (*request.Request, *DeleteVpcOutput)
+
+	DescribeEipAddressAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEipAddressAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEipAddressAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEipAddressAttributes(*DescribeEipAddressAttributesInput) (*DescribeEipAddressAttributesOutput, error)
+	DescribeEipAddressAttributesWithContext(volcstack.Context, *DescribeEipAddressAttributesInput, ...request.Option) (*DescribeEipAddressAttributesOutput, error)
+	DescribeEipAddressAttributesRequest(*DescribeEipAddressAttributesInput) (*request.Request, *DescribeEipAddressAttributesOutput)
+
+	DescribeEipAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEipAddressesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEipAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEipAddresses(*DescribeEipAddressesInput) (*DescribeEipAddressesOutput, error)
+	DescribeEipAddressesWithContext(volcstack.Context, *DescribeEipAddressesInput, ...request.Option) (*DescribeEipAddressesOutput, error)
+	DescribeEipAddressesRequest(*DescribeEipAddressesInput) (*request.Request, *DescribeEipAddressesOutput)
+
+	DescribeEipAddressesBillingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEipAddressesBillingCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEipAddressesBillingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEipAddressesBilling(*DescribeEipAddressesBillingInput) (*DescribeEipAddressesBillingOutput, error)
+	DescribeEipAddressesBillingWithContext(volcstack.Context, *DescribeEipAddressesBillingInput, ...request.Option) (*DescribeEipAddressesBillingOutput, error)
+	DescribeEipAddressesBillingRequest(*DescribeEipAddressesBillingInput) (*request.Request, *DescribeEipAddressesBillingOutput)
+
+	DescribeHaVipAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeHaVipAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeHaVipAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeHaVipAttributes(*DescribeHaVipAttributesInput) (*DescribeHaVipAttributesOutput, error)
+	DescribeHaVipAttributesWithContext(volcstack.Context, *DescribeHaVipAttributesInput, ...request.Option) (*DescribeHaVipAttributesOutput, error)
+	DescribeHaVipAttributesRequest(*DescribeHaVipAttributesInput) (*request.Request, *DescribeHaVipAttributesOutput)
+
+	DescribeHaVipsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeHaVipsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeHaVipsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeHaVips(*DescribeHaVipsInput) (*DescribeHaVipsOutput, error)
+	DescribeHaVipsWithContext(volcstack.Context, *DescribeHaVipsInput, ...request.Option) (*DescribeHaVipsOutput, error)
+	DescribeHaVipsRequest(*DescribeHaVipsInput) (*request.Request, *DescribeHaVipsOutput)
+
+	DescribeNetworkInterfaceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNetworkInterfaceAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNetworkInterfaceAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNetworkInterfaceAttributes(*DescribeNetworkInterfaceAttributesInput) (*DescribeNetworkInterfaceAttributesOutput, error)
+	DescribeNetworkInterfaceAttributesWithContext(volcstack.Context, *DescribeNetworkInterfaceAttributesInput, ...request.Option) (*DescribeNetworkInterfaceAttributesOutput, error)
+	DescribeNetworkInterfaceAttributesRequest(*DescribeNetworkInterfaceAttributesInput) (*request.Request, *DescribeNetworkInterfaceAttributesOutput)
+
+	DescribeNetworkInterfacesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNetworkInterfacesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNetworkInterfacesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNetworkInterfaces(*DescribeNetworkInterfacesInput) (*DescribeNetworkInterfacesOutput, error)
+	DescribeNetworkInterfacesWithContext(volcstack.Context, *DescribeNetworkInterfacesInput, ...request.Option) (*DescribeNetworkInterfacesOutput, error)
+	DescribeNetworkInterfacesRequest(*DescribeNetworkInterfacesInput) (*request.Request, *DescribeNetworkInterfacesOutput)
+
+	DescribeRouteEntryListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRouteEntryListCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRouteEntryListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRouteEntryList(*DescribeRouteEntryListInput) (*DescribeRouteEntryListOutput, error)
+	DescribeRouteEntryListWithContext(volcstack.Context, *DescribeRouteEntryListInput, ...request.Option) (*DescribeRouteEntryListOutput, error)
+	DescribeRouteEntryListRequest(*DescribeRouteEntryListInput) (*request.Request, *DescribeRouteEntryListOutput)
+
+	DescribeRouteTableListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRouteTableListCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRouteTableListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRouteTableList(*DescribeRouteTableListInput) (*DescribeRouteTableListOutput, error)
+	DescribeRouteTableListWithContext(volcstack.Context, *DescribeRouteTableListInput, ...request.Option) (*DescribeRouteTableListOutput, error)
+	DescribeRouteTableListRequest(*DescribeRouteTableListInput) (*request.Request, *DescribeRouteTableListOutput)
+
+	DescribeSecurityGroupAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSecurityGroupAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSecurityGroupAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSecurityGroupAttributes(*DescribeSecurityGroupAttributesInput) (*DescribeSecurityGroupAttributesOutput, error)
+	DescribeSecurityGroupAttributesWithContext(volcstack.Context, *DescribeSecurityGroupAttributesInput, ...request.Option) (*DescribeSecurityGroupAttributesOutput, error)
+	DescribeSecurityGroupAttributesRequest(*DescribeSecurityGroupAttributesInput) (*request.Request, *DescribeSecurityGroupAttributesOutput)
+
+	DescribeSecurityGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSecurityGroupsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSecurityGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSecurityGroups(*DescribeSecurityGroupsInput) (*DescribeSecurityGroupsOutput, error)
+	DescribeSecurityGroupsWithContext(volcstack.Context, *DescribeSecurityGroupsInput, ...request.Option) (*DescribeSecurityGroupsOutput, error)
+	DescribeSecurityGroupsRequest(*DescribeSecurityGroupsInput) (*request.Request, *DescribeSecurityGroupsOutput)
+
+	DescribeSubnetAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSubnetAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSubnetAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSubnetAttributes(*DescribeSubnetAttributesInput) (*DescribeSubnetAttributesOutput, error)
+	DescribeSubnetAttributesWithContext(volcstack.Context, *DescribeSubnetAttributesInput, ...request.Option) (*DescribeSubnetAttributesOutput, error)
+	DescribeSubnetAttributesRequest(*DescribeSubnetAttributesInput) (*request.Request, *DescribeSubnetAttributesOutput)
+
+	DescribeSubnetsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSubnetsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSubnetsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSubnets(*DescribeSubnetsInput) (*DescribeSubnetsOutput, error)
+	DescribeSubnetsWithContext(volcstack.Context, *DescribeSubnetsInput, ...request.Option) (*DescribeSubnetsOutput, error)
+	DescribeSubnetsRequest(*DescribeSubnetsInput) (*request.Request, *DescribeSubnetsOutput)
 
 	DescribeVpcAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpcAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeVpcAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
+	DescribeVpcAttributes(*DescribeVpcAttributesInput) (*DescribeVpcAttributesOutput, error)
+	DescribeVpcAttributesWithContext(volcstack.Context, *DescribeVpcAttributesInput, ...request.Option) (*DescribeVpcAttributesOutput, error)
+	DescribeVpcAttributesRequest(*DescribeVpcAttributesInput) (*request.Request, *DescribeVpcAttributesOutput)
+
 	DescribeVpcsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpcsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeVpcsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
+	DescribeVpcs(*DescribeVpcsInput) (*DescribeVpcsOutput, error)
+	DescribeVpcsWithContext(volcstack.Context, *DescribeVpcsInput, ...request.Option) (*DescribeVpcsOutput, error)
+	DescribeVpcsRequest(*DescribeVpcsInput) (*request.Request, *DescribeVpcsOutput)
+
+	DetachNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetachNetworkInterfaceCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetachNetworkInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetachNetworkInterface(*DetachNetworkInterfaceInput) (*DetachNetworkInterfaceOutput, error)
+	DetachNetworkInterfaceWithContext(volcstack.Context, *DetachNetworkInterfaceInput, ...request.Option) (*DetachNetworkInterfaceOutput, error)
+	DetachNetworkInterfaceRequest(*DetachNetworkInterfaceInput) (*request.Request, *DetachNetworkInterfaceOutput)
+
+	DisassociateEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateEipAddressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateEipAddress(*DisassociateEipAddressInput) (*DisassociateEipAddressOutput, error)
+	DisassociateEipAddressWithContext(volcstack.Context, *DisassociateEipAddressInput, ...request.Option) (*DisassociateEipAddressOutput, error)
+	DisassociateEipAddressRequest(*DisassociateEipAddressInput) (*request.Request, *DisassociateEipAddressOutput)
+
+	DisassociateHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateHaVipCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateHaVip(*DisassociateHaVipInput) (*DisassociateHaVipOutput, error)
+	DisassociateHaVipWithContext(volcstack.Context, *DisassociateHaVipInput, ...request.Option) (*DisassociateHaVipOutput, error)
+	DisassociateHaVipRequest(*DisassociateHaVipInput) (*request.Request, *DisassociateHaVipOutput)
+
+	DisassociateRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateRouteTableCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateRouteTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateRouteTable(*DisassociateRouteTableInput) (*DisassociateRouteTableOutput, error)
+	DisassociateRouteTableWithContext(volcstack.Context, *DisassociateRouteTableInput, ...request.Option) (*DisassociateRouteTableOutput, error)
+	DisassociateRouteTableRequest(*DisassociateRouteTableInput) (*request.Request, *DisassociateRouteTableOutput)
+
+	ModifyEipAddressAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyEipAddressAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyEipAddressAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyEipAddressAttributes(*ModifyEipAddressAttributesInput) (*ModifyEipAddressAttributesOutput, error)
+	ModifyEipAddressAttributesWithContext(volcstack.Context, *ModifyEipAddressAttributesInput, ...request.Option) (*ModifyEipAddressAttributesOutput, error)
+	ModifyEipAddressAttributesRequest(*ModifyEipAddressAttributesInput) (*request.Request, *ModifyEipAddressAttributesOutput)
+
+	ModifyHaVipAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyHaVipAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyHaVipAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyHaVipAttributes(*ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error)
+	ModifyHaVipAttributesWithContext(volcstack.Context, *ModifyHaVipAttributesInput, ...request.Option) (*ModifyHaVipAttributesOutput, error)
+	ModifyHaVipAttributesRequest(*ModifyHaVipAttributesInput) (*request.Request, *ModifyHaVipAttributesOutput)
+
+	ModifyNetworkInterfaceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNetworkInterfaceAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNetworkInterfaceAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNetworkInterfaceAttributes(*ModifyNetworkInterfaceAttributesInput) (*ModifyNetworkInterfaceAttributesOutput, error)
+	ModifyNetworkInterfaceAttributesWithContext(volcstack.Context, *ModifyNetworkInterfaceAttributesInput, ...request.Option) (*ModifyNetworkInterfaceAttributesOutput, error)
+	ModifyNetworkInterfaceAttributesRequest(*ModifyNetworkInterfaceAttributesInput) (*request.Request, *ModifyNetworkInterfaceAttributesOutput)
+
+	ModifyRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyRouteEntryCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyRouteEntry(*ModifyRouteEntryInput) (*ModifyRouteEntryOutput, error)
+	ModifyRouteEntryWithContext(volcstack.Context, *ModifyRouteEntryInput, ...request.Option) (*ModifyRouteEntryOutput, error)
+	ModifyRouteEntryRequest(*ModifyRouteEntryInput) (*request.Request, *ModifyRouteEntryOutput)
+
+	ModifyRouteTableAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyRouteTableAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyRouteTableAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyRouteTableAttributes(*ModifyRouteTableAttributesInput) (*ModifyRouteTableAttributesOutput, error)
+	ModifyRouteTableAttributesWithContext(volcstack.Context, *ModifyRouteTableAttributesInput, ...request.Option) (*ModifyRouteTableAttributesOutput, error)
+	ModifyRouteTableAttributesRequest(*ModifyRouteTableAttributesInput) (*request.Request, *ModifyRouteTableAttributesOutput)
+
+	ModifySecurityGroupAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySecurityGroupAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySecurityGroupAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySecurityGroupAttributes(*ModifySecurityGroupAttributesInput) (*ModifySecurityGroupAttributesOutput, error)
+	ModifySecurityGroupAttributesWithContext(volcstack.Context, *ModifySecurityGroupAttributesInput, ...request.Option) (*ModifySecurityGroupAttributesOutput, error)
+	ModifySecurityGroupAttributesRequest(*ModifySecurityGroupAttributesInput) (*request.Request, *ModifySecurityGroupAttributesOutput)
+
+	ModifySecurityGroupRuleDescriptionsEgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySecurityGroupRuleDescriptionsEgressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySecurityGroupRuleDescriptionsEgressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySecurityGroupRuleDescriptionsEgress(*ModifySecurityGroupRuleDescriptionsEgressInput) (*ModifySecurityGroupRuleDescriptionsEgressOutput, error)
+	ModifySecurityGroupRuleDescriptionsEgressWithContext(volcstack.Context, *ModifySecurityGroupRuleDescriptionsEgressInput, ...request.Option) (*ModifySecurityGroupRuleDescriptionsEgressOutput, error)
+	ModifySecurityGroupRuleDescriptionsEgressRequest(*ModifySecurityGroupRuleDescriptionsEgressInput) (*request.Request, *ModifySecurityGroupRuleDescriptionsEgressOutput)
+
+	ModifySecurityGroupRuleDescriptionsIngressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySecurityGroupRuleDescriptionsIngressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySecurityGroupRuleDescriptionsIngressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySecurityGroupRuleDescriptionsIngress(*ModifySecurityGroupRuleDescriptionsIngressInput) (*ModifySecurityGroupRuleDescriptionsIngressOutput, error)
+	ModifySecurityGroupRuleDescriptionsIngressWithContext(volcstack.Context, *ModifySecurityGroupRuleDescriptionsIngressInput, ...request.Option) (*ModifySecurityGroupRuleDescriptionsIngressOutput, error)
+	ModifySecurityGroupRuleDescriptionsIngressRequest(*ModifySecurityGroupRuleDescriptionsIngressInput) (*request.Request, *ModifySecurityGroupRuleDescriptionsIngressOutput)
+
+	ModifySubnetAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySubnetAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySubnetAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySubnetAttributes(*ModifySubnetAttributesInput) (*ModifySubnetAttributesOutput, error)
+	ModifySubnetAttributesWithContext(volcstack.Context, *ModifySubnetAttributesInput, ...request.Option) (*ModifySubnetAttributesOutput, error)
+	ModifySubnetAttributesRequest(*ModifySubnetAttributesInput) (*request.Request, *ModifySubnetAttributesOutput)
+
 	ModifyVpcAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpcAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyVpcAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVpcAttributes(*ModifyVpcAttributesInput) (*ModifyVpcAttributesOutput, error)
+	ModifyVpcAttributesWithContext(volcstack.Context, *ModifyVpcAttributesInput, ...request.Option) (*ModifyVpcAttributesOutput, error)
+	ModifyVpcAttributesRequest(*ModifyVpcAttributesInput) (*request.Request, *ModifyVpcAttributesOutput)
+
+	ReleaseEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReleaseEipAddressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReleaseEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReleaseEipAddress(*ReleaseEipAddressInput) (*ReleaseEipAddressOutput, error)
+	ReleaseEipAddressWithContext(volcstack.Context, *ReleaseEipAddressInput, ...request.Option) (*ReleaseEipAddressOutput, error)
+	ReleaseEipAddressRequest(*ReleaseEipAddressInput) (*request.Request, *ReleaseEipAddressOutput)
+
+	RenewEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RenewEipAddressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RenewEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RenewEipAddress(*RenewEipAddressInput) (*RenewEipAddressOutput, error)
+	RenewEipAddressWithContext(volcstack.Context, *RenewEipAddressInput, ...request.Option) (*RenewEipAddressOutput, error)
+	RenewEipAddressRequest(*RenewEipAddressInput) (*request.Request, *RenewEipAddressOutput)
+
+	RevokeSecurityGroupEgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RevokeSecurityGroupEgressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RevokeSecurityGroupEgressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RevokeSecurityGroupEgress(*RevokeSecurityGroupEgressInput) (*RevokeSecurityGroupEgressOutput, error)
+	RevokeSecurityGroupEgressWithContext(volcstack.Context, *RevokeSecurityGroupEgressInput, ...request.Option) (*RevokeSecurityGroupEgressOutput, error)
+	RevokeSecurityGroupEgressRequest(*RevokeSecurityGroupEgressInput) (*request.Request, *RevokeSecurityGroupEgressOutput)
+
+	RevokeSecurityGroupIngressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RevokeSecurityGroupIngressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RevokeSecurityGroupIngressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RevokeSecurityGroupIngress(*RevokeSecurityGroupIngressInput) (*RevokeSecurityGroupIngressOutput, error)
+	RevokeSecurityGroupIngressWithContext(volcstack.Context, *RevokeSecurityGroupIngressInput, ...request.Option) (*RevokeSecurityGroupIngressOutput, error)
+	RevokeSecurityGroupIngressRequest(*RevokeSecurityGroupIngressInput) (*request.Request, *RevokeSecurityGroupIngressOutput)
+
+	SetEipAddressRenewalCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetEipAddressRenewalCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetEipAddressRenewalCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetEipAddressRenewal(*SetEipAddressRenewalInput) (*SetEipAddressRenewalOutput, error)
+	SetEipAddressRenewalWithContext(volcstack.Context, *SetEipAddressRenewalInput, ...request.Option) (*SetEipAddressRenewalOutput, error)
+	SetEipAddressRenewalRequest(*SetEipAddressRenewalInput) (*request.Request, *SetEipAddressRenewalOutput)
+
+	UnassignAuxiliaryCidrBlocksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnassignAuxiliaryCidrBlocksCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnassignAuxiliaryCidrBlocksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnassignAuxiliaryCidrBlocks(*UnassignAuxiliaryCidrBlocksInput) (*UnassignAuxiliaryCidrBlocksOutput, error)
+	UnassignAuxiliaryCidrBlocksWithContext(volcstack.Context, *UnassignAuxiliaryCidrBlocksInput, ...request.Option) (*UnassignAuxiliaryCidrBlocksOutput, error)
+	UnassignAuxiliaryCidrBlocksRequest(*UnassignAuxiliaryCidrBlocksInput) (*request.Request, *UnassignAuxiliaryCidrBlocksOutput)
+
+	UnassignIPv6AddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnassignIPv6AddressesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnassignIPv6AddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnassignIPv6Addresses(*UnassignIPv6AddressesInput) (*UnassignIPv6AddressesOutput, error)
+	UnassignIPv6AddressesWithContext(volcstack.Context, *UnassignIPv6AddressesInput, ...request.Option) (*UnassignIPv6AddressesOutput, error)
+	UnassignIPv6AddressesRequest(*UnassignIPv6AddressesInput) (*request.Request, *UnassignIPv6AddressesOutput)
+
+	UnassignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnassignPrivateIpAddressesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnassignPrivateIpAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnassignPrivateIpAddresses(*UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error)
+	UnassignPrivateIpAddressesWithContext(volcstack.Context, *UnassignPrivateIpAddressesInput, ...request.Option) (*UnassignPrivateIpAddressesOutput, error)
+	UnassignPrivateIpAddressesRequest(*UnassignPrivateIpAddressesInput) (*request.Request, *UnassignPrivateIpAddressesOutput)
 }
 
-var _ VpcAPI = (*Vpc)(nil)
+var _ VpcSdkAPI = (*VpcSdk)(nil)
