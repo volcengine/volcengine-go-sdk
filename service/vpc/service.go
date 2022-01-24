@@ -13,13 +13,13 @@ import (
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
-// Vpc provides the API operation methods for making requests to
+// VpcSdk provides the API operation methods for making requests to
 // vpc. See this package's package overview docs
 // for details on the service.
 //
-// Vpc methods are safe to use concurrently. It is not safe to
+// VpcSdk methods are safe to use concurrently. It is not safe to
 // modify mutate any of the struct's properties though.
-type Vpc struct {
+type VpcSdk struct {
 	*client.Client
 }
 
@@ -37,7 +37,7 @@ const (
 )
 
 // extraNew create int can support ssl or region locate set
-func new(info *volcstackutil.UrlInfo, p client.ConfigProvider, cfgs ...*volcstack.Config) *Vpc {
+func new(info *volcstackutil.UrlInfo, p client.ConfigProvider, cfgs ...*volcstack.Config) *VpcSdk {
 	c := p.ClientConfig(EndpointsID, cfgs...)
 	c.Endpoint = volcstackutil.Url(info, volcstackutil.ServiceInfo{
 		Service: EndpointsID,
@@ -47,7 +47,7 @@ func new(info *volcstackutil.UrlInfo, p client.ConfigProvider, cfgs ...*volcstac
 }
 
 // New create int can support ssl or region locate set
-func New(p client.ConfigProvider, cfgs *volcstack.Config, info ...*volcstackutil.UrlInfo) *Vpc {
+func New(p client.ConfigProvider, cfgs *volcstack.Config, info ...*volcstackutil.UrlInfo) *VpcSdk {
 	_info := volcstackutil.UrlInfo{}
 	if len(info) > 0 && len(info) == 1 {
 		if info[0].UseSSL {
@@ -71,8 +71,8 @@ func New(p client.ConfigProvider, cfgs *volcstack.Config, info ...*volcstackutil
 }
 
 // newClient creates, initializes and returns a new service client instance.
-func newClient(cfg volcstack.Config, handlers request.Handlers, endpoint, signingRegion, signingName string) *Vpc {
-	svc := &Vpc{
+func newClient(cfg volcstack.Config, handlers request.Handlers, endpoint, signingRegion, signingName string) *VpcSdk {
+	svc := &VpcSdk{
 		Client: client.New(
 			cfg,
 			metadata.ClientInfo{
@@ -104,9 +104,9 @@ func newClient(cfg volcstack.Config, handlers request.Handlers, endpoint, signin
 	return svc
 }
 
-// newRequest creates a new request for a Vpc operation and runs any
+// newRequest creates a new request for a VpcSdk operation and runs any
 // custom request initialization.
-func (c *Vpc) newRequest(op *request.Operation, params, data interface{}) *request.Request {
+func (c *VpcSdk) newRequest(op *request.Operation, params, data interface{}) *request.Request {
 	req := c.NewRequest(op, params, data)
 
 	// Run custom request initialization if present
