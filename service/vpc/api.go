@@ -9342,6 +9342,36 @@ func (s *AssociateRouteTableOutput) SetRequestId(v string) *AssociateRouteTableO
 	return s
 }
 
+type AssociatedElasticIp struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociatedElasticIp) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociatedElasticIp) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AssociatedElasticIp) SetAllocationId(v string) *AssociatedElasticIp {
+	s.AllocationId = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *AssociatedElasticIp) SetEipAddress(v string) *AssociatedElasticIp {
+	s.EipAddress = &v
+	return s
+}
+
 type AssociatedInstance struct {
 	_ struct{} `type:"structure"`
 
@@ -11791,7 +11821,7 @@ type DescribeNetworkInterfaceAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
-	AssociatedElasticIp *string `type:"string"`
+	AssociatedElasticIp *AssociatedElasticIp `type:"structure"`
 
 	CreatedAt *string `type:"string"`
 
@@ -11851,8 +11881,8 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetAccountId(v string) *Descr
 }
 
 // SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
-func (s *DescribeNetworkInterfaceAttributesOutput) SetAssociatedElasticIp(v string) *DescribeNetworkInterfaceAttributesOutput {
-	s.AssociatedElasticIp = &v
+func (s *DescribeNetworkInterfaceAttributesOutput) SetAssociatedElasticIp(v *AssociatedElasticIp) *DescribeNetworkInterfaceAttributesOutput {
+	s.AssociatedElasticIp = v
 	return s
 }
 
@@ -12681,7 +12711,7 @@ type DescribeSubnetAttributesOutput struct {
 
 	RequestId *string `type:"string"`
 
-	RouteTable *string `type:"string"`
+	RouteTable *RouteTable `type:"structure"`
 
 	Status *string `type:"string"`
 
@@ -12757,8 +12787,8 @@ func (s *DescribeSubnetAttributesOutput) SetRequestId(v string) *DescribeSubnetA
 }
 
 // SetRouteTable sets the RouteTable field's value.
-func (s *DescribeSubnetAttributesOutput) SetRouteTable(v string) *DescribeSubnetAttributesOutput {
-	s.RouteTable = &v
+func (s *DescribeSubnetAttributesOutput) SetRouteTable(v *RouteTable) *DescribeSubnetAttributesOutput {
+	s.RouteTable = v
 	return s
 }
 
@@ -13533,23 +13563,39 @@ type EipAddresse struct {
 
 	AllocationId *string `type:"string"`
 
+	AllocationTime *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
 	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	EipAddress *string `type:"string"`
 
 	ExpiredTime *string `type:"string"`
 
-	OverdueReclaimTime *string `type:"string"`
+	ISP *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	LockReason *string `type:"string"`
+
+	Name *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
 
-	ReclaimTime *string `type:"string"`
+	ProjectName *string `type:"string"`
 
-	RemainRenewTimes *int64 `type:"integer"`
+	Status *string `type:"string"`
 
-	RenewPeriodTimes *int64 `type:"integer"`
-
-	RenewType *int64 `type:"integer"`
-
-	Status *int64 `type:"integer"`
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
@@ -13568,9 +13614,45 @@ func (s *EipAddresse) SetAllocationId(v string) *EipAddresse {
 	return s
 }
 
+// SetAllocationTime sets the AllocationTime field's value.
+func (s *EipAddresse) SetAllocationTime(v string) *EipAddresse {
+	s.AllocationTime = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *EipAddresse) SetBandwidth(v int64) *EipAddresse {
+	s.Bandwidth = &v
+	return s
+}
+
 // SetBillingType sets the BillingType field's value.
 func (s *EipAddresse) SetBillingType(v int64) *EipAddresse {
 	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *EipAddresse) SetBusinessStatus(v string) *EipAddresse {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *EipAddresse) SetDeletedTime(v string) *EipAddresse {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *EipAddresse) SetDescription(v string) *EipAddresse {
+	s.Description = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipAddresse) SetEipAddress(v string) *EipAddresse {
+	s.EipAddress = &v
 	return s
 }
 
@@ -13580,9 +13662,33 @@ func (s *EipAddresse) SetExpiredTime(v string) *EipAddresse {
 	return s
 }
 
-// SetOverdueReclaimTime sets the OverdueReclaimTime field's value.
-func (s *EipAddresse) SetOverdueReclaimTime(v string) *EipAddresse {
-	s.OverdueReclaimTime = &v
+// SetISP sets the ISP field's value.
+func (s *EipAddresse) SetISP(v string) *EipAddresse {
+	s.ISP = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *EipAddresse) SetInstanceId(v string) *EipAddresse {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *EipAddresse) SetInstanceType(v string) *EipAddresse {
+	s.InstanceType = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *EipAddresse) SetLockReason(v string) *EipAddresse {
+	s.LockReason = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *EipAddresse) SetName(v string) *EipAddresse {
+	s.Name = &v
 	return s
 }
 
@@ -13592,33 +13698,21 @@ func (s *EipAddresse) SetOverdueTime(v string) *EipAddresse {
 	return s
 }
 
-// SetReclaimTime sets the ReclaimTime field's value.
-func (s *EipAddresse) SetReclaimTime(v string) *EipAddresse {
-	s.ReclaimTime = &v
-	return s
-}
-
-// SetRemainRenewTimes sets the RemainRenewTimes field's value.
-func (s *EipAddresse) SetRemainRenewTimes(v int64) *EipAddresse {
-	s.RemainRenewTimes = &v
-	return s
-}
-
-// SetRenewPeriodTimes sets the RenewPeriodTimes field's value.
-func (s *EipAddresse) SetRenewPeriodTimes(v int64) *EipAddresse {
-	s.RenewPeriodTimes = &v
-	return s
-}
-
-// SetRenewType sets the RenewType field's value.
-func (s *EipAddresse) SetRenewType(v int64) *EipAddresse {
-	s.RenewType = &v
+// SetProjectName sets the ProjectName field's value.
+func (s *EipAddresse) SetProjectName(v string) *EipAddresse {
+	s.ProjectName = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *EipAddresse) SetStatus(v int64) *EipAddresse {
+func (s *EipAddresse) SetStatus(v string) *EipAddresse {
 	s.Status = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EipAddresse) SetUpdatedAt(v string) *EipAddresse {
+	s.UpdatedAt = &v
 	return s
 }
 
@@ -14535,7 +14629,7 @@ type NetworkInterfaceSet struct {
 
 	AccountId *string `type:"string"`
 
-	AssociatedElasticIp *string `type:"string"`
+	AssociatedElasticIp *AssociatedElasticIp `type:"structure"`
 
 	CreatedAt *string `type:"string"`
 
@@ -14593,8 +14687,8 @@ func (s *NetworkInterfaceSet) SetAccountId(v string) *NetworkInterfaceSet {
 }
 
 // SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
-func (s *NetworkInterfaceSet) SetAssociatedElasticIp(v string) *NetworkInterfaceSet {
-	s.AssociatedElasticIp = &v
+func (s *NetworkInterfaceSet) SetAssociatedElasticIp(v *AssociatedElasticIp) *NetworkInterfaceSet {
+	s.AssociatedElasticIp = v
 	return s
 }
 
@@ -15426,6 +15520,36 @@ func (s *RouteEntry) SetVpcId(v string) *RouteEntry {
 	return s
 }
 
+type RouteTable struct {
+	_ struct{} `type:"structure"`
+
+	RouteTableId *string `type:"string"`
+
+	RouteTableType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RouteTable) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RouteTable) GoString() string {
+	return s.String()
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteTable) SetRouteTableId(v string) *RouteTable {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableType sets the RouteTableType field's value.
+func (s *RouteTable) SetRouteTableType(v string) *RouteTable {
+	s.RouteTableType = &v
+	return s
+}
+
 type RouterTable struct {
 	_ struct{} `type:"structure"`
 
@@ -15717,7 +15841,7 @@ type Subnet struct {
 
 	ProjectName *string `type:"string"`
 
-	RouteTable *string `type:"string"`
+	RouteTable *RouteTable `type:"structure"`
 
 	Status *string `type:"string"`
 
@@ -15787,8 +15911,8 @@ func (s *Subnet) SetProjectName(v string) *Subnet {
 }
 
 // SetRouteTable sets the RouteTable field's value.
-func (s *Subnet) SetRouteTable(v string) *Subnet {
-	s.RouteTable = &v
+func (s *Subnet) SetRouteTable(v *RouteTable) *Subnet {
+	s.RouteTable = v
 	return s
 }
 
