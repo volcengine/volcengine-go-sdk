@@ -2,7 +2,6 @@ package corehandlers
 
 import (
 	"bytes"
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -179,9 +178,6 @@ func handleSendError(r *request.Request, err error) {
 var ValidateResponseHandler = request.NamedHandler{Name: "core.ValidateResponseHandler", Fn: func(r *request.Request) {
 	if r.HTTPResponse.StatusCode == 0 || r.HTTPResponse.StatusCode >= 300 {
 		// this may be replaced by an UnmarshalError handler
-		b, _ := ioutil.ReadAll(r.HTTPResponse.Body)
-		m := map[string]interface{}{}
-		json.Unmarshal(b, &m)
 		r.Error = volcstackerr.New("UnknownError", "unknown error", nil)
 	}
 }}
