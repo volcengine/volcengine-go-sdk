@@ -4820,6 +4820,36 @@ func (s *Eip) SetId(v string) *Eip {
 	return s
 }
 
+type Error struct {
+	_ struct{} `type:"structure"`
+
+	Code *string `type:"string"`
+
+	Message *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Error) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Error) GoString() string {
+	return s.String()
+}
+
+// SetCode sets the Code field's value.
+func (s *Error) SetCode(v string) *Error {
+	s.Code = &v
+	return s
+}
+
+// SetMessage sets the Message field's value.
+func (s *Error) SetMessage(v string) *Error {
+	s.Message = &v
+	return s
+}
+
 type GetInstanceConsoleInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5051,7 +5081,7 @@ type Instance struct {
 
 	InstanceName *string `type:"string"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *InstanceType `type:"structure"`
 
 	InstanceTypeId *string `type:"string"`
 
@@ -5139,8 +5169,8 @@ func (s *Instance) SetInstanceName(v string) *Instance {
 }
 
 // SetInstanceType sets the InstanceType field's value.
-func (s *Instance) SetInstanceType(v string) *Instance {
-	s.InstanceType = &v
+func (s *Instance) SetInstanceType(v *InstanceType) *Instance {
+	s.InstanceType = v
 	return s
 }
 
@@ -5219,6 +5249,108 @@ func (s *Instance) SetVpcId(v string) *Instance {
 // SetZoneId sets the ZoneId field's value.
 func (s *Instance) SetZoneId(v string) *Instance {
 	s.ZoneId = &v
+	return s
+}
+
+type InstanceType struct {
+	_ struct{} `type:"structure"`
+
+	Architecture *string `type:"string"`
+
+	Cpu *int64 `type:"integer"`
+
+	Id *string `type:"string"`
+
+	InstanceTypeFamily *string `type:"string"`
+
+	Mem *int64 `type:"integer"`
+
+	NetKppsQuota *int64 `type:"integer"`
+
+	NetMbpsQuota *int64 `type:"integer"`
+
+	NetSessionQuota *int64 `type:"integer"`
+
+	NetworkInterfaceNumQuota *int64 `type:"integer"`
+
+	PrivateIpQuota *int64 `type:"integer"`
+
+	VolumeTypes []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s InstanceType) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceType) GoString() string {
+	return s.String()
+}
+
+// SetArchitecture sets the Architecture field's value.
+func (s *InstanceType) SetArchitecture(v string) *InstanceType {
+	s.Architecture = &v
+	return s
+}
+
+// SetCpu sets the Cpu field's value.
+func (s *InstanceType) SetCpu(v int64) *InstanceType {
+	s.Cpu = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *InstanceType) SetId(v string) *InstanceType {
+	s.Id = &v
+	return s
+}
+
+// SetInstanceTypeFamily sets the InstanceTypeFamily field's value.
+func (s *InstanceType) SetInstanceTypeFamily(v string) *InstanceType {
+	s.InstanceTypeFamily = &v
+	return s
+}
+
+// SetMem sets the Mem field's value.
+func (s *InstanceType) SetMem(v int64) *InstanceType {
+	s.Mem = &v
+	return s
+}
+
+// SetNetKppsQuota sets the NetKppsQuota field's value.
+func (s *InstanceType) SetNetKppsQuota(v int64) *InstanceType {
+	s.NetKppsQuota = &v
+	return s
+}
+
+// SetNetMbpsQuota sets the NetMbpsQuota field's value.
+func (s *InstanceType) SetNetMbpsQuota(v int64) *InstanceType {
+	s.NetMbpsQuota = &v
+	return s
+}
+
+// SetNetSessionQuota sets the NetSessionQuota field's value.
+func (s *InstanceType) SetNetSessionQuota(v int64) *InstanceType {
+	s.NetSessionQuota = &v
+	return s
+}
+
+// SetNetworkInterfaceNumQuota sets the NetworkInterfaceNumQuota field's value.
+func (s *InstanceType) SetNetworkInterfaceNumQuota(v int64) *InstanceType {
+	s.NetworkInterfaceNumQuota = &v
+	return s
+}
+
+// SetPrivateIpQuota sets the PrivateIpQuota field's value.
+func (s *InstanceType) SetPrivateIpQuota(v int64) *InstanceType {
+	s.PrivateIpQuota = &v
+	return s
+}
+
+// SetVolumeTypes sets the VolumeTypes field's value.
+func (s *InstanceType) SetVolumeTypes(v []*string) *InstanceType {
+	s.VolumeTypes = v
 	return s
 }
 
@@ -5655,7 +5787,7 @@ func (s *NetworkInterface) SetVpcName(v string) *NetworkInterface {
 type OperationDetail struct {
 	_ struct{} `type:"structure"`
 
-	Error *string `type:"string"`
+	Error *Error `type:"structure"`
 
 	InstanceId *string `type:"string"`
 }
@@ -5671,8 +5803,8 @@ func (s OperationDetail) GoString() string {
 }
 
 // SetError sets the Error field's value.
-func (s *OperationDetail) SetError(v string) *OperationDetail {
-	s.Error = &v
+func (s *OperationDetail) SetError(v *Error) *OperationDetail {
+	s.Error = v
 	return s
 }
 

@@ -19,10 +19,12 @@ func UnmarshalError(r *request.Request) {
 		body, err := ioutil.ReadAll(r.HTTPResponse.Body)
 		if err != nil {
 			fmt.Printf("read volcstackbody err, %v\n", err)
+			r.Error = err
 			return
 		}
 		if err = json.Unmarshal(body, &resp); err != nil {
 			fmt.Printf("Unmarshal err, %v\n", err)
+			r.Error = err
 			return
 		}
 		r.Error = volcstackerr.NewRequestFailure(
