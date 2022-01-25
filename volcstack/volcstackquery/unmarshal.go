@@ -2,15 +2,33 @@ package volcstackquery
 
 import (
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"net/http"
 	"reflect"
 )
 
 type VolcstackResponse struct {
-	ResponseMetadata interface{}
+	ResponseMetadata ResponseMetadata
 	Result           interface{}
+}
+
+type ResponseMetadata struct {
+	RequestId string
+	Action    string
+	Version   string
+	Service   string
+	Region    string
+	Error     *Error
+}
+
+type Error struct {
+	CodeN   int
+	Code    string
+	Message string
 }
 
 // UnmarshalHandler is a named request handler for unmarshaling volcstackquery protocol requests
@@ -34,10 +52,19 @@ func Unmarshal(r *request.Request) {
 				fmt.Printf("Unmarshal err, %v\n", err)
 				return
 			}
+			var info interface{}
+
+			ptr := r.Data.(*map[string]interface{})
+			info, err = volcstackutil.ObtainSdkValue("ResponseMetadata.Error.Code", *ptr)
+			if info != nil {
+				if processBodyError(r, &VolcstackResponse{}, body) {
+					return
+				}
+			}
+
 		} else {
 			volcstackResponse := VolcstackResponse{}
-			if err = json.Unmarshal(body, &volcstackResponse); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
+			if processBodyError(r, &volcstackResponse, body) {
 				return
 			}
 			var b []byte
@@ -56,5 +83,21 @@ func Unmarshal(r *request.Request) {
 
 // UnmarshalMeta unmarshals header response values for an AWS Query service.
 func UnmarshalMeta(r *request.Request) {
-	//r.RequestID = r.HTTPResponse.Header.Get("X-Amzn-Requestid")
+
+}
+
+func processBodyError(r *request.Request, volcstackResponse *VolcstackResponse, body []byte) bool {
+	if err := json.Unmarshal(body, &volcstackResponse); err != nil {
+		fmt.Printf("Unmarshal err, %v\n", err)
+		return true
+	}
+	if volcstackResponse.ResponseMetadata.Error != nil && volcstackResponse.ResponseMetadata.Error.Code != "" {
+		r.Error = volcstackerr.NewRequestFailure(
+			volcstackerr.New(volcstackResponse.ResponseMetadata.Error.Code, volcstackResponse.ResponseMetadata.Error.Message, nil),
+			http.StatusBadRequest,
+			volcstackResponse.ResponseMetadata.RequestId,
+		)
+		return true
+	}
+	return false
 }

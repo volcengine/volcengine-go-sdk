@@ -8,27 +8,13 @@ import (
 	"io/ioutil"
 )
 
-type jsonErrorResponse struct {
-	ResponseMetadata Metadata `json:"ResponseMetadata"`
-}
-
-type Metadata struct {
-	Error     Error  `json:"Error"`
-	RequestID string `json:"RequestID"`
-}
-
-type Error struct {
-	Code    string `json:"Code"`
-	Message string `json:"Message"`
-}
-
 // UnmarshalErrorHandler is a name request handler to unmarshal request errors
 var UnmarshalErrorHandler = request.NamedHandler{Name: "kscsdk.volcstackquery.UnmarshalError", Fn: UnmarshalError}
 
 // UnmarshalError unmarshals an error response for an AWS Query service.
 func UnmarshalError(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
-	resp := jsonErrorResponse{}
+	resp := VolcstackResponse{}
 	if r.DataFilled() {
 		body, err := ioutil.ReadAll(r.HTTPResponse.Body)
 		if err != nil {
@@ -42,7 +28,7 @@ func UnmarshalError(r *request.Request) {
 		r.Error = volcstackerr.NewRequestFailure(
 			volcstackerr.New(resp.ResponseMetadata.Error.Code, resp.ResponseMetadata.Error.Message, nil),
 			r.HTTPResponse.StatusCode,
-			resp.ResponseMetadata.RequestID,
+			resp.ResponseMetadata.RequestId,
 		)
 		return
 	} else {
