@@ -10,7 +10,6 @@ import (
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/signer/volc"
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackquery"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 // VPC provides the API operation methods for making requests to
@@ -36,36 +35,10 @@ const (
 	ServiceID   = "vpc"       // ServiceID is a unique identifer of a specific service.
 )
 
-// extraNew create int can support ssl or region locate set
-func new(info *volcstackutil.UrlInfo, p client.ConfigProvider, cfgs ...*volcstack.Config) *VPC {
-	c := p.ClientConfig(EndpointsID, cfgs...)
-	c.Endpoint = volcstackutil.Url(info)
-
-	return newClient(*c.Config, c.Handlers, c.Endpoint, c.SigningRegion, c.SigningName)
-}
-
 // New create int can support ssl or region locate set
-func New(p client.ConfigProvider, cfgs *volcstack.Config, info ...*volcstackutil.UrlInfo) *VPC {
-	_info := volcstackutil.UrlInfo{}
-	if len(info) > 0 && len(info) == 1 {
-		if info[0].UseSSL {
-			_info.UseSSL = info[0].UseSSL
-		}
-		//if info[0].Locate {
-		//	_info.Locate = info[0].Locate
-		//}
-		//if info[0].UseInternal {
-		//	_info.UseInternal = info[0].UseInternal
-		//}
-		if info[0].CustomerDomain != "" {
-			_info.CustomerDomain = info[0].CustomerDomain
-		}
-		//if info[0].CustomerDomainIgnoreService {
-		//    _info.CustomerDomainIgnoreService = info[0].CustomerDomainIgnoreService
-		//}
-
-	}
-	return new(&_info, p, &volcstack.Config{Region: cfgs.Region})
+func New(p client.ConfigProvider, cfgs ...*volcstack.Config) *VPC {
+	c := p.ClientConfig(EndpointsID, cfgs...)
+	return newClient(*c.Config, c.Handlers, c.Endpoint, c.SigningRegion, c.SigningName)
 }
 
 // newClient creates, initializes and returns a new service client instance.
