@@ -240,6 +240,13 @@ func (c *Config) WithCredentials(creds *credentials.Credentials) *Config {
 	return c
 }
 
+// WithAkSk sets a config Credentials value returning a Config pointer
+// for chaining.
+func (c *Config) WithAkSk(ak, sk string) *Config {
+	c.Credentials = credentials.NewStaticCredentials(ak, sk, "")
+	return c
+}
+
 // WithEndpoint sets a config Endpoint value returning a Config pointer for
 // chaining.
 func (c *Config) WithEndpoint(endpoint string) *Config {

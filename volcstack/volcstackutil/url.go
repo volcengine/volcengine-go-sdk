@@ -1,11 +1,21 @@
 package volcstackutil
 
-type UrlInfo struct {
-	UseSSL bool
+type Endpoint struct {
+	//UseSSL bool
 	//Locate bool
 	//UseInternal                 bool
-	CustomerDomain string
+	CustomerEndpoint string
 	//CustomerDomainIgnoreService bool
+
+}
+
+func NewEndpoint() *Endpoint {
+	return &Endpoint{}
+}
+
+func (c *Endpoint) WithCustomerEndpoint(customerEndpoint string) *Endpoint {
+	c.CustomerEndpoint = customerEndpoint
+	return c
 }
 
 type ServiceInfo struct {
@@ -14,44 +24,16 @@ type ServiceInfo struct {
 }
 
 const (
-	url = "open.volcengineapi.com"
+	endpoint = "open.volcengineapi.com"
 	//internalUrl = "open.volcengineapi.com"
-	http  = "http"
-	https = "https"
+	//http  = "http"
+	//https = "https"
 )
 
-func UrlWithServiceInfo(urlInfo *UrlInfo, info ServiceInfo) string {
-	p := Protocol(urlInfo.UseSSL)
-	if urlInfo.CustomerDomain != "" {
-		//if !urlInfo.CustomerDomainIgnoreService {
-		//	return p + "://" + info.Service + "." + urlInfo.CustomerDomain
-		//} else {
-		//	return p + "://" + urlInfo.CustomerDomain
-		//}
-		return p + "://" + urlInfo.CustomerDomain
-
+func (c *Endpoint) GetEndpoint() string {
+	if c.CustomerEndpoint != "" {
+		return c.CustomerEndpoint
 	} else {
-		//if urlInfo.UseInternal {
-		//	return p + "://" + internalUrl
-		//}
-		//if urlInfo.Locate && &info.Region != nil {
-		//	return p + "://" + info.Service + "." + info.Region + url
-		//}
-		return p + "://" + url
+		return endpoint
 	}
-}
-func Url(urlInfo *UrlInfo) string {
-	p := Protocol(urlInfo.UseSSL)
-	if urlInfo.CustomerDomain != "" {
-		return p + "://" + urlInfo.CustomerDomain
-	} else {
-		return p + "://" + url
-	}
-}
-
-func Protocol(useSSL bool) string {
-	if useSSL {
-		return https
-	}
-	return http
 }

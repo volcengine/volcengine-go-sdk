@@ -3,7 +3,6 @@ package session
 import (
 	"crypto/tls"
 	"crypto/x509"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"net"
@@ -575,27 +574,4 @@ func (s *Session) ClientConfigNoResolveEndpoint(cfgs ...*volcstack.Config) clien
 		SigningNameDerived: resolved.SigningNameDerived,
 		SigningName:        resolved.SigningName,
 	}
-}
-
-func SdkNew(ak, sk string, debug ...bool) *Session {
-	flag := false
-	if len(debug) > 0 && len(debug) == 1 {
-		flag = debug[0]
-	}
-	_credentials := credentials.NewStaticCredentials(ak, sk, "")
-	if flag {
-		sess, err := NewSession(&volcstack.Config{Credentials: _credentials,
-			LogLevel: volcstack.LogLevel(volcstack.LogDebugWithHTTPBody)})
-		if err != nil {
-			fmt.Printf("%v", err)
-		}
-		return sess
-	} else {
-		sess, err := NewSession(&volcstack.Config{Credentials: _credentials})
-		if err != nil {
-			fmt.Printf("%v", err)
-		}
-		return sess
-	}
-
 }
