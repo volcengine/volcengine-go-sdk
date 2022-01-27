@@ -8693,19 +8693,19 @@ type AllocateEipAddressInput struct {
 
 	AllocationId *string `type:"string"`
 
-	Bandwidth *int64 `type:"integer"`
+	Bandwidth *int64 `min:"1" type:"integer"`
 
-	BillingType *int64 `type:"integer"`
+	BillingType *int64 `min:"1" type:"integer"`
 
 	Description *string `type:"string"`
 
-	ISP *string `type:"string"`
+	ISP *string `type:"string" enum:"ISPForAllocateEipAddressInput"`
 
 	Name *string `type:"string"`
 
 	Period *int64 `type:"integer"`
 
-	PeriodUnit *int64 `type:"integer"`
+	PeriodUnit *int64 `min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -8716,6 +8716,25 @@ func (s AllocateEipAddressInput) String() string {
 // GoString returns the string representation
 func (s AllocateEipAddressInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AllocateEipAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AllocateEipAddressInput"}
+	if s.Bandwidth != nil && *s.Bandwidth < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
+	}
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAllocationId sets the AllocationId field's value.
@@ -9152,7 +9171,7 @@ type AssociateEipAddressInput struct {
 	InstanceId *string `type:"string" required:"true"`
 
 	// InstanceType is a required field
-	InstanceType *string `type:"string" required:"true"`
+	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForAssociateEipAddressInput"`
 
 	PrivateIpAddress *string `type:"string"`
 }
@@ -9241,7 +9260,7 @@ type AssociateHaVipInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"InstanceTypeForAssociateHaVipInput"`
 }
 
 // String returns the string representation
@@ -9440,7 +9459,7 @@ func (s *AssociatedElasticIpForDescribeNetworkInterfacesOutput) SetEipAddress(v 
 	return s
 }
 
-type AssociatedInstanceForDescribeHaVipAttributesOutput struct {
+type AssociatedInstancForDescribeHaVipAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	InstanceID *string `type:"string"`
@@ -9449,28 +9468,28 @@ type AssociatedInstanceForDescribeHaVipAttributesOutput struct {
 }
 
 // String returns the string representation
-func (s AssociatedInstanceForDescribeHaVipAttributesOutput) String() string {
+func (s AssociatedInstancForDescribeHaVipAttributesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AssociatedInstanceForDescribeHaVipAttributesOutput) GoString() string {
+func (s AssociatedInstancForDescribeHaVipAttributesOutput) GoString() string {
 	return s.String()
 }
 
 // SetInstanceID sets the InstanceID field's value.
-func (s *AssociatedInstanceForDescribeHaVipAttributesOutput) SetInstanceID(v string) *AssociatedInstanceForDescribeHaVipAttributesOutput {
+func (s *AssociatedInstancForDescribeHaVipAttributesOutput) SetInstanceID(v string) *AssociatedInstancForDescribeHaVipAttributesOutput {
 	s.InstanceID = &v
 	return s
 }
 
 // SetInstanceType sets the InstanceType field's value.
-func (s *AssociatedInstanceForDescribeHaVipAttributesOutput) SetInstanceType(v string) *AssociatedInstanceForDescribeHaVipAttributesOutput {
+func (s *AssociatedInstancForDescribeHaVipAttributesOutput) SetInstanceType(v string) *AssociatedInstancForDescribeHaVipAttributesOutput {
 	s.InstanceType = &v
 	return s
 }
 
-type AssociatedInstanceForDescribeHaVipsOutput struct {
+type AssociatedInstancForDescribeHaVipsOutput struct {
 	_ struct{} `type:"structure"`
 
 	InstanceID *string `type:"string"`
@@ -9479,23 +9498,23 @@ type AssociatedInstanceForDescribeHaVipsOutput struct {
 }
 
 // String returns the string representation
-func (s AssociatedInstanceForDescribeHaVipsOutput) String() string {
+func (s AssociatedInstancForDescribeHaVipsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AssociatedInstanceForDescribeHaVipsOutput) GoString() string {
+func (s AssociatedInstancForDescribeHaVipsOutput) GoString() string {
 	return s.String()
 }
 
 // SetInstanceID sets the InstanceID field's value.
-func (s *AssociatedInstanceForDescribeHaVipsOutput) SetInstanceID(v string) *AssociatedInstanceForDescribeHaVipsOutput {
+func (s *AssociatedInstancForDescribeHaVipsOutput) SetInstanceID(v string) *AssociatedInstancForDescribeHaVipsOutput {
 	s.InstanceID = &v
 	return s
 }
 
 // SetInstanceType sets the InstanceType field's value.
-func (s *AssociatedInstanceForDescribeHaVipsOutput) SetInstanceType(v string) *AssociatedInstanceForDescribeHaVipsOutput {
+func (s *AssociatedInstancForDescribeHaVipsOutput) SetInstanceType(v string) *AssociatedInstancForDescribeHaVipsOutput {
 	s.InstanceType = &v
 	return s
 }
@@ -9852,14 +9871,14 @@ type ConvertEipAddressBillingTypeInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
-	Bandwidth *int64 `type:"integer"`
+	Bandwidth *int64 `min:"1" type:"integer"`
 
 	// BillingType is a required field
-	BillingType *int64 `type:"integer" required:"true"`
+	BillingType *int64 `min:"1" type:"integer" required:"true"`
 
 	Period *int64 `type:"integer"`
 
-	PeriodUnit *int64 `type:"integer"`
+	PeriodUnit *int64 `min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -9878,8 +9897,17 @@ func (s *ConvertEipAddressBillingTypeInput) Validate() error {
 	if s.AllocationId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
 	}
+	if s.Bandwidth != nil && *s.Bandwidth < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
+	}
 	if s.BillingType == nil {
 		invalidParams.Add(request.NewErrParamRequired("BillingType"))
+	}
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -11313,7 +11341,7 @@ func (s *DescribeEipAddressesBillingInput) SetAllocationIds(v []*string) *Descri
 type DescribeEipAddressesBillingOutput struct {
 	_ struct{} `type:"structure"`
 
-	EipAddresses []*EipAddresseForDescribeEipAddressesBillingOutput `type:"list"`
+	EipAddresses []*EipAddressForDescribeEipAddressesBillingOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -11335,7 +11363,7 @@ func (s DescribeEipAddressesBillingOutput) GoString() string {
 }
 
 // SetEipAddresses sets the EipAddresses field's value.
-func (s *DescribeEipAddressesBillingOutput) SetEipAddresses(v []*EipAddresseForDescribeEipAddressesBillingOutput) *DescribeEipAddressesBillingOutput {
+func (s *DescribeEipAddressesBillingOutput) SetEipAddresses(v []*EipAddressForDescribeEipAddressesBillingOutput) *DescribeEipAddressesBillingOutput {
 	s.EipAddresses = v
 	return s
 }
@@ -11371,11 +11399,11 @@ type DescribeEipAddressesInput struct {
 
 	AssociatedInstanceId *string `type:"string"`
 
-	AssociatedInstanceType *string `type:"string"`
+	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
 
 	EipAddresses []*string `type:"list"`
 
-	ISP *string `type:"string"`
+	ISP *string `type:"string" enum:"ISPForDescribeEipAddressesInput"`
 
 	Name *string `type:"string"`
 
@@ -11383,7 +11411,7 @@ type DescribeEipAddressesInput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
 }
 
 // String returns the string representation
@@ -11453,7 +11481,7 @@ func (s *DescribeEipAddressesInput) SetStatus(v string) *DescribeEipAddressesInp
 type DescribeEipAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
-	EipAddresses []*EipAddresseForDescribeEipAddressesOutput `type:"list"`
+	EipAddresses []*EipAddressForDescribeEipAddressesOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -11475,7 +11503,7 @@ func (s DescribeEipAddressesOutput) GoString() string {
 }
 
 // SetEipAddresses sets the EipAddresses field's value.
-func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddresseForDescribeEipAddressesOutput) *DescribeEipAddressesOutput {
+func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddressForDescribeEipAddressesOutput) *DescribeEipAddressesOutput {
 	s.EipAddresses = v
 	return s
 }
@@ -11547,7 +11575,7 @@ type DescribeHaVipAttributesOutput struct {
 
 	AssociatedEipAddress *string `type:"string"`
 
-	AssociatedInstances []*AssociatedInstanceForDescribeHaVipAttributesOutput `type:"list"`
+	AssociatedInstances []*AssociatedInstancForDescribeHaVipAttributesOutput `type:"list"`
 
 	CreatedAt *string `type:"string"`
 
@@ -11597,7 +11625,7 @@ func (s *DescribeHaVipAttributesOutput) SetAssociatedEipAddress(v string) *Descr
 }
 
 // SetAssociatedInstances sets the AssociatedInstances field's value.
-func (s *DescribeHaVipAttributesOutput) SetAssociatedInstances(v []*AssociatedInstanceForDescribeHaVipAttributesOutput) *DescribeHaVipAttributesOutput {
+func (s *DescribeHaVipAttributesOutput) SetAssociatedInstances(v []*AssociatedInstancForDescribeHaVipAttributesOutput) *DescribeHaVipAttributesOutput {
 	s.AssociatedInstances = v
 	return s
 }
@@ -11751,7 +11779,7 @@ type DescribeHaVipsOutput struct {
 
 	AssociatedEipAddress *string `type:"string"`
 
-	AssociatedInstances []*AssociatedInstanceForDescribeHaVipsOutput `type:"list"`
+	AssociatedInstances []*AssociatedInstancForDescribeHaVipsOutput `type:"list"`
 
 	CreatedAt *string `type:"string"`
 
@@ -11801,7 +11829,7 @@ func (s *DescribeHaVipsOutput) SetAssociatedEipAddress(v string) *DescribeHaVips
 }
 
 // SetAssociatedInstances sets the AssociatedInstances field's value.
-func (s *DescribeHaVipsOutput) SetAssociatedInstances(v []*AssociatedInstanceForDescribeHaVipsOutput) *DescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetAssociatedInstances(v []*AssociatedInstancForDescribeHaVipsOutput) *DescribeHaVipsOutput {
 	s.AssociatedInstances = v
 	return s
 }
@@ -12355,7 +12383,7 @@ type DescribeRouteEntryListOutput struct {
 
 	RequestId *string `type:"string"`
 
-	RouteEntries []*RouteEntrieForDescribeRouteEntryListOutput `type:"list"`
+	RouteEntries []*RouteEntryForDescribeRouteEntryListOutput `type:"list"`
 
 	TotalCount *int64 `type:"integer"`
 }
@@ -12389,7 +12417,7 @@ func (s *DescribeRouteEntryListOutput) SetRequestId(v string) *DescribeRouteEntr
 }
 
 // SetRouteEntries sets the RouteEntries field's value.
-func (s *DescribeRouteEntryListOutput) SetRouteEntries(v []*RouteEntrieForDescribeRouteEntryListOutput) *DescribeRouteEntryListOutput {
+func (s *DescribeRouteEntryListOutput) SetRouteEntries(v []*RouteEntryForDescribeRouteEntryListOutput) *DescribeRouteEntryListOutput {
 	s.RouteEntries = v
 	return s
 }
@@ -13442,7 +13470,7 @@ type DisassociateEipAddressInput struct {
 
 	InstanceId *string `type:"string"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateEipAddressInput"`
 }
 
 // String returns the string representation
@@ -13517,7 +13545,7 @@ type DisassociateHaVipInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateHaVipInput"`
 }
 
 // String returns the string representation
@@ -13656,7 +13684,7 @@ func (s *DisassociateRouteTableOutput) SetRequestId(v string) *DisassociateRoute
 	return s
 }
 
-type EipAddresseForDescribeEipAddressesBillingOutput struct {
+type EipAddressForDescribeEipAddressesBillingOutput struct {
 	_ struct{} `type:"structure"`
 
 	AllocationId *string `type:"string"`
@@ -13681,76 +13709,76 @@ type EipAddresseForDescribeEipAddressesBillingOutput struct {
 }
 
 // String returns the string representation
-func (s EipAddresseForDescribeEipAddressesBillingOutput) String() string {
+func (s EipAddressForDescribeEipAddressesBillingOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s EipAddresseForDescribeEipAddressesBillingOutput) GoString() string {
+func (s EipAddressForDescribeEipAddressesBillingOutput) GoString() string {
 	return s.String()
 }
 
 // SetAllocationId sets the AllocationId field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetAllocationId(v string) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetAllocationId(v string) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.AllocationId = &v
 	return s
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetBillingType(v int64) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetBillingType(v int64) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.BillingType = &v
 	return s
 }
 
 // SetExpiredTime sets the ExpiredTime field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetExpiredTime(v string) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetExpiredTime(v string) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.ExpiredTime = &v
 	return s
 }
 
 // SetOverdueReclaimTime sets the OverdueReclaimTime field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetOverdueReclaimTime(v string) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetOverdueReclaimTime(v string) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.OverdueReclaimTime = &v
 	return s
 }
 
 // SetOverdueTime sets the OverdueTime field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetOverdueTime(v string) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetOverdueTime(v string) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.OverdueTime = &v
 	return s
 }
 
 // SetReclaimTime sets the ReclaimTime field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetReclaimTime(v string) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetReclaimTime(v string) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.ReclaimTime = &v
 	return s
 }
 
 // SetRemainRenewTimes sets the RemainRenewTimes field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetRemainRenewTimes(v int64) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetRemainRenewTimes(v int64) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.RemainRenewTimes = &v
 	return s
 }
 
 // SetRenewPeriodTimes sets the RenewPeriodTimes field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetRenewPeriodTimes(v int64) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetRenewPeriodTimes(v int64) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.RenewPeriodTimes = &v
 	return s
 }
 
 // SetRenewType sets the RenewType field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetRenewType(v int64) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetRenewType(v int64) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.RenewType = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *EipAddresseForDescribeEipAddressesBillingOutput) SetStatus(v int64) *EipAddresseForDescribeEipAddressesBillingOutput {
+func (s *EipAddressForDescribeEipAddressesBillingOutput) SetStatus(v int64) *EipAddressForDescribeEipAddressesBillingOutput {
 	s.Status = &v
 	return s
 }
 
-type EipAddresseForDescribeEipAddressesOutput struct {
+type EipAddressForDescribeEipAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
 	AllocationId *string `type:"string"`
@@ -13791,119 +13819,119 @@ type EipAddresseForDescribeEipAddressesOutput struct {
 }
 
 // String returns the string representation
-func (s EipAddresseForDescribeEipAddressesOutput) String() string {
+func (s EipAddressForDescribeEipAddressesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s EipAddresseForDescribeEipAddressesOutput) GoString() string {
+func (s EipAddressForDescribeEipAddressesOutput) GoString() string {
 	return s.String()
 }
 
 // SetAllocationId sets the AllocationId field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetAllocationId(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetAllocationId(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.AllocationId = &v
 	return s
 }
 
 // SetAllocationTime sets the AllocationTime field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetAllocationTime(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetAllocationTime(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.AllocationTime = &v
 	return s
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetBandwidth(v int64) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidth(v int64) *EipAddressForDescribeEipAddressesOutput {
 	s.Bandwidth = &v
 	return s
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetBillingType(v int64) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetBillingType(v int64) *EipAddressForDescribeEipAddressesOutput {
 	s.BillingType = &v
 	return s
 }
 
 // SetBusinessStatus sets the BusinessStatus field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetBusinessStatus(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetBusinessStatus(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.BusinessStatus = &v
 	return s
 }
 
 // SetDeletedTime sets the DeletedTime field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetDeletedTime(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetDeletedTime(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.DeletedTime = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetDescription(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetDescription(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.Description = &v
 	return s
 }
 
 // SetEipAddress sets the EipAddress field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetEipAddress(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetEipAddress(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.EipAddress = &v
 	return s
 }
 
 // SetExpiredTime sets the ExpiredTime field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetExpiredTime(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetExpiredTime(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.ExpiredTime = &v
 	return s
 }
 
 // SetISP sets the ISP field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetISP(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetISP(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.ISP = &v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetInstanceId(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetInstanceId(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetInstanceType sets the InstanceType field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetInstanceType(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetInstanceType(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.InstanceType = &v
 	return s
 }
 
 // SetLockReason sets the LockReason field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetLockReason(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetLockReason(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.LockReason = &v
 	return s
 }
 
 // SetName sets the Name field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetName(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetName(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.Name = &v
 	return s
 }
 
 // SetOverdueTime sets the OverdueTime field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetOverdueTime(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetOverdueTime(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.OverdueTime = &v
 	return s
 }
 
 // SetProjectName sets the ProjectName field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetProjectName(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetProjectName(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.ProjectName = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetStatus(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetStatus(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.Status = &v
 	return s
 }
 
 // SetUpdatedAt sets the UpdatedAt field's value.
-func (s *EipAddresseForDescribeEipAddressesOutput) SetUpdatedAt(v string) *EipAddresseForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetUpdatedAt(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.UpdatedAt = &v
 	return s
 }
@@ -13914,7 +13942,7 @@ type ModifyEipAddressAttributesInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
-	Bandwidth *int64 `type:"integer"`
+	Bandwidth *int64 `min:"1" type:"integer"`
 
 	Description *string `type:"string"`
 
@@ -13936,6 +13964,9 @@ func (s *ModifyEipAddressAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyEipAddressAttributesInput"}
 	if s.AllocationId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -15166,7 +15197,7 @@ type RenewEipAddressInput struct {
 
 	Period *int64 `type:"integer"`
 
-	PeriodUnit *int64 `type:"integer"`
+	PeriodUnit *int64 `min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -15184,6 +15215,9 @@ func (s *RenewEipAddressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "RenewEipAddressInput"}
 	if s.AllocationId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -15508,7 +15542,7 @@ func (s *RevokeSecurityGroupIngressOutput) SetRequestId(v string) *RevokeSecurit
 	return s
 }
 
-type RouteEntrieForDescribeRouteEntryListOutput struct {
+type RouteEntryForDescribeRouteEntryListOutput struct {
 	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
@@ -15535,77 +15569,77 @@ type RouteEntrieForDescribeRouteEntryListOutput struct {
 }
 
 // String returns the string representation
-func (s RouteEntrieForDescribeRouteEntryListOutput) String() string {
+func (s RouteEntryForDescribeRouteEntryListOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s RouteEntrieForDescribeRouteEntryListOutput) GoString() string {
+func (s RouteEntryForDescribeRouteEntryListOutput) GoString() string {
 	return s.String()
 }
 
 // SetDescription sets the Description field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetDescription(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetDescription(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.Description = &v
 	return s
 }
 
 // SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetDestinationCidrBlock(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetDestinationCidrBlock(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.DestinationCidrBlock = &v
 	return s
 }
 
 // SetNextHopId sets the NextHopId field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetNextHopId(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopId(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.NextHopId = &v
 	return s
 }
 
 // SetNextHopName sets the NextHopName field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetNextHopName(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopName(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.NextHopName = &v
 	return s
 }
 
 // SetNextHopType sets the NextHopType field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetNextHopType(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopType(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.NextHopType = &v
 	return s
 }
 
 // SetRouteEntryId sets the RouteEntryId field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetRouteEntryId(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetRouteEntryId(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.RouteEntryId = &v
 	return s
 }
 
 // SetRouteEntryName sets the RouteEntryName field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetRouteEntryName(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetRouteEntryName(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.RouteEntryName = &v
 	return s
 }
 
 // SetRouteTableId sets the RouteTableId field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetRouteTableId(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetRouteTableId(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.RouteTableId = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetStatus(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetStatus(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.Status = &v
 	return s
 }
 
 // SetType sets the Type field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetType(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetType(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.Type = &v
 	return s
 }
 
 // SetVpcId sets the VpcId field's value.
-func (s *RouteEntrieForDescribeRouteEntryListOutput) SetVpcId(v string) *RouteEntrieForDescribeRouteEntryListOutput {
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetVpcId(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.VpcId = &v
 	return s
 }
@@ -15971,7 +16005,7 @@ type SetEipAddressRenewalInput struct {
 	RenewPeriodTimes *int64 `type:"integer"`
 
 	// RenewType is a required field
-	RenewType *int64 `type:"integer" required:"true"`
+	RenewType *int64 `min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -15992,6 +16026,9 @@ func (s *SetEipAddressRenewalInput) Validate() error {
 	}
 	if s.RenewType == nil {
 		invalidParams.Add(request.NewErrParamRequired("RenewType"))
+	}
+	if s.RenewType != nil && *s.RenewType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -16539,3 +16576,103 @@ func (s *VpcForDescribeVpcsOutput) SetVpcName(v string) *VpcForDescribeVpcsOutpu
 	s.VpcName = &v
 	return s
 }
+
+const (
+	// AssociatedInstanceTypeForDescribeEipAddressesInputNat is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputNat = "Nat"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance = "EcsInstance"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface = "NetworkInterface"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance = "ClbInstance"
+)
+
+const (
+	// ISPForAllocateEipAddressInputBgp is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputBgp = "BGP"
+
+	// ISPForAllocateEipAddressInputChinaMobile is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaMobile = "ChinaMobile"
+
+	// ISPForAllocateEipAddressInputChinaUnicom is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaUnicom = "ChinaUnicom"
+
+	// ISPForAllocateEipAddressInputChinaTelecom is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaTelecom = "ChinaTelecom"
+)
+
+const (
+	// ISPForDescribeEipAddressesInputBgp is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputBgp = "BGP"
+
+	// ISPForDescribeEipAddressesInputChinaMobile is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaMobile = "ChinaMobile"
+
+	// ISPForDescribeEipAddressesInputChinaUnicom is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaUnicom = "ChinaUnicom"
+
+	// ISPForDescribeEipAddressesInputChinaTelecom is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaTelecom = "ChinaTelecom"
+)
+
+const (
+	// InstanceTypeForAssociateEipAddressInputNat is a InstanceTypeForAssociateEipAddressInput enum value
+	InstanceTypeForAssociateEipAddressInputNat = "Nat"
+
+	// InstanceTypeForAssociateEipAddressInputNetworkInterface is a InstanceTypeForAssociateEipAddressInput enum value
+	InstanceTypeForAssociateEipAddressInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForAssociateEipAddressInputClbInstance is a InstanceTypeForAssociateEipAddressInput enum value
+	InstanceTypeForAssociateEipAddressInputClbInstance = "ClbInstance"
+
+	// InstanceTypeForAssociateEipAddressInputEcsInstance is a InstanceTypeForAssociateEipAddressInput enum value
+	InstanceTypeForAssociateEipAddressInputEcsInstance = "EcsInstance"
+)
+
+const (
+	// InstanceTypeForAssociateHaVipInputNetworkInterface is a InstanceTypeForAssociateHaVipInput enum value
+	InstanceTypeForAssociateHaVipInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForAssociateHaVipInputEcsInstance is a InstanceTypeForAssociateHaVipInput enum value
+	InstanceTypeForAssociateHaVipInputEcsInstance = "EcsInstance"
+)
+
+const (
+	// InstanceTypeForDisassociateEipAddressInputNat is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputNat = "Nat"
+
+	// InstanceTypeForDisassociateEipAddressInputNetworkInterface is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForDisassociateEipAddressInputClbInstance is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputClbInstance = "ClbInstance"
+
+	// InstanceTypeForDisassociateEipAddressInputEcsInstance is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputEcsInstance = "EcsInstance"
+)
+
+const (
+	// InstanceTypeForDisassociateHaVipInputNetworkInterface is a InstanceTypeForDisassociateHaVipInput enum value
+	InstanceTypeForDisassociateHaVipInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForDisassociateHaVipInputEcsInstance is a InstanceTypeForDisassociateHaVipInput enum value
+	InstanceTypeForDisassociateHaVipInputEcsInstance = "EcsInstance"
+)
+
+const (
+	// StatusForDescribeEipAddressesInputAttaching is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputAttaching = "Attaching"
+
+	// StatusForDescribeEipAddressesInputDetaching is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputDetaching = "Detaching"
+
+	// StatusForDescribeEipAddressesInputAttached is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputAttached = "Attached"
+
+	// StatusForDescribeEipAddressesInputAvailable is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputAvailable = "Available"
+)
