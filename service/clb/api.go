@@ -4488,6 +4488,286 @@ func (c *CLB) InnerAssociateVpcsWithContext(ctx volcstack.Context, input *InnerA
 	return out, req.Send()
 }
 
+const opInnerBffDescribeLoadBalancerHealthCommon = "InnerBffDescribeLoadBalancerHealth"
+
+// InnerBffDescribeLoadBalancerHealthCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the InnerBffDescribeLoadBalancerHealthCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See InnerBffDescribeLoadBalancerHealthCommon for more information on using the InnerBffDescribeLoadBalancerHealthCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the InnerBffDescribeLoadBalancerHealthCommonRequest method.
+//    req, resp := client.InnerBffDescribeLoadBalancerHealthCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) InnerBffDescribeLoadBalancerHealthCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opInnerBffDescribeLoadBalancerHealthCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// InnerBffDescribeLoadBalancerHealthCommon API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation InnerBffDescribeLoadBalancerHealthCommon for usage and error information.
+func (c *CLB) InnerBffDescribeLoadBalancerHealthCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.InnerBffDescribeLoadBalancerHealthCommonRequest(input)
+	return out, req.Send()
+}
+
+// InnerBffDescribeLoadBalancerHealthCommonWithContext is the same as InnerBffDescribeLoadBalancerHealthCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See InnerBffDescribeLoadBalancerHealthCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) InnerBffDescribeLoadBalancerHealthCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.InnerBffDescribeLoadBalancerHealthCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opInnerBffDescribeLoadBalancerHealth = "InnerBffDescribeLoadBalancerHealth"
+
+// InnerBffDescribeLoadBalancerHealthRequest generates a "volcstack/request.Request" representing the
+// client's request for the InnerBffDescribeLoadBalancerHealth operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See InnerBffDescribeLoadBalancerHealth for more information on using the InnerBffDescribeLoadBalancerHealth
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the InnerBffDescribeLoadBalancerHealthRequest method.
+//    req, resp := client.InnerBffDescribeLoadBalancerHealthRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) InnerBffDescribeLoadBalancerHealthRequest(input *InnerBffDescribeLoadBalancerHealthInput) (req *request.Request, output *InnerBffDescribeLoadBalancerHealthOutput) {
+	op := &request.Operation{
+		Name:       opInnerBffDescribeLoadBalancerHealth,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &InnerBffDescribeLoadBalancerHealthInput{}
+	}
+
+	output = &InnerBffDescribeLoadBalancerHealthOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// InnerBffDescribeLoadBalancerHealth API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation InnerBffDescribeLoadBalancerHealth for usage and error information.
+func (c *CLB) InnerBffDescribeLoadBalancerHealth(input *InnerBffDescribeLoadBalancerHealthInput) (*InnerBffDescribeLoadBalancerHealthOutput, error) {
+	req, out := c.InnerBffDescribeLoadBalancerHealthRequest(input)
+	return out, req.Send()
+}
+
+// InnerBffDescribeLoadBalancerHealthWithContext is the same as InnerBffDescribeLoadBalancerHealth with the addition of
+// the ability to pass a context and additional request options.
+//
+// See InnerBffDescribeLoadBalancerHealth for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) InnerBffDescribeLoadBalancerHealthWithContext(ctx volcstack.Context, input *InnerBffDescribeLoadBalancerHealthInput, opts ...request.Option) (*InnerBffDescribeLoadBalancerHealthOutput, error) {
+	req, out := c.InnerBffDescribeLoadBalancerHealthRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opInnerBffGetAccountQuotaCommon = "InnerBffGetAccountQuota"
+
+// InnerBffGetAccountQuotaCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the InnerBffGetAccountQuotaCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See InnerBffGetAccountQuotaCommon for more information on using the InnerBffGetAccountQuotaCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the InnerBffGetAccountQuotaCommonRequest method.
+//    req, resp := client.InnerBffGetAccountQuotaCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) InnerBffGetAccountQuotaCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opInnerBffGetAccountQuotaCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// InnerBffGetAccountQuotaCommon API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation InnerBffGetAccountQuotaCommon for usage and error information.
+func (c *CLB) InnerBffGetAccountQuotaCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.InnerBffGetAccountQuotaCommonRequest(input)
+	return out, req.Send()
+}
+
+// InnerBffGetAccountQuotaCommonWithContext is the same as InnerBffGetAccountQuotaCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See InnerBffGetAccountQuotaCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) InnerBffGetAccountQuotaCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.InnerBffGetAccountQuotaCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opInnerBffGetAccountQuota = "InnerBffGetAccountQuota"
+
+// InnerBffGetAccountQuotaRequest generates a "volcstack/request.Request" representing the
+// client's request for the InnerBffGetAccountQuota operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See InnerBffGetAccountQuota for more information on using the InnerBffGetAccountQuota
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the InnerBffGetAccountQuotaRequest method.
+//    req, resp := client.InnerBffGetAccountQuotaRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) InnerBffGetAccountQuotaRequest(input *InnerBffGetAccountQuotaInput) (req *request.Request, output *InnerBffGetAccountQuotaOutput) {
+	op := &request.Operation{
+		Name:       opInnerBffGetAccountQuota,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &InnerBffGetAccountQuotaInput{}
+	}
+
+	output = &InnerBffGetAccountQuotaOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// InnerBffGetAccountQuota API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation InnerBffGetAccountQuota for usage and error information.
+func (c *CLB) InnerBffGetAccountQuota(input *InnerBffGetAccountQuotaInput) (*InnerBffGetAccountQuotaOutput, error) {
+	req, out := c.InnerBffGetAccountQuotaRequest(input)
+	return out, req.Send()
+}
+
+// InnerBffGetAccountQuotaWithContext is the same as InnerBffGetAccountQuota with the addition of
+// the ability to pass a context and additional request options.
+//
+// See InnerBffGetAccountQuota for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) InnerBffGetAccountQuotaWithContext(ctx volcstack.Context, input *InnerBffGetAccountQuotaInput, opts ...request.Option) (*InnerBffGetAccountQuotaOutput, error) {
+	req, out := c.InnerBffGetAccountQuotaRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opInnerBffGetIDsCommon = "InnerBffGetIDs"
 
 // InnerBffGetIDsCommonRequest generates a "volcstack/request.Request" representing the
@@ -5748,146 +6028,6 @@ func (c *CLB) InnerDescribeLoadBalancerAttributesWithContext(ctx volcstack.Conte
 	return out, req.Send()
 }
 
-const opInnerDescribeLoadBalancerHealthCommon = "InnerDescribeLoadBalancerHealth"
-
-// InnerDescribeLoadBalancerHealthCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerDescribeLoadBalancerHealthCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See InnerDescribeLoadBalancerHealthCommon for more information on using the InnerDescribeLoadBalancerHealthCommon
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the InnerDescribeLoadBalancerHealthCommonRequest method.
-//    req, resp := client.InnerDescribeLoadBalancerHealthCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *CLB) InnerDescribeLoadBalancerHealthCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opInnerDescribeLoadBalancerHealthCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
-
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// InnerDescribeLoadBalancerHealthCommon API operation for CLB.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for CLB's
-// API operation InnerDescribeLoadBalancerHealthCommon for usage and error information.
-func (c *CLB) InnerDescribeLoadBalancerHealthCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.InnerDescribeLoadBalancerHealthCommonRequest(input)
-	return out, req.Send()
-}
-
-// InnerDescribeLoadBalancerHealthCommonWithContext is the same as InnerDescribeLoadBalancerHealthCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See InnerDescribeLoadBalancerHealthCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *CLB) InnerDescribeLoadBalancerHealthCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.InnerDescribeLoadBalancerHealthCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opInnerDescribeLoadBalancerHealth = "InnerDescribeLoadBalancerHealth"
-
-// InnerDescribeLoadBalancerHealthRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerDescribeLoadBalancerHealth operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See InnerDescribeLoadBalancerHealth for more information on using the InnerDescribeLoadBalancerHealth
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the InnerDescribeLoadBalancerHealthRequest method.
-//    req, resp := client.InnerDescribeLoadBalancerHealthRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *CLB) InnerDescribeLoadBalancerHealthRequest(input *InnerDescribeLoadBalancerHealthInput) (req *request.Request, output *InnerDescribeLoadBalancerHealthOutput) {
-	op := &request.Operation{
-		Name:       opInnerDescribeLoadBalancerHealth,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &InnerDescribeLoadBalancerHealthInput{}
-	}
-
-	output = &InnerDescribeLoadBalancerHealthOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// InnerDescribeLoadBalancerHealth API operation for CLB.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for CLB's
-// API operation InnerDescribeLoadBalancerHealth for usage and error information.
-func (c *CLB) InnerDescribeLoadBalancerHealth(input *InnerDescribeLoadBalancerHealthInput) (*InnerDescribeLoadBalancerHealthOutput, error) {
-	req, out := c.InnerDescribeLoadBalancerHealthRequest(input)
-	return out, req.Send()
-}
-
-// InnerDescribeLoadBalancerHealthWithContext is the same as InnerDescribeLoadBalancerHealth with the addition of
-// the ability to pass a context and additional request options.
-//
-// See InnerDescribeLoadBalancerHealth for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *CLB) InnerDescribeLoadBalancerHealthWithContext(ctx volcstack.Context, input *InnerDescribeLoadBalancerHealthInput, opts ...request.Option) (*InnerDescribeLoadBalancerHealthOutput, error) {
-	req, out := c.InnerDescribeLoadBalancerHealthRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
 const opInnerDescribeLoadBalancersCommon = "InnerDescribeLoadBalancers"
 
 // InnerDescribeLoadBalancersCommonRequest generates a "volcstack/request.Request" representing the
@@ -6023,146 +6163,6 @@ func (c *CLB) InnerDescribeLoadBalancers(input *InnerDescribeLoadBalancersInput)
 // for more information on using Contexts.
 func (c *CLB) InnerDescribeLoadBalancersWithContext(ctx volcstack.Context, input *InnerDescribeLoadBalancersInput, opts ...request.Option) (*InnerDescribeLoadBalancersOutput, error) {
 	req, out := c.InnerDescribeLoadBalancersRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opInnerGetAccountQuotaCommon = "InnerGetAccountQuota"
-
-// InnerGetAccountQuotaCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerGetAccountQuotaCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See InnerGetAccountQuotaCommon for more information on using the InnerGetAccountQuotaCommon
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the InnerGetAccountQuotaCommonRequest method.
-//    req, resp := client.InnerGetAccountQuotaCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *CLB) InnerGetAccountQuotaCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opInnerGetAccountQuotaCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
-
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// InnerGetAccountQuotaCommon API operation for CLB.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for CLB's
-// API operation InnerGetAccountQuotaCommon for usage and error information.
-func (c *CLB) InnerGetAccountQuotaCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.InnerGetAccountQuotaCommonRequest(input)
-	return out, req.Send()
-}
-
-// InnerGetAccountQuotaCommonWithContext is the same as InnerGetAccountQuotaCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See InnerGetAccountQuotaCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *CLB) InnerGetAccountQuotaCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.InnerGetAccountQuotaCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opInnerGetAccountQuota = "InnerGetAccountQuota"
-
-// InnerGetAccountQuotaRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerGetAccountQuota operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See InnerGetAccountQuota for more information on using the InnerGetAccountQuota
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the InnerGetAccountQuotaRequest method.
-//    req, resp := client.InnerGetAccountQuotaRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *CLB) InnerGetAccountQuotaRequest(input *InnerGetAccountQuotaInput) (req *request.Request, output *InnerGetAccountQuotaOutput) {
-	op := &request.Operation{
-		Name:       opInnerGetAccountQuota,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &InnerGetAccountQuotaInput{}
-	}
-
-	output = &InnerGetAccountQuotaOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// InnerGetAccountQuota API operation for CLB.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for CLB's
-// API operation InnerGetAccountQuota for usage and error information.
-func (c *CLB) InnerGetAccountQuota(input *InnerGetAccountQuotaInput) (*InnerGetAccountQuotaOutput, error) {
-	req, out := c.InnerGetAccountQuotaRequest(input)
-	return out, req.Send()
-}
-
-// InnerGetAccountQuotaWithContext is the same as InnerGetAccountQuota with the addition of
-// the ability to pass a context and additional request options.
-//
-// See InnerGetAccountQuota for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *CLB) InnerGetAccountQuotaWithContext(ctx volcstack.Context, input *InnerGetAccountQuotaInput, opts ...request.Option) (*InnerGetAccountQuotaOutput, error) {
-	req, out := c.InnerGetAccountQuotaRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -12386,6 +12386,186 @@ func (s *InnerAssociateVpcsOutput) SetRequestId(v string) *InnerAssociateVpcsOut
 	return s
 }
 
+type InnerBffDescribeLoadBalancerHealthInput struct {
+	_ struct{} `type:"structure"`
+
+	// LoadBalancerIds is a required field
+	LoadBalancerIds []*string `type:"list" required:"true"`
+}
+
+// String returns the string representation
+func (s InnerBffDescribeLoadBalancerHealthInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InnerBffDescribeLoadBalancerHealthInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *InnerBffDescribeLoadBalancerHealthInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "InnerBffDescribeLoadBalancerHealthInput"}
+	if s.LoadBalancerIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLoadBalancerIds sets the LoadBalancerIds field's value.
+func (s *InnerBffDescribeLoadBalancerHealthInput) SetLoadBalancerIds(v []*string) *InnerBffDescribeLoadBalancerHealthInput {
+	s.LoadBalancerIds = v
+	return s
+}
+
+type InnerBffDescribeLoadBalancerHealthOutput struct {
+	_ struct{} `type:"structure"`
+
+	LoadBalancerHealths []*LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput `type:"list"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s InnerBffDescribeLoadBalancerHealthOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InnerBffDescribeLoadBalancerHealthOutput) GoString() string {
+	return s.String()
+}
+
+// SetLoadBalancerHealths sets the LoadBalancerHealths field's value.
+func (s *InnerBffDescribeLoadBalancerHealthOutput) SetLoadBalancerHealths(v []*LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput) *InnerBffDescribeLoadBalancerHealthOutput {
+	s.LoadBalancerHealths = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *InnerBffDescribeLoadBalancerHealthOutput) SetRequestId(v string) *InnerBffDescribeLoadBalancerHealthOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *InnerBffDescribeLoadBalancerHealthOutput) SetTotalCount(v int64) *InnerBffDescribeLoadBalancerHealthOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type InnerBffGetAccountQuotaInput struct {
+	_ struct{} `type:"structure"`
+
+	// QuotaCode is a required field
+	QuotaCode *string `type:"string" required:"true"`
+
+	ResourceId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InnerBffGetAccountQuotaInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InnerBffGetAccountQuotaInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *InnerBffGetAccountQuotaInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "InnerBffGetAccountQuotaInput"}
+	if s.QuotaCode == nil {
+		invalidParams.Add(request.NewErrParamRequired("QuotaCode"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetQuotaCode sets the QuotaCode field's value.
+func (s *InnerBffGetAccountQuotaInput) SetQuotaCode(v string) *InnerBffGetAccountQuotaInput {
+	s.QuotaCode = &v
+	return s
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *InnerBffGetAccountQuotaInput) SetResourceId(v string) *InnerBffGetAccountQuotaInput {
+	s.ResourceId = &v
+	return s
+}
+
+type InnerBffGetAccountQuotaOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	Quota *int64 `type:"integer"`
+
+	QuotaCode *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	ResourceId *string `type:"string"`
+
+	Usage *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s InnerBffGetAccountQuotaOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InnerBffGetAccountQuotaOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *InnerBffGetAccountQuotaOutput) SetAccountId(v string) *InnerBffGetAccountQuotaOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetQuota sets the Quota field's value.
+func (s *InnerBffGetAccountQuotaOutput) SetQuota(v int64) *InnerBffGetAccountQuotaOutput {
+	s.Quota = &v
+	return s
+}
+
+// SetQuotaCode sets the QuotaCode field's value.
+func (s *InnerBffGetAccountQuotaOutput) SetQuotaCode(v string) *InnerBffGetAccountQuotaOutput {
+	s.QuotaCode = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *InnerBffGetAccountQuotaOutput) SetRequestId(v string) *InnerBffGetAccountQuotaOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *InnerBffGetAccountQuotaOutput) SetResourceId(v string) *InnerBffGetAccountQuotaOutput {
+	s.ResourceId = &v
+	return s
+}
+
+// SetUsage sets the Usage field's value.
+func (s *InnerBffGetAccountQuotaOutput) SetUsage(v int64) *InnerBffGetAccountQuotaOutput {
+	s.Usage = &v
+	return s
+}
+
 type InnerBffGetIDsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -13302,80 +13482,6 @@ func (s *InnerDescribeLoadBalancerAttributesOutput) SetVpcId(v string) *InnerDes
 	return s
 }
 
-type InnerDescribeLoadBalancerHealthInput struct {
-	_ struct{} `type:"structure"`
-
-	// LoadBalancerIds is a required field
-	LoadBalancerIds []*string `type:"list" required:"true"`
-}
-
-// String returns the string representation
-func (s InnerDescribeLoadBalancerHealthInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InnerDescribeLoadBalancerHealthInput) GoString() string {
-	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *InnerDescribeLoadBalancerHealthInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "InnerDescribeLoadBalancerHealthInput"}
-	if s.LoadBalancerIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("LoadBalancerIds"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetLoadBalancerIds sets the LoadBalancerIds field's value.
-func (s *InnerDescribeLoadBalancerHealthInput) SetLoadBalancerIds(v []*string) *InnerDescribeLoadBalancerHealthInput {
-	s.LoadBalancerIds = v
-	return s
-}
-
-type InnerDescribeLoadBalancerHealthOutput struct {
-	_ struct{} `type:"structure"`
-
-	LoadBalancerHealths []*LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput `type:"list"`
-
-	RequestId *string `type:"string"`
-
-	TotalCount *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s InnerDescribeLoadBalancerHealthOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InnerDescribeLoadBalancerHealthOutput) GoString() string {
-	return s.String()
-}
-
-// SetLoadBalancerHealths sets the LoadBalancerHealths field's value.
-func (s *InnerDescribeLoadBalancerHealthOutput) SetLoadBalancerHealths(v []*LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput) *InnerDescribeLoadBalancerHealthOutput {
-	s.LoadBalancerHealths = v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *InnerDescribeLoadBalancerHealthOutput) SetRequestId(v string) *InnerDescribeLoadBalancerHealthOutput {
-	s.RequestId = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *InnerDescribeLoadBalancerHealthOutput) SetTotalCount(v int64) *InnerDescribeLoadBalancerHealthOutput {
-	s.TotalCount = &v
-	return s
-}
-
 type InnerDescribeLoadBalancersInput struct {
 	_ struct{} `type:"structure"`
 
@@ -13489,112 +13595,6 @@ func (s *InnerDescribeLoadBalancersOutput) SetRequestId(v string) *InnerDescribe
 // SetTotalCount sets the TotalCount field's value.
 func (s *InnerDescribeLoadBalancersOutput) SetTotalCount(v int64) *InnerDescribeLoadBalancersOutput {
 	s.TotalCount = &v
-	return s
-}
-
-type InnerGetAccountQuotaInput struct {
-	_ struct{} `type:"structure"`
-
-	// QuotaCode is a required field
-	QuotaCode *string `type:"string" required:"true"`
-
-	ResourceId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s InnerGetAccountQuotaInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InnerGetAccountQuotaInput) GoString() string {
-	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *InnerGetAccountQuotaInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "InnerGetAccountQuotaInput"}
-	if s.QuotaCode == nil {
-		invalidParams.Add(request.NewErrParamRequired("QuotaCode"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetQuotaCode sets the QuotaCode field's value.
-func (s *InnerGetAccountQuotaInput) SetQuotaCode(v string) *InnerGetAccountQuotaInput {
-	s.QuotaCode = &v
-	return s
-}
-
-// SetResourceId sets the ResourceId field's value.
-func (s *InnerGetAccountQuotaInput) SetResourceId(v string) *InnerGetAccountQuotaInput {
-	s.ResourceId = &v
-	return s
-}
-
-type InnerGetAccountQuotaOutput struct {
-	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
-
-	Quota *int64 `type:"integer"`
-
-	QuotaCode *string `type:"string"`
-
-	RequestId *string `type:"string"`
-
-	ResourceId *string `type:"string"`
-
-	Usage *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s InnerGetAccountQuotaOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InnerGetAccountQuotaOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *InnerGetAccountQuotaOutput) SetAccountId(v string) *InnerGetAccountQuotaOutput {
-	s.AccountId = &v
-	return s
-}
-
-// SetQuota sets the Quota field's value.
-func (s *InnerGetAccountQuotaOutput) SetQuota(v int64) *InnerGetAccountQuotaOutput {
-	s.Quota = &v
-	return s
-}
-
-// SetQuotaCode sets the QuotaCode field's value.
-func (s *InnerGetAccountQuotaOutput) SetQuotaCode(v string) *InnerGetAccountQuotaOutput {
-	s.QuotaCode = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *InnerGetAccountQuotaOutput) SetRequestId(v string) *InnerGetAccountQuotaOutput {
-	s.RequestId = &v
-	return s
-}
-
-// SetResourceId sets the ResourceId field's value.
-func (s *InnerGetAccountQuotaOutput) SetResourceId(v string) *InnerGetAccountQuotaOutput {
-	s.ResourceId = &v
-	return s
-}
-
-// SetUsage sets the Usage field's value.
-func (s *InnerGetAccountQuotaOutput) SetUsage(v int64) *InnerGetAccountQuotaOutput {
-	s.Usage = &v
 	return s
 }
 
@@ -14844,7 +14844,7 @@ func (s *LoadBalancerForInnerDescribeLoadBalancersOutput) SetVpcId(v string) *Lo
 	return s
 }
 
-type LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput struct {
+type LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput struct {
 	_ struct{} `type:"structure"`
 
 	ListenerCount *int64 `type:"integer"`
@@ -14857,35 +14857,35 @@ type LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput struct {
 }
 
 // String returns the string representation
-func (s LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput) String() string {
+func (s LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput) GoString() string {
+func (s LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput) GoString() string {
 	return s.String()
 }
 
 // SetListenerCount sets the ListenerCount field's value.
-func (s *LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput) SetListenerCount(v int64) *LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput {
+func (s *LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput) SetListenerCount(v int64) *LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput {
 	s.ListenerCount = &v
 	return s
 }
 
 // SetLoadBalancerId sets the LoadBalancerId field's value.
-func (s *LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput) SetLoadBalancerId(v string) *LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput {
+func (s *LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput) SetLoadBalancerId(v string) *LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput {
 	s.LoadBalancerId = &v
 	return s
 }
 
 // SetUnHealthyListenerCount sets the UnHealthyListenerCount field's value.
-func (s *LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput) SetUnHealthyListenerCount(v int64) *LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput {
+func (s *LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput) SetUnHealthyListenerCount(v int64) *LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput {
 	s.UnHealthyListenerCount = &v
 	return s
 }
 
 // SetUnHealthyListeners sets the UnHealthyListeners field's value.
-func (s *LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput) SetUnHealthyListeners(v []*string) *LoadBalancerHealthForInnerDescribeLoadBalancerHealthOutput {
+func (s *LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput) SetUnHealthyListeners(v []*string) *LoadBalancerHealthForInnerBffDescribeLoadBalancerHealthOutput {
 	s.UnHealthyListeners = v
 	return s
 }
