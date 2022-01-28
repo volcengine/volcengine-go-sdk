@@ -315,6 +315,22 @@ type CLBAPI interface {
 	InnerAssociateVpcsWithContext(volcstack.Context, *InnerAssociateVpcsInput, ...request.Option) (*InnerAssociateVpcsOutput, error)
 	InnerAssociateVpcsRequest(*InnerAssociateVpcsInput) (*request.Request, *InnerAssociateVpcsOutput)
 
+	InnerBffDescribeLoadBalancerHealthCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	InnerBffDescribeLoadBalancerHealthCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	InnerBffDescribeLoadBalancerHealthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	InnerBffDescribeLoadBalancerHealth(*InnerBffDescribeLoadBalancerHealthInput) (*InnerBffDescribeLoadBalancerHealthOutput, error)
+	InnerBffDescribeLoadBalancerHealthWithContext(volcstack.Context, *InnerBffDescribeLoadBalancerHealthInput, ...request.Option) (*InnerBffDescribeLoadBalancerHealthOutput, error)
+	InnerBffDescribeLoadBalancerHealthRequest(*InnerBffDescribeLoadBalancerHealthInput) (*request.Request, *InnerBffDescribeLoadBalancerHealthOutput)
+
+	InnerBffGetAccountQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	InnerBffGetAccountQuotaCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	InnerBffGetAccountQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	InnerBffGetAccountQuota(*InnerBffGetAccountQuotaInput) (*InnerBffGetAccountQuotaOutput, error)
+	InnerBffGetAccountQuotaWithContext(volcstack.Context, *InnerBffGetAccountQuotaInput, ...request.Option) (*InnerBffGetAccountQuotaOutput, error)
+	InnerBffGetAccountQuotaRequest(*InnerBffGetAccountQuotaInput) (*request.Request, *InnerBffGetAccountQuotaOutput)
+
 	InnerBffGetIDsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	InnerBffGetIDsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	InnerBffGetIDsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -387,14 +403,6 @@ type CLBAPI interface {
 	InnerDescribeLoadBalancerAttributesWithContext(volcstack.Context, *InnerDescribeLoadBalancerAttributesInput, ...request.Option) (*InnerDescribeLoadBalancerAttributesOutput, error)
 	InnerDescribeLoadBalancerAttributesRequest(*InnerDescribeLoadBalancerAttributesInput) (*request.Request, *InnerDescribeLoadBalancerAttributesOutput)
 
-	InnerDescribeLoadBalancerHealthCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerDescribeLoadBalancerHealthCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerDescribeLoadBalancerHealthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerDescribeLoadBalancerHealth(*InnerDescribeLoadBalancerHealthInput) (*InnerDescribeLoadBalancerHealthOutput, error)
-	InnerDescribeLoadBalancerHealthWithContext(volcstack.Context, *InnerDescribeLoadBalancerHealthInput, ...request.Option) (*InnerDescribeLoadBalancerHealthOutput, error)
-	InnerDescribeLoadBalancerHealthRequest(*InnerDescribeLoadBalancerHealthInput) (*request.Request, *InnerDescribeLoadBalancerHealthOutput)
-
 	InnerDescribeLoadBalancersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	InnerDescribeLoadBalancersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	InnerDescribeLoadBalancersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -402,14 +410,6 @@ type CLBAPI interface {
 	InnerDescribeLoadBalancers(*InnerDescribeLoadBalancersInput) (*InnerDescribeLoadBalancersOutput, error)
 	InnerDescribeLoadBalancersWithContext(volcstack.Context, *InnerDescribeLoadBalancersInput, ...request.Option) (*InnerDescribeLoadBalancersOutput, error)
 	InnerDescribeLoadBalancersRequest(*InnerDescribeLoadBalancersInput) (*request.Request, *InnerDescribeLoadBalancersOutput)
-
-	InnerGetAccountQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerGetAccountQuotaCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerGetAccountQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerGetAccountQuota(*InnerGetAccountQuotaInput) (*InnerGetAccountQuotaOutput, error)
-	InnerGetAccountQuotaWithContext(volcstack.Context, *InnerGetAccountQuotaInput, ...request.Option) (*InnerGetAccountQuotaOutput, error)
-	InnerGetAccountQuotaRequest(*InnerGetAccountQuotaInput) (*request.Request, *InnerGetAccountQuotaOutput)
 
 	InnerLoadBalancerResumeStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	InnerLoadBalancerResumeStatusCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

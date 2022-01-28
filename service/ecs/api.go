@@ -10,6 +10,146 @@ import (
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
+const opAttachKeyPairCommon = "AttachKeyPair"
+
+// AttachKeyPairCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AttachKeyPairCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AttachKeyPairCommon for more information on using the AttachKeyPairCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AttachKeyPairCommonRequest method.
+//    req, resp := client.AttachKeyPairCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) AttachKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAttachKeyPairCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AttachKeyPairCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation AttachKeyPairCommon for usage and error information.
+func (c *ECS) AttachKeyPairCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AttachKeyPairCommonRequest(input)
+	return out, req.Send()
+}
+
+// AttachKeyPairCommonWithContext is the same as AttachKeyPairCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AttachKeyPairCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) AttachKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AttachKeyPairCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAttachKeyPair = "AttachKeyPair"
+
+// AttachKeyPairRequest generates a "volcstack/request.Request" representing the
+// client's request for the AttachKeyPair operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AttachKeyPair for more information on using the AttachKeyPair
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AttachKeyPairRequest method.
+//    req, resp := client.AttachKeyPairRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) AttachKeyPairRequest(input *AttachKeyPairInput) (req *request.Request, output *AttachKeyPairOutput) {
+	op := &request.Operation{
+		Name:       opAttachKeyPair,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AttachKeyPairInput{}
+	}
+
+	output = &AttachKeyPairOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AttachKeyPair API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation AttachKeyPair for usage and error information.
+func (c *ECS) AttachKeyPair(input *AttachKeyPairInput) (*AttachKeyPairOutput, error) {
+	req, out := c.AttachKeyPairRequest(input)
+	return out, req.Send()
+}
+
+// AttachKeyPairWithContext is the same as AttachKeyPair with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AttachKeyPair for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) AttachKeyPairWithContext(ctx volcstack.Context, input *AttachKeyPairInput, opts ...request.Option) (*AttachKeyPairOutput, error) {
+	req, out := c.AttachKeyPairRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opBindAssumeRoleCommon = "BindAssumeRole"
 
 // BindAssumeRoleCommonRequest generates a "volcstack/request.Request" representing the
@@ -147,6 +287,286 @@ func (c *ECS) BindAssumeRole(input *BindAssumeRoleInput) (*BindAssumeRoleOutput,
 // for more information on using Contexts.
 func (c *ECS) BindAssumeRoleWithContext(ctx volcstack.Context, input *BindAssumeRoleInput, opts ...request.Option) (*BindAssumeRoleOutput, error) {
 	req, out := c.BindAssumeRoleRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateDeploymentSetCommon = "CreateDeploymentSet"
+
+// CreateDeploymentSetCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateDeploymentSetCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateDeploymentSetCommon for more information on using the CreateDeploymentSetCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateDeploymentSetCommonRequest method.
+//    req, resp := client.CreateDeploymentSetCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) CreateDeploymentSetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateDeploymentSetCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateDeploymentSetCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation CreateDeploymentSetCommon for usage and error information.
+func (c *ECS) CreateDeploymentSetCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateDeploymentSetCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateDeploymentSetCommonWithContext is the same as CreateDeploymentSetCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateDeploymentSetCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) CreateDeploymentSetCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateDeploymentSetCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateDeploymentSet = "CreateDeploymentSet"
+
+// CreateDeploymentSetRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateDeploymentSet operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateDeploymentSet for more information on using the CreateDeploymentSet
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateDeploymentSetRequest method.
+//    req, resp := client.CreateDeploymentSetRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) CreateDeploymentSetRequest(input *CreateDeploymentSetInput) (req *request.Request, output *CreateDeploymentSetOutput) {
+	op := &request.Operation{
+		Name:       opCreateDeploymentSet,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateDeploymentSetInput{}
+	}
+
+	output = &CreateDeploymentSetOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateDeploymentSet API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation CreateDeploymentSet for usage and error information.
+func (c *ECS) CreateDeploymentSet(input *CreateDeploymentSetInput) (*CreateDeploymentSetOutput, error) {
+	req, out := c.CreateDeploymentSetRequest(input)
+	return out, req.Send()
+}
+
+// CreateDeploymentSetWithContext is the same as CreateDeploymentSet with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateDeploymentSet for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) CreateDeploymentSetWithContext(ctx volcstack.Context, input *CreateDeploymentSetInput, opts ...request.Option) (*CreateDeploymentSetOutput, error) {
+	req, out := c.CreateDeploymentSetRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateHpcClusterCommon = "CreateHpcCluster"
+
+// CreateHpcClusterCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateHpcClusterCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateHpcClusterCommon for more information on using the CreateHpcClusterCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateHpcClusterCommonRequest method.
+//    req, resp := client.CreateHpcClusterCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) CreateHpcClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateHpcClusterCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateHpcClusterCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation CreateHpcClusterCommon for usage and error information.
+func (c *ECS) CreateHpcClusterCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateHpcClusterCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateHpcClusterCommonWithContext is the same as CreateHpcClusterCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateHpcClusterCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) CreateHpcClusterCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateHpcClusterCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateHpcCluster = "CreateHpcCluster"
+
+// CreateHpcClusterRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateHpcCluster operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateHpcCluster for more information on using the CreateHpcCluster
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateHpcClusterRequest method.
+//    req, resp := client.CreateHpcClusterRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) CreateHpcClusterRequest(input *CreateHpcClusterInput) (req *request.Request, output *CreateHpcClusterOutput) {
+	op := &request.Operation{
+		Name:       opCreateHpcCluster,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateHpcClusterInput{}
+	}
+
+	output = &CreateHpcClusterOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateHpcCluster API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation CreateHpcCluster for usage and error information.
+func (c *ECS) CreateHpcCluster(input *CreateHpcClusterInput) (*CreateHpcClusterOutput, error) {
+	req, out := c.CreateHpcClusterRequest(input)
+	return out, req.Send()
+}
+
+// CreateHpcClusterWithContext is the same as CreateHpcCluster with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateHpcCluster for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) CreateHpcClusterWithContext(ctx volcstack.Context, input *CreateHpcClusterInput, opts ...request.Option) (*CreateHpcClusterOutput, error) {
+	req, out := c.CreateHpcClusterRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -292,6 +712,430 @@ func (c *ECS) CreateInstancesWithContext(ctx volcstack.Context, input *CreateIns
 	return out, req.Send()
 }
 
+const opCreateKeyPairCommon = "CreateKeyPair"
+
+// CreateKeyPairCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateKeyPairCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateKeyPairCommon for more information on using the CreateKeyPairCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateKeyPairCommonRequest method.
+//    req, resp := client.CreateKeyPairCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) CreateKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateKeyPairCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateKeyPairCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation CreateKeyPairCommon for usage and error information.
+func (c *ECS) CreateKeyPairCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateKeyPairCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateKeyPairCommonWithContext is the same as CreateKeyPairCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateKeyPairCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) CreateKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateKeyPairCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateKeyPair = "CreateKeyPair"
+
+// CreateKeyPairRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateKeyPair operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateKeyPair for more information on using the CreateKeyPair
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateKeyPairRequest method.
+//    req, resp := client.CreateKeyPairRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) CreateKeyPairRequest(input *CreateKeyPairInput) (req *request.Request, output *CreateKeyPairOutput) {
+	op := &request.Operation{
+		Name:       opCreateKeyPair,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateKeyPairInput{}
+	}
+
+	output = &CreateKeyPairOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateKeyPair API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation CreateKeyPair for usage and error information.
+func (c *ECS) CreateKeyPair(input *CreateKeyPairInput) (*CreateKeyPairOutput, error) {
+	req, out := c.CreateKeyPairRequest(input)
+	return out, req.Send()
+}
+
+// CreateKeyPairWithContext is the same as CreateKeyPair with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateKeyPair for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) CreateKeyPairWithContext(ctx volcstack.Context, input *CreateKeyPairInput, opts ...request.Option) (*CreateKeyPairOutput, error) {
+	req, out := c.CreateKeyPairRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteDeploymentSetCommon = "DeleteDeploymentSet"
+
+// DeleteDeploymentSetCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteDeploymentSetCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteDeploymentSetCommon for more information on using the DeleteDeploymentSetCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteDeploymentSetCommonRequest method.
+//    req, resp := client.DeleteDeploymentSetCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DeleteDeploymentSetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteDeploymentSetCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteDeploymentSetCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DeleteDeploymentSetCommon for usage and error information.
+func (c *ECS) DeleteDeploymentSetCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteDeploymentSetCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteDeploymentSetCommonWithContext is the same as DeleteDeploymentSetCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteDeploymentSetCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DeleteDeploymentSetCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteDeploymentSetCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteDeploymentSet = "DeleteDeploymentSet"
+
+// DeleteDeploymentSetRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteDeploymentSet operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteDeploymentSet for more information on using the DeleteDeploymentSet
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteDeploymentSetRequest method.
+//    req, resp := client.DeleteDeploymentSetRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DeleteDeploymentSetRequest(input *DeleteDeploymentSetInput) (req *request.Request, output *DeleteDeploymentSetOutput) {
+	op := &request.Operation{
+		Name:       opDeleteDeploymentSet,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteDeploymentSetInput{}
+	}
+
+	output = &DeleteDeploymentSetOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteDeploymentSet API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DeleteDeploymentSet for usage and error information.
+func (c *ECS) DeleteDeploymentSet(input *DeleteDeploymentSetInput) (*DeleteDeploymentSetOutput, error) {
+	req, out := c.DeleteDeploymentSetRequest(input)
+	return out, req.Send()
+}
+
+// DeleteDeploymentSetWithContext is the same as DeleteDeploymentSet with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteDeploymentSet for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DeleteDeploymentSetWithContext(ctx volcstack.Context, input *DeleteDeploymentSetInput, opts ...request.Option) (*DeleteDeploymentSetOutput, error) {
+	req, out := c.DeleteDeploymentSetRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteHpcClusterCommon = "DeleteHpcCluster"
+
+// DeleteHpcClusterCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteHpcClusterCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteHpcClusterCommon for more information on using the DeleteHpcClusterCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteHpcClusterCommonRequest method.
+//    req, resp := client.DeleteHpcClusterCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DeleteHpcClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteHpcClusterCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteHpcClusterCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DeleteHpcClusterCommon for usage and error information.
+func (c *ECS) DeleteHpcClusterCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteHpcClusterCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteHpcClusterCommonWithContext is the same as DeleteHpcClusterCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteHpcClusterCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DeleteHpcClusterCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteHpcClusterCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteHpcCluster = "DeleteHpcCluster"
+
+// DeleteHpcClusterRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteHpcCluster operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteHpcCluster for more information on using the DeleteHpcCluster
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteHpcClusterRequest method.
+//    req, resp := client.DeleteHpcClusterRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DeleteHpcClusterRequest(input *DeleteHpcClusterInput) (req *request.Request, output *DeleteHpcClusterOutput) {
+	op := &request.Operation{
+		Name:       opDeleteHpcCluster,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteHpcClusterInput{}
+	}
+
+	output = &DeleteHpcClusterOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteHpcCluster API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DeleteHpcCluster for usage and error information.
+func (c *ECS) DeleteHpcCluster(input *DeleteHpcClusterInput) (*DeleteHpcClusterOutput, error) {
+	req, out := c.DeleteHpcClusterRequest(input)
+	return out, req.Send()
+}
+
+// DeleteHpcClusterWithContext is the same as DeleteHpcCluster with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteHpcCluster for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DeleteHpcClusterWithContext(ctx volcstack.Context, input *DeleteHpcClusterInput, opts ...request.Option) (*DeleteHpcClusterOutput, error) {
+	req, out := c.DeleteHpcClusterRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteInstanceCommon = "DeleteInstance"
 
 // DeleteInstanceCommonRequest generates a "volcstack/request.Request" representing the
@@ -330,6 +1174,7 @@ func (c *ECS) DeleteInstanceCommonRequest(input *map[string]interface{}) (req *r
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -400,6 +1245,7 @@ func (c *ECS) DeleteInstanceRequest(input *DeleteInstanceInput) (req *request.Re
 	output = &DeleteInstanceOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -432,33 +1278,33 @@ func (c *ECS) DeleteInstanceWithContext(ctx volcstack.Context, input *DeleteInst
 	return out, req.Send()
 }
 
-const opDeleteInstancesCommon = "DeleteInstances"
+const opDeleteKeyPairCommon = "DeleteKeyPair"
 
-// DeleteInstancesCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the DeleteInstancesCommon operation. The "output" return
+// DeleteKeyPairCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteKeyPairCommon operation. The "output" return
 // value will be populated with the request's response once the request completes
 // successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
 //
-// See DeleteInstancesCommon for more information on using the DeleteInstancesCommon
+// See DeleteKeyPairCommon for more information on using the DeleteKeyPairCommon
 // API call, and error handling.
 //
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
 //
-//    // Example sending a request using the DeleteInstancesCommonRequest method.
-//    req, resp := client.DeleteInstancesCommonRequest(params)
+//    // Example sending a request using the DeleteKeyPairCommonRequest method.
+//    req, resp := client.DeleteKeyPairCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *ECS) DeleteInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *ECS) DeleteKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opDeleteInstancesCommon,
+		Name:       opDeleteKeyPairCommon,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
@@ -473,100 +1319,940 @@ func (c *ECS) DeleteInstancesCommonRequest(input *map[string]interface{}) (req *
 	return
 }
 
-// DeleteInstancesCommon API operation for ECS.
+// DeleteKeyPairCommon API operation for ECS.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for ECS's
-// API operation DeleteInstancesCommon for usage and error information.
-func (c *ECS) DeleteInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.DeleteInstancesCommonRequest(input)
+// API operation DeleteKeyPairCommon for usage and error information.
+func (c *ECS) DeleteKeyPairCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteKeyPairCommonRequest(input)
 	return out, req.Send()
 }
 
-// DeleteInstancesCommonWithContext is the same as DeleteInstancesCommon with the addition of
+// DeleteKeyPairCommonWithContext is the same as DeleteKeyPairCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See DeleteInstancesCommon for details on how to use this API operation.
+// See DeleteKeyPairCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *ECS) DeleteInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.DeleteInstancesCommonRequest(input)
+func (c *ECS) DeleteKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteKeyPairCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opDeleteInstances = "DeleteInstances"
+const opDeleteKeyPair = "DeleteKeyPair"
 
-// DeleteInstancesRequest generates a "volcstack/request.Request" representing the
-// client's request for the DeleteInstances operation. The "output" return
+// DeleteKeyPairRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteKeyPair operation. The "output" return
 // value will be populated with the request's response once the request completes
 // successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
 //
-// See DeleteInstances for more information on using the DeleteInstances
+// See DeleteKeyPair for more information on using the DeleteKeyPair
 // API call, and error handling.
 //
 // This method is useful when you want to inject custom logic or configuration
 // into the SDK's request lifecycle. Such as custom headers, or retry logic.
 //
 //
-//    // Example sending a request using the DeleteInstancesRequest method.
-//    req, resp := client.DeleteInstancesRequest(params)
+//    // Example sending a request using the DeleteKeyPairRequest method.
+//    req, resp := client.DeleteKeyPairRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *ECS) DeleteInstancesRequest(input *DeleteInstancesInput) (req *request.Request, output *DeleteInstancesOutput) {
+func (c *ECS) DeleteKeyPairRequest(input *DeleteKeyPairInput) (req *request.Request, output *DeleteKeyPairOutput) {
 	op := &request.Operation{
-		Name:       opDeleteInstances,
+		Name:       opDeleteKeyPair,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &DeleteInstancesInput{}
+		input = &DeleteKeyPairInput{}
 	}
 
-	output = &DeleteInstancesOutput{}
+	output = &DeleteKeyPairOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// DeleteInstances API operation for ECS.
+// DeleteKeyPair API operation for ECS.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for ECS's
-// API operation DeleteInstances for usage and error information.
-func (c *ECS) DeleteInstances(input *DeleteInstancesInput) (*DeleteInstancesOutput, error) {
-	req, out := c.DeleteInstancesRequest(input)
+// API operation DeleteKeyPair for usage and error information.
+func (c *ECS) DeleteKeyPair(input *DeleteKeyPairInput) (*DeleteKeyPairOutput, error) {
+	req, out := c.DeleteKeyPairRequest(input)
 	return out, req.Send()
 }
 
-// DeleteInstancesWithContext is the same as DeleteInstances with the addition of
+// DeleteKeyPairWithContext is the same as DeleteKeyPair with the addition of
 // the ability to pass a context and additional request options.
 //
-// See DeleteInstances for details on how to use this API operation.
+// See DeleteKeyPair for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *ECS) DeleteInstancesWithContext(ctx volcstack.Context, input *DeleteInstancesInput, opts ...request.Option) (*DeleteInstancesOutput, error) {
-	req, out := c.DeleteInstancesRequest(input)
+func (c *ECS) DeleteKeyPairWithContext(ctx volcstack.Context, input *DeleteKeyPairInput, opts ...request.Option) (*DeleteKeyPairOutput, error) {
+	req, out := c.DeleteKeyPairRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteKeyPairsCommon = "DeleteKeyPairs"
+
+// DeleteKeyPairsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteKeyPairsCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteKeyPairsCommon for more information on using the DeleteKeyPairsCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteKeyPairsCommonRequest method.
+//    req, resp := client.DeleteKeyPairsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DeleteKeyPairsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteKeyPairsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteKeyPairsCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DeleteKeyPairsCommon for usage and error information.
+func (c *ECS) DeleteKeyPairsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteKeyPairsCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteKeyPairsCommonWithContext is the same as DeleteKeyPairsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteKeyPairsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DeleteKeyPairsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteKeyPairsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteKeyPairs = "DeleteKeyPairs"
+
+// DeleteKeyPairsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteKeyPairs operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteKeyPairs for more information on using the DeleteKeyPairs
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteKeyPairsRequest method.
+//    req, resp := client.DeleteKeyPairsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DeleteKeyPairsRequest(input *DeleteKeyPairsInput) (req *request.Request, output *DeleteKeyPairsOutput) {
+	op := &request.Operation{
+		Name:       opDeleteKeyPairs,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteKeyPairsInput{}
+	}
+
+	output = &DeleteKeyPairsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteKeyPairs API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DeleteKeyPairs for usage and error information.
+func (c *ECS) DeleteKeyPairs(input *DeleteKeyPairsInput) (*DeleteKeyPairsOutput, error) {
+	req, out := c.DeleteKeyPairsRequest(input)
+	return out, req.Send()
+}
+
+// DeleteKeyPairsWithContext is the same as DeleteKeyPairs with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteKeyPairs for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DeleteKeyPairsWithContext(ctx volcstack.Context, input *DeleteKeyPairsInput, opts ...request.Option) (*DeleteKeyPairsOutput, error) {
+	req, out := c.DeleteKeyPairsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeAvailableResourceCommon = "DescribeAvailableResource"
+
+// DescribeAvailableResourceCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeAvailableResourceCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeAvailableResourceCommon for more information on using the DescribeAvailableResourceCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeAvailableResourceCommonRequest method.
+//    req, resp := client.DescribeAvailableResourceCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeAvailableResourceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeAvailableResourceCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeAvailableResourceCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeAvailableResourceCommon for usage and error information.
+func (c *ECS) DescribeAvailableResourceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeAvailableResourceCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeAvailableResourceCommonWithContext is the same as DescribeAvailableResourceCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeAvailableResourceCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeAvailableResourceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeAvailableResourceCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeAvailableResource = "DescribeAvailableResource"
+
+// DescribeAvailableResourceRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeAvailableResource operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeAvailableResource for more information on using the DescribeAvailableResource
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeAvailableResourceRequest method.
+//    req, resp := client.DescribeAvailableResourceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeAvailableResourceRequest(input *DescribeAvailableResourceInput) (req *request.Request, output *DescribeAvailableResourceOutput) {
+	op := &request.Operation{
+		Name:       opDescribeAvailableResource,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeAvailableResourceInput{}
+	}
+
+	output = &DescribeAvailableResourceOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeAvailableResource API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeAvailableResource for usage and error information.
+func (c *ECS) DescribeAvailableResource(input *DescribeAvailableResourceInput) (*DescribeAvailableResourceOutput, error) {
+	req, out := c.DescribeAvailableResourceRequest(input)
+	return out, req.Send()
+}
+
+// DescribeAvailableResourceWithContext is the same as DescribeAvailableResource with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeAvailableResource for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeAvailableResourceWithContext(ctx volcstack.Context, input *DescribeAvailableResourceInput, opts ...request.Option) (*DescribeAvailableResourceOutput, error) {
+	req, out := c.DescribeAvailableResourceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeDeploymentSetSupportedInstanceTypeFamilyCommon = "DescribeDeploymentSetSupportedInstanceTypeFamily"
+
+// DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeDeploymentSetSupportedInstanceTypeFamilyCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeDeploymentSetSupportedInstanceTypeFamilyCommon for more information on using the DescribeDeploymentSetSupportedInstanceTypeFamilyCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest method.
+//    req, resp := client.DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeDeploymentSetSupportedInstanceTypeFamilyCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeDeploymentSetSupportedInstanceTypeFamilyCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeDeploymentSetSupportedInstanceTypeFamilyCommon for usage and error information.
+func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeDeploymentSetSupportedInstanceTypeFamilyCommonWithContext is the same as DescribeDeploymentSetSupportedInstanceTypeFamilyCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeDeploymentSetSupportedInstanceTypeFamilyCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeDeploymentSetSupportedInstanceTypeFamily = "DescribeDeploymentSetSupportedInstanceTypeFamily"
+
+// DescribeDeploymentSetSupportedInstanceTypeFamilyRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeDeploymentSetSupportedInstanceTypeFamily operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeDeploymentSetSupportedInstanceTypeFamily for more information on using the DescribeDeploymentSetSupportedInstanceTypeFamily
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeDeploymentSetSupportedInstanceTypeFamilyRequest method.
+//    req, resp := client.DescribeDeploymentSetSupportedInstanceTypeFamilyRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyRequest(input *DescribeDeploymentSetSupportedInstanceTypeFamilyInput) (req *request.Request, output *DescribeDeploymentSetSupportedInstanceTypeFamilyOutput) {
+	op := &request.Operation{
+		Name:       opDescribeDeploymentSetSupportedInstanceTypeFamily,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeDeploymentSetSupportedInstanceTypeFamilyInput{}
+	}
+
+	output = &DescribeDeploymentSetSupportedInstanceTypeFamilyOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeDeploymentSetSupportedInstanceTypeFamily API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeDeploymentSetSupportedInstanceTypeFamily for usage and error information.
+func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamily(input *DescribeDeploymentSetSupportedInstanceTypeFamilyInput) (*DescribeDeploymentSetSupportedInstanceTypeFamilyOutput, error) {
+	req, out := c.DescribeDeploymentSetSupportedInstanceTypeFamilyRequest(input)
+	return out, req.Send()
+}
+
+// DescribeDeploymentSetSupportedInstanceTypeFamilyWithContext is the same as DescribeDeploymentSetSupportedInstanceTypeFamily with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeDeploymentSetSupportedInstanceTypeFamily for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyWithContext(ctx volcstack.Context, input *DescribeDeploymentSetSupportedInstanceTypeFamilyInput, opts ...request.Option) (*DescribeDeploymentSetSupportedInstanceTypeFamilyOutput, error) {
+	req, out := c.DescribeDeploymentSetSupportedInstanceTypeFamilyRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeDeploymentSetsCommon = "DescribeDeploymentSets"
+
+// DescribeDeploymentSetsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeDeploymentSetsCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeDeploymentSetsCommon for more information on using the DescribeDeploymentSetsCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeDeploymentSetsCommonRequest method.
+//    req, resp := client.DescribeDeploymentSetsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeDeploymentSetsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeDeploymentSetsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeDeploymentSetsCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeDeploymentSetsCommon for usage and error information.
+func (c *ECS) DescribeDeploymentSetsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeDeploymentSetsCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeDeploymentSetsCommonWithContext is the same as DescribeDeploymentSetsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeDeploymentSetsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeDeploymentSetsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeDeploymentSetsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeDeploymentSets = "DescribeDeploymentSets"
+
+// DescribeDeploymentSetsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeDeploymentSets operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeDeploymentSets for more information on using the DescribeDeploymentSets
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeDeploymentSetsRequest method.
+//    req, resp := client.DescribeDeploymentSetsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeDeploymentSetsRequest(input *DescribeDeploymentSetsInput) (req *request.Request, output *DescribeDeploymentSetsOutput) {
+	op := &request.Operation{
+		Name:       opDescribeDeploymentSets,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeDeploymentSetsInput{}
+	}
+
+	output = &DescribeDeploymentSetsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeDeploymentSets API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeDeploymentSets for usage and error information.
+func (c *ECS) DescribeDeploymentSets(input *DescribeDeploymentSetsInput) (*DescribeDeploymentSetsOutput, error) {
+	req, out := c.DescribeDeploymentSetsRequest(input)
+	return out, req.Send()
+}
+
+// DescribeDeploymentSetsWithContext is the same as DescribeDeploymentSets with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeDeploymentSets for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeDeploymentSetsWithContext(ctx volcstack.Context, input *DescribeDeploymentSetsInput, opts ...request.Option) (*DescribeDeploymentSetsOutput, error) {
+	req, out := c.DescribeDeploymentSetsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHpcClusterCommon = "DescribeHpcCluster"
+
+// DescribeHpcClusterCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHpcClusterCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeHpcClusterCommon for more information on using the DescribeHpcClusterCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeHpcClusterCommonRequest method.
+//    req, resp := client.DescribeHpcClusterCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeHpcClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeHpcClusterCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHpcClusterCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeHpcClusterCommon for usage and error information.
+func (c *ECS) DescribeHpcClusterCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeHpcClusterCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHpcClusterCommonWithContext is the same as DescribeHpcClusterCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHpcClusterCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeHpcClusterCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeHpcClusterCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHpcCluster = "DescribeHpcCluster"
+
+// DescribeHpcClusterRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHpcCluster operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeHpcCluster for more information on using the DescribeHpcCluster
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeHpcClusterRequest method.
+//    req, resp := client.DescribeHpcClusterRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeHpcClusterRequest(input *DescribeHpcClusterInput) (req *request.Request, output *DescribeHpcClusterOutput) {
+	op := &request.Operation{
+		Name:       opDescribeHpcCluster,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeHpcClusterInput{}
+	}
+
+	output = &DescribeHpcClusterOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHpcCluster API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeHpcCluster for usage and error information.
+func (c *ECS) DescribeHpcCluster(input *DescribeHpcClusterInput) (*DescribeHpcClusterOutput, error) {
+	req, out := c.DescribeHpcClusterRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHpcClusterWithContext is the same as DescribeHpcCluster with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHpcCluster for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeHpcClusterWithContext(ctx volcstack.Context, input *DescribeHpcClusterInput, opts ...request.Option) (*DescribeHpcClusterOutput, error) {
+	req, out := c.DescribeHpcClusterRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHpcClustersCommon = "DescribeHpcClusters"
+
+// DescribeHpcClustersCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHpcClustersCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeHpcClustersCommon for more information on using the DescribeHpcClustersCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeHpcClustersCommonRequest method.
+//    req, resp := client.DescribeHpcClustersCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeHpcClustersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeHpcClustersCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHpcClustersCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeHpcClustersCommon for usage and error information.
+func (c *ECS) DescribeHpcClustersCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeHpcClustersCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHpcClustersCommonWithContext is the same as DescribeHpcClustersCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHpcClustersCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeHpcClustersCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeHpcClustersCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHpcClusters = "DescribeHpcClusters"
+
+// DescribeHpcClustersRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHpcClusters operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeHpcClusters for more information on using the DescribeHpcClusters
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeHpcClustersRequest method.
+//    req, resp := client.DescribeHpcClustersRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeHpcClustersRequest(input *DescribeHpcClustersInput) (req *request.Request, output *DescribeHpcClustersOutput) {
+	op := &request.Operation{
+		Name:       opDescribeHpcClusters,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeHpcClustersInput{}
+	}
+
+	output = &DescribeHpcClustersOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHpcClusters API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeHpcClusters for usage and error information.
+func (c *ECS) DescribeHpcClusters(input *DescribeHpcClustersInput) (*DescribeHpcClustersOutput, error) {
+	req, out := c.DescribeHpcClustersRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHpcClustersWithContext is the same as DescribeHpcClusters with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHpcClusters for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeHpcClustersWithContext(ctx volcstack.Context, input *DescribeHpcClustersInput, opts ...request.Option) (*DescribeHpcClustersOutput, error) {
+	req, out := c.DescribeHpcClustersRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -707,6 +2393,286 @@ func (c *ECS) DescribeInstanceECSTerminalUrl(input *DescribeInstanceECSTerminalU
 // for more information on using Contexts.
 func (c *ECS) DescribeInstanceECSTerminalUrlWithContext(ctx volcstack.Context, input *DescribeInstanceECSTerminalUrlInput, opts ...request.Option) (*DescribeInstanceECSTerminalUrlOutput, error) {
 	req, out := c.DescribeInstanceECSTerminalUrlRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeInstanceTypeFamiliesCommon = "DescribeInstanceTypeFamilies"
+
+// DescribeInstanceTypeFamiliesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeInstanceTypeFamiliesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeInstanceTypeFamiliesCommon for more information on using the DescribeInstanceTypeFamiliesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeInstanceTypeFamiliesCommonRequest method.
+//    req, resp := client.DescribeInstanceTypeFamiliesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeInstanceTypeFamiliesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeInstanceTypeFamiliesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeInstanceTypeFamiliesCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeInstanceTypeFamiliesCommon for usage and error information.
+func (c *ECS) DescribeInstanceTypeFamiliesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeInstanceTypeFamiliesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeInstanceTypeFamiliesCommonWithContext is the same as DescribeInstanceTypeFamiliesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeInstanceTypeFamiliesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeInstanceTypeFamiliesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeInstanceTypeFamiliesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeInstanceTypeFamilies = "DescribeInstanceTypeFamilies"
+
+// DescribeInstanceTypeFamiliesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeInstanceTypeFamilies operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeInstanceTypeFamilies for more information on using the DescribeInstanceTypeFamilies
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeInstanceTypeFamiliesRequest method.
+//    req, resp := client.DescribeInstanceTypeFamiliesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeInstanceTypeFamiliesRequest(input *DescribeInstanceTypeFamiliesInput) (req *request.Request, output *DescribeInstanceTypeFamiliesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeInstanceTypeFamilies,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeInstanceTypeFamiliesInput{}
+	}
+
+	output = &DescribeInstanceTypeFamiliesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeInstanceTypeFamilies API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeInstanceTypeFamilies for usage and error information.
+func (c *ECS) DescribeInstanceTypeFamilies(input *DescribeInstanceTypeFamiliesInput) (*DescribeInstanceTypeFamiliesOutput, error) {
+	req, out := c.DescribeInstanceTypeFamiliesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeInstanceTypeFamiliesWithContext is the same as DescribeInstanceTypeFamilies with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeInstanceTypeFamilies for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeInstanceTypeFamiliesWithContext(ctx volcstack.Context, input *DescribeInstanceTypeFamiliesInput, opts ...request.Option) (*DescribeInstanceTypeFamiliesOutput, error) {
+	req, out := c.DescribeInstanceTypeFamiliesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeInstanceTypesCommon = "DescribeInstanceTypes"
+
+// DescribeInstanceTypesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeInstanceTypesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeInstanceTypesCommon for more information on using the DescribeInstanceTypesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeInstanceTypesCommonRequest method.
+//    req, resp := client.DescribeInstanceTypesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeInstanceTypesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeInstanceTypesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeInstanceTypesCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeInstanceTypesCommon for usage and error information.
+func (c *ECS) DescribeInstanceTypesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeInstanceTypesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeInstanceTypesCommonWithContext is the same as DescribeInstanceTypesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeInstanceTypesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeInstanceTypesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeInstanceTypesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeInstanceTypes = "DescribeInstanceTypes"
+
+// DescribeInstanceTypesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeInstanceTypes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeInstanceTypes for more information on using the DescribeInstanceTypes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeInstanceTypesRequest method.
+//    req, resp := client.DescribeInstanceTypesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeInstanceTypesRequest(input *DescribeInstanceTypesInput) (req *request.Request, output *DescribeInstanceTypesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeInstanceTypes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeInstanceTypesInput{}
+	}
+
+	output = &DescribeInstanceTypesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeInstanceTypes API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeInstanceTypes for usage and error information.
+func (c *ECS) DescribeInstanceTypes(input *DescribeInstanceTypesInput) (*DescribeInstanceTypesOutput, error) {
+	req, out := c.DescribeInstanceTypesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeInstanceTypesWithContext is the same as DescribeInstanceTypes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeInstanceTypes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeInstanceTypesWithContext(ctx volcstack.Context, input *DescribeInstanceTypesInput, opts ...request.Option) (*DescribeInstanceTypesOutput, error) {
+	req, out := c.DescribeInstanceTypesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -992,6 +2958,286 @@ func (c *ECS) DescribeInstancesWithContext(ctx volcstack.Context, input *Describ
 	return out, req.Send()
 }
 
+const opDescribeKeyPairCommon = "DescribeKeyPair"
+
+// DescribeKeyPairCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeKeyPairCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeKeyPairCommon for more information on using the DescribeKeyPairCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeKeyPairCommonRequest method.
+//    req, resp := client.DescribeKeyPairCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeKeyPairCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeKeyPairCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeKeyPairCommon for usage and error information.
+func (c *ECS) DescribeKeyPairCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeKeyPairCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeKeyPairCommonWithContext is the same as DescribeKeyPairCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeKeyPairCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeKeyPairCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeKeyPair = "DescribeKeyPair"
+
+// DescribeKeyPairRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeKeyPair operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeKeyPair for more information on using the DescribeKeyPair
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeKeyPairRequest method.
+//    req, resp := client.DescribeKeyPairRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeKeyPairRequest(input *DescribeKeyPairInput) (req *request.Request, output *DescribeKeyPairOutput) {
+	op := &request.Operation{
+		Name:       opDescribeKeyPair,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeKeyPairInput{}
+	}
+
+	output = &DescribeKeyPairOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeKeyPair API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeKeyPair for usage and error information.
+func (c *ECS) DescribeKeyPair(input *DescribeKeyPairInput) (*DescribeKeyPairOutput, error) {
+	req, out := c.DescribeKeyPairRequest(input)
+	return out, req.Send()
+}
+
+// DescribeKeyPairWithContext is the same as DescribeKeyPair with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeKeyPair for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeKeyPairWithContext(ctx volcstack.Context, input *DescribeKeyPairInput, opts ...request.Option) (*DescribeKeyPairOutput, error) {
+	req, out := c.DescribeKeyPairRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeKeyPairsCommon = "DescribeKeyPairs"
+
+// DescribeKeyPairsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeKeyPairsCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeKeyPairsCommon for more information on using the DescribeKeyPairsCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeKeyPairsCommonRequest method.
+//    req, resp := client.DescribeKeyPairsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeKeyPairsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeKeyPairsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeKeyPairsCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeKeyPairsCommon for usage and error information.
+func (c *ECS) DescribeKeyPairsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeKeyPairsCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeKeyPairsCommonWithContext is the same as DescribeKeyPairsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeKeyPairsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeKeyPairsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeKeyPairsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeKeyPairs = "DescribeKeyPairs"
+
+// DescribeKeyPairsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeKeyPairs operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeKeyPairs for more information on using the DescribeKeyPairs
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeKeyPairsRequest method.
+//    req, resp := client.DescribeKeyPairsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeKeyPairsRequest(input *DescribeKeyPairsInput) (req *request.Request, output *DescribeKeyPairsOutput) {
+	op := &request.Operation{
+		Name:       opDescribeKeyPairs,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeKeyPairsInput{}
+	}
+
+	output = &DescribeKeyPairsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeKeyPairs API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeKeyPairs for usage and error information.
+func (c *ECS) DescribeKeyPairs(input *DescribeKeyPairsInput) (*DescribeKeyPairsOutput, error) {
+	req, out := c.DescribeKeyPairsRequest(input)
+	return out, req.Send()
+}
+
+// DescribeKeyPairsWithContext is the same as DescribeKeyPairs with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeKeyPairs for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeKeyPairsWithContext(ctx volcstack.Context, input *DescribeKeyPairsInput, opts ...request.Option) (*DescribeKeyPairsOutput, error) {
+	req, out := c.DescribeKeyPairsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDescribeUserDataCommon = "DescribeUserData"
 
 // DescribeUserDataCommonRequest generates a "volcstack/request.Request" representing the
@@ -1132,6 +3378,286 @@ func (c *ECS) DescribeUserDataWithContext(ctx volcstack.Context, input *Describe
 	return out, req.Send()
 }
 
+const opDescribeZonesCommon = "DescribeZones"
+
+// DescribeZonesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeZonesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeZonesCommon for more information on using the DescribeZonesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeZonesCommonRequest method.
+//    req, resp := client.DescribeZonesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeZonesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeZonesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeZonesCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeZonesCommon for usage and error information.
+func (c *ECS) DescribeZonesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeZonesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeZonesCommonWithContext is the same as DescribeZonesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeZonesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeZonesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeZonesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeZones = "DescribeZones"
+
+// DescribeZonesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeZones operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeZones for more information on using the DescribeZones
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeZonesRequest method.
+//    req, resp := client.DescribeZonesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeZonesRequest(input *DescribeZonesInput) (req *request.Request, output *DescribeZonesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeZones,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeZonesInput{}
+	}
+
+	output = &DescribeZonesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeZones API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeZones for usage and error information.
+func (c *ECS) DescribeZones(input *DescribeZonesInput) (*DescribeZonesOutput, error) {
+	req, out := c.DescribeZonesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeZonesWithContext is the same as DescribeZones with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeZones for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeZonesWithContext(ctx volcstack.Context, input *DescribeZonesInput, opts ...request.Option) (*DescribeZonesOutput, error) {
+	req, out := c.DescribeZonesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDetachKeyPairCommon = "DetachKeyPair"
+
+// DetachKeyPairCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DetachKeyPairCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DetachKeyPairCommon for more information on using the DetachKeyPairCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DetachKeyPairCommonRequest method.
+//    req, resp := client.DetachKeyPairCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DetachKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDetachKeyPairCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DetachKeyPairCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DetachKeyPairCommon for usage and error information.
+func (c *ECS) DetachKeyPairCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DetachKeyPairCommonRequest(input)
+	return out, req.Send()
+}
+
+// DetachKeyPairCommonWithContext is the same as DetachKeyPairCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DetachKeyPairCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DetachKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DetachKeyPairCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDetachKeyPair = "DetachKeyPair"
+
+// DetachKeyPairRequest generates a "volcstack/request.Request" representing the
+// client's request for the DetachKeyPair operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DetachKeyPair for more information on using the DetachKeyPair
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DetachKeyPairRequest method.
+//    req, resp := client.DetachKeyPairRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DetachKeyPairRequest(input *DetachKeyPairInput) (req *request.Request, output *DetachKeyPairOutput) {
+	op := &request.Operation{
+		Name:       opDetachKeyPair,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DetachKeyPairInput{}
+	}
+
+	output = &DetachKeyPairOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DetachKeyPair API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DetachKeyPair for usage and error information.
+func (c *ECS) DetachKeyPair(input *DetachKeyPairInput) (*DetachKeyPairOutput, error) {
+	req, out := c.DetachKeyPairRequest(input)
+	return out, req.Send()
+}
+
+// DetachKeyPairWithContext is the same as DetachKeyPair with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DetachKeyPair for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DetachKeyPairWithContext(ctx volcstack.Context, input *DetachKeyPairInput, opts ...request.Option) (*DetachKeyPairOutput, error) {
+	req, out := c.DetachKeyPairRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetInstanceConsoleCommon = "GetInstanceConsole"
 
 // GetInstanceConsoleCommonRequest generates a "volcstack/request.Request" representing the
@@ -1267,6 +3793,146 @@ func (c *ECS) GetInstanceConsole(input *GetInstanceConsoleInput) (*GetInstanceCo
 // for more information on using Contexts.
 func (c *ECS) GetInstanceConsoleWithContext(ctx volcstack.Context, input *GetInstanceConsoleInput, opts ...request.Option) (*GetInstanceConsoleOutput, error) {
 	req, out := c.GetInstanceConsoleRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opImportKeyPairCommon = "ImportKeyPair"
+
+// ImportKeyPairCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ImportKeyPairCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ImportKeyPairCommon for more information on using the ImportKeyPairCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ImportKeyPairCommonRequest method.
+//    req, resp := client.ImportKeyPairCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ImportKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opImportKeyPairCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ImportKeyPairCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ImportKeyPairCommon for usage and error information.
+func (c *ECS) ImportKeyPairCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ImportKeyPairCommonRequest(input)
+	return out, req.Send()
+}
+
+// ImportKeyPairCommonWithContext is the same as ImportKeyPairCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ImportKeyPairCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ImportKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ImportKeyPairCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opImportKeyPair = "ImportKeyPair"
+
+// ImportKeyPairRequest generates a "volcstack/request.Request" representing the
+// client's request for the ImportKeyPair operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ImportKeyPair for more information on using the ImportKeyPair
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ImportKeyPairRequest method.
+//    req, resp := client.ImportKeyPairRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ImportKeyPairRequest(input *ImportKeyPairInput) (req *request.Request, output *ImportKeyPairOutput) {
+	op := &request.Operation{
+		Name:       opImportKeyPair,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ImportKeyPairInput{}
+	}
+
+	output = &ImportKeyPairOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ImportKeyPair API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ImportKeyPair for usage and error information.
+func (c *ECS) ImportKeyPair(input *ImportKeyPairInput) (*ImportKeyPairOutput, error) {
+	req, out := c.ImportKeyPairRequest(input)
+	return out, req.Send()
+}
+
+// ImportKeyPairWithContext is the same as ImportKeyPair with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ImportKeyPair for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ImportKeyPairWithContext(ctx volcstack.Context, input *ImportKeyPairInput, opts ...request.Option) (*ImportKeyPairOutput, error) {
+	req, out := c.ImportKeyPairRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1696,6 +4362,148 @@ func (c *ECS) ListAssumeRolesWithContext(ctx volcstack.Context, input *ListAssum
 	return out, req.Send()
 }
 
+const opModifyDeploymentSetAttributeCommon = "ModifyDeploymentSetAttribute"
+
+// ModifyDeploymentSetAttributeCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyDeploymentSetAttributeCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyDeploymentSetAttributeCommon for more information on using the ModifyDeploymentSetAttributeCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyDeploymentSetAttributeCommonRequest method.
+//    req, resp := client.ModifyDeploymentSetAttributeCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ModifyDeploymentSetAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyDeploymentSetAttributeCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ModifyDeploymentSetAttributeCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ModifyDeploymentSetAttributeCommon for usage and error information.
+func (c *ECS) ModifyDeploymentSetAttributeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyDeploymentSetAttributeCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyDeploymentSetAttributeCommonWithContext is the same as ModifyDeploymentSetAttributeCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyDeploymentSetAttributeCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ModifyDeploymentSetAttributeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyDeploymentSetAttributeCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyDeploymentSetAttribute = "ModifyDeploymentSetAttribute"
+
+// ModifyDeploymentSetAttributeRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyDeploymentSetAttribute operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyDeploymentSetAttribute for more information on using the ModifyDeploymentSetAttribute
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyDeploymentSetAttributeRequest method.
+//    req, resp := client.ModifyDeploymentSetAttributeRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ModifyDeploymentSetAttributeRequest(input *ModifyDeploymentSetAttributeInput) (req *request.Request, output *ModifyDeploymentSetAttributeOutput) {
+	op := &request.Operation{
+		Name:       opModifyDeploymentSetAttribute,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyDeploymentSetAttributeInput{}
+	}
+
+	output = &ModifyDeploymentSetAttributeOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ModifyDeploymentSetAttribute API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ModifyDeploymentSetAttribute for usage and error information.
+func (c *ECS) ModifyDeploymentSetAttribute(input *ModifyDeploymentSetAttributeInput) (*ModifyDeploymentSetAttributeOutput, error) {
+	req, out := c.ModifyDeploymentSetAttributeRequest(input)
+	return out, req.Send()
+}
+
+// ModifyDeploymentSetAttributeWithContext is the same as ModifyDeploymentSetAttribute with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyDeploymentSetAttribute for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ModifyDeploymentSetAttributeWithContext(ctx volcstack.Context, input *ModifyDeploymentSetAttributeInput, opts ...request.Option) (*ModifyDeploymentSetAttributeOutput, error) {
+	req, out := c.ModifyDeploymentSetAttributeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opModifyInstanceAttributeCommon = "ModifyInstanceAttribute"
 
 // ModifyInstanceAttributeCommonRequest generates a "volcstack/request.Request" representing the
@@ -1734,6 +4542,7 @@ func (c *ECS) ModifyInstanceAttributeCommonRequest(input *map[string]interface{}
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1804,6 +4613,7 @@ func (c *ECS) ModifyInstanceAttributeRequest(input *ModifyInstanceAttributeInput
 	output = &ModifyInstanceAttributeOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1976,6 +4786,148 @@ func (c *ECS) ModifyInstanceChargeTypeWithContext(ctx volcstack.Context, input *
 	return out, req.Send()
 }
 
+const opModifyInstanceDeploymentCommon = "ModifyInstanceDeployment"
+
+// ModifyInstanceDeploymentCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyInstanceDeploymentCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyInstanceDeploymentCommon for more information on using the ModifyInstanceDeploymentCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyInstanceDeploymentCommonRequest method.
+//    req, resp := client.ModifyInstanceDeploymentCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ModifyInstanceDeploymentCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyInstanceDeploymentCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ModifyInstanceDeploymentCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ModifyInstanceDeploymentCommon for usage and error information.
+func (c *ECS) ModifyInstanceDeploymentCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyInstanceDeploymentCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyInstanceDeploymentCommonWithContext is the same as ModifyInstanceDeploymentCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyInstanceDeploymentCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ModifyInstanceDeploymentCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyInstanceDeploymentCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyInstanceDeployment = "ModifyInstanceDeployment"
+
+// ModifyInstanceDeploymentRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyInstanceDeployment operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyInstanceDeployment for more information on using the ModifyInstanceDeployment
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyInstanceDeploymentRequest method.
+//    req, resp := client.ModifyInstanceDeploymentRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ModifyInstanceDeploymentRequest(input *ModifyInstanceDeploymentInput) (req *request.Request, output *ModifyInstanceDeploymentOutput) {
+	op := &request.Operation{
+		Name:       opModifyInstanceDeployment,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyInstanceDeploymentInput{}
+	}
+
+	output = &ModifyInstanceDeploymentOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ModifyInstanceDeployment API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ModifyInstanceDeployment for usage and error information.
+func (c *ECS) ModifyInstanceDeployment(input *ModifyInstanceDeploymentInput) (*ModifyInstanceDeploymentOutput, error) {
+	req, out := c.ModifyInstanceDeploymentRequest(input)
+	return out, req.Send()
+}
+
+// ModifyInstanceDeploymentWithContext is the same as ModifyInstanceDeployment with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyInstanceDeployment for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ModifyInstanceDeploymentWithContext(ctx volcstack.Context, input *ModifyInstanceDeploymentInput, opts ...request.Option) (*ModifyInstanceDeploymentOutput, error) {
+	req, out := c.ModifyInstanceDeploymentRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opModifyInstanceSpecCommon = "ModifyInstanceSpec"
 
 // ModifyInstanceSpecCommonRequest generates a "volcstack/request.Request" representing the
@@ -2014,6 +4966,7 @@ func (c *ECS) ModifyInstanceSpecCommonRequest(input *map[string]interface{}) (re
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -2084,6 +5037,7 @@ func (c *ECS) ModifyInstanceSpecRequest(input *ModifyInstanceSpecInput) (req *re
 	output = &ModifyInstanceSpecOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -2111,6 +5065,146 @@ func (c *ECS) ModifyInstanceSpec(input *ModifyInstanceSpecInput) (*ModifyInstanc
 // for more information on using Contexts.
 func (c *ECS) ModifyInstanceSpecWithContext(ctx volcstack.Context, input *ModifyInstanceSpecInput, opts ...request.Option) (*ModifyInstanceSpecOutput, error) {
 	req, out := c.ModifyInstanceSpecRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyKeyPairAttributeCommon = "ModifyKeyPairAttribute"
+
+// ModifyKeyPairAttributeCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyKeyPairAttributeCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyKeyPairAttributeCommon for more information on using the ModifyKeyPairAttributeCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyKeyPairAttributeCommonRequest method.
+//    req, resp := client.ModifyKeyPairAttributeCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ModifyKeyPairAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyKeyPairAttributeCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyKeyPairAttributeCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ModifyKeyPairAttributeCommon for usage and error information.
+func (c *ECS) ModifyKeyPairAttributeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyKeyPairAttributeCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyKeyPairAttributeCommonWithContext is the same as ModifyKeyPairAttributeCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyKeyPairAttributeCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ModifyKeyPairAttributeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyKeyPairAttributeCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyKeyPairAttribute = "ModifyKeyPairAttribute"
+
+// ModifyKeyPairAttributeRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyKeyPairAttribute operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyKeyPairAttribute for more information on using the ModifyKeyPairAttribute
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyKeyPairAttributeRequest method.
+//    req, resp := client.ModifyKeyPairAttributeRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ModifyKeyPairAttributeRequest(input *ModifyKeyPairAttributeInput) (req *request.Request, output *ModifyKeyPairAttributeOutput) {
+	op := &request.Operation{
+		Name:       opModifyKeyPairAttribute,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyKeyPairAttributeInput{}
+	}
+
+	output = &ModifyKeyPairAttributeOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyKeyPairAttribute API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ModifyKeyPairAttribute for usage and error information.
+func (c *ECS) ModifyKeyPairAttribute(input *ModifyKeyPairAttributeInput) (*ModifyKeyPairAttributeOutput, error) {
+	req, out := c.ModifyKeyPairAttributeRequest(input)
+	return out, req.Send()
+}
+
+// ModifyKeyPairAttributeWithContext is the same as ModifyKeyPairAttribute with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyKeyPairAttribute for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ModifyKeyPairAttributeWithContext(ctx volcstack.Context, input *ModifyKeyPairAttributeInput, opts ...request.Option) (*ModifyKeyPairAttributeOutput, error) {
+	req, out := c.ModifyKeyPairAttributeRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2154,6 +5248,7 @@ func (c *ECS) RebootInstanceCommonRequest(input *map[string]interface{}) (req *r
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -2224,6 +5319,7 @@ func (c *ECS) RebootInstanceRequest(input *RebootInstanceInput) (req *request.Re
 	output = &RebootInstanceOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -2251,146 +5347,6 @@ func (c *ECS) RebootInstance(input *RebootInstanceInput) (*RebootInstanceOutput,
 // for more information on using Contexts.
 func (c *ECS) RebootInstanceWithContext(ctx volcstack.Context, input *RebootInstanceInput, opts ...request.Option) (*RebootInstanceOutput, error) {
 	req, out := c.RebootInstanceRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opRebootInstancesCommon = "RebootInstances"
-
-// RebootInstancesCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the RebootInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See RebootInstancesCommon for more information on using the RebootInstancesCommon
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the RebootInstancesCommonRequest method.
-//    req, resp := client.RebootInstancesCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *ECS) RebootInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opRebootInstancesCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
-
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// RebootInstancesCommon API operation for ECS.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for ECS's
-// API operation RebootInstancesCommon for usage and error information.
-func (c *ECS) RebootInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.RebootInstancesCommonRequest(input)
-	return out, req.Send()
-}
-
-// RebootInstancesCommonWithContext is the same as RebootInstancesCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See RebootInstancesCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *ECS) RebootInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.RebootInstancesCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opRebootInstances = "RebootInstances"
-
-// RebootInstancesRequest generates a "volcstack/request.Request" representing the
-// client's request for the RebootInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See RebootInstances for more information on using the RebootInstances
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the RebootInstancesRequest method.
-//    req, resp := client.RebootInstancesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *ECS) RebootInstancesRequest(input *RebootInstancesInput) (req *request.Request, output *RebootInstancesOutput) {
-	op := &request.Operation{
-		Name:       opRebootInstances,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &RebootInstancesInput{}
-	}
-
-	output = &RebootInstancesOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// RebootInstances API operation for ECS.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for ECS's
-// API operation RebootInstances for usage and error information.
-func (c *ECS) RebootInstances(input *RebootInstancesInput) (*RebootInstancesOutput, error) {
-	req, out := c.RebootInstancesRequest(input)
-	return out, req.Send()
-}
-
-// RebootInstancesWithContext is the same as RebootInstances with the addition of
-// the ability to pass a context and additional request options.
-//
-// See RebootInstances for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *ECS) RebootInstancesWithContext(ctx volcstack.Context, input *RebootInstancesInput, opts ...request.Option) (*RebootInstancesOutput, error) {
-	req, out := c.RebootInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -3000,6 +5956,7 @@ func (c *ECS) ResizeInstanceCommonRequest(input *map[string]interface{}) (req *r
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -3070,6 +6027,7 @@ func (c *ECS) ResizeInstanceRequest(input *ResizeInstanceInput) (req *request.Re
 	output = &ResizeInstanceOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -3280,6 +6238,7 @@ func (c *ECS) StartInstanceCommonRequest(input *map[string]interface{}) (req *re
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -3350,6 +6309,7 @@ func (c *ECS) StartInstanceRequest(input *StartInstanceInput) (req *request.Requ
 	output = &StartInstanceOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -3377,146 +6337,6 @@ func (c *ECS) StartInstance(input *StartInstanceInput) (*StartInstanceOutput, er
 // for more information on using Contexts.
 func (c *ECS) StartInstanceWithContext(ctx volcstack.Context, input *StartInstanceInput, opts ...request.Option) (*StartInstanceOutput, error) {
 	req, out := c.StartInstanceRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opStartInstancesCommon = "StartInstances"
-
-// StartInstancesCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the StartInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See StartInstancesCommon for more information on using the StartInstancesCommon
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the StartInstancesCommonRequest method.
-//    req, resp := client.StartInstancesCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *ECS) StartInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opStartInstancesCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
-
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// StartInstancesCommon API operation for ECS.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for ECS's
-// API operation StartInstancesCommon for usage and error information.
-func (c *ECS) StartInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.StartInstancesCommonRequest(input)
-	return out, req.Send()
-}
-
-// StartInstancesCommonWithContext is the same as StartInstancesCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See StartInstancesCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *ECS) StartInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.StartInstancesCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opStartInstances = "StartInstances"
-
-// StartInstancesRequest generates a "volcstack/request.Request" representing the
-// client's request for the StartInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See StartInstances for more information on using the StartInstances
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the StartInstancesRequest method.
-//    req, resp := client.StartInstancesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *ECS) StartInstancesRequest(input *StartInstancesInput) (req *request.Request, output *StartInstancesOutput) {
-	op := &request.Operation{
-		Name:       opStartInstances,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &StartInstancesInput{}
-	}
-
-	output = &StartInstancesOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// StartInstances API operation for ECS.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for ECS's
-// API operation StartInstances for usage and error information.
-func (c *ECS) StartInstances(input *StartInstancesInput) (*StartInstancesOutput, error) {
-	req, out := c.StartInstancesRequest(input)
-	return out, req.Send()
-}
-
-// StartInstancesWithContext is the same as StartInstances with the addition of
-// the ability to pass a context and additional request options.
-//
-// See StartInstances for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *ECS) StartInstancesWithContext(ctx volcstack.Context, input *StartInstancesInput, opts ...request.Option) (*StartInstancesOutput, error) {
-	req, out := c.StartInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -3560,6 +6380,7 @@ func (c *ECS) StopInstanceCommonRequest(input *map[string]interface{}) (req *req
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -3630,6 +6451,7 @@ func (c *ECS) StopInstanceRequest(input *StopInstanceInput) (req *request.Reques
 	output = &StopInstanceOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -3657,146 +6479,6 @@ func (c *ECS) StopInstance(input *StopInstanceInput) (*StopInstanceOutput, error
 // for more information on using Contexts.
 func (c *ECS) StopInstanceWithContext(ctx volcstack.Context, input *StopInstanceInput, opts ...request.Option) (*StopInstanceOutput, error) {
 	req, out := c.StopInstanceRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opStopInstancesCommon = "StopInstances"
-
-// StopInstancesCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the StopInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See StopInstancesCommon for more information on using the StopInstancesCommon
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the StopInstancesCommonRequest method.
-//    req, resp := client.StopInstancesCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *ECS) StopInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opStopInstancesCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
-
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// StopInstancesCommon API operation for ECS.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for ECS's
-// API operation StopInstancesCommon for usage and error information.
-func (c *ECS) StopInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.StopInstancesCommonRequest(input)
-	return out, req.Send()
-}
-
-// StopInstancesCommonWithContext is the same as StopInstancesCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See StopInstancesCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *ECS) StopInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.StopInstancesCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opStopInstances = "StopInstances"
-
-// StopInstancesRequest generates a "volcstack/request.Request" representing the
-// client's request for the StopInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
-//
-// See StopInstances for more information on using the StopInstances
-// API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
-//
-//    // Example sending a request using the StopInstancesRequest method.
-//    req, resp := client.StopInstancesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *ECS) StopInstancesRequest(input *StopInstancesInput) (req *request.Request, output *StopInstancesOutput) {
-	op := &request.Operation{
-		Name:       opStopInstances,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &StopInstancesInput{}
-	}
-
-	output = &StopInstancesOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// StopInstances API operation for ECS.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for ECS's
-// API operation StopInstances for usage and error information.
-func (c *ECS) StopInstances(input *StopInstancesInput) (*StopInstancesOutput, error) {
-	req, out := c.StopInstancesRequest(input)
-	return out, req.Send()
-}
-
-// StopInstancesWithContext is the same as StopInstances with the addition of
-// the ability to pass a context and additional request options.
-//
-// See StopInstances for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *ECS) StopInstancesWithContext(ctx volcstack.Context, input *StopInstancesInput, opts ...request.Option) (*StopInstancesOutput, error) {
-	req, out := c.StopInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -3944,6 +6626,632 @@ func (c *ECS) UnbindAssumeRoleWithContext(ctx volcstack.Context, input *UnbindAs
 	return out, req.Send()
 }
 
+const opV1ListResourceStatisticsCommon = "v1ListResourceStatistics"
+
+// V1ListResourceStatisticsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the V1ListResourceStatisticsCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See V1ListResourceStatisticsCommon for more information on using the V1ListResourceStatisticsCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the V1ListResourceStatisticsCommonRequest method.
+//    req, resp := client.V1ListResourceStatisticsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) V1ListResourceStatisticsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opV1ListResourceStatisticsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// V1ListResourceStatisticsCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation V1ListResourceStatisticsCommon for usage and error information.
+func (c *ECS) V1ListResourceStatisticsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.V1ListResourceStatisticsCommonRequest(input)
+	return out, req.Send()
+}
+
+// V1ListResourceStatisticsCommonWithContext is the same as V1ListResourceStatisticsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See V1ListResourceStatisticsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) V1ListResourceStatisticsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.V1ListResourceStatisticsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opV1ListResourceStatistics = "v1ListResourceStatistics"
+
+// V1ListResourceStatisticsRequest generates a "volcstack/request.Request" representing the
+// client's request for the V1ListResourceStatistics operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See V1ListResourceStatistics for more information on using the V1ListResourceStatistics
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the V1ListResourceStatisticsRequest method.
+//    req, resp := client.V1ListResourceStatisticsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) V1ListResourceStatisticsRequest(input *V1ListResourceStatisticsInput) (req *request.Request, output *V1ListResourceStatisticsOutput) {
+	op := &request.Operation{
+		Name:       opV1ListResourceStatistics,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &V1ListResourceStatisticsInput{}
+	}
+
+	output = &V1ListResourceStatisticsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// V1ListResourceStatistics API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation V1ListResourceStatistics for usage and error information.
+func (c *ECS) V1ListResourceStatistics(input *V1ListResourceStatisticsInput) (*V1ListResourceStatisticsOutput, error) {
+	req, out := c.V1ListResourceStatisticsRequest(input)
+	return out, req.Send()
+}
+
+// V1ListResourceStatisticsWithContext is the same as V1ListResourceStatistics with the addition of
+// the ability to pass a context and additional request options.
+//
+// See V1ListResourceStatistics for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) V1ListResourceStatisticsWithContext(ctx volcstack.Context, input *V1ListResourceStatisticsInput, opts ...request.Option) (*V1ListResourceStatisticsOutput, error) {
+	req, out := c.V1ListResourceStatisticsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opV1UpdateStatusCommon = "v1UpdateStatus"
+
+// V1UpdateStatusCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the V1UpdateStatusCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See V1UpdateStatusCommon for more information on using the V1UpdateStatusCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the V1UpdateStatusCommonRequest method.
+//    req, resp := client.V1UpdateStatusCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) V1UpdateStatusCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opV1UpdateStatusCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// V1UpdateStatusCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation V1UpdateStatusCommon for usage and error information.
+func (c *ECS) V1UpdateStatusCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.V1UpdateStatusCommonRequest(input)
+	return out, req.Send()
+}
+
+// V1UpdateStatusCommonWithContext is the same as V1UpdateStatusCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See V1UpdateStatusCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) V1UpdateStatusCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.V1UpdateStatusCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opV1UpdateStatus = "v1UpdateStatus"
+
+// V1UpdateStatusRequest generates a "volcstack/request.Request" representing the
+// client's request for the V1UpdateStatus operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See V1UpdateStatus for more information on using the V1UpdateStatus
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the V1UpdateStatusRequest method.
+//    req, resp := client.V1UpdateStatusRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) V1UpdateStatusRequest(input *V1UpdateStatusInput) (req *request.Request, output *V1UpdateStatusOutput) {
+	op := &request.Operation{
+		Name:       opV1UpdateStatus,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &V1UpdateStatusInput{}
+	}
+
+	output = &V1UpdateStatusOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// V1UpdateStatus API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation V1UpdateStatus for usage and error information.
+func (c *ECS) V1UpdateStatus(input *V1UpdateStatusInput) (*V1UpdateStatusOutput, error) {
+	req, out := c.V1UpdateStatusRequest(input)
+	return out, req.Send()
+}
+
+// V1UpdateStatusWithContext is the same as V1UpdateStatus with the addition of
+// the ability to pass a context and additional request options.
+//
+// See V1UpdateStatus for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) V1UpdateStatusWithContext(ctx volcstack.Context, input *V1UpdateStatusInput, opts ...request.Option) (*V1UpdateStatusOutput, error) {
+	req, out := c.V1UpdateStatusRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opVerifyKeyPairNameExistCommon = "VerifyKeyPairNameExist"
+
+// VerifyKeyPairNameExistCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the VerifyKeyPairNameExistCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See VerifyKeyPairNameExistCommon for more information on using the VerifyKeyPairNameExistCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the VerifyKeyPairNameExistCommonRequest method.
+//    req, resp := client.VerifyKeyPairNameExistCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) VerifyKeyPairNameExistCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opVerifyKeyPairNameExistCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// VerifyKeyPairNameExistCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation VerifyKeyPairNameExistCommon for usage and error information.
+func (c *ECS) VerifyKeyPairNameExistCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.VerifyKeyPairNameExistCommonRequest(input)
+	return out, req.Send()
+}
+
+// VerifyKeyPairNameExistCommonWithContext is the same as VerifyKeyPairNameExistCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See VerifyKeyPairNameExistCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) VerifyKeyPairNameExistCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.VerifyKeyPairNameExistCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opVerifyKeyPairNameExist = "VerifyKeyPairNameExist"
+
+// VerifyKeyPairNameExistRequest generates a "volcstack/request.Request" representing the
+// client's request for the VerifyKeyPairNameExist operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See VerifyKeyPairNameExist for more information on using the VerifyKeyPairNameExist
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the VerifyKeyPairNameExistRequest method.
+//    req, resp := client.VerifyKeyPairNameExistRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) VerifyKeyPairNameExistRequest(input *VerifyKeyPairNameExistInput) (req *request.Request, output *VerifyKeyPairNameExistOutput) {
+	op := &request.Operation{
+		Name:       opVerifyKeyPairNameExist,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &VerifyKeyPairNameExistInput{}
+	}
+
+	output = &VerifyKeyPairNameExistOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// VerifyKeyPairNameExist API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation VerifyKeyPairNameExist for usage and error information.
+func (c *ECS) VerifyKeyPairNameExist(input *VerifyKeyPairNameExistInput) (*VerifyKeyPairNameExistOutput, error) {
+	req, out := c.VerifyKeyPairNameExistRequest(input)
+	return out, req.Send()
+}
+
+// VerifyKeyPairNameExistWithContext is the same as VerifyKeyPairNameExist with the addition of
+// the ability to pass a context and additional request options.
+//
+// See VerifyKeyPairNameExist for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) VerifyKeyPairNameExistWithContext(ctx volcstack.Context, input *VerifyKeyPairNameExistInput, opts ...request.Option) (*VerifyKeyPairNameExistOutput, error) {
+	req, out := c.VerifyKeyPairNameExistRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+type AccountDistributionForv1ListResourceStatisticsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountID *string `type:"string"`
+
+	InsOtherNum *int64 `type:"integer"`
+
+	InsRunningNum *int64 `type:"integer"`
+
+	InsStoppedNum *int64 `type:"integer"`
+
+	InsTotalNum *int64 `type:"integer"`
+
+	VolumeNum *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s AccountDistributionForv1ListResourceStatisticsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccountDistributionForv1ListResourceStatisticsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountID sets the AccountID field's value.
+func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetAccountID(v string) *AccountDistributionForv1ListResourceStatisticsOutput {
+	s.AccountID = &v
+	return s
+}
+
+// SetInsOtherNum sets the InsOtherNum field's value.
+func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
+	s.InsOtherNum = &v
+	return s
+}
+
+// SetInsRunningNum sets the InsRunningNum field's value.
+func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
+	s.InsRunningNum = &v
+	return s
+}
+
+// SetInsStoppedNum sets the InsStoppedNum field's value.
+func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
+	s.InsStoppedNum = &v
+	return s
+}
+
+// SetInsTotalNum sets the InsTotalNum field's value.
+func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
+	s.InsTotalNum = &v
+	return s
+}
+
+// SetVolumeNum sets the VolumeNum field's value.
+func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
+	s.VolumeNum = &v
+	return s
+}
+
+type AttachKeyPairInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	InstanceIds []*string `type:"list"`
+
+	KeyPairId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AttachKeyPairInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttachKeyPairInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *AttachKeyPairInput) SetAccountId(v string) *AttachKeyPairInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetInstanceIds sets the InstanceIds field's value.
+func (s *AttachKeyPairInput) SetInstanceIds(v []*string) *AttachKeyPairInput {
+	s.InstanceIds = v
+	return s
+}
+
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *AttachKeyPairInput) SetKeyPairId(v string) *AttachKeyPairInput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *AttachKeyPairInput) SetKeyPairName(v string) *AttachKeyPairInput {
+	s.KeyPairName = &v
+	return s
+}
+
+type AttachKeyPairOutput struct {
+	_ struct{} `type:"structure"`
+
+	KeyPairName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AttachKeyPairOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttachKeyPairOutput) GoString() string {
+	return s.String()
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *AttachKeyPairOutput) SetKeyPairName(v string) *AttachKeyPairOutput {
+	s.KeyPairName = &v
+	return s
+}
+
+type AvailableResourcForDescribeAvailableResourceOutput struct {
+	_ struct{} `type:"structure"`
+
+	SupportedResources []*SupportedResourcForDescribeAvailableResourceOutput `type:"list"`
+
+	Type *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AvailableResourcForDescribeAvailableResourceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AvailableResourcForDescribeAvailableResourceOutput) GoString() string {
+	return s.String()
+}
+
+// SetSupportedResources sets the SupportedResources field's value.
+func (s *AvailableResourcForDescribeAvailableResourceOutput) SetSupportedResources(v []*SupportedResourcForDescribeAvailableResourceOutput) *AvailableResourcForDescribeAvailableResourceOutput {
+	s.SupportedResources = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *AvailableResourcForDescribeAvailableResourceOutput) SetType(v string) *AvailableResourcForDescribeAvailableResourceOutput {
+	s.Type = &v
+	return s
+}
+
+type AvailableZonForDescribeAvailableResourceOutput struct {
+	_ struct{} `type:"structure"`
+
+	AvailableResources []*AvailableResourcForDescribeAvailableResourceOutput `type:"list"`
+
+	RegionId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AvailableZonForDescribeAvailableResourceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AvailableZonForDescribeAvailableResourceOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvailableResources sets the AvailableResources field's value.
+func (s *AvailableZonForDescribeAvailableResourceOutput) SetAvailableResources(v []*AvailableResourcForDescribeAvailableResourceOutput) *AvailableZonForDescribeAvailableResourceOutput {
+	s.AvailableResources = v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *AvailableZonForDescribeAvailableResourceOutput) SetRegionId(v string) *AvailableZonForDescribeAvailableResourceOutput {
+	s.RegionId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *AvailableZonForDescribeAvailableResourceOutput) SetStatus(v string) *AvailableZonForDescribeAvailableResourceOutput {
+	s.Status = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *AvailableZonForDescribeAvailableResourceOutput) SetZoneId(v string) *AvailableZonForDescribeAvailableResourceOutput {
+	s.ZoneId = &v
+	return s
+}
+
 type BindAssumeRoleInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4032,12 +7340,136 @@ func (s *CpuOptionsForRunInstancesInput) SetNuma(v int64) *CpuOptionsForRunInsta
 	return s
 }
 
-type CreateInstancesInput struct {
+type CreateDeploymentSetInput struct {
 	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
 
-	AntiAffinityRuleId *string `type:"string"`
+	DeploymentSetName *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	Granularity *string `type:"string"`
+
+	Strategy *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateDeploymentSetInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateDeploymentSetInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *CreateDeploymentSetInput) SetAccountId(v string) *CreateDeploymentSetInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetDeploymentSetName sets the DeploymentSetName field's value.
+func (s *CreateDeploymentSetInput) SetDeploymentSetName(v string) *CreateDeploymentSetInput {
+	s.DeploymentSetName = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateDeploymentSetInput) SetDescription(v string) *CreateDeploymentSetInput {
+	s.Description = &v
+	return s
+}
+
+// SetGranularity sets the Granularity field's value.
+func (s *CreateDeploymentSetInput) SetGranularity(v string) *CreateDeploymentSetInput {
+	s.Granularity = &v
+	return s
+}
+
+// SetStrategy sets the Strategy field's value.
+func (s *CreateDeploymentSetInput) SetStrategy(v string) *CreateDeploymentSetInput {
+	s.Strategy = &v
+	return s
+}
+
+type CreateDeploymentSetOutput struct {
+	_ struct{} `type:"structure"`
+
+	DeploymentSetId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateDeploymentSetOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateDeploymentSetOutput) GoString() string {
+	return s.String()
+}
+
+// SetDeploymentSetId sets the DeploymentSetId field's value.
+func (s *CreateDeploymentSetOutput) SetDeploymentSetId(v string) *CreateDeploymentSetOutput {
+	s.DeploymentSetId = &v
+	return s
+}
+
+type CreateHpcClusterInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	Name *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateHpcClusterInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateHpcClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateHpcClusterInput) SetDescription(v string) *CreateHpcClusterInput {
+	s.Description = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *CreateHpcClusterInput) SetName(v string) *CreateHpcClusterInput {
+	s.Name = &v
+	return s
+}
+
+type CreateHpcClusterOutput struct {
+	_ struct{} `type:"structure"`
+
+	HpcClusterId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateHpcClusterOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateHpcClusterOutput) GoString() string {
+	return s.String()
+}
+
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *CreateHpcClusterOutput) SetHpcClusterId(v string) *CreateHpcClusterOutput {
+	s.HpcClusterId = &v
+	return s
+}
+
+type CreateInstancesInput struct {
+	_ struct{} `type:"structure"`
 
 	AutoRenew *bool `type:"boolean"`
 
@@ -4052,8 +7484,6 @@ type CreateInstancesInput struct {
 	Description *string `type:"string"`
 
 	DryRun *bool `type:"boolean"`
-
-	Eip *EipForCreateInstancesInput `type:"structure"`
 
 	HostName *string `type:"string"`
 
@@ -4083,8 +7513,6 @@ type CreateInstancesInput struct {
 
 	PeriodUnit *string `type:"string"`
 
-	ProjectName *string `type:"string"`
-
 	SecurityEnhancementStrategy *string `type:"string"`
 
 	SuffixIndex *int64 `type:"integer"`
@@ -4108,18 +7536,6 @@ func (s CreateInstancesInput) String() string {
 // GoString returns the string representation
 func (s CreateInstancesInput) GoString() string {
 	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *CreateInstancesInput) SetAccountId(v string) *CreateInstancesInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetAntiAffinityRuleId sets the AntiAffinityRuleId field's value.
-func (s *CreateInstancesInput) SetAntiAffinityRuleId(v string) *CreateInstancesInput {
-	s.AntiAffinityRuleId = &v
-	return s
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -4161,12 +7577,6 @@ func (s *CreateInstancesInput) SetDescription(v string) *CreateInstancesInput {
 // SetDryRun sets the DryRun field's value.
 func (s *CreateInstancesInput) SetDryRun(v bool) *CreateInstancesInput {
 	s.DryRun = &v
-	return s
-}
-
-// SetEip sets the Eip field's value.
-func (s *CreateInstancesInput) SetEip(v *EipForCreateInstancesInput) *CreateInstancesInput {
-	s.Eip = v
 	return s
 }
 
@@ -4254,12 +7664,6 @@ func (s *CreateInstancesInput) SetPeriodUnit(v string) *CreateInstancesInput {
 	return s
 }
 
-// SetProjectName sets the ProjectName field's value.
-func (s *CreateInstancesInput) SetProjectName(v string) *CreateInstancesInput {
-	s.ProjectName = &v
-	return s
-}
-
 // SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
 func (s *CreateInstancesInput) SetSecurityEnhancementStrategy(v string) *CreateInstancesInput {
 	s.SecurityEnhancementStrategy = &v
@@ -4306,8 +7710,6 @@ type CreateInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	InstanceIds []*string `type:"list"`
-
-	PreorderNos []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -4326,10 +7728,176 @@ func (s *CreateInstancesOutput) SetInstanceIds(v []*string) *CreateInstancesOutp
 	return s
 }
 
-// SetPreorderNos sets the PreorderNos field's value.
-func (s *CreateInstancesOutput) SetPreorderNos(v []*string) *CreateInstancesOutput {
-	s.PreorderNos = v
+type CreateKeyPairInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateKeyPairInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateKeyPairInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *CreateKeyPairInput) SetAccountId(v string) *CreateKeyPairInput {
+	s.AccountId = &v
 	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateKeyPairInput) SetDescription(v string) *CreateKeyPairInput {
+	s.Description = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *CreateKeyPairInput) SetKeyPairName(v string) *CreateKeyPairInput {
+	s.KeyPairName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateKeyPairInput) SetProjectName(v string) *CreateKeyPairInput {
+	s.ProjectName = &v
+	return s
+}
+
+type CreateKeyPairOutput struct {
+	_ struct{} `type:"structure"`
+
+	FingerPrint *string `type:"string"`
+
+	KeyPairId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+
+	PrivateKey *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateKeyPairOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateKeyPairOutput) GoString() string {
+	return s.String()
+}
+
+// SetFingerPrint sets the FingerPrint field's value.
+func (s *CreateKeyPairOutput) SetFingerPrint(v string) *CreateKeyPairOutput {
+	s.FingerPrint = &v
+	return s
+}
+
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *CreateKeyPairOutput) SetKeyPairId(v string) *CreateKeyPairOutput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *CreateKeyPairOutput) SetKeyPairName(v string) *CreateKeyPairOutput {
+	s.KeyPairName = &v
+	return s
+}
+
+// SetPrivateKey sets the PrivateKey field's value.
+func (s *CreateKeyPairOutput) SetPrivateKey(v string) *CreateKeyPairOutput {
+	s.PrivateKey = &v
+	return s
+}
+
+type DeleteDeploymentSetInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	DeploymentSetId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteDeploymentSetInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteDeploymentSetInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DeleteDeploymentSetInput) SetAccountId(v string) *DeleteDeploymentSetInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetDeploymentSetId sets the DeploymentSetId field's value.
+func (s *DeleteDeploymentSetInput) SetDeploymentSetId(v string) *DeleteDeploymentSetInput {
+	s.DeploymentSetId = &v
+	return s
+}
+
+type DeleteDeploymentSetOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteDeploymentSetOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteDeploymentSetOutput) GoString() string {
+	return s.String()
+}
+
+type DeleteHpcClusterInput struct {
+	_ struct{} `type:"structure"`
+
+	HpcClusterId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteHpcClusterInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHpcClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *DeleteHpcClusterInput) SetHpcClusterId(v string) *DeleteHpcClusterInput {
+	s.HpcClusterId = &v
+	return s
+}
+
+type DeleteHpcClusterOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteHpcClusterOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHpcClusterOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteInstanceInput struct {
@@ -4372,10 +7940,6 @@ func (s *DeleteInstanceInput) SetInstanceId(v string) *DeleteInstanceInput {
 
 type DeleteInstanceOutput struct {
 	_ struct{} `type:"structure"`
-
-	InstanceId *string `type:"string"`
-
-	OrderNo *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4388,75 +7952,685 @@ func (s DeleteInstanceOutput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *DeleteInstanceOutput) SetInstanceId(v string) *DeleteInstanceOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetOrderNo sets the OrderNo field's value.
-func (s *DeleteInstanceOutput) SetOrderNo(v string) *DeleteInstanceOutput {
-	s.OrderNo = &v
-	return s
-}
-
-type DeleteInstancesInput struct {
+type DeleteKeyPairInput struct {
 	_ struct{} `type:"structure"`
 
-	DryRun *bool `type:"boolean"`
+	AccountId *string `type:"string"`
 
-	Force *bool `type:"boolean"`
+	KeyPairId *string `type:"string"`
 
-	InstanceIds []*string `type:"list"`
+	KeyPairName *string `type:"string"`
 }
 
 // String returns the string representation
-func (s DeleteInstancesInput) String() string {
+func (s DeleteKeyPairInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DeleteInstancesInput) GoString() string {
+func (s DeleteKeyPairInput) GoString() string {
 	return s.String()
 }
 
-// SetDryRun sets the DryRun field's value.
-func (s *DeleteInstancesInput) SetDryRun(v bool) *DeleteInstancesInput {
-	s.DryRun = &v
+// SetAccountId sets the AccountId field's value.
+func (s *DeleteKeyPairInput) SetAccountId(v string) *DeleteKeyPairInput {
+	s.AccountId = &v
 	return s
 }
 
-// SetForce sets the Force field's value.
-func (s *DeleteInstancesInput) SetForce(v bool) *DeleteInstancesInput {
-	s.Force = &v
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *DeleteKeyPairInput) SetKeyPairId(v string) *DeleteKeyPairInput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *DeleteKeyPairInput) SetKeyPairName(v string) *DeleteKeyPairInput {
+	s.KeyPairName = &v
+	return s
+}
+
+type DeleteKeyPairOutput struct {
+	_ struct{} `type:"structure"`
+
+	KeyPairName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteKeyPairOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteKeyPairOutput) GoString() string {
+	return s.String()
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *DeleteKeyPairOutput) SetKeyPairName(v string) *DeleteKeyPairOutput {
+	s.KeyPairName = &v
+	return s
+}
+
+type DeleteKeyPairsInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	KeyPairIds []*string `type:"list"`
+
+	KeyPairNames []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s DeleteKeyPairsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteKeyPairsInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DeleteKeyPairsInput) SetAccountId(v string) *DeleteKeyPairsInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetKeyPairIds sets the KeyPairIds field's value.
+func (s *DeleteKeyPairsInput) SetKeyPairIds(v []*string) *DeleteKeyPairsInput {
+	s.KeyPairIds = v
+	return s
+}
+
+// SetKeyPairNames sets the KeyPairNames field's value.
+func (s *DeleteKeyPairsInput) SetKeyPairNames(v []*string) *DeleteKeyPairsInput {
+	s.KeyPairNames = v
+	return s
+}
+
+type DeleteKeyPairsOutput struct {
+	_ struct{} `type:"structure"`
+
+	KeyPairNames []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s DeleteKeyPairsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteKeyPairsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKeyPairNames sets the KeyPairNames field's value.
+func (s *DeleteKeyPairsOutput) SetKeyPairNames(v []*string) *DeleteKeyPairsOutput {
+	s.KeyPairNames = v
+	return s
+}
+
+type DeploymentSetForDescribeDeploymentSetsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreatedAt *string `type:"string"`
+
+	DeploymentSetDescription *string `type:"string"`
+
+	DeploymentSetId *string `type:"string"`
+
+	DeploymentSetName *string `type:"string"`
+
+	Granularity *string `type:"string"`
+
+	InstanceAmount *int64 `type:"integer"`
+
+	InstanceIds []*string `type:"list"`
+
+	Quota *int64 `type:"integer"`
+
+	QuotaUsed []*QuotaUsedForDescribeDeploymentSetsOutput `type:"list"`
+
+	Strategy *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeploymentSetForDescribeDeploymentSetsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeploymentSetForDescribeDeploymentSetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetCreatedAt(v string) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDeploymentSetDescription sets the DeploymentSetDescription field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetDeploymentSetDescription(v string) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.DeploymentSetDescription = &v
+	return s
+}
+
+// SetDeploymentSetId sets the DeploymentSetId field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetDeploymentSetId(v string) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.DeploymentSetId = &v
+	return s
+}
+
+// SetDeploymentSetName sets the DeploymentSetName field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetDeploymentSetName(v string) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.DeploymentSetName = &v
+	return s
+}
+
+// SetGranularity sets the Granularity field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetGranularity(v string) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.Granularity = &v
+	return s
+}
+
+// SetInstanceAmount sets the InstanceAmount field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetInstanceAmount(v int64) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.InstanceAmount = &v
 	return s
 }
 
 // SetInstanceIds sets the InstanceIds field's value.
-func (s *DeleteInstancesInput) SetInstanceIds(v []*string) *DeleteInstancesInput {
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetInstanceIds(v []*string) *DeploymentSetForDescribeDeploymentSetsOutput {
 	s.InstanceIds = v
 	return s
 }
 
-type DeleteInstancesOutput struct {
+// SetQuota sets the Quota field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuota(v int64) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.Quota = &v
+	return s
+}
+
+// SetQuotaUsed sets the QuotaUsed field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuotaUsed(v []*QuotaUsedForDescribeDeploymentSetsOutput) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.QuotaUsed = v
+	return s
+}
+
+// SetStrategy sets the Strategy field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetStrategy(v string) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.Strategy = &v
+	return s
+}
+
+type DescribeAvailableResourceInput struct {
 	_ struct{} `type:"structure"`
 
-	OperationDetails []*OperationDetailForDeleteInstancesOutput `type:"list"`
+	DestinationResource *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s DeleteInstancesOutput) String() string {
+func (s DescribeAvailableResourceInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DeleteInstancesOutput) GoString() string {
+func (s DescribeAvailableResourceInput) GoString() string {
 	return s.String()
 }
 
-// SetOperationDetails sets the OperationDetails field's value.
-func (s *DeleteInstancesOutput) SetOperationDetails(v []*OperationDetailForDeleteInstancesOutput) *DeleteInstancesOutput {
-	s.OperationDetails = v
+// SetDestinationResource sets the DestinationResource field's value.
+func (s *DescribeAvailableResourceInput) SetDestinationResource(v string) *DescribeAvailableResourceInput {
+	s.DestinationResource = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DescribeAvailableResourceInput) SetInstanceType(v string) *DescribeAvailableResourceInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeAvailableResourceInput) SetZoneId(v string) *DescribeAvailableResourceInput {
+	s.ZoneId = &v
+	return s
+}
+
+type DescribeAvailableResourceOutput struct {
+	_ struct{} `type:"structure"`
+
+	AvailableZones []*AvailableZonForDescribeAvailableResourceOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeAvailableResourceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeAvailableResourceOutput) GoString() string {
+	return s.String()
+}
+
+// SetAvailableZones sets the AvailableZones field's value.
+func (s *DescribeAvailableResourceOutput) SetAvailableZones(v []*AvailableZonForDescribeAvailableResourceOutput) *DescribeAvailableResourceOutput {
+	s.AvailableZones = v
+	return s
+}
+
+type DescribeDeploymentSetSupportedInstanceTypeFamilyInput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DescribeDeploymentSetSupportedInstanceTypeFamilyInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeDeploymentSetSupportedInstanceTypeFamilyInput) GoString() string {
+	return s.String()
+}
+
+type DescribeDeploymentSetSupportedInstanceTypeFamilyOutput struct {
+	_ struct{} `type:"structure"`
+
+	DpsCreateInstanceTypeFamilies []*string `type:"list"`
+
+	DpsModifyInstanceTypeFamilies []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeDeploymentSetSupportedInstanceTypeFamilyOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeDeploymentSetSupportedInstanceTypeFamilyOutput) GoString() string {
+	return s.String()
+}
+
+// SetDpsCreateInstanceTypeFamilies sets the DpsCreateInstanceTypeFamilies field's value.
+func (s *DescribeDeploymentSetSupportedInstanceTypeFamilyOutput) SetDpsCreateInstanceTypeFamilies(v []*string) *DescribeDeploymentSetSupportedInstanceTypeFamilyOutput {
+	s.DpsCreateInstanceTypeFamilies = v
+	return s
+}
+
+// SetDpsModifyInstanceTypeFamilies sets the DpsModifyInstanceTypeFamilies field's value.
+func (s *DescribeDeploymentSetSupportedInstanceTypeFamilyOutput) SetDpsModifyInstanceTypeFamilies(v []*string) *DescribeDeploymentSetSupportedInstanceTypeFamilyOutput {
+	s.DpsModifyInstanceTypeFamilies = v
+	return s
+}
+
+type DescribeDeploymentSetsInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	DeploymentSetIds []*string `type:"list"`
+
+	DeploymentSetName *string `type:"string"`
+
+	Granularity *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Strategy *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeDeploymentSetsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeDeploymentSetsInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeDeploymentSetsInput) SetAccountId(v string) *DescribeDeploymentSetsInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetDeploymentSetIds sets the DeploymentSetIds field's value.
+func (s *DescribeDeploymentSetsInput) SetDeploymentSetIds(v []*string) *DescribeDeploymentSetsInput {
+	s.DeploymentSetIds = v
+	return s
+}
+
+// SetDeploymentSetName sets the DeploymentSetName field's value.
+func (s *DescribeDeploymentSetsInput) SetDeploymentSetName(v string) *DescribeDeploymentSetsInput {
+	s.DeploymentSetName = &v
+	return s
+}
+
+// SetGranularity sets the Granularity field's value.
+func (s *DescribeDeploymentSetsInput) SetGranularity(v string) *DescribeDeploymentSetsInput {
+	s.Granularity = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeDeploymentSetsInput) SetPageNumber(v int64) *DescribeDeploymentSetsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeDeploymentSetsInput) SetPageSize(v int64) *DescribeDeploymentSetsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStrategy sets the Strategy field's value.
+func (s *DescribeDeploymentSetsInput) SetStrategy(v string) *DescribeDeploymentSetsInput {
+	s.Strategy = &v
+	return s
+}
+
+type DescribeDeploymentSetsOutput struct {
+	_ struct{} `type:"structure"`
+
+	DeploymentSets []*DeploymentSetForDescribeDeploymentSetsOutput `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeDeploymentSetsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeDeploymentSetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetDeploymentSets sets the DeploymentSets field's value.
+func (s *DescribeDeploymentSetsOutput) SetDeploymentSets(v []*DeploymentSetForDescribeDeploymentSetsOutput) *DescribeDeploymentSetsOutput {
+	s.DeploymentSets = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeDeploymentSetsOutput) SetPageNumber(v int64) *DescribeDeploymentSetsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeDeploymentSetsOutput) SetPageSize(v int64) *DescribeDeploymentSetsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeDeploymentSetsOutput) SetTotalCount(v int64) *DescribeDeploymentSetsOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeHpcClusterInput struct {
+	_ struct{} `type:"structure"`
+
+	HpcClusterId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeHpcClusterInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHpcClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *DescribeHpcClusterInput) SetHpcClusterId(v string) *DescribeHpcClusterInput {
+	s.HpcClusterId = &v
+	return s
+}
+
+type DescribeHpcClusterOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountID *string `type:"string"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	HpcClusterId *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeHpcClusterOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHpcClusterOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountID sets the AccountID field's value.
+func (s *DescribeHpcClusterOutput) SetAccountID(v string) *DescribeHpcClusterOutput {
+	s.AccountID = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DescribeHpcClusterOutput) SetCreatedAt(v string) *DescribeHpcClusterOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeHpcClusterOutput) SetDescription(v string) *DescribeHpcClusterOutput {
+	s.Description = &v
+	return s
+}
+
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *DescribeHpcClusterOutput) SetHpcClusterId(v string) *DescribeHpcClusterOutput {
+	s.HpcClusterId = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DescribeHpcClusterOutput) SetName(v string) *DescribeHpcClusterOutput {
+	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeHpcClusterOutput) SetProjectName(v string) *DescribeHpcClusterOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DescribeHpcClusterOutput) SetUpdatedAt(v string) *DescribeHpcClusterOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeHpcClusterOutput) SetVpcId(v string) *DescribeHpcClusterOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *DescribeHpcClusterOutput) SetVpcName(v string) *DescribeHpcClusterOutput {
+	s.VpcName = &v
+	return s
+}
+
+type DescribeHpcClustersInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountID *string `type:"string"`
+
+	EndTime *string `type:"string"`
+
+	Filter *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	OrderBy *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
+
+	StartTime *string `type:"string"`
+
+	UserID *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeHpcClustersInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHpcClustersInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountID sets the AccountID field's value.
+func (s *DescribeHpcClustersInput) SetAccountID(v string) *DescribeHpcClustersInput {
+	s.AccountID = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *DescribeHpcClustersInput) SetEndTime(v string) *DescribeHpcClustersInput {
+	s.EndTime = &v
+	return s
+}
+
+// SetFilter sets the Filter field's value.
+func (s *DescribeHpcClustersInput) SetFilter(v string) *DescribeHpcClustersInput {
+	s.Filter = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DescribeHpcClustersInput) SetName(v string) *DescribeHpcClustersInput {
+	s.Name = &v
+	return s
+}
+
+// SetOrderBy sets the OrderBy field's value.
+func (s *DescribeHpcClustersInput) SetOrderBy(v string) *DescribeHpcClustersInput {
+	s.OrderBy = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeHpcClustersInput) SetPageNumber(v int64) *DescribeHpcClustersInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeHpcClustersInput) SetPageSize(v int64) *DescribeHpcClustersInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeHpcClustersInput) SetProjectName(v string) *DescribeHpcClustersInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *DescribeHpcClustersInput) SetStartTime(v string) *DescribeHpcClustersInput {
+	s.StartTime = &v
+	return s
+}
+
+// SetUserID sets the UserID field's value.
+func (s *DescribeHpcClustersInput) SetUserID(v string) *DescribeHpcClustersInput {
+	s.UserID = &v
+	return s
+}
+
+type DescribeHpcClustersOutput struct {
+	_ struct{} `type:"structure"`
+
+	HpcClusters []*HpcClusterForDescribeHpcClustersOutput `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeHpcClustersOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHpcClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetHpcClusters sets the HpcClusters field's value.
+func (s *DescribeHpcClustersOutput) SetHpcClusters(v []*HpcClusterForDescribeHpcClustersOutput) *DescribeHpcClustersOutput {
+	s.HpcClusters = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeHpcClustersOutput) SetPageNumber(v int64) *DescribeHpcClustersOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeHpcClustersOutput) SetPageSize(v int64) *DescribeHpcClustersOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeHpcClustersOutput) SetTotalCount(v int64) *DescribeHpcClustersOutput {
+	s.TotalCount = &v
 	return s
 }
 
@@ -4501,6 +8675,158 @@ func (s DescribeInstanceECSTerminalUrlOutput) GoString() string {
 // SetEcsTerminalUrl sets the EcsTerminalUrl field's value.
 func (s *DescribeInstanceECSTerminalUrlOutput) SetEcsTerminalUrl(v string) *DescribeInstanceECSTerminalUrlOutput {
 	s.EcsTerminalUrl = &v
+	return s
+}
+
+type DescribeInstanceTypeFamiliesInput struct {
+	_ struct{} `type:"structure"`
+
+	Generation *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeInstanceTypeFamiliesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeInstanceTypeFamiliesInput) GoString() string {
+	return s.String()
+}
+
+// SetGeneration sets the Generation field's value.
+func (s *DescribeInstanceTypeFamiliesInput) SetGeneration(v string) *DescribeInstanceTypeFamiliesInput {
+	s.Generation = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeInstanceTypeFamiliesInput) SetZoneId(v string) *DescribeInstanceTypeFamiliesInput {
+	s.ZoneId = &v
+	return s
+}
+
+type DescribeInstanceTypeFamiliesOutput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceTypeFamilies []*InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeInstanceTypeFamiliesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeInstanceTypeFamiliesOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceTypeFamilies sets the InstanceTypeFamilies field's value.
+func (s *DescribeInstanceTypeFamiliesOutput) SetInstanceTypeFamilies(v []*InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput) *DescribeInstanceTypeFamiliesOutput {
+	s.InstanceTypeFamilies = v
+	return s
+}
+
+type DescribeInstanceTypesInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceTypeFamily *string `type:"string"`
+
+	InstanceTypes []*string `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeInstanceTypesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeInstanceTypesInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceTypeFamily sets the InstanceTypeFamily field's value.
+func (s *DescribeInstanceTypesInput) SetInstanceTypeFamily(v string) *DescribeInstanceTypesInput {
+	s.InstanceTypeFamily = &v
+	return s
+}
+
+// SetInstanceTypes sets the InstanceTypes field's value.
+func (s *DescribeInstanceTypesInput) SetInstanceTypes(v []*string) *DescribeInstanceTypesInput {
+	s.InstanceTypes = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeInstanceTypesInput) SetPageNumber(v int64) *DescribeInstanceTypesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeInstanceTypesInput) SetPageSize(v int64) *DescribeInstanceTypesInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeInstanceTypesInput) SetZoneId(v string) *DescribeInstanceTypesInput {
+	s.ZoneId = &v
+	return s
+}
+
+type DescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceTypes []*InstanceTypForDescribeInstanceTypesOutput `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceTypes sets the InstanceTypes field's value.
+func (s *DescribeInstanceTypesOutput) SetInstanceTypes(v []*InstanceTypForDescribeInstanceTypesOutput) *DescribeInstanceTypesOutput {
+	s.InstanceTypes = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeInstanceTypesOutput) SetPageNumber(v int64) *DescribeInstanceTypesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeInstanceTypesOutput) SetPageSize(v int64) *DescribeInstanceTypesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeInstanceTypesOutput) SetTotalCount(v int64) *DescribeInstanceTypesOutput {
+	s.TotalCount = &v
 	return s
 }
 
@@ -4744,6 +9070,246 @@ func (s *DescribeInstancesOutput) SetTotalCount(v int64) *DescribeInstancesOutpu
 	return s
 }
 
+type DescribeKeyPairInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	KeyPairId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeKeyPairInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeKeyPairInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeKeyPairInput) SetAccountId(v string) *DescribeKeyPairInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *DescribeKeyPairInput) SetKeyPairId(v string) *DescribeKeyPairInput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *DescribeKeyPairInput) SetKeyPairName(v string) *DescribeKeyPairInput {
+	s.KeyPairName = &v
+	return s
+}
+
+type DescribeKeyPairOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	FingerPrint *string `type:"string"`
+
+	KeyPairId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeKeyPairOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeKeyPairOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *DescribeKeyPairOutput) SetCreatedAt(v string) *DescribeKeyPairOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeKeyPairOutput) SetDescription(v string) *DescribeKeyPairOutput {
+	s.Description = &v
+	return s
+}
+
+// SetFingerPrint sets the FingerPrint field's value.
+func (s *DescribeKeyPairOutput) SetFingerPrint(v string) *DescribeKeyPairOutput {
+	s.FingerPrint = &v
+	return s
+}
+
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *DescribeKeyPairOutput) SetKeyPairId(v string) *DescribeKeyPairOutput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *DescribeKeyPairOutput) SetKeyPairName(v string) *DescribeKeyPairOutput {
+	s.KeyPairName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeKeyPairOutput) SetProjectName(v string) *DescribeKeyPairOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DescribeKeyPairOutput) SetUpdatedAt(v string) *DescribeKeyPairOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type DescribeKeyPairsInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	FingerPrint *string `type:"string"`
+
+	KeyPairId *string `type:"string"`
+
+	KeyPairIds []*string `type:"list"`
+
+	KeyPairName *string `type:"string"`
+
+	KeyPairNames []*string `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeKeyPairsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeKeyPairsInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeKeyPairsInput) SetAccountId(v string) *DescribeKeyPairsInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetFingerPrint sets the FingerPrint field's value.
+func (s *DescribeKeyPairsInput) SetFingerPrint(v string) *DescribeKeyPairsInput {
+	s.FingerPrint = &v
+	return s
+}
+
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *DescribeKeyPairsInput) SetKeyPairId(v string) *DescribeKeyPairsInput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairIds sets the KeyPairIds field's value.
+func (s *DescribeKeyPairsInput) SetKeyPairIds(v []*string) *DescribeKeyPairsInput {
+	s.KeyPairIds = v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *DescribeKeyPairsInput) SetKeyPairName(v string) *DescribeKeyPairsInput {
+	s.KeyPairName = &v
+	return s
+}
+
+// SetKeyPairNames sets the KeyPairNames field's value.
+func (s *DescribeKeyPairsInput) SetKeyPairNames(v []*string) *DescribeKeyPairsInput {
+	s.KeyPairNames = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeKeyPairsInput) SetPageNumber(v int64) *DescribeKeyPairsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeKeyPairsInput) SetPageSize(v int64) *DescribeKeyPairsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeKeyPairsInput) SetProjectName(v string) *DescribeKeyPairsInput {
+	s.ProjectName = &v
+	return s
+}
+
+type DescribeKeyPairsOutput struct {
+	_ struct{} `type:"structure"`
+
+	KeyPairs []*KeyPairForDescribeKeyPairsOutput `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeKeyPairsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeKeyPairsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKeyPairs sets the KeyPairs field's value.
+func (s *DescribeKeyPairsOutput) SetKeyPairs(v []*KeyPairForDescribeKeyPairsOutput) *DescribeKeyPairsOutput {
+	s.KeyPairs = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeKeyPairsOutput) SetPageNumber(v int64) *DescribeKeyPairsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeKeyPairsOutput) SetPageSize(v int64) *DescribeKeyPairsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeKeyPairsOutput) SetTotalCount(v int64) *DescribeKeyPairsOutput {
+	s.TotalCount = &v
+	return s
+}
+
 type DescribeUserDataInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4796,215 +9362,191 @@ func (s *DescribeUserDataOutput) SetUserData(v string) *DescribeUserDataOutput {
 	return s
 }
 
-type EipForCreateInstancesInput struct {
+type DescribeZonesInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `type:"integer"`
-
-	BillingType *int64 `type:"integer"`
-
-	ISP *string `type:"string"`
-
-	Id *string `type:"string"`
+	ZoneIds []*string `type:"list"`
 }
 
 // String returns the string representation
-func (s EipForCreateInstancesInput) String() string {
+func (s DescribeZonesInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s EipForCreateInstancesInput) GoString() string {
+func (s DescribeZonesInput) GoString() string {
 	return s.String()
 }
 
-// SetBandwidth sets the Bandwidth field's value.
-func (s *EipForCreateInstancesInput) SetBandwidth(v int64) *EipForCreateInstancesInput {
-	s.Bandwidth = &v
+// SetZoneIds sets the ZoneIds field's value.
+func (s *DescribeZonesInput) SetZoneIds(v []*string) *DescribeZonesInput {
+	s.ZoneIds = v
 	return s
 }
 
-// SetBillingType sets the BillingType field's value.
-func (s *EipForCreateInstancesInput) SetBillingType(v int64) *EipForCreateInstancesInput {
-	s.BillingType = &v
-	return s
-}
-
-// SetISP sets the ISP field's value.
-func (s *EipForCreateInstancesInput) SetISP(v string) *EipForCreateInstancesInput {
-	s.ISP = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *EipForCreateInstancesInput) SetId(v string) *EipForCreateInstancesInput {
-	s.Id = &v
-	return s
-}
-
-type EipForRunInstancesInput struct {
+type DescribeZonesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `type:"integer"`
-
-	BillingType *int64 `type:"integer"`
-
-	ISP *string `type:"string"`
-
-	Id *string `type:"string"`
+	Zones []*ZonForDescribeZonesOutput `type:"list"`
 }
 
 // String returns the string representation
-func (s EipForRunInstancesInput) String() string {
+func (s DescribeZonesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s EipForRunInstancesInput) GoString() string {
+func (s DescribeZonesOutput) GoString() string {
 	return s.String()
 }
 
-// SetBandwidth sets the Bandwidth field's value.
-func (s *EipForRunInstancesInput) SetBandwidth(v int64) *EipForRunInstancesInput {
-	s.Bandwidth = &v
+// SetZones sets the Zones field's value.
+func (s *DescribeZonesOutput) SetZones(v []*ZonForDescribeZonesOutput) *DescribeZonesOutput {
+	s.Zones = v
 	return s
 }
 
-// SetBillingType sets the BillingType field's value.
-func (s *EipForRunInstancesInput) SetBillingType(v int64) *EipForRunInstancesInput {
-	s.BillingType = &v
-	return s
-}
-
-// SetISP sets the ISP field's value.
-func (s *EipForRunInstancesInput) SetISP(v string) *EipForRunInstancesInput {
-	s.ISP = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *EipForRunInstancesInput) SetId(v string) *EipForRunInstancesInput {
-	s.Id = &v
-	return s
-}
-
-type ErrorForDeleteInstancesOutput struct {
+type DetachKeyPairInput struct {
 	_ struct{} `type:"structure"`
 
-	Code *string `type:"string"`
+	AccountId *string `type:"string"`
 
-	Message *string `type:"string"`
+	InstanceIds []*string `type:"list"`
+
+	KeyPairId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
 }
 
 // String returns the string representation
-func (s ErrorForDeleteInstancesOutput) String() string {
+func (s DetachKeyPairInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ErrorForDeleteInstancesOutput) GoString() string {
+func (s DetachKeyPairInput) GoString() string {
 	return s.String()
 }
 
-// SetCode sets the Code field's value.
-func (s *ErrorForDeleteInstancesOutput) SetCode(v string) *ErrorForDeleteInstancesOutput {
-	s.Code = &v
+// SetAccountId sets the AccountId field's value.
+func (s *DetachKeyPairInput) SetAccountId(v string) *DetachKeyPairInput {
+	s.AccountId = &v
 	return s
 }
 
-// SetMessage sets the Message field's value.
-func (s *ErrorForDeleteInstancesOutput) SetMessage(v string) *ErrorForDeleteInstancesOutput {
-	s.Message = &v
+// SetInstanceIds sets the InstanceIds field's value.
+func (s *DetachKeyPairInput) SetInstanceIds(v []*string) *DetachKeyPairInput {
+	s.InstanceIds = v
 	return s
 }
 
-type ErrorForRebootInstancesOutput struct {
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *DetachKeyPairInput) SetKeyPairId(v string) *DetachKeyPairInput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *DetachKeyPairInput) SetKeyPairName(v string) *DetachKeyPairInput {
+	s.KeyPairName = &v
+	return s
+}
+
+type DetachKeyPairOutput struct {
 	_ struct{} `type:"structure"`
 
-	Code *string `type:"string"`
-
-	Message *string `type:"string"`
+	KeyPairName *string `type:"string"`
 }
 
 // String returns the string representation
-func (s ErrorForRebootInstancesOutput) String() string {
+func (s DetachKeyPairOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ErrorForRebootInstancesOutput) GoString() string {
+func (s DetachKeyPairOutput) GoString() string {
 	return s.String()
 }
 
-// SetCode sets the Code field's value.
-func (s *ErrorForRebootInstancesOutput) SetCode(v string) *ErrorForRebootInstancesOutput {
-	s.Code = &v
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *DetachKeyPairOutput) SetKeyPairName(v string) *DetachKeyPairOutput {
+	s.KeyPairName = &v
 	return s
 }
 
-// SetMessage sets the Message field's value.
-func (s *ErrorForRebootInstancesOutput) SetMessage(v string) *ErrorForRebootInstancesOutput {
-	s.Message = &v
-	return s
-}
-
-type ErrorForStartInstancesOutput struct {
+type DistributionForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Code *string `type:"string"`
+	AccountDistribution []*AccountDistributionForv1ListResourceStatisticsOutput `type:"list"`
 
-	Message *string `type:"string"`
+	FlavorDistribution []*FlavorDistributionForv1ListResourceStatisticsOutput `type:"list"`
+
+	ProjectDistribution []*ProjectDistributionForv1ListResourceStatisticsOutput `type:"list"`
+
+	ZoneDistribution []*ZoneDistributionForv1ListResourceStatisticsOutput `type:"list"`
 }
 
 // String returns the string representation
-func (s ErrorForStartInstancesOutput) String() string {
+func (s DistributionForv1ListResourceStatisticsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ErrorForStartInstancesOutput) GoString() string {
+func (s DistributionForv1ListResourceStatisticsOutput) GoString() string {
 	return s.String()
 }
 
-// SetCode sets the Code field's value.
-func (s *ErrorForStartInstancesOutput) SetCode(v string) *ErrorForStartInstancesOutput {
-	s.Code = &v
+// SetAccountDistribution sets the AccountDistribution field's value.
+func (s *DistributionForv1ListResourceStatisticsOutput) SetAccountDistribution(v []*AccountDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
+	s.AccountDistribution = v
 	return s
 }
 
-// SetMessage sets the Message field's value.
-func (s *ErrorForStartInstancesOutput) SetMessage(v string) *ErrorForStartInstancesOutput {
-	s.Message = &v
+// SetFlavorDistribution sets the FlavorDistribution field's value.
+func (s *DistributionForv1ListResourceStatisticsOutput) SetFlavorDistribution(v []*FlavorDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
+	s.FlavorDistribution = v
 	return s
 }
 
-type ErrorForStopInstancesOutput struct {
+// SetProjectDistribution sets the ProjectDistribution field's value.
+func (s *DistributionForv1ListResourceStatisticsOutput) SetProjectDistribution(v []*ProjectDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
+	s.ProjectDistribution = v
+	return s
+}
+
+// SetZoneDistribution sets the ZoneDistribution field's value.
+func (s *DistributionForv1ListResourceStatisticsOutput) SetZoneDistribution(v []*ZoneDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
+	s.ZoneDistribution = v
+	return s
+}
+
+type FlavorDistributionForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Code *string `type:"string"`
+	InsTotalNum *int64 `type:"integer"`
 
-	Message *string `type:"string"`
+	Name *string `type:"string"`
 }
 
 // String returns the string representation
-func (s ErrorForStopInstancesOutput) String() string {
+func (s FlavorDistributionForv1ListResourceStatisticsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ErrorForStopInstancesOutput) GoString() string {
+func (s FlavorDistributionForv1ListResourceStatisticsOutput) GoString() string {
 	return s.String()
 }
 
-// SetCode sets the Code field's value.
-func (s *ErrorForStopInstancesOutput) SetCode(v string) *ErrorForStopInstancesOutput {
-	s.Code = &v
+// SetInsTotalNum sets the InsTotalNum field's value.
+func (s *FlavorDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *FlavorDistributionForv1ListResourceStatisticsOutput {
+	s.InsTotalNum = &v
 	return s
 }
 
-// SetMessage sets the Message field's value.
-func (s *ErrorForStopInstancesOutput) SetMessage(v string) *ErrorForStopInstancesOutput {
-	s.Message = &v
+// SetName sets the Name field's value.
+func (s *FlavorDistributionForv1ListResourceStatisticsOutput) SetName(v string) *FlavorDistributionForv1ListResourceStatisticsOutput {
+	s.Name = &v
 	return s
 }
 
@@ -5065,6 +9607,276 @@ func (s *GetInstanceConsoleOutput) SetConsoleType(v string) *GetInstanceConsoleO
 // SetConsoleURL sets the ConsoleURL field's value.
 func (s *GetInstanceConsoleOutput) SetConsoleURL(v string) *GetInstanceConsoleOutput {
 	s.ConsoleURL = &v
+	return s
+}
+
+type GpuDevicForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Count *int64 `type:"integer"`
+
+	Mem *int64 `type:"integer"`
+
+	Memory *MemoryForDescribeInstanceTypesOutput `type:"structure"`
+
+	Model *string `type:"string"`
+
+	ProductName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s GpuDevicForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GpuDevicForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *GpuDevicForDescribeInstanceTypesOutput) SetCount(v int64) *GpuDevicForDescribeInstanceTypesOutput {
+	s.Count = &v
+	return s
+}
+
+// SetMem sets the Mem field's value.
+func (s *GpuDevicForDescribeInstanceTypesOutput) SetMem(v int64) *GpuDevicForDescribeInstanceTypesOutput {
+	s.Mem = &v
+	return s
+}
+
+// SetMemory sets the Memory field's value.
+func (s *GpuDevicForDescribeInstanceTypesOutput) SetMemory(v *MemoryForDescribeInstanceTypesOutput) *GpuDevicForDescribeInstanceTypesOutput {
+	s.Memory = v
+	return s
+}
+
+// SetModel sets the Model field's value.
+func (s *GpuDevicForDescribeInstanceTypesOutput) SetModel(v string) *GpuDevicForDescribeInstanceTypesOutput {
+	s.Model = &v
+	return s
+}
+
+// SetProductName sets the ProductName field's value.
+func (s *GpuDevicForDescribeInstanceTypesOutput) SetProductName(v string) *GpuDevicForDescribeInstanceTypesOutput {
+	s.ProductName = &v
+	return s
+}
+
+type GpuForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	GpuDevices []*GpuDevicForDescribeInstanceTypesOutput `type:"list"`
+
+	TotalCount *int64 `type:"integer"`
+
+	TotalMem *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s GpuForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GpuForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetGpuDevices sets the GpuDevices field's value.
+func (s *GpuForDescribeInstanceTypesOutput) SetGpuDevices(v []*GpuDevicForDescribeInstanceTypesOutput) *GpuForDescribeInstanceTypesOutput {
+	s.GpuDevices = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *GpuForDescribeInstanceTypesOutput) SetTotalCount(v int64) *GpuForDescribeInstanceTypesOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetTotalMem sets the TotalMem field's value.
+func (s *GpuForDescribeInstanceTypesOutput) SetTotalMem(v int64) *GpuForDescribeInstanceTypesOutput {
+	s.TotalMem = &v
+	return s
+}
+
+type HpcClusterForDescribeHpcClustersOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountID *string `type:"string"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	HpcClusterId *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s HpcClusterForDescribeHpcClustersOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HpcClusterForDescribeHpcClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountID sets the AccountID field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetAccountID(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.AccountID = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetCreatedAt(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetDescription(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.Description = &v
+	return s
+}
+
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetHpcClusterId(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.HpcClusterId = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetName(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.Name = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetProjectName(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetUpdatedAt(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetVpcId(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *HpcClusterForDescribeHpcClustersOutput) SetVpcName(v string) *HpcClusterForDescribeHpcClustersOutput {
+	s.VpcName = &v
+	return s
+}
+
+type ImportKeyPairInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	PublicKey *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ImportKeyPairInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ImportKeyPairInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *ImportKeyPairInput) SetAccountId(v string) *ImportKeyPairInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ImportKeyPairInput) SetDescription(v string) *ImportKeyPairInput {
+	s.Description = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *ImportKeyPairInput) SetKeyPairName(v string) *ImportKeyPairInput {
+	s.KeyPairName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ImportKeyPairInput) SetProjectName(v string) *ImportKeyPairInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetPublicKey sets the PublicKey field's value.
+func (s *ImportKeyPairInput) SetPublicKey(v string) *ImportKeyPairInput {
+	s.PublicKey = &v
+	return s
+}
+
+type ImportKeyPairOutput struct {
+	_ struct{} `type:"structure"`
+
+	FingerPrint *string `type:"string"`
+
+	KeyPairId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ImportKeyPairOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ImportKeyPairOutput) GoString() string {
+	return s.String()
+}
+
+// SetFingerPrint sets the FingerPrint field's value.
+func (s *ImportKeyPairOutput) SetFingerPrint(v string) *ImportKeyPairOutput {
+	s.FingerPrint = &v
+	return s
+}
+
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *ImportKeyPairOutput) SetKeyPairId(v string) *ImportKeyPairOutput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *ImportKeyPairOutput) SetKeyPairName(v string) *ImportKeyPairOutput {
+	s.KeyPairName = &v
 	return s
 }
 
@@ -5410,6 +10222,202 @@ func (s *InstancForDescribeInstancesOutput) SetZoneId(v string) *InstancForDescr
 	return s
 }
 
+type InstanceTypForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Architecture *string `type:"string"`
+
+	Cpu *int64 `type:"integer"`
+
+	Gpu *GpuForDescribeInstanceTypesOutput `type:"structure"`
+
+	Id *string `type:"string"`
+
+	InstanceTypeFamily *string `type:"string"`
+
+	InstanceTypeId *string `type:"string"`
+
+	LocalVolumes []*LocalVolumForDescribeInstanceTypesOutput `type:"list"`
+
+	Mem *int64 `type:"integer"`
+
+	Memory *MemoryForDescribeInstanceTypesOutput `type:"structure"`
+
+	NetKppsQuota *int64 `type:"integer"`
+
+	NetMbpsQuota *int64 `type:"integer"`
+
+	NetSessionQuota *int64 `type:"integer"`
+
+	NetworkInterfaceNumQuota *int64 `type:"integer"`
+
+	PrivateIpQuota *int64 `type:"integer"`
+
+	Processor *ProcessorForDescribeInstanceTypesOutput `type:"structure"`
+
+	Rdma *RdmaForDescribeInstanceTypesOutput `type:"structure"`
+
+	Type *string `type:"string"`
+
+	VolumeTypes []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s InstanceTypForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetArchitecture sets the Architecture field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetArchitecture(v string) *InstanceTypForDescribeInstanceTypesOutput {
+	s.Architecture = &v
+	return s
+}
+
+// SetCpu sets the Cpu field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetCpu(v int64) *InstanceTypForDescribeInstanceTypesOutput {
+	s.Cpu = &v
+	return s
+}
+
+// SetGpu sets the Gpu field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetGpu(v *GpuForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
+	s.Gpu = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetId(v string) *InstanceTypForDescribeInstanceTypesOutput {
+	s.Id = &v
+	return s
+}
+
+// SetInstanceTypeFamily sets the InstanceTypeFamily field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetInstanceTypeFamily(v string) *InstanceTypForDescribeInstanceTypesOutput {
+	s.InstanceTypeFamily = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetInstanceTypeId(v string) *InstanceTypForDescribeInstanceTypesOutput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetLocalVolumes sets the LocalVolumes field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetLocalVolumes(v []*LocalVolumForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
+	s.LocalVolumes = v
+	return s
+}
+
+// SetMem sets the Mem field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetMem(v int64) *InstanceTypForDescribeInstanceTypesOutput {
+	s.Mem = &v
+	return s
+}
+
+// SetMemory sets the Memory field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetMemory(v *MemoryForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
+	s.Memory = v
+	return s
+}
+
+// SetNetKppsQuota sets the NetKppsQuota field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetNetKppsQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
+	s.NetKppsQuota = &v
+	return s
+}
+
+// SetNetMbpsQuota sets the NetMbpsQuota field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetNetMbpsQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
+	s.NetMbpsQuota = &v
+	return s
+}
+
+// SetNetSessionQuota sets the NetSessionQuota field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetNetSessionQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
+	s.NetSessionQuota = &v
+	return s
+}
+
+// SetNetworkInterfaceNumQuota sets the NetworkInterfaceNumQuota field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetNetworkInterfaceNumQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
+	s.NetworkInterfaceNumQuota = &v
+	return s
+}
+
+// SetPrivateIpQuota sets the PrivateIpQuota field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetPrivateIpQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
+	s.PrivateIpQuota = &v
+	return s
+}
+
+// SetProcessor sets the Processor field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetProcessor(v *ProcessorForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
+	s.Processor = v
+	return s
+}
+
+// SetRdma sets the Rdma field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetRdma(v *RdmaForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
+	s.Rdma = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetType(v string) *InstanceTypForDescribeInstanceTypesOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVolumeTypes sets the VolumeTypes field's value.
+func (s *InstanceTypForDescribeInstanceTypesOutput) SetVolumeTypes(v []*string) *InstanceTypForDescribeInstanceTypesOutput {
+	s.VolumeTypes = v
+	return s
+}
+
+type InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Generation *string `type:"string"`
+
+	InstanceTypeFamily *string `type:"string"`
+
+	ZoneIds []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput) GoString() string {
+	return s.String()
+}
+
+// SetGeneration sets the Generation field's value.
+func (s *InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput) SetGeneration(v string) *InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput {
+	s.Generation = &v
+	return s
+}
+
+// SetInstanceTypeFamily sets the InstanceTypeFamily field's value.
+func (s *InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput) SetInstanceTypeFamily(v string) *InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput {
+	s.InstanceTypeFamily = &v
+	return s
+}
+
+// SetZoneIds sets the ZoneIds field's value.
+func (s *InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput) SetZoneIds(v []*string) *InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput {
+	s.ZoneIds = v
+	return s
+}
+
 type InstanceTypeForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -5512,6 +10520,76 @@ func (s *InstanceTypeForDescribeInstancesOutput) SetVolumeTypes(v []*string) *In
 	return s
 }
 
+type KeyPairForDescribeKeyPairsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	FingerPrint *string `type:"string"`
+
+	KeyPairId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+}
+
+// String returns the string representation
+func (s KeyPairForDescribeKeyPairsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KeyPairForDescribeKeyPairsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *KeyPairForDescribeKeyPairsOutput) SetCreatedAt(v string) *KeyPairForDescribeKeyPairsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *KeyPairForDescribeKeyPairsOutput) SetDescription(v string) *KeyPairForDescribeKeyPairsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetFingerPrint sets the FingerPrint field's value.
+func (s *KeyPairForDescribeKeyPairsOutput) SetFingerPrint(v string) *KeyPairForDescribeKeyPairsOutput {
+	s.FingerPrint = &v
+	return s
+}
+
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *KeyPairForDescribeKeyPairsOutput) SetKeyPairId(v string) *KeyPairForDescribeKeyPairsOutput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *KeyPairForDescribeKeyPairsOutput) SetKeyPairName(v string) *KeyPairForDescribeKeyPairsOutput {
+	s.KeyPairName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *KeyPairForDescribeKeyPairsOutput) SetProjectName(v string) *KeyPairForDescribeKeyPairsOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *KeyPairForDescribeKeyPairsOutput) SetUpdatedAt(v string) *KeyPairForDescribeKeyPairsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
 type ListAssumeRolesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5554,6 +10632,118 @@ func (s ListAssumeRolesOutput) GoString() string {
 func (s *ListAssumeRolesOutput) SetAssumeRoles(v []*string) *ListAssumeRolesOutput {
 	s.AssumeRoles = v
 	return s
+}
+
+type LocalVolumForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Count *int64 `type:"integer"`
+
+	Size *int64 `type:"integer"`
+
+	VolumeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LocalVolumForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LocalVolumForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *LocalVolumForDescribeInstanceTypesOutput) SetCount(v int64) *LocalVolumForDescribeInstanceTypesOutput {
+	s.Count = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *LocalVolumForDescribeInstanceTypesOutput) SetSize(v int64) *LocalVolumForDescribeInstanceTypesOutput {
+	s.Size = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *LocalVolumForDescribeInstanceTypesOutput) SetVolumeType(v string) *LocalVolumForDescribeInstanceTypesOutput {
+	s.VolumeType = &v
+	return s
+}
+
+type MemoryForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Size *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s MemoryForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MemoryForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetSize sets the Size field's value.
+func (s *MemoryForDescribeInstanceTypesOutput) SetSize(v int64) *MemoryForDescribeInstanceTypesOutput {
+	s.Size = &v
+	return s
+}
+
+type ModifyDeploymentSetAttributeInput struct {
+	_ struct{} `type:"structure"`
+
+	DeploymentSetId *string `type:"string"`
+
+	DeploymentSetName *string `type:"string"`
+
+	Description *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyDeploymentSetAttributeInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyDeploymentSetAttributeInput) GoString() string {
+	return s.String()
+}
+
+// SetDeploymentSetId sets the DeploymentSetId field's value.
+func (s *ModifyDeploymentSetAttributeInput) SetDeploymentSetId(v string) *ModifyDeploymentSetAttributeInput {
+	s.DeploymentSetId = &v
+	return s
+}
+
+// SetDeploymentSetName sets the DeploymentSetName field's value.
+func (s *ModifyDeploymentSetAttributeInput) SetDeploymentSetName(v string) *ModifyDeploymentSetAttributeInput {
+	s.DeploymentSetName = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyDeploymentSetAttributeInput) SetDescription(v string) *ModifyDeploymentSetAttributeInput {
+	s.Description = &v
+	return s
+}
+
+type ModifyDeploymentSetAttributeOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ModifyDeploymentSetAttributeOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyDeploymentSetAttributeOutput) GoString() string {
+	return s.String()
 }
 
 type ModifyInstanceAttributeInput struct {
@@ -5612,10 +10802,6 @@ func (s *ModifyInstanceAttributeInput) SetUserData(v string) *ModifyInstanceAttr
 
 type ModifyInstanceAttributeOutput struct {
 	_ struct{} `type:"structure"`
-
-	InstanceId *string `type:"string"`
-
-	OrderNo *string `type:"string"`
 }
 
 // String returns the string representation
@@ -5628,26 +10814,10 @@ func (s ModifyInstanceAttributeOutput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *ModifyInstanceAttributeOutput) SetInstanceId(v string) *ModifyInstanceAttributeOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetOrderNo sets the OrderNo field's value.
-func (s *ModifyInstanceAttributeOutput) SetOrderNo(v string) *ModifyInstanceAttributeOutput {
-	s.OrderNo = &v
-	return s
-}
-
 type ModifyInstanceChargeTypeInput struct {
 	_ struct{} `type:"structure"`
 
 	AutoPay *bool `type:"boolean"`
-
-	AutoRenew *bool `type:"boolean"`
-
-	DryRun *bool `type:"boolean"`
 
 	IncludeDataVolumes *bool `type:"boolean"`
 
@@ -5673,18 +10843,6 @@ func (s ModifyInstanceChargeTypeInput) GoString() string {
 // SetAutoPay sets the AutoPay field's value.
 func (s *ModifyInstanceChargeTypeInput) SetAutoPay(v bool) *ModifyInstanceChargeTypeInput {
 	s.AutoPay = &v
-	return s
-}
-
-// SetAutoRenew sets the AutoRenew field's value.
-func (s *ModifyInstanceChargeTypeInput) SetAutoRenew(v bool) *ModifyInstanceChargeTypeInput {
-	s.AutoRenew = &v
-	return s
-}
-
-// SetDryRun sets the DryRun field's value.
-func (s *ModifyInstanceChargeTypeInput) SetDryRun(v bool) *ModifyInstanceChargeTypeInput {
-	s.DryRun = &v
 	return s
 }
 
@@ -5722,8 +10880,6 @@ type ModifyInstanceChargeTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	OrderId *string `type:"string"`
-
-	VolumeOrderId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -5742,10 +10898,48 @@ func (s *ModifyInstanceChargeTypeOutput) SetOrderId(v string) *ModifyInstanceCha
 	return s
 }
 
-// SetVolumeOrderId sets the VolumeOrderId field's value.
-func (s *ModifyInstanceChargeTypeOutput) SetVolumeOrderId(v string) *ModifyInstanceChargeTypeOutput {
-	s.VolumeOrderId = &v
+type ModifyInstanceDeploymentInput struct {
+	_ struct{} `type:"structure"`
+
+	DeploymentSetId *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyInstanceDeploymentInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyInstanceDeploymentInput) GoString() string {
+	return s.String()
+}
+
+// SetDeploymentSetId sets the DeploymentSetId field's value.
+func (s *ModifyInstanceDeploymentInput) SetDeploymentSetId(v string) *ModifyInstanceDeploymentInput {
+	s.DeploymentSetId = &v
 	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ModifyInstanceDeploymentInput) SetInstanceId(v string) *ModifyInstanceDeploymentInput {
+	s.InstanceId = &v
+	return s
+}
+
+type ModifyInstanceDeploymentOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ModifyInstanceDeploymentOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyInstanceDeploymentOutput) GoString() string {
+	return s.String()
 }
 
 type ModifyInstanceSpecInput struct {
@@ -5788,10 +10982,6 @@ func (s *ModifyInstanceSpecInput) SetInstanceType(v string) *ModifyInstanceSpecI
 
 type ModifyInstanceSpecOutput struct {
 	_ struct{} `type:"structure"`
-
-	InstanceId *string `type:"string"`
-
-	OrderNo *string `type:"string"`
 }
 
 // String returns the string representation
@@ -5804,15 +10994,71 @@ func (s ModifyInstanceSpecOutput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *ModifyInstanceSpecOutput) SetInstanceId(v string) *ModifyInstanceSpecOutput {
-	s.InstanceId = &v
+type ModifyKeyPairAttributeInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	KeyPairId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyKeyPairAttributeInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyKeyPairAttributeInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *ModifyKeyPairAttributeInput) SetAccountId(v string) *ModifyKeyPairAttributeInput {
+	s.AccountId = &v
 	return s
 }
 
-// SetOrderNo sets the OrderNo field's value.
-func (s *ModifyInstanceSpecOutput) SetOrderNo(v string) *ModifyInstanceSpecOutput {
-	s.OrderNo = &v
+// SetDescription sets the Description field's value.
+func (s *ModifyKeyPairAttributeInput) SetDescription(v string) *ModifyKeyPairAttributeInput {
+	s.Description = &v
+	return s
+}
+
+// SetKeyPairId sets the KeyPairId field's value.
+func (s *ModifyKeyPairAttributeInput) SetKeyPairId(v string) *ModifyKeyPairAttributeInput {
+	s.KeyPairId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *ModifyKeyPairAttributeInput) SetKeyPairName(v string) *ModifyKeyPairAttributeInput {
+	s.KeyPairName = &v
+	return s
+}
+
+type ModifyKeyPairAttributeOutput struct {
+	_ struct{} `type:"structure"`
+
+	KeyPairName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyKeyPairAttributeOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyKeyPairAttributeOutput) GoString() string {
+	return s.String()
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *ModifyKeyPairAttributeOutput) SetKeyPairName(v string) *ModifyKeyPairAttributeOutput {
+	s.KeyPairName = &v
 	return s
 }
 
@@ -5934,123 +11180,163 @@ func (s *NetworkInterfacForDescribeInstancesOutput) SetVpcName(v string) *Networ
 	return s
 }
 
-type OperationDetailForDeleteInstancesOutput struct {
+type ProcessorForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Error *ErrorForDeleteInstancesOutput `type:"structure"`
+	Architecture *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	Cpus *int64 `type:"integer"`
 }
 
 // String returns the string representation
-func (s OperationDetailForDeleteInstancesOutput) String() string {
+func (s ProcessorForDescribeInstanceTypesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s OperationDetailForDeleteInstancesOutput) GoString() string {
+func (s ProcessorForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
 }
 
-// SetError sets the Error field's value.
-func (s *OperationDetailForDeleteInstancesOutput) SetError(v *ErrorForDeleteInstancesOutput) *OperationDetailForDeleteInstancesOutput {
-	s.Error = v
+// SetArchitecture sets the Architecture field's value.
+func (s *ProcessorForDescribeInstanceTypesOutput) SetArchitecture(v string) *ProcessorForDescribeInstanceTypesOutput {
+	s.Architecture = &v
 	return s
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *OperationDetailForDeleteInstancesOutput) SetInstanceId(v string) *OperationDetailForDeleteInstancesOutput {
-	s.InstanceId = &v
+// SetCpus sets the Cpus field's value.
+func (s *ProcessorForDescribeInstanceTypesOutput) SetCpus(v int64) *ProcessorForDescribeInstanceTypesOutput {
+	s.Cpus = &v
 	return s
 }
 
-type OperationDetailForRebootInstancesOutput struct {
+type ProjectDistributionForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Error *ErrorForRebootInstancesOutput `type:"structure"`
+	InsOtherNum *int64 `type:"integer"`
 
-	InstanceId *string `type:"string"`
+	InsRunningNum *int64 `type:"integer"`
+
+	InsStoppedNum *int64 `type:"integer"`
+
+	InsTotalNum *int64 `type:"integer"`
+
+	Name *string `type:"string"`
+
+	VolumeNum *int64 `type:"integer"`
 }
 
 // String returns the string representation
-func (s OperationDetailForRebootInstancesOutput) String() string {
+func (s ProjectDistributionForv1ListResourceStatisticsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s OperationDetailForRebootInstancesOutput) GoString() string {
+func (s ProjectDistributionForv1ListResourceStatisticsOutput) GoString() string {
 	return s.String()
 }
 
-// SetError sets the Error field's value.
-func (s *OperationDetailForRebootInstancesOutput) SetError(v *ErrorForRebootInstancesOutput) *OperationDetailForRebootInstancesOutput {
-	s.Error = v
+// SetInsOtherNum sets the InsOtherNum field's value.
+func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
+	s.InsOtherNum = &v
 	return s
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *OperationDetailForRebootInstancesOutput) SetInstanceId(v string) *OperationDetailForRebootInstancesOutput {
-	s.InstanceId = &v
+// SetInsRunningNum sets the InsRunningNum field's value.
+func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
+	s.InsRunningNum = &v
 	return s
 }
 
-type OperationDetailForStartInstancesOutput struct {
+// SetInsStoppedNum sets the InsStoppedNum field's value.
+func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
+	s.InsStoppedNum = &v
+	return s
+}
+
+// SetInsTotalNum sets the InsTotalNum field's value.
+func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
+	s.InsTotalNum = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetName(v string) *ProjectDistributionForv1ListResourceStatisticsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetVolumeNum sets the VolumeNum field's value.
+func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
+	s.VolumeNum = &v
+	return s
+}
+
+type QuotaUsedForDescribeDeploymentSetsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Error *ErrorForStartInstancesOutput `type:"structure"`
+	Count *int64 `type:"integer"`
 
-	InstanceId *string `type:"string"`
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s OperationDetailForStartInstancesOutput) String() string {
+func (s QuotaUsedForDescribeDeploymentSetsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s OperationDetailForStartInstancesOutput) GoString() string {
+func (s QuotaUsedForDescribeDeploymentSetsOutput) GoString() string {
 	return s.String()
 }
 
-// SetError sets the Error field's value.
-func (s *OperationDetailForStartInstancesOutput) SetError(v *ErrorForStartInstancesOutput) *OperationDetailForStartInstancesOutput {
-	s.Error = v
+// SetCount sets the Count field's value.
+func (s *QuotaUsedForDescribeDeploymentSetsOutput) SetCount(v int64) *QuotaUsedForDescribeDeploymentSetsOutput {
+	s.Count = &v
 	return s
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *OperationDetailForStartInstancesOutput) SetInstanceId(v string) *OperationDetailForStartInstancesOutput {
-	s.InstanceId = &v
+// SetZoneId sets the ZoneId field's value.
+func (s *QuotaUsedForDescribeDeploymentSetsOutput) SetZoneId(v string) *QuotaUsedForDescribeDeploymentSetsOutput {
+	s.ZoneId = &v
 	return s
 }
 
-type OperationDetailForStopInstancesOutput struct {
+type RdmaForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Error *ErrorForStopInstancesOutput `type:"structure"`
+	RdmaEniBandwidth *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	RdmaEniCount *int64 `type:"integer"`
+
+	RdmaNetworkInterfaces *int64 `type:"integer"`
 }
 
 // String returns the string representation
-func (s OperationDetailForStopInstancesOutput) String() string {
+func (s RdmaForDescribeInstanceTypesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s OperationDetailForStopInstancesOutput) GoString() string {
+func (s RdmaForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
 }
 
-// SetError sets the Error field's value.
-func (s *OperationDetailForStopInstancesOutput) SetError(v *ErrorForStopInstancesOutput) *OperationDetailForStopInstancesOutput {
-	s.Error = v
+// SetRdmaEniBandwidth sets the RdmaEniBandwidth field's value.
+func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaEniBandwidth(v string) *RdmaForDescribeInstanceTypesOutput {
+	s.RdmaEniBandwidth = &v
 	return s
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *OperationDetailForStopInstancesOutput) SetInstanceId(v string) *OperationDetailForStopInstancesOutput {
-	s.InstanceId = &v
+// SetRdmaEniCount sets the RdmaEniCount field's value.
+func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaEniCount(v int64) *RdmaForDescribeInstanceTypesOutput {
+	s.RdmaEniCount = &v
+	return s
+}
+
+// SetRdmaNetworkInterfaces sets the RdmaNetworkInterfaces field's value.
+func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int64) *RdmaForDescribeInstanceTypesOutput {
+	s.RdmaNetworkInterfaces = &v
 	return s
 }
 
@@ -6094,10 +11380,6 @@ func (s *RebootInstanceInput) SetInstanceId(v string) *RebootInstanceInput {
 
 type RebootInstanceOutput struct {
 	_ struct{} `type:"structure"`
-
-	InstanceId *string `type:"string"`
-
-	OrderNo *string `type:"string"`
 }
 
 // String returns the string representation
@@ -6108,78 +11390,6 @@ func (s RebootInstanceOutput) String() string {
 // GoString returns the string representation
 func (s RebootInstanceOutput) GoString() string {
 	return s.String()
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *RebootInstanceOutput) SetInstanceId(v string) *RebootInstanceOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetOrderNo sets the OrderNo field's value.
-func (s *RebootInstanceOutput) SetOrderNo(v string) *RebootInstanceOutput {
-	s.OrderNo = &v
-	return s
-}
-
-type RebootInstancesInput struct {
-	_ struct{} `type:"structure"`
-
-	DryRun *bool `type:"boolean"`
-
-	ForceStop *bool `type:"boolean"`
-
-	InstanceIds []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s RebootInstancesInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s RebootInstancesInput) GoString() string {
-	return s.String()
-}
-
-// SetDryRun sets the DryRun field's value.
-func (s *RebootInstancesInput) SetDryRun(v bool) *RebootInstancesInput {
-	s.DryRun = &v
-	return s
-}
-
-// SetForceStop sets the ForceStop field's value.
-func (s *RebootInstancesInput) SetForceStop(v bool) *RebootInstancesInput {
-	s.ForceStop = &v
-	return s
-}
-
-// SetInstanceIds sets the InstanceIds field's value.
-func (s *RebootInstancesInput) SetInstanceIds(v []*string) *RebootInstancesInput {
-	s.InstanceIds = v
-	return s
-}
-
-type RebootInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	OperationDetails []*OperationDetailForRebootInstancesOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s RebootInstancesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s RebootInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetOperationDetails sets the OperationDetails field's value.
-func (s *RebootInstancesOutput) SetOperationDetails(v []*OperationDetailForRebootInstancesOutput) *RebootInstancesOutput {
-	s.OperationDetails = v
-	return s
 }
 
 type RenewInstanceInput struct {
@@ -6502,10 +11712,6 @@ func (s *ResizeInstanceInput) SetInstanceType(v string) *ResizeInstanceInput {
 
 type ResizeInstanceOutput struct {
 	_ struct{} `type:"structure"`
-
-	InstanceId *string `type:"string"`
-
-	OrderNo *string `type:"string"`
 }
 
 // String returns the string representation
@@ -6518,24 +11724,8 @@ func (s ResizeInstanceOutput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *ResizeInstanceOutput) SetInstanceId(v string) *ResizeInstanceOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetOrderNo sets the OrderNo field's value.
-func (s *ResizeInstanceOutput) SetOrderNo(v string) *ResizeInstanceOutput {
-	s.OrderNo = &v
-	return s
-}
-
 type RunInstancesInput struct {
 	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
-
-	AntiAffinityRuleId *string `type:"string"`
 
 	AutoRenew *bool `type:"boolean"`
 
@@ -6550,8 +11740,6 @@ type RunInstancesInput struct {
 	Description *string `type:"string"`
 
 	DryRun *bool `type:"boolean"`
-
-	Eip *EipForRunInstancesInput `type:"structure"`
 
 	HostName *string `type:"string"`
 
@@ -6581,8 +11769,6 @@ type RunInstancesInput struct {
 
 	PeriodUnit *string `type:"string"`
 
-	ProjectName *string `type:"string"`
-
 	SecurityEnhancementStrategy *string `type:"string"`
 
 	SuffixIndex *int64 `type:"integer"`
@@ -6606,18 +11792,6 @@ func (s RunInstancesInput) String() string {
 // GoString returns the string representation
 func (s RunInstancesInput) GoString() string {
 	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *RunInstancesInput) SetAccountId(v string) *RunInstancesInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetAntiAffinityRuleId sets the AntiAffinityRuleId field's value.
-func (s *RunInstancesInput) SetAntiAffinityRuleId(v string) *RunInstancesInput {
-	s.AntiAffinityRuleId = &v
-	return s
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -6659,12 +11833,6 @@ func (s *RunInstancesInput) SetDescription(v string) *RunInstancesInput {
 // SetDryRun sets the DryRun field's value.
 func (s *RunInstancesInput) SetDryRun(v bool) *RunInstancesInput {
 	s.DryRun = &v
-	return s
-}
-
-// SetEip sets the Eip field's value.
-func (s *RunInstancesInput) SetEip(v *EipForRunInstancesInput) *RunInstancesInput {
-	s.Eip = v
 	return s
 }
 
@@ -6752,12 +11920,6 @@ func (s *RunInstancesInput) SetPeriodUnit(v string) *RunInstancesInput {
 	return s
 }
 
-// SetProjectName sets the ProjectName field's value.
-func (s *RunInstancesInput) SetProjectName(v string) *RunInstancesInput {
-	s.ProjectName = &v
-	return s
-}
-
 // SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
 func (s *RunInstancesInput) SetSecurityEnhancementStrategy(v string) *RunInstancesInput {
 	s.SecurityEnhancementStrategy = &v
@@ -6804,8 +11966,6 @@ type RunInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	InstanceIds []*string `type:"list"`
-
-	PreorderNos []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -6821,12 +11981,6 @@ func (s RunInstancesOutput) GoString() string {
 // SetInstanceIds sets the InstanceIds field's value.
 func (s *RunInstancesOutput) SetInstanceIds(v []*string) *RunInstancesOutput {
 	s.InstanceIds = v
-	return s
-}
-
-// SetPreorderNos sets the PreorderNos field's value.
-func (s *RunInstancesOutput) SetPreorderNos(v []*string) *RunInstancesOutput {
-	s.PreorderNos = v
 	return s
 }
 
@@ -6862,10 +12016,6 @@ func (s *StartInstanceInput) SetInstanceId(v string) *StartInstanceInput {
 
 type StartInstanceOutput struct {
 	_ struct{} `type:"structure"`
-
-	InstanceId *string `type:"string"`
-
-	OrderNo *string `type:"string"`
 }
 
 // String returns the string representation
@@ -6878,67 +12028,57 @@ func (s StartInstanceOutput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *StartInstanceOutput) SetInstanceId(v string) *StartInstanceOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetOrderNo sets the OrderNo field's value.
-func (s *StartInstanceOutput) SetOrderNo(v string) *StartInstanceOutput {
-	s.OrderNo = &v
-	return s
-}
-
-type StartInstancesInput struct {
+type StatisticsForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
-	DryRun *bool `type:"boolean"`
+	InsOtherNum *int64 `type:"integer"`
 
-	InstanceIds []*string `type:"list"`
+	InsRunningNum *int64 `type:"integer"`
+
+	InsStoppedNum *int64 `type:"integer"`
+
+	InsTotalNum *int64 `type:"integer"`
+
+	VolumeNum *int64 `type:"integer"`
 }
 
 // String returns the string representation
-func (s StartInstancesInput) String() string {
+func (s StatisticsForv1ListResourceStatisticsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s StartInstancesInput) GoString() string {
+func (s StatisticsForv1ListResourceStatisticsOutput) GoString() string {
 	return s.String()
 }
 
-// SetDryRun sets the DryRun field's value.
-func (s *StartInstancesInput) SetDryRun(v bool) *StartInstancesInput {
-	s.DryRun = &v
+// SetInsOtherNum sets the InsOtherNum field's value.
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+	s.InsOtherNum = &v
 	return s
 }
 
-// SetInstanceIds sets the InstanceIds field's value.
-func (s *StartInstancesInput) SetInstanceIds(v []*string) *StartInstancesInput {
-	s.InstanceIds = v
+// SetInsRunningNum sets the InsRunningNum field's value.
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+	s.InsRunningNum = &v
 	return s
 }
 
-type StartInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	OperationDetails []*OperationDetailForStartInstancesOutput `type:"list"`
+// SetInsStoppedNum sets the InsStoppedNum field's value.
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+	s.InsStoppedNum = &v
+	return s
 }
 
-// String returns the string representation
-func (s StartInstancesOutput) String() string {
-	return volcstackutil.Prettify(s)
+// SetInsTotalNum sets the InsTotalNum field's value.
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+	s.InsTotalNum = &v
+	return s
 }
 
-// GoString returns the string representation
-func (s StartInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetOperationDetails sets the OperationDetails field's value.
-func (s *StartInstancesOutput) SetOperationDetails(v []*OperationDetailForStartInstancesOutput) *StartInstancesOutput {
-	s.OperationDetails = v
+// SetVolumeNum sets the VolumeNum field's value.
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+	s.VolumeNum = &v
 	return s
 }
 
@@ -6990,10 +12130,6 @@ func (s *StopInstanceInput) SetStoppedMode(v string) *StopInstanceInput {
 
 type StopInstanceOutput struct {
 	_ struct{} `type:"structure"`
-
-	InstanceId *string `type:"string"`
-
-	OrderNo *string `type:"string"`
 }
 
 // String returns the string representation
@@ -7006,83 +12142,33 @@ func (s StopInstanceOutput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *StopInstanceOutput) SetInstanceId(v string) *StopInstanceOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetOrderNo sets the OrderNo field's value.
-func (s *StopInstanceOutput) SetOrderNo(v string) *StopInstanceOutput {
-	s.OrderNo = &v
-	return s
-}
-
-type StopInstancesInput struct {
+type SupportedResourcForDescribeAvailableResourceOutput struct {
 	_ struct{} `type:"structure"`
 
-	DryRun *bool `type:"boolean"`
+	Status *string `type:"string"`
 
-	ForceStop *bool `type:"boolean"`
-
-	InstanceIds []*string `type:"list"`
-
-	StoppedMode *string `type:"string"`
+	Value *string `type:"string"`
 }
 
 // String returns the string representation
-func (s StopInstancesInput) String() string {
+func (s SupportedResourcForDescribeAvailableResourceOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s StopInstancesInput) GoString() string {
+func (s SupportedResourcForDescribeAvailableResourceOutput) GoString() string {
 	return s.String()
 }
 
-// SetDryRun sets the DryRun field's value.
-func (s *StopInstancesInput) SetDryRun(v bool) *StopInstancesInput {
-	s.DryRun = &v
+// SetStatus sets the Status field's value.
+func (s *SupportedResourcForDescribeAvailableResourceOutput) SetStatus(v string) *SupportedResourcForDescribeAvailableResourceOutput {
+	s.Status = &v
 	return s
 }
 
-// SetForceStop sets the ForceStop field's value.
-func (s *StopInstancesInput) SetForceStop(v bool) *StopInstancesInput {
-	s.ForceStop = &v
-	return s
-}
-
-// SetInstanceIds sets the InstanceIds field's value.
-func (s *StopInstancesInput) SetInstanceIds(v []*string) *StopInstancesInput {
-	s.InstanceIds = v
-	return s
-}
-
-// SetStoppedMode sets the StoppedMode field's value.
-func (s *StopInstancesInput) SetStoppedMode(v string) *StopInstancesInput {
-	s.StoppedMode = &v
-	return s
-}
-
-type StopInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	OperationDetails []*OperationDetailForStopInstancesOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s StopInstancesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s StopInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetOperationDetails sets the OperationDetails field's value.
-func (s *StopInstancesOutput) SetOperationDetails(v []*OperationDetailForStopInstancesOutput) *StopInstancesOutput {
-	s.OperationDetails = v
+// SetValue sets the Value field's value.
+func (s *SupportedResourcForDescribeAvailableResourceOutput) SetValue(v string) *SupportedResourcForDescribeAvailableResourceOutput {
+	s.Value = &v
 	return s
 }
 
@@ -7160,6 +12246,186 @@ func (s UnbindAssumeRoleOutput) GoString() string {
 	return s.String()
 }
 
+type V1ListResourceStatisticsInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountIDs []*string `type:"list"`
+
+	ProjectNames []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s V1ListResourceStatisticsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s V1ListResourceStatisticsInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountIDs sets the AccountIDs field's value.
+func (s *V1ListResourceStatisticsInput) SetAccountIDs(v []*string) *V1ListResourceStatisticsInput {
+	s.AccountIDs = v
+	return s
+}
+
+// SetProjectNames sets the ProjectNames field's value.
+func (s *V1ListResourceStatisticsInput) SetProjectNames(v []*string) *V1ListResourceStatisticsInput {
+	s.ProjectNames = v
+	return s
+}
+
+type V1ListResourceStatisticsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Distribution *DistributionForv1ListResourceStatisticsOutput `type:"structure"`
+
+	Statistics *StatisticsForv1ListResourceStatisticsOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s V1ListResourceStatisticsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s V1ListResourceStatisticsOutput) GoString() string {
+	return s.String()
+}
+
+// SetDistribution sets the Distribution field's value.
+func (s *V1ListResourceStatisticsOutput) SetDistribution(v *DistributionForv1ListResourceStatisticsOutput) *V1ListResourceStatisticsOutput {
+	s.Distribution = v
+	return s
+}
+
+// SetStatistics sets the Statistics field's value.
+func (s *V1ListResourceStatisticsOutput) SetStatistics(v *StatisticsForv1ListResourceStatisticsOutput) *V1ListResourceStatisticsOutput {
+	s.Statistics = v
+	return s
+}
+
+type V1UpdateStatusInput struct {
+	_ struct{} `type:"structure"`
+
+	ResourceId *string `type:"string"`
+
+	ResourceType *string `type:"string"`
+
+	State *string `type:"string"`
+}
+
+// String returns the string representation
+func (s V1UpdateStatusInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s V1UpdateStatusInput) GoString() string {
+	return s.String()
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *V1UpdateStatusInput) SetResourceId(v string) *V1UpdateStatusInput {
+	s.ResourceId = &v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *V1UpdateStatusInput) SetResourceType(v string) *V1UpdateStatusInput {
+	s.ResourceType = &v
+	return s
+}
+
+// SetState sets the State field's value.
+func (s *V1UpdateStatusInput) SetState(v string) *V1UpdateStatusInput {
+	s.State = &v
+	return s
+}
+
+type V1UpdateStatusOutput struct {
+	_ struct{} `type:"structure"`
+
+	ReqId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s V1UpdateStatusOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s V1UpdateStatusOutput) GoString() string {
+	return s.String()
+}
+
+// SetReqId sets the ReqId field's value.
+func (s *V1UpdateStatusOutput) SetReqId(v string) *V1UpdateStatusOutput {
+	s.ReqId = &v
+	return s
+}
+
+type VerifyKeyPairNameExistInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s VerifyKeyPairNameExistInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VerifyKeyPairNameExistInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *VerifyKeyPairNameExistInput) SetAccountId(v string) *VerifyKeyPairNameExistInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *VerifyKeyPairNameExistInput) SetKeyPairName(v string) *VerifyKeyPairNameExistInput {
+	s.KeyPairName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *VerifyKeyPairNameExistInput) SetProjectName(v string) *VerifyKeyPairNameExistInput {
+	s.ProjectName = &v
+	return s
+}
+
+type VerifyKeyPairNameExistOutput struct {
+	_ struct{} `type:"structure"`
+
+	IsExist *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s VerifyKeyPairNameExistOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VerifyKeyPairNameExistOutput) GoString() string {
+	return s.String()
+}
+
+// SetIsExist sets the IsExist field's value.
+func (s *VerifyKeyPairNameExistOutput) SetIsExist(v bool) *VerifyKeyPairNameExistOutput {
+	s.IsExist = &v
+	return s
+}
+
 type VolumForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -7227,5 +12493,81 @@ func (s *VolumForDescribeInstancesOutput) SetVolumeName(v string) *VolumForDescr
 // SetVolumeType sets the VolumeType field's value.
 func (s *VolumForDescribeInstancesOutput) SetVolumeType(v string) *VolumForDescribeInstancesOutput {
 	s.VolumeType = &v
+	return s
+}
+
+type ZonForDescribeZonesOutput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceTypes []*string `type:"list"`
+
+	VolumeTypes []*string `type:"list"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ZonForDescribeZonesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZonForDescribeZonesOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceTypes sets the InstanceTypes field's value.
+func (s *ZonForDescribeZonesOutput) SetInstanceTypes(v []*string) *ZonForDescribeZonesOutput {
+	s.InstanceTypes = v
+	return s
+}
+
+// SetVolumeTypes sets the VolumeTypes field's value.
+func (s *ZonForDescribeZonesOutput) SetVolumeTypes(v []*string) *ZonForDescribeZonesOutput {
+	s.VolumeTypes = v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *ZonForDescribeZonesOutput) SetZoneId(v string) *ZonForDescribeZonesOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type ZoneDistributionForv1ListResourceStatisticsOutput struct {
+	_ struct{} `type:"structure"`
+
+	InsTotalNum *int64 `type:"integer"`
+
+	Name *string `type:"string"`
+
+	ZoneID *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ZoneDistributionForv1ListResourceStatisticsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZoneDistributionForv1ListResourceStatisticsOutput) GoString() string {
+	return s.String()
+}
+
+// SetInsTotalNum sets the InsTotalNum field's value.
+func (s *ZoneDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *ZoneDistributionForv1ListResourceStatisticsOutput {
+	s.InsTotalNum = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ZoneDistributionForv1ListResourceStatisticsOutput) SetName(v string) *ZoneDistributionForv1ListResourceStatisticsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetZoneID sets the ZoneID field's value.
+func (s *ZoneDistributionForv1ListResourceStatisticsOutput) SetZoneID(v string) *ZoneDistributionForv1ListResourceStatisticsOutput {
+	s.ZoneID = &v
 	return s
 }
