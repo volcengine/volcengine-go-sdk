@@ -1,5 +1,6 @@
 package query
 
+// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/private/protocol/query/unmarshal_error.go
 import (
 	"encoding/xml"
 	"fmt"

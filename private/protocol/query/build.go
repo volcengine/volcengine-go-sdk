@@ -1,12 +1,13 @@
 // Package volcstackquery provides serialization of VOLCSTACK volcstackquery requests, and responses.
 package query
 
-import (
-	"net/url"
+// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/private/protocol/query/build.go
 
+import (
 	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol/query/queryutil"
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"net/url"
 )
 
 // BuildHandler is a named request handler for building volcstackquery protocol requests

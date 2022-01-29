@@ -1,5 +1,7 @@
 package volcstack
 
+// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/aws/convert_types.go
+
 import "time"
 
 // String returns a pointer to the string value passed in.

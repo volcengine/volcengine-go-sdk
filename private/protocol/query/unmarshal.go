@@ -1,5 +1,7 @@
 package query
 
+// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/private/protocol/query/unmarshal.go
+
 import (
 	"encoding/xml"
 
