@@ -572,6 +572,146 @@ func (c *ECS) CreateHpcClusterWithContext(ctx volcstack.Context, input *CreateHp
 	return out, req.Send()
 }
 
+const opCreateImageCommon = "CreateImage"
+
+// CreateImageCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateImageCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateImageCommon for more information on using the CreateImageCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateImageCommonRequest method.
+//    req, resp := client.CreateImageCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) CreateImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateImageCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateImageCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation CreateImageCommon for usage and error information.
+func (c *ECS) CreateImageCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateImageCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateImageCommonWithContext is the same as CreateImageCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateImageCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) CreateImageCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateImageCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateImage = "CreateImage"
+
+// CreateImageRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateImage operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateImage for more information on using the CreateImage
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateImageRequest method.
+//    req, resp := client.CreateImageRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) CreateImageRequest(input *CreateImageInput) (req *request.Request, output *CreateImageOutput) {
+	op := &request.Operation{
+		Name:       opCreateImage,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateImageInput{}
+	}
+
+	output = &CreateImageOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateImage API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation CreateImage for usage and error information.
+func (c *ECS) CreateImage(input *CreateImageInput) (*CreateImageOutput, error) {
+	req, out := c.CreateImageRequest(input)
+	return out, req.Send()
+}
+
+// CreateImageWithContext is the same as CreateImage with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateImage for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) CreateImageWithContext(ctx volcstack.Context, input *CreateImageInput, opts ...request.Option) (*CreateImageOutput, error) {
+	req, out := c.CreateImageRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateInstancesCommon = "CreateInstances"
 
 // CreateInstancesCommonRequest generates a "volcstack/request.Request" representing the
@@ -1131,6 +1271,146 @@ func (c *ECS) DeleteHpcCluster(input *DeleteHpcClusterInput) (*DeleteHpcClusterO
 // for more information on using Contexts.
 func (c *ECS) DeleteHpcClusterWithContext(ctx volcstack.Context, input *DeleteHpcClusterInput, opts ...request.Option) (*DeleteHpcClusterOutput, error) {
 	req, out := c.DeleteHpcClusterRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteImagesCommon = "DeleteImages"
+
+// DeleteImagesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteImagesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteImagesCommon for more information on using the DeleteImagesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteImagesCommonRequest method.
+//    req, resp := client.DeleteImagesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DeleteImagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteImagesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteImagesCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DeleteImagesCommon for usage and error information.
+func (c *ECS) DeleteImagesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteImagesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteImagesCommonWithContext is the same as DeleteImagesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteImagesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DeleteImagesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteImagesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteImages = "DeleteImages"
+
+// DeleteImagesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteImages operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteImages for more information on using the DeleteImages
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteImagesRequest method.
+//    req, resp := client.DeleteImagesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DeleteImagesRequest(input *DeleteImagesInput) (req *request.Request, output *DeleteImagesOutput) {
+	op := &request.Operation{
+		Name:       opDeleteImages,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteImagesInput{}
+	}
+
+	output = &DeleteImagesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteImages API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DeleteImages for usage and error information.
+func (c *ECS) DeleteImages(input *DeleteImagesInput) (*DeleteImagesOutput, error) {
+	req, out := c.DeleteImagesRequest(input)
+	return out, req.Send()
+}
+
+// DeleteImagesWithContext is the same as DeleteImages with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteImages for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DeleteImagesWithContext(ctx volcstack.Context, input *DeleteImagesInput, opts ...request.Option) (*DeleteImagesOutput, error) {
+	req, out := c.DeleteImagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2253,6 +2533,146 @@ func (c *ECS) DescribeHpcClusters(input *DescribeHpcClustersInput) (*DescribeHpc
 // for more information on using Contexts.
 func (c *ECS) DescribeHpcClustersWithContext(ctx volcstack.Context, input *DescribeHpcClustersInput, opts ...request.Option) (*DescribeHpcClustersOutput, error) {
 	req, out := c.DescribeHpcClustersRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeImagesCommon = "DescribeImages"
+
+// DescribeImagesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeImagesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeImagesCommon for more information on using the DescribeImagesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeImagesCommonRequest method.
+//    req, resp := client.DescribeImagesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeImagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeImagesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeImagesCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeImagesCommon for usage and error information.
+func (c *ECS) DescribeImagesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeImagesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeImagesCommonWithContext is the same as DescribeImagesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeImagesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeImagesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeImagesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeImages = "DescribeImages"
+
+// DescribeImagesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeImages operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeImages for more information on using the DescribeImages
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeImagesRequest method.
+//    req, resp := client.DescribeImagesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeImagesRequest(input *DescribeImagesInput) (req *request.Request, output *DescribeImagesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeImages,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeImagesInput{}
+	}
+
+	output = &DescribeImagesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeImages API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeImages for usage and error information.
+func (c *ECS) DescribeImages(input *DescribeImagesInput) (*DescribeImagesOutput, error) {
+	req, out := c.DescribeImagesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeImagesWithContext is the same as DescribeImages with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeImages for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeImagesWithContext(ctx volcstack.Context, input *DescribeImagesInput, opts ...request.Option) (*DescribeImagesOutput, error) {
+	req, out := c.DescribeImagesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -3798,6 +4218,146 @@ func (c *ECS) GetInstanceConsoleWithContext(ctx volcstack.Context, input *GetIns
 	return out, req.Send()
 }
 
+const opImportImageCommon = "ImportImage"
+
+// ImportImageCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ImportImageCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ImportImageCommon for more information on using the ImportImageCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ImportImageCommonRequest method.
+//    req, resp := client.ImportImageCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ImportImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opImportImageCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ImportImageCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ImportImageCommon for usage and error information.
+func (c *ECS) ImportImageCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ImportImageCommonRequest(input)
+	return out, req.Send()
+}
+
+// ImportImageCommonWithContext is the same as ImportImageCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ImportImageCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ImportImageCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ImportImageCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opImportImage = "ImportImage"
+
+// ImportImageRequest generates a "volcstack/request.Request" representing the
+// client's request for the ImportImage operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ImportImage for more information on using the ImportImage
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ImportImageRequest method.
+//    req, resp := client.ImportImageRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ImportImageRequest(input *ImportImageInput) (req *request.Request, output *ImportImageOutput) {
+	op := &request.Operation{
+		Name:       opImportImage,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ImportImageInput{}
+	}
+
+	output = &ImportImageOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ImportImage API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ImportImage for usage and error information.
+func (c *ECS) ImportImage(input *ImportImageInput) (*ImportImageOutput, error) {
+	req, out := c.ImportImageRequest(input)
+	return out, req.Send()
+}
+
+// ImportImageWithContext is the same as ImportImage with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ImportImage for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ImportImageWithContext(ctx volcstack.Context, input *ImportImageInput, opts ...request.Option) (*ImportImageOutput, error) {
+	req, out := c.ImportImageRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opImportKeyPairCommon = "ImportKeyPair"
 
 // ImportKeyPairCommonRequest generates a "volcstack/request.Request" representing the
@@ -4499,6 +5059,148 @@ func (c *ECS) ModifyDeploymentSetAttribute(input *ModifyDeploymentSetAttributeIn
 // for more information on using Contexts.
 func (c *ECS) ModifyDeploymentSetAttributeWithContext(ctx volcstack.Context, input *ModifyDeploymentSetAttributeInput, opts ...request.Option) (*ModifyDeploymentSetAttributeOutput, error) {
 	req, out := c.ModifyDeploymentSetAttributeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyImageAttributesCommon = "ModifyImageAttributes"
+
+// ModifyImageAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyImageAttributesCommon operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyImageAttributesCommon for more information on using the ModifyImageAttributesCommon
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyImageAttributesCommonRequest method.
+//    req, resp := client.ModifyImageAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ModifyImageAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyImageAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ModifyImageAttributesCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ModifyImageAttributesCommon for usage and error information.
+func (c *ECS) ModifyImageAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyImageAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyImageAttributesCommonWithContext is the same as ModifyImageAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyImageAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ModifyImageAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyImageAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyImageAttributes = "ModifyImageAttributes"
+
+// ModifyImageAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyImageAttributes operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyImageAttributes for more information on using the ModifyImageAttributes
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyImageAttributesRequest method.
+//    req, resp := client.ModifyImageAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ModifyImageAttributesRequest(input *ModifyImageAttributesInput) (req *request.Request, output *ModifyImageAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyImageAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyImageAttributesInput{}
+	}
+
+	output = &ModifyImageAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ModifyImageAttributes API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ModifyImageAttributes for usage and error information.
+func (c *ECS) ModifyImageAttributes(input *ModifyImageAttributesInput) (*ModifyImageAttributesOutput, error) {
+	req, out := c.ModifyImageAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyImageAttributesWithContext is the same as ModifyImageAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyImageAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ModifyImageAttributesWithContext(ctx volcstack.Context, input *ModifyImageAttributesInput, opts ...request.Option) (*ModifyImageAttributesOutput, error) {
+	req, out := c.ModifyImageAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -7046,68 +7748,6 @@ func (c *ECS) VerifyKeyPairNameExistWithContext(ctx volcstack.Context, input *Ve
 	return out, req.Send()
 }
 
-type AccountDistributionForv1ListResourceStatisticsOutput struct {
-	_ struct{} `type:"structure"`
-
-	AccountID *string `type:"string"`
-
-	InsOtherNum *int64 `type:"integer"`
-
-	InsRunningNum *int64 `type:"integer"`
-
-	InsStoppedNum *int64 `type:"integer"`
-
-	InsTotalNum *int64 `type:"integer"`
-
-	VolumeNum *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s AccountDistributionForv1ListResourceStatisticsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AccountDistributionForv1ListResourceStatisticsOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountID sets the AccountID field's value.
-func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetAccountID(v string) *AccountDistributionForv1ListResourceStatisticsOutput {
-	s.AccountID = &v
-	return s
-}
-
-// SetInsOtherNum sets the InsOtherNum field's value.
-func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
-	s.InsOtherNum = &v
-	return s
-}
-
-// SetInsRunningNum sets the InsRunningNum field's value.
-func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
-	s.InsRunningNum = &v
-	return s
-}
-
-// SetInsStoppedNum sets the InsStoppedNum field's value.
-func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
-	s.InsStoppedNum = &v
-	return s
-}
-
-// SetInsTotalNum sets the InsTotalNum field's value.
-func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
-	s.InsTotalNum = &v
-	return s
-}
-
-// SetVolumeNum sets the VolumeNum field's value.
-func (s *AccountDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *AccountDistributionForv1ListResourceStatisticsOutput {
-	s.VolumeNum = &v
-	return s
-}
-
 type AttachKeyPairInput struct {
 	_ struct{} `type:"structure"`
 
@@ -7176,40 +7816,10 @@ func (s *AttachKeyPairOutput) SetKeyPairName(v string) *AttachKeyPairOutput {
 	return s
 }
 
-type AvailableResourcForDescribeAvailableResourceOutput struct {
+type AvailableZoneForDescribeAvailableResourceOutput struct {
 	_ struct{} `type:"structure"`
 
-	SupportedResources []*SupportedResourcForDescribeAvailableResourceOutput `type:"list"`
-
-	Type *string `type:"string"`
-}
-
-// String returns the string representation
-func (s AvailableResourcForDescribeAvailableResourceOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AvailableResourcForDescribeAvailableResourceOutput) GoString() string {
-	return s.String()
-}
-
-// SetSupportedResources sets the SupportedResources field's value.
-func (s *AvailableResourcForDescribeAvailableResourceOutput) SetSupportedResources(v []*SupportedResourcForDescribeAvailableResourceOutput) *AvailableResourcForDescribeAvailableResourceOutput {
-	s.SupportedResources = v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *AvailableResourcForDescribeAvailableResourceOutput) SetType(v string) *AvailableResourcForDescribeAvailableResourceOutput {
-	s.Type = &v
-	return s
-}
-
-type AvailableZonForDescribeAvailableResourceOutput struct {
-	_ struct{} `type:"structure"`
-
-	AvailableResources []*AvailableResourcForDescribeAvailableResourceOutput `type:"list"`
+	AvailableResources []*AvailableZonesAvailableResourceForDescribeAvailableResourceOutput `type:"list"`
 
 	RegionId *string `type:"string"`
 
@@ -7219,36 +7829,96 @@ type AvailableZonForDescribeAvailableResourceOutput struct {
 }
 
 // String returns the string representation
-func (s AvailableZonForDescribeAvailableResourceOutput) String() string {
+func (s AvailableZoneForDescribeAvailableResourceOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AvailableZonForDescribeAvailableResourceOutput) GoString() string {
+func (s AvailableZoneForDescribeAvailableResourceOutput) GoString() string {
 	return s.String()
 }
 
 // SetAvailableResources sets the AvailableResources field's value.
-func (s *AvailableZonForDescribeAvailableResourceOutput) SetAvailableResources(v []*AvailableResourcForDescribeAvailableResourceOutput) *AvailableZonForDescribeAvailableResourceOutput {
+func (s *AvailableZoneForDescribeAvailableResourceOutput) SetAvailableResources(v []*AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) *AvailableZoneForDescribeAvailableResourceOutput {
 	s.AvailableResources = v
 	return s
 }
 
 // SetRegionId sets the RegionId field's value.
-func (s *AvailableZonForDescribeAvailableResourceOutput) SetRegionId(v string) *AvailableZonForDescribeAvailableResourceOutput {
+func (s *AvailableZoneForDescribeAvailableResourceOutput) SetRegionId(v string) *AvailableZoneForDescribeAvailableResourceOutput {
 	s.RegionId = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *AvailableZonForDescribeAvailableResourceOutput) SetStatus(v string) *AvailableZonForDescribeAvailableResourceOutput {
+func (s *AvailableZoneForDescribeAvailableResourceOutput) SetStatus(v string) *AvailableZoneForDescribeAvailableResourceOutput {
 	s.Status = &v
 	return s
 }
 
 // SetZoneId sets the ZoneId field's value.
-func (s *AvailableZonForDescribeAvailableResourceOutput) SetZoneId(v string) *AvailableZonForDescribeAvailableResourceOutput {
+func (s *AvailableZoneForDescribeAvailableResourceOutput) SetZoneId(v string) *AvailableZoneForDescribeAvailableResourceOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type AvailableZonesAvailableResourceForDescribeAvailableResourceOutput struct {
+	_ struct{} `type:"structure"`
+
+	SupportedResources []*AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput `type:"list"`
+
+	Type *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) GoString() string {
+	return s.String()
+}
+
+// SetSupportedResources sets the SupportedResources field's value.
+func (s *AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) SetSupportedResources(v []*AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) *AvailableZonesAvailableResourceForDescribeAvailableResourceOutput {
+	s.SupportedResources = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) SetType(v string) *AvailableZonesAvailableResourceForDescribeAvailableResourceOutput {
+	s.Type = &v
+	return s
+}
+
+type AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput struct {
+	_ struct{} `type:"structure"`
+
+	Status *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) GoString() string {
+	return s.String()
+}
+
+// SetStatus sets the Status field's value.
+func (s *AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) SetStatus(v string) *AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput {
+	s.Status = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) SetValue(v string) *AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput {
+	s.Value = &v
 	return s
 }
 
@@ -7468,6 +8138,66 @@ func (s *CreateHpcClusterOutput) SetHpcClusterId(v string) *CreateHpcClusterOutp
 	return s
 }
 
+type CreateImageInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	ImageName *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateImageInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateImageInput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateImageInput) SetDescription(v string) *CreateImageInput {
+	s.Description = &v
+	return s
+}
+
+// SetImageName sets the ImageName field's value.
+func (s *CreateImageInput) SetImageName(v string) *CreateImageInput {
+	s.ImageName = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateImageInput) SetInstanceId(v string) *CreateImageInput {
+	s.InstanceId = &v
+	return s
+}
+
+type CreateImageOutput struct {
+	_ struct{} `type:"structure"`
+
+	ImageId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateImageOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateImageOutput) GoString() string {
+	return s.String()
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *CreateImageOutput) SetImageId(v string) *CreateImageOutput {
+	s.ImageId = &v
+	return s
+}
+
 type CreateInstancesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -7505,7 +8235,7 @@ type CreateInstancesInput struct {
 
 	KeyPairName *string `type:"string"`
 
-	NetworkInterfaces []*string `type:"list"`
+	NetworkInterfaces []*NetworkInterfaceForCreateInstancesInput `type:"list"`
 
 	Password *string `type:"string"`
 
@@ -7517,13 +8247,13 @@ type CreateInstancesInput struct {
 
 	SuffixIndex *int64 `type:"integer"`
 
-	Tag []*string `type:"list"`
+	Tag []*TagForCreateInstancesInput `type:"list"`
 
 	UniqueSuffix *bool `type:"boolean"`
 
 	UserData *string `type:"string"`
 
-	Volumes []*string `type:"list"`
+	Volumes []*VolumeForCreateInstancesInput `type:"list"`
 
 	ZoneId *string `type:"string"`
 }
@@ -7641,7 +8371,7 @@ func (s *CreateInstancesInput) SetKeyPairName(v string) *CreateInstancesInput {
 }
 
 // SetNetworkInterfaces sets the NetworkInterfaces field's value.
-func (s *CreateInstancesInput) SetNetworkInterfaces(v []*string) *CreateInstancesInput {
+func (s *CreateInstancesInput) SetNetworkInterfaces(v []*NetworkInterfaceForCreateInstancesInput) *CreateInstancesInput {
 	s.NetworkInterfaces = v
 	return s
 }
@@ -7677,7 +8407,7 @@ func (s *CreateInstancesInput) SetSuffixIndex(v int64) *CreateInstancesInput {
 }
 
 // SetTag sets the Tag field's value.
-func (s *CreateInstancesInput) SetTag(v []*string) *CreateInstancesInput {
+func (s *CreateInstancesInput) SetTag(v []*TagForCreateInstancesInput) *CreateInstancesInput {
 	s.Tag = v
 	return s
 }
@@ -7695,7 +8425,7 @@ func (s *CreateInstancesInput) SetUserData(v string) *CreateInstancesInput {
 }
 
 // SetVolumes sets the Volumes field's value.
-func (s *CreateInstancesInput) SetVolumes(v []*string) *CreateInstancesInput {
+func (s *CreateInstancesInput) SetVolumes(v []*VolumeForCreateInstancesInput) *CreateInstancesInput {
 	s.Volumes = v
 	return s
 }
@@ -7900,6 +8630,50 @@ func (s DeleteHpcClusterOutput) GoString() string {
 	return s.String()
 }
 
+type DeleteImagesInput struct {
+	_ struct{} `type:"structure"`
+
+	ImageIds []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s DeleteImagesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteImagesInput) GoString() string {
+	return s.String()
+}
+
+// SetImageIds sets the ImageIds field's value.
+func (s *DeleteImagesInput) SetImageIds(v []*string) *DeleteImagesInput {
+	s.ImageIds = v
+	return s
+}
+
+type DeleteImagesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ImageIds []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s DeleteImagesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetImageIds sets the ImageIds field's value.
+func (s *DeleteImagesOutput) SetImageIds(v []*string) *DeleteImagesOutput {
+	s.ImageIds = v
+	return s
+}
+
 type DeleteInstanceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -8091,7 +8865,7 @@ type DeploymentSetForDescribeDeploymentSetsOutput struct {
 
 	Quota *int64 `type:"integer"`
 
-	QuotaUsed []*QuotaUsedForDescribeDeploymentSetsOutput `type:"list"`
+	QuotaUsed []*DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput `type:"list"`
 
 	Strategy *string `type:"string"`
 }
@@ -8155,7 +8929,7 @@ func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuota(v int64) *Deploy
 }
 
 // SetQuotaUsed sets the QuotaUsed field's value.
-func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuotaUsed(v []*QuotaUsedForDescribeDeploymentSetsOutput) *DeploymentSetForDescribeDeploymentSetsOutput {
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuotaUsed(v []*DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput) *DeploymentSetForDescribeDeploymentSetsOutput {
 	s.QuotaUsed = v
 	return s
 }
@@ -8163,6 +8937,36 @@ func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuotaUsed(v []*QuotaUs
 // SetStrategy sets the Strategy field's value.
 func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetStrategy(v string) *DeploymentSetForDescribeDeploymentSetsOutput {
 	s.Strategy = &v
+	return s
+}
+
+type DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Count *int64 `type:"integer"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput) SetCount(v int64) *DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput {
+	s.Count = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput) SetZoneId(v string) *DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput {
+	s.ZoneId = &v
 	return s
 }
 
@@ -8207,7 +9011,7 @@ func (s *DescribeAvailableResourceInput) SetZoneId(v string) *DescribeAvailableR
 type DescribeAvailableResourceOutput struct {
 	_ struct{} `type:"structure"`
 
-	AvailableZones []*AvailableZonForDescribeAvailableResourceOutput `type:"list"`
+	AvailableZones []*AvailableZoneForDescribeAvailableResourceOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -8221,7 +9025,7 @@ func (s DescribeAvailableResourceOutput) GoString() string {
 }
 
 // SetAvailableZones sets the AvailableZones field's value.
-func (s *DescribeAvailableResourceOutput) SetAvailableZones(v []*AvailableZonForDescribeAvailableResourceOutput) *DescribeAvailableResourceOutput {
+func (s *DescribeAvailableResourceOutput) SetAvailableZones(v []*AvailableZoneForDescribeAvailableResourceOutput) *DescribeAvailableResourceOutput {
 	s.AvailableZones = v
 	return s
 }
@@ -8634,6 +9438,186 @@ func (s *DescribeHpcClustersOutput) SetTotalCount(v int64) *DescribeHpcClustersO
 	return s
 }
 
+type DescribeImagesInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	Architecture *string `type:"string"`
+
+	DiskFormat *string `type:"string"`
+
+	EndTime *string `type:"string"`
+
+	ImageIds []*string `type:"list"`
+
+	ImageName *string `type:"string"`
+
+	ImageStatus *string `type:"string"`
+
+	InstanceTypeId *string `type:"string"`
+
+	IsSupportCloudInit *bool `type:"boolean"`
+
+	OrderBy *string `type:"string"`
+
+	OsType *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	StartTime *string `type:"string"`
+
+	Visibility *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeImagesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeImagesInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeImagesInput) SetAccountId(v string) *DescribeImagesInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetArchitecture sets the Architecture field's value.
+func (s *DescribeImagesInput) SetArchitecture(v string) *DescribeImagesInput {
+	s.Architecture = &v
+	return s
+}
+
+// SetDiskFormat sets the DiskFormat field's value.
+func (s *DescribeImagesInput) SetDiskFormat(v string) *DescribeImagesInput {
+	s.DiskFormat = &v
+	return s
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *DescribeImagesInput) SetEndTime(v string) *DescribeImagesInput {
+	s.EndTime = &v
+	return s
+}
+
+// SetImageIds sets the ImageIds field's value.
+func (s *DescribeImagesInput) SetImageIds(v []*string) *DescribeImagesInput {
+	s.ImageIds = v
+	return s
+}
+
+// SetImageName sets the ImageName field's value.
+func (s *DescribeImagesInput) SetImageName(v string) *DescribeImagesInput {
+	s.ImageName = &v
+	return s
+}
+
+// SetImageStatus sets the ImageStatus field's value.
+func (s *DescribeImagesInput) SetImageStatus(v string) *DescribeImagesInput {
+	s.ImageStatus = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *DescribeImagesInput) SetInstanceTypeId(v string) *DescribeImagesInput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetIsSupportCloudInit sets the IsSupportCloudInit field's value.
+func (s *DescribeImagesInput) SetIsSupportCloudInit(v bool) *DescribeImagesInput {
+	s.IsSupportCloudInit = &v
+	return s
+}
+
+// SetOrderBy sets the OrderBy field's value.
+func (s *DescribeImagesInput) SetOrderBy(v string) *DescribeImagesInput {
+	s.OrderBy = &v
+	return s
+}
+
+// SetOsType sets the OsType field's value.
+func (s *DescribeImagesInput) SetOsType(v string) *DescribeImagesInput {
+	s.OsType = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeImagesInput) SetPageNumber(v int64) *DescribeImagesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeImagesInput) SetPageSize(v int64) *DescribeImagesInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *DescribeImagesInput) SetStartTime(v string) *DescribeImagesInput {
+	s.StartTime = &v
+	return s
+}
+
+// SetVisibility sets the Visibility field's value.
+func (s *DescribeImagesInput) SetVisibility(v string) *DescribeImagesInput {
+	s.Visibility = &v
+	return s
+}
+
+type DescribeImagesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Images []*ImageForDescribeImagesOutput `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeImagesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetImages sets the Images field's value.
+func (s *DescribeImagesOutput) SetImages(v []*ImageForDescribeImagesOutput) *DescribeImagesOutput {
+	s.Images = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeImagesOutput) SetPageNumber(v int64) *DescribeImagesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeImagesOutput) SetPageSize(v int64) *DescribeImagesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeImagesOutput) SetTotalCount(v int64) *DescribeImagesOutput {
+	s.TotalCount = &v
+	return s
+}
+
 type DescribeInstanceECSTerminalUrlInput struct {
 	_ struct{} `type:"structure"`
 
@@ -8787,7 +9771,7 @@ func (s *DescribeInstanceTypesInput) SetZoneId(v string) *DescribeInstanceTypesI
 type DescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceTypes []*InstanceTypForDescribeInstanceTypesOutput `type:"list"`
+	InstanceTypes []*InstanceTypeForDescribeInstanceTypesOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -8807,7 +9791,7 @@ func (s DescribeInstanceTypesOutput) GoString() string {
 }
 
 // SetInstanceTypes sets the InstanceTypes field's value.
-func (s *DescribeInstanceTypesOutput) SetInstanceTypes(v []*InstanceTypForDescribeInstanceTypesOutput) *DescribeInstanceTypesOutput {
+func (s *DescribeInstanceTypesOutput) SetInstanceTypes(v []*InstanceTypeForDescribeInstanceTypesOutput) *DescribeInstanceTypesOutput {
 	s.InstanceTypes = v
 	return s
 }
@@ -8905,7 +9889,7 @@ type DescribeInstancesInput struct {
 
 	Status *string `type:"string"`
 
-	Tag []*string `type:"list"`
+	Tag []*TagForDescribeInstancesInput `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -9007,7 +9991,7 @@ func (s *DescribeInstancesInput) SetStatus(v string) *DescribeInstancesInput {
 }
 
 // SetTag sets the Tag field's value.
-func (s *DescribeInstancesInput) SetTag(v []*string) *DescribeInstancesInput {
+func (s *DescribeInstancesInput) SetTag(v []*TagForDescribeInstancesInput) *DescribeInstancesInput {
 	s.Tag = v
 	return s
 }
@@ -9027,7 +10011,7 @@ func (s *DescribeInstancesInput) SetZoneId(v string) *DescribeInstancesInput {
 type DescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Instances []*InstancForDescribeInstancesOutput `type:"list"`
+	Instances []*InstanceForDescribeInstancesOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -9047,7 +10031,7 @@ func (s DescribeInstancesOutput) GoString() string {
 }
 
 // SetInstances sets the Instances field's value.
-func (s *DescribeInstancesOutput) SetInstances(v []*InstancForDescribeInstancesOutput) *DescribeInstancesOutput {
+func (s *DescribeInstancesOutput) SetInstances(v []*InstanceForDescribeInstancesOutput) *DescribeInstancesOutput {
 	s.Instances = v
 	return s
 }
@@ -9387,7 +10371,7 @@ func (s *DescribeZonesInput) SetZoneIds(v []*string) *DescribeZonesInput {
 type DescribeZonesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Zones []*ZonForDescribeZonesOutput `type:"list"`
+	Zones []*ZoneForDescribeZonesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -9401,7 +10385,7 @@ func (s DescribeZonesOutput) GoString() string {
 }
 
 // SetZones sets the Zones field's value.
-func (s *DescribeZonesOutput) SetZones(v []*ZonForDescribeZonesOutput) *DescribeZonesOutput {
+func (s *DescribeZonesOutput) SetZones(v []*ZoneForDescribeZonesOutput) *DescribeZonesOutput {
 	s.Zones = v
 	return s
 }
@@ -9474,16 +10458,108 @@ func (s *DetachKeyPairOutput) SetKeyPairName(v string) *DetachKeyPairOutput {
 	return s
 }
 
+type DistributionAccountDistributionForv1ListResourceStatisticsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountID *string `type:"string"`
+
+	InsOtherNum *int64 `type:"integer"`
+
+	InsRunningNum *int64 `type:"integer"`
+
+	InsStoppedNum *int64 `type:"integer"`
+
+	InsTotalNum *int64 `type:"integer"`
+
+	VolumeNum *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DistributionAccountDistributionForv1ListResourceStatisticsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DistributionAccountDistributionForv1ListResourceStatisticsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountID sets the AccountID field's value.
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetAccountID(v string) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+	s.AccountID = &v
+	return s
+}
+
+// SetInsOtherNum sets the InsOtherNum field's value.
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+	s.InsOtherNum = &v
+	return s
+}
+
+// SetInsRunningNum sets the InsRunningNum field's value.
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+	s.InsRunningNum = &v
+	return s
+}
+
+// SetInsStoppedNum sets the InsStoppedNum field's value.
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+	s.InsStoppedNum = &v
+	return s
+}
+
+// SetInsTotalNum sets the InsTotalNum field's value.
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+	s.InsTotalNum = &v
+	return s
+}
+
+// SetVolumeNum sets the VolumeNum field's value.
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+	s.VolumeNum = &v
+	return s
+}
+
+type DistributionFlavorDistributionForv1ListResourceStatisticsOutput struct {
+	_ struct{} `type:"structure"`
+
+	InsTotalNum *int64 `type:"integer"`
+
+	Name *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DistributionFlavorDistributionForv1ListResourceStatisticsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DistributionFlavorDistributionForv1ListResourceStatisticsOutput) GoString() string {
+	return s.String()
+}
+
+// SetInsTotalNum sets the InsTotalNum field's value.
+func (s *DistributionFlavorDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *DistributionFlavorDistributionForv1ListResourceStatisticsOutput {
+	s.InsTotalNum = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DistributionFlavorDistributionForv1ListResourceStatisticsOutput) SetName(v string) *DistributionFlavorDistributionForv1ListResourceStatisticsOutput {
+	s.Name = &v
+	return s
+}
+
 type DistributionForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountDistribution []*AccountDistributionForv1ListResourceStatisticsOutput `type:"list"`
+	AccountDistribution []*DistributionAccountDistributionForv1ListResourceStatisticsOutput `type:"list"`
 
-	FlavorDistribution []*FlavorDistributionForv1ListResourceStatisticsOutput `type:"list"`
+	FlavorDistribution []*DistributionFlavorDistributionForv1ListResourceStatisticsOutput `type:"list"`
 
-	ProjectDistribution []*ProjectDistributionForv1ListResourceStatisticsOutput `type:"list"`
+	ProjectDistribution []*DistributionProjectDistributionForv1ListResourceStatisticsOutput `type:"list"`
 
-	ZoneDistribution []*ZoneDistributionForv1ListResourceStatisticsOutput `type:"list"`
+	ZoneDistribution []*DistributionZoneDistributionForv1ListResourceStatisticsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -9497,56 +10573,126 @@ func (s DistributionForv1ListResourceStatisticsOutput) GoString() string {
 }
 
 // SetAccountDistribution sets the AccountDistribution field's value.
-func (s *DistributionForv1ListResourceStatisticsOutput) SetAccountDistribution(v []*AccountDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionForv1ListResourceStatisticsOutput) SetAccountDistribution(v []*DistributionAccountDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
 	s.AccountDistribution = v
 	return s
 }
 
 // SetFlavorDistribution sets the FlavorDistribution field's value.
-func (s *DistributionForv1ListResourceStatisticsOutput) SetFlavorDistribution(v []*FlavorDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionForv1ListResourceStatisticsOutput) SetFlavorDistribution(v []*DistributionFlavorDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
 	s.FlavorDistribution = v
 	return s
 }
 
 // SetProjectDistribution sets the ProjectDistribution field's value.
-func (s *DistributionForv1ListResourceStatisticsOutput) SetProjectDistribution(v []*ProjectDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionForv1ListResourceStatisticsOutput) SetProjectDistribution(v []*DistributionProjectDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
 	s.ProjectDistribution = v
 	return s
 }
 
 // SetZoneDistribution sets the ZoneDistribution field's value.
-func (s *DistributionForv1ListResourceStatisticsOutput) SetZoneDistribution(v []*ZoneDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionForv1ListResourceStatisticsOutput) SetZoneDistribution(v []*DistributionZoneDistributionForv1ListResourceStatisticsOutput) *DistributionForv1ListResourceStatisticsOutput {
 	s.ZoneDistribution = v
 	return s
 }
 
-type FlavorDistributionForv1ListResourceStatisticsOutput struct {
+type DistributionProjectDistributionForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
+
+	InsOtherNum *int64 `type:"integer"`
+
+	InsRunningNum *int64 `type:"integer"`
+
+	InsStoppedNum *int64 `type:"integer"`
 
 	InsTotalNum *int64 `type:"integer"`
 
 	Name *string `type:"string"`
+
+	VolumeNum *int64 `type:"integer"`
 }
 
 // String returns the string representation
-func (s FlavorDistributionForv1ListResourceStatisticsOutput) String() string {
+func (s DistributionProjectDistributionForv1ListResourceStatisticsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s FlavorDistributionForv1ListResourceStatisticsOutput) GoString() string {
+func (s DistributionProjectDistributionForv1ListResourceStatisticsOutput) GoString() string {
 	return s.String()
 }
 
+// SetInsOtherNum sets the InsOtherNum field's value.
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
+	s.InsOtherNum = &v
+	return s
+}
+
+// SetInsRunningNum sets the InsRunningNum field's value.
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
+	s.InsRunningNum = &v
+	return s
+}
+
+// SetInsStoppedNum sets the InsStoppedNum field's value.
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
+	s.InsStoppedNum = &v
+	return s
+}
+
 // SetInsTotalNum sets the InsTotalNum field's value.
-func (s *FlavorDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *FlavorDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
 	s.InsTotalNum = &v
 	return s
 }
 
 // SetName sets the Name field's value.
-func (s *FlavorDistributionForv1ListResourceStatisticsOutput) SetName(v string) *FlavorDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetName(v string) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
 	s.Name = &v
+	return s
+}
+
+// SetVolumeNum sets the VolumeNum field's value.
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
+	s.VolumeNum = &v
+	return s
+}
+
+type DistributionZoneDistributionForv1ListResourceStatisticsOutput struct {
+	_ struct{} `type:"structure"`
+
+	InsTotalNum *int64 `type:"integer"`
+
+	Name *string `type:"string"`
+
+	ZoneID *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DistributionZoneDistributionForv1ListResourceStatisticsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DistributionZoneDistributionForv1ListResourceStatisticsOutput) GoString() string {
+	return s.String()
+}
+
+// SetInsTotalNum sets the InsTotalNum field's value.
+func (s *DistributionZoneDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *DistributionZoneDistributionForv1ListResourceStatisticsOutput {
+	s.InsTotalNum = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DistributionZoneDistributionForv1ListResourceStatisticsOutput) SetName(v string) *DistributionZoneDistributionForv1ListResourceStatisticsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetZoneID sets the ZoneID field's value.
+func (s *DistributionZoneDistributionForv1ListResourceStatisticsOutput) SetZoneID(v string) *DistributionZoneDistributionForv1ListResourceStatisticsOutput {
+	s.ZoneID = &v
 	return s
 }
 
@@ -9607,98 +10753,6 @@ func (s *GetInstanceConsoleOutput) SetConsoleType(v string) *GetInstanceConsoleO
 // SetConsoleURL sets the ConsoleURL field's value.
 func (s *GetInstanceConsoleOutput) SetConsoleURL(v string) *GetInstanceConsoleOutput {
 	s.ConsoleURL = &v
-	return s
-}
-
-type GpuDevicForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Count *int64 `type:"integer"`
-
-	Mem *int64 `type:"integer"`
-
-	Memory *MemoryForDescribeInstanceTypesOutput `type:"structure"`
-
-	Model *string `type:"string"`
-
-	ProductName *string `type:"string"`
-}
-
-// String returns the string representation
-func (s GpuDevicForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s GpuDevicForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetCount sets the Count field's value.
-func (s *GpuDevicForDescribeInstanceTypesOutput) SetCount(v int64) *GpuDevicForDescribeInstanceTypesOutput {
-	s.Count = &v
-	return s
-}
-
-// SetMem sets the Mem field's value.
-func (s *GpuDevicForDescribeInstanceTypesOutput) SetMem(v int64) *GpuDevicForDescribeInstanceTypesOutput {
-	s.Mem = &v
-	return s
-}
-
-// SetMemory sets the Memory field's value.
-func (s *GpuDevicForDescribeInstanceTypesOutput) SetMemory(v *MemoryForDescribeInstanceTypesOutput) *GpuDevicForDescribeInstanceTypesOutput {
-	s.Memory = v
-	return s
-}
-
-// SetModel sets the Model field's value.
-func (s *GpuDevicForDescribeInstanceTypesOutput) SetModel(v string) *GpuDevicForDescribeInstanceTypesOutput {
-	s.Model = &v
-	return s
-}
-
-// SetProductName sets the ProductName field's value.
-func (s *GpuDevicForDescribeInstanceTypesOutput) SetProductName(v string) *GpuDevicForDescribeInstanceTypesOutput {
-	s.ProductName = &v
-	return s
-}
-
-type GpuForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	GpuDevices []*GpuDevicForDescribeInstanceTypesOutput `type:"list"`
-
-	TotalCount *int64 `type:"integer"`
-
-	TotalMem *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s GpuForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s GpuForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetGpuDevices sets the GpuDevices field's value.
-func (s *GpuForDescribeInstanceTypesOutput) SetGpuDevices(v []*GpuDevicForDescribeInstanceTypesOutput) *GpuForDescribeInstanceTypesOutput {
-	s.GpuDevices = v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *GpuForDescribeInstanceTypesOutput) SetTotalCount(v int64) *GpuForDescribeInstanceTypesOutput {
-	s.TotalCount = &v
-	return s
-}
-
-// SetTotalMem sets the TotalMem field's value.
-func (s *GpuForDescribeInstanceTypesOutput) SetTotalMem(v int64) *GpuForDescribeInstanceTypesOutput {
-	s.TotalMem = &v
 	return s
 }
 
@@ -9785,6 +10839,256 @@ func (s *HpcClusterForDescribeHpcClustersOutput) SetVpcId(v string) *HpcClusterF
 // SetVpcName sets the VpcName field's value.
 func (s *HpcClusterForDescribeHpcClustersOutput) SetVpcName(v string) *HpcClusterForDescribeHpcClustersOutput {
 	s.VpcName = &v
+	return s
+}
+
+type ImageForDescribeImagesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Architecture *string `type:"string"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	ImageId *string `type:"string"`
+
+	ImageName *string `type:"string"`
+
+	IsSupportCloudInit *bool `type:"boolean"`
+
+	OsName *string `type:"string"`
+
+	OsType *string `type:"string"`
+
+	Platform *string `type:"string"`
+
+	PlatformVersion *string `type:"string"`
+
+	ReleaseVersion *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VirtualSize *string `type:"string"`
+
+	Visibility *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ImageForDescribeImagesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ImageForDescribeImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetArchitecture sets the Architecture field's value.
+func (s *ImageForDescribeImagesOutput) SetArchitecture(v string) *ImageForDescribeImagesOutput {
+	s.Architecture = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *ImageForDescribeImagesOutput) SetCreatedAt(v string) *ImageForDescribeImagesOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ImageForDescribeImagesOutput) SetDescription(v string) *ImageForDescribeImagesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *ImageForDescribeImagesOutput) SetImageId(v string) *ImageForDescribeImagesOutput {
+	s.ImageId = &v
+	return s
+}
+
+// SetImageName sets the ImageName field's value.
+func (s *ImageForDescribeImagesOutput) SetImageName(v string) *ImageForDescribeImagesOutput {
+	s.ImageName = &v
+	return s
+}
+
+// SetIsSupportCloudInit sets the IsSupportCloudInit field's value.
+func (s *ImageForDescribeImagesOutput) SetIsSupportCloudInit(v bool) *ImageForDescribeImagesOutput {
+	s.IsSupportCloudInit = &v
+	return s
+}
+
+// SetOsName sets the OsName field's value.
+func (s *ImageForDescribeImagesOutput) SetOsName(v string) *ImageForDescribeImagesOutput {
+	s.OsName = &v
+	return s
+}
+
+// SetOsType sets the OsType field's value.
+func (s *ImageForDescribeImagesOutput) SetOsType(v string) *ImageForDescribeImagesOutput {
+	s.OsType = &v
+	return s
+}
+
+// SetPlatform sets the Platform field's value.
+func (s *ImageForDescribeImagesOutput) SetPlatform(v string) *ImageForDescribeImagesOutput {
+	s.Platform = &v
+	return s
+}
+
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *ImageForDescribeImagesOutput) SetPlatformVersion(v string) *ImageForDescribeImagesOutput {
+	s.PlatformVersion = &v
+	return s
+}
+
+// SetReleaseVersion sets the ReleaseVersion field's value.
+func (s *ImageForDescribeImagesOutput) SetReleaseVersion(v string) *ImageForDescribeImagesOutput {
+	s.ReleaseVersion = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ImageForDescribeImagesOutput) SetStatus(v string) *ImageForDescribeImagesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ImageForDescribeImagesOutput) SetUpdatedAt(v string) *ImageForDescribeImagesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVirtualSize sets the VirtualSize field's value.
+func (s *ImageForDescribeImagesOutput) SetVirtualSize(v string) *ImageForDescribeImagesOutput {
+	s.VirtualSize = &v
+	return s
+}
+
+// SetVisibility sets the Visibility field's value.
+func (s *ImageForDescribeImagesOutput) SetVisibility(v string) *ImageForDescribeImagesOutput {
+	s.Visibility = &v
+	return s
+}
+
+type ImportImageInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	Architecture *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	OsType *string `type:"string"`
+
+	Platform *string `type:"string"`
+
+	PlatformVersion *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	Url *string `type:"string"`
+
+	Visibility *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ImportImageInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ImportImageInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *ImportImageInput) SetAccountId(v string) *ImportImageInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetArchitecture sets the Architecture field's value.
+func (s *ImportImageInput) SetArchitecture(v string) *ImportImageInput {
+	s.Architecture = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ImportImageInput) SetDescription(v string) *ImportImageInput {
+	s.Description = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ImportImageInput) SetName(v string) *ImportImageInput {
+	s.Name = &v
+	return s
+}
+
+// SetOsType sets the OsType field's value.
+func (s *ImportImageInput) SetOsType(v string) *ImportImageInput {
+	s.OsType = &v
+	return s
+}
+
+// SetPlatform sets the Platform field's value.
+func (s *ImportImageInput) SetPlatform(v string) *ImportImageInput {
+	s.Platform = &v
+	return s
+}
+
+// SetPlatformVersion sets the PlatformVersion field's value.
+func (s *ImportImageInput) SetPlatformVersion(v string) *ImportImageInput {
+	s.PlatformVersion = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ImportImageInput) SetProjectName(v string) *ImportImageInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *ImportImageInput) SetUrl(v string) *ImportImageInput {
+	s.Url = &v
+	return s
+}
+
+// SetVisibility sets the Visibility field's value.
+func (s *ImportImageInput) SetVisibility(v string) *ImportImageInput {
+	s.Visibility = &v
+	return s
+}
+
+type ImportImageOutput struct {
+	_ struct{} `type:"structure"`
+
+	ImageId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ImportImageOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ImportImageOutput) GoString() string {
+	return s.String()
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *ImportImageOutput) SetImageId(v string) *ImportImageOutput {
+	s.ImageId = &v
 	return s
 }
 
@@ -10032,7 +11336,7 @@ func (s InnerReplaceSystemVolumesOutput) GoString() string {
 	return s.String()
 }
 
-type InstancForDescribeInstancesOutput struct {
+type InstanceForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	CreatedAt *string `type:"string"`
@@ -10051,7 +11355,7 @@ type InstancForDescribeInstancesOutput struct {
 
 	InstanceName *string `type:"string"`
 
-	InstanceType *InstanceTypeForDescribeInstancesOutput `type:"structure"`
+	InstanceType *InstancesInstanceTypeForDescribeInstancesOutput `type:"structure"`
 
 	InstanceTypeId *string `type:"string"`
 
@@ -10059,7 +11363,7 @@ type InstancForDescribeInstancesOutput struct {
 
 	KeyPairName *string `type:"string"`
 
-	NetworkInterfaces []*NetworkInterfacForDescribeInstancesOutput `type:"list"`
+	NetworkInterfaces []*InstancesNetworkInterfaceForDescribeInstancesOutput `type:"list"`
 
 	RdmaIpAddresses []*string `type:"list"`
 
@@ -10067,13 +11371,13 @@ type InstancForDescribeInstancesOutput struct {
 
 	StoppedMode *string `type:"string"`
 
-	Tags []*TagForDescribeInstancesOutput `type:"list"`
+	Tags []*InstancesTagForDescribeInstancesOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
 
 	UserData *string `type:"string"`
 
-	Volumes []*VolumForDescribeInstancesOutput `type:"list"`
+	Volumes []*InstancesVolumeForDescribeInstancesOutput `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -10081,302 +11385,144 @@ type InstancForDescribeInstancesOutput struct {
 }
 
 // String returns the string representation
-func (s InstancForDescribeInstancesOutput) String() string {
+func (s InstanceForDescribeInstancesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InstancForDescribeInstancesOutput) GoString() string {
+func (s InstanceForDescribeInstancesOutput) GoString() string {
 	return s.String()
 }
 
 // SetCreatedAt sets the CreatedAt field's value.
-func (s *InstancForDescribeInstancesOutput) SetCreatedAt(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetCreatedAt(v string) *InstanceForDescribeInstancesOutput {
 	s.CreatedAt = &v
 	return s
 }
 
 // SetDeploymentSetId sets the DeploymentSetId field's value.
-func (s *InstancForDescribeInstancesOutput) SetDeploymentSetId(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetDeploymentSetId(v string) *InstanceForDescribeInstancesOutput {
 	s.DeploymentSetId = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *InstancForDescribeInstancesOutput) SetDescription(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetDescription(v string) *InstanceForDescribeInstancesOutput {
 	s.Description = &v
 	return s
 }
 
 // SetHostName sets the HostName field's value.
-func (s *InstancForDescribeInstancesOutput) SetHostName(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetHostName(v string) *InstanceForDescribeInstancesOutput {
 	s.HostName = &v
 	return s
 }
 
 // SetId sets the Id field's value.
-func (s *InstancForDescribeInstancesOutput) SetId(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetId(v string) *InstanceForDescribeInstancesOutput {
 	s.Id = &v
 	return s
 }
 
 // SetImageId sets the ImageId field's value.
-func (s *InstancForDescribeInstancesOutput) SetImageId(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetImageId(v string) *InstanceForDescribeInstancesOutput {
 	s.ImageId = &v
 	return s
 }
 
 // SetInstanceChargeType sets the InstanceChargeType field's value.
-func (s *InstancForDescribeInstancesOutput) SetInstanceChargeType(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetInstanceChargeType(v string) *InstanceForDescribeInstancesOutput {
 	s.InstanceChargeType = &v
 	return s
 }
 
 // SetInstanceName sets the InstanceName field's value.
-func (s *InstancForDescribeInstancesOutput) SetInstanceName(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetInstanceName(v string) *InstanceForDescribeInstancesOutput {
 	s.InstanceName = &v
 	return s
 }
 
 // SetInstanceType sets the InstanceType field's value.
-func (s *InstancForDescribeInstancesOutput) SetInstanceType(v *InstanceTypeForDescribeInstancesOutput) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetInstanceType(v *InstancesInstanceTypeForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
 	s.InstanceType = v
 	return s
 }
 
 // SetInstanceTypeId sets the InstanceTypeId field's value.
-func (s *InstancForDescribeInstancesOutput) SetInstanceTypeId(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetInstanceTypeId(v string) *InstanceForDescribeInstancesOutput {
 	s.InstanceTypeId = &v
 	return s
 }
 
 // SetKeyPairId sets the KeyPairId field's value.
-func (s *InstancForDescribeInstancesOutput) SetKeyPairId(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetKeyPairId(v string) *InstanceForDescribeInstancesOutput {
 	s.KeyPairId = &v
 	return s
 }
 
 // SetKeyPairName sets the KeyPairName field's value.
-func (s *InstancForDescribeInstancesOutput) SetKeyPairName(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetKeyPairName(v string) *InstanceForDescribeInstancesOutput {
 	s.KeyPairName = &v
 	return s
 }
 
 // SetNetworkInterfaces sets the NetworkInterfaces field's value.
-func (s *InstancForDescribeInstancesOutput) SetNetworkInterfaces(v []*NetworkInterfacForDescribeInstancesOutput) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetNetworkInterfaces(v []*InstancesNetworkInterfaceForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
 	s.NetworkInterfaces = v
 	return s
 }
 
 // SetRdmaIpAddresses sets the RdmaIpAddresses field's value.
-func (s *InstancForDescribeInstancesOutput) SetRdmaIpAddresses(v []*string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetRdmaIpAddresses(v []*string) *InstanceForDescribeInstancesOutput {
 	s.RdmaIpAddresses = v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *InstancForDescribeInstancesOutput) SetStatus(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetStatus(v string) *InstanceForDescribeInstancesOutput {
 	s.Status = &v
 	return s
 }
 
 // SetStoppedMode sets the StoppedMode field's value.
-func (s *InstancForDescribeInstancesOutput) SetStoppedMode(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetStoppedMode(v string) *InstanceForDescribeInstancesOutput {
 	s.StoppedMode = &v
 	return s
 }
 
 // SetTags sets the Tags field's value.
-func (s *InstancForDescribeInstancesOutput) SetTags(v []*TagForDescribeInstancesOutput) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetTags(v []*InstancesTagForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
 	s.Tags = v
 	return s
 }
 
 // SetUpdatedAt sets the UpdatedAt field's value.
-func (s *InstancForDescribeInstancesOutput) SetUpdatedAt(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetUpdatedAt(v string) *InstanceForDescribeInstancesOutput {
 	s.UpdatedAt = &v
 	return s
 }
 
 // SetUserData sets the UserData field's value.
-func (s *InstancForDescribeInstancesOutput) SetUserData(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetUserData(v string) *InstanceForDescribeInstancesOutput {
 	s.UserData = &v
 	return s
 }
 
 // SetVolumes sets the Volumes field's value.
-func (s *InstancForDescribeInstancesOutput) SetVolumes(v []*VolumForDescribeInstancesOutput) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetVolumes(v []*InstancesVolumeForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
 	s.Volumes = v
 	return s
 }
 
 // SetVpcId sets the VpcId field's value.
-func (s *InstancForDescribeInstancesOutput) SetVpcId(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetVpcId(v string) *InstanceForDescribeInstancesOutput {
 	s.VpcId = &v
 	return s
 }
 
 // SetZoneId sets the ZoneId field's value.
-func (s *InstancForDescribeInstancesOutput) SetZoneId(v string) *InstancForDescribeInstancesOutput {
+func (s *InstanceForDescribeInstancesOutput) SetZoneId(v string) *InstanceForDescribeInstancesOutput {
 	s.ZoneId = &v
-	return s
-}
-
-type InstanceTypForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Architecture *string `type:"string"`
-
-	Cpu *int64 `type:"integer"`
-
-	Gpu *GpuForDescribeInstanceTypesOutput `type:"structure"`
-
-	Id *string `type:"string"`
-
-	InstanceTypeFamily *string `type:"string"`
-
-	InstanceTypeId *string `type:"string"`
-
-	LocalVolumes []*LocalVolumForDescribeInstanceTypesOutput `type:"list"`
-
-	Mem *int64 `type:"integer"`
-
-	Memory *MemoryForDescribeInstanceTypesOutput `type:"structure"`
-
-	NetKppsQuota *int64 `type:"integer"`
-
-	NetMbpsQuota *int64 `type:"integer"`
-
-	NetSessionQuota *int64 `type:"integer"`
-
-	NetworkInterfaceNumQuota *int64 `type:"integer"`
-
-	PrivateIpQuota *int64 `type:"integer"`
-
-	Processor *ProcessorForDescribeInstanceTypesOutput `type:"structure"`
-
-	Rdma *RdmaForDescribeInstanceTypesOutput `type:"structure"`
-
-	Type *string `type:"string"`
-
-	VolumeTypes []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s InstanceTypForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstanceTypForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetArchitecture sets the Architecture field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetArchitecture(v string) *InstanceTypForDescribeInstanceTypesOutput {
-	s.Architecture = &v
-	return s
-}
-
-// SetCpu sets the Cpu field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetCpu(v int64) *InstanceTypForDescribeInstanceTypesOutput {
-	s.Cpu = &v
-	return s
-}
-
-// SetGpu sets the Gpu field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetGpu(v *GpuForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
-	s.Gpu = v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetId(v string) *InstanceTypForDescribeInstanceTypesOutput {
-	s.Id = &v
-	return s
-}
-
-// SetInstanceTypeFamily sets the InstanceTypeFamily field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetInstanceTypeFamily(v string) *InstanceTypForDescribeInstanceTypesOutput {
-	s.InstanceTypeFamily = &v
-	return s
-}
-
-// SetInstanceTypeId sets the InstanceTypeId field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetInstanceTypeId(v string) *InstanceTypForDescribeInstanceTypesOutput {
-	s.InstanceTypeId = &v
-	return s
-}
-
-// SetLocalVolumes sets the LocalVolumes field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetLocalVolumes(v []*LocalVolumForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
-	s.LocalVolumes = v
-	return s
-}
-
-// SetMem sets the Mem field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetMem(v int64) *InstanceTypForDescribeInstanceTypesOutput {
-	s.Mem = &v
-	return s
-}
-
-// SetMemory sets the Memory field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetMemory(v *MemoryForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
-	s.Memory = v
-	return s
-}
-
-// SetNetKppsQuota sets the NetKppsQuota field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetNetKppsQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
-	s.NetKppsQuota = &v
-	return s
-}
-
-// SetNetMbpsQuota sets the NetMbpsQuota field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetNetMbpsQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
-	s.NetMbpsQuota = &v
-	return s
-}
-
-// SetNetSessionQuota sets the NetSessionQuota field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetNetSessionQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
-	s.NetSessionQuota = &v
-	return s
-}
-
-// SetNetworkInterfaceNumQuota sets the NetworkInterfaceNumQuota field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetNetworkInterfaceNumQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
-	s.NetworkInterfaceNumQuota = &v
-	return s
-}
-
-// SetPrivateIpQuota sets the PrivateIpQuota field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetPrivateIpQuota(v int64) *InstanceTypForDescribeInstanceTypesOutput {
-	s.PrivateIpQuota = &v
-	return s
-}
-
-// SetProcessor sets the Processor field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetProcessor(v *ProcessorForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
-	s.Processor = v
-	return s
-}
-
-// SetRdma sets the Rdma field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetRdma(v *RdmaForDescribeInstanceTypesOutput) *InstanceTypForDescribeInstanceTypesOutput {
-	s.Rdma = v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetType(v string) *InstanceTypForDescribeInstanceTypesOutput {
-	s.Type = &v
-	return s
-}
-
-// SetVolumeTypes sets the VolumeTypes field's value.
-func (s *InstanceTypForDescribeInstanceTypesOutput) SetVolumeTypes(v []*string) *InstanceTypForDescribeInstanceTypesOutput {
-	s.VolumeTypes = v
 	return s
 }
 
@@ -10418,7 +11564,407 @@ func (s *InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput) SetZoneIds(v [
 	return s
 }
 
-type InstanceTypeForDescribeInstancesOutput struct {
+type InstanceTypeForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Architecture *string `type:"string"`
+
+	Cpu *int64 `type:"integer"`
+
+	Gpu *InstanceTypesGpuForDescribeInstanceTypesOutput `type:"structure"`
+
+	Id *string `type:"string"`
+
+	InstanceTypeFamily *string `type:"string"`
+
+	InstanceTypeId *string `type:"string"`
+
+	LocalVolumes []*InstanceTypesLocalVolumeForDescribeInstanceTypesOutput `type:"list"`
+
+	Mem *int64 `type:"integer"`
+
+	Memory *InstanceTypesMemoryForDescribeInstanceTypesOutput `type:"structure"`
+
+	NetKppsQuota *int64 `type:"integer"`
+
+	NetMbpsQuota *int64 `type:"integer"`
+
+	NetSessionQuota *int64 `type:"integer"`
+
+	NetworkInterfaceNumQuota *int64 `type:"integer"`
+
+	PrivateIpQuota *int64 `type:"integer"`
+
+	Processor *InstanceTypesProcessorForDescribeInstanceTypesOutput `type:"structure"`
+
+	Rdma *InstanceTypesRdmaForDescribeInstanceTypesOutput `type:"structure"`
+
+	Type *string `type:"string"`
+
+	VolumeTypes []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s InstanceTypeForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypeForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetArchitecture sets the Architecture field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetArchitecture(v string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Architecture = &v
+	return s
+}
+
+// SetCpu sets the Cpu field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetCpu(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Cpu = &v
+	return s
+}
+
+// SetGpu sets the Gpu field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetGpu(v *InstanceTypesGpuForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Gpu = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetId(v string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Id = &v
+	return s
+}
+
+// SetInstanceTypeFamily sets the InstanceTypeFamily field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetInstanceTypeFamily(v string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.InstanceTypeFamily = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetInstanceTypeId(v string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetLocalVolumes sets the LocalVolumes field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetLocalVolumes(v []*InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.LocalVolumes = v
+	return s
+}
+
+// SetMem sets the Mem field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetMem(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Mem = &v
+	return s
+}
+
+// SetMemory sets the Memory field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetMemory(v *InstanceTypesMemoryForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Memory = v
+	return s
+}
+
+// SetNetKppsQuota sets the NetKppsQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetKppsQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.NetKppsQuota = &v
+	return s
+}
+
+// SetNetMbpsQuota sets the NetMbpsQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetMbpsQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.NetMbpsQuota = &v
+	return s
+}
+
+// SetNetSessionQuota sets the NetSessionQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetSessionQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.NetSessionQuota = &v
+	return s
+}
+
+// SetNetworkInterfaceNumQuota sets the NetworkInterfaceNumQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetworkInterfaceNumQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.NetworkInterfaceNumQuota = &v
+	return s
+}
+
+// SetPrivateIpQuota sets the PrivateIpQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetPrivateIpQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.PrivateIpQuota = &v
+	return s
+}
+
+// SetProcessor sets the Processor field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetProcessor(v *InstanceTypesProcessorForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Processor = v
+	return s
+}
+
+// SetRdma sets the Rdma field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetRdma(v *InstanceTypesRdmaForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Rdma = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetType(v string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVolumeTypes sets the VolumeTypes field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetVolumeTypes(v []*string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.VolumeTypes = v
+	return s
+}
+
+type InstanceTypesGpuForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	GpuDevices []*InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput `type:"list"`
+
+	TotalCount *int64 `type:"integer"`
+
+	TotalMem *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s InstanceTypesGpuForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypesGpuForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetGpuDevices sets the GpuDevices field's value.
+func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetGpuDevices(v []*InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) *InstanceTypesGpuForDescribeInstanceTypesOutput {
+	s.GpuDevices = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetTotalCount(v int64) *InstanceTypesGpuForDescribeInstanceTypesOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetTotalMem sets the TotalMem field's value.
+func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetTotalMem(v int64) *InstanceTypesGpuForDescribeInstanceTypesOutput {
+	s.TotalMem = &v
+	return s
+}
+
+type InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Count *int64 `type:"integer"`
+
+	Mem *int64 `type:"integer"`
+
+	Memory *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput `type:"structure"`
+
+	Model *string `type:"string"`
+
+	ProductName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetCount(v int64) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
+	s.Count = &v
+	return s
+}
+
+// SetMem sets the Mem field's value.
+func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetMem(v int64) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
+	s.Mem = &v
+	return s
+}
+
+// SetMemory sets the Memory field's value.
+func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetMemory(v *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
+	s.Memory = v
+	return s
+}
+
+// SetModel sets the Model field's value.
+func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetModel(v string) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
+	s.Model = &v
+	return s
+}
+
+// SetProductName sets the ProductName field's value.
+func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetProductName(v string) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
+	s.ProductName = &v
+	return s
+}
+
+type InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Size *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetSize sets the Size field's value.
+func (s *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) SetSize(v int64) *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput {
+	s.Size = &v
+	return s
+}
+
+type InstanceTypesLocalVolumeForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Count *int64 `type:"integer"`
+
+	Size *int64 `type:"integer"`
+
+	VolumeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetCount(v int64) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
+	s.Count = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetSize(v int64) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
+	s.Size = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetVolumeType(v string) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
+	s.VolumeType = &v
+	return s
+}
+
+type InstanceTypesMemoryForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Size *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s InstanceTypesMemoryForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypesMemoryForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetSize sets the Size field's value.
+func (s *InstanceTypesMemoryForDescribeInstanceTypesOutput) SetSize(v int64) *InstanceTypesMemoryForDescribeInstanceTypesOutput {
+	s.Size = &v
+	return s
+}
+
+type InstanceTypesProcessorForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Architecture *string `type:"string"`
+
+	Cpus *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s InstanceTypesProcessorForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypesProcessorForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetArchitecture sets the Architecture field's value.
+func (s *InstanceTypesProcessorForDescribeInstanceTypesOutput) SetArchitecture(v string) *InstanceTypesProcessorForDescribeInstanceTypesOutput {
+	s.Architecture = &v
+	return s
+}
+
+// SetCpus sets the Cpus field's value.
+func (s *InstanceTypesProcessorForDescribeInstanceTypesOutput) SetCpus(v int64) *InstanceTypesProcessorForDescribeInstanceTypesOutput {
+	s.Cpus = &v
+	return s
+}
+
+type InstanceTypesRdmaForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RdmaEniBandwidth *string `type:"string"`
+
+	RdmaEniCount *int64 `type:"integer"`
+
+	RdmaNetworkInterfaces *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s InstanceTypesRdmaForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypesRdmaForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRdmaEniBandwidth sets the RdmaEniBandwidth field's value.
+func (s *InstanceTypesRdmaForDescribeInstanceTypesOutput) SetRdmaEniBandwidth(v string) *InstanceTypesRdmaForDescribeInstanceTypesOutput {
+	s.RdmaEniBandwidth = &v
+	return s
+}
+
+// SetRdmaEniCount sets the RdmaEniCount field's value.
+func (s *InstanceTypesRdmaForDescribeInstanceTypesOutput) SetRdmaEniCount(v int64) *InstanceTypesRdmaForDescribeInstanceTypesOutput {
+	s.RdmaEniCount = &v
+	return s
+}
+
+// SetRdmaNetworkInterfaces sets the RdmaNetworkInterfaces field's value.
+func (s *InstanceTypesRdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int64) *InstanceTypesRdmaForDescribeInstanceTypesOutput {
+	s.RdmaNetworkInterfaces = &v
+	return s
+}
+
+type InstancesInstanceTypeForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Architecture *string `type:"string"`
@@ -10445,78 +11991,296 @@ type InstanceTypeForDescribeInstancesOutput struct {
 }
 
 // String returns the string representation
-func (s InstanceTypeForDescribeInstancesOutput) String() string {
+func (s InstancesInstanceTypeForDescribeInstancesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InstanceTypeForDescribeInstancesOutput) GoString() string {
+func (s InstancesInstanceTypeForDescribeInstancesOutput) GoString() string {
 	return s.String()
 }
 
 // SetArchitecture sets the Architecture field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetArchitecture(v string) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetArchitecture(v string) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.Architecture = &v
 	return s
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetCpu(v int64) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetCpu(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.Cpu = &v
 	return s
 }
 
 // SetId sets the Id field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetId(v string) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetId(v string) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.Id = &v
 	return s
 }
 
 // SetInstanceTypeFamily sets the InstanceTypeFamily field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetInstanceTypeFamily(v string) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetInstanceTypeFamily(v string) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.InstanceTypeFamily = &v
 	return s
 }
 
 // SetMem sets the Mem field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetMem(v int64) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetMem(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.Mem = &v
 	return s
 }
 
 // SetNetKppsQuota sets the NetKppsQuota field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetNetKppsQuota(v int64) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetKppsQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.NetKppsQuota = &v
 	return s
 }
 
 // SetNetMbpsQuota sets the NetMbpsQuota field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetNetMbpsQuota(v int64) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetMbpsQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.NetMbpsQuota = &v
 	return s
 }
 
 // SetNetSessionQuota sets the NetSessionQuota field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetNetSessionQuota(v int64) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetSessionQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.NetSessionQuota = &v
 	return s
 }
 
 // SetNetworkInterfaceNumQuota sets the NetworkInterfaceNumQuota field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetNetworkInterfaceNumQuota(v int64) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetworkInterfaceNumQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.NetworkInterfaceNumQuota = &v
 	return s
 }
 
 // SetPrivateIpQuota sets the PrivateIpQuota field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetPrivateIpQuota(v int64) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetPrivateIpQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.PrivateIpQuota = &v
 	return s
 }
 
 // SetVolumeTypes sets the VolumeTypes field's value.
-func (s *InstanceTypeForDescribeInstancesOutput) SetVolumeTypes(v []*string) *InstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetVolumeTypes(v []*string) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.VolumeTypes = v
+	return s
+}
+
+type InstancesNetworkInterfaceForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	EipAddress *string `type:"string"`
+
+	Ipv6Sets []*string `type:"list"`
+
+	MacAddress *string `type:"string"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	NetworkInterfaceName *string `type:"string"`
+
+	PrimaryIpAddress *string `type:"string"`
+
+	PrivateIpAddresses []*string `type:"list"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstancesNetworkInterfaceForDescribeInstancesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstancesNetworkInterfaceForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetEipAddress(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetIpv6Sets sets the Ipv6Sets field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetIpv6Sets(v []*string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.Ipv6Sets = v
+	return s
+}
+
+// SetMacAddress sets the MacAddress field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetMacAddress(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.MacAddress = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetNetworkInterfaceId(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetNetworkInterfaceName(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetPrimaryIpAddress(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetPrivateIpAddresses sets the PrivateIpAddresses field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetPrivateIpAddresses(v []*string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.PrivateIpAddresses = v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetSecurityGroupIds(v []*string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetStatus(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetSubnetId(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetType(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetVpcId(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetVpcName(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
+	s.VpcName = &v
+	return s
+}
+
+type InstancesTagForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstancesTagForDescribeInstancesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstancesTagForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *InstancesTagForDescribeInstancesOutput) SetKey(v string) *InstancesTagForDescribeInstancesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *InstancesTagForDescribeInstancesOutput) SetValue(v string) *InstancesTagForDescribeInstancesOutput {
+	s.Value = &v
+	return s
+}
+
+type InstancesVolumeForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ImageId *string `type:"string"`
+
+	Kind *string `type:"string"`
+
+	Size *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	VolumeId *string `type:"string"`
+
+	VolumeName *string `type:"string"`
+
+	VolumeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstancesVolumeForDescribeInstancesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstancesVolumeForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *InstancesVolumeForDescribeInstancesOutput) SetImageId(v string) *InstancesVolumeForDescribeInstancesOutput {
+	s.ImageId = &v
+	return s
+}
+
+// SetKind sets the Kind field's value.
+func (s *InstancesVolumeForDescribeInstancesOutput) SetKind(v string) *InstancesVolumeForDescribeInstancesOutput {
+	s.Kind = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *InstancesVolumeForDescribeInstancesOutput) SetSize(v string) *InstancesVolumeForDescribeInstancesOutput {
+	s.Size = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *InstancesVolumeForDescribeInstancesOutput) SetStatus(v string) *InstancesVolumeForDescribeInstancesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetVolumeId sets the VolumeId field's value.
+func (s *InstancesVolumeForDescribeInstancesOutput) SetVolumeId(v string) *InstancesVolumeForDescribeInstancesOutput {
+	s.VolumeId = &v
+	return s
+}
+
+// SetVolumeName sets the VolumeName field's value.
+func (s *InstancesVolumeForDescribeInstancesOutput) SetVolumeName(v string) *InstancesVolumeForDescribeInstancesOutput {
+	s.VolumeName = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *InstancesVolumeForDescribeInstancesOutput) SetVolumeType(v string) *InstancesVolumeForDescribeInstancesOutput {
+	s.VolumeType = &v
 	return s
 }
 
@@ -10634,66 +12398,6 @@ func (s *ListAssumeRolesOutput) SetAssumeRoles(v []*string) *ListAssumeRolesOutp
 	return s
 }
 
-type LocalVolumForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Count *int64 `type:"integer"`
-
-	Size *int64 `type:"integer"`
-
-	VolumeType *string `type:"string"`
-}
-
-// String returns the string representation
-func (s LocalVolumForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LocalVolumForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetCount sets the Count field's value.
-func (s *LocalVolumForDescribeInstanceTypesOutput) SetCount(v int64) *LocalVolumForDescribeInstanceTypesOutput {
-	s.Count = &v
-	return s
-}
-
-// SetSize sets the Size field's value.
-func (s *LocalVolumForDescribeInstanceTypesOutput) SetSize(v int64) *LocalVolumForDescribeInstanceTypesOutput {
-	s.Size = &v
-	return s
-}
-
-// SetVolumeType sets the VolumeType field's value.
-func (s *LocalVolumForDescribeInstanceTypesOutput) SetVolumeType(v string) *LocalVolumForDescribeInstanceTypesOutput {
-	s.VolumeType = &v
-	return s
-}
-
-type MemoryForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Size *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s MemoryForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MemoryForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetSize sets the Size field's value.
-func (s *MemoryForDescribeInstanceTypesOutput) SetSize(v int64) *MemoryForDescribeInstanceTypesOutput {
-	s.Size = &v
-	return s
-}
-
 type ModifyDeploymentSetAttributeInput struct {
 	_ struct{} `type:"structure"`
 
@@ -10743,6 +12447,58 @@ func (s ModifyDeploymentSetAttributeOutput) String() string {
 
 // GoString returns the string representation
 func (s ModifyDeploymentSetAttributeOutput) GoString() string {
+	return s.String()
+}
+
+type ModifyImageAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	ImageId *string `type:"string"`
+
+	ImageName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyImageAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyImageAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyImageAttributesInput) SetDescription(v string) *ModifyImageAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *ModifyImageAttributesInput) SetImageId(v string) *ModifyImageAttributesInput {
+	s.ImageId = &v
+	return s
+}
+
+// SetImageName sets the ImageName field's value.
+func (s *ModifyImageAttributesInput) SetImageName(v string) *ModifyImageAttributesInput {
+	s.ImageName = &v
+	return s
+}
+
+type ModifyImageAttributesOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ModifyImageAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyImageAttributesOutput) GoString() string {
 	return s.String()
 }
 
@@ -11062,281 +12818,127 @@ func (s *ModifyKeyPairAttributeOutput) SetKeyPairName(v string) *ModifyKeyPairAt
 	return s
 }
 
-type NetworkInterfacForDescribeInstancesOutput struct {
+type NetworkInterfaceForCreateInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	EipAddress *string `type:"string"`
-
-	Ipv6Sets []*string `type:"list"`
-
-	MacAddress *string `type:"string"`
-
-	NetworkInterfaceId *string `type:"string"`
+	Description *string `type:"string"`
 
 	NetworkInterfaceName *string `type:"string"`
 
 	PrimaryIpAddress *string `type:"string"`
 
-	PrivateIpAddresses []*string `type:"list"`
-
-	SecurityGroupIds []*string `type:"list"`
-
-	Status *string `type:"string"`
+	SecurityGroupIds *string `type:"string"`
 
 	SubnetId *string `type:"string"`
 
-	Type *string `type:"string"`
-
 	VpcId *string `type:"string"`
-
-	VpcName *string `type:"string"`
 }
 
 // String returns the string representation
-func (s NetworkInterfacForDescribeInstancesOutput) String() string {
+func (s NetworkInterfaceForCreateInstancesInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s NetworkInterfacForDescribeInstancesOutput) GoString() string {
+func (s NetworkInterfaceForCreateInstancesInput) GoString() string {
 	return s.String()
 }
 
-// SetEipAddress sets the EipAddress field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetEipAddress(v string) *NetworkInterfacForDescribeInstancesOutput {
-	s.EipAddress = &v
-	return s
-}
-
-// SetIpv6Sets sets the Ipv6Sets field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetIpv6Sets(v []*string) *NetworkInterfacForDescribeInstancesOutput {
-	s.Ipv6Sets = v
-	return s
-}
-
-// SetMacAddress sets the MacAddress field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetMacAddress(v string) *NetworkInterfacForDescribeInstancesOutput {
-	s.MacAddress = &v
-	return s
-}
-
-// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetNetworkInterfaceId(v string) *NetworkInterfacForDescribeInstancesOutput {
-	s.NetworkInterfaceId = &v
+// SetDescription sets the Description field's value.
+func (s *NetworkInterfaceForCreateInstancesInput) SetDescription(v string) *NetworkInterfaceForCreateInstancesInput {
+	s.Description = &v
 	return s
 }
 
 // SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetNetworkInterfaceName(v string) *NetworkInterfacForDescribeInstancesOutput {
+func (s *NetworkInterfaceForCreateInstancesInput) SetNetworkInterfaceName(v string) *NetworkInterfaceForCreateInstancesInput {
 	s.NetworkInterfaceName = &v
 	return s
 }
 
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetPrimaryIpAddress(v string) *NetworkInterfacForDescribeInstancesOutput {
+func (s *NetworkInterfaceForCreateInstancesInput) SetPrimaryIpAddress(v string) *NetworkInterfaceForCreateInstancesInput {
 	s.PrimaryIpAddress = &v
 	return s
 }
 
-// SetPrivateIpAddresses sets the PrivateIpAddresses field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetPrivateIpAddresses(v []*string) *NetworkInterfacForDescribeInstancesOutput {
-	s.PrivateIpAddresses = v
-	return s
-}
-
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetSecurityGroupIds(v []*string) *NetworkInterfacForDescribeInstancesOutput {
-	s.SecurityGroupIds = v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetStatus(v string) *NetworkInterfacForDescribeInstancesOutput {
-	s.Status = &v
+func (s *NetworkInterfaceForCreateInstancesInput) SetSecurityGroupIds(v string) *NetworkInterfaceForCreateInstancesInput {
+	s.SecurityGroupIds = &v
 	return s
 }
 
 // SetSubnetId sets the SubnetId field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetSubnetId(v string) *NetworkInterfacForDescribeInstancesOutput {
+func (s *NetworkInterfaceForCreateInstancesInput) SetSubnetId(v string) *NetworkInterfaceForCreateInstancesInput {
 	s.SubnetId = &v
 	return s
 }
 
-// SetType sets the Type field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetType(v string) *NetworkInterfacForDescribeInstancesOutput {
-	s.Type = &v
-	return s
-}
-
 // SetVpcId sets the VpcId field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetVpcId(v string) *NetworkInterfacForDescribeInstancesOutput {
+func (s *NetworkInterfaceForCreateInstancesInput) SetVpcId(v string) *NetworkInterfaceForCreateInstancesInput {
 	s.VpcId = &v
 	return s
 }
 
-// SetVpcName sets the VpcName field's value.
-func (s *NetworkInterfacForDescribeInstancesOutput) SetVpcName(v string) *NetworkInterfacForDescribeInstancesOutput {
-	s.VpcName = &v
-	return s
-}
-
-type ProcessorForDescribeInstanceTypesOutput struct {
+type NetworkInterfaceForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	Architecture *string `type:"string"`
+	Description *string `type:"string"`
 
-	Cpus *int64 `type:"integer"`
+	NetworkInterfaceName *string `type:"string"`
+
+	PrimaryIpAddress *string `type:"string"`
+
+	SecurityGroupIds *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s ProcessorForDescribeInstanceTypesOutput) String() string {
+func (s NetworkInterfaceForRunInstancesInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ProcessorForDescribeInstanceTypesOutput) GoString() string {
+func (s NetworkInterfaceForRunInstancesInput) GoString() string {
 	return s.String()
 }
 
-// SetArchitecture sets the Architecture field's value.
-func (s *ProcessorForDescribeInstanceTypesOutput) SetArchitecture(v string) *ProcessorForDescribeInstanceTypesOutput {
-	s.Architecture = &v
+// SetDescription sets the Description field's value.
+func (s *NetworkInterfaceForRunInstancesInput) SetDescription(v string) *NetworkInterfaceForRunInstancesInput {
+	s.Description = &v
 	return s
 }
 
-// SetCpus sets the Cpus field's value.
-func (s *ProcessorForDescribeInstanceTypesOutput) SetCpus(v int64) *ProcessorForDescribeInstanceTypesOutput {
-	s.Cpus = &v
+// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
+func (s *NetworkInterfaceForRunInstancesInput) SetNetworkInterfaceName(v string) *NetworkInterfaceForRunInstancesInput {
+	s.NetworkInterfaceName = &v
 	return s
 }
 
-type ProjectDistributionForv1ListResourceStatisticsOutput struct {
-	_ struct{} `type:"structure"`
-
-	InsOtherNum *int64 `type:"integer"`
-
-	InsRunningNum *int64 `type:"integer"`
-
-	InsStoppedNum *int64 `type:"integer"`
-
-	InsTotalNum *int64 `type:"integer"`
-
-	Name *string `type:"string"`
-
-	VolumeNum *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s ProjectDistributionForv1ListResourceStatisticsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ProjectDistributionForv1ListResourceStatisticsOutput) GoString() string {
-	return s.String()
-}
-
-// SetInsOtherNum sets the InsOtherNum field's value.
-func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
-	s.InsOtherNum = &v
+// SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
+func (s *NetworkInterfaceForRunInstancesInput) SetPrimaryIpAddress(v string) *NetworkInterfaceForRunInstancesInput {
+	s.PrimaryIpAddress = &v
 	return s
 }
 
-// SetInsRunningNum sets the InsRunningNum field's value.
-func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
-	s.InsRunningNum = &v
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *NetworkInterfaceForRunInstancesInput) SetSecurityGroupIds(v string) *NetworkInterfaceForRunInstancesInput {
+	s.SecurityGroupIds = &v
 	return s
 }
 
-// SetInsStoppedNum sets the InsStoppedNum field's value.
-func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
-	s.InsStoppedNum = &v
+// SetSubnetId sets the SubnetId field's value.
+func (s *NetworkInterfaceForRunInstancesInput) SetSubnetId(v string) *NetworkInterfaceForRunInstancesInput {
+	s.SubnetId = &v
 	return s
 }
 
-// SetInsTotalNum sets the InsTotalNum field's value.
-func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
-	s.InsTotalNum = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetName(v string) *ProjectDistributionForv1ListResourceStatisticsOutput {
-	s.Name = &v
-	return s
-}
-
-// SetVolumeNum sets the VolumeNum field's value.
-func (s *ProjectDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *ProjectDistributionForv1ListResourceStatisticsOutput {
-	s.VolumeNum = &v
-	return s
-}
-
-type QuotaUsedForDescribeDeploymentSetsOutput struct {
-	_ struct{} `type:"structure"`
-
-	Count *int64 `type:"integer"`
-
-	ZoneId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s QuotaUsedForDescribeDeploymentSetsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s QuotaUsedForDescribeDeploymentSetsOutput) GoString() string {
-	return s.String()
-}
-
-// SetCount sets the Count field's value.
-func (s *QuotaUsedForDescribeDeploymentSetsOutput) SetCount(v int64) *QuotaUsedForDescribeDeploymentSetsOutput {
-	s.Count = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *QuotaUsedForDescribeDeploymentSetsOutput) SetZoneId(v string) *QuotaUsedForDescribeDeploymentSetsOutput {
-	s.ZoneId = &v
-	return s
-}
-
-type RdmaForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	RdmaEniBandwidth *string `type:"string"`
-
-	RdmaEniCount *int64 `type:"integer"`
-
-	RdmaNetworkInterfaces *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s RdmaForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s RdmaForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetRdmaEniBandwidth sets the RdmaEniBandwidth field's value.
-func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaEniBandwidth(v string) *RdmaForDescribeInstanceTypesOutput {
-	s.RdmaEniBandwidth = &v
-	return s
-}
-
-// SetRdmaEniCount sets the RdmaEniCount field's value.
-func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaEniCount(v int64) *RdmaForDescribeInstanceTypesOutput {
-	s.RdmaEniCount = &v
-	return s
-}
-
-// SetRdmaNetworkInterfaces sets the RdmaNetworkInterfaces field's value.
-func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int64) *RdmaForDescribeInstanceTypesOutput {
-	s.RdmaNetworkInterfaces = &v
+// SetVpcId sets the VpcId field's value.
+func (s *NetworkInterfaceForRunInstancesInput) SetVpcId(v string) *NetworkInterfaceForRunInstancesInput {
+	s.VpcId = &v
 	return s
 }
 
@@ -11761,7 +13363,7 @@ type RunInstancesInput struct {
 
 	KeyPairName *string `type:"string"`
 
-	NetworkInterfaces []*string `type:"list"`
+	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list"`
 
 	Password *string `type:"string"`
 
@@ -11773,13 +13375,13 @@ type RunInstancesInput struct {
 
 	SuffixIndex *int64 `type:"integer"`
 
-	Tag []*string `type:"list"`
+	Tag []*TagForRunInstancesInput `type:"list"`
 
 	UniqueSuffix *bool `type:"boolean"`
 
 	UserData *string `type:"string"`
 
-	Volumes []*string `type:"list"`
+	Volumes []*VolumeForRunInstancesInput `type:"list"`
 
 	ZoneId *string `type:"string"`
 }
@@ -11897,7 +13499,7 @@ func (s *RunInstancesInput) SetKeyPairName(v string) *RunInstancesInput {
 }
 
 // SetNetworkInterfaces sets the NetworkInterfaces field's value.
-func (s *RunInstancesInput) SetNetworkInterfaces(v []*string) *RunInstancesInput {
+func (s *RunInstancesInput) SetNetworkInterfaces(v []*NetworkInterfaceForRunInstancesInput) *RunInstancesInput {
 	s.NetworkInterfaces = v
 	return s
 }
@@ -11933,7 +13535,7 @@ func (s *RunInstancesInput) SetSuffixIndex(v int64) *RunInstancesInput {
 }
 
 // SetTag sets the Tag field's value.
-func (s *RunInstancesInput) SetTag(v []*string) *RunInstancesInput {
+func (s *RunInstancesInput) SetTag(v []*TagForRunInstancesInput) *RunInstancesInput {
 	s.Tag = v
 	return s
 }
@@ -11951,7 +13553,7 @@ func (s *RunInstancesInput) SetUserData(v string) *RunInstancesInput {
 }
 
 // SetVolumes sets the Volumes field's value.
-func (s *RunInstancesInput) SetVolumes(v []*string) *RunInstancesInput {
+func (s *RunInstancesInput) SetVolumes(v []*VolumeForRunInstancesInput) *RunInstancesInput {
 	s.Volumes = v
 	return s
 }
@@ -12142,37 +13744,7 @@ func (s StopInstanceOutput) GoString() string {
 	return s.String()
 }
 
-type SupportedResourcForDescribeAvailableResourceOutput struct {
-	_ struct{} `type:"structure"`
-
-	Status *string `type:"string"`
-
-	Value *string `type:"string"`
-}
-
-// String returns the string representation
-func (s SupportedResourcForDescribeAvailableResourceOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s SupportedResourcForDescribeAvailableResourceOutput) GoString() string {
-	return s.String()
-}
-
-// SetStatus sets the Status field's value.
-func (s *SupportedResourcForDescribeAvailableResourceOutput) SetStatus(v string) *SupportedResourcForDescribeAvailableResourceOutput {
-	s.Status = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *SupportedResourcForDescribeAvailableResourceOutput) SetValue(v string) *SupportedResourcForDescribeAvailableResourceOutput {
-	s.Value = &v
-	return s
-}
-
-type TagForDescribeInstancesOutput struct {
+type TagForCreateInstancesInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
@@ -12181,23 +13753,83 @@ type TagForDescribeInstancesOutput struct {
 }
 
 // String returns the string representation
-func (s TagForDescribeInstancesOutput) String() string {
+func (s TagForCreateInstancesInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s TagForDescribeInstancesOutput) GoString() string {
+func (s TagForCreateInstancesInput) GoString() string {
 	return s.String()
 }
 
 // SetKey sets the Key field's value.
-func (s *TagForDescribeInstancesOutput) SetKey(v string) *TagForDescribeInstancesOutput {
+func (s *TagForCreateInstancesInput) SetKey(v string) *TagForCreateInstancesInput {
 	s.Key = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *TagForDescribeInstancesOutput) SetValue(v string) *TagForDescribeInstancesOutput {
+func (s *TagForCreateInstancesInput) SetValue(v string) *TagForCreateInstancesInput {
+	s.Value = &v
+	return s
+}
+
+type TagForDescribeInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeInstancesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeInstancesInput) SetKey(v string) *TagForDescribeInstancesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeInstancesInput) SetValue(v string) *TagForDescribeInstancesInput {
+	s.Value = &v
+	return s
+}
+
+type TagForRunInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForRunInstancesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForRunInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForRunInstancesInput) SetKey(v string) *TagForRunInstancesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForRunInstancesInput) SetValue(v string) *TagForRunInstancesInput {
 	s.Value = &v
 	return s
 }
@@ -12426,18 +14058,16 @@ func (s *VerifyKeyPairNameExistOutput) SetIsExist(v bool) *VerifyKeyPairNameExis
 	return s
 }
 
-type VolumForDescribeInstancesOutput struct {
+type VolumeForCreateInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	ImageId *string `type:"string"`
+	DeleteWithInstance *string `type:"string"`
 
-	Kind *string `type:"string"`
+	Description *string `type:"string"`
 
-	Size *string `type:"string"`
+	Size *int64 `type:"integer"`
 
-	Status *string `type:"string"`
-
-	VolumeId *string `type:"string"`
+	SnapshotId *string `type:"string"`
 
 	VolumeName *string `type:"string"`
 
@@ -12445,58 +14075,114 @@ type VolumForDescribeInstancesOutput struct {
 }
 
 // String returns the string representation
-func (s VolumForDescribeInstancesOutput) String() string {
+func (s VolumeForCreateInstancesInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s VolumForDescribeInstancesOutput) GoString() string {
+func (s VolumeForCreateInstancesInput) GoString() string {
 	return s.String()
 }
 
-// SetImageId sets the ImageId field's value.
-func (s *VolumForDescribeInstancesOutput) SetImageId(v string) *VolumForDescribeInstancesOutput {
-	s.ImageId = &v
+// SetDeleteWithInstance sets the DeleteWithInstance field's value.
+func (s *VolumeForCreateInstancesInput) SetDeleteWithInstance(v string) *VolumeForCreateInstancesInput {
+	s.DeleteWithInstance = &v
 	return s
 }
 
-// SetKind sets the Kind field's value.
-func (s *VolumForDescribeInstancesOutput) SetKind(v string) *VolumForDescribeInstancesOutput {
-	s.Kind = &v
+// SetDescription sets the Description field's value.
+func (s *VolumeForCreateInstancesInput) SetDescription(v string) *VolumeForCreateInstancesInput {
+	s.Description = &v
 	return s
 }
 
 // SetSize sets the Size field's value.
-func (s *VolumForDescribeInstancesOutput) SetSize(v string) *VolumForDescribeInstancesOutput {
+func (s *VolumeForCreateInstancesInput) SetSize(v int64) *VolumeForCreateInstancesInput {
 	s.Size = &v
 	return s
 }
 
-// SetStatus sets the Status field's value.
-func (s *VolumForDescribeInstancesOutput) SetStatus(v string) *VolumForDescribeInstancesOutput {
-	s.Status = &v
-	return s
-}
-
-// SetVolumeId sets the VolumeId field's value.
-func (s *VolumForDescribeInstancesOutput) SetVolumeId(v string) *VolumForDescribeInstancesOutput {
-	s.VolumeId = &v
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *VolumeForCreateInstancesInput) SetSnapshotId(v string) *VolumeForCreateInstancesInput {
+	s.SnapshotId = &v
 	return s
 }
 
 // SetVolumeName sets the VolumeName field's value.
-func (s *VolumForDescribeInstancesOutput) SetVolumeName(v string) *VolumForDescribeInstancesOutput {
+func (s *VolumeForCreateInstancesInput) SetVolumeName(v string) *VolumeForCreateInstancesInput {
 	s.VolumeName = &v
 	return s
 }
 
 // SetVolumeType sets the VolumeType field's value.
-func (s *VolumForDescribeInstancesOutput) SetVolumeType(v string) *VolumForDescribeInstancesOutput {
+func (s *VolumeForCreateInstancesInput) SetVolumeType(v string) *VolumeForCreateInstancesInput {
 	s.VolumeType = &v
 	return s
 }
 
-type ZonForDescribeZonesOutput struct {
+type VolumeForRunInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	DeleteWithInstance *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	Size *int64 `type:"integer"`
+
+	SnapshotId *string `type:"string"`
+
+	VolumeName *string `type:"string"`
+
+	VolumeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s VolumeForRunInstancesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VolumeForRunInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteWithInstance sets the DeleteWithInstance field's value.
+func (s *VolumeForRunInstancesInput) SetDeleteWithInstance(v string) *VolumeForRunInstancesInput {
+	s.DeleteWithInstance = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *VolumeForRunInstancesInput) SetDescription(v string) *VolumeForRunInstancesInput {
+	s.Description = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *VolumeForRunInstancesInput) SetSize(v int64) *VolumeForRunInstancesInput {
+	s.Size = &v
+	return s
+}
+
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *VolumeForRunInstancesInput) SetSnapshotId(v string) *VolumeForRunInstancesInput {
+	s.SnapshotId = &v
+	return s
+}
+
+// SetVolumeName sets the VolumeName field's value.
+func (s *VolumeForRunInstancesInput) SetVolumeName(v string) *VolumeForRunInstancesInput {
+	s.VolumeName = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *VolumeForRunInstancesInput) SetVolumeType(v string) *VolumeForRunInstancesInput {
+	s.VolumeType = &v
+	return s
+}
+
+type ZoneForDescribeZonesOutput struct {
 	_ struct{} `type:"structure"`
 
 	InstanceTypes []*string `type:"list"`
@@ -12507,67 +14193,29 @@ type ZonForDescribeZonesOutput struct {
 }
 
 // String returns the string representation
-func (s ZonForDescribeZonesOutput) String() string {
+func (s ZoneForDescribeZonesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ZonForDescribeZonesOutput) GoString() string {
+func (s ZoneForDescribeZonesOutput) GoString() string {
 	return s.String()
 }
 
 // SetInstanceTypes sets the InstanceTypes field's value.
-func (s *ZonForDescribeZonesOutput) SetInstanceTypes(v []*string) *ZonForDescribeZonesOutput {
+func (s *ZoneForDescribeZonesOutput) SetInstanceTypes(v []*string) *ZoneForDescribeZonesOutput {
 	s.InstanceTypes = v
 	return s
 }
 
 // SetVolumeTypes sets the VolumeTypes field's value.
-func (s *ZonForDescribeZonesOutput) SetVolumeTypes(v []*string) *ZonForDescribeZonesOutput {
+func (s *ZoneForDescribeZonesOutput) SetVolumeTypes(v []*string) *ZoneForDescribeZonesOutput {
 	s.VolumeTypes = v
 	return s
 }
 
 // SetZoneId sets the ZoneId field's value.
-func (s *ZonForDescribeZonesOutput) SetZoneId(v string) *ZonForDescribeZonesOutput {
+func (s *ZoneForDescribeZonesOutput) SetZoneId(v string) *ZoneForDescribeZonesOutput {
 	s.ZoneId = &v
-	return s
-}
-
-type ZoneDistributionForv1ListResourceStatisticsOutput struct {
-	_ struct{} `type:"structure"`
-
-	InsTotalNum *int64 `type:"integer"`
-
-	Name *string `type:"string"`
-
-	ZoneID *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ZoneDistributionForv1ListResourceStatisticsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ZoneDistributionForv1ListResourceStatisticsOutput) GoString() string {
-	return s.String()
-}
-
-// SetInsTotalNum sets the InsTotalNum field's value.
-func (s *ZoneDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *ZoneDistributionForv1ListResourceStatisticsOutput {
-	s.InsTotalNum = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *ZoneDistributionForv1ListResourceStatisticsOutput) SetName(v string) *ZoneDistributionForv1ListResourceStatisticsOutput {
-	s.Name = &v
-	return s
-}
-
-// SetZoneID sets the ZoneID field's value.
-func (s *ZoneDistributionForv1ListResourceStatisticsOutput) SetZoneID(v string) *ZoneDistributionForv1ListResourceStatisticsOutput {
-	s.ZoneID = &v
 	return s
 }

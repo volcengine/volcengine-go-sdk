@@ -91,6 +91,14 @@ type ECSAPI interface {
 	CreateHpcClusterWithContext(volcstack.Context, *CreateHpcClusterInput, ...request.Option) (*CreateHpcClusterOutput, error)
 	CreateHpcClusterRequest(*CreateHpcClusterInput) (*request.Request, *CreateHpcClusterOutput)
 
+	CreateImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateImageCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateImage(*CreateImageInput) (*CreateImageOutput, error)
+	CreateImageWithContext(volcstack.Context, *CreateImageInput, ...request.Option) (*CreateImageOutput, error)
+	CreateImageRequest(*CreateImageInput) (*request.Request, *CreateImageOutput)
+
 	CreateInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateInstancesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -122,6 +130,14 @@ type ECSAPI interface {
 	DeleteHpcCluster(*DeleteHpcClusterInput) (*DeleteHpcClusterOutput, error)
 	DeleteHpcClusterWithContext(volcstack.Context, *DeleteHpcClusterInput, ...request.Option) (*DeleteHpcClusterOutput, error)
 	DeleteHpcClusterRequest(*DeleteHpcClusterInput) (*request.Request, *DeleteHpcClusterOutput)
+
+	DeleteImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteImagesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteImagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteImages(*DeleteImagesInput) (*DeleteImagesOutput, error)
+	DeleteImagesWithContext(volcstack.Context, *DeleteImagesInput, ...request.Option) (*DeleteImagesOutput, error)
+	DeleteImagesRequest(*DeleteImagesInput) (*request.Request, *DeleteImagesOutput)
 
 	DeleteInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteInstanceCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -186,6 +202,14 @@ type ECSAPI interface {
 	DescribeHpcClusters(*DescribeHpcClustersInput) (*DescribeHpcClustersOutput, error)
 	DescribeHpcClustersWithContext(volcstack.Context, *DescribeHpcClustersInput, ...request.Option) (*DescribeHpcClustersOutput, error)
 	DescribeHpcClustersRequest(*DescribeHpcClustersInput) (*request.Request, *DescribeHpcClustersOutput)
+
+	DescribeImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeImagesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeImagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeImages(*DescribeImagesInput) (*DescribeImagesOutput, error)
+	DescribeImagesWithContext(volcstack.Context, *DescribeImagesInput, ...request.Option) (*DescribeImagesOutput, error)
+	DescribeImagesRequest(*DescribeImagesInput) (*request.Request, *DescribeImagesOutput)
 
 	DescribeInstanceECSTerminalUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeInstanceECSTerminalUrlCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -275,6 +299,14 @@ type ECSAPI interface {
 	GetInstanceConsoleWithContext(volcstack.Context, *GetInstanceConsoleInput, ...request.Option) (*GetInstanceConsoleOutput, error)
 	GetInstanceConsoleRequest(*GetInstanceConsoleInput) (*request.Request, *GetInstanceConsoleOutput)
 
+	ImportImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ImportImageCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ImportImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ImportImage(*ImportImageInput) (*ImportImageOutput, error)
+	ImportImageWithContext(volcstack.Context, *ImportImageInput, ...request.Option) (*ImportImageOutput, error)
+	ImportImageRequest(*ImportImageInput) (*request.Request, *ImportImageOutput)
+
 	ImportKeyPairCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ImportKeyPairCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ImportKeyPairCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -314,6 +346,14 @@ type ECSAPI interface {
 	ModifyDeploymentSetAttribute(*ModifyDeploymentSetAttributeInput) (*ModifyDeploymentSetAttributeOutput, error)
 	ModifyDeploymentSetAttributeWithContext(volcstack.Context, *ModifyDeploymentSetAttributeInput, ...request.Option) (*ModifyDeploymentSetAttributeOutput, error)
 	ModifyDeploymentSetAttributeRequest(*ModifyDeploymentSetAttributeInput) (*request.Request, *ModifyDeploymentSetAttributeOutput)
+
+	ModifyImageAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyImageAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyImageAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyImageAttributes(*ModifyImageAttributesInput) (*ModifyImageAttributesOutput, error)
+	ModifyImageAttributesWithContext(volcstack.Context, *ModifyImageAttributesInput, ...request.Option) (*ModifyImageAttributesOutput, error)
+	ModifyImageAttributesRequest(*ModifyImageAttributesInput) (*request.Request, *ModifyImageAttributesOutput)
 
 	ModifyInstanceAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceAttributeCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
