@@ -9303,7 +9303,7 @@ type DescribeHpcClustersInput struct {
 
 	AccountID *string `type:"string"`
 
-	EndTime *string `type:"string"`
+	EndTime *int64 `type:"integer"`
 
 	Filter *string `type:"string"`
 
@@ -9317,7 +9317,7 @@ type DescribeHpcClustersInput struct {
 
 	ProjectName *string `type:"string"`
 
-	StartTime *string `type:"string"`
+	StartTime *int64 `type:"integer"`
 
 	UserID *string `type:"string"`
 }
@@ -9339,7 +9339,7 @@ func (s *DescribeHpcClustersInput) SetAccountID(v string) *DescribeHpcClustersIn
 }
 
 // SetEndTime sets the EndTime field's value.
-func (s *DescribeHpcClustersInput) SetEndTime(v string) *DescribeHpcClustersInput {
+func (s *DescribeHpcClustersInput) SetEndTime(v int64) *DescribeHpcClustersInput {
 	s.EndTime = &v
 	return s
 }
@@ -9381,7 +9381,7 @@ func (s *DescribeHpcClustersInput) SetProjectName(v string) *DescribeHpcClusters
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DescribeHpcClustersInput) SetStartTime(v string) *DescribeHpcClustersInput {
+func (s *DescribeHpcClustersInput) SetStartTime(v int64) *DescribeHpcClustersInput {
 	s.StartTime = &v
 	return s
 }
@@ -9447,7 +9447,7 @@ type DescribeImagesInput struct {
 
 	DiskFormat *string `type:"string"`
 
-	EndTime *string `type:"string"`
+	EndTime *int64 `type:"integer"`
 
 	ImageIds []*string `type:"list"`
 
@@ -9467,7 +9467,7 @@ type DescribeImagesInput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	StartTime *string `type:"string"`
+	StartTime *int64 `type:"integer"`
 
 	Visibility *string `type:"string"`
 }
@@ -9501,7 +9501,7 @@ func (s *DescribeImagesInput) SetDiskFormat(v string) *DescribeImagesInput {
 }
 
 // SetEndTime sets the EndTime field's value.
-func (s *DescribeImagesInput) SetEndTime(v string) *DescribeImagesInput {
+func (s *DescribeImagesInput) SetEndTime(v int64) *DescribeImagesInput {
 	s.EndTime = &v
 	return s
 }
@@ -9561,7 +9561,7 @@ func (s *DescribeImagesInput) SetPageSize(v int64) *DescribeImagesInput {
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *DescribeImagesInput) SetStartTime(v string) *DescribeImagesInput {
+func (s *DescribeImagesInput) SetStartTime(v int64) *DescribeImagesInput {
 	s.StartTime = &v
 	return s
 }
@@ -10871,7 +10871,7 @@ type ImageForDescribeImagesOutput struct {
 
 	UpdatedAt *string `type:"string"`
 
-	VirtualSize *string `type:"string"`
+	VirtualSize *int64 `type:"integer"`
 
 	Visibility *string `type:"string"`
 }
@@ -10965,7 +10965,7 @@ func (s *ImageForDescribeImagesOutput) SetUpdatedAt(v string) *ImageForDescribeI
 }
 
 // SetVirtualSize sets the VirtualSize field's value.
-func (s *ImageForDescribeImagesOutput) SetVirtualSize(v string) *ImageForDescribeImagesOutput {
+func (s *ImageForDescribeImagesOutput) SetVirtualSize(v int64) *ImageForDescribeImagesOutput {
 	s.VirtualSize = &v
 	return s
 }
@@ -11195,7 +11195,7 @@ type InnerReplaceSystemVolumeInput struct {
 
 	Password *string `type:"string"`
 
-	Size *string `type:"string"`
+	Size *int64 `type:"integer"`
 
 	UserData *string `type:"string"`
 }
@@ -11235,7 +11235,7 @@ func (s *InnerReplaceSystemVolumeInput) SetPassword(v string) *InnerReplaceSyste
 }
 
 // SetSize sets the Size field's value.
-func (s *InnerReplaceSystemVolumeInput) SetSize(v string) *InnerReplaceSystemVolumeInput {
+func (s *InnerReplaceSystemVolumeInput) SetSize(v int64) *InnerReplaceSystemVolumeInput {
 	s.Size = &v
 	return s
 }
@@ -11271,7 +11271,7 @@ type InnerReplaceSystemVolumesInput struct {
 
 	Password *string `type:"string"`
 
-	Size *string `type:"string"`
+	Size *int64 `type:"integer"`
 
 	UserData *string `type:"string"`
 }
@@ -11311,7 +11311,7 @@ func (s *InnerReplaceSystemVolumesInput) SetPassword(v string) *InnerReplaceSyst
 }
 
 // SetSize sets the Size field's value.
-func (s *InnerReplaceSystemVolumesInput) SetSize(v string) *InnerReplaceSystemVolumesInput {
+func (s *InnerReplaceSystemVolumesInput) SetSize(v int64) *InnerReplaceSystemVolumesInput {
 	s.Size = &v
 	return s
 }
@@ -13075,7 +13075,7 @@ type ReplaceSystemVolumeInput struct {
 
 	Password *string `type:"string"`
 
-	Size *string `type:"string"`
+	Size *int64 `type:"integer"`
 
 	UserData *string `type:"string"`
 }
@@ -13121,7 +13121,7 @@ func (s *ReplaceSystemVolumeInput) SetPassword(v string) *ReplaceSystemVolumeInp
 }
 
 // SetSize sets the Size field's value.
-func (s *ReplaceSystemVolumeInput) SetSize(v string) *ReplaceSystemVolumeInput {
+func (s *ReplaceSystemVolumeInput) SetSize(v int64) *ReplaceSystemVolumeInput {
 	s.Size = &v
 	return s
 }
@@ -13157,7 +13157,7 @@ type ReplaceSystemsVolumeInput struct {
 
 	Password *string `type:"string"`
 
-	Size *string `type:"string"`
+	Size *int64 `type:"integer"`
 
 	UserData *string `type:"string"`
 }
@@ -13197,7 +13197,7 @@ func (s *ReplaceSystemsVolumeInput) SetPassword(v string) *ReplaceSystemsVolumeI
 }
 
 // SetSize sets the Size field's value.
-func (s *ReplaceSystemsVolumeInput) SetSize(v string) *ReplaceSystemsVolumeInput {
+func (s *ReplaceSystemsVolumeInput) SetSize(v int64) *ReplaceSystemsVolumeInput {
 	s.Size = &v
 	return s
 }
