@@ -1,5 +1,7 @@
 package volcstack
 
+// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/aws/errors.go
+
 import "code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
 
 var (

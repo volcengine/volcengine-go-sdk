@@ -3,6 +3,8 @@
 package clb
 
 import (
+	"fmt"
+
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
 	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
@@ -8718,6 +8720,50 @@ func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetEnabled(v bool) *A
 	return s
 }
 
+type AclEntryForAddAclEntriesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// Entry is a required field
+	Entry *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s AclEntryForAddAclEntriesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AclEntryForAddAclEntriesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AclEntryForAddAclEntriesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AclEntryForAddAclEntriesInput"}
+	if s.Entry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Entry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *AclEntryForAddAclEntriesInput) SetDescription(v string) *AclEntryForAddAclEntriesInput {
+	s.Description = &v
+	return s
+}
+
+// SetEntry sets the Entry field's value.
+func (s *AclEntryForAddAclEntriesInput) SetEntry(v string) *AclEntryForAddAclEntriesInput {
+	s.Entry = &v
+	return s
+}
+
 type AclEntryForDescribeAclAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -8822,7 +8868,7 @@ type AddAclEntriesInput struct {
 	_ struct{} `type:"structure"`
 
 	// AclEntries is a required field
-	AclEntries []*string `type:"list" required:"true"`
+	AclEntries []*AclEntryForAddAclEntriesInput `type:"list" required:"true"`
 
 	// AclId is a required field
 	AclId *string `type:"string" required:"true"`
@@ -8847,6 +8893,16 @@ func (s *AddAclEntriesInput) Validate() error {
 	if s.AclId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AclId"))
 	}
+	if s.AclEntries != nil {
+		for i, v := range s.AclEntries {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "AclEntries", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -8855,7 +8911,7 @@ func (s *AddAclEntriesInput) Validate() error {
 }
 
 // SetAclEntries sets the AclEntries field's value.
-func (s *AddAclEntriesInput) SetAclEntries(v []*string) *AddAclEntriesInput {
+func (s *AddAclEntriesInput) SetAclEntries(v []*AclEntryForAddAclEntriesInput) *AddAclEntriesInput {
 	s.AclEntries = v
 	return s
 }
@@ -8895,7 +8951,7 @@ type AddServerGroupBackendServersInput struct {
 	ServerGroupId *string `type:"string" required:"true"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForAddServerGroupBackendServersInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -8917,6 +8973,16 @@ func (s *AddServerGroupBackendServersInput) Validate() error {
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
 	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -8931,7 +8997,7 @@ func (s *AddServerGroupBackendServersInput) SetServerGroupId(v string) *AddServe
 }
 
 // SetServers sets the Servers field's value.
-func (s *AddServerGroupBackendServersInput) SetServers(v []*string) *AddServerGroupBackendServersInput {
+func (s *AddServerGroupBackendServersInput) SetServers(v []*ServerForAddServerGroupBackendServersInput) *AddServerGroupBackendServersInput {
 	s.Servers = v
 	return s
 }
@@ -9048,7 +9114,7 @@ func (s *AssociateAclsWithListenerOutput) SetRequestId(v string) *AssociateAclsW
 	return s
 }
 
-type CertificatForDescribeCertificatesOutput struct {
+type CertificateForDescribeCertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	CertificateId *string `type:"string"`
@@ -9067,53 +9133,53 @@ type CertificatForDescribeCertificatesOutput struct {
 }
 
 // String returns the string representation
-func (s CertificatForDescribeCertificatesOutput) String() string {
+func (s CertificateForDescribeCertificatesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s CertificatForDescribeCertificatesOutput) GoString() string {
+func (s CertificateForDescribeCertificatesOutput) GoString() string {
 	return s.String()
 }
 
 // SetCertificateId sets the CertificateId field's value.
-func (s *CertificatForDescribeCertificatesOutput) SetCertificateId(v string) *CertificatForDescribeCertificatesOutput {
+func (s *CertificateForDescribeCertificatesOutput) SetCertificateId(v string) *CertificateForDescribeCertificatesOutput {
 	s.CertificateId = &v
 	return s
 }
 
 // SetCertificateName sets the CertificateName field's value.
-func (s *CertificatForDescribeCertificatesOutput) SetCertificateName(v string) *CertificatForDescribeCertificatesOutput {
+func (s *CertificateForDescribeCertificatesOutput) SetCertificateName(v string) *CertificateForDescribeCertificatesOutput {
 	s.CertificateName = &v
 	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *CertificatForDescribeCertificatesOutput) SetCreateTime(v string) *CertificatForDescribeCertificatesOutput {
+func (s *CertificateForDescribeCertificatesOutput) SetCreateTime(v string) *CertificateForDescribeCertificatesOutput {
 	s.CreateTime = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *CertificatForDescribeCertificatesOutput) SetDescription(v string) *CertificatForDescribeCertificatesOutput {
+func (s *CertificateForDescribeCertificatesOutput) SetDescription(v string) *CertificateForDescribeCertificatesOutput {
 	s.Description = &v
 	return s
 }
 
 // SetDomainName sets the DomainName field's value.
-func (s *CertificatForDescribeCertificatesOutput) SetDomainName(v string) *CertificatForDescribeCertificatesOutput {
+func (s *CertificateForDescribeCertificatesOutput) SetDomainName(v string) *CertificateForDescribeCertificatesOutput {
 	s.DomainName = &v
 	return s
 }
 
 // SetExpiredAt sets the ExpiredAt field's value.
-func (s *CertificatForDescribeCertificatesOutput) SetExpiredAt(v string) *CertificatForDescribeCertificatesOutput {
+func (s *CertificateForDescribeCertificatesOutput) SetExpiredAt(v string) *CertificateForDescribeCertificatesOutput {
 	s.ExpiredAt = &v
 	return s
 }
 
 // SetListeners sets the Listeners field's value.
-func (s *CertificatForDescribeCertificatesOutput) SetListeners(v []*string) *CertificatForDescribeCertificatesOutput {
+func (s *CertificateForDescribeCertificatesOutput) SetListeners(v []*string) *CertificateForDescribeCertificatesOutput {
 	s.Listeners = v
 	return s
 }
@@ -9533,7 +9599,7 @@ type CreateRulesInput struct {
 	ListenerId *string `type:"string" required:"true"`
 
 	// Rules is a required field
-	Rules []*string `type:"list" required:"true"`
+	Rules []*RuleForCreateRulesInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -9555,6 +9621,16 @@ func (s *CreateRulesInput) Validate() error {
 	if s.Rules == nil {
 		invalidParams.Add(request.NewErrParamRequired("Rules"))
 	}
+	if s.Rules != nil {
+		for i, v := range s.Rules {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Rules", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -9569,7 +9645,7 @@ func (s *CreateRulesInput) SetListenerId(v string) *CreateRulesInput {
 }
 
 // SetRules sets the Rules field's value.
-func (s *CreateRulesInput) SetRules(v []*string) *CreateRulesInput {
+func (s *CreateRulesInput) SetRules(v []*RuleForCreateRulesInput) *CreateRulesInput {
 	s.Rules = v
 	return s
 }
@@ -9615,7 +9691,7 @@ type CreateServerGroupInput struct {
 	ServerGroupName *string `type:"string"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForCreateServerGroupInput `type:"list" required:"true"`
 
 	VpcId *string `type:"string"`
 }
@@ -9638,6 +9714,16 @@ func (s *CreateServerGroupInput) Validate() error {
 	}
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
+	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -9665,7 +9751,7 @@ func (s *CreateServerGroupInput) SetServerGroupName(v string) *CreateServerGroup
 }
 
 // SetServers sets the Servers field's value.
-func (s *CreateServerGroupInput) SetServers(v []*string) *CreateServerGroupInput {
+func (s *CreateServerGroupInput) SetServers(v []*ServerForCreateServerGroupInput) *CreateServerGroupInput {
 	s.Servers = v
 	return s
 }
@@ -10329,7 +10415,7 @@ func (s *DescribeCertificatesInput) SetPageSize(v int64) *DescribeCertificatesIn
 type DescribeCertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Certificates []*CertificatForDescribeCertificatesOutput `type:"list"`
+	Certificates []*CertificateForDescribeCertificatesOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -10351,7 +10437,7 @@ func (s DescribeCertificatesOutput) GoString() string {
 }
 
 // SetCertificates sets the Certificates field's value.
-func (s *DescribeCertificatesOutput) SetCertificates(v []*CertificatForDescribeCertificatesOutput) *DescribeCertificatesOutput {
+func (s *DescribeCertificatesOutput) SetCertificates(v []*CertificateForDescribeCertificatesOutput) *DescribeCertificatesOutput {
 	s.Certificates = v
 	return s
 }
@@ -11295,7 +11381,7 @@ type DescribeRulesOutput struct {
 
 	RequestId *string `type:"string"`
 
-	Rules []*RulForDescribeRulesOutput `type:"list"`
+	Rules []*RuleForDescribeRulesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -11315,7 +11401,7 @@ func (s *DescribeRulesOutput) SetRequestId(v string) *DescribeRulesOutput {
 }
 
 // SetRules sets the Rules field's value.
-func (s *DescribeRulesOutput) SetRules(v []*RulForDescribeRulesOutput) *DescribeRulesOutput {
+func (s *DescribeRulesOutput) SetRules(v []*RuleForDescribeRulesOutput) *DescribeRulesOutput {
 	s.Rules = v
 	return s
 }
@@ -11988,92 +12074,6 @@ func (s *HealthCheckForDescribeListenerAttributesOutput) SetUri(v string) *Healt
 	return s
 }
 
-type HealthCheckForDescribeListenersOutput struct {
-	_ struct{} `type:"structure"`
-
-	Domain *string `type:"string"`
-
-	Enabled *string `type:"string"`
-
-	HealthyThreshold *int64 `type:"integer"`
-
-	HttpCode *string `type:"string"`
-
-	Interval *int64 `type:"integer"`
-
-	Method *string `type:"string"`
-
-	Timeout *int64 `type:"integer"`
-
-	UnHealthyThreshold *int64 `type:"integer"`
-
-	Uri *string `type:"string"`
-}
-
-// String returns the string representation
-func (s HealthCheckForDescribeListenersOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s HealthCheckForDescribeListenersOutput) GoString() string {
-	return s.String()
-}
-
-// SetDomain sets the Domain field's value.
-func (s *HealthCheckForDescribeListenersOutput) SetDomain(v string) *HealthCheckForDescribeListenersOutput {
-	s.Domain = &v
-	return s
-}
-
-// SetEnabled sets the Enabled field's value.
-func (s *HealthCheckForDescribeListenersOutput) SetEnabled(v string) *HealthCheckForDescribeListenersOutput {
-	s.Enabled = &v
-	return s
-}
-
-// SetHealthyThreshold sets the HealthyThreshold field's value.
-func (s *HealthCheckForDescribeListenersOutput) SetHealthyThreshold(v int64) *HealthCheckForDescribeListenersOutput {
-	s.HealthyThreshold = &v
-	return s
-}
-
-// SetHttpCode sets the HttpCode field's value.
-func (s *HealthCheckForDescribeListenersOutput) SetHttpCode(v string) *HealthCheckForDescribeListenersOutput {
-	s.HttpCode = &v
-	return s
-}
-
-// SetInterval sets the Interval field's value.
-func (s *HealthCheckForDescribeListenersOutput) SetInterval(v int64) *HealthCheckForDescribeListenersOutput {
-	s.Interval = &v
-	return s
-}
-
-// SetMethod sets the Method field's value.
-func (s *HealthCheckForDescribeListenersOutput) SetMethod(v string) *HealthCheckForDescribeListenersOutput {
-	s.Method = &v
-	return s
-}
-
-// SetTimeout sets the Timeout field's value.
-func (s *HealthCheckForDescribeListenersOutput) SetTimeout(v int64) *HealthCheckForDescribeListenersOutput {
-	s.Timeout = &v
-	return s
-}
-
-// SetUnHealthyThreshold sets the UnHealthyThreshold field's value.
-func (s *HealthCheckForDescribeListenersOutput) SetUnHealthyThreshold(v int64) *HealthCheckForDescribeListenersOutput {
-	s.UnHealthyThreshold = &v
-	return s
-}
-
-// SetUri sets the Uri field's value.
-func (s *HealthCheckForDescribeListenersOutput) SetUri(v string) *HealthCheckForDescribeListenersOutput {
-	s.Uri = &v
-	return s
-}
-
 type HealthCheckForModifyListenerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -12167,7 +12167,7 @@ type InnerAddPodServerGroupBackendServersInput struct {
 	ServerGroupId *string `type:"string" required:"true"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForInnerAddPodServerGroupBackendServersInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -12189,6 +12189,16 @@ func (s *InnerAddPodServerGroupBackendServersInput) Validate() error {
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
 	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -12203,7 +12213,7 @@ func (s *InnerAddPodServerGroupBackendServersInput) SetServerGroupId(v string) *
 }
 
 // SetServers sets the Servers field's value.
-func (s *InnerAddPodServerGroupBackendServersInput) SetServers(v []*string) *InnerAddPodServerGroupBackendServersInput {
+func (s *InnerAddPodServerGroupBackendServersInput) SetServers(v []*ServerForInnerAddPodServerGroupBackendServersInput) *InnerAddPodServerGroupBackendServersInput {
 	s.Servers = v
 	return s
 }
@@ -12245,7 +12255,7 @@ type InnerAddServerGroupBackendServersInput struct {
 	ServerGroupId *string `type:"string" required:"true"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForInnerAddServerGroupBackendServersInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -12267,6 +12277,16 @@ func (s *InnerAddServerGroupBackendServersInput) Validate() error {
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
 	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -12281,7 +12301,7 @@ func (s *InnerAddServerGroupBackendServersInput) SetServerGroupId(v string) *Inn
 }
 
 // SetServers sets the Servers field's value.
-func (s *InnerAddServerGroupBackendServersInput) SetServers(v []*string) *InnerAddServerGroupBackendServersInput {
+func (s *InnerAddServerGroupBackendServersInput) SetServers(v []*ServerForInnerAddServerGroupBackendServersInput) *InnerAddServerGroupBackendServersInput {
 	s.Servers = v
 	return s
 }
@@ -12934,7 +12954,7 @@ type InnerCreatePodServerGroupInput struct {
 	ServerGroupName *string `type:"string" required:"true"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForInnerCreatePodServerGroupInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -12958,6 +12978,16 @@ func (s *InnerCreatePodServerGroupInput) Validate() error {
 	}
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
+	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -12991,7 +13021,7 @@ func (s *InnerCreatePodServerGroupInput) SetServerGroupName(v string) *InnerCrea
 }
 
 // SetServers sets the Servers field's value.
-func (s *InnerCreatePodServerGroupInput) SetServers(v []*string) *InnerCreatePodServerGroupInput {
+func (s *InnerCreatePodServerGroupInput) SetServers(v []*ServerForInnerCreatePodServerGroupInput) *InnerCreatePodServerGroupInput {
 	s.Servers = v
 	return s
 }
@@ -13038,7 +13068,7 @@ type InnerCreateServerGroupInput struct {
 	ServerGroupName *string `type:"string" required:"true"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForInnerCreateServerGroupInput `type:"list" required:"true"`
 
 	VpcId *string `type:"string"`
 }
@@ -13064,6 +13094,16 @@ func (s *InnerCreateServerGroupInput) Validate() error {
 	}
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
+	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -13091,7 +13131,7 @@ func (s *InnerCreateServerGroupInput) SetServerGroupName(v string) *InnerCreateS
 }
 
 // SetServers sets the Servers field's value.
-func (s *InnerCreateServerGroupInput) SetServers(v []*string) *InnerCreateServerGroupInput {
+func (s *InnerCreateServerGroupInput) SetServers(v []*ServerForInnerCreateServerGroupInput) *InnerCreateServerGroupInput {
 	s.Servers = v
 	return s
 }
@@ -13765,7 +13805,7 @@ type InnerModifyServerGroupAttributesInput struct {
 	ServerGroupName *string `type:"string"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForInnerModifyServerGroupAttributesInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -13786,6 +13826,16 @@ func (s *InnerModifyServerGroupAttributesInput) Validate() error {
 	}
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
+	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -13813,7 +13863,7 @@ func (s *InnerModifyServerGroupAttributesInput) SetServerGroupName(v string) *In
 }
 
 // SetServers sets the Servers field's value.
-func (s *InnerModifyServerGroupAttributesInput) SetServers(v []*string) *InnerModifyServerGroupAttributesInput {
+func (s *InnerModifyServerGroupAttributesInput) SetServers(v []*ServerForInnerModifyServerGroupAttributesInput) *InnerModifyServerGroupAttributesInput {
 	s.Servers = v
 	return s
 }
@@ -13847,7 +13897,7 @@ type InnerNoVpcCheckAddServerGroupBackendServersInput struct {
 	ServerGroupId *string `type:"string" required:"true"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForInnerNoVpcCheckAddServerGroupBackendServersInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -13869,6 +13919,16 @@ func (s *InnerNoVpcCheckAddServerGroupBackendServersInput) Validate() error {
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
 	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -13883,7 +13943,7 @@ func (s *InnerNoVpcCheckAddServerGroupBackendServersInput) SetServerGroupId(v st
 }
 
 // SetServers sets the Servers field's value.
-func (s *InnerNoVpcCheckAddServerGroupBackendServersInput) SetServers(v []*string) *InnerNoVpcCheckAddServerGroupBackendServersInput {
+func (s *InnerNoVpcCheckAddServerGroupBackendServersInput) SetServers(v []*ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) *InnerNoVpcCheckAddServerGroupBackendServersInput {
 	s.Servers = v
 	return s
 }
@@ -13930,7 +13990,7 @@ type InnerNoVpcCheckCreateServerGroupInput struct {
 	ServerGroupName *string `type:"string" required:"true"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForInnerNoVpcCheckCreateServerGroupInput `type:"list" required:"true"`
 
 	VpcId *string `type:"string"`
 }
@@ -13956,6 +14016,16 @@ func (s *InnerNoVpcCheckCreateServerGroupInput) Validate() error {
 	}
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
+	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -13983,7 +14053,7 @@ func (s *InnerNoVpcCheckCreateServerGroupInput) SetServerGroupName(v string) *In
 }
 
 // SetServers sets the Servers field's value.
-func (s *InnerNoVpcCheckCreateServerGroupInput) SetServers(v []*string) *InnerNoVpcCheckCreateServerGroupInput {
+func (s *InnerNoVpcCheckCreateServerGroupInput) SetServers(v []*ServerForInnerNoVpcCheckCreateServerGroupInput) *InnerNoVpcCheckCreateServerGroupInput {
 	s.Servers = v
 	return s
 }
@@ -14349,7 +14419,7 @@ type ListenerForDescribeListenersOutput struct {
 
 	Enabled *string `type:"string"`
 
-	HealthCheck *HealthCheckForDescribeListenersOutput `type:"structure"`
+	HealthCheck *ListenersHealthCheckForDescribeListenersOutput `type:"structure"`
 
 	ListenerId *string `type:"string"`
 
@@ -14419,7 +14489,7 @@ func (s *ListenerForDescribeListenersOutput) SetEnabled(v string) *ListenerForDe
 }
 
 // SetHealthCheck sets the HealthCheck field's value.
-func (s *ListenerForDescribeListenersOutput) SetHealthCheck(v *HealthCheckForDescribeListenersOutput) *ListenerForDescribeListenersOutput {
+func (s *ListenerForDescribeListenersOutput) SetHealthCheck(v *ListenersHealthCheckForDescribeListenersOutput) *ListenerForDescribeListenersOutput {
 	s.HealthCheck = v
 	return s
 }
@@ -14493,6 +14563,92 @@ func (s *ListenerForDescribeLoadBalancerAttributesOutput) SetListenerId(v string
 // SetListenerName sets the ListenerName field's value.
 func (s *ListenerForDescribeLoadBalancerAttributesOutput) SetListenerName(v string) *ListenerForDescribeLoadBalancerAttributesOutput {
 	s.ListenerName = &v
+	return s
+}
+
+type ListenersHealthCheckForDescribeListenersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Domain *string `type:"string"`
+
+	Enabled *string `type:"string"`
+
+	HealthyThreshold *int64 `type:"integer"`
+
+	HttpCode *string `type:"string"`
+
+	Interval *int64 `type:"integer"`
+
+	Method *string `type:"string"`
+
+	Timeout *int64 `type:"integer"`
+
+	UnHealthyThreshold *int64 `type:"integer"`
+
+	Uri *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ListenersHealthCheckForDescribeListenersOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListenersHealthCheckForDescribeListenersOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomain sets the Domain field's value.
+func (s *ListenersHealthCheckForDescribeListenersOutput) SetDomain(v string) *ListenersHealthCheckForDescribeListenersOutput {
+	s.Domain = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ListenersHealthCheckForDescribeListenersOutput) SetEnabled(v string) *ListenersHealthCheckForDescribeListenersOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetHealthyThreshold sets the HealthyThreshold field's value.
+func (s *ListenersHealthCheckForDescribeListenersOutput) SetHealthyThreshold(v int64) *ListenersHealthCheckForDescribeListenersOutput {
+	s.HealthyThreshold = &v
+	return s
+}
+
+// SetHttpCode sets the HttpCode field's value.
+func (s *ListenersHealthCheckForDescribeListenersOutput) SetHttpCode(v string) *ListenersHealthCheckForDescribeListenersOutput {
+	s.HttpCode = &v
+	return s
+}
+
+// SetInterval sets the Interval field's value.
+func (s *ListenersHealthCheckForDescribeListenersOutput) SetInterval(v int64) *ListenersHealthCheckForDescribeListenersOutput {
+	s.Interval = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *ListenersHealthCheckForDescribeListenersOutput) SetMethod(v string) *ListenersHealthCheckForDescribeListenersOutput {
+	s.Method = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *ListenersHealthCheckForDescribeListenersOutput) SetTimeout(v int64) *ListenersHealthCheckForDescribeListenersOutput {
+	s.Timeout = &v
+	return s
+}
+
+// SetUnHealthyThreshold sets the UnHealthyThreshold field's value.
+func (s *ListenersHealthCheckForDescribeListenersOutput) SetUnHealthyThreshold(v int64) *ListenersHealthCheckForDescribeListenersOutput {
+	s.UnHealthyThreshold = &v
+	return s
+}
+
+// SetUri sets the Uri field's value.
+func (s *ListenersHealthCheckForDescribeListenersOutput) SetUri(v string) *ListenersHealthCheckForDescribeListenersOutput {
+	s.Uri = &v
 	return s
 }
 
@@ -15343,7 +15499,7 @@ type ModifyRulesInput struct {
 	ListenerId *string `type:"string" required:"true"`
 
 	// Rules is a required field
-	Rules []*string `type:"list" required:"true"`
+	Rules []*RuleForModifyRulesInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -15365,6 +15521,16 @@ func (s *ModifyRulesInput) Validate() error {
 	if s.Rules == nil {
 		invalidParams.Add(request.NewErrParamRequired("Rules"))
 	}
+	if s.Rules != nil {
+		for i, v := range s.Rules {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Rules", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -15379,7 +15545,7 @@ func (s *ModifyRulesInput) SetListenerId(v string) *ModifyRulesInput {
 }
 
 // SetRules sets the Rules field's value.
-func (s *ModifyRulesInput) SetRules(v []*string) *ModifyRulesInput {
+func (s *ModifyRulesInput) SetRules(v []*RuleForModifyRulesInput) *ModifyRulesInput {
 	s.Rules = v
 	return s
 }
@@ -15417,7 +15583,7 @@ type ModifyServerGroupAttributesInput struct {
 	ServerGroupName *string `type:"string"`
 
 	// Servers is a required field
-	Servers []*string `type:"list" required:"true"`
+	Servers []*ServerForModifyServerGroupAttributesInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -15438,6 +15604,16 @@ func (s *ModifyServerGroupAttributesInput) Validate() error {
 	}
 	if s.Servers == nil {
 		invalidParams.Add(request.NewErrParamRequired("Servers"))
+	}
+	if s.Servers != nil {
+		for i, v := range s.Servers {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -15465,7 +15641,7 @@ func (s *ModifyServerGroupAttributesInput) SetServerGroupName(v string) *ModifyS
 }
 
 // SetServers sets the Servers field's value.
-func (s *ModifyServerGroupAttributesInput) SetServers(v []*string) *ModifyServerGroupAttributesInput {
+func (s *ModifyServerGroupAttributesInput) SetServers(v []*ServerForModifyServerGroupAttributesInput) *ModifyServerGroupAttributesInput {
 	s.Servers = v
 	return s
 }
@@ -15706,7 +15882,75 @@ func (s *ResultForDescribeListenerHealthOutput) SetType(v string) *ResultForDesc
 	return s
 }
 
-type RulForDescribeRulesOutput struct {
+type RuleForCreateRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	Domain *string `type:"string"`
+
+	RuleId *string `type:"string"`
+
+	// ServerGroupId is a required field
+	ServerGroupId *string `type:"string" required:"true"`
+
+	URL *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RuleForCreateRulesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuleForCreateRulesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RuleForCreateRulesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RuleForCreateRulesInput"}
+	if s.ServerGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *RuleForCreateRulesInput) SetDescription(v string) *RuleForCreateRulesInput {
+	s.Description = &v
+	return s
+}
+
+// SetDomain sets the Domain field's value.
+func (s *RuleForCreateRulesInput) SetDomain(v string) *RuleForCreateRulesInput {
+	s.Domain = &v
+	return s
+}
+
+// SetRuleId sets the RuleId field's value.
+func (s *RuleForCreateRulesInput) SetRuleId(v string) *RuleForCreateRulesInput {
+	s.RuleId = &v
+	return s
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *RuleForCreateRulesInput) SetServerGroupId(v string) *RuleForCreateRulesInput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetURL sets the URL field's value.
+func (s *RuleForCreateRulesInput) SetURL(v string) *RuleForCreateRulesInput {
+	s.URL = &v
+	return s
+}
+
+type RuleForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
@@ -15721,42 +15965,306 @@ type RulForDescribeRulesOutput struct {
 }
 
 // String returns the string representation
-func (s RulForDescribeRulesOutput) String() string {
+func (s RuleForDescribeRulesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s RulForDescribeRulesOutput) GoString() string {
+func (s RuleForDescribeRulesOutput) GoString() string {
 	return s.String()
 }
 
 // SetDescription sets the Description field's value.
-func (s *RulForDescribeRulesOutput) SetDescription(v string) *RulForDescribeRulesOutput {
+func (s *RuleForDescribeRulesOutput) SetDescription(v string) *RuleForDescribeRulesOutput {
 	s.Description = &v
 	return s
 }
 
 // SetDomain sets the Domain field's value.
-func (s *RulForDescribeRulesOutput) SetDomain(v string) *RulForDescribeRulesOutput {
+func (s *RuleForDescribeRulesOutput) SetDomain(v string) *RuleForDescribeRulesOutput {
 	s.Domain = &v
 	return s
 }
 
 // SetRuleId sets the RuleId field's value.
-func (s *RulForDescribeRulesOutput) SetRuleId(v string) *RulForDescribeRulesOutput {
+func (s *RuleForDescribeRulesOutput) SetRuleId(v string) *RuleForDescribeRulesOutput {
 	s.RuleId = &v
 	return s
 }
 
 // SetServerGroupId sets the ServerGroupId field's value.
-func (s *RulForDescribeRulesOutput) SetServerGroupId(v string) *RulForDescribeRulesOutput {
+func (s *RuleForDescribeRulesOutput) SetServerGroupId(v string) *RuleForDescribeRulesOutput {
 	s.ServerGroupId = &v
 	return s
 }
 
 // SetUrl sets the Url field's value.
-func (s *RulForDescribeRulesOutput) SetUrl(v string) *RulForDescribeRulesOutput {
+func (s *RuleForDescribeRulesOutput) SetUrl(v string) *RuleForDescribeRulesOutput {
 	s.Url = &v
+	return s
+}
+
+type RuleForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// RuleId is a required field
+	RuleId *string `type:"string" required:"true"`
+
+	ServerGroupId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RuleForModifyRulesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RuleForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RuleForModifyRulesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RuleForModifyRulesInput"}
+	if s.RuleId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RuleId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *RuleForModifyRulesInput) SetDescription(v string) *RuleForModifyRulesInput {
+	s.Description = &v
+	return s
+}
+
+// SetRuleId sets the RuleId field's value.
+func (s *RuleForModifyRulesInput) SetRuleId(v string) *RuleForModifyRulesInput {
+	s.RuleId = &v
+	return s
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *RuleForModifyRulesInput) SetServerGroupId(v string) *RuleForModifyRulesInput {
+	s.ServerGroupId = &v
+	return s
+}
+
+type ServerForAddServerGroupBackendServersInput struct {
+	_ struct{} `type:"structure"`
+
+	// Description is a required field
+	Description *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	// Ip is a required field
+	Ip *string `type:"string" required:"true"`
+
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
+
+	// Weight is a required field
+	Weight *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s ServerForAddServerGroupBackendServersInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForAddServerGroupBackendServersInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForAddServerGroupBackendServersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForAddServerGroupBackendServersInput"}
+	if s.Description == nil {
+		invalidParams.Add(request.NewErrParamRequired("Description"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.Ip == nil {
+		invalidParams.Add(request.NewErrParamRequired("Ip"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+	if s.Weight == nil {
+		invalidParams.Add(request.NewErrParamRequired("Weight"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerForAddServerGroupBackendServersInput) SetDescription(v string) *ServerForAddServerGroupBackendServersInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForAddServerGroupBackendServersInput) SetInstanceId(v string) *ServerForAddServerGroupBackendServersInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForAddServerGroupBackendServersInput) SetIp(v string) *ServerForAddServerGroupBackendServersInput {
+	s.Ip = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForAddServerGroupBackendServersInput) SetName(v string) *ServerForAddServerGroupBackendServersInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForAddServerGroupBackendServersInput) SetPort(v int64) *ServerForAddServerGroupBackendServersInput {
+	s.Port = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForAddServerGroupBackendServersInput) SetType(v string) *ServerForAddServerGroupBackendServersInput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForAddServerGroupBackendServersInput) SetWeight(v int64) *ServerForAddServerGroupBackendServersInput {
+	s.Weight = &v
+	return s
+}
+
+type ServerForCreateServerGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	// Description is a required field
+	Description *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	// Ip is a required field
+	Ip *string `type:"string" required:"true"`
+
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
+
+	Weight *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s ServerForCreateServerGroupInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForCreateServerGroupInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForCreateServerGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForCreateServerGroupInput"}
+	if s.Description == nil {
+		invalidParams.Add(request.NewErrParamRequired("Description"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.Ip == nil {
+		invalidParams.Add(request.NewErrParamRequired("Ip"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerForCreateServerGroupInput) SetDescription(v string) *ServerForCreateServerGroupInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForCreateServerGroupInput) SetInstanceId(v string) *ServerForCreateServerGroupInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForCreateServerGroupInput) SetIp(v string) *ServerForCreateServerGroupInput {
+	s.Ip = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForCreateServerGroupInput) SetName(v string) *ServerForCreateServerGroupInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForCreateServerGroupInput) SetPort(v int64) *ServerForCreateServerGroupInput {
+	s.Port = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForCreateServerGroupInput) SetType(v string) *ServerForCreateServerGroupInput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForCreateServerGroupInput) SetWeight(v int64) *ServerForCreateServerGroupInput {
+	s.Weight = &v
 	return s
 }
 
@@ -15830,6 +16338,646 @@ func (s *ServerForDescribeServerGroupAttributesOutput) SetWeight(v int64) *Serve
 	return s
 }
 
+type ServerForInnerAddPodServerGroupBackendServersInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	// Ip is a required field
+	Ip *string `type:"string" required:"true"`
+
+	Name *string `type:"string"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
+
+	// Weight is a required field
+	Weight *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s ServerForInnerAddPodServerGroupBackendServersInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForInnerAddPodServerGroupBackendServersInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForInnerAddPodServerGroupBackendServersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForInnerAddPodServerGroupBackendServersInput"}
+	if s.Ip == nil {
+		invalidParams.Add(request.NewErrParamRequired("Ip"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+	if s.Weight == nil {
+		invalidParams.Add(request.NewErrParamRequired("Weight"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerForInnerAddPodServerGroupBackendServersInput) SetDescription(v string) *ServerForInnerAddPodServerGroupBackendServersInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForInnerAddPodServerGroupBackendServersInput) SetInstanceId(v string) *ServerForInnerAddPodServerGroupBackendServersInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForInnerAddPodServerGroupBackendServersInput) SetIp(v string) *ServerForInnerAddPodServerGroupBackendServersInput {
+	s.Ip = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForInnerAddPodServerGroupBackendServersInput) SetName(v string) *ServerForInnerAddPodServerGroupBackendServersInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForInnerAddPodServerGroupBackendServersInput) SetPort(v int64) *ServerForInnerAddPodServerGroupBackendServersInput {
+	s.Port = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForInnerAddPodServerGroupBackendServersInput) SetType(v string) *ServerForInnerAddPodServerGroupBackendServersInput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForInnerAddPodServerGroupBackendServersInput) SetWeight(v int64) *ServerForInnerAddPodServerGroupBackendServersInput {
+	s.Weight = &v
+	return s
+}
+
+type ServerForInnerAddServerGroupBackendServersInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	// Ip is a required field
+	Ip *string `type:"string" required:"true"`
+
+	Name *string `type:"string"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
+
+	// Weight is a required field
+	Weight *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s ServerForInnerAddServerGroupBackendServersInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForInnerAddServerGroupBackendServersInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForInnerAddServerGroupBackendServersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForInnerAddServerGroupBackendServersInput"}
+	if s.Ip == nil {
+		invalidParams.Add(request.NewErrParamRequired("Ip"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+	if s.Weight == nil {
+		invalidParams.Add(request.NewErrParamRequired("Weight"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerForInnerAddServerGroupBackendServersInput) SetDescription(v string) *ServerForInnerAddServerGroupBackendServersInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForInnerAddServerGroupBackendServersInput) SetInstanceId(v string) *ServerForInnerAddServerGroupBackendServersInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForInnerAddServerGroupBackendServersInput) SetIp(v string) *ServerForInnerAddServerGroupBackendServersInput {
+	s.Ip = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForInnerAddServerGroupBackendServersInput) SetName(v string) *ServerForInnerAddServerGroupBackendServersInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForInnerAddServerGroupBackendServersInput) SetPort(v int64) *ServerForInnerAddServerGroupBackendServersInput {
+	s.Port = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForInnerAddServerGroupBackendServersInput) SetType(v string) *ServerForInnerAddServerGroupBackendServersInput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForInnerAddServerGroupBackendServersInput) SetWeight(v int64) *ServerForInnerAddServerGroupBackendServersInput {
+	s.Weight = &v
+	return s
+}
+
+type ServerForInnerCreatePodServerGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	// Ip is a required field
+	Ip *string `type:"string" required:"true"`
+
+	Name *string `type:"string"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
+
+	// Weight is a required field
+	Weight *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s ServerForInnerCreatePodServerGroupInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForInnerCreatePodServerGroupInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForInnerCreatePodServerGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForInnerCreatePodServerGroupInput"}
+	if s.Ip == nil {
+		invalidParams.Add(request.NewErrParamRequired("Ip"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+	if s.Weight == nil {
+		invalidParams.Add(request.NewErrParamRequired("Weight"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerForInnerCreatePodServerGroupInput) SetDescription(v string) *ServerForInnerCreatePodServerGroupInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForInnerCreatePodServerGroupInput) SetInstanceId(v string) *ServerForInnerCreatePodServerGroupInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForInnerCreatePodServerGroupInput) SetIp(v string) *ServerForInnerCreatePodServerGroupInput {
+	s.Ip = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForInnerCreatePodServerGroupInput) SetName(v string) *ServerForInnerCreatePodServerGroupInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForInnerCreatePodServerGroupInput) SetPort(v int64) *ServerForInnerCreatePodServerGroupInput {
+	s.Port = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForInnerCreatePodServerGroupInput) SetType(v string) *ServerForInnerCreatePodServerGroupInput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForInnerCreatePodServerGroupInput) SetWeight(v int64) *ServerForInnerCreatePodServerGroupInput {
+	s.Weight = &v
+	return s
+}
+
+type ServerForInnerCreateServerGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	// Ip is a required field
+	Ip *string `type:"string" required:"true"`
+
+	Name *string `type:"string"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
+
+	// Weight is a required field
+	Weight *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s ServerForInnerCreateServerGroupInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForInnerCreateServerGroupInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForInnerCreateServerGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForInnerCreateServerGroupInput"}
+	if s.Ip == nil {
+		invalidParams.Add(request.NewErrParamRequired("Ip"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+	if s.Weight == nil {
+		invalidParams.Add(request.NewErrParamRequired("Weight"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerForInnerCreateServerGroupInput) SetDescription(v string) *ServerForInnerCreateServerGroupInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForInnerCreateServerGroupInput) SetInstanceId(v string) *ServerForInnerCreateServerGroupInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForInnerCreateServerGroupInput) SetIp(v string) *ServerForInnerCreateServerGroupInput {
+	s.Ip = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForInnerCreateServerGroupInput) SetName(v string) *ServerForInnerCreateServerGroupInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForInnerCreateServerGroupInput) SetPort(v int64) *ServerForInnerCreateServerGroupInput {
+	s.Port = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForInnerCreateServerGroupInput) SetType(v string) *ServerForInnerCreateServerGroupInput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForInnerCreateServerGroupInput) SetWeight(v int64) *ServerForInnerCreateServerGroupInput {
+	s.Weight = &v
+	return s
+}
+
+type ServerForInnerModifyServerGroupAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Name *string `type:"string"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// ServerId is a required field
+	ServerId *string `type:"string" required:"true"`
+
+	Weight *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s ServerForInnerModifyServerGroupAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForInnerModifyServerGroupAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForInnerModifyServerGroupAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForInnerModifyServerGroupAttributesInput"}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.ServerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServerId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForInnerModifyServerGroupAttributesInput) SetName(v string) *ServerForInnerModifyServerGroupAttributesInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForInnerModifyServerGroupAttributesInput) SetPort(v int64) *ServerForInnerModifyServerGroupAttributesInput {
+	s.Port = &v
+	return s
+}
+
+// SetServerId sets the ServerId field's value.
+func (s *ServerForInnerModifyServerGroupAttributesInput) SetServerId(v string) *ServerForInnerModifyServerGroupAttributesInput {
+	s.ServerId = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForInnerModifyServerGroupAttributesInput) SetWeight(v int64) *ServerForInnerModifyServerGroupAttributesInput {
+	s.Weight = &v
+	return s
+}
+
+type ServerForInnerNoVpcCheckAddServerGroupBackendServersInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	// Ip is a required field
+	Ip *string `type:"string" required:"true"`
+
+	Name *string `type:"string"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
+
+	// Weight is a required field
+	Weight *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForInnerNoVpcCheckAddServerGroupBackendServersInput"}
+	if s.Ip == nil {
+		invalidParams.Add(request.NewErrParamRequired("Ip"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+	if s.Weight == nil {
+		invalidParams.Add(request.NewErrParamRequired("Weight"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) SetDescription(v string) *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) SetInstanceId(v string) *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) SetIp(v string) *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput {
+	s.Ip = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) SetName(v string) *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) SetPort(v int64) *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput {
+	s.Port = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) SetType(v string) *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput) SetWeight(v int64) *ServerForInnerNoVpcCheckAddServerGroupBackendServersInput {
+	s.Weight = &v
+	return s
+}
+
+type ServerForInnerNoVpcCheckCreateServerGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	// Ip is a required field
+	Ip *string `type:"string" required:"true"`
+
+	Name *string `type:"string"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
+
+	// Weight is a required field
+	Weight *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s ServerForInnerNoVpcCheckCreateServerGroupInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForInnerNoVpcCheckCreateServerGroupInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForInnerNoVpcCheckCreateServerGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForInnerNoVpcCheckCreateServerGroupInput"}
+	if s.Ip == nil {
+		invalidParams.Add(request.NewErrParamRequired("Ip"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+	if s.Weight == nil {
+		invalidParams.Add(request.NewErrParamRequired("Weight"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerForInnerNoVpcCheckCreateServerGroupInput) SetDescription(v string) *ServerForInnerNoVpcCheckCreateServerGroupInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForInnerNoVpcCheckCreateServerGroupInput) SetInstanceId(v string) *ServerForInnerNoVpcCheckCreateServerGroupInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForInnerNoVpcCheckCreateServerGroupInput) SetIp(v string) *ServerForInnerNoVpcCheckCreateServerGroupInput {
+	s.Ip = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForInnerNoVpcCheckCreateServerGroupInput) SetName(v string) *ServerForInnerNoVpcCheckCreateServerGroupInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForInnerNoVpcCheckCreateServerGroupInput) SetPort(v int64) *ServerForInnerNoVpcCheckCreateServerGroupInput {
+	s.Port = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForInnerNoVpcCheckCreateServerGroupInput) SetType(v string) *ServerForInnerNoVpcCheckCreateServerGroupInput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForInnerNoVpcCheckCreateServerGroupInput) SetWeight(v int64) *ServerForInnerNoVpcCheckCreateServerGroupInput {
+	s.Weight = &v
+	return s
+}
+
 type ServerForInnerNoVpcCheckDescribeServerGroupAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -15896,6 +17044,70 @@ func (s *ServerForInnerNoVpcCheckDescribeServerGroupAttributesOutput) SetType(v 
 
 // SetWeight sets the Weight field's value.
 func (s *ServerForInnerNoVpcCheckDescribeServerGroupAttributesOutput) SetWeight(v int64) *ServerForInnerNoVpcCheckDescribeServerGroupAttributesOutput {
+	s.Weight = &v
+	return s
+}
+
+type ServerForModifyServerGroupAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Name *string `type:"string"`
+
+	// Port is a required field
+	Port *int64 `type:"integer" required:"true"`
+
+	// ServerId is a required field
+	ServerId *string `type:"string" required:"true"`
+
+	Weight *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s ServerForModifyServerGroupAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerForModifyServerGroupAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerForModifyServerGroupAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerForModifyServerGroupAttributesInput"}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.ServerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServerId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetName sets the Name field's value.
+func (s *ServerForModifyServerGroupAttributesInput) SetName(v string) *ServerForModifyServerGroupAttributesInput {
+	s.Name = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForModifyServerGroupAttributesInput) SetPort(v int64) *ServerForModifyServerGroupAttributesInput {
+	s.Port = &v
+	return s
+}
+
+// SetServerId sets the ServerId field's value.
+func (s *ServerForModifyServerGroupAttributesInput) SetServerId(v string) *ServerForModifyServerGroupAttributesInput {
+	s.ServerId = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForModifyServerGroupAttributesInput) SetWeight(v int64) *ServerForModifyServerGroupAttributesInput {
 	s.Weight = &v
 	return s
 }

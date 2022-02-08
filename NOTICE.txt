@@ -1,0 +1,7 @@
+Volcstack SDK for Go
+Copyright 2022 https://www.volcengine.com/. All Rights Reserved.
+
+The Initial Developer of some parts of the framework, which are copied from, derived from, or
+inspired by AWS SDK for Go (https://github.com/aws/aws-sdk-go), is Amazon.com, Inc. or its affiliates (http://www.amazon.com/).
+Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+Copyright 2014-2015 Stripe, Inc.

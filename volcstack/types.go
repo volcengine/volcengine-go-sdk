@@ -1,5 +1,7 @@
 package volcstack
 
+// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/aws/types.go
+
 import (
 	"io"
 	"sync"
