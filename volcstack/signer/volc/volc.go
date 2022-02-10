@@ -18,7 +18,7 @@ func SignSDKRequest(req *request.Request) {
 
 	name := req.ClientInfo.SigningName
 	if name == "" {
-		name = req.ClientInfo.ServiceName
+		name = req.ClientInfo.ServiceID
 	}
 
 	credentials := req.Config.Credentials.GetBase(region, name)
