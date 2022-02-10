@@ -1,12 +1,12 @@
 package request
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
 	"fmt"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // WaiterResourceNotReadyErrorCode is the error code returned by a waiter when

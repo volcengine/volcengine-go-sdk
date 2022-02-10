@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 const (

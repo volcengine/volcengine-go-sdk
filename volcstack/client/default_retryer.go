@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/internal/sdkrand"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/internal/sdkrand"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 )
 
 // DefaultRetryer implements basic retry logic using exponential backoff for

@@ -53,8 +53,8 @@ import (
 	"sync"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
 	"github.com/volcengine/volc-sdk-golang/base"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // AnonymousCredentials is an empty Credential object that can be used as

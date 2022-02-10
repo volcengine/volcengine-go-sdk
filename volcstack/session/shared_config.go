@@ -3,9 +3,9 @@ package session
 import (
 	"fmt"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/internal/ini"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/credentials"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/internal/ini"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/credentials"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 const (

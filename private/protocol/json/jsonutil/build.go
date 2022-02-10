@@ -12,8 +12,8 @@ import (
 	"strconv"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
 )
 
 var timeType = reflect.ValueOf(time.Time{}).Type()

@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol"
 )
 
 // BuildXML will serialize params into an xml.Encoder. Error will be returned

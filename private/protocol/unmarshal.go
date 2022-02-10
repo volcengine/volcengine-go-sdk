@@ -4,7 +4,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 )
 
 // UnmarshalDiscardBodyHandler is a named request handler to empty and close a response's volcstackbody

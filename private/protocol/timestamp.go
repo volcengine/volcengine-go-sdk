@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/internal/sdkmath"
+	"github.com/volcengine/volcstack-go-sdk/internal/sdkmath"
 )
 
 // Names of time formats supported by the SDK

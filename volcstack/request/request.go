@@ -2,8 +2,8 @@ package request
 
 import (
 	"bytes"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
 	"fmt"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"io"
 	"net/http"
 	"net/url"
@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/internal/sdkio"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/client/metadata"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/internal/sdkio"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 const (

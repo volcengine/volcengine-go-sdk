@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // UnmarshalXMLError unmarshals the XML error from the stream into the value

@@ -5,9 +5,9 @@ package query
 import (
 	"encoding/xml"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol/xml/xmlutil"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol/xml/xmlutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // UnmarshalHandler is a named request handler for unmarshaling volcstackquery protocol requests

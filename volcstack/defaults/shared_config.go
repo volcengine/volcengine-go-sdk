@@ -1,7 +1,7 @@
 package defaults
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/internal/shareddefaults"
+	"github.com/volcengine/volcstack-go-sdk/internal/shareddefaults"
 )
 
 // SharedCredentialsFilename returns the SDK's default file path

@@ -3,7 +3,7 @@ package protocol
 import (
 	"strings"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 )
 
 // ValidateEndpointHostHandler is a request handler that will validate the

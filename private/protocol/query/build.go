@@ -4,10 +4,11 @@ package query
 // This File is modify from https://github.com/aws/aws-sdk-go/blob/main/private/protocol/query/build.go
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol/query/queryutil"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
 	"net/url"
+
+	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // BuildHandler is a named request handler for building volcstackquery protocol requests

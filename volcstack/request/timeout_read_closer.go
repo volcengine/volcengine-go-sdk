@@ -4,7 +4,7 @@ import (
 	"io"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 var timeoutErr = volcstackerr.New(

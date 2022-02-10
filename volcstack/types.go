@@ -6,7 +6,7 @@ import (
 	"io"
 	"sync"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/internal/sdkio"
+	"github.com/volcengine/volcstack-go-sdk/internal/sdkio"
 )
 
 // ReadSeekCloser wraps a io.Reader returning a ReaderSeekerCloser. Allows the

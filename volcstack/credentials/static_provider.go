@@ -1,7 +1,7 @@
 package credentials
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // StaticProviderName provides a name of Static provider

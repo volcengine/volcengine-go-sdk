@@ -1,6 +1,6 @@
 package corehandlers
 
-import "code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+import "github.com/volcengine/volcstack-go-sdk/volcstack/request"
 
 // ValidateParametersHandler is a request handler to validate the input parameters.
 // Validating parameters only has meaning if done prior to the request being sent.
