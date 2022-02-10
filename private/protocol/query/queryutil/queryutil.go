@@ -225,6 +225,12 @@ func (q *queryParser) parseScalar(v url.Values, r reflect.Value, name string, ta
 		v.Set(name, strconv.FormatBool(value))
 	case int64:
 		v.Set(name, strconv.FormatInt(value, 10))
+	case int32:
+		v.Set(name, strconv.FormatInt(int64(value), 10))
+	case int16:
+		v.Set(name, strconv.FormatInt(int64(value), 10))
+	case int8:
+		v.Set(name, strconv.FormatInt(int64(value), 10))
 	case int:
 		v.Set(name, strconv.Itoa(value))
 	case float64:

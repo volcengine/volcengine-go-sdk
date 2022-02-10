@@ -7969,7 +7969,7 @@ func (s BindAssumeRoleOutput) GoString() string {
 type CpuOptionsForCreateInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	Numa *int64 `type:"integer"`
+	Numa *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -7983,7 +7983,7 @@ func (s CpuOptionsForCreateInstancesInput) GoString() string {
 }
 
 // SetNuma sets the Numa field's value.
-func (s *CpuOptionsForCreateInstancesInput) SetNuma(v int64) *CpuOptionsForCreateInstancesInput {
+func (s *CpuOptionsForCreateInstancesInput) SetNuma(v int32) *CpuOptionsForCreateInstancesInput {
 	s.Numa = &v
 	return s
 }
@@ -7991,7 +7991,7 @@ func (s *CpuOptionsForCreateInstancesInput) SetNuma(v int64) *CpuOptionsForCreat
 type CpuOptionsForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	Numa *int64 `type:"integer"`
+	Numa *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -8005,7 +8005,7 @@ func (s CpuOptionsForRunInstancesInput) GoString() string {
 }
 
 // SetNuma sets the Numa field's value.
-func (s *CpuOptionsForRunInstancesInput) SetNuma(v int64) *CpuOptionsForRunInstancesInput {
+func (s *CpuOptionsForRunInstancesInput) SetNuma(v int32) *CpuOptionsForRunInstancesInput {
 	s.Numa = &v
 	return s
 }
@@ -8203,9 +8203,9 @@ type CreateInstancesInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	AutoRenewPeriod *int64 `type:"integer"`
+	AutoRenewPeriod *int32 `type:"int32"`
 
-	Count *int64 `type:"integer"`
+	Count *int32 `type:"int32"`
 
 	CpuOptions *CpuOptionsForCreateInstancesInput `type:"structure"`
 
@@ -8229,7 +8229,7 @@ type CreateInstancesInput struct {
 
 	Ipv6Address []*string `type:"list"`
 
-	Ipv6AddressCount *int64 `type:"integer"`
+	Ipv6AddressCount *int32 `type:"int32"`
 
 	Kerberos *bool `type:"boolean"`
 
@@ -8239,13 +8239,13 @@ type CreateInstancesInput struct {
 
 	Password *string `type:"string"`
 
-	Period *int64 `type:"integer"`
+	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
 
 	SecurityEnhancementStrategy *string `type:"string"`
 
-	SuffixIndex *int64 `type:"integer"`
+	SuffixIndex *int32 `type:"int32"`
 
 	Tag []*TagForCreateInstancesInput `type:"list"`
 
@@ -8275,13 +8275,13 @@ func (s *CreateInstancesInput) SetAutoRenew(v bool) *CreateInstancesInput {
 }
 
 // SetAutoRenewPeriod sets the AutoRenewPeriod field's value.
-func (s *CreateInstancesInput) SetAutoRenewPeriod(v int64) *CreateInstancesInput {
+func (s *CreateInstancesInput) SetAutoRenewPeriod(v int32) *CreateInstancesInput {
 	s.AutoRenewPeriod = &v
 	return s
 }
 
 // SetCount sets the Count field's value.
-func (s *CreateInstancesInput) SetCount(v int64) *CreateInstancesInput {
+func (s *CreateInstancesInput) SetCount(v int32) *CreateInstancesInput {
 	s.Count = &v
 	return s
 }
@@ -8353,7 +8353,7 @@ func (s *CreateInstancesInput) SetIpv6Address(v []*string) *CreateInstancesInput
 }
 
 // SetIpv6AddressCount sets the Ipv6AddressCount field's value.
-func (s *CreateInstancesInput) SetIpv6AddressCount(v int64) *CreateInstancesInput {
+func (s *CreateInstancesInput) SetIpv6AddressCount(v int32) *CreateInstancesInput {
 	s.Ipv6AddressCount = &v
 	return s
 }
@@ -8383,7 +8383,7 @@ func (s *CreateInstancesInput) SetPassword(v string) *CreateInstancesInput {
 }
 
 // SetPeriod sets the Period field's value.
-func (s *CreateInstancesInput) SetPeriod(v int64) *CreateInstancesInput {
+func (s *CreateInstancesInput) SetPeriod(v int32) *CreateInstancesInput {
 	s.Period = &v
 	return s
 }
@@ -8401,7 +8401,7 @@ func (s *CreateInstancesInput) SetSecurityEnhancementStrategy(v string) *CreateI
 }
 
 // SetSuffixIndex sets the SuffixIndex field's value.
-func (s *CreateInstancesInput) SetSuffixIndex(v int64) *CreateInstancesInput {
+func (s *CreateInstancesInput) SetSuffixIndex(v int32) *CreateInstancesInput {
 	s.SuffixIndex = &v
 	return s
 }
@@ -8859,11 +8859,11 @@ type DeploymentSetForDescribeDeploymentSetsOutput struct {
 
 	Granularity *string `type:"string"`
 
-	InstanceAmount *int64 `type:"integer"`
+	InstanceAmount *int32 `type:"int32"`
 
 	InstanceIds []*string `type:"list"`
 
-	Quota *int64 `type:"integer"`
+	Quota *int32 `type:"int32"`
 
 	QuotaUsed []*DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput `type:"list"`
 
@@ -8911,7 +8911,7 @@ func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetGranularity(v string) 
 }
 
 // SetInstanceAmount sets the InstanceAmount field's value.
-func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetInstanceAmount(v int64) *DeploymentSetForDescribeDeploymentSetsOutput {
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetInstanceAmount(v int32) *DeploymentSetForDescribeDeploymentSetsOutput {
 	s.InstanceAmount = &v
 	return s
 }
@@ -8923,7 +8923,7 @@ func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetInstanceIds(v []*strin
 }
 
 // SetQuota sets the Quota field's value.
-func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuota(v int64) *DeploymentSetForDescribeDeploymentSetsOutput {
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuota(v int32) *DeploymentSetForDescribeDeploymentSetsOutput {
 	s.Quota = &v
 	return s
 }
@@ -8943,7 +8943,7 @@ func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetStrategy(v string) *De
 type DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Count *int64 `type:"integer"`
+	Count *int32 `type:"int32"`
 
 	ZoneId *string `type:"string"`
 }
@@ -8959,7 +8959,7 @@ func (s DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput) GoString() strin
 }
 
 // SetCount sets the Count field's value.
-func (s *DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput) SetCount(v int64) *DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput {
+func (s *DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput) SetCount(v int32) *DeploymentSetsQuotaUsedForDescribeDeploymentSetsOutput {
 	s.Count = &v
 	return s
 }
@@ -9085,9 +9085,9 @@ type DescribeDeploymentSetsInput struct {
 
 	Granularity *string `type:"string"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	Strategy *string `type:"string"`
 }
@@ -9127,13 +9127,13 @@ func (s *DescribeDeploymentSetsInput) SetGranularity(v string) *DescribeDeployme
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeDeploymentSetsInput) SetPageNumber(v int64) *DescribeDeploymentSetsInput {
+func (s *DescribeDeploymentSetsInput) SetPageNumber(v int32) *DescribeDeploymentSetsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeDeploymentSetsInput) SetPageSize(v int64) *DescribeDeploymentSetsInput {
+func (s *DescribeDeploymentSetsInput) SetPageSize(v int32) *DescribeDeploymentSetsInput {
 	s.PageSize = &v
 	return s
 }
@@ -9149,11 +9149,11 @@ type DescribeDeploymentSetsOutput struct {
 
 	DeploymentSets []*DeploymentSetForDescribeDeploymentSetsOutput `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -9173,19 +9173,19 @@ func (s *DescribeDeploymentSetsOutput) SetDeploymentSets(v []*DeploymentSetForDe
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeDeploymentSetsOutput) SetPageNumber(v int64) *DescribeDeploymentSetsOutput {
+func (s *DescribeDeploymentSetsOutput) SetPageNumber(v int32) *DescribeDeploymentSetsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeDeploymentSetsOutput) SetPageSize(v int64) *DescribeDeploymentSetsOutput {
+func (s *DescribeDeploymentSetsOutput) SetPageSize(v int32) *DescribeDeploymentSetsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeDeploymentSetsOutput) SetTotalCount(v int64) *DescribeDeploymentSetsOutput {
+func (s *DescribeDeploymentSetsOutput) SetTotalCount(v int32) *DescribeDeploymentSetsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -9303,7 +9303,7 @@ type DescribeHpcClustersInput struct {
 
 	AccountID *string `type:"string"`
 
-	EndTime *int64 `type:"integer"`
+	EndTime *int64 `type:"int64"`
 
 	Filter *string `type:"string"`
 
@@ -9311,13 +9311,13 @@ type DescribeHpcClustersInput struct {
 
 	OrderBy *string `type:"string"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
-	StartTime *int64 `type:"integer"`
+	StartTime *int64 `type:"int64"`
 
 	UserID *string `type:"string"`
 }
@@ -9363,13 +9363,13 @@ func (s *DescribeHpcClustersInput) SetOrderBy(v string) *DescribeHpcClustersInpu
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeHpcClustersInput) SetPageNumber(v int64) *DescribeHpcClustersInput {
+func (s *DescribeHpcClustersInput) SetPageNumber(v int32) *DescribeHpcClustersInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeHpcClustersInput) SetPageSize(v int64) *DescribeHpcClustersInput {
+func (s *DescribeHpcClustersInput) SetPageSize(v int32) *DescribeHpcClustersInput {
 	s.PageSize = &v
 	return s
 }
@@ -9397,11 +9397,11 @@ type DescribeHpcClustersOutput struct {
 
 	HpcClusters []*HpcClusterForDescribeHpcClustersOutput `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -9421,19 +9421,19 @@ func (s *DescribeHpcClustersOutput) SetHpcClusters(v []*HpcClusterForDescribeHpc
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeHpcClustersOutput) SetPageNumber(v int64) *DescribeHpcClustersOutput {
+func (s *DescribeHpcClustersOutput) SetPageNumber(v int32) *DescribeHpcClustersOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeHpcClustersOutput) SetPageSize(v int64) *DescribeHpcClustersOutput {
+func (s *DescribeHpcClustersOutput) SetPageSize(v int32) *DescribeHpcClustersOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeHpcClustersOutput) SetTotalCount(v int64) *DescribeHpcClustersOutput {
+func (s *DescribeHpcClustersOutput) SetTotalCount(v int32) *DescribeHpcClustersOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -9447,7 +9447,7 @@ type DescribeImagesInput struct {
 
 	DiskFormat *string `type:"string"`
 
-	EndTime *int64 `type:"integer"`
+	EndTime *int64 `type:"int64"`
 
 	ImageIds []*string `type:"list"`
 
@@ -9463,11 +9463,11 @@ type DescribeImagesInput struct {
 
 	OsType *string `type:"string"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
-	StartTime *int64 `type:"integer"`
+	StartTime *int64 `type:"int64"`
 
 	Visibility *string `type:"string"`
 }
@@ -9549,13 +9549,13 @@ func (s *DescribeImagesInput) SetOsType(v string) *DescribeImagesInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeImagesInput) SetPageNumber(v int64) *DescribeImagesInput {
+func (s *DescribeImagesInput) SetPageNumber(v int32) *DescribeImagesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeImagesInput) SetPageSize(v int64) *DescribeImagesInput {
+func (s *DescribeImagesInput) SetPageSize(v int32) *DescribeImagesInput {
 	s.PageSize = &v
 	return s
 }
@@ -9577,11 +9577,11 @@ type DescribeImagesOutput struct {
 
 	Images []*ImageForDescribeImagesOutput `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -9601,19 +9601,19 @@ func (s *DescribeImagesOutput) SetImages(v []*ImageForDescribeImagesOutput) *Des
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeImagesOutput) SetPageNumber(v int64) *DescribeImagesOutput {
+func (s *DescribeImagesOutput) SetPageNumber(v int32) *DescribeImagesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeImagesOutput) SetPageSize(v int64) *DescribeImagesOutput {
+func (s *DescribeImagesOutput) SetPageSize(v int32) *DescribeImagesOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeImagesOutput) SetTotalCount(v int64) *DescribeImagesOutput {
+func (s *DescribeImagesOutput) SetTotalCount(v int32) *DescribeImagesOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -9721,9 +9721,9 @@ type DescribeInstanceTypesInput struct {
 
 	InstanceTypes []*string `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ZoneId *string `type:"string"`
 }
@@ -9751,13 +9751,13 @@ func (s *DescribeInstanceTypesInput) SetInstanceTypes(v []*string) *DescribeInst
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeInstanceTypesInput) SetPageNumber(v int64) *DescribeInstanceTypesInput {
+func (s *DescribeInstanceTypesInput) SetPageNumber(v int32) *DescribeInstanceTypesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeInstanceTypesInput) SetPageSize(v int64) *DescribeInstanceTypesInput {
+func (s *DescribeInstanceTypesInput) SetPageSize(v int32) *DescribeInstanceTypesInput {
 	s.PageSize = &v
 	return s
 }
@@ -9773,11 +9773,11 @@ type DescribeInstanceTypesOutput struct {
 
 	InstanceTypes []*InstanceTypeForDescribeInstanceTypesOutput `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -9797,19 +9797,19 @@ func (s *DescribeInstanceTypesOutput) SetInstanceTypes(v []*InstanceTypeForDescr
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeInstanceTypesOutput) SetPageNumber(v int64) *DescribeInstanceTypesOutput {
+func (s *DescribeInstanceTypesOutput) SetPageNumber(v int32) *DescribeInstanceTypesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeInstanceTypesOutput) SetPageSize(v int64) *DescribeInstanceTypesOutput {
+func (s *DescribeInstanceTypesOutput) SetPageSize(v int32) *DescribeInstanceTypesOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeInstanceTypesOutput) SetTotalCount(v int64) *DescribeInstanceTypesOutput {
+func (s *DescribeInstanceTypesOutput) SetTotalCount(v int32) *DescribeInstanceTypesOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -9879,9 +9879,9 @@ type DescribeInstancesInput struct {
 
 	NetworkInterfacesId *string `type:"string"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	PrimaryIpAddress *string `type:"string"`
 
@@ -9961,13 +9961,13 @@ func (s *DescribeInstancesInput) SetNetworkInterfacesId(v string) *DescribeInsta
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeInstancesInput) SetPageNumber(v int64) *DescribeInstancesInput {
+func (s *DescribeInstancesInput) SetPageNumber(v int32) *DescribeInstancesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeInstancesInput) SetPageSize(v int64) *DescribeInstancesInput {
+func (s *DescribeInstancesInput) SetPageSize(v int32) *DescribeInstancesInput {
 	s.PageSize = &v
 	return s
 }
@@ -10013,11 +10013,11 @@ type DescribeInstancesOutput struct {
 
 	Instances []*InstanceForDescribeInstancesOutput `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -10037,19 +10037,19 @@ func (s *DescribeInstancesOutput) SetInstances(v []*InstanceForDescribeInstances
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeInstancesOutput) SetPageNumber(v int64) *DescribeInstancesOutput {
+func (s *DescribeInstancesOutput) SetPageNumber(v int32) *DescribeInstancesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeInstancesOutput) SetPageSize(v int64) *DescribeInstancesOutput {
+func (s *DescribeInstancesOutput) SetPageSize(v int32) *DescribeInstancesOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeInstancesOutput) SetTotalCount(v int64) *DescribeInstancesOutput {
+func (s *DescribeInstancesOutput) SetTotalCount(v int32) *DescribeInstancesOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -10177,9 +10177,9 @@ type DescribeKeyPairsInput struct {
 
 	KeyPairNames []*string `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 }
@@ -10231,13 +10231,13 @@ func (s *DescribeKeyPairsInput) SetKeyPairNames(v []*string) *DescribeKeyPairsIn
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeKeyPairsInput) SetPageNumber(v int64) *DescribeKeyPairsInput {
+func (s *DescribeKeyPairsInput) SetPageNumber(v int32) *DescribeKeyPairsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeKeyPairsInput) SetPageSize(v int64) *DescribeKeyPairsInput {
+func (s *DescribeKeyPairsInput) SetPageSize(v int32) *DescribeKeyPairsInput {
 	s.PageSize = &v
 	return s
 }
@@ -10253,11 +10253,11 @@ type DescribeKeyPairsOutput struct {
 
 	KeyPairs []*KeyPairForDescribeKeyPairsOutput `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -10277,19 +10277,19 @@ func (s *DescribeKeyPairsOutput) SetKeyPairs(v []*KeyPairForDescribeKeyPairsOutp
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeKeyPairsOutput) SetPageNumber(v int64) *DescribeKeyPairsOutput {
+func (s *DescribeKeyPairsOutput) SetPageNumber(v int32) *DescribeKeyPairsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeKeyPairsOutput) SetPageSize(v int64) *DescribeKeyPairsOutput {
+func (s *DescribeKeyPairsOutput) SetPageSize(v int32) *DescribeKeyPairsOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeKeyPairsOutput) SetTotalCount(v int64) *DescribeKeyPairsOutput {
+func (s *DescribeKeyPairsOutput) SetTotalCount(v int32) *DescribeKeyPairsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -10463,15 +10463,15 @@ type DistributionAccountDistributionForv1ListResourceStatisticsOutput struct {
 
 	AccountID *string `type:"string"`
 
-	InsOtherNum *int64 `type:"integer"`
+	InsOtherNum *int32 `type:"int32"`
 
-	InsRunningNum *int64 `type:"integer"`
+	InsRunningNum *int32 `type:"int32"`
 
-	InsStoppedNum *int64 `type:"integer"`
+	InsStoppedNum *int32 `type:"int32"`
 
-	InsTotalNum *int64 `type:"integer"`
+	InsTotalNum *int32 `type:"int32"`
 
-	VolumeNum *int64 `type:"integer"`
+	VolumeNum *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -10491,31 +10491,31 @@ func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetAc
 }
 
 // SetInsOtherNum sets the InsOtherNum field's value.
-func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int32) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
 	s.InsOtherNum = &v
 	return s
 }
 
 // SetInsRunningNum sets the InsRunningNum field's value.
-func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int32) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
 	s.InsRunningNum = &v
 	return s
 }
 
 // SetInsStoppedNum sets the InsStoppedNum field's value.
-func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int32) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
 	s.InsStoppedNum = &v
 	return s
 }
 
 // SetInsTotalNum sets the InsTotalNum field's value.
-func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int32) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
 	s.InsTotalNum = &v
 	return s
 }
 
 // SetVolumeNum sets the VolumeNum field's value.
-func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int32) *DistributionAccountDistributionForv1ListResourceStatisticsOutput {
 	s.VolumeNum = &v
 	return s
 }
@@ -10523,7 +10523,7 @@ func (s *DistributionAccountDistributionForv1ListResourceStatisticsOutput) SetVo
 type DistributionFlavorDistributionForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
-	InsTotalNum *int64 `type:"integer"`
+	InsTotalNum *int32 `type:"int32"`
 
 	Name *string `type:"string"`
 }
@@ -10539,7 +10539,7 @@ func (s DistributionFlavorDistributionForv1ListResourceStatisticsOutput) GoStrin
 }
 
 // SetInsTotalNum sets the InsTotalNum field's value.
-func (s *DistributionFlavorDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *DistributionFlavorDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionFlavorDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int32) *DistributionFlavorDistributionForv1ListResourceStatisticsOutput {
 	s.InsTotalNum = &v
 	return s
 }
@@ -10599,17 +10599,17 @@ func (s *DistributionForv1ListResourceStatisticsOutput) SetZoneDistribution(v []
 type DistributionProjectDistributionForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
-	InsOtherNum *int64 `type:"integer"`
+	InsOtherNum *int32 `type:"int32"`
 
-	InsRunningNum *int64 `type:"integer"`
+	InsRunningNum *int32 `type:"int32"`
 
-	InsStoppedNum *int64 `type:"integer"`
+	InsStoppedNum *int32 `type:"int32"`
 
-	InsTotalNum *int64 `type:"integer"`
+	InsTotalNum *int32 `type:"int32"`
 
 	Name *string `type:"string"`
 
-	VolumeNum *int64 `type:"integer"`
+	VolumeNum *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -10623,25 +10623,25 @@ func (s DistributionProjectDistributionForv1ListResourceStatisticsOutput) GoStri
 }
 
 // SetInsOtherNum sets the InsOtherNum field's value.
-func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsOtherNum(v int32) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
 	s.InsOtherNum = &v
 	return s
 }
 
 // SetInsRunningNum sets the InsRunningNum field's value.
-func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsRunningNum(v int32) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
 	s.InsRunningNum = &v
 	return s
 }
 
 // SetInsStoppedNum sets the InsStoppedNum field's value.
-func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int32) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
 	s.InsStoppedNum = &v
 	return s
 }
 
 // SetInsTotalNum sets the InsTotalNum field's value.
-func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int32) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
 	s.InsTotalNum = &v
 	return s
 }
@@ -10653,7 +10653,7 @@ func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetNa
 }
 
 // SetVolumeNum sets the VolumeNum field's value.
-func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetVolumeNum(v int32) *DistributionProjectDistributionForv1ListResourceStatisticsOutput {
 	s.VolumeNum = &v
 	return s
 }
@@ -10661,7 +10661,7 @@ func (s *DistributionProjectDistributionForv1ListResourceStatisticsOutput) SetVo
 type DistributionZoneDistributionForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
-	InsTotalNum *int64 `type:"integer"`
+	InsTotalNum *int32 `type:"int32"`
 
 	Name *string `type:"string"`
 
@@ -10679,7 +10679,7 @@ func (s DistributionZoneDistributionForv1ListResourceStatisticsOutput) GoString(
 }
 
 // SetInsTotalNum sets the InsTotalNum field's value.
-func (s *DistributionZoneDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *DistributionZoneDistributionForv1ListResourceStatisticsOutput {
+func (s *DistributionZoneDistributionForv1ListResourceStatisticsOutput) SetInsTotalNum(v int32) *DistributionZoneDistributionForv1ListResourceStatisticsOutput {
 	s.InsTotalNum = &v
 	return s
 }
@@ -10871,7 +10871,7 @@ type ImageForDescribeImagesOutput struct {
 
 	UpdatedAt *string `type:"string"`
 
-	VirtualSize *int64 `type:"integer"`
+	VirtualSize *int64 `type:"int64"`
 
 	Visibility *string `type:"string"`
 }
@@ -11195,7 +11195,7 @@ type InnerReplaceSystemVolumeInput struct {
 
 	Password *string `type:"string"`
 
-	Size *int64 `type:"integer"`
+	Size *int64 `type:"int64"`
 
 	UserData *string `type:"string"`
 }
@@ -11271,7 +11271,7 @@ type InnerReplaceSystemVolumesInput struct {
 
 	Password *string `type:"string"`
 
-	Size *int64 `type:"integer"`
+	Size *int64 `type:"int64"`
 
 	UserData *string `type:"string"`
 }
@@ -11569,7 +11569,7 @@ type InstanceTypeForDescribeInstanceTypesOutput struct {
 
 	Architecture *string `type:"string"`
 
-	Cpu *int64 `type:"integer"`
+	Cpu *int32 `type:"int32"`
 
 	Gpu *InstanceTypesGpuForDescribeInstanceTypesOutput `type:"structure"`
 
@@ -11581,19 +11581,19 @@ type InstanceTypeForDescribeInstanceTypesOutput struct {
 
 	LocalVolumes []*InstanceTypesLocalVolumeForDescribeInstanceTypesOutput `type:"list"`
 
-	Mem *int64 `type:"integer"`
+	Mem *int32 `type:"int32"`
 
 	Memory *InstanceTypesMemoryForDescribeInstanceTypesOutput `type:"structure"`
 
-	NetKppsQuota *int64 `type:"integer"`
+	NetKppsQuota *int32 `type:"int32"`
 
-	NetMbpsQuota *int64 `type:"integer"`
+	NetMbpsQuota *int32 `type:"int32"`
 
-	NetSessionQuota *int64 `type:"integer"`
+	NetSessionQuota *int32 `type:"int32"`
 
-	NetworkInterfaceNumQuota *int64 `type:"integer"`
+	NetworkInterfaceNumQuota *int32 `type:"int32"`
 
-	PrivateIpQuota *int64 `type:"integer"`
+	PrivateIpQuota *int32 `type:"int32"`
 
 	Processor *InstanceTypesProcessorForDescribeInstanceTypesOutput `type:"structure"`
 
@@ -11621,7 +11621,7 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetArchitecture(v string) *
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetCpu(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetCpu(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.Cpu = &v
 	return s
 }
@@ -11657,7 +11657,7 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetLocalVolumes(v []*Instan
 }
 
 // SetMem sets the Mem field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetMem(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetMem(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.Mem = &v
 	return s
 }
@@ -11669,31 +11669,31 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetMemory(v *InstanceTypesM
 }
 
 // SetNetKppsQuota sets the NetKppsQuota field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetKppsQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetKppsQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.NetKppsQuota = &v
 	return s
 }
 
 // SetNetMbpsQuota sets the NetMbpsQuota field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetMbpsQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetMbpsQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.NetMbpsQuota = &v
 	return s
 }
 
 // SetNetSessionQuota sets the NetSessionQuota field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetSessionQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetSessionQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.NetSessionQuota = &v
 	return s
 }
 
 // SetNetworkInterfaceNumQuota sets the NetworkInterfaceNumQuota field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetworkInterfaceNumQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetworkInterfaceNumQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.NetworkInterfaceNumQuota = &v
 	return s
 }
 
 // SetPrivateIpQuota sets the PrivateIpQuota field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetPrivateIpQuota(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetPrivateIpQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.PrivateIpQuota = &v
 	return s
 }
@@ -11727,9 +11727,9 @@ type InstanceTypesGpuForDescribeInstanceTypesOutput struct {
 
 	GpuDevices []*InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput `type:"list"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 
-	TotalMem *int64 `type:"integer"`
+	TotalMem *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -11749,13 +11749,13 @@ func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetGpuDevices(v []*Inst
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetTotalCount(v int64) *InstanceTypesGpuForDescribeInstanceTypesOutput {
+func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetTotalCount(v int32) *InstanceTypesGpuForDescribeInstanceTypesOutput {
 	s.TotalCount = &v
 	return s
 }
 
 // SetTotalMem sets the TotalMem field's value.
-func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetTotalMem(v int64) *InstanceTypesGpuForDescribeInstanceTypesOutput {
+func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetTotalMem(v int32) *InstanceTypesGpuForDescribeInstanceTypesOutput {
 	s.TotalMem = &v
 	return s
 }
@@ -11763,9 +11763,9 @@ func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetTotalMem(v int64) *I
 type InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Count *int64 `type:"integer"`
+	Count *int32 `type:"int32"`
 
-	Mem *int64 `type:"integer"`
+	Mem *int32 `type:"int32"`
 
 	Memory *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput `type:"structure"`
 
@@ -11785,13 +11785,13 @@ func (s InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) GoString() stri
 }
 
 // SetCount sets the Count field's value.
-func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetCount(v int64) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
+func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetCount(v int32) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
 	s.Count = &v
 	return s
 }
 
 // SetMem sets the Mem field's value.
-func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetMem(v int64) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
+func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetMem(v int32) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
 	s.Mem = &v
 	return s
 }
@@ -11817,7 +11817,7 @@ func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetProductName
 type InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Size *int64 `type:"integer"`
+	Size *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -11831,7 +11831,7 @@ func (s InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) GoString
 }
 
 // SetSize sets the Size field's value.
-func (s *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) SetSize(v int64) *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput {
+func (s *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) SetSize(v int32) *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput {
 	s.Size = &v
 	return s
 }
@@ -11839,9 +11839,9 @@ func (s *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) SetSize
 type InstanceTypesLocalVolumeForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Count *int64 `type:"integer"`
+	Count *int32 `type:"int32"`
 
-	Size *int64 `type:"integer"`
+	Size *int32 `type:"int32"`
 
 	VolumeType *string `type:"string"`
 }
@@ -11857,13 +11857,13 @@ func (s InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) GoString() strin
 }
 
 // SetCount sets the Count field's value.
-func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetCount(v int64) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
+func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetCount(v int32) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
 	s.Count = &v
 	return s
 }
 
 // SetSize sets the Size field's value.
-func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetSize(v int64) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
+func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetSize(v int32) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
 	s.Size = &v
 	return s
 }
@@ -11877,7 +11877,7 @@ func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetVolumeType(v
 type InstanceTypesMemoryForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Size *int64 `type:"integer"`
+	Size *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -11891,7 +11891,7 @@ func (s InstanceTypesMemoryForDescribeInstanceTypesOutput) GoString() string {
 }
 
 // SetSize sets the Size field's value.
-func (s *InstanceTypesMemoryForDescribeInstanceTypesOutput) SetSize(v int64) *InstanceTypesMemoryForDescribeInstanceTypesOutput {
+func (s *InstanceTypesMemoryForDescribeInstanceTypesOutput) SetSize(v int32) *InstanceTypesMemoryForDescribeInstanceTypesOutput {
 	s.Size = &v
 	return s
 }
@@ -11901,7 +11901,7 @@ type InstanceTypesProcessorForDescribeInstanceTypesOutput struct {
 
 	Architecture *string `type:"string"`
 
-	Cpus *int64 `type:"integer"`
+	Cpus *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -11921,7 +11921,7 @@ func (s *InstanceTypesProcessorForDescribeInstanceTypesOutput) SetArchitecture(v
 }
 
 // SetCpus sets the Cpus field's value.
-func (s *InstanceTypesProcessorForDescribeInstanceTypesOutput) SetCpus(v int64) *InstanceTypesProcessorForDescribeInstanceTypesOutput {
+func (s *InstanceTypesProcessorForDescribeInstanceTypesOutput) SetCpus(v int32) *InstanceTypesProcessorForDescribeInstanceTypesOutput {
 	s.Cpus = &v
 	return s
 }
@@ -11931,9 +11931,9 @@ type InstanceTypesRdmaForDescribeInstanceTypesOutput struct {
 
 	RdmaEniBandwidth *string `type:"string"`
 
-	RdmaEniCount *int64 `type:"integer"`
+	RdmaEniCount *int32 `type:"int32"`
 
-	RdmaNetworkInterfaces *int64 `type:"integer"`
+	RdmaNetworkInterfaces *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -11953,13 +11953,13 @@ func (s *InstanceTypesRdmaForDescribeInstanceTypesOutput) SetRdmaEniBandwidth(v 
 }
 
 // SetRdmaEniCount sets the RdmaEniCount field's value.
-func (s *InstanceTypesRdmaForDescribeInstanceTypesOutput) SetRdmaEniCount(v int64) *InstanceTypesRdmaForDescribeInstanceTypesOutput {
+func (s *InstanceTypesRdmaForDescribeInstanceTypesOutput) SetRdmaEniCount(v int32) *InstanceTypesRdmaForDescribeInstanceTypesOutput {
 	s.RdmaEniCount = &v
 	return s
 }
 
 // SetRdmaNetworkInterfaces sets the RdmaNetworkInterfaces field's value.
-func (s *InstanceTypesRdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int64) *InstanceTypesRdmaForDescribeInstanceTypesOutput {
+func (s *InstanceTypesRdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int32) *InstanceTypesRdmaForDescribeInstanceTypesOutput {
 	s.RdmaNetworkInterfaces = &v
 	return s
 }
@@ -11969,23 +11969,23 @@ type InstancesInstanceTypeForDescribeInstancesOutput struct {
 
 	Architecture *string `type:"string"`
 
-	Cpu *int64 `type:"integer"`
+	Cpu *int32 `type:"int32"`
 
 	Id *string `type:"string"`
 
 	InstanceTypeFamily *string `type:"string"`
 
-	Mem *int64 `type:"integer"`
+	Mem *int32 `type:"int32"`
 
-	NetKppsQuota *int64 `type:"integer"`
+	NetKppsQuota *int32 `type:"int32"`
 
-	NetMbpsQuota *int64 `type:"integer"`
+	NetMbpsQuota *int32 `type:"int32"`
 
-	NetSessionQuota *int64 `type:"integer"`
+	NetSessionQuota *int32 `type:"int32"`
 
-	NetworkInterfaceNumQuota *int64 `type:"integer"`
+	NetworkInterfaceNumQuota *int32 `type:"int32"`
 
-	PrivateIpQuota *int64 `type:"integer"`
+	PrivateIpQuota *int32 `type:"int32"`
 
 	VolumeTypes []*string `type:"list"`
 }
@@ -12007,7 +12007,7 @@ func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetArchitecture(v stri
 }
 
 // SetCpu sets the Cpu field's value.
-func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetCpu(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetCpu(v int32) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.Cpu = &v
 	return s
 }
@@ -12025,37 +12025,37 @@ func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetInstanceTypeFamily(
 }
 
 // SetMem sets the Mem field's value.
-func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetMem(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetMem(v int32) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.Mem = &v
 	return s
 }
 
 // SetNetKppsQuota sets the NetKppsQuota field's value.
-func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetKppsQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetKppsQuota(v int32) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.NetKppsQuota = &v
 	return s
 }
 
 // SetNetMbpsQuota sets the NetMbpsQuota field's value.
-func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetMbpsQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetMbpsQuota(v int32) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.NetMbpsQuota = &v
 	return s
 }
 
 // SetNetSessionQuota sets the NetSessionQuota field's value.
-func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetSessionQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetSessionQuota(v int32) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.NetSessionQuota = &v
 	return s
 }
 
 // SetNetworkInterfaceNumQuota sets the NetworkInterfaceNumQuota field's value.
-func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetworkInterfaceNumQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetNetworkInterfaceNumQuota(v int32) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.NetworkInterfaceNumQuota = &v
 	return s
 }
 
 // SetPrivateIpQuota sets the PrivateIpQuota field's value.
-func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetPrivateIpQuota(v int64) *InstancesInstanceTypeForDescribeInstancesOutput {
+func (s *InstancesInstanceTypeForDescribeInstancesOutput) SetPrivateIpQuota(v int32) *InstancesInstanceTypeForDescribeInstancesOutput {
 	s.PrivateIpQuota = &v
 	return s
 }
@@ -12581,7 +12581,7 @@ type ModifyInstanceChargeTypeInput struct {
 
 	InstanceIds []*string `type:"list"`
 
-	Period *int64 `type:"integer"`
+	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
 }
@@ -12621,7 +12621,7 @@ func (s *ModifyInstanceChargeTypeInput) SetInstanceIds(v []*string) *ModifyInsta
 }
 
 // SetPeriod sets the Period field's value.
-func (s *ModifyInstanceChargeTypeInput) SetPeriod(v int64) *ModifyInstanceChargeTypeInput {
+func (s *ModifyInstanceChargeTypeInput) SetPeriod(v int32) *ModifyInstanceChargeTypeInput {
 	s.Period = &v
 	return s
 }
@@ -13001,7 +13001,7 @@ type RenewInstanceInput struct {
 
 	InstanceId *string `type:"string"`
 
-	Period *int64 `type:"integer"`
+	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
 }
@@ -13029,7 +13029,7 @@ func (s *RenewInstanceInput) SetInstanceId(v string) *RenewInstanceInput {
 }
 
 // SetPeriod sets the Period field's value.
-func (s *RenewInstanceInput) SetPeriod(v int64) *RenewInstanceInput {
+func (s *RenewInstanceInput) SetPeriod(v int32) *RenewInstanceInput {
 	s.Period = &v
 	return s
 }
@@ -13075,7 +13075,7 @@ type ReplaceSystemVolumeInput struct {
 
 	Password *string `type:"string"`
 
-	Size *int64 `type:"integer"`
+	Size *int64 `type:"int64"`
 
 	UserData *string `type:"string"`
 }
@@ -13157,7 +13157,7 @@ type ReplaceSystemsVolumeInput struct {
 
 	Password *string `type:"string"`
 
-	Size *int64 `type:"integer"`
+	Size *int64 `type:"int64"`
 
 	UserData *string `type:"string"`
 }
@@ -13331,9 +13331,9 @@ type RunInstancesInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	AutoRenewPeriod *int64 `type:"integer"`
+	AutoRenewPeriod *int32 `type:"int32"`
 
-	Count *int64 `type:"integer"`
+	Count *int32 `type:"int32"`
 
 	CpuOptions *CpuOptionsForRunInstancesInput `type:"structure"`
 
@@ -13357,7 +13357,7 @@ type RunInstancesInput struct {
 
 	Ipv6Address []*string `type:"list"`
 
-	Ipv6AddressCount *int64 `type:"integer"`
+	Ipv6AddressCount *int32 `type:"int32"`
 
 	Kerberos *bool `type:"boolean"`
 
@@ -13367,13 +13367,13 @@ type RunInstancesInput struct {
 
 	Password *string `type:"string"`
 
-	Period *int64 `type:"integer"`
+	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
 
 	SecurityEnhancementStrategy *string `type:"string"`
 
-	SuffixIndex *int64 `type:"integer"`
+	SuffixIndex *int32 `type:"int32"`
 
 	Tag []*TagForRunInstancesInput `type:"list"`
 
@@ -13403,13 +13403,13 @@ func (s *RunInstancesInput) SetAutoRenew(v bool) *RunInstancesInput {
 }
 
 // SetAutoRenewPeriod sets the AutoRenewPeriod field's value.
-func (s *RunInstancesInput) SetAutoRenewPeriod(v int64) *RunInstancesInput {
+func (s *RunInstancesInput) SetAutoRenewPeriod(v int32) *RunInstancesInput {
 	s.AutoRenewPeriod = &v
 	return s
 }
 
 // SetCount sets the Count field's value.
-func (s *RunInstancesInput) SetCount(v int64) *RunInstancesInput {
+func (s *RunInstancesInput) SetCount(v int32) *RunInstancesInput {
 	s.Count = &v
 	return s
 }
@@ -13481,7 +13481,7 @@ func (s *RunInstancesInput) SetIpv6Address(v []*string) *RunInstancesInput {
 }
 
 // SetIpv6AddressCount sets the Ipv6AddressCount field's value.
-func (s *RunInstancesInput) SetIpv6AddressCount(v int64) *RunInstancesInput {
+func (s *RunInstancesInput) SetIpv6AddressCount(v int32) *RunInstancesInput {
 	s.Ipv6AddressCount = &v
 	return s
 }
@@ -13511,7 +13511,7 @@ func (s *RunInstancesInput) SetPassword(v string) *RunInstancesInput {
 }
 
 // SetPeriod sets the Period field's value.
-func (s *RunInstancesInput) SetPeriod(v int64) *RunInstancesInput {
+func (s *RunInstancesInput) SetPeriod(v int32) *RunInstancesInput {
 	s.Period = &v
 	return s
 }
@@ -13529,7 +13529,7 @@ func (s *RunInstancesInput) SetSecurityEnhancementStrategy(v string) *RunInstanc
 }
 
 // SetSuffixIndex sets the SuffixIndex field's value.
-func (s *RunInstancesInput) SetSuffixIndex(v int64) *RunInstancesInput {
+func (s *RunInstancesInput) SetSuffixIndex(v int32) *RunInstancesInput {
 	s.SuffixIndex = &v
 	return s
 }
@@ -13633,15 +13633,15 @@ func (s StartInstanceOutput) GoString() string {
 type StatisticsForv1ListResourceStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
-	InsOtherNum *int64 `type:"integer"`
+	InsOtherNum *int32 `type:"int32"`
 
-	InsRunningNum *int64 `type:"integer"`
+	InsRunningNum *int32 `type:"int32"`
 
-	InsStoppedNum *int64 `type:"integer"`
+	InsStoppedNum *int32 `type:"int32"`
 
-	InsTotalNum *int64 `type:"integer"`
+	InsTotalNum *int32 `type:"int32"`
 
-	VolumeNum *int64 `type:"integer"`
+	VolumeNum *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -13655,31 +13655,31 @@ func (s StatisticsForv1ListResourceStatisticsOutput) GoString() string {
 }
 
 // SetInsOtherNum sets the InsOtherNum field's value.
-func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsOtherNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsOtherNum(v int32) *StatisticsForv1ListResourceStatisticsOutput {
 	s.InsOtherNum = &v
 	return s
 }
 
 // SetInsRunningNum sets the InsRunningNum field's value.
-func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsRunningNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsRunningNum(v int32) *StatisticsForv1ListResourceStatisticsOutput {
 	s.InsRunningNum = &v
 	return s
 }
 
 // SetInsStoppedNum sets the InsStoppedNum field's value.
-func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsStoppedNum(v int32) *StatisticsForv1ListResourceStatisticsOutput {
 	s.InsStoppedNum = &v
 	return s
 }
 
 // SetInsTotalNum sets the InsTotalNum field's value.
-func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsTotalNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetInsTotalNum(v int32) *StatisticsForv1ListResourceStatisticsOutput {
 	s.InsTotalNum = &v
 	return s
 }
 
 // SetVolumeNum sets the VolumeNum field's value.
-func (s *StatisticsForv1ListResourceStatisticsOutput) SetVolumeNum(v int64) *StatisticsForv1ListResourceStatisticsOutput {
+func (s *StatisticsForv1ListResourceStatisticsOutput) SetVolumeNum(v int32) *StatisticsForv1ListResourceStatisticsOutput {
 	s.VolumeNum = &v
 	return s
 }
@@ -14065,7 +14065,7 @@ type VolumeForCreateInstancesInput struct {
 
 	Description *string `type:"string"`
 
-	Size *int64 `type:"integer"`
+	Size *int32 `type:"int32"`
 
 	SnapshotId *string `type:"string"`
 
@@ -14097,7 +14097,7 @@ func (s *VolumeForCreateInstancesInput) SetDescription(v string) *VolumeForCreat
 }
 
 // SetSize sets the Size field's value.
-func (s *VolumeForCreateInstancesInput) SetSize(v int64) *VolumeForCreateInstancesInput {
+func (s *VolumeForCreateInstancesInput) SetSize(v int32) *VolumeForCreateInstancesInput {
 	s.Size = &v
 	return s
 }
@@ -14127,7 +14127,7 @@ type VolumeForRunInstancesInput struct {
 
 	Description *string `type:"string"`
 
-	Size *int64 `type:"integer"`
+	Size *int32 `type:"int32"`
 
 	SnapshotId *string `type:"string"`
 
@@ -14159,7 +14159,7 @@ func (s *VolumeForRunInstancesInput) SetDescription(v string) *VolumeForRunInsta
 }
 
 // SetSize sets the Size field's value.
-func (s *VolumeForRunInstancesInput) SetSize(v int64) *VolumeForRunInstancesInput {
+func (s *VolumeForRunInstancesInput) SetSize(v int32) *VolumeForRunInstancesInput {
 	s.Size = &v
 	return s
 }

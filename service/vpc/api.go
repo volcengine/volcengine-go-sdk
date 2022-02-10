@@ -5495,7 +5495,7 @@ const opDescribeVpcsCommon = "DescribeVpcs"
 func (c *VPC) DescribeVpcsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcsCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -5565,7 +5565,7 @@ const opDescribeVpcs = "DescribeVpcs"
 func (c *VPC) DescribeVpcsRequest(input *DescribeVpcsInput) (req *request.Request, output *DescribeVpcsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpcs,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
