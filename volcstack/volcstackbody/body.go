@@ -1,10 +1,10 @@
 package volcstackbody
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol/query/queryutil"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
 	"encoding/json"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 	"net/url"
 	"reflect"
 	"strings"

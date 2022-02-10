@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 	"net/http/httputil"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 )
 
 const logReqMsg = `DEBUG: Request %s/%s Details:

@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/credentials"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/endpoints"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/credentials"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/endpoints"
 )
 
 // UseServiceDefaultRetries instructs the config to use the service's own

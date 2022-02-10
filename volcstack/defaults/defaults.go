@@ -8,7 +8,6 @@
 package defaults
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
 	"fmt"
 	"net"
 	"net/http"
@@ -16,11 +15,13 @@ import (
 	"os"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/corehandlers"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/credentials"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/credentials/endpointcreds"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/corehandlers"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/credentials"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/credentials/endpointcreds"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 )
 
 // A Defaults provides a collection of default values for SDK clients.

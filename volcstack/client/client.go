@@ -3,9 +3,9 @@ package client
 import (
 	"fmt"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/client/metadata"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 )
 
 // A Config provides configuration to a service client instance.

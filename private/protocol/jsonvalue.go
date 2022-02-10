@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
 )
 
 // EscapeMode is the mode that should be use for escaping a value

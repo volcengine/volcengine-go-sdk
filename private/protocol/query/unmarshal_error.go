@@ -5,9 +5,9 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol/xml/xmlutil"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol/xml/xmlutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // UnmarshalErrorHandler is a name request handler to unmarshal request errors

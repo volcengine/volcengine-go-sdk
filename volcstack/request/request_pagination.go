@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"sync/atomic"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 // A Pagination provides paginating of SDK API operations which are paginatable.

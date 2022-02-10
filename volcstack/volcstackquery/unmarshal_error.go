@@ -1,10 +1,10 @@
 package volcstackquery
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
 	"encoding/json"
 	"fmt"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 	"io/ioutil"
 )
 

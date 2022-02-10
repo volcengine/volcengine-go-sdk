@@ -9,9 +9,9 @@ import (
 	"reflect"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // UnmarshalJSONError unmarshal's the reader's JSON document into the passed in

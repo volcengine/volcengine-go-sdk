@@ -12,10 +12,10 @@ import (
 	"strings"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // UnmarshalHandler is a named request handler for unmarshaling rest protocol requests

@@ -3,13 +3,13 @@
 package nat
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/client"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/client/metadata"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/corehandlers"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/signer/volc"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackquery"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/client"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/corehandlers"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/signer/volc"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackquery"
 )
 
 // NAT provides the API operation methods for making requests to

@@ -1,11 +1,11 @@
 package volcstackquery
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol/query/queryutil"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackbody"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
 	"fmt"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackbody"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 	"net/url"
 	"reflect"
 	"strings"

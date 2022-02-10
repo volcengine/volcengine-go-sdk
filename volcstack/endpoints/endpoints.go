@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"regexp"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // Options provide the configuration needed to direct how the

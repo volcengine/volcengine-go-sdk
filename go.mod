@@ -1,4 +1,4 @@
-module code.byted.org/iaasng/volcstack-go-sdk
+module github.com/volcengine/volcstack-go-sdk
 
 go 1.12
 

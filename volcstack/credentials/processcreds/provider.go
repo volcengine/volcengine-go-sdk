@@ -88,8 +88,8 @@ import (
 	"strings"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/credentials"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/credentials"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 const (

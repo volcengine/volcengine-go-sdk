@@ -33,13 +33,13 @@ import (
 	"encoding/json"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol/json/jsonutil"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/client"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/client/metadata"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/credentials"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol/json/jsonutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/client"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/credentials"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // ProviderName is the name of the credentials provider.

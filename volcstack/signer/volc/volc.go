@@ -1,8 +1,8 @@
 package volc
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 )
 
 var SignRequestHandler = request.NamedHandler{

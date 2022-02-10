@@ -4,7 +4,7 @@ import (
 	"io"
 	"os"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // OpenFile takes a path to a given file, and will open  and parse

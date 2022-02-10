@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/internal/ini"
-	"code.byted.org/iaasng/volcstack-go-sdk/internal/shareddefaults"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/internal/ini"
+	"github.com/volcengine/volcstack-go-sdk/internal/shareddefaults"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // SharedCredsProviderName provides a name of SharedCreds provider

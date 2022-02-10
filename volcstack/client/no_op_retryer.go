@@ -3,7 +3,7 @@ package client
 import (
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 )
 
 // NoOpRetryer provides a retryer that performs no retries.

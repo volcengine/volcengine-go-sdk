@@ -3,7 +3,7 @@ package credentials
 import (
 	"os"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 // EnvProviderName provides a name of Env provider

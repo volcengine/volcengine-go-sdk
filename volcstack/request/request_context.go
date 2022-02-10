@@ -1,6 +1,6 @@
 package request
 
-import "code.byted.org/iaasng/volcstack-go-sdk/volcstack"
+import "github.com/volcengine/volcstack-go-sdk/volcstack"
 
 // setContext updates the Request to use the passed in context for cancellation.
 // Context will also be used for request retry delay.

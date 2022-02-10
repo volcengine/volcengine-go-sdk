@@ -68,11 +68,11 @@ import (
 	"strings"
 	"time"
 
-	"code.byted.org/iaasng/volcstack-go-sdk/internal/sdkio"
-	"code.byted.org/iaasng/volcstack-go-sdk/private/protocol/rest"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/credentials"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/internal/sdkio"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol/rest"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/credentials"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 )
 
 const (
