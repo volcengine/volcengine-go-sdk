@@ -4787,7 +4787,7 @@ type LoadBalancerGroupForAttachLoadBalancersInput struct {
 
 	LoadBalancerId *string `type:"string"`
 
-	ServerGroupAttributes *int32 `type:"int32"`
+	ServerGroupAttributes []*ServerGroupAttributeForAttachLoadBalancersInput `type:"list"`
 }
 
 // String returns the string representation
@@ -4807,8 +4807,8 @@ func (s *LoadBalancerGroupForAttachLoadBalancersInput) SetLoadBalancerId(v strin
 }
 
 // SetServerGroupAttributes sets the ServerGroupAttributes field's value.
-func (s *LoadBalancerGroupForAttachLoadBalancersInput) SetServerGroupAttributes(v int32) *LoadBalancerGroupForAttachLoadBalancersInput {
-	s.ServerGroupAttributes = &v
+func (s *LoadBalancerGroupForAttachLoadBalancersInput) SetServerGroupAttributes(v []*ServerGroupAttributeForAttachLoadBalancersInput) *LoadBalancerGroupForAttachLoadBalancersInput {
+	s.ServerGroupAttributes = v
 	return s
 }
 
@@ -4817,7 +4817,7 @@ type LoadBalancerGroupForCreateScalingGroupInput struct {
 
 	LoadBalancerId *string `type:"string"`
 
-	ServerGroupAttributes *int32 `type:"int32"`
+	ServerGroupAttributes []*ServerGroupAttributeForCreateScalingGroupInput `type:"list"`
 }
 
 // String returns the string representation
@@ -4837,8 +4837,8 @@ func (s *LoadBalancerGroupForCreateScalingGroupInput) SetLoadBalancerId(v string
 }
 
 // SetServerGroupAttributes sets the ServerGroupAttributes field's value.
-func (s *LoadBalancerGroupForCreateScalingGroupInput) SetServerGroupAttributes(v int32) *LoadBalancerGroupForCreateScalingGroupInput {
-	s.ServerGroupAttributes = &v
+func (s *LoadBalancerGroupForCreateScalingGroupInput) SetServerGroupAttributes(v []*ServerGroupAttributeForCreateScalingGroupInput) *LoadBalancerGroupForCreateScalingGroupInput {
+	s.ServerGroupAttributes = v
 	return s
 }
 
@@ -4847,7 +4847,7 @@ type LoadBalancerGroupForDetachLoadBalancersInput struct {
 
 	LoadBalancerId *string `type:"string"`
 
-	ServerGroupIds *string `type:"string"`
+	ServerGroupIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -4867,8 +4867,8 @@ func (s *LoadBalancerGroupForDetachLoadBalancersInput) SetLoadBalancerId(v strin
 }
 
 // SetServerGroupIds sets the ServerGroupIds field's value.
-func (s *LoadBalancerGroupForDetachLoadBalancersInput) SetServerGroupIds(v string) *LoadBalancerGroupForDetachLoadBalancersInput {
-	s.ServerGroupIds = &v
+func (s *LoadBalancerGroupForDetachLoadBalancersInput) SetServerGroupIds(v []*string) *LoadBalancerGroupForDetachLoadBalancersInput {
+	s.ServerGroupIds = v
 	return s
 }
 
@@ -6455,6 +6455,82 @@ func (s *ScheduledPolicyForModifyScalingPolicyInput) SetRecurrenceType(v string)
 // SetRecurrenceValue sets the RecurrenceValue field's value.
 func (s *ScheduledPolicyForModifyScalingPolicyInput) SetRecurrenceValue(v string) *ScheduledPolicyForModifyScalingPolicyInput {
 	s.RecurrenceValue = &v
+	return s
+}
+
+type ServerGroupAttributeForAttachLoadBalancersInput struct {
+	_ struct{} `type:"structure"`
+
+	Port *int32 `type:"int32"`
+
+	ServerGroupId *string `type:"string"`
+
+	Weight *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s ServerGroupAttributeForAttachLoadBalancersInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerGroupAttributeForAttachLoadBalancersInput) GoString() string {
+	return s.String()
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerGroupAttributeForAttachLoadBalancersInput) SetPort(v int32) *ServerGroupAttributeForAttachLoadBalancersInput {
+	s.Port = &v
+	return s
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ServerGroupAttributeForAttachLoadBalancersInput) SetServerGroupId(v string) *ServerGroupAttributeForAttachLoadBalancersInput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerGroupAttributeForAttachLoadBalancersInput) SetWeight(v int32) *ServerGroupAttributeForAttachLoadBalancersInput {
+	s.Weight = &v
+	return s
+}
+
+type ServerGroupAttributeForCreateScalingGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Port *int32 `type:"int32"`
+
+	ServerGroupId *string `type:"string"`
+
+	Weight *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s ServerGroupAttributeForCreateScalingGroupInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerGroupAttributeForCreateScalingGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerGroupAttributeForCreateScalingGroupInput) SetPort(v int32) *ServerGroupAttributeForCreateScalingGroupInput {
+	s.Port = &v
+	return s
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ServerGroupAttributeForCreateScalingGroupInput) SetServerGroupId(v string) *ServerGroupAttributeForCreateScalingGroupInput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerGroupAttributeForCreateScalingGroupInput) SetWeight(v int32) *ServerGroupAttributeForCreateScalingGroupInput {
+	s.Weight = &v
 	return s
 }
 

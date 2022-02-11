@@ -12277,7 +12277,7 @@ type NetworkInterfaceForCreateInstancesInput struct {
 
 	PrimaryIpAddress *string `type:"string"`
 
-	SecurityGroupIds *string `type:"string"`
+	SecurityGroupIds []*string `type:"list"`
 
 	SubnetId *string `type:"string"`
 
@@ -12313,8 +12313,8 @@ func (s *NetworkInterfaceForCreateInstancesInput) SetPrimaryIpAddress(v string) 
 }
 
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
-func (s *NetworkInterfaceForCreateInstancesInput) SetSecurityGroupIds(v string) *NetworkInterfaceForCreateInstancesInput {
-	s.SecurityGroupIds = &v
+func (s *NetworkInterfaceForCreateInstancesInput) SetSecurityGroupIds(v []*string) *NetworkInterfaceForCreateInstancesInput {
+	s.SecurityGroupIds = v
 	return s
 }
 
@@ -12339,7 +12339,7 @@ type NetworkInterfaceForRunInstancesInput struct {
 
 	PrimaryIpAddress *string `type:"string"`
 
-	SecurityGroupIds *string `type:"string"`
+	SecurityGroupIds []*string `type:"list"`
 
 	SubnetId *string `type:"string"`
 
@@ -12375,8 +12375,8 @@ func (s *NetworkInterfaceForRunInstancesInput) SetPrimaryIpAddress(v string) *Ne
 }
 
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
-func (s *NetworkInterfaceForRunInstancesInput) SetSecurityGroupIds(v string) *NetworkInterfaceForRunInstancesInput {
-	s.SecurityGroupIds = &v
+func (s *NetworkInterfaceForRunInstancesInput) SetSecurityGroupIds(v []*string) *NetworkInterfaceForRunInstancesInput {
+	s.SecurityGroupIds = v
 	return s
 }
 
