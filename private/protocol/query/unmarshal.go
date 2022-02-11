@@ -16,7 +16,7 @@ var UnmarshalHandler = request.NamedHandler{Name: "awssdk.volcstackquery.Unmarsh
 // UnmarshalMetaHandler is a named request handler for unmarshaling volcstackquery protocol request metadata
 var UnmarshalMetaHandler = request.NamedHandler{Name: "awssdk.volcstackquery.UnmarshalMeta", Fn: UnmarshalMeta}
 
-// Unmarshal unmarshals a response for an AWS Query service.
+// Unmarshal unmarshals a response for an VOLCSTACK Query service.
 func Unmarshal(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
 	if r.DataFilled() {
@@ -33,7 +33,7 @@ func Unmarshal(r *request.Request) {
 	}
 }
 
-// UnmarshalMeta unmarshals header response values for an AWS Query service.
+// UnmarshalMeta unmarshals header response values for an VOLCSTACK Query service.
 func UnmarshalMeta(r *request.Request) {
 	r.RequestID = r.HTTPResponse.Header.Get("X-Top-Requestid")
 }

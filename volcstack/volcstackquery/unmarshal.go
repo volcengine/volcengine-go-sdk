@@ -1,35 +1,19 @@
 package volcstackquery
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 	"io/ioutil"
 	"net/http"
 	"reflect"
+
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
-
-type VolcstackResponse struct {
-	ResponseMetadata ResponseMetadata
-	Result           interface{}
-}
-
-type ResponseMetadata struct {
-	RequestId string
-	Action    string
-	Version   string
-	Service   string
-	Region    string
-	Error     *Error
-}
-
-type Error struct {
-	CodeN   int
-	Code    string
-	Message string
-}
 
 // UnmarshalHandler is a named request handler for unmarshaling volcstackquery protocol requests
 var UnmarshalHandler = request.NamedHandler{Name: "volcstacksdk.volcstackquery.Unmarshal", Fn: Unmarshal}
@@ -37,7 +21,7 @@ var UnmarshalHandler = request.NamedHandler{Name: "volcstacksdk.volcstackquery.U
 // UnmarshalMetaHandler is a named request handler for unmarshaling volcstackquery protocol request metadata
 var UnmarshalMetaHandler = request.NamedHandler{Name: "volcstacksdk.volcstackquery.UnmarshalMeta", Fn: UnmarshalMeta}
 
-// Unmarshal unmarshals a response for an AWS Query service.
+// Unmarshal unmarshals a response for an VOLCSTACK Query service.
 func Unmarshal(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
 	if r.DataFilled() {
@@ -89,7 +73,7 @@ func Unmarshal(r *request.Request) {
 	}
 }
 
-// UnmarshalMeta unmarshals header response values for an AWS Query service.
+// UnmarshalMeta unmarshals header response values for an VOLCSTACK Query service.
 func UnmarshalMeta(r *request.Request) {
 
 }

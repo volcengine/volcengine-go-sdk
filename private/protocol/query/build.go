@@ -1,7 +1,8 @@
-// Package volcstackquery provides serialization of VOLCSTACK volcstackquery requests, and responses.
+// Package query provides serialization of VOLCSTACK volcstackquery requests, and responses.
 package query
 
-// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/private/protocol/query/build.go
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
 	"net/url"
@@ -14,7 +15,7 @@ import (
 // BuildHandler is a named request handler for building volcstackquery protocol requests
 var BuildHandler = request.NamedHandler{Name: "awssdk.volcstackquery.Build", Fn: Build}
 
-// Build builds a request for an AWS Query service.
+// Build builds a request for an VOLCSTACK Query service.
 func Build(r *request.Request) {
 	body := url.Values{
 		"Action":  {r.Operation.Name},

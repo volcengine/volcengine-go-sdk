@@ -1,5 +1,8 @@
 package ini
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 // Walk will traverse the AST using the v, the Visitor.
 func Walk(tree []AST, v Visitor) error {
 	for _, node := range tree {

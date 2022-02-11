@@ -12,18 +12,14 @@ const opAttachInstancesCommon = "AttachInstances"
 
 // AttachInstancesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the AttachInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the AttachInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned AttachInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachInstancesCommon Send returns without error.
 //
 // See AttachInstancesCommon for more information on using the AttachInstancesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the AttachInstancesCommonRequest method.
 //    req, resp := client.AttachInstancesCommonRequest(params)
@@ -67,9 +63,8 @@ func (c *AUTOSCALING) AttachInstancesCommon(input *map[string]interface{}) (*map
 //
 // See AttachInstancesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) AttachInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.AttachInstancesCommonRequest(input)
@@ -82,18 +77,14 @@ const opAttachInstances = "AttachInstances"
 
 // AttachInstancesRequest generates a "volcstack/request.Request" representing the
 // client's request for the AttachInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the AttachInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned AttachInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachInstancesCommon Send returns without error.
 //
 // See AttachInstances for more information on using the AttachInstances
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the AttachInstancesRequest method.
 //    req, resp := client.AttachInstancesRequest(params)
@@ -137,9 +128,8 @@ func (c *AUTOSCALING) AttachInstances(input *AttachInstancesInput) (*AttachInsta
 //
 // See AttachInstances for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) AttachInstancesWithContext(ctx volcstack.Context, input *AttachInstancesInput, opts ...request.Option) (*AttachInstancesOutput, error) {
 	req, out := c.AttachInstancesRequest(input)
@@ -152,18 +142,14 @@ const opAttachLoadBalancersCommon = "AttachLoadBalancers"
 
 // AttachLoadBalancersCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the AttachLoadBalancersCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the AttachLoadBalancersCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned AttachLoadBalancersCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachLoadBalancersCommon Send returns without error.
 //
 // See AttachLoadBalancersCommon for more information on using the AttachLoadBalancersCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the AttachLoadBalancersCommonRequest method.
 //    req, resp := client.AttachLoadBalancersCommonRequest(params)
@@ -207,9 +193,8 @@ func (c *AUTOSCALING) AttachLoadBalancersCommon(input *map[string]interface{}) (
 //
 // See AttachLoadBalancersCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) AttachLoadBalancersCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.AttachLoadBalancersCommonRequest(input)
@@ -222,18 +207,14 @@ const opAttachLoadBalancers = "AttachLoadBalancers"
 
 // AttachLoadBalancersRequest generates a "volcstack/request.Request" representing the
 // client's request for the AttachLoadBalancers operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the AttachLoadBalancersCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned AttachLoadBalancersCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachLoadBalancersCommon Send returns without error.
 //
 // See AttachLoadBalancers for more information on using the AttachLoadBalancers
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the AttachLoadBalancersRequest method.
 //    req, resp := client.AttachLoadBalancersRequest(params)
@@ -277,9 +258,8 @@ func (c *AUTOSCALING) AttachLoadBalancers(input *AttachLoadBalancersInput) (*Att
 //
 // See AttachLoadBalancers for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) AttachLoadBalancersWithContext(ctx volcstack.Context, input *AttachLoadBalancersInput, opts ...request.Option) (*AttachLoadBalancersOutput, error) {
 	req, out := c.AttachLoadBalancersRequest(input)
@@ -292,18 +272,14 @@ const opCreateScalingConfigurationCommon = "CreateScalingConfiguration"
 
 // CreateScalingConfigurationCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateScalingConfigurationCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateScalingConfigurationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateScalingConfigurationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateScalingConfigurationCommon Send returns without error.
 //
 // See CreateScalingConfigurationCommon for more information on using the CreateScalingConfigurationCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateScalingConfigurationCommonRequest method.
 //    req, resp := client.CreateScalingConfigurationCommonRequest(params)
@@ -347,9 +323,8 @@ func (c *AUTOSCALING) CreateScalingConfigurationCommon(input *map[string]interfa
 //
 // See CreateScalingConfigurationCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) CreateScalingConfigurationCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateScalingConfigurationCommonRequest(input)
@@ -362,18 +337,14 @@ const opCreateScalingConfiguration = "CreateScalingConfiguration"
 
 // CreateScalingConfigurationRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateScalingConfiguration operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateScalingConfigurationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateScalingConfigurationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateScalingConfigurationCommon Send returns without error.
 //
 // See CreateScalingConfiguration for more information on using the CreateScalingConfiguration
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateScalingConfigurationRequest method.
 //    req, resp := client.CreateScalingConfigurationRequest(params)
@@ -417,9 +388,8 @@ func (c *AUTOSCALING) CreateScalingConfiguration(input *CreateScalingConfigurati
 //
 // See CreateScalingConfiguration for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) CreateScalingConfigurationWithContext(ctx volcstack.Context, input *CreateScalingConfigurationInput, opts ...request.Option) (*CreateScalingConfigurationOutput, error) {
 	req, out := c.CreateScalingConfigurationRequest(input)
@@ -432,18 +402,14 @@ const opCreateScalingGroupCommon = "CreateScalingGroup"
 
 // CreateScalingGroupCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateScalingGroupCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateScalingGroupCommon Send returns without error.
 //
 // See CreateScalingGroupCommon for more information on using the CreateScalingGroupCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateScalingGroupCommonRequest method.
 //    req, resp := client.CreateScalingGroupCommonRequest(params)
@@ -487,9 +453,8 @@ func (c *AUTOSCALING) CreateScalingGroupCommon(input *map[string]interface{}) (*
 //
 // See CreateScalingGroupCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) CreateScalingGroupCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateScalingGroupCommonRequest(input)
@@ -502,18 +467,14 @@ const opCreateScalingGroup = "CreateScalingGroup"
 
 // CreateScalingGroupRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateScalingGroup operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateScalingGroupCommon Send returns without error.
 //
 // See CreateScalingGroup for more information on using the CreateScalingGroup
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateScalingGroupRequest method.
 //    req, resp := client.CreateScalingGroupRequest(params)
@@ -557,9 +518,8 @@ func (c *AUTOSCALING) CreateScalingGroup(input *CreateScalingGroupInput) (*Creat
 //
 // See CreateScalingGroup for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) CreateScalingGroupWithContext(ctx volcstack.Context, input *CreateScalingGroupInput, opts ...request.Option) (*CreateScalingGroupOutput, error) {
 	req, out := c.CreateScalingGroupRequest(input)
@@ -572,18 +532,14 @@ const opCreateScalingPolicyCommon = "CreateScalingPolicy"
 
 // CreateScalingPolicyCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateScalingPolicyCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateScalingPolicyCommon Send returns without error.
 //
 // See CreateScalingPolicyCommon for more information on using the CreateScalingPolicyCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateScalingPolicyCommonRequest method.
 //    req, resp := client.CreateScalingPolicyCommonRequest(params)
@@ -627,9 +583,8 @@ func (c *AUTOSCALING) CreateScalingPolicyCommon(input *map[string]interface{}) (
 //
 // See CreateScalingPolicyCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) CreateScalingPolicyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateScalingPolicyCommonRequest(input)
@@ -642,18 +597,14 @@ const opCreateScalingPolicy = "CreateScalingPolicy"
 
 // CreateScalingPolicyRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateScalingPolicy operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateScalingPolicyCommon Send returns without error.
 //
 // See CreateScalingPolicy for more information on using the CreateScalingPolicy
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateScalingPolicyRequest method.
 //    req, resp := client.CreateScalingPolicyRequest(params)
@@ -697,9 +648,8 @@ func (c *AUTOSCALING) CreateScalingPolicy(input *CreateScalingPolicyInput) (*Cre
 //
 // See CreateScalingPolicy for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) CreateScalingPolicyWithContext(ctx volcstack.Context, input *CreateScalingPolicyInput, opts ...request.Option) (*CreateScalingPolicyOutput, error) {
 	req, out := c.CreateScalingPolicyRequest(input)
@@ -712,18 +662,14 @@ const opDeleteScalingConfigurationCommon = "DeleteScalingConfiguration"
 
 // DeleteScalingConfigurationCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteScalingConfigurationCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteScalingConfigurationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteScalingConfigurationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteScalingConfigurationCommon Send returns without error.
 //
 // See DeleteScalingConfigurationCommon for more information on using the DeleteScalingConfigurationCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteScalingConfigurationCommonRequest method.
 //    req, resp := client.DeleteScalingConfigurationCommonRequest(params)
@@ -767,9 +713,8 @@ func (c *AUTOSCALING) DeleteScalingConfigurationCommon(input *map[string]interfa
 //
 // See DeleteScalingConfigurationCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DeleteScalingConfigurationCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteScalingConfigurationCommonRequest(input)
@@ -782,18 +727,14 @@ const opDeleteScalingConfiguration = "DeleteScalingConfiguration"
 
 // DeleteScalingConfigurationRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteScalingConfiguration operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteScalingConfigurationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteScalingConfigurationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteScalingConfigurationCommon Send returns without error.
 //
 // See DeleteScalingConfiguration for more information on using the DeleteScalingConfiguration
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteScalingConfigurationRequest method.
 //    req, resp := client.DeleteScalingConfigurationRequest(params)
@@ -837,9 +778,8 @@ func (c *AUTOSCALING) DeleteScalingConfiguration(input *DeleteScalingConfigurati
 //
 // See DeleteScalingConfiguration for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DeleteScalingConfigurationWithContext(ctx volcstack.Context, input *DeleteScalingConfigurationInput, opts ...request.Option) (*DeleteScalingConfigurationOutput, error) {
 	req, out := c.DeleteScalingConfigurationRequest(input)
@@ -852,18 +792,14 @@ const opDeleteScalingGroupCommon = "DeleteScalingGroup"
 
 // DeleteScalingGroupCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteScalingGroupCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteScalingGroupCommon Send returns without error.
 //
 // See DeleteScalingGroupCommon for more information on using the DeleteScalingGroupCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteScalingGroupCommonRequest method.
 //    req, resp := client.DeleteScalingGroupCommonRequest(params)
@@ -907,9 +843,8 @@ func (c *AUTOSCALING) DeleteScalingGroupCommon(input *map[string]interface{}) (*
 //
 // See DeleteScalingGroupCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DeleteScalingGroupCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteScalingGroupCommonRequest(input)
@@ -922,18 +857,14 @@ const opDeleteScalingGroup = "DeleteScalingGroup"
 
 // DeleteScalingGroupRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteScalingGroup operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteScalingGroupCommon Send returns without error.
 //
 // See DeleteScalingGroup for more information on using the DeleteScalingGroup
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteScalingGroupRequest method.
 //    req, resp := client.DeleteScalingGroupRequest(params)
@@ -977,9 +908,8 @@ func (c *AUTOSCALING) DeleteScalingGroup(input *DeleteScalingGroupInput) (*Delet
 //
 // See DeleteScalingGroup for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DeleteScalingGroupWithContext(ctx volcstack.Context, input *DeleteScalingGroupInput, opts ...request.Option) (*DeleteScalingGroupOutput, error) {
 	req, out := c.DeleteScalingGroupRequest(input)
@@ -992,18 +922,14 @@ const opDeleteScalingPolicyCommon = "DeleteScalingPolicy"
 
 // DeleteScalingPolicyCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteScalingPolicyCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteScalingPolicyCommon Send returns without error.
 //
 // See DeleteScalingPolicyCommon for more information on using the DeleteScalingPolicyCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteScalingPolicyCommonRequest method.
 //    req, resp := client.DeleteScalingPolicyCommonRequest(params)
@@ -1047,9 +973,8 @@ func (c *AUTOSCALING) DeleteScalingPolicyCommon(input *map[string]interface{}) (
 //
 // See DeleteScalingPolicyCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DeleteScalingPolicyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteScalingPolicyCommonRequest(input)
@@ -1062,18 +987,14 @@ const opDeleteScalingPolicy = "DeleteScalingPolicy"
 
 // DeleteScalingPolicyRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteScalingPolicy operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteScalingPolicyCommon Send returns without error.
 //
 // See DeleteScalingPolicy for more information on using the DeleteScalingPolicy
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteScalingPolicyRequest method.
 //    req, resp := client.DeleteScalingPolicyRequest(params)
@@ -1117,9 +1038,8 @@ func (c *AUTOSCALING) DeleteScalingPolicy(input *DeleteScalingPolicyInput) (*Del
 //
 // See DeleteScalingPolicy for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DeleteScalingPolicyWithContext(ctx volcstack.Context, input *DeleteScalingPolicyInput, opts ...request.Option) (*DeleteScalingPolicyOutput, error) {
 	req, out := c.DeleteScalingPolicyRequest(input)
@@ -1132,18 +1052,14 @@ const opDescribeScalingActivitiesCommon = "DescribeScalingActivities"
 
 // DescribeScalingActivitiesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingActivitiesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingActivitiesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingActivitiesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingActivitiesCommon Send returns without error.
 //
 // See DescribeScalingActivitiesCommon for more information on using the DescribeScalingActivitiesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingActivitiesCommonRequest method.
 //    req, resp := client.DescribeScalingActivitiesCommonRequest(params)
@@ -1187,9 +1103,8 @@ func (c *AUTOSCALING) DescribeScalingActivitiesCommon(input *map[string]interfac
 //
 // See DescribeScalingActivitiesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingActivitiesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingActivitiesCommonRequest(input)
@@ -1202,18 +1117,14 @@ const opDescribeScalingActivities = "DescribeScalingActivities"
 
 // DescribeScalingActivitiesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingActivities operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingActivitiesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingActivitiesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingActivitiesCommon Send returns without error.
 //
 // See DescribeScalingActivities for more information on using the DescribeScalingActivities
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingActivitiesRequest method.
 //    req, resp := client.DescribeScalingActivitiesRequest(params)
@@ -1257,9 +1168,8 @@ func (c *AUTOSCALING) DescribeScalingActivities(input *DescribeScalingActivities
 //
 // See DescribeScalingActivities for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingActivitiesWithContext(ctx volcstack.Context, input *DescribeScalingActivitiesInput, opts ...request.Option) (*DescribeScalingActivitiesOutput, error) {
 	req, out := c.DescribeScalingActivitiesRequest(input)
@@ -1272,18 +1182,14 @@ const opDescribeScalingConfigurationsCommon = "DescribeScalingConfigurations"
 
 // DescribeScalingConfigurationsCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingConfigurationsCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingConfigurationsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingConfigurationsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingConfigurationsCommon Send returns without error.
 //
 // See DescribeScalingConfigurationsCommon for more information on using the DescribeScalingConfigurationsCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingConfigurationsCommonRequest method.
 //    req, resp := client.DescribeScalingConfigurationsCommonRequest(params)
@@ -1327,9 +1233,8 @@ func (c *AUTOSCALING) DescribeScalingConfigurationsCommon(input *map[string]inte
 //
 // See DescribeScalingConfigurationsCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingConfigurationsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingConfigurationsCommonRequest(input)
@@ -1342,18 +1247,14 @@ const opDescribeScalingConfigurations = "DescribeScalingConfigurations"
 
 // DescribeScalingConfigurationsRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingConfigurations operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingConfigurationsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingConfigurationsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingConfigurationsCommon Send returns without error.
 //
 // See DescribeScalingConfigurations for more information on using the DescribeScalingConfigurations
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingConfigurationsRequest method.
 //    req, resp := client.DescribeScalingConfigurationsRequest(params)
@@ -1397,9 +1298,8 @@ func (c *AUTOSCALING) DescribeScalingConfigurations(input *DescribeScalingConfig
 //
 // See DescribeScalingConfigurations for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingConfigurationsWithContext(ctx volcstack.Context, input *DescribeScalingConfigurationsInput, opts ...request.Option) (*DescribeScalingConfigurationsOutput, error) {
 	req, out := c.DescribeScalingConfigurationsRequest(input)
@@ -1412,18 +1312,14 @@ const opDescribeScalingGroupsCommon = "DescribeScalingGroups"
 
 // DescribeScalingGroupsCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingGroupsCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingGroupsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingGroupsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingGroupsCommon Send returns without error.
 //
 // See DescribeScalingGroupsCommon for more information on using the DescribeScalingGroupsCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingGroupsCommonRequest method.
 //    req, resp := client.DescribeScalingGroupsCommonRequest(params)
@@ -1467,9 +1363,8 @@ func (c *AUTOSCALING) DescribeScalingGroupsCommon(input *map[string]interface{})
 //
 // See DescribeScalingGroupsCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingGroupsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingGroupsCommonRequest(input)
@@ -1482,18 +1377,14 @@ const opDescribeScalingGroups = "DescribeScalingGroups"
 
 // DescribeScalingGroupsRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingGroups operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingGroupsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingGroupsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingGroupsCommon Send returns without error.
 //
 // See DescribeScalingGroups for more information on using the DescribeScalingGroups
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingGroupsRequest method.
 //    req, resp := client.DescribeScalingGroupsRequest(params)
@@ -1537,9 +1428,8 @@ func (c *AUTOSCALING) DescribeScalingGroups(input *DescribeScalingGroupsInput) (
 //
 // See DescribeScalingGroups for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingGroupsWithContext(ctx volcstack.Context, input *DescribeScalingGroupsInput, opts ...request.Option) (*DescribeScalingGroupsOutput, error) {
 	req, out := c.DescribeScalingGroupsRequest(input)
@@ -1552,18 +1442,14 @@ const opDescribeScalingInstancesCommon = "DescribeScalingInstances"
 
 // DescribeScalingInstancesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingInstancesCommon Send returns without error.
 //
 // See DescribeScalingInstancesCommon for more information on using the DescribeScalingInstancesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingInstancesCommonRequest method.
 //    req, resp := client.DescribeScalingInstancesCommonRequest(params)
@@ -1607,9 +1493,8 @@ func (c *AUTOSCALING) DescribeScalingInstancesCommon(input *map[string]interface
 //
 // See DescribeScalingInstancesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingInstancesCommonRequest(input)
@@ -1622,18 +1507,14 @@ const opDescribeScalingInstances = "DescribeScalingInstances"
 
 // DescribeScalingInstancesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingInstancesCommon Send returns without error.
 //
 // See DescribeScalingInstances for more information on using the DescribeScalingInstances
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingInstancesRequest method.
 //    req, resp := client.DescribeScalingInstancesRequest(params)
@@ -1677,9 +1558,8 @@ func (c *AUTOSCALING) DescribeScalingInstances(input *DescribeScalingInstancesIn
 //
 // See DescribeScalingInstances for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingInstancesWithContext(ctx volcstack.Context, input *DescribeScalingInstancesInput, opts ...request.Option) (*DescribeScalingInstancesOutput, error) {
 	req, out := c.DescribeScalingInstancesRequest(input)
@@ -1692,18 +1572,14 @@ const opDescribeScalingPoliciesCommon = "DescribeScalingPolicies"
 
 // DescribeScalingPoliciesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingPoliciesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingPoliciesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingPoliciesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingPoliciesCommon Send returns without error.
 //
 // See DescribeScalingPoliciesCommon for more information on using the DescribeScalingPoliciesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingPoliciesCommonRequest method.
 //    req, resp := client.DescribeScalingPoliciesCommonRequest(params)
@@ -1747,9 +1623,8 @@ func (c *AUTOSCALING) DescribeScalingPoliciesCommon(input *map[string]interface{
 //
 // See DescribeScalingPoliciesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingPoliciesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingPoliciesCommonRequest(input)
@@ -1762,18 +1637,14 @@ const opDescribeScalingPolicies = "DescribeScalingPolicies"
 
 // DescribeScalingPoliciesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeScalingPolicies operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeScalingPoliciesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeScalingPoliciesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeScalingPoliciesCommon Send returns without error.
 //
 // See DescribeScalingPolicies for more information on using the DescribeScalingPolicies
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeScalingPoliciesRequest method.
 //    req, resp := client.DescribeScalingPoliciesRequest(params)
@@ -1817,9 +1688,8 @@ func (c *AUTOSCALING) DescribeScalingPolicies(input *DescribeScalingPoliciesInpu
 //
 // See DescribeScalingPolicies for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DescribeScalingPoliciesWithContext(ctx volcstack.Context, input *DescribeScalingPoliciesInput, opts ...request.Option) (*DescribeScalingPoliciesOutput, error) {
 	req, out := c.DescribeScalingPoliciesRequest(input)
@@ -1832,18 +1702,14 @@ const opDetachInstancesCommon = "DetachInstances"
 
 // DetachInstancesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DetachInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DetachInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DetachInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachInstancesCommon Send returns without error.
 //
 // See DetachInstancesCommon for more information on using the DetachInstancesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DetachInstancesCommonRequest method.
 //    req, resp := client.DetachInstancesCommonRequest(params)
@@ -1887,9 +1753,8 @@ func (c *AUTOSCALING) DetachInstancesCommon(input *map[string]interface{}) (*map
 //
 // See DetachInstancesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DetachInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DetachInstancesCommonRequest(input)
@@ -1902,18 +1767,14 @@ const opDetachInstances = "DetachInstances"
 
 // DetachInstancesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DetachInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DetachInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DetachInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachInstancesCommon Send returns without error.
 //
 // See DetachInstances for more information on using the DetachInstances
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DetachInstancesRequest method.
 //    req, resp := client.DetachInstancesRequest(params)
@@ -1957,9 +1818,8 @@ func (c *AUTOSCALING) DetachInstances(input *DetachInstancesInput) (*DetachInsta
 //
 // See DetachInstances for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DetachInstancesWithContext(ctx volcstack.Context, input *DetachInstancesInput, opts ...request.Option) (*DetachInstancesOutput, error) {
 	req, out := c.DetachInstancesRequest(input)
@@ -1972,18 +1832,14 @@ const opDetachLoadBalancersCommon = "DetachLoadBalancers"
 
 // DetachLoadBalancersCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DetachLoadBalancersCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DetachLoadBalancersCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DetachLoadBalancersCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachLoadBalancersCommon Send returns without error.
 //
 // See DetachLoadBalancersCommon for more information on using the DetachLoadBalancersCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DetachLoadBalancersCommonRequest method.
 //    req, resp := client.DetachLoadBalancersCommonRequest(params)
@@ -2027,9 +1883,8 @@ func (c *AUTOSCALING) DetachLoadBalancersCommon(input *map[string]interface{}) (
 //
 // See DetachLoadBalancersCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DetachLoadBalancersCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DetachLoadBalancersCommonRequest(input)
@@ -2042,18 +1897,14 @@ const opDetachLoadBalancers = "DetachLoadBalancers"
 
 // DetachLoadBalancersRequest generates a "volcstack/request.Request" representing the
 // client's request for the DetachLoadBalancers operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DetachLoadBalancersCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DetachLoadBalancersCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachLoadBalancersCommon Send returns without error.
 //
 // See DetachLoadBalancers for more information on using the DetachLoadBalancers
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DetachLoadBalancersRequest method.
 //    req, resp := client.DetachLoadBalancersRequest(params)
@@ -2097,9 +1948,8 @@ func (c *AUTOSCALING) DetachLoadBalancers(input *DetachLoadBalancersInput) (*Det
 //
 // See DetachLoadBalancers for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DetachLoadBalancersWithContext(ctx volcstack.Context, input *DetachLoadBalancersInput, opts ...request.Option) (*DetachLoadBalancersOutput, error) {
 	req, out := c.DetachLoadBalancersRequest(input)
@@ -2112,18 +1962,14 @@ const opDisableScalingGroupCommon = "DisableScalingGroup"
 
 // DisableScalingGroupCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DisableScalingGroupCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DisableScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DisableScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisableScalingGroupCommon Send returns without error.
 //
 // See DisableScalingGroupCommon for more information on using the DisableScalingGroupCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DisableScalingGroupCommonRequest method.
 //    req, resp := client.DisableScalingGroupCommonRequest(params)
@@ -2167,9 +2013,8 @@ func (c *AUTOSCALING) DisableScalingGroupCommon(input *map[string]interface{}) (
 //
 // See DisableScalingGroupCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DisableScalingGroupCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DisableScalingGroupCommonRequest(input)
@@ -2182,18 +2027,14 @@ const opDisableScalingGroup = "DisableScalingGroup"
 
 // DisableScalingGroupRequest generates a "volcstack/request.Request" representing the
 // client's request for the DisableScalingGroup operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DisableScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DisableScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisableScalingGroupCommon Send returns without error.
 //
 // See DisableScalingGroup for more information on using the DisableScalingGroup
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DisableScalingGroupRequest method.
 //    req, resp := client.DisableScalingGroupRequest(params)
@@ -2237,9 +2078,8 @@ func (c *AUTOSCALING) DisableScalingGroup(input *DisableScalingGroupInput) (*Dis
 //
 // See DisableScalingGroup for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) DisableScalingGroupWithContext(ctx volcstack.Context, input *DisableScalingGroupInput, opts ...request.Option) (*DisableScalingGroupOutput, error) {
 	req, out := c.DisableScalingGroupRequest(input)
@@ -2252,18 +2092,14 @@ const opEnableScalingConfigurationCommon = "EnableScalingConfiguration"
 
 // EnableScalingConfigurationCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the EnableScalingConfigurationCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the EnableScalingConfigurationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned EnableScalingConfigurationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after EnableScalingConfigurationCommon Send returns without error.
 //
 // See EnableScalingConfigurationCommon for more information on using the EnableScalingConfigurationCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the EnableScalingConfigurationCommonRequest method.
 //    req, resp := client.EnableScalingConfigurationCommonRequest(params)
@@ -2307,9 +2143,8 @@ func (c *AUTOSCALING) EnableScalingConfigurationCommon(input *map[string]interfa
 //
 // See EnableScalingConfigurationCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) EnableScalingConfigurationCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.EnableScalingConfigurationCommonRequest(input)
@@ -2322,18 +2157,14 @@ const opEnableScalingConfiguration = "EnableScalingConfiguration"
 
 // EnableScalingConfigurationRequest generates a "volcstack/request.Request" representing the
 // client's request for the EnableScalingConfiguration operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the EnableScalingConfigurationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned EnableScalingConfigurationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after EnableScalingConfigurationCommon Send returns without error.
 //
 // See EnableScalingConfiguration for more information on using the EnableScalingConfiguration
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the EnableScalingConfigurationRequest method.
 //    req, resp := client.EnableScalingConfigurationRequest(params)
@@ -2377,9 +2208,8 @@ func (c *AUTOSCALING) EnableScalingConfiguration(input *EnableScalingConfigurati
 //
 // See EnableScalingConfiguration for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) EnableScalingConfigurationWithContext(ctx volcstack.Context, input *EnableScalingConfigurationInput, opts ...request.Option) (*EnableScalingConfigurationOutput, error) {
 	req, out := c.EnableScalingConfigurationRequest(input)
@@ -2392,18 +2222,14 @@ const opEnableScalingGroupCommon = "EnableScalingGroup"
 
 // EnableScalingGroupCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the EnableScalingGroupCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the EnableScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned EnableScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after EnableScalingGroupCommon Send returns without error.
 //
 // See EnableScalingGroupCommon for more information on using the EnableScalingGroupCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the EnableScalingGroupCommonRequest method.
 //    req, resp := client.EnableScalingGroupCommonRequest(params)
@@ -2447,9 +2273,8 @@ func (c *AUTOSCALING) EnableScalingGroupCommon(input *map[string]interface{}) (*
 //
 // See EnableScalingGroupCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) EnableScalingGroupCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.EnableScalingGroupCommonRequest(input)
@@ -2462,18 +2287,14 @@ const opEnableScalingGroup = "EnableScalingGroup"
 
 // EnableScalingGroupRequest generates a "volcstack/request.Request" representing the
 // client's request for the EnableScalingGroup operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the EnableScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned EnableScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after EnableScalingGroupCommon Send returns without error.
 //
 // See EnableScalingGroup for more information on using the EnableScalingGroup
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the EnableScalingGroupRequest method.
 //    req, resp := client.EnableScalingGroupRequest(params)
@@ -2517,9 +2338,8 @@ func (c *AUTOSCALING) EnableScalingGroup(input *EnableScalingGroupInput) (*Enabl
 //
 // See EnableScalingGroup for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) EnableScalingGroupWithContext(ctx volcstack.Context, input *EnableScalingGroupInput, opts ...request.Option) (*EnableScalingGroupOutput, error) {
 	req, out := c.EnableScalingGroupRequest(input)
@@ -2532,18 +2352,14 @@ const opModifyInstancesProtectionCommon = "ModifyInstancesProtection"
 
 // ModifyInstancesProtectionCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstancesProtectionCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstancesProtectionCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstancesProtectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstancesProtectionCommon Send returns without error.
 //
 // See ModifyInstancesProtectionCommon for more information on using the ModifyInstancesProtectionCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstancesProtectionCommonRequest method.
 //    req, resp := client.ModifyInstancesProtectionCommonRequest(params)
@@ -2587,9 +2403,8 @@ func (c *AUTOSCALING) ModifyInstancesProtectionCommon(input *map[string]interfac
 //
 // See ModifyInstancesProtectionCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) ModifyInstancesProtectionCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstancesProtectionCommonRequest(input)
@@ -2602,18 +2417,14 @@ const opModifyInstancesProtection = "ModifyInstancesProtection"
 
 // ModifyInstancesProtectionRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstancesProtection operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstancesProtectionCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstancesProtectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstancesProtectionCommon Send returns without error.
 //
 // See ModifyInstancesProtection for more information on using the ModifyInstancesProtection
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstancesProtectionRequest method.
 //    req, resp := client.ModifyInstancesProtectionRequest(params)
@@ -2657,9 +2468,8 @@ func (c *AUTOSCALING) ModifyInstancesProtection(input *ModifyInstancesProtection
 //
 // See ModifyInstancesProtection for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) ModifyInstancesProtectionWithContext(ctx volcstack.Context, input *ModifyInstancesProtectionInput, opts ...request.Option) (*ModifyInstancesProtectionOutput, error) {
 	req, out := c.ModifyInstancesProtectionRequest(input)
@@ -2672,18 +2482,14 @@ const opModifyScalingConfigurationCommon = "ModifyScalingConfiguration"
 
 // ModifyScalingConfigurationCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyScalingConfigurationCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyScalingConfigurationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyScalingConfigurationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyScalingConfigurationCommon Send returns without error.
 //
 // See ModifyScalingConfigurationCommon for more information on using the ModifyScalingConfigurationCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyScalingConfigurationCommonRequest method.
 //    req, resp := client.ModifyScalingConfigurationCommonRequest(params)
@@ -2727,9 +2533,8 @@ func (c *AUTOSCALING) ModifyScalingConfigurationCommon(input *map[string]interfa
 //
 // See ModifyScalingConfigurationCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) ModifyScalingConfigurationCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyScalingConfigurationCommonRequest(input)
@@ -2742,18 +2547,14 @@ const opModifyScalingConfiguration = "ModifyScalingConfiguration"
 
 // ModifyScalingConfigurationRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyScalingConfiguration operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyScalingConfigurationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyScalingConfigurationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyScalingConfigurationCommon Send returns without error.
 //
 // See ModifyScalingConfiguration for more information on using the ModifyScalingConfiguration
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyScalingConfigurationRequest method.
 //    req, resp := client.ModifyScalingConfigurationRequest(params)
@@ -2797,9 +2598,8 @@ func (c *AUTOSCALING) ModifyScalingConfiguration(input *ModifyScalingConfigurati
 //
 // See ModifyScalingConfiguration for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) ModifyScalingConfigurationWithContext(ctx volcstack.Context, input *ModifyScalingConfigurationInput, opts ...request.Option) (*ModifyScalingConfigurationOutput, error) {
 	req, out := c.ModifyScalingConfigurationRequest(input)
@@ -2812,18 +2612,14 @@ const opModifyScalingGroupCommon = "ModifyScalingGroup"
 
 // ModifyScalingGroupCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyScalingGroupCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyScalingGroupCommon Send returns without error.
 //
 // See ModifyScalingGroupCommon for more information on using the ModifyScalingGroupCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyScalingGroupCommonRequest method.
 //    req, resp := client.ModifyScalingGroupCommonRequest(params)
@@ -2867,9 +2663,8 @@ func (c *AUTOSCALING) ModifyScalingGroupCommon(input *map[string]interface{}) (*
 //
 // See ModifyScalingGroupCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) ModifyScalingGroupCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyScalingGroupCommonRequest(input)
@@ -2882,18 +2677,14 @@ const opModifyScalingGroup = "ModifyScalingGroup"
 
 // ModifyScalingGroupRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyScalingGroup operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyScalingGroupCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyScalingGroupCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyScalingGroupCommon Send returns without error.
 //
 // See ModifyScalingGroup for more information on using the ModifyScalingGroup
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyScalingGroupRequest method.
 //    req, resp := client.ModifyScalingGroupRequest(params)
@@ -2937,9 +2728,8 @@ func (c *AUTOSCALING) ModifyScalingGroup(input *ModifyScalingGroupInput) (*Modif
 //
 // See ModifyScalingGroup for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) ModifyScalingGroupWithContext(ctx volcstack.Context, input *ModifyScalingGroupInput, opts ...request.Option) (*ModifyScalingGroupOutput, error) {
 	req, out := c.ModifyScalingGroupRequest(input)
@@ -2952,18 +2742,14 @@ const opModifyScalingPolicyCommon = "ModifyScalingPolicy"
 
 // ModifyScalingPolicyCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyScalingPolicyCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyScalingPolicyCommon Send returns without error.
 //
 // See ModifyScalingPolicyCommon for more information on using the ModifyScalingPolicyCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyScalingPolicyCommonRequest method.
 //    req, resp := client.ModifyScalingPolicyCommonRequest(params)
@@ -3007,9 +2793,8 @@ func (c *AUTOSCALING) ModifyScalingPolicyCommon(input *map[string]interface{}) (
 //
 // See ModifyScalingPolicyCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) ModifyScalingPolicyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyScalingPolicyCommonRequest(input)
@@ -3022,18 +2807,14 @@ const opModifyScalingPolicy = "ModifyScalingPolicy"
 
 // ModifyScalingPolicyRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyScalingPolicy operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyScalingPolicyCommon Send returns without error.
 //
 // See ModifyScalingPolicy for more information on using the ModifyScalingPolicy
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyScalingPolicyRequest method.
 //    req, resp := client.ModifyScalingPolicyRequest(params)
@@ -3077,9 +2858,8 @@ func (c *AUTOSCALING) ModifyScalingPolicy(input *ModifyScalingPolicyInput) (*Mod
 //
 // See ModifyScalingPolicy for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) ModifyScalingPolicyWithContext(ctx volcstack.Context, input *ModifyScalingPolicyInput, opts ...request.Option) (*ModifyScalingPolicyOutput, error) {
 	req, out := c.ModifyScalingPolicyRequest(input)
@@ -3092,18 +2872,14 @@ const opRemoveInstancesCommon = "RemoveInstances"
 
 // RemoveInstancesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the RemoveInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the RemoveInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned RemoveInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RemoveInstancesCommon Send returns without error.
 //
 // See RemoveInstancesCommon for more information on using the RemoveInstancesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the RemoveInstancesCommonRequest method.
 //    req, resp := client.RemoveInstancesCommonRequest(params)
@@ -3147,9 +2923,8 @@ func (c *AUTOSCALING) RemoveInstancesCommon(input *map[string]interface{}) (*map
 //
 // See RemoveInstancesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) RemoveInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.RemoveInstancesCommonRequest(input)
@@ -3162,18 +2937,14 @@ const opRemoveInstances = "RemoveInstances"
 
 // RemoveInstancesRequest generates a "volcstack/request.Request" representing the
 // client's request for the RemoveInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the RemoveInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned RemoveInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RemoveInstancesCommon Send returns without error.
 //
 // See RemoveInstances for more information on using the RemoveInstances
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the RemoveInstancesRequest method.
 //    req, resp := client.RemoveInstancesRequest(params)
@@ -3217,9 +2988,8 @@ func (c *AUTOSCALING) RemoveInstances(input *RemoveInstancesInput) (*RemoveInsta
 //
 // See RemoveInstances for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) RemoveInstancesWithContext(ctx volcstack.Context, input *RemoveInstancesInput, opts ...request.Option) (*RemoveInstancesOutput, error) {
 	req, out := c.RemoveInstancesRequest(input)
@@ -3232,18 +3002,14 @@ const opStartScalingPolicyCommon = "StartScalingPolicy"
 
 // StartScalingPolicyCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the StartScalingPolicyCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the StartScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned StartScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StartScalingPolicyCommon Send returns without error.
 //
 // See StartScalingPolicyCommon for more information on using the StartScalingPolicyCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the StartScalingPolicyCommonRequest method.
 //    req, resp := client.StartScalingPolicyCommonRequest(params)
@@ -3287,9 +3053,8 @@ func (c *AUTOSCALING) StartScalingPolicyCommon(input *map[string]interface{}) (*
 //
 // See StartScalingPolicyCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) StartScalingPolicyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.StartScalingPolicyCommonRequest(input)
@@ -3302,18 +3067,14 @@ const opStartScalingPolicy = "StartScalingPolicy"
 
 // StartScalingPolicyRequest generates a "volcstack/request.Request" representing the
 // client's request for the StartScalingPolicy operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the StartScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned StartScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StartScalingPolicyCommon Send returns without error.
 //
 // See StartScalingPolicy for more information on using the StartScalingPolicy
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the StartScalingPolicyRequest method.
 //    req, resp := client.StartScalingPolicyRequest(params)
@@ -3357,9 +3118,8 @@ func (c *AUTOSCALING) StartScalingPolicy(input *StartScalingPolicyInput) (*Start
 //
 // See StartScalingPolicy for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) StartScalingPolicyWithContext(ctx volcstack.Context, input *StartScalingPolicyInput, opts ...request.Option) (*StartScalingPolicyOutput, error) {
 	req, out := c.StartScalingPolicyRequest(input)
@@ -3372,18 +3132,14 @@ const opStopScalingPolicyCommon = "StopScalingPolicy"
 
 // StopScalingPolicyCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the StopScalingPolicyCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the StopScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned StopScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StopScalingPolicyCommon Send returns without error.
 //
 // See StopScalingPolicyCommon for more information on using the StopScalingPolicyCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the StopScalingPolicyCommonRequest method.
 //    req, resp := client.StopScalingPolicyCommonRequest(params)
@@ -3427,9 +3183,8 @@ func (c *AUTOSCALING) StopScalingPolicyCommon(input *map[string]interface{}) (*m
 //
 // See StopScalingPolicyCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) StopScalingPolicyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.StopScalingPolicyCommonRequest(input)
@@ -3442,18 +3197,14 @@ const opStopScalingPolicy = "StopScalingPolicy"
 
 // StopScalingPolicyRequest generates a "volcstack/request.Request" representing the
 // client's request for the StopScalingPolicy operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the StopScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned StopScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StopScalingPolicyCommon Send returns without error.
 //
 // See StopScalingPolicy for more information on using the StopScalingPolicy
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the StopScalingPolicyRequest method.
 //    req, resp := client.StopScalingPolicyRequest(params)
@@ -3497,9 +3248,8 @@ func (c *AUTOSCALING) StopScalingPolicy(input *StopScalingPolicyInput) (*StopSca
 //
 // See StopScalingPolicy for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *AUTOSCALING) StopScalingPolicyWithContext(ctx volcstack.Context, input *StopScalingPolicyInput, opts ...request.Option) (*StopScalingPolicyOutput, error) {
 	req, out := c.StopScalingPolicyRequest(input)

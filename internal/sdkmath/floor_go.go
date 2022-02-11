@@ -2,6 +2,9 @@ package sdkmath
 
 import "math"
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 // Copied from the Go standard library's (Go 1.12) math/floor.go for use in
 // Go version prior to Go 1.10.
 const (

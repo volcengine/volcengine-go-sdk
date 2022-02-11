@@ -1,5 +1,8 @@
 package corehandlers
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import "github.com/volcengine/volcstack-go-sdk/volcstack/request"
 
 // ValidateParametersHandler is a request handler to validate the input parameters.

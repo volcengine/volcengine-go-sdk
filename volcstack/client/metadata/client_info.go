@@ -1,5 +1,8 @@
 package metadata
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 // ClientInfo wraps immutable data from the client.Client structure.
 type ClientInfo struct {
 	ServiceName   string

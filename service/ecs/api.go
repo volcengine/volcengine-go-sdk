@@ -14,18 +14,14 @@ const opAttachKeyPairCommon = "AttachKeyPair"
 
 // AttachKeyPairCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the AttachKeyPairCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the AttachKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned AttachKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachKeyPairCommon Send returns without error.
 //
 // See AttachKeyPairCommon for more information on using the AttachKeyPairCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the AttachKeyPairCommonRequest method.
 //    req, resp := client.AttachKeyPairCommonRequest(params)
@@ -69,9 +65,8 @@ func (c *ECS) AttachKeyPairCommon(input *map[string]interface{}) (*map[string]in
 //
 // See AttachKeyPairCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) AttachKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.AttachKeyPairCommonRequest(input)
@@ -84,18 +79,14 @@ const opAttachKeyPair = "AttachKeyPair"
 
 // AttachKeyPairRequest generates a "volcstack/request.Request" representing the
 // client's request for the AttachKeyPair operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the AttachKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned AttachKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachKeyPairCommon Send returns without error.
 //
 // See AttachKeyPair for more information on using the AttachKeyPair
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the AttachKeyPairRequest method.
 //    req, resp := client.AttachKeyPairRequest(params)
@@ -139,9 +130,8 @@ func (c *ECS) AttachKeyPair(input *AttachKeyPairInput) (*AttachKeyPairOutput, er
 //
 // See AttachKeyPair for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) AttachKeyPairWithContext(ctx volcstack.Context, input *AttachKeyPairInput, opts ...request.Option) (*AttachKeyPairOutput, error) {
 	req, out := c.AttachKeyPairRequest(input)
@@ -154,18 +144,14 @@ const opBindAssumeRoleCommon = "BindAssumeRole"
 
 // BindAssumeRoleCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the BindAssumeRoleCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the BindAssumeRoleCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned BindAssumeRoleCommon Request to send the API call to the service.
+// the "output" return value is not valid until after BindAssumeRoleCommon Send returns without error.
 //
 // See BindAssumeRoleCommon for more information on using the BindAssumeRoleCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the BindAssumeRoleCommonRequest method.
 //    req, resp := client.BindAssumeRoleCommonRequest(params)
@@ -210,9 +196,8 @@ func (c *ECS) BindAssumeRoleCommon(input *map[string]interface{}) (*map[string]i
 //
 // See BindAssumeRoleCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) BindAssumeRoleCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.BindAssumeRoleCommonRequest(input)
@@ -225,18 +210,14 @@ const opBindAssumeRole = "BindAssumeRole"
 
 // BindAssumeRoleRequest generates a "volcstack/request.Request" representing the
 // client's request for the BindAssumeRole operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the BindAssumeRoleCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned BindAssumeRoleCommon Request to send the API call to the service.
+// the "output" return value is not valid until after BindAssumeRoleCommon Send returns without error.
 //
 // See BindAssumeRole for more information on using the BindAssumeRole
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the BindAssumeRoleRequest method.
 //    req, resp := client.BindAssumeRoleRequest(params)
@@ -281,9 +262,8 @@ func (c *ECS) BindAssumeRole(input *BindAssumeRoleInput) (*BindAssumeRoleOutput,
 //
 // See BindAssumeRole for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) BindAssumeRoleWithContext(ctx volcstack.Context, input *BindAssumeRoleInput, opts ...request.Option) (*BindAssumeRoleOutput, error) {
 	req, out := c.BindAssumeRoleRequest(input)
@@ -296,18 +276,14 @@ const opCreateDeploymentSetCommon = "CreateDeploymentSet"
 
 // CreateDeploymentSetCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateDeploymentSetCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateDeploymentSetCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateDeploymentSetCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateDeploymentSetCommon Send returns without error.
 //
 // See CreateDeploymentSetCommon for more information on using the CreateDeploymentSetCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateDeploymentSetCommonRequest method.
 //    req, resp := client.CreateDeploymentSetCommonRequest(params)
@@ -351,9 +327,8 @@ func (c *ECS) CreateDeploymentSetCommon(input *map[string]interface{}) (*map[str
 //
 // See CreateDeploymentSetCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateDeploymentSetCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateDeploymentSetCommonRequest(input)
@@ -366,18 +341,14 @@ const opCreateDeploymentSet = "CreateDeploymentSet"
 
 // CreateDeploymentSetRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateDeploymentSet operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateDeploymentSetCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateDeploymentSetCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateDeploymentSetCommon Send returns without error.
 //
 // See CreateDeploymentSet for more information on using the CreateDeploymentSet
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateDeploymentSetRequest method.
 //    req, resp := client.CreateDeploymentSetRequest(params)
@@ -421,9 +392,8 @@ func (c *ECS) CreateDeploymentSet(input *CreateDeploymentSetInput) (*CreateDeplo
 //
 // See CreateDeploymentSet for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateDeploymentSetWithContext(ctx volcstack.Context, input *CreateDeploymentSetInput, opts ...request.Option) (*CreateDeploymentSetOutput, error) {
 	req, out := c.CreateDeploymentSetRequest(input)
@@ -436,18 +406,14 @@ const opCreateHpcClusterCommon = "CreateHpcCluster"
 
 // CreateHpcClusterCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateHpcClusterCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateHpcClusterCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateHpcClusterCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateHpcClusterCommon Send returns without error.
 //
 // See CreateHpcClusterCommon for more information on using the CreateHpcClusterCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateHpcClusterCommonRequest method.
 //    req, resp := client.CreateHpcClusterCommonRequest(params)
@@ -491,9 +457,8 @@ func (c *ECS) CreateHpcClusterCommon(input *map[string]interface{}) (*map[string
 //
 // See CreateHpcClusterCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateHpcClusterCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateHpcClusterCommonRequest(input)
@@ -506,18 +471,14 @@ const opCreateHpcCluster = "CreateHpcCluster"
 
 // CreateHpcClusterRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateHpcCluster operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateHpcClusterCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateHpcClusterCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateHpcClusterCommon Send returns without error.
 //
 // See CreateHpcCluster for more information on using the CreateHpcCluster
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateHpcClusterRequest method.
 //    req, resp := client.CreateHpcClusterRequest(params)
@@ -561,9 +522,8 @@ func (c *ECS) CreateHpcCluster(input *CreateHpcClusterInput) (*CreateHpcClusterO
 //
 // See CreateHpcCluster for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateHpcClusterWithContext(ctx volcstack.Context, input *CreateHpcClusterInput, opts ...request.Option) (*CreateHpcClusterOutput, error) {
 	req, out := c.CreateHpcClusterRequest(input)
@@ -576,18 +536,14 @@ const opCreateImageCommon = "CreateImage"
 
 // CreateImageCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateImageCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateImageCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateImageCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateImageCommon Send returns without error.
 //
 // See CreateImageCommon for more information on using the CreateImageCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateImageCommonRequest method.
 //    req, resp := client.CreateImageCommonRequest(params)
@@ -631,9 +587,8 @@ func (c *ECS) CreateImageCommon(input *map[string]interface{}) (*map[string]inte
 //
 // See CreateImageCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateImageCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateImageCommonRequest(input)
@@ -646,18 +601,14 @@ const opCreateImage = "CreateImage"
 
 // CreateImageRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateImage operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateImageCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateImageCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateImageCommon Send returns without error.
 //
 // See CreateImage for more information on using the CreateImage
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateImageRequest method.
 //    req, resp := client.CreateImageRequest(params)
@@ -701,9 +652,8 @@ func (c *ECS) CreateImage(input *CreateImageInput) (*CreateImageOutput, error) {
 //
 // See CreateImage for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateImageWithContext(ctx volcstack.Context, input *CreateImageInput, opts ...request.Option) (*CreateImageOutput, error) {
 	req, out := c.CreateImageRequest(input)
@@ -716,18 +666,14 @@ const opCreateInstancesCommon = "CreateInstances"
 
 // CreateInstancesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateInstancesCommon Send returns without error.
 //
 // See CreateInstancesCommon for more information on using the CreateInstancesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateInstancesCommonRequest method.
 //    req, resp := client.CreateInstancesCommonRequest(params)
@@ -771,9 +717,8 @@ func (c *ECS) CreateInstancesCommon(input *map[string]interface{}) (*map[string]
 //
 // See CreateInstancesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateInstancesCommonRequest(input)
@@ -786,18 +731,14 @@ const opCreateInstances = "CreateInstances"
 
 // CreateInstancesRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateInstancesCommon Send returns without error.
 //
 // See CreateInstances for more information on using the CreateInstances
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateInstancesRequest method.
 //    req, resp := client.CreateInstancesRequest(params)
@@ -841,9 +782,8 @@ func (c *ECS) CreateInstances(input *CreateInstancesInput) (*CreateInstancesOutp
 //
 // See CreateInstances for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateInstancesWithContext(ctx volcstack.Context, input *CreateInstancesInput, opts ...request.Option) (*CreateInstancesOutput, error) {
 	req, out := c.CreateInstancesRequest(input)
@@ -856,18 +796,14 @@ const opCreateKeyPairCommon = "CreateKeyPair"
 
 // CreateKeyPairCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateKeyPairCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateKeyPairCommon Send returns without error.
 //
 // See CreateKeyPairCommon for more information on using the CreateKeyPairCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateKeyPairCommonRequest method.
 //    req, resp := client.CreateKeyPairCommonRequest(params)
@@ -911,9 +847,8 @@ func (c *ECS) CreateKeyPairCommon(input *map[string]interface{}) (*map[string]in
 //
 // See CreateKeyPairCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateKeyPairCommonRequest(input)
@@ -926,18 +861,14 @@ const opCreateKeyPair = "CreateKeyPair"
 
 // CreateKeyPairRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateKeyPair operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateKeyPairCommon Send returns without error.
 //
 // See CreateKeyPair for more information on using the CreateKeyPair
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateKeyPairRequest method.
 //    req, resp := client.CreateKeyPairRequest(params)
@@ -981,9 +912,8 @@ func (c *ECS) CreateKeyPair(input *CreateKeyPairInput) (*CreateKeyPairOutput, er
 //
 // See CreateKeyPair for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) CreateKeyPairWithContext(ctx volcstack.Context, input *CreateKeyPairInput, opts ...request.Option) (*CreateKeyPairOutput, error) {
 	req, out := c.CreateKeyPairRequest(input)
@@ -996,18 +926,14 @@ const opDeleteDeploymentSetCommon = "DeleteDeploymentSet"
 
 // DeleteDeploymentSetCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteDeploymentSetCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteDeploymentSetCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteDeploymentSetCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteDeploymentSetCommon Send returns without error.
 //
 // See DeleteDeploymentSetCommon for more information on using the DeleteDeploymentSetCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteDeploymentSetCommonRequest method.
 //    req, resp := client.DeleteDeploymentSetCommonRequest(params)
@@ -1052,9 +978,8 @@ func (c *ECS) DeleteDeploymentSetCommon(input *map[string]interface{}) (*map[str
 //
 // See DeleteDeploymentSetCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteDeploymentSetCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteDeploymentSetCommonRequest(input)
@@ -1067,18 +992,14 @@ const opDeleteDeploymentSet = "DeleteDeploymentSet"
 
 // DeleteDeploymentSetRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteDeploymentSet operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteDeploymentSetCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteDeploymentSetCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteDeploymentSetCommon Send returns without error.
 //
 // See DeleteDeploymentSet for more information on using the DeleteDeploymentSet
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteDeploymentSetRequest method.
 //    req, resp := client.DeleteDeploymentSetRequest(params)
@@ -1123,9 +1044,8 @@ func (c *ECS) DeleteDeploymentSet(input *DeleteDeploymentSetInput) (*DeleteDeplo
 //
 // See DeleteDeploymentSet for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteDeploymentSetWithContext(ctx volcstack.Context, input *DeleteDeploymentSetInput, opts ...request.Option) (*DeleteDeploymentSetOutput, error) {
 	req, out := c.DeleteDeploymentSetRequest(input)
@@ -1138,18 +1058,14 @@ const opDeleteHpcClusterCommon = "DeleteHpcCluster"
 
 // DeleteHpcClusterCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteHpcClusterCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteHpcClusterCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteHpcClusterCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteHpcClusterCommon Send returns without error.
 //
 // See DeleteHpcClusterCommon for more information on using the DeleteHpcClusterCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteHpcClusterCommonRequest method.
 //    req, resp := client.DeleteHpcClusterCommonRequest(params)
@@ -1194,9 +1110,8 @@ func (c *ECS) DeleteHpcClusterCommon(input *map[string]interface{}) (*map[string
 //
 // See DeleteHpcClusterCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteHpcClusterCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteHpcClusterCommonRequest(input)
@@ -1209,18 +1124,14 @@ const opDeleteHpcCluster = "DeleteHpcCluster"
 
 // DeleteHpcClusterRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteHpcCluster operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteHpcClusterCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteHpcClusterCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteHpcClusterCommon Send returns without error.
 //
 // See DeleteHpcCluster for more information on using the DeleteHpcCluster
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteHpcClusterRequest method.
 //    req, resp := client.DeleteHpcClusterRequest(params)
@@ -1265,9 +1176,8 @@ func (c *ECS) DeleteHpcCluster(input *DeleteHpcClusterInput) (*DeleteHpcClusterO
 //
 // See DeleteHpcCluster for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteHpcClusterWithContext(ctx volcstack.Context, input *DeleteHpcClusterInput, opts ...request.Option) (*DeleteHpcClusterOutput, error) {
 	req, out := c.DeleteHpcClusterRequest(input)
@@ -1280,18 +1190,14 @@ const opDeleteImagesCommon = "DeleteImages"
 
 // DeleteImagesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteImagesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteImagesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteImagesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteImagesCommon Send returns without error.
 //
 // See DeleteImagesCommon for more information on using the DeleteImagesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteImagesCommonRequest method.
 //    req, resp := client.DeleteImagesCommonRequest(params)
@@ -1335,9 +1241,8 @@ func (c *ECS) DeleteImagesCommon(input *map[string]interface{}) (*map[string]int
 //
 // See DeleteImagesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteImagesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteImagesCommonRequest(input)
@@ -1350,18 +1255,14 @@ const opDeleteImages = "DeleteImages"
 
 // DeleteImagesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteImages operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteImagesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteImagesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteImagesCommon Send returns without error.
 //
 // See DeleteImages for more information on using the DeleteImages
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteImagesRequest method.
 //    req, resp := client.DeleteImagesRequest(params)
@@ -1405,9 +1306,8 @@ func (c *ECS) DeleteImages(input *DeleteImagesInput) (*DeleteImagesOutput, error
 //
 // See DeleteImages for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteImagesWithContext(ctx volcstack.Context, input *DeleteImagesInput, opts ...request.Option) (*DeleteImagesOutput, error) {
 	req, out := c.DeleteImagesRequest(input)
@@ -1420,18 +1320,14 @@ const opDeleteInstanceCommon = "DeleteInstance"
 
 // DeleteInstanceCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteInstanceCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteInstanceCommon Send returns without error.
 //
 // See DeleteInstanceCommon for more information on using the DeleteInstanceCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteInstanceCommonRequest method.
 //    req, resp := client.DeleteInstanceCommonRequest(params)
@@ -1476,9 +1372,8 @@ func (c *ECS) DeleteInstanceCommon(input *map[string]interface{}) (*map[string]i
 //
 // See DeleteInstanceCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteInstanceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteInstanceCommonRequest(input)
@@ -1491,18 +1386,14 @@ const opDeleteInstance = "DeleteInstance"
 
 // DeleteInstanceRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteInstance operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteInstanceCommon Send returns without error.
 //
 // See DeleteInstance for more information on using the DeleteInstance
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteInstanceRequest method.
 //    req, resp := client.DeleteInstanceRequest(params)
@@ -1547,9 +1438,8 @@ func (c *ECS) DeleteInstance(input *DeleteInstanceInput) (*DeleteInstanceOutput,
 //
 // See DeleteInstance for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteInstanceWithContext(ctx volcstack.Context, input *DeleteInstanceInput, opts ...request.Option) (*DeleteInstanceOutput, error) {
 	req, out := c.DeleteInstanceRequest(input)
@@ -1562,18 +1452,14 @@ const opDeleteKeyPairCommon = "DeleteKeyPair"
 
 // DeleteKeyPairCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteKeyPairCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteKeyPairCommon Send returns without error.
 //
 // See DeleteKeyPairCommon for more information on using the DeleteKeyPairCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteKeyPairCommonRequest method.
 //    req, resp := client.DeleteKeyPairCommonRequest(params)
@@ -1617,9 +1503,8 @@ func (c *ECS) DeleteKeyPairCommon(input *map[string]interface{}) (*map[string]in
 //
 // See DeleteKeyPairCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteKeyPairCommonRequest(input)
@@ -1632,18 +1517,14 @@ const opDeleteKeyPair = "DeleteKeyPair"
 
 // DeleteKeyPairRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteKeyPair operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteKeyPairCommon Send returns without error.
 //
 // See DeleteKeyPair for more information on using the DeleteKeyPair
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteKeyPairRequest method.
 //    req, resp := client.DeleteKeyPairRequest(params)
@@ -1687,9 +1568,8 @@ func (c *ECS) DeleteKeyPair(input *DeleteKeyPairInput) (*DeleteKeyPairOutput, er
 //
 // See DeleteKeyPair for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteKeyPairWithContext(ctx volcstack.Context, input *DeleteKeyPairInput, opts ...request.Option) (*DeleteKeyPairOutput, error) {
 	req, out := c.DeleteKeyPairRequest(input)
@@ -1702,18 +1582,14 @@ const opDeleteKeyPairsCommon = "DeleteKeyPairs"
 
 // DeleteKeyPairsCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteKeyPairsCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteKeyPairsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteKeyPairsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteKeyPairsCommon Send returns without error.
 //
 // See DeleteKeyPairsCommon for more information on using the DeleteKeyPairsCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteKeyPairsCommonRequest method.
 //    req, resp := client.DeleteKeyPairsCommonRequest(params)
@@ -1757,9 +1633,8 @@ func (c *ECS) DeleteKeyPairsCommon(input *map[string]interface{}) (*map[string]i
 //
 // See DeleteKeyPairsCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteKeyPairsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteKeyPairsCommonRequest(input)
@@ -1772,18 +1647,14 @@ const opDeleteKeyPairs = "DeleteKeyPairs"
 
 // DeleteKeyPairsRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteKeyPairs operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteKeyPairsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteKeyPairsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteKeyPairsCommon Send returns without error.
 //
 // See DeleteKeyPairs for more information on using the DeleteKeyPairs
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteKeyPairsRequest method.
 //    req, resp := client.DeleteKeyPairsRequest(params)
@@ -1827,9 +1698,8 @@ func (c *ECS) DeleteKeyPairs(input *DeleteKeyPairsInput) (*DeleteKeyPairsOutput,
 //
 // See DeleteKeyPairs for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DeleteKeyPairsWithContext(ctx volcstack.Context, input *DeleteKeyPairsInput, opts ...request.Option) (*DeleteKeyPairsOutput, error) {
 	req, out := c.DeleteKeyPairsRequest(input)
@@ -1842,18 +1712,14 @@ const opDescribeAvailableResourceCommon = "DescribeAvailableResource"
 
 // DescribeAvailableResourceCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeAvailableResourceCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeAvailableResourceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeAvailableResourceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeAvailableResourceCommon Send returns without error.
 //
 // See DescribeAvailableResourceCommon for more information on using the DescribeAvailableResourceCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeAvailableResourceCommonRequest method.
 //    req, resp := client.DescribeAvailableResourceCommonRequest(params)
@@ -1897,9 +1763,8 @@ func (c *ECS) DescribeAvailableResourceCommon(input *map[string]interface{}) (*m
 //
 // See DescribeAvailableResourceCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeAvailableResourceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeAvailableResourceCommonRequest(input)
@@ -1912,18 +1777,14 @@ const opDescribeAvailableResource = "DescribeAvailableResource"
 
 // DescribeAvailableResourceRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeAvailableResource operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeAvailableResourceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeAvailableResourceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeAvailableResourceCommon Send returns without error.
 //
 // See DescribeAvailableResource for more information on using the DescribeAvailableResource
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeAvailableResourceRequest method.
 //    req, resp := client.DescribeAvailableResourceRequest(params)
@@ -1967,9 +1828,8 @@ func (c *ECS) DescribeAvailableResource(input *DescribeAvailableResourceInput) (
 //
 // See DescribeAvailableResource for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeAvailableResourceWithContext(ctx volcstack.Context, input *DescribeAvailableResourceInput, opts ...request.Option) (*DescribeAvailableResourceOutput, error) {
 	req, out := c.DescribeAvailableResourceRequest(input)
@@ -1982,18 +1842,14 @@ const opDescribeDeploymentSetSupportedInstanceTypeFamilyCommon = "DescribeDeploy
 
 // DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeDeploymentSetSupportedInstanceTypeFamilyCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeDeploymentSetSupportedInstanceTypeFamilyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeDeploymentSetSupportedInstanceTypeFamilyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeDeploymentSetSupportedInstanceTypeFamilyCommon Send returns without error.
 //
 // See DescribeDeploymentSetSupportedInstanceTypeFamilyCommon for more information on using the DescribeDeploymentSetSupportedInstanceTypeFamilyCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest method.
 //    req, resp := client.DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest(params)
@@ -2037,9 +1893,8 @@ func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyCommon(input *map[
 //
 // See DescribeDeploymentSetSupportedInstanceTypeFamilyCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest(input)
@@ -2052,18 +1907,14 @@ const opDescribeDeploymentSetSupportedInstanceTypeFamily = "DescribeDeploymentSe
 
 // DescribeDeploymentSetSupportedInstanceTypeFamilyRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeDeploymentSetSupportedInstanceTypeFamily operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeDeploymentSetSupportedInstanceTypeFamilyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeDeploymentSetSupportedInstanceTypeFamilyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeDeploymentSetSupportedInstanceTypeFamilyCommon Send returns without error.
 //
 // See DescribeDeploymentSetSupportedInstanceTypeFamily for more information on using the DescribeDeploymentSetSupportedInstanceTypeFamily
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeDeploymentSetSupportedInstanceTypeFamilyRequest method.
 //    req, resp := client.DescribeDeploymentSetSupportedInstanceTypeFamilyRequest(params)
@@ -2107,9 +1958,8 @@ func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamily(input *DescribeDe
 //
 // See DescribeDeploymentSetSupportedInstanceTypeFamily for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyWithContext(ctx volcstack.Context, input *DescribeDeploymentSetSupportedInstanceTypeFamilyInput, opts ...request.Option) (*DescribeDeploymentSetSupportedInstanceTypeFamilyOutput, error) {
 	req, out := c.DescribeDeploymentSetSupportedInstanceTypeFamilyRequest(input)
@@ -2122,18 +1972,14 @@ const opDescribeDeploymentSetsCommon = "DescribeDeploymentSets"
 
 // DescribeDeploymentSetsCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeDeploymentSetsCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeDeploymentSetsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeDeploymentSetsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeDeploymentSetsCommon Send returns without error.
 //
 // See DescribeDeploymentSetsCommon for more information on using the DescribeDeploymentSetsCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeDeploymentSetsCommonRequest method.
 //    req, resp := client.DescribeDeploymentSetsCommonRequest(params)
@@ -2177,9 +2023,8 @@ func (c *ECS) DescribeDeploymentSetsCommon(input *map[string]interface{}) (*map[
 //
 // See DescribeDeploymentSetsCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeDeploymentSetsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeDeploymentSetsCommonRequest(input)
@@ -2192,18 +2037,14 @@ const opDescribeDeploymentSets = "DescribeDeploymentSets"
 
 // DescribeDeploymentSetsRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeDeploymentSets operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeDeploymentSetsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeDeploymentSetsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeDeploymentSetsCommon Send returns without error.
 //
 // See DescribeDeploymentSets for more information on using the DescribeDeploymentSets
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeDeploymentSetsRequest method.
 //    req, resp := client.DescribeDeploymentSetsRequest(params)
@@ -2247,9 +2088,8 @@ func (c *ECS) DescribeDeploymentSets(input *DescribeDeploymentSetsInput) (*Descr
 //
 // See DescribeDeploymentSets for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeDeploymentSetsWithContext(ctx volcstack.Context, input *DescribeDeploymentSetsInput, opts ...request.Option) (*DescribeDeploymentSetsOutput, error) {
 	req, out := c.DescribeDeploymentSetsRequest(input)
@@ -2262,18 +2102,14 @@ const opDescribeHpcClusterCommon = "DescribeHpcCluster"
 
 // DescribeHpcClusterCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeHpcClusterCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeHpcClusterCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeHpcClusterCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeHpcClusterCommon Send returns without error.
 //
 // See DescribeHpcClusterCommon for more information on using the DescribeHpcClusterCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeHpcClusterCommonRequest method.
 //    req, resp := client.DescribeHpcClusterCommonRequest(params)
@@ -2317,9 +2153,8 @@ func (c *ECS) DescribeHpcClusterCommon(input *map[string]interface{}) (*map[stri
 //
 // See DescribeHpcClusterCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeHpcClusterCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeHpcClusterCommonRequest(input)
@@ -2332,18 +2167,14 @@ const opDescribeHpcCluster = "DescribeHpcCluster"
 
 // DescribeHpcClusterRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeHpcCluster operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeHpcClusterCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeHpcClusterCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeHpcClusterCommon Send returns without error.
 //
 // See DescribeHpcCluster for more information on using the DescribeHpcCluster
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeHpcClusterRequest method.
 //    req, resp := client.DescribeHpcClusterRequest(params)
@@ -2387,9 +2218,8 @@ func (c *ECS) DescribeHpcCluster(input *DescribeHpcClusterInput) (*DescribeHpcCl
 //
 // See DescribeHpcCluster for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeHpcClusterWithContext(ctx volcstack.Context, input *DescribeHpcClusterInput, opts ...request.Option) (*DescribeHpcClusterOutput, error) {
 	req, out := c.DescribeHpcClusterRequest(input)
@@ -2402,18 +2232,14 @@ const opDescribeHpcClustersCommon = "DescribeHpcClusters"
 
 // DescribeHpcClustersCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeHpcClustersCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeHpcClustersCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeHpcClustersCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeHpcClustersCommon Send returns without error.
 //
 // See DescribeHpcClustersCommon for more information on using the DescribeHpcClustersCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeHpcClustersCommonRequest method.
 //    req, resp := client.DescribeHpcClustersCommonRequest(params)
@@ -2457,9 +2283,8 @@ func (c *ECS) DescribeHpcClustersCommon(input *map[string]interface{}) (*map[str
 //
 // See DescribeHpcClustersCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeHpcClustersCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeHpcClustersCommonRequest(input)
@@ -2472,18 +2297,14 @@ const opDescribeHpcClusters = "DescribeHpcClusters"
 
 // DescribeHpcClustersRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeHpcClusters operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeHpcClustersCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeHpcClustersCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeHpcClustersCommon Send returns without error.
 //
 // See DescribeHpcClusters for more information on using the DescribeHpcClusters
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeHpcClustersRequest method.
 //    req, resp := client.DescribeHpcClustersRequest(params)
@@ -2527,9 +2348,8 @@ func (c *ECS) DescribeHpcClusters(input *DescribeHpcClustersInput) (*DescribeHpc
 //
 // See DescribeHpcClusters for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeHpcClustersWithContext(ctx volcstack.Context, input *DescribeHpcClustersInput, opts ...request.Option) (*DescribeHpcClustersOutput, error) {
 	req, out := c.DescribeHpcClustersRequest(input)
@@ -2542,18 +2362,14 @@ const opDescribeImagesCommon = "DescribeImages"
 
 // DescribeImagesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeImagesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeImagesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeImagesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeImagesCommon Send returns without error.
 //
 // See DescribeImagesCommon for more information on using the DescribeImagesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeImagesCommonRequest method.
 //    req, resp := client.DescribeImagesCommonRequest(params)
@@ -2597,9 +2413,8 @@ func (c *ECS) DescribeImagesCommon(input *map[string]interface{}) (*map[string]i
 //
 // See DescribeImagesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeImagesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeImagesCommonRequest(input)
@@ -2612,18 +2427,14 @@ const opDescribeImages = "DescribeImages"
 
 // DescribeImagesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeImages operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeImagesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeImagesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeImagesCommon Send returns without error.
 //
 // See DescribeImages for more information on using the DescribeImages
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeImagesRequest method.
 //    req, resp := client.DescribeImagesRequest(params)
@@ -2667,9 +2478,8 @@ func (c *ECS) DescribeImages(input *DescribeImagesInput) (*DescribeImagesOutput,
 //
 // See DescribeImages for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeImagesWithContext(ctx volcstack.Context, input *DescribeImagesInput, opts ...request.Option) (*DescribeImagesOutput, error) {
 	req, out := c.DescribeImagesRequest(input)
@@ -2682,18 +2492,14 @@ const opDescribeInstanceECSTerminalUrlCommon = "DescribeInstanceECSTerminalUrl"
 
 // DescribeInstanceECSTerminalUrlCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstanceECSTerminalUrlCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstanceECSTerminalUrlCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstanceECSTerminalUrlCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstanceECSTerminalUrlCommon Send returns without error.
 //
 // See DescribeInstanceECSTerminalUrlCommon for more information on using the DescribeInstanceECSTerminalUrlCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstanceECSTerminalUrlCommonRequest method.
 //    req, resp := client.DescribeInstanceECSTerminalUrlCommonRequest(params)
@@ -2737,9 +2543,8 @@ func (c *ECS) DescribeInstanceECSTerminalUrlCommon(input *map[string]interface{}
 //
 // See DescribeInstanceECSTerminalUrlCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstanceECSTerminalUrlCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeInstanceECSTerminalUrlCommonRequest(input)
@@ -2752,18 +2557,14 @@ const opDescribeInstanceECSTerminalUrl = "DescribeInstanceECSTerminalUrl"
 
 // DescribeInstanceECSTerminalUrlRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstanceECSTerminalUrl operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstanceECSTerminalUrlCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstanceECSTerminalUrlCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstanceECSTerminalUrlCommon Send returns without error.
 //
 // See DescribeInstanceECSTerminalUrl for more information on using the DescribeInstanceECSTerminalUrl
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstanceECSTerminalUrlRequest method.
 //    req, resp := client.DescribeInstanceECSTerminalUrlRequest(params)
@@ -2807,9 +2608,8 @@ func (c *ECS) DescribeInstanceECSTerminalUrl(input *DescribeInstanceECSTerminalU
 //
 // See DescribeInstanceECSTerminalUrl for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstanceECSTerminalUrlWithContext(ctx volcstack.Context, input *DescribeInstanceECSTerminalUrlInput, opts ...request.Option) (*DescribeInstanceECSTerminalUrlOutput, error) {
 	req, out := c.DescribeInstanceECSTerminalUrlRequest(input)
@@ -2822,18 +2622,14 @@ const opDescribeInstanceTypeFamiliesCommon = "DescribeInstanceTypeFamilies"
 
 // DescribeInstanceTypeFamiliesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstanceTypeFamiliesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstanceTypeFamiliesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstanceTypeFamiliesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstanceTypeFamiliesCommon Send returns without error.
 //
 // See DescribeInstanceTypeFamiliesCommon for more information on using the DescribeInstanceTypeFamiliesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstanceTypeFamiliesCommonRequest method.
 //    req, resp := client.DescribeInstanceTypeFamiliesCommonRequest(params)
@@ -2877,9 +2673,8 @@ func (c *ECS) DescribeInstanceTypeFamiliesCommon(input *map[string]interface{}) 
 //
 // See DescribeInstanceTypeFamiliesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstanceTypeFamiliesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeInstanceTypeFamiliesCommonRequest(input)
@@ -2892,18 +2687,14 @@ const opDescribeInstanceTypeFamilies = "DescribeInstanceTypeFamilies"
 
 // DescribeInstanceTypeFamiliesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstanceTypeFamilies operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstanceTypeFamiliesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstanceTypeFamiliesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstanceTypeFamiliesCommon Send returns without error.
 //
 // See DescribeInstanceTypeFamilies for more information on using the DescribeInstanceTypeFamilies
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstanceTypeFamiliesRequest method.
 //    req, resp := client.DescribeInstanceTypeFamiliesRequest(params)
@@ -2947,9 +2738,8 @@ func (c *ECS) DescribeInstanceTypeFamilies(input *DescribeInstanceTypeFamiliesIn
 //
 // See DescribeInstanceTypeFamilies for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstanceTypeFamiliesWithContext(ctx volcstack.Context, input *DescribeInstanceTypeFamiliesInput, opts ...request.Option) (*DescribeInstanceTypeFamiliesOutput, error) {
 	req, out := c.DescribeInstanceTypeFamiliesRequest(input)
@@ -2962,18 +2752,14 @@ const opDescribeInstanceTypesCommon = "DescribeInstanceTypes"
 
 // DescribeInstanceTypesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstanceTypesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstanceTypesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstanceTypesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstanceTypesCommon Send returns without error.
 //
 // See DescribeInstanceTypesCommon for more information on using the DescribeInstanceTypesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstanceTypesCommonRequest method.
 //    req, resp := client.DescribeInstanceTypesCommonRequest(params)
@@ -3017,9 +2803,8 @@ func (c *ECS) DescribeInstanceTypesCommon(input *map[string]interface{}) (*map[s
 //
 // See DescribeInstanceTypesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstanceTypesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeInstanceTypesCommonRequest(input)
@@ -3032,18 +2817,14 @@ const opDescribeInstanceTypes = "DescribeInstanceTypes"
 
 // DescribeInstanceTypesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstanceTypes operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstanceTypesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstanceTypesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstanceTypesCommon Send returns without error.
 //
 // See DescribeInstanceTypes for more information on using the DescribeInstanceTypes
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstanceTypesRequest method.
 //    req, resp := client.DescribeInstanceTypesRequest(params)
@@ -3087,9 +2868,8 @@ func (c *ECS) DescribeInstanceTypes(input *DescribeInstanceTypesInput) (*Describ
 //
 // See DescribeInstanceTypes for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstanceTypesWithContext(ctx volcstack.Context, input *DescribeInstanceTypesInput, opts ...request.Option) (*DescribeInstanceTypesOutput, error) {
 	req, out := c.DescribeInstanceTypesRequest(input)
@@ -3102,18 +2882,14 @@ const opDescribeInstanceVncUrlCommon = "DescribeInstanceVncUrl"
 
 // DescribeInstanceVncUrlCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstanceVncUrlCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstanceVncUrlCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstanceVncUrlCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstanceVncUrlCommon Send returns without error.
 //
 // See DescribeInstanceVncUrlCommon for more information on using the DescribeInstanceVncUrlCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstanceVncUrlCommonRequest method.
 //    req, resp := client.DescribeInstanceVncUrlCommonRequest(params)
@@ -3157,9 +2933,8 @@ func (c *ECS) DescribeInstanceVncUrlCommon(input *map[string]interface{}) (*map[
 //
 // See DescribeInstanceVncUrlCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstanceVncUrlCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeInstanceVncUrlCommonRequest(input)
@@ -3172,18 +2947,14 @@ const opDescribeInstanceVncUrl = "DescribeInstanceVncUrl"
 
 // DescribeInstanceVncUrlRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstanceVncUrl operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstanceVncUrlCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstanceVncUrlCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstanceVncUrlCommon Send returns without error.
 //
 // See DescribeInstanceVncUrl for more information on using the DescribeInstanceVncUrl
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstanceVncUrlRequest method.
 //    req, resp := client.DescribeInstanceVncUrlRequest(params)
@@ -3227,9 +2998,8 @@ func (c *ECS) DescribeInstanceVncUrl(input *DescribeInstanceVncUrlInput) (*Descr
 //
 // See DescribeInstanceVncUrl for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstanceVncUrlWithContext(ctx volcstack.Context, input *DescribeInstanceVncUrlInput, opts ...request.Option) (*DescribeInstanceVncUrlOutput, error) {
 	req, out := c.DescribeInstanceVncUrlRequest(input)
@@ -3242,18 +3012,14 @@ const opDescribeInstancesCommon = "DescribeInstances"
 
 // DescribeInstancesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstancesCommon Send returns without error.
 //
 // See DescribeInstancesCommon for more information on using the DescribeInstancesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstancesCommonRequest method.
 //    req, resp := client.DescribeInstancesCommonRequest(params)
@@ -3297,9 +3063,8 @@ func (c *ECS) DescribeInstancesCommon(input *map[string]interface{}) (*map[strin
 //
 // See DescribeInstancesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeInstancesCommonRequest(input)
@@ -3312,18 +3077,14 @@ const opDescribeInstances = "DescribeInstances"
 
 // DescribeInstancesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeInstancesCommon Send returns without error.
 //
 // See DescribeInstances for more information on using the DescribeInstances
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeInstancesRequest method.
 //    req, resp := client.DescribeInstancesRequest(params)
@@ -3367,9 +3128,8 @@ func (c *ECS) DescribeInstances(input *DescribeInstancesInput) (*DescribeInstanc
 //
 // See DescribeInstances for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeInstancesWithContext(ctx volcstack.Context, input *DescribeInstancesInput, opts ...request.Option) (*DescribeInstancesOutput, error) {
 	req, out := c.DescribeInstancesRequest(input)
@@ -3382,18 +3142,14 @@ const opDescribeKeyPairCommon = "DescribeKeyPair"
 
 // DescribeKeyPairCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeKeyPairCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeKeyPairCommon Send returns without error.
 //
 // See DescribeKeyPairCommon for more information on using the DescribeKeyPairCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeKeyPairCommonRequest method.
 //    req, resp := client.DescribeKeyPairCommonRequest(params)
@@ -3437,9 +3193,8 @@ func (c *ECS) DescribeKeyPairCommon(input *map[string]interface{}) (*map[string]
 //
 // See DescribeKeyPairCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeKeyPairCommonRequest(input)
@@ -3452,18 +3207,14 @@ const opDescribeKeyPair = "DescribeKeyPair"
 
 // DescribeKeyPairRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeKeyPair operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeKeyPairCommon Send returns without error.
 //
 // See DescribeKeyPair for more information on using the DescribeKeyPair
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeKeyPairRequest method.
 //    req, resp := client.DescribeKeyPairRequest(params)
@@ -3507,9 +3258,8 @@ func (c *ECS) DescribeKeyPair(input *DescribeKeyPairInput) (*DescribeKeyPairOutp
 //
 // See DescribeKeyPair for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeKeyPairWithContext(ctx volcstack.Context, input *DescribeKeyPairInput, opts ...request.Option) (*DescribeKeyPairOutput, error) {
 	req, out := c.DescribeKeyPairRequest(input)
@@ -3522,18 +3272,14 @@ const opDescribeKeyPairsCommon = "DescribeKeyPairs"
 
 // DescribeKeyPairsCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeKeyPairsCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeKeyPairsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeKeyPairsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeKeyPairsCommon Send returns without error.
 //
 // See DescribeKeyPairsCommon for more information on using the DescribeKeyPairsCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeKeyPairsCommonRequest method.
 //    req, resp := client.DescribeKeyPairsCommonRequest(params)
@@ -3577,9 +3323,8 @@ func (c *ECS) DescribeKeyPairsCommon(input *map[string]interface{}) (*map[string
 //
 // See DescribeKeyPairsCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeKeyPairsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeKeyPairsCommonRequest(input)
@@ -3592,18 +3337,14 @@ const opDescribeKeyPairs = "DescribeKeyPairs"
 
 // DescribeKeyPairsRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeKeyPairs operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeKeyPairsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeKeyPairsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeKeyPairsCommon Send returns without error.
 //
 // See DescribeKeyPairs for more information on using the DescribeKeyPairs
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeKeyPairsRequest method.
 //    req, resp := client.DescribeKeyPairsRequest(params)
@@ -3647,9 +3388,8 @@ func (c *ECS) DescribeKeyPairs(input *DescribeKeyPairsInput) (*DescribeKeyPairsO
 //
 // See DescribeKeyPairs for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeKeyPairsWithContext(ctx volcstack.Context, input *DescribeKeyPairsInput, opts ...request.Option) (*DescribeKeyPairsOutput, error) {
 	req, out := c.DescribeKeyPairsRequest(input)
@@ -3662,18 +3402,14 @@ const opDescribeUserDataCommon = "DescribeUserData"
 
 // DescribeUserDataCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeUserDataCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeUserDataCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeUserDataCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeUserDataCommon Send returns without error.
 //
 // See DescribeUserDataCommon for more information on using the DescribeUserDataCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeUserDataCommonRequest method.
 //    req, resp := client.DescribeUserDataCommonRequest(params)
@@ -3717,9 +3453,8 @@ func (c *ECS) DescribeUserDataCommon(input *map[string]interface{}) (*map[string
 //
 // See DescribeUserDataCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeUserDataCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeUserDataCommonRequest(input)
@@ -3732,18 +3467,14 @@ const opDescribeUserData = "DescribeUserData"
 
 // DescribeUserDataRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeUserData operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeUserDataCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeUserDataCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeUserDataCommon Send returns without error.
 //
 // See DescribeUserData for more information on using the DescribeUserData
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeUserDataRequest method.
 //    req, resp := client.DescribeUserDataRequest(params)
@@ -3787,9 +3518,8 @@ func (c *ECS) DescribeUserData(input *DescribeUserDataInput) (*DescribeUserDataO
 //
 // See DescribeUserData for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeUserDataWithContext(ctx volcstack.Context, input *DescribeUserDataInput, opts ...request.Option) (*DescribeUserDataOutput, error) {
 	req, out := c.DescribeUserDataRequest(input)
@@ -3802,18 +3532,14 @@ const opDescribeZonesCommon = "DescribeZones"
 
 // DescribeZonesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeZonesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeZonesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeZonesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeZonesCommon Send returns without error.
 //
 // See DescribeZonesCommon for more information on using the DescribeZonesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeZonesCommonRequest method.
 //    req, resp := client.DescribeZonesCommonRequest(params)
@@ -3857,9 +3583,8 @@ func (c *ECS) DescribeZonesCommon(input *map[string]interface{}) (*map[string]in
 //
 // See DescribeZonesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeZonesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeZonesCommonRequest(input)
@@ -3872,18 +3597,14 @@ const opDescribeZones = "DescribeZones"
 
 // DescribeZonesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeZones operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeZonesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeZonesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeZonesCommon Send returns without error.
 //
 // See DescribeZones for more information on using the DescribeZones
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeZonesRequest method.
 //    req, resp := client.DescribeZonesRequest(params)
@@ -3927,9 +3648,8 @@ func (c *ECS) DescribeZones(input *DescribeZonesInput) (*DescribeZonesOutput, er
 //
 // See DescribeZones for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DescribeZonesWithContext(ctx volcstack.Context, input *DescribeZonesInput, opts ...request.Option) (*DescribeZonesOutput, error) {
 	req, out := c.DescribeZonesRequest(input)
@@ -3942,18 +3662,14 @@ const opDetachKeyPairCommon = "DetachKeyPair"
 
 // DetachKeyPairCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DetachKeyPairCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DetachKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DetachKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachKeyPairCommon Send returns without error.
 //
 // See DetachKeyPairCommon for more information on using the DetachKeyPairCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DetachKeyPairCommonRequest method.
 //    req, resp := client.DetachKeyPairCommonRequest(params)
@@ -3997,9 +3713,8 @@ func (c *ECS) DetachKeyPairCommon(input *map[string]interface{}) (*map[string]in
 //
 // See DetachKeyPairCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DetachKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DetachKeyPairCommonRequest(input)
@@ -4012,18 +3727,14 @@ const opDetachKeyPair = "DetachKeyPair"
 
 // DetachKeyPairRequest generates a "volcstack/request.Request" representing the
 // client's request for the DetachKeyPair operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DetachKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DetachKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachKeyPairCommon Send returns without error.
 //
 // See DetachKeyPair for more information on using the DetachKeyPair
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DetachKeyPairRequest method.
 //    req, resp := client.DetachKeyPairRequest(params)
@@ -4067,9 +3778,8 @@ func (c *ECS) DetachKeyPair(input *DetachKeyPairInput) (*DetachKeyPairOutput, er
 //
 // See DetachKeyPair for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) DetachKeyPairWithContext(ctx volcstack.Context, input *DetachKeyPairInput, opts ...request.Option) (*DetachKeyPairOutput, error) {
 	req, out := c.DetachKeyPairRequest(input)
@@ -4082,18 +3792,14 @@ const opGetInstanceConsoleCommon = "GetInstanceConsole"
 
 // GetInstanceConsoleCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the GetInstanceConsoleCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the GetInstanceConsoleCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned GetInstanceConsoleCommon Request to send the API call to the service.
+// the "output" return value is not valid until after GetInstanceConsoleCommon Send returns without error.
 //
 // See GetInstanceConsoleCommon for more information on using the GetInstanceConsoleCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the GetInstanceConsoleCommonRequest method.
 //    req, resp := client.GetInstanceConsoleCommonRequest(params)
@@ -4137,9 +3843,8 @@ func (c *ECS) GetInstanceConsoleCommon(input *map[string]interface{}) (*map[stri
 //
 // See GetInstanceConsoleCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) GetInstanceConsoleCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.GetInstanceConsoleCommonRequest(input)
@@ -4152,18 +3857,14 @@ const opGetInstanceConsole = "GetInstanceConsole"
 
 // GetInstanceConsoleRequest generates a "volcstack/request.Request" representing the
 // client's request for the GetInstanceConsole operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the GetInstanceConsoleCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned GetInstanceConsoleCommon Request to send the API call to the service.
+// the "output" return value is not valid until after GetInstanceConsoleCommon Send returns without error.
 //
 // See GetInstanceConsole for more information on using the GetInstanceConsole
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the GetInstanceConsoleRequest method.
 //    req, resp := client.GetInstanceConsoleRequest(params)
@@ -4207,9 +3908,8 @@ func (c *ECS) GetInstanceConsole(input *GetInstanceConsoleInput) (*GetInstanceCo
 //
 // See GetInstanceConsole for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) GetInstanceConsoleWithContext(ctx volcstack.Context, input *GetInstanceConsoleInput, opts ...request.Option) (*GetInstanceConsoleOutput, error) {
 	req, out := c.GetInstanceConsoleRequest(input)
@@ -4222,18 +3922,14 @@ const opImportImageCommon = "ImportImage"
 
 // ImportImageCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ImportImageCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ImportImageCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ImportImageCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ImportImageCommon Send returns without error.
 //
 // See ImportImageCommon for more information on using the ImportImageCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ImportImageCommonRequest method.
 //    req, resp := client.ImportImageCommonRequest(params)
@@ -4277,9 +3973,8 @@ func (c *ECS) ImportImageCommon(input *map[string]interface{}) (*map[string]inte
 //
 // See ImportImageCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ImportImageCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ImportImageCommonRequest(input)
@@ -4292,18 +3987,14 @@ const opImportImage = "ImportImage"
 
 // ImportImageRequest generates a "volcstack/request.Request" representing the
 // client's request for the ImportImage operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ImportImageCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ImportImageCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ImportImageCommon Send returns without error.
 //
 // See ImportImage for more information on using the ImportImage
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ImportImageRequest method.
 //    req, resp := client.ImportImageRequest(params)
@@ -4347,9 +4038,8 @@ func (c *ECS) ImportImage(input *ImportImageInput) (*ImportImageOutput, error) {
 //
 // See ImportImage for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ImportImageWithContext(ctx volcstack.Context, input *ImportImageInput, opts ...request.Option) (*ImportImageOutput, error) {
 	req, out := c.ImportImageRequest(input)
@@ -4362,18 +4052,14 @@ const opImportKeyPairCommon = "ImportKeyPair"
 
 // ImportKeyPairCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ImportKeyPairCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ImportKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ImportKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ImportKeyPairCommon Send returns without error.
 //
 // See ImportKeyPairCommon for more information on using the ImportKeyPairCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ImportKeyPairCommonRequest method.
 //    req, resp := client.ImportKeyPairCommonRequest(params)
@@ -4417,9 +4103,8 @@ func (c *ECS) ImportKeyPairCommon(input *map[string]interface{}) (*map[string]in
 //
 // See ImportKeyPairCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ImportKeyPairCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ImportKeyPairCommonRequest(input)
@@ -4432,18 +4117,14 @@ const opImportKeyPair = "ImportKeyPair"
 
 // ImportKeyPairRequest generates a "volcstack/request.Request" representing the
 // client's request for the ImportKeyPair operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ImportKeyPairCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ImportKeyPairCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ImportKeyPairCommon Send returns without error.
 //
 // See ImportKeyPair for more information on using the ImportKeyPair
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ImportKeyPairRequest method.
 //    req, resp := client.ImportKeyPairRequest(params)
@@ -4487,9 +4168,8 @@ func (c *ECS) ImportKeyPair(input *ImportKeyPairInput) (*ImportKeyPairOutput, er
 //
 // See ImportKeyPair for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ImportKeyPairWithContext(ctx volcstack.Context, input *ImportKeyPairInput, opts ...request.Option) (*ImportKeyPairOutput, error) {
 	req, out := c.ImportKeyPairRequest(input)
@@ -4502,18 +4182,14 @@ const opInnerReplaceSystemVolumeCommon = "InnerReplaceSystemVolume"
 
 // InnerReplaceSystemVolumeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerReplaceSystemVolumeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerReplaceSystemVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerReplaceSystemVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerReplaceSystemVolumeCommon Send returns without error.
 //
 // See InnerReplaceSystemVolumeCommon for more information on using the InnerReplaceSystemVolumeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerReplaceSystemVolumeCommonRequest method.
 //    req, resp := client.InnerReplaceSystemVolumeCommonRequest(params)
@@ -4558,9 +4234,8 @@ func (c *ECS) InnerReplaceSystemVolumeCommon(input *map[string]interface{}) (*ma
 //
 // See InnerReplaceSystemVolumeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) InnerReplaceSystemVolumeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.InnerReplaceSystemVolumeCommonRequest(input)
@@ -4573,18 +4248,14 @@ const opInnerReplaceSystemVolume = "InnerReplaceSystemVolume"
 
 // InnerReplaceSystemVolumeRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerReplaceSystemVolume operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerReplaceSystemVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerReplaceSystemVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerReplaceSystemVolumeCommon Send returns without error.
 //
 // See InnerReplaceSystemVolume for more information on using the InnerReplaceSystemVolume
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerReplaceSystemVolumeRequest method.
 //    req, resp := client.InnerReplaceSystemVolumeRequest(params)
@@ -4629,9 +4300,8 @@ func (c *ECS) InnerReplaceSystemVolume(input *InnerReplaceSystemVolumeInput) (*I
 //
 // See InnerReplaceSystemVolume for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) InnerReplaceSystemVolumeWithContext(ctx volcstack.Context, input *InnerReplaceSystemVolumeInput, opts ...request.Option) (*InnerReplaceSystemVolumeOutput, error) {
 	req, out := c.InnerReplaceSystemVolumeRequest(input)
@@ -4644,18 +4314,14 @@ const opInnerReplaceSystemVolumesCommon = "InnerReplaceSystemVolumes"
 
 // InnerReplaceSystemVolumesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerReplaceSystemVolumesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerReplaceSystemVolumesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerReplaceSystemVolumesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerReplaceSystemVolumesCommon Send returns without error.
 //
 // See InnerReplaceSystemVolumesCommon for more information on using the InnerReplaceSystemVolumesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerReplaceSystemVolumesCommonRequest method.
 //    req, resp := client.InnerReplaceSystemVolumesCommonRequest(params)
@@ -4700,9 +4366,8 @@ func (c *ECS) InnerReplaceSystemVolumesCommon(input *map[string]interface{}) (*m
 //
 // See InnerReplaceSystemVolumesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) InnerReplaceSystemVolumesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.InnerReplaceSystemVolumesCommonRequest(input)
@@ -4715,18 +4380,14 @@ const opInnerReplaceSystemVolumes = "InnerReplaceSystemVolumes"
 
 // InnerReplaceSystemVolumesRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerReplaceSystemVolumes operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerReplaceSystemVolumesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerReplaceSystemVolumesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerReplaceSystemVolumesCommon Send returns without error.
 //
 // See InnerReplaceSystemVolumes for more information on using the InnerReplaceSystemVolumes
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerReplaceSystemVolumesRequest method.
 //    req, resp := client.InnerReplaceSystemVolumesRequest(params)
@@ -4771,9 +4432,8 @@ func (c *ECS) InnerReplaceSystemVolumes(input *InnerReplaceSystemVolumesInput) (
 //
 // See InnerReplaceSystemVolumes for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) InnerReplaceSystemVolumesWithContext(ctx volcstack.Context, input *InnerReplaceSystemVolumesInput, opts ...request.Option) (*InnerReplaceSystemVolumesOutput, error) {
 	req, out := c.InnerReplaceSystemVolumesRequest(input)
@@ -4786,18 +4446,14 @@ const opListAssumeRolesCommon = "ListAssumeRoles"
 
 // ListAssumeRolesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ListAssumeRolesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ListAssumeRolesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ListAssumeRolesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ListAssumeRolesCommon Send returns without error.
 //
 // See ListAssumeRolesCommon for more information on using the ListAssumeRolesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ListAssumeRolesCommonRequest method.
 //    req, resp := client.ListAssumeRolesCommonRequest(params)
@@ -4841,9 +4497,8 @@ func (c *ECS) ListAssumeRolesCommon(input *map[string]interface{}) (*map[string]
 //
 // See ListAssumeRolesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ListAssumeRolesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ListAssumeRolesCommonRequest(input)
@@ -4856,18 +4511,14 @@ const opListAssumeRoles = "ListAssumeRoles"
 
 // ListAssumeRolesRequest generates a "volcstack/request.Request" representing the
 // client's request for the ListAssumeRoles operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ListAssumeRolesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ListAssumeRolesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ListAssumeRolesCommon Send returns without error.
 //
 // See ListAssumeRoles for more information on using the ListAssumeRoles
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ListAssumeRolesRequest method.
 //    req, resp := client.ListAssumeRolesRequest(params)
@@ -4911,9 +4562,8 @@ func (c *ECS) ListAssumeRoles(input *ListAssumeRolesInput) (*ListAssumeRolesOutp
 //
 // See ListAssumeRoles for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ListAssumeRolesWithContext(ctx volcstack.Context, input *ListAssumeRolesInput, opts ...request.Option) (*ListAssumeRolesOutput, error) {
 	req, out := c.ListAssumeRolesRequest(input)
@@ -4926,18 +4576,14 @@ const opModifyDeploymentSetAttributeCommon = "ModifyDeploymentSetAttribute"
 
 // ModifyDeploymentSetAttributeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyDeploymentSetAttributeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyDeploymentSetAttributeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyDeploymentSetAttributeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyDeploymentSetAttributeCommon Send returns without error.
 //
 // See ModifyDeploymentSetAttributeCommon for more information on using the ModifyDeploymentSetAttributeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyDeploymentSetAttributeCommonRequest method.
 //    req, resp := client.ModifyDeploymentSetAttributeCommonRequest(params)
@@ -4982,9 +4628,8 @@ func (c *ECS) ModifyDeploymentSetAttributeCommon(input *map[string]interface{}) 
 //
 // See ModifyDeploymentSetAttributeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyDeploymentSetAttributeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyDeploymentSetAttributeCommonRequest(input)
@@ -4997,18 +4642,14 @@ const opModifyDeploymentSetAttribute = "ModifyDeploymentSetAttribute"
 
 // ModifyDeploymentSetAttributeRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyDeploymentSetAttribute operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyDeploymentSetAttributeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyDeploymentSetAttributeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyDeploymentSetAttributeCommon Send returns without error.
 //
 // See ModifyDeploymentSetAttribute for more information on using the ModifyDeploymentSetAttribute
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyDeploymentSetAttributeRequest method.
 //    req, resp := client.ModifyDeploymentSetAttributeRequest(params)
@@ -5053,9 +4694,8 @@ func (c *ECS) ModifyDeploymentSetAttribute(input *ModifyDeploymentSetAttributeIn
 //
 // See ModifyDeploymentSetAttribute for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyDeploymentSetAttributeWithContext(ctx volcstack.Context, input *ModifyDeploymentSetAttributeInput, opts ...request.Option) (*ModifyDeploymentSetAttributeOutput, error) {
 	req, out := c.ModifyDeploymentSetAttributeRequest(input)
@@ -5068,18 +4708,14 @@ const opModifyImageAttributesCommon = "ModifyImageAttributes"
 
 // ModifyImageAttributesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyImageAttributesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyImageAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyImageAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyImageAttributesCommon Send returns without error.
 //
 // See ModifyImageAttributesCommon for more information on using the ModifyImageAttributesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyImageAttributesCommonRequest method.
 //    req, resp := client.ModifyImageAttributesCommonRequest(params)
@@ -5124,9 +4760,8 @@ func (c *ECS) ModifyImageAttributesCommon(input *map[string]interface{}) (*map[s
 //
 // See ModifyImageAttributesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyImageAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyImageAttributesCommonRequest(input)
@@ -5139,18 +4774,14 @@ const opModifyImageAttributes = "ModifyImageAttributes"
 
 // ModifyImageAttributesRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyImageAttributes operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyImageAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyImageAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyImageAttributesCommon Send returns without error.
 //
 // See ModifyImageAttributes for more information on using the ModifyImageAttributes
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyImageAttributesRequest method.
 //    req, resp := client.ModifyImageAttributesRequest(params)
@@ -5195,9 +4826,8 @@ func (c *ECS) ModifyImageAttributes(input *ModifyImageAttributesInput) (*ModifyI
 //
 // See ModifyImageAttributes for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyImageAttributesWithContext(ctx volcstack.Context, input *ModifyImageAttributesInput, opts ...request.Option) (*ModifyImageAttributesOutput, error) {
 	req, out := c.ModifyImageAttributesRequest(input)
@@ -5210,18 +4840,14 @@ const opModifyInstanceAttributeCommon = "ModifyInstanceAttribute"
 
 // ModifyInstanceAttributeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstanceAttributeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstanceAttributeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstanceAttributeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstanceAttributeCommon Send returns without error.
 //
 // See ModifyInstanceAttributeCommon for more information on using the ModifyInstanceAttributeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstanceAttributeCommonRequest method.
 //    req, resp := client.ModifyInstanceAttributeCommonRequest(params)
@@ -5266,9 +4892,8 @@ func (c *ECS) ModifyInstanceAttributeCommon(input *map[string]interface{}) (*map
 //
 // See ModifyInstanceAttributeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyInstanceAttributeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstanceAttributeCommonRequest(input)
@@ -5281,18 +4906,14 @@ const opModifyInstanceAttribute = "ModifyInstanceAttribute"
 
 // ModifyInstanceAttributeRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstanceAttribute operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstanceAttributeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstanceAttributeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstanceAttributeCommon Send returns without error.
 //
 // See ModifyInstanceAttribute for more information on using the ModifyInstanceAttribute
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstanceAttributeRequest method.
 //    req, resp := client.ModifyInstanceAttributeRequest(params)
@@ -5337,9 +4958,8 @@ func (c *ECS) ModifyInstanceAttribute(input *ModifyInstanceAttributeInput) (*Mod
 //
 // See ModifyInstanceAttribute for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyInstanceAttributeWithContext(ctx volcstack.Context, input *ModifyInstanceAttributeInput, opts ...request.Option) (*ModifyInstanceAttributeOutput, error) {
 	req, out := c.ModifyInstanceAttributeRequest(input)
@@ -5352,18 +4972,14 @@ const opModifyInstanceChargeTypeCommon = "ModifyInstanceChargeType"
 
 // ModifyInstanceChargeTypeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstanceChargeTypeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstanceChargeTypeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstanceChargeTypeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstanceChargeTypeCommon Send returns without error.
 //
 // See ModifyInstanceChargeTypeCommon for more information on using the ModifyInstanceChargeTypeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstanceChargeTypeCommonRequest method.
 //    req, resp := client.ModifyInstanceChargeTypeCommonRequest(params)
@@ -5407,9 +5023,8 @@ func (c *ECS) ModifyInstanceChargeTypeCommon(input *map[string]interface{}) (*ma
 //
 // See ModifyInstanceChargeTypeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyInstanceChargeTypeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstanceChargeTypeCommonRequest(input)
@@ -5422,18 +5037,14 @@ const opModifyInstanceChargeType = "ModifyInstanceChargeType"
 
 // ModifyInstanceChargeTypeRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstanceChargeType operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstanceChargeTypeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstanceChargeTypeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstanceChargeTypeCommon Send returns without error.
 //
 // See ModifyInstanceChargeType for more information on using the ModifyInstanceChargeType
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstanceChargeTypeRequest method.
 //    req, resp := client.ModifyInstanceChargeTypeRequest(params)
@@ -5477,9 +5088,8 @@ func (c *ECS) ModifyInstanceChargeType(input *ModifyInstanceChargeTypeInput) (*M
 //
 // See ModifyInstanceChargeType for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyInstanceChargeTypeWithContext(ctx volcstack.Context, input *ModifyInstanceChargeTypeInput, opts ...request.Option) (*ModifyInstanceChargeTypeOutput, error) {
 	req, out := c.ModifyInstanceChargeTypeRequest(input)
@@ -5492,18 +5102,14 @@ const opModifyInstanceDeploymentCommon = "ModifyInstanceDeployment"
 
 // ModifyInstanceDeploymentCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstanceDeploymentCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstanceDeploymentCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstanceDeploymentCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstanceDeploymentCommon Send returns without error.
 //
 // See ModifyInstanceDeploymentCommon for more information on using the ModifyInstanceDeploymentCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstanceDeploymentCommonRequest method.
 //    req, resp := client.ModifyInstanceDeploymentCommonRequest(params)
@@ -5548,9 +5154,8 @@ func (c *ECS) ModifyInstanceDeploymentCommon(input *map[string]interface{}) (*ma
 //
 // See ModifyInstanceDeploymentCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyInstanceDeploymentCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstanceDeploymentCommonRequest(input)
@@ -5563,18 +5168,14 @@ const opModifyInstanceDeployment = "ModifyInstanceDeployment"
 
 // ModifyInstanceDeploymentRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstanceDeployment operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstanceDeploymentCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstanceDeploymentCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstanceDeploymentCommon Send returns without error.
 //
 // See ModifyInstanceDeployment for more information on using the ModifyInstanceDeployment
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstanceDeploymentRequest method.
 //    req, resp := client.ModifyInstanceDeploymentRequest(params)
@@ -5619,9 +5220,8 @@ func (c *ECS) ModifyInstanceDeployment(input *ModifyInstanceDeploymentInput) (*M
 //
 // See ModifyInstanceDeployment for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyInstanceDeploymentWithContext(ctx volcstack.Context, input *ModifyInstanceDeploymentInput, opts ...request.Option) (*ModifyInstanceDeploymentOutput, error) {
 	req, out := c.ModifyInstanceDeploymentRequest(input)
@@ -5634,18 +5234,14 @@ const opModifyInstanceSpecCommon = "ModifyInstanceSpec"
 
 // ModifyInstanceSpecCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstanceSpecCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstanceSpecCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstanceSpecCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstanceSpecCommon Send returns without error.
 //
 // See ModifyInstanceSpecCommon for more information on using the ModifyInstanceSpecCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstanceSpecCommonRequest method.
 //    req, resp := client.ModifyInstanceSpecCommonRequest(params)
@@ -5690,9 +5286,8 @@ func (c *ECS) ModifyInstanceSpecCommon(input *map[string]interface{}) (*map[stri
 //
 // See ModifyInstanceSpecCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyInstanceSpecCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstanceSpecCommonRequest(input)
@@ -5705,18 +5300,14 @@ const opModifyInstanceSpec = "ModifyInstanceSpec"
 
 // ModifyInstanceSpecRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyInstanceSpec operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyInstanceSpecCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyInstanceSpecCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyInstanceSpecCommon Send returns without error.
 //
 // See ModifyInstanceSpec for more information on using the ModifyInstanceSpec
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyInstanceSpecRequest method.
 //    req, resp := client.ModifyInstanceSpecRequest(params)
@@ -5761,9 +5352,8 @@ func (c *ECS) ModifyInstanceSpec(input *ModifyInstanceSpecInput) (*ModifyInstanc
 //
 // See ModifyInstanceSpec for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyInstanceSpecWithContext(ctx volcstack.Context, input *ModifyInstanceSpecInput, opts ...request.Option) (*ModifyInstanceSpecOutput, error) {
 	req, out := c.ModifyInstanceSpecRequest(input)
@@ -5776,18 +5366,14 @@ const opModifyKeyPairAttributeCommon = "ModifyKeyPairAttribute"
 
 // ModifyKeyPairAttributeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyKeyPairAttributeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyKeyPairAttributeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyKeyPairAttributeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyKeyPairAttributeCommon Send returns without error.
 //
 // See ModifyKeyPairAttributeCommon for more information on using the ModifyKeyPairAttributeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyKeyPairAttributeCommonRequest method.
 //    req, resp := client.ModifyKeyPairAttributeCommonRequest(params)
@@ -5831,9 +5417,8 @@ func (c *ECS) ModifyKeyPairAttributeCommon(input *map[string]interface{}) (*map[
 //
 // See ModifyKeyPairAttributeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyKeyPairAttributeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyKeyPairAttributeCommonRequest(input)
@@ -5846,18 +5431,14 @@ const opModifyKeyPairAttribute = "ModifyKeyPairAttribute"
 
 // ModifyKeyPairAttributeRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyKeyPairAttribute operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyKeyPairAttributeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyKeyPairAttributeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyKeyPairAttributeCommon Send returns without error.
 //
 // See ModifyKeyPairAttribute for more information on using the ModifyKeyPairAttribute
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyKeyPairAttributeRequest method.
 //    req, resp := client.ModifyKeyPairAttributeRequest(params)
@@ -5901,9 +5482,8 @@ func (c *ECS) ModifyKeyPairAttribute(input *ModifyKeyPairAttributeInput) (*Modif
 //
 // See ModifyKeyPairAttribute for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ModifyKeyPairAttributeWithContext(ctx volcstack.Context, input *ModifyKeyPairAttributeInput, opts ...request.Option) (*ModifyKeyPairAttributeOutput, error) {
 	req, out := c.ModifyKeyPairAttributeRequest(input)
@@ -5916,18 +5496,14 @@ const opRebootInstanceCommon = "RebootInstance"
 
 // RebootInstanceCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the RebootInstanceCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the RebootInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned RebootInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RebootInstanceCommon Send returns without error.
 //
 // See RebootInstanceCommon for more information on using the RebootInstanceCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the RebootInstanceCommonRequest method.
 //    req, resp := client.RebootInstanceCommonRequest(params)
@@ -5972,9 +5548,8 @@ func (c *ECS) RebootInstanceCommon(input *map[string]interface{}) (*map[string]i
 //
 // See RebootInstanceCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) RebootInstanceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.RebootInstanceCommonRequest(input)
@@ -5987,18 +5562,14 @@ const opRebootInstance = "RebootInstance"
 
 // RebootInstanceRequest generates a "volcstack/request.Request" representing the
 // client's request for the RebootInstance operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the RebootInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned RebootInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RebootInstanceCommon Send returns without error.
 //
 // See RebootInstance for more information on using the RebootInstance
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the RebootInstanceRequest method.
 //    req, resp := client.RebootInstanceRequest(params)
@@ -6043,9 +5614,8 @@ func (c *ECS) RebootInstance(input *RebootInstanceInput) (*RebootInstanceOutput,
 //
 // See RebootInstance for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) RebootInstanceWithContext(ctx volcstack.Context, input *RebootInstanceInput, opts ...request.Option) (*RebootInstanceOutput, error) {
 	req, out := c.RebootInstanceRequest(input)
@@ -6058,18 +5628,14 @@ const opRenewInstanceCommon = "RenewInstance"
 
 // RenewInstanceCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the RenewInstanceCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the RenewInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned RenewInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RenewInstanceCommon Send returns without error.
 //
 // See RenewInstanceCommon for more information on using the RenewInstanceCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the RenewInstanceCommonRequest method.
 //    req, resp := client.RenewInstanceCommonRequest(params)
@@ -6113,9 +5679,8 @@ func (c *ECS) RenewInstanceCommon(input *map[string]interface{}) (*map[string]in
 //
 // See RenewInstanceCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) RenewInstanceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.RenewInstanceCommonRequest(input)
@@ -6128,18 +5693,14 @@ const opRenewInstance = "RenewInstance"
 
 // RenewInstanceRequest generates a "volcstack/request.Request" representing the
 // client's request for the RenewInstance operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the RenewInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned RenewInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RenewInstanceCommon Send returns without error.
 //
 // See RenewInstance for more information on using the RenewInstance
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the RenewInstanceRequest method.
 //    req, resp := client.RenewInstanceRequest(params)
@@ -6183,9 +5744,8 @@ func (c *ECS) RenewInstance(input *RenewInstanceInput) (*RenewInstanceOutput, er
 //
 // See RenewInstance for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) RenewInstanceWithContext(ctx volcstack.Context, input *RenewInstanceInput, opts ...request.Option) (*RenewInstanceOutput, error) {
 	req, out := c.RenewInstanceRequest(input)
@@ -6198,18 +5758,14 @@ const opReplaceSystemVolumeCommon = "ReplaceSystemVolume"
 
 // ReplaceSystemVolumeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ReplaceSystemVolumeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ReplaceSystemVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ReplaceSystemVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ReplaceSystemVolumeCommon Send returns without error.
 //
 // See ReplaceSystemVolumeCommon for more information on using the ReplaceSystemVolumeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ReplaceSystemVolumeCommonRequest method.
 //    req, resp := client.ReplaceSystemVolumeCommonRequest(params)
@@ -6254,9 +5810,8 @@ func (c *ECS) ReplaceSystemVolumeCommon(input *map[string]interface{}) (*map[str
 //
 // See ReplaceSystemVolumeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ReplaceSystemVolumeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ReplaceSystemVolumeCommonRequest(input)
@@ -6269,18 +5824,14 @@ const opReplaceSystemVolume = "ReplaceSystemVolume"
 
 // ReplaceSystemVolumeRequest generates a "volcstack/request.Request" representing the
 // client's request for the ReplaceSystemVolume operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ReplaceSystemVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ReplaceSystemVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ReplaceSystemVolumeCommon Send returns without error.
 //
 // See ReplaceSystemVolume for more information on using the ReplaceSystemVolume
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ReplaceSystemVolumeRequest method.
 //    req, resp := client.ReplaceSystemVolumeRequest(params)
@@ -6325,9 +5876,8 @@ func (c *ECS) ReplaceSystemVolume(input *ReplaceSystemVolumeInput) (*ReplaceSyst
 //
 // See ReplaceSystemVolume for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ReplaceSystemVolumeWithContext(ctx volcstack.Context, input *ReplaceSystemVolumeInput, opts ...request.Option) (*ReplaceSystemVolumeOutput, error) {
 	req, out := c.ReplaceSystemVolumeRequest(input)
@@ -6340,18 +5890,14 @@ const opReplaceSystemsVolumeCommon = "ReplaceSystemsVolume"
 
 // ReplaceSystemsVolumeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ReplaceSystemsVolumeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ReplaceSystemsVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ReplaceSystemsVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ReplaceSystemsVolumeCommon Send returns without error.
 //
 // See ReplaceSystemsVolumeCommon for more information on using the ReplaceSystemsVolumeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ReplaceSystemsVolumeCommonRequest method.
 //    req, resp := client.ReplaceSystemsVolumeCommonRequest(params)
@@ -6396,9 +5942,8 @@ func (c *ECS) ReplaceSystemsVolumeCommon(input *map[string]interface{}) (*map[st
 //
 // See ReplaceSystemsVolumeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ReplaceSystemsVolumeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ReplaceSystemsVolumeCommonRequest(input)
@@ -6411,18 +5956,14 @@ const opReplaceSystemsVolume = "ReplaceSystemsVolume"
 
 // ReplaceSystemsVolumeRequest generates a "volcstack/request.Request" representing the
 // client's request for the ReplaceSystemsVolume operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ReplaceSystemsVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ReplaceSystemsVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ReplaceSystemsVolumeCommon Send returns without error.
 //
 // See ReplaceSystemsVolume for more information on using the ReplaceSystemsVolume
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ReplaceSystemsVolumeRequest method.
 //    req, resp := client.ReplaceSystemsVolumeRequest(params)
@@ -6467,9 +6008,8 @@ func (c *ECS) ReplaceSystemsVolume(input *ReplaceSystemsVolumeInput) (*ReplaceSy
 //
 // See ReplaceSystemsVolume for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ReplaceSystemsVolumeWithContext(ctx volcstack.Context, input *ReplaceSystemsVolumeInput, opts ...request.Option) (*ReplaceSystemsVolumeOutput, error) {
 	req, out := c.ReplaceSystemsVolumeRequest(input)
@@ -6482,18 +6022,14 @@ const opResetAuthenticationCommon = "ResetAuthentication"
 
 // ResetAuthenticationCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ResetAuthenticationCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ResetAuthenticationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ResetAuthenticationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ResetAuthenticationCommon Send returns without error.
 //
 // See ResetAuthenticationCommon for more information on using the ResetAuthenticationCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ResetAuthenticationCommonRequest method.
 //    req, resp := client.ResetAuthenticationCommonRequest(params)
@@ -6538,9 +6074,8 @@ func (c *ECS) ResetAuthenticationCommon(input *map[string]interface{}) (*map[str
 //
 // See ResetAuthenticationCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ResetAuthenticationCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ResetAuthenticationCommonRequest(input)
@@ -6553,18 +6088,14 @@ const opResetAuthentication = "ResetAuthentication"
 
 // ResetAuthenticationRequest generates a "volcstack/request.Request" representing the
 // client's request for the ResetAuthentication operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ResetAuthenticationCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ResetAuthenticationCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ResetAuthenticationCommon Send returns without error.
 //
 // See ResetAuthentication for more information on using the ResetAuthentication
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ResetAuthenticationRequest method.
 //    req, resp := client.ResetAuthenticationRequest(params)
@@ -6609,9 +6140,8 @@ func (c *ECS) ResetAuthentication(input *ResetAuthenticationInput) (*ResetAuthen
 //
 // See ResetAuthentication for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ResetAuthenticationWithContext(ctx volcstack.Context, input *ResetAuthenticationInput, opts ...request.Option) (*ResetAuthenticationOutput, error) {
 	req, out := c.ResetAuthenticationRequest(input)
@@ -6624,18 +6154,14 @@ const opResizeInstanceCommon = "ResizeInstance"
 
 // ResizeInstanceCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ResizeInstanceCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ResizeInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ResizeInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ResizeInstanceCommon Send returns without error.
 //
 // See ResizeInstanceCommon for more information on using the ResizeInstanceCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ResizeInstanceCommonRequest method.
 //    req, resp := client.ResizeInstanceCommonRequest(params)
@@ -6680,9 +6206,8 @@ func (c *ECS) ResizeInstanceCommon(input *map[string]interface{}) (*map[string]i
 //
 // See ResizeInstanceCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ResizeInstanceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ResizeInstanceCommonRequest(input)
@@ -6695,18 +6220,14 @@ const opResizeInstance = "ResizeInstance"
 
 // ResizeInstanceRequest generates a "volcstack/request.Request" representing the
 // client's request for the ResizeInstance operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ResizeInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ResizeInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ResizeInstanceCommon Send returns without error.
 //
 // See ResizeInstance for more information on using the ResizeInstance
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ResizeInstanceRequest method.
 //    req, resp := client.ResizeInstanceRequest(params)
@@ -6751,9 +6272,8 @@ func (c *ECS) ResizeInstance(input *ResizeInstanceInput) (*ResizeInstanceOutput,
 //
 // See ResizeInstance for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) ResizeInstanceWithContext(ctx volcstack.Context, input *ResizeInstanceInput, opts ...request.Option) (*ResizeInstanceOutput, error) {
 	req, out := c.ResizeInstanceRequest(input)
@@ -6766,18 +6286,14 @@ const opRunInstancesCommon = "RunInstances"
 
 // RunInstancesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the RunInstancesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the RunInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned RunInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RunInstancesCommon Send returns without error.
 //
 // See RunInstancesCommon for more information on using the RunInstancesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the RunInstancesCommonRequest method.
 //    req, resp := client.RunInstancesCommonRequest(params)
@@ -6821,9 +6337,8 @@ func (c *ECS) RunInstancesCommon(input *map[string]interface{}) (*map[string]int
 //
 // See RunInstancesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) RunInstancesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.RunInstancesCommonRequest(input)
@@ -6836,18 +6351,14 @@ const opRunInstances = "RunInstances"
 
 // RunInstancesRequest generates a "volcstack/request.Request" representing the
 // client's request for the RunInstances operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the RunInstancesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned RunInstancesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RunInstancesCommon Send returns without error.
 //
 // See RunInstances for more information on using the RunInstances
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the RunInstancesRequest method.
 //    req, resp := client.RunInstancesRequest(params)
@@ -6891,9 +6402,8 @@ func (c *ECS) RunInstances(input *RunInstancesInput) (*RunInstancesOutput, error
 //
 // See RunInstances for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) RunInstancesWithContext(ctx volcstack.Context, input *RunInstancesInput, opts ...request.Option) (*RunInstancesOutput, error) {
 	req, out := c.RunInstancesRequest(input)
@@ -6906,18 +6416,14 @@ const opStartInstanceCommon = "StartInstance"
 
 // StartInstanceCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the StartInstanceCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the StartInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned StartInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StartInstanceCommon Send returns without error.
 //
 // See StartInstanceCommon for more information on using the StartInstanceCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the StartInstanceCommonRequest method.
 //    req, resp := client.StartInstanceCommonRequest(params)
@@ -6962,9 +6468,8 @@ func (c *ECS) StartInstanceCommon(input *map[string]interface{}) (*map[string]in
 //
 // See StartInstanceCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) StartInstanceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.StartInstanceCommonRequest(input)
@@ -6977,18 +6482,14 @@ const opStartInstance = "StartInstance"
 
 // StartInstanceRequest generates a "volcstack/request.Request" representing the
 // client's request for the StartInstance operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the StartInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned StartInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StartInstanceCommon Send returns without error.
 //
 // See StartInstance for more information on using the StartInstance
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the StartInstanceRequest method.
 //    req, resp := client.StartInstanceRequest(params)
@@ -7033,9 +6534,8 @@ func (c *ECS) StartInstance(input *StartInstanceInput) (*StartInstanceOutput, er
 //
 // See StartInstance for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) StartInstanceWithContext(ctx volcstack.Context, input *StartInstanceInput, opts ...request.Option) (*StartInstanceOutput, error) {
 	req, out := c.StartInstanceRequest(input)
@@ -7048,18 +6548,14 @@ const opStopInstanceCommon = "StopInstance"
 
 // StopInstanceCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the StopInstanceCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the StopInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned StopInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StopInstanceCommon Send returns without error.
 //
 // See StopInstanceCommon for more information on using the StopInstanceCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the StopInstanceCommonRequest method.
 //    req, resp := client.StopInstanceCommonRequest(params)
@@ -7104,9 +6600,8 @@ func (c *ECS) StopInstanceCommon(input *map[string]interface{}) (*map[string]int
 //
 // See StopInstanceCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) StopInstanceCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.StopInstanceCommonRequest(input)
@@ -7119,18 +6614,14 @@ const opStopInstance = "StopInstance"
 
 // StopInstanceRequest generates a "volcstack/request.Request" representing the
 // client's request for the StopInstance operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the StopInstanceCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned StopInstanceCommon Request to send the API call to the service.
+// the "output" return value is not valid until after StopInstanceCommon Send returns without error.
 //
 // See StopInstance for more information on using the StopInstance
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the StopInstanceRequest method.
 //    req, resp := client.StopInstanceRequest(params)
@@ -7175,9 +6666,8 @@ func (c *ECS) StopInstance(input *StopInstanceInput) (*StopInstanceOutput, error
 //
 // See StopInstance for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) StopInstanceWithContext(ctx volcstack.Context, input *StopInstanceInput, opts ...request.Option) (*StopInstanceOutput, error) {
 	req, out := c.StopInstanceRequest(input)
@@ -7190,18 +6680,14 @@ const opUnbindAssumeRoleCommon = "UnbindAssumeRole"
 
 // UnbindAssumeRoleCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the UnbindAssumeRoleCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the UnbindAssumeRoleCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned UnbindAssumeRoleCommon Request to send the API call to the service.
+// the "output" return value is not valid until after UnbindAssumeRoleCommon Send returns without error.
 //
 // See UnbindAssumeRoleCommon for more information on using the UnbindAssumeRoleCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the UnbindAssumeRoleCommonRequest method.
 //    req, resp := client.UnbindAssumeRoleCommonRequest(params)
@@ -7246,9 +6732,8 @@ func (c *ECS) UnbindAssumeRoleCommon(input *map[string]interface{}) (*map[string
 //
 // See UnbindAssumeRoleCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) UnbindAssumeRoleCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.UnbindAssumeRoleCommonRequest(input)
@@ -7261,18 +6746,14 @@ const opUnbindAssumeRole = "UnbindAssumeRole"
 
 // UnbindAssumeRoleRequest generates a "volcstack/request.Request" representing the
 // client's request for the UnbindAssumeRole operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the UnbindAssumeRoleCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned UnbindAssumeRoleCommon Request to send the API call to the service.
+// the "output" return value is not valid until after UnbindAssumeRoleCommon Send returns without error.
 //
 // See UnbindAssumeRole for more information on using the UnbindAssumeRole
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the UnbindAssumeRoleRequest method.
 //    req, resp := client.UnbindAssumeRoleRequest(params)
@@ -7317,9 +6798,8 @@ func (c *ECS) UnbindAssumeRole(input *UnbindAssumeRoleInput) (*UnbindAssumeRoleO
 //
 // See UnbindAssumeRole for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) UnbindAssumeRoleWithContext(ctx volcstack.Context, input *UnbindAssumeRoleInput, opts ...request.Option) (*UnbindAssumeRoleOutput, error) {
 	req, out := c.UnbindAssumeRoleRequest(input)
@@ -7332,18 +6812,14 @@ const opV1ListResourceStatisticsCommon = "v1ListResourceStatistics"
 
 // V1ListResourceStatisticsCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the V1ListResourceStatisticsCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the V1ListResourceStatisticsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned V1ListResourceStatisticsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after V1ListResourceStatisticsCommon Send returns without error.
 //
 // See V1ListResourceStatisticsCommon for more information on using the V1ListResourceStatisticsCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the V1ListResourceStatisticsCommonRequest method.
 //    req, resp := client.V1ListResourceStatisticsCommonRequest(params)
@@ -7387,9 +6863,8 @@ func (c *ECS) V1ListResourceStatisticsCommon(input *map[string]interface{}) (*ma
 //
 // See V1ListResourceStatisticsCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) V1ListResourceStatisticsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.V1ListResourceStatisticsCommonRequest(input)
@@ -7402,18 +6877,14 @@ const opV1ListResourceStatistics = "v1ListResourceStatistics"
 
 // V1ListResourceStatisticsRequest generates a "volcstack/request.Request" representing the
 // client's request for the V1ListResourceStatistics operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the V1ListResourceStatisticsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned V1ListResourceStatisticsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after V1ListResourceStatisticsCommon Send returns without error.
 //
 // See V1ListResourceStatistics for more information on using the V1ListResourceStatistics
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the V1ListResourceStatisticsRequest method.
 //    req, resp := client.V1ListResourceStatisticsRequest(params)
@@ -7457,9 +6928,8 @@ func (c *ECS) V1ListResourceStatistics(input *V1ListResourceStatisticsInput) (*V
 //
 // See V1ListResourceStatistics for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) V1ListResourceStatisticsWithContext(ctx volcstack.Context, input *V1ListResourceStatisticsInput, opts ...request.Option) (*V1ListResourceStatisticsOutput, error) {
 	req, out := c.V1ListResourceStatisticsRequest(input)
@@ -7472,18 +6942,14 @@ const opV1UpdateStatusCommon = "v1UpdateStatus"
 
 // V1UpdateStatusCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the V1UpdateStatusCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the V1UpdateStatusCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned V1UpdateStatusCommon Request to send the API call to the service.
+// the "output" return value is not valid until after V1UpdateStatusCommon Send returns without error.
 //
 // See V1UpdateStatusCommon for more information on using the V1UpdateStatusCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the V1UpdateStatusCommonRequest method.
 //    req, resp := client.V1UpdateStatusCommonRequest(params)
@@ -7527,9 +6993,8 @@ func (c *ECS) V1UpdateStatusCommon(input *map[string]interface{}) (*map[string]i
 //
 // See V1UpdateStatusCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) V1UpdateStatusCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.V1UpdateStatusCommonRequest(input)
@@ -7542,18 +7007,14 @@ const opV1UpdateStatus = "v1UpdateStatus"
 
 // V1UpdateStatusRequest generates a "volcstack/request.Request" representing the
 // client's request for the V1UpdateStatus operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the V1UpdateStatusCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned V1UpdateStatusCommon Request to send the API call to the service.
+// the "output" return value is not valid until after V1UpdateStatusCommon Send returns without error.
 //
 // See V1UpdateStatus for more information on using the V1UpdateStatus
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the V1UpdateStatusRequest method.
 //    req, resp := client.V1UpdateStatusRequest(params)
@@ -7597,9 +7058,8 @@ func (c *ECS) V1UpdateStatus(input *V1UpdateStatusInput) (*V1UpdateStatusOutput,
 //
 // See V1UpdateStatus for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) V1UpdateStatusWithContext(ctx volcstack.Context, input *V1UpdateStatusInput, opts ...request.Option) (*V1UpdateStatusOutput, error) {
 	req, out := c.V1UpdateStatusRequest(input)
@@ -7612,18 +7072,14 @@ const opVerifyKeyPairNameExistCommon = "VerifyKeyPairNameExist"
 
 // VerifyKeyPairNameExistCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the VerifyKeyPairNameExistCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the VerifyKeyPairNameExistCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned VerifyKeyPairNameExistCommon Request to send the API call to the service.
+// the "output" return value is not valid until after VerifyKeyPairNameExistCommon Send returns without error.
 //
 // See VerifyKeyPairNameExistCommon for more information on using the VerifyKeyPairNameExistCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the VerifyKeyPairNameExistCommonRequest method.
 //    req, resp := client.VerifyKeyPairNameExistCommonRequest(params)
@@ -7667,9 +7123,8 @@ func (c *ECS) VerifyKeyPairNameExistCommon(input *map[string]interface{}) (*map[
 //
 // See VerifyKeyPairNameExistCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) VerifyKeyPairNameExistCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.VerifyKeyPairNameExistCommonRequest(input)
@@ -7682,18 +7137,14 @@ const opVerifyKeyPairNameExist = "VerifyKeyPairNameExist"
 
 // VerifyKeyPairNameExistRequest generates a "volcstack/request.Request" representing the
 // client's request for the VerifyKeyPairNameExist operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the VerifyKeyPairNameExistCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned VerifyKeyPairNameExistCommon Request to send the API call to the service.
+// the "output" return value is not valid until after VerifyKeyPairNameExistCommon Send returns without error.
 //
 // See VerifyKeyPairNameExist for more information on using the VerifyKeyPairNameExist
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the VerifyKeyPairNameExistRequest method.
 //    req, resp := client.VerifyKeyPairNameExistRequest(params)
@@ -7737,9 +7188,8 @@ func (c *ECS) VerifyKeyPairNameExist(input *VerifyKeyPairNameExistInput) (*Verif
 //
 // See VerifyKeyPairNameExist for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *ECS) VerifyKeyPairNameExistWithContext(ctx volcstack.Context, input *VerifyKeyPairNameExistInput, opts ...request.Option) (*VerifyKeyPairNameExistOutput, error) {
 	req, out := c.VerifyKeyPairNameExistRequest(input)

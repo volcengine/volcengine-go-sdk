@@ -1,5 +1,8 @@
 package ini
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 // ASTKind represents different states in the parse table
 // and the type of AST that is being constructed
 type ASTKind int

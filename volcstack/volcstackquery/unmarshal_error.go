@@ -1,17 +1,21 @@
 package volcstackquery
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
-	"io/ioutil"
 )
 
 // UnmarshalErrorHandler is a name request handler to unmarshal request errors
 var UnmarshalErrorHandler = request.NamedHandler{Name: "kscsdk.volcstackquery.UnmarshalError", Fn: UnmarshalError}
 
-// UnmarshalError unmarshals an error response for an AWS Query service.
+// UnmarshalError unmarshals an error response for an VOLCSTACK Query service.
 func UnmarshalError(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
 	resp := VolcstackResponse{}
@@ -22,11 +26,28 @@ func UnmarshalError(r *request.Request) {
 			r.Error = err
 			return
 		}
+
 		if err = json.Unmarshal(body, &resp); err != nil {
 			fmt.Printf("Unmarshal err, %v\n", err)
 			r.Error = err
 			return
 		}
+
+		if resp.ResponseMetadata == nil {
+			simple := VolcstackSimpleError{}
+			if err = json.Unmarshal(body, &simple); err != nil {
+				fmt.Printf("Unmarshal err, %v\n", err)
+				r.Error = err
+				return
+			}
+			resp.ResponseMetadata = &ResponseMetadata{
+				Error: &Error{
+					Code:    simple.ErrorCode,
+					Message: simple.Message,
+				},
+			}
+		}
+
 		r.Error = volcstackerr.NewRequestFailure(
 			volcstackerr.New(resp.ResponseMetadata.Error.Code, resp.ResponseMetadata.Error.Message, nil),
 			r.HTTPResponse.StatusCode,

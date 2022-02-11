@@ -12,18 +12,14 @@ const opCreateNatGatewayCommon = "CreateNatGateway"
 
 // CreateNatGatewayCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateNatGatewayCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateNatGatewayCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateNatGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateNatGatewayCommon Send returns without error.
 //
 // See CreateNatGatewayCommon for more information on using the CreateNatGatewayCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateNatGatewayCommonRequest method.
 //    req, resp := client.CreateNatGatewayCommonRequest(params)
@@ -67,9 +63,8 @@ func (c *NAT) CreateNatGatewayCommon(input *map[string]interface{}) (*map[string
 //
 // See CreateNatGatewayCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) CreateNatGatewayCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateNatGatewayCommonRequest(input)
@@ -82,18 +77,14 @@ const opCreateNatGateway = "CreateNatGateway"
 
 // CreateNatGatewayRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateNatGateway operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateNatGatewayCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateNatGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateNatGatewayCommon Send returns without error.
 //
 // See CreateNatGateway for more information on using the CreateNatGateway
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateNatGatewayRequest method.
 //    req, resp := client.CreateNatGatewayRequest(params)
@@ -137,9 +128,8 @@ func (c *NAT) CreateNatGateway(input *CreateNatGatewayInput) (*CreateNatGatewayO
 //
 // See CreateNatGateway for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) CreateNatGatewayWithContext(ctx volcstack.Context, input *CreateNatGatewayInput, opts ...request.Option) (*CreateNatGatewayOutput, error) {
 	req, out := c.CreateNatGatewayRequest(input)
@@ -152,18 +142,14 @@ const opCreateSnatEntryCommon = "CreateSnatEntry"
 
 // CreateSnatEntryCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateSnatEntryCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateSnatEntryCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateSnatEntryCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateSnatEntryCommon Send returns without error.
 //
 // See CreateSnatEntryCommon for more information on using the CreateSnatEntryCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateSnatEntryCommonRequest method.
 //    req, resp := client.CreateSnatEntryCommonRequest(params)
@@ -207,9 +193,8 @@ func (c *NAT) CreateSnatEntryCommon(input *map[string]interface{}) (*map[string]
 //
 // See CreateSnatEntryCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) CreateSnatEntryCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateSnatEntryCommonRequest(input)
@@ -222,18 +207,14 @@ const opCreateSnatEntry = "CreateSnatEntry"
 
 // CreateSnatEntryRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateSnatEntry operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateSnatEntryCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateSnatEntryCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateSnatEntryCommon Send returns without error.
 //
 // See CreateSnatEntry for more information on using the CreateSnatEntry
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateSnatEntryRequest method.
 //    req, resp := client.CreateSnatEntryRequest(params)
@@ -277,9 +258,8 @@ func (c *NAT) CreateSnatEntry(input *CreateSnatEntryInput) (*CreateSnatEntryOutp
 //
 // See CreateSnatEntry for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) CreateSnatEntryWithContext(ctx volcstack.Context, input *CreateSnatEntryInput, opts ...request.Option) (*CreateSnatEntryOutput, error) {
 	req, out := c.CreateSnatEntryRequest(input)
@@ -292,18 +272,14 @@ const opDeleteNatGatewayCommon = "DeleteNatGateway"
 
 // DeleteNatGatewayCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteNatGatewayCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteNatGatewayCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteNatGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteNatGatewayCommon Send returns without error.
 //
 // See DeleteNatGatewayCommon for more information on using the DeleteNatGatewayCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteNatGatewayCommonRequest method.
 //    req, resp := client.DeleteNatGatewayCommonRequest(params)
@@ -347,9 +323,8 @@ func (c *NAT) DeleteNatGatewayCommon(input *map[string]interface{}) (*map[string
 //
 // See DeleteNatGatewayCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DeleteNatGatewayCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteNatGatewayCommonRequest(input)
@@ -362,18 +337,14 @@ const opDeleteNatGateway = "DeleteNatGateway"
 
 // DeleteNatGatewayRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteNatGateway operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteNatGatewayCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteNatGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteNatGatewayCommon Send returns without error.
 //
 // See DeleteNatGateway for more information on using the DeleteNatGateway
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteNatGatewayRequest method.
 //    req, resp := client.DeleteNatGatewayRequest(params)
@@ -417,9 +388,8 @@ func (c *NAT) DeleteNatGateway(input *DeleteNatGatewayInput) (*DeleteNatGatewayO
 //
 // See DeleteNatGateway for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DeleteNatGatewayWithContext(ctx volcstack.Context, input *DeleteNatGatewayInput, opts ...request.Option) (*DeleteNatGatewayOutput, error) {
 	req, out := c.DeleteNatGatewayRequest(input)
@@ -432,18 +402,14 @@ const opDeleteSnatEntryCommon = "DeleteSnatEntry"
 
 // DeleteSnatEntryCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteSnatEntryCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteSnatEntryCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteSnatEntryCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteSnatEntryCommon Send returns without error.
 //
 // See DeleteSnatEntryCommon for more information on using the DeleteSnatEntryCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteSnatEntryCommonRequest method.
 //    req, resp := client.DeleteSnatEntryCommonRequest(params)
@@ -487,9 +453,8 @@ func (c *NAT) DeleteSnatEntryCommon(input *map[string]interface{}) (*map[string]
 //
 // See DeleteSnatEntryCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DeleteSnatEntryCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteSnatEntryCommonRequest(input)
@@ -502,18 +467,14 @@ const opDeleteSnatEntry = "DeleteSnatEntry"
 
 // DeleteSnatEntryRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteSnatEntry operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteSnatEntryCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteSnatEntryCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteSnatEntryCommon Send returns without error.
 //
 // See DeleteSnatEntry for more information on using the DeleteSnatEntry
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteSnatEntryRequest method.
 //    req, resp := client.DeleteSnatEntryRequest(params)
@@ -557,9 +518,8 @@ func (c *NAT) DeleteSnatEntry(input *DeleteSnatEntryInput) (*DeleteSnatEntryOutp
 //
 // See DeleteSnatEntry for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DeleteSnatEntryWithContext(ctx volcstack.Context, input *DeleteSnatEntryInput, opts ...request.Option) (*DeleteSnatEntryOutput, error) {
 	req, out := c.DeleteSnatEntryRequest(input)
@@ -572,18 +532,14 @@ const opDescribeNatGatewayAttributesCommon = "DescribeNatGatewayAttributes"
 
 // DescribeNatGatewayAttributesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeNatGatewayAttributesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeNatGatewayAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeNatGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeNatGatewayAttributesCommon Send returns without error.
 //
 // See DescribeNatGatewayAttributesCommon for more information on using the DescribeNatGatewayAttributesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeNatGatewayAttributesCommonRequest method.
 //    req, resp := client.DescribeNatGatewayAttributesCommonRequest(params)
@@ -627,9 +583,8 @@ func (c *NAT) DescribeNatGatewayAttributesCommon(input *map[string]interface{}) 
 //
 // See DescribeNatGatewayAttributesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DescribeNatGatewayAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeNatGatewayAttributesCommonRequest(input)
@@ -642,18 +597,14 @@ const opDescribeNatGatewayAttributes = "DescribeNatGatewayAttributes"
 
 // DescribeNatGatewayAttributesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeNatGatewayAttributes operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeNatGatewayAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeNatGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeNatGatewayAttributesCommon Send returns without error.
 //
 // See DescribeNatGatewayAttributes for more information on using the DescribeNatGatewayAttributes
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeNatGatewayAttributesRequest method.
 //    req, resp := client.DescribeNatGatewayAttributesRequest(params)
@@ -697,9 +648,8 @@ func (c *NAT) DescribeNatGatewayAttributes(input *DescribeNatGatewayAttributesIn
 //
 // See DescribeNatGatewayAttributes for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DescribeNatGatewayAttributesWithContext(ctx volcstack.Context, input *DescribeNatGatewayAttributesInput, opts ...request.Option) (*DescribeNatGatewayAttributesOutput, error) {
 	req, out := c.DescribeNatGatewayAttributesRequest(input)
@@ -712,18 +662,14 @@ const opDescribeNatGatewaysCommon = "DescribeNatGateways"
 
 // DescribeNatGatewaysCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeNatGatewaysCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeNatGatewaysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeNatGatewaysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeNatGatewaysCommon Send returns without error.
 //
 // See DescribeNatGatewaysCommon for more information on using the DescribeNatGatewaysCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeNatGatewaysCommonRequest method.
 //    req, resp := client.DescribeNatGatewaysCommonRequest(params)
@@ -767,9 +713,8 @@ func (c *NAT) DescribeNatGatewaysCommon(input *map[string]interface{}) (*map[str
 //
 // See DescribeNatGatewaysCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DescribeNatGatewaysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeNatGatewaysCommonRequest(input)
@@ -782,18 +727,14 @@ const opDescribeNatGateways = "DescribeNatGateways"
 
 // DescribeNatGatewaysRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeNatGateways operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeNatGatewaysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeNatGatewaysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeNatGatewaysCommon Send returns without error.
 //
 // See DescribeNatGateways for more information on using the DescribeNatGateways
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeNatGatewaysRequest method.
 //    req, resp := client.DescribeNatGatewaysRequest(params)
@@ -837,9 +778,8 @@ func (c *NAT) DescribeNatGateways(input *DescribeNatGatewaysInput) (*DescribeNat
 //
 // See DescribeNatGateways for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DescribeNatGatewaysWithContext(ctx volcstack.Context, input *DescribeNatGatewaysInput, opts ...request.Option) (*DescribeNatGatewaysOutput, error) {
 	req, out := c.DescribeNatGatewaysRequest(input)
@@ -852,18 +792,14 @@ const opDescribeSnatEntriesCommon = "DescribeSnatEntries"
 
 // DescribeSnatEntriesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeSnatEntriesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeSnatEntriesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeSnatEntriesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeSnatEntriesCommon Send returns without error.
 //
 // See DescribeSnatEntriesCommon for more information on using the DescribeSnatEntriesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeSnatEntriesCommonRequest method.
 //    req, resp := client.DescribeSnatEntriesCommonRequest(params)
@@ -907,9 +843,8 @@ func (c *NAT) DescribeSnatEntriesCommon(input *map[string]interface{}) (*map[str
 //
 // See DescribeSnatEntriesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DescribeSnatEntriesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeSnatEntriesCommonRequest(input)
@@ -922,18 +857,14 @@ const opDescribeSnatEntries = "DescribeSnatEntries"
 
 // DescribeSnatEntriesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeSnatEntries operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeSnatEntriesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeSnatEntriesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeSnatEntriesCommon Send returns without error.
 //
 // See DescribeSnatEntries for more information on using the DescribeSnatEntries
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeSnatEntriesRequest method.
 //    req, resp := client.DescribeSnatEntriesRequest(params)
@@ -977,9 +908,8 @@ func (c *NAT) DescribeSnatEntries(input *DescribeSnatEntriesInput) (*DescribeSna
 //
 // See DescribeSnatEntries for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DescribeSnatEntriesWithContext(ctx volcstack.Context, input *DescribeSnatEntriesInput, opts ...request.Option) (*DescribeSnatEntriesOutput, error) {
 	req, out := c.DescribeSnatEntriesRequest(input)
@@ -992,18 +922,14 @@ const opDescribeSnatEntryAttributesCommon = "DescribeSnatEntryAttributes"
 
 // DescribeSnatEntryAttributesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeSnatEntryAttributesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeSnatEntryAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeSnatEntryAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeSnatEntryAttributesCommon Send returns without error.
 //
 // See DescribeSnatEntryAttributesCommon for more information on using the DescribeSnatEntryAttributesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeSnatEntryAttributesCommonRequest method.
 //    req, resp := client.DescribeSnatEntryAttributesCommonRequest(params)
@@ -1047,9 +973,8 @@ func (c *NAT) DescribeSnatEntryAttributesCommon(input *map[string]interface{}) (
 //
 // See DescribeSnatEntryAttributesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DescribeSnatEntryAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeSnatEntryAttributesCommonRequest(input)
@@ -1062,18 +987,14 @@ const opDescribeSnatEntryAttributes = "DescribeSnatEntryAttributes"
 
 // DescribeSnatEntryAttributesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeSnatEntryAttributes operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeSnatEntryAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeSnatEntryAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeSnatEntryAttributesCommon Send returns without error.
 //
 // See DescribeSnatEntryAttributes for more information on using the DescribeSnatEntryAttributes
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeSnatEntryAttributesRequest method.
 //    req, resp := client.DescribeSnatEntryAttributesRequest(params)
@@ -1117,9 +1038,8 @@ func (c *NAT) DescribeSnatEntryAttributes(input *DescribeSnatEntryAttributesInpu
 //
 // See DescribeSnatEntryAttributes for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) DescribeSnatEntryAttributesWithContext(ctx volcstack.Context, input *DescribeSnatEntryAttributesInput, opts ...request.Option) (*DescribeSnatEntryAttributesOutput, error) {
 	req, out := c.DescribeSnatEntryAttributesRequest(input)
@@ -1132,18 +1052,14 @@ const opModifyNatGatewayAttributesCommon = "ModifyNatGatewayAttributes"
 
 // ModifyNatGatewayAttributesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyNatGatewayAttributesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyNatGatewayAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyNatGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyNatGatewayAttributesCommon Send returns without error.
 //
 // See ModifyNatGatewayAttributesCommon for more information on using the ModifyNatGatewayAttributesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyNatGatewayAttributesCommonRequest method.
 //    req, resp := client.ModifyNatGatewayAttributesCommonRequest(params)
@@ -1187,9 +1103,8 @@ func (c *NAT) ModifyNatGatewayAttributesCommon(input *map[string]interface{}) (*
 //
 // See ModifyNatGatewayAttributesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) ModifyNatGatewayAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyNatGatewayAttributesCommonRequest(input)
@@ -1202,18 +1117,14 @@ const opModifyNatGatewayAttributes = "ModifyNatGatewayAttributes"
 
 // ModifyNatGatewayAttributesRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyNatGatewayAttributes operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyNatGatewayAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyNatGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyNatGatewayAttributesCommon Send returns without error.
 //
 // See ModifyNatGatewayAttributes for more information on using the ModifyNatGatewayAttributes
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyNatGatewayAttributesRequest method.
 //    req, resp := client.ModifyNatGatewayAttributesRequest(params)
@@ -1257,9 +1168,8 @@ func (c *NAT) ModifyNatGatewayAttributes(input *ModifyNatGatewayAttributesInput)
 //
 // See ModifyNatGatewayAttributes for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) ModifyNatGatewayAttributesWithContext(ctx volcstack.Context, input *ModifyNatGatewayAttributesInput, opts ...request.Option) (*ModifyNatGatewayAttributesOutput, error) {
 	req, out := c.ModifyNatGatewayAttributesRequest(input)
@@ -1272,18 +1182,14 @@ const opModifySnatEntryAttributesCommon = "ModifySnatEntryAttributes"
 
 // ModifySnatEntryAttributesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifySnatEntryAttributesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifySnatEntryAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifySnatEntryAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifySnatEntryAttributesCommon Send returns without error.
 //
 // See ModifySnatEntryAttributesCommon for more information on using the ModifySnatEntryAttributesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifySnatEntryAttributesCommonRequest method.
 //    req, resp := client.ModifySnatEntryAttributesCommonRequest(params)
@@ -1327,9 +1233,8 @@ func (c *NAT) ModifySnatEntryAttributesCommon(input *map[string]interface{}) (*m
 //
 // See ModifySnatEntryAttributesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) ModifySnatEntryAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifySnatEntryAttributesCommonRequest(input)
@@ -1342,18 +1247,14 @@ const opModifySnatEntryAttributes = "ModifySnatEntryAttributes"
 
 // ModifySnatEntryAttributesRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifySnatEntryAttributes operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifySnatEntryAttributesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifySnatEntryAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifySnatEntryAttributesCommon Send returns without error.
 //
 // See ModifySnatEntryAttributes for more information on using the ModifySnatEntryAttributes
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifySnatEntryAttributesRequest method.
 //    req, resp := client.ModifySnatEntryAttributesRequest(params)
@@ -1397,9 +1298,8 @@ func (c *NAT) ModifySnatEntryAttributes(input *ModifySnatEntryAttributesInput) (
 //
 // See ModifySnatEntryAttributes for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *NAT) ModifySnatEntryAttributesWithContext(ctx volcstack.Context, input *ModifySnatEntryAttributesInput, opts ...request.Option) (*ModifySnatEntryAttributesOutput, error) {
 	req, out := c.ModifySnatEntryAttributesRequest(input)

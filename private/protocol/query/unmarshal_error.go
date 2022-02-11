@@ -1,6 +1,8 @@
 package query
 
-// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/private/protocol/query/unmarshal_error.go
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import (
 	"encoding/xml"
 	"fmt"

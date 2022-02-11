@@ -1,13 +1,17 @@
 package volcstackbody
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import (
 	"encoding/json"
-	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 	"net/url"
 	"reflect"
 	"strings"
+
+	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
 func BodyParam(r *request.Request) {

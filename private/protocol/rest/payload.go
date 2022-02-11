@@ -1,5 +1,8 @@
 package rest
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import "reflect"
 
 // PayloadMember returns the payload field member of i if there is one, or nil.

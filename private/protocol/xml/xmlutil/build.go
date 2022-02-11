@@ -1,5 +1,8 @@
-// Package xmlutil provides XML serialization of VOLCSTACK requests and responses.
+// Package xmlutil Package xml util provides XML serialization of VOLCSTACK requests and responses.
 package xmlutil
+
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
 	"encoding/base64"
