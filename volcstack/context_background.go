@@ -1,6 +1,8 @@
 package volcstack
 
-// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/aws/context_backgroud.go
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import "context"
 
 // BackgroundContext returns a context that will never be canceled, has no

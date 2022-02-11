@@ -1,15 +1,18 @@
 package request
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
 import (
 	"bytes"
 	"fmt"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"io"
 	"net/http"
 	"net/url"
 	"reflect"
 	"strings"
 	"time"
+
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
 
 	"github.com/volcengine/volcstack-go-sdk/internal/sdkio"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"

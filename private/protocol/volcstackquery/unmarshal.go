@@ -2,7 +2,8 @@ package volcstackquery
 
 //go:generate go run -tags codegen ../../../private/model/cli/gen-protocol-tests ../../../models/protocol_tests/output/ec2.json unmarshal_test.go
 
-// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/private/protocol/query/unmarshal.go
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
 	"encoding/xml"

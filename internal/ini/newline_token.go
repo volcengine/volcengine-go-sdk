@@ -1,5 +1,8 @@
 package ini
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 func isNewline(b []rune) bool {
 	if len(b) == 0 {
 		return false

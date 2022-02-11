@@ -1,5 +1,8 @@
 package ini
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 // Statement is an empty AST mostly used for transitioning states.
 func newStatement() AST {
 	return newAST(ASTKindStatement, AST{})

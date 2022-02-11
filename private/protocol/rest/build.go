@@ -1,5 +1,8 @@
-// Package rest provides RESTful serialization of AWS requests and responses.
+// Package rest provides RESTFUL serialization of VOLCSTACK requests and responses.
 package rest
+
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
 	"bytes"
@@ -20,7 +23,7 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
-// Whether the byte value can be sent without escaping in AWS URLs
+// Whether the byte value can be sent without escaping in VOLCSTACK URLs
 var noEscape [256]bool
 
 var errValueNotSet = fmt.Errorf("value not set")
@@ -29,7 +32,7 @@ var byteSliceType = reflect.TypeOf([]byte{})
 
 func init() {
 	for i := 0; i < len(noEscape); i++ {
-		// AWS expects every character except these to be escaped
+		// VOLCSTACK expects every character except these to be escaped
 		noEscape[i] = (i >= 'A' && i <= 'Z') ||
 			(i >= 'a' && i <= 'z') ||
 			(i >= '0' && i <= '9') ||

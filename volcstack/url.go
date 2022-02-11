@@ -1,6 +1,7 @@
 package volcstack
 
-// This File is modify from https://github.com/aws/aws-sdk-go/blob/main/aws/url.go
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import "net/url"
 

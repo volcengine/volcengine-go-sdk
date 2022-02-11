@@ -1,9 +1,13 @@
 package request
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import (
 	"fmt"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 	"time"
+
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"

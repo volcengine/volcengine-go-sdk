@@ -1,16 +1,19 @@
 package sdkio
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import "io"
 
 const (
 	// Byte is 8 bits
 	Byte int64 = 1
-	// KibiByte (KiB) is 1024 Bytes
-	KibiByte = Byte * 1024
-	// MebiByte (MiB) is 1024 KiB
-	MebiByte = KibiByte * 1024
-	// GibiByte (GiB) is 1024 MiB
-	GibiByte = MebiByte * 1024
+	// KbByte (KiB) is 1024 Bytes
+	KbByte = Byte * 1024
+	// MbByte (MiB) is 1024 KiB
+	MbByte = KbByte * 1024
+	// GbByte (GiB) is 1024 MiB
+	GbByte = MbByte * 1024
 )
 
 const (

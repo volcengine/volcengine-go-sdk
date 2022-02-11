@@ -12,18 +12,14 @@ const opInnerBffGetLimitFromKeysCommon = "InnerBffGetLimitFromKeys"
 
 // InnerBffGetLimitFromKeysCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerBffGetLimitFromKeysCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerBffGetLimitFromKeysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerBffGetLimitFromKeysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerBffGetLimitFromKeysCommon Send returns without error.
 //
 // See InnerBffGetLimitFromKeysCommon for more information on using the InnerBffGetLimitFromKeysCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerBffGetLimitFromKeysCommonRequest method.
 //    req, resp := client.InnerBffGetLimitFromKeysCommonRequest(params)
@@ -67,9 +63,8 @@ func (c *VPN) InnerBffGetLimitFromKeysCommon(input *map[string]interface{}) (*ma
 //
 // See InnerBffGetLimitFromKeysCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerBffGetLimitFromKeysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.InnerBffGetLimitFromKeysCommonRequest(input)
@@ -82,18 +77,14 @@ const opInnerBffGetLimitFromKeys = "InnerBffGetLimitFromKeys"
 
 // InnerBffGetLimitFromKeysRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerBffGetLimitFromKeys operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerBffGetLimitFromKeysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerBffGetLimitFromKeysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerBffGetLimitFromKeysCommon Send returns without error.
 //
 // See InnerBffGetLimitFromKeys for more information on using the InnerBffGetLimitFromKeys
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerBffGetLimitFromKeysRequest method.
 //    req, resp := client.InnerBffGetLimitFromKeysRequest(params)
@@ -137,9 +128,8 @@ func (c *VPN) InnerBffGetLimitFromKeys(input *InnerBffGetLimitFromKeysInput) (*I
 //
 // See InnerBffGetLimitFromKeys for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerBffGetLimitFromKeysWithContext(ctx volcstack.Context, input *InnerBffGetLimitFromKeysInput, opts ...request.Option) (*InnerBffGetLimitFromKeysOutput, error) {
 	req, out := c.InnerBffGetLimitFromKeysRequest(input)
@@ -152,18 +142,14 @@ const opInnerDescribeWhiteListKeysCommon = "InnerDescribeWhiteListKeys"
 
 // InnerDescribeWhiteListKeysCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerDescribeWhiteListKeysCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerDescribeWhiteListKeysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerDescribeWhiteListKeysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerDescribeWhiteListKeysCommon Send returns without error.
 //
 // See InnerDescribeWhiteListKeysCommon for more information on using the InnerDescribeWhiteListKeysCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerDescribeWhiteListKeysCommonRequest method.
 //    req, resp := client.InnerDescribeWhiteListKeysCommonRequest(params)
@@ -207,9 +193,8 @@ func (c *VPN) InnerDescribeWhiteListKeysCommon(input *map[string]interface{}) (*
 //
 // See InnerDescribeWhiteListKeysCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerDescribeWhiteListKeysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.InnerDescribeWhiteListKeysCommonRequest(input)
@@ -222,18 +207,14 @@ const opInnerDescribeWhiteListKeys = "InnerDescribeWhiteListKeys"
 
 // InnerDescribeWhiteListKeysRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerDescribeWhiteListKeys operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerDescribeWhiteListKeysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerDescribeWhiteListKeysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerDescribeWhiteListKeysCommon Send returns without error.
 //
 // See InnerDescribeWhiteListKeys for more information on using the InnerDescribeWhiteListKeys
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerDescribeWhiteListKeysRequest method.
 //    req, resp := client.InnerDescribeWhiteListKeysRequest(params)
@@ -277,9 +258,8 @@ func (c *VPN) InnerDescribeWhiteListKeys(input *InnerDescribeWhiteListKeysInput)
 //
 // See InnerDescribeWhiteListKeys for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerDescribeWhiteListKeysWithContext(ctx volcstack.Context, input *InnerDescribeWhiteListKeysInput, opts ...request.Option) (*InnerDescribeWhiteListKeysOutput, error) {
 	req, out := c.InnerDescribeWhiteListKeysRequest(input)
@@ -292,18 +272,14 @@ const opInnerGetLimitFromKeysCommon = "InnerGetLimitFromKeys"
 
 // InnerGetLimitFromKeysCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerGetLimitFromKeysCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerGetLimitFromKeysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerGetLimitFromKeysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerGetLimitFromKeysCommon Send returns without error.
 //
 // See InnerGetLimitFromKeysCommon for more information on using the InnerGetLimitFromKeysCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerGetLimitFromKeysCommonRequest method.
 //    req, resp := client.InnerGetLimitFromKeysCommonRequest(params)
@@ -347,9 +323,8 @@ func (c *VPN) InnerGetLimitFromKeysCommon(input *map[string]interface{}) (*map[s
 //
 // See InnerGetLimitFromKeysCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerGetLimitFromKeysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.InnerGetLimitFromKeysCommonRequest(input)
@@ -362,18 +337,14 @@ const opInnerGetLimitFromKeys = "InnerGetLimitFromKeys"
 
 // InnerGetLimitFromKeysRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerGetLimitFromKeys operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerGetLimitFromKeysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerGetLimitFromKeysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerGetLimitFromKeysCommon Send returns without error.
 //
 // See InnerGetLimitFromKeys for more information on using the InnerGetLimitFromKeys
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerGetLimitFromKeysRequest method.
 //    req, resp := client.InnerGetLimitFromKeysRequest(params)
@@ -417,9 +388,8 @@ func (c *VPN) InnerGetLimitFromKeys(input *InnerGetLimitFromKeysInput) (*InnerGe
 //
 // See InnerGetLimitFromKeys for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerGetLimitFromKeysWithContext(ctx volcstack.Context, input *InnerGetLimitFromKeysInput, opts ...request.Option) (*InnerGetLimitFromKeysOutput, error) {
 	req, out := c.InnerGetLimitFromKeysRequest(input)
@@ -432,18 +402,14 @@ const opInnerPostDescribeVpnConnectionsCommon = "InnerPostDescribeVpnConnections
 
 // InnerPostDescribeVpnConnectionsCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerPostDescribeVpnConnectionsCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerPostDescribeVpnConnectionsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerPostDescribeVpnConnectionsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerPostDescribeVpnConnectionsCommon Send returns without error.
 //
 // See InnerPostDescribeVpnConnectionsCommon for more information on using the InnerPostDescribeVpnConnectionsCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerPostDescribeVpnConnectionsCommonRequest method.
 //    req, resp := client.InnerPostDescribeVpnConnectionsCommonRequest(params)
@@ -487,9 +453,8 @@ func (c *VPN) InnerPostDescribeVpnConnectionsCommon(input *map[string]interface{
 //
 // See InnerPostDescribeVpnConnectionsCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerPostDescribeVpnConnectionsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.InnerPostDescribeVpnConnectionsCommonRequest(input)
@@ -502,18 +467,14 @@ const opInnerPostDescribeVpnConnections = "InnerPostDescribeVpnConnections"
 
 // InnerPostDescribeVpnConnectionsRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerPostDescribeVpnConnections operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerPostDescribeVpnConnectionsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerPostDescribeVpnConnectionsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerPostDescribeVpnConnectionsCommon Send returns without error.
 //
 // See InnerPostDescribeVpnConnections for more information on using the InnerPostDescribeVpnConnections
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerPostDescribeVpnConnectionsRequest method.
 //    req, resp := client.InnerPostDescribeVpnConnectionsRequest(params)
@@ -557,9 +518,8 @@ func (c *VPN) InnerPostDescribeVpnConnections(input *InnerPostDescribeVpnConnect
 //
 // See InnerPostDescribeVpnConnections for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerPostDescribeVpnConnectionsWithContext(ctx volcstack.Context, input *InnerPostDescribeVpnConnectionsInput, opts ...request.Option) (*InnerPostDescribeVpnConnectionsOutput, error) {
 	req, out := c.InnerPostDescribeVpnConnectionsRequest(input)
@@ -572,18 +532,14 @@ const opInnerPostDescribeVpnGatewaysCommon = "InnerPostDescribeVpnGateways"
 
 // InnerPostDescribeVpnGatewaysCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerPostDescribeVpnGatewaysCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerPostDescribeVpnGatewaysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerPostDescribeVpnGatewaysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerPostDescribeVpnGatewaysCommon Send returns without error.
 //
 // See InnerPostDescribeVpnGatewaysCommon for more information on using the InnerPostDescribeVpnGatewaysCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerPostDescribeVpnGatewaysCommonRequest method.
 //    req, resp := client.InnerPostDescribeVpnGatewaysCommonRequest(params)
@@ -627,9 +583,8 @@ func (c *VPN) InnerPostDescribeVpnGatewaysCommon(input *map[string]interface{}) 
 //
 // See InnerPostDescribeVpnGatewaysCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerPostDescribeVpnGatewaysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.InnerPostDescribeVpnGatewaysCommonRequest(input)
@@ -642,18 +597,14 @@ const opInnerPostDescribeVpnGateways = "InnerPostDescribeVpnGateways"
 
 // InnerPostDescribeVpnGatewaysRequest generates a "volcstack/request.Request" representing the
 // client's request for the InnerPostDescribeVpnGateways operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the InnerPostDescribeVpnGatewaysCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned InnerPostDescribeVpnGatewaysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InnerPostDescribeVpnGatewaysCommon Send returns without error.
 //
 // See InnerPostDescribeVpnGateways for more information on using the InnerPostDescribeVpnGateways
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the InnerPostDescribeVpnGatewaysRequest method.
 //    req, resp := client.InnerPostDescribeVpnGatewaysRequest(params)
@@ -697,9 +648,8 @@ func (c *VPN) InnerPostDescribeVpnGateways(input *InnerPostDescribeVpnGatewaysIn
 //
 // See InnerPostDescribeVpnGateways for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *VPN) InnerPostDescribeVpnGatewaysWithContext(ctx volcstack.Context, input *InnerPostDescribeVpnGatewaysInput, opts ...request.Option) (*InnerPostDescribeVpnGatewaysOutput, error) {
 	req, out := c.InnerPostDescribeVpnGatewaysRequest(input)

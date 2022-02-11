@@ -15,14 +15,8 @@ import (
 
 // VPNAPI provides an interface to enable mocking the
 // vpn.VPN service client's API operation,
-// paginators, and waiters. This make unit testing your code that calls out
-// to the SDK's service client's calls easier.
 //
-// The best way to use this interface is so the SDK's service client's calls
-// can be stubbed out for unit testing your code with the SDK without needing
-// to inject custom request handlers into the SDK's request pipeline.
-//
-//    // myFunc uses an SDK service client to make a request to
+//    // volcstack sdk func uses an SDK service client to make a request to
 //    // VPN.
 //    func myFunc(svc VPNAPI) bool {
 //        // Make svc.InnerBffGetLimitFromKeys request
@@ -35,29 +29,6 @@ import (
 //        myFunc(svc)
 //    }
 //
-// In your _test.go file:
-//
-//    // Define a mock struct to be used in your unit tests of myFunc.
-//    type mockVPNClient struct {
-//        VPNAPI
-//    }
-//    func (m *mockVPNClient) InnerBffGetLimitFromKeys(input *InnerBffGetLimitFromKeysInput) (*InnerBffGetLimitFromKeysOutput, error) {
-//        // mock response/functionality
-//    }
-//
-//    func TestMyFunc(t *testing.T) {
-//        // Setup Test
-//        mockSvc := &mockVPNClient{}
-//
-//        myfunc(mockSvc)
-//
-//        // Verify myFunc's functionality
-//    }
-//
-// It is important to note that this interface will have breaking changes
-// when the service model is updated and adds new API operations, paginators,
-// and waiters. Its suggested to use the pattern above for testing, or using
-// tooling to generate mocks to satisfy the interfaces.
 type VPNAPI interface {
 	InnerBffGetLimitFromKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	InnerBffGetLimitFromKeysCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

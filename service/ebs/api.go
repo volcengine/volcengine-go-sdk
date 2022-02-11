@@ -14,18 +14,14 @@ const opAttachVolumeCommon = "AttachVolume"
 
 // AttachVolumeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the AttachVolumeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the AttachVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned AttachVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachVolumeCommon Send returns without error.
 //
 // See AttachVolumeCommon for more information on using the AttachVolumeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the AttachVolumeCommonRequest method.
 //    req, resp := client.AttachVolumeCommonRequest(params)
@@ -70,9 +66,8 @@ func (c *EBS) AttachVolumeCommon(input *map[string]interface{}) (*map[string]int
 //
 // See AttachVolumeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) AttachVolumeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.AttachVolumeCommonRequest(input)
@@ -85,18 +80,14 @@ const opAttachVolume = "AttachVolume"
 
 // AttachVolumeRequest generates a "volcstack/request.Request" representing the
 // client's request for the AttachVolume operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the AttachVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned AttachVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachVolumeCommon Send returns without error.
 //
 // See AttachVolume for more information on using the AttachVolume
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the AttachVolumeRequest method.
 //    req, resp := client.AttachVolumeRequest(params)
@@ -141,9 +132,8 @@ func (c *EBS) AttachVolume(input *AttachVolumeInput) (*AttachVolumeOutput, error
 //
 // See AttachVolume for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) AttachVolumeWithContext(ctx volcstack.Context, input *AttachVolumeInput, opts ...request.Option) (*AttachVolumeOutput, error) {
 	req, out := c.AttachVolumeRequest(input)
@@ -156,18 +146,14 @@ const opCreateVolumeCommon = "CreateVolume"
 
 // CreateVolumeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateVolumeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateVolumeCommon Send returns without error.
 //
 // See CreateVolumeCommon for more information on using the CreateVolumeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateVolumeCommonRequest method.
 //    req, resp := client.CreateVolumeCommonRequest(params)
@@ -211,9 +197,8 @@ func (c *EBS) CreateVolumeCommon(input *map[string]interface{}) (*map[string]int
 //
 // See CreateVolumeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) CreateVolumeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.CreateVolumeCommonRequest(input)
@@ -226,18 +211,14 @@ const opCreateVolume = "CreateVolume"
 
 // CreateVolumeRequest generates a "volcstack/request.Request" representing the
 // client's request for the CreateVolume operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the CreateVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned CreateVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateVolumeCommon Send returns without error.
 //
 // See CreateVolume for more information on using the CreateVolume
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the CreateVolumeRequest method.
 //    req, resp := client.CreateVolumeRequest(params)
@@ -281,9 +262,8 @@ func (c *EBS) CreateVolume(input *CreateVolumeInput) (*CreateVolumeOutput, error
 //
 // See CreateVolume for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) CreateVolumeWithContext(ctx volcstack.Context, input *CreateVolumeInput, opts ...request.Option) (*CreateVolumeOutput, error) {
 	req, out := c.CreateVolumeRequest(input)
@@ -296,18 +276,14 @@ const opDeleteVolumeCommon = "DeleteVolume"
 
 // DeleteVolumeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteVolumeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteVolumeCommon Send returns without error.
 //
 // See DeleteVolumeCommon for more information on using the DeleteVolumeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteVolumeCommonRequest method.
 //    req, resp := client.DeleteVolumeCommonRequest(params)
@@ -352,9 +328,8 @@ func (c *EBS) DeleteVolumeCommon(input *map[string]interface{}) (*map[string]int
 //
 // See DeleteVolumeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) DeleteVolumeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DeleteVolumeCommonRequest(input)
@@ -367,18 +342,14 @@ const opDeleteVolume = "DeleteVolume"
 
 // DeleteVolumeRequest generates a "volcstack/request.Request" representing the
 // client's request for the DeleteVolume operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DeleteVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DeleteVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteVolumeCommon Send returns without error.
 //
 // See DeleteVolume for more information on using the DeleteVolume
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DeleteVolumeRequest method.
 //    req, resp := client.DeleteVolumeRequest(params)
@@ -423,9 +394,8 @@ func (c *EBS) DeleteVolume(input *DeleteVolumeInput) (*DeleteVolumeOutput, error
 //
 // See DeleteVolume for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) DeleteVolumeWithContext(ctx volcstack.Context, input *DeleteVolumeInput, opts ...request.Option) (*DeleteVolumeOutput, error) {
 	req, out := c.DeleteVolumeRequest(input)
@@ -438,18 +408,14 @@ const opDescribeVolumesCommon = "DescribeVolumes"
 
 // DescribeVolumesCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeVolumesCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeVolumesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeVolumesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVolumesCommon Send returns without error.
 //
 // See DescribeVolumesCommon for more information on using the DescribeVolumesCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeVolumesCommonRequest method.
 //    req, resp := client.DescribeVolumesCommonRequest(params)
@@ -493,9 +459,8 @@ func (c *EBS) DescribeVolumesCommon(input *map[string]interface{}) (*map[string]
 //
 // See DescribeVolumesCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) DescribeVolumesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DescribeVolumesCommonRequest(input)
@@ -508,18 +473,14 @@ const opDescribeVolumes = "DescribeVolumes"
 
 // DescribeVolumesRequest generates a "volcstack/request.Request" representing the
 // client's request for the DescribeVolumes operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DescribeVolumesCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DescribeVolumesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVolumesCommon Send returns without error.
 //
 // See DescribeVolumes for more information on using the DescribeVolumes
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DescribeVolumesRequest method.
 //    req, resp := client.DescribeVolumesRequest(params)
@@ -563,9 +524,8 @@ func (c *EBS) DescribeVolumes(input *DescribeVolumesInput) (*DescribeVolumesOutp
 //
 // See DescribeVolumes for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) DescribeVolumesWithContext(ctx volcstack.Context, input *DescribeVolumesInput, opts ...request.Option) (*DescribeVolumesOutput, error) {
 	req, out := c.DescribeVolumesRequest(input)
@@ -578,18 +538,14 @@ const opDetachVolumeCommon = "DetachVolume"
 
 // DetachVolumeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the DetachVolumeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DetachVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DetachVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachVolumeCommon Send returns without error.
 //
 // See DetachVolumeCommon for more information on using the DetachVolumeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DetachVolumeCommonRequest method.
 //    req, resp := client.DetachVolumeCommonRequest(params)
@@ -634,9 +590,8 @@ func (c *EBS) DetachVolumeCommon(input *map[string]interface{}) (*map[string]int
 //
 // See DetachVolumeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) DetachVolumeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.DetachVolumeCommonRequest(input)
@@ -649,18 +604,14 @@ const opDetachVolume = "DetachVolume"
 
 // DetachVolumeRequest generates a "volcstack/request.Request" representing the
 // client's request for the DetachVolume operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the DetachVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned DetachVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachVolumeCommon Send returns without error.
 //
 // See DetachVolume for more information on using the DetachVolume
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the DetachVolumeRequest method.
 //    req, resp := client.DetachVolumeRequest(params)
@@ -705,9 +656,8 @@ func (c *EBS) DetachVolume(input *DetachVolumeInput) (*DetachVolumeOutput, error
 //
 // See DetachVolume for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) DetachVolumeWithContext(ctx volcstack.Context, input *DetachVolumeInput, opts ...request.Option) (*DetachVolumeOutput, error) {
 	req, out := c.DetachVolumeRequest(input)
@@ -720,18 +670,14 @@ const opExtendVolumeCommon = "ExtendVolume"
 
 // ExtendVolumeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ExtendVolumeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ExtendVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ExtendVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ExtendVolumeCommon Send returns without error.
 //
 // See ExtendVolumeCommon for more information on using the ExtendVolumeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ExtendVolumeCommonRequest method.
 //    req, resp := client.ExtendVolumeCommonRequest(params)
@@ -776,9 +722,8 @@ func (c *EBS) ExtendVolumeCommon(input *map[string]interface{}) (*map[string]int
 //
 // See ExtendVolumeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) ExtendVolumeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ExtendVolumeCommonRequest(input)
@@ -791,18 +736,14 @@ const opExtendVolume = "ExtendVolume"
 
 // ExtendVolumeRequest generates a "volcstack/request.Request" representing the
 // client's request for the ExtendVolume operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ExtendVolumeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ExtendVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ExtendVolumeCommon Send returns without error.
 //
 // See ExtendVolume for more information on using the ExtendVolume
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ExtendVolumeRequest method.
 //    req, resp := client.ExtendVolumeRequest(params)
@@ -847,9 +788,8 @@ func (c *EBS) ExtendVolume(input *ExtendVolumeInput) (*ExtendVolumeOutput, error
 //
 // See ExtendVolume for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) ExtendVolumeWithContext(ctx volcstack.Context, input *ExtendVolumeInput, opts ...request.Option) (*ExtendVolumeOutput, error) {
 	req, out := c.ExtendVolumeRequest(input)
@@ -862,18 +802,14 @@ const opModifyVolumeAttributeCommon = "ModifyVolumeAttribute"
 
 // ModifyVolumeAttributeCommonRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyVolumeAttributeCommon operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyVolumeAttributeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyVolumeAttributeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyVolumeAttributeCommon Send returns without error.
 //
 // See ModifyVolumeAttributeCommon for more information on using the ModifyVolumeAttributeCommon
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyVolumeAttributeCommonRequest method.
 //    req, resp := client.ModifyVolumeAttributeCommonRequest(params)
@@ -918,9 +854,8 @@ func (c *EBS) ModifyVolumeAttributeCommon(input *map[string]interface{}) (*map[s
 //
 // See ModifyVolumeAttributeCommon for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) ModifyVolumeAttributeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
 	req, out := c.ModifyVolumeAttributeCommonRequest(input)
@@ -933,18 +868,14 @@ const opModifyVolumeAttribute = "ModifyVolumeAttribute"
 
 // ModifyVolumeAttributeRequest generates a "volcstack/request.Request" representing the
 // client's request for the ModifyVolumeAttribute operation. The "output" return
-// value will be populated with the request's response once the request completes
+// value will be populated with the ModifyVolumeAttributeCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned Request to send the API call to the service.
-// the "output" return value is not valid until after Send returns without error.
+// Use "Send" method on the returned ModifyVolumeAttributeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyVolumeAttributeCommon Send returns without error.
 //
 // See ModifyVolumeAttribute for more information on using the ModifyVolumeAttribute
 // API call, and error handling.
-//
-// This method is useful when you want to inject custom logic or configuration
-// into the SDK's request lifecycle. Such as custom headers, or retry logic.
-//
 //
 //    // Example sending a request using the ModifyVolumeAttributeRequest method.
 //    req, resp := client.ModifyVolumeAttributeRequest(params)
@@ -989,9 +920,8 @@ func (c *EBS) ModifyVolumeAttribute(input *ModifyVolumeAttributeInput) (*ModifyV
 //
 // See ModifyVolumeAttribute for details on how to use this API operation.
 //
-// The context must be non-nil and will be used for request cancellation. If
-// the context is nil a panic will occur. In the future the SDK may create
-// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
 func (c *EBS) ModifyVolumeAttributeWithContext(ctx volcstack.Context, input *ModifyVolumeAttributeInput, opts ...request.Option) (*ModifyVolumeAttributeOutput, error) {
 	req, out := c.ModifyVolumeAttributeRequest(input)

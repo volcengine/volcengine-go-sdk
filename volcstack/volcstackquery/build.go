@@ -1,14 +1,18 @@
 package volcstackquery
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import (
 	"fmt"
+	"net/url"
+	"reflect"
+	"strings"
+
 	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackbody"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
-	"net/url"
-	"reflect"
-	"strings"
 )
 
 // BuildHandler is a named request handler for building volcstackquery protocol requests

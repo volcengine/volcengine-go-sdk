@@ -1,33 +1,7 @@
-// Package endpointcreds provides support for retrieving credentials from an
-// arbitrary HTTP endpoint.
-//
-// The credentials endpoint Provider can receive both static and refreshable
-// credentials that will expire. Credentials are static when an "Expiration"
-// value is not provided in the endpoint's response.
-//
-// Static credentials will never expire once they have been retrieved. The format
-// of the static credentials response:
-//    {
-//        "AccessKeyId" : "MUA...",
-//        "SecretAccessKey" : "/7PC5om....",
-//    }
-//
-// Refreshable credentials will expire within the "ExpiryWindow" of the Expiration
-// value in the response. The format of the refreshable credentials response:
-//    {
-//        "AccessKeyId" : "MUA...",
-//        "SecretAccessKey" : "/7PC5om....",
-//        "Token" : "AQoDY....=",
-//        "Expiration" : "2016-02-25T06:03:31Z"
-//    }
-//
-// Errors should be returned in the following format and only returned with 400
-// or 500 HTTP status codes.
-//    {
-//        "code": "ErrorCode",
-//        "message": "Helpful error message."
-//    }
 package endpointcreds
+
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
 	"encoding/json"

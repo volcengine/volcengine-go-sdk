@@ -1,6 +1,9 @@
 // Package volcstackerr represents API error interface accessors for the SDK.
 package volcstackerr
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 // An Error wraps lower level errors with code, message and an original error.
 // The underlying concrete error type may also satisfy other interfaces which
 // can be to used to obtain more specific information about the error.

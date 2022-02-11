@@ -1,5 +1,8 @@
 package ini
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 // skipper is used to skip certain blocks of an ini file.
 // Currently skipper is used to skip nested blocks of ini
 // files. See example below

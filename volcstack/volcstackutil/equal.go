@@ -1,5 +1,8 @@
 package volcstackutil
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import "reflect"
 
 // DeepEqual returns if the two values are deeply equal like reflect.DeepEqual.

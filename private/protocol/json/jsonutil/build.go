@@ -1,6 +1,9 @@
 // Package jsonutil provides JSON serialization of VOLCSTACK requests and responses.
 package jsonutil
 
+// Copy from https://github.com/aws/aws-sdk-go
+// May have been modified by Beijing Volcanoengine Technology Ltd.
+
 import (
 	"bytes"
 	"encoding/base64"
