@@ -46,14 +46,6 @@ type CLBAPI interface {
 	AddServerGroupBackendServersWithContext(volcstack.Context, *AddServerGroupBackendServersInput, ...request.Option) (*AddServerGroupBackendServersOutput, error)
 	AddServerGroupBackendServersRequest(*AddServerGroupBackendServersInput) (*request.Request, *AddServerGroupBackendServersOutput)
 
-	AssociateAclsWithListenerCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AssociateAclsWithListenerCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AssociateAclsWithListenerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AssociateAclsWithListener(*AssociateAclsWithListenerInput) (*AssociateAclsWithListenerOutput, error)
-	AssociateAclsWithListenerWithContext(volcstack.Context, *AssociateAclsWithListenerInput, ...request.Option) (*AssociateAclsWithListenerOutput, error)
-	AssociateAclsWithListenerRequest(*AssociateAclsWithListenerInput) (*request.Request, *AssociateAclsWithListenerOutput)
-
 	CreateAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAclCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -198,14 +190,6 @@ type CLBAPI interface {
 	DescribeLoadBalancerAttributesWithContext(volcstack.Context, *DescribeLoadBalancerAttributesInput, ...request.Option) (*DescribeLoadBalancerAttributesOutput, error)
 	DescribeLoadBalancerAttributesRequest(*DescribeLoadBalancerAttributesInput) (*request.Request, *DescribeLoadBalancerAttributesOutput)
 
-	DescribeLoadBalancerSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeLoadBalancerSpecsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeLoadBalancerSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeLoadBalancerSpecs(*DescribeLoadBalancerSpecsInput) (*DescribeLoadBalancerSpecsOutput, error)
-	DescribeLoadBalancerSpecsWithContext(volcstack.Context, *DescribeLoadBalancerSpecsInput, ...request.Option) (*DescribeLoadBalancerSpecsOutput, error)
-	DescribeLoadBalancerSpecsRequest(*DescribeLoadBalancerSpecsInput) (*request.Request, *DescribeLoadBalancerSpecsOutput)
-
 	DescribeLoadBalancersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeLoadBalancersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeLoadBalancersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -246,14 +230,6 @@ type CLBAPI interface {
 	DisableAccessLogWithContext(volcstack.Context, *DisableAccessLogInput, ...request.Option) (*DisableAccessLogOutput, error)
 	DisableAccessLogRequest(*DisableAccessLogInput) (*request.Request, *DisableAccessLogOutput)
 
-	DissociateAclsWithListenerCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DissociateAclsWithListenerCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DissociateAclsWithListenerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DissociateAclsWithListener(*DissociateAclsWithListenerInput) (*DissociateAclsWithListenerOutput, error)
-	DissociateAclsWithListenerWithContext(volcstack.Context, *DissociateAclsWithListenerInput, ...request.Option) (*DissociateAclsWithListenerOutput, error)
-	DissociateAclsWithListenerRequest(*DissociateAclsWithListenerInput) (*request.Request, *DissociateAclsWithListenerOutput)
-
 	EnableAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableAccessLogCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	EnableAccessLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -262,190 +238,6 @@ type CLBAPI interface {
 	EnableAccessLogWithContext(volcstack.Context, *EnableAccessLogInput, ...request.Option) (*EnableAccessLogOutput, error)
 	EnableAccessLogRequest(*EnableAccessLogInput) (*request.Request, *EnableAccessLogOutput)
 
-	InnerAddPodServerGroupBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerAddPodServerGroupBackendServersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerAddPodServerGroupBackendServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerAddPodServerGroupBackendServers(*InnerAddPodServerGroupBackendServersInput) (*InnerAddPodServerGroupBackendServersOutput, error)
-	InnerAddPodServerGroupBackendServersWithContext(volcstack.Context, *InnerAddPodServerGroupBackendServersInput, ...request.Option) (*InnerAddPodServerGroupBackendServersOutput, error)
-	InnerAddPodServerGroupBackendServersRequest(*InnerAddPodServerGroupBackendServersInput) (*request.Request, *InnerAddPodServerGroupBackendServersOutput)
-
-	InnerAddServerGroupBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerAddServerGroupBackendServersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerAddServerGroupBackendServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerAddServerGroupBackendServers(*InnerAddServerGroupBackendServersInput) (*InnerAddServerGroupBackendServersOutput, error)
-	InnerAddServerGroupBackendServersWithContext(volcstack.Context, *InnerAddServerGroupBackendServersInput, ...request.Option) (*InnerAddServerGroupBackendServersOutput, error)
-	InnerAddServerGroupBackendServersRequest(*InnerAddServerGroupBackendServersInput) (*request.Request, *InnerAddServerGroupBackendServersOutput)
-
-	InnerAssociateVpcsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerAssociateVpcsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerAssociateVpcsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerAssociateVpcs(*InnerAssociateVpcsInput) (*InnerAssociateVpcsOutput, error)
-	InnerAssociateVpcsWithContext(volcstack.Context, *InnerAssociateVpcsInput, ...request.Option) (*InnerAssociateVpcsOutput, error)
-	InnerAssociateVpcsRequest(*InnerAssociateVpcsInput) (*request.Request, *InnerAssociateVpcsOutput)
-
-	InnerBffDescribeLoadBalancerHealthCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerBffDescribeLoadBalancerHealthCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerBffDescribeLoadBalancerHealthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerBffDescribeLoadBalancerHealth(*InnerBffDescribeLoadBalancerHealthInput) (*InnerBffDescribeLoadBalancerHealthOutput, error)
-	InnerBffDescribeLoadBalancerHealthWithContext(volcstack.Context, *InnerBffDescribeLoadBalancerHealthInput, ...request.Option) (*InnerBffDescribeLoadBalancerHealthOutput, error)
-	InnerBffDescribeLoadBalancerHealthRequest(*InnerBffDescribeLoadBalancerHealthInput) (*request.Request, *InnerBffDescribeLoadBalancerHealthOutput)
-
-	InnerBffGetAccountQuotaCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerBffGetAccountQuotaCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerBffGetAccountQuotaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerBffGetAccountQuota(*InnerBffGetAccountQuotaInput) (*InnerBffGetAccountQuotaOutput, error)
-	InnerBffGetAccountQuotaWithContext(volcstack.Context, *InnerBffGetAccountQuotaInput, ...request.Option) (*InnerBffGetAccountQuotaOutput, error)
-	InnerBffGetAccountQuotaRequest(*InnerBffGetAccountQuotaInput) (*request.Request, *InnerBffGetAccountQuotaOutput)
-
-	InnerBffGetIDsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerBffGetIDsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerBffGetIDsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerBffGetIDs(*InnerBffGetIDsInput) (*InnerBffGetIDsOutput, error)
-	InnerBffGetIDsWithContext(volcstack.Context, *InnerBffGetIDsInput, ...request.Option) (*InnerBffGetIDsOutput, error)
-	InnerBffGetIDsRequest(*InnerBffGetIDsInput) (*request.Request, *InnerBffGetIDsOutput)
-
-	InnerBffLoadBalancerPreDeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerBffLoadBalancerPreDeleteCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerBffLoadBalancerPreDeleteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerBffLoadBalancerPreDelete(*InnerBffLoadBalancerPreDeleteInput) (*InnerBffLoadBalancerPreDeleteOutput, error)
-	InnerBffLoadBalancerPreDeleteWithContext(volcstack.Context, *InnerBffLoadBalancerPreDeleteInput, ...request.Option) (*InnerBffLoadBalancerPreDeleteOutput, error)
-	InnerBffLoadBalancerPreDeleteRequest(*InnerBffLoadBalancerPreDeleteInput) (*request.Request, *InnerBffLoadBalancerPreDeleteOutput)
-
-	InnerCreateLoadBalancerCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerCreateLoadBalancerCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerCreateLoadBalancerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerCreateLoadBalancer(*InnerCreateLoadBalancerInput) (*InnerCreateLoadBalancerOutput, error)
-	InnerCreateLoadBalancerWithContext(volcstack.Context, *InnerCreateLoadBalancerInput, ...request.Option) (*InnerCreateLoadBalancerOutput, error)
-	InnerCreateLoadBalancerRequest(*InnerCreateLoadBalancerInput) (*request.Request, *InnerCreateLoadBalancerOutput)
-
-	InnerCreateLoadBalancerPreOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerCreateLoadBalancerPreOrderCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerCreateLoadBalancerPreOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerCreateLoadBalancerPreOrder(*InnerCreateLoadBalancerPreOrderInput) (*InnerCreateLoadBalancerPreOrderOutput, error)
-	InnerCreateLoadBalancerPreOrderWithContext(volcstack.Context, *InnerCreateLoadBalancerPreOrderInput, ...request.Option) (*InnerCreateLoadBalancerPreOrderOutput, error)
-	InnerCreateLoadBalancerPreOrderRequest(*InnerCreateLoadBalancerPreOrderInput) (*request.Request, *InnerCreateLoadBalancerPreOrderOutput)
-
-	InnerCreatePodServerGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerCreatePodServerGroupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerCreatePodServerGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerCreatePodServerGroup(*InnerCreatePodServerGroupInput) (*InnerCreatePodServerGroupOutput, error)
-	InnerCreatePodServerGroupWithContext(volcstack.Context, *InnerCreatePodServerGroupInput, ...request.Option) (*InnerCreatePodServerGroupOutput, error)
-	InnerCreatePodServerGroupRequest(*InnerCreatePodServerGroupInput) (*request.Request, *InnerCreatePodServerGroupOutput)
-
-	InnerCreateServerGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerCreateServerGroupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerCreateServerGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerCreateServerGroup(*InnerCreateServerGroupInput) (*InnerCreateServerGroupOutput, error)
-	InnerCreateServerGroupWithContext(volcstack.Context, *InnerCreateServerGroupInput, ...request.Option) (*InnerCreateServerGroupOutput, error)
-	InnerCreateServerGroupRequest(*InnerCreateServerGroupInput) (*request.Request, *InnerCreateServerGroupOutput)
-
-	InnerDeleteLoadBalancerCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerDeleteLoadBalancerCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerDeleteLoadBalancerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerDeleteLoadBalancer(*InnerDeleteLoadBalancerInput) (*InnerDeleteLoadBalancerOutput, error)
-	InnerDeleteLoadBalancerWithContext(volcstack.Context, *InnerDeleteLoadBalancerInput, ...request.Option) (*InnerDeleteLoadBalancerOutput, error)
-	InnerDeleteLoadBalancerRequest(*InnerDeleteLoadBalancerInput) (*request.Request, *InnerDeleteLoadBalancerOutput)
-
-	InnerDeletePodServerGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerDeletePodServerGroupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerDeletePodServerGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerDeletePodServerGroup(*InnerDeletePodServerGroupInput) (*InnerDeletePodServerGroupOutput, error)
-	InnerDeletePodServerGroupWithContext(volcstack.Context, *InnerDeletePodServerGroupInput, ...request.Option) (*InnerDeletePodServerGroupOutput, error)
-	InnerDeletePodServerGroupRequest(*InnerDeletePodServerGroupInput) (*request.Request, *InnerDeletePodServerGroupOutput)
-
-	InnerDescribeLoadBalancerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerDescribeLoadBalancerAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerDescribeLoadBalancerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerDescribeLoadBalancerAttributes(*InnerDescribeLoadBalancerAttributesInput) (*InnerDescribeLoadBalancerAttributesOutput, error)
-	InnerDescribeLoadBalancerAttributesWithContext(volcstack.Context, *InnerDescribeLoadBalancerAttributesInput, ...request.Option) (*InnerDescribeLoadBalancerAttributesOutput, error)
-	InnerDescribeLoadBalancerAttributesRequest(*InnerDescribeLoadBalancerAttributesInput) (*request.Request, *InnerDescribeLoadBalancerAttributesOutput)
-
-	InnerDescribeLoadBalancersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerDescribeLoadBalancersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerDescribeLoadBalancersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerDescribeLoadBalancers(*InnerDescribeLoadBalancersInput) (*InnerDescribeLoadBalancersOutput, error)
-	InnerDescribeLoadBalancersWithContext(volcstack.Context, *InnerDescribeLoadBalancersInput, ...request.Option) (*InnerDescribeLoadBalancersOutput, error)
-	InnerDescribeLoadBalancersRequest(*InnerDescribeLoadBalancersInput) (*request.Request, *InnerDescribeLoadBalancersOutput)
-
-	InnerLoadBalancerResumeStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerLoadBalancerResumeStatusCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerLoadBalancerResumeStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerLoadBalancerResumeStatus(*InnerLoadBalancerResumeStatusInput) (*InnerLoadBalancerResumeStatusOutput, error)
-	InnerLoadBalancerResumeStatusWithContext(volcstack.Context, *InnerLoadBalancerResumeStatusInput, ...request.Option) (*InnerLoadBalancerResumeStatusOutput, error)
-	InnerLoadBalancerResumeStatusRequest(*InnerLoadBalancerResumeStatusInput) (*request.Request, *InnerLoadBalancerResumeStatusOutput)
-
-	InnerModifyLoadBalancerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerModifyLoadBalancerAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerModifyLoadBalancerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerModifyLoadBalancerAttributes(*InnerModifyLoadBalancerAttributesInput) (*InnerModifyLoadBalancerAttributesOutput, error)
-	InnerModifyLoadBalancerAttributesWithContext(volcstack.Context, *InnerModifyLoadBalancerAttributesInput, ...request.Option) (*InnerModifyLoadBalancerAttributesOutput, error)
-	InnerModifyLoadBalancerAttributesRequest(*InnerModifyLoadBalancerAttributesInput) (*request.Request, *InnerModifyLoadBalancerAttributesOutput)
-
-	InnerModifyServerGroupAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerModifyServerGroupAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerModifyServerGroupAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerModifyServerGroupAttributes(*InnerModifyServerGroupAttributesInput) (*InnerModifyServerGroupAttributesOutput, error)
-	InnerModifyServerGroupAttributesWithContext(volcstack.Context, *InnerModifyServerGroupAttributesInput, ...request.Option) (*InnerModifyServerGroupAttributesOutput, error)
-	InnerModifyServerGroupAttributesRequest(*InnerModifyServerGroupAttributesInput) (*request.Request, *InnerModifyServerGroupAttributesOutput)
-
-	InnerNoVpcCheckAddServerGroupBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerNoVpcCheckAddServerGroupBackendServersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerNoVpcCheckAddServerGroupBackendServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerNoVpcCheckAddServerGroupBackendServers(*InnerNoVpcCheckAddServerGroupBackendServersInput) (*InnerNoVpcCheckAddServerGroupBackendServersOutput, error)
-	InnerNoVpcCheckAddServerGroupBackendServersWithContext(volcstack.Context, *InnerNoVpcCheckAddServerGroupBackendServersInput, ...request.Option) (*InnerNoVpcCheckAddServerGroupBackendServersOutput, error)
-	InnerNoVpcCheckAddServerGroupBackendServersRequest(*InnerNoVpcCheckAddServerGroupBackendServersInput) (*request.Request, *InnerNoVpcCheckAddServerGroupBackendServersOutput)
-
-	InnerNoVpcCheckCreateServerGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerNoVpcCheckCreateServerGroupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerNoVpcCheckCreateServerGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerNoVpcCheckCreateServerGroup(*InnerNoVpcCheckCreateServerGroupInput) (*InnerNoVpcCheckCreateServerGroupOutput, error)
-	InnerNoVpcCheckCreateServerGroupWithContext(volcstack.Context, *InnerNoVpcCheckCreateServerGroupInput, ...request.Option) (*InnerNoVpcCheckCreateServerGroupOutput, error)
-	InnerNoVpcCheckCreateServerGroupRequest(*InnerNoVpcCheckCreateServerGroupInput) (*request.Request, *InnerNoVpcCheckCreateServerGroupOutput)
-
-	InnerNoVpcCheckDescribeServerGroupAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerNoVpcCheckDescribeServerGroupAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerNoVpcCheckDescribeServerGroupAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerNoVpcCheckDescribeServerGroupAttributes(*InnerNoVpcCheckDescribeServerGroupAttributesInput) (*InnerNoVpcCheckDescribeServerGroupAttributesOutput, error)
-	InnerNoVpcCheckDescribeServerGroupAttributesWithContext(volcstack.Context, *InnerNoVpcCheckDescribeServerGroupAttributesInput, ...request.Option) (*InnerNoVpcCheckDescribeServerGroupAttributesOutput, error)
-	InnerNoVpcCheckDescribeServerGroupAttributesRequest(*InnerNoVpcCheckDescribeServerGroupAttributesInput) (*request.Request, *InnerNoVpcCheckDescribeServerGroupAttributesOutput)
-
-	InnerRemovePodServerGroupBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerRemovePodServerGroupBackendServersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerRemovePodServerGroupBackendServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerRemovePodServerGroupBackendServers(*InnerRemovePodServerGroupBackendServersInput) (*InnerRemovePodServerGroupBackendServersOutput, error)
-	InnerRemovePodServerGroupBackendServersWithContext(volcstack.Context, *InnerRemovePodServerGroupBackendServersInput, ...request.Option) (*InnerRemovePodServerGroupBackendServersOutput, error)
-	InnerRemovePodServerGroupBackendServersRequest(*InnerRemovePodServerGroupBackendServersInput) (*request.Request, *InnerRemovePodServerGroupBackendServersOutput)
-
-	InnerRemoveServerGroupBackendServersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerRemoveServerGroupBackendServersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerRemoveServerGroupBackendServersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerRemoveServerGroupBackendServers(*InnerRemoveServerGroupBackendServersInput) (*InnerRemoveServerGroupBackendServersOutput, error)
-	InnerRemoveServerGroupBackendServersWithContext(volcstack.Context, *InnerRemoveServerGroupBackendServersInput, ...request.Option) (*InnerRemoveServerGroupBackendServersOutput, error)
-	InnerRemoveServerGroupBackendServersRequest(*InnerRemoveServerGroupBackendServersInput) (*request.Request, *InnerRemoveServerGroupBackendServersOutput)
-
 	ModifyAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAclAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyAclAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -453,14 +245,6 @@ type CLBAPI interface {
 	ModifyAclAttributes(*ModifyAclAttributesInput) (*ModifyAclAttributesOutput, error)
 	ModifyAclAttributesWithContext(volcstack.Context, *ModifyAclAttributesInput, ...request.Option) (*ModifyAclAttributesOutput, error)
 	ModifyAclAttributesRequest(*ModifyAclAttributesInput) (*request.Request, *ModifyAclAttributesOutput)
-
-	ModifyCertificateAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyCertificateAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyCertificateAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyCertificateAttributes(*ModifyCertificateAttributesInput) (*ModifyCertificateAttributesOutput, error)
-	ModifyCertificateAttributesWithContext(volcstack.Context, *ModifyCertificateAttributesInput, ...request.Option) (*ModifyCertificateAttributesOutput, error)
-	ModifyCertificateAttributesRequest(*ModifyCertificateAttributesInput) (*request.Request, *ModifyCertificateAttributesOutput)
 
 	ModifyListenerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyListenerAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -509,14 +293,6 @@ type CLBAPI interface {
 	RemoveServerGroupBackendServers(*RemoveServerGroupBackendServersInput) (*RemoveServerGroupBackendServersOutput, error)
 	RemoveServerGroupBackendServersWithContext(volcstack.Context, *RemoveServerGroupBackendServersInput, ...request.Option) (*RemoveServerGroupBackendServersOutput, error)
 	RemoveServerGroupBackendServersRequest(*RemoveServerGroupBackendServersInput) (*request.Request, *RemoveServerGroupBackendServersOutput)
-
-	SetListenerServerGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	SetListenerServerGroupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	SetListenerServerGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	SetListenerServerGroup(*SetListenerServerGroupInput) (*SetListenerServerGroupOutput, error)
-	SetListenerServerGroupWithContext(volcstack.Context, *SetListenerServerGroupInput, ...request.Option) (*SetListenerServerGroupOutput, error)
-	SetListenerServerGroupRequest(*SetListenerServerGroupInput) (*request.Request, *SetListenerServerGroupOutput)
 
 	UploadCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UploadCertificateCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

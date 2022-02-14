@@ -985,29 +985,11 @@ func (s AttachVolumeOutput) GoString() string {
 type CreateVolumeInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
-	AutoRenew *bool `type:"boolean"`
-
 	Description *string `type:"string"`
 
 	Kind *string `type:"string"`
 
-	Period *string `type:"string"`
-
-	ProjectName *string `type:"string"`
-
-	RenewCycle *int32 `type:"int32"`
-
-	RenewTimes *int32 `type:"int32"`
-
 	Size *int64 `type:"int64"`
-
-	SnapshotId *string `type:"string"`
-
-	StoragePoolId *string `type:"string"`
-
-	Times *int32 `type:"int32"`
 
 	VolumeChargeType *string `type:"string"`
 
@@ -1028,18 +1010,6 @@ func (s CreateVolumeInput) GoString() string {
 	return s.String()
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *CreateVolumeInput) SetAccountId(v string) *CreateVolumeInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetAutoRenew sets the AutoRenew field's value.
-func (s *CreateVolumeInput) SetAutoRenew(v bool) *CreateVolumeInput {
-	s.AutoRenew = &v
-	return s
-}
-
 // SetDescription sets the Description field's value.
 func (s *CreateVolumeInput) SetDescription(v string) *CreateVolumeInput {
 	s.Description = &v
@@ -1052,51 +1022,9 @@ func (s *CreateVolumeInput) SetKind(v string) *CreateVolumeInput {
 	return s
 }
 
-// SetPeriod sets the Period field's value.
-func (s *CreateVolumeInput) SetPeriod(v string) *CreateVolumeInput {
-	s.Period = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *CreateVolumeInput) SetProjectName(v string) *CreateVolumeInput {
-	s.ProjectName = &v
-	return s
-}
-
-// SetRenewCycle sets the RenewCycle field's value.
-func (s *CreateVolumeInput) SetRenewCycle(v int32) *CreateVolumeInput {
-	s.RenewCycle = &v
-	return s
-}
-
-// SetRenewTimes sets the RenewTimes field's value.
-func (s *CreateVolumeInput) SetRenewTimes(v int32) *CreateVolumeInput {
-	s.RenewTimes = &v
-	return s
-}
-
 // SetSize sets the Size field's value.
 func (s *CreateVolumeInput) SetSize(v int64) *CreateVolumeInput {
 	s.Size = &v
-	return s
-}
-
-// SetSnapshotId sets the SnapshotId field's value.
-func (s *CreateVolumeInput) SetSnapshotId(v string) *CreateVolumeInput {
-	s.SnapshotId = &v
-	return s
-}
-
-// SetStoragePoolId sets the StoragePoolId field's value.
-func (s *CreateVolumeInput) SetStoragePoolId(v string) *CreateVolumeInput {
-	s.StoragePoolId = &v
-	return s
-}
-
-// SetTimes sets the Times field's value.
-func (s *CreateVolumeInput) SetTimes(v int32) *CreateVolumeInput {
-	s.Times = &v
 	return s
 }
 
@@ -1149,10 +1077,6 @@ func (s *CreateVolumeOutput) SetVolumeId(v string) *CreateVolumeOutput {
 type DeleteVolumeInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
-	ProjectName *string `type:"string"`
-
 	VolumeId *string `type:"string"`
 }
 
@@ -1164,18 +1088,6 @@ func (s DeleteVolumeInput) String() string {
 // GoString returns the string representation
 func (s DeleteVolumeInput) GoString() string {
 	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *DeleteVolumeInput) SetAccountId(v string) *DeleteVolumeInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DeleteVolumeInput) SetProjectName(v string) *DeleteVolumeInput {
-	s.ProjectName = &v
-	return s
 }
 
 // SetVolumeId sets the VolumeId field's value.
@@ -1201,8 +1113,6 @@ func (s DeleteVolumeOutput) GoString() string {
 type DescribeVolumesInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
 	InstanceId *string `type:"string"`
 
 	Kind *string `type:"string"`
@@ -1210,8 +1120,6 @@ type DescribeVolumesInput struct {
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
-
-	ProjectName *string `type:"string"`
 
 	VolumeIds []*string `type:"list"`
 
@@ -1232,12 +1140,6 @@ func (s DescribeVolumesInput) String() string {
 // GoString returns the string representation
 func (s DescribeVolumesInput) GoString() string {
 	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *DescribeVolumesInput) SetAccountId(v string) *DescribeVolumesInput {
-	s.AccountId = &v
-	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -1261,12 +1163,6 @@ func (s *DescribeVolumesInput) SetPageNumber(v int32) *DescribeVolumesInput {
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVolumesInput) SetPageSize(v int32) *DescribeVolumesInput {
 	s.PageSize = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DescribeVolumesInput) SetProjectName(v string) *DescribeVolumesInput {
-	s.ProjectName = &v
 	return s
 }
 
@@ -1349,8 +1245,6 @@ func (s *DescribeVolumesOutput) SetVolumes(v []*VolumeForDescribeVolumesOutput) 
 type DetachVolumeInput struct {
 	_ struct{} `type:"structure"`
 
-	DeleteWithInstance *bool `type:"boolean"`
-
 	InstanceId *string `type:"string"`
 
 	VolumeId *string `type:"string"`
@@ -1364,12 +1258,6 @@ func (s DetachVolumeInput) String() string {
 // GoString returns the string representation
 func (s DetachVolumeInput) GoString() string {
 	return s.String()
-}
-
-// SetDeleteWithInstance sets the DeleteWithInstance field's value.
-func (s *DetachVolumeInput) SetDeleteWithInstance(v bool) *DetachVolumeInput {
-	s.DeleteWithInstance = &v
-	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -1401,11 +1289,7 @@ func (s DetachVolumeOutput) GoString() string {
 type ExtendVolumeInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
 	NewSize *int64 `type:"int64"`
-
-	ProjectName *string `type:"string"`
 
 	VolumeId *string `type:"string"`
 }
@@ -1420,21 +1304,9 @@ func (s ExtendVolumeInput) GoString() string {
 	return s.String()
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *ExtendVolumeInput) SetAccountId(v string) *ExtendVolumeInput {
-	s.AccountId = &v
-	return s
-}
-
 // SetNewSize sets the NewSize field's value.
 func (s *ExtendVolumeInput) SetNewSize(v int64) *ExtendVolumeInput {
 	s.NewSize = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *ExtendVolumeInput) SetProjectName(v string) *ExtendVolumeInput {
-	s.ProjectName = &v
 	return s
 }
 
@@ -1458,40 +1330,12 @@ func (s ExtendVolumeOutput) GoString() string {
 	return s.String()
 }
 
-type FieldMaskForModifyVolumeAttributeInput struct {
-	_ struct{} `type:"structure"`
-
-	Paths *string `type:"string"`
-}
-
-// String returns the string representation
-func (s FieldMaskForModifyVolumeAttributeInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s FieldMaskForModifyVolumeAttributeInput) GoString() string {
-	return s.String()
-}
-
-// SetPaths sets the Paths field's value.
-func (s *FieldMaskForModifyVolumeAttributeInput) SetPaths(v string) *FieldMaskForModifyVolumeAttributeInput {
-	s.Paths = &v
-	return s
-}
-
 type ModifyVolumeAttributeInput struct {
 	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
 
 	DeleteWithInstance *bool `type:"boolean"`
 
 	Description *string `type:"string"`
-
-	FieldMask *FieldMaskForModifyVolumeAttributeInput `type:"structure"`
-
-	ProjectName *string `type:"string"`
 
 	VolumeId *string `type:"string"`
 
@@ -1508,12 +1352,6 @@ func (s ModifyVolumeAttributeInput) GoString() string {
 	return s.String()
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *ModifyVolumeAttributeInput) SetAccountId(v string) *ModifyVolumeAttributeInput {
-	s.AccountId = &v
-	return s
-}
-
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
 func (s *ModifyVolumeAttributeInput) SetDeleteWithInstance(v bool) *ModifyVolumeAttributeInput {
 	s.DeleteWithInstance = &v
@@ -1523,18 +1361,6 @@ func (s *ModifyVolumeAttributeInput) SetDeleteWithInstance(v bool) *ModifyVolume
 // SetDescription sets the Description field's value.
 func (s *ModifyVolumeAttributeInput) SetDescription(v string) *ModifyVolumeAttributeInput {
 	s.Description = &v
-	return s
-}
-
-// SetFieldMask sets the FieldMask field's value.
-func (s *ModifyVolumeAttributeInput) SetFieldMask(v *FieldMaskForModifyVolumeAttributeInput) *ModifyVolumeAttributeInput {
-	s.FieldMask = v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *ModifyVolumeAttributeInput) SetProjectName(v string) *ModifyVolumeAttributeInput {
-	s.ProjectName = &v
 	return s
 }
 
@@ -1585,17 +1411,11 @@ type VolumeForDescribeVolumesOutput struct {
 
 	Kind *string `type:"string"`
 
-	OverdueReclaimTime *string `type:"string"`
-
-	OverdueTime *string `type:"string"`
-
 	PayType *string `type:"string"`
 
 	RenewType *int32 `type:"int32"`
 
 	Size *int64 `type:"int64"`
-
-	SourceSnapshotId *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -1676,18 +1496,6 @@ func (s *VolumeForDescribeVolumesOutput) SetKind(v string) *VolumeForDescribeVol
 	return s
 }
 
-// SetOverdueReclaimTime sets the OverdueReclaimTime field's value.
-func (s *VolumeForDescribeVolumesOutput) SetOverdueReclaimTime(v string) *VolumeForDescribeVolumesOutput {
-	s.OverdueReclaimTime = &v
-	return s
-}
-
-// SetOverdueTime sets the OverdueTime field's value.
-func (s *VolumeForDescribeVolumesOutput) SetOverdueTime(v string) *VolumeForDescribeVolumesOutput {
-	s.OverdueTime = &v
-	return s
-}
-
 // SetPayType sets the PayType field's value.
 func (s *VolumeForDescribeVolumesOutput) SetPayType(v string) *VolumeForDescribeVolumesOutput {
 	s.PayType = &v
@@ -1703,12 +1511,6 @@ func (s *VolumeForDescribeVolumesOutput) SetRenewType(v int32) *VolumeForDescrib
 // SetSize sets the Size field's value.
 func (s *VolumeForDescribeVolumesOutput) SetSize(v int64) *VolumeForDescribeVolumesOutput {
 	s.Size = &v
-	return s
-}
-
-// SetSourceSnapshotId sets the SourceSnapshotId field's value.
-func (s *VolumeForDescribeVolumesOutput) SetSourceSnapshotId(v string) *VolumeForDescribeVolumesOutput {
-	s.SourceSnapshotId = &v
 	return s
 }
 
