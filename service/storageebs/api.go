@@ -3,6 +3,8 @@
 package storageebs
 
 import (
+	"encoding/json"
+
 	"github.com/volcengine/volcstack-go-sdk/private/protocol"
 	"github.com/volcengine/volcstack-go-sdk/private/protocol/volcstackquery"
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
@@ -989,7 +991,7 @@ type CreateVolumeInput struct {
 
 	Kind *string `type:"string"`
 
-	Size *int64 `type:"int64"`
+	Size *json.Number `type:"json_number"`
 
 	VolumeChargeType *string `type:"string"`
 
@@ -1023,7 +1025,7 @@ func (s *CreateVolumeInput) SetKind(v string) *CreateVolumeInput {
 }
 
 // SetSize sets the Size field's value.
-func (s *CreateVolumeInput) SetSize(v int64) *CreateVolumeInput {
+func (s *CreateVolumeInput) SetSize(v json.Number) *CreateVolumeInput {
 	s.Size = &v
 	return s
 }
@@ -1289,7 +1291,7 @@ func (s DetachVolumeOutput) GoString() string {
 type ExtendVolumeInput struct {
 	_ struct{} `type:"structure"`
 
-	NewSize *int64 `type:"int64"`
+	NewSize *json.Number `type:"json_number"`
 
 	VolumeId *string `type:"string"`
 }
@@ -1305,7 +1307,7 @@ func (s ExtendVolumeInput) GoString() string {
 }
 
 // SetNewSize sets the NewSize field's value.
-func (s *ExtendVolumeInput) SetNewSize(v int64) *ExtendVolumeInput {
+func (s *ExtendVolumeInput) SetNewSize(v json.Number) *ExtendVolumeInput {
 	s.NewSize = &v
 	return s
 }
@@ -1415,7 +1417,7 @@ type VolumeForDescribeVolumesOutput struct {
 
 	RenewType *int32 `type:"int32"`
 
-	Size *int64 `type:"int64"`
+	Size *json.Number `type:"json_number"`
 
 	Status *string `type:"string"`
 
@@ -1509,7 +1511,7 @@ func (s *VolumeForDescribeVolumesOutput) SetRenewType(v int32) *VolumeForDescrib
 }
 
 // SetSize sets the Size field's value.
-func (s *VolumeForDescribeVolumesOutput) SetSize(v int64) *VolumeForDescribeVolumesOutput {
+func (s *VolumeForDescribeVolumesOutput) SetSize(v json.Number) *VolumeForDescribeVolumesOutput {
 	s.Size = &v
 	return s
 }
