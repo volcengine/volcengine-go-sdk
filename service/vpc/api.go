@@ -8,6 +8,266 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
+const opAllocateEipAddressCommon = "AllocateEipAddress"
+
+// AllocateEipAddressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AllocateEipAddressCommon operation. The "output" return
+// value will be populated with the AllocateEipAddressCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AllocateEipAddressCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AllocateEipAddressCommon Send returns without error.
+//
+// See AllocateEipAddressCommon for more information on using the AllocateEipAddressCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the AllocateEipAddressCommonRequest method.
+//    req, resp := client.AllocateEipAddressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AllocateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAllocateEipAddressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AllocateEipAddressCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AllocateEipAddressCommon for usage and error information.
+func (c *VPC) AllocateEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AllocateEipAddressCommonRequest(input)
+	return out, req.Send()
+}
+
+// AllocateEipAddressCommonWithContext is the same as AllocateEipAddressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AllocateEipAddressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AllocateEipAddressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AllocateEipAddressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAllocateEipAddress = "AllocateEipAddress"
+
+// AllocateEipAddressRequest generates a "volcstack/request.Request" representing the
+// client's request for the AllocateEipAddress operation. The "output" return
+// value will be populated with the AllocateEipAddressCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AllocateEipAddressCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AllocateEipAddressCommon Send returns without error.
+//
+// See AllocateEipAddress for more information on using the AllocateEipAddress
+// API call, and error handling.
+//
+//    // Example sending a request using the AllocateEipAddressRequest method.
+//    req, resp := client.AllocateEipAddressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AllocateEipAddressRequest(input *AllocateEipAddressInput) (req *request.Request, output *AllocateEipAddressOutput) {
+	op := &request.Operation{
+		Name:       opAllocateEipAddress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AllocateEipAddressInput{}
+	}
+
+	output = &AllocateEipAddressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AllocateEipAddress API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AllocateEipAddress for usage and error information.
+func (c *VPC) AllocateEipAddress(input *AllocateEipAddressInput) (*AllocateEipAddressOutput, error) {
+	req, out := c.AllocateEipAddressRequest(input)
+	return out, req.Send()
+}
+
+// AllocateEipAddressWithContext is the same as AllocateEipAddress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AllocateEipAddress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AllocateEipAddressWithContext(ctx volcstack.Context, input *AllocateEipAddressInput, opts ...request.Option) (*AllocateEipAddressOutput, error) {
+	req, out := c.AllocateEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateEipAddressCommon = "AssociateEipAddress"
+
+// AssociateEipAddressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateEipAddressCommon operation. The "output" return
+// value will be populated with the AssociateEipAddressCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssociateEipAddressCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssociateEipAddressCommon Send returns without error.
+//
+// See AssociateEipAddressCommon for more information on using the AssociateEipAddressCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the AssociateEipAddressCommonRequest method.
+//    req, resp := client.AssociateEipAddressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssociateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssociateEipAddressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateEipAddressCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssociateEipAddressCommon for usage and error information.
+func (c *VPC) AssociateEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssociateEipAddressCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssociateEipAddressCommonWithContext is the same as AssociateEipAddressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateEipAddressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssociateEipAddressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssociateEipAddressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateEipAddress = "AssociateEipAddress"
+
+// AssociateEipAddressRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateEipAddress operation. The "output" return
+// value will be populated with the AssociateEipAddressCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssociateEipAddressCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssociateEipAddressCommon Send returns without error.
+//
+// See AssociateEipAddress for more information on using the AssociateEipAddress
+// API call, and error handling.
+//
+//    // Example sending a request using the AssociateEipAddressRequest method.
+//    req, resp := client.AssociateEipAddressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssociateEipAddressRequest(input *AssociateEipAddressInput) (req *request.Request, output *AssociateEipAddressOutput) {
+	op := &request.Operation{
+		Name:       opAssociateEipAddress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssociateEipAddressInput{}
+	}
+
+	output = &AssociateEipAddressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateEipAddress API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssociateEipAddress for usage and error information.
+func (c *VPC) AssociateEipAddress(input *AssociateEipAddressInput) (*AssociateEipAddressOutput, error) {
+	req, out := c.AssociateEipAddressRequest(input)
+	return out, req.Send()
+}
+
+// AssociateEipAddressWithContext is the same as AssociateEipAddress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateEipAddress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssociateEipAddressWithContext(ctx volcstack.Context, input *AssociateEipAddressInput, opts ...request.Option) (*AssociateEipAddressOutput, error) {
+	req, out := c.AssociateEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opAssociateRouteTableCommon = "AssociateRouteTable"
 
 // AssociateRouteTableCommonRequest generates a "volcstack/request.Request" representing the
@@ -2088,6 +2348,266 @@ func (c *VPC) DeleteVpcWithContext(ctx volcstack.Context, input *DeleteVpcInput,
 	return out, req.Send()
 }
 
+const opDescribeEipAddressAttributesCommon = "DescribeEipAddressAttributes"
+
+// DescribeEipAddressAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddressAttributesCommon operation. The "output" return
+// value will be populated with the DescribeEipAddressAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeEipAddressAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeEipAddressAttributesCommon Send returns without error.
+//
+// See DescribeEipAddressAttributesCommon for more information on using the DescribeEipAddressAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeEipAddressAttributesCommonRequest method.
+//    req, resp := client.DescribeEipAddressAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DescribeEipAddressAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddressAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddressAttributesCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DescribeEipAddressAttributesCommon for usage and error information.
+func (c *VPC) DescribeEipAddressAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressAttributesCommonWithContext is the same as DescribeEipAddressAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddressAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DescribeEipAddressAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeEipAddressAttributes = "DescribeEipAddressAttributes"
+
+// DescribeEipAddressAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddressAttributes operation. The "output" return
+// value will be populated with the DescribeEipAddressAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeEipAddressAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeEipAddressAttributesCommon Send returns without error.
+//
+// See DescribeEipAddressAttributes for more information on using the DescribeEipAddressAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeEipAddressAttributesRequest method.
+//    req, resp := client.DescribeEipAddressAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DescribeEipAddressAttributesRequest(input *DescribeEipAddressAttributesInput) (req *request.Request, output *DescribeEipAddressAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddressAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeEipAddressAttributesInput{}
+	}
+
+	output = &DescribeEipAddressAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddressAttributes API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DescribeEipAddressAttributes for usage and error information.
+func (c *VPC) DescribeEipAddressAttributes(input *DescribeEipAddressAttributesInput) (*DescribeEipAddressAttributesOutput, error) {
+	req, out := c.DescribeEipAddressAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressAttributesWithContext is the same as DescribeEipAddressAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddressAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DescribeEipAddressAttributesWithContext(ctx volcstack.Context, input *DescribeEipAddressAttributesInput, opts ...request.Option) (*DescribeEipAddressAttributesOutput, error) {
+	req, out := c.DescribeEipAddressAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeEipAddressesCommon = "DescribeEipAddresses"
+
+// DescribeEipAddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddressesCommon operation. The "output" return
+// value will be populated with the DescribeEipAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeEipAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeEipAddressesCommon Send returns without error.
+//
+// See DescribeEipAddressesCommon for more information on using the DescribeEipAddressesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeEipAddressesCommonRequest method.
+//    req, resp := client.DescribeEipAddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DescribeEipAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddressesCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DescribeEipAddressesCommon for usage and error information.
+func (c *VPC) DescribeEipAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressesCommonWithContext is the same as DescribeEipAddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DescribeEipAddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeEipAddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeEipAddresses = "DescribeEipAddresses"
+
+// DescribeEipAddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeEipAddresses operation. The "output" return
+// value will be populated with the DescribeEipAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeEipAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeEipAddressesCommon Send returns without error.
+//
+// See DescribeEipAddresses for more information on using the DescribeEipAddresses
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeEipAddressesRequest method.
+//    req, resp := client.DescribeEipAddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DescribeEipAddressesRequest(input *DescribeEipAddressesInput) (req *request.Request, output *DescribeEipAddressesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeEipAddresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeEipAddressesInput{}
+	}
+
+	output = &DescribeEipAddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeEipAddresses API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DescribeEipAddresses for usage and error information.
+func (c *VPC) DescribeEipAddresses(input *DescribeEipAddressesInput) (*DescribeEipAddressesOutput, error) {
+	req, out := c.DescribeEipAddressesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeEipAddressesWithContext is the same as DescribeEipAddresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeEipAddresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DescribeEipAddressesWithContext(ctx volcstack.Context, input *DescribeEipAddressesInput, opts ...request.Option) (*DescribeEipAddressesOutput, error) {
+	req, out := c.DescribeEipAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDescribeNetworkInterfaceAttributesCommon = "DescribeNetworkInterfaceAttributes"
 
 // DescribeNetworkInterfaceAttributesCommonRequest generates a "volcstack/request.Request" representing the
@@ -3518,6 +4038,136 @@ func (c *VPC) DetachNetworkInterfaceWithContext(ctx volcstack.Context, input *De
 	return out, req.Send()
 }
 
+const opDisassociateEipAddressCommon = "DisassociateEipAddress"
+
+// DisassociateEipAddressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateEipAddressCommon operation. The "output" return
+// value will be populated with the DisassociateEipAddressCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DisassociateEipAddressCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisassociateEipAddressCommon Send returns without error.
+//
+// See DisassociateEipAddressCommon for more information on using the DisassociateEipAddressCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DisassociateEipAddressCommonRequest method.
+//    req, resp := client.DisassociateEipAddressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DisassociateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDisassociateEipAddressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateEipAddressCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DisassociateEipAddressCommon for usage and error information.
+func (c *VPC) DisassociateEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DisassociateEipAddressCommonRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateEipAddressCommonWithContext is the same as DisassociateEipAddressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateEipAddressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DisassociateEipAddressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DisassociateEipAddressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisassociateEipAddress = "DisassociateEipAddress"
+
+// DisassociateEipAddressRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateEipAddress operation. The "output" return
+// value will be populated with the DisassociateEipAddressCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DisassociateEipAddressCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisassociateEipAddressCommon Send returns without error.
+//
+// See DisassociateEipAddress for more information on using the DisassociateEipAddress
+// API call, and error handling.
+//
+//    // Example sending a request using the DisassociateEipAddressRequest method.
+//    req, resp := client.DisassociateEipAddressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DisassociateEipAddressRequest(input *DisassociateEipAddressInput) (req *request.Request, output *DisassociateEipAddressOutput) {
+	op := &request.Operation{
+		Name:       opDisassociateEipAddress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DisassociateEipAddressInput{}
+	}
+
+	output = &DisassociateEipAddressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateEipAddress API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DisassociateEipAddress for usage and error information.
+func (c *VPC) DisassociateEipAddress(input *DisassociateEipAddressInput) (*DisassociateEipAddressOutput, error) {
+	req, out := c.DisassociateEipAddressRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateEipAddressWithContext is the same as DisassociateEipAddress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateEipAddress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DisassociateEipAddressWithContext(ctx volcstack.Context, input *DisassociateEipAddressInput, opts ...request.Option) (*DisassociateEipAddressOutput, error) {
+	req, out := c.DisassociateEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDisassociateRouteTableCommon = "DisassociateRouteTable"
 
 // DisassociateRouteTableCommonRequest generates a "volcstack/request.Request" representing the
@@ -3643,6 +4293,136 @@ func (c *VPC) DisassociateRouteTable(input *DisassociateRouteTableInput) (*Disas
 // for more information on using Contexts.
 func (c *VPC) DisassociateRouteTableWithContext(ctx volcstack.Context, input *DisassociateRouteTableInput, opts ...request.Option) (*DisassociateRouteTableOutput, error) {
 	req, out := c.DisassociateRouteTableRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyEipAddressAttributesCommon = "ModifyEipAddressAttributes"
+
+// ModifyEipAddressAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyEipAddressAttributesCommon operation. The "output" return
+// value will be populated with the ModifyEipAddressAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyEipAddressAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyEipAddressAttributesCommon Send returns without error.
+//
+// See ModifyEipAddressAttributesCommon for more information on using the ModifyEipAddressAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyEipAddressAttributesCommonRequest method.
+//    req, resp := client.ModifyEipAddressAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) ModifyEipAddressAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyEipAddressAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyEipAddressAttributesCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation ModifyEipAddressAttributesCommon for usage and error information.
+func (c *VPC) ModifyEipAddressAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyEipAddressAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyEipAddressAttributesCommonWithContext is the same as ModifyEipAddressAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyEipAddressAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) ModifyEipAddressAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyEipAddressAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyEipAddressAttributes = "ModifyEipAddressAttributes"
+
+// ModifyEipAddressAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyEipAddressAttributes operation. The "output" return
+// value will be populated with the ModifyEipAddressAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyEipAddressAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyEipAddressAttributesCommon Send returns without error.
+//
+// See ModifyEipAddressAttributes for more information on using the ModifyEipAddressAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyEipAddressAttributesRequest method.
+//    req, resp := client.ModifyEipAddressAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) ModifyEipAddressAttributesRequest(input *ModifyEipAddressAttributesInput) (req *request.Request, output *ModifyEipAddressAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyEipAddressAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyEipAddressAttributesInput{}
+	}
+
+	output = &ModifyEipAddressAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyEipAddressAttributes API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation ModifyEipAddressAttributes for usage and error information.
+func (c *VPC) ModifyEipAddressAttributes(input *ModifyEipAddressAttributesInput) (*ModifyEipAddressAttributesOutput, error) {
+	req, out := c.ModifyEipAddressAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyEipAddressAttributesWithContext is the same as ModifyEipAddressAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyEipAddressAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) ModifyEipAddressAttributesWithContext(ctx volcstack.Context, input *ModifyEipAddressAttributesInput, opts ...request.Option) (*ModifyEipAddressAttributesOutput, error) {
+	req, out := c.ModifyEipAddressAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -4688,6 +5468,136 @@ func (c *VPC) ModifyVpcAttributesWithContext(ctx volcstack.Context, input *Modif
 	return out, req.Send()
 }
 
+const opReleaseEipAddressCommon = "ReleaseEipAddress"
+
+// ReleaseEipAddressCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ReleaseEipAddressCommon operation. The "output" return
+// value will be populated with the ReleaseEipAddressCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ReleaseEipAddressCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ReleaseEipAddressCommon Send returns without error.
+//
+// See ReleaseEipAddressCommon for more information on using the ReleaseEipAddressCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ReleaseEipAddressCommonRequest method.
+//    req, resp := client.ReleaseEipAddressCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) ReleaseEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opReleaseEipAddressCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ReleaseEipAddressCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation ReleaseEipAddressCommon for usage and error information.
+func (c *VPC) ReleaseEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ReleaseEipAddressCommonRequest(input)
+	return out, req.Send()
+}
+
+// ReleaseEipAddressCommonWithContext is the same as ReleaseEipAddressCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ReleaseEipAddressCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) ReleaseEipAddressCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ReleaseEipAddressCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opReleaseEipAddress = "ReleaseEipAddress"
+
+// ReleaseEipAddressRequest generates a "volcstack/request.Request" representing the
+// client's request for the ReleaseEipAddress operation. The "output" return
+// value will be populated with the ReleaseEipAddressCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ReleaseEipAddressCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ReleaseEipAddressCommon Send returns without error.
+//
+// See ReleaseEipAddress for more information on using the ReleaseEipAddress
+// API call, and error handling.
+//
+//    // Example sending a request using the ReleaseEipAddressRequest method.
+//    req, resp := client.ReleaseEipAddressRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) ReleaseEipAddressRequest(input *ReleaseEipAddressInput) (req *request.Request, output *ReleaseEipAddressOutput) {
+	op := &request.Operation{
+		Name:       opReleaseEipAddress,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ReleaseEipAddressInput{}
+	}
+
+	output = &ReleaseEipAddressOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ReleaseEipAddress API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation ReleaseEipAddress for usage and error information.
+func (c *VPC) ReleaseEipAddress(input *ReleaseEipAddressInput) (*ReleaseEipAddressOutput, error) {
+	req, out := c.ReleaseEipAddressRequest(input)
+	return out, req.Send()
+}
+
+// ReleaseEipAddressWithContext is the same as ReleaseEipAddress with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ReleaseEipAddress for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) ReleaseEipAddressWithContext(ctx volcstack.Context, input *ReleaseEipAddressInput, opts ...request.Option) (*ReleaseEipAddressOutput, error) {
+	req, out := c.ReleaseEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opRevokeSecurityGroupEgressCommon = "RevokeSecurityGroupEgress"
 
 // RevokeSecurityGroupEgressCommonRequest generates a "volcstack/request.Request" representing the
@@ -4948,6 +5858,133 @@ func (c *VPC) RevokeSecurityGroupIngressWithContext(ctx volcstack.Context, input
 	return out, req.Send()
 }
 
+type AllocateEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	Bandwidth *int64 `min:"1" type:"integer"`
+
+	BillingType *int64 `min:"1" type:"integer"`
+
+	Description *string `type:"string"`
+
+	ISP *string `type:"string" enum:"ISPForAllocateEipAddressInput"`
+
+	Name *string `type:"string"`
+
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *int64 `min:"1" type:"integer"`
+}
+
+// String returns the string representation
+func (s AllocateEipAddressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllocateEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AllocateEipAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AllocateEipAddressInput"}
+	if s.Bandwidth != nil && *s.Bandwidth < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
+	}
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *AllocateEipAddressInput) SetBandwidth(v int64) *AllocateEipAddressInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *AllocateEipAddressInput) SetBillingType(v int64) *AllocateEipAddressInput {
+	s.BillingType = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AllocateEipAddressInput) SetDescription(v string) *AllocateEipAddressInput {
+	s.Description = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *AllocateEipAddressInput) SetISP(v string) *AllocateEipAddressInput {
+	s.ISP = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *AllocateEipAddressInput) SetName(v string) *AllocateEipAddressInput {
+	s.Name = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *AllocateEipAddressInput) SetPeriod(v int64) *AllocateEipAddressInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *AllocateEipAddressInput) SetPeriodUnit(v int64) *AllocateEipAddressInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type AllocateEipAddressOutput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AllocateEipAddressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AllocateEipAddressOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AllocateEipAddressOutput) SetAllocationId(v string) *AllocateEipAddressOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *AllocateEipAddressOutput) SetEipAddress(v string) *AllocateEipAddressOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AllocateEipAddressOutput) SetRequestId(v string) *AllocateEipAddressOutput {
+	s.RequestId = &v
+	return s
+}
+
 type AssociateCenForDescribeVpcAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -4983,6 +6020,96 @@ func (s *AssociateCenForDescribeVpcAttributesOutput) SetCenOwnerId(v string) *As
 // SetCenStatus sets the CenStatus field's value.
 func (s *AssociateCenForDescribeVpcAttributesOutput) SetCenStatus(v string) *AssociateCenForDescribeVpcAttributesOutput {
 	s.CenStatus = &v
+	return s
+}
+
+type AssociateEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForAssociateEipAddressInput"`
+
+	PrivateIpAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateEipAddressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssociateEipAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssociateEipAddressInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AssociateEipAddressInput) SetAllocationId(v string) *AssociateEipAddressInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AssociateEipAddressInput) SetInstanceId(v string) *AssociateEipAddressInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *AssociateEipAddressInput) SetInstanceType(v string) *AssociateEipAddressInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *AssociateEipAddressInput) SetPrivateIpAddress(v string) *AssociateEipAddressInput {
+	s.PrivateIpAddress = &v
+	return s
+}
+
+type AssociateEipAddressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateEipAddressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateEipAddressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssociateEipAddressOutput) SetRequestId(v string) *AssociateEipAddressOutput {
+	s.RequestId = &v
 	return s
 }
 
@@ -6373,6 +7500,340 @@ func (s DeleteVpcOutput) GoString() string {
 // SetRequestId sets the RequestId field's value.
 func (s *DeleteVpcOutput) SetRequestId(v string) *DeleteVpcOutput {
 	s.RequestId = &v
+	return s
+}
+
+type DescribeEipAddressAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeEipAddressAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeEipAddressAttributesInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *DescribeEipAddressAttributesInput) SetAllocationId(v string) *DescribeEipAddressAttributesInput {
+	s.AllocationId = &v
+	return s
+}
+
+type DescribeEipAddressAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	AllocationTime *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+
+	ExpiredTime *string `type:"string"`
+
+	ISP *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	LockReason *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetAllocationId(v string) *DescribeEipAddressAttributesOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetAllocationTime sets the AllocationTime field's value.
+func (s *DescribeEipAddressAttributesOutput) SetAllocationTime(v string) *DescribeEipAddressAttributesOutput {
+	s.AllocationTime = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *DescribeEipAddressAttributesOutput) SetBandwidth(v int64) *DescribeEipAddressAttributesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *DescribeEipAddressAttributesOutput) SetBillingType(v int64) *DescribeEipAddressAttributesOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *DescribeEipAddressAttributesOutput) SetBusinessStatus(v string) *DescribeEipAddressAttributesOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *DescribeEipAddressAttributesOutput) SetDeletedTime(v string) *DescribeEipAddressAttributesOutput {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeEipAddressAttributesOutput) SetDescription(v string) *DescribeEipAddressAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *DescribeEipAddressAttributesOutput) SetEipAddress(v string) *DescribeEipAddressAttributesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *DescribeEipAddressAttributesOutput) SetExpiredTime(v string) *DescribeEipAddressAttributesOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *DescribeEipAddressAttributesOutput) SetISP(v string) *DescribeEipAddressAttributesOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetInstanceId(v string) *DescribeEipAddressAttributesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DescribeEipAddressAttributesOutput) SetInstanceType(v string) *DescribeEipAddressAttributesOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *DescribeEipAddressAttributesOutput) SetLockReason(v string) *DescribeEipAddressAttributesOutput {
+	s.LockReason = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DescribeEipAddressAttributesOutput) SetName(v string) *DescribeEipAddressAttributesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *DescribeEipAddressAttributesOutput) SetOverdueTime(v string) *DescribeEipAddressAttributesOutput {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetRequestId(v string) *DescribeEipAddressAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeEipAddressAttributesOutput) SetStatus(v string) *DescribeEipAddressAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DescribeEipAddressAttributesOutput) SetUpdatedAt(v string) *DescribeEipAddressAttributesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type DescribeEipAddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationIds []*string `type:"list"`
+
+	AssociatedInstanceId *string `type:"string"`
+
+	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
+
+	EipAddresses []*string `type:"list"`
+
+	ISP *string `type:"string" enum:"ISPForDescribeEipAddressesInput"`
+
+	Name *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressesInput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationIds sets the AllocationIds field's value.
+func (s *DescribeEipAddressesInput) SetAllocationIds(v []*string) *DescribeEipAddressesInput {
+	s.AllocationIds = v
+	return s
+}
+
+// SetAssociatedInstanceId sets the AssociatedInstanceId field's value.
+func (s *DescribeEipAddressesInput) SetAssociatedInstanceId(v string) *DescribeEipAddressesInput {
+	s.AssociatedInstanceId = &v
+	return s
+}
+
+// SetAssociatedInstanceType sets the AssociatedInstanceType field's value.
+func (s *DescribeEipAddressesInput) SetAssociatedInstanceType(v string) *DescribeEipAddressesInput {
+	s.AssociatedInstanceType = &v
+	return s
+}
+
+// SetEipAddresses sets the EipAddresses field's value.
+func (s *DescribeEipAddressesInput) SetEipAddresses(v []*string) *DescribeEipAddressesInput {
+	s.EipAddresses = v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *DescribeEipAddressesInput) SetISP(v string) *DescribeEipAddressesInput {
+	s.ISP = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DescribeEipAddressesInput) SetName(v string) *DescribeEipAddressesInput {
+	s.Name = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeEipAddressesInput) SetPageNumber(v int64) *DescribeEipAddressesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeEipAddressesInput) SetPageSize(v int64) *DescribeEipAddressesInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeEipAddressesInput) SetStatus(v string) *DescribeEipAddressesInput {
+	s.Status = &v
+	return s
+}
+
+type DescribeEipAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	EipAddresses []*EipAddresseForDescribeEipAddressesOutput `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeEipAddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeEipAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddresses sets the EipAddresses field's value.
+func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddresseForDescribeEipAddressesOutput) *DescribeEipAddressesOutput {
+	s.EipAddresses = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeEipAddressesOutput) SetPageNumber(v int64) *DescribeEipAddressesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeEipAddressesOutput) SetPageSize(v int64) *DescribeEipAddressesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeEipAddressesOutput) SetRequestId(v string) *DescribeEipAddressesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeEipAddressesOutput) SetTotalCount(v int64) *DescribeEipAddressesOutput {
+	s.TotalCount = &v
 	return s
 }
 
@@ -7860,6 +9321,80 @@ func (s *DetachNetworkInterfaceOutput) SetRequestId(v string) *DetachNetworkInte
 	return s
 }
 
+type DisassociateEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateEipAddressInput"`
+}
+
+// String returns the string representation
+func (s DisassociateEipAddressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisassociateEipAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisassociateEipAddressInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *DisassociateEipAddressInput) SetAllocationId(v string) *DisassociateEipAddressInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DisassociateEipAddressInput) SetInstanceId(v string) *DisassociateEipAddressInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DisassociateEipAddressInput) SetInstanceType(v string) *DisassociateEipAddressInput {
+	s.InstanceType = &v
+	return s
+}
+
+type DisassociateEipAddressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisassociateEipAddressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateEipAddressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DisassociateEipAddressOutput) SetRequestId(v string) *DisassociateEipAddressOutput {
+	s.RequestId = &v
+	return s
+}
+
 type DisassociateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
@@ -7926,6 +9461,241 @@ func (s DisassociateRouteTableOutput) GoString() string {
 
 // SetRequestId sets the RequestId field's value.
 func (s *DisassociateRouteTableOutput) SetRequestId(v string) *DisassociateRouteTableOutput {
+	s.RequestId = &v
+	return s
+}
+
+type EipAddresseForDescribeEipAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	AllocationTime *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+
+	ExpiredTime *string `type:"string"`
+
+	ISP *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	LockReason *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EipAddresseForDescribeEipAddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipAddresseForDescribeEipAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetAllocationId(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetAllocationTime sets the AllocationTime field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetAllocationTime(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.AllocationTime = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetBandwidth(v int64) *EipAddresseForDescribeEipAddressesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetBillingType(v int64) *EipAddresseForDescribeEipAddressesOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetBusinessStatus(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetDeletedTime(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetDescription(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetEipAddress(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetExpiredTime(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetISP(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetInstanceId(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetInstanceType(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetLockReason(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.LockReason = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetName(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetOverdueTime(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetStatus(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EipAddresseForDescribeEipAddressesOutput) SetUpdatedAt(v string) *EipAddresseForDescribeEipAddressesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type ModifyEipAddressAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+
+	Bandwidth *int64 `min:"1" type:"integer"`
+
+	Description *string `type:"string"`
+
+	Name *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyEipAddressAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyEipAddressAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyEipAddressAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyEipAddressAttributesInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *ModifyEipAddressAttributesInput) SetAllocationId(v string) *ModifyEipAddressAttributesInput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *ModifyEipAddressAttributesInput) SetBandwidth(v int64) *ModifyEipAddressAttributesInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyEipAddressAttributesInput) SetDescription(v string) *ModifyEipAddressAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ModifyEipAddressAttributesInput) SetName(v string) *ModifyEipAddressAttributesInput {
+	s.Name = &v
+	return s
+}
+
+type ModifyEipAddressAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyEipAddressAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyEipAddressAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyEipAddressAttributesOutput) SetRequestId(v string) *ModifyEipAddressAttributesOutput {
 	s.RequestId = &v
 	return s
 }
@@ -8678,6 +10448,64 @@ func (s PermissionForDescribeSecurityGroupAttributesOutput) String() string {
 // GoString returns the string representation
 func (s PermissionForDescribeSecurityGroupAttributesOutput) GoString() string {
 	return s.String()
+}
+
+type ReleaseEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	// AllocationId is a required field
+	AllocationId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ReleaseEipAddressInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReleaseEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ReleaseEipAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ReleaseEipAddressInput"}
+	if s.AllocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *ReleaseEipAddressInput) SetAllocationId(v string) *ReleaseEipAddressInput {
+	s.AllocationId = &v
+	return s
+}
+
+type ReleaseEipAddressOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ReleaseEipAddressOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReleaseEipAddressOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ReleaseEipAddressOutput) SetRequestId(v string) *ReleaseEipAddressOutput {
+	s.RequestId = &v
+	return s
 }
 
 type RevokeSecurityGroupEgressInput struct {
@@ -9681,3 +11509,87 @@ func (s *VpcsAssociateCenForDescribeVpcsOutput) SetCenStatus(v string) *VpcsAsso
 	s.CenStatus = &v
 	return s
 }
+
+const (
+	// AssociatedInstanceTypeForDescribeEipAddressesInputNat is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputNat = "Nat"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance = "EcsInstance"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface = "NetworkInterface"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance = "ClbInstance"
+)
+
+const (
+	// ISPForAllocateEipAddressInputBgp is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputBgp = "BGP"
+
+	// ISPForAllocateEipAddressInputChinaMobile is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaMobile = "ChinaMobile"
+
+	// ISPForAllocateEipAddressInputChinaUnicom is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaUnicom = "ChinaUnicom"
+
+	// ISPForAllocateEipAddressInputChinaTelecom is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaTelecom = "ChinaTelecom"
+)
+
+const (
+	// ISPForDescribeEipAddressesInputBgp is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputBgp = "BGP"
+
+	// ISPForDescribeEipAddressesInputChinaMobile is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaMobile = "ChinaMobile"
+
+	// ISPForDescribeEipAddressesInputChinaUnicom is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaUnicom = "ChinaUnicom"
+
+	// ISPForDescribeEipAddressesInputChinaTelecom is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaTelecom = "ChinaTelecom"
+)
+
+const (
+	// InstanceTypeForAssociateEipAddressInputNat is a InstanceTypeForAssociateEipAddressInput enum value
+	InstanceTypeForAssociateEipAddressInputNat = "Nat"
+
+	// InstanceTypeForAssociateEipAddressInputNetworkInterface is a InstanceTypeForAssociateEipAddressInput enum value
+	InstanceTypeForAssociateEipAddressInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForAssociateEipAddressInputClbInstance is a InstanceTypeForAssociateEipAddressInput enum value
+	InstanceTypeForAssociateEipAddressInputClbInstance = "ClbInstance"
+
+	// InstanceTypeForAssociateEipAddressInputEcsInstance is a InstanceTypeForAssociateEipAddressInput enum value
+	InstanceTypeForAssociateEipAddressInputEcsInstance = "EcsInstance"
+)
+
+const (
+	// InstanceTypeForDisassociateEipAddressInputNat is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputNat = "Nat"
+
+	// InstanceTypeForDisassociateEipAddressInputNetworkInterface is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForDisassociateEipAddressInputClbInstance is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputClbInstance = "ClbInstance"
+
+	// InstanceTypeForDisassociateEipAddressInputEcsInstance is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputEcsInstance = "EcsInstance"
+)
+
+const (
+	// StatusForDescribeEipAddressesInputAttaching is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputAttaching = "Attaching"
+
+	// StatusForDescribeEipAddressesInputDetaching is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputDetaching = "Detaching"
+
+	// StatusForDescribeEipAddressesInputAttached is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputAttached = "Attached"
+
+	// StatusForDescribeEipAddressesInputAvailable is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputAvailable = "Available"
+)

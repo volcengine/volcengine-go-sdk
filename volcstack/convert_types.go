@@ -3,7 +3,16 @@ package volcstack
 // Copy from https://github.com/aws/aws-sdk-go
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
-import "time"
+import (
+	"encoding/json"
+	"time"
+)
+
+// JsonNumber returns a pointer to the json.Number passed in.
+func JsonNumber(v string) *json.Number {
+	jn := json.Number(v)
+	return &jn
+}
 
 // String returns a pointer to the string value passed in.
 func String(v string) *string {
