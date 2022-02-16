@@ -2,6 +2,7 @@ package queryutil
 
 import (
 	"encoding/base64"
+	"encoding/json"
 	"fmt"
 	"net/url"
 	"reflect"
@@ -221,6 +222,8 @@ func (q *queryParser) parseScalar(v url.Values, r reflect.Value, name string, ta
 		if !r.IsNil() {
 			v.Set(name, base64.StdEncoding.EncodeToString(value))
 		}
+	case json.Number:
+		v.Set(name, value.String())
 	case bool:
 		v.Set(name, strconv.FormatBool(value))
 	case int64:
