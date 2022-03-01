@@ -56,12 +56,16 @@ type LogStruct struct {
 	Body          interface{} `json:"Body,omitempty"`
 	Response      interface{} `json:"Response,omitempty"`
 	Type          string
+	AccountId     string `json:"AccountId,omitempty"`
 }
 
 func logStructLog(r *request.Request, level string, logStruct LogStruct) {
 	logStruct.Level = level
 	if r.IsJsonBody && strings.HasSuffix(logStruct.OperationName, "Request") {
 		logStruct.Body = r.Params
+	}
+	if r.Config.AccountId != nil {
+		logStruct.AccountId = *r.Config.AccountId
 	}
 	b, _ := json.Marshal(logStruct)
 	r.Config.Logger.Log(string(b))
