@@ -212,6 +212,8 @@ type Config struct {
 	DisableEndpointHostPrefix *bool
 
 	LogSensitives []string
+
+	AccountId *string
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -261,6 +263,11 @@ func (c *Config) WithEndpoint(endpoint string) *Config {
 
 func (c *Config) WithLogSensitives(sensitives []string) *Config {
 	c.LogSensitives = sensitives
+	return c
+}
+
+func (c *Config) WithAccountId(accountId string) *Config {
+	c.AccountId = &accountId
 	return c
 }
 
@@ -479,6 +486,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.LogSensitives != nil {
 		dst.LogSensitives = other.LogSensitives
+	}
+
+	if other.AccountId != nil {
+		dst.AccountId = other.AccountId
 	}
 }
 
