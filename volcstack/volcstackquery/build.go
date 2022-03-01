@@ -10,9 +10,11 @@ import (
 	"strings"
 
 	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackbody"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 // BuildHandler is a named request handler for building volcstackquery protocol requests
@@ -47,6 +49,10 @@ func Build(r *request.Request) {
 		r.Error = volcstackerr.New("SerializationError", "failed encoding Query request", err)
 		return
 	}
+
+	r.Input = volcstackutil.BodyToMap(body.Encode(), r.Config.LogSensitives,
+		r.Config.LogLevel.Matches(volcstack.LogInfoWithInputAndOutput) || r.Config.LogLevel.Matches(volcstack.LogDebugWithInputAndOutput))
+
 	if len(v) > 0 && strings.Contains(strings.ToLower(v), "x-www-form-urlencoded") {
 		r.HTTPRequest.Header.Set("Content-Type", "application/x-www-form-urlencoded; charset=utf-8")
 		r.SetBufferBody([]byte(body.Encode()))

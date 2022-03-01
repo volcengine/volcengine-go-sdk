@@ -93,7 +93,14 @@ func (c *Client) AddDebugHandlers() {
 	if !c.Config.LogLevel.AtLeast(volcstack.LogDebug) {
 		return
 	}
+	if c.Config.LogLevel.Matches(volcstack.LogInfoWithInputAndOutput) ||
+		c.Config.LogLevel.Matches(volcstack.LogDebugWithInputAndOutput) {
+		c.Handlers.Send.PushFrontNamed(LogInputHandler)
+		c.Handlers.Complete.PushBackNamed(LogOutHandler)
+		return
+	}
 
 	c.Handlers.Send.PushFrontNamed(LogHTTPRequestHandler)
 	c.Handlers.Send.PushBackNamed(LogHTTPResponseHandler)
+
 }

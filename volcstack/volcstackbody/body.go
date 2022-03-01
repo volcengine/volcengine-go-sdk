@@ -10,8 +10,10 @@ import (
 	"strings"
 
 	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 func BodyParam(r *request.Request) {
@@ -42,8 +44,12 @@ func BodyParam(r *request.Request) {
 
 	if method == "GET" {
 		r.HTTPRequest.URL.RawQuery = body.Encode()
+		r.Input = volcstackutil.BodyToMap(body.Encode(), r.Config.LogSensitives,
+			r.Config.LogLevel.Matches(volcstack.LogInfoWithInputAndOutput) || r.Config.LogLevel.Matches(volcstack.LogDebugWithInputAndOutput))
 	} else if method == "POST" {
 		r.HTTPRequest.Header.Set("Content-Type", "application/x-www-form-urlencoded; charset=utf-8")
+		r.Input = volcstackutil.BodyToMap(body.Encode(), r.Config.LogSensitives,
+			r.Config.LogLevel.Matches(volcstack.LogInfoWithInputAndOutput) || r.Config.LogLevel.Matches(volcstack.LogDebugWithInputAndOutput))
 		r.SetBufferBody([]byte(body.Encode()))
 	} else if method == "PUT" {
 		r.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
@@ -52,6 +58,8 @@ func BodyParam(r *request.Request) {
 	} else {
 		r.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 		r.SetBufferBody([]byte(body.Encode()))
+		r.Input = volcstackutil.BodyToMap(body.Encode(), r.Config.LogSensitives,
+			r.Config.LogLevel.Matches(volcstack.LogInfoWithInputAndOutput) || r.Config.LogLevel.Matches(volcstack.LogDebugWithInputAndOutput))
 	}
 }
 
@@ -82,7 +90,9 @@ func BodyJson(r *request.Request) {
 		}
 	}
 	r.HTTPRequest.URL.RawQuery = body.Encode()
-
+	r.Input = volcstackutil.BodyToMap(body.Encode(), r.Config.LogSensitives,
+		r.Config.LogLevel.Matches(volcstack.LogInfoWithInputAndOutput) || r.Config.LogLevel.Matches(volcstack.LogDebugWithInputAndOutput))
+	r.IsJsonBody = true
 	b, _ := json.Marshal(r.Params)
 	str := string(b)
 	r.SetStringBody(str)

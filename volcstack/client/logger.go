@@ -5,10 +5,12 @@ package client
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http/httputil"
+	"strings"
 
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
@@ -45,6 +47,68 @@ type teeReaderCloser struct {
 
 func (reader *teeReaderCloser) Close() error {
 	return reader.Source.Close()
+}
+
+type LogStruct struct {
+	Level         string
+	OperationName string
+	Request       interface{} `json:"Request,omitempty"`
+	Body          interface{} `json:"Body,omitempty"`
+	Response      interface{} `json:"Response,omitempty"`
+	Type          string
+}
+
+func logStructLog(r *request.Request, level string, logStruct LogStruct) {
+	logStruct.Level = level
+	if r.IsJsonBody && strings.HasSuffix(logStruct.OperationName, "Request") {
+		logStruct.Body = r.Params
+	}
+	b, _ := json.Marshal(logStruct)
+	r.Config.Logger.Log(string(b))
+}
+
+var LogInputHandler = request.NamedHandler{
+	Name: "volcstacksdk.client.LogInput",
+	Fn:   logInput,
+}
+
+func logInput(r *request.Request) {
+	logInfoStruct := r.Config.LogLevel.Matches(volcstack.LogInfoWithInputAndOutput)
+	logDebugStruct := r.Config.LogLevel.Matches(volcstack.LogDebugWithInputAndOutput)
+
+	logStruct := LogStruct{
+		OperationName: r.Operation.Name,
+		Type:          "Request",
+		Request:       r.Input,
+	}
+
+	if logInfoStruct {
+		logStructLog(r, "INFO", logStruct)
+	} else if logDebugStruct {
+		logStructLog(r, "DEBUG", logStruct)
+	}
+}
+
+var LogOutHandler = request.NamedHandler{
+	Name: "volcstacksdk.client.LogOutput",
+	Fn:   LogOutput,
+}
+
+func LogOutput(r *request.Request) {
+	logInfoStruct := r.Config.LogLevel.Matches(volcstack.LogInfoWithInputAndOutput)
+	logDebugStruct := r.Config.LogLevel.Matches(volcstack.LogDebugWithInputAndOutput)
+
+	logStruct := LogStruct{
+		OperationName: r.Operation.Name,
+		Response:      r.Data,
+		Type:          "Response",
+	}
+
+	if logInfoStruct {
+		logStructLog(r, "INFO", logStruct)
+	} else if logDebugStruct {
+		logStructLog(r, "DEBUG", logStruct)
+	}
 }
 
 // LogHTTPRequestHandler is a SDK request handler to log the HTTP request sent
