@@ -80,6 +80,14 @@ const (
 	// wire unmarshaled message content of requests and responses made while
 	// using the SDK Will also enable LogDebug.
 	LogDebugWithEventStreamBody
+
+	// LogInfoWithInputAndOutput states the SDK should log STRUCT input and output
+	// Will also enable LogInfo.
+	LogInfoWithInputAndOutput
+
+	// LogDebugWithInputAndOutput states the SDK should log STRUCT input and output
+	// Will also enable LogDebug.
+	LogDebugWithInputAndOutput
 )
 
 // A Logger is a minimalistic interface for the SDK to log messages to. Should

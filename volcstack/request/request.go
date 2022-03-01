@@ -89,7 +89,9 @@ type Request struct {
 	// request volcstackbody because the HTTP Client's transport can maintain a reference
 	// to the HTTP request's volcstackbody after the client has returned. This value is
 	// safe to use concurrently and wrap the input Body for each HTTP request.
-	safeBody *offsetReader
+	safeBody   *offsetReader
+	Input      interface{}
+	IsJsonBody bool
 }
 
 // An Operation is the service API operation to be made.

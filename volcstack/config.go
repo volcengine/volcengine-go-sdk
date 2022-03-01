@@ -210,6 +210,8 @@ type Config struct {
 	// Disabling this feature is useful when you want to use local endpoints
 	// for testing that do not support the modeled host prefix pattern.
 	DisableEndpointHostPrefix *bool
+
+	LogSensitives []string
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -254,6 +256,11 @@ func (c *Config) WithAkSk(ak, sk string) *Config {
 // chaining.
 func (c *Config) WithEndpoint(endpoint string) *Config {
 	c.Endpoint = &endpoint
+	return c
+}
+
+func (c *Config) WithLogSensitives(sensitives []string) *Config {
+	c.LogSensitives = sensitives
 	return c
 }
 
@@ -468,6 +475,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.DisableEndpointHostPrefix != nil {
 		dst.DisableEndpointHostPrefix = other.DisableEndpointHostPrefix
+	}
+
+	if other.LogSensitives != nil {
+		dst.LogSensitives = other.LogSensitives
 	}
 }
 
