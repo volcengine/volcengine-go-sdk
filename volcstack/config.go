@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/volcengine/volcstack-go-sdk/volcstack/credentials"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/custom"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/endpoints"
 )
 
@@ -214,6 +215,10 @@ type Config struct {
 	LogSensitives []string
 
 	AccountId *string
+
+	ExtendHttpRequest custom.ExtendHttpRequest
+
+	ExtraHttpParameters custom.ExtraHttpParameters
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -263,6 +268,16 @@ func (c *Config) WithEndpoint(endpoint string) *Config {
 
 func (c *Config) WithLogSensitives(sensitives []string) *Config {
 	c.LogSensitives = sensitives
+	return c
+}
+
+func (c *Config) WithExtendHttpRequest(extendHttpRequest custom.ExtendHttpRequest) *Config {
+	c.ExtendHttpRequest = extendHttpRequest
+	return c
+}
+
+func (c *Config) WithExtraHttpParameters(extraHttpParameters custom.ExtraHttpParameters) *Config {
+	c.ExtraHttpParameters = extraHttpParameters
 	return c
 }
 
@@ -490,6 +505,14 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.AccountId != nil {
 		dst.AccountId = other.AccountId
+	}
+
+	if other.ExtendHttpRequest != nil {
+		dst.ExtendHttpRequest = other.ExtendHttpRequest
+	}
+
+	if other.ExtraHttpParameters != nil {
+		dst.ExtraHttpParameters = other.ExtraHttpParameters
 	}
 }
 
