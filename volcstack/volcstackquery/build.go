@@ -65,6 +65,14 @@ func Build(r *request.Request) {
 
 	method := strings.ToUpper(r.HTTPRequest.Method)
 	r.HTTPRequest.URL.Query()
+	if r.Config.ExtraHttpParameters != nil {
+		extra := r.Config.ExtraHttpParameters(r.Context())
+		if extra != nil {
+			for k, value := range extra {
+				body.Add(k, value)
+			}
+		}
+	}
 	if method == "GET" || method == "DELETE" {
 		r.HTTPRequest.URL.RawQuery = body.Encode()
 	} else if method == "POST" || method == "PUT" {
