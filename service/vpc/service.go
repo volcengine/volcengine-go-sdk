@@ -6,7 +6,6 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/client"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/corehandlers"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/signer/volc"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackquery"
@@ -60,8 +59,6 @@ func newClient(cfg volcstack.Config, handlers request.Handlers, endpoint, signin
 
 	// Handlers
 	svc.Handlers.Sign.PushBackNamed(volc.SignRequestHandler)
-	// add user-agent
-	svc.Handlers.Build.PushBackNamed(corehandlers.SDKVersionUserAgentHandler)
 	svc.Handlers.Build.PushBackNamed(volcstackquery.BuildHandler)
 	svc.Handlers.Unmarshal.PushBackNamed(volcstackquery.UnmarshalHandler)
 	svc.Handlers.UnmarshalMeta.PushBackNamed(volcstackquery.UnmarshalMetaHandler)

@@ -2178,12 +2178,6 @@ func (s *DescribeSnatEntryAttributesOutput) SetSubnetId(v string) *DescribeSnatE
 
 type EipAddresseForDescribeNatGatewayAttributesOutput struct {
 	_ struct{} `type:"structure"`
-
-	AllocationId *string `type:"string"`
-
-	EipAddress *string `type:"string"`
-
-	UsingStatus *string `type:"string"`
 }
 
 // String returns the string representation
@@ -2194,24 +2188,6 @@ func (s EipAddresseForDescribeNatGatewayAttributesOutput) String() string {
 // GoString returns the string representation
 func (s EipAddresseForDescribeNatGatewayAttributesOutput) GoString() string {
 	return s.String()
-}
-
-// SetAllocationId sets the AllocationId field's value.
-func (s *EipAddresseForDescribeNatGatewayAttributesOutput) SetAllocationId(v string) *EipAddresseForDescribeNatGatewayAttributesOutput {
-	s.AllocationId = &v
-	return s
-}
-
-// SetEipAddress sets the EipAddress field's value.
-func (s *EipAddresseForDescribeNatGatewayAttributesOutput) SetEipAddress(v string) *EipAddresseForDescribeNatGatewayAttributesOutput {
-	s.EipAddress = &v
-	return s
-}
-
-// SetUsingStatus sets the UsingStatus field's value.
-func (s *EipAddresseForDescribeNatGatewayAttributesOutput) SetUsingStatus(v string) *EipAddresseForDescribeNatGatewayAttributesOutput {
-	s.UsingStatus = &v
-	return s
 }
 
 type ModifyNatGatewayAttributesInput struct {
@@ -2372,38 +2348,6 @@ func (s *ModifySnatEntryAttributesOutput) SetRequestId(v string) *ModifySnatEntr
 
 type NatGatewayForDescribeNatGatewaysOutput struct {
 	_ struct{} `type:"structure"`
-
-	BillingType *int64 `type:"integer"`
-
-	BusinessStatus *string `type:"string"`
-
-	CreationTime *string `type:"string"`
-
-	DeletedTime *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	EipAddresses []*NatGatewaysEipAddresseForDescribeNatGatewaysOutput `type:"list"`
-
-	LockReason *string `type:"string"`
-
-	NatGatewayId *string `type:"string"`
-
-	NatGatewayName *string `type:"string"`
-
-	NetworkInterfaceId *string `type:"string"`
-
-	OverdueTime *string `type:"string"`
-
-	Spec *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	SubnetId *string `type:"string"`
-
-	UpdatedAt *string `type:"string"`
-
-	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -2416,156 +2360,8 @@ func (s NatGatewayForDescribeNatGatewaysOutput) GoString() string {
 	return s.String()
 }
 
-// SetBillingType sets the BillingType field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetBillingType(v int64) *NatGatewayForDescribeNatGatewaysOutput {
-	s.BillingType = &v
-	return s
-}
-
-// SetBusinessStatus sets the BusinessStatus field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetBusinessStatus(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.BusinessStatus = &v
-	return s
-}
-
-// SetCreationTime sets the CreationTime field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetCreationTime(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.CreationTime = &v
-	return s
-}
-
-// SetDeletedTime sets the DeletedTime field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetDeletedTime(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.DeletedTime = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetDescription(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.Description = &v
-	return s
-}
-
-// SetEipAddresses sets the EipAddresses field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetEipAddresses(v []*NatGatewaysEipAddresseForDescribeNatGatewaysOutput) *NatGatewayForDescribeNatGatewaysOutput {
-	s.EipAddresses = v
-	return s
-}
-
-// SetLockReason sets the LockReason field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetLockReason(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.LockReason = &v
-	return s
-}
-
-// SetNatGatewayId sets the NatGatewayId field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetNatGatewayId(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.NatGatewayId = &v
-	return s
-}
-
-// SetNatGatewayName sets the NatGatewayName field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetNatGatewayName(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.NatGatewayName = &v
-	return s
-}
-
-// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetNetworkInterfaceId(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.NetworkInterfaceId = &v
-	return s
-}
-
-// SetOverdueTime sets the OverdueTime field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetOverdueTime(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.OverdueTime = &v
-	return s
-}
-
-// SetSpec sets the Spec field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetSpec(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.Spec = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetStatus(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.Status = &v
-	return s
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetSubnetId(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.SubnetId = &v
-	return s
-}
-
-// SetUpdatedAt sets the UpdatedAt field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetUpdatedAt(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.UpdatedAt = &v
-	return s
-}
-
-// SetVpcId sets the VpcId field's value.
-func (s *NatGatewayForDescribeNatGatewaysOutput) SetVpcId(v string) *NatGatewayForDescribeNatGatewaysOutput {
-	s.VpcId = &v
-	return s
-}
-
-type NatGatewaysEipAddresseForDescribeNatGatewaysOutput struct {
-	_ struct{} `type:"structure"`
-
-	AllocationId *string `type:"string"`
-
-	EipAddress *string `type:"string"`
-
-	UsingStatus *string `type:"string"`
-}
-
-// String returns the string representation
-func (s NatGatewaysEipAddresseForDescribeNatGatewaysOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s NatGatewaysEipAddresseForDescribeNatGatewaysOutput) GoString() string {
-	return s.String()
-}
-
-// SetAllocationId sets the AllocationId field's value.
-func (s *NatGatewaysEipAddresseForDescribeNatGatewaysOutput) SetAllocationId(v string) *NatGatewaysEipAddresseForDescribeNatGatewaysOutput {
-	s.AllocationId = &v
-	return s
-}
-
-// SetEipAddress sets the EipAddress field's value.
-func (s *NatGatewaysEipAddresseForDescribeNatGatewaysOutput) SetEipAddress(v string) *NatGatewaysEipAddresseForDescribeNatGatewaysOutput {
-	s.EipAddress = &v
-	return s
-}
-
-// SetUsingStatus sets the UsingStatus field's value.
-func (s *NatGatewaysEipAddresseForDescribeNatGatewaysOutput) SetUsingStatus(v string) *NatGatewaysEipAddresseForDescribeNatGatewaysOutput {
-	s.UsingStatus = &v
-	return s
-}
-
 type SnatEntryForDescribeSnatEntriesOutput struct {
 	_ struct{} `type:"structure"`
-
-	EipAddress *string `type:"string"`
-
-	EipId *string `type:"string"`
-
-	NatGatewayId *string `type:"string"`
-
-	SnatEntryId *string `type:"string"`
-
-	SnatEntryName *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	SubnetId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -2576,48 +2372,6 @@ func (s SnatEntryForDescribeSnatEntriesOutput) String() string {
 // GoString returns the string representation
 func (s SnatEntryForDescribeSnatEntriesOutput) GoString() string {
 	return s.String()
-}
-
-// SetEipAddress sets the EipAddress field's value.
-func (s *SnatEntryForDescribeSnatEntriesOutput) SetEipAddress(v string) *SnatEntryForDescribeSnatEntriesOutput {
-	s.EipAddress = &v
-	return s
-}
-
-// SetEipId sets the EipId field's value.
-func (s *SnatEntryForDescribeSnatEntriesOutput) SetEipId(v string) *SnatEntryForDescribeSnatEntriesOutput {
-	s.EipId = &v
-	return s
-}
-
-// SetNatGatewayId sets the NatGatewayId field's value.
-func (s *SnatEntryForDescribeSnatEntriesOutput) SetNatGatewayId(v string) *SnatEntryForDescribeSnatEntriesOutput {
-	s.NatGatewayId = &v
-	return s
-}
-
-// SetSnatEntryId sets the SnatEntryId field's value.
-func (s *SnatEntryForDescribeSnatEntriesOutput) SetSnatEntryId(v string) *SnatEntryForDescribeSnatEntriesOutput {
-	s.SnatEntryId = &v
-	return s
-}
-
-// SetSnatEntryName sets the SnatEntryName field's value.
-func (s *SnatEntryForDescribeSnatEntriesOutput) SetSnatEntryName(v string) *SnatEntryForDescribeSnatEntriesOutput {
-	s.SnatEntryName = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *SnatEntryForDescribeSnatEntriesOutput) SetStatus(v string) *SnatEntryForDescribeSnatEntriesOutput {
-	s.Status = &v
-	return s
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *SnatEntryForDescribeSnatEntriesOutput) SetSubnetId(v string) *SnatEntryForDescribeSnatEntriesOutput {
-	s.SubnetId = &v
-	return s
 }
 
 const (

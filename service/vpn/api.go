@@ -8,29 +8,29 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
-const opInnerBffGetLimitFromKeysCommon = "InnerBffGetLimitFromKeys"
+const opCreateCustomerVpnGatewayCommon = "CreateCustomerVpnGateway"
 
-// InnerBffGetLimitFromKeysCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerBffGetLimitFromKeysCommon operation. The "output" return
-// value will be populated with the InnerBffGetLimitFromKeysCommon request's response once the request completes
+// CreateCustomerVpnGatewayCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateCustomerVpnGatewayCommon operation. The "output" return
+// value will be populated with the CreateCustomerVpnGatewayCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned InnerBffGetLimitFromKeysCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerBffGetLimitFromKeysCommon Send returns without error.
+// Use "Send" method on the returned CreateCustomerVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateCustomerVpnGatewayCommon Send returns without error.
 //
-// See InnerBffGetLimitFromKeysCommon for more information on using the InnerBffGetLimitFromKeysCommon
+// See CreateCustomerVpnGatewayCommon for more information on using the CreateCustomerVpnGatewayCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the InnerBffGetLimitFromKeysCommonRequest method.
-//    req, resp := client.InnerBffGetLimitFromKeysCommonRequest(params)
+//    // Example sending a request using the CreateCustomerVpnGatewayCommonRequest method.
+//    req, resp := client.CreateCustomerVpnGatewayCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *VPN) InnerBffGetLimitFromKeysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *VPN) CreateCustomerVpnGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opInnerBffGetLimitFromKeysCommon,
+		Name:       opCreateCustomerVpnGatewayCommon,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
@@ -45,252 +45,122 @@ func (c *VPN) InnerBffGetLimitFromKeysCommonRequest(input *map[string]interface{
 	return
 }
 
-// InnerBffGetLimitFromKeysCommon API operation for VPN.
+// CreateCustomerVpnGatewayCommon API operation for VPN.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for VPN's
-// API operation InnerBffGetLimitFromKeysCommon for usage and error information.
-func (c *VPN) InnerBffGetLimitFromKeysCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.InnerBffGetLimitFromKeysCommonRequest(input)
+// API operation CreateCustomerVpnGatewayCommon for usage and error information.
+func (c *VPN) CreateCustomerVpnGatewayCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateCustomerVpnGatewayCommonRequest(input)
 	return out, req.Send()
 }
 
-// InnerBffGetLimitFromKeysCommonWithContext is the same as InnerBffGetLimitFromKeysCommon with the addition of
+// CreateCustomerVpnGatewayCommonWithContext is the same as CreateCustomerVpnGatewayCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See InnerBffGetLimitFromKeysCommon for details on how to use this API operation.
+// See CreateCustomerVpnGatewayCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *VPN) InnerBffGetLimitFromKeysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.InnerBffGetLimitFromKeysCommonRequest(input)
+func (c *VPN) CreateCustomerVpnGatewayCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateCustomerVpnGatewayCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opInnerBffGetLimitFromKeys = "InnerBffGetLimitFromKeys"
+const opCreateCustomerVpnGateway = "CreateCustomerVpnGateway"
 
-// InnerBffGetLimitFromKeysRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerBffGetLimitFromKeys operation. The "output" return
-// value will be populated with the InnerBffGetLimitFromKeysCommon request's response once the request completes
+// CreateCustomerVpnGatewayRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateCustomerVpnGateway operation. The "output" return
+// value will be populated with the CreateCustomerVpnGatewayCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned InnerBffGetLimitFromKeysCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerBffGetLimitFromKeysCommon Send returns without error.
+// Use "Send" method on the returned CreateCustomerVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateCustomerVpnGatewayCommon Send returns without error.
 //
-// See InnerBffGetLimitFromKeys for more information on using the InnerBffGetLimitFromKeys
+// See CreateCustomerVpnGateway for more information on using the CreateCustomerVpnGateway
 // API call, and error handling.
 //
-//    // Example sending a request using the InnerBffGetLimitFromKeysRequest method.
-//    req, resp := client.InnerBffGetLimitFromKeysRequest(params)
+//    // Example sending a request using the CreateCustomerVpnGatewayRequest method.
+//    req, resp := client.CreateCustomerVpnGatewayRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *VPN) InnerBffGetLimitFromKeysRequest(input *InnerBffGetLimitFromKeysInput) (req *request.Request, output *InnerBffGetLimitFromKeysOutput) {
+func (c *VPN) CreateCustomerVpnGatewayRequest(input *CreateCustomerVpnGatewayInput) (req *request.Request, output *CreateCustomerVpnGatewayOutput) {
 	op := &request.Operation{
-		Name:       opInnerBffGetLimitFromKeys,
+		Name:       opCreateCustomerVpnGateway,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &InnerBffGetLimitFromKeysInput{}
+		input = &CreateCustomerVpnGatewayInput{}
 	}
 
-	output = &InnerBffGetLimitFromKeysOutput{}
+	output = &CreateCustomerVpnGatewayOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// InnerBffGetLimitFromKeys API operation for VPN.
+// CreateCustomerVpnGateway API operation for VPN.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for VPN's
-// API operation InnerBffGetLimitFromKeys for usage and error information.
-func (c *VPN) InnerBffGetLimitFromKeys(input *InnerBffGetLimitFromKeysInput) (*InnerBffGetLimitFromKeysOutput, error) {
-	req, out := c.InnerBffGetLimitFromKeysRequest(input)
+// API operation CreateCustomerVpnGateway for usage and error information.
+func (c *VPN) CreateCustomerVpnGateway(input *CreateCustomerVpnGatewayInput) (*CreateCustomerVpnGatewayOutput, error) {
+	req, out := c.CreateCustomerVpnGatewayRequest(input)
 	return out, req.Send()
 }
 
-// InnerBffGetLimitFromKeysWithContext is the same as InnerBffGetLimitFromKeys with the addition of
+// CreateCustomerVpnGatewayWithContext is the same as CreateCustomerVpnGateway with the addition of
 // the ability to pass a context and additional request options.
 //
-// See InnerBffGetLimitFromKeys for details on how to use this API operation.
+// See CreateCustomerVpnGateway for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *VPN) InnerBffGetLimitFromKeysWithContext(ctx volcstack.Context, input *InnerBffGetLimitFromKeysInput, opts ...request.Option) (*InnerBffGetLimitFromKeysOutput, error) {
-	req, out := c.InnerBffGetLimitFromKeysRequest(input)
+func (c *VPN) CreateCustomerVpnGatewayWithContext(ctx volcstack.Context, input *CreateCustomerVpnGatewayInput, opts ...request.Option) (*CreateCustomerVpnGatewayOutput, error) {
+	req, out := c.CreateCustomerVpnGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opInnerDescribeWhiteListKeysCommon = "InnerDescribeWhiteListKeys"
+const opCreateVpnConnectionCommon = "CreateVpnConnection"
 
-// InnerDescribeWhiteListKeysCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerDescribeWhiteListKeysCommon operation. The "output" return
-// value will be populated with the InnerDescribeWhiteListKeysCommon request's response once the request completes
+// CreateVpnConnectionCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateVpnConnectionCommon operation. The "output" return
+// value will be populated with the CreateVpnConnectionCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned InnerDescribeWhiteListKeysCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerDescribeWhiteListKeysCommon Send returns without error.
+// Use "Send" method on the returned CreateVpnConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateVpnConnectionCommon Send returns without error.
 //
-// See InnerDescribeWhiteListKeysCommon for more information on using the InnerDescribeWhiteListKeysCommon
+// See CreateVpnConnectionCommon for more information on using the CreateVpnConnectionCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the InnerDescribeWhiteListKeysCommonRequest method.
-//    req, resp := client.InnerDescribeWhiteListKeysCommonRequest(params)
+//    // Example sending a request using the CreateVpnConnectionCommonRequest method.
+//    req, resp := client.CreateVpnConnectionCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *VPN) InnerDescribeWhiteListKeysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *VPN) CreateVpnConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opInnerDescribeWhiteListKeysCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
-
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// InnerDescribeWhiteListKeysCommon API operation for VPN.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for VPN's
-// API operation InnerDescribeWhiteListKeysCommon for usage and error information.
-func (c *VPN) InnerDescribeWhiteListKeysCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.InnerDescribeWhiteListKeysCommonRequest(input)
-	return out, req.Send()
-}
-
-// InnerDescribeWhiteListKeysCommonWithContext is the same as InnerDescribeWhiteListKeysCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See InnerDescribeWhiteListKeysCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *VPN) InnerDescribeWhiteListKeysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.InnerDescribeWhiteListKeysCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opInnerDescribeWhiteListKeys = "InnerDescribeWhiteListKeys"
-
-// InnerDescribeWhiteListKeysRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerDescribeWhiteListKeys operation. The "output" return
-// value will be populated with the InnerDescribeWhiteListKeysCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned InnerDescribeWhiteListKeysCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerDescribeWhiteListKeysCommon Send returns without error.
-//
-// See InnerDescribeWhiteListKeys for more information on using the InnerDescribeWhiteListKeys
-// API call, and error handling.
-//
-//    // Example sending a request using the InnerDescribeWhiteListKeysRequest method.
-//    req, resp := client.InnerDescribeWhiteListKeysRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *VPN) InnerDescribeWhiteListKeysRequest(input *InnerDescribeWhiteListKeysInput) (req *request.Request, output *InnerDescribeWhiteListKeysOutput) {
-	op := &request.Operation{
-		Name:       opInnerDescribeWhiteListKeys,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &InnerDescribeWhiteListKeysInput{}
-	}
-
-	output = &InnerDescribeWhiteListKeysOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// InnerDescribeWhiteListKeys API operation for VPN.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for VPN's
-// API operation InnerDescribeWhiteListKeys for usage and error information.
-func (c *VPN) InnerDescribeWhiteListKeys(input *InnerDescribeWhiteListKeysInput) (*InnerDescribeWhiteListKeysOutput, error) {
-	req, out := c.InnerDescribeWhiteListKeysRequest(input)
-	return out, req.Send()
-}
-
-// InnerDescribeWhiteListKeysWithContext is the same as InnerDescribeWhiteListKeys with the addition of
-// the ability to pass a context and additional request options.
-//
-// See InnerDescribeWhiteListKeys for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *VPN) InnerDescribeWhiteListKeysWithContext(ctx volcstack.Context, input *InnerDescribeWhiteListKeysInput, opts ...request.Option) (*InnerDescribeWhiteListKeysOutput, error) {
-	req, out := c.InnerDescribeWhiteListKeysRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opInnerGetLimitFromKeysCommon = "InnerGetLimitFromKeys"
-
-// InnerGetLimitFromKeysCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerGetLimitFromKeysCommon operation. The "output" return
-// value will be populated with the InnerGetLimitFromKeysCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned InnerGetLimitFromKeysCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerGetLimitFromKeysCommon Send returns without error.
-//
-// See InnerGetLimitFromKeysCommon for more information on using the InnerGetLimitFromKeysCommon
-// API call, and error handling.
-//
-//    // Example sending a request using the InnerGetLimitFromKeysCommonRequest method.
-//    req, resp := client.InnerGetLimitFromKeysCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *VPN) InnerGetLimitFromKeysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opInnerGetLimitFromKeysCommon,
+		Name:       opCreateVpnConnectionCommon,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
@@ -305,123 +175,123 @@ func (c *VPN) InnerGetLimitFromKeysCommonRequest(input *map[string]interface{}) 
 	return
 }
 
-// InnerGetLimitFromKeysCommon API operation for VPN.
+// CreateVpnConnectionCommon API operation for VPN.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for VPN's
-// API operation InnerGetLimitFromKeysCommon for usage and error information.
-func (c *VPN) InnerGetLimitFromKeysCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.InnerGetLimitFromKeysCommonRequest(input)
+// API operation CreateVpnConnectionCommon for usage and error information.
+func (c *VPN) CreateVpnConnectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateVpnConnectionCommonRequest(input)
 	return out, req.Send()
 }
 
-// InnerGetLimitFromKeysCommonWithContext is the same as InnerGetLimitFromKeysCommon with the addition of
+// CreateVpnConnectionCommonWithContext is the same as CreateVpnConnectionCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See InnerGetLimitFromKeysCommon for details on how to use this API operation.
+// See CreateVpnConnectionCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *VPN) InnerGetLimitFromKeysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.InnerGetLimitFromKeysCommonRequest(input)
+func (c *VPN) CreateVpnConnectionCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateVpnConnectionCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opInnerGetLimitFromKeys = "InnerGetLimitFromKeys"
+const opCreateVpnConnection = "CreateVpnConnection"
 
-// InnerGetLimitFromKeysRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerGetLimitFromKeys operation. The "output" return
-// value will be populated with the InnerGetLimitFromKeysCommon request's response once the request completes
+// CreateVpnConnectionRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateVpnConnection operation. The "output" return
+// value will be populated with the CreateVpnConnectionCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned InnerGetLimitFromKeysCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerGetLimitFromKeysCommon Send returns without error.
+// Use "Send" method on the returned CreateVpnConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateVpnConnectionCommon Send returns without error.
 //
-// See InnerGetLimitFromKeys for more information on using the InnerGetLimitFromKeys
+// See CreateVpnConnection for more information on using the CreateVpnConnection
 // API call, and error handling.
 //
-//    // Example sending a request using the InnerGetLimitFromKeysRequest method.
-//    req, resp := client.InnerGetLimitFromKeysRequest(params)
+//    // Example sending a request using the CreateVpnConnectionRequest method.
+//    req, resp := client.CreateVpnConnectionRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *VPN) InnerGetLimitFromKeysRequest(input *InnerGetLimitFromKeysInput) (req *request.Request, output *InnerGetLimitFromKeysOutput) {
+func (c *VPN) CreateVpnConnectionRequest(input *CreateVpnConnectionInput) (req *request.Request, output *CreateVpnConnectionOutput) {
 	op := &request.Operation{
-		Name:       opInnerGetLimitFromKeys,
+		Name:       opCreateVpnConnection,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &InnerGetLimitFromKeysInput{}
+		input = &CreateVpnConnectionInput{}
 	}
 
-	output = &InnerGetLimitFromKeysOutput{}
+	output = &CreateVpnConnectionOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// InnerGetLimitFromKeys API operation for VPN.
+// CreateVpnConnection API operation for VPN.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for VPN's
-// API operation InnerGetLimitFromKeys for usage and error information.
-func (c *VPN) InnerGetLimitFromKeys(input *InnerGetLimitFromKeysInput) (*InnerGetLimitFromKeysOutput, error) {
-	req, out := c.InnerGetLimitFromKeysRequest(input)
+// API operation CreateVpnConnection for usage and error information.
+func (c *VPN) CreateVpnConnection(input *CreateVpnConnectionInput) (*CreateVpnConnectionOutput, error) {
+	req, out := c.CreateVpnConnectionRequest(input)
 	return out, req.Send()
 }
 
-// InnerGetLimitFromKeysWithContext is the same as InnerGetLimitFromKeys with the addition of
+// CreateVpnConnectionWithContext is the same as CreateVpnConnection with the addition of
 // the ability to pass a context and additional request options.
 //
-// See InnerGetLimitFromKeys for details on how to use this API operation.
+// See CreateVpnConnection for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *VPN) InnerGetLimitFromKeysWithContext(ctx volcstack.Context, input *InnerGetLimitFromKeysInput, opts ...request.Option) (*InnerGetLimitFromKeysOutput, error) {
-	req, out := c.InnerGetLimitFromKeysRequest(input)
+func (c *VPN) CreateVpnConnectionWithContext(ctx volcstack.Context, input *CreateVpnConnectionInput, opts ...request.Option) (*CreateVpnConnectionOutput, error) {
+	req, out := c.CreateVpnConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opInnerPostDescribeVpnConnectionsCommon = "InnerPostDescribeVpnConnections"
+const opCreateVpnGatewayCommon = "CreateVpnGateway"
 
-// InnerPostDescribeVpnConnectionsCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerPostDescribeVpnConnectionsCommon operation. The "output" return
-// value will be populated with the InnerPostDescribeVpnConnectionsCommon request's response once the request completes
+// CreateVpnGatewayCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateVpnGatewayCommon operation. The "output" return
+// value will be populated with the CreateVpnGatewayCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned InnerPostDescribeVpnConnectionsCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerPostDescribeVpnConnectionsCommon Send returns without error.
+// Use "Send" method on the returned CreateVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateVpnGatewayCommon Send returns without error.
 //
-// See InnerPostDescribeVpnConnectionsCommon for more information on using the InnerPostDescribeVpnConnectionsCommon
+// See CreateVpnGatewayCommon for more information on using the CreateVpnGatewayCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the InnerPostDescribeVpnConnectionsCommonRequest method.
-//    req, resp := client.InnerPostDescribeVpnConnectionsCommonRequest(params)
+//    // Example sending a request using the CreateVpnGatewayCommonRequest method.
+//    req, resp := client.CreateVpnGatewayCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *VPN) InnerPostDescribeVpnConnectionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *VPN) CreateVpnGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opInnerPostDescribeVpnConnectionsCommon,
-		HTTPMethod: "POST",
+		Name:       opCreateVpnGatewayCommon,
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -435,123 +305,123 @@ func (c *VPN) InnerPostDescribeVpnConnectionsCommonRequest(input *map[string]int
 	return
 }
 
-// InnerPostDescribeVpnConnectionsCommon API operation for VPN.
+// CreateVpnGatewayCommon API operation for VPN.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for VPN's
-// API operation InnerPostDescribeVpnConnectionsCommon for usage and error information.
-func (c *VPN) InnerPostDescribeVpnConnectionsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.InnerPostDescribeVpnConnectionsCommonRequest(input)
+// API operation CreateVpnGatewayCommon for usage and error information.
+func (c *VPN) CreateVpnGatewayCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateVpnGatewayCommonRequest(input)
 	return out, req.Send()
 }
 
-// InnerPostDescribeVpnConnectionsCommonWithContext is the same as InnerPostDescribeVpnConnectionsCommon with the addition of
+// CreateVpnGatewayCommonWithContext is the same as CreateVpnGatewayCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See InnerPostDescribeVpnConnectionsCommon for details on how to use this API operation.
+// See CreateVpnGatewayCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *VPN) InnerPostDescribeVpnConnectionsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.InnerPostDescribeVpnConnectionsCommonRequest(input)
+func (c *VPN) CreateVpnGatewayCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateVpnGatewayCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opInnerPostDescribeVpnConnections = "InnerPostDescribeVpnConnections"
+const opCreateVpnGateway = "CreateVpnGateway"
 
-// InnerPostDescribeVpnConnectionsRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerPostDescribeVpnConnections operation. The "output" return
-// value will be populated with the InnerPostDescribeVpnConnectionsCommon request's response once the request completes
+// CreateVpnGatewayRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateVpnGateway operation. The "output" return
+// value will be populated with the CreateVpnGatewayCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned InnerPostDescribeVpnConnectionsCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerPostDescribeVpnConnectionsCommon Send returns without error.
+// Use "Send" method on the returned CreateVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateVpnGatewayCommon Send returns without error.
 //
-// See InnerPostDescribeVpnConnections for more information on using the InnerPostDescribeVpnConnections
+// See CreateVpnGateway for more information on using the CreateVpnGateway
 // API call, and error handling.
 //
-//    // Example sending a request using the InnerPostDescribeVpnConnectionsRequest method.
-//    req, resp := client.InnerPostDescribeVpnConnectionsRequest(params)
+//    // Example sending a request using the CreateVpnGatewayRequest method.
+//    req, resp := client.CreateVpnGatewayRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *VPN) InnerPostDescribeVpnConnectionsRequest(input *InnerPostDescribeVpnConnectionsInput) (req *request.Request, output *InnerPostDescribeVpnConnectionsOutput) {
+func (c *VPN) CreateVpnGatewayRequest(input *CreateVpnGatewayInput) (req *request.Request, output *CreateVpnGatewayOutput) {
 	op := &request.Operation{
-		Name:       opInnerPostDescribeVpnConnections,
-		HTTPMethod: "POST",
+		Name:       opCreateVpnGateway,
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &InnerPostDescribeVpnConnectionsInput{}
+		input = &CreateVpnGatewayInput{}
 	}
 
-	output = &InnerPostDescribeVpnConnectionsOutput{}
+	output = &CreateVpnGatewayOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// InnerPostDescribeVpnConnections API operation for VPN.
+// CreateVpnGateway API operation for VPN.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for VPN's
-// API operation InnerPostDescribeVpnConnections for usage and error information.
-func (c *VPN) InnerPostDescribeVpnConnections(input *InnerPostDescribeVpnConnectionsInput) (*InnerPostDescribeVpnConnectionsOutput, error) {
-	req, out := c.InnerPostDescribeVpnConnectionsRequest(input)
+// API operation CreateVpnGateway for usage and error information.
+func (c *VPN) CreateVpnGateway(input *CreateVpnGatewayInput) (*CreateVpnGatewayOutput, error) {
+	req, out := c.CreateVpnGatewayRequest(input)
 	return out, req.Send()
 }
 
-// InnerPostDescribeVpnConnectionsWithContext is the same as InnerPostDescribeVpnConnections with the addition of
+// CreateVpnGatewayWithContext is the same as CreateVpnGateway with the addition of
 // the ability to pass a context and additional request options.
 //
-// See InnerPostDescribeVpnConnections for details on how to use this API operation.
+// See CreateVpnGateway for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *VPN) InnerPostDescribeVpnConnectionsWithContext(ctx volcstack.Context, input *InnerPostDescribeVpnConnectionsInput, opts ...request.Option) (*InnerPostDescribeVpnConnectionsOutput, error) {
-	req, out := c.InnerPostDescribeVpnConnectionsRequest(input)
+func (c *VPN) CreateVpnGatewayWithContext(ctx volcstack.Context, input *CreateVpnGatewayInput, opts ...request.Option) (*CreateVpnGatewayOutput, error) {
+	req, out := c.CreateVpnGatewayRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opInnerPostDescribeVpnGatewaysCommon = "InnerPostDescribeVpnGateways"
+const opCreateVpnGatewayRouteCommon = "CreateVpnGatewayRoute"
 
-// InnerPostDescribeVpnGatewaysCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerPostDescribeVpnGatewaysCommon operation. The "output" return
-// value will be populated with the InnerPostDescribeVpnGatewaysCommon request's response once the request completes
+// CreateVpnGatewayRouteCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateVpnGatewayRouteCommon operation. The "output" return
+// value will be populated with the CreateVpnGatewayRouteCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned InnerPostDescribeVpnGatewaysCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerPostDescribeVpnGatewaysCommon Send returns without error.
+// Use "Send" method on the returned CreateVpnGatewayRouteCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateVpnGatewayRouteCommon Send returns without error.
 //
-// See InnerPostDescribeVpnGatewaysCommon for more information on using the InnerPostDescribeVpnGatewaysCommon
+// See CreateVpnGatewayRouteCommon for more information on using the CreateVpnGatewayRouteCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the InnerPostDescribeVpnGatewaysCommonRequest method.
-//    req, resp := client.InnerPostDescribeVpnGatewaysCommonRequest(params)
+//    // Example sending a request using the CreateVpnGatewayRouteCommonRequest method.
+//    req, resp := client.CreateVpnGatewayRouteCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *VPN) InnerPostDescribeVpnGatewaysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *VPN) CreateVpnGatewayRouteCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opInnerPostDescribeVpnGatewaysCommon,
-		HTTPMethod: "POST",
+		Name:       opCreateVpnGatewayRouteCommon,
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -565,475 +435,3471 @@ func (c *VPN) InnerPostDescribeVpnGatewaysCommonRequest(input *map[string]interf
 	return
 }
 
-// InnerPostDescribeVpnGatewaysCommon API operation for VPN.
+// CreateVpnGatewayRouteCommon API operation for VPN.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for VPN's
-// API operation InnerPostDescribeVpnGatewaysCommon for usage and error information.
-func (c *VPN) InnerPostDescribeVpnGatewaysCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.InnerPostDescribeVpnGatewaysCommonRequest(input)
+// API operation CreateVpnGatewayRouteCommon for usage and error information.
+func (c *VPN) CreateVpnGatewayRouteCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateVpnGatewayRouteCommonRequest(input)
 	return out, req.Send()
 }
 
-// InnerPostDescribeVpnGatewaysCommonWithContext is the same as InnerPostDescribeVpnGatewaysCommon with the addition of
+// CreateVpnGatewayRouteCommonWithContext is the same as CreateVpnGatewayRouteCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See InnerPostDescribeVpnGatewaysCommon for details on how to use this API operation.
+// See CreateVpnGatewayRouteCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *VPN) InnerPostDescribeVpnGatewaysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.InnerPostDescribeVpnGatewaysCommonRequest(input)
+func (c *VPN) CreateVpnGatewayRouteCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateVpnGatewayRouteCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opInnerPostDescribeVpnGateways = "InnerPostDescribeVpnGateways"
+const opCreateVpnGatewayRoute = "CreateVpnGatewayRoute"
 
-// InnerPostDescribeVpnGatewaysRequest generates a "volcstack/request.Request" representing the
-// client's request for the InnerPostDescribeVpnGateways operation. The "output" return
-// value will be populated with the InnerPostDescribeVpnGatewaysCommon request's response once the request completes
+// CreateVpnGatewayRouteRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateVpnGatewayRoute operation. The "output" return
+// value will be populated with the CreateVpnGatewayRouteCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned InnerPostDescribeVpnGatewaysCommon Request to send the API call to the service.
-// the "output" return value is not valid until after InnerPostDescribeVpnGatewaysCommon Send returns without error.
+// Use "Send" method on the returned CreateVpnGatewayRouteCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateVpnGatewayRouteCommon Send returns without error.
 //
-// See InnerPostDescribeVpnGateways for more information on using the InnerPostDescribeVpnGateways
+// See CreateVpnGatewayRoute for more information on using the CreateVpnGatewayRoute
 // API call, and error handling.
 //
-//    // Example sending a request using the InnerPostDescribeVpnGatewaysRequest method.
-//    req, resp := client.InnerPostDescribeVpnGatewaysRequest(params)
+//    // Example sending a request using the CreateVpnGatewayRouteRequest method.
+//    req, resp := client.CreateVpnGatewayRouteRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *VPN) InnerPostDescribeVpnGatewaysRequest(input *InnerPostDescribeVpnGatewaysInput) (req *request.Request, output *InnerPostDescribeVpnGatewaysOutput) {
+func (c *VPN) CreateVpnGatewayRouteRequest(input *CreateVpnGatewayRouteInput) (req *request.Request, output *CreateVpnGatewayRouteOutput) {
 	op := &request.Operation{
-		Name:       opInnerPostDescribeVpnGateways,
-		HTTPMethod: "POST",
+		Name:       opCreateVpnGatewayRoute,
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &InnerPostDescribeVpnGatewaysInput{}
+		input = &CreateVpnGatewayRouteInput{}
 	}
 
-	output = &InnerPostDescribeVpnGatewaysOutput{}
+	output = &CreateVpnGatewayRouteOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// InnerPostDescribeVpnGateways API operation for VPN.
+// CreateVpnGatewayRoute API operation for VPN.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for VPN's
-// API operation InnerPostDescribeVpnGateways for usage and error information.
-func (c *VPN) InnerPostDescribeVpnGateways(input *InnerPostDescribeVpnGatewaysInput) (*InnerPostDescribeVpnGatewaysOutput, error) {
-	req, out := c.InnerPostDescribeVpnGatewaysRequest(input)
+// API operation CreateVpnGatewayRoute for usage and error information.
+func (c *VPN) CreateVpnGatewayRoute(input *CreateVpnGatewayRouteInput) (*CreateVpnGatewayRouteOutput, error) {
+	req, out := c.CreateVpnGatewayRouteRequest(input)
 	return out, req.Send()
 }
 
-// InnerPostDescribeVpnGatewaysWithContext is the same as InnerPostDescribeVpnGateways with the addition of
+// CreateVpnGatewayRouteWithContext is the same as CreateVpnGatewayRoute with the addition of
 // the ability to pass a context and additional request options.
 //
-// See InnerPostDescribeVpnGateways for details on how to use this API operation.
+// See CreateVpnGatewayRoute for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *VPN) InnerPostDescribeVpnGatewaysWithContext(ctx volcstack.Context, input *InnerPostDescribeVpnGatewaysInput, opts ...request.Option) (*InnerPostDescribeVpnGatewaysOutput, error) {
-	req, out := c.InnerPostDescribeVpnGatewaysRequest(input)
+func (c *VPN) CreateVpnGatewayRouteWithContext(ctx volcstack.Context, input *CreateVpnGatewayRouteInput, opts ...request.Option) (*CreateVpnGatewayRouteOutput, error) {
+	req, out := c.CreateVpnGatewayRouteRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-type InnerBffGetLimitFromKeysInput struct {
+const opDeleteCustomerVpnGatewayCommon = "DeleteCustomerVpnGateway"
+
+// DeleteCustomerVpnGatewayCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteCustomerVpnGatewayCommon operation. The "output" return
+// value will be populated with the DeleteCustomerVpnGatewayCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteCustomerVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteCustomerVpnGatewayCommon Send returns without error.
+//
+// See DeleteCustomerVpnGatewayCommon for more information on using the DeleteCustomerVpnGatewayCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteCustomerVpnGatewayCommonRequest method.
+//    req, resp := client.DeleteCustomerVpnGatewayCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DeleteCustomerVpnGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteCustomerVpnGatewayCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteCustomerVpnGatewayCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DeleteCustomerVpnGatewayCommon for usage and error information.
+func (c *VPN) DeleteCustomerVpnGatewayCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteCustomerVpnGatewayCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteCustomerVpnGatewayCommonWithContext is the same as DeleteCustomerVpnGatewayCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteCustomerVpnGatewayCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DeleteCustomerVpnGatewayCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteCustomerVpnGatewayCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteCustomerVpnGateway = "DeleteCustomerVpnGateway"
+
+// DeleteCustomerVpnGatewayRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteCustomerVpnGateway operation. The "output" return
+// value will be populated with the DeleteCustomerVpnGatewayCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteCustomerVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteCustomerVpnGatewayCommon Send returns without error.
+//
+// See DeleteCustomerVpnGateway for more information on using the DeleteCustomerVpnGateway
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteCustomerVpnGatewayRequest method.
+//    req, resp := client.DeleteCustomerVpnGatewayRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DeleteCustomerVpnGatewayRequest(input *DeleteCustomerVpnGatewayInput) (req *request.Request, output *DeleteCustomerVpnGatewayOutput) {
+	op := &request.Operation{
+		Name:       opDeleteCustomerVpnGateway,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteCustomerVpnGatewayInput{}
+	}
+
+	output = &DeleteCustomerVpnGatewayOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteCustomerVpnGateway API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DeleteCustomerVpnGateway for usage and error information.
+func (c *VPN) DeleteCustomerVpnGateway(input *DeleteCustomerVpnGatewayInput) (*DeleteCustomerVpnGatewayOutput, error) {
+	req, out := c.DeleteCustomerVpnGatewayRequest(input)
+	return out, req.Send()
+}
+
+// DeleteCustomerVpnGatewayWithContext is the same as DeleteCustomerVpnGateway with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteCustomerVpnGateway for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DeleteCustomerVpnGatewayWithContext(ctx volcstack.Context, input *DeleteCustomerVpnGatewayInput, opts ...request.Option) (*DeleteCustomerVpnGatewayOutput, error) {
+	req, out := c.DeleteCustomerVpnGatewayRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteVpnConnectionCommon = "DeleteVpnConnection"
+
+// DeleteVpnConnectionCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteVpnConnectionCommon operation. The "output" return
+// value will be populated with the DeleteVpnConnectionCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteVpnConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteVpnConnectionCommon Send returns without error.
+//
+// See DeleteVpnConnectionCommon for more information on using the DeleteVpnConnectionCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteVpnConnectionCommonRequest method.
+//    req, resp := client.DeleteVpnConnectionCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DeleteVpnConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteVpnConnectionCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteVpnConnectionCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DeleteVpnConnectionCommon for usage and error information.
+func (c *VPN) DeleteVpnConnectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteVpnConnectionCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteVpnConnectionCommonWithContext is the same as DeleteVpnConnectionCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteVpnConnectionCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DeleteVpnConnectionCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteVpnConnectionCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteVpnConnection = "DeleteVpnConnection"
+
+// DeleteVpnConnectionRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteVpnConnection operation. The "output" return
+// value will be populated with the DeleteVpnConnectionCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteVpnConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteVpnConnectionCommon Send returns without error.
+//
+// See DeleteVpnConnection for more information on using the DeleteVpnConnection
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteVpnConnectionRequest method.
+//    req, resp := client.DeleteVpnConnectionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DeleteVpnConnectionRequest(input *DeleteVpnConnectionInput) (req *request.Request, output *DeleteVpnConnectionOutput) {
+	op := &request.Operation{
+		Name:       opDeleteVpnConnection,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteVpnConnectionInput{}
+	}
+
+	output = &DeleteVpnConnectionOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteVpnConnection API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DeleteVpnConnection for usage and error information.
+func (c *VPN) DeleteVpnConnection(input *DeleteVpnConnectionInput) (*DeleteVpnConnectionOutput, error) {
+	req, out := c.DeleteVpnConnectionRequest(input)
+	return out, req.Send()
+}
+
+// DeleteVpnConnectionWithContext is the same as DeleteVpnConnection with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteVpnConnection for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DeleteVpnConnectionWithContext(ctx volcstack.Context, input *DeleteVpnConnectionInput, opts ...request.Option) (*DeleteVpnConnectionOutput, error) {
+	req, out := c.DeleteVpnConnectionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteVpnGatewayCommon = "DeleteVpnGateway"
+
+// DeleteVpnGatewayCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteVpnGatewayCommon operation. The "output" return
+// value will be populated with the DeleteVpnGatewayCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteVpnGatewayCommon Send returns without error.
+//
+// See DeleteVpnGatewayCommon for more information on using the DeleteVpnGatewayCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteVpnGatewayCommonRequest method.
+//    req, resp := client.DeleteVpnGatewayCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DeleteVpnGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteVpnGatewayCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteVpnGatewayCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DeleteVpnGatewayCommon for usage and error information.
+func (c *VPN) DeleteVpnGatewayCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteVpnGatewayCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteVpnGatewayCommonWithContext is the same as DeleteVpnGatewayCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteVpnGatewayCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DeleteVpnGatewayCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteVpnGatewayCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteVpnGateway = "DeleteVpnGateway"
+
+// DeleteVpnGatewayRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteVpnGateway operation. The "output" return
+// value will be populated with the DeleteVpnGatewayCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteVpnGatewayCommon Send returns without error.
+//
+// See DeleteVpnGateway for more information on using the DeleteVpnGateway
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteVpnGatewayRequest method.
+//    req, resp := client.DeleteVpnGatewayRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DeleteVpnGatewayRequest(input *DeleteVpnGatewayInput) (req *request.Request, output *DeleteVpnGatewayOutput) {
+	op := &request.Operation{
+		Name:       opDeleteVpnGateway,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteVpnGatewayInput{}
+	}
+
+	output = &DeleteVpnGatewayOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteVpnGateway API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DeleteVpnGateway for usage and error information.
+func (c *VPN) DeleteVpnGateway(input *DeleteVpnGatewayInput) (*DeleteVpnGatewayOutput, error) {
+	req, out := c.DeleteVpnGatewayRequest(input)
+	return out, req.Send()
+}
+
+// DeleteVpnGatewayWithContext is the same as DeleteVpnGateway with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteVpnGateway for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DeleteVpnGatewayWithContext(ctx volcstack.Context, input *DeleteVpnGatewayInput, opts ...request.Option) (*DeleteVpnGatewayOutput, error) {
+	req, out := c.DeleteVpnGatewayRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteVpnGatewayRouteCommon = "DeleteVpnGatewayRoute"
+
+// DeleteVpnGatewayRouteCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteVpnGatewayRouteCommon operation. The "output" return
+// value will be populated with the DeleteVpnGatewayRouteCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteVpnGatewayRouteCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteVpnGatewayRouteCommon Send returns without error.
+//
+// See DeleteVpnGatewayRouteCommon for more information on using the DeleteVpnGatewayRouteCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteVpnGatewayRouteCommonRequest method.
+//    req, resp := client.DeleteVpnGatewayRouteCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DeleteVpnGatewayRouteCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteVpnGatewayRouteCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteVpnGatewayRouteCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DeleteVpnGatewayRouteCommon for usage and error information.
+func (c *VPN) DeleteVpnGatewayRouteCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteVpnGatewayRouteCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteVpnGatewayRouteCommonWithContext is the same as DeleteVpnGatewayRouteCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteVpnGatewayRouteCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DeleteVpnGatewayRouteCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteVpnGatewayRouteCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteVpnGatewayRoute = "DeleteVpnGatewayRoute"
+
+// DeleteVpnGatewayRouteRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteVpnGatewayRoute operation. The "output" return
+// value will be populated with the DeleteVpnGatewayRouteCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteVpnGatewayRouteCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteVpnGatewayRouteCommon Send returns without error.
+//
+// See DeleteVpnGatewayRoute for more information on using the DeleteVpnGatewayRoute
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteVpnGatewayRouteRequest method.
+//    req, resp := client.DeleteVpnGatewayRouteRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DeleteVpnGatewayRouteRequest(input *DeleteVpnGatewayRouteInput) (req *request.Request, output *DeleteVpnGatewayRouteOutput) {
+	op := &request.Operation{
+		Name:       opDeleteVpnGatewayRoute,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteVpnGatewayRouteInput{}
+	}
+
+	output = &DeleteVpnGatewayRouteOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteVpnGatewayRoute API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DeleteVpnGatewayRoute for usage and error information.
+func (c *VPN) DeleteVpnGatewayRoute(input *DeleteVpnGatewayRouteInput) (*DeleteVpnGatewayRouteOutput, error) {
+	req, out := c.DeleteVpnGatewayRouteRequest(input)
+	return out, req.Send()
+}
+
+// DeleteVpnGatewayRouteWithContext is the same as DeleteVpnGatewayRoute with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteVpnGatewayRoute for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DeleteVpnGatewayRouteWithContext(ctx volcstack.Context, input *DeleteVpnGatewayRouteInput, opts ...request.Option) (*DeleteVpnGatewayRouteOutput, error) {
+	req, out := c.DeleteVpnGatewayRouteRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeCustomerVpnGatewayAttributesCommon = "DescribeCustomerVpnGatewayAttributes"
+
+// DescribeCustomerVpnGatewayAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeCustomerVpnGatewayAttributesCommon operation. The "output" return
+// value will be populated with the DescribeCustomerVpnGatewayAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeCustomerVpnGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeCustomerVpnGatewayAttributesCommon Send returns without error.
+//
+// See DescribeCustomerVpnGatewayAttributesCommon for more information on using the DescribeCustomerVpnGatewayAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeCustomerVpnGatewayAttributesCommonRequest method.
+//    req, resp := client.DescribeCustomerVpnGatewayAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeCustomerVpnGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeCustomerVpnGatewayAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeCustomerVpnGatewayAttributesCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeCustomerVpnGatewayAttributesCommon for usage and error information.
+func (c *VPN) DescribeCustomerVpnGatewayAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeCustomerVpnGatewayAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeCustomerVpnGatewayAttributesCommonWithContext is the same as DescribeCustomerVpnGatewayAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeCustomerVpnGatewayAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeCustomerVpnGatewayAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeCustomerVpnGatewayAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeCustomerVpnGatewayAttributes = "DescribeCustomerVpnGatewayAttributes"
+
+// DescribeCustomerVpnGatewayAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeCustomerVpnGatewayAttributes operation. The "output" return
+// value will be populated with the DescribeCustomerVpnGatewayAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeCustomerVpnGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeCustomerVpnGatewayAttributesCommon Send returns without error.
+//
+// See DescribeCustomerVpnGatewayAttributes for more information on using the DescribeCustomerVpnGatewayAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeCustomerVpnGatewayAttributesRequest method.
+//    req, resp := client.DescribeCustomerVpnGatewayAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeCustomerVpnGatewayAttributesRequest(input *DescribeCustomerVpnGatewayAttributesInput) (req *request.Request, output *DescribeCustomerVpnGatewayAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeCustomerVpnGatewayAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeCustomerVpnGatewayAttributesInput{}
+	}
+
+	output = &DescribeCustomerVpnGatewayAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeCustomerVpnGatewayAttributes API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeCustomerVpnGatewayAttributes for usage and error information.
+func (c *VPN) DescribeCustomerVpnGatewayAttributes(input *DescribeCustomerVpnGatewayAttributesInput) (*DescribeCustomerVpnGatewayAttributesOutput, error) {
+	req, out := c.DescribeCustomerVpnGatewayAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeCustomerVpnGatewayAttributesWithContext is the same as DescribeCustomerVpnGatewayAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeCustomerVpnGatewayAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeCustomerVpnGatewayAttributesWithContext(ctx volcstack.Context, input *DescribeCustomerVpnGatewayAttributesInput, opts ...request.Option) (*DescribeCustomerVpnGatewayAttributesOutput, error) {
+	req, out := c.DescribeCustomerVpnGatewayAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeCustomerVpnGatewaysCommon = "DescribeCustomerVpnGateways"
+
+// DescribeCustomerVpnGatewaysCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeCustomerVpnGatewaysCommon operation. The "output" return
+// value will be populated with the DescribeCustomerVpnGatewaysCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeCustomerVpnGatewaysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeCustomerVpnGatewaysCommon Send returns without error.
+//
+// See DescribeCustomerVpnGatewaysCommon for more information on using the DescribeCustomerVpnGatewaysCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeCustomerVpnGatewaysCommonRequest method.
+//    req, resp := client.DescribeCustomerVpnGatewaysCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeCustomerVpnGatewaysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeCustomerVpnGatewaysCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeCustomerVpnGatewaysCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeCustomerVpnGatewaysCommon for usage and error information.
+func (c *VPN) DescribeCustomerVpnGatewaysCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeCustomerVpnGatewaysCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeCustomerVpnGatewaysCommonWithContext is the same as DescribeCustomerVpnGatewaysCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeCustomerVpnGatewaysCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeCustomerVpnGatewaysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeCustomerVpnGatewaysCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeCustomerVpnGateways = "DescribeCustomerVpnGateways"
+
+// DescribeCustomerVpnGatewaysRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeCustomerVpnGateways operation. The "output" return
+// value will be populated with the DescribeCustomerVpnGatewaysCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeCustomerVpnGatewaysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeCustomerVpnGatewaysCommon Send returns without error.
+//
+// See DescribeCustomerVpnGateways for more information on using the DescribeCustomerVpnGateways
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeCustomerVpnGatewaysRequest method.
+//    req, resp := client.DescribeCustomerVpnGatewaysRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeCustomerVpnGatewaysRequest(input *DescribeCustomerVpnGatewaysInput) (req *request.Request, output *DescribeCustomerVpnGatewaysOutput) {
+	op := &request.Operation{
+		Name:       opDescribeCustomerVpnGateways,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeCustomerVpnGatewaysInput{}
+	}
+
+	output = &DescribeCustomerVpnGatewaysOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeCustomerVpnGateways API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeCustomerVpnGateways for usage and error information.
+func (c *VPN) DescribeCustomerVpnGateways(input *DescribeCustomerVpnGatewaysInput) (*DescribeCustomerVpnGatewaysOutput, error) {
+	req, out := c.DescribeCustomerVpnGatewaysRequest(input)
+	return out, req.Send()
+}
+
+// DescribeCustomerVpnGatewaysWithContext is the same as DescribeCustomerVpnGateways with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeCustomerVpnGateways for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeCustomerVpnGatewaysWithContext(ctx volcstack.Context, input *DescribeCustomerVpnGatewaysInput, opts ...request.Option) (*DescribeCustomerVpnGatewaysOutput, error) {
+	req, out := c.DescribeCustomerVpnGatewaysRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnConnectionAttributesCommon = "DescribeVpnConnectionAttributes"
+
+// DescribeVpnConnectionAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnConnectionAttributesCommon operation. The "output" return
+// value will be populated with the DescribeVpnConnectionAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnConnectionAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnConnectionAttributesCommon Send returns without error.
+//
+// See DescribeVpnConnectionAttributesCommon for more information on using the DescribeVpnConnectionAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnConnectionAttributesCommonRequest method.
+//    req, resp := client.DescribeVpnConnectionAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnConnectionAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeVpnConnectionAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnConnectionAttributesCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnConnectionAttributesCommon for usage and error information.
+func (c *VPN) DescribeVpnConnectionAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnConnectionAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnConnectionAttributesCommonWithContext is the same as DescribeVpnConnectionAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnConnectionAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnConnectionAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnConnectionAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnConnectionAttributes = "DescribeVpnConnectionAttributes"
+
+// DescribeVpnConnectionAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnConnectionAttributes operation. The "output" return
+// value will be populated with the DescribeVpnConnectionAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnConnectionAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnConnectionAttributesCommon Send returns without error.
+//
+// See DescribeVpnConnectionAttributes for more information on using the DescribeVpnConnectionAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnConnectionAttributesRequest method.
+//    req, resp := client.DescribeVpnConnectionAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnConnectionAttributesRequest(input *DescribeVpnConnectionAttributesInput) (req *request.Request, output *DescribeVpnConnectionAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeVpnConnectionAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeVpnConnectionAttributesInput{}
+	}
+
+	output = &DescribeVpnConnectionAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnConnectionAttributes API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnConnectionAttributes for usage and error information.
+func (c *VPN) DescribeVpnConnectionAttributes(input *DescribeVpnConnectionAttributesInput) (*DescribeVpnConnectionAttributesOutput, error) {
+	req, out := c.DescribeVpnConnectionAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnConnectionAttributesWithContext is the same as DescribeVpnConnectionAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnConnectionAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnConnectionAttributesWithContext(ctx volcstack.Context, input *DescribeVpnConnectionAttributesInput, opts ...request.Option) (*DescribeVpnConnectionAttributesOutput, error) {
+	req, out := c.DescribeVpnConnectionAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnConnectionsCommon = "DescribeVpnConnections"
+
+// DescribeVpnConnectionsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnConnectionsCommon operation. The "output" return
+// value will be populated with the DescribeVpnConnectionsCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnConnectionsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnConnectionsCommon Send returns without error.
+//
+// See DescribeVpnConnectionsCommon for more information on using the DescribeVpnConnectionsCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnConnectionsCommonRequest method.
+//    req, resp := client.DescribeVpnConnectionsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnConnectionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeVpnConnectionsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnConnectionsCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnConnectionsCommon for usage and error information.
+func (c *VPN) DescribeVpnConnectionsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnConnectionsCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnConnectionsCommonWithContext is the same as DescribeVpnConnectionsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnConnectionsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnConnectionsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnConnectionsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnConnections = "DescribeVpnConnections"
+
+// DescribeVpnConnectionsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnConnections operation. The "output" return
+// value will be populated with the DescribeVpnConnectionsCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnConnectionsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnConnectionsCommon Send returns without error.
+//
+// See DescribeVpnConnections for more information on using the DescribeVpnConnections
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnConnectionsRequest method.
+//    req, resp := client.DescribeVpnConnectionsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnConnectionsRequest(input *DescribeVpnConnectionsInput) (req *request.Request, output *DescribeVpnConnectionsOutput) {
+	op := &request.Operation{
+		Name:       opDescribeVpnConnections,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeVpnConnectionsInput{}
+	}
+
+	output = &DescribeVpnConnectionsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnConnections API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnConnections for usage and error information.
+func (c *VPN) DescribeVpnConnections(input *DescribeVpnConnectionsInput) (*DescribeVpnConnectionsOutput, error) {
+	req, out := c.DescribeVpnConnectionsRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnConnectionsWithContext is the same as DescribeVpnConnections with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnConnections for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnConnectionsWithContext(ctx volcstack.Context, input *DescribeVpnConnectionsInput, opts ...request.Option) (*DescribeVpnConnectionsOutput, error) {
+	req, out := c.DescribeVpnConnectionsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGatewayAttributesCommon = "DescribeVpnGatewayAttributes"
+
+// DescribeVpnGatewayAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGatewayAttributesCommon operation. The "output" return
+// value will be populated with the DescribeVpnGatewayAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewayAttributesCommon Send returns without error.
+//
+// See DescribeVpnGatewayAttributesCommon for more information on using the DescribeVpnGatewayAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewayAttributesCommonRequest method.
+//    req, resp := client.DescribeVpnGatewayAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGatewayAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGatewayAttributesCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGatewayAttributesCommon for usage and error information.
+func (c *VPN) DescribeVpnGatewayAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewayAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewayAttributesCommonWithContext is the same as DescribeVpnGatewayAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGatewayAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewayAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewayAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGatewayAttributes = "DescribeVpnGatewayAttributes"
+
+// DescribeVpnGatewayAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGatewayAttributes operation. The "output" return
+// value will be populated with the DescribeVpnGatewayAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewayAttributesCommon Send returns without error.
+//
+// See DescribeVpnGatewayAttributes for more information on using the DescribeVpnGatewayAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewayAttributesRequest method.
+//    req, resp := client.DescribeVpnGatewayAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewayAttributesRequest(input *DescribeVpnGatewayAttributesInput) (req *request.Request, output *DescribeVpnGatewayAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGatewayAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeVpnGatewayAttributesInput{}
+	}
+
+	output = &DescribeVpnGatewayAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGatewayAttributes API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGatewayAttributes for usage and error information.
+func (c *VPN) DescribeVpnGatewayAttributes(input *DescribeVpnGatewayAttributesInput) (*DescribeVpnGatewayAttributesOutput, error) {
+	req, out := c.DescribeVpnGatewayAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewayAttributesWithContext is the same as DescribeVpnGatewayAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGatewayAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewayAttributesWithContext(ctx volcstack.Context, input *DescribeVpnGatewayAttributesInput, opts ...request.Option) (*DescribeVpnGatewayAttributesOutput, error) {
+	req, out := c.DescribeVpnGatewayAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGatewayRouteAttributesCommon = "DescribeVpnGatewayRouteAttributes"
+
+// DescribeVpnGatewayRouteAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGatewayRouteAttributesCommon operation. The "output" return
+// value will be populated with the DescribeVpnGatewayRouteAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewayRouteAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewayRouteAttributesCommon Send returns without error.
+//
+// See DescribeVpnGatewayRouteAttributesCommon for more information on using the DescribeVpnGatewayRouteAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewayRouteAttributesCommonRequest method.
+//    req, resp := client.DescribeVpnGatewayRouteAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewayRouteAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGatewayRouteAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGatewayRouteAttributesCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGatewayRouteAttributesCommon for usage and error information.
+func (c *VPN) DescribeVpnGatewayRouteAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewayRouteAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewayRouteAttributesCommonWithContext is the same as DescribeVpnGatewayRouteAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGatewayRouteAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewayRouteAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewayRouteAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGatewayRouteAttributes = "DescribeVpnGatewayRouteAttributes"
+
+// DescribeVpnGatewayRouteAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGatewayRouteAttributes operation. The "output" return
+// value will be populated with the DescribeVpnGatewayRouteAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewayRouteAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewayRouteAttributesCommon Send returns without error.
+//
+// See DescribeVpnGatewayRouteAttributes for more information on using the DescribeVpnGatewayRouteAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewayRouteAttributesRequest method.
+//    req, resp := client.DescribeVpnGatewayRouteAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewayRouteAttributesRequest(input *DescribeVpnGatewayRouteAttributesInput) (req *request.Request, output *DescribeVpnGatewayRouteAttributesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGatewayRouteAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeVpnGatewayRouteAttributesInput{}
+	}
+
+	output = &DescribeVpnGatewayRouteAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGatewayRouteAttributes API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGatewayRouteAttributes for usage and error information.
+func (c *VPN) DescribeVpnGatewayRouteAttributes(input *DescribeVpnGatewayRouteAttributesInput) (*DescribeVpnGatewayRouteAttributesOutput, error) {
+	req, out := c.DescribeVpnGatewayRouteAttributesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewayRouteAttributesWithContext is the same as DescribeVpnGatewayRouteAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGatewayRouteAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewayRouteAttributesWithContext(ctx volcstack.Context, input *DescribeVpnGatewayRouteAttributesInput, opts ...request.Option) (*DescribeVpnGatewayRouteAttributesOutput, error) {
+	req, out := c.DescribeVpnGatewayRouteAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGatewayRoutesCommon = "DescribeVpnGatewayRoutes"
+
+// DescribeVpnGatewayRoutesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGatewayRoutesCommon operation. The "output" return
+// value will be populated with the DescribeVpnGatewayRoutesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewayRoutesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewayRoutesCommon Send returns without error.
+//
+// See DescribeVpnGatewayRoutesCommon for more information on using the DescribeVpnGatewayRoutesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewayRoutesCommonRequest method.
+//    req, resp := client.DescribeVpnGatewayRoutesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewayRoutesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGatewayRoutesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGatewayRoutesCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGatewayRoutesCommon for usage and error information.
+func (c *VPN) DescribeVpnGatewayRoutesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewayRoutesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewayRoutesCommonWithContext is the same as DescribeVpnGatewayRoutesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGatewayRoutesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewayRoutesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewayRoutesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGatewayRoutes = "DescribeVpnGatewayRoutes"
+
+// DescribeVpnGatewayRoutesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGatewayRoutes operation. The "output" return
+// value will be populated with the DescribeVpnGatewayRoutesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewayRoutesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewayRoutesCommon Send returns without error.
+//
+// See DescribeVpnGatewayRoutes for more information on using the DescribeVpnGatewayRoutes
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewayRoutesRequest method.
+//    req, resp := client.DescribeVpnGatewayRoutesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewayRoutesRequest(input *DescribeVpnGatewayRoutesInput) (req *request.Request, output *DescribeVpnGatewayRoutesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGatewayRoutes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeVpnGatewayRoutesInput{}
+	}
+
+	output = &DescribeVpnGatewayRoutesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGatewayRoutes API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGatewayRoutes for usage and error information.
+func (c *VPN) DescribeVpnGatewayRoutes(input *DescribeVpnGatewayRoutesInput) (*DescribeVpnGatewayRoutesOutput, error) {
+	req, out := c.DescribeVpnGatewayRoutesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewayRoutesWithContext is the same as DescribeVpnGatewayRoutes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGatewayRoutes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewayRoutesWithContext(ctx volcstack.Context, input *DescribeVpnGatewayRoutesInput, opts ...request.Option) (*DescribeVpnGatewayRoutesOutput, error) {
+	req, out := c.DescribeVpnGatewayRoutesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGatewaysCommon = "DescribeVpnGateways"
+
+// DescribeVpnGatewaysCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGatewaysCommon operation. The "output" return
+// value will be populated with the DescribeVpnGatewaysCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewaysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewaysCommon Send returns without error.
+//
+// See DescribeVpnGatewaysCommon for more information on using the DescribeVpnGatewaysCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewaysCommonRequest method.
+//    req, resp := client.DescribeVpnGatewaysCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewaysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGatewaysCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGatewaysCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGatewaysCommon for usage and error information.
+func (c *VPN) DescribeVpnGatewaysCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewaysCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewaysCommonWithContext is the same as DescribeVpnGatewaysCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGatewaysCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewaysCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewaysCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGateways = "DescribeVpnGateways"
+
+// DescribeVpnGatewaysRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGateways operation. The "output" return
+// value will be populated with the DescribeVpnGatewaysCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewaysCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewaysCommon Send returns without error.
+//
+// See DescribeVpnGateways for more information on using the DescribeVpnGateways
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewaysRequest method.
+//    req, resp := client.DescribeVpnGatewaysRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewaysRequest(input *DescribeVpnGatewaysInput) (req *request.Request, output *DescribeVpnGatewaysOutput) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGateways,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeVpnGatewaysInput{}
+	}
+
+	output = &DescribeVpnGatewaysOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGateways API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGateways for usage and error information.
+func (c *VPN) DescribeVpnGateways(input *DescribeVpnGatewaysInput) (*DescribeVpnGatewaysOutput, error) {
+	req, out := c.DescribeVpnGatewaysRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewaysWithContext is the same as DescribeVpnGateways with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGateways for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewaysWithContext(ctx volcstack.Context, input *DescribeVpnGatewaysInput, opts ...request.Option) (*DescribeVpnGatewaysOutput, error) {
+	req, out := c.DescribeVpnGatewaysRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGatewaysBillingCommon = "DescribeVpnGatewaysBilling"
+
+// DescribeVpnGatewaysBillingCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGatewaysBillingCommon operation. The "output" return
+// value will be populated with the DescribeVpnGatewaysBillingCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewaysBillingCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewaysBillingCommon Send returns without error.
+//
+// See DescribeVpnGatewaysBillingCommon for more information on using the DescribeVpnGatewaysBillingCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewaysBillingCommonRequest method.
+//    req, resp := client.DescribeVpnGatewaysBillingCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewaysBillingCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGatewaysBillingCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGatewaysBillingCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGatewaysBillingCommon for usage and error information.
+func (c *VPN) DescribeVpnGatewaysBillingCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewaysBillingCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewaysBillingCommonWithContext is the same as DescribeVpnGatewaysBillingCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGatewaysBillingCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewaysBillingCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeVpnGatewaysBillingCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeVpnGatewaysBilling = "DescribeVpnGatewaysBilling"
+
+// DescribeVpnGatewaysBillingRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeVpnGatewaysBilling operation. The "output" return
+// value will be populated with the DescribeVpnGatewaysBillingCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeVpnGatewaysBillingCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeVpnGatewaysBillingCommon Send returns without error.
+//
+// See DescribeVpnGatewaysBilling for more information on using the DescribeVpnGatewaysBilling
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeVpnGatewaysBillingRequest method.
+//    req, resp := client.DescribeVpnGatewaysBillingRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) DescribeVpnGatewaysBillingRequest(input *DescribeVpnGatewaysBillingInput) (req *request.Request, output *DescribeVpnGatewaysBillingOutput) {
+	op := &request.Operation{
+		Name:       opDescribeVpnGatewaysBilling,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeVpnGatewaysBillingInput{}
+	}
+
+	output = &DescribeVpnGatewaysBillingOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeVpnGatewaysBilling API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation DescribeVpnGatewaysBilling for usage and error information.
+func (c *VPN) DescribeVpnGatewaysBilling(input *DescribeVpnGatewaysBillingInput) (*DescribeVpnGatewaysBillingOutput, error) {
+	req, out := c.DescribeVpnGatewaysBillingRequest(input)
+	return out, req.Send()
+}
+
+// DescribeVpnGatewaysBillingWithContext is the same as DescribeVpnGatewaysBilling with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeVpnGatewaysBilling for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) DescribeVpnGatewaysBillingWithContext(ctx volcstack.Context, input *DescribeVpnGatewaysBillingInput, opts ...request.Option) (*DescribeVpnGatewaysBillingOutput, error) {
+	req, out := c.DescribeVpnGatewaysBillingRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyCustomerVpnGatewayAttributesCommon = "ModifyCustomerVpnGatewayAttributes"
+
+// ModifyCustomerVpnGatewayAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyCustomerVpnGatewayAttributesCommon operation. The "output" return
+// value will be populated with the ModifyCustomerVpnGatewayAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyCustomerVpnGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyCustomerVpnGatewayAttributesCommon Send returns without error.
+//
+// See ModifyCustomerVpnGatewayAttributesCommon for more information on using the ModifyCustomerVpnGatewayAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyCustomerVpnGatewayAttributesCommonRequest method.
+//    req, resp := client.ModifyCustomerVpnGatewayAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) ModifyCustomerVpnGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyCustomerVpnGatewayAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyCustomerVpnGatewayAttributesCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation ModifyCustomerVpnGatewayAttributesCommon for usage and error information.
+func (c *VPN) ModifyCustomerVpnGatewayAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyCustomerVpnGatewayAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyCustomerVpnGatewayAttributesCommonWithContext is the same as ModifyCustomerVpnGatewayAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyCustomerVpnGatewayAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) ModifyCustomerVpnGatewayAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyCustomerVpnGatewayAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyCustomerVpnGatewayAttributes = "ModifyCustomerVpnGatewayAttributes"
+
+// ModifyCustomerVpnGatewayAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyCustomerVpnGatewayAttributes operation. The "output" return
+// value will be populated with the ModifyCustomerVpnGatewayAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyCustomerVpnGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyCustomerVpnGatewayAttributesCommon Send returns without error.
+//
+// See ModifyCustomerVpnGatewayAttributes for more information on using the ModifyCustomerVpnGatewayAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyCustomerVpnGatewayAttributesRequest method.
+//    req, resp := client.ModifyCustomerVpnGatewayAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) ModifyCustomerVpnGatewayAttributesRequest(input *ModifyCustomerVpnGatewayAttributesInput) (req *request.Request, output *ModifyCustomerVpnGatewayAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyCustomerVpnGatewayAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyCustomerVpnGatewayAttributesInput{}
+	}
+
+	output = &ModifyCustomerVpnGatewayAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyCustomerVpnGatewayAttributes API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation ModifyCustomerVpnGatewayAttributes for usage and error information.
+func (c *VPN) ModifyCustomerVpnGatewayAttributes(input *ModifyCustomerVpnGatewayAttributesInput) (*ModifyCustomerVpnGatewayAttributesOutput, error) {
+	req, out := c.ModifyCustomerVpnGatewayAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyCustomerVpnGatewayAttributesWithContext is the same as ModifyCustomerVpnGatewayAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyCustomerVpnGatewayAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) ModifyCustomerVpnGatewayAttributesWithContext(ctx volcstack.Context, input *ModifyCustomerVpnGatewayAttributesInput, opts ...request.Option) (*ModifyCustomerVpnGatewayAttributesOutput, error) {
+	req, out := c.ModifyCustomerVpnGatewayAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyVpnConnectionAttributesCommon = "ModifyVpnConnectionAttributes"
+
+// ModifyVpnConnectionAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyVpnConnectionAttributesCommon operation. The "output" return
+// value will be populated with the ModifyVpnConnectionAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyVpnConnectionAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyVpnConnectionAttributesCommon Send returns without error.
+//
+// See ModifyVpnConnectionAttributesCommon for more information on using the ModifyVpnConnectionAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyVpnConnectionAttributesCommonRequest method.
+//    req, resp := client.ModifyVpnConnectionAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) ModifyVpnConnectionAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyVpnConnectionAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyVpnConnectionAttributesCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation ModifyVpnConnectionAttributesCommon for usage and error information.
+func (c *VPN) ModifyVpnConnectionAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyVpnConnectionAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyVpnConnectionAttributesCommonWithContext is the same as ModifyVpnConnectionAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyVpnConnectionAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) ModifyVpnConnectionAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyVpnConnectionAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyVpnConnectionAttributes = "ModifyVpnConnectionAttributes"
+
+// ModifyVpnConnectionAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyVpnConnectionAttributes operation. The "output" return
+// value will be populated with the ModifyVpnConnectionAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyVpnConnectionAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyVpnConnectionAttributesCommon Send returns without error.
+//
+// See ModifyVpnConnectionAttributes for more information on using the ModifyVpnConnectionAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyVpnConnectionAttributesRequest method.
+//    req, resp := client.ModifyVpnConnectionAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) ModifyVpnConnectionAttributesRequest(input *ModifyVpnConnectionAttributesInput) (req *request.Request, output *ModifyVpnConnectionAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyVpnConnectionAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyVpnConnectionAttributesInput{}
+	}
+
+	output = &ModifyVpnConnectionAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyVpnConnectionAttributes API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation ModifyVpnConnectionAttributes for usage and error information.
+func (c *VPN) ModifyVpnConnectionAttributes(input *ModifyVpnConnectionAttributesInput) (*ModifyVpnConnectionAttributesOutput, error) {
+	req, out := c.ModifyVpnConnectionAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyVpnConnectionAttributesWithContext is the same as ModifyVpnConnectionAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyVpnConnectionAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) ModifyVpnConnectionAttributesWithContext(ctx volcstack.Context, input *ModifyVpnConnectionAttributesInput, opts ...request.Option) (*ModifyVpnConnectionAttributesOutput, error) {
+	req, out := c.ModifyVpnConnectionAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyVpnGatewayAttributesCommon = "ModifyVpnGatewayAttributes"
+
+// ModifyVpnGatewayAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyVpnGatewayAttributesCommon operation. The "output" return
+// value will be populated with the ModifyVpnGatewayAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyVpnGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyVpnGatewayAttributesCommon Send returns without error.
+//
+// See ModifyVpnGatewayAttributesCommon for more information on using the ModifyVpnGatewayAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyVpnGatewayAttributesCommonRequest method.
+//    req, resp := client.ModifyVpnGatewayAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) ModifyVpnGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyVpnGatewayAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyVpnGatewayAttributesCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation ModifyVpnGatewayAttributesCommon for usage and error information.
+func (c *VPN) ModifyVpnGatewayAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyVpnGatewayAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyVpnGatewayAttributesCommonWithContext is the same as ModifyVpnGatewayAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyVpnGatewayAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) ModifyVpnGatewayAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyVpnGatewayAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyVpnGatewayAttributes = "ModifyVpnGatewayAttributes"
+
+// ModifyVpnGatewayAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyVpnGatewayAttributes operation. The "output" return
+// value will be populated with the ModifyVpnGatewayAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyVpnGatewayAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyVpnGatewayAttributesCommon Send returns without error.
+//
+// See ModifyVpnGatewayAttributes for more information on using the ModifyVpnGatewayAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyVpnGatewayAttributesRequest method.
+//    req, resp := client.ModifyVpnGatewayAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) ModifyVpnGatewayAttributesRequest(input *ModifyVpnGatewayAttributesInput) (req *request.Request, output *ModifyVpnGatewayAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyVpnGatewayAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyVpnGatewayAttributesInput{}
+	}
+
+	output = &ModifyVpnGatewayAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyVpnGatewayAttributes API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation ModifyVpnGatewayAttributes for usage and error information.
+func (c *VPN) ModifyVpnGatewayAttributes(input *ModifyVpnGatewayAttributesInput) (*ModifyVpnGatewayAttributesOutput, error) {
+	req, out := c.ModifyVpnGatewayAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyVpnGatewayAttributesWithContext is the same as ModifyVpnGatewayAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyVpnGatewayAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) ModifyVpnGatewayAttributesWithContext(ctx volcstack.Context, input *ModifyVpnGatewayAttributesInput, opts ...request.Option) (*ModifyVpnGatewayAttributesOutput, error) {
+	req, out := c.ModifyVpnGatewayAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRenewVpnGatewayCommon = "RenewVpnGateway"
+
+// RenewVpnGatewayCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the RenewVpnGatewayCommon operation. The "output" return
+// value will be populated with the RenewVpnGatewayCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned RenewVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RenewVpnGatewayCommon Send returns without error.
+//
+// See RenewVpnGatewayCommon for more information on using the RenewVpnGatewayCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the RenewVpnGatewayCommonRequest method.
+//    req, resp := client.RenewVpnGatewayCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) RenewVpnGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opRenewVpnGatewayCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RenewVpnGatewayCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation RenewVpnGatewayCommon for usage and error information.
+func (c *VPN) RenewVpnGatewayCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.RenewVpnGatewayCommonRequest(input)
+	return out, req.Send()
+}
+
+// RenewVpnGatewayCommonWithContext is the same as RenewVpnGatewayCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RenewVpnGatewayCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) RenewVpnGatewayCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.RenewVpnGatewayCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRenewVpnGateway = "RenewVpnGateway"
+
+// RenewVpnGatewayRequest generates a "volcstack/request.Request" representing the
+// client's request for the RenewVpnGateway operation. The "output" return
+// value will be populated with the RenewVpnGatewayCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned RenewVpnGatewayCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RenewVpnGatewayCommon Send returns without error.
+//
+// See RenewVpnGateway for more information on using the RenewVpnGateway
+// API call, and error handling.
+//
+//    // Example sending a request using the RenewVpnGatewayRequest method.
+//    req, resp := client.RenewVpnGatewayRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) RenewVpnGatewayRequest(input *RenewVpnGatewayInput) (req *request.Request, output *RenewVpnGatewayOutput) {
+	op := &request.Operation{
+		Name:       opRenewVpnGateway,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RenewVpnGatewayInput{}
+	}
+
+	output = &RenewVpnGatewayOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RenewVpnGateway API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation RenewVpnGateway for usage and error information.
+func (c *VPN) RenewVpnGateway(input *RenewVpnGatewayInput) (*RenewVpnGatewayOutput, error) {
+	req, out := c.RenewVpnGatewayRequest(input)
+	return out, req.Send()
+}
+
+// RenewVpnGatewayWithContext is the same as RenewVpnGateway with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RenewVpnGateway for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) RenewVpnGatewayWithContext(ctx volcstack.Context, input *RenewVpnGatewayInput, opts ...request.Option) (*RenewVpnGatewayOutput, error) {
+	req, out := c.RenewVpnGatewayRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opSetVpnGatewayRenewalCommon = "SetVpnGatewayRenewal"
+
+// SetVpnGatewayRenewalCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the SetVpnGatewayRenewalCommon operation. The "output" return
+// value will be populated with the SetVpnGatewayRenewalCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned SetVpnGatewayRenewalCommon Request to send the API call to the service.
+// the "output" return value is not valid until after SetVpnGatewayRenewalCommon Send returns without error.
+//
+// See SetVpnGatewayRenewalCommon for more information on using the SetVpnGatewayRenewalCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the SetVpnGatewayRenewalCommonRequest method.
+//    req, resp := client.SetVpnGatewayRenewalCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) SetVpnGatewayRenewalCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opSetVpnGatewayRenewalCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// SetVpnGatewayRenewalCommon API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation SetVpnGatewayRenewalCommon for usage and error information.
+func (c *VPN) SetVpnGatewayRenewalCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.SetVpnGatewayRenewalCommonRequest(input)
+	return out, req.Send()
+}
+
+// SetVpnGatewayRenewalCommonWithContext is the same as SetVpnGatewayRenewalCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SetVpnGatewayRenewalCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) SetVpnGatewayRenewalCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.SetVpnGatewayRenewalCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opSetVpnGatewayRenewal = "SetVpnGatewayRenewal"
+
+// SetVpnGatewayRenewalRequest generates a "volcstack/request.Request" representing the
+// client's request for the SetVpnGatewayRenewal operation. The "output" return
+// value will be populated with the SetVpnGatewayRenewalCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned SetVpnGatewayRenewalCommon Request to send the API call to the service.
+// the "output" return value is not valid until after SetVpnGatewayRenewalCommon Send returns without error.
+//
+// See SetVpnGatewayRenewal for more information on using the SetVpnGatewayRenewal
+// API call, and error handling.
+//
+//    // Example sending a request using the SetVpnGatewayRenewalRequest method.
+//    req, resp := client.SetVpnGatewayRenewalRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPN) SetVpnGatewayRenewalRequest(input *SetVpnGatewayRenewalInput) (req *request.Request, output *SetVpnGatewayRenewalOutput) {
+	op := &request.Operation{
+		Name:       opSetVpnGatewayRenewal,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &SetVpnGatewayRenewalInput{}
+	}
+
+	output = &SetVpnGatewayRenewalOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// SetVpnGatewayRenewal API operation for VPN.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPN's
+// API operation SetVpnGatewayRenewal for usage and error information.
+func (c *VPN) SetVpnGatewayRenewal(input *SetVpnGatewayRenewalInput) (*SetVpnGatewayRenewalOutput, error) {
+	req, out := c.SetVpnGatewayRenewalRequest(input)
+	return out, req.Send()
+}
+
+// SetVpnGatewayRenewalWithContext is the same as SetVpnGatewayRenewal with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SetVpnGatewayRenewal for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPN) SetVpnGatewayRenewalWithContext(ctx volcstack.Context, input *SetVpnGatewayRenewalInput, opts ...request.Option) (*SetVpnGatewayRenewalOutput, error) {
+	req, out := c.SetVpnGatewayRenewalRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+type CreateCustomerVpnGatewayInput struct {
 	_ struct{} `type:"structure"`
 
-	Keys []*string `type:"list"`
+	CustomerVpnGatewayName *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	// IPAddress is a required field
+	IPAddress *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
-func (s InnerBffGetLimitFromKeysInput) String() string {
+func (s CreateCustomerVpnGatewayInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InnerBffGetLimitFromKeysInput) GoString() string {
+func (s CreateCustomerVpnGatewayInput) GoString() string {
 	return s.String()
 }
 
-// SetKeys sets the Keys field's value.
-func (s *InnerBffGetLimitFromKeysInput) SetKeys(v []*string) *InnerBffGetLimitFromKeysInput {
-	s.Keys = v
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateCustomerVpnGatewayInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateCustomerVpnGatewayInput"}
+	if s.IPAddress == nil {
+		invalidParams.Add(request.NewErrParamRequired("IPAddress"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomerVpnGatewayName sets the CustomerVpnGatewayName field's value.
+func (s *CreateCustomerVpnGatewayInput) SetCustomerVpnGatewayName(v string) *CreateCustomerVpnGatewayInput {
+	s.CustomerVpnGatewayName = &v
 	return s
 }
 
-type InnerBffGetLimitFromKeysOutput struct {
+// SetDescription sets the Description field's value.
+func (s *CreateCustomerVpnGatewayInput) SetDescription(v string) *CreateCustomerVpnGatewayInput {
+	s.Description = &v
+	return s
+}
+
+// SetIPAddress sets the IPAddress field's value.
+func (s *CreateCustomerVpnGatewayInput) SetIPAddress(v string) *CreateCustomerVpnGatewayInput {
+	s.IPAddress = &v
+	return s
+}
+
+type CreateCustomerVpnGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
-	Limits []*LimitForInnerBffGetLimitFromKeysOutput `type:"list"`
-
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
+	CustomerVpnGatewayId *string `type:"string"`
 
 	RequestId *string `type:"string"`
-
-	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
-func (s InnerBffGetLimitFromKeysOutput) String() string {
+func (s CreateCustomerVpnGatewayOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InnerBffGetLimitFromKeysOutput) GoString() string {
+func (s CreateCustomerVpnGatewayOutput) GoString() string {
 	return s.String()
 }
 
-// SetLimits sets the Limits field's value.
-func (s *InnerBffGetLimitFromKeysOutput) SetLimits(v []*LimitForInnerBffGetLimitFromKeysOutput) *InnerBffGetLimitFromKeysOutput {
-	s.Limits = v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *InnerBffGetLimitFromKeysOutput) SetPageNumber(v int64) *InnerBffGetLimitFromKeysOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *InnerBffGetLimitFromKeysOutput) SetPageSize(v int64) *InnerBffGetLimitFromKeysOutput {
-	s.PageSize = &v
+// SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
+func (s *CreateCustomerVpnGatewayOutput) SetCustomerVpnGatewayId(v string) *CreateCustomerVpnGatewayOutput {
+	s.CustomerVpnGatewayId = &v
 	return s
 }
 
 // SetRequestId sets the RequestId field's value.
-func (s *InnerBffGetLimitFromKeysOutput) SetRequestId(v string) *InnerBffGetLimitFromKeysOutput {
+func (s *CreateCustomerVpnGatewayOutput) SetRequestId(v string) *CreateCustomerVpnGatewayOutput {
 	s.RequestId = &v
 	return s
 }
 
-// SetTotalCount sets the TotalCount field's value.
-func (s *InnerBffGetLimitFromKeysOutput) SetTotalCount(v int64) *InnerBffGetLimitFromKeysOutput {
-	s.TotalCount = &v
-	return s
-}
-
-type InnerDescribeWhiteListKeysInput struct {
+type CreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
-	Keys []*string `type:"list"`
-}
+	// CustomerVpnGatewayId is a required field
+	CustomerVpnGatewayId *string `type:"string" required:"true"`
 
-// String returns the string representation
-func (s InnerDescribeWhiteListKeysInput) String() string {
-	return volcstackutil.Prettify(s)
-}
+	Description *string `type:"string"`
 
-// GoString returns the string representation
-func (s InnerDescribeWhiteListKeysInput) GoString() string {
-	return s.String()
-}
+	// IkeConfig is a required field
+	IkeConfig *IkeConfigForCreateVpnConnectionInput `type:"structure" required:"true"`
 
-// SetKeys sets the Keys field's value.
-func (s *InnerDescribeWhiteListKeysInput) SetKeys(v []*string) *InnerDescribeWhiteListKeysInput {
-	s.Keys = v
-	return s
-}
+	IpsecConfig *IpsecConfigForCreateVpnConnectionInput `type:"structure"`
 
-type InnerDescribeWhiteListKeysOutput struct {
-	_ struct{} `type:"structure"`
+	// LocalSubnet is a required field
+	LocalSubnet *string `type:"string" required:"true"`
 
-	Keys []*KeyForInnerDescribeWhiteListKeysOutput `type:"list"`
+	NatTraversal *bool `type:"boolean"`
 
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
-
-	RequestId *string `type:"string"`
-
-	TotalCount *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s InnerDescribeWhiteListKeysOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InnerDescribeWhiteListKeysOutput) GoString() string {
-	return s.String()
-}
-
-// SetKeys sets the Keys field's value.
-func (s *InnerDescribeWhiteListKeysOutput) SetKeys(v []*KeyForInnerDescribeWhiteListKeysOutput) *InnerDescribeWhiteListKeysOutput {
-	s.Keys = v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *InnerDescribeWhiteListKeysOutput) SetPageNumber(v int64) *InnerDescribeWhiteListKeysOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *InnerDescribeWhiteListKeysOutput) SetPageSize(v int64) *InnerDescribeWhiteListKeysOutput {
-	s.PageSize = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *InnerDescribeWhiteListKeysOutput) SetRequestId(v string) *InnerDescribeWhiteListKeysOutput {
-	s.RequestId = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *InnerDescribeWhiteListKeysOutput) SetTotalCount(v int64) *InnerDescribeWhiteListKeysOutput {
-	s.TotalCount = &v
-	return s
-}
-
-type InnerGetLimitFromKeysInput struct {
-	_ struct{} `type:"structure"`
-
-	Keys []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s InnerGetLimitFromKeysInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InnerGetLimitFromKeysInput) GoString() string {
-	return s.String()
-}
-
-// SetKeys sets the Keys field's value.
-func (s *InnerGetLimitFromKeysInput) SetKeys(v []*string) *InnerGetLimitFromKeysInput {
-	s.Keys = v
-	return s
-}
-
-type InnerGetLimitFromKeysOutput struct {
-	_ struct{} `type:"structure"`
-
-	Limits []*LimitForInnerGetLimitFromKeysOutput `type:"list"`
-
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
-
-	RequestId *string `type:"string"`
-
-	TotalCount *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s InnerGetLimitFromKeysOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InnerGetLimitFromKeysOutput) GoString() string {
-	return s.String()
-}
-
-// SetLimits sets the Limits field's value.
-func (s *InnerGetLimitFromKeysOutput) SetLimits(v []*LimitForInnerGetLimitFromKeysOutput) *InnerGetLimitFromKeysOutput {
-	s.Limits = v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *InnerGetLimitFromKeysOutput) SetPageNumber(v int64) *InnerGetLimitFromKeysOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *InnerGetLimitFromKeysOutput) SetPageSize(v int64) *InnerGetLimitFromKeysOutput {
-	s.PageSize = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *InnerGetLimitFromKeysOutput) SetRequestId(v string) *InnerGetLimitFromKeysOutput {
-	s.RequestId = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *InnerGetLimitFromKeysOutput) SetTotalCount(v int64) *InnerGetLimitFromKeysOutput {
-	s.TotalCount = &v
-	return s
-}
-
-type InnerPostDescribeVpnConnectionsInput struct {
-	_ struct{} `type:"structure"`
-
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
-
-	VpnConnectionIds []*string `type:"list"`
+	// RemoteSubnet is a required field
+	RemoteSubnet *string `type:"string" required:"true"`
 
 	VpnConnectionName *string `type:"string"`
+
+	// VpnGatewayId is a required field
+	VpnGatewayId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
-func (s InnerPostDescribeVpnConnectionsInput) String() string {
+func (s CreateVpnConnectionInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InnerPostDescribeVpnConnectionsInput) GoString() string {
+func (s CreateVpnConnectionInput) GoString() string {
 	return s.String()
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *InnerPostDescribeVpnConnectionsInput) SetPageNumber(v int64) *InnerPostDescribeVpnConnectionsInput {
-	s.PageNumber = &v
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateVpnConnectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateVpnConnectionInput"}
+	if s.CustomerVpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomerVpnGatewayId"))
+	}
+	if s.IkeConfig == nil {
+		invalidParams.Add(request.NewErrParamRequired("IkeConfig"))
+	}
+	if s.LocalSubnet == nil {
+		invalidParams.Add(request.NewErrParamRequired("LocalSubnet"))
+	}
+	if s.RemoteSubnet == nil {
+		invalidParams.Add(request.NewErrParamRequired("RemoteSubnet"))
+	}
+	if s.VpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
+	}
+	if s.IkeConfig != nil {
+		if err := s.IkeConfig.Validate(); err != nil {
+			invalidParams.AddNested("IkeConfig", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
+func (s *CreateVpnConnectionInput) SetCustomerVpnGatewayId(v string) *CreateVpnConnectionInput {
+	s.CustomerVpnGatewayId = &v
 	return s
 }
 
-// SetPageSize sets the PageSize field's value.
-func (s *InnerPostDescribeVpnConnectionsInput) SetPageSize(v int64) *InnerPostDescribeVpnConnectionsInput {
-	s.PageSize = &v
+// SetDescription sets the Description field's value.
+func (s *CreateVpnConnectionInput) SetDescription(v string) *CreateVpnConnectionInput {
+	s.Description = &v
 	return s
 }
 
-// SetVpnConnectionIds sets the VpnConnectionIds field's value.
-func (s *InnerPostDescribeVpnConnectionsInput) SetVpnConnectionIds(v []*string) *InnerPostDescribeVpnConnectionsInput {
-	s.VpnConnectionIds = v
+// SetIkeConfig sets the IkeConfig field's value.
+func (s *CreateVpnConnectionInput) SetIkeConfig(v *IkeConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
+	s.IkeConfig = v
+	return s
+}
+
+// SetIpsecConfig sets the IpsecConfig field's value.
+func (s *CreateVpnConnectionInput) SetIpsecConfig(v *IpsecConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
+	s.IpsecConfig = v
+	return s
+}
+
+// SetLocalSubnet sets the LocalSubnet field's value.
+func (s *CreateVpnConnectionInput) SetLocalSubnet(v string) *CreateVpnConnectionInput {
+	s.LocalSubnet = &v
+	return s
+}
+
+// SetNatTraversal sets the NatTraversal field's value.
+func (s *CreateVpnConnectionInput) SetNatTraversal(v bool) *CreateVpnConnectionInput {
+	s.NatTraversal = &v
+	return s
+}
+
+// SetRemoteSubnet sets the RemoteSubnet field's value.
+func (s *CreateVpnConnectionInput) SetRemoteSubnet(v string) *CreateVpnConnectionInput {
+	s.RemoteSubnet = &v
 	return s
 }
 
 // SetVpnConnectionName sets the VpnConnectionName field's value.
-func (s *InnerPostDescribeVpnConnectionsInput) SetVpnConnectionName(v string) *InnerPostDescribeVpnConnectionsInput {
+func (s *CreateVpnConnectionInput) SetVpnConnectionName(v string) *CreateVpnConnectionInput {
 	s.VpnConnectionName = &v
 	return s
 }
 
-type InnerPostDescribeVpnConnectionsOutput struct {
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *CreateVpnConnectionInput) SetVpnGatewayId(v string) *CreateVpnConnectionInput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+type CreateVpnConnectionOutput struct {
 	_ struct{} `type:"structure"`
-
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int64 `type:"integer"`
-
-	VpnConnections []*VpnConnectionForInnerPostDescribeVpnConnectionsOutput `type:"list"`
+	VpnConnectionId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s InnerPostDescribeVpnConnectionsOutput) String() string {
+func (s CreateVpnConnectionOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InnerPostDescribeVpnConnectionsOutput) GoString() string {
+func (s CreateVpnConnectionOutput) GoString() string {
 	return s.String()
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *InnerPostDescribeVpnConnectionsOutput) SetPageNumber(v int64) *InnerPostDescribeVpnConnectionsOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *InnerPostDescribeVpnConnectionsOutput) SetPageSize(v int64) *InnerPostDescribeVpnConnectionsOutput {
-	s.PageSize = &v
-	return s
-}
-
 // SetRequestId sets the RequestId field's value.
-func (s *InnerPostDescribeVpnConnectionsOutput) SetRequestId(v string) *InnerPostDescribeVpnConnectionsOutput {
+func (s *CreateVpnConnectionOutput) SetRequestId(v string) *CreateVpnConnectionOutput {
 	s.RequestId = &v
 	return s
 }
 
-// SetTotalCount sets the TotalCount field's value.
-func (s *InnerPostDescribeVpnConnectionsOutput) SetTotalCount(v int64) *InnerPostDescribeVpnConnectionsOutput {
-	s.TotalCount = &v
+// SetVpnConnectionId sets the VpnConnectionId field's value.
+func (s *CreateVpnConnectionOutput) SetVpnConnectionId(v string) *CreateVpnConnectionOutput {
+	s.VpnConnectionId = &v
 	return s
 }
 
-// SetVpnConnections sets the VpnConnections field's value.
-func (s *InnerPostDescribeVpnConnectionsOutput) SetVpnConnections(v []*VpnConnectionForInnerPostDescribeVpnConnectionsOutput) *InnerPostDescribeVpnConnectionsOutput {
-	s.VpnConnections = v
-	return s
-}
-
-type InnerPostDescribeVpnGatewaysInput struct {
+type CreateVpnGatewayInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int64 `type:"integer"`
+	// Bandwidth is a required field
+	Bandwidth *int64 `min:"5" type:"integer" required:"true"`
 
-	PageSize *int64 `type:"integer"`
+	BillingType *int64 `min:"1" type:"integer"`
 
-	VpnGatewayIds []*string `type:"list"`
+	Description *string `type:"string"`
+
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateVpnGatewayInput"`
+
+	RemainRenewTimes *int64 `type:"integer"`
+
+	RenewPeriod *int64 `type:"integer"`
+
+	RenewType *int64 `min:"1" type:"integer"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
 	VpnGatewayName *string `type:"string"`
 }
 
 // String returns the string representation
-func (s InnerPostDescribeVpnGatewaysInput) String() string {
+func (s CreateVpnGatewayInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InnerPostDescribeVpnGatewaysInput) GoString() string {
+func (s CreateVpnGatewayInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateVpnGatewayInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateVpnGatewayInput"}
+	if s.Bandwidth == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bandwidth"))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth < 5 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 5))
+	}
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
+	}
+	if s.RenewType != nil && *s.RenewType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *CreateVpnGatewayInput) SetBandwidth(v int64) *CreateVpnGatewayInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *CreateVpnGatewayInput) SetBillingType(v int64) *CreateVpnGatewayInput {
+	s.BillingType = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateVpnGatewayInput) SetDescription(v string) *CreateVpnGatewayInput {
+	s.Description = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *CreateVpnGatewayInput) SetPeriod(v int64) *CreateVpnGatewayInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *CreateVpnGatewayInput) SetPeriodUnit(v string) *CreateVpnGatewayInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+// SetRemainRenewTimes sets the RemainRenewTimes field's value.
+func (s *CreateVpnGatewayInput) SetRemainRenewTimes(v int64) *CreateVpnGatewayInput {
+	s.RemainRenewTimes = &v
+	return s
+}
+
+// SetRenewPeriod sets the RenewPeriod field's value.
+func (s *CreateVpnGatewayInput) SetRenewPeriod(v int64) *CreateVpnGatewayInput {
+	s.RenewPeriod = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *CreateVpnGatewayInput) SetRenewType(v int64) *CreateVpnGatewayInput {
+	s.RenewType = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *CreateVpnGatewayInput) SetSubnetId(v string) *CreateVpnGatewayInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *CreateVpnGatewayInput) SetVpcId(v string) *CreateVpnGatewayInput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpnGatewayName sets the VpnGatewayName field's value.
+func (s *CreateVpnGatewayInput) SetVpnGatewayName(v string) *CreateVpnGatewayInput {
+	s.VpnGatewayName = &v
+	return s
+}
+
+type CreateVpnGatewayOutput struct {
+	_ struct{} `type:"structure"`
+
+	PreOrderNumber *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	VpnGatewayId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateVpnGatewayOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateVpnGatewayOutput) GoString() string {
+	return s.String()
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *CreateVpnGatewayOutput) SetPreOrderNumber(v string) *CreateVpnGatewayOutput {
+	s.PreOrderNumber = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateVpnGatewayOutput) SetRequestId(v string) *CreateVpnGatewayOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *CreateVpnGatewayOutput) SetVpnGatewayId(v string) *CreateVpnGatewayOutput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+type CreateVpnGatewayRouteInput struct {
+	_ struct{} `type:"structure"`
+
+	// DestinationCidrBlock is a required field
+	DestinationCidrBlock *string `type:"string" required:"true"`
+
+	// NextHopId is a required field
+	NextHopId *string `type:"string" required:"true"`
+
+	// VpnGatewayId is a required field
+	VpnGatewayId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateVpnGatewayRouteInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateVpnGatewayRouteInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateVpnGatewayRouteInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateVpnGatewayRouteInput"}
+	if s.DestinationCidrBlock == nil {
+		invalidParams.Add(request.NewErrParamRequired("DestinationCidrBlock"))
+	}
+	if s.NextHopId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NextHopId"))
+	}
+	if s.VpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *CreateVpnGatewayRouteInput) SetDestinationCidrBlock(v string) *CreateVpnGatewayRouteInput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *CreateVpnGatewayRouteInput) SetNextHopId(v string) *CreateVpnGatewayRouteInput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *CreateVpnGatewayRouteInput) SetVpnGatewayId(v string) *CreateVpnGatewayRouteInput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+type CreateVpnGatewayRouteOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+
+	VpnGatewayRouteId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateVpnGatewayRouteOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateVpnGatewayRouteOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateVpnGatewayRouteOutput) SetRequestId(v string) *CreateVpnGatewayRouteOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetVpnGatewayRouteId sets the VpnGatewayRouteId field's value.
+func (s *CreateVpnGatewayRouteOutput) SetVpnGatewayRouteId(v string) *CreateVpnGatewayRouteOutput {
+	s.VpnGatewayRouteId = &v
+	return s
+}
+
+type CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	ConnectionCount *int64 `type:"integer"`
+
+	CreationTime *string `type:"string"`
+
+	CustomerVpnGatewayId *string `type:"string"`
+
+	CustomerVpnGatewayName *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetAccountId(v string) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetConnectionCount sets the ConnectionCount field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetConnectionCount(v int64) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.ConnectionCount = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetCreationTime(v string) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetCustomerVpnGatewayId(v string) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.CustomerVpnGatewayId = &v
+	return s
+}
+
+// SetCustomerVpnGatewayName sets the CustomerVpnGatewayName field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetCustomerVpnGatewayName(v string) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.CustomerVpnGatewayName = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetDescription(v string) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.Description = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetIpAddress(v string) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetProjectName(v string) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetStatus(v string) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) SetUpdateTime(v string) *CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+type DeleteCustomerVpnGatewayInput struct {
+	_ struct{} `type:"structure"`
+
+	// CustomerVpnGatewayId is a required field
+	CustomerVpnGatewayId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteCustomerVpnGatewayInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteCustomerVpnGatewayInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteCustomerVpnGatewayInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteCustomerVpnGatewayInput"}
+	if s.CustomerVpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomerVpnGatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
+func (s *DeleteCustomerVpnGatewayInput) SetCustomerVpnGatewayId(v string) *DeleteCustomerVpnGatewayInput {
+	s.CustomerVpnGatewayId = &v
+	return s
+}
+
+type DeleteCustomerVpnGatewayOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteCustomerVpnGatewayOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteCustomerVpnGatewayOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteCustomerVpnGatewayOutput) SetRequestId(v string) *DeleteCustomerVpnGatewayOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DeleteVpnConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	// VpnConnectionId is a required field
+	VpnConnectionId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteVpnConnectionInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteVpnConnectionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteVpnConnectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteVpnConnectionInput"}
+	if s.VpnConnectionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnConnectionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetVpnConnectionId sets the VpnConnectionId field's value.
+func (s *DeleteVpnConnectionInput) SetVpnConnectionId(v string) *DeleteVpnConnectionInput {
+	s.VpnConnectionId = &v
+	return s
+}
+
+type DeleteVpnConnectionOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteVpnConnectionOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteVpnConnectionOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteVpnConnectionOutput) SetRequestId(v string) *DeleteVpnConnectionOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DeleteVpnGatewayInput struct {
+	_ struct{} `type:"structure"`
+
+	// VpnGatewayId is a required field
+	VpnGatewayId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteVpnGatewayInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteVpnGatewayInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteVpnGatewayInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteVpnGatewayInput"}
+	if s.VpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *DeleteVpnGatewayInput) SetVpnGatewayId(v string) *DeleteVpnGatewayInput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+type DeleteVpnGatewayOutput struct {
+	_ struct{} `type:"structure"`
+
+	PreOrderNumber *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteVpnGatewayOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteVpnGatewayOutput) GoString() string {
+	return s.String()
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *DeleteVpnGatewayOutput) SetPreOrderNumber(v string) *DeleteVpnGatewayOutput {
+	s.PreOrderNumber = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteVpnGatewayOutput) SetRequestId(v string) *DeleteVpnGatewayOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DeleteVpnGatewayRouteInput struct {
+	_ struct{} `type:"structure"`
+
+	// VpnGatewayRouteId is a required field
+	VpnGatewayRouteId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteVpnGatewayRouteInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteVpnGatewayRouteInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteVpnGatewayRouteInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteVpnGatewayRouteInput"}
+	if s.VpnGatewayRouteId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayRouteId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetVpnGatewayRouteId sets the VpnGatewayRouteId field's value.
+func (s *DeleteVpnGatewayRouteInput) SetVpnGatewayRouteId(v string) *DeleteVpnGatewayRouteInput {
+	s.VpnGatewayRouteId = &v
+	return s
+}
+
+type DeleteVpnGatewayRouteOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteVpnGatewayRouteOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteVpnGatewayRouteOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteVpnGatewayRouteOutput) SetRequestId(v string) *DeleteVpnGatewayRouteOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DescribeCustomerVpnGatewayAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// CustomerVpnGatewayId is a required field
+	CustomerVpnGatewayId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeCustomerVpnGatewayAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeCustomerVpnGatewayAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeCustomerVpnGatewayAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeCustomerVpnGatewayAttributesInput"}
+	if s.CustomerVpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomerVpnGatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
+func (s *DescribeCustomerVpnGatewayAttributesInput) SetCustomerVpnGatewayId(v string) *DescribeCustomerVpnGatewayAttributesInput {
+	s.CustomerVpnGatewayId = &v
+	return s
+}
+
+type DescribeCustomerVpnGatewayAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	ConnectionCount *int64 `type:"integer"`
+
+	CreationTime *string `type:"string"`
+
+	CustomerVpnGatewayId *string `type:"string"`
+
+	CustomerVpnGatewayName *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeCustomerVpnGatewayAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeCustomerVpnGatewayAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetAccountId(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetConnectionCount sets the ConnectionCount field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetConnectionCount(v int64) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.ConnectionCount = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetCreationTime(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetCustomerVpnGatewayId(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.CustomerVpnGatewayId = &v
+	return s
+}
+
+// SetCustomerVpnGatewayName sets the CustomerVpnGatewayName field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetCustomerVpnGatewayName(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.CustomerVpnGatewayName = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetDescription(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetIpAddress(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetProjectName(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetRequestId(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetStatus(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DescribeCustomerVpnGatewayAttributesOutput) SetUpdateTime(v string) *DescribeCustomerVpnGatewayAttributesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+type DescribeCustomerVpnGatewaysInput struct {
+	_ struct{} `type:"structure"`
+
+	CustomerVpnGatewayIds []*string `type:"list"`
+
+	CustomerVpnGatewayName *string `type:"string"`
+
+	IPAddress *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeCustomerVpnGatewaysInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeCustomerVpnGatewaysInput) GoString() string {
+	return s.String()
+}
+
+// SetCustomerVpnGatewayIds sets the CustomerVpnGatewayIds field's value.
+func (s *DescribeCustomerVpnGatewaysInput) SetCustomerVpnGatewayIds(v []*string) *DescribeCustomerVpnGatewaysInput {
+	s.CustomerVpnGatewayIds = v
+	return s
+}
+
+// SetCustomerVpnGatewayName sets the CustomerVpnGatewayName field's value.
+func (s *DescribeCustomerVpnGatewaysInput) SetCustomerVpnGatewayName(v string) *DescribeCustomerVpnGatewaysInput {
+	s.CustomerVpnGatewayName = &v
+	return s
+}
+
+// SetIPAddress sets the IPAddress field's value.
+func (s *DescribeCustomerVpnGatewaysInput) SetIPAddress(v string) *DescribeCustomerVpnGatewaysInput {
+	s.IPAddress = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
-func (s *InnerPostDescribeVpnGatewaysInput) SetPageNumber(v int64) *InnerPostDescribeVpnGatewaysInput {
+func (s *DescribeCustomerVpnGatewaysInput) SetPageNumber(v int64) *DescribeCustomerVpnGatewaysInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *InnerPostDescribeVpnGatewaysInput) SetPageSize(v int64) *InnerPostDescribeVpnGatewaysInput {
+func (s *DescribeCustomerVpnGatewaysInput) SetPageSize(v int64) *DescribeCustomerVpnGatewaysInput {
 	s.PageSize = &v
 	return s
 }
 
-// SetVpnGatewayIds sets the VpnGatewayIds field's value.
-func (s *InnerPostDescribeVpnGatewaysInput) SetVpnGatewayIds(v []*string) *InnerPostDescribeVpnGatewaysInput {
-	s.VpnGatewayIds = v
+// SetStatus sets the Status field's value.
+func (s *DescribeCustomerVpnGatewaysInput) SetStatus(v string) *DescribeCustomerVpnGatewaysInput {
+	s.Status = &v
 	return s
 }
 
-// SetVpnGatewayName sets the VpnGatewayName field's value.
-func (s *InnerPostDescribeVpnGatewaysInput) SetVpnGatewayName(v string) *InnerPostDescribeVpnGatewaysInput {
-	s.VpnGatewayName = &v
-	return s
-}
-
-type InnerPostDescribeVpnGatewaysOutput struct {
+type DescribeCustomerVpnGatewaysOutput struct {
 	_ struct{} `type:"structure"`
+
+	CustomerVpnGateways []*CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -1042,291 +3908,85 @@ type InnerPostDescribeVpnGatewaysOutput struct {
 	RequestId *string `type:"string"`
 
 	TotalCount *int64 `type:"integer"`
-
-	VpnGateways []*VpnGatewayForInnerPostDescribeVpnGatewaysOutput `type:"list"`
 }
 
 // String returns the string representation
-func (s InnerPostDescribeVpnGatewaysOutput) String() string {
+func (s DescribeCustomerVpnGatewaysOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InnerPostDescribeVpnGatewaysOutput) GoString() string {
+func (s DescribeCustomerVpnGatewaysOutput) GoString() string {
 	return s.String()
 }
 
+// SetCustomerVpnGateways sets the CustomerVpnGateways field's value.
+func (s *DescribeCustomerVpnGatewaysOutput) SetCustomerVpnGateways(v []*CustomerVpnGatewayForDescribeCustomerVpnGatewaysOutput) *DescribeCustomerVpnGatewaysOutput {
+	s.CustomerVpnGateways = v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
-func (s *InnerPostDescribeVpnGatewaysOutput) SetPageNumber(v int64) *InnerPostDescribeVpnGatewaysOutput {
+func (s *DescribeCustomerVpnGatewaysOutput) SetPageNumber(v int64) *DescribeCustomerVpnGatewaysOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *InnerPostDescribeVpnGatewaysOutput) SetPageSize(v int64) *InnerPostDescribeVpnGatewaysOutput {
+func (s *DescribeCustomerVpnGatewaysOutput) SetPageSize(v int64) *DescribeCustomerVpnGatewaysOutput {
 	s.PageSize = &v
 	return s
 }
 
 // SetRequestId sets the RequestId field's value.
-func (s *InnerPostDescribeVpnGatewaysOutput) SetRequestId(v string) *InnerPostDescribeVpnGatewaysOutput {
+func (s *DescribeCustomerVpnGatewaysOutput) SetRequestId(v string) *DescribeCustomerVpnGatewaysOutput {
 	s.RequestId = &v
 	return s
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *InnerPostDescribeVpnGatewaysOutput) SetTotalCount(v int64) *InnerPostDescribeVpnGatewaysOutput {
+func (s *DescribeCustomerVpnGatewaysOutput) SetTotalCount(v int64) *DescribeCustomerVpnGatewaysOutput {
 	s.TotalCount = &v
 	return s
 }
 
-// SetVpnGateways sets the VpnGateways field's value.
-func (s *InnerPostDescribeVpnGatewaysOutput) SetVpnGateways(v []*VpnGatewayForInnerPostDescribeVpnGatewaysOutput) *InnerPostDescribeVpnGatewaysOutput {
-	s.VpnGateways = v
-	return s
-}
-
-type KeyForInnerDescribeWhiteListKeysOutput struct {
+type DescribeVpnConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	CreationTime *string `type:"string"`
-
-	Creator *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	Elements []*KeysElementForInnerDescribeWhiteListKeysOutput `type:"list"`
-
-	Enable *bool `type:"boolean"`
-
-	Key *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	Type *int64 `type:"integer"`
-
-	UpdateTime *string `type:"string"`
+	// VpnConnectionId is a required field
+	VpnConnectionId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
-func (s KeyForInnerDescribeWhiteListKeysOutput) String() string {
+func (s DescribeVpnConnectionAttributesInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s KeyForInnerDescribeWhiteListKeysOutput) GoString() string {
+func (s DescribeVpnConnectionAttributesInput) GoString() string {
 	return s.String()
 }
 
-// SetCreationTime sets the CreationTime field's value.
-func (s *KeyForInnerDescribeWhiteListKeysOutput) SetCreationTime(v string) *KeyForInnerDescribeWhiteListKeysOutput {
-	s.CreationTime = &v
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeVpnConnectionAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeVpnConnectionAttributesInput"}
+	if s.VpnConnectionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnConnectionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetVpnConnectionId sets the VpnConnectionId field's value.
+func (s *DescribeVpnConnectionAttributesInput) SetVpnConnectionId(v string) *DescribeVpnConnectionAttributesInput {
+	s.VpnConnectionId = &v
 	return s
 }
 
-// SetCreator sets the Creator field's value.
-func (s *KeyForInnerDescribeWhiteListKeysOutput) SetCreator(v string) *KeyForInnerDescribeWhiteListKeysOutput {
-	s.Creator = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *KeyForInnerDescribeWhiteListKeysOutput) SetDescription(v string) *KeyForInnerDescribeWhiteListKeysOutput {
-	s.Description = &v
-	return s
-}
-
-// SetElements sets the Elements field's value.
-func (s *KeyForInnerDescribeWhiteListKeysOutput) SetElements(v []*KeysElementForInnerDescribeWhiteListKeysOutput) *KeyForInnerDescribeWhiteListKeysOutput {
-	s.Elements = v
-	return s
-}
-
-// SetEnable sets the Enable field's value.
-func (s *KeyForInnerDescribeWhiteListKeysOutput) SetEnable(v bool) *KeyForInnerDescribeWhiteListKeysOutput {
-	s.Enable = &v
-	return s
-}
-
-// SetKey sets the Key field's value.
-func (s *KeyForInnerDescribeWhiteListKeysOutput) SetKey(v string) *KeyForInnerDescribeWhiteListKeysOutput {
-	s.Key = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *KeyForInnerDescribeWhiteListKeysOutput) SetStatus(v string) *KeyForInnerDescribeWhiteListKeysOutput {
-	s.Status = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *KeyForInnerDescribeWhiteListKeysOutput) SetType(v int64) *KeyForInnerDescribeWhiteListKeysOutput {
-	s.Type = &v
-	return s
-}
-
-// SetUpdateTime sets the UpdateTime field's value.
-func (s *KeyForInnerDescribeWhiteListKeysOutput) SetUpdateTime(v string) *KeyForInnerDescribeWhiteListKeysOutput {
-	s.UpdateTime = &v
-	return s
-}
-
-type KeysElementForInnerDescribeWhiteListKeysOutput struct {
-	_ struct{} `type:"structure"`
-
-	CreationTime *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	Level *int64 `type:"integer"`
-
-	Limit *int64 `type:"integer"`
-
-	Object *string `type:"string"`
-
-	ServiceName *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	UpdateTime *string `type:"string"`
-}
-
-// String returns the string representation
-func (s KeysElementForInnerDescribeWhiteListKeysOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s KeysElementForInnerDescribeWhiteListKeysOutput) GoString() string {
-	return s.String()
-}
-
-// SetCreationTime sets the CreationTime field's value.
-func (s *KeysElementForInnerDescribeWhiteListKeysOutput) SetCreationTime(v string) *KeysElementForInnerDescribeWhiteListKeysOutput {
-	s.CreationTime = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *KeysElementForInnerDescribeWhiteListKeysOutput) SetDescription(v string) *KeysElementForInnerDescribeWhiteListKeysOutput {
-	s.Description = &v
-	return s
-}
-
-// SetLevel sets the Level field's value.
-func (s *KeysElementForInnerDescribeWhiteListKeysOutput) SetLevel(v int64) *KeysElementForInnerDescribeWhiteListKeysOutput {
-	s.Level = &v
-	return s
-}
-
-// SetLimit sets the Limit field's value.
-func (s *KeysElementForInnerDescribeWhiteListKeysOutput) SetLimit(v int64) *KeysElementForInnerDescribeWhiteListKeysOutput {
-	s.Limit = &v
-	return s
-}
-
-// SetObject sets the Object field's value.
-func (s *KeysElementForInnerDescribeWhiteListKeysOutput) SetObject(v string) *KeysElementForInnerDescribeWhiteListKeysOutput {
-	s.Object = &v
-	return s
-}
-
-// SetServiceName sets the ServiceName field's value.
-func (s *KeysElementForInnerDescribeWhiteListKeysOutput) SetServiceName(v string) *KeysElementForInnerDescribeWhiteListKeysOutput {
-	s.ServiceName = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *KeysElementForInnerDescribeWhiteListKeysOutput) SetStatus(v string) *KeysElementForInnerDescribeWhiteListKeysOutput {
-	s.Status = &v
-	return s
-}
-
-// SetUpdateTime sets the UpdateTime field's value.
-func (s *KeysElementForInnerDescribeWhiteListKeysOutput) SetUpdateTime(v string) *KeysElementForInnerDescribeWhiteListKeysOutput {
-	s.UpdateTime = &v
-	return s
-}
-
-type LimitForInnerBffGetLimitFromKeysOutput struct {
-	_ struct{} `type:"structure"`
-
-	Key *string `type:"string"`
-
-	Limit *int64 `type:"integer"`
-
-	Type *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s LimitForInnerBffGetLimitFromKeysOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LimitForInnerBffGetLimitFromKeysOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *LimitForInnerBffGetLimitFromKeysOutput) SetKey(v string) *LimitForInnerBffGetLimitFromKeysOutput {
-	s.Key = &v
-	return s
-}
-
-// SetLimit sets the Limit field's value.
-func (s *LimitForInnerBffGetLimitFromKeysOutput) SetLimit(v int64) *LimitForInnerBffGetLimitFromKeysOutput {
-	s.Limit = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *LimitForInnerBffGetLimitFromKeysOutput) SetType(v int64) *LimitForInnerBffGetLimitFromKeysOutput {
-	s.Type = &v
-	return s
-}
-
-type LimitForInnerGetLimitFromKeysOutput struct {
-	_ struct{} `type:"structure"`
-
-	Key *string `type:"string"`
-
-	Limit *int64 `type:"integer"`
-
-	Type *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s LimitForInnerGetLimitFromKeysOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LimitForInnerGetLimitFromKeysOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *LimitForInnerGetLimitFromKeysOutput) SetKey(v string) *LimitForInnerGetLimitFromKeysOutput {
-	s.Key = &v
-	return s
-}
-
-// SetLimit sets the Limit field's value.
-func (s *LimitForInnerGetLimitFromKeysOutput) SetLimit(v int64) *LimitForInnerGetLimitFromKeysOutput {
-	s.Limit = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *LimitForInnerGetLimitFromKeysOutput) SetType(v int64) *LimitForInnerGetLimitFromKeysOutput {
-	s.Type = &v
-	return s
-}
-
-type VpnConnectionForInnerPostDescribeVpnConnectionsOutput struct {
+type DescribeVpnConnectionAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
@@ -1337,9 +3997,1955 @@ type VpnConnectionForInnerPostDescribeVpnConnectionsOutput struct {
 
 	Description *string `type:"string"`
 
-	IkeConfig *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput `type:"structure"`
+	IkeConfig *IkeConfigForDescribeVpnConnectionAttributesOutput `type:"structure"`
 
-	IpsecConfig *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput `type:"structure"`
+	IpsecConfig *IpsecConfigForDescribeVpnConnectionAttributesOutput `type:"structure"`
+
+	LocalSubnet []*string `type:"list"`
+
+	NatTraversal *bool `type:"boolean"`
+
+	ProjectName *string `type:"string"`
+
+	RegionID *string `type:"string"`
+
+	RemoteSubnet []*string `type:"list"`
+
+	RequestId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	VpnConnectionId *string `type:"string"`
+
+	VpnConnectionName *string `type:"string"`
+
+	VpnGatewayId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeVpnConnectionAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnConnectionAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetAccountId(v string) *DescribeVpnConnectionAttributesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetCreationTime(v string) *DescribeVpnConnectionAttributesOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetCustomerVpnGatewayId(v string) *DescribeVpnConnectionAttributesOutput {
+	s.CustomerVpnGatewayId = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetDescription(v string) *DescribeVpnConnectionAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetIkeConfig sets the IkeConfig field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetIkeConfig(v *IkeConfigForDescribeVpnConnectionAttributesOutput) *DescribeVpnConnectionAttributesOutput {
+	s.IkeConfig = v
+	return s
+}
+
+// SetIpsecConfig sets the IpsecConfig field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetIpsecConfig(v *IpsecConfigForDescribeVpnConnectionAttributesOutput) *DescribeVpnConnectionAttributesOutput {
+	s.IpsecConfig = v
+	return s
+}
+
+// SetLocalSubnet sets the LocalSubnet field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetLocalSubnet(v []*string) *DescribeVpnConnectionAttributesOutput {
+	s.LocalSubnet = v
+	return s
+}
+
+// SetNatTraversal sets the NatTraversal field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetNatTraversal(v bool) *DescribeVpnConnectionAttributesOutput {
+	s.NatTraversal = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetProjectName(v string) *DescribeVpnConnectionAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRegionID sets the RegionID field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetRegionID(v string) *DescribeVpnConnectionAttributesOutput {
+	s.RegionID = &v
+	return s
+}
+
+// SetRemoteSubnet sets the RemoteSubnet field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetRemoteSubnet(v []*string) *DescribeVpnConnectionAttributesOutput {
+	s.RemoteSubnet = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetRequestId(v string) *DescribeVpnConnectionAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetStatus(v string) *DescribeVpnConnectionAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetUpdateTime(v string) *DescribeVpnConnectionAttributesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpnConnectionId sets the VpnConnectionId field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetVpnConnectionId(v string) *DescribeVpnConnectionAttributesOutput {
+	s.VpnConnectionId = &v
+	return s
+}
+
+// SetVpnConnectionName sets the VpnConnectionName field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetVpnConnectionName(v string) *DescribeVpnConnectionAttributesOutput {
+	s.VpnConnectionName = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetVpnGatewayId(v string) *DescribeVpnConnectionAttributesOutput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+type DescribeVpnConnectionsInput struct {
+	_ struct{} `type:"structure"`
+
+	CustomerVpnGatewayId *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+
+	VpnConnectionIds []*string `type:"list"`
+
+	VpnConnectionName *string `type:"string"`
+
+	VpnGatewayId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeVpnConnectionsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnConnectionsInput) GoString() string {
+	return s.String()
+}
+
+// SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
+func (s *DescribeVpnConnectionsInput) SetCustomerVpnGatewayId(v string) *DescribeVpnConnectionsInput {
+	s.CustomerVpnGatewayId = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpnConnectionsInput) SetPageNumber(v int64) *DescribeVpnConnectionsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpnConnectionsInput) SetPageSize(v int64) *DescribeVpnConnectionsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpnConnectionsInput) SetStatus(v string) *DescribeVpnConnectionsInput {
+	s.Status = &v
+	return s
+}
+
+// SetVpnConnectionIds sets the VpnConnectionIds field's value.
+func (s *DescribeVpnConnectionsInput) SetVpnConnectionIds(v []*string) *DescribeVpnConnectionsInput {
+	s.VpnConnectionIds = v
+	return s
+}
+
+// SetVpnConnectionName sets the VpnConnectionName field's value.
+func (s *DescribeVpnConnectionsInput) SetVpnConnectionName(v string) *DescribeVpnConnectionsInput {
+	s.VpnConnectionName = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *DescribeVpnConnectionsInput) SetVpnGatewayId(v string) *DescribeVpnConnectionsInput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+type DescribeVpnConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+
+	VpnConnections []*VpnConnectionForDescribeVpnConnectionsOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeVpnConnectionsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnConnectionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpnConnectionsOutput) SetPageNumber(v int64) *DescribeVpnConnectionsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpnConnectionsOutput) SetPageSize(v int64) *DescribeVpnConnectionsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeVpnConnectionsOutput) SetRequestId(v string) *DescribeVpnConnectionsOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeVpnConnectionsOutput) SetTotalCount(v int64) *DescribeVpnConnectionsOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetVpnConnections sets the VpnConnections field's value.
+func (s *DescribeVpnConnectionsOutput) SetVpnConnections(v []*VpnConnectionForDescribeVpnConnectionsOutput) *DescribeVpnConnectionsOutput {
+	s.VpnConnections = v
+	return s
+}
+
+type DescribeVpnGatewayAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// VpnGatewayId is a required field
+	VpnGatewayId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewayAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewayAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeVpnGatewayAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeVpnGatewayAttributesInput"}
+	if s.VpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *DescribeVpnGatewayAttributesInput) SetVpnGatewayId(v string) *DescribeVpnGatewayAttributesInput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+type DescribeVpnGatewayAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
+	ConnectionCount *int64 `type:"integer"`
+
+	CreationTime *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	ExpiredTime *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	LockReason *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	RouteCount *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpnGatewayId *string `type:"string"`
+
+	VpnGatewayName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewayAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewayAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetAccountId(v string) *DescribeVpnGatewayAttributesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetBandwidth(v int64) *DescribeVpnGatewayAttributesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetBillingType(v int64) *DescribeVpnGatewayAttributesOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetBusinessStatus(v string) *DescribeVpnGatewayAttributesOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetConnectionCount sets the ConnectionCount field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetConnectionCount(v int64) *DescribeVpnGatewayAttributesOutput {
+	s.ConnectionCount = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetCreationTime(v string) *DescribeVpnGatewayAttributesOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetDeletedTime(v string) *DescribeVpnGatewayAttributesOutput {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetDescription(v string) *DescribeVpnGatewayAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetExpiredTime(v string) *DescribeVpnGatewayAttributesOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetIpAddress(v string) *DescribeVpnGatewayAttributesOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetLockReason(v string) *DescribeVpnGatewayAttributesOutput {
+	s.LockReason = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetProjectName(v string) *DescribeVpnGatewayAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetRequestId(v string) *DescribeVpnGatewayAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetRouteCount sets the RouteCount field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetRouteCount(v int64) *DescribeVpnGatewayAttributesOutput {
+	s.RouteCount = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetStatus(v string) *DescribeVpnGatewayAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetSubnetId(v string) *DescribeVpnGatewayAttributesOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetUpdateTime(v string) *DescribeVpnGatewayAttributesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetVpcId(v string) *DescribeVpnGatewayAttributesOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetVpnGatewayId(v string) *DescribeVpnGatewayAttributesOutput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+// SetVpnGatewayName sets the VpnGatewayName field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetVpnGatewayName(v string) *DescribeVpnGatewayAttributesOutput {
+	s.VpnGatewayName = &v
+	return s
+}
+
+type DescribeVpnGatewayRouteAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// VpnGatewayRouteId is a required field
+	VpnGatewayRouteId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewayRouteAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewayRouteAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeVpnGatewayRouteAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeVpnGatewayRouteAttributesInput"}
+	if s.VpnGatewayRouteId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayRouteId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetVpnGatewayRouteId sets the VpnGatewayRouteId field's value.
+func (s *DescribeVpnGatewayRouteAttributesInput) SetVpnGatewayRouteId(v string) *DescribeVpnGatewayRouteAttributesInput {
+	s.VpnGatewayRouteId = &v
+	return s
+}
+
+type DescribeVpnGatewayRouteAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreationTime *string `type:"string"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	RequestId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	VpnGatewayId *string `type:"string"`
+
+	VpnGatewayRouteId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewayRouteAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewayRouteAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetCreationTime(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetDestinationCidrBlock(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetNextHopId(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetRequestId(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetStatus(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetUpdateTime(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetVpnGatewayId(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+// SetVpnGatewayRouteId sets the VpnGatewayRouteId field's value.
+func (s *DescribeVpnGatewayRouteAttributesOutput) SetVpnGatewayRouteId(v string) *DescribeVpnGatewayRouteAttributesOutput {
+	s.VpnGatewayRouteId = &v
+	return s
+}
+
+type DescribeVpnGatewayRoutesInput struct {
+	_ struct{} `type:"structure"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+
+	VpnGatewayId *string `type:"string"`
+
+	VpnGatewayRouteIds []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewayRoutesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewayRoutesInput) GoString() string {
+	return s.String()
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *DescribeVpnGatewayRoutesInput) SetDestinationCidrBlock(v string) *DescribeVpnGatewayRoutesInput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *DescribeVpnGatewayRoutesInput) SetNextHopId(v string) *DescribeVpnGatewayRoutesInput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpnGatewayRoutesInput) SetPageNumber(v int64) *DescribeVpnGatewayRoutesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpnGatewayRoutesInput) SetPageSize(v int64) *DescribeVpnGatewayRoutesInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpnGatewayRoutesInput) SetStatus(v string) *DescribeVpnGatewayRoutesInput {
+	s.Status = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *DescribeVpnGatewayRoutesInput) SetVpnGatewayId(v string) *DescribeVpnGatewayRoutesInput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+// SetVpnGatewayRouteIds sets the VpnGatewayRouteIds field's value.
+func (s *DescribeVpnGatewayRoutesInput) SetVpnGatewayRouteIds(v []*string) *DescribeVpnGatewayRoutesInput {
+	s.VpnGatewayRouteIds = v
+	return s
+}
+
+type DescribeVpnGatewayRoutesOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+
+	VpnGatewayRoutes []*VpnGatewayRouteForDescribeVpnGatewayRoutesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewayRoutesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewayRoutesOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpnGatewayRoutesOutput) SetPageNumber(v int64) *DescribeVpnGatewayRoutesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpnGatewayRoutesOutput) SetPageSize(v int64) *DescribeVpnGatewayRoutesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeVpnGatewayRoutesOutput) SetRequestId(v string) *DescribeVpnGatewayRoutesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeVpnGatewayRoutesOutput) SetTotalCount(v int64) *DescribeVpnGatewayRoutesOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetVpnGatewayRoutes sets the VpnGatewayRoutes field's value.
+func (s *DescribeVpnGatewayRoutesOutput) SetVpnGatewayRoutes(v []*VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) *DescribeVpnGatewayRoutesOutput {
+	s.VpnGatewayRoutes = v
+	return s
+}
+
+type DescribeVpnGatewaysBillingInput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	// VpnGatewayIds is a required field
+	VpnGatewayIds []*string `type:"list" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewaysBillingInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewaysBillingInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeVpnGatewaysBillingInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeVpnGatewaysBillingInput"}
+	if s.VpnGatewayIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpnGatewaysBillingInput) SetPageNumber(v int64) *DescribeVpnGatewaysBillingInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpnGatewaysBillingInput) SetPageSize(v int64) *DescribeVpnGatewaysBillingInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetVpnGatewayIds sets the VpnGatewayIds field's value.
+func (s *DescribeVpnGatewaysBillingInput) SetVpnGatewayIds(v []*string) *DescribeVpnGatewaysBillingInput {
+	s.VpnGatewayIds = v
+	return s
+}
+
+type DescribeVpnGatewaysBillingOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+
+	VpnGateways []*VpnGatewayForDescribeVpnGatewaysBillingOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewaysBillingOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewaysBillingOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpnGatewaysBillingOutput) SetPageNumber(v int64) *DescribeVpnGatewaysBillingOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpnGatewaysBillingOutput) SetPageSize(v int64) *DescribeVpnGatewaysBillingOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeVpnGatewaysBillingOutput) SetRequestId(v string) *DescribeVpnGatewaysBillingOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeVpnGatewaysBillingOutput) SetTotalCount(v int64) *DescribeVpnGatewaysBillingOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetVpnGateways sets the VpnGateways field's value.
+func (s *DescribeVpnGatewaysBillingOutput) SetVpnGateways(v []*VpnGatewayForDescribeVpnGatewaysBillingOutput) *DescribeVpnGatewaysBillingOutput {
+	s.VpnGateways = v
+	return s
+}
+
+type DescribeVpnGatewaysInput struct {
+	_ struct{} `type:"structure"`
+
+	IpAddress *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpnGatewayIds []*string `type:"list"`
+
+	VpnGatewayName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewaysInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewaysInput) GoString() string {
+	return s.String()
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *DescribeVpnGatewaysInput) SetIpAddress(v string) *DescribeVpnGatewaysInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpnGatewaysInput) SetPageNumber(v int64) *DescribeVpnGatewaysInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpnGatewaysInput) SetPageSize(v int64) *DescribeVpnGatewaysInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeVpnGatewaysInput) SetStatus(v string) *DescribeVpnGatewaysInput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeVpnGatewaysInput) SetSubnetId(v string) *DescribeVpnGatewaysInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeVpnGatewaysInput) SetVpcId(v string) *DescribeVpnGatewaysInput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpnGatewayIds sets the VpnGatewayIds field's value.
+func (s *DescribeVpnGatewaysInput) SetVpnGatewayIds(v []*string) *DescribeVpnGatewaysInput {
+	s.VpnGatewayIds = v
+	return s
+}
+
+// SetVpnGatewayName sets the VpnGatewayName field's value.
+func (s *DescribeVpnGatewaysInput) SetVpnGatewayName(v string) *DescribeVpnGatewaysInput {
+	s.VpnGatewayName = &v
+	return s
+}
+
+type DescribeVpnGatewaysOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+
+	VpnGateways []*VpnGatewayForDescribeVpnGatewaysOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeVpnGatewaysOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeVpnGatewaysOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpnGatewaysOutput) SetPageNumber(v int64) *DescribeVpnGatewaysOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpnGatewaysOutput) SetPageSize(v int64) *DescribeVpnGatewaysOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeVpnGatewaysOutput) SetRequestId(v string) *DescribeVpnGatewaysOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeVpnGatewaysOutput) SetTotalCount(v int64) *DescribeVpnGatewaysOutput {
+	s.TotalCount = &v
+	return s
+}
+
+// SetVpnGateways sets the VpnGateways field's value.
+func (s *DescribeVpnGatewaysOutput) SetVpnGateways(v []*VpnGatewayForDescribeVpnGatewaysOutput) *DescribeVpnGatewaysOutput {
+	s.VpnGateways = v
+	return s
+}
+
+type IkeConfigForCreateVpnConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string" enum:"IkeConfigAuthAlgForCreateVpnConnectionInput"`
+
+	DhGroup *string `type:"string" enum:"IkeConfigDhGroupForCreateVpnConnectionInput"`
+
+	EncAlg *string `type:"string" enum:"IkeConfigEncAlgForCreateVpnConnectionInput"`
+
+	Lifetime *string `type:"string"`
+
+	LocalId *string `type:"string"`
+
+	Mode *string `type:"string" enum:"IkeConfigModeForCreateVpnConnectionInput"`
+
+	// Psk is a required field
+	Psk *string `type:"string" required:"true"`
+
+	RemoteId *string `type:"string"`
+
+	Version *string `type:"string" enum:"IkeConfigVersionForCreateVpnConnectionInput"`
+}
+
+// String returns the string representation
+func (s IkeConfigForCreateVpnConnectionInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IkeConfigForCreateVpnConnectionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *IkeConfigForCreateVpnConnectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "IkeConfigForCreateVpnConnectionInput"}
+	if s.Psk == nil {
+		invalidParams.Add(request.NewErrParamRequired("Psk"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetAuthAlg(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetDhGroup(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetEncAlg(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetLifetime(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.Lifetime = &v
+	return s
+}
+
+// SetLocalId sets the LocalId field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetLocalId(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.LocalId = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetMode(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.Mode = &v
+	return s
+}
+
+// SetPsk sets the Psk field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetPsk(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.Psk = &v
+	return s
+}
+
+// SetRemoteId sets the RemoteId field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetRemoteId(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.RemoteId = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *IkeConfigForCreateVpnConnectionInput) SetVersion(v string) *IkeConfigForCreateVpnConnectionInput {
+	s.Version = &v
+	return s
+}
+
+type IkeConfigForDescribeVpnConnectionAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string"`
+
+	DhGroup *string `type:"string"`
+
+	EncAlg *string `type:"string"`
+
+	Lifetime *int64 `type:"integer"`
+
+	LocalId *string `type:"string"`
+
+	Mode *string `type:"string"`
+
+	Psk *string `type:"string"`
+
+	RemoteId *string `type:"string"`
+
+	Version *string `type:"string"`
+}
+
+// String returns the string representation
+func (s IkeConfigForDescribeVpnConnectionAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IkeConfigForDescribeVpnConnectionAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetAuthAlg(v string) *IkeConfigForDescribeVpnConnectionAttributesOutput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetDhGroup(v string) *IkeConfigForDescribeVpnConnectionAttributesOutput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetEncAlg(v string) *IkeConfigForDescribeVpnConnectionAttributesOutput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetLifetime(v int64) *IkeConfigForDescribeVpnConnectionAttributesOutput {
+	s.Lifetime = &v
+	return s
+}
+
+// SetLocalId sets the LocalId field's value.
+func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetLocalId(v string) *IkeConfigForDescribeVpnConnectionAttributesOutput {
+	s.LocalId = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetMode(v string) *IkeConfigForDescribeVpnConnectionAttributesOutput {
+	s.Mode = &v
+	return s
+}
+
+// SetPsk sets the Psk field's value.
+func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetPsk(v string) *IkeConfigForDescribeVpnConnectionAttributesOutput {
+	s.Psk = &v
+	return s
+}
+
+// SetRemoteId sets the RemoteId field's value.
+func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetRemoteId(v string) *IkeConfigForDescribeVpnConnectionAttributesOutput {
+	s.RemoteId = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetVersion(v string) *IkeConfigForDescribeVpnConnectionAttributesOutput {
+	s.Version = &v
+	return s
+}
+
+type IkeConfigForDescribeVpnConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string"`
+
+	DhGroup *string `type:"string"`
+
+	EncAlg *string `type:"string"`
+
+	Lifetime *int64 `type:"integer"`
+
+	LocalId *string `type:"string"`
+
+	Mode *string `type:"string"`
+
+	Psk *string `type:"string"`
+
+	RemoteId *string `type:"string"`
+
+	Version *string `type:"string"`
+}
+
+// String returns the string representation
+func (s IkeConfigForDescribeVpnConnectionsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IkeConfigForDescribeVpnConnectionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IkeConfigForDescribeVpnConnectionsOutput) SetAuthAlg(v string) *IkeConfigForDescribeVpnConnectionsOutput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IkeConfigForDescribeVpnConnectionsOutput) SetDhGroup(v string) *IkeConfigForDescribeVpnConnectionsOutput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IkeConfigForDescribeVpnConnectionsOutput) SetEncAlg(v string) *IkeConfigForDescribeVpnConnectionsOutput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IkeConfigForDescribeVpnConnectionsOutput) SetLifetime(v int64) *IkeConfigForDescribeVpnConnectionsOutput {
+	s.Lifetime = &v
+	return s
+}
+
+// SetLocalId sets the LocalId field's value.
+func (s *IkeConfigForDescribeVpnConnectionsOutput) SetLocalId(v string) *IkeConfigForDescribeVpnConnectionsOutput {
+	s.LocalId = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *IkeConfigForDescribeVpnConnectionsOutput) SetMode(v string) *IkeConfigForDescribeVpnConnectionsOutput {
+	s.Mode = &v
+	return s
+}
+
+// SetPsk sets the Psk field's value.
+func (s *IkeConfigForDescribeVpnConnectionsOutput) SetPsk(v string) *IkeConfigForDescribeVpnConnectionsOutput {
+	s.Psk = &v
+	return s
+}
+
+// SetRemoteId sets the RemoteId field's value.
+func (s *IkeConfigForDescribeVpnConnectionsOutput) SetRemoteId(v string) *IkeConfigForDescribeVpnConnectionsOutput {
+	s.RemoteId = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *IkeConfigForDescribeVpnConnectionsOutput) SetVersion(v string) *IkeConfigForDescribeVpnConnectionsOutput {
+	s.Version = &v
+	return s
+}
+
+type IkeConfigForModifyVpnConnectionAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string" enum:"IkeConfigAuthAlgForModifyVpnConnectionAttributesInput"`
+
+	DhGroup *string `type:"string" enum:"IkeConfigDhGroupForModifyVpnConnectionAttributesInput"`
+
+	EncAlg *string `type:"string" enum:"IkeConfigEncAlgForModifyVpnConnectionAttributesInput"`
+
+	Lifetime *string `type:"string"`
+
+	LocalId *string `type:"string"`
+
+	Mode *string `type:"string" enum:"IkeConfigModeForModifyVpnConnectionAttributesInput"`
+
+	Psk *string `type:"string"`
+
+	RemoteId *string `type:"string"`
+
+	Version *string `type:"string" enum:"IkeConfigVersionForModifyVpnConnectionAttributesInput"`
+}
+
+// String returns the string representation
+func (s IkeConfigForModifyVpnConnectionAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IkeConfigForModifyVpnConnectionAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetAuthAlg(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetDhGroup(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetEncAlg(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetLifetime(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.Lifetime = &v
+	return s
+}
+
+// SetLocalId sets the LocalId field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetLocalId(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.LocalId = &v
+	return s
+}
+
+// SetMode sets the Mode field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetMode(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.Mode = &v
+	return s
+}
+
+// SetPsk sets the Psk field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetPsk(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.Psk = &v
+	return s
+}
+
+// SetRemoteId sets the RemoteId field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetRemoteId(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.RemoteId = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetVersion(v string) *IkeConfigForModifyVpnConnectionAttributesInput {
+	s.Version = &v
+	return s
+}
+
+type IpsecConfigForCreateVpnConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string" enum:"IpsecConfigAuthAlgForCreateVpnConnectionInput"`
+
+	DhGroup *string `type:"string" enum:"IpsecConfigDhGroupForCreateVpnConnectionInput"`
+
+	EncAlg *string `type:"string" enum:"IpsecConfigEncAlgForCreateVpnConnectionInput"`
+
+	Lifetime *string `type:"string"`
+}
+
+// String returns the string representation
+func (s IpsecConfigForCreateVpnConnectionInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpsecConfigForCreateVpnConnectionInput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IpsecConfigForCreateVpnConnectionInput) SetAuthAlg(v string) *IpsecConfigForCreateVpnConnectionInput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IpsecConfigForCreateVpnConnectionInput) SetDhGroup(v string) *IpsecConfigForCreateVpnConnectionInput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IpsecConfigForCreateVpnConnectionInput) SetEncAlg(v string) *IpsecConfigForCreateVpnConnectionInput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IpsecConfigForCreateVpnConnectionInput) SetLifetime(v string) *IpsecConfigForCreateVpnConnectionInput {
+	s.Lifetime = &v
+	return s
+}
+
+type IpsecConfigForDescribeVpnConnectionAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string"`
+
+	DhGroup *string `type:"string"`
+
+	EncAlg *string `type:"string"`
+
+	Lifetime *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s IpsecConfigForDescribeVpnConnectionAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpsecConfigForDescribeVpnConnectionAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IpsecConfigForDescribeVpnConnectionAttributesOutput) SetAuthAlg(v string) *IpsecConfigForDescribeVpnConnectionAttributesOutput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IpsecConfigForDescribeVpnConnectionAttributesOutput) SetDhGroup(v string) *IpsecConfigForDescribeVpnConnectionAttributesOutput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IpsecConfigForDescribeVpnConnectionAttributesOutput) SetEncAlg(v string) *IpsecConfigForDescribeVpnConnectionAttributesOutput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IpsecConfigForDescribeVpnConnectionAttributesOutput) SetLifetime(v int64) *IpsecConfigForDescribeVpnConnectionAttributesOutput {
+	s.Lifetime = &v
+	return s
+}
+
+type IpsecConfigForDescribeVpnConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string"`
+
+	DhGroup *string `type:"string"`
+
+	EncAlg *string `type:"string"`
+
+	Lifetime *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s IpsecConfigForDescribeVpnConnectionsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpsecConfigForDescribeVpnConnectionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IpsecConfigForDescribeVpnConnectionsOutput) SetAuthAlg(v string) *IpsecConfigForDescribeVpnConnectionsOutput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IpsecConfigForDescribeVpnConnectionsOutput) SetDhGroup(v string) *IpsecConfigForDescribeVpnConnectionsOutput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IpsecConfigForDescribeVpnConnectionsOutput) SetEncAlg(v string) *IpsecConfigForDescribeVpnConnectionsOutput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IpsecConfigForDescribeVpnConnectionsOutput) SetLifetime(v int64) *IpsecConfigForDescribeVpnConnectionsOutput {
+	s.Lifetime = &v
+	return s
+}
+
+type IpsecConfigForModifyVpnConnectionAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	AuthAlg *string `type:"string" enum:"IpsecConfigAuthAlgForModifyVpnConnectionAttributesInput"`
+
+	DhGroup *string `type:"string" enum:"IpsecConfigDhGroupForModifyVpnConnectionAttributesInput"`
+
+	EncAlg *string `type:"string" enum:"IpsecConfigEncAlgForModifyVpnConnectionAttributesInput"`
+
+	Lifetime *string `type:"string"`
+}
+
+// String returns the string representation
+func (s IpsecConfigForModifyVpnConnectionAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IpsecConfigForModifyVpnConnectionAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetAuthAlg sets the AuthAlg field's value.
+func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetAuthAlg(v string) *IpsecConfigForModifyVpnConnectionAttributesInput {
+	s.AuthAlg = &v
+	return s
+}
+
+// SetDhGroup sets the DhGroup field's value.
+func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetDhGroup(v string) *IpsecConfigForModifyVpnConnectionAttributesInput {
+	s.DhGroup = &v
+	return s
+}
+
+// SetEncAlg sets the EncAlg field's value.
+func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetEncAlg(v string) *IpsecConfigForModifyVpnConnectionAttributesInput {
+	s.EncAlg = &v
+	return s
+}
+
+// SetLifetime sets the Lifetime field's value.
+func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetLifetime(v string) *IpsecConfigForModifyVpnConnectionAttributesInput {
+	s.Lifetime = &v
+	return s
+}
+
+type ModifyCustomerVpnGatewayAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	// CustomerVpnGatewayId is a required field
+	CustomerVpnGatewayId *string `type:"string" required:"true"`
+
+	CustomerVpnGatewayName *string `type:"string"`
+
+	Description *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyCustomerVpnGatewayAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyCustomerVpnGatewayAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyCustomerVpnGatewayAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyCustomerVpnGatewayAttributesInput"}
+	if s.CustomerVpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CustomerVpnGatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
+func (s *ModifyCustomerVpnGatewayAttributesInput) SetCustomerVpnGatewayId(v string) *ModifyCustomerVpnGatewayAttributesInput {
+	s.CustomerVpnGatewayId = &v
+	return s
+}
+
+// SetCustomerVpnGatewayName sets the CustomerVpnGatewayName field's value.
+func (s *ModifyCustomerVpnGatewayAttributesInput) SetCustomerVpnGatewayName(v string) *ModifyCustomerVpnGatewayAttributesInput {
+	s.CustomerVpnGatewayName = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyCustomerVpnGatewayAttributesInput) SetDescription(v string) *ModifyCustomerVpnGatewayAttributesInput {
+	s.Description = &v
+	return s
+}
+
+type ModifyCustomerVpnGatewayAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyCustomerVpnGatewayAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyCustomerVpnGatewayAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyCustomerVpnGatewayAttributesOutput) SetRequestId(v string) *ModifyCustomerVpnGatewayAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifyVpnConnectionAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	IkeConfig *IkeConfigForModifyVpnConnectionAttributesInput `type:"structure"`
+
+	IpsecConfig *IpsecConfigForModifyVpnConnectionAttributesInput `type:"structure"`
+
+	LocalSubnet *string `type:"string"`
+
+	NatTraversal *bool `type:"boolean"`
+
+	RemoteSubnet *string `type:"string"`
+
+	// VpnConnectionId is a required field
+	VpnConnectionId *string `type:"string" required:"true"`
+
+	VpnConnectionName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyVpnConnectionAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyVpnConnectionAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyVpnConnectionAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyVpnConnectionAttributesInput"}
+	if s.VpnConnectionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnConnectionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetDescription(v string) *ModifyVpnConnectionAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetIkeConfig sets the IkeConfig field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetIkeConfig(v *IkeConfigForModifyVpnConnectionAttributesInput) *ModifyVpnConnectionAttributesInput {
+	s.IkeConfig = v
+	return s
+}
+
+// SetIpsecConfig sets the IpsecConfig field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetIpsecConfig(v *IpsecConfigForModifyVpnConnectionAttributesInput) *ModifyVpnConnectionAttributesInput {
+	s.IpsecConfig = v
+	return s
+}
+
+// SetLocalSubnet sets the LocalSubnet field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetLocalSubnet(v string) *ModifyVpnConnectionAttributesInput {
+	s.LocalSubnet = &v
+	return s
+}
+
+// SetNatTraversal sets the NatTraversal field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetNatTraversal(v bool) *ModifyVpnConnectionAttributesInput {
+	s.NatTraversal = &v
+	return s
+}
+
+// SetRemoteSubnet sets the RemoteSubnet field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetRemoteSubnet(v string) *ModifyVpnConnectionAttributesInput {
+	s.RemoteSubnet = &v
+	return s
+}
+
+// SetVpnConnectionId sets the VpnConnectionId field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetVpnConnectionId(v string) *ModifyVpnConnectionAttributesInput {
+	s.VpnConnectionId = &v
+	return s
+}
+
+// SetVpnConnectionName sets the VpnConnectionName field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetVpnConnectionName(v string) *ModifyVpnConnectionAttributesInput {
+	s.VpnConnectionName = &v
+	return s
+}
+
+type ModifyVpnConnectionAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyVpnConnectionAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyVpnConnectionAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyVpnConnectionAttributesOutput) SetRequestId(v string) *ModifyVpnConnectionAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifyVpnGatewayAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Bandwidth *int64 `min:"5" type:"integer"`
+
+	Description *string `type:"string"`
+
+	// VpnGatewayId is a required field
+	VpnGatewayId *string `type:"string" required:"true"`
+
+	VpnGatewayName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyVpnGatewayAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyVpnGatewayAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyVpnGatewayAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyVpnGatewayAttributesInput"}
+	if s.Bandwidth != nil && *s.Bandwidth < 5 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 5))
+	}
+	if s.VpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *ModifyVpnGatewayAttributesInput) SetBandwidth(v int64) *ModifyVpnGatewayAttributesInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyVpnGatewayAttributesInput) SetDescription(v string) *ModifyVpnGatewayAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *ModifyVpnGatewayAttributesInput) SetVpnGatewayId(v string) *ModifyVpnGatewayAttributesInput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+// SetVpnGatewayName sets the VpnGatewayName field's value.
+func (s *ModifyVpnGatewayAttributesInput) SetVpnGatewayName(v string) *ModifyVpnGatewayAttributesInput {
+	s.VpnGatewayName = &v
+	return s
+}
+
+type ModifyVpnGatewayAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	PreOrderNumber *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyVpnGatewayAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyVpnGatewayAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *ModifyVpnGatewayAttributesOutput) SetPreOrderNumber(v string) *ModifyVpnGatewayAttributesOutput {
+	s.PreOrderNumber = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyVpnGatewayAttributesOutput) SetRequestId(v string) *ModifyVpnGatewayAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type RenewVpnGatewayInput struct {
+	_ struct{} `type:"structure"`
+
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *string `type:"string" enum:"PeriodUnitForRenewVpnGatewayInput"`
+
+	// VpnGatewayId is a required field
+	VpnGatewayId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s RenewVpnGatewayInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RenewVpnGatewayInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RenewVpnGatewayInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RenewVpnGatewayInput"}
+	if s.VpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPeriod sets the Period field's value.
+func (s *RenewVpnGatewayInput) SetPeriod(v int64) *RenewVpnGatewayInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *RenewVpnGatewayInput) SetPeriodUnit(v string) *RenewVpnGatewayInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *RenewVpnGatewayInput) SetVpnGatewayId(v string) *RenewVpnGatewayInput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+type RenewVpnGatewayOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RenewVpnGatewayOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RenewVpnGatewayOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *RenewVpnGatewayOutput) SetRequestId(v string) *RenewVpnGatewayOutput {
+	s.RequestId = &v
+	return s
+}
+
+type SetVpnGatewayRenewalInput struct {
+	_ struct{} `type:"structure"`
+
+	RemainRenewTimes *int64 `type:"integer"`
+
+	RenewPeriod *int64 `type:"integer"`
+
+	// RenewType is a required field
+	RenewType *int64 `min:"1" type:"integer" required:"true"`
+
+	// VpnGatewayId is a required field
+	VpnGatewayId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s SetVpnGatewayRenewalInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetVpnGatewayRenewalInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SetVpnGatewayRenewalInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SetVpnGatewayRenewalInput"}
+	if s.RenewType == nil {
+		invalidParams.Add(request.NewErrParamRequired("RenewType"))
+	}
+	if s.RenewType != nil && *s.RenewType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
+	}
+	if s.VpnGatewayId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetRemainRenewTimes sets the RemainRenewTimes field's value.
+func (s *SetVpnGatewayRenewalInput) SetRemainRenewTimes(v int64) *SetVpnGatewayRenewalInput {
+	s.RemainRenewTimes = &v
+	return s
+}
+
+// SetRenewPeriod sets the RenewPeriod field's value.
+func (s *SetVpnGatewayRenewalInput) SetRenewPeriod(v int64) *SetVpnGatewayRenewalInput {
+	s.RenewPeriod = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *SetVpnGatewayRenewalInput) SetRenewType(v int64) *SetVpnGatewayRenewalInput {
+	s.RenewType = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *SetVpnGatewayRenewalInput) SetVpnGatewayId(v string) *SetVpnGatewayRenewalInput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+type SetVpnGatewayRenewalOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SetVpnGatewayRenewalOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetVpnGatewayRenewalOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *SetVpnGatewayRenewalOutput) SetRequestId(v string) *SetVpnGatewayRenewalOutput {
+	s.RequestId = &v
+	return s
+}
+
+type VpnConnectionForDescribeVpnConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	CustomerVpnGatewayId *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	IkeConfig *IkeConfigForDescribeVpnConnectionsOutput `type:"structure"`
+
+	IpsecConfig *IpsecConfigForDescribeVpnConnectionsOutput `type:"structure"`
 
 	LocalSubnet []*string `type:"list"`
 
@@ -1363,244 +5969,182 @@ type VpnConnectionForInnerPostDescribeVpnConnectionsOutput struct {
 }
 
 // String returns the string representation
-func (s VpnConnectionForInnerPostDescribeVpnConnectionsOutput) String() string {
+func (s VpnConnectionForDescribeVpnConnectionsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s VpnConnectionForInnerPostDescribeVpnConnectionsOutput) GoString() string {
+func (s VpnConnectionForDescribeVpnConnectionsOutput) GoString() string {
 	return s.String()
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetAccountId(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetAccountId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.AccountId = &v
 	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetCreationTime(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetCreationTime(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.CreationTime = &v
 	return s
 }
 
 // SetCustomerVpnGatewayId sets the CustomerVpnGatewayId field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetCustomerVpnGatewayId(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetCustomerVpnGatewayId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.CustomerVpnGatewayId = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetDescription(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetDescription(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.Description = &v
 	return s
 }
 
 // SetIkeConfig sets the IkeConfig field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetIkeConfig(v *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetIkeConfig(v *IkeConfigForDescribeVpnConnectionsOutput) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.IkeConfig = v
 	return s
 }
 
 // SetIpsecConfig sets the IpsecConfig field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetIpsecConfig(v *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetIpsecConfig(v *IpsecConfigForDescribeVpnConnectionsOutput) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.IpsecConfig = v
 	return s
 }
 
 // SetLocalSubnet sets the LocalSubnet field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetLocalSubnet(v []*string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetLocalSubnet(v []*string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.LocalSubnet = v
 	return s
 }
 
 // SetNatTraversal sets the NatTraversal field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetNatTraversal(v bool) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetNatTraversal(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.NatTraversal = &v
 	return s
 }
 
 // SetProjectName sets the ProjectName field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetProjectName(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetProjectName(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.ProjectName = &v
 	return s
 }
 
 // SetRegionID sets the RegionID field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetRegionID(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetRegionID(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.RegionID = &v
 	return s
 }
 
 // SetRemoteSubnet sets the RemoteSubnet field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetRemoteSubnet(v []*string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetRemoteSubnet(v []*string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.RemoteSubnet = v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetStatus(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetStatus(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.Status = &v
 	return s
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetUpdateTime(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetUpdateTime(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetVpnConnectionId sets the VpnConnectionId field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetVpnConnectionId(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetVpnConnectionId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.VpnConnectionId = &v
 	return s
 }
 
 // SetVpnConnectionName sets the VpnConnectionName field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetVpnConnectionName(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetVpnConnectionName(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.VpnConnectionName = &v
 	return s
 }
 
 // SetVpnGatewayId sets the VpnGatewayId field's value.
-func (s *VpnConnectionForInnerPostDescribeVpnConnectionsOutput) SetVpnGatewayId(v string) *VpnConnectionForInnerPostDescribeVpnConnectionsOutput {
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetVpnGatewayId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.VpnGatewayId = &v
 	return s
 }
 
-type VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput struct {
+type VpnGatewayForDescribeVpnGatewaysBillingOutput struct {
 	_ struct{} `type:"structure"`
 
-	AuthAlg *string `type:"string"`
+	BillingStatus *int64 `type:"integer"`
 
-	DhGroup *string `type:"string"`
+	BillingType *int64 `type:"integer"`
 
-	EncAlg *string `type:"string"`
+	ExpiredTime *string `type:"string"`
 
-	Lifetime *int64 `type:"integer"`
+	ReclaimTime *string `type:"string"`
 
-	LocalId *string `type:"string"`
+	RemainRenewTimes *int64 `type:"integer"`
 
-	Mode *string `type:"string"`
+	RenewType *int64 `type:"integer"`
 
-	Psk *string `type:"string"`
-
-	RemoteId *string `type:"string"`
-
-	Version *string `type:"string"`
+	VpnGatewayId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) String() string {
+func (s VpnGatewayForDescribeVpnGatewaysBillingOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) GoString() string {
+func (s VpnGatewayForDescribeVpnGatewaysBillingOutput) GoString() string {
 	return s.String()
 }
 
-// SetAuthAlg sets the AuthAlg field's value.
-func (s *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) SetAuthAlg(v string) *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.AuthAlg = &v
+// SetBillingStatus sets the BillingStatus field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetBillingStatus(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.BillingStatus = &v
 	return s
 }
 
-// SetDhGroup sets the DhGroup field's value.
-func (s *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) SetDhGroup(v string) *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.DhGroup = &v
+// SetBillingType sets the BillingType field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetBillingType(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.BillingType = &v
 	return s
 }
 
-// SetEncAlg sets the EncAlg field's value.
-func (s *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) SetEncAlg(v string) *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.EncAlg = &v
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetExpiredTime(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.ExpiredTime = &v
 	return s
 }
 
-// SetLifetime sets the Lifetime field's value.
-func (s *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) SetLifetime(v int64) *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.Lifetime = &v
+// SetReclaimTime sets the ReclaimTime field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetReclaimTime(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.ReclaimTime = &v
 	return s
 }
 
-// SetLocalId sets the LocalId field's value.
-func (s *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) SetLocalId(v string) *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.LocalId = &v
+// SetRemainRenewTimes sets the RemainRenewTimes field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetRemainRenewTimes(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.RemainRenewTimes = &v
 	return s
 }
 
-// SetMode sets the Mode field's value.
-func (s *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) SetMode(v string) *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.Mode = &v
+// SetRenewType sets the RenewType field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetRenewType(v int64) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.RenewType = &v
 	return s
 }
 
-// SetPsk sets the Psk field's value.
-func (s *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) SetPsk(v string) *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.Psk = &v
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetVpnGatewayId(v string) *VpnGatewayForDescribeVpnGatewaysBillingOutput {
+	s.VpnGatewayId = &v
 	return s
 }
 
-// SetRemoteId sets the RemoteId field's value.
-func (s *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) SetRemoteId(v string) *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.RemoteId = &v
-	return s
-}
-
-// SetVersion sets the Version field's value.
-func (s *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput) SetVersion(v string) *VpnConnectionsIkeConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.Version = &v
-	return s
-}
-
-type VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput struct {
-	_ struct{} `type:"structure"`
-
-	AuthAlg *string `type:"string"`
-
-	DhGroup *string `type:"string"`
-
-	EncAlg *string `type:"string"`
-
-	Lifetime *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput) GoString() string {
-	return s.String()
-}
-
-// SetAuthAlg sets the AuthAlg field's value.
-func (s *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput) SetAuthAlg(v string) *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.AuthAlg = &v
-	return s
-}
-
-// SetDhGroup sets the DhGroup field's value.
-func (s *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput) SetDhGroup(v string) *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.DhGroup = &v
-	return s
-}
-
-// SetEncAlg sets the EncAlg field's value.
-func (s *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput) SetEncAlg(v string) *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.EncAlg = &v
-	return s
-}
-
-// SetLifetime sets the Lifetime field's value.
-func (s *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput) SetLifetime(v int64) *VpnConnectionsIpsecConfigForInnerPostDescribeVpnConnectionsOutput {
-	s.Lifetime = &v
-	return s
-}
-
-type VpnGatewayForInnerPostDescribeVpnGatewaysOutput struct {
+type VpnGatewayForDescribeVpnGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
@@ -1643,125 +6187,435 @@ type VpnGatewayForInnerPostDescribeVpnGatewaysOutput struct {
 }
 
 // String returns the string representation
-func (s VpnGatewayForInnerPostDescribeVpnGatewaysOutput) String() string {
+func (s VpnGatewayForDescribeVpnGatewaysOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s VpnGatewayForInnerPostDescribeVpnGatewaysOutput) GoString() string {
+func (s VpnGatewayForDescribeVpnGatewaysOutput) GoString() string {
 	return s.String()
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetAccountId(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetAccountId(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.AccountId = &v
 	return s
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetBandwidth(v int64) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetBandwidth(v int64) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.Bandwidth = &v
 	return s
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetBillingType(v int64) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetBillingType(v int64) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.BillingType = &v
 	return s
 }
 
 // SetBusinessStatus sets the BusinessStatus field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetBusinessStatus(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetBusinessStatus(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.BusinessStatus = &v
 	return s
 }
 
 // SetConnectionCount sets the ConnectionCount field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetConnectionCount(v int64) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetConnectionCount(v int64) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.ConnectionCount = &v
 	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetCreationTime(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetCreationTime(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.CreationTime = &v
 	return s
 }
 
 // SetDeletedTime sets the DeletedTime field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetDeletedTime(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetDeletedTime(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.DeletedTime = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetDescription(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetDescription(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.Description = &v
 	return s
 }
 
 // SetExpiredTime sets the ExpiredTime field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetExpiredTime(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetExpiredTime(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.ExpiredTime = &v
 	return s
 }
 
 // SetIpAddress sets the IpAddress field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetIpAddress(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetIpAddress(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.IpAddress = &v
 	return s
 }
 
 // SetLockReason sets the LockReason field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetLockReason(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetLockReason(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.LockReason = &v
 	return s
 }
 
 // SetProjectName sets the ProjectName field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetProjectName(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetProjectName(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.ProjectName = &v
 	return s
 }
 
 // SetRouteCount sets the RouteCount field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetRouteCount(v int64) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetRouteCount(v int64) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.RouteCount = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetStatus(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetStatus(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.Status = &v
 	return s
 }
 
 // SetSubnetId sets the SubnetId field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetSubnetId(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetSubnetId(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.SubnetId = &v
 	return s
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetUpdateTime(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetUpdateTime(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetVpcId sets the VpcId field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetVpcId(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetVpcId(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.VpcId = &v
 	return s
 }
 
 // SetVpnGatewayId sets the VpnGatewayId field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetVpnGatewayId(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetVpnGatewayId(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.VpnGatewayId = &v
 	return s
 }
 
 // SetVpnGatewayName sets the VpnGatewayName field's value.
-func (s *VpnGatewayForInnerPostDescribeVpnGatewaysOutput) SetVpnGatewayName(v string) *VpnGatewayForInnerPostDescribeVpnGatewaysOutput {
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetVpnGatewayName(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.VpnGatewayName = &v
 	return s
 }
+
+type VpnGatewayRouteForDescribeVpnGatewayRoutesOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreationTime *string `type:"string"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	VpnGatewayId *string `type:"string"`
+
+	VpnGatewayRouteId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetCreationTime(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetDestinationCidrBlock(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetNextHopId(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetStatus(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetUpdateTime(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpnGatewayId sets the VpnGatewayId field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetVpnGatewayId(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.VpnGatewayId = &v
+	return s
+}
+
+// SetVpnGatewayRouteId sets the VpnGatewayRouteId field's value.
+func (s *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) SetVpnGatewayRouteId(v string) *VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+	s.VpnGatewayRouteId = &v
+	return s
+}
+
+const (
+	// IkeConfigAuthAlgForCreateVpnConnectionInputSha1 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
+	IkeConfigAuthAlgForCreateVpnConnectionInputSha1 = "sha1"
+
+	// IkeConfigAuthAlgForCreateVpnConnectionInputMd5 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
+	IkeConfigAuthAlgForCreateVpnConnectionInputMd5 = "md5"
+
+	// IkeConfigAuthAlgForCreateVpnConnectionInputSha256 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
+	IkeConfigAuthAlgForCreateVpnConnectionInputSha256 = "sha256"
+
+	// IkeConfigAuthAlgForCreateVpnConnectionInputSha384 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
+	IkeConfigAuthAlgForCreateVpnConnectionInputSha384 = "sha384"
+
+	// IkeConfigAuthAlgForCreateVpnConnectionInputSha512 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
+	IkeConfigAuthAlgForCreateVpnConnectionInputSha512 = "sha512"
+)
+
+const (
+	// IkeConfigAuthAlgForModifyVpnConnectionAttributesInputSha1 is a IkeConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigAuthAlgForModifyVpnConnectionAttributesInputSha1 = "sha1"
+
+	// IkeConfigAuthAlgForModifyVpnConnectionAttributesInputMd5 is a IkeConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigAuthAlgForModifyVpnConnectionAttributesInputMd5 = "md5"
+
+	// IkeConfigAuthAlgForModifyVpnConnectionAttributesInputSha256 is a IkeConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigAuthAlgForModifyVpnConnectionAttributesInputSha256 = "sha256"
+
+	// IkeConfigAuthAlgForModifyVpnConnectionAttributesInputSha384 is a IkeConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigAuthAlgForModifyVpnConnectionAttributesInputSha384 = "sha384"
+
+	// IkeConfigAuthAlgForModifyVpnConnectionAttributesInputSha512 is a IkeConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigAuthAlgForModifyVpnConnectionAttributesInputSha512 = "sha512"
+)
+
+const (
+	// IkeConfigDhGroupForCreateVpnConnectionInputGroup1 is a IkeConfigDhGroupForCreateVpnConnectionInput enum value
+	IkeConfigDhGroupForCreateVpnConnectionInputGroup1 = "group1"
+
+	// IkeConfigDhGroupForCreateVpnConnectionInputGroup2 is a IkeConfigDhGroupForCreateVpnConnectionInput enum value
+	IkeConfigDhGroupForCreateVpnConnectionInputGroup2 = "group2"
+
+	// IkeConfigDhGroupForCreateVpnConnectionInputGroup5 is a IkeConfigDhGroupForCreateVpnConnectionInput enum value
+	IkeConfigDhGroupForCreateVpnConnectionInputGroup5 = "group5"
+
+	// IkeConfigDhGroupForCreateVpnConnectionInputGroup14 is a IkeConfigDhGroupForCreateVpnConnectionInput enum value
+	IkeConfigDhGroupForCreateVpnConnectionInputGroup14 = "group14"
+)
+
+const (
+	// IkeConfigDhGroupForModifyVpnConnectionAttributesInputGroup1 is a IkeConfigDhGroupForModifyVpnConnectionAttributesInput enum value
+	IkeConfigDhGroupForModifyVpnConnectionAttributesInputGroup1 = "group1"
+
+	// IkeConfigDhGroupForModifyVpnConnectionAttributesInputGroup2 is a IkeConfigDhGroupForModifyVpnConnectionAttributesInput enum value
+	IkeConfigDhGroupForModifyVpnConnectionAttributesInputGroup2 = "group2"
+
+	// IkeConfigDhGroupForModifyVpnConnectionAttributesInputGroup5 is a IkeConfigDhGroupForModifyVpnConnectionAttributesInput enum value
+	IkeConfigDhGroupForModifyVpnConnectionAttributesInputGroup5 = "group5"
+
+	// IkeConfigDhGroupForModifyVpnConnectionAttributesInputGroup14 is a IkeConfigDhGroupForModifyVpnConnectionAttributesInput enum value
+	IkeConfigDhGroupForModifyVpnConnectionAttributesInputGroup14 = "group14"
+)
+
+const (
+	// IkeConfigEncAlgForCreateVpnConnectionInputAes is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
+	IkeConfigEncAlgForCreateVpnConnectionInputAes = "aes"
+
+	// IkeConfigEncAlgForCreateVpnConnectionInputAes192 is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
+	IkeConfigEncAlgForCreateVpnConnectionInputAes192 = "aes192"
+
+	// IkeConfigEncAlgForCreateVpnConnectionInputAes256 is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
+	IkeConfigEncAlgForCreateVpnConnectionInputAes256 = "aes256"
+
+	// IkeConfigEncAlgForCreateVpnConnectionInputDes is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
+	IkeConfigEncAlgForCreateVpnConnectionInputDes = "des"
+
+	// IkeConfigEncAlgForCreateVpnConnectionInput3des is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
+	IkeConfigEncAlgForCreateVpnConnectionInput3des = "3des"
+)
+
+const (
+	// IkeConfigEncAlgForModifyVpnConnectionAttributesInputAes is a IkeConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigEncAlgForModifyVpnConnectionAttributesInputAes = "aes"
+
+	// IkeConfigEncAlgForModifyVpnConnectionAttributesInputAes192 is a IkeConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigEncAlgForModifyVpnConnectionAttributesInputAes192 = "aes192"
+
+	// IkeConfigEncAlgForModifyVpnConnectionAttributesInputAes256 is a IkeConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigEncAlgForModifyVpnConnectionAttributesInputAes256 = "aes256"
+
+	// IkeConfigEncAlgForModifyVpnConnectionAttributesInputDes is a IkeConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigEncAlgForModifyVpnConnectionAttributesInputDes = "des"
+
+	// IkeConfigEncAlgForModifyVpnConnectionAttributesInput3des is a IkeConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IkeConfigEncAlgForModifyVpnConnectionAttributesInput3des = "3des"
+)
+
+const (
+	// IkeConfigModeForCreateVpnConnectionInputMain is a IkeConfigModeForCreateVpnConnectionInput enum value
+	IkeConfigModeForCreateVpnConnectionInputMain = "main"
+
+	// IkeConfigModeForCreateVpnConnectionInputAggressive is a IkeConfigModeForCreateVpnConnectionInput enum value
+	IkeConfigModeForCreateVpnConnectionInputAggressive = "aggressive"
+)
+
+const (
+	// IkeConfigModeForModifyVpnConnectionAttributesInputMain is a IkeConfigModeForModifyVpnConnectionAttributesInput enum value
+	IkeConfigModeForModifyVpnConnectionAttributesInputMain = "main"
+
+	// IkeConfigModeForModifyVpnConnectionAttributesInputAggressive is a IkeConfigModeForModifyVpnConnectionAttributesInput enum value
+	IkeConfigModeForModifyVpnConnectionAttributesInputAggressive = "aggressive"
+)
+
+const (
+	// IkeConfigVersionForCreateVpnConnectionInputIkev1 is a IkeConfigVersionForCreateVpnConnectionInput enum value
+	IkeConfigVersionForCreateVpnConnectionInputIkev1 = "ikev1"
+
+	// IkeConfigVersionForCreateVpnConnectionInputIkev2 is a IkeConfigVersionForCreateVpnConnectionInput enum value
+	IkeConfigVersionForCreateVpnConnectionInputIkev2 = "ikev2"
+)
+
+const (
+	// IkeConfigVersionForModifyVpnConnectionAttributesInputIkev1 is a IkeConfigVersionForModifyVpnConnectionAttributesInput enum value
+	IkeConfigVersionForModifyVpnConnectionAttributesInputIkev1 = "ikev1"
+
+	// IkeConfigVersionForModifyVpnConnectionAttributesInputIkev2 is a IkeConfigVersionForModifyVpnConnectionAttributesInput enum value
+	IkeConfigVersionForModifyVpnConnectionAttributesInputIkev2 = "ikev2"
+)
+
+const (
+	// IpsecConfigAuthAlgForCreateVpnConnectionInputSha1 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
+	IpsecConfigAuthAlgForCreateVpnConnectionInputSha1 = "sha1"
+
+	// IpsecConfigAuthAlgForCreateVpnConnectionInputMd5 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
+	IpsecConfigAuthAlgForCreateVpnConnectionInputMd5 = "md5"
+
+	// IpsecConfigAuthAlgForCreateVpnConnectionInputSha256 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
+	IpsecConfigAuthAlgForCreateVpnConnectionInputSha256 = "sha256"
+
+	// IpsecConfigAuthAlgForCreateVpnConnectionInputSha384 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
+	IpsecConfigAuthAlgForCreateVpnConnectionInputSha384 = "sha384"
+
+	// IpsecConfigAuthAlgForCreateVpnConnectionInputSha512 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
+	IpsecConfigAuthAlgForCreateVpnConnectionInputSha512 = "sha512"
+)
+
+const (
+	// IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputSha1 is a IpsecConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputSha1 = "sha1"
+
+	// IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputMd5 is a IpsecConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputMd5 = "md5"
+
+	// IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputSha256 is a IpsecConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputSha256 = "sha256"
+
+	// IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputSha384 is a IpsecConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputSha384 = "sha384"
+
+	// IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputSha512 is a IpsecConfigAuthAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigAuthAlgForModifyVpnConnectionAttributesInputSha512 = "sha512"
+)
+
+const (
+	// IpsecConfigDhGroupForCreateVpnConnectionInputGroup1 is a IpsecConfigDhGroupForCreateVpnConnectionInput enum value
+	IpsecConfigDhGroupForCreateVpnConnectionInputGroup1 = "group1"
+
+	// IpsecConfigDhGroupForCreateVpnConnectionInputGroup2 is a IpsecConfigDhGroupForCreateVpnConnectionInput enum value
+	IpsecConfigDhGroupForCreateVpnConnectionInputGroup2 = "group2"
+
+	// IpsecConfigDhGroupForCreateVpnConnectionInputGroup5 is a IpsecConfigDhGroupForCreateVpnConnectionInput enum value
+	IpsecConfigDhGroupForCreateVpnConnectionInputGroup5 = "group5"
+
+	// IpsecConfigDhGroupForCreateVpnConnectionInputGroup14 is a IpsecConfigDhGroupForCreateVpnConnectionInput enum value
+	IpsecConfigDhGroupForCreateVpnConnectionInputGroup14 = "group14"
+)
+
+const (
+	// IpsecConfigDhGroupForModifyVpnConnectionAttributesInputGroup1 is a IpsecConfigDhGroupForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigDhGroupForModifyVpnConnectionAttributesInputGroup1 = "group1"
+
+	// IpsecConfigDhGroupForModifyVpnConnectionAttributesInputGroup2 is a IpsecConfigDhGroupForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigDhGroupForModifyVpnConnectionAttributesInputGroup2 = "group2"
+
+	// IpsecConfigDhGroupForModifyVpnConnectionAttributesInputGroup5 is a IpsecConfigDhGroupForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigDhGroupForModifyVpnConnectionAttributesInputGroup5 = "group5"
+
+	// IpsecConfigDhGroupForModifyVpnConnectionAttributesInputGroup14 is a IpsecConfigDhGroupForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigDhGroupForModifyVpnConnectionAttributesInputGroup14 = "group14"
+)
+
+const (
+	// IpsecConfigEncAlgForCreateVpnConnectionInputAes is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
+	IpsecConfigEncAlgForCreateVpnConnectionInputAes = "aes"
+
+	// IpsecConfigEncAlgForCreateVpnConnectionInputAes192 is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
+	IpsecConfigEncAlgForCreateVpnConnectionInputAes192 = "aes192"
+
+	// IpsecConfigEncAlgForCreateVpnConnectionInputAes256 is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
+	IpsecConfigEncAlgForCreateVpnConnectionInputAes256 = "aes256"
+
+	// IpsecConfigEncAlgForCreateVpnConnectionInputDes is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
+	IpsecConfigEncAlgForCreateVpnConnectionInputDes = "des"
+
+	// IpsecConfigEncAlgForCreateVpnConnectionInput3des is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
+	IpsecConfigEncAlgForCreateVpnConnectionInput3des = "3des"
+)
+
+const (
+	// IpsecConfigEncAlgForModifyVpnConnectionAttributesInputAes is a IpsecConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigEncAlgForModifyVpnConnectionAttributesInputAes = "aes"
+
+	// IpsecConfigEncAlgForModifyVpnConnectionAttributesInputAes192 is a IpsecConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigEncAlgForModifyVpnConnectionAttributesInputAes192 = "aes192"
+
+	// IpsecConfigEncAlgForModifyVpnConnectionAttributesInputAes256 is a IpsecConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigEncAlgForModifyVpnConnectionAttributesInputAes256 = "aes256"
+
+	// IpsecConfigEncAlgForModifyVpnConnectionAttributesInputDes is a IpsecConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigEncAlgForModifyVpnConnectionAttributesInputDes = "des"
+
+	// IpsecConfigEncAlgForModifyVpnConnectionAttributesInput3des is a IpsecConfigEncAlgForModifyVpnConnectionAttributesInput enum value
+	IpsecConfigEncAlgForModifyVpnConnectionAttributesInput3des = "3des"
+)
+
+const (
+	// PeriodUnitForCreateVpnGatewayInputMonth is a PeriodUnitForCreateVpnGatewayInput enum value
+	PeriodUnitForCreateVpnGatewayInputMonth = "Month"
+
+	// PeriodUnitForCreateVpnGatewayInputYear is a PeriodUnitForCreateVpnGatewayInput enum value
+	PeriodUnitForCreateVpnGatewayInputYear = "Year"
+)
+
+const (
+	// PeriodUnitForRenewVpnGatewayInputMonth is a PeriodUnitForRenewVpnGatewayInput enum value
+	PeriodUnitForRenewVpnGatewayInputMonth = "Month"
+
+	// PeriodUnitForRenewVpnGatewayInputYear is a PeriodUnitForRenewVpnGatewayInput enum value
+	PeriodUnitForRenewVpnGatewayInputYear = "Year"
+)

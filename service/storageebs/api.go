@@ -46,7 +46,6 @@ func (c *STORAGEEBS) AttachVolumeCommonRequest(input *map[string]interface{}) (r
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -308,7 +307,6 @@ func (c *STORAGEEBS) DeleteVolumeCommonRequest(input *map[string]interface{}) (r
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -570,7 +568,6 @@ func (c *STORAGEEBS) DetachVolumeCommonRequest(input *map[string]interface{}) (r
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -702,7 +699,6 @@ func (c *STORAGEEBS) ExtendVolumeCommonRequest(input *map[string]interface{}) (r
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -834,7 +830,6 @@ func (c *STORAGEEBS) ModifyVolumeAttributeCommonRequest(input *map[string]interf
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1394,44 +1389,6 @@ func (s ModifyVolumeAttributeOutput) GoString() string {
 
 type VolumeForDescribeVolumesOutput struct {
 	_ struct{} `type:"structure"`
-
-	BillingType *int32 `type:"int32"`
-
-	CreatedAt *string `type:"string"`
-
-	DeleteWithInstance *bool `type:"boolean"`
-
-	Description *string `type:"string"`
-
-	DeviceName *string `type:"string"`
-
-	ExpiredTime *string `type:"string"`
-
-	ImageId *string `type:"string"`
-
-	InstanceId *string `type:"string"`
-
-	Kind *string `type:"string"`
-
-	PayType *string `type:"string"`
-
-	RenewType *int32 `type:"int32"`
-
-	Size *json.Number `type:"json_number"`
-
-	Status *string `type:"string"`
-
-	TradeStatus *int32 `type:"int32"`
-
-	UpdatedAt *string `type:"string"`
-
-	VolumeId *string `type:"string"`
-
-	VolumeName *string `type:"string"`
-
-	VolumeType *string `type:"string"`
-
-	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -1442,118 +1399,4 @@ func (s VolumeForDescribeVolumesOutput) String() string {
 // GoString returns the string representation
 func (s VolumeForDescribeVolumesOutput) GoString() string {
 	return s.String()
-}
-
-// SetBillingType sets the BillingType field's value.
-func (s *VolumeForDescribeVolumesOutput) SetBillingType(v int32) *VolumeForDescribeVolumesOutput {
-	s.BillingType = &v
-	return s
-}
-
-// SetCreatedAt sets the CreatedAt field's value.
-func (s *VolumeForDescribeVolumesOutput) SetCreatedAt(v string) *VolumeForDescribeVolumesOutput {
-	s.CreatedAt = &v
-	return s
-}
-
-// SetDeleteWithInstance sets the DeleteWithInstance field's value.
-func (s *VolumeForDescribeVolumesOutput) SetDeleteWithInstance(v bool) *VolumeForDescribeVolumesOutput {
-	s.DeleteWithInstance = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *VolumeForDescribeVolumesOutput) SetDescription(v string) *VolumeForDescribeVolumesOutput {
-	s.Description = &v
-	return s
-}
-
-// SetDeviceName sets the DeviceName field's value.
-func (s *VolumeForDescribeVolumesOutput) SetDeviceName(v string) *VolumeForDescribeVolumesOutput {
-	s.DeviceName = &v
-	return s
-}
-
-// SetExpiredTime sets the ExpiredTime field's value.
-func (s *VolumeForDescribeVolumesOutput) SetExpiredTime(v string) *VolumeForDescribeVolumesOutput {
-	s.ExpiredTime = &v
-	return s
-}
-
-// SetImageId sets the ImageId field's value.
-func (s *VolumeForDescribeVolumesOutput) SetImageId(v string) *VolumeForDescribeVolumesOutput {
-	s.ImageId = &v
-	return s
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *VolumeForDescribeVolumesOutput) SetInstanceId(v string) *VolumeForDescribeVolumesOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetKind sets the Kind field's value.
-func (s *VolumeForDescribeVolumesOutput) SetKind(v string) *VolumeForDescribeVolumesOutput {
-	s.Kind = &v
-	return s
-}
-
-// SetPayType sets the PayType field's value.
-func (s *VolumeForDescribeVolumesOutput) SetPayType(v string) *VolumeForDescribeVolumesOutput {
-	s.PayType = &v
-	return s
-}
-
-// SetRenewType sets the RenewType field's value.
-func (s *VolumeForDescribeVolumesOutput) SetRenewType(v int32) *VolumeForDescribeVolumesOutput {
-	s.RenewType = &v
-	return s
-}
-
-// SetSize sets the Size field's value.
-func (s *VolumeForDescribeVolumesOutput) SetSize(v json.Number) *VolumeForDescribeVolumesOutput {
-	s.Size = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *VolumeForDescribeVolumesOutput) SetStatus(v string) *VolumeForDescribeVolumesOutput {
-	s.Status = &v
-	return s
-}
-
-// SetTradeStatus sets the TradeStatus field's value.
-func (s *VolumeForDescribeVolumesOutput) SetTradeStatus(v int32) *VolumeForDescribeVolumesOutput {
-	s.TradeStatus = &v
-	return s
-}
-
-// SetUpdatedAt sets the UpdatedAt field's value.
-func (s *VolumeForDescribeVolumesOutput) SetUpdatedAt(v string) *VolumeForDescribeVolumesOutput {
-	s.UpdatedAt = &v
-	return s
-}
-
-// SetVolumeId sets the VolumeId field's value.
-func (s *VolumeForDescribeVolumesOutput) SetVolumeId(v string) *VolumeForDescribeVolumesOutput {
-	s.VolumeId = &v
-	return s
-}
-
-// SetVolumeName sets the VolumeName field's value.
-func (s *VolumeForDescribeVolumesOutput) SetVolumeName(v string) *VolumeForDescribeVolumesOutput {
-	s.VolumeName = &v
-	return s
-}
-
-// SetVolumeType sets the VolumeType field's value.
-func (s *VolumeForDescribeVolumesOutput) SetVolumeType(v string) *VolumeForDescribeVolumesOutput {
-	s.VolumeType = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *VolumeForDescribeVolumesOutput) SetZoneId(v string) *VolumeForDescribeVolumesOutput {
-	s.ZoneId = &v
-	return s
 }

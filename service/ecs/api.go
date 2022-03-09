@@ -174,7 +174,6 @@ func (c *ECS) DeleteInstanceCommonRequest(input *map[string]interface{}) (req *r
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1086,7 +1085,6 @@ func (c *ECS) ModifyInstanceAttributeCommonRequest(input *map[string]interface{}
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1218,7 +1216,6 @@ func (c *ECS) ModifyInstanceChargeTypeCommonRequest(input *map[string]interface{
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1350,7 +1347,6 @@ func (c *ECS) ModifyInstanceSpecCommonRequest(input *map[string]interface{}) (re
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1482,7 +1478,6 @@ func (c *ECS) RebootInstanceCommonRequest(input *map[string]interface{}) (req *r
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1874,7 +1869,6 @@ func (c *ECS) StartInstanceCommonRequest(input *map[string]interface{}) (req *re
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -2006,7 +2000,6 @@ func (c *ECS) StopInstanceCommonRequest(input *map[string]interface{}) (req *req
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -2106,14 +2099,6 @@ func (c *ECS) StopInstanceWithContext(ctx volcstack.Context, input *StopInstance
 
 type AvailableZoneForDescribeAvailableResourceOutput struct {
 	_ struct{} `type:"structure"`
-
-	AvailableResources []*AvailableZonesAvailableResourceForDescribeAvailableResourceOutput `type:"list"`
-
-	RegionId *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -2124,90 +2109,6 @@ func (s AvailableZoneForDescribeAvailableResourceOutput) String() string {
 // GoString returns the string representation
 func (s AvailableZoneForDescribeAvailableResourceOutput) GoString() string {
 	return s.String()
-}
-
-// SetAvailableResources sets the AvailableResources field's value.
-func (s *AvailableZoneForDescribeAvailableResourceOutput) SetAvailableResources(v []*AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) *AvailableZoneForDescribeAvailableResourceOutput {
-	s.AvailableResources = v
-	return s
-}
-
-// SetRegionId sets the RegionId field's value.
-func (s *AvailableZoneForDescribeAvailableResourceOutput) SetRegionId(v string) *AvailableZoneForDescribeAvailableResourceOutput {
-	s.RegionId = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *AvailableZoneForDescribeAvailableResourceOutput) SetStatus(v string) *AvailableZoneForDescribeAvailableResourceOutput {
-	s.Status = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *AvailableZoneForDescribeAvailableResourceOutput) SetZoneId(v string) *AvailableZoneForDescribeAvailableResourceOutput {
-	s.ZoneId = &v
-	return s
-}
-
-type AvailableZonesAvailableResourceForDescribeAvailableResourceOutput struct {
-	_ struct{} `type:"structure"`
-
-	SupportedResources []*AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput `type:"list"`
-
-	Type *string `type:"string"`
-}
-
-// String returns the string representation
-func (s AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) GoString() string {
-	return s.String()
-}
-
-// SetSupportedResources sets the SupportedResources field's value.
-func (s *AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) SetSupportedResources(v []*AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) *AvailableZonesAvailableResourceForDescribeAvailableResourceOutput {
-	s.SupportedResources = v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *AvailableZonesAvailableResourceForDescribeAvailableResourceOutput) SetType(v string) *AvailableZonesAvailableResourceForDescribeAvailableResourceOutput {
-	s.Type = &v
-	return s
-}
-
-type AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput struct {
-	_ struct{} `type:"structure"`
-
-	Status *string `type:"string"`
-
-	Value *string `type:"string"`
-}
-
-// String returns the string representation
-func (s AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) GoString() string {
-	return s.String()
-}
-
-// SetStatus sets the Status field's value.
-func (s *AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) SetStatus(v string) *AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput {
-	s.Status = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput) SetValue(v string) *AvailableZonesAvailableResourcesSupportedResourceForDescribeAvailableResourceOutput {
-	s.Value = &v
-	return s
 }
 
 type CreateImageInput struct {
@@ -2820,34 +2721,6 @@ func (s *DescribeUserDataOutput) SetUserData(v string) *DescribeUserDataOutput {
 
 type ImageForDescribeImagesOutput struct {
 	_ struct{} `type:"structure"`
-
-	Architecture *string `type:"string"`
-
-	CreatedAt *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	ImageId *string `type:"string"`
-
-	ImageName *string `type:"string"`
-
-	IsSupportCloudInit *bool `type:"boolean"`
-
-	OsName *string `type:"string"`
-
-	OsType *string `type:"string"`
-
-	Platform *string `type:"string"`
-
-	PlatformVersion *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	UpdatedAt *string `type:"string"`
-
-	VirtualSize *int64 `type:"int64"`
-
-	Visibility *string `type:"string"`
 }
 
 // String returns the string representation
@@ -2860,128 +2733,8 @@ func (s ImageForDescribeImagesOutput) GoString() string {
 	return s.String()
 }
 
-// SetArchitecture sets the Architecture field's value.
-func (s *ImageForDescribeImagesOutput) SetArchitecture(v string) *ImageForDescribeImagesOutput {
-	s.Architecture = &v
-	return s
-}
-
-// SetCreatedAt sets the CreatedAt field's value.
-func (s *ImageForDescribeImagesOutput) SetCreatedAt(v string) *ImageForDescribeImagesOutput {
-	s.CreatedAt = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *ImageForDescribeImagesOutput) SetDescription(v string) *ImageForDescribeImagesOutput {
-	s.Description = &v
-	return s
-}
-
-// SetImageId sets the ImageId field's value.
-func (s *ImageForDescribeImagesOutput) SetImageId(v string) *ImageForDescribeImagesOutput {
-	s.ImageId = &v
-	return s
-}
-
-// SetImageName sets the ImageName field's value.
-func (s *ImageForDescribeImagesOutput) SetImageName(v string) *ImageForDescribeImagesOutput {
-	s.ImageName = &v
-	return s
-}
-
-// SetIsSupportCloudInit sets the IsSupportCloudInit field's value.
-func (s *ImageForDescribeImagesOutput) SetIsSupportCloudInit(v bool) *ImageForDescribeImagesOutput {
-	s.IsSupportCloudInit = &v
-	return s
-}
-
-// SetOsName sets the OsName field's value.
-func (s *ImageForDescribeImagesOutput) SetOsName(v string) *ImageForDescribeImagesOutput {
-	s.OsName = &v
-	return s
-}
-
-// SetOsType sets the OsType field's value.
-func (s *ImageForDescribeImagesOutput) SetOsType(v string) *ImageForDescribeImagesOutput {
-	s.OsType = &v
-	return s
-}
-
-// SetPlatform sets the Platform field's value.
-func (s *ImageForDescribeImagesOutput) SetPlatform(v string) *ImageForDescribeImagesOutput {
-	s.Platform = &v
-	return s
-}
-
-// SetPlatformVersion sets the PlatformVersion field's value.
-func (s *ImageForDescribeImagesOutput) SetPlatformVersion(v string) *ImageForDescribeImagesOutput {
-	s.PlatformVersion = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *ImageForDescribeImagesOutput) SetStatus(v string) *ImageForDescribeImagesOutput {
-	s.Status = &v
-	return s
-}
-
-// SetUpdatedAt sets the UpdatedAt field's value.
-func (s *ImageForDescribeImagesOutput) SetUpdatedAt(v string) *ImageForDescribeImagesOutput {
-	s.UpdatedAt = &v
-	return s
-}
-
-// SetVirtualSize sets the VirtualSize field's value.
-func (s *ImageForDescribeImagesOutput) SetVirtualSize(v int64) *ImageForDescribeImagesOutput {
-	s.VirtualSize = &v
-	return s
-}
-
-// SetVisibility sets the Visibility field's value.
-func (s *ImageForDescribeImagesOutput) SetVisibility(v string) *ImageForDescribeImagesOutput {
-	s.Visibility = &v
-	return s
-}
-
 type InstanceForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
-
-	CreatedAt *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	HostName *string `type:"string"`
-
-	Id *string `type:"string"`
-
-	ImageId *string `type:"string"`
-
-	InstanceChargeType *string `type:"string"`
-
-	InstanceName *string `type:"string"`
-
-	InstanceTypeId *string `type:"string"`
-
-	KeyPairId *string `type:"string"`
-
-	KeyPairName *string `type:"string"`
-
-	NetworkInterfaces []*InstancesNetworkInterfaceForDescribeInstancesOutput `type:"list"`
-
-	RdmaIpAddresses []*string `type:"list"`
-
-	Status *string `type:"string"`
-
-	StoppedMode *string `type:"string"`
-
-	UpdatedAt *string `type:"string"`
-
-	UserData *string `type:"string"`
-
-	VpcId *string `type:"string"`
-
-	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -2994,130 +2747,8 @@ func (s InstanceForDescribeInstancesOutput) GoString() string {
 	return s.String()
 }
 
-// SetCreatedAt sets the CreatedAt field's value.
-func (s *InstanceForDescribeInstancesOutput) SetCreatedAt(v string) *InstanceForDescribeInstancesOutput {
-	s.CreatedAt = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *InstanceForDescribeInstancesOutput) SetDescription(v string) *InstanceForDescribeInstancesOutput {
-	s.Description = &v
-	return s
-}
-
-// SetHostName sets the HostName field's value.
-func (s *InstanceForDescribeInstancesOutput) SetHostName(v string) *InstanceForDescribeInstancesOutput {
-	s.HostName = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *InstanceForDescribeInstancesOutput) SetId(v string) *InstanceForDescribeInstancesOutput {
-	s.Id = &v
-	return s
-}
-
-// SetImageId sets the ImageId field's value.
-func (s *InstanceForDescribeInstancesOutput) SetImageId(v string) *InstanceForDescribeInstancesOutput {
-	s.ImageId = &v
-	return s
-}
-
-// SetInstanceChargeType sets the InstanceChargeType field's value.
-func (s *InstanceForDescribeInstancesOutput) SetInstanceChargeType(v string) *InstanceForDescribeInstancesOutput {
-	s.InstanceChargeType = &v
-	return s
-}
-
-// SetInstanceName sets the InstanceName field's value.
-func (s *InstanceForDescribeInstancesOutput) SetInstanceName(v string) *InstanceForDescribeInstancesOutput {
-	s.InstanceName = &v
-	return s
-}
-
-// SetInstanceTypeId sets the InstanceTypeId field's value.
-func (s *InstanceForDescribeInstancesOutput) SetInstanceTypeId(v string) *InstanceForDescribeInstancesOutput {
-	s.InstanceTypeId = &v
-	return s
-}
-
-// SetKeyPairId sets the KeyPairId field's value.
-func (s *InstanceForDescribeInstancesOutput) SetKeyPairId(v string) *InstanceForDescribeInstancesOutput {
-	s.KeyPairId = &v
-	return s
-}
-
-// SetKeyPairName sets the KeyPairName field's value.
-func (s *InstanceForDescribeInstancesOutput) SetKeyPairName(v string) *InstanceForDescribeInstancesOutput {
-	s.KeyPairName = &v
-	return s
-}
-
-// SetNetworkInterfaces sets the NetworkInterfaces field's value.
-func (s *InstanceForDescribeInstancesOutput) SetNetworkInterfaces(v []*InstancesNetworkInterfaceForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
-	s.NetworkInterfaces = v
-	return s
-}
-
-// SetRdmaIpAddresses sets the RdmaIpAddresses field's value.
-func (s *InstanceForDescribeInstancesOutput) SetRdmaIpAddresses(v []*string) *InstanceForDescribeInstancesOutput {
-	s.RdmaIpAddresses = v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *InstanceForDescribeInstancesOutput) SetStatus(v string) *InstanceForDescribeInstancesOutput {
-	s.Status = &v
-	return s
-}
-
-// SetStoppedMode sets the StoppedMode field's value.
-func (s *InstanceForDescribeInstancesOutput) SetStoppedMode(v string) *InstanceForDescribeInstancesOutput {
-	s.StoppedMode = &v
-	return s
-}
-
-// SetUpdatedAt sets the UpdatedAt field's value.
-func (s *InstanceForDescribeInstancesOutput) SetUpdatedAt(v string) *InstanceForDescribeInstancesOutput {
-	s.UpdatedAt = &v
-	return s
-}
-
-// SetUserData sets the UserData field's value.
-func (s *InstanceForDescribeInstancesOutput) SetUserData(v string) *InstanceForDescribeInstancesOutput {
-	s.UserData = &v
-	return s
-}
-
-// SetVpcId sets the VpcId field's value.
-func (s *InstanceForDescribeInstancesOutput) SetVpcId(v string) *InstanceForDescribeInstancesOutput {
-	s.VpcId = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *InstanceForDescribeInstancesOutput) SetZoneId(v string) *InstanceForDescribeInstancesOutput {
-	s.ZoneId = &v
-	return s
-}
-
 type InstanceTypeForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
-
-	Gpu *InstanceTypesGpuForDescribeInstanceTypesOutput `type:"structure"`
-
-	InstanceTypeFamily *string `type:"string"`
-
-	InstanceTypeId *string `type:"string"`
-
-	LocalVolumes []*InstanceTypesLocalVolumeForDescribeInstanceTypesOutput `type:"list"`
-
-	Memory *InstanceTypesMemoryForDescribeInstanceTypesOutput `type:"structure"`
-
-	Processor *InstanceTypesProcessorForDescribeInstanceTypesOutput `type:"structure"`
-
-	Rdma *InstanceTypesRdmaForDescribeInstanceTypesOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -3128,336 +2759,6 @@ func (s InstanceTypeForDescribeInstanceTypesOutput) String() string {
 // GoString returns the string representation
 func (s InstanceTypeForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
-}
-
-// SetGpu sets the Gpu field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetGpu(v *InstanceTypesGpuForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
-	s.Gpu = v
-	return s
-}
-
-// SetInstanceTypeFamily sets the InstanceTypeFamily field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetInstanceTypeFamily(v string) *InstanceTypeForDescribeInstanceTypesOutput {
-	s.InstanceTypeFamily = &v
-	return s
-}
-
-// SetInstanceTypeId sets the InstanceTypeId field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetInstanceTypeId(v string) *InstanceTypeForDescribeInstanceTypesOutput {
-	s.InstanceTypeId = &v
-	return s
-}
-
-// SetLocalVolumes sets the LocalVolumes field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetLocalVolumes(v []*InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
-	s.LocalVolumes = v
-	return s
-}
-
-// SetMemory sets the Memory field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetMemory(v *InstanceTypesMemoryForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
-	s.Memory = v
-	return s
-}
-
-// SetProcessor sets the Processor field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetProcessor(v *InstanceTypesProcessorForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
-	s.Processor = v
-	return s
-}
-
-// SetRdma sets the Rdma field's value.
-func (s *InstanceTypeForDescribeInstanceTypesOutput) SetRdma(v *InstanceTypesRdmaForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
-	s.Rdma = v
-	return s
-}
-
-type InstanceTypesGpuForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	GpuDevices []*InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s InstanceTypesGpuForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstanceTypesGpuForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetGpuDevices sets the GpuDevices field's value.
-func (s *InstanceTypesGpuForDescribeInstanceTypesOutput) SetGpuDevices(v []*InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) *InstanceTypesGpuForDescribeInstanceTypesOutput {
-	s.GpuDevices = v
-	return s
-}
-
-type InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Count *int32 `type:"int32"`
-
-	Memory *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput `type:"structure"`
-
-	ProductName *string `type:"string"`
-}
-
-// String returns the string representation
-func (s InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetCount sets the Count field's value.
-func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetCount(v int32) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
-	s.Count = &v
-	return s
-}
-
-// SetMemory sets the Memory field's value.
-func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetMemory(v *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
-	s.Memory = v
-	return s
-}
-
-// SetProductName sets the ProductName field's value.
-func (s *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput) SetProductName(v string) *InstanceTypesGpuGpuDeviceForDescribeInstanceTypesOutput {
-	s.ProductName = &v
-	return s
-}
-
-type InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Size *int32 `type:"int32"`
-}
-
-// String returns the string representation
-func (s InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetSize sets the Size field's value.
-func (s *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput) SetSize(v int32) *InstanceTypesGpuGpuDevicesMemoryForDescribeInstanceTypesOutput {
-	s.Size = &v
-	return s
-}
-
-type InstanceTypesLocalVolumeForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Count *int32 `type:"int32"`
-
-	Size *int32 `type:"int32"`
-
-	VolumeType *string `type:"string"`
-}
-
-// String returns the string representation
-func (s InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetCount sets the Count field's value.
-func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetCount(v int32) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
-	s.Count = &v
-	return s
-}
-
-// SetSize sets the Size field's value.
-func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetSize(v int32) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
-	s.Size = &v
-	return s
-}
-
-// SetVolumeType sets the VolumeType field's value.
-func (s *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput) SetVolumeType(v string) *InstanceTypesLocalVolumeForDescribeInstanceTypesOutput {
-	s.VolumeType = &v
-	return s
-}
-
-type InstanceTypesMemoryForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Size *int32 `type:"int32"`
-}
-
-// String returns the string representation
-func (s InstanceTypesMemoryForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstanceTypesMemoryForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetSize sets the Size field's value.
-func (s *InstanceTypesMemoryForDescribeInstanceTypesOutput) SetSize(v int32) *InstanceTypesMemoryForDescribeInstanceTypesOutput {
-	s.Size = &v
-	return s
-}
-
-type InstanceTypesProcessorForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Cpus *int32 `type:"int32"`
-}
-
-// String returns the string representation
-func (s InstanceTypesProcessorForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstanceTypesProcessorForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetCpus sets the Cpus field's value.
-func (s *InstanceTypesProcessorForDescribeInstanceTypesOutput) SetCpus(v int32) *InstanceTypesProcessorForDescribeInstanceTypesOutput {
-	s.Cpus = &v
-	return s
-}
-
-type InstanceTypesRdmaForDescribeInstanceTypesOutput struct {
-	_ struct{} `type:"structure"`
-
-	RdmaNetworkInterfaces *int32 `type:"int32"`
-}
-
-// String returns the string representation
-func (s InstanceTypesRdmaForDescribeInstanceTypesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstanceTypesRdmaForDescribeInstanceTypesOutput) GoString() string {
-	return s.String()
-}
-
-// SetRdmaNetworkInterfaces sets the RdmaNetworkInterfaces field's value.
-func (s *InstanceTypesRdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int32) *InstanceTypesRdmaForDescribeInstanceTypesOutput {
-	s.RdmaNetworkInterfaces = &v
-	return s
-}
-
-type InstancesNetworkInterfaceForDescribeInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	EipAddress *string `type:"string"`
-
-	MacAddress *string `type:"string"`
-
-	NetworkInterfaceId *string `type:"string"`
-
-	NetworkInterfaceName *string `type:"string"`
-
-	PrimaryIpAddress *string `type:"string"`
-
-	SecurityGroupIds []*string `type:"list"`
-
-	Status *string `type:"string"`
-
-	SubnetId *string `type:"string"`
-
-	Type *string `type:"string"`
-
-	VpcId *string `type:"string"`
-
-	VpcName *string `type:"string"`
-}
-
-// String returns the string representation
-func (s InstancesNetworkInterfaceForDescribeInstancesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstancesNetworkInterfaceForDescribeInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetEipAddress sets the EipAddress field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetEipAddress(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.EipAddress = &v
-	return s
-}
-
-// SetMacAddress sets the MacAddress field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetMacAddress(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.MacAddress = &v
-	return s
-}
-
-// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetNetworkInterfaceId(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.NetworkInterfaceId = &v
-	return s
-}
-
-// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetNetworkInterfaceName(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.NetworkInterfaceName = &v
-	return s
-}
-
-// SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetPrimaryIpAddress(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.PrimaryIpAddress = &v
-	return s
-}
-
-// SetSecurityGroupIds sets the SecurityGroupIds field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetSecurityGroupIds(v []*string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.SecurityGroupIds = v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetStatus(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.Status = &v
-	return s
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetSubnetId(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.SubnetId = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetType(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.Type = &v
-	return s
-}
-
-// SetVpcId sets the VpcId field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetVpcId(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.VpcId = &v
-	return s
-}
-
-// SetVpcName sets the VpcName field's value.
-func (s *InstancesNetworkInterfaceForDescribeInstancesOutput) SetVpcName(v string) *InstancesNetworkInterfaceForDescribeInstancesOutput {
-	s.VpcName = &v
-	return s
 }
 
 type ModifyInstanceAttributeInput struct {
