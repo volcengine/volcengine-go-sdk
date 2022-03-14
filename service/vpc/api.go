@@ -268,6 +268,136 @@ func (c *VPC) AssociateEipAddressWithContext(ctx volcstack.Context, input *Assoc
 	return out, req.Send()
 }
 
+const opAssociateHaVipCommon = "AssociateHaVip"
+
+// AssociateHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateHaVipCommon operation. The "output" return
+// value will be populated with the AssociateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssociateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssociateHaVipCommon Send returns without error.
+//
+// See AssociateHaVipCommon for more information on using the AssociateHaVipCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the AssociateHaVipCommonRequest method.
+//    req, resp := client.AssociateHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssociateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssociateHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateHaVipCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssociateHaVipCommon for usage and error information.
+func (c *VPC) AssociateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssociateHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssociateHaVipCommonWithContext is the same as AssociateHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssociateHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssociateHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateHaVip = "AssociateHaVip"
+
+// AssociateHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateHaVip operation. The "output" return
+// value will be populated with the AssociateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssociateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssociateHaVipCommon Send returns without error.
+//
+// See AssociateHaVip for more information on using the AssociateHaVip
+// API call, and error handling.
+//
+//    // Example sending a request using the AssociateHaVipRequest method.
+//    req, resp := client.AssociateHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssociateHaVipRequest(input *AssociateHaVipInput) (req *request.Request, output *AssociateHaVipOutput) {
+	op := &request.Operation{
+		Name:       opAssociateHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssociateHaVipInput{}
+	}
+
+	output = &AssociateHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateHaVip API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssociateHaVip for usage and error information.
+func (c *VPC) AssociateHaVip(input *AssociateHaVipInput) (*AssociateHaVipOutput, error) {
+	req, out := c.AssociateHaVipRequest(input)
+	return out, req.Send()
+}
+
+// AssociateHaVipWithContext is the same as AssociateHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssociateHaVipWithContext(ctx volcstack.Context, input *AssociateHaVipInput, opts ...request.Option) (*AssociateHaVipOutput, error) {
+	req, out := c.AssociateHaVipRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opAssociateRouteTableCommon = "AssociateRouteTable"
 
 // AssociateRouteTableCommonRequest generates a "volcstack/request.Request" representing the
@@ -783,6 +913,136 @@ func (c *VPC) AuthorizeSecurityGroupIngress(input *AuthorizeSecurityGroupIngress
 // for more information on using Contexts.
 func (c *VPC) AuthorizeSecurityGroupIngressWithContext(ctx volcstack.Context, input *AuthorizeSecurityGroupIngressInput, opts ...request.Option) (*AuthorizeSecurityGroupIngressOutput, error) {
 	req, out := c.AuthorizeSecurityGroupIngressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateHaVipCommon = "CreateHaVip"
+
+// CreateHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateHaVipCommon operation. The "output" return
+// value will be populated with the CreateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CreateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateHaVipCommon Send returns without error.
+//
+// See CreateHaVipCommon for more information on using the CreateHaVipCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the CreateHaVipCommonRequest method.
+//    req, resp := client.CreateHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) CreateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateHaVipCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation CreateHaVipCommon for usage and error information.
+func (c *VPC) CreateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateHaVipCommonWithContext is the same as CreateHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) CreateHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateHaVip = "CreateHaVip"
+
+// CreateHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateHaVip operation. The "output" return
+// value will be populated with the CreateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CreateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateHaVipCommon Send returns without error.
+//
+// See CreateHaVip for more information on using the CreateHaVip
+// API call, and error handling.
+//
+//    // Example sending a request using the CreateHaVipRequest method.
+//    req, resp := client.CreateHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) CreateHaVipRequest(input *CreateHaVipInput) (req *request.Request, output *CreateHaVipOutput) {
+	op := &request.Operation{
+		Name:       opCreateHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateHaVipInput{}
+	}
+
+	output = &CreateHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateHaVip API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation CreateHaVip for usage and error information.
+func (c *VPC) CreateHaVip(input *CreateHaVipInput) (*CreateHaVipOutput, error) {
+	req, out := c.CreateHaVipRequest(input)
+	return out, req.Send()
+}
+
+// CreateHaVipWithContext is the same as CreateHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) CreateHaVipWithContext(ctx volcstack.Context, input *CreateHaVipInput, opts ...request.Option) (*CreateHaVipOutput, error) {
+	req, out := c.CreateHaVipRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1563,6 +1823,136 @@ func (c *VPC) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
 // for more information on using Contexts.
 func (c *VPC) CreateVpcWithContext(ctx volcstack.Context, input *CreateVpcInput, opts ...request.Option) (*CreateVpcOutput, error) {
 	req, out := c.CreateVpcRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteHaVipCommon = "DeleteHaVip"
+
+// DeleteHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteHaVipCommon operation. The "output" return
+// value will be populated with the DeleteHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteHaVipCommon Send returns without error.
+//
+// See DeleteHaVipCommon for more information on using the DeleteHaVipCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteHaVipCommonRequest method.
+//    req, resp := client.DeleteHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DeleteHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteHaVipCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DeleteHaVipCommon for usage and error information.
+func (c *VPC) DeleteHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteHaVipCommonWithContext is the same as DeleteHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DeleteHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteHaVip = "DeleteHaVip"
+
+// DeleteHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteHaVip operation. The "output" return
+// value will be populated with the DeleteHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteHaVipCommon Send returns without error.
+//
+// See DeleteHaVip for more information on using the DeleteHaVip
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteHaVipRequest method.
+//    req, resp := client.DeleteHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DeleteHaVipRequest(input *DeleteHaVipInput) (req *request.Request, output *DeleteHaVipOutput) {
+	op := &request.Operation{
+		Name:       opDeleteHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteHaVipInput{}
+	}
+
+	output = &DeleteHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteHaVip API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DeleteHaVip for usage and error information.
+func (c *VPC) DeleteHaVip(input *DeleteHaVipInput) (*DeleteHaVipOutput, error) {
+	req, out := c.DeleteHaVipRequest(input)
+	return out, req.Send()
+}
+
+// DeleteHaVipWithContext is the same as DeleteHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DeleteHaVipWithContext(ctx volcstack.Context, input *DeleteHaVipInput, opts ...request.Option) (*DeleteHaVipOutput, error) {
+	req, out := c.DeleteHaVipRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2603,6 +2993,136 @@ func (c *VPC) DescribeEipAddresses(input *DescribeEipAddressesInput) (*DescribeE
 // for more information on using Contexts.
 func (c *VPC) DescribeEipAddressesWithContext(ctx volcstack.Context, input *DescribeEipAddressesInput, opts ...request.Option) (*DescribeEipAddressesOutput, error) {
 	req, out := c.DescribeEipAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHaVipsCommon = "DescribeHaVips"
+
+// DescribeHaVipsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHaVipsCommon operation. The "output" return
+// value will be populated with the DescribeHaVipsCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeHaVipsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeHaVipsCommon Send returns without error.
+//
+// See DescribeHaVipsCommon for more information on using the DescribeHaVipsCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeHaVipsCommonRequest method.
+//    req, resp := client.DescribeHaVipsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DescribeHaVipsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeHaVipsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHaVipsCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DescribeHaVipsCommon for usage and error information.
+func (c *VPC) DescribeHaVipsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeHaVipsCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHaVipsCommonWithContext is the same as DescribeHaVipsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHaVipsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DescribeHaVipsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeHaVipsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHaVips = "DescribeHaVips"
+
+// DescribeHaVipsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHaVips operation. The "output" return
+// value will be populated with the DescribeHaVipsCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeHaVipsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeHaVipsCommon Send returns without error.
+//
+// See DescribeHaVips for more information on using the DescribeHaVips
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeHaVipsRequest method.
+//    req, resp := client.DescribeHaVipsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DescribeHaVipsRequest(input *DescribeHaVipsInput) (req *request.Request, output *DescribeHaVipsOutput) {
+	op := &request.Operation{
+		Name:       opDescribeHaVips,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeHaVipsInput{}
+	}
+
+	output = &DescribeHaVipsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHaVips API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DescribeHaVips for usage and error information.
+func (c *VPC) DescribeHaVips(input *DescribeHaVipsInput) (*DescribeHaVipsOutput, error) {
+	req, out := c.DescribeHaVipsRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHaVipsWithContext is the same as DescribeHaVips with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHaVips for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DescribeHaVipsWithContext(ctx volcstack.Context, input *DescribeHaVipsInput, opts ...request.Option) (*DescribeHaVipsOutput, error) {
+	req, out := c.DescribeHaVipsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -4168,6 +4688,136 @@ func (c *VPC) DisassociateEipAddressWithContext(ctx volcstack.Context, input *Di
 	return out, req.Send()
 }
 
+const opDisassociateHaVipCommon = "DisassociateHaVip"
+
+// DisassociateHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateHaVipCommon operation. The "output" return
+// value will be populated with the DisassociateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DisassociateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisassociateHaVipCommon Send returns without error.
+//
+// See DisassociateHaVipCommon for more information on using the DisassociateHaVipCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DisassociateHaVipCommonRequest method.
+//    req, resp := client.DisassociateHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DisassociateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDisassociateHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateHaVipCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DisassociateHaVipCommon for usage and error information.
+func (c *VPC) DisassociateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DisassociateHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateHaVipCommonWithContext is the same as DisassociateHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DisassociateHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DisassociateHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisassociateHaVip = "DisassociateHaVip"
+
+// DisassociateHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateHaVip operation. The "output" return
+// value will be populated with the DisassociateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DisassociateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisassociateHaVipCommon Send returns without error.
+//
+// See DisassociateHaVip for more information on using the DisassociateHaVip
+// API call, and error handling.
+//
+//    // Example sending a request using the DisassociateHaVipRequest method.
+//    req, resp := client.DisassociateHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DisassociateHaVipRequest(input *DisassociateHaVipInput) (req *request.Request, output *DisassociateHaVipOutput) {
+	op := &request.Operation{
+		Name:       opDisassociateHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DisassociateHaVipInput{}
+	}
+
+	output = &DisassociateHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateHaVip API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DisassociateHaVip for usage and error information.
+func (c *VPC) DisassociateHaVip(input *DisassociateHaVipInput) (*DisassociateHaVipOutput, error) {
+	req, out := c.DisassociateHaVipRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateHaVipWithContext is the same as DisassociateHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DisassociateHaVipWithContext(ctx volcstack.Context, input *DisassociateHaVipInput, opts ...request.Option) (*DisassociateHaVipOutput, error) {
+	req, out := c.DisassociateHaVipRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDisassociateRouteTableCommon = "DisassociateRouteTable"
 
 // DisassociateRouteTableCommonRequest generates a "volcstack/request.Request" representing the
@@ -4423,6 +5073,136 @@ func (c *VPC) ModifyEipAddressAttributes(input *ModifyEipAddressAttributesInput)
 // for more information on using Contexts.
 func (c *VPC) ModifyEipAddressAttributesWithContext(ctx volcstack.Context, input *ModifyEipAddressAttributesInput, opts ...request.Option) (*ModifyEipAddressAttributesOutput, error) {
 	req, out := c.ModifyEipAddressAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyHaVipAttributesCommon = "ModifyHaVipAttributes"
+
+// ModifyHaVipAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyHaVipAttributesCommon operation. The "output" return
+// value will be populated with the ModifyHaVipAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyHaVipAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyHaVipAttributesCommon Send returns without error.
+//
+// See ModifyHaVipAttributesCommon for more information on using the ModifyHaVipAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyHaVipAttributesCommonRequest method.
+//    req, resp := client.ModifyHaVipAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) ModifyHaVipAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyHaVipAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyHaVipAttributesCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation ModifyHaVipAttributesCommon for usage and error information.
+func (c *VPC) ModifyHaVipAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyHaVipAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyHaVipAttributesCommonWithContext is the same as ModifyHaVipAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyHaVipAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) ModifyHaVipAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyHaVipAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyHaVipAttributes = "ModifyHaVipAttributes"
+
+// ModifyHaVipAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyHaVipAttributes operation. The "output" return
+// value will be populated with the ModifyHaVipAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyHaVipAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyHaVipAttributesCommon Send returns without error.
+//
+// See ModifyHaVipAttributes for more information on using the ModifyHaVipAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyHaVipAttributesRequest method.
+//    req, resp := client.ModifyHaVipAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) ModifyHaVipAttributesRequest(input *ModifyHaVipAttributesInput) (req *request.Request, output *ModifyHaVipAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyHaVipAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyHaVipAttributesInput{}
+	}
+
+	output = &ModifyHaVipAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyHaVipAttributes API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation ModifyHaVipAttributes for usage and error information.
+func (c *VPC) ModifyHaVipAttributes(input *ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error) {
+	req, out := c.ModifyHaVipAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyHaVipAttributesWithContext is the same as ModifyHaVipAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyHaVipAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) ModifyHaVipAttributesWithContext(ctx volcstack.Context, input *ModifyHaVipAttributesInput, opts ...request.Option) (*ModifyHaVipAttributesOutput, error) {
+	req, out := c.ModifyHaVipAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -6089,6 +6869,84 @@ func (s *AssociateEipAddressOutput) SetRequestId(v string) *AssociateEipAddressO
 	return s
 }
 
+type AssociateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	InstanceType *string `type:"string" enum:"InstanceTypeForAssociateHaVipInput"`
+}
+
+// String returns the string representation
+func (s AssociateHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssociateHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssociateHaVipInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *AssociateHaVipInput) SetHaVipId(v string) *AssociateHaVipInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AssociateHaVipInput) SetInstanceId(v string) *AssociateHaVipInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *AssociateHaVipInput) SetInstanceType(v string) *AssociateHaVipInput {
+	s.InstanceType = &v
+	return s
+}
+
+type AssociateHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssociateHaVipOutput) SetRequestId(v string) *AssociateHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
 type AssociateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6515,6 +7373,104 @@ func (s AuthorizeSecurityGroupIngressOutput) GoString() string {
 
 // SetRequestId sets the RequestId field's value.
 func (s *AuthorizeSecurityGroupIngressOutput) SetRequestId(v string) *AuthorizeSecurityGroupIngressOutput {
+	s.RequestId = &v
+	return s
+}
+
+type CreateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	HaVipName *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateHaVipInput"}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateHaVipInput) SetDescription(v string) *CreateHaVipInput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *CreateHaVipInput) SetHaVipName(v string) *CreateHaVipInput {
+	s.HaVipName = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *CreateHaVipInput) SetIpAddress(v string) *CreateHaVipInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *CreateHaVipInput) SetSubnetId(v string) *CreateHaVipInput {
+	s.SubnetId = &v
+	return s
+}
+
+type CreateHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	HaVipId *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *CreateHaVipOutput) SetHaVipId(v string) *CreateHaVipOutput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *CreateHaVipOutput) SetIpAddress(v string) *CreateHaVipOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateHaVipOutput) SetRequestId(v string) *CreateHaVipOutput {
 	s.RequestId = &v
 	return s
 }
@@ -7112,6 +8068,64 @@ func (s *CreateVpcOutput) SetRouteTableId(v string) *CreateVpcOutput {
 // SetVpcId sets the VpcId field's value.
 func (s *CreateVpcOutput) SetVpcId(v string) *CreateVpcOutput {
 	s.VpcId = &v
+	return s
+}
+
+type DeleteHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteHaVipInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *DeleteHaVipInput) SetHaVipId(v string) *DeleteHaVipInput {
+	s.HaVipId = &v
+	return s
+}
+
+type DeleteHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteHaVipOutput) SetRequestId(v string) *DeleteHaVipOutput {
+	s.RequestId = &v
 	return s
 }
 
@@ -7793,6 +8807,138 @@ func (s *DescribeEipAddressesOutput) SetRequestId(v string) *DescribeEipAddresse
 
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeEipAddressesOutput) SetTotalCount(v int64) *DescribeEipAddressesOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeHaVipsInput struct {
+	_ struct{} `type:"structure"`
+
+	HaVipIds []*string `type:"list"`
+
+	HaVipName *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeHaVipsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHaVipsInput) GoString() string {
+	return s.String()
+}
+
+// SetHaVipIds sets the HaVipIds field's value.
+func (s *DescribeHaVipsInput) SetHaVipIds(v []*string) *DescribeHaVipsInput {
+	s.HaVipIds = v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *DescribeHaVipsInput) SetHaVipName(v string) *DescribeHaVipsInput {
+	s.HaVipName = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *DescribeHaVipsInput) SetIpAddress(v string) *DescribeHaVipsInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeHaVipsInput) SetPageNumber(v int64) *DescribeHaVipsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeHaVipsInput) SetPageSize(v int64) *DescribeHaVipsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeHaVipsInput) SetStatus(v string) *DescribeHaVipsInput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeHaVipsInput) SetSubnetId(v string) *DescribeHaVipsInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeHaVipsInput) SetVpcId(v string) *DescribeHaVipsInput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeHaVipsOutput struct {
+	_ struct{} `type:"structure"`
+
+	HaVips []*HaVipForDescribeHaVipsOutput `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeHaVipsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHaVipsOutput) GoString() string {
+	return s.String()
+}
+
+// SetHaVips sets the HaVips field's value.
+func (s *DescribeHaVipsOutput) SetHaVips(v []*HaVipForDescribeHaVipsOutput) *DescribeHaVipsOutput {
+	s.HaVips = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeHaVipsOutput) SetPageNumber(v int64) *DescribeHaVipsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeHaVipsOutput) SetPageSize(v int64) *DescribeHaVipsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeHaVipsOutput) SetRequestId(v string) *DescribeHaVipsOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeHaVipsOutput) SetTotalCount(v int64) *DescribeHaVipsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -9347,6 +10493,84 @@ func (s *DisassociateEipAddressOutput) SetRequestId(v string) *DisassociateEipAd
 	return s
 }
 
+type DisassociateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateHaVipInput"`
+}
+
+// String returns the string representation
+func (s DisassociateHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisassociateHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisassociateHaVipInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *DisassociateHaVipInput) SetHaVipId(v string) *DisassociateHaVipInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DisassociateHaVipInput) SetInstanceId(v string) *DisassociateHaVipInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DisassociateHaVipInput) SetInstanceType(v string) *DisassociateHaVipInput {
+	s.InstanceType = &v
+	return s
+}
+
+type DisassociateHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisassociateHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DisassociateHaVipOutput) SetRequestId(v string) *DisassociateHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
 type DisassociateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
@@ -9431,6 +10655,20 @@ func (s EipAddresseForDescribeEipAddressesOutput) GoString() string {
 	return s.String()
 }
 
+type HaVipForDescribeHaVipsOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s HaVipForDescribeHaVipsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HaVipForDescribeHaVipsOutput) GoString() string {
+	return s.String()
+}
+
 type ModifyEipAddressAttributesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -9512,6 +10750,80 @@ func (s ModifyEipAddressAttributesOutput) GoString() string {
 
 // SetRequestId sets the RequestId field's value.
 func (s *ModifyEipAddressAttributesOutput) SetRequestId(v string) *ModifyEipAddressAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifyHaVipAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+
+	HaVipName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyHaVipAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHaVipAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyHaVipAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyHaVipAttributesInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyHaVipAttributesInput) SetDescription(v string) *ModifyHaVipAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *ModifyHaVipAttributesInput) SetHaVipId(v string) *ModifyHaVipAttributesInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *ModifyHaVipAttributesInput) SetHaVipName(v string) *ModifyHaVipAttributesInput {
+	s.HaVipName = &v
+	return s
+}
+
+type ModifyHaVipAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyHaVipAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHaVipAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyHaVipAttributesOutput) SetRequestId(v string) *ModifyHaVipAttributesOutput {
 	s.RequestId = &v
 	return s
 }
@@ -10768,6 +12080,14 @@ const (
 )
 
 const (
+	// InstanceTypeForAssociateHaVipInputNetworkInterface is a InstanceTypeForAssociateHaVipInput enum value
+	InstanceTypeForAssociateHaVipInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForAssociateHaVipInputEcsInstance is a InstanceTypeForAssociateHaVipInput enum value
+	InstanceTypeForAssociateHaVipInputEcsInstance = "EcsInstance"
+)
+
+const (
 	// InstanceTypeForDisassociateEipAddressInputNat is a InstanceTypeForDisassociateEipAddressInput enum value
 	InstanceTypeForDisassociateEipAddressInputNat = "Nat"
 
@@ -10779,6 +12099,14 @@ const (
 
 	// InstanceTypeForDisassociateEipAddressInputEcsInstance is a InstanceTypeForDisassociateEipAddressInput enum value
 	InstanceTypeForDisassociateEipAddressInputEcsInstance = "EcsInstance"
+)
+
+const (
+	// InstanceTypeForDisassociateHaVipInputNetworkInterface is a InstanceTypeForDisassociateHaVipInput enum value
+	InstanceTypeForDisassociateHaVipInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForDisassociateHaVipInputEcsInstance is a InstanceTypeForDisassociateHaVipInput enum value
+	InstanceTypeForDisassociateHaVipInputEcsInstance = "EcsInstance"
 )
 
 const (

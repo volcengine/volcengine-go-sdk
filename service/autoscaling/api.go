@@ -3,6 +3,8 @@
 package autoscaling
 
 import (
+	"encoding/json"
+
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
@@ -4613,7 +4615,7 @@ func (s *DisableScalingGroupOutput) SetScalingGroupId(v string) *DisableScalingG
 type EipForCreateScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `type:"int64"`
+	Bandwidth *json.Number `type:"json_number"`
 
 	BillingType *int32 `type:"int32"`
 
@@ -4631,7 +4633,7 @@ func (s EipForCreateScalingConfigurationInput) GoString() string {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *EipForCreateScalingConfigurationInput) SetBandwidth(v int64) *EipForCreateScalingConfigurationInput {
+func (s *EipForCreateScalingConfigurationInput) SetBandwidth(v json.Number) *EipForCreateScalingConfigurationInput {
 	s.Bandwidth = &v
 	return s
 }
@@ -4648,10 +4650,48 @@ func (s *EipForCreateScalingConfigurationInput) SetISP(v string) *EipForCreateSc
 	return s
 }
 
+type EipForDescribeScalingConfigurationsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Bandwidth *json.Number `type:"json_number"`
+
+	BillingType *int32 `type:"int32"`
+
+	ISP *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EipForDescribeScalingConfigurationsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipForDescribeScalingConfigurationsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *EipForDescribeScalingConfigurationsOutput) SetBandwidth(v json.Number) *EipForDescribeScalingConfigurationsOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *EipForDescribeScalingConfigurationsOutput) SetBillingType(v int32) *EipForDescribeScalingConfigurationsOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *EipForDescribeScalingConfigurationsOutput) SetISP(v string) *EipForDescribeScalingConfigurationsOutput {
+	s.ISP = &v
+	return s
+}
+
 type EipForModifyScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `type:"int64"`
+	Bandwidth *json.Number `type:"json_number"`
 
 	BillingType *int32 `type:"int32"`
 
@@ -4669,7 +4709,7 @@ func (s EipForModifyScalingConfigurationInput) GoString() string {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *EipForModifyScalingConfigurationInput) SetBandwidth(v int64) *EipForModifyScalingConfigurationInput {
+func (s *EipForModifyScalingConfigurationInput) SetBandwidth(v json.Number) *EipForModifyScalingConfigurationInput {
 	s.Bandwidth = &v
 	return s
 }
@@ -4782,6 +4822,36 @@ func (s *EnableScalingGroupOutput) SetScalingGroupId(v string) *EnableScalingGro
 	return s
 }
 
+type ErrorForModifyInstancesProtectionOutput struct {
+	_ struct{} `type:"structure"`
+
+	Code *string `type:"string"`
+
+	Message *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ErrorForModifyInstancesProtectionOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorForModifyInstancesProtectionOutput) GoString() string {
+	return s.String()
+}
+
+// SetCode sets the Code field's value.
+func (s *ErrorForModifyInstancesProtectionOutput) SetCode(v string) *ErrorForModifyInstancesProtectionOutput {
+	s.Code = &v
+	return s
+}
+
+// SetMessage sets the Message field's value.
+func (s *ErrorForModifyInstancesProtectionOutput) SetMessage(v string) *ErrorForModifyInstancesProtectionOutput {
+	s.Message = &v
+	return s
+}
+
 type LoadBalancerGroupForAttachLoadBalancersInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4842,6 +4912,36 @@ func (s *LoadBalancerGroupForCreateScalingGroupInput) SetServerGroupAttributes(v
 	return s
 }
 
+type LoadBalancerGroupForDescribeScalingGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	LoadBalancerId *string `type:"string"`
+
+	ServerGroupAttributes []*ServerGroupAttributeForDescribeScalingGroupsOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s LoadBalancerGroupForDescribeScalingGroupsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoadBalancerGroupForDescribeScalingGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetLoadBalancerId sets the LoadBalancerId field's value.
+func (s *LoadBalancerGroupForDescribeScalingGroupsOutput) SetLoadBalancerId(v string) *LoadBalancerGroupForDescribeScalingGroupsOutput {
+	s.LoadBalancerId = &v
+	return s
+}
+
+// SetServerGroupAttributes sets the ServerGroupAttributes field's value.
+func (s *LoadBalancerGroupForDescribeScalingGroupsOutput) SetServerGroupAttributes(v []*ServerGroupAttributeForDescribeScalingGroupsOutput) *LoadBalancerGroupForDescribeScalingGroupsOutput {
+	s.ServerGroupAttributes = v
+	return s
+}
+
 type LoadBalancerGroupForDetachLoadBalancersInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4875,7 +4975,7 @@ func (s *LoadBalancerGroupForDetachLoadBalancersInput) SetServerGroupIds(v []*st
 type ModifyInstanceProtectionResultForModifyInstancesProtectionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Error *ModifyInstanceProtectionResultsErrorForModifyInstancesProtectionOutput `type:"structure"`
+	Error *ErrorForModifyInstancesProtectionOutput `type:"structure"`
 
 	InstanceId *string `type:"string"`
 }
@@ -4891,7 +4991,7 @@ func (s ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) GoStri
 }
 
 // SetError sets the Error field's value.
-func (s *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) SetError(v *ModifyInstanceProtectionResultsErrorForModifyInstancesProtectionOutput) *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput {
+func (s *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) SetError(v *ErrorForModifyInstancesProtectionOutput) *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput {
 	s.Error = v
 	return s
 }
@@ -4899,36 +4999,6 @@ func (s *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) SetEr
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) SetInstanceId(v string) *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput {
 	s.InstanceId = &v
-	return s
-}
-
-type ModifyInstanceProtectionResultsErrorForModifyInstancesProtectionOutput struct {
-	_ struct{} `type:"structure"`
-
-	Code *string `type:"string"`
-
-	Message *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ModifyInstanceProtectionResultsErrorForModifyInstancesProtectionOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ModifyInstanceProtectionResultsErrorForModifyInstancesProtectionOutput) GoString() string {
-	return s.String()
-}
-
-// SetCode sets the Code field's value.
-func (s *ModifyInstanceProtectionResultsErrorForModifyInstancesProtectionOutput) SetCode(v string) *ModifyInstanceProtectionResultsErrorForModifyInstancesProtectionOutput {
-	s.Code = &v
-	return s
-}
-
-// SetMessage sets the Message field's value.
-func (s *ModifyInstanceProtectionResultsErrorForModifyInstancesProtectionOutput) SetMessage(v string) *ModifyInstanceProtectionResultsErrorForModifyInstancesProtectionOutput {
-	s.Message = &v
 	return s
 }
 
@@ -5402,6 +5472,28 @@ func (s *NetworkInterfaceForCreateScalingGroupInput) SetSubnetId(v string) *Netw
 	return s
 }
 
+type NetworkInterfaceForDescribeScalingGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	SubnetId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s NetworkInterfaceForDescribeScalingGroupsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkInterfaceForDescribeScalingGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *NetworkInterfaceForDescribeScalingGroupsOutput) SetSubnetId(v string) *NetworkInterfaceForDescribeScalingGroupsOutput {
+	s.SubnetId = &v
+	return s
+}
+
 type NetworkInterfaceForModifyScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5655,7 +5747,7 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 
 	CreatedAt *string `type:"string"`
 
-	Eip *ScalingConfigurationsEipForDescribeScalingConfigurationsOutput `type:"structure"`
+	Eip *EipForDescribeScalingConfigurationsOutput `type:"structure"`
 
 	HostName *string `type:"string"`
 
@@ -5689,7 +5781,7 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 
 	UserData *string `type:"string"`
 
-	Volumes []*ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput `type:"list"`
+	Volumes []*VolumeForDescribeScalingConfigurationsOutput `type:"list"`
 
 	ZoneId *string `type:"string"`
 }
@@ -5711,7 +5803,7 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetCreatedA
 }
 
 // SetEip sets the Eip field's value.
-func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetEip(v *ScalingConfigurationsEipForDescribeScalingConfigurationsOutput) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
+func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetEip(v *EipForDescribeScalingConfigurationsOutput) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.Eip = v
 	return s
 }
@@ -5813,7 +5905,7 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetUserData
 }
 
 // SetVolumes sets the Volumes field's value.
-func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetVolumes(v []*ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
+func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetVolumes(v []*VolumeForDescribeScalingConfigurationsOutput) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.Volumes = v
 	return s
 }
@@ -5821,82 +5913,6 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetVolumes(
 // SetZoneId sets the ZoneId field's value.
 func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetZoneId(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.ZoneId = &v
-	return s
-}
-
-type ScalingConfigurationsEipForDescribeScalingConfigurationsOutput struct {
-	_ struct{} `type:"structure"`
-
-	Bandwidth *int64 `type:"int64"`
-
-	BillingType *int32 `type:"int32"`
-
-	ISP *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ScalingConfigurationsEipForDescribeScalingConfigurationsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ScalingConfigurationsEipForDescribeScalingConfigurationsOutput) GoString() string {
-	return s.String()
-}
-
-// SetBandwidth sets the Bandwidth field's value.
-func (s *ScalingConfigurationsEipForDescribeScalingConfigurationsOutput) SetBandwidth(v int64) *ScalingConfigurationsEipForDescribeScalingConfigurationsOutput {
-	s.Bandwidth = &v
-	return s
-}
-
-// SetBillingType sets the BillingType field's value.
-func (s *ScalingConfigurationsEipForDescribeScalingConfigurationsOutput) SetBillingType(v int32) *ScalingConfigurationsEipForDescribeScalingConfigurationsOutput {
-	s.BillingType = &v
-	return s
-}
-
-// SetISP sets the ISP field's value.
-func (s *ScalingConfigurationsEipForDescribeScalingConfigurationsOutput) SetISP(v string) *ScalingConfigurationsEipForDescribeScalingConfigurationsOutput {
-	s.ISP = &v
-	return s
-}
-
-type ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput struct {
-	_ struct{} `type:"structure"`
-
-	DeleteWithInstance *bool `type:"boolean"`
-
-	Size *int32 `type:"int32"`
-
-	VolumeType *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput) GoString() string {
-	return s.String()
-}
-
-// SetDeleteWithInstance sets the DeleteWithInstance field's value.
-func (s *ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput) SetDeleteWithInstance(v bool) *ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput {
-	s.DeleteWithInstance = &v
-	return s
-}
-
-// SetSize sets the Size field's value.
-func (s *ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput) SetSize(v int32) *ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput {
-	s.Size = &v
-	return s
-}
-
-// SetVolumeType sets the VolumeType field's value.
-func (s *ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput) SetVolumeType(v string) *ScalingConfigurationsVolumeForDescribeScalingConfigurationsOutput {
-	s.VolumeType = &v
 	return s
 }
 
@@ -5919,13 +5935,13 @@ type ScalingGroupForDescribeScalingGroupsOutput struct {
 
 	LifeCycleState *string `type:"string"`
 
-	LoadBalancerGroups []*ScalingGroupsLoadBalancerGroupForDescribeScalingGroupsOutput `type:"list"`
+	LoadBalancerGroups []*LoadBalancerGroupForDescribeScalingGroupsOutput `type:"list"`
 
 	MaxInstanceNumber *int32 `type:"int32"`
 
 	MinInstanceNumber *int32 `type:"int32"`
 
-	NetworkInterfaces []*ScalingGroupsNetworkInterfaceForDescribeScalingGroupsOutput `type:"list"`
+	NetworkInterfaces []*NetworkInterfaceForDescribeScalingGroupsOutput `type:"list"`
 
 	ScalingGroupId *string `type:"string"`
 
@@ -5999,7 +6015,7 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLifeCycleState(v string)
 }
 
 // SetLoadBalancerGroups sets the LoadBalancerGroups field's value.
-func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLoadBalancerGroups(v []*ScalingGroupsLoadBalancerGroupForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLoadBalancerGroups(v []*LoadBalancerGroupForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.LoadBalancerGroups = v
 	return s
 }
@@ -6017,7 +6033,7 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetMinInstanceNumber(v int3
 }
 
 // SetNetworkInterfaces sets the NetworkInterfaces field's value.
-func (s *ScalingGroupForDescribeScalingGroupsOutput) SetNetworkInterfaces(v []*ScalingGroupsNetworkInterfaceForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetNetworkInterfaces(v []*NetworkInterfaceForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.NetworkInterfaces = v
 	return s
 }
@@ -6055,96 +6071,6 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetVpcId(v string) *Scaling
 // SetZoneId sets the ZoneId field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetZoneId(v string) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.ZoneId = &v
-	return s
-}
-
-type ScalingGroupsLoadBalancerGroupForDescribeScalingGroupsOutput struct {
-	_ struct{} `type:"structure"`
-
-	LoadBalancerId *string `type:"string"`
-
-	ServerGroupAttributes []*ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s ScalingGroupsLoadBalancerGroupForDescribeScalingGroupsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ScalingGroupsLoadBalancerGroupForDescribeScalingGroupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetLoadBalancerId sets the LoadBalancerId field's value.
-func (s *ScalingGroupsLoadBalancerGroupForDescribeScalingGroupsOutput) SetLoadBalancerId(v string) *ScalingGroupsLoadBalancerGroupForDescribeScalingGroupsOutput {
-	s.LoadBalancerId = &v
-	return s
-}
-
-// SetServerGroupAttributes sets the ServerGroupAttributes field's value.
-func (s *ScalingGroupsLoadBalancerGroupForDescribeScalingGroupsOutput) SetServerGroupAttributes(v []*ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput) *ScalingGroupsLoadBalancerGroupForDescribeScalingGroupsOutput {
-	s.ServerGroupAttributes = v
-	return s
-}
-
-type ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput struct {
-	_ struct{} `type:"structure"`
-
-	Port *int32 `type:"int32"`
-
-	ServerGroupId *string `type:"string"`
-
-	Weight *int32 `type:"int32"`
-}
-
-// String returns the string representation
-func (s ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetPort sets the Port field's value.
-func (s *ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput) SetPort(v int32) *ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput {
-	s.Port = &v
-	return s
-}
-
-// SetServerGroupId sets the ServerGroupId field's value.
-func (s *ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput) SetServerGroupId(v string) *ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput {
-	s.ServerGroupId = &v
-	return s
-}
-
-// SetWeight sets the Weight field's value.
-func (s *ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput) SetWeight(v int32) *ScalingGroupsLoadBalancerGroupsServerGroupAttributeForDescribeScalingGroupsOutput {
-	s.Weight = &v
-	return s
-}
-
-type ScalingGroupsNetworkInterfaceForDescribeScalingGroupsOutput struct {
-	_ struct{} `type:"structure"`
-
-	SubnetId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ScalingGroupsNetworkInterfaceForDescribeScalingGroupsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ScalingGroupsNetworkInterfaceForDescribeScalingGroupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *ScalingGroupsNetworkInterfaceForDescribeScalingGroupsOutput) SetSubnetId(v string) *ScalingGroupsNetworkInterfaceForDescribeScalingGroupsOutput {
-	s.SubnetId = &v
 	return s
 }
 
@@ -6202,60 +6128,6 @@ func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetStatus(v string) *
 	return s
 }
 
-type ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput struct {
-	_ struct{} `type:"structure"`
-
-	LaunchTime *string `type:"string"`
-
-	RecurrenceEndTime *string `type:"string"`
-
-	RecurrenceStartTime *string `type:"string"`
-
-	RecurrenceType *string `type:"string"`
-
-	RecurrenceValue *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput) GoString() string {
-	return s.String()
-}
-
-// SetLaunchTime sets the LaunchTime field's value.
-func (s *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput) SetLaunchTime(v string) *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput {
-	s.LaunchTime = &v
-	return s
-}
-
-// SetRecurrenceEndTime sets the RecurrenceEndTime field's value.
-func (s *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceEndTime(v string) *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput {
-	s.RecurrenceEndTime = &v
-	return s
-}
-
-// SetRecurrenceStartTime sets the RecurrenceStartTime field's value.
-func (s *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceStartTime(v string) *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput {
-	s.RecurrenceStartTime = &v
-	return s
-}
-
-// SetRecurrenceType sets the RecurrenceType field's value.
-func (s *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceType(v string) *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput {
-	s.RecurrenceType = &v
-	return s
-}
-
-// SetRecurrenceValue sets the RecurrenceValue field's value.
-func (s *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceValue(v string) *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput {
-	s.RecurrenceValue = &v
-	return s
-}
-
 type ScalingPolicyForDescribeScalingPoliciesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -6275,7 +6147,7 @@ type ScalingPolicyForDescribeScalingPoliciesOutput struct {
 
 	ScalingPolicyType *string `type:"string"`
 
-	ScheduledPolicy *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput `type:"structure"`
+	ScheduledPolicy *ScheduledPolicyForDescribeScalingPoliciesOutput `type:"structure"`
 
 	Status *string `type:"string"`
 }
@@ -6339,7 +6211,7 @@ func (s *ScalingPolicyForDescribeScalingPoliciesOutput) SetScalingPolicyType(v s
 }
 
 // SetScheduledPolicy sets the ScheduledPolicy field's value.
-func (s *ScalingPolicyForDescribeScalingPoliciesOutput) SetScheduledPolicy(v *ScalingPoliciesScheduledPolicyForDescribeScalingPoliciesOutput) *ScalingPolicyForDescribeScalingPoliciesOutput {
+func (s *ScalingPolicyForDescribeScalingPoliciesOutput) SetScheduledPolicy(v *ScheduledPolicyForDescribeScalingPoliciesOutput) *ScalingPolicyForDescribeScalingPoliciesOutput {
 	s.ScheduledPolicy = v
 	return s
 }
@@ -6400,6 +6272,60 @@ func (s *ScheduledPolicyForCreateScalingPolicyInput) SetRecurrenceType(v string)
 
 // SetRecurrenceValue sets the RecurrenceValue field's value.
 func (s *ScheduledPolicyForCreateScalingPolicyInput) SetRecurrenceValue(v string) *ScheduledPolicyForCreateScalingPolicyInput {
+	s.RecurrenceValue = &v
+	return s
+}
+
+type ScheduledPolicyForDescribeScalingPoliciesOutput struct {
+	_ struct{} `type:"structure"`
+
+	LaunchTime *string `type:"string"`
+
+	RecurrenceEndTime *string `type:"string"`
+
+	RecurrenceStartTime *string `type:"string"`
+
+	RecurrenceType *string `type:"string"`
+
+	RecurrenceValue *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ScheduledPolicyForDescribeScalingPoliciesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ScheduledPolicyForDescribeScalingPoliciesOutput) GoString() string {
+	return s.String()
+}
+
+// SetLaunchTime sets the LaunchTime field's value.
+func (s *ScheduledPolicyForDescribeScalingPoliciesOutput) SetLaunchTime(v string) *ScheduledPolicyForDescribeScalingPoliciesOutput {
+	s.LaunchTime = &v
+	return s
+}
+
+// SetRecurrenceEndTime sets the RecurrenceEndTime field's value.
+func (s *ScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceEndTime(v string) *ScheduledPolicyForDescribeScalingPoliciesOutput {
+	s.RecurrenceEndTime = &v
+	return s
+}
+
+// SetRecurrenceStartTime sets the RecurrenceStartTime field's value.
+func (s *ScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceStartTime(v string) *ScheduledPolicyForDescribeScalingPoliciesOutput {
+	s.RecurrenceStartTime = &v
+	return s
+}
+
+// SetRecurrenceType sets the RecurrenceType field's value.
+func (s *ScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceType(v string) *ScheduledPolicyForDescribeScalingPoliciesOutput {
+	s.RecurrenceType = &v
+	return s
+}
+
+// SetRecurrenceValue sets the RecurrenceValue field's value.
+func (s *ScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceValue(v string) *ScheduledPolicyForDescribeScalingPoliciesOutput {
 	s.RecurrenceValue = &v
 	return s
 }
@@ -6534,6 +6460,44 @@ func (s *ServerGroupAttributeForCreateScalingGroupInput) SetWeight(v int32) *Ser
 	return s
 }
 
+type ServerGroupAttributeForDescribeScalingGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Port *int32 `type:"int32"`
+
+	ServerGroupId *string `type:"string"`
+
+	Weight *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s ServerGroupAttributeForDescribeScalingGroupsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerGroupAttributeForDescribeScalingGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetPort(v int32) *ServerGroupAttributeForDescribeScalingGroupsOutput {
+	s.Port = &v
+	return s
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetServerGroupId(v string) *ServerGroupAttributeForDescribeScalingGroupsOutput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetWeight(v int32) *ServerGroupAttributeForDescribeScalingGroupsOutput {
+	s.Weight = &v
+	return s
+}
+
 type StartScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6656,6 +6620,44 @@ func (s *VolumeForCreateScalingConfigurationInput) SetSize(v int32) *VolumeForCr
 
 // SetVolumeType sets the VolumeType field's value.
 func (s *VolumeForCreateScalingConfigurationInput) SetVolumeType(v string) *VolumeForCreateScalingConfigurationInput {
+	s.VolumeType = &v
+	return s
+}
+
+type VolumeForDescribeScalingConfigurationsOutput struct {
+	_ struct{} `type:"structure"`
+
+	DeleteWithInstance *bool `type:"boolean"`
+
+	Size *int32 `type:"int32"`
+
+	VolumeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s VolumeForDescribeScalingConfigurationsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VolumeForDescribeScalingConfigurationsOutput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteWithInstance sets the DeleteWithInstance field's value.
+func (s *VolumeForDescribeScalingConfigurationsOutput) SetDeleteWithInstance(v bool) *VolumeForDescribeScalingConfigurationsOutput {
+	s.DeleteWithInstance = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *VolumeForDescribeScalingConfigurationsOutput) SetSize(v int32) *VolumeForDescribeScalingConfigurationsOutput {
+	s.Size = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *VolumeForDescribeScalingConfigurationsOutput) SetVolumeType(v string) *VolumeForDescribeScalingConfigurationsOutput {
 	s.VolumeType = &v
 	return s
 }
