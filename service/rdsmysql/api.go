@@ -2973,7 +2973,37 @@ func (c *RDSMYSQL) RevokeAccountPrivilegeWithContext(ctx volcstack.Context, inpu
 type BasicInfoForDescribeDBInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
-	StorageType *string `type:"string"`
+	ChargeStatus *string `type:"string"`
+
+	ChargeType *string `type:"string"`
+
+	CreateTime *string `type:"string"`
+
+	DBEngine *string `type:"string"`
+
+	DBEngineVersion *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceName *string `type:"string"`
+
+	InstanceSpec *InstanceSpecForDescribeDBInstanceOutput `type:"structure"`
+
+	InstanceStatus *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	ReadOnlyInstanceIds []*string `type:"list"`
+
+	Region *string `type:"string"`
+
+	StorageSpaceGB *int32 `type:"int32"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcID *string `type:"string"`
+
+	Zone *string `type:"string"`
 }
 
 // String returns the string representation
@@ -2986,14 +3016,116 @@ func (s BasicInfoForDescribeDBInstanceOutput) GoString() string {
 	return s.String()
 }
 
-// SetStorageType sets the StorageType field's value.
-func (s *BasicInfoForDescribeDBInstanceOutput) SetStorageType(v string) *BasicInfoForDescribeDBInstanceOutput {
-	s.StorageType = &v
+// SetChargeStatus sets the ChargeStatus field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetChargeStatus(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.ChargeStatus = &v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetChargeType(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetCreateTime(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDBEngine sets the DBEngine field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetDBEngine(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.DBEngine = &v
+	return s
+}
+
+// SetDBEngineVersion sets the DBEngineVersion field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetDBEngineVersion(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.DBEngineVersion = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceId(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceName(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceSpec sets the InstanceSpec field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceSpec(v *InstanceSpecForDescribeDBInstanceOutput) *BasicInfoForDescribeDBInstanceOutput {
+	s.InstanceSpec = v
+	return s
+}
+
+// SetInstanceStatus sets the InstanceStatus field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceStatus(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.InstanceStatus = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceType(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetReadOnlyInstanceIds sets the ReadOnlyInstanceIds field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetReadOnlyInstanceIds(v []*string) *BasicInfoForDescribeDBInstanceOutput {
+	s.ReadOnlyInstanceIds = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetRegion(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.Region = &v
+	return s
+}
+
+// SetStorageSpaceGB sets the StorageSpaceGB field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetStorageSpaceGB(v int32) *BasicInfoForDescribeDBInstanceOutput {
+	s.StorageSpaceGB = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetUpdateTime(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcID sets the VpcID field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetVpcID(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.VpcID = &v
+	return s
+}
+
+// SetZone sets the Zone field's value.
+func (s *BasicInfoForDescribeDBInstanceOutput) SetZone(v string) *BasicInfoForDescribeDBInstanceOutput {
+	s.Zone = &v
 	return s
 }
 
 type ConnectionInfoForDescribeDBInstanceConnectionOutput struct {
 	_ struct{} `type:"structure"`
+
+	EnableReadOnly *string `type:"string"`
+
+	EnableReadWriteSplitting *string `type:"string"`
+
+	InternalDomain *string `type:"string"`
+
+	InternalPort *string `type:"string"`
+
+	PublicDomain *string `type:"string"`
+
+	PublicPort *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3006,8 +3138,56 @@ func (s ConnectionInfoForDescribeDBInstanceConnectionOutput) GoString() string {
 	return s.String()
 }
 
+// SetEnableReadOnly sets the EnableReadOnly field's value.
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetEnableReadOnly(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+	s.EnableReadOnly = &v
+	return s
+}
+
+// SetEnableReadWriteSplitting sets the EnableReadWriteSplitting field's value.
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetEnableReadWriteSplitting(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+	s.EnableReadWriteSplitting = &v
+	return s
+}
+
+// SetInternalDomain sets the InternalDomain field's value.
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetInternalDomain(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+	s.InternalDomain = &v
+	return s
+}
+
+// SetInternalPort sets the InternalPort field's value.
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetInternalPort(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+	s.InternalPort = &v
+	return s
+}
+
+// SetPublicDomain sets the PublicDomain field's value.
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetPublicDomain(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+	s.PublicDomain = &v
+	return s
+}
+
+// SetPublicPort sets the PublicPort field's value.
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetPublicPort(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+	s.PublicPort = &v
+	return s
+}
+
 type ConnectionInfoForDescribeDBInstanceOutput struct {
 	_ struct{} `type:"structure"`
+
+	EnableReadOnly *string `type:"string"`
+
+	EnableReadWriteSplitting *string `type:"string"`
+
+	InternalDomain *string `type:"string"`
+
+	InternalPort *string `type:"string"`
+
+	PublicDomain *string `type:"string"`
+
+	PublicPort *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3018,6 +3198,42 @@ func (s ConnectionInfoForDescribeDBInstanceOutput) String() string {
 // GoString returns the string representation
 func (s ConnectionInfoForDescribeDBInstanceOutput) GoString() string {
 	return s.String()
+}
+
+// SetEnableReadOnly sets the EnableReadOnly field's value.
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetEnableReadOnly(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+	s.EnableReadOnly = &v
+	return s
+}
+
+// SetEnableReadWriteSplitting sets the EnableReadWriteSplitting field's value.
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetEnableReadWriteSplitting(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+	s.EnableReadWriteSplitting = &v
+	return s
+}
+
+// SetInternalDomain sets the InternalDomain field's value.
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetInternalDomain(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+	s.InternalDomain = &v
+	return s
+}
+
+// SetInternalPort sets the InternalPort field's value.
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetInternalPort(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+	s.InternalPort = &v
+	return s
+}
+
+// SetPublicDomain sets the PublicDomain field's value.
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetPublicDomain(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+	s.PublicDomain = &v
+	return s
+}
+
+// SetPublicPort sets the PublicPort field's value.
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetPublicPort(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+	s.PublicPort = &v
+	return s
 }
 
 type CreateAccountInput struct {
@@ -3408,8 +3624,54 @@ func (s CreateDatabaseOutput) GoString() string {
 	return s.String()
 }
 
+type DBPrivilegeForListAccountsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountPrivilege *string `type:"string"`
+
+	AccountPrivilegeStr *string `type:"string"`
+
+	DBName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DBPrivilegeForListAccountsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DBPrivilegeForListAccountsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountPrivilege sets the AccountPrivilege field's value.
+func (s *DBPrivilegeForListAccountsOutput) SetAccountPrivilege(v string) *DBPrivilegeForListAccountsOutput {
+	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeStr sets the AccountPrivilegeStr field's value.
+func (s *DBPrivilegeForListAccountsOutput) SetAccountPrivilegeStr(v string) *DBPrivilegeForListAccountsOutput {
+	s.AccountPrivilegeStr = &v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *DBPrivilegeForListAccountsOutput) SetDBName(v string) *DBPrivilegeForListAccountsOutput {
+	s.DBName = &v
+	return s
+}
+
 type DataForListAccountsOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountName *string `type:"string"`
+
+	AccountStatus *string `type:"string"`
+
+	AccountType *string `type:"string"`
+
+	DBPrivileges []*DBPrivilegeForListAccountsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -3422,8 +3684,52 @@ func (s DataForListAccountsOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountName sets the AccountName field's value.
+func (s *DataForListAccountsOutput) SetAccountName(v string) *DataForListAccountsOutput {
+	s.AccountName = &v
+	return s
+}
+
+// SetAccountStatus sets the AccountStatus field's value.
+func (s *DataForListAccountsOutput) SetAccountStatus(v string) *DataForListAccountsOutput {
+	s.AccountStatus = &v
+	return s
+}
+
+// SetAccountType sets the AccountType field's value.
+func (s *DataForListAccountsOutput) SetAccountType(v string) *DataForListAccountsOutput {
+	s.AccountType = &v
+	return s
+}
+
+// SetDBPrivileges sets the DBPrivileges field's value.
+func (s *DataForListAccountsOutput) SetDBPrivileges(v []*DBPrivilegeForListAccountsOutput) *DataForListAccountsOutput {
+	s.DBPrivileges = v
+	return s
+}
+
 type DataForListBackupsOutput struct {
 	_ struct{} `type:"structure"`
+
+	BackupEndTime *string `type:"string"`
+
+	BackupFileName *string `type:"string"`
+
+	BackupFileSize *int64 `type:"int64"`
+
+	BackupId *string `type:"string"`
+
+	BackupMode *string `type:"string"`
+
+	BackupStartTime *string `type:"string"`
+
+	BackupStatus *string `type:"string"`
+
+	BackupStrategy *string `type:"string"`
+
+	BackupType *string `type:"string"`
+
+	CreateType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3436,8 +3742,72 @@ func (s DataForListBackupsOutput) GoString() string {
 	return s.String()
 }
 
+// SetBackupEndTime sets the BackupEndTime field's value.
+func (s *DataForListBackupsOutput) SetBackupEndTime(v string) *DataForListBackupsOutput {
+	s.BackupEndTime = &v
+	return s
+}
+
+// SetBackupFileName sets the BackupFileName field's value.
+func (s *DataForListBackupsOutput) SetBackupFileName(v string) *DataForListBackupsOutput {
+	s.BackupFileName = &v
+	return s
+}
+
+// SetBackupFileSize sets the BackupFileSize field's value.
+func (s *DataForListBackupsOutput) SetBackupFileSize(v int64) *DataForListBackupsOutput {
+	s.BackupFileSize = &v
+	return s
+}
+
+// SetBackupId sets the BackupId field's value.
+func (s *DataForListBackupsOutput) SetBackupId(v string) *DataForListBackupsOutput {
+	s.BackupId = &v
+	return s
+}
+
+// SetBackupMode sets the BackupMode field's value.
+func (s *DataForListBackupsOutput) SetBackupMode(v string) *DataForListBackupsOutput {
+	s.BackupMode = &v
+	return s
+}
+
+// SetBackupStartTime sets the BackupStartTime field's value.
+func (s *DataForListBackupsOutput) SetBackupStartTime(v string) *DataForListBackupsOutput {
+	s.BackupStartTime = &v
+	return s
+}
+
+// SetBackupStatus sets the BackupStatus field's value.
+func (s *DataForListBackupsOutput) SetBackupStatus(v string) *DataForListBackupsOutput {
+	s.BackupStatus = &v
+	return s
+}
+
+// SetBackupStrategy sets the BackupStrategy field's value.
+func (s *DataForListBackupsOutput) SetBackupStrategy(v string) *DataForListBackupsOutput {
+	s.BackupStrategy = &v
+	return s
+}
+
+// SetBackupType sets the BackupType field's value.
+func (s *DataForListBackupsOutput) SetBackupType(v string) *DataForListBackupsOutput {
+	s.BackupType = &v
+	return s
+}
+
+// SetCreateType sets the CreateType field's value.
+func (s *DataForListBackupsOutput) SetCreateType(v string) *DataForListBackupsOutput {
+	s.CreateType = &v
+	return s
+}
+
 type DataForListDBInstanceIPListsOutput struct {
 	_ struct{} `type:"structure"`
+
+	GroupName *string `type:"string"`
+
+	IPList []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -3450,8 +3820,52 @@ func (s DataForListDBInstanceIPListsOutput) GoString() string {
 	return s.String()
 }
 
+// SetGroupName sets the GroupName field's value.
+func (s *DataForListDBInstanceIPListsOutput) SetGroupName(v string) *DataForListDBInstanceIPListsOutput {
+	s.GroupName = &v
+	return s
+}
+
+// SetIPList sets the IPList field's value.
+func (s *DataForListDBInstanceIPListsOutput) SetIPList(v []*string) *DataForListDBInstanceIPListsOutput {
+	s.IPList = v
+	return s
+}
+
 type DataForListDBInstancesOutput struct {
 	_ struct{} `type:"structure"`
+
+	ChargeStatus *string `type:"string"`
+
+	ChargeType *string `type:"string"`
+
+	CreateTime *string `type:"string"`
+
+	DBEngine *string `type:"string"`
+
+	DBEngineVersion *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceName *string `type:"string"`
+
+	InstanceSpec *InstanceSpecForListDBInstancesOutput `type:"structure"`
+
+	InstanceStatus *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	ReadOnlyInstanceIds []*string `type:"list"`
+
+	Region *string `type:"string"`
+
+	StorageSpaceGB *int32 `type:"int32"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcID *string `type:"string"`
+
+	Zone *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3464,8 +3878,112 @@ func (s DataForListDBInstancesOutput) GoString() string {
 	return s.String()
 }
 
+// SetChargeStatus sets the ChargeStatus field's value.
+func (s *DataForListDBInstancesOutput) SetChargeStatus(v string) *DataForListDBInstancesOutput {
+	s.ChargeStatus = &v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *DataForListDBInstancesOutput) SetChargeType(v string) *DataForListDBInstancesOutput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *DataForListDBInstancesOutput) SetCreateTime(v string) *DataForListDBInstancesOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDBEngine sets the DBEngine field's value.
+func (s *DataForListDBInstancesOutput) SetDBEngine(v string) *DataForListDBInstancesOutput {
+	s.DBEngine = &v
+	return s
+}
+
+// SetDBEngineVersion sets the DBEngineVersion field's value.
+func (s *DataForListDBInstancesOutput) SetDBEngineVersion(v string) *DataForListDBInstancesOutput {
+	s.DBEngineVersion = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DataForListDBInstancesOutput) SetInstanceId(v string) *DataForListDBInstancesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *DataForListDBInstancesOutput) SetInstanceName(v string) *DataForListDBInstancesOutput {
+	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceSpec sets the InstanceSpec field's value.
+func (s *DataForListDBInstancesOutput) SetInstanceSpec(v *InstanceSpecForListDBInstancesOutput) *DataForListDBInstancesOutput {
+	s.InstanceSpec = v
+	return s
+}
+
+// SetInstanceStatus sets the InstanceStatus field's value.
+func (s *DataForListDBInstancesOutput) SetInstanceStatus(v string) *DataForListDBInstancesOutput {
+	s.InstanceStatus = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DataForListDBInstancesOutput) SetInstanceType(v string) *DataForListDBInstancesOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetReadOnlyInstanceIds sets the ReadOnlyInstanceIds field's value.
+func (s *DataForListDBInstancesOutput) SetReadOnlyInstanceIds(v []*string) *DataForListDBInstancesOutput {
+	s.ReadOnlyInstanceIds = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *DataForListDBInstancesOutput) SetRegion(v string) *DataForListDBInstancesOutput {
+	s.Region = &v
+	return s
+}
+
+// SetStorageSpaceGB sets the StorageSpaceGB field's value.
+func (s *DataForListDBInstancesOutput) SetStorageSpaceGB(v int32) *DataForListDBInstancesOutput {
+	s.StorageSpaceGB = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DataForListDBInstancesOutput) SetUpdateTime(v string) *DataForListDBInstancesOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcID sets the VpcID field's value.
+func (s *DataForListDBInstancesOutput) SetVpcID(v string) *DataForListDBInstancesOutput {
+	s.VpcID = &v
+	return s
+}
+
+// SetZone sets the Zone field's value.
+func (s *DataForListDBInstancesOutput) SetZone(v string) *DataForListDBInstancesOutput {
+	s.Zone = &v
+	return s
+}
+
 type DataForListDatabasesOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountNames *string `type:"string"`
+
+	CharacterSetName *string `type:"string"`
+
+	DBName *string `type:"string"`
+
+	DBStatus *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3476,6 +3994,30 @@ func (s DataForListDatabasesOutput) String() string {
 // GoString returns the string representation
 func (s DataForListDatabasesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountNames sets the AccountNames field's value.
+func (s *DataForListDatabasesOutput) SetAccountNames(v string) *DataForListDatabasesOutput {
+	s.AccountNames = &v
+	return s
+}
+
+// SetCharacterSetName sets the CharacterSetName field's value.
+func (s *DataForListDatabasesOutput) SetCharacterSetName(v string) *DataForListDatabasesOutput {
+	s.CharacterSetName = &v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *DataForListDatabasesOutput) SetDBName(v string) *DataForListDatabasesOutput {
+	s.DBName = &v
+	return s
+}
+
+// SetDBStatus sets the DBStatus field's value.
+func (s *DataForListDatabasesOutput) SetDBStatus(v string) *DataForListDatabasesOutput {
+	s.DBStatus = &v
+	return s
 }
 
 type DeleteDBInstanceIPListInput struct {
@@ -3824,6 +4366,82 @@ func (s GrantAccountPrivilegeOutput) String() string {
 // GoString returns the string representation
 func (s GrantAccountPrivilegeOutput) GoString() string {
 	return s.String()
+}
+
+type InstanceSpecForDescribeDBInstanceOutput struct {
+	_ struct{} `type:"structure"`
+
+	CpuNum *float64 `type:"double"`
+
+	MemInGb *float64 `type:"double"`
+
+	SpecName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceSpecForDescribeDBInstanceOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceSpecForDescribeDBInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetCpuNum sets the CpuNum field's value.
+func (s *InstanceSpecForDescribeDBInstanceOutput) SetCpuNum(v float64) *InstanceSpecForDescribeDBInstanceOutput {
+	s.CpuNum = &v
+	return s
+}
+
+// SetMemInGb sets the MemInGb field's value.
+func (s *InstanceSpecForDescribeDBInstanceOutput) SetMemInGb(v float64) *InstanceSpecForDescribeDBInstanceOutput {
+	s.MemInGb = &v
+	return s
+}
+
+// SetSpecName sets the SpecName field's value.
+func (s *InstanceSpecForDescribeDBInstanceOutput) SetSpecName(v string) *InstanceSpecForDescribeDBInstanceOutput {
+	s.SpecName = &v
+	return s
+}
+
+type InstanceSpecForListDBInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	CpuNum *float64 `type:"double"`
+
+	MemInGb *float64 `type:"double"`
+
+	SpecName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceSpecForListDBInstancesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceSpecForListDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCpuNum sets the CpuNum field's value.
+func (s *InstanceSpecForListDBInstancesOutput) SetCpuNum(v float64) *InstanceSpecForListDBInstancesOutput {
+	s.CpuNum = &v
+	return s
+}
+
+// SetMemInGb sets the MemInGb field's value.
+func (s *InstanceSpecForListDBInstancesOutput) SetMemInGb(v float64) *InstanceSpecForListDBInstancesOutput {
+	s.MemInGb = &v
+	return s
+}
+
+// SetSpecName sets the SpecName field's value.
+func (s *InstanceSpecForListDBInstancesOutput) SetSpecName(v string) *InstanceSpecForListDBInstancesOutput {
+	s.SpecName = &v
+	return s
 }
 
 type ListAccountsInput struct {

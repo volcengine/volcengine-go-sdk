@@ -4432,6 +4432,10 @@ func (c *CLB) UploadCertificateWithContext(ctx volcstack.Context, input *UploadC
 
 type AccessLogForDescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	BucketName *string `type:"string"`
+
+	Enabled *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -4442,6 +4446,18 @@ func (s AccessLogForDescribeLoadBalancerAttributesOutput) String() string {
 // GoString returns the string representation
 func (s AccessLogForDescribeLoadBalancerAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetBucketName sets the BucketName field's value.
+func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetBucketName(v string) *AccessLogForDescribeLoadBalancerAttributesOutput {
+	s.BucketName = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetEnabled(v bool) *AccessLogForDescribeLoadBalancerAttributesOutput {
+	s.Enabled = &v
+	return s
 }
 
 type AclEntryForAddAclEntriesInput struct {
@@ -4492,6 +4508,8 @@ type AclEntryForDescribeAclAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
+
+	Entry *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4510,8 +4528,28 @@ func (s *AclEntryForDescribeAclAttributesOutput) SetDescription(v string) *AclEn
 	return s
 }
 
+// SetEntry sets the Entry field's value.
+func (s *AclEntryForDescribeAclAttributesOutput) SetEntry(v string) *AclEntryForDescribeAclAttributesOutput {
+	s.Entry = &v
+	return s
+}
+
 type AclForDescribeAclsOutput struct {
 	_ struct{} `type:"structure"`
+
+	AclEntryCount *int64 `type:"integer"`
+
+	AclId *string `type:"string"`
+
+	AclName *string `type:"string"`
+
+	CreateTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	Listeners []*string `type:"list"`
+
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4522,6 +4560,48 @@ func (s AclForDescribeAclsOutput) String() string {
 // GoString returns the string representation
 func (s AclForDescribeAclsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAclEntryCount sets the AclEntryCount field's value.
+func (s *AclForDescribeAclsOutput) SetAclEntryCount(v int64) *AclForDescribeAclsOutput {
+	s.AclEntryCount = &v
+	return s
+}
+
+// SetAclId sets the AclId field's value.
+func (s *AclForDescribeAclsOutput) SetAclId(v string) *AclForDescribeAclsOutput {
+	s.AclId = &v
+	return s
+}
+
+// SetAclName sets the AclName field's value.
+func (s *AclForDescribeAclsOutput) SetAclName(v string) *AclForDescribeAclsOutput {
+	s.AclName = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *AclForDescribeAclsOutput) SetCreateTime(v string) *AclForDescribeAclsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AclForDescribeAclsOutput) SetDescription(v string) *AclForDescribeAclsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetListeners sets the Listeners field's value.
+func (s *AclForDescribeAclsOutput) SetListeners(v []*string) *AclForDescribeAclsOutput {
+	s.Listeners = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *AclForDescribeAclsOutput) SetUpdateTime(v string) *AclForDescribeAclsOutput {
+	s.UpdateTime = &v
+	return s
 }
 
 type AddAclEntriesInput struct {
@@ -4694,6 +4774,20 @@ func (s *AddServerGroupBackendServersOutput) SetServerIds(v []*string) *AddServe
 
 type CertificateForDescribeCertificatesOutput struct {
 	_ struct{} `type:"structure"`
+
+	CertificateId *string `type:"string"`
+
+	CertificateName *string `type:"string"`
+
+	CreateTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DomainName *string `type:"string"`
+
+	ExpiredAt *string `type:"string"`
+
+	Listeners []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -4704,6 +4798,48 @@ func (s CertificateForDescribeCertificatesOutput) String() string {
 // GoString returns the string representation
 func (s CertificateForDescribeCertificatesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCertificateId sets the CertificateId field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetCertificateId(v string) *CertificateForDescribeCertificatesOutput {
+	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateName sets the CertificateName field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetCertificateName(v string) *CertificateForDescribeCertificatesOutput {
+	s.CertificateName = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetCreateTime(v string) *CertificateForDescribeCertificatesOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetDescription(v string) *CertificateForDescribeCertificatesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDomainName sets the DomainName field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetDomainName(v string) *CertificateForDescribeCertificatesOutput {
+	s.DomainName = &v
+	return s
+}
+
+// SetExpiredAt sets the ExpiredAt field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetExpiredAt(v string) *CertificateForDescribeCertificatesOutput {
+	s.ExpiredAt = &v
+	return s
+}
+
+// SetListeners sets the Listeners field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetListeners(v []*string) *CertificateForDescribeCertificatesOutput {
+	s.Listeners = v
+	return s
 }
 
 type CreateAclInput struct {
@@ -7137,7 +7273,13 @@ func (s *EipBillingConfigForCreateLoadBalancerInput) SetISP(v string) *EipBillin
 type EipForDescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Bandwidth *int64 `type:"integer"`
+
 	EipAddress *string `type:"string"`
+
+	EipBillingType *int64 `type:"integer"`
+
+	ISP *string `type:"string"`
 }
 
 // String returns the string representation
@@ -7150,9 +7292,27 @@ func (s EipForDescribeLoadBalancerAttributesOutput) GoString() string {
 	return s.String()
 }
 
+// SetBandwidth sets the Bandwidth field's value.
+func (s *EipForDescribeLoadBalancerAttributesOutput) SetBandwidth(v int64) *EipForDescribeLoadBalancerAttributesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
 // SetEipAddress sets the EipAddress field's value.
 func (s *EipForDescribeLoadBalancerAttributesOutput) SetEipAddress(v string) *EipForDescribeLoadBalancerAttributesOutput {
 	s.EipAddress = &v
+	return s
+}
+
+// SetEipBillingType sets the EipBillingType field's value.
+func (s *EipForDescribeLoadBalancerAttributesOutput) SetEipBillingType(v int64) *EipForDescribeLoadBalancerAttributesOutput {
+	s.EipBillingType = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *EipForDescribeLoadBalancerAttributesOutput) SetISP(v string) *EipForDescribeLoadBalancerAttributesOutput {
+	s.ISP = &v
 	return s
 }
 
@@ -7307,7 +7467,23 @@ func (s *HealthCheckForCreateListenerInput) SetURI(v string) *HealthCheckForCrea
 type HealthCheckForDescribeListenerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Domain *string `type:"string"`
+
 	Enabled *string `type:"string"`
+
+	HealthyThreshold *int64 `type:"integer"`
+
+	HttpCode *string `type:"string"`
+
+	Interval *int64 `type:"integer"`
+
+	Method *string `type:"string"`
+
+	Timeout *int64 `type:"integer"`
+
+	UnHealthyThreshold *int64 `type:"integer"`
+
+	Uri *string `type:"string"`
 }
 
 // String returns the string representation
@@ -7320,9 +7496,143 @@ func (s HealthCheckForDescribeListenerAttributesOutput) GoString() string {
 	return s.String()
 }
 
+// SetDomain sets the Domain field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetDomain(v string) *HealthCheckForDescribeListenerAttributesOutput {
+	s.Domain = &v
+	return s
+}
+
 // SetEnabled sets the Enabled field's value.
 func (s *HealthCheckForDescribeListenerAttributesOutput) SetEnabled(v string) *HealthCheckForDescribeListenerAttributesOutput {
 	s.Enabled = &v
+	return s
+}
+
+// SetHealthyThreshold sets the HealthyThreshold field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetHealthyThreshold(v int64) *HealthCheckForDescribeListenerAttributesOutput {
+	s.HealthyThreshold = &v
+	return s
+}
+
+// SetHttpCode sets the HttpCode field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetHttpCode(v string) *HealthCheckForDescribeListenerAttributesOutput {
+	s.HttpCode = &v
+	return s
+}
+
+// SetInterval sets the Interval field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetInterval(v int64) *HealthCheckForDescribeListenerAttributesOutput {
+	s.Interval = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetMethod(v string) *HealthCheckForDescribeListenerAttributesOutput {
+	s.Method = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetTimeout(v int64) *HealthCheckForDescribeListenerAttributesOutput {
+	s.Timeout = &v
+	return s
+}
+
+// SetUnHealthyThreshold sets the UnHealthyThreshold field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetUnHealthyThreshold(v int64) *HealthCheckForDescribeListenerAttributesOutput {
+	s.UnHealthyThreshold = &v
+	return s
+}
+
+// SetUri sets the Uri field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetUri(v string) *HealthCheckForDescribeListenerAttributesOutput {
+	s.Uri = &v
+	return s
+}
+
+type HealthCheckForDescribeListenersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Domain *string `type:"string"`
+
+	Enabled *string `type:"string"`
+
+	HealthyThreshold *int64 `type:"integer"`
+
+	HttpCode *string `type:"string"`
+
+	Interval *int64 `type:"integer"`
+
+	Method *string `type:"string"`
+
+	Timeout *int64 `type:"integer"`
+
+	UnHealthyThreshold *int64 `type:"integer"`
+
+	Uri *string `type:"string"`
+}
+
+// String returns the string representation
+func (s HealthCheckForDescribeListenersOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HealthCheckForDescribeListenersOutput) GoString() string {
+	return s.String()
+}
+
+// SetDomain sets the Domain field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetDomain(v string) *HealthCheckForDescribeListenersOutput {
+	s.Domain = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetEnabled(v string) *HealthCheckForDescribeListenersOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetHealthyThreshold sets the HealthyThreshold field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetHealthyThreshold(v int64) *HealthCheckForDescribeListenersOutput {
+	s.HealthyThreshold = &v
+	return s
+}
+
+// SetHttpCode sets the HttpCode field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetHttpCode(v string) *HealthCheckForDescribeListenersOutput {
+	s.HttpCode = &v
+	return s
+}
+
+// SetInterval sets the Interval field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetInterval(v int64) *HealthCheckForDescribeListenersOutput {
+	s.Interval = &v
+	return s
+}
+
+// SetMethod sets the Method field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetMethod(v string) *HealthCheckForDescribeListenersOutput {
+	s.Method = &v
+	return s
+}
+
+// SetTimeout sets the Timeout field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetTimeout(v int64) *HealthCheckForDescribeListenersOutput {
+	s.Timeout = &v
+	return s
+}
+
+// SetUnHealthyThreshold sets the UnHealthyThreshold field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetUnHealthyThreshold(v int64) *HealthCheckForDescribeListenersOutput {
+	s.UnHealthyThreshold = &v
+	return s
+}
+
+// SetUri sets the Uri field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetUri(v string) *HealthCheckForDescribeListenersOutput {
+	s.Uri = &v
 	return s
 }
 
@@ -7406,6 +7716,16 @@ func (s *HealthCheckForModifyListenerAttributesInput) SetURI(v string) *HealthCh
 
 type ListenerForDescribeAclAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	AclType *string `type:"string"`
+
+	ListenerId *string `type:"string"`
+
+	ListenerName *string `type:"string"`
+
+	Port *int64 `type:"integer"`
+
+	Protocol *string `type:"string"`
 }
 
 // String returns the string representation
@@ -7418,8 +7738,66 @@ func (s ListenerForDescribeAclAttributesOutput) GoString() string {
 	return s.String()
 }
 
+// SetAclType sets the AclType field's value.
+func (s *ListenerForDescribeAclAttributesOutput) SetAclType(v string) *ListenerForDescribeAclAttributesOutput {
+	s.AclType = &v
+	return s
+}
+
+// SetListenerId sets the ListenerId field's value.
+func (s *ListenerForDescribeAclAttributesOutput) SetListenerId(v string) *ListenerForDescribeAclAttributesOutput {
+	s.ListenerId = &v
+	return s
+}
+
+// SetListenerName sets the ListenerName field's value.
+func (s *ListenerForDescribeAclAttributesOutput) SetListenerName(v string) *ListenerForDescribeAclAttributesOutput {
+	s.ListenerName = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ListenerForDescribeAclAttributesOutput) SetPort(v int64) *ListenerForDescribeAclAttributesOutput {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *ListenerForDescribeAclAttributesOutput) SetProtocol(v string) *ListenerForDescribeAclAttributesOutput {
+	s.Protocol = &v
+	return s
+}
+
 type ListenerForDescribeListenersOutput struct {
 	_ struct{} `type:"structure"`
+
+	AclIds []*string `type:"list"`
+
+	AclStatus *string `type:"string"`
+
+	AclType *string `type:"string"`
+
+	CertificateId *string `type:"string"`
+
+	CreateTime *string `type:"string"`
+
+	Enabled *string `type:"string"`
+
+	HealthCheck *HealthCheckForDescribeListenersOutput `type:"structure"`
+
+	ListenerId *string `type:"string"`
+
+	ListenerName *string `type:"string"`
+
+	Port *int64 `type:"integer"`
+
+	Protocol *string `type:"string"`
+
+	ServerGroupId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -7432,8 +7810,96 @@ func (s ListenerForDescribeListenersOutput) GoString() string {
 	return s.String()
 }
 
+// SetAclIds sets the AclIds field's value.
+func (s *ListenerForDescribeListenersOutput) SetAclIds(v []*string) *ListenerForDescribeListenersOutput {
+	s.AclIds = v
+	return s
+}
+
+// SetAclStatus sets the AclStatus field's value.
+func (s *ListenerForDescribeListenersOutput) SetAclStatus(v string) *ListenerForDescribeListenersOutput {
+	s.AclStatus = &v
+	return s
+}
+
+// SetAclType sets the AclType field's value.
+func (s *ListenerForDescribeListenersOutput) SetAclType(v string) *ListenerForDescribeListenersOutput {
+	s.AclType = &v
+	return s
+}
+
+// SetCertificateId sets the CertificateId field's value.
+func (s *ListenerForDescribeListenersOutput) SetCertificateId(v string) *ListenerForDescribeListenersOutput {
+	s.CertificateId = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ListenerForDescribeListenersOutput) SetCreateTime(v string) *ListenerForDescribeListenersOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *ListenerForDescribeListenersOutput) SetEnabled(v string) *ListenerForDescribeListenersOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetHealthCheck sets the HealthCheck field's value.
+func (s *ListenerForDescribeListenersOutput) SetHealthCheck(v *HealthCheckForDescribeListenersOutput) *ListenerForDescribeListenersOutput {
+	s.HealthCheck = v
+	return s
+}
+
+// SetListenerId sets the ListenerId field's value.
+func (s *ListenerForDescribeListenersOutput) SetListenerId(v string) *ListenerForDescribeListenersOutput {
+	s.ListenerId = &v
+	return s
+}
+
+// SetListenerName sets the ListenerName field's value.
+func (s *ListenerForDescribeListenersOutput) SetListenerName(v string) *ListenerForDescribeListenersOutput {
+	s.ListenerName = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ListenerForDescribeListenersOutput) SetPort(v int64) *ListenerForDescribeListenersOutput {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *ListenerForDescribeListenersOutput) SetProtocol(v string) *ListenerForDescribeListenersOutput {
+	s.Protocol = &v
+	return s
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ListenerForDescribeListenersOutput) SetServerGroupId(v string) *ListenerForDescribeListenersOutput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ListenerForDescribeListenersOutput) SetStatus(v string) *ListenerForDescribeListenersOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ListenerForDescribeListenersOutput) SetUpdateTime(v string) *ListenerForDescribeListenersOutput {
+	s.UpdateTime = &v
+	return s
+}
+
 type ListenerForDescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	ListenerId *string `type:"string"`
+
+	ListenerName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -7446,8 +7912,62 @@ func (s ListenerForDescribeLoadBalancerAttributesOutput) GoString() string {
 	return s.String()
 }
 
+// SetListenerId sets the ListenerId field's value.
+func (s *ListenerForDescribeLoadBalancerAttributesOutput) SetListenerId(v string) *ListenerForDescribeLoadBalancerAttributesOutput {
+	s.ListenerId = &v
+	return s
+}
+
+// SetListenerName sets the ListenerName field's value.
+func (s *ListenerForDescribeLoadBalancerAttributesOutput) SetListenerName(v string) *ListenerForDescribeLoadBalancerAttributesOutput {
+	s.ListenerName = &v
+	return s
+}
+
 type LoadBalancerForDescribeLoadBalancersOutput struct {
 	_ struct{} `type:"structure"`
+
+	BusinessStatus *string `type:"string"`
+
+	CreateTime *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+
+	EipID *string `type:"string"`
+
+	EniAddress *string `type:"string"`
+
+	EniID *string `type:"string"`
+
+	LoadBalancerBillingType *int64 `type:"integer"`
+
+	LoadBalancerId *string `type:"string"`
+
+	LoadBalancerName *string `type:"string"`
+
+	LoadBalancerSpec *string `type:"string"`
+
+	LockReason *string `type:"string"`
+
+	ModificationProtectionReason *string `type:"string"`
+
+	ModificationProtectionStatus *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -7458,6 +7978,132 @@ func (s LoadBalancerForDescribeLoadBalancersOutput) String() string {
 // GoString returns the string representation
 func (s LoadBalancerForDescribeLoadBalancersOutput) GoString() string {
 	return s.String()
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetBusinessStatus(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetCreateTime(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetDeletedTime(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetDescription(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEipAddress(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipID sets the EipID field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEipID(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.EipID = &v
+	return s
+}
+
+// SetEniAddress sets the EniAddress field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniAddress(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.EniAddress = &v
+	return s
+}
+
+// SetEniID sets the EniID field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniID(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.EniID = &v
+	return s
+}
+
+// SetLoadBalancerBillingType sets the LoadBalancerBillingType field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLoadBalancerBillingType(v int64) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.LoadBalancerBillingType = &v
+	return s
+}
+
+// SetLoadBalancerId sets the LoadBalancerId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLoadBalancerId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.LoadBalancerId = &v
+	return s
+}
+
+// SetLoadBalancerName sets the LoadBalancerName field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLoadBalancerName(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.LoadBalancerName = &v
+	return s
+}
+
+// SetLoadBalancerSpec sets the LoadBalancerSpec field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLoadBalancerSpec(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.LoadBalancerSpec = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLockReason(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.LockReason = &v
+	return s
+}
+
+// SetModificationProtectionReason sets the ModificationProtectionReason field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetModificationProtectionReason(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ModificationProtectionReason = &v
+	return s
+}
+
+// SetModificationProtectionStatus sets the ModificationProtectionStatus field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetModificationProtectionStatus(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ModificationProtectionStatus = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetOverdueTime(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetStatus(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetSubnetId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetType(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.Type = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetUpdateTime(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetVpcId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.VpcId = &v
+	return s
 }
 
 type ModifyAclAttributesInput struct {
@@ -8097,6 +8743,18 @@ func (s *RemoveServerGroupBackendServersOutput) SetRequestId(v string) *RemoveSe
 type ResultForDescribeListenerHealthOutput struct {
 	_ struct{} `type:"structure"`
 
+	InstanceId *string `type:"string"`
+
+	Ip *string `type:"string"`
+
+	Port *int64 `type:"integer"`
+
+	RuleNumber *int64 `type:"integer"`
+
+	ServerGroupId *string `type:"string"`
+
+	ServerId *string `type:"string"`
+
 	Status *string `type:"string"`
 }
 
@@ -8108,6 +8766,42 @@ func (s ResultForDescribeListenerHealthOutput) String() string {
 // GoString returns the string representation
 func (s ResultForDescribeListenerHealthOutput) GoString() string {
 	return s.String()
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ResultForDescribeListenerHealthOutput) SetInstanceId(v string) *ResultForDescribeListenerHealthOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ResultForDescribeListenerHealthOutput) SetIp(v string) *ResultForDescribeListenerHealthOutput {
+	s.Ip = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ResultForDescribeListenerHealthOutput) SetPort(v int64) *ResultForDescribeListenerHealthOutput {
+	s.Port = &v
+	return s
+}
+
+// SetRuleNumber sets the RuleNumber field's value.
+func (s *ResultForDescribeListenerHealthOutput) SetRuleNumber(v int64) *ResultForDescribeListenerHealthOutput {
+	s.RuleNumber = &v
+	return s
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ResultForDescribeListenerHealthOutput) SetServerGroupId(v string) *ResultForDescribeListenerHealthOutput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetServerId sets the ServerId field's value.
+func (s *ResultForDescribeListenerHealthOutput) SetServerId(v string) *ResultForDescribeListenerHealthOutput {
+	s.ServerId = &v
+	return s
 }
 
 // SetStatus sets the Status field's value.
@@ -8170,6 +8864,16 @@ func (s *RuleForCreateRulesInput) SetServerGroupId(v string) *RuleForCreateRules
 
 type RuleForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	Domain *string `type:"string"`
+
+	RuleId *string `type:"string"`
+
+	ServerGroupId *string `type:"string"`
+
+	Url *string `type:"string"`
 }
 
 // String returns the string representation
@@ -8180,6 +8884,36 @@ func (s RuleForDescribeRulesOutput) String() string {
 // GoString returns the string representation
 func (s RuleForDescribeRulesOutput) GoString() string {
 	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *RuleForDescribeRulesOutput) SetDescription(v string) *RuleForDescribeRulesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDomain sets the Domain field's value.
+func (s *RuleForDescribeRulesOutput) SetDomain(v string) *RuleForDescribeRulesOutput {
+	s.Domain = &v
+	return s
+}
+
+// SetRuleId sets the RuleId field's value.
+func (s *RuleForDescribeRulesOutput) SetRuleId(v string) *RuleForDescribeRulesOutput {
+	s.RuleId = &v
+	return s
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *RuleForDescribeRulesOutput) SetServerGroupId(v string) *RuleForDescribeRulesOutput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *RuleForDescribeRulesOutput) SetUrl(v string) *RuleForDescribeRulesOutput {
+	s.Url = &v
+	return s
 }
 
 type RuleForModifyRulesInput struct {
@@ -8412,6 +9146,20 @@ func (s *ServerForCreateServerGroupInput) SetWeight(v int64) *ServerForCreateSer
 
 type ServerForDescribeServerGroupAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	Ip *string `type:"string"`
+
+	Port *int64 `type:"integer"`
+
+	ServerId *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	Weight *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -8422,6 +9170,48 @@ func (s ServerForDescribeServerGroupAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ServerForDescribeServerGroupAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerForDescribeServerGroupAttributesOutput) SetDescription(v string) *ServerForDescribeServerGroupAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ServerForDescribeServerGroupAttributesOutput) SetInstanceId(v string) *ServerForDescribeServerGroupAttributesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetIp sets the Ip field's value.
+func (s *ServerForDescribeServerGroupAttributesOutput) SetIp(v string) *ServerForDescribeServerGroupAttributesOutput {
+	s.Ip = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerForDescribeServerGroupAttributesOutput) SetPort(v int64) *ServerForDescribeServerGroupAttributesOutput {
+	s.Port = &v
+	return s
+}
+
+// SetServerId sets the ServerId field's value.
+func (s *ServerForDescribeServerGroupAttributesOutput) SetServerId(v string) *ServerForDescribeServerGroupAttributesOutput {
+	s.ServerId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerForDescribeServerGroupAttributesOutput) SetType(v string) *ServerForDescribeServerGroupAttributesOutput {
+	s.Type = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerForDescribeServerGroupAttributesOutput) SetWeight(v int64) *ServerForDescribeServerGroupAttributesOutput {
+	s.Weight = &v
+	return s
 }
 
 type ServerForModifyServerGroupAttributesInput struct {
@@ -8494,6 +9284,10 @@ func (s *ServerForModifyServerGroupAttributesInput) SetWeight(v int64) *ServerFo
 
 type ServerGroupForDescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	ServerGroupId *string `type:"string"`
+
+	ServerGroupName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -8506,8 +9300,30 @@ func (s ServerGroupForDescribeLoadBalancerAttributesOutput) GoString() string {
 	return s.String()
 }
 
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ServerGroupForDescribeLoadBalancerAttributesOutput) SetServerGroupId(v string) *ServerGroupForDescribeLoadBalancerAttributesOutput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetServerGroupName sets the ServerGroupName field's value.
+func (s *ServerGroupForDescribeLoadBalancerAttributesOutput) SetServerGroupName(v string) *ServerGroupForDescribeLoadBalancerAttributesOutput {
+	s.ServerGroupName = &v
+	return s
+}
+
 type ServerGroupForDescribeServerGroupsOutput struct {
 	_ struct{} `type:"structure"`
+
+	CreateTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	ServerGroupId *string `type:"string"`
+
+	ServerGroupName *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -8518,6 +9334,36 @@ func (s ServerGroupForDescribeServerGroupsOutput) String() string {
 // GoString returns the string representation
 func (s ServerGroupForDescribeServerGroupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetCreateTime(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetDescription(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupId(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetServerGroupName sets the ServerGroupName field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupName(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.ServerGroupName = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetUpdateTime(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.UpdateTime = &v
+	return s
 }
 
 type UploadCertificateInput struct {

@@ -6767,6 +6767,12 @@ func (s *AllocateEipAddressOutput) SetRequestId(v string) *AllocateEipAddressOut
 
 type AssociateCenForDescribeVpcAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	CenId *string `type:"string"`
+
+	CenOwnerId *string `type:"string"`
+
+	CenStatus *string `type:"string"`
 }
 
 // String returns the string representation
@@ -6777,6 +6783,62 @@ func (s AssociateCenForDescribeVpcAttributesOutput) String() string {
 // GoString returns the string representation
 func (s AssociateCenForDescribeVpcAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCenId sets the CenId field's value.
+func (s *AssociateCenForDescribeVpcAttributesOutput) SetCenId(v string) *AssociateCenForDescribeVpcAttributesOutput {
+	s.CenId = &v
+	return s
+}
+
+// SetCenOwnerId sets the CenOwnerId field's value.
+func (s *AssociateCenForDescribeVpcAttributesOutput) SetCenOwnerId(v string) *AssociateCenForDescribeVpcAttributesOutput {
+	s.CenOwnerId = &v
+	return s
+}
+
+// SetCenStatus sets the CenStatus field's value.
+func (s *AssociateCenForDescribeVpcAttributesOutput) SetCenStatus(v string) *AssociateCenForDescribeVpcAttributesOutput {
+	s.CenStatus = &v
+	return s
+}
+
+type AssociateCenForDescribeVpcsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CenId *string `type:"string"`
+
+	CenOwnerId *string `type:"string"`
+
+	CenStatus *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateCenForDescribeVpcsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateCenForDescribeVpcsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCenId sets the CenId field's value.
+func (s *AssociateCenForDescribeVpcsOutput) SetCenId(v string) *AssociateCenForDescribeVpcsOutput {
+	s.CenId = &v
+	return s
+}
+
+// SetCenOwnerId sets the CenOwnerId field's value.
+func (s *AssociateCenForDescribeVpcsOutput) SetCenOwnerId(v string) *AssociateCenForDescribeVpcsOutput {
+	s.CenOwnerId = &v
+	return s
+}
+
+// SetCenStatus sets the CenStatus field's value.
+func (s *AssociateCenForDescribeVpcsOutput) SetCenStatus(v string) *AssociateCenForDescribeVpcsOutput {
+	s.CenStatus = &v
+	return s
 }
 
 type AssociateEipAddressInput struct {
@@ -7019,6 +7081,10 @@ func (s *AssociateRouteTableOutput) SetRequestId(v string) *AssociateRouteTableO
 
 type AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	EipAddress *string `type:"string"`
 }
 
 // String returns the string representation
@@ -7029,6 +7095,18 @@ func (s AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) String()
 // GoString returns the string representation
 func (s AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetAllocationId(v string) *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetEipAddress(v string) *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
+	s.EipAddress = &v
+	return s
 }
 
 type AttachNetworkInterfaceInput struct {
@@ -8760,7 +8838,7 @@ func (s *DescribeEipAddressesInput) SetStatus(v string) *DescribeEipAddressesInp
 type DescribeEipAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
-	EipAddresses []*EipAddresseForDescribeEipAddressesOutput `type:"list"`
+	EipAddresses []*EipAddressForDescribeEipAddressesOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -8782,7 +8860,7 @@ func (s DescribeEipAddressesOutput) GoString() string {
 }
 
 // SetEipAddresses sets the EipAddresses field's value.
-func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddresseForDescribeEipAddressesOutput) *DescribeEipAddressesOutput {
+func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddressForDescribeEipAddressesOutput) *DescribeEipAddressesOutput {
 	s.EipAddresses = v
 	return s
 }
@@ -10641,22 +10719,186 @@ func (s *DisassociateRouteTableOutput) SetRequestId(v string) *DisassociateRoute
 	return s
 }
 
-type EipAddresseForDescribeEipAddressesOutput struct {
+type EipAddressForDescribeEipAddressesOutput struct {
 	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	AllocationTime *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+
+	ExpiredTime *string `type:"string"`
+
+	ISP *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	LockReason *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
-func (s EipAddresseForDescribeEipAddressesOutput) String() string {
+func (s EipAddressForDescribeEipAddressesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s EipAddresseForDescribeEipAddressesOutput) GoString() string {
+func (s EipAddressForDescribeEipAddressesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetAllocationId(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetAllocationTime sets the AllocationTime field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetAllocationTime(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.AllocationTime = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidth(v int64) *EipAddressForDescribeEipAddressesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetBillingType(v int64) *EipAddressForDescribeEipAddressesOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetBusinessStatus(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetDeletedTime(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetDescription(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetEipAddress(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetExpiredTime(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetISP(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetInstanceId(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetInstanceType(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetLockReason(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.LockReason = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetName(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetOverdueTime(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetStatus(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetUpdatedAt(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.UpdatedAt = &v
+	return s
 }
 
 type HaVipForDescribeHaVipsOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociatedEipAddress *string `type:"string"`
+
+	AssociatedInstanceIds []*string `type:"list"`
+
+	AssociatedInstanceType *string `type:"string"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	HaVipId *string `type:"string"`
+
+	HaVipName *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	MasterInstanceId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -10667,6 +10909,90 @@ func (s HaVipForDescribeHaVipsOutput) String() string {
 // GoString returns the string representation
 func (s HaVipForDescribeHaVipsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetAccountId(v string) *HaVipForDescribeHaVipsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociatedEipAddress sets the AssociatedEipAddress field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetAssociatedEipAddress(v string) *HaVipForDescribeHaVipsOutput {
+	s.AssociatedEipAddress = &v
+	return s
+}
+
+// SetAssociatedInstanceIds sets the AssociatedInstanceIds field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetAssociatedInstanceIds(v []*string) *HaVipForDescribeHaVipsOutput {
+	s.AssociatedInstanceIds = v
+	return s
+}
+
+// SetAssociatedInstanceType sets the AssociatedInstanceType field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetAssociatedInstanceType(v string) *HaVipForDescribeHaVipsOutput {
+	s.AssociatedInstanceType = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetCreatedAt(v string) *HaVipForDescribeHaVipsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetDescription(v string) *HaVipForDescribeHaVipsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetHaVipId(v string) *HaVipForDescribeHaVipsOutput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetHaVipName(v string) *HaVipForDescribeHaVipsOutput {
+	s.HaVipName = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetIpAddress(v string) *HaVipForDescribeHaVipsOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetMasterInstanceId sets the MasterInstanceId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetMasterInstanceId(v string) *HaVipForDescribeHaVipsOutput {
+	s.MasterInstanceId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetStatus(v string) *HaVipForDescribeHaVipsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetSubnetId(v string) *HaVipForDescribeHaVipsOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetUpdatedAt(v string) *HaVipForDescribeHaVipsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetVpcId(v string) *HaVipForDescribeHaVipsOutput {
+	s.VpcId = &v
+	return s
 }
 
 type ModifyEipAddressAttributesInput struct {
@@ -11566,12 +11892,6 @@ func (s *ModifyVpcAttributesOutput) SetRequestId(v string) *ModifyVpcAttributesO
 
 type PermissionForDescribeSecurityGroupAttributesOutput struct {
 	_ struct{} `type:"structure"`
-
-	CreationTime *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -11582,24 +11902,6 @@ func (s PermissionForDescribeSecurityGroupAttributesOutput) String() string {
 // GoString returns the string representation
 func (s PermissionForDescribeSecurityGroupAttributesOutput) GoString() string {
 	return s.String()
-}
-
-// SetCreationTime sets the CreationTime field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetCreationTime(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
-	s.CreationTime = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetDescription(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
-	s.Description = &v
-	return s
-}
-
-// SetUpdateTime sets the UpdateTime field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetUpdateTime(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
-	s.UpdateTime = &v
-	return s
 }
 
 type ReleaseEipAddressInput struct {
@@ -11938,6 +12240,28 @@ func (s *RevokeSecurityGroupIngressOutput) SetRequestId(v string) *RevokeSecurit
 
 type RouteEntryForDescribeRouteEntryListOutput struct {
 	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	NextHopName *string `type:"string"`
+
+	NextHopType *string `type:"string"`
+
+	RouteEntryId *string `type:"string"`
+
+	RouteEntryName *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -11950,8 +12274,180 @@ func (s RouteEntryForDescribeRouteEntryListOutput) GoString() string {
 	return s.String()
 }
 
+// SetDescription sets the Description field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetDescription(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetDestinationCidrBlock(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopId(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopName sets the NextHopName field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopName(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.NextHopName = &v
+	return s
+}
+
+// SetNextHopType sets the NextHopType field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopType(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.NextHopType = &v
+	return s
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetRouteEntryId(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.RouteEntryId = &v
+	return s
+}
+
+// SetRouteEntryName sets the RouteEntryName field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetRouteEntryName(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.RouteEntryName = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetRouteTableId(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetStatus(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetType(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetVpcId(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.VpcId = &v
+	return s
+}
+
+type RouteEntryForDescribeRouteTableListOutput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	NextHopName *string `type:"string"`
+
+	NextHopType *string `type:"string"`
+
+	RouteEntryId *string `type:"string"`
+
+	RouteEntryName *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RouteEntryForDescribeRouteTableListOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RouteEntryForDescribeRouteTableListOutput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetDescription(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetDestinationCidrBlock(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetNextHopId(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopName sets the NextHopName field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetNextHopName(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.NextHopName = &v
+	return s
+}
+
+// SetNextHopType sets the NextHopType field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetNextHopType(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.NextHopType = &v
+	return s
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetRouteEntryId(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.RouteEntryId = &v
+	return s
+}
+
+// SetRouteEntryName sets the RouteEntryName field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetRouteEntryName(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.RouteEntryName = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetRouteTableId(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetStatus(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetType(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetVpcId(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.VpcId = &v
+	return s
+}
+
 type RouteTableForDescribeSubnetAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	RouteTableId *string `type:"string"`
+
+	RouteTableType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -11964,8 +12460,72 @@ func (s RouteTableForDescribeSubnetAttributesOutput) GoString() string {
 	return s.String()
 }
 
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteTableForDescribeSubnetAttributesOutput) SetRouteTableId(v string) *RouteTableForDescribeSubnetAttributesOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableType sets the RouteTableType field's value.
+func (s *RouteTableForDescribeSubnetAttributesOutput) SetRouteTableType(v string) *RouteTableForDescribeSubnetAttributesOutput {
+	s.RouteTableType = &v
+	return s
+}
+
+type RouteTableForDescribeSubnetsOutput struct {
+	_ struct{} `type:"structure"`
+
+	RouteTableId *string `type:"string"`
+
+	RouteTableType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RouteTableForDescribeSubnetsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RouteTableForDescribeSubnetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteTableForDescribeSubnetsOutput) SetRouteTableId(v string) *RouteTableForDescribeSubnetsOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableType sets the RouteTableType field's value.
+func (s *RouteTableForDescribeSubnetsOutput) SetRouteTableType(v string) *RouteTableForDescribeSubnetsOutput {
+	s.RouteTableType = &v
+	return s
+}
+
 type RouterTableListForDescribeRouteTableListOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	RouteEntry []*RouteEntryForDescribeRouteTableListOutput `type:"list"`
+
+	RouteTableId *string `type:"string"`
+
+	RouteTableName *string `type:"string"`
+
+	RouteTableType *string `type:"string"`
+
+	SubnetIds []*string `type:"list"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -11978,8 +12538,88 @@ func (s RouterTableListForDescribeRouteTableListOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetAccountId(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetCreationTime(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetDescription(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.Description = &v
+	return s
+}
+
+// SetRouteEntry sets the RouteEntry field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetRouteEntry(v []*RouteEntryForDescribeRouteTableListOutput) *RouterTableListForDescribeRouteTableListOutput {
+	s.RouteEntry = v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetRouteTableId(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableName sets the RouteTableName field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetRouteTableName(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.RouteTableName = &v
+	return s
+}
+
+// SetRouteTableType sets the RouteTableType field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetRouteTableType(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.RouteTableType = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetSubnetIds(v []*string) *RouterTableListForDescribeRouteTableListOutput {
+	s.SubnetIds = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetUpdateTime(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetVpcId(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetVpcName(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.VpcName = &v
+	return s
+}
+
 type SecurityGroupForDescribeSecurityGroupsOutput struct {
 	_ struct{} `type:"structure"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	SecurityGroupId *string `type:"string"`
+
+	SecurityGroupName *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -11992,8 +12632,76 @@ func (s SecurityGroupForDescribeSecurityGroupsOutput) GoString() string {
 	return s.String()
 }
 
+// SetCreationTime sets the CreationTime field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetCreationTime(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetDescription(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupId(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupName(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.SecurityGroupName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetStatus(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetType(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetVpcId(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.VpcId = &v
+	return s
+}
+
 type SubnetForDescribeSubnetsOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AvailableIpAddressCount *int64 `type:"integer"`
+
+	CidrBlock *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	RouteTable *RouteTableForDescribeSubnetsOutput `type:"structure"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	SubnetName *string `type:"string"`
+
+	TotalIpv4Count *int64 `type:"integer"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -12006,8 +12714,114 @@ func (s SubnetForDescribeSubnetsOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetAccountId(v string) *SubnetForDescribeSubnetsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAvailableIpAddressCount sets the AvailableIpAddressCount field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetAvailableIpAddressCount(v int64) *SubnetForDescribeSubnetsOutput {
+	s.AvailableIpAddressCount = &v
+	return s
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetCidrBlock(v string) *SubnetForDescribeSubnetsOutput {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetCreationTime(v string) *SubnetForDescribeSubnetsOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetDescription(v string) *SubnetForDescribeSubnetsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetRouteTable sets the RouteTable field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetRouteTable(v *RouteTableForDescribeSubnetsOutput) *SubnetForDescribeSubnetsOutput {
+	s.RouteTable = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetStatus(v string) *SubnetForDescribeSubnetsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetSubnetId(v string) *SubnetForDescribeSubnetsOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetSubnetName sets the SubnetName field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetSubnetName(v string) *SubnetForDescribeSubnetsOutput {
+	s.SubnetName = &v
+	return s
+}
+
+// SetTotalIpv4Count sets the TotalIpv4Count field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetTotalIpv4Count(v int64) *SubnetForDescribeSubnetsOutput {
+	s.TotalIpv4Count = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetUpdateTime(v string) *SubnetForDescribeSubnetsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetVpcId(v string) *SubnetForDescribeSubnetsOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetZoneId(v string) *SubnetForDescribeSubnetsOutput {
+	s.ZoneId = &v
+	return s
+}
+
 type VpcForDescribeVpcsOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociateCens []*AssociateCenForDescribeVpcsOutput `type:"list"`
+
+	CidrBlock *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DnsServers []*string `type:"list"`
+
+	NatGatewayIds []*string `type:"list"`
+
+	RouteTableIds []*string `type:"list"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	Status *string `type:"string"`
+
+	SubnetIds []*string `type:"list"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -12018,6 +12832,90 @@ func (s VpcForDescribeVpcsOutput) String() string {
 // GoString returns the string representation
 func (s VpcForDescribeVpcsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *VpcForDescribeVpcsOutput) SetAccountId(v string) *VpcForDescribeVpcsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociateCens sets the AssociateCens field's value.
+func (s *VpcForDescribeVpcsOutput) SetAssociateCens(v []*AssociateCenForDescribeVpcsOutput) *VpcForDescribeVpcsOutput {
+	s.AssociateCens = v
+	return s
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *VpcForDescribeVpcsOutput) SetCidrBlock(v string) *VpcForDescribeVpcsOutput {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *VpcForDescribeVpcsOutput) SetCreationTime(v string) *VpcForDescribeVpcsOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *VpcForDescribeVpcsOutput) SetDescription(v string) *VpcForDescribeVpcsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDnsServers sets the DnsServers field's value.
+func (s *VpcForDescribeVpcsOutput) SetDnsServers(v []*string) *VpcForDescribeVpcsOutput {
+	s.DnsServers = v
+	return s
+}
+
+// SetNatGatewayIds sets the NatGatewayIds field's value.
+func (s *VpcForDescribeVpcsOutput) SetNatGatewayIds(v []*string) *VpcForDescribeVpcsOutput {
+	s.NatGatewayIds = v
+	return s
+}
+
+// SetRouteTableIds sets the RouteTableIds field's value.
+func (s *VpcForDescribeVpcsOutput) SetRouteTableIds(v []*string) *VpcForDescribeVpcsOutput {
+	s.RouteTableIds = v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *VpcForDescribeVpcsOutput) SetSecurityGroupIds(v []*string) *VpcForDescribeVpcsOutput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *VpcForDescribeVpcsOutput) SetStatus(v string) *VpcForDescribeVpcsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *VpcForDescribeVpcsOutput) SetSubnetIds(v []*string) *VpcForDescribeVpcsOutput {
+	s.SubnetIds = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *VpcForDescribeVpcsOutput) SetUpdateTime(v string) *VpcForDescribeVpcsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *VpcForDescribeVpcsOutput) SetVpcId(v string) *VpcForDescribeVpcsOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *VpcForDescribeVpcsOutput) SetVpcName(v string) *VpcForDescribeVpcsOutput {
+	s.VpcName = &v
+	return s
 }
 
 const (
