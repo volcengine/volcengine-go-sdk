@@ -19,7 +19,7 @@ import (
 //    // volcstack sdk func uses an SDK service client to make a request to
 //    // RDS_MYSQL_V2.
 //    func myFunc(svc RDSMYSQLV2API) bool {
-//        // Make svc.CreateBackup request
+//        // Make svc.AccountPrivilegesInfo request
 //    }
 //
 //    func main() {
@@ -30,6 +30,78 @@ import (
 //    }
 //
 type RDSMYSQLV2API interface {
+	AccountPrivilegesInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AccountPrivilegesInfoCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AccountPrivilegesInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AccountPrivilegesInfo(*AccountPrivilegesInfoInput) (*AccountPrivilegesInfoOutput, error)
+	AccountPrivilegesInfoWithContext(volcstack.Context, *AccountPrivilegesInfoInput, ...request.Option) (*AccountPrivilegesInfoOutput, error)
+	AccountPrivilegesInfoRequest(*AccountPrivilegesInfoInput) (*request.Request, *AccountPrivilegesInfoOutput)
+
+	AccountsInfoObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AccountsInfoObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AccountsInfoObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AccountsInfoObject(*AccountsInfoObjectInput) (*AccountsInfoObjectOutput, error)
+	AccountsInfoObjectWithContext(volcstack.Context, *AccountsInfoObjectInput, ...request.Option) (*AccountsInfoObjectOutput, error)
+	AccountsInfoObjectRequest(*AccountsInfoObjectInput) (*request.Request, *AccountsInfoObjectOutput)
+
+	AddressObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddressObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddressObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddressObject(*AddressObjectInput) (*AddressObjectOutput, error)
+	AddressObjectWithContext(volcstack.Context, *AddressObjectInput, ...request.Option) (*AddressObjectOutput, error)
+	AddressObjectRequest(*AddressObjectInput) (*request.Request, *AddressObjectOutput)
+
+	BackupInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BackupInfoCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BackupInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BackupInfo(*BackupInfoInput) (*BackupInfoOutput, error)
+	BackupInfoWithContext(volcstack.Context, *BackupInfoInput, ...request.Option) (*BackupInfoOutput, error)
+	BackupInfoRequest(*BackupInfoInput) (*request.Request, *BackupInfoOutput)
+
+	BackupMetaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BackupMetaCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BackupMetaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BackupMeta(*BackupMetaInput) (*BackupMetaOutput, error)
+	BackupMetaWithContext(volcstack.Context, *BackupMetaInput, ...request.Option) (*BackupMetaOutput, error)
+	BackupMetaRequest(*BackupMetaInput) (*request.Request, *BackupMetaOutput)
+
+	BasicInfoObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BasicInfoObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BasicInfoObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BasicInfoObject(*BasicInfoObjectInput) (*BasicInfoObjectOutput, error)
+	BasicInfoObjectWithContext(volcstack.Context, *BasicInfoObjectInput, ...request.Option) (*BasicInfoObjectOutput, error)
+	BasicInfoObjectRequest(*BasicInfoObjectInput) (*request.Request, *BasicInfoObjectOutput)
+
+	ChargeDetailObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ChargeDetailObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ChargeDetailObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ChargeDetailObject(*ChargeDetailObjectInput) (*ChargeDetailObjectOutput, error)
+	ChargeDetailObjectWithContext(volcstack.Context, *ChargeDetailObjectInput, ...request.Option) (*ChargeDetailObjectOutput, error)
+	ChargeDetailObjectRequest(*ChargeDetailObjectInput) (*request.Request, *ChargeDetailObjectOutput)
+
+	ChargeInfoObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ChargeInfoObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ChargeInfoObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ChargeInfoObject(*ChargeInfoObjectInput) (*ChargeInfoObjectOutput, error)
+	ChargeInfoObjectWithContext(volcstack.Context, *ChargeInfoObjectInput, ...request.Option) (*ChargeInfoObjectOutput, error)
+	ChargeInfoObjectRequest(*ChargeInfoObjectInput) (*request.Request, *ChargeInfoObjectOutput)
+
+	ConnectionInfoObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ConnectionInfoObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ConnectionInfoObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ConnectionInfoObject(*ConnectionInfoObjectInput) (*ConnectionInfoObjectOutput, error)
+	ConnectionInfoObjectWithContext(volcstack.Context, *ConnectionInfoObjectInput, ...request.Option) (*ConnectionInfoObjectOutput, error)
+	ConnectionInfoObjectRequest(*ConnectionInfoObjectInput) (*request.Request, *ConnectionInfoObjectOutput)
+
 	CreateBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBackupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +133,22 @@ type RDSMYSQLV2API interface {
 	CreateDatabase(*CreateDatabaseInput) (*CreateDatabaseOutput, error)
 	CreateDatabaseWithContext(volcstack.Context, *CreateDatabaseInput, ...request.Option) (*CreateDatabaseOutput, error)
 	CreateDatabaseRequest(*CreateDatabaseInput) (*request.Request, *CreateDatabaseOutput)
+
+	DatabaseInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DatabaseInfoCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DatabaseInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DatabaseInfo(*DatabaseInfoInput) (*DatabaseInfoOutput, error)
+	DatabaseInfoWithContext(volcstack.Context, *DatabaseInfoInput, ...request.Option) (*DatabaseInfoOutput, error)
+	DatabaseInfoRequest(*DatabaseInfoInput) (*request.Request, *DatabaseInfoOutput)
+
+	DatabasePrivilegesInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DatabasePrivilegesInfoCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DatabasePrivilegesInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DatabasePrivilegesInfo(*DatabasePrivilegesInfoInput) (*DatabasePrivilegesInfoOutput, error)
+	DatabasePrivilegesInfoWithContext(volcstack.Context, *DatabasePrivilegesInfoInput, ...request.Option) (*DatabasePrivilegesInfoOutput, error)
+	DatabasePrivilegesInfoRequest(*DatabasePrivilegesInfoInput) (*request.Request, *DatabasePrivilegesInfoOutput)
 
 	DeleteBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteBackupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -198,6 +286,38 @@ type RDSMYSQLV2API interface {
 	DescribeSlowLogsWithContext(volcstack.Context, *DescribeSlowLogsInput, ...request.Option) (*DescribeSlowLogsOutput, error)
 	DescribeSlowLogsRequest(*DescribeSlowLogsInput) (*request.Request, *DescribeSlowLogsOutput)
 
+	ErrorLogObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ErrorLogObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ErrorLogObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ErrorLogObject(*ErrorLogObjectInput) (*ErrorLogObjectOutput, error)
+	ErrorLogObjectWithContext(volcstack.Context, *ErrorLogObjectInput, ...request.Option) (*ErrorLogObjectOutput, error)
+	ErrorLogObjectRequest(*ErrorLogObjectInput) (*request.Request, *ErrorLogObjectOutput)
+
+	InstanceInfoObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	InstanceInfoObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	InstanceInfoObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	InstanceInfoObject(*InstanceInfoObjectInput) (*InstanceInfoObjectOutput, error)
+	InstanceInfoObjectWithContext(volcstack.Context, *InstanceInfoObjectInput, ...request.Option) (*InstanceInfoObjectOutput, error)
+	InstanceInfoObjectRequest(*InstanceInfoObjectInput) (*request.Request, *InstanceInfoObjectOutput)
+
+	InstanceSpecsInfoObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	InstanceSpecsInfoObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	InstanceSpecsInfoObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	InstanceSpecsInfoObject(*InstanceSpecsInfoObjectInput) (*InstanceSpecsInfoObjectOutput, error)
+	InstanceSpecsInfoObjectWithContext(volcstack.Context, *InstanceSpecsInfoObjectInput, ...request.Option) (*InstanceSpecsInfoObjectOutput, error)
+	InstanceSpecsInfoObjectRequest(*InstanceSpecsInfoObjectInput) (*request.Request, *InstanceSpecsInfoObjectOutput)
+
+	ModifyAccountPrivilegesInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAccountPrivilegesInfoCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAccountPrivilegesInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyAccountPrivilegesInfo(*ModifyAccountPrivilegesInfoInput) (*ModifyAccountPrivilegesInfoOutput, error)
+	ModifyAccountPrivilegesInfoWithContext(volcstack.Context, *ModifyAccountPrivilegesInfoInput, ...request.Option) (*ModifyAccountPrivilegesInfoOutput, error)
+	ModifyAccountPrivilegesInfoRequest(*ModifyAccountPrivilegesInfoInput) (*request.Request, *ModifyAccountPrivilegesInfoOutput)
+
 	ModifyBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyBackupPolicyCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -238,6 +358,46 @@ type RDSMYSQLV2API interface {
 	ModifyDatabasePrivilegeWithContext(volcstack.Context, *ModifyDatabasePrivilegeInput, ...request.Option) (*ModifyDatabasePrivilegeOutput, error)
 	ModifyDatabasePrivilegeRequest(*ModifyDatabasePrivilegeInput) (*request.Request, *ModifyDatabasePrivilegeOutput)
 
+	ModifyDatabasePrivilegesInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDatabasePrivilegesInfoCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDatabasePrivilegesInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDatabasePrivilegesInfo(*ModifyDatabasePrivilegesInfoInput) (*ModifyDatabasePrivilegesInfoOutput, error)
+	ModifyDatabasePrivilegesInfoWithContext(volcstack.Context, *ModifyDatabasePrivilegesInfoInput, ...request.Option) (*ModifyDatabasePrivilegesInfoOutput, error)
+	ModifyDatabasePrivilegesInfoRequest(*ModifyDatabasePrivilegesInfoInput) (*request.Request, *ModifyDatabasePrivilegesInfoOutput)
+
+	NodeDetailInfoObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	NodeDetailInfoObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	NodeDetailInfoObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	NodeDetailInfoObject(*NodeDetailInfoObjectInput) (*NodeDetailInfoObjectOutput, error)
+	NodeDetailInfoObjectWithContext(volcstack.Context, *NodeDetailInfoObjectInput, ...request.Option) (*NodeDetailInfoObjectOutput, error)
+	NodeDetailInfoObjectRequest(*NodeDetailInfoObjectInput) (*request.Request, *NodeDetailInfoObjectOutput)
+
+	NodeInfoObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	NodeInfoObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	NodeInfoObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	NodeInfoObject(*NodeInfoObjectInput) (*NodeInfoObjectOutput, error)
+	NodeInfoObjectWithContext(volcstack.Context, *NodeInfoObjectInput, ...request.Option) (*NodeInfoObjectOutput, error)
+	NodeInfoObjectRequest(*NodeInfoObjectInput) (*request.Request, *NodeInfoObjectOutput)
+
+	RecoverableTimeInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RecoverableTimeInfoCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RecoverableTimeInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RecoverableTimeInfo(*RecoverableTimeInfoInput) (*RecoverableTimeInfoOutput, error)
+	RecoverableTimeInfoWithContext(volcstack.Context, *RecoverableTimeInfoInput, ...request.Option) (*RecoverableTimeInfoOutput, error)
+	RecoverableTimeInfoRequest(*RecoverableTimeInfoInput) (*request.Request, *RecoverableTimeInfoOutput)
+
+	RegionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RegionCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RegionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	Region(*RegionInput) (*RegionOutput, error)
+	RegionWithContext(volcstack.Context, *RegionInput, ...request.Option) (*RegionOutput, error)
+	RegionRequest(*RegionInput) (*request.Request, *RegionOutput)
+
 	ResetDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ResetDBAccountCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ResetDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -261,6 +421,38 @@ type RDSMYSQLV2API interface {
 	RestoreToNewInstance(*RestoreToNewInstanceInput) (*RestoreToNewInstanceOutput, error)
 	RestoreToNewInstanceWithContext(volcstack.Context, *RestoreToNewInstanceInput, ...request.Option) (*RestoreToNewInstanceOutput, error)
 	RestoreToNewInstanceRequest(*RestoreToNewInstanceInput) (*request.Request, *RestoreToNewInstanceOutput)
+
+	SlowQueryObjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SlowQueryObjectCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SlowQueryObjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SlowQueryObject(*SlowQueryObjectInput) (*SlowQueryObjectOutput, error)
+	SlowQueryObjectWithContext(volcstack.Context, *SlowQueryObjectInput, ...request.Option) (*SlowQueryObjectOutput, error)
+	SlowQueryObjectRequest(*SlowQueryObjectInput) (*request.Request, *SlowQueryObjectOutput)
+
+	TableCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TableCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	Table(*TableInput) (*TableOutput, error)
+	TableWithContext(volcstack.Context, *TableInput, ...request.Option) (*TableOutput, error)
+	TableRequest(*TableInput) (*request.Request, *TableOutput)
+
+	TableMetaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TableMetaCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TableMetaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TableMeta(*TableMetaInput) (*TableMetaOutput, error)
+	TableMetaWithContext(volcstack.Context, *TableMetaInput, ...request.Option) (*TableMetaOutput, error)
+	TableMetaRequest(*TableMetaInput) (*request.Request, *TableMetaOutput)
+
+	ZoneCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ZoneCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ZoneCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	Zone(*ZoneInput) (*ZoneOutput, error)
+	ZoneWithContext(volcstack.Context, *ZoneInput, ...request.Option) (*ZoneOutput, error)
+	ZoneRequest(*ZoneInput) (*request.Request, *ZoneOutput)
 }
 
 var _ RDSMYSQLV2API = (*RDSMYSQLV2)(nil)

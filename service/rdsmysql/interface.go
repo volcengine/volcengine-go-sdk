@@ -70,6 +70,14 @@ type RDSMYSQLAPI interface {
 	CreateDatabaseWithContext(volcstack.Context, *CreateDatabaseInput, ...request.Option) (*CreateDatabaseOutput, error)
 	CreateDatabaseRequest(*CreateDatabaseInput) (*request.Request, *CreateDatabaseOutput)
 
+	DeleteAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAccountCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAccount(*DeleteAccountInput) (*DeleteAccountOutput, error)
+	DeleteAccountWithContext(volcstack.Context, *DeleteAccountInput, ...request.Option) (*DeleteAccountOutput, error)
+	DeleteAccountRequest(*DeleteAccountInput) (*request.Request, *DeleteAccountOutput)
+
 	DeleteDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDBInstanceCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

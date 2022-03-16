@@ -684,6 +684,141 @@ func (c *RDSMYSQL) CreateDatabaseWithContext(ctx volcstack.Context, input *Creat
 	return out, req.Send()
 }
 
+const opDeleteAccountCommon = "DeleteAccount"
+
+// DeleteAccountCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteAccountCommon operation. The "output" return
+// value will be populated with the DeleteAccountCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteAccountCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteAccountCommon Send returns without error.
+//
+// See DeleteAccountCommon for more information on using the DeleteAccountCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteAccountCommonRequest method.
+//    req, resp := client.DeleteAccountCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQL) DeleteAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteAccountCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// DeleteAccountCommon API operation for RDS_MYSQL.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL's
+// API operation DeleteAccountCommon for usage and error information.
+func (c *RDSMYSQL) DeleteAccountCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteAccountCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteAccountCommonWithContext is the same as DeleteAccountCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteAccountCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQL) DeleteAccountCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteAccountCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteAccount = "DeleteAccount"
+
+// DeleteAccountRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteAccount operation. The "output" return
+// value will be populated with the DeleteAccountCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteAccountCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteAccountCommon Send returns without error.
+//
+// See DeleteAccount for more information on using the DeleteAccount
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteAccountRequest method.
+//    req, resp := client.DeleteAccountRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQL) DeleteAccountRequest(input *DeleteAccountInput) (req *request.Request, output *DeleteAccountOutput) {
+	op := &request.Operation{
+		Name:       opDeleteAccount,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteAccountInput{}
+	}
+
+	output = &DeleteAccountOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteAccount API operation for RDS_MYSQL.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL's
+// API operation DeleteAccount for usage and error information.
+func (c *RDSMYSQL) DeleteAccount(input *DeleteAccountInput) (*DeleteAccountOutput, error) {
+	req, out := c.DeleteAccountRequest(input)
+	return out, req.Send()
+}
+
+// DeleteAccountWithContext is the same as DeleteAccount with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteAccount for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQL) DeleteAccountWithContext(ctx volcstack.Context, input *DeleteAccountInput, opts ...request.Option) (*DeleteAccountOutput, error) {
+	req, out := c.DeleteAccountRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteDBInstanceCommon = "DeleteDBInstance"
 
 // DeleteDBInstanceCommonRequest generates a "volcstack/request.Request" representing the
@@ -4018,6 +4153,50 @@ func (s *DataForListDatabasesOutput) SetDBName(v string) *DataForListDatabasesOu
 func (s *DataForListDatabasesOutput) SetDBStatus(v string) *DataForListDatabasesOutput {
 	s.DBStatus = &v
 	return s
+}
+
+type DeleteAccountInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountName *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteAccountInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteAccountInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *DeleteAccountInput) SetAccountName(v string) *DeleteAccountInput {
+	s.AccountName = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DeleteAccountInput) SetInstanceId(v string) *DeleteAccountInput {
+	s.InstanceId = &v
+	return s
+}
+
+type DeleteAccountOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteAccountOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteAccountOutput) GoString() string {
+	return s.String()
 }
 
 type DeleteDBInstanceIPListInput struct {

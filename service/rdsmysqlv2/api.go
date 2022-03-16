@@ -10,6 +10,1221 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
+const opAccountPrivilegesInfoCommon = "AccountPrivilegesInfo"
+
+// AccountPrivilegesInfoCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AccountPrivilegesInfoCommon operation. The "output" return
+// value will be populated with the AccountPrivilegesInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AccountPrivilegesInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AccountPrivilegesInfoCommon Send returns without error.
+//
+// See AccountPrivilegesInfoCommon for more information on using the AccountPrivilegesInfoCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the AccountPrivilegesInfoCommonRequest method.
+//    req, resp := client.AccountPrivilegesInfoCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) AccountPrivilegesInfoCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAccountPrivilegesInfoCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// AccountPrivilegesInfoCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation AccountPrivilegesInfoCommon for usage and error information.
+func (c *RDSMYSQLV2) AccountPrivilegesInfoCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AccountPrivilegesInfoCommonRequest(input)
+	return out, req.Send()
+}
+
+// AccountPrivilegesInfoCommonWithContext is the same as AccountPrivilegesInfoCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AccountPrivilegesInfoCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) AccountPrivilegesInfoCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AccountPrivilegesInfoCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAccountPrivilegesInfo = "AccountPrivilegesInfo"
+
+// AccountPrivilegesInfoRequest generates a "volcstack/request.Request" representing the
+// client's request for the AccountPrivilegesInfo operation. The "output" return
+// value will be populated with the AccountPrivilegesInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AccountPrivilegesInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AccountPrivilegesInfoCommon Send returns without error.
+//
+// See AccountPrivilegesInfo for more information on using the AccountPrivilegesInfo
+// API call, and error handling.
+//
+//    // Example sending a request using the AccountPrivilegesInfoRequest method.
+//    req, resp := client.AccountPrivilegesInfoRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) AccountPrivilegesInfoRequest(input *AccountPrivilegesInfoInput) (req *request.Request, output *AccountPrivilegesInfoOutput) {
+	op := &request.Operation{
+		Name:       opAccountPrivilegesInfo,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AccountPrivilegesInfoInput{}
+	}
+
+	output = &AccountPrivilegesInfoOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// AccountPrivilegesInfo API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation AccountPrivilegesInfo for usage and error information.
+func (c *RDSMYSQLV2) AccountPrivilegesInfo(input *AccountPrivilegesInfoInput) (*AccountPrivilegesInfoOutput, error) {
+	req, out := c.AccountPrivilegesInfoRequest(input)
+	return out, req.Send()
+}
+
+// AccountPrivilegesInfoWithContext is the same as AccountPrivilegesInfo with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AccountPrivilegesInfo for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) AccountPrivilegesInfoWithContext(ctx volcstack.Context, input *AccountPrivilegesInfoInput, opts ...request.Option) (*AccountPrivilegesInfoOutput, error) {
+	req, out := c.AccountPrivilegesInfoRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAccountsInfoObjectCommon = "AccountsInfoObject"
+
+// AccountsInfoObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AccountsInfoObjectCommon operation. The "output" return
+// value will be populated with the AccountsInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AccountsInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AccountsInfoObjectCommon Send returns without error.
+//
+// See AccountsInfoObjectCommon for more information on using the AccountsInfoObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the AccountsInfoObjectCommonRequest method.
+//    req, resp := client.AccountsInfoObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) AccountsInfoObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAccountsInfoObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// AccountsInfoObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation AccountsInfoObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) AccountsInfoObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AccountsInfoObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// AccountsInfoObjectCommonWithContext is the same as AccountsInfoObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AccountsInfoObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) AccountsInfoObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AccountsInfoObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAccountsInfoObject = "AccountsInfoObject"
+
+// AccountsInfoObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the AccountsInfoObject operation. The "output" return
+// value will be populated with the AccountsInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AccountsInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AccountsInfoObjectCommon Send returns without error.
+//
+// See AccountsInfoObject for more information on using the AccountsInfoObject
+// API call, and error handling.
+//
+//    // Example sending a request using the AccountsInfoObjectRequest method.
+//    req, resp := client.AccountsInfoObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) AccountsInfoObjectRequest(input *AccountsInfoObjectInput) (req *request.Request, output *AccountsInfoObjectOutput) {
+	op := &request.Operation{
+		Name:       opAccountsInfoObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AccountsInfoObjectInput{}
+	}
+
+	output = &AccountsInfoObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// AccountsInfoObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation AccountsInfoObject for usage and error information.
+func (c *RDSMYSQLV2) AccountsInfoObject(input *AccountsInfoObjectInput) (*AccountsInfoObjectOutput, error) {
+	req, out := c.AccountsInfoObjectRequest(input)
+	return out, req.Send()
+}
+
+// AccountsInfoObjectWithContext is the same as AccountsInfoObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AccountsInfoObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) AccountsInfoObjectWithContext(ctx volcstack.Context, input *AccountsInfoObjectInput, opts ...request.Option) (*AccountsInfoObjectOutput, error) {
+	req, out := c.AccountsInfoObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAddressObjectCommon = "AddressObject"
+
+// AddressObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AddressObjectCommon operation. The "output" return
+// value will be populated with the AddressObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AddressObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AddressObjectCommon Send returns without error.
+//
+// See AddressObjectCommon for more information on using the AddressObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the AddressObjectCommonRequest method.
+//    req, resp := client.AddressObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) AddressObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAddressObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// AddressObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation AddressObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) AddressObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AddressObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// AddressObjectCommonWithContext is the same as AddressObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AddressObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) AddressObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AddressObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAddressObject = "AddressObject"
+
+// AddressObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the AddressObject operation. The "output" return
+// value will be populated with the AddressObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AddressObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AddressObjectCommon Send returns without error.
+//
+// See AddressObject for more information on using the AddressObject
+// API call, and error handling.
+//
+//    // Example sending a request using the AddressObjectRequest method.
+//    req, resp := client.AddressObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) AddressObjectRequest(input *AddressObjectInput) (req *request.Request, output *AddressObjectOutput) {
+	op := &request.Operation{
+		Name:       opAddressObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AddressObjectInput{}
+	}
+
+	output = &AddressObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// AddressObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation AddressObject for usage and error information.
+func (c *RDSMYSQLV2) AddressObject(input *AddressObjectInput) (*AddressObjectOutput, error) {
+	req, out := c.AddressObjectRequest(input)
+	return out, req.Send()
+}
+
+// AddressObjectWithContext is the same as AddressObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AddressObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) AddressObjectWithContext(ctx volcstack.Context, input *AddressObjectInput, opts ...request.Option) (*AddressObjectOutput, error) {
+	req, out := c.AddressObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opBackupInfoCommon = "BackupInfo"
+
+// BackupInfoCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the BackupInfoCommon operation. The "output" return
+// value will be populated with the BackupInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned BackupInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after BackupInfoCommon Send returns without error.
+//
+// See BackupInfoCommon for more information on using the BackupInfoCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the BackupInfoCommonRequest method.
+//    req, resp := client.BackupInfoCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) BackupInfoCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opBackupInfoCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// BackupInfoCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation BackupInfoCommon for usage and error information.
+func (c *RDSMYSQLV2) BackupInfoCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.BackupInfoCommonRequest(input)
+	return out, req.Send()
+}
+
+// BackupInfoCommonWithContext is the same as BackupInfoCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See BackupInfoCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) BackupInfoCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.BackupInfoCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opBackupInfo = "BackupInfo"
+
+// BackupInfoRequest generates a "volcstack/request.Request" representing the
+// client's request for the BackupInfo operation. The "output" return
+// value will be populated with the BackupInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned BackupInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after BackupInfoCommon Send returns without error.
+//
+// See BackupInfo for more information on using the BackupInfo
+// API call, and error handling.
+//
+//    // Example sending a request using the BackupInfoRequest method.
+//    req, resp := client.BackupInfoRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) BackupInfoRequest(input *BackupInfoInput) (req *request.Request, output *BackupInfoOutput) {
+	op := &request.Operation{
+		Name:       opBackupInfo,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &BackupInfoInput{}
+	}
+
+	output = &BackupInfoOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// BackupInfo API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation BackupInfo for usage and error information.
+func (c *RDSMYSQLV2) BackupInfo(input *BackupInfoInput) (*BackupInfoOutput, error) {
+	req, out := c.BackupInfoRequest(input)
+	return out, req.Send()
+}
+
+// BackupInfoWithContext is the same as BackupInfo with the addition of
+// the ability to pass a context and additional request options.
+//
+// See BackupInfo for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) BackupInfoWithContext(ctx volcstack.Context, input *BackupInfoInput, opts ...request.Option) (*BackupInfoOutput, error) {
+	req, out := c.BackupInfoRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opBackupMetaCommon = "BackupMeta"
+
+// BackupMetaCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the BackupMetaCommon operation. The "output" return
+// value will be populated with the BackupMetaCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned BackupMetaCommon Request to send the API call to the service.
+// the "output" return value is not valid until after BackupMetaCommon Send returns without error.
+//
+// See BackupMetaCommon for more information on using the BackupMetaCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the BackupMetaCommonRequest method.
+//    req, resp := client.BackupMetaCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) BackupMetaCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opBackupMetaCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// BackupMetaCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation BackupMetaCommon for usage and error information.
+func (c *RDSMYSQLV2) BackupMetaCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.BackupMetaCommonRequest(input)
+	return out, req.Send()
+}
+
+// BackupMetaCommonWithContext is the same as BackupMetaCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See BackupMetaCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) BackupMetaCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.BackupMetaCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opBackupMeta = "BackupMeta"
+
+// BackupMetaRequest generates a "volcstack/request.Request" representing the
+// client's request for the BackupMeta operation. The "output" return
+// value will be populated with the BackupMetaCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned BackupMetaCommon Request to send the API call to the service.
+// the "output" return value is not valid until after BackupMetaCommon Send returns without error.
+//
+// See BackupMeta for more information on using the BackupMeta
+// API call, and error handling.
+//
+//    // Example sending a request using the BackupMetaRequest method.
+//    req, resp := client.BackupMetaRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) BackupMetaRequest(input *BackupMetaInput) (req *request.Request, output *BackupMetaOutput) {
+	op := &request.Operation{
+		Name:       opBackupMeta,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &BackupMetaInput{}
+	}
+
+	output = &BackupMetaOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// BackupMeta API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation BackupMeta for usage and error information.
+func (c *RDSMYSQLV2) BackupMeta(input *BackupMetaInput) (*BackupMetaOutput, error) {
+	req, out := c.BackupMetaRequest(input)
+	return out, req.Send()
+}
+
+// BackupMetaWithContext is the same as BackupMeta with the addition of
+// the ability to pass a context and additional request options.
+//
+// See BackupMeta for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) BackupMetaWithContext(ctx volcstack.Context, input *BackupMetaInput, opts ...request.Option) (*BackupMetaOutput, error) {
+	req, out := c.BackupMetaRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opBasicInfoObjectCommon = "BasicInfoObject"
+
+// BasicInfoObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the BasicInfoObjectCommon operation. The "output" return
+// value will be populated with the BasicInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned BasicInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after BasicInfoObjectCommon Send returns without error.
+//
+// See BasicInfoObjectCommon for more information on using the BasicInfoObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the BasicInfoObjectCommonRequest method.
+//    req, resp := client.BasicInfoObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) BasicInfoObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opBasicInfoObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// BasicInfoObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation BasicInfoObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) BasicInfoObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.BasicInfoObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// BasicInfoObjectCommonWithContext is the same as BasicInfoObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See BasicInfoObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) BasicInfoObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.BasicInfoObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opBasicInfoObject = "BasicInfoObject"
+
+// BasicInfoObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the BasicInfoObject operation. The "output" return
+// value will be populated with the BasicInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned BasicInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after BasicInfoObjectCommon Send returns without error.
+//
+// See BasicInfoObject for more information on using the BasicInfoObject
+// API call, and error handling.
+//
+//    // Example sending a request using the BasicInfoObjectRequest method.
+//    req, resp := client.BasicInfoObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) BasicInfoObjectRequest(input *BasicInfoObjectInput) (req *request.Request, output *BasicInfoObjectOutput) {
+	op := &request.Operation{
+		Name:       opBasicInfoObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &BasicInfoObjectInput{}
+	}
+
+	output = &BasicInfoObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// BasicInfoObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation BasicInfoObject for usage and error information.
+func (c *RDSMYSQLV2) BasicInfoObject(input *BasicInfoObjectInput) (*BasicInfoObjectOutput, error) {
+	req, out := c.BasicInfoObjectRequest(input)
+	return out, req.Send()
+}
+
+// BasicInfoObjectWithContext is the same as BasicInfoObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See BasicInfoObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) BasicInfoObjectWithContext(ctx volcstack.Context, input *BasicInfoObjectInput, opts ...request.Option) (*BasicInfoObjectOutput, error) {
+	req, out := c.BasicInfoObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opChargeDetailObjectCommon = "ChargeDetailObject"
+
+// ChargeDetailObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ChargeDetailObjectCommon operation. The "output" return
+// value will be populated with the ChargeDetailObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ChargeDetailObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ChargeDetailObjectCommon Send returns without error.
+//
+// See ChargeDetailObjectCommon for more information on using the ChargeDetailObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ChargeDetailObjectCommonRequest method.
+//    req, resp := client.ChargeDetailObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ChargeDetailObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opChargeDetailObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// ChargeDetailObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ChargeDetailObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) ChargeDetailObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ChargeDetailObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// ChargeDetailObjectCommonWithContext is the same as ChargeDetailObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ChargeDetailObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ChargeDetailObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ChargeDetailObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opChargeDetailObject = "ChargeDetailObject"
+
+// ChargeDetailObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the ChargeDetailObject operation. The "output" return
+// value will be populated with the ChargeDetailObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ChargeDetailObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ChargeDetailObjectCommon Send returns without error.
+//
+// See ChargeDetailObject for more information on using the ChargeDetailObject
+// API call, and error handling.
+//
+//    // Example sending a request using the ChargeDetailObjectRequest method.
+//    req, resp := client.ChargeDetailObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ChargeDetailObjectRequest(input *ChargeDetailObjectInput) (req *request.Request, output *ChargeDetailObjectOutput) {
+	op := &request.Operation{
+		Name:       opChargeDetailObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ChargeDetailObjectInput{}
+	}
+
+	output = &ChargeDetailObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ChargeDetailObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ChargeDetailObject for usage and error information.
+func (c *RDSMYSQLV2) ChargeDetailObject(input *ChargeDetailObjectInput) (*ChargeDetailObjectOutput, error) {
+	req, out := c.ChargeDetailObjectRequest(input)
+	return out, req.Send()
+}
+
+// ChargeDetailObjectWithContext is the same as ChargeDetailObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ChargeDetailObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ChargeDetailObjectWithContext(ctx volcstack.Context, input *ChargeDetailObjectInput, opts ...request.Option) (*ChargeDetailObjectOutput, error) {
+	req, out := c.ChargeDetailObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opChargeInfoObjectCommon = "ChargeInfoObject"
+
+// ChargeInfoObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ChargeInfoObjectCommon operation. The "output" return
+// value will be populated with the ChargeInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ChargeInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ChargeInfoObjectCommon Send returns without error.
+//
+// See ChargeInfoObjectCommon for more information on using the ChargeInfoObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ChargeInfoObjectCommonRequest method.
+//    req, resp := client.ChargeInfoObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ChargeInfoObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opChargeInfoObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// ChargeInfoObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ChargeInfoObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) ChargeInfoObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ChargeInfoObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// ChargeInfoObjectCommonWithContext is the same as ChargeInfoObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ChargeInfoObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ChargeInfoObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ChargeInfoObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opChargeInfoObject = "ChargeInfoObject"
+
+// ChargeInfoObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the ChargeInfoObject operation. The "output" return
+// value will be populated with the ChargeInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ChargeInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ChargeInfoObjectCommon Send returns without error.
+//
+// See ChargeInfoObject for more information on using the ChargeInfoObject
+// API call, and error handling.
+//
+//    // Example sending a request using the ChargeInfoObjectRequest method.
+//    req, resp := client.ChargeInfoObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ChargeInfoObjectRequest(input *ChargeInfoObjectInput) (req *request.Request, output *ChargeInfoObjectOutput) {
+	op := &request.Operation{
+		Name:       opChargeInfoObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ChargeInfoObjectInput{}
+	}
+
+	output = &ChargeInfoObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ChargeInfoObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ChargeInfoObject for usage and error information.
+func (c *RDSMYSQLV2) ChargeInfoObject(input *ChargeInfoObjectInput) (*ChargeInfoObjectOutput, error) {
+	req, out := c.ChargeInfoObjectRequest(input)
+	return out, req.Send()
+}
+
+// ChargeInfoObjectWithContext is the same as ChargeInfoObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ChargeInfoObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ChargeInfoObjectWithContext(ctx volcstack.Context, input *ChargeInfoObjectInput, opts ...request.Option) (*ChargeInfoObjectOutput, error) {
+	req, out := c.ChargeInfoObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opConnectionInfoObjectCommon = "ConnectionInfoObject"
+
+// ConnectionInfoObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ConnectionInfoObjectCommon operation. The "output" return
+// value will be populated with the ConnectionInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ConnectionInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ConnectionInfoObjectCommon Send returns without error.
+//
+// See ConnectionInfoObjectCommon for more information on using the ConnectionInfoObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ConnectionInfoObjectCommonRequest method.
+//    req, resp := client.ConnectionInfoObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ConnectionInfoObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opConnectionInfoObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// ConnectionInfoObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ConnectionInfoObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) ConnectionInfoObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ConnectionInfoObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// ConnectionInfoObjectCommonWithContext is the same as ConnectionInfoObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ConnectionInfoObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ConnectionInfoObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ConnectionInfoObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opConnectionInfoObject = "ConnectionInfoObject"
+
+// ConnectionInfoObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the ConnectionInfoObject operation. The "output" return
+// value will be populated with the ConnectionInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ConnectionInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ConnectionInfoObjectCommon Send returns without error.
+//
+// See ConnectionInfoObject for more information on using the ConnectionInfoObject
+// API call, and error handling.
+//
+//    // Example sending a request using the ConnectionInfoObjectRequest method.
+//    req, resp := client.ConnectionInfoObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ConnectionInfoObjectRequest(input *ConnectionInfoObjectInput) (req *request.Request, output *ConnectionInfoObjectOutput) {
+	op := &request.Operation{
+		Name:       opConnectionInfoObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ConnectionInfoObjectInput{}
+	}
+
+	output = &ConnectionInfoObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ConnectionInfoObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ConnectionInfoObject for usage and error information.
+func (c *RDSMYSQLV2) ConnectionInfoObject(input *ConnectionInfoObjectInput) (*ConnectionInfoObjectOutput, error) {
+	req, out := c.ConnectionInfoObjectRequest(input)
+	return out, req.Send()
+}
+
+// ConnectionInfoObjectWithContext is the same as ConnectionInfoObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ConnectionInfoObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ConnectionInfoObjectWithContext(ctx volcstack.Context, input *ConnectionInfoObjectInput, opts ...request.Option) (*ConnectionInfoObjectOutput, error) {
+	req, out := c.ConnectionInfoObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateBackupCommon = "CreateBackup"
 
 // CreateBackupCommonRequest generates a "volcstack/request.Request" representing the
@@ -543,6 +1758,276 @@ func (c *RDSMYSQLV2) CreateDatabase(input *CreateDatabaseInput) (*CreateDatabase
 // for more information on using Contexts.
 func (c *RDSMYSQLV2) CreateDatabaseWithContext(ctx volcstack.Context, input *CreateDatabaseInput, opts ...request.Option) (*CreateDatabaseOutput, error) {
 	req, out := c.CreateDatabaseRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDatabaseInfoCommon = "DatabaseInfo"
+
+// DatabaseInfoCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DatabaseInfoCommon operation. The "output" return
+// value will be populated with the DatabaseInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DatabaseInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DatabaseInfoCommon Send returns without error.
+//
+// See DatabaseInfoCommon for more information on using the DatabaseInfoCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DatabaseInfoCommonRequest method.
+//    req, resp := client.DatabaseInfoCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) DatabaseInfoCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDatabaseInfoCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// DatabaseInfoCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation DatabaseInfoCommon for usage and error information.
+func (c *RDSMYSQLV2) DatabaseInfoCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DatabaseInfoCommonRequest(input)
+	return out, req.Send()
+}
+
+// DatabaseInfoCommonWithContext is the same as DatabaseInfoCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DatabaseInfoCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) DatabaseInfoCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DatabaseInfoCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDatabaseInfo = "DatabaseInfo"
+
+// DatabaseInfoRequest generates a "volcstack/request.Request" representing the
+// client's request for the DatabaseInfo operation. The "output" return
+// value will be populated with the DatabaseInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DatabaseInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DatabaseInfoCommon Send returns without error.
+//
+// See DatabaseInfo for more information on using the DatabaseInfo
+// API call, and error handling.
+//
+//    // Example sending a request using the DatabaseInfoRequest method.
+//    req, resp := client.DatabaseInfoRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) DatabaseInfoRequest(input *DatabaseInfoInput) (req *request.Request, output *DatabaseInfoOutput) {
+	op := &request.Operation{
+		Name:       opDatabaseInfo,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DatabaseInfoInput{}
+	}
+
+	output = &DatabaseInfoOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DatabaseInfo API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation DatabaseInfo for usage and error information.
+func (c *RDSMYSQLV2) DatabaseInfo(input *DatabaseInfoInput) (*DatabaseInfoOutput, error) {
+	req, out := c.DatabaseInfoRequest(input)
+	return out, req.Send()
+}
+
+// DatabaseInfoWithContext is the same as DatabaseInfo with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DatabaseInfo for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) DatabaseInfoWithContext(ctx volcstack.Context, input *DatabaseInfoInput, opts ...request.Option) (*DatabaseInfoOutput, error) {
+	req, out := c.DatabaseInfoRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDatabasePrivilegesInfoCommon = "DatabasePrivilegesInfo"
+
+// DatabasePrivilegesInfoCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DatabasePrivilegesInfoCommon operation. The "output" return
+// value will be populated with the DatabasePrivilegesInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DatabasePrivilegesInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DatabasePrivilegesInfoCommon Send returns without error.
+//
+// See DatabasePrivilegesInfoCommon for more information on using the DatabasePrivilegesInfoCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DatabasePrivilegesInfoCommonRequest method.
+//    req, resp := client.DatabasePrivilegesInfoCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) DatabasePrivilegesInfoCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDatabasePrivilegesInfoCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// DatabasePrivilegesInfoCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation DatabasePrivilegesInfoCommon for usage and error information.
+func (c *RDSMYSQLV2) DatabasePrivilegesInfoCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DatabasePrivilegesInfoCommonRequest(input)
+	return out, req.Send()
+}
+
+// DatabasePrivilegesInfoCommonWithContext is the same as DatabasePrivilegesInfoCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DatabasePrivilegesInfoCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) DatabasePrivilegesInfoCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DatabasePrivilegesInfoCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDatabasePrivilegesInfo = "DatabasePrivilegesInfo"
+
+// DatabasePrivilegesInfoRequest generates a "volcstack/request.Request" representing the
+// client's request for the DatabasePrivilegesInfo operation. The "output" return
+// value will be populated with the DatabasePrivilegesInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DatabasePrivilegesInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DatabasePrivilegesInfoCommon Send returns without error.
+//
+// See DatabasePrivilegesInfo for more information on using the DatabasePrivilegesInfo
+// API call, and error handling.
+//
+//    // Example sending a request using the DatabasePrivilegesInfoRequest method.
+//    req, resp := client.DatabasePrivilegesInfoRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) DatabasePrivilegesInfoRequest(input *DatabasePrivilegesInfoInput) (req *request.Request, output *DatabasePrivilegesInfoOutput) {
+	op := &request.Operation{
+		Name:       opDatabasePrivilegesInfo,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DatabasePrivilegesInfoInput{}
+	}
+
+	output = &DatabasePrivilegesInfoOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DatabasePrivilegesInfo API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation DatabasePrivilegesInfo for usage and error information.
+func (c *RDSMYSQLV2) DatabasePrivilegesInfo(input *DatabasePrivilegesInfoInput) (*DatabasePrivilegesInfoOutput, error) {
+	req, out := c.DatabasePrivilegesInfoRequest(input)
+	return out, req.Send()
+}
+
+// DatabasePrivilegesInfoWithContext is the same as DatabasePrivilegesInfo with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DatabasePrivilegesInfo for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) DatabasePrivilegesInfoWithContext(ctx volcstack.Context, input *DatabasePrivilegesInfoInput, opts ...request.Option) (*DatabasePrivilegesInfoOutput, error) {
+	req, out := c.DatabasePrivilegesInfoRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2830,6 +4315,546 @@ func (c *RDSMYSQLV2) DescribeSlowLogsWithContext(ctx volcstack.Context, input *D
 	return out, req.Send()
 }
 
+const opErrorLogObjectCommon = "ErrorLogObject"
+
+// ErrorLogObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ErrorLogObjectCommon operation. The "output" return
+// value will be populated with the ErrorLogObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ErrorLogObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ErrorLogObjectCommon Send returns without error.
+//
+// See ErrorLogObjectCommon for more information on using the ErrorLogObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ErrorLogObjectCommonRequest method.
+//    req, resp := client.ErrorLogObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ErrorLogObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opErrorLogObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// ErrorLogObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ErrorLogObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) ErrorLogObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ErrorLogObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// ErrorLogObjectCommonWithContext is the same as ErrorLogObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ErrorLogObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ErrorLogObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ErrorLogObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opErrorLogObject = "ErrorLogObject"
+
+// ErrorLogObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the ErrorLogObject operation. The "output" return
+// value will be populated with the ErrorLogObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ErrorLogObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ErrorLogObjectCommon Send returns without error.
+//
+// See ErrorLogObject for more information on using the ErrorLogObject
+// API call, and error handling.
+//
+//    // Example sending a request using the ErrorLogObjectRequest method.
+//    req, resp := client.ErrorLogObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ErrorLogObjectRequest(input *ErrorLogObjectInput) (req *request.Request, output *ErrorLogObjectOutput) {
+	op := &request.Operation{
+		Name:       opErrorLogObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ErrorLogObjectInput{}
+	}
+
+	output = &ErrorLogObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ErrorLogObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ErrorLogObject for usage and error information.
+func (c *RDSMYSQLV2) ErrorLogObject(input *ErrorLogObjectInput) (*ErrorLogObjectOutput, error) {
+	req, out := c.ErrorLogObjectRequest(input)
+	return out, req.Send()
+}
+
+// ErrorLogObjectWithContext is the same as ErrorLogObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ErrorLogObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ErrorLogObjectWithContext(ctx volcstack.Context, input *ErrorLogObjectInput, opts ...request.Option) (*ErrorLogObjectOutput, error) {
+	req, out := c.ErrorLogObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opInstanceInfoObjectCommon = "InstanceInfoObject"
+
+// InstanceInfoObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the InstanceInfoObjectCommon operation. The "output" return
+// value will be populated with the InstanceInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned InstanceInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InstanceInfoObjectCommon Send returns without error.
+//
+// See InstanceInfoObjectCommon for more information on using the InstanceInfoObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the InstanceInfoObjectCommonRequest method.
+//    req, resp := client.InstanceInfoObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) InstanceInfoObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opInstanceInfoObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// InstanceInfoObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation InstanceInfoObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) InstanceInfoObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.InstanceInfoObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// InstanceInfoObjectCommonWithContext is the same as InstanceInfoObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See InstanceInfoObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) InstanceInfoObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.InstanceInfoObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opInstanceInfoObject = "InstanceInfoObject"
+
+// InstanceInfoObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the InstanceInfoObject operation. The "output" return
+// value will be populated with the InstanceInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned InstanceInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InstanceInfoObjectCommon Send returns without error.
+//
+// See InstanceInfoObject for more information on using the InstanceInfoObject
+// API call, and error handling.
+//
+//    // Example sending a request using the InstanceInfoObjectRequest method.
+//    req, resp := client.InstanceInfoObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) InstanceInfoObjectRequest(input *InstanceInfoObjectInput) (req *request.Request, output *InstanceInfoObjectOutput) {
+	op := &request.Operation{
+		Name:       opInstanceInfoObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &InstanceInfoObjectInput{}
+	}
+
+	output = &InstanceInfoObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// InstanceInfoObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation InstanceInfoObject for usage and error information.
+func (c *RDSMYSQLV2) InstanceInfoObject(input *InstanceInfoObjectInput) (*InstanceInfoObjectOutput, error) {
+	req, out := c.InstanceInfoObjectRequest(input)
+	return out, req.Send()
+}
+
+// InstanceInfoObjectWithContext is the same as InstanceInfoObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See InstanceInfoObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) InstanceInfoObjectWithContext(ctx volcstack.Context, input *InstanceInfoObjectInput, opts ...request.Option) (*InstanceInfoObjectOutput, error) {
+	req, out := c.InstanceInfoObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opInstanceSpecsInfoObjectCommon = "InstanceSpecsInfoObject"
+
+// InstanceSpecsInfoObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the InstanceSpecsInfoObjectCommon operation. The "output" return
+// value will be populated with the InstanceSpecsInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned InstanceSpecsInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InstanceSpecsInfoObjectCommon Send returns without error.
+//
+// See InstanceSpecsInfoObjectCommon for more information on using the InstanceSpecsInfoObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the InstanceSpecsInfoObjectCommonRequest method.
+//    req, resp := client.InstanceSpecsInfoObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) InstanceSpecsInfoObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opInstanceSpecsInfoObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// InstanceSpecsInfoObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation InstanceSpecsInfoObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) InstanceSpecsInfoObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.InstanceSpecsInfoObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// InstanceSpecsInfoObjectCommonWithContext is the same as InstanceSpecsInfoObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See InstanceSpecsInfoObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) InstanceSpecsInfoObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.InstanceSpecsInfoObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opInstanceSpecsInfoObject = "InstanceSpecsInfoObject"
+
+// InstanceSpecsInfoObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the InstanceSpecsInfoObject operation. The "output" return
+// value will be populated with the InstanceSpecsInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned InstanceSpecsInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after InstanceSpecsInfoObjectCommon Send returns without error.
+//
+// See InstanceSpecsInfoObject for more information on using the InstanceSpecsInfoObject
+// API call, and error handling.
+//
+//    // Example sending a request using the InstanceSpecsInfoObjectRequest method.
+//    req, resp := client.InstanceSpecsInfoObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) InstanceSpecsInfoObjectRequest(input *InstanceSpecsInfoObjectInput) (req *request.Request, output *InstanceSpecsInfoObjectOutput) {
+	op := &request.Operation{
+		Name:       opInstanceSpecsInfoObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &InstanceSpecsInfoObjectInput{}
+	}
+
+	output = &InstanceSpecsInfoObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// InstanceSpecsInfoObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation InstanceSpecsInfoObject for usage and error information.
+func (c *RDSMYSQLV2) InstanceSpecsInfoObject(input *InstanceSpecsInfoObjectInput) (*InstanceSpecsInfoObjectOutput, error) {
+	req, out := c.InstanceSpecsInfoObjectRequest(input)
+	return out, req.Send()
+}
+
+// InstanceSpecsInfoObjectWithContext is the same as InstanceSpecsInfoObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See InstanceSpecsInfoObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) InstanceSpecsInfoObjectWithContext(ctx volcstack.Context, input *InstanceSpecsInfoObjectInput, opts ...request.Option) (*InstanceSpecsInfoObjectOutput, error) {
+	req, out := c.InstanceSpecsInfoObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyAccountPrivilegesInfoCommon = "ModifyAccountPrivilegesInfo"
+
+// ModifyAccountPrivilegesInfoCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyAccountPrivilegesInfoCommon operation. The "output" return
+// value will be populated with the ModifyAccountPrivilegesInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyAccountPrivilegesInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyAccountPrivilegesInfoCommon Send returns without error.
+//
+// See ModifyAccountPrivilegesInfoCommon for more information on using the ModifyAccountPrivilegesInfoCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyAccountPrivilegesInfoCommonRequest method.
+//    req, resp := client.ModifyAccountPrivilegesInfoCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ModifyAccountPrivilegesInfoCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyAccountPrivilegesInfoCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// ModifyAccountPrivilegesInfoCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ModifyAccountPrivilegesInfoCommon for usage and error information.
+func (c *RDSMYSQLV2) ModifyAccountPrivilegesInfoCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyAccountPrivilegesInfoCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyAccountPrivilegesInfoCommonWithContext is the same as ModifyAccountPrivilegesInfoCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyAccountPrivilegesInfoCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ModifyAccountPrivilegesInfoCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyAccountPrivilegesInfoCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyAccountPrivilegesInfo = "ModifyAccountPrivilegesInfo"
+
+// ModifyAccountPrivilegesInfoRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyAccountPrivilegesInfo operation. The "output" return
+// value will be populated with the ModifyAccountPrivilegesInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyAccountPrivilegesInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyAccountPrivilegesInfoCommon Send returns without error.
+//
+// See ModifyAccountPrivilegesInfo for more information on using the ModifyAccountPrivilegesInfo
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyAccountPrivilegesInfoRequest method.
+//    req, resp := client.ModifyAccountPrivilegesInfoRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ModifyAccountPrivilegesInfoRequest(input *ModifyAccountPrivilegesInfoInput) (req *request.Request, output *ModifyAccountPrivilegesInfoOutput) {
+	op := &request.Operation{
+		Name:       opModifyAccountPrivilegesInfo,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyAccountPrivilegesInfoInput{}
+	}
+
+	output = &ModifyAccountPrivilegesInfoOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ModifyAccountPrivilegesInfo API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ModifyAccountPrivilegesInfo for usage and error information.
+func (c *RDSMYSQLV2) ModifyAccountPrivilegesInfo(input *ModifyAccountPrivilegesInfoInput) (*ModifyAccountPrivilegesInfoOutput, error) {
+	req, out := c.ModifyAccountPrivilegesInfoRequest(input)
+	return out, req.Send()
+}
+
+// ModifyAccountPrivilegesInfoWithContext is the same as ModifyAccountPrivilegesInfo with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyAccountPrivilegesInfo for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ModifyAccountPrivilegesInfoWithContext(ctx volcstack.Context, input *ModifyAccountPrivilegesInfoInput, opts ...request.Option) (*ModifyAccountPrivilegesInfoOutput, error) {
+	req, out := c.ModifyAccountPrivilegesInfoRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opModifyBackupPolicyCommon = "ModifyBackupPolicy"
 
 // ModifyBackupPolicyCommonRequest generates a "volcstack/request.Request" representing the
@@ -3504,6 +5529,681 @@ func (c *RDSMYSQLV2) ModifyDatabasePrivilegeWithContext(ctx volcstack.Context, i
 	return out, req.Send()
 }
 
+const opModifyDatabasePrivilegesInfoCommon = "ModifyDatabasePrivilegesInfo"
+
+// ModifyDatabasePrivilegesInfoCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyDatabasePrivilegesInfoCommon operation. The "output" return
+// value will be populated with the ModifyDatabasePrivilegesInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyDatabasePrivilegesInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyDatabasePrivilegesInfoCommon Send returns without error.
+//
+// See ModifyDatabasePrivilegesInfoCommon for more information on using the ModifyDatabasePrivilegesInfoCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyDatabasePrivilegesInfoCommonRequest method.
+//    req, resp := client.ModifyDatabasePrivilegesInfoCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ModifyDatabasePrivilegesInfoCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyDatabasePrivilegesInfoCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// ModifyDatabasePrivilegesInfoCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ModifyDatabasePrivilegesInfoCommon for usage and error information.
+func (c *RDSMYSQLV2) ModifyDatabasePrivilegesInfoCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyDatabasePrivilegesInfoCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyDatabasePrivilegesInfoCommonWithContext is the same as ModifyDatabasePrivilegesInfoCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyDatabasePrivilegesInfoCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ModifyDatabasePrivilegesInfoCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyDatabasePrivilegesInfoCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyDatabasePrivilegesInfo = "ModifyDatabasePrivilegesInfo"
+
+// ModifyDatabasePrivilegesInfoRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyDatabasePrivilegesInfo operation. The "output" return
+// value will be populated with the ModifyDatabasePrivilegesInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyDatabasePrivilegesInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyDatabasePrivilegesInfoCommon Send returns without error.
+//
+// See ModifyDatabasePrivilegesInfo for more information on using the ModifyDatabasePrivilegesInfo
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyDatabasePrivilegesInfoRequest method.
+//    req, resp := client.ModifyDatabasePrivilegesInfoRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ModifyDatabasePrivilegesInfoRequest(input *ModifyDatabasePrivilegesInfoInput) (req *request.Request, output *ModifyDatabasePrivilegesInfoOutput) {
+	op := &request.Operation{
+		Name:       opModifyDatabasePrivilegesInfo,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyDatabasePrivilegesInfoInput{}
+	}
+
+	output = &ModifyDatabasePrivilegesInfoOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ModifyDatabasePrivilegesInfo API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ModifyDatabasePrivilegesInfo for usage and error information.
+func (c *RDSMYSQLV2) ModifyDatabasePrivilegesInfo(input *ModifyDatabasePrivilegesInfoInput) (*ModifyDatabasePrivilegesInfoOutput, error) {
+	req, out := c.ModifyDatabasePrivilegesInfoRequest(input)
+	return out, req.Send()
+}
+
+// ModifyDatabasePrivilegesInfoWithContext is the same as ModifyDatabasePrivilegesInfo with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyDatabasePrivilegesInfo for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ModifyDatabasePrivilegesInfoWithContext(ctx volcstack.Context, input *ModifyDatabasePrivilegesInfoInput, opts ...request.Option) (*ModifyDatabasePrivilegesInfoOutput, error) {
+	req, out := c.ModifyDatabasePrivilegesInfoRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opNodeDetailInfoObjectCommon = "NodeDetailInfoObject"
+
+// NodeDetailInfoObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the NodeDetailInfoObjectCommon operation. The "output" return
+// value will be populated with the NodeDetailInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned NodeDetailInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after NodeDetailInfoObjectCommon Send returns without error.
+//
+// See NodeDetailInfoObjectCommon for more information on using the NodeDetailInfoObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the NodeDetailInfoObjectCommonRequest method.
+//    req, resp := client.NodeDetailInfoObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) NodeDetailInfoObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opNodeDetailInfoObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// NodeDetailInfoObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation NodeDetailInfoObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) NodeDetailInfoObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.NodeDetailInfoObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// NodeDetailInfoObjectCommonWithContext is the same as NodeDetailInfoObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NodeDetailInfoObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) NodeDetailInfoObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.NodeDetailInfoObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opNodeDetailInfoObject = "NodeDetailInfoObject"
+
+// NodeDetailInfoObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the NodeDetailInfoObject operation. The "output" return
+// value will be populated with the NodeDetailInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned NodeDetailInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after NodeDetailInfoObjectCommon Send returns without error.
+//
+// See NodeDetailInfoObject for more information on using the NodeDetailInfoObject
+// API call, and error handling.
+//
+//    // Example sending a request using the NodeDetailInfoObjectRequest method.
+//    req, resp := client.NodeDetailInfoObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) NodeDetailInfoObjectRequest(input *NodeDetailInfoObjectInput) (req *request.Request, output *NodeDetailInfoObjectOutput) {
+	op := &request.Operation{
+		Name:       opNodeDetailInfoObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &NodeDetailInfoObjectInput{}
+	}
+
+	output = &NodeDetailInfoObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// NodeDetailInfoObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation NodeDetailInfoObject for usage and error information.
+func (c *RDSMYSQLV2) NodeDetailInfoObject(input *NodeDetailInfoObjectInput) (*NodeDetailInfoObjectOutput, error) {
+	req, out := c.NodeDetailInfoObjectRequest(input)
+	return out, req.Send()
+}
+
+// NodeDetailInfoObjectWithContext is the same as NodeDetailInfoObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NodeDetailInfoObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) NodeDetailInfoObjectWithContext(ctx volcstack.Context, input *NodeDetailInfoObjectInput, opts ...request.Option) (*NodeDetailInfoObjectOutput, error) {
+	req, out := c.NodeDetailInfoObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opNodeInfoObjectCommon = "NodeInfoObject"
+
+// NodeInfoObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the NodeInfoObjectCommon operation. The "output" return
+// value will be populated with the NodeInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned NodeInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after NodeInfoObjectCommon Send returns without error.
+//
+// See NodeInfoObjectCommon for more information on using the NodeInfoObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the NodeInfoObjectCommonRequest method.
+//    req, resp := client.NodeInfoObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) NodeInfoObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opNodeInfoObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// NodeInfoObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation NodeInfoObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) NodeInfoObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.NodeInfoObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// NodeInfoObjectCommonWithContext is the same as NodeInfoObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NodeInfoObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) NodeInfoObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.NodeInfoObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opNodeInfoObject = "NodeInfoObject"
+
+// NodeInfoObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the NodeInfoObject operation. The "output" return
+// value will be populated with the NodeInfoObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned NodeInfoObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after NodeInfoObjectCommon Send returns without error.
+//
+// See NodeInfoObject for more information on using the NodeInfoObject
+// API call, and error handling.
+//
+//    // Example sending a request using the NodeInfoObjectRequest method.
+//    req, resp := client.NodeInfoObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) NodeInfoObjectRequest(input *NodeInfoObjectInput) (req *request.Request, output *NodeInfoObjectOutput) {
+	op := &request.Operation{
+		Name:       opNodeInfoObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &NodeInfoObjectInput{}
+	}
+
+	output = &NodeInfoObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// NodeInfoObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation NodeInfoObject for usage and error information.
+func (c *RDSMYSQLV2) NodeInfoObject(input *NodeInfoObjectInput) (*NodeInfoObjectOutput, error) {
+	req, out := c.NodeInfoObjectRequest(input)
+	return out, req.Send()
+}
+
+// NodeInfoObjectWithContext is the same as NodeInfoObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NodeInfoObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) NodeInfoObjectWithContext(ctx volcstack.Context, input *NodeInfoObjectInput, opts ...request.Option) (*NodeInfoObjectOutput, error) {
+	req, out := c.NodeInfoObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRecoverableTimeInfoCommon = "RecoverableTimeInfo"
+
+// RecoverableTimeInfoCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the RecoverableTimeInfoCommon operation. The "output" return
+// value will be populated with the RecoverableTimeInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned RecoverableTimeInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RecoverableTimeInfoCommon Send returns without error.
+//
+// See RecoverableTimeInfoCommon for more information on using the RecoverableTimeInfoCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the RecoverableTimeInfoCommonRequest method.
+//    req, resp := client.RecoverableTimeInfoCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) RecoverableTimeInfoCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opRecoverableTimeInfoCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// RecoverableTimeInfoCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation RecoverableTimeInfoCommon for usage and error information.
+func (c *RDSMYSQLV2) RecoverableTimeInfoCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.RecoverableTimeInfoCommonRequest(input)
+	return out, req.Send()
+}
+
+// RecoverableTimeInfoCommonWithContext is the same as RecoverableTimeInfoCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RecoverableTimeInfoCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) RecoverableTimeInfoCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.RecoverableTimeInfoCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRecoverableTimeInfo = "RecoverableTimeInfo"
+
+// RecoverableTimeInfoRequest generates a "volcstack/request.Request" representing the
+// client's request for the RecoverableTimeInfo operation. The "output" return
+// value will be populated with the RecoverableTimeInfoCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned RecoverableTimeInfoCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RecoverableTimeInfoCommon Send returns without error.
+//
+// See RecoverableTimeInfo for more information on using the RecoverableTimeInfo
+// API call, and error handling.
+//
+//    // Example sending a request using the RecoverableTimeInfoRequest method.
+//    req, resp := client.RecoverableTimeInfoRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) RecoverableTimeInfoRequest(input *RecoverableTimeInfoInput) (req *request.Request, output *RecoverableTimeInfoOutput) {
+	op := &request.Operation{
+		Name:       opRecoverableTimeInfo,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RecoverableTimeInfoInput{}
+	}
+
+	output = &RecoverableTimeInfoOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// RecoverableTimeInfo API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation RecoverableTimeInfo for usage and error information.
+func (c *RDSMYSQLV2) RecoverableTimeInfo(input *RecoverableTimeInfoInput) (*RecoverableTimeInfoOutput, error) {
+	req, out := c.RecoverableTimeInfoRequest(input)
+	return out, req.Send()
+}
+
+// RecoverableTimeInfoWithContext is the same as RecoverableTimeInfo with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RecoverableTimeInfo for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) RecoverableTimeInfoWithContext(ctx volcstack.Context, input *RecoverableTimeInfoInput, opts ...request.Option) (*RecoverableTimeInfoOutput, error) {
+	req, out := c.RecoverableTimeInfoRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRegionCommon = "Region"
+
+// RegionCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the RegionCommon operation. The "output" return
+// value will be populated with the RegionCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned RegionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RegionCommon Send returns without error.
+//
+// See RegionCommon for more information on using the RegionCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the RegionCommonRequest method.
+//    req, resp := client.RegionCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) RegionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opRegionCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// RegionCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation RegionCommon for usage and error information.
+func (c *RDSMYSQLV2) RegionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.RegionCommonRequest(input)
+	return out, req.Send()
+}
+
+// RegionCommonWithContext is the same as RegionCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RegionCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) RegionCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.RegionCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRegion = "Region"
+
+// RegionRequest generates a "volcstack/request.Request" representing the
+// client's request for the Region operation. The "output" return
+// value will be populated with the RegionCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned RegionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RegionCommon Send returns without error.
+//
+// See Region for more information on using the Region
+// API call, and error handling.
+//
+//    // Example sending a request using the RegionRequest method.
+//    req, resp := client.RegionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) RegionRequest(input *RegionInput) (req *request.Request, output *RegionOutput) {
+	op := &request.Operation{
+		Name:       opRegion,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RegionInput{}
+	}
+
+	output = &RegionOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// Region API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation Region for usage and error information.
+func (c *RDSMYSQLV2) Region(input *RegionInput) (*RegionOutput, error) {
+	req, out := c.RegionRequest(input)
+	return out, req.Send()
+}
+
+// RegionWithContext is the same as Region with the addition of
+// the ability to pass a context and additional request options.
+//
+// See Region for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) RegionWithContext(ctx volcstack.Context, input *RegionInput, opts ...request.Option) (*RegionOutput, error) {
+	req, out := c.RegionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opResetDBAccountCommon = "ResetDBAccount"
 
 // ResetDBAccountCommonRequest generates a "volcstack/request.Request" representing the
@@ -3908,6 +6608,584 @@ func (c *RDSMYSQLV2) RestoreToNewInstanceWithContext(ctx volcstack.Context, inpu
 	return out, req.Send()
 }
 
+const opSlowQueryObjectCommon = "SlowQueryObject"
+
+// SlowQueryObjectCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the SlowQueryObjectCommon operation. The "output" return
+// value will be populated with the SlowQueryObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned SlowQueryObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after SlowQueryObjectCommon Send returns without error.
+//
+// See SlowQueryObjectCommon for more information on using the SlowQueryObjectCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the SlowQueryObjectCommonRequest method.
+//    req, resp := client.SlowQueryObjectCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) SlowQueryObjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opSlowQueryObjectCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// SlowQueryObjectCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation SlowQueryObjectCommon for usage and error information.
+func (c *RDSMYSQLV2) SlowQueryObjectCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.SlowQueryObjectCommonRequest(input)
+	return out, req.Send()
+}
+
+// SlowQueryObjectCommonWithContext is the same as SlowQueryObjectCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SlowQueryObjectCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) SlowQueryObjectCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.SlowQueryObjectCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opSlowQueryObject = "SlowQueryObject"
+
+// SlowQueryObjectRequest generates a "volcstack/request.Request" representing the
+// client's request for the SlowQueryObject operation. The "output" return
+// value will be populated with the SlowQueryObjectCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned SlowQueryObjectCommon Request to send the API call to the service.
+// the "output" return value is not valid until after SlowQueryObjectCommon Send returns without error.
+//
+// See SlowQueryObject for more information on using the SlowQueryObject
+// API call, and error handling.
+//
+//    // Example sending a request using the SlowQueryObjectRequest method.
+//    req, resp := client.SlowQueryObjectRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) SlowQueryObjectRequest(input *SlowQueryObjectInput) (req *request.Request, output *SlowQueryObjectOutput) {
+	op := &request.Operation{
+		Name:       opSlowQueryObject,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &SlowQueryObjectInput{}
+	}
+
+	output = &SlowQueryObjectOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// SlowQueryObject API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation SlowQueryObject for usage and error information.
+func (c *RDSMYSQLV2) SlowQueryObject(input *SlowQueryObjectInput) (*SlowQueryObjectOutput, error) {
+	req, out := c.SlowQueryObjectRequest(input)
+	return out, req.Send()
+}
+
+// SlowQueryObjectWithContext is the same as SlowQueryObject with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SlowQueryObject for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) SlowQueryObjectWithContext(ctx volcstack.Context, input *SlowQueryObjectInput, opts ...request.Option) (*SlowQueryObjectOutput, error) {
+	req, out := c.SlowQueryObjectRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opTableCommon = "Table"
+
+// TableCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the TableCommon operation. The "output" return
+// value will be populated with the TableCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned TableCommon Request to send the API call to the service.
+// the "output" return value is not valid until after TableCommon Send returns without error.
+//
+// See TableCommon for more information on using the TableCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the TableCommonRequest method.
+//    req, resp := client.TableCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) TableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opTableCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// TableCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation TableCommon for usage and error information.
+func (c *RDSMYSQLV2) TableCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.TableCommonRequest(input)
+	return out, req.Send()
+}
+
+// TableCommonWithContext is the same as TableCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See TableCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) TableCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.TableCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opTable = "Table"
+
+// TableRequest generates a "volcstack/request.Request" representing the
+// client's request for the Table operation. The "output" return
+// value will be populated with the TableCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned TableCommon Request to send the API call to the service.
+// the "output" return value is not valid until after TableCommon Send returns without error.
+//
+// See Table for more information on using the Table
+// API call, and error handling.
+//
+//    // Example sending a request using the TableRequest method.
+//    req, resp := client.TableRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) TableRequest(input *TableInput) (req *request.Request, output *TableOutput) {
+	op := &request.Operation{
+		Name:       opTable,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &TableInput{}
+	}
+
+	output = &TableOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// Table API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation Table for usage and error information.
+func (c *RDSMYSQLV2) Table(input *TableInput) (*TableOutput, error) {
+	req, out := c.TableRequest(input)
+	return out, req.Send()
+}
+
+// TableWithContext is the same as Table with the addition of
+// the ability to pass a context and additional request options.
+//
+// See Table for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) TableWithContext(ctx volcstack.Context, input *TableInput, opts ...request.Option) (*TableOutput, error) {
+	req, out := c.TableRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opTableMetaCommon = "TableMeta"
+
+// TableMetaCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the TableMetaCommon operation. The "output" return
+// value will be populated with the TableMetaCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned TableMetaCommon Request to send the API call to the service.
+// the "output" return value is not valid until after TableMetaCommon Send returns without error.
+//
+// See TableMetaCommon for more information on using the TableMetaCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the TableMetaCommonRequest method.
+//    req, resp := client.TableMetaCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) TableMetaCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opTableMetaCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// TableMetaCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation TableMetaCommon for usage and error information.
+func (c *RDSMYSQLV2) TableMetaCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.TableMetaCommonRequest(input)
+	return out, req.Send()
+}
+
+// TableMetaCommonWithContext is the same as TableMetaCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See TableMetaCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) TableMetaCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.TableMetaCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opTableMeta = "TableMeta"
+
+// TableMetaRequest generates a "volcstack/request.Request" representing the
+// client's request for the TableMeta operation. The "output" return
+// value will be populated with the TableMetaCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned TableMetaCommon Request to send the API call to the service.
+// the "output" return value is not valid until after TableMetaCommon Send returns without error.
+//
+// See TableMeta for more information on using the TableMeta
+// API call, and error handling.
+//
+//    // Example sending a request using the TableMetaRequest method.
+//    req, resp := client.TableMetaRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) TableMetaRequest(input *TableMetaInput) (req *request.Request, output *TableMetaOutput) {
+	op := &request.Operation{
+		Name:       opTableMeta,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &TableMetaInput{}
+	}
+
+	output = &TableMetaOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// TableMeta API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation TableMeta for usage and error information.
+func (c *RDSMYSQLV2) TableMeta(input *TableMetaInput) (*TableMetaOutput, error) {
+	req, out := c.TableMetaRequest(input)
+	return out, req.Send()
+}
+
+// TableMetaWithContext is the same as TableMeta with the addition of
+// the ability to pass a context and additional request options.
+//
+// See TableMeta for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) TableMetaWithContext(ctx volcstack.Context, input *TableMetaInput, opts ...request.Option) (*TableMetaOutput, error) {
+	req, out := c.TableMetaRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opZoneCommon = "Zone"
+
+// ZoneCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ZoneCommon operation. The "output" return
+// value will be populated with the ZoneCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ZoneCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ZoneCommon Send returns without error.
+//
+// See ZoneCommon for more information on using the ZoneCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ZoneCommonRequest method.
+//    req, resp := client.ZoneCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ZoneCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opZoneCommon,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	return
+}
+
+// ZoneCommon API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation ZoneCommon for usage and error information.
+func (c *RDSMYSQLV2) ZoneCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ZoneCommonRequest(input)
+	return out, req.Send()
+}
+
+// ZoneCommonWithContext is the same as ZoneCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ZoneCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ZoneCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ZoneCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opZone = "Zone"
+
+// ZoneRequest generates a "volcstack/request.Request" representing the
+// client's request for the Zone operation. The "output" return
+// value will be populated with the ZoneCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ZoneCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ZoneCommon Send returns without error.
+//
+// See Zone for more information on using the Zone
+// API call, and error handling.
+//
+//    // Example sending a request using the ZoneRequest method.
+//    req, resp := client.ZoneRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *RDSMYSQLV2) ZoneRequest(input *ZoneInput) (req *request.Request, output *ZoneOutput) {
+	op := &request.Operation{
+		Name:       opZone,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ZoneInput{}
+	}
+
+	output = &ZoneOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// Zone API operation for RDS_MYSQL_V2.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for RDS_MYSQL_V2's
+// API operation Zone for usage and error information.
+func (c *RDSMYSQLV2) Zone(input *ZoneInput) (*ZoneOutput, error) {
+	req, out := c.ZoneRequest(input)
+	return out, req.Send()
+}
+
+// ZoneWithContext is the same as Zone with the addition of
+// the ability to pass a context and additional request options.
+//
+// See Zone for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDSMYSQLV2) ZoneWithContext(ctx volcstack.Context, input *ZoneInput, opts ...request.Option) (*ZoneOutput, error) {
+	req, out := c.ZoneRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+type AccountPrivilegesInfoForAccountsInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountPrivilege *string `type:"string"`
+
+	AccountPrivilegeCustom *string `type:"string"`
+
+	DBName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AccountPrivilegesInfoForAccountsInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccountPrivilegesInfoForAccountsInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountPrivilege sets the AccountPrivilege field's value.
+func (s *AccountPrivilegesInfoForAccountsInfoObjectInput) SetAccountPrivilege(v string) *AccountPrivilegesInfoForAccountsInfoObjectInput {
+	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
+func (s *AccountPrivilegesInfoForAccountsInfoObjectInput) SetAccountPrivilegeCustom(v string) *AccountPrivilegesInfoForAccountsInfoObjectInput {
+	s.AccountPrivilegeCustom = &v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *AccountPrivilegesInfoForAccountsInfoObjectInput) SetDBName(v string) *AccountPrivilegesInfoForAccountsInfoObjectInput {
+	s.DBName = &v
+	return s
+}
+
 type AccountPrivilegesInfoForCreateDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3984,6 +7262,58 @@ func (s *AccountPrivilegesInfoForDescribeDBAccountsOutput) SetDBName(v string) *
 	return s
 }
 
+type AccountPrivilegesInfoInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountPrivilege *string `type:"string"`
+
+	AccountPrivilegeCustom *string `type:"string"`
+
+	DBName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AccountPrivilegesInfoInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccountPrivilegesInfoInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountPrivilege sets the AccountPrivilege field's value.
+func (s *AccountPrivilegesInfoInput) SetAccountPrivilege(v string) *AccountPrivilegesInfoInput {
+	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
+func (s *AccountPrivilegesInfoInput) SetAccountPrivilegeCustom(v string) *AccountPrivilegesInfoInput {
+	s.AccountPrivilegeCustom = &v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *AccountPrivilegesInfoInput) SetDBName(v string) *AccountPrivilegesInfoInput {
+	s.DBName = &v
+	return s
+}
+
+type AccountPrivilegesInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s AccountPrivilegesInfoOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccountPrivilegesInfoOutput) GoString() string {
+	return s.String()
+}
+
 type AccountsInfoForDescribeDBAccountsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -4027,6 +7357,128 @@ func (s *AccountsInfoForDescribeDBAccountsOutput) SetAccountStatus(v string) *Ac
 // SetAccountType sets the AccountType field's value.
 func (s *AccountsInfoForDescribeDBAccountsOutput) SetAccountType(v string) *AccountsInfoForDescribeDBAccountsOutput {
 	s.AccountType = &v
+	return s
+}
+
+type AccountsInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountName *string `type:"string"`
+
+	AccountPrivilegesInfo []*AccountPrivilegesInfoForAccountsInfoObjectInput `type:"list"`
+
+	AccountStatus *string `type:"string"`
+
+	AccountType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AccountsInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccountsInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *AccountsInfoObjectInput) SetAccountName(v string) *AccountsInfoObjectInput {
+	s.AccountName = &v
+	return s
+}
+
+// SetAccountPrivilegesInfo sets the AccountPrivilegesInfo field's value.
+func (s *AccountsInfoObjectInput) SetAccountPrivilegesInfo(v []*AccountPrivilegesInfoForAccountsInfoObjectInput) *AccountsInfoObjectInput {
+	s.AccountPrivilegesInfo = v
+	return s
+}
+
+// SetAccountStatus sets the AccountStatus field's value.
+func (s *AccountsInfoObjectInput) SetAccountStatus(v string) *AccountsInfoObjectInput {
+	s.AccountStatus = &v
+	return s
+}
+
+// SetAccountType sets the AccountType field's value.
+func (s *AccountsInfoObjectInput) SetAccountType(v string) *AccountsInfoObjectInput {
+	s.AccountType = &v
+	return s
+}
+
+type AccountsInfoObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s AccountsInfoObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccountsInfoObjectOutput) GoString() string {
+	return s.String()
+}
+
+type AddressForConnectionInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	Domain *string `type:"string"`
+
+	EipId *string `type:"string"`
+
+	IPAddress *string `type:"string"`
+
+	NetworkType *string `type:"string"`
+
+	Port *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AddressForConnectionInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddressForConnectionInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetDomain sets the Domain field's value.
+func (s *AddressForConnectionInfoObjectInput) SetDomain(v string) *AddressForConnectionInfoObjectInput {
+	s.Domain = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *AddressForConnectionInfoObjectInput) SetEipId(v string) *AddressForConnectionInfoObjectInput {
+	s.EipId = &v
+	return s
+}
+
+// SetIPAddress sets the IPAddress field's value.
+func (s *AddressForConnectionInfoObjectInput) SetIPAddress(v string) *AddressForConnectionInfoObjectInput {
+	s.IPAddress = &v
+	return s
+}
+
+// SetNetworkType sets the NetworkType field's value.
+func (s *AddressForConnectionInfoObjectInput) SetNetworkType(v string) *AddressForConnectionInfoObjectInput {
+	s.NetworkType = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *AddressForConnectionInfoObjectInput) SetPort(v string) *AddressForConnectionInfoObjectInput {
+	s.Port = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *AddressForConnectionInfoObjectInput) SetSubnetId(v string) *AddressForConnectionInfoObjectInput {
+	s.SubnetId = &v
 	return s
 }
 
@@ -4092,6 +7544,190 @@ func (s *AddressForDescribeDBInstanceDetailOutput) SetSubnetId(v string) *Addres
 	return s
 }
 
+type AddressObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	Domain *string `type:"string"`
+
+	EipId *string `type:"string"`
+
+	IPAddress *string `type:"string"`
+
+	NetworkType *string `type:"string"`
+
+	Port *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AddressObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddressObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetDomain sets the Domain field's value.
+func (s *AddressObjectInput) SetDomain(v string) *AddressObjectInput {
+	s.Domain = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *AddressObjectInput) SetEipId(v string) *AddressObjectInput {
+	s.EipId = &v
+	return s
+}
+
+// SetIPAddress sets the IPAddress field's value.
+func (s *AddressObjectInput) SetIPAddress(v string) *AddressObjectInput {
+	s.IPAddress = &v
+	return s
+}
+
+// SetNetworkType sets the NetworkType field's value.
+func (s *AddressObjectInput) SetNetworkType(v string) *AddressObjectInput {
+	s.NetworkType = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *AddressObjectInput) SetPort(v string) *AddressObjectInput {
+	s.Port = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *AddressObjectInput) SetSubnetId(v string) *AddressObjectInput {
+	s.SubnetId = &v
+	return s
+}
+
+type AddressObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s AddressObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AddressObjectOutput) GoString() string {
+	return s.String()
+}
+
+type BackupInfoInput struct {
+	_ struct{} `type:"structure"`
+
+	BackupEndTime *string `type:"string"`
+
+	BackupFileName *string `type:"string"`
+
+	BackupFileSize *int64 `type:"int64"`
+
+	BackupId *string `type:"string"`
+
+	BackupMethod *string `type:"string"`
+
+	BackupStartTime *string `type:"string"`
+
+	BackupStatus *string `type:"string"`
+
+	BackupType *string `type:"string"`
+
+	ConsistentTime *string `type:"string"`
+
+	CreateType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BackupInfoInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackupInfoInput) GoString() string {
+	return s.String()
+}
+
+// SetBackupEndTime sets the BackupEndTime field's value.
+func (s *BackupInfoInput) SetBackupEndTime(v string) *BackupInfoInput {
+	s.BackupEndTime = &v
+	return s
+}
+
+// SetBackupFileName sets the BackupFileName field's value.
+func (s *BackupInfoInput) SetBackupFileName(v string) *BackupInfoInput {
+	s.BackupFileName = &v
+	return s
+}
+
+// SetBackupFileSize sets the BackupFileSize field's value.
+func (s *BackupInfoInput) SetBackupFileSize(v int64) *BackupInfoInput {
+	s.BackupFileSize = &v
+	return s
+}
+
+// SetBackupId sets the BackupId field's value.
+func (s *BackupInfoInput) SetBackupId(v string) *BackupInfoInput {
+	s.BackupId = &v
+	return s
+}
+
+// SetBackupMethod sets the BackupMethod field's value.
+func (s *BackupInfoInput) SetBackupMethod(v string) *BackupInfoInput {
+	s.BackupMethod = &v
+	return s
+}
+
+// SetBackupStartTime sets the BackupStartTime field's value.
+func (s *BackupInfoInput) SetBackupStartTime(v string) *BackupInfoInput {
+	s.BackupStartTime = &v
+	return s
+}
+
+// SetBackupStatus sets the BackupStatus field's value.
+func (s *BackupInfoInput) SetBackupStatus(v string) *BackupInfoInput {
+	s.BackupStatus = &v
+	return s
+}
+
+// SetBackupType sets the BackupType field's value.
+func (s *BackupInfoInput) SetBackupType(v string) *BackupInfoInput {
+	s.BackupType = &v
+	return s
+}
+
+// SetConsistentTime sets the ConsistentTime field's value.
+func (s *BackupInfoInput) SetConsistentTime(v string) *BackupInfoInput {
+	s.ConsistentTime = &v
+	return s
+}
+
+// SetCreateType sets the CreateType field's value.
+func (s *BackupInfoInput) SetCreateType(v string) *BackupInfoInput {
+	s.CreateType = &v
+	return s
+}
+
+type BackupInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s BackupInfoOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackupInfoOutput) GoString() string {
+	return s.String()
+}
+
 type BackupMetaForCreateBackupInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4112,6 +7748,42 @@ func (s BackupMetaForCreateBackupInput) GoString() string {
 func (s *BackupMetaForCreateBackupInput) SetDBName(v string) *BackupMetaForCreateBackupInput {
 	s.DBName = &v
 	return s
+}
+
+type BackupMetaInput struct {
+	_ struct{} `type:"structure"`
+
+	DBName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BackupMetaInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackupMetaInput) GoString() string {
+	return s.String()
+}
+
+// SetDBName sets the DBName field's value.
+func (s *BackupMetaInput) SetDBName(v string) *BackupMetaInput {
+	s.DBName = &v
+	return s
+}
+
+type BackupMetaOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s BackupMetaOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackupMetaOutput) GoString() string {
+	return s.String()
 }
 
 type BackupsInfoForDescribeBackupsOutput struct {
@@ -4422,6 +8094,234 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetZoneId(v string) *BasicI
 	return s
 }
 
+type BasicInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	BackupUse *int32 `type:"int32"`
+
+	CreateTime *string `type:"string"`
+
+	DBEngine *string `type:"string"`
+
+	DBEngineVersion *string `type:"string"`
+
+	DataSyncMode *string `type:"string"`
+
+	InnerVersion *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceName *string `type:"string"`
+
+	InstanceStatus *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	IsLatestVersion *bool `type:"boolean"`
+
+	LowerCaseTableNames *string `type:"string"`
+
+	Memory *int32 `type:"int32"`
+
+	NodeNumber *string `type:"string"`
+
+	NodeSpec *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RegionId *string `type:"string"`
+
+	StorageSpace *int32 `type:"int32"`
+
+	StorageType *string `type:"string"`
+
+	StorageUse *int32 `type:"int32"`
+
+	TimeZone *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	VCPU *int32 `type:"int32"`
+
+	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s BasicInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BasicInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetBackupUse sets the BackupUse field's value.
+func (s *BasicInfoObjectInput) SetBackupUse(v int32) *BasicInfoObjectInput {
+	s.BackupUse = &v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *BasicInfoObjectInput) SetCreateTime(v string) *BasicInfoObjectInput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDBEngine sets the DBEngine field's value.
+func (s *BasicInfoObjectInput) SetDBEngine(v string) *BasicInfoObjectInput {
+	s.DBEngine = &v
+	return s
+}
+
+// SetDBEngineVersion sets the DBEngineVersion field's value.
+func (s *BasicInfoObjectInput) SetDBEngineVersion(v string) *BasicInfoObjectInput {
+	s.DBEngineVersion = &v
+	return s
+}
+
+// SetDataSyncMode sets the DataSyncMode field's value.
+func (s *BasicInfoObjectInput) SetDataSyncMode(v string) *BasicInfoObjectInput {
+	s.DataSyncMode = &v
+	return s
+}
+
+// SetInnerVersion sets the InnerVersion field's value.
+func (s *BasicInfoObjectInput) SetInnerVersion(v string) *BasicInfoObjectInput {
+	s.InnerVersion = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *BasicInfoObjectInput) SetInstanceId(v string) *BasicInfoObjectInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *BasicInfoObjectInput) SetInstanceName(v string) *BasicInfoObjectInput {
+	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceStatus sets the InstanceStatus field's value.
+func (s *BasicInfoObjectInput) SetInstanceStatus(v string) *BasicInfoObjectInput {
+	s.InstanceStatus = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *BasicInfoObjectInput) SetInstanceType(v string) *BasicInfoObjectInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetIsLatestVersion sets the IsLatestVersion field's value.
+func (s *BasicInfoObjectInput) SetIsLatestVersion(v bool) *BasicInfoObjectInput {
+	s.IsLatestVersion = &v
+	return s
+}
+
+// SetLowerCaseTableNames sets the LowerCaseTableNames field's value.
+func (s *BasicInfoObjectInput) SetLowerCaseTableNames(v string) *BasicInfoObjectInput {
+	s.LowerCaseTableNames = &v
+	return s
+}
+
+// SetMemory sets the Memory field's value.
+func (s *BasicInfoObjectInput) SetMemory(v int32) *BasicInfoObjectInput {
+	s.Memory = &v
+	return s
+}
+
+// SetNodeNumber sets the NodeNumber field's value.
+func (s *BasicInfoObjectInput) SetNodeNumber(v string) *BasicInfoObjectInput {
+	s.NodeNumber = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *BasicInfoObjectInput) SetNodeSpec(v string) *BasicInfoObjectInput {
+	s.NodeSpec = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *BasicInfoObjectInput) SetProjectName(v string) *BasicInfoObjectInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *BasicInfoObjectInput) SetRegionId(v string) *BasicInfoObjectInput {
+	s.RegionId = &v
+	return s
+}
+
+// SetStorageSpace sets the StorageSpace field's value.
+func (s *BasicInfoObjectInput) SetStorageSpace(v int32) *BasicInfoObjectInput {
+	s.StorageSpace = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *BasicInfoObjectInput) SetStorageType(v string) *BasicInfoObjectInput {
+	s.StorageType = &v
+	return s
+}
+
+// SetStorageUse sets the StorageUse field's value.
+func (s *BasicInfoObjectInput) SetStorageUse(v int32) *BasicInfoObjectInput {
+	s.StorageUse = &v
+	return s
+}
+
+// SetTimeZone sets the TimeZone field's value.
+func (s *BasicInfoObjectInput) SetTimeZone(v string) *BasicInfoObjectInput {
+	s.TimeZone = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *BasicInfoObjectInput) SetUpdateTime(v string) *BasicInfoObjectInput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVCPU sets the VCPU field's value.
+func (s *BasicInfoObjectInput) SetVCPU(v int32) *BasicInfoObjectInput {
+	s.VCPU = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *BasicInfoObjectInput) SetVpcId(v string) *BasicInfoObjectInput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *BasicInfoObjectInput) SetZoneId(v string) *BasicInfoObjectInput {
+	s.ZoneId = &v
+	return s
+}
+
+type BasicInfoObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s BasicInfoObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BasicInfoObjectOutput) GoString() string {
+	return s.String()
+}
+
 type ChargeDetailForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -4610,6 +8510,208 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetPeriodUnit(v string) *Char
 	return s
 }
 
+type ChargeDetailForInstanceInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	AutoRenew *bool `type:"boolean"`
+
+	ChargeEndTime *string `type:"string"`
+
+	ChargeStartTime *string `type:"string"`
+
+	ChargeStatus *string `type:"string"`
+
+	ChargeType *string `type:"string"`
+
+	Number *int32 `type:"int32"`
+
+	OverdueReclaimTime *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	Period *int32 `type:"int32"`
+
+	PeriodUnit *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ChargeDetailForInstanceInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ChargeDetailForInstanceInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetAutoRenew(v bool) *ChargeDetailForInstanceInfoObjectInput {
+	s.AutoRenew = &v
+	return s
+}
+
+// SetChargeEndTime sets the ChargeEndTime field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetChargeEndTime(v string) *ChargeDetailForInstanceInfoObjectInput {
+	s.ChargeEndTime = &v
+	return s
+}
+
+// SetChargeStartTime sets the ChargeStartTime field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetChargeStartTime(v string) *ChargeDetailForInstanceInfoObjectInput {
+	s.ChargeStartTime = &v
+	return s
+}
+
+// SetChargeStatus sets the ChargeStatus field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetChargeStatus(v string) *ChargeDetailForInstanceInfoObjectInput {
+	s.ChargeStatus = &v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetChargeType(v string) *ChargeDetailForInstanceInfoObjectInput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetNumber sets the Number field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetNumber(v int32) *ChargeDetailForInstanceInfoObjectInput {
+	s.Number = &v
+	return s
+}
+
+// SetOverdueReclaimTime sets the OverdueReclaimTime field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetOverdueReclaimTime(v string) *ChargeDetailForInstanceInfoObjectInput {
+	s.OverdueReclaimTime = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetOverdueTime(v string) *ChargeDetailForInstanceInfoObjectInput {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetPeriod(v int32) *ChargeDetailForInstanceInfoObjectInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *ChargeDetailForInstanceInfoObjectInput) SetPeriodUnit(v string) *ChargeDetailForInstanceInfoObjectInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type ChargeDetailObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	AutoRenew *bool `type:"boolean"`
+
+	ChargeEndTime *string `type:"string"`
+
+	ChargeStartTime *string `type:"string"`
+
+	ChargeStatus *string `type:"string"`
+
+	ChargeType *string `type:"string"`
+
+	Number *int32 `type:"int32"`
+
+	OverdueReclaimTime *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	Period *int32 `type:"int32"`
+
+	PeriodUnit *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ChargeDetailObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ChargeDetailObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *ChargeDetailObjectInput) SetAutoRenew(v bool) *ChargeDetailObjectInput {
+	s.AutoRenew = &v
+	return s
+}
+
+// SetChargeEndTime sets the ChargeEndTime field's value.
+func (s *ChargeDetailObjectInput) SetChargeEndTime(v string) *ChargeDetailObjectInput {
+	s.ChargeEndTime = &v
+	return s
+}
+
+// SetChargeStartTime sets the ChargeStartTime field's value.
+func (s *ChargeDetailObjectInput) SetChargeStartTime(v string) *ChargeDetailObjectInput {
+	s.ChargeStartTime = &v
+	return s
+}
+
+// SetChargeStatus sets the ChargeStatus field's value.
+func (s *ChargeDetailObjectInput) SetChargeStatus(v string) *ChargeDetailObjectInput {
+	s.ChargeStatus = &v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *ChargeDetailObjectInput) SetChargeType(v string) *ChargeDetailObjectInput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetNumber sets the Number field's value.
+func (s *ChargeDetailObjectInput) SetNumber(v int32) *ChargeDetailObjectInput {
+	s.Number = &v
+	return s
+}
+
+// SetOverdueReclaimTime sets the OverdueReclaimTime field's value.
+func (s *ChargeDetailObjectInput) SetOverdueReclaimTime(v string) *ChargeDetailObjectInput {
+	s.OverdueReclaimTime = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *ChargeDetailObjectInput) SetOverdueTime(v string) *ChargeDetailObjectInput {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *ChargeDetailObjectInput) SetPeriod(v int32) *ChargeDetailObjectInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *ChargeDetailObjectInput) SetPeriodUnit(v string) *ChargeDetailObjectInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type ChargeDetailObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ChargeDetailObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ChargeDetailObjectOutput) GoString() string {
+	return s.String()
+}
+
 type ChargeInfoForCreateDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4718,6 +8820,74 @@ func (s *ChargeInfoForRestoreToNewInstanceInput) SetPeriodUnit(v string) *Charge
 	return s
 }
 
+type ChargeInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	AutoRenew *bool `type:"boolean"`
+
+	ChargeType *string `type:"string"`
+
+	Number *int32 `type:"int32"`
+
+	Period *int32 `type:"int32"`
+
+	PeriodUnit *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ChargeInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ChargeInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *ChargeInfoObjectInput) SetAutoRenew(v bool) *ChargeInfoObjectInput {
+	s.AutoRenew = &v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *ChargeInfoObjectInput) SetChargeType(v string) *ChargeInfoObjectInput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetNumber sets the Number field's value.
+func (s *ChargeInfoObjectInput) SetNumber(v int32) *ChargeInfoObjectInput {
+	s.Number = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *ChargeInfoObjectInput) SetPeriod(v int32) *ChargeInfoObjectInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *ChargeInfoObjectInput) SetPeriodUnit(v string) *ChargeInfoObjectInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type ChargeInfoObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ChargeInfoObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ChargeInfoObjectOutput) GoString() string {
+	return s.String()
+}
+
 type ConnectionInfoForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -4786,6 +8956,90 @@ func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetEndpointType(v stri
 func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetNodes(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
 	s.Nodes = &v
 	return s
+}
+
+type ConnectionInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	Address []*AddressForConnectionInfoObjectInput `type:"list"`
+
+	Description *string `type:"string"`
+
+	EnableReadOnly *string `type:"string"`
+
+	EnableReadWriteSplitting *string `type:"string"`
+
+	EndpointId *string `type:"string"`
+
+	EndpointType *string `type:"string"`
+
+	Nodes *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConnectionInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConnectionInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *ConnectionInfoObjectInput) SetAddress(v []*AddressForConnectionInfoObjectInput) *ConnectionInfoObjectInput {
+	s.Address = v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ConnectionInfoObjectInput) SetDescription(v string) *ConnectionInfoObjectInput {
+	s.Description = &v
+	return s
+}
+
+// SetEnableReadOnly sets the EnableReadOnly field's value.
+func (s *ConnectionInfoObjectInput) SetEnableReadOnly(v string) *ConnectionInfoObjectInput {
+	s.EnableReadOnly = &v
+	return s
+}
+
+// SetEnableReadWriteSplitting sets the EnableReadWriteSplitting field's value.
+func (s *ConnectionInfoObjectInput) SetEnableReadWriteSplitting(v string) *ConnectionInfoObjectInput {
+	s.EnableReadWriteSplitting = &v
+	return s
+}
+
+// SetEndpointId sets the EndpointId field's value.
+func (s *ConnectionInfoObjectInput) SetEndpointId(v string) *ConnectionInfoObjectInput {
+	s.EndpointId = &v
+	return s
+}
+
+// SetEndpointType sets the EndpointType field's value.
+func (s *ConnectionInfoObjectInput) SetEndpointType(v string) *ConnectionInfoObjectInput {
+	s.EndpointType = &v
+	return s
+}
+
+// SetNodes sets the Nodes field's value.
+func (s *ConnectionInfoObjectInput) SetNodes(v string) *ConnectionInfoObjectInput {
+	s.Nodes = &v
+	return s
+}
+
+type ConnectionInfoObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ConnectionInfoObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConnectionInfoObjectOutput) GoString() string {
+	return s.String()
 }
 
 type CreateBackupInput struct {
@@ -5164,6 +9418,66 @@ func (s CreateDatabaseOutput) GoString() string {
 	return s.String()
 }
 
+type DatabaseInfoInput struct {
+	_ struct{} `type:"structure"`
+
+	CharacterSetName *string `type:"string"`
+
+	DBName *string `type:"string"`
+
+	DBStatus *string `type:"string"`
+
+	DatabasePrivilegesInfo []*DatabasePrivilegesInfoForDatabaseInfoInput `type:"list"`
+}
+
+// String returns the string representation
+func (s DatabaseInfoInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DatabaseInfoInput) GoString() string {
+	return s.String()
+}
+
+// SetCharacterSetName sets the CharacterSetName field's value.
+func (s *DatabaseInfoInput) SetCharacterSetName(v string) *DatabaseInfoInput {
+	s.CharacterSetName = &v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *DatabaseInfoInput) SetDBName(v string) *DatabaseInfoInput {
+	s.DBName = &v
+	return s
+}
+
+// SetDBStatus sets the DBStatus field's value.
+func (s *DatabaseInfoInput) SetDBStatus(v string) *DatabaseInfoInput {
+	s.DBStatus = &v
+	return s
+}
+
+// SetDatabasePrivilegesInfo sets the DatabasePrivilegesInfo field's value.
+func (s *DatabaseInfoInput) SetDatabasePrivilegesInfo(v []*DatabasePrivilegesInfoForDatabaseInfoInput) *DatabaseInfoInput {
+	s.DatabasePrivilegesInfo = v
+	return s
+}
+
+type DatabaseInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DatabaseInfoOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DatabaseInfoOutput) GoString() string {
+	return s.String()
+}
+
 type DatabasePrivilegesInfoForCreateDatabaseInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5198,6 +9512,44 @@ func (s *DatabasePrivilegesInfoForCreateDatabaseInput) SetAccountPrivilege(v str
 
 // SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
 func (s *DatabasePrivilegesInfoForCreateDatabaseInput) SetAccountPrivilegeCustom(v string) *DatabasePrivilegesInfoForCreateDatabaseInput {
+	s.AccountPrivilegeCustom = &v
+	return s
+}
+
+type DatabasePrivilegesInfoForDatabaseInfoInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountName *string `type:"string"`
+
+	AccountPrivilege *string `type:"string"`
+
+	AccountPrivilegeCustom *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DatabasePrivilegesInfoForDatabaseInfoInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DatabasePrivilegesInfoForDatabaseInfoInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *DatabasePrivilegesInfoForDatabaseInfoInput) SetAccountName(v string) *DatabasePrivilegesInfoForDatabaseInfoInput {
+	s.AccountName = &v
+	return s
+}
+
+// SetAccountPrivilege sets the AccountPrivilege field's value.
+func (s *DatabasePrivilegesInfoForDatabaseInfoInput) SetAccountPrivilege(v string) *DatabasePrivilegesInfoForDatabaseInfoInput {
+	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
+func (s *DatabasePrivilegesInfoForDatabaseInfoInput) SetAccountPrivilegeCustom(v string) *DatabasePrivilegesInfoForDatabaseInfoInput {
 	s.AccountPrivilegeCustom = &v
 	return s
 }
@@ -5238,6 +9590,58 @@ func (s *DatabasePrivilegesInfoForDescribeDatabasesOutput) SetAccountPrivilege(v
 func (s *DatabasePrivilegesInfoForDescribeDatabasesOutput) SetAccountPrivilegeCustom(v string) *DatabasePrivilegesInfoForDescribeDatabasesOutput {
 	s.AccountPrivilegeCustom = &v
 	return s
+}
+
+type DatabasePrivilegesInfoInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountName *string `type:"string"`
+
+	AccountPrivilege *string `type:"string"`
+
+	AccountPrivilegeCustom *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DatabasePrivilegesInfoInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DatabasePrivilegesInfoInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *DatabasePrivilegesInfoInput) SetAccountName(v string) *DatabasePrivilegesInfoInput {
+	s.AccountName = &v
+	return s
+}
+
+// SetAccountPrivilege sets the AccountPrivilege field's value.
+func (s *DatabasePrivilegesInfoInput) SetAccountPrivilege(v string) *DatabasePrivilegesInfoInput {
+	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
+func (s *DatabasePrivilegesInfoInput) SetAccountPrivilegeCustom(v string) *DatabasePrivilegesInfoInput {
+	s.AccountPrivilegeCustom = &v
+	return s
+}
+
+type DatabasePrivilegesInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DatabasePrivilegesInfoOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DatabasePrivilegesInfoOutput) GoString() string {
+	return s.String()
 }
 
 type DatabasesInfoForDescribeDatabasesOutput struct {
@@ -6592,6 +10996,254 @@ func (s *ErrorLogForDescribeErrorLogsOutput) SetNodeId(v string) *ErrorLogForDes
 	return s
 }
 
+type ErrorLogObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	CreateTime *string `type:"string"`
+
+	LogInfo *string `type:"string"`
+
+	LogLevel *string `type:"string"`
+
+	NodeId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ErrorLogObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorLogObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ErrorLogObjectInput) SetCreateTime(v string) *ErrorLogObjectInput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetLogInfo sets the LogInfo field's value.
+func (s *ErrorLogObjectInput) SetLogInfo(v string) *ErrorLogObjectInput {
+	s.LogInfo = &v
+	return s
+}
+
+// SetLogLevel sets the LogLevel field's value.
+func (s *ErrorLogObjectInput) SetLogLevel(v string) *ErrorLogObjectInput {
+	s.LogLevel = &v
+	return s
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *ErrorLogObjectInput) SetNodeId(v string) *ErrorLogObjectInput {
+	s.NodeId = &v
+	return s
+}
+
+type ErrorLogObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ErrorLogObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ErrorLogObjectOutput) GoString() string {
+	return s.String()
+}
+
+type InstanceInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	ChargeDetail *ChargeDetailForInstanceInfoObjectInput `type:"structure"`
+
+	CreateTime *string `type:"string"`
+
+	DBEngineVersion *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceName *string `type:"string"`
+
+	InstanceStatus *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	LowerCaseTableNames *string `type:"string"`
+
+	NodeDetailInfo []*NodeDetailInfoForInstanceInfoObjectInput `type:"list"`
+
+	NodeNumber *int32 `type:"int32"`
+
+	NodeSpec *string `type:"string"`
+
+	Port *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RegionId *string `type:"string"`
+
+	StorageSpace *int32 `type:"int32"`
+
+	StorageType *string `type:"string"`
+
+	StorageUse *int32 `type:"int32"`
+
+	TimeZone *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetChargeDetail sets the ChargeDetail field's value.
+func (s *InstanceInfoObjectInput) SetChargeDetail(v *ChargeDetailForInstanceInfoObjectInput) *InstanceInfoObjectInput {
+	s.ChargeDetail = v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *InstanceInfoObjectInput) SetCreateTime(v string) *InstanceInfoObjectInput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDBEngineVersion sets the DBEngineVersion field's value.
+func (s *InstanceInfoObjectInput) SetDBEngineVersion(v string) *InstanceInfoObjectInput {
+	s.DBEngineVersion = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *InstanceInfoObjectInput) SetInstanceId(v string) *InstanceInfoObjectInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *InstanceInfoObjectInput) SetInstanceName(v string) *InstanceInfoObjectInput {
+	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceStatus sets the InstanceStatus field's value.
+func (s *InstanceInfoObjectInput) SetInstanceStatus(v string) *InstanceInfoObjectInput {
+	s.InstanceStatus = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *InstanceInfoObjectInput) SetInstanceType(v string) *InstanceInfoObjectInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetLowerCaseTableNames sets the LowerCaseTableNames field's value.
+func (s *InstanceInfoObjectInput) SetLowerCaseTableNames(v string) *InstanceInfoObjectInput {
+	s.LowerCaseTableNames = &v
+	return s
+}
+
+// SetNodeDetailInfo sets the NodeDetailInfo field's value.
+func (s *InstanceInfoObjectInput) SetNodeDetailInfo(v []*NodeDetailInfoForInstanceInfoObjectInput) *InstanceInfoObjectInput {
+	s.NodeDetailInfo = v
+	return s
+}
+
+// SetNodeNumber sets the NodeNumber field's value.
+func (s *InstanceInfoObjectInput) SetNodeNumber(v int32) *InstanceInfoObjectInput {
+	s.NodeNumber = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *InstanceInfoObjectInput) SetNodeSpec(v string) *InstanceInfoObjectInput {
+	s.NodeSpec = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *InstanceInfoObjectInput) SetPort(v string) *InstanceInfoObjectInput {
+	s.Port = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *InstanceInfoObjectInput) SetProjectName(v string) *InstanceInfoObjectInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *InstanceInfoObjectInput) SetRegionId(v string) *InstanceInfoObjectInput {
+	s.RegionId = &v
+	return s
+}
+
+// SetStorageSpace sets the StorageSpace field's value.
+func (s *InstanceInfoObjectInput) SetStorageSpace(v int32) *InstanceInfoObjectInput {
+	s.StorageSpace = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *InstanceInfoObjectInput) SetStorageType(v string) *InstanceInfoObjectInput {
+	s.StorageType = &v
+	return s
+}
+
+// SetStorageUse sets the StorageUse field's value.
+func (s *InstanceInfoObjectInput) SetStorageUse(v int32) *InstanceInfoObjectInput {
+	s.StorageUse = &v
+	return s
+}
+
+// SetTimeZone sets the TimeZone field's value.
+func (s *InstanceInfoObjectInput) SetTimeZone(v string) *InstanceInfoObjectInput {
+	s.TimeZone = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *InstanceInfoObjectInput) SetVpcId(v string) *InstanceInfoObjectInput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *InstanceInfoObjectInput) SetZoneId(v string) *InstanceInfoObjectInput {
+	s.ZoneId = &v
+	return s
+}
+
+type InstanceInfoObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s InstanceInfoObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceInfoObjectOutput) GoString() string {
+	return s.String()
+}
+
 type InstanceSpecsInfoForDescribeDBInstanceSpecsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -6716,6 +11368,146 @@ func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetVCPU(v int32) *In
 func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetZoneId(v string) *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
 	s.ZoneId = &v
 	return s
+}
+
+type InstanceSpecsInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	Connection *int32 `type:"int32"`
+
+	DBEngineVersion *string `type:"string"`
+
+	IOPS *int32 `type:"int32"`
+
+	InstanceType *string `type:"string"`
+
+	Memory *int32 `type:"int32"`
+
+	QPS *int32 `type:"int32"`
+
+	RegionId *string `type:"string"`
+
+	SpecCode *string `type:"string"`
+
+	SpecStatus *string `type:"string"`
+
+	StorageMax *int32 `type:"int32"`
+
+	StorageMin *int32 `type:"int32"`
+
+	StorageStep *int32 `type:"int32"`
+
+	VCPU *int32 `type:"int32"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceSpecsInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceSpecsInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetConnection sets the Connection field's value.
+func (s *InstanceSpecsInfoObjectInput) SetConnection(v int32) *InstanceSpecsInfoObjectInput {
+	s.Connection = &v
+	return s
+}
+
+// SetDBEngineVersion sets the DBEngineVersion field's value.
+func (s *InstanceSpecsInfoObjectInput) SetDBEngineVersion(v string) *InstanceSpecsInfoObjectInput {
+	s.DBEngineVersion = &v
+	return s
+}
+
+// SetIOPS sets the IOPS field's value.
+func (s *InstanceSpecsInfoObjectInput) SetIOPS(v int32) *InstanceSpecsInfoObjectInput {
+	s.IOPS = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *InstanceSpecsInfoObjectInput) SetInstanceType(v string) *InstanceSpecsInfoObjectInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetMemory sets the Memory field's value.
+func (s *InstanceSpecsInfoObjectInput) SetMemory(v int32) *InstanceSpecsInfoObjectInput {
+	s.Memory = &v
+	return s
+}
+
+// SetQPS sets the QPS field's value.
+func (s *InstanceSpecsInfoObjectInput) SetQPS(v int32) *InstanceSpecsInfoObjectInput {
+	s.QPS = &v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *InstanceSpecsInfoObjectInput) SetRegionId(v string) *InstanceSpecsInfoObjectInput {
+	s.RegionId = &v
+	return s
+}
+
+// SetSpecCode sets the SpecCode field's value.
+func (s *InstanceSpecsInfoObjectInput) SetSpecCode(v string) *InstanceSpecsInfoObjectInput {
+	s.SpecCode = &v
+	return s
+}
+
+// SetSpecStatus sets the SpecStatus field's value.
+func (s *InstanceSpecsInfoObjectInput) SetSpecStatus(v string) *InstanceSpecsInfoObjectInput {
+	s.SpecStatus = &v
+	return s
+}
+
+// SetStorageMax sets the StorageMax field's value.
+func (s *InstanceSpecsInfoObjectInput) SetStorageMax(v int32) *InstanceSpecsInfoObjectInput {
+	s.StorageMax = &v
+	return s
+}
+
+// SetStorageMin sets the StorageMin field's value.
+func (s *InstanceSpecsInfoObjectInput) SetStorageMin(v int32) *InstanceSpecsInfoObjectInput {
+	s.StorageMin = &v
+	return s
+}
+
+// SetStorageStep sets the StorageStep field's value.
+func (s *InstanceSpecsInfoObjectInput) SetStorageStep(v int32) *InstanceSpecsInfoObjectInput {
+	s.StorageStep = &v
+	return s
+}
+
+// SetVCPU sets the VCPU field's value.
+func (s *InstanceSpecsInfoObjectInput) SetVCPU(v int32) *InstanceSpecsInfoObjectInput {
+	s.VCPU = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *InstanceSpecsInfoObjectInput) SetZoneId(v string) *InstanceSpecsInfoObjectInput {
+	s.ZoneId = &v
+	return s
+}
+
+type InstanceSpecsInfoObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s InstanceSpecsInfoObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceSpecsInfoObjectOutput) GoString() string {
+	return s.String()
 }
 
 type InstancesInfoForDescribeDBInstancesOutput struct {
@@ -6936,6 +11728,66 @@ func (s *ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput) SetPrivile
 func (s *ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput) SetPrivilegeCustom(v string) *ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput {
 	s.PrivilegeCustom = &v
 	return s
+}
+
+type ModifyAccountPrivilegesInfoInput struct {
+	_ struct{} `type:"structure"`
+
+	ActionType *string `type:"string"`
+
+	DBName *string `type:"string"`
+
+	Privilege *string `type:"string"`
+
+	PrivilegeCustom *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyAccountPrivilegesInfoInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyAccountPrivilegesInfoInput) GoString() string {
+	return s.String()
+}
+
+// SetActionType sets the ActionType field's value.
+func (s *ModifyAccountPrivilegesInfoInput) SetActionType(v string) *ModifyAccountPrivilegesInfoInput {
+	s.ActionType = &v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *ModifyAccountPrivilegesInfoInput) SetDBName(v string) *ModifyAccountPrivilegesInfoInput {
+	s.DBName = &v
+	return s
+}
+
+// SetPrivilege sets the Privilege field's value.
+func (s *ModifyAccountPrivilegesInfoInput) SetPrivilege(v string) *ModifyAccountPrivilegesInfoInput {
+	s.Privilege = &v
+	return s
+}
+
+// SetPrivilegeCustom sets the PrivilegeCustom field's value.
+func (s *ModifyAccountPrivilegesInfoInput) SetPrivilegeCustom(v string) *ModifyAccountPrivilegesInfoInput {
+	s.PrivilegeCustom = &v
+	return s
+}
+
+type ModifyAccountPrivilegesInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ModifyAccountPrivilegesInfoOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyAccountPrivilegesInfoOutput) GoString() string {
+	return s.String()
 }
 
 type ModifyBackupPolicyInput struct {
@@ -7284,6 +12136,66 @@ func (s *ModifyDatabasePrivilegesInfoForModifyDatabasePrivilegeInput) SetPrivile
 	return s
 }
 
+type ModifyDatabasePrivilegesInfoInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountName *string `type:"string"`
+
+	ActionType *string `type:"string"`
+
+	Privilege *string `type:"string"`
+
+	PrivilegeCustom *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyDatabasePrivilegesInfoInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyDatabasePrivilegesInfoInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *ModifyDatabasePrivilegesInfoInput) SetAccountName(v string) *ModifyDatabasePrivilegesInfoInput {
+	s.AccountName = &v
+	return s
+}
+
+// SetActionType sets the ActionType field's value.
+func (s *ModifyDatabasePrivilegesInfoInput) SetActionType(v string) *ModifyDatabasePrivilegesInfoInput {
+	s.ActionType = &v
+	return s
+}
+
+// SetPrivilege sets the Privilege field's value.
+func (s *ModifyDatabasePrivilegesInfoInput) SetPrivilege(v string) *ModifyDatabasePrivilegesInfoInput {
+	s.Privilege = &v
+	return s
+}
+
+// SetPrivilegeCustom sets the PrivilegeCustom field's value.
+func (s *ModifyDatabasePrivilegesInfoInput) SetPrivilegeCustom(v string) *ModifyDatabasePrivilegesInfoInput {
+	s.PrivilegeCustom = &v
+	return s
+}
+
+type ModifyDatabasePrivilegesInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ModifyDatabasePrivilegesInfoOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyDatabasePrivilegesInfoOutput) GoString() string {
+	return s.String()
+}
+
 type NodeDetailInfoForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -7488,6 +12400,224 @@ func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetZoneId(v string) *NodeDe
 	return s
 }
 
+type NodeDetailInfoForInstanceInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	CreateTime *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	Memory *int32 `type:"int32"`
+
+	NodeId *string `type:"string"`
+
+	NodeSpec *string `type:"string"`
+
+	NodeStatus *string `type:"string"`
+
+	NodeType *string `type:"string"`
+
+	RegionId *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	VCPU *int32 `type:"int32"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s NodeDetailInfoForInstanceInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NodeDetailInfoForInstanceInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetCreateTime(v string) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetInstanceId(v string) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetMemory sets the Memory field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetMemory(v int32) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.Memory = &v
+	return s
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetNodeId(v string) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.NodeId = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetNodeSpec(v string) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.NodeSpec = &v
+	return s
+}
+
+// SetNodeStatus sets the NodeStatus field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetNodeStatus(v string) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.NodeStatus = &v
+	return s
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetNodeType(v string) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.NodeType = &v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetRegionId(v string) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.RegionId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetUpdateTime(v string) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVCPU sets the VCPU field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetVCPU(v int32) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.VCPU = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) SetZoneId(v string) *NodeDetailInfoForInstanceInfoObjectInput {
+	s.ZoneId = &v
+	return s
+}
+
+type NodeDetailInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	CreateTime *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	Memory *int32 `type:"int32"`
+
+	NodeId *string `type:"string"`
+
+	NodeSpec *string `type:"string"`
+
+	NodeStatus *string `type:"string"`
+
+	NodeType *string `type:"string"`
+
+	RegionId *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	VCPU *int32 `type:"int32"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s NodeDetailInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NodeDetailInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *NodeDetailInfoObjectInput) SetCreateTime(v string) *NodeDetailInfoObjectInput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *NodeDetailInfoObjectInput) SetInstanceId(v string) *NodeDetailInfoObjectInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetMemory sets the Memory field's value.
+func (s *NodeDetailInfoObjectInput) SetMemory(v int32) *NodeDetailInfoObjectInput {
+	s.Memory = &v
+	return s
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *NodeDetailInfoObjectInput) SetNodeId(v string) *NodeDetailInfoObjectInput {
+	s.NodeId = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *NodeDetailInfoObjectInput) SetNodeSpec(v string) *NodeDetailInfoObjectInput {
+	s.NodeSpec = &v
+	return s
+}
+
+// SetNodeStatus sets the NodeStatus field's value.
+func (s *NodeDetailInfoObjectInput) SetNodeStatus(v string) *NodeDetailInfoObjectInput {
+	s.NodeStatus = &v
+	return s
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *NodeDetailInfoObjectInput) SetNodeType(v string) *NodeDetailInfoObjectInput {
+	s.NodeType = &v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *NodeDetailInfoObjectInput) SetRegionId(v string) *NodeDetailInfoObjectInput {
+	s.RegionId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *NodeDetailInfoObjectInput) SetUpdateTime(v string) *NodeDetailInfoObjectInput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVCPU sets the VCPU field's value.
+func (s *NodeDetailInfoObjectInput) SetVCPU(v int32) *NodeDetailInfoObjectInput {
+	s.VCPU = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *NodeDetailInfoObjectInput) SetZoneId(v string) *NodeDetailInfoObjectInput {
+	s.ZoneId = &v
+	return s
+}
+
+type NodeDetailInfoObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s NodeDetailInfoObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NodeDetailInfoObjectOutput) GoString() string {
+	return s.String()
+}
+
 type NodeInfoForCreateDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -7626,6 +12756,66 @@ func (s *NodeInfoForRestoreToNewInstanceInput) SetNodeType(v string) *NodeInfoFo
 	return s
 }
 
+type NodeInfoObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	NodeId *string `type:"string"`
+
+	NodeOperateType *string `type:"string"`
+
+	NodeSpec *string `type:"string"`
+
+	NodeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s NodeInfoObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NodeInfoObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *NodeInfoObjectInput) SetNodeId(v string) *NodeInfoObjectInput {
+	s.NodeId = &v
+	return s
+}
+
+// SetNodeOperateType sets the NodeOperateType field's value.
+func (s *NodeInfoObjectInput) SetNodeOperateType(v string) *NodeInfoObjectInput {
+	s.NodeOperateType = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *NodeInfoObjectInput) SetNodeSpec(v string) *NodeInfoObjectInput {
+	s.NodeSpec = &v
+	return s
+}
+
+// SetNodeType sets the NodeType field's value.
+func (s *NodeInfoObjectInput) SetNodeType(v string) *NodeInfoObjectInput {
+	s.NodeType = &v
+	return s
+}
+
+type NodeInfoObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s NodeInfoObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NodeInfoObjectOutput) GoString() string {
+	return s.String()
+}
+
 type RecoverableTimeInfoForDescribeRecoverableTimeOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -7656,6 +12846,50 @@ func (s *RecoverableTimeInfoForDescribeRecoverableTimeOutput) SetLatestRecoverab
 	return s
 }
 
+type RecoverableTimeInfoInput struct {
+	_ struct{} `type:"structure"`
+
+	EarliestRecoverableTime *string `type:"string"`
+
+	LatestRecoverableTime *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RecoverableTimeInfoInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RecoverableTimeInfoInput) GoString() string {
+	return s.String()
+}
+
+// SetEarliestRecoverableTime sets the EarliestRecoverableTime field's value.
+func (s *RecoverableTimeInfoInput) SetEarliestRecoverableTime(v string) *RecoverableTimeInfoInput {
+	s.EarliestRecoverableTime = &v
+	return s
+}
+
+// SetLatestRecoverableTime sets the LatestRecoverableTime field's value.
+func (s *RecoverableTimeInfoInput) SetLatestRecoverableTime(v string) *RecoverableTimeInfoInput {
+	s.LatestRecoverableTime = &v
+	return s
+}
+
+type RecoverableTimeInfoOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s RecoverableTimeInfoOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RecoverableTimeInfoOutput) GoString() string {
+	return s.String()
+}
+
 type RegionForDescribeRegionsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -7684,6 +12918,50 @@ func (s *RegionForDescribeRegionsOutput) SetRegionId(v string) *RegionForDescrib
 func (s *RegionForDescribeRegionsOutput) SetRegionName(v string) *RegionForDescribeRegionsOutput {
 	s.RegionName = &v
 	return s
+}
+
+type RegionInput struct {
+	_ struct{} `type:"structure"`
+
+	RegionId *string `type:"string"`
+
+	RegionName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RegionInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RegionInput) GoString() string {
+	return s.String()
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *RegionInput) SetRegionId(v string) *RegionInput {
+	s.RegionId = &v
+	return s
+}
+
+// SetRegionName sets the RegionName field's value.
+func (s *RegionInput) SetRegionName(v string) *RegionInput {
+	s.RegionName = &v
+	return s
+}
+
+type RegionOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s RegionOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RegionOutput) GoString() string {
+	return s.String()
 }
 
 type ResetDBAccountInput struct {
@@ -8032,6 +13310,114 @@ func (s *SlowQueryForDescribeSlowLogsOutput) SetUserName(v string) *SlowQueryFor
 	return s
 }
 
+type SlowQueryObjectInput struct {
+	_ struct{} `type:"structure"`
+
+	DBName *string `type:"string"`
+
+	ExecutionStartTime *string `type:"string"`
+
+	HostAddress *string `type:"string"`
+
+	LockTimes *int64 `type:"int64"`
+
+	ParseRowCounts *int64 `type:"int64"`
+
+	QueryText *string `type:"string"`
+
+	QueryTimes *int64 `type:"int64"`
+
+	QueryType *string `type:"string"`
+
+	ReturnRowCounts *int64 `type:"int64"`
+
+	UserName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SlowQueryObjectInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SlowQueryObjectInput) GoString() string {
+	return s.String()
+}
+
+// SetDBName sets the DBName field's value.
+func (s *SlowQueryObjectInput) SetDBName(v string) *SlowQueryObjectInput {
+	s.DBName = &v
+	return s
+}
+
+// SetExecutionStartTime sets the ExecutionStartTime field's value.
+func (s *SlowQueryObjectInput) SetExecutionStartTime(v string) *SlowQueryObjectInput {
+	s.ExecutionStartTime = &v
+	return s
+}
+
+// SetHostAddress sets the HostAddress field's value.
+func (s *SlowQueryObjectInput) SetHostAddress(v string) *SlowQueryObjectInput {
+	s.HostAddress = &v
+	return s
+}
+
+// SetLockTimes sets the LockTimes field's value.
+func (s *SlowQueryObjectInput) SetLockTimes(v int64) *SlowQueryObjectInput {
+	s.LockTimes = &v
+	return s
+}
+
+// SetParseRowCounts sets the ParseRowCounts field's value.
+func (s *SlowQueryObjectInput) SetParseRowCounts(v int64) *SlowQueryObjectInput {
+	s.ParseRowCounts = &v
+	return s
+}
+
+// SetQueryText sets the QueryText field's value.
+func (s *SlowQueryObjectInput) SetQueryText(v string) *SlowQueryObjectInput {
+	s.QueryText = &v
+	return s
+}
+
+// SetQueryTimes sets the QueryTimes field's value.
+func (s *SlowQueryObjectInput) SetQueryTimes(v int64) *SlowQueryObjectInput {
+	s.QueryTimes = &v
+	return s
+}
+
+// SetQueryType sets the QueryType field's value.
+func (s *SlowQueryObjectInput) SetQueryType(v string) *SlowQueryObjectInput {
+	s.QueryType = &v
+	return s
+}
+
+// SetReturnRowCounts sets the ReturnRowCounts field's value.
+func (s *SlowQueryObjectInput) SetReturnRowCounts(v int64) *SlowQueryObjectInput {
+	s.ReturnRowCounts = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *SlowQueryObjectInput) SetUserName(v string) *SlowQueryObjectInput {
+	s.UserName = &v
+	return s
+}
+
+type SlowQueryObjectOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s SlowQueryObjectOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SlowQueryObjectOutput) GoString() string {
+	return s.String()
+}
+
 type TableForRestoreToNewInstanceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -8058,6 +13444,66 @@ func (s *TableForRestoreToNewInstanceInput) SetNewTableName(v string) *TableForR
 
 // SetTableName sets the TableName field's value.
 func (s *TableForRestoreToNewInstanceInput) SetTableName(v string) *TableForRestoreToNewInstanceInput {
+	s.TableName = &v
+	return s
+}
+
+type TableForTableMetaInput struct {
+	_ struct{} `type:"structure"`
+
+	NewTableName *string `type:"string"`
+
+	TableName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TableForTableMetaInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableForTableMetaInput) GoString() string {
+	return s.String()
+}
+
+// SetNewTableName sets the NewTableName field's value.
+func (s *TableForTableMetaInput) SetNewTableName(v string) *TableForTableMetaInput {
+	s.NewTableName = &v
+	return s
+}
+
+// SetTableName sets the TableName field's value.
+func (s *TableForTableMetaInput) SetTableName(v string) *TableForTableMetaInput {
+	s.TableName = &v
+	return s
+}
+
+type TableInput struct {
+	_ struct{} `type:"structure"`
+
+	NewTableName *string `type:"string"`
+
+	TableName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TableInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableInput) GoString() string {
+	return s.String()
+}
+
+// SetNewTableName sets the NewTableName field's value.
+func (s *TableInput) SetNewTableName(v string) *TableInput {
+	s.NewTableName = &v
+	return s
+}
+
+// SetTableName sets the TableName field's value.
+func (s *TableInput) SetTableName(v string) *TableInput {
 	s.TableName = &v
 	return s
 }
@@ -8100,6 +13546,72 @@ func (s *TableMetaForRestoreToNewInstanceInput) SetTable(v []*TableForRestoreToN
 	return s
 }
 
+type TableMetaInput struct {
+	_ struct{} `type:"structure"`
+
+	DBName *string `type:"string"`
+
+	NewDBName *string `type:"string"`
+
+	Table []*TableForTableMetaInput `type:"list"`
+}
+
+// String returns the string representation
+func (s TableMetaInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableMetaInput) GoString() string {
+	return s.String()
+}
+
+// SetDBName sets the DBName field's value.
+func (s *TableMetaInput) SetDBName(v string) *TableMetaInput {
+	s.DBName = &v
+	return s
+}
+
+// SetNewDBName sets the NewDBName field's value.
+func (s *TableMetaInput) SetNewDBName(v string) *TableMetaInput {
+	s.NewDBName = &v
+	return s
+}
+
+// SetTable sets the Table field's value.
+func (s *TableMetaInput) SetTable(v []*TableForTableMetaInput) *TableMetaInput {
+	s.Table = v
+	return s
+}
+
+type TableMetaOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s TableMetaOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableMetaOutput) GoString() string {
+	return s.String()
+}
+
+type TableOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s TableOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableOutput) GoString() string {
+	return s.String()
+}
+
 type ZoneForDescribeAvailabilityZonesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -8136,4 +13648,56 @@ func (s *ZoneForDescribeAvailabilityZonesOutput) SetZoneId(v string) *ZoneForDes
 func (s *ZoneForDescribeAvailabilityZonesOutput) SetZoneName(v string) *ZoneForDescribeAvailabilityZonesOutput {
 	s.ZoneName = &v
 	return s
+}
+
+type ZoneInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+
+	ZoneName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ZoneInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZoneInput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *ZoneInput) SetDescription(v string) *ZoneInput {
+	s.Description = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *ZoneInput) SetZoneId(v string) *ZoneInput {
+	s.ZoneId = &v
+	return s
+}
+
+// SetZoneName sets the ZoneName field's value.
+func (s *ZoneInput) SetZoneName(v string) *ZoneInput {
+	s.ZoneName = &v
+	return s
+}
+
+type ZoneOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ZoneOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZoneOutput) GoString() string {
+	return s.String()
 }
