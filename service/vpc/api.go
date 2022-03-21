@@ -138,6 +138,136 @@ func (c *VPC) AllocateEipAddressWithContext(ctx volcstack.Context, input *Alloca
 	return out, req.Send()
 }
 
+const opAssignPrivateIpAddressesCommon = "AssignPrivateIpAddresses"
+
+// AssignPrivateIpAddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignPrivateIpAddressesCommon operation. The "output" return
+// value will be populated with the AssignPrivateIpAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssignPrivateIpAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssignPrivateIpAddressesCommon Send returns without error.
+//
+// See AssignPrivateIpAddressesCommon for more information on using the AssignPrivateIpAddressesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the AssignPrivateIpAddressesCommonRequest method.
+//    req, resp := client.AssignPrivateIpAddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssignPrivateIpAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssignPrivateIpAddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignPrivateIpAddressesCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssignPrivateIpAddressesCommon for usage and error information.
+func (c *VPC) AssignPrivateIpAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssignPrivateIpAddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssignPrivateIpAddressesCommonWithContext is the same as AssignPrivateIpAddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignPrivateIpAddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssignPrivateIpAddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssignPrivateIpAddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssignPrivateIpAddresses = "AssignPrivateIpAddresses"
+
+// AssignPrivateIpAddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignPrivateIpAddresses operation. The "output" return
+// value will be populated with the AssignPrivateIpAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssignPrivateIpAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssignPrivateIpAddressesCommon Send returns without error.
+//
+// See AssignPrivateIpAddresses for more information on using the AssignPrivateIpAddresses
+// API call, and error handling.
+//
+//    // Example sending a request using the AssignPrivateIpAddressesRequest method.
+//    req, resp := client.AssignPrivateIpAddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssignPrivateIpAddressesRequest(input *AssignPrivateIpAddressesInput) (req *request.Request, output *AssignPrivateIpAddressesOutput) {
+	op := &request.Operation{
+		Name:       opAssignPrivateIpAddresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssignPrivateIpAddressesInput{}
+	}
+
+	output = &AssignPrivateIpAddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignPrivateIpAddresses API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssignPrivateIpAddresses for usage and error information.
+func (c *VPC) AssignPrivateIpAddresses(input *AssignPrivateIpAddressesInput) (*AssignPrivateIpAddressesOutput, error) {
+	req, out := c.AssignPrivateIpAddressesRequest(input)
+	return out, req.Send()
+}
+
+// AssignPrivateIpAddressesWithContext is the same as AssignPrivateIpAddresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignPrivateIpAddresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssignPrivateIpAddressesWithContext(ctx volcstack.Context, input *AssignPrivateIpAddressesInput, opts ...request.Option) (*AssignPrivateIpAddressesOutput, error) {
+	req, out := c.AssignPrivateIpAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opAssociateEipAddressCommon = "AssociateEipAddress"
 
 // AssociateEipAddressCommonRequest generates a "volcstack/request.Request" representing the
@@ -6638,6 +6768,136 @@ func (c *VPC) RevokeSecurityGroupIngressWithContext(ctx volcstack.Context, input
 	return out, req.Send()
 }
 
+const opUnassignPrivateIpAddressesCommon = "UnassignPrivateIpAddresses"
+
+// UnassignPrivateIpAddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignPrivateIpAddressesCommon operation. The "output" return
+// value will be populated with the UnassignPrivateIpAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned UnassignPrivateIpAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after UnassignPrivateIpAddressesCommon Send returns without error.
+//
+// See UnassignPrivateIpAddressesCommon for more information on using the UnassignPrivateIpAddressesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the UnassignPrivateIpAddressesCommonRequest method.
+//    req, resp := client.UnassignPrivateIpAddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) UnassignPrivateIpAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opUnassignPrivateIpAddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignPrivateIpAddressesCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation UnassignPrivateIpAddressesCommon for usage and error information.
+func (c *VPC) UnassignPrivateIpAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.UnassignPrivateIpAddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// UnassignPrivateIpAddressesCommonWithContext is the same as UnassignPrivateIpAddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignPrivateIpAddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) UnassignPrivateIpAddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.UnassignPrivateIpAddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUnassignPrivateIpAddresses = "UnassignPrivateIpAddresses"
+
+// UnassignPrivateIpAddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignPrivateIpAddresses operation. The "output" return
+// value will be populated with the UnassignPrivateIpAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned UnassignPrivateIpAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after UnassignPrivateIpAddressesCommon Send returns without error.
+//
+// See UnassignPrivateIpAddresses for more information on using the UnassignPrivateIpAddresses
+// API call, and error handling.
+//
+//    // Example sending a request using the UnassignPrivateIpAddressesRequest method.
+//    req, resp := client.UnassignPrivateIpAddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) UnassignPrivateIpAddressesRequest(input *UnassignPrivateIpAddressesInput) (req *request.Request, output *UnassignPrivateIpAddressesOutput) {
+	op := &request.Operation{
+		Name:       opUnassignPrivateIpAddresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UnassignPrivateIpAddressesInput{}
+	}
+
+	output = &UnassignPrivateIpAddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignPrivateIpAddresses API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation UnassignPrivateIpAddresses for usage and error information.
+func (c *VPC) UnassignPrivateIpAddresses(input *UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error) {
+	req, out := c.UnassignPrivateIpAddressesRequest(input)
+	return out, req.Send()
+}
+
+// UnassignPrivateIpAddressesWithContext is the same as UnassignPrivateIpAddresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignPrivateIpAddresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) UnassignPrivateIpAddressesWithContext(ctx volcstack.Context, input *UnassignPrivateIpAddressesInput, opts ...request.Option) (*UnassignPrivateIpAddressesOutput, error) {
+	req, out := c.UnassignPrivateIpAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 type AllocateEipAddressInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6762,6 +7022,88 @@ func (s *AllocateEipAddressOutput) SetEipAddress(v string) *AllocateEipAddressOu
 // SetRequestId sets the RequestId field's value.
 func (s *AllocateEipAddressOutput) SetRequestId(v string) *AllocateEipAddressOutput {
 	s.RequestId = &v
+	return s
+}
+
+type AssignPrivateIpAddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+
+	PrivateIpAddress []*string `type:"list"`
+
+	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s AssignPrivateIpAddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignPrivateIpAddressesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssignPrivateIpAddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssignPrivateIpAddressesInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AssignPrivateIpAddressesInput) SetNetworkInterfaceId(v string) *AssignPrivateIpAddressesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *AssignPrivateIpAddressesInput) SetPrivateIpAddress(v []*string) *AssignPrivateIpAddressesInput {
+	s.PrivateIpAddress = v
+	return s
+}
+
+// SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
+func (s *AssignPrivateIpAddressesInput) SetSecondaryPrivateIpAddressCount(v int64) *AssignPrivateIpAddressesInput {
+	s.SecondaryPrivateIpAddressCount = &v
+	return s
+}
+
+type AssignPrivateIpAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	PrivateIpSet []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s AssignPrivateIpAddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignPrivateIpAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AssignPrivateIpAddressesOutput) SetNetworkInterfaceId(v string) *AssignPrivateIpAddressesOutput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetPrivateIpSet sets the PrivateIpSet field's value.
+func (s *AssignPrivateIpAddressesOutput) SetPrivateIpSet(v []*string) *AssignPrivateIpAddressesOutput {
+	s.PrivateIpSet = v
 	return s
 }
 
@@ -7105,6 +7447,36 @@ func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetAllo
 
 // SetEipAddress sets the EipAddress field's value.
 func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetEipAddress(v string) *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+type AssociatedElasticIpForDescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociatedElasticIpForDescribeNetworkInterfacesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociatedElasticIpForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AssociatedElasticIpForDescribeNetworkInterfacesOutput) SetAllocationId(v string) *AssociatedElasticIpForDescribeNetworkInterfacesOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *AssociatedElasticIpForDescribeNetworkInterfacesOutput) SetEipAddress(v string) *AssociatedElasticIpForDescribeNetworkInterfacesOutput {
 	s.EipAddress = &v
 	return s
 }
@@ -7564,6 +7936,10 @@ type CreateNetworkInterfaceInput struct {
 
 	PrimaryIpAddress *string `type:"string"`
 
+	PrivateIpAddress []*string `type:"list"`
+
+	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
+
 	// SecurityGroupIds is a required field
 	SecurityGroupIds []*string `type:"list" required:"true"`
 
@@ -7618,6 +7994,18 @@ func (s *CreateNetworkInterfaceInput) SetPortSecurityEnabled(v bool) *CreateNetw
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
 func (s *CreateNetworkInterfaceInput) SetPrimaryIpAddress(v string) *CreateNetworkInterfaceInput {
 	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *CreateNetworkInterfaceInput) SetPrivateIpAddress(v []*string) *CreateNetworkInterfaceInput {
+	s.PrivateIpAddress = v
+	return s
+}
+
+// SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
+func (s *CreateNetworkInterfaceInput) SetSecondaryPrivateIpAddressCount(v int64) *CreateNetworkInterfaceInput {
+	s.SecondaryPrivateIpAddressCount = &v
 	return s
 }
 
@@ -8600,6 +8988,8 @@ type DescribeEipAddressAttributesOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	BandwidthPackageId *string `type:"string"`
+
 	BillingType *int64 `type:"integer"`
 
 	BusinessStatus *string `type:"string"`
@@ -8656,6 +9046,12 @@ func (s *DescribeEipAddressAttributesOutput) SetAllocationTime(v string) *Descri
 // SetBandwidth sets the Bandwidth field's value.
 func (s *DescribeEipAddressAttributesOutput) SetBandwidth(v int64) *DescribeEipAddressAttributesOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetBandwidthPackageId(v string) *DescribeEipAddressAttributesOutput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -8758,6 +9154,8 @@ type DescribeEipAddressesInput struct {
 
 	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
 
+	BillingType *int64 `min:"1" type:"integer"`
+
 	EipAddresses []*string `type:"list"`
 
 	ISP *string `type:"string" enum:"ISPForDescribeEipAddressesInput"`
@@ -8781,6 +9179,19 @@ func (s DescribeEipAddressesInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeEipAddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeEipAddressesInput"}
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetAllocationIds sets the AllocationIds field's value.
 func (s *DescribeEipAddressesInput) SetAllocationIds(v []*string) *DescribeEipAddressesInput {
 	s.AllocationIds = v
@@ -8796,6 +9207,12 @@ func (s *DescribeEipAddressesInput) SetAssociatedInstanceId(v string) *DescribeE
 // SetAssociatedInstanceType sets the AssociatedInstanceType field's value.
 func (s *DescribeEipAddressesInput) SetAssociatedInstanceType(v string) *DescribeEipAddressesInput {
 	s.AssociatedInstanceType = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *DescribeEipAddressesInput) SetBillingType(v int64) *DescribeEipAddressesInput {
+	s.BillingType = &v
 	return s
 }
 
@@ -9238,6 +9655,8 @@ type DescribeNetworkInterfacesInput struct {
 
 	PrimaryIpAddresses []*string `type:"list"`
 
+	PrivateIpAddresses []*string `type:"list"`
+
 	SecurityGroupId *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -9247,6 +9666,8 @@ type DescribeNetworkInterfacesInput struct {
 	Type *string `type:"string"`
 
 	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -9295,6 +9716,12 @@ func (s *DescribeNetworkInterfacesInput) SetPrimaryIpAddresses(v []*string) *Des
 	return s
 }
 
+// SetPrivateIpAddresses sets the PrivateIpAddresses field's value.
+func (s *DescribeNetworkInterfacesInput) SetPrivateIpAddresses(v []*string) *DescribeNetworkInterfacesInput {
+	s.PrivateIpAddresses = v
+	return s
+}
+
 // SetSecurityGroupId sets the SecurityGroupId field's value.
 func (s *DescribeNetworkInterfacesInput) SetSecurityGroupId(v string) *DescribeNetworkInterfacesInput {
 	s.SecurityGroupId = &v
@@ -9325,8 +9752,16 @@ func (s *DescribeNetworkInterfacesInput) SetVpcId(v string) *DescribeNetworkInte
 	return s
 }
 
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeNetworkInterfacesInput) SetZoneId(v string) *DescribeNetworkInterfacesInput {
+	s.ZoneId = &v
+	return s
+}
+
 type DescribeNetworkInterfacesOutput struct {
 	_ struct{} `type:"structure"`
+
+	NetworkInterfaceSets []*NetworkInterfaceSetForDescribeNetworkInterfacesOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -9345,6 +9780,12 @@ func (s DescribeNetworkInterfacesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeNetworkInterfacesOutput) GoString() string {
 	return s.String()
+}
+
+// SetNetworkInterfaceSets sets the NetworkInterfaceSets field's value.
+func (s *DescribeNetworkInterfacesOutput) SetNetworkInterfaceSets(v []*NetworkInterfaceSetForDescribeNetworkInterfacesOutput) *DescribeNetworkInterfacesOutput {
+	s.NetworkInterfaceSets = v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -10330,11 +10771,9 @@ func (s *DescribeVpcAttributesOutput) SetVpcName(v string) *DescribeVpcAttribute
 type DescribeVpcsInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *string `type:"string"`
 
-	PageSize *int64 `type:"integer"`
-
-	VpcIds []*string `type:"list"`
+	PageSize *string `type:"string"`
 
 	VpcName *string `type:"string"`
 }
@@ -10350,20 +10789,14 @@ func (s DescribeVpcsInput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeVpcsInput) SetPageNumber(v int64) *DescribeVpcsInput {
+func (s *DescribeVpcsInput) SetPageNumber(v string) *DescribeVpcsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeVpcsInput) SetPageSize(v int64) *DescribeVpcsInput {
+func (s *DescribeVpcsInput) SetPageSize(v string) *DescribeVpcsInput {
 	s.PageSize = &v
-	return s
-}
-
-// SetVpcIds sets the VpcIds field's value.
-func (s *DescribeVpcsInput) SetVpcIds(v []*string) *DescribeVpcsInput {
-	s.VpcIds = v
 	return s
 }
 
@@ -10728,6 +11161,8 @@ type EipAddressForDescribeEipAddressesOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	BandwidthPackageId *string `type:"string"`
+
 	BillingType *int64 `type:"integer"`
 
 	BusinessStatus *string `type:"string"`
@@ -10782,6 +11217,12 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetAllocationTime(v string) *E
 // SetBandwidth sets the Bandwidth field's value.
 func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidth(v int64) *EipAddressForDescribeEipAddressesOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidthPackageId(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -11890,6 +12331,180 @@ func (s *ModifyVpcAttributesOutput) SetRequestId(v string) *ModifyVpcAttributesO
 	return s
 }
 
+type NetworkInterfaceSetForDescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfacesOutput `type:"structure"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DeviceId *string `type:"string"`
+
+	MacAddress *string `type:"string"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	NetworkInterfaceName *string `type:"string"`
+
+	PortSecurityEnabled *bool `type:"boolean"`
+
+	PrimaryIpAddress *string `type:"string"`
+
+	PrivateIpSets *PrivateIpSetsForDescribeNetworkInterfacesOutput `type:"structure"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	ServiceManaged *bool `type:"boolean"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s NetworkInterfaceSetForDescribeNetworkInterfacesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkInterfaceSetForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetAccountId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfacesOutput) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.AssociatedElasticIp = v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetCreatedAt(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetDescription(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDeviceId sets the DeviceId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetDeviceId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.DeviceId = &v
+	return s
+}
+
+// SetMacAddress sets the MacAddress field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetMacAddress(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.MacAddress = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetNetworkInterfaceId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetNetworkInterfaceName(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetPortSecurityEnabled sets the PortSecurityEnabled field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetPortSecurityEnabled(v bool) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.PortSecurityEnabled = &v
+	return s
+}
+
+// SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetPrimaryIpAddress(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetPrivateIpSets sets the PrivateIpSets field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetPrivateIpSets(v *PrivateIpSetsForDescribeNetworkInterfacesOutput) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.PrivateIpSets = v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetSecurityGroupIds(v []*string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetServiceManaged(v bool) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.ServiceManaged = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetStatus(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetSubnetId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetType(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.Type = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetUpdatedAt(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetVpcId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetVpcName(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.VpcName = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetZoneId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.ZoneId = &v
+	return s
+}
+
 type PermissionForDescribeSecurityGroupAttributesOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -11902,6 +12517,66 @@ func (s PermissionForDescribeSecurityGroupAttributesOutput) String() string {
 // GoString returns the string representation
 func (s PermissionForDescribeSecurityGroupAttributesOutput) GoString() string {
 	return s.String()
+}
+
+type PrivateIpSetForDescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfacesOutput `type:"structure"`
+
+	Primary *bool `type:"boolean"`
+
+	PrivateIpAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PrivateIpSetForDescribeNetworkInterfacesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PrivateIpSetForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfacesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfacesOutput) *PrivateIpSetForDescribeNetworkInterfacesOutput {
+	s.AssociatedElasticIp = v
+	return s
+}
+
+// SetPrimary sets the Primary field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfacesOutput) SetPrimary(v bool) *PrivateIpSetForDescribeNetworkInterfacesOutput {
+	s.Primary = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfacesOutput) SetPrivateIpAddress(v string) *PrivateIpSetForDescribeNetworkInterfacesOutput {
+	s.PrivateIpAddress = &v
+	return s
+}
+
+type PrivateIpSetsForDescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrivateIpSet []*PrivateIpSetForDescribeNetworkInterfacesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s PrivateIpSetsForDescribeNetworkInterfacesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PrivateIpSetsForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetPrivateIpSet sets the PrivateIpSet field's value.
+func (s *PrivateIpSetsForDescribeNetworkInterfacesOutput) SetPrivateIpSet(v []*PrivateIpSetForDescribeNetworkInterfacesOutput) *PrivateIpSetsForDescribeNetworkInterfacesOutput {
+	s.PrivateIpSet = v
+	return s
 }
 
 type ReleaseEipAddressInput struct {
@@ -12340,108 +13015,6 @@ func (s *RouteEntryForDescribeRouteEntryListOutput) SetVpcId(v string) *RouteEnt
 	return s
 }
 
-type RouteEntryForDescribeRouteTableListOutput struct {
-	_ struct{} `type:"structure"`
-
-	Description *string `type:"string"`
-
-	DestinationCidrBlock *string `type:"string"`
-
-	NextHopId *string `type:"string"`
-
-	NextHopName *string `type:"string"`
-
-	NextHopType *string `type:"string"`
-
-	RouteEntryId *string `type:"string"`
-
-	RouteEntryName *string `type:"string"`
-
-	RouteTableId *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	Type *string `type:"string"`
-
-	VpcId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s RouteEntryForDescribeRouteTableListOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s RouteEntryForDescribeRouteTableListOutput) GoString() string {
-	return s.String()
-}
-
-// SetDescription sets the Description field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetDescription(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.Description = &v
-	return s
-}
-
-// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetDestinationCidrBlock(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.DestinationCidrBlock = &v
-	return s
-}
-
-// SetNextHopId sets the NextHopId field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetNextHopId(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.NextHopId = &v
-	return s
-}
-
-// SetNextHopName sets the NextHopName field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetNextHopName(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.NextHopName = &v
-	return s
-}
-
-// SetNextHopType sets the NextHopType field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetNextHopType(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.NextHopType = &v
-	return s
-}
-
-// SetRouteEntryId sets the RouteEntryId field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetRouteEntryId(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.RouteEntryId = &v
-	return s
-}
-
-// SetRouteEntryName sets the RouteEntryName field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetRouteEntryName(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.RouteEntryName = &v
-	return s
-}
-
-// SetRouteTableId sets the RouteTableId field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetRouteTableId(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.RouteTableId = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetStatus(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.Status = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetType(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.Type = &v
-	return s
-}
-
-// SetVpcId sets the VpcId field's value.
-func (s *RouteEntryForDescribeRouteTableListOutput) SetVpcId(v string) *RouteEntryForDescribeRouteTableListOutput {
-	s.VpcId = &v
-	return s
-}
-
 type RouteTableForDescribeSubnetAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -12511,8 +13084,6 @@ type RouterTableListForDescribeRouteTableListOutput struct {
 
 	Description *string `type:"string"`
 
-	RouteEntry []*RouteEntryForDescribeRouteTableListOutput `type:"list"`
-
 	RouteTableId *string `type:"string"`
 
 	RouteTableName *string `type:"string"`
@@ -12553,12 +13124,6 @@ func (s *RouterTableListForDescribeRouteTableListOutput) SetCreationTime(v strin
 // SetDescription sets the Description field's value.
 func (s *RouterTableListForDescribeRouteTableListOutput) SetDescription(v string) *RouterTableListForDescribeRouteTableListOutput {
 	s.Description = &v
-	return s
-}
-
-// SetRouteEntry sets the RouteEntry field's value.
-func (s *RouterTableListForDescribeRouteTableListOutput) SetRouteEntry(v []*RouteEntryForDescribeRouteTableListOutput) *RouterTableListForDescribeRouteTableListOutput {
-	s.RouteEntry = v
 	return s
 }
 
@@ -12789,6 +13354,72 @@ func (s *SubnetForDescribeSubnetsOutput) SetVpcId(v string) *SubnetForDescribeSu
 // SetZoneId sets the ZoneId field's value.
 func (s *SubnetForDescribeSubnetsOutput) SetZoneId(v string) *SubnetForDescribeSubnetsOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type UnassignPrivateIpAddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+
+	PrivateIpAddress []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s UnassignPrivateIpAddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignPrivateIpAddressesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UnassignPrivateIpAddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UnassignPrivateIpAddressesInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *UnassignPrivateIpAddressesInput) SetNetworkInterfaceId(v string) *UnassignPrivateIpAddressesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *UnassignPrivateIpAddressesInput) SetPrivateIpAddress(v []*string) *UnassignPrivateIpAddressesInput {
+	s.PrivateIpAddress = v
+	return s
+}
+
+type UnassignPrivateIpAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s UnassignPrivateIpAddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignPrivateIpAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *UnassignPrivateIpAddressesOutput) SetRequestId(v string) *UnassignPrivateIpAddressesOutput {
+	s.RequestId = &v
 	return s
 }
 

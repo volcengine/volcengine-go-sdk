@@ -38,6 +38,14 @@ type VPCAPI interface {
 	AllocateEipAddressWithContext(volcstack.Context, *AllocateEipAddressInput, ...request.Option) (*AllocateEipAddressOutput, error)
 	AllocateEipAddressRequest(*AllocateEipAddressInput) (*request.Request, *AllocateEipAddressOutput)
 
+	AssignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssignPrivateIpAddressesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssignPrivateIpAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssignPrivateIpAddresses(*AssignPrivateIpAddressesInput) (*AssignPrivateIpAddressesOutput, error)
+	AssignPrivateIpAddressesWithContext(volcstack.Context, *AssignPrivateIpAddressesInput, ...request.Option) (*AssignPrivateIpAddressesOutput, error)
+	AssignPrivateIpAddressesRequest(*AssignPrivateIpAddressesInput) (*request.Request, *AssignPrivateIpAddressesOutput)
+
 	AssociateEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateEipAddressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -437,6 +445,14 @@ type VPCAPI interface {
 	RevokeSecurityGroupIngress(*RevokeSecurityGroupIngressInput) (*RevokeSecurityGroupIngressOutput, error)
 	RevokeSecurityGroupIngressWithContext(volcstack.Context, *RevokeSecurityGroupIngressInput, ...request.Option) (*RevokeSecurityGroupIngressOutput, error)
 	RevokeSecurityGroupIngressRequest(*RevokeSecurityGroupIngressInput) (*request.Request, *RevokeSecurityGroupIngressOutput)
+
+	UnassignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnassignPrivateIpAddressesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnassignPrivateIpAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnassignPrivateIpAddresses(*UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error)
+	UnassignPrivateIpAddressesWithContext(volcstack.Context, *UnassignPrivateIpAddressesInput, ...request.Option) (*UnassignPrivateIpAddressesOutput, error)
+	UnassignPrivateIpAddressesRequest(*UnassignPrivateIpAddressesInput) (*request.Request, *UnassignPrivateIpAddressesOutput)
 }
 
 var _ VPCAPI = (*VPC)(nil)
