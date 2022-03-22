@@ -4316,6 +4316,9 @@ func (s *CreateCenBandwidthPackageInput) Validate() error {
 	if s.BillingType != nil && *s.BillingType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
 	}
+	if s.BillingType != nil && *s.BillingType > 1 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 1))
+	}
 	if s.LocalGeographicRegionSetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("LocalGeographicRegionSetId"))
 	}
@@ -5303,6 +5306,9 @@ func (s *DescribeCenBandwidthPackagesBillingInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeCenBandwidthPackagesBillingInput"}
 	if s.CenBandwidthPackageIds == nil {
 		invalidParams.Add(request.NewErrParamRequired("CenBandwidthPackageIds"))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
 
 	if invalidParams.Len() > 0 {

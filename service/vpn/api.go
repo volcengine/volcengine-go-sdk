@@ -3149,11 +3149,20 @@ func (s *CreateVpnGatewayInput) Validate() error {
 	if s.Bandwidth != nil && *s.Bandwidth < 5 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 5))
 	}
+	if s.Bandwidth != nil && *s.Bandwidth > 200 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 200))
+	}
 	if s.BillingType != nil && *s.BillingType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
 	}
+	if s.BillingType != nil && *s.BillingType > 1 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 1))
+	}
 	if s.RenewType != nil && *s.RenewType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
+	}
+	if s.RenewType != nil && *s.RenewType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("RenewType", 3))
 	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
@@ -4732,6 +4741,9 @@ func (s DescribeVpnGatewaysBillingInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeVpnGatewaysBillingInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeVpnGatewaysBillingInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.VpnGatewayIds == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnGatewayIds"))
 	}
@@ -5705,6 +5717,9 @@ func (s *ModifyVpnGatewayAttributesInput) Validate() error {
 	if s.Bandwidth != nil && *s.Bandwidth < 5 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 5))
 	}
+	if s.Bandwidth != nil && *s.Bandwidth > 200 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 200))
+	}
 	if s.VpnGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
 	}
@@ -5875,6 +5890,9 @@ func (s *SetVpnGatewayRenewalInput) Validate() error {
 	}
 	if s.RenewType != nil && *s.RenewType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
+	}
+	if s.RenewType != nil && *s.RenewType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("RenewType", 3))
 	}
 	if s.VpnGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))

@@ -1836,6 +1836,19 @@ func (s DescribeNatGatewaysInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeNatGatewaysInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeNatGatewaysInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetDescription sets the Description field's value.
 func (s *DescribeNatGatewaysInput) SetDescription(v string) *DescribeNatGatewaysInput {
 	s.Description = &v
@@ -1964,6 +1977,19 @@ func (s DescribeSnatEntriesInput) String() string {
 // GoString returns the string representation
 func (s DescribeSnatEntriesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSnatEntriesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSnatEntriesInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEipId sets the EipId field's value.

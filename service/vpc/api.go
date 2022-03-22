@@ -6932,11 +6932,20 @@ func (s *AllocateEipAddressInput) Validate() error {
 	if s.Bandwidth != nil && *s.Bandwidth < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
 	}
+	if s.Bandwidth != nil && *s.Bandwidth > 500 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 500))
+	}
 	if s.BillingType != nil && *s.BillingType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
 	}
+	if s.BillingType != nil && *s.BillingType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
+	}
 	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit > 2 {
+		invalidParams.Add(request.NewErrParamMaxValue("PeriodUnit", 2))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -9185,6 +9194,12 @@ func (s *DescribeEipAddressesInput) Validate() error {
 	if s.BillingType != nil && *s.BillingType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
 	}
+	if s.BillingType != nil && *s.BillingType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -9334,6 +9349,19 @@ func (s DescribeHaVipsInput) String() string {
 // GoString returns the string representation
 func (s DescribeHaVipsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeHaVipsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeHaVipsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetHaVipIds sets the HaVipIds field's value.
@@ -9680,6 +9708,19 @@ func (s DescribeNetworkInterfacesInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeNetworkInterfacesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeNetworkInterfacesInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeNetworkInterfacesInput) SetInstanceId(v string) *DescribeNetworkInterfacesInput {
 	s.InstanceId = &v
@@ -9844,6 +9885,19 @@ func (s DescribeRouteEntryListInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeRouteEntryListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeRouteEntryListInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
 func (s *DescribeRouteEntryListInput) SetDestinationCidrBlock(v string) *DescribeRouteEntryListInput {
 	s.DestinationCidrBlock = &v
@@ -9974,6 +10028,19 @@ func (s DescribeRouteTableListInput) String() string {
 // GoString returns the string representation
 func (s DescribeRouteTableListInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeRouteTableListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeRouteTableListInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -10212,6 +10279,19 @@ func (s DescribeSecurityGroupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSecurityGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSecurityGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSecurityGroupsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -10492,6 +10572,9 @@ func (s DescribeSubnetsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeSubnetsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeSubnetsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
@@ -11467,6 +11550,9 @@ func (s *ModifyEipAddressAttributesInput) Validate() error {
 	}
 	if s.Bandwidth != nil && *s.Bandwidth < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
 	}
 
 	if invalidParams.Len() > 0 {

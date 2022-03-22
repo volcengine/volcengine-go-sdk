@@ -498,9 +498,10 @@ func mergeConfigSrcs(cfg, userCfg *volcstack.Config,
 func initHandlers(s *Session) {
 	// Add the Validate parameter handler if it is not disabled.
 	s.Handlers.Validate.Remove(corehandlers.ValidateParametersHandler)
-	if !volcstack.BoolValue(s.Config.DisableParamValidation) {
-		s.Handlers.Validate.PushBackNamed(corehandlers.ValidateParametersHandler)
-	}
+	// Temporary notes by xuyaming@bytedance.com because some validate field is relation.
+	//if !volcstack.BoolValue(s.Config.DisableParamValidation) {
+	//	s.Handlers.Validate.PushBackNamed(corehandlers.ValidateParametersHandler)
+	//}
 }
 
 // Copy creates and returns a copy of the current Session, copying the config
