@@ -10854,9 +10854,11 @@ func (s *DescribeVpcAttributesOutput) SetVpcName(v string) *DescribeVpcAttribute
 type DescribeVpcsInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *string `type:"string"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *string `type:"string"`
+	PageSize *int64 `type:"integer"`
+
+	VpcIds []*string `type:"list"`
 
 	VpcName *string `type:"string"`
 }
@@ -10871,15 +10873,34 @@ func (s DescribeVpcsInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeVpcsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeVpcsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeVpcsInput) SetPageNumber(v string) *DescribeVpcsInput {
+func (s *DescribeVpcsInput) SetPageNumber(v int64) *DescribeVpcsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeVpcsInput) SetPageSize(v string) *DescribeVpcsInput {
+func (s *DescribeVpcsInput) SetPageSize(v int64) *DescribeVpcsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetVpcIds sets the VpcIds field's value.
+func (s *DescribeVpcsInput) SetVpcIds(v []*string) *DescribeVpcsInput {
+	s.VpcIds = v
 	return s
 }
 
