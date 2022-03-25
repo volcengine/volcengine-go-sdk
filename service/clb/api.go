@@ -4975,7 +4975,7 @@ func (s *CertificateForDescribeCertificatesOutput) SetListeners(v []*string) *Ce
 type CreateAclInput struct {
 	_ struct{} `type:"structure"`
 
-	AclName *string `type:"string"`
+	AclName *string `min:"2" max:"255" type:"string"`
 
 	Description *string `type:"string"`
 }
@@ -4988,6 +4988,22 @@ func (s CreateAclInput) String() string {
 // GoString returns the string representation
 func (s CreateAclInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateAclInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateAclInput"}
+	if s.AclName != nil && len(*s.AclName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("AclName", 2))
+	}
+	if s.AclName != nil && len(*s.AclName) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("AclName", 255, *s.AclName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAclName sets the AclName field's value.
@@ -8456,7 +8472,7 @@ type ModifyAclAttributesInput struct {
 	// AclId is a required field
 	AclId *string `type:"string" required:"true"`
 
-	AclName *string `type:"string"`
+	AclName *string `min:"2" max:"255" type:"string"`
 
 	Description *string `type:"string"`
 }
@@ -8476,6 +8492,12 @@ func (s *ModifyAclAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyAclAttributesInput"}
 	if s.AclId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AclId"))
+	}
+	if s.AclName != nil && len(*s.AclName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("AclName", 2))
+	}
+	if s.AclName != nil && len(*s.AclName) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("AclName", 255, *s.AclName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -9163,6 +9185,8 @@ type RuleForCreateRulesInput struct {
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
+
+	Url *string `type:"string"`
 }
 
 // String returns the string representation
@@ -9203,6 +9227,12 @@ func (s *RuleForCreateRulesInput) SetDomain(v string) *RuleForCreateRulesInput {
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *RuleForCreateRulesInput) SetServerGroupId(v string) *RuleForCreateRulesInput {
 	s.ServerGroupId = &v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *RuleForCreateRulesInput) SetUrl(v string) *RuleForCreateRulesInput {
+	s.Url = &v
 	return s
 }
 
