@@ -198,6 +198,14 @@ type CLBAPI interface {
 	DescribeLoadBalancersWithContext(volcstack.Context, *DescribeLoadBalancersInput, ...request.Option) (*DescribeLoadBalancersOutput, error)
 	DescribeLoadBalancersRequest(*DescribeLoadBalancersInput) (*request.Request, *DescribeLoadBalancersOutput)
 
+	DescribeLoadBalancersBillingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLoadBalancersBillingCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLoadBalancersBillingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLoadBalancersBilling(*DescribeLoadBalancersBillingInput) (*DescribeLoadBalancersBillingOutput, error)
+	DescribeLoadBalancersBillingWithContext(volcstack.Context, *DescribeLoadBalancersBillingInput, ...request.Option) (*DescribeLoadBalancersBillingOutput, error)
+	DescribeLoadBalancersBillingRequest(*DescribeLoadBalancersBillingInput) (*request.Request, *DescribeLoadBalancersBillingOutput)
+
 	DescribeRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRulesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

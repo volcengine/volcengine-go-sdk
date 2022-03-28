@@ -38,6 +38,14 @@ type VPCAPI interface {
 	AllocateEipAddressWithContext(volcstack.Context, *AllocateEipAddressInput, ...request.Option) (*AllocateEipAddressOutput, error)
 	AllocateEipAddressRequest(*AllocateEipAddressInput) (*request.Request, *AllocateEipAddressOutput)
 
+	AssignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssignPrivateIpAddressesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssignPrivateIpAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssignPrivateIpAddresses(*AssignPrivateIpAddressesInput) (*AssignPrivateIpAddressesOutput, error)
+	AssignPrivateIpAddressesWithContext(volcstack.Context, *AssignPrivateIpAddressesInput, ...request.Option) (*AssignPrivateIpAddressesOutput, error)
+	AssignPrivateIpAddressesRequest(*AssignPrivateIpAddressesInput) (*request.Request, *AssignPrivateIpAddressesOutput)
+
 	AssociateEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateEipAddressCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -45,6 +53,14 @@ type VPCAPI interface {
 	AssociateEipAddress(*AssociateEipAddressInput) (*AssociateEipAddressOutput, error)
 	AssociateEipAddressWithContext(volcstack.Context, *AssociateEipAddressInput, ...request.Option) (*AssociateEipAddressOutput, error)
 	AssociateEipAddressRequest(*AssociateEipAddressInput) (*request.Request, *AssociateEipAddressOutput)
+
+	AssociateHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateHaVipCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateHaVip(*AssociateHaVipInput) (*AssociateHaVipOutput, error)
+	AssociateHaVipWithContext(volcstack.Context, *AssociateHaVipInput, ...request.Option) (*AssociateHaVipOutput, error)
+	AssociateHaVipRequest(*AssociateHaVipInput) (*request.Request, *AssociateHaVipOutput)
 
 	AssociateRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateRouteTableCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -77,6 +93,14 @@ type VPCAPI interface {
 	AuthorizeSecurityGroupIngress(*AuthorizeSecurityGroupIngressInput) (*AuthorizeSecurityGroupIngressOutput, error)
 	AuthorizeSecurityGroupIngressWithContext(volcstack.Context, *AuthorizeSecurityGroupIngressInput, ...request.Option) (*AuthorizeSecurityGroupIngressOutput, error)
 	AuthorizeSecurityGroupIngressRequest(*AuthorizeSecurityGroupIngressInput) (*request.Request, *AuthorizeSecurityGroupIngressOutput)
+
+	CreateHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateHaVipCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateHaVip(*CreateHaVipInput) (*CreateHaVipOutput, error)
+	CreateHaVipWithContext(volcstack.Context, *CreateHaVipInput, ...request.Option) (*CreateHaVipOutput, error)
+	CreateHaVipRequest(*CreateHaVipInput) (*request.Request, *CreateHaVipOutput)
 
 	CreateNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNetworkInterfaceCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -125,6 +149,14 @@ type VPCAPI interface {
 	CreateVpc(*CreateVpcInput) (*CreateVpcOutput, error)
 	CreateVpcWithContext(volcstack.Context, *CreateVpcInput, ...request.Option) (*CreateVpcOutput, error)
 	CreateVpcRequest(*CreateVpcInput) (*request.Request, *CreateVpcOutput)
+
+	DeleteHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteHaVipCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteHaVip(*DeleteHaVipInput) (*DeleteHaVipOutput, error)
+	DeleteHaVipWithContext(volcstack.Context, *DeleteHaVipInput, ...request.Option) (*DeleteHaVipOutput, error)
+	DeleteHaVipRequest(*DeleteHaVipInput) (*request.Request, *DeleteHaVipOutput)
 
 	DeleteNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNetworkInterfaceCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -189,6 +221,14 @@ type VPCAPI interface {
 	DescribeEipAddresses(*DescribeEipAddressesInput) (*DescribeEipAddressesOutput, error)
 	DescribeEipAddressesWithContext(volcstack.Context, *DescribeEipAddressesInput, ...request.Option) (*DescribeEipAddressesOutput, error)
 	DescribeEipAddressesRequest(*DescribeEipAddressesInput) (*request.Request, *DescribeEipAddressesOutput)
+
+	DescribeHaVipsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeHaVipsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeHaVipsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeHaVips(*DescribeHaVipsInput) (*DescribeHaVipsOutput, error)
+	DescribeHaVipsWithContext(volcstack.Context, *DescribeHaVipsInput, ...request.Option) (*DescribeHaVipsOutput, error)
+	DescribeHaVipsRequest(*DescribeHaVipsInput) (*request.Request, *DescribeHaVipsOutput)
 
 	DescribeNetworkInterfaceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNetworkInterfaceAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -286,6 +326,14 @@ type VPCAPI interface {
 	DisassociateEipAddressWithContext(volcstack.Context, *DisassociateEipAddressInput, ...request.Option) (*DisassociateEipAddressOutput, error)
 	DisassociateEipAddressRequest(*DisassociateEipAddressInput) (*request.Request, *DisassociateEipAddressOutput)
 
+	DisassociateHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateHaVipCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateHaVip(*DisassociateHaVipInput) (*DisassociateHaVipOutput, error)
+	DisassociateHaVipWithContext(volcstack.Context, *DisassociateHaVipInput, ...request.Option) (*DisassociateHaVipOutput, error)
+	DisassociateHaVipRequest(*DisassociateHaVipInput) (*request.Request, *DisassociateHaVipOutput)
+
 	DisassociateRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateRouteTableCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisassociateRouteTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -301,6 +349,14 @@ type VPCAPI interface {
 	ModifyEipAddressAttributes(*ModifyEipAddressAttributesInput) (*ModifyEipAddressAttributesOutput, error)
 	ModifyEipAddressAttributesWithContext(volcstack.Context, *ModifyEipAddressAttributesInput, ...request.Option) (*ModifyEipAddressAttributesOutput, error)
 	ModifyEipAddressAttributesRequest(*ModifyEipAddressAttributesInput) (*request.Request, *ModifyEipAddressAttributesOutput)
+
+	ModifyHaVipAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyHaVipAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyHaVipAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyHaVipAttributes(*ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error)
+	ModifyHaVipAttributesWithContext(volcstack.Context, *ModifyHaVipAttributesInput, ...request.Option) (*ModifyHaVipAttributesOutput, error)
+	ModifyHaVipAttributesRequest(*ModifyHaVipAttributesInput) (*request.Request, *ModifyHaVipAttributesOutput)
 
 	ModifyNetworkInterfaceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyNetworkInterfaceAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -389,6 +445,14 @@ type VPCAPI interface {
 	RevokeSecurityGroupIngress(*RevokeSecurityGroupIngressInput) (*RevokeSecurityGroupIngressOutput, error)
 	RevokeSecurityGroupIngressWithContext(volcstack.Context, *RevokeSecurityGroupIngressInput, ...request.Option) (*RevokeSecurityGroupIngressOutput, error)
 	RevokeSecurityGroupIngressRequest(*RevokeSecurityGroupIngressInput) (*request.Request, *RevokeSecurityGroupIngressOutput)
+
+	UnassignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnassignPrivateIpAddressesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnassignPrivateIpAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnassignPrivateIpAddresses(*UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error)
+	UnassignPrivateIpAddressesWithContext(volcstack.Context, *UnassignPrivateIpAddressesInput, ...request.Option) (*UnassignPrivateIpAddressesOutput, error)
+	UnassignPrivateIpAddressesRequest(*UnassignPrivateIpAddressesInput) (*request.Request, *UnassignPrivateIpAddressesOutput)
 }
 
 var _ VPCAPI = (*VPC)(nil)

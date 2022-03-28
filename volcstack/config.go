@@ -100,8 +100,9 @@ type Config struct {
 	Retryer RequestRetryer
 
 	// Disables semantic parameter validation, which validates input for
-	// missing required fields and/or other semantic request input errors.
-	DisableParamValidation *bool
+	// missing required fields and/or other semantic request input errors
+	// Temporary notes by xuyaming@bytedance.com because some validate field is relation.
+	//DisableParamValidation *bool
 
 	// Disables the computation of request and response checksums, e.g.,
 	// CRC32 checksums in Amazon DynamoDB.
@@ -219,6 +220,8 @@ type Config struct {
 	ExtendHttpRequest custom.ExtendHttpRequest
 
 	ExtraHttpParameters custom.ExtraHttpParameters
+
+	ExtraUserAgent *string
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -281,6 +284,11 @@ func (c *Config) WithExtraHttpParameters(extraHttpParameters custom.ExtraHttpPar
 	return c
 }
 
+func (c *Config) WithExtraUserAgent(extra *string) *Config {
+	c.ExtraUserAgent = extra
+	return c
+}
+
 func (c *Config) WithAccountId(accountId string) *Config {
 	c.AccountId = &accountId
 	return c
@@ -322,11 +330,12 @@ func (c *Config) WithMaxRetries(max int) *Config {
 }
 
 // WithDisableParamValidation sets a config DisableParamValidation value
-// returning a Config pointer for chaining.
-func (c *Config) WithDisableParamValidation(disable bool) *Config {
-	c.DisableParamValidation = &disable
-	return c
-}
+// returning a Config pointer for chaining
+// Temporary notes by xuyaming@bytedance.com because some validate field is relation.
+//func (c *Config) WithDisableParamValidation(disable bool) *Config {
+//	c.DisableParamValidation = &disable
+//	return c
+//}
 
 // WithDisableComputeChecksums sets a config DisableComputeChecksums value
 // returning a Config pointer for chaining.
@@ -454,10 +463,10 @@ func mergeInConfig(dst *Config, other *Config) {
 	if other.Retryer != nil {
 		dst.Retryer = other.Retryer
 	}
-
-	if other.DisableParamValidation != nil {
-		dst.DisableParamValidation = other.DisableParamValidation
-	}
+	// Temporary notes by xuyaming@bytedance.com because some validate field is relation.
+	//if other.DisableParamValidation != nil {
+	//	dst.DisableParamValidation = other.DisableParamValidation
+	//}
 
 	if other.DisableComputeChecksums != nil {
 		dst.DisableComputeChecksums = other.DisableComputeChecksums
@@ -513,6 +522,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.ExtraHttpParameters != nil {
 		dst.ExtraHttpParameters = other.ExtraHttpParameters
+	}
+
+	if other.ExtraUserAgent != nil {
+		dst.ExtraUserAgent = other.ExtraUserAgent
 	}
 }
 

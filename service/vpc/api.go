@@ -138,6 +138,136 @@ func (c *VPC) AllocateEipAddressWithContext(ctx volcstack.Context, input *Alloca
 	return out, req.Send()
 }
 
+const opAssignPrivateIpAddressesCommon = "AssignPrivateIpAddresses"
+
+// AssignPrivateIpAddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignPrivateIpAddressesCommon operation. The "output" return
+// value will be populated with the AssignPrivateIpAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssignPrivateIpAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssignPrivateIpAddressesCommon Send returns without error.
+//
+// See AssignPrivateIpAddressesCommon for more information on using the AssignPrivateIpAddressesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the AssignPrivateIpAddressesCommonRequest method.
+//    req, resp := client.AssignPrivateIpAddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssignPrivateIpAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssignPrivateIpAddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignPrivateIpAddressesCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssignPrivateIpAddressesCommon for usage and error information.
+func (c *VPC) AssignPrivateIpAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssignPrivateIpAddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssignPrivateIpAddressesCommonWithContext is the same as AssignPrivateIpAddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignPrivateIpAddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssignPrivateIpAddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssignPrivateIpAddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssignPrivateIpAddresses = "AssignPrivateIpAddresses"
+
+// AssignPrivateIpAddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssignPrivateIpAddresses operation. The "output" return
+// value will be populated with the AssignPrivateIpAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssignPrivateIpAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssignPrivateIpAddressesCommon Send returns without error.
+//
+// See AssignPrivateIpAddresses for more information on using the AssignPrivateIpAddresses
+// API call, and error handling.
+//
+//    // Example sending a request using the AssignPrivateIpAddressesRequest method.
+//    req, resp := client.AssignPrivateIpAddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssignPrivateIpAddressesRequest(input *AssignPrivateIpAddressesInput) (req *request.Request, output *AssignPrivateIpAddressesOutput) {
+	op := &request.Operation{
+		Name:       opAssignPrivateIpAddresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssignPrivateIpAddressesInput{}
+	}
+
+	output = &AssignPrivateIpAddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssignPrivateIpAddresses API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssignPrivateIpAddresses for usage and error information.
+func (c *VPC) AssignPrivateIpAddresses(input *AssignPrivateIpAddressesInput) (*AssignPrivateIpAddressesOutput, error) {
+	req, out := c.AssignPrivateIpAddressesRequest(input)
+	return out, req.Send()
+}
+
+// AssignPrivateIpAddressesWithContext is the same as AssignPrivateIpAddresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssignPrivateIpAddresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssignPrivateIpAddressesWithContext(ctx volcstack.Context, input *AssignPrivateIpAddressesInput, opts ...request.Option) (*AssignPrivateIpAddressesOutput, error) {
+	req, out := c.AssignPrivateIpAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opAssociateEipAddressCommon = "AssociateEipAddress"
 
 // AssociateEipAddressCommonRequest generates a "volcstack/request.Request" representing the
@@ -263,6 +393,136 @@ func (c *VPC) AssociateEipAddress(input *AssociateEipAddressInput) (*AssociateEi
 // for more information on using Contexts.
 func (c *VPC) AssociateEipAddressWithContext(ctx volcstack.Context, input *AssociateEipAddressInput, opts ...request.Option) (*AssociateEipAddressOutput, error) {
 	req, out := c.AssociateEipAddressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateHaVipCommon = "AssociateHaVip"
+
+// AssociateHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateHaVipCommon operation. The "output" return
+// value will be populated with the AssociateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssociateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssociateHaVipCommon Send returns without error.
+//
+// See AssociateHaVipCommon for more information on using the AssociateHaVipCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the AssociateHaVipCommonRequest method.
+//    req, resp := client.AssociateHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssociateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opAssociateHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateHaVipCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssociateHaVipCommon for usage and error information.
+func (c *VPC) AssociateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AssociateHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// AssociateHaVipCommonWithContext is the same as AssociateHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssociateHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AssociateHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAssociateHaVip = "AssociateHaVip"
+
+// AssociateHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the AssociateHaVip operation. The "output" return
+// value will be populated with the AssociateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned AssociateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AssociateHaVipCommon Send returns without error.
+//
+// See AssociateHaVip for more information on using the AssociateHaVip
+// API call, and error handling.
+//
+//    // Example sending a request using the AssociateHaVipRequest method.
+//    req, resp := client.AssociateHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) AssociateHaVipRequest(input *AssociateHaVipInput) (req *request.Request, output *AssociateHaVipOutput) {
+	op := &request.Operation{
+		Name:       opAssociateHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssociateHaVipInput{}
+	}
+
+	output = &AssociateHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// AssociateHaVip API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation AssociateHaVip for usage and error information.
+func (c *VPC) AssociateHaVip(input *AssociateHaVipInput) (*AssociateHaVipOutput, error) {
+	req, out := c.AssociateHaVipRequest(input)
+	return out, req.Send()
+}
+
+// AssociateHaVipWithContext is the same as AssociateHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) AssociateHaVipWithContext(ctx volcstack.Context, input *AssociateHaVipInput, opts ...request.Option) (*AssociateHaVipOutput, error) {
+	req, out := c.AssociateHaVipRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -783,6 +1043,136 @@ func (c *VPC) AuthorizeSecurityGroupIngress(input *AuthorizeSecurityGroupIngress
 // for more information on using Contexts.
 func (c *VPC) AuthorizeSecurityGroupIngressWithContext(ctx volcstack.Context, input *AuthorizeSecurityGroupIngressInput, opts ...request.Option) (*AuthorizeSecurityGroupIngressOutput, error) {
 	req, out := c.AuthorizeSecurityGroupIngressRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateHaVipCommon = "CreateHaVip"
+
+// CreateHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateHaVipCommon operation. The "output" return
+// value will be populated with the CreateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CreateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateHaVipCommon Send returns without error.
+//
+// See CreateHaVipCommon for more information on using the CreateHaVipCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the CreateHaVipCommonRequest method.
+//    req, resp := client.CreateHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) CreateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateHaVipCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation CreateHaVipCommon for usage and error information.
+func (c *VPC) CreateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateHaVipCommonWithContext is the same as CreateHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) CreateHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateHaVip = "CreateHaVip"
+
+// CreateHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateHaVip operation. The "output" return
+// value will be populated with the CreateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CreateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateHaVipCommon Send returns without error.
+//
+// See CreateHaVip for more information on using the CreateHaVip
+// API call, and error handling.
+//
+//    // Example sending a request using the CreateHaVipRequest method.
+//    req, resp := client.CreateHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) CreateHaVipRequest(input *CreateHaVipInput) (req *request.Request, output *CreateHaVipOutput) {
+	op := &request.Operation{
+		Name:       opCreateHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateHaVipInput{}
+	}
+
+	output = &CreateHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateHaVip API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation CreateHaVip for usage and error information.
+func (c *VPC) CreateHaVip(input *CreateHaVipInput) (*CreateHaVipOutput, error) {
+	req, out := c.CreateHaVipRequest(input)
+	return out, req.Send()
+}
+
+// CreateHaVipWithContext is the same as CreateHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) CreateHaVipWithContext(ctx volcstack.Context, input *CreateHaVipInput, opts ...request.Option) (*CreateHaVipOutput, error) {
+	req, out := c.CreateHaVipRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1563,6 +1953,136 @@ func (c *VPC) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
 // for more information on using Contexts.
 func (c *VPC) CreateVpcWithContext(ctx volcstack.Context, input *CreateVpcInput, opts ...request.Option) (*CreateVpcOutput, error) {
 	req, out := c.CreateVpcRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteHaVipCommon = "DeleteHaVip"
+
+// DeleteHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteHaVipCommon operation. The "output" return
+// value will be populated with the DeleteHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteHaVipCommon Send returns without error.
+//
+// See DeleteHaVipCommon for more information on using the DeleteHaVipCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteHaVipCommonRequest method.
+//    req, resp := client.DeleteHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DeleteHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteHaVipCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DeleteHaVipCommon for usage and error information.
+func (c *VPC) DeleteHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteHaVipCommonWithContext is the same as DeleteHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DeleteHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteHaVip = "DeleteHaVip"
+
+// DeleteHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteHaVip operation. The "output" return
+// value will be populated with the DeleteHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteHaVipCommon Send returns without error.
+//
+// See DeleteHaVip for more information on using the DeleteHaVip
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteHaVipRequest method.
+//    req, resp := client.DeleteHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DeleteHaVipRequest(input *DeleteHaVipInput) (req *request.Request, output *DeleteHaVipOutput) {
+	op := &request.Operation{
+		Name:       opDeleteHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteHaVipInput{}
+	}
+
+	output = &DeleteHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteHaVip API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DeleteHaVip for usage and error information.
+func (c *VPC) DeleteHaVip(input *DeleteHaVipInput) (*DeleteHaVipOutput, error) {
+	req, out := c.DeleteHaVipRequest(input)
+	return out, req.Send()
+}
+
+// DeleteHaVipWithContext is the same as DeleteHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DeleteHaVipWithContext(ctx volcstack.Context, input *DeleteHaVipInput, opts ...request.Option) (*DeleteHaVipOutput, error) {
+	req, out := c.DeleteHaVipRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2603,6 +3123,136 @@ func (c *VPC) DescribeEipAddresses(input *DescribeEipAddressesInput) (*DescribeE
 // for more information on using Contexts.
 func (c *VPC) DescribeEipAddressesWithContext(ctx volcstack.Context, input *DescribeEipAddressesInput, opts ...request.Option) (*DescribeEipAddressesOutput, error) {
 	req, out := c.DescribeEipAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHaVipsCommon = "DescribeHaVips"
+
+// DescribeHaVipsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHaVipsCommon operation. The "output" return
+// value will be populated with the DescribeHaVipsCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeHaVipsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeHaVipsCommon Send returns without error.
+//
+// See DescribeHaVipsCommon for more information on using the DescribeHaVipsCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeHaVipsCommonRequest method.
+//    req, resp := client.DescribeHaVipsCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DescribeHaVipsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeHaVipsCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHaVipsCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DescribeHaVipsCommon for usage and error information.
+func (c *VPC) DescribeHaVipsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeHaVipsCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHaVipsCommonWithContext is the same as DescribeHaVipsCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHaVipsCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DescribeHaVipsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeHaVipsCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeHaVips = "DescribeHaVips"
+
+// DescribeHaVipsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeHaVips operation. The "output" return
+// value will be populated with the DescribeHaVipsCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeHaVipsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeHaVipsCommon Send returns without error.
+//
+// See DescribeHaVips for more information on using the DescribeHaVips
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeHaVipsRequest method.
+//    req, resp := client.DescribeHaVipsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DescribeHaVipsRequest(input *DescribeHaVipsInput) (req *request.Request, output *DescribeHaVipsOutput) {
+	op := &request.Operation{
+		Name:       opDescribeHaVips,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeHaVipsInput{}
+	}
+
+	output = &DescribeHaVipsOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeHaVips API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DescribeHaVips for usage and error information.
+func (c *VPC) DescribeHaVips(input *DescribeHaVipsInput) (*DescribeHaVipsOutput, error) {
+	req, out := c.DescribeHaVipsRequest(input)
+	return out, req.Send()
+}
+
+// DescribeHaVipsWithContext is the same as DescribeHaVips with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeHaVips for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DescribeHaVipsWithContext(ctx volcstack.Context, input *DescribeHaVipsInput, opts ...request.Option) (*DescribeHaVipsOutput, error) {
+	req, out := c.DescribeHaVipsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -4168,6 +4818,136 @@ func (c *VPC) DisassociateEipAddressWithContext(ctx volcstack.Context, input *Di
 	return out, req.Send()
 }
 
+const opDisassociateHaVipCommon = "DisassociateHaVip"
+
+// DisassociateHaVipCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateHaVipCommon operation. The "output" return
+// value will be populated with the DisassociateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DisassociateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisassociateHaVipCommon Send returns without error.
+//
+// See DisassociateHaVipCommon for more information on using the DisassociateHaVipCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DisassociateHaVipCommonRequest method.
+//    req, resp := client.DisassociateHaVipCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DisassociateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDisassociateHaVipCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateHaVipCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DisassociateHaVipCommon for usage and error information.
+func (c *VPC) DisassociateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DisassociateHaVipCommonRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateHaVipCommonWithContext is the same as DisassociateHaVipCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateHaVipCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DisassociateHaVipCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DisassociateHaVipCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisassociateHaVip = "DisassociateHaVip"
+
+// DisassociateHaVipRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisassociateHaVip operation. The "output" return
+// value will be populated with the DisassociateHaVipCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DisassociateHaVipCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisassociateHaVipCommon Send returns without error.
+//
+// See DisassociateHaVip for more information on using the DisassociateHaVip
+// API call, and error handling.
+//
+//    // Example sending a request using the DisassociateHaVipRequest method.
+//    req, resp := client.DisassociateHaVipRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) DisassociateHaVipRequest(input *DisassociateHaVipInput) (req *request.Request, output *DisassociateHaVipOutput) {
+	op := &request.Operation{
+		Name:       opDisassociateHaVip,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DisassociateHaVipInput{}
+	}
+
+	output = &DisassociateHaVipOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisassociateHaVip API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation DisassociateHaVip for usage and error information.
+func (c *VPC) DisassociateHaVip(input *DisassociateHaVipInput) (*DisassociateHaVipOutput, error) {
+	req, out := c.DisassociateHaVipRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateHaVipWithContext is the same as DisassociateHaVip with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateHaVip for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) DisassociateHaVipWithContext(ctx volcstack.Context, input *DisassociateHaVipInput, opts ...request.Option) (*DisassociateHaVipOutput, error) {
+	req, out := c.DisassociateHaVipRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDisassociateRouteTableCommon = "DisassociateRouteTable"
 
 // DisassociateRouteTableCommonRequest generates a "volcstack/request.Request" representing the
@@ -4423,6 +5203,136 @@ func (c *VPC) ModifyEipAddressAttributes(input *ModifyEipAddressAttributesInput)
 // for more information on using Contexts.
 func (c *VPC) ModifyEipAddressAttributesWithContext(ctx volcstack.Context, input *ModifyEipAddressAttributesInput, opts ...request.Option) (*ModifyEipAddressAttributesOutput, error) {
 	req, out := c.ModifyEipAddressAttributesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyHaVipAttributesCommon = "ModifyHaVipAttributes"
+
+// ModifyHaVipAttributesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyHaVipAttributesCommon operation. The "output" return
+// value will be populated with the ModifyHaVipAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyHaVipAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyHaVipAttributesCommon Send returns without error.
+//
+// See ModifyHaVipAttributesCommon for more information on using the ModifyHaVipAttributesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyHaVipAttributesCommonRequest method.
+//    req, resp := client.ModifyHaVipAttributesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) ModifyHaVipAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyHaVipAttributesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyHaVipAttributesCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation ModifyHaVipAttributesCommon for usage and error information.
+func (c *VPC) ModifyHaVipAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyHaVipAttributesCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyHaVipAttributesCommonWithContext is the same as ModifyHaVipAttributesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyHaVipAttributesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) ModifyHaVipAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyHaVipAttributesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyHaVipAttributes = "ModifyHaVipAttributes"
+
+// ModifyHaVipAttributesRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyHaVipAttributes operation. The "output" return
+// value will be populated with the ModifyHaVipAttributesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyHaVipAttributesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyHaVipAttributesCommon Send returns without error.
+//
+// See ModifyHaVipAttributes for more information on using the ModifyHaVipAttributes
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyHaVipAttributesRequest method.
+//    req, resp := client.ModifyHaVipAttributesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) ModifyHaVipAttributesRequest(input *ModifyHaVipAttributesInput) (req *request.Request, output *ModifyHaVipAttributesOutput) {
+	op := &request.Operation{
+		Name:       opModifyHaVipAttributes,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyHaVipAttributesInput{}
+	}
+
+	output = &ModifyHaVipAttributesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyHaVipAttributes API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation ModifyHaVipAttributes for usage and error information.
+func (c *VPC) ModifyHaVipAttributes(input *ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error) {
+	req, out := c.ModifyHaVipAttributesRequest(input)
+	return out, req.Send()
+}
+
+// ModifyHaVipAttributesWithContext is the same as ModifyHaVipAttributes with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyHaVipAttributes for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) ModifyHaVipAttributesWithContext(ctx volcstack.Context, input *ModifyHaVipAttributesInput, opts ...request.Option) (*ModifyHaVipAttributesOutput, error) {
+	req, out := c.ModifyHaVipAttributesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -5858,6 +6768,136 @@ func (c *VPC) RevokeSecurityGroupIngressWithContext(ctx volcstack.Context, input
 	return out, req.Send()
 }
 
+const opUnassignPrivateIpAddressesCommon = "UnassignPrivateIpAddresses"
+
+// UnassignPrivateIpAddressesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignPrivateIpAddressesCommon operation. The "output" return
+// value will be populated with the UnassignPrivateIpAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned UnassignPrivateIpAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after UnassignPrivateIpAddressesCommon Send returns without error.
+//
+// See UnassignPrivateIpAddressesCommon for more information on using the UnassignPrivateIpAddressesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the UnassignPrivateIpAddressesCommonRequest method.
+//    req, resp := client.UnassignPrivateIpAddressesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) UnassignPrivateIpAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opUnassignPrivateIpAddressesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignPrivateIpAddressesCommon API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation UnassignPrivateIpAddressesCommon for usage and error information.
+func (c *VPC) UnassignPrivateIpAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.UnassignPrivateIpAddressesCommonRequest(input)
+	return out, req.Send()
+}
+
+// UnassignPrivateIpAddressesCommonWithContext is the same as UnassignPrivateIpAddressesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignPrivateIpAddressesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) UnassignPrivateIpAddressesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.UnassignPrivateIpAddressesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUnassignPrivateIpAddresses = "UnassignPrivateIpAddresses"
+
+// UnassignPrivateIpAddressesRequest generates a "volcstack/request.Request" representing the
+// client's request for the UnassignPrivateIpAddresses operation. The "output" return
+// value will be populated with the UnassignPrivateIpAddressesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned UnassignPrivateIpAddressesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after UnassignPrivateIpAddressesCommon Send returns without error.
+//
+// See UnassignPrivateIpAddresses for more information on using the UnassignPrivateIpAddresses
+// API call, and error handling.
+//
+//    // Example sending a request using the UnassignPrivateIpAddressesRequest method.
+//    req, resp := client.UnassignPrivateIpAddressesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *VPC) UnassignPrivateIpAddressesRequest(input *UnassignPrivateIpAddressesInput) (req *request.Request, output *UnassignPrivateIpAddressesOutput) {
+	op := &request.Operation{
+		Name:       opUnassignPrivateIpAddresses,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UnassignPrivateIpAddressesInput{}
+	}
+
+	output = &UnassignPrivateIpAddressesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// UnassignPrivateIpAddresses API operation for VPC.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for VPC's
+// API operation UnassignPrivateIpAddresses for usage and error information.
+func (c *VPC) UnassignPrivateIpAddresses(input *UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error) {
+	req, out := c.UnassignPrivateIpAddressesRequest(input)
+	return out, req.Send()
+}
+
+// UnassignPrivateIpAddressesWithContext is the same as UnassignPrivateIpAddresses with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnassignPrivateIpAddresses for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *VPC) UnassignPrivateIpAddressesWithContext(ctx volcstack.Context, input *UnassignPrivateIpAddressesInput, opts ...request.Option) (*UnassignPrivateIpAddressesOutput, error) {
+	req, out := c.UnassignPrivateIpAddressesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 type AllocateEipAddressInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5892,11 +6932,20 @@ func (s *AllocateEipAddressInput) Validate() error {
 	if s.Bandwidth != nil && *s.Bandwidth < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
 	}
+	if s.Bandwidth != nil && *s.Bandwidth > 500 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 500))
+	}
 	if s.BillingType != nil && *s.BillingType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
 	}
+	if s.BillingType != nil && *s.BillingType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
+	}
 	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit > 2 {
+		invalidParams.Add(request.NewErrParamMaxValue("PeriodUnit", 2))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -5985,8 +7034,96 @@ func (s *AllocateEipAddressOutput) SetRequestId(v string) *AllocateEipAddressOut
 	return s
 }
 
+type AssignPrivateIpAddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+
+	PrivateIpAddress []*string `type:"list"`
+
+	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s AssignPrivateIpAddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignPrivateIpAddressesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssignPrivateIpAddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssignPrivateIpAddressesInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AssignPrivateIpAddressesInput) SetNetworkInterfaceId(v string) *AssignPrivateIpAddressesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *AssignPrivateIpAddressesInput) SetPrivateIpAddress(v []*string) *AssignPrivateIpAddressesInput {
+	s.PrivateIpAddress = v
+	return s
+}
+
+// SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
+func (s *AssignPrivateIpAddressesInput) SetSecondaryPrivateIpAddressCount(v int64) *AssignPrivateIpAddressesInput {
+	s.SecondaryPrivateIpAddressCount = &v
+	return s
+}
+
+type AssignPrivateIpAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	PrivateIpSet []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s AssignPrivateIpAddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssignPrivateIpAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AssignPrivateIpAddressesOutput) SetNetworkInterfaceId(v string) *AssignPrivateIpAddressesOutput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetPrivateIpSet sets the PrivateIpSet field's value.
+func (s *AssignPrivateIpAddressesOutput) SetPrivateIpSet(v []*string) *AssignPrivateIpAddressesOutput {
+	s.PrivateIpSet = v
+	return s
+}
+
 type AssociateCenForDescribeVpcAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	CenId *string `type:"string"`
+
+	CenOwnerId *string `type:"string"`
+
+	CenStatus *string `type:"string"`
 }
 
 // String returns the string representation
@@ -5997,6 +7134,62 @@ func (s AssociateCenForDescribeVpcAttributesOutput) String() string {
 // GoString returns the string representation
 func (s AssociateCenForDescribeVpcAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCenId sets the CenId field's value.
+func (s *AssociateCenForDescribeVpcAttributesOutput) SetCenId(v string) *AssociateCenForDescribeVpcAttributesOutput {
+	s.CenId = &v
+	return s
+}
+
+// SetCenOwnerId sets the CenOwnerId field's value.
+func (s *AssociateCenForDescribeVpcAttributesOutput) SetCenOwnerId(v string) *AssociateCenForDescribeVpcAttributesOutput {
+	s.CenOwnerId = &v
+	return s
+}
+
+// SetCenStatus sets the CenStatus field's value.
+func (s *AssociateCenForDescribeVpcAttributesOutput) SetCenStatus(v string) *AssociateCenForDescribeVpcAttributesOutput {
+	s.CenStatus = &v
+	return s
+}
+
+type AssociateCenForDescribeVpcsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CenId *string `type:"string"`
+
+	CenOwnerId *string `type:"string"`
+
+	CenStatus *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateCenForDescribeVpcsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateCenForDescribeVpcsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCenId sets the CenId field's value.
+func (s *AssociateCenForDescribeVpcsOutput) SetCenId(v string) *AssociateCenForDescribeVpcsOutput {
+	s.CenId = &v
+	return s
+}
+
+// SetCenOwnerId sets the CenOwnerId field's value.
+func (s *AssociateCenForDescribeVpcsOutput) SetCenOwnerId(v string) *AssociateCenForDescribeVpcsOutput {
+	s.CenOwnerId = &v
+	return s
+}
+
+// SetCenStatus sets the CenStatus field's value.
+func (s *AssociateCenForDescribeVpcsOutput) SetCenStatus(v string) *AssociateCenForDescribeVpcsOutput {
+	s.CenStatus = &v
+	return s
 }
 
 type AssociateEipAddressInput struct {
@@ -6089,6 +7282,84 @@ func (s *AssociateEipAddressOutput) SetRequestId(v string) *AssociateEipAddressO
 	return s
 }
 
+type AssociateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	InstanceType *string `type:"string" enum:"InstanceTypeForAssociateHaVipInput"`
+}
+
+// String returns the string representation
+func (s AssociateHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssociateHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssociateHaVipInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *AssociateHaVipInput) SetHaVipId(v string) *AssociateHaVipInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AssociateHaVipInput) SetInstanceId(v string) *AssociateHaVipInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *AssociateHaVipInput) SetInstanceType(v string) *AssociateHaVipInput {
+	s.InstanceType = &v
+	return s
+}
+
+type AssociateHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociateHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssociateHaVipOutput) SetRequestId(v string) *AssociateHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
 type AssociateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6161,6 +7432,10 @@ func (s *AssociateRouteTableOutput) SetRequestId(v string) *AssociateRouteTableO
 
 type AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	EipAddress *string `type:"string"`
 }
 
 // String returns the string representation
@@ -6171,6 +7446,48 @@ func (s AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) String()
 // GoString returns the string representation
 func (s AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetAllocationId(v string) *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetEipAddress(v string) *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+type AssociatedElasticIpForDescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociatedElasticIpForDescribeNetworkInterfacesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociatedElasticIpForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AssociatedElasticIpForDescribeNetworkInterfacesOutput) SetAllocationId(v string) *AssociatedElasticIpForDescribeNetworkInterfacesOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *AssociatedElasticIpForDescribeNetworkInterfacesOutput) SetEipAddress(v string) *AssociatedElasticIpForDescribeNetworkInterfacesOutput {
+	s.EipAddress = &v
+	return s
 }
 
 type AttachNetworkInterfaceInput struct {
@@ -6519,6 +7836,104 @@ func (s *AuthorizeSecurityGroupIngressOutput) SetRequestId(v string) *AuthorizeS
 	return s
 }
 
+type CreateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	HaVipName *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateHaVipInput"}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateHaVipInput) SetDescription(v string) *CreateHaVipInput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *CreateHaVipInput) SetHaVipName(v string) *CreateHaVipInput {
+	s.HaVipName = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *CreateHaVipInput) SetIpAddress(v string) *CreateHaVipInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *CreateHaVipInput) SetSubnetId(v string) *CreateHaVipInput {
+	s.SubnetId = &v
+	return s
+}
+
+type CreateHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	HaVipId *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *CreateHaVipOutput) SetHaVipId(v string) *CreateHaVipOutput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *CreateHaVipOutput) SetIpAddress(v string) *CreateHaVipOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateHaVipOutput) SetRequestId(v string) *CreateHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
 type CreateNetworkInterfaceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6529,6 +7944,10 @@ type CreateNetworkInterfaceInput struct {
 	PortSecurityEnabled *bool `type:"boolean"`
 
 	PrimaryIpAddress *string `type:"string"`
+
+	PrivateIpAddress []*string `type:"list"`
+
+	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
 
 	// SecurityGroupIds is a required field
 	SecurityGroupIds []*string `type:"list" required:"true"`
@@ -6584,6 +8003,18 @@ func (s *CreateNetworkInterfaceInput) SetPortSecurityEnabled(v bool) *CreateNetw
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
 func (s *CreateNetworkInterfaceInput) SetPrimaryIpAddress(v string) *CreateNetworkInterfaceInput {
 	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *CreateNetworkInterfaceInput) SetPrivateIpAddress(v []*string) *CreateNetworkInterfaceInput {
+	s.PrivateIpAddress = v
+	return s
+}
+
+// SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
+func (s *CreateNetworkInterfaceInput) SetSecondaryPrivateIpAddressCount(v int64) *CreateNetworkInterfaceInput {
+	s.SecondaryPrivateIpAddressCount = &v
 	return s
 }
 
@@ -7115,6 +8546,64 @@ func (s *CreateVpcOutput) SetVpcId(v string) *CreateVpcOutput {
 	return s
 }
 
+type DeleteHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteHaVipInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *DeleteHaVipInput) SetHaVipId(v string) *DeleteHaVipInput {
+	s.HaVipId = &v
+	return s
+}
+
+type DeleteHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteHaVipOutput) SetRequestId(v string) *DeleteHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
 type DeleteNetworkInterfaceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -7508,6 +8997,8 @@ type DescribeEipAddressAttributesOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	BandwidthPackageId *string `type:"string"`
+
 	BillingType *int64 `type:"integer"`
 
 	BusinessStatus *string `type:"string"`
@@ -7564,6 +9055,12 @@ func (s *DescribeEipAddressAttributesOutput) SetAllocationTime(v string) *Descri
 // SetBandwidth sets the Bandwidth field's value.
 func (s *DescribeEipAddressAttributesOutput) SetBandwidth(v int64) *DescribeEipAddressAttributesOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetBandwidthPackageId(v string) *DescribeEipAddressAttributesOutput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -7666,6 +9163,8 @@ type DescribeEipAddressesInput struct {
 
 	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
 
+	BillingType *int64 `min:"1" type:"integer"`
+
 	EipAddresses []*string `type:"list"`
 
 	ISP *string `type:"string" enum:"ISPForDescribeEipAddressesInput"`
@@ -7689,6 +9188,25 @@ func (s DescribeEipAddressesInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeEipAddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeEipAddressesInput"}
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
+	}
+	if s.BillingType != nil && *s.BillingType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetAllocationIds sets the AllocationIds field's value.
 func (s *DescribeEipAddressesInput) SetAllocationIds(v []*string) *DescribeEipAddressesInput {
 	s.AllocationIds = v
@@ -7704,6 +9222,12 @@ func (s *DescribeEipAddressesInput) SetAssociatedInstanceId(v string) *DescribeE
 // SetAssociatedInstanceType sets the AssociatedInstanceType field's value.
 func (s *DescribeEipAddressesInput) SetAssociatedInstanceType(v string) *DescribeEipAddressesInput {
 	s.AssociatedInstanceType = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *DescribeEipAddressesInput) SetBillingType(v int64) *DescribeEipAddressesInput {
+	s.BillingType = &v
 	return s
 }
 
@@ -7746,7 +9270,7 @@ func (s *DescribeEipAddressesInput) SetStatus(v string) *DescribeEipAddressesInp
 type DescribeEipAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
-	EipAddresses []*EipAddresseForDescribeEipAddressesOutput `type:"list"`
+	EipAddresses []*EipAddressForDescribeEipAddressesOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -7768,7 +9292,7 @@ func (s DescribeEipAddressesOutput) GoString() string {
 }
 
 // SetEipAddresses sets the EipAddresses field's value.
-func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddresseForDescribeEipAddressesOutput) *DescribeEipAddressesOutput {
+func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddressForDescribeEipAddressesOutput) *DescribeEipAddressesOutput {
 	s.EipAddresses = v
 	return s
 }
@@ -7793,6 +9317,151 @@ func (s *DescribeEipAddressesOutput) SetRequestId(v string) *DescribeEipAddresse
 
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeEipAddressesOutput) SetTotalCount(v int64) *DescribeEipAddressesOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeHaVipsInput struct {
+	_ struct{} `type:"structure"`
+
+	HaVipIds []*string `type:"list"`
+
+	HaVipName *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeHaVipsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHaVipsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeHaVipsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeHaVipsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipIds sets the HaVipIds field's value.
+func (s *DescribeHaVipsInput) SetHaVipIds(v []*string) *DescribeHaVipsInput {
+	s.HaVipIds = v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *DescribeHaVipsInput) SetHaVipName(v string) *DescribeHaVipsInput {
+	s.HaVipName = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *DescribeHaVipsInput) SetIpAddress(v string) *DescribeHaVipsInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeHaVipsInput) SetPageNumber(v int64) *DescribeHaVipsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeHaVipsInput) SetPageSize(v int64) *DescribeHaVipsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeHaVipsInput) SetStatus(v string) *DescribeHaVipsInput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeHaVipsInput) SetSubnetId(v string) *DescribeHaVipsInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeHaVipsInput) SetVpcId(v string) *DescribeHaVipsInput {
+	s.VpcId = &v
+	return s
+}
+
+type DescribeHaVipsOutput struct {
+	_ struct{} `type:"structure"`
+
+	HaVips []*HaVipForDescribeHaVipsOutput `type:"list"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeHaVipsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeHaVipsOutput) GoString() string {
+	return s.String()
+}
+
+// SetHaVips sets the HaVips field's value.
+func (s *DescribeHaVipsOutput) SetHaVips(v []*HaVipForDescribeHaVipsOutput) *DescribeHaVipsOutput {
+	s.HaVips = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeHaVipsOutput) SetPageNumber(v int64) *DescribeHaVipsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeHaVipsOutput) SetPageSize(v int64) *DescribeHaVipsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeHaVipsOutput) SetRequestId(v string) *DescribeHaVipsOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeHaVipsOutput) SetTotalCount(v int64) *DescribeHaVipsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -8014,6 +9683,8 @@ type DescribeNetworkInterfacesInput struct {
 
 	PrimaryIpAddresses []*string `type:"list"`
 
+	PrivateIpAddresses []*string `type:"list"`
+
 	SecurityGroupId *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -8023,6 +9694,8 @@ type DescribeNetworkInterfacesInput struct {
 	Type *string `type:"string"`
 
 	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -8033,6 +9706,19 @@ func (s DescribeNetworkInterfacesInput) String() string {
 // GoString returns the string representation
 func (s DescribeNetworkInterfacesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeNetworkInterfacesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeNetworkInterfacesInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -8071,6 +9757,12 @@ func (s *DescribeNetworkInterfacesInput) SetPrimaryIpAddresses(v []*string) *Des
 	return s
 }
 
+// SetPrivateIpAddresses sets the PrivateIpAddresses field's value.
+func (s *DescribeNetworkInterfacesInput) SetPrivateIpAddresses(v []*string) *DescribeNetworkInterfacesInput {
+	s.PrivateIpAddresses = v
+	return s
+}
+
 // SetSecurityGroupId sets the SecurityGroupId field's value.
 func (s *DescribeNetworkInterfacesInput) SetSecurityGroupId(v string) *DescribeNetworkInterfacesInput {
 	s.SecurityGroupId = &v
@@ -8101,8 +9793,16 @@ func (s *DescribeNetworkInterfacesInput) SetVpcId(v string) *DescribeNetworkInte
 	return s
 }
 
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeNetworkInterfacesInput) SetZoneId(v string) *DescribeNetworkInterfacesInput {
+	s.ZoneId = &v
+	return s
+}
+
 type DescribeNetworkInterfacesOutput struct {
 	_ struct{} `type:"structure"`
+
+	NetworkInterfaceSets []*NetworkInterfaceSetForDescribeNetworkInterfacesOutput `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -8121,6 +9821,12 @@ func (s DescribeNetworkInterfacesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeNetworkInterfacesOutput) GoString() string {
 	return s.String()
+}
+
+// SetNetworkInterfaceSets sets the NetworkInterfaceSets field's value.
+func (s *DescribeNetworkInterfacesOutput) SetNetworkInterfaceSets(v []*NetworkInterfaceSetForDescribeNetworkInterfacesOutput) *DescribeNetworkInterfacesOutput {
+	s.NetworkInterfaceSets = v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -8177,6 +9883,19 @@ func (s DescribeRouteEntryListInput) String() string {
 // GoString returns the string representation
 func (s DescribeRouteEntryListInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeRouteEntryListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeRouteEntryListInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
@@ -8309,6 +10028,19 @@ func (s DescribeRouteTableListInput) String() string {
 // GoString returns the string representation
 func (s DescribeRouteTableListInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeRouteTableListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeRouteTableListInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -8547,6 +10279,19 @@ func (s DescribeSecurityGroupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSecurityGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSecurityGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSecurityGroupsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -8827,6 +10572,9 @@ func (s DescribeSubnetsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeSubnetsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeSubnetsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
@@ -9125,6 +10873,19 @@ func (s DescribeVpcsInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeVpcsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeVpcsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeVpcsInput) SetPageNumber(v int64) *DescribeVpcsInput {
 	s.PageNumber = &v
@@ -9347,6 +11108,84 @@ func (s *DisassociateEipAddressOutput) SetRequestId(v string) *DisassociateEipAd
 	return s
 }
 
+type DisassociateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateHaVipInput"`
+}
+
+// String returns the string representation
+func (s DisassociateHaVipInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisassociateHaVipInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisassociateHaVipInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *DisassociateHaVipInput) SetHaVipId(v string) *DisassociateHaVipInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DisassociateHaVipInput) SetInstanceId(v string) *DisassociateHaVipInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *DisassociateHaVipInput) SetInstanceType(v string) *DisassociateHaVipInput {
+	s.InstanceType = &v
+	return s
+}
+
+type DisassociateHaVipOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisassociateHaVipOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateHaVipOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DisassociateHaVipOutput) SetRequestId(v string) *DisassociateHaVipOutput {
+	s.RequestId = &v
+	return s
+}
+
 type DisassociateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
@@ -9417,18 +11256,288 @@ func (s *DisassociateRouteTableOutput) SetRequestId(v string) *DisassociateRoute
 	return s
 }
 
-type EipAddresseForDescribeEipAddressesOutput struct {
+type EipAddressForDescribeEipAddressesOutput struct {
 	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+
+	AllocationTime *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BandwidthPackageId *string `type:"string"`
+
+	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	EipAddress *string `type:"string"`
+
+	ExpiredTime *string `type:"string"`
+
+	ISP *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	LockReason *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	OverdueTime *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
-func (s EipAddresseForDescribeEipAddressesOutput) String() string {
+func (s EipAddressForDescribeEipAddressesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s EipAddresseForDescribeEipAddressesOutput) GoString() string {
+func (s EipAddressForDescribeEipAddressesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetAllocationId(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.AllocationId = &v
+	return s
+}
+
+// SetAllocationTime sets the AllocationTime field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetAllocationTime(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.AllocationTime = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidth(v int64) *EipAddressForDescribeEipAddressesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidthPackageId(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.BandwidthPackageId = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetBillingType(v int64) *EipAddressForDescribeEipAddressesOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetBusinessStatus(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetDeletedTime(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.DeletedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetDescription(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetEipAddress(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetExpiredTime(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetISP(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.ISP = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetInstanceId(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetInstanceType(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetLockReason sets the LockReason field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetLockReason(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.LockReason = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetName(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetOverdueTime(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.OverdueTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetStatus(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetUpdatedAt(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+type HaVipForDescribeHaVipsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociatedEipAddress *string `type:"string"`
+
+	AssociatedInstanceIds []*string `type:"list"`
+
+	AssociatedInstanceType *string `type:"string"`
+
+	CreatedAt *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	HaVipId *string `type:"string"`
+
+	HaVipName *string `type:"string"`
+
+	IpAddress *string `type:"string"`
+
+	MasterInstanceId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s HaVipForDescribeHaVipsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HaVipForDescribeHaVipsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetAccountId(v string) *HaVipForDescribeHaVipsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociatedEipAddress sets the AssociatedEipAddress field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetAssociatedEipAddress(v string) *HaVipForDescribeHaVipsOutput {
+	s.AssociatedEipAddress = &v
+	return s
+}
+
+// SetAssociatedInstanceIds sets the AssociatedInstanceIds field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetAssociatedInstanceIds(v []*string) *HaVipForDescribeHaVipsOutput {
+	s.AssociatedInstanceIds = v
+	return s
+}
+
+// SetAssociatedInstanceType sets the AssociatedInstanceType field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetAssociatedInstanceType(v string) *HaVipForDescribeHaVipsOutput {
+	s.AssociatedInstanceType = &v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetCreatedAt(v string) *HaVipForDescribeHaVipsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetDescription(v string) *HaVipForDescribeHaVipsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetHaVipId(v string) *HaVipForDescribeHaVipsOutput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetHaVipName(v string) *HaVipForDescribeHaVipsOutput {
+	s.HaVipName = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetIpAddress(v string) *HaVipForDescribeHaVipsOutput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetMasterInstanceId sets the MasterInstanceId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetMasterInstanceId(v string) *HaVipForDescribeHaVipsOutput {
+	s.MasterInstanceId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetStatus(v string) *HaVipForDescribeHaVipsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetSubnetId(v string) *HaVipForDescribeHaVipsOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetUpdatedAt(v string) *HaVipForDescribeHaVipsOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetVpcId(v string) *HaVipForDescribeHaVipsOutput {
+	s.VpcId = &v
+	return s
 }
 
 type ModifyEipAddressAttributesInput struct {
@@ -9462,6 +11571,9 @@ func (s *ModifyEipAddressAttributesInput) Validate() error {
 	}
 	if s.Bandwidth != nil && *s.Bandwidth < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -9512,6 +11624,80 @@ func (s ModifyEipAddressAttributesOutput) GoString() string {
 
 // SetRequestId sets the RequestId field's value.
 func (s *ModifyEipAddressAttributesOutput) SetRequestId(v string) *ModifyEipAddressAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type ModifyHaVipAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// HaVipId is a required field
+	HaVipId *string `type:"string" required:"true"`
+
+	HaVipName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyHaVipAttributesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHaVipAttributesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyHaVipAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyHaVipAttributesInput"}
+	if s.HaVipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyHaVipAttributesInput) SetDescription(v string) *ModifyHaVipAttributesInput {
+	s.Description = &v
+	return s
+}
+
+// SetHaVipId sets the HaVipId field's value.
+func (s *ModifyHaVipAttributesInput) SetHaVipId(v string) *ModifyHaVipAttributesInput {
+	s.HaVipId = &v
+	return s
+}
+
+// SetHaVipName sets the HaVipName field's value.
+func (s *ModifyHaVipAttributesInput) SetHaVipName(v string) *ModifyHaVipAttributesInput {
+	s.HaVipName = &v
+	return s
+}
+
+type ModifyHaVipAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyHaVipAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyHaVipAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyHaVipAttributesOutput) SetRequestId(v string) *ModifyHaVipAttributesOutput {
 	s.RequestId = &v
 	return s
 }
@@ -10252,14 +12438,182 @@ func (s *ModifyVpcAttributesOutput) SetRequestId(v string) *ModifyVpcAttributesO
 	return s
 }
 
-type PermissionForDescribeSecurityGroupAttributesOutput struct {
+type NetworkInterfaceSetForDescribeNetworkInterfacesOutput struct {
 	_ struct{} `type:"structure"`
 
-	CreationTime *string `type:"string"`
+	AccountId *string `type:"string"`
+
+	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfacesOutput `type:"structure"`
+
+	CreatedAt *string `type:"string"`
 
 	Description *string `type:"string"`
 
-	UpdateTime *string `type:"string"`
+	DeviceId *string `type:"string"`
+
+	MacAddress *string `type:"string"`
+
+	NetworkInterfaceId *string `type:"string"`
+
+	NetworkInterfaceName *string `type:"string"`
+
+	PortSecurityEnabled *bool `type:"boolean"`
+
+	PrimaryIpAddress *string `type:"string"`
+
+	PrivateIpSets *PrivateIpSetsForDescribeNetworkInterfacesOutput `type:"structure"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	ServiceManaged *bool `type:"boolean"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s NetworkInterfaceSetForDescribeNetworkInterfacesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkInterfaceSetForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetAccountId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfacesOutput) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.AssociatedElasticIp = v
+	return s
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetCreatedAt(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetDescription(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDeviceId sets the DeviceId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetDeviceId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.DeviceId = &v
+	return s
+}
+
+// SetMacAddress sets the MacAddress field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetMacAddress(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.MacAddress = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetNetworkInterfaceId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetNetworkInterfaceName(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetPortSecurityEnabled sets the PortSecurityEnabled field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetPortSecurityEnabled(v bool) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.PortSecurityEnabled = &v
+	return s
+}
+
+// SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetPrimaryIpAddress(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetPrivateIpSets sets the PrivateIpSets field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetPrivateIpSets(v *PrivateIpSetsForDescribeNetworkInterfacesOutput) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.PrivateIpSets = v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetSecurityGroupIds(v []*string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetServiceManaged(v bool) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.ServiceManaged = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetStatus(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetSubnetId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetType(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.Type = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetUpdatedAt(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.UpdatedAt = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetVpcId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetVpcName(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.VpcName = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetZoneId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type PermissionForDescribeSecurityGroupAttributesOutput struct {
+	_ struct{} `type:"structure"`
 }
 
 // String returns the string representation
@@ -10272,21 +12626,63 @@ func (s PermissionForDescribeSecurityGroupAttributesOutput) GoString() string {
 	return s.String()
 }
 
-// SetCreationTime sets the CreationTime field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetCreationTime(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
-	s.CreationTime = &v
+type PrivateIpSetForDescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfacesOutput `type:"structure"`
+
+	Primary *bool `type:"boolean"`
+
+	PrivateIpAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PrivateIpSetForDescribeNetworkInterfacesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PrivateIpSetForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfacesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfacesOutput) *PrivateIpSetForDescribeNetworkInterfacesOutput {
+	s.AssociatedElasticIp = v
 	return s
 }
 
-// SetDescription sets the Description field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetDescription(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
-	s.Description = &v
+// SetPrimary sets the Primary field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfacesOutput) SetPrimary(v bool) *PrivateIpSetForDescribeNetworkInterfacesOutput {
+	s.Primary = &v
 	return s
 }
 
-// SetUpdateTime sets the UpdateTime field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetUpdateTime(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
-	s.UpdateTime = &v
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfacesOutput) SetPrivateIpAddress(v string) *PrivateIpSetForDescribeNetworkInterfacesOutput {
+	s.PrivateIpAddress = &v
+	return s
+}
+
+type PrivateIpSetsForDescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrivateIpSet []*PrivateIpSetForDescribeNetworkInterfacesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s PrivateIpSetsForDescribeNetworkInterfacesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PrivateIpSetsForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetPrivateIpSet sets the PrivateIpSet field's value.
+func (s *PrivateIpSetsForDescribeNetworkInterfacesOutput) SetPrivateIpSet(v []*PrivateIpSetForDescribeNetworkInterfacesOutput) *PrivateIpSetsForDescribeNetworkInterfacesOutput {
+	s.PrivateIpSet = v
 	return s
 }
 
@@ -10626,6 +13022,28 @@ func (s *RevokeSecurityGroupIngressOutput) SetRequestId(v string) *RevokeSecurit
 
 type RouteEntryForDescribeRouteEntryListOutput struct {
 	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	NextHopName *string `type:"string"`
+
+	NextHopType *string `type:"string"`
+
+	RouteEntryId *string `type:"string"`
+
+	RouteEntryName *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -10638,8 +13056,78 @@ func (s RouteEntryForDescribeRouteEntryListOutput) GoString() string {
 	return s.String()
 }
 
+// SetDescription sets the Description field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetDescription(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetDestinationCidrBlock(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopId(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopName sets the NextHopName field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopName(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.NextHopName = &v
+	return s
+}
+
+// SetNextHopType sets the NextHopType field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopType(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.NextHopType = &v
+	return s
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetRouteEntryId(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.RouteEntryId = &v
+	return s
+}
+
+// SetRouteEntryName sets the RouteEntryName field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetRouteEntryName(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.RouteEntryName = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetRouteTableId(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetStatus(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetType(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetVpcId(v string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.VpcId = &v
+	return s
+}
+
 type RouteTableForDescribeSubnetAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	RouteTableId *string `type:"string"`
+
+	RouteTableType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -10652,8 +13140,70 @@ func (s RouteTableForDescribeSubnetAttributesOutput) GoString() string {
 	return s.String()
 }
 
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteTableForDescribeSubnetAttributesOutput) SetRouteTableId(v string) *RouteTableForDescribeSubnetAttributesOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableType sets the RouteTableType field's value.
+func (s *RouteTableForDescribeSubnetAttributesOutput) SetRouteTableType(v string) *RouteTableForDescribeSubnetAttributesOutput {
+	s.RouteTableType = &v
+	return s
+}
+
+type RouteTableForDescribeSubnetsOutput struct {
+	_ struct{} `type:"structure"`
+
+	RouteTableId *string `type:"string"`
+
+	RouteTableType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RouteTableForDescribeSubnetsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RouteTableForDescribeSubnetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteTableForDescribeSubnetsOutput) SetRouteTableId(v string) *RouteTableForDescribeSubnetsOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableType sets the RouteTableType field's value.
+func (s *RouteTableForDescribeSubnetsOutput) SetRouteTableType(v string) *RouteTableForDescribeSubnetsOutput {
+	s.RouteTableType = &v
+	return s
+}
+
 type RouterTableListForDescribeRouteTableListOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
+
+	RouteTableName *string `type:"string"`
+
+	RouteTableType *string `type:"string"`
+
+	SubnetIds []*string `type:"list"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -10666,8 +13216,82 @@ func (s RouterTableListForDescribeRouteTableListOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetAccountId(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetCreationTime(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetDescription(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.Description = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetRouteTableId(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetRouteTableName sets the RouteTableName field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetRouteTableName(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.RouteTableName = &v
+	return s
+}
+
+// SetRouteTableType sets the RouteTableType field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetRouteTableType(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.RouteTableType = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetSubnetIds(v []*string) *RouterTableListForDescribeRouteTableListOutput {
+	s.SubnetIds = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetUpdateTime(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetVpcId(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetVpcName(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.VpcName = &v
+	return s
+}
+
 type SecurityGroupForDescribeSecurityGroupsOutput struct {
 	_ struct{} `type:"structure"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	SecurityGroupId *string `type:"string"`
+
+	SecurityGroupName *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -10680,8 +13304,76 @@ func (s SecurityGroupForDescribeSecurityGroupsOutput) GoString() string {
 	return s.String()
 }
 
+// SetCreationTime sets the CreationTime field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetCreationTime(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetDescription(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupId(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupName(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.SecurityGroupName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetStatus(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetType(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetVpcId(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.VpcId = &v
+	return s
+}
+
 type SubnetForDescribeSubnetsOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AvailableIpAddressCount *int64 `type:"integer"`
+
+	CidrBlock *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	RouteTable *RouteTableForDescribeSubnetsOutput `type:"structure"`
+
+	Status *string `type:"string"`
+
+	SubnetId *string `type:"string"`
+
+	SubnetName *string `type:"string"`
+
+	TotalIpv4Count *int64 `type:"integer"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -10694,8 +13386,180 @@ func (s SubnetForDescribeSubnetsOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetAccountId(v string) *SubnetForDescribeSubnetsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAvailableIpAddressCount sets the AvailableIpAddressCount field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetAvailableIpAddressCount(v int64) *SubnetForDescribeSubnetsOutput {
+	s.AvailableIpAddressCount = &v
+	return s
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetCidrBlock(v string) *SubnetForDescribeSubnetsOutput {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetCreationTime(v string) *SubnetForDescribeSubnetsOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetDescription(v string) *SubnetForDescribeSubnetsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetRouteTable sets the RouteTable field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetRouteTable(v *RouteTableForDescribeSubnetsOutput) *SubnetForDescribeSubnetsOutput {
+	s.RouteTable = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetStatus(v string) *SubnetForDescribeSubnetsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetSubnetId(v string) *SubnetForDescribeSubnetsOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetSubnetName sets the SubnetName field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetSubnetName(v string) *SubnetForDescribeSubnetsOutput {
+	s.SubnetName = &v
+	return s
+}
+
+// SetTotalIpv4Count sets the TotalIpv4Count field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetTotalIpv4Count(v int64) *SubnetForDescribeSubnetsOutput {
+	s.TotalIpv4Count = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetUpdateTime(v string) *SubnetForDescribeSubnetsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetVpcId(v string) *SubnetForDescribeSubnetsOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetZoneId(v string) *SubnetForDescribeSubnetsOutput {
+	s.ZoneId = &v
+	return s
+}
+
+type UnassignPrivateIpAddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	// NetworkInterfaceId is a required field
+	NetworkInterfaceId *string `type:"string" required:"true"`
+
+	PrivateIpAddress []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s UnassignPrivateIpAddressesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignPrivateIpAddressesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UnassignPrivateIpAddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UnassignPrivateIpAddressesInput"}
+	if s.NetworkInterfaceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *UnassignPrivateIpAddressesInput) SetNetworkInterfaceId(v string) *UnassignPrivateIpAddressesInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *UnassignPrivateIpAddressesInput) SetPrivateIpAddress(v []*string) *UnassignPrivateIpAddressesInput {
+	s.PrivateIpAddress = v
+	return s
+}
+
+type UnassignPrivateIpAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s UnassignPrivateIpAddressesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnassignPrivateIpAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *UnassignPrivateIpAddressesOutput) SetRequestId(v string) *UnassignPrivateIpAddressesOutput {
+	s.RequestId = &v
+	return s
+}
+
 type VpcForDescribeVpcsOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AssociateCens []*AssociateCenForDescribeVpcsOutput `type:"list"`
+
+	CidrBlock *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DnsServers []*string `type:"list"`
+
+	NatGatewayIds []*string `type:"list"`
+
+	RouteTableIds []*string `type:"list"`
+
+	SecurityGroupIds []*string `type:"list"`
+
+	Status *string `type:"string"`
+
+	SubnetIds []*string `type:"list"`
+
+	UpdateTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	VpcName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -10706,6 +13570,90 @@ func (s VpcForDescribeVpcsOutput) String() string {
 // GoString returns the string representation
 func (s VpcForDescribeVpcsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *VpcForDescribeVpcsOutput) SetAccountId(v string) *VpcForDescribeVpcsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAssociateCens sets the AssociateCens field's value.
+func (s *VpcForDescribeVpcsOutput) SetAssociateCens(v []*AssociateCenForDescribeVpcsOutput) *VpcForDescribeVpcsOutput {
+	s.AssociateCens = v
+	return s
+}
+
+// SetCidrBlock sets the CidrBlock field's value.
+func (s *VpcForDescribeVpcsOutput) SetCidrBlock(v string) *VpcForDescribeVpcsOutput {
+	s.CidrBlock = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *VpcForDescribeVpcsOutput) SetCreationTime(v string) *VpcForDescribeVpcsOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *VpcForDescribeVpcsOutput) SetDescription(v string) *VpcForDescribeVpcsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDnsServers sets the DnsServers field's value.
+func (s *VpcForDescribeVpcsOutput) SetDnsServers(v []*string) *VpcForDescribeVpcsOutput {
+	s.DnsServers = v
+	return s
+}
+
+// SetNatGatewayIds sets the NatGatewayIds field's value.
+func (s *VpcForDescribeVpcsOutput) SetNatGatewayIds(v []*string) *VpcForDescribeVpcsOutput {
+	s.NatGatewayIds = v
+	return s
+}
+
+// SetRouteTableIds sets the RouteTableIds field's value.
+func (s *VpcForDescribeVpcsOutput) SetRouteTableIds(v []*string) *VpcForDescribeVpcsOutput {
+	s.RouteTableIds = v
+	return s
+}
+
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *VpcForDescribeVpcsOutput) SetSecurityGroupIds(v []*string) *VpcForDescribeVpcsOutput {
+	s.SecurityGroupIds = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *VpcForDescribeVpcsOutput) SetStatus(v string) *VpcForDescribeVpcsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *VpcForDescribeVpcsOutput) SetSubnetIds(v []*string) *VpcForDescribeVpcsOutput {
+	s.SubnetIds = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *VpcForDescribeVpcsOutput) SetUpdateTime(v string) *VpcForDescribeVpcsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *VpcForDescribeVpcsOutput) SetVpcId(v string) *VpcForDescribeVpcsOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *VpcForDescribeVpcsOutput) SetVpcName(v string) *VpcForDescribeVpcsOutput {
+	s.VpcName = &v
+	return s
 }
 
 const (
@@ -10768,6 +13716,14 @@ const (
 )
 
 const (
+	// InstanceTypeForAssociateHaVipInputNetworkInterface is a InstanceTypeForAssociateHaVipInput enum value
+	InstanceTypeForAssociateHaVipInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForAssociateHaVipInputEcsInstance is a InstanceTypeForAssociateHaVipInput enum value
+	InstanceTypeForAssociateHaVipInputEcsInstance = "EcsInstance"
+)
+
+const (
 	// InstanceTypeForDisassociateEipAddressInputNat is a InstanceTypeForDisassociateEipAddressInput enum value
 	InstanceTypeForDisassociateEipAddressInputNat = "Nat"
 
@@ -10779,6 +13735,14 @@ const (
 
 	// InstanceTypeForDisassociateEipAddressInputEcsInstance is a InstanceTypeForDisassociateEipAddressInput enum value
 	InstanceTypeForDisassociateEipAddressInputEcsInstance = "EcsInstance"
+)
+
+const (
+	// InstanceTypeForDisassociateHaVipInputNetworkInterface is a InstanceTypeForDisassociateHaVipInput enum value
+	InstanceTypeForDisassociateHaVipInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForDisassociateHaVipInputEcsInstance is a InstanceTypeForDisassociateHaVipInput enum value
+	InstanceTypeForDisassociateHaVipInputEcsInstance = "EcsInstance"
 )
 
 const (

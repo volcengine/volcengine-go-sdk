@@ -18,6 +18,9 @@ const (
 	// ParamMinValueErrCode is the error code for fields with too low of a
 	// number value.
 	ParamMinValueErrCode = "ParamMinValueError"
+	// ParamMaxValueErrCode is the error code for fields with too high of a
+	// number value.
+	ParamMaxValueErrCode = "ParamMaxValueError"
 	// ParamMinLenErrCode is the error code for fields without enough elements.
 	ParamMinLenErrCode = "ParamMinLenError"
 	// ParamMaxLenErrCode is the error code for value being too long.
@@ -192,6 +195,31 @@ func NewErrParamRequired(field string) *ErrParamRequired {
 			msg:   fmt.Sprintf("missing required field"),
 		},
 	}
+}
+
+// An ErrParamMaxValue represents a maximum value parameter error.
+type ErrParamMaxValue struct {
+	errInvalidParam
+	max float64
+}
+
+// NewErrParamMaxValue creates a new maximum value parameter error.
+func NewErrParamMaxValue(field string, max float64) *ErrParamMaxValue {
+	return &ErrParamMaxValue{
+		errInvalidParam: errInvalidParam{
+			code:  ParamMinValueErrCode,
+			field: field,
+			msg:   fmt.Sprintf("maximum field value of %v", max),
+		},
+		max: max,
+	}
+}
+
+// MaxValue returns the field's require maximum value.
+//
+// float64 is returned for both int and float max values.
+func (e *ErrParamMaxValue) MaxValue() float64 {
+	return e.max
 }
 
 // An ErrParamMinValue represents a minimum value parameter error.
