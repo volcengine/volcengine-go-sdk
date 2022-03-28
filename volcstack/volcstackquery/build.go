@@ -28,6 +28,16 @@ func Build(r *request.Request) {
 	}
 	//r.HTTPRequest.Header.Add("Accept", "application/json")
 	//method := strings.ToUpper(r.HTTPRequest.Method)
+
+	if r.Config.ExtraUserAgent != nil && *r.Config.ExtraUserAgent != "" {
+		if strings.HasPrefix(*r.Config.ExtraUserAgent, "/") {
+			request.AddToUserAgent(r, *r.Config.ExtraUserAgent)
+		} else {
+			request.AddToUserAgent(r, "/"+*r.Config.ExtraUserAgent)
+		}
+
+	}
+
 	r.HTTPRequest.URL.RawQuery = body.Encode()
 	r.HTTPRequest.Host = r.HTTPRequest.URL.Host
 	v := r.HTTPRequest.Header.Get("Content-Type")

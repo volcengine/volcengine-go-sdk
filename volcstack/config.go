@@ -220,6 +220,8 @@ type Config struct {
 	ExtendHttpRequest custom.ExtendHttpRequest
 
 	ExtraHttpParameters custom.ExtraHttpParameters
+
+	ExtraUserAgent *string
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -279,6 +281,11 @@ func (c *Config) WithExtendHttpRequest(extendHttpRequest custom.ExtendHttpReques
 
 func (c *Config) WithExtraHttpParameters(extraHttpParameters custom.ExtraHttpParameters) *Config {
 	c.ExtraHttpParameters = extraHttpParameters
+	return c
+}
+
+func (c *Config) WithExtraUserAgent(extra *string) *Config {
+	c.ExtraUserAgent = extra
 	return c
 }
 
@@ -515,6 +522,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.ExtraHttpParameters != nil {
 		dst.ExtraHttpParameters = other.ExtraHttpParameters
+	}
+
+	if other.ExtraUserAgent != nil {
+		dst.ExtraUserAgent = other.ExtraUserAgent
 	}
 }
 

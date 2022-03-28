@@ -309,7 +309,7 @@ func WithAppendUserAgent(s string) Option {
 func MakeAddToUserAgentHandler(name, version string, extra ...string) func(*Request) {
 	ua := fmt.Sprintf("%s/%s", name, version)
 	if len(extra) > 0 {
-		ua += fmt.Sprintf(" (%s)", strings.Join(extra, "; "))
+		ua += fmt.Sprintf("/(%s)", strings.Join(extra, "; "))
 	}
 	return func(r *Request) {
 		AddToUserAgent(r, ua)
