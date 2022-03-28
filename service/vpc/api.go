@@ -6901,19 +6901,19 @@ func (c *VPC) UnassignPrivateIpAddressesWithContext(ctx volcstack.Context, input
 type AllocateEipAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `min:"1" type:"integer"`
+	Bandwidth *int64 `min:"1" max:"500" type:"integer"`
 
-	BillingType *int64 `min:"1" type:"integer"`
+	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	ISP *string `type:"string" enum:"ISPForAllocateEipAddressInput"`
 
-	Name *string `type:"string"`
+	Name *string `min:"1" max:"128" type:"string"`
 
 	Period *int64 `type:"integer"`
 
-	PeriodUnit *int64 `min:"1" type:"integer"`
+	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
 }
 
 // String returns the string representation
@@ -6940,6 +6940,18 @@ func (s *AllocateEipAddressInput) Validate() error {
 	}
 	if s.BillingType != nil && *s.BillingType > 3 {
 		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.Name != nil && len(*s.Name) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("Name", 128, *s.Name))
 	}
 	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
@@ -7839,9 +7851,9 @@ func (s *AuthorizeSecurityGroupIngressOutput) SetRequestId(v string) *AuthorizeS
 type CreateHaVipInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	HaVipName *string `type:"string"`
+	HaVipName *string `min:"1" max:"128" type:"string"`
 
 	IpAddress *string `type:"string"`
 
@@ -7862,6 +7874,18 @@ func (s CreateHaVipInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateHaVipInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateHaVipInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.HaVipName != nil && len(*s.HaVipName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("HaVipName", 1))
+	}
+	if s.HaVipName != nil && len(*s.HaVipName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("HaVipName", 128, *s.HaVipName))
+	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
 	}
@@ -7937,9 +7961,9 @@ func (s *CreateHaVipOutput) SetRequestId(v string) *CreateHaVipOutput {
 type CreateNetworkInterfaceInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	NetworkInterfaceName *string `type:"string"`
+	NetworkInterfaceName *string `min:"1" max:"128" type:"string"`
 
 	PortSecurityEnabled *bool `type:"boolean"`
 
@@ -7969,6 +7993,18 @@ func (s CreateNetworkInterfaceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateNetworkInterfaceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateNetworkInterfaceInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NetworkInterfaceName", 1))
+	}
+	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("NetworkInterfaceName", 128, *s.NetworkInterfaceName))
+	}
 	if s.SecurityGroupIds == nil {
 		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
 	}
@@ -8063,7 +8099,7 @@ func (s *CreateNetworkInterfaceOutput) SetRequestId(v string) *CreateNetworkInte
 type CreateRouteEntryInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// DestinationCidrBlock is a required field
 	DestinationCidrBlock *string `type:"string" required:"true"`
@@ -8074,7 +8110,7 @@ type CreateRouteEntryInput struct {
 	// NextHopType is a required field
 	NextHopType *string `type:"string" required:"true"`
 
-	RouteEntryName *string `type:"string"`
+	RouteEntryName *string `min:"1" max:"128" type:"string"`
 
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
@@ -8093,6 +8129,12 @@ func (s CreateRouteEntryInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateRouteEntryInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateRouteEntryInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.DestinationCidrBlock == nil {
 		invalidParams.Add(request.NewErrParamRequired("DestinationCidrBlock"))
 	}
@@ -8101,6 +8143,12 @@ func (s *CreateRouteEntryInput) Validate() error {
 	}
 	if s.NextHopType == nil {
 		invalidParams.Add(request.NewErrParamRequired("NextHopType"))
+	}
+	if s.RouteEntryName != nil && len(*s.RouteEntryName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RouteEntryName", 1))
+	}
+	if s.RouteEntryName != nil && len(*s.RouteEntryName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("RouteEntryName", 128, *s.RouteEntryName))
 	}
 	if s.RouteTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
@@ -8181,9 +8229,9 @@ func (s *CreateRouteEntryOutput) SetRouteEntryId(v string) *CreateRouteEntryOutp
 type CreateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	RouteTableName *string `type:"string"`
+	RouteTableName *string `min:"1" max:"128" type:"string"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -8202,6 +8250,18 @@ func (s CreateRouteTableInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateRouteTableInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateRouteTableInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.RouteTableName != nil && len(*s.RouteTableName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RouteTableName", 1))
+	}
+	if s.RouteTableName != nil && len(*s.RouteTableName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("RouteTableName", 128, *s.RouteTableName))
+	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
@@ -8348,9 +8408,9 @@ type CreateSubnetInput struct {
 	// CidrBlock is a required field
 	CidrBlock *string `type:"string" required:"true"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	SubnetName *string `type:"string"`
+	SubnetName *string `min:"1" max:"128" type:"string"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -8374,6 +8434,18 @@ func (s *CreateSubnetInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateSubnetInput"}
 	if s.CidrBlock == nil {
 		invalidParams.Add(request.NewErrParamRequired("CidrBlock"))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.SubnetName != nil && len(*s.SubnetName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SubnetName", 1))
+	}
+	if s.SubnetName != nil && len(*s.SubnetName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("SubnetName", 128, *s.SubnetName))
 	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
@@ -8454,11 +8526,11 @@ type CreateVpcInput struct {
 	// CidrBlock is a required field
 	CidrBlock *string `type:"string" required:"true"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	DnsServers []*string `type:"list"`
 
-	VpcName *string `type:"string"`
+	VpcName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -8476,6 +8548,18 @@ func (s *CreateVpcInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateVpcInput"}
 	if s.CidrBlock == nil {
 		invalidParams.Add(request.NewErrParamRequired("CidrBlock"))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.VpcName != nil && len(*s.VpcName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VpcName", 1))
+	}
+	if s.VpcName != nil && len(*s.VpcName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VpcName", 128, *s.VpcName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -9163,7 +9247,7 @@ type DescribeEipAddressesInput struct {
 
 	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
 
-	BillingType *int64 `min:"1" type:"integer"`
+	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
 	EipAddresses []*string `type:"list"`
 
@@ -9173,7 +9257,7 @@ type DescribeEipAddressesInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
 }
@@ -9332,7 +9416,7 @@ type DescribeHaVipsInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	Status *string `type:"string"`
 
@@ -9679,7 +9763,7 @@ type DescribeNetworkInterfacesInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	PrimaryIpAddresses []*string `type:"list"`
 
@@ -9864,7 +9948,7 @@ type DescribeRouteEntryListInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	RouteEntryId *string `type:"string"`
 
@@ -10011,7 +10095,7 @@ type DescribeRouteTableListInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	RouteTableId *string `type:"string"`
 
@@ -10262,7 +10346,7 @@ type DescribeSecurityGroupsInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	SecurityGroupIds []*string `type:"list"`
 
@@ -10545,7 +10629,7 @@ type DescribeSubnetsInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	RouteTableId *string `type:"string"`
 
@@ -10856,7 +10940,7 @@ type DescribeVpcsInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	VpcIds []*string `type:"list"`
 
@@ -11546,11 +11630,11 @@ type ModifyEipAddressAttributesInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
-	Bandwidth *int64 `min:"1" type:"integer"`
+	Bandwidth *int64 `min:"1" max:"1000" type:"integer"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	Name *string `type:"string"`
+	Name *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -11574,6 +11658,18 @@ func (s *ModifyEipAddressAttributesInput) Validate() error {
 	}
 	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
 		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.Name != nil && len(*s.Name) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("Name", 128, *s.Name))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -11631,12 +11727,12 @@ func (s *ModifyEipAddressAttributesOutput) SetRequestId(v string) *ModifyEipAddr
 type ModifyHaVipAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// HaVipId is a required field
 	HaVipId *string `type:"string" required:"true"`
 
-	HaVipName *string `type:"string"`
+	HaVipName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -11652,8 +11748,20 @@ func (s ModifyHaVipAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyHaVipAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyHaVipAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.HaVipId == nil {
 		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+	if s.HaVipName != nil && len(*s.HaVipName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("HaVipName", 1))
+	}
+	if s.HaVipName != nil && len(*s.HaVipName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("HaVipName", 128, *s.HaVipName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -11705,12 +11813,12 @@ func (s *ModifyHaVipAttributesOutput) SetRequestId(v string) *ModifyHaVipAttribu
 type ModifyNetworkInterfaceAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
 
-	NetworkInterfaceName *string `type:"string"`
+	NetworkInterfaceName *string `min:"1" max:"128" type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
 }
@@ -11728,8 +11836,20 @@ func (s ModifyNetworkInterfaceAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyNetworkInterfaceAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyNetworkInterfaceAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.NetworkInterfaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NetworkInterfaceName", 1))
+	}
+	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("NetworkInterfaceName", 128, *s.NetworkInterfaceName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -11787,12 +11907,12 @@ func (s *ModifyNetworkInterfaceAttributesOutput) SetRequestId(v string) *ModifyN
 type ModifyRouteEntryInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// RouteEntryId is a required field
 	RouteEntryId *string `type:"string" required:"true"`
 
-	RouteEntryName *string `type:"string"`
+	RouteEntryName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -11808,8 +11928,20 @@ func (s ModifyRouteEntryInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyRouteEntryInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyRouteEntryInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.RouteEntryId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RouteEntryId"))
+	}
+	if s.RouteEntryName != nil && len(*s.RouteEntryName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RouteEntryName", 1))
+	}
+	if s.RouteEntryName != nil && len(*s.RouteEntryName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("RouteEntryName", 128, *s.RouteEntryName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -11861,12 +11993,12 @@ func (s *ModifyRouteEntryOutput) SetRequestId(v string) *ModifyRouteEntryOutput 
 type ModifyRouteTableAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
 
-	RouteTableName *string `type:"string"`
+	RouteTableName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -11882,8 +12014,20 @@ func (s ModifyRouteTableAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyRouteTableAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyRouteTableAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.RouteTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
+	}
+	if s.RouteTableName != nil && len(*s.RouteTableName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RouteTableName", 1))
+	}
+	if s.RouteTableName != nil && len(*s.RouteTableName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("RouteTableName", 128, *s.RouteTableName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -12285,12 +12429,12 @@ func (s *ModifySecurityGroupRuleDescriptionsIngressOutput) SetRequestId(v string
 type ModifySubnetAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
 
-	SubnetName *string `type:"string"`
+	SubnetName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -12306,8 +12450,20 @@ func (s ModifySubnetAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifySubnetAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifySubnetAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.SubnetName != nil && len(*s.SubnetName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SubnetName", 1))
+	}
+	if s.SubnetName != nil && len(*s.SubnetName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("SubnetName", 128, *s.SubnetName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -12359,14 +12515,14 @@ func (s *ModifySubnetAttributesOutput) SetRequestId(v string) *ModifySubnetAttri
 type ModifyVpcAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	DnsServers []*string `type:"list"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
-	VpcName *string `type:"string"`
+	VpcName *string `min:"2" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -12382,8 +12538,20 @@ func (s ModifyVpcAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyVpcAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyVpcAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.VpcName != nil && len(*s.VpcName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("VpcName", 2))
+	}
+	if s.VpcName != nil && len(*s.VpcName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VpcName", 128, *s.VpcName))
 	}
 
 	if invalidParams.Len() > 0 {

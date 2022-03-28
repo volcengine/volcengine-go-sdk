@@ -4275,13 +4275,13 @@ type CreateCenBandwidthPackageInput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
-	BillingType *int64 `min:"1" type:"integer"`
+	BillingType *int64 `min:"1" max:"1" type:"integer"`
 
-	CenBandwidthPackageName *string `type:"string"`
+	CenBandwidthPackageName *string `min:"1" max:"128" type:"string"`
 
 	CenId *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// LocalGeographicRegionSetId is a required field
 	LocalGeographicRegionSetId *string `type:"string" required:"true"`
@@ -4318,6 +4318,18 @@ func (s *CreateCenBandwidthPackageInput) Validate() error {
 	}
 	if s.BillingType != nil && *s.BillingType > 1 {
 		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 1))
+	}
+	if s.CenBandwidthPackageName != nil && len(*s.CenBandwidthPackageName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CenBandwidthPackageName", 1))
+	}
+	if s.CenBandwidthPackageName != nil && len(*s.CenBandwidthPackageName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("CenBandwidthPackageName", 128, *s.CenBandwidthPackageName))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 	if s.LocalGeographicRegionSetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("LocalGeographicRegionSetId"))
@@ -5288,7 +5300,7 @@ type DescribeCenBandwidthPackagesBillingInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 }
 
 // String returns the string representation
@@ -6279,9 +6291,9 @@ type ModifyCenBandwidthPackageAttributesInput struct {
 	// CenBandwidthPackageId is a required field
 	CenBandwidthPackageId *string `type:"string" required:"true"`
 
-	CenBandwidthPackageName *string `type:"string"`
+	CenBandwidthPackageName *string `min:"1" max:"128" type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 }
 
 // String returns the string representation
@@ -6299,6 +6311,18 @@ func (s *ModifyCenBandwidthPackageAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyCenBandwidthPackageAttributesInput"}
 	if s.CenBandwidthPackageId == nil {
 		invalidParams.Add(request.NewErrParamRequired("CenBandwidthPackageId"))
+	}
+	if s.CenBandwidthPackageName != nil && len(*s.CenBandwidthPackageName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CenBandwidthPackageName", 1))
+	}
+	if s.CenBandwidthPackageName != nil && len(*s.CenBandwidthPackageName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("CenBandwidthPackageName", 128, *s.CenBandwidthPackageName))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 
 	if invalidParams.Len() > 0 {
