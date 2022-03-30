@@ -3,6 +3,8 @@
 package rdsmysqlv2
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcstack-go-sdk/private/protocol"
 	"github.com/volcengine/volcstack-go-sdk/private/protocol/volcstackquery"
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
@@ -7151,11 +7153,13 @@ func (c *RDSMYSQLV2) ZoneWithContext(ctx volcstack.Context, input *ZoneInput, op
 type AccountPrivilegesInfoForAccountsInfoObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountPrivilege *string `type:"string"`
+	// AccountPrivilege is a required field
+	AccountPrivilege *string `type:"string" required:"true" enum:"AccountPrivilegeForAccountsInfoObjectInput"`
 
 	AccountPrivilegeCustom *string `type:"string"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -7166,6 +7170,22 @@ func (s AccountPrivilegesInfoForAccountsInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s AccountPrivilegesInfoForAccountsInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AccountPrivilegesInfoForAccountsInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AccountPrivilegesInfoForAccountsInfoObjectInput"}
+	if s.AccountPrivilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPrivilege"))
+	}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountPrivilege sets the AccountPrivilege field's value.
@@ -7189,11 +7209,13 @@ func (s *AccountPrivilegesInfoForAccountsInfoObjectInput) SetDBName(v string) *A
 type AccountPrivilegesInfoForCreateDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountPrivilege *string `type:"string"`
+	// AccountPrivilege is a required field
+	AccountPrivilege *string `type:"string" required:"true" enum:"AccountPrivilegeForCreateDBAccountInput"`
 
 	AccountPrivilegeCustom *string `type:"string"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -7204,6 +7226,22 @@ func (s AccountPrivilegesInfoForCreateDBAccountInput) String() string {
 // GoString returns the string representation
 func (s AccountPrivilegesInfoForCreateDBAccountInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AccountPrivilegesInfoForCreateDBAccountInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AccountPrivilegesInfoForCreateDBAccountInput"}
+	if s.AccountPrivilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPrivilege"))
+	}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountPrivilege sets the AccountPrivilege field's value.
@@ -7265,11 +7303,13 @@ func (s *AccountPrivilegesInfoForDescribeDBAccountsOutput) SetDBName(v string) *
 type AccountPrivilegesInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountPrivilege *string `type:"string"`
+	// AccountPrivilege is a required field
+	AccountPrivilege *string `type:"string" required:"true" enum:"AccountPrivilegeForAccountPrivilegesInfoInput"`
 
 	AccountPrivilegeCustom *string `type:"string"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -7280,6 +7320,22 @@ func (s AccountPrivilegesInfoInput) String() string {
 // GoString returns the string representation
 func (s AccountPrivilegesInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AccountPrivilegesInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AccountPrivilegesInfoInput"}
+	if s.AccountPrivilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPrivilege"))
+	}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountPrivilege sets the AccountPrivilege field's value.
@@ -7363,13 +7419,16 @@ func (s *AccountsInfoForDescribeDBAccountsOutput) SetAccountType(v string) *Acco
 type AccountsInfoObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `type:"string" required:"true"`
 
 	AccountPrivilegesInfo []*AccountPrivilegesInfoForAccountsInfoObjectInput `type:"list"`
 
-	AccountStatus *string `type:"string"`
+	// AccountStatus is a required field
+	AccountStatus *string `type:"string" required:"true" enum:"AccountStatusForAccountsInfoObjectInput"`
 
-	AccountType *string `type:"string"`
+	// AccountType is a required field
+	AccountType *string `type:"string" required:"true" enum:"AccountTypeForAccountsInfoObjectInput"`
 }
 
 // String returns the string representation
@@ -7380,6 +7439,35 @@ func (s AccountsInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s AccountsInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AccountsInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AccountsInfoObjectInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.AccountStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountStatus"))
+	}
+	if s.AccountType == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountType"))
+	}
+	if s.AccountPrivilegesInfo != nil {
+		for i, v := range s.AccountPrivilegesInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "AccountPrivilegesInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -7423,17 +7511,23 @@ func (s AccountsInfoObjectOutput) GoString() string {
 type AddressForConnectionInfoObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	Domain *string `type:"string"`
+	// Domain is a required field
+	Domain *string `type:"string" required:"true"`
 
-	EipId *string `type:"string"`
+	// EipId is a required field
+	EipId *string `type:"string" required:"true"`
 
-	IPAddress *string `type:"string"`
+	// IPAddress is a required field
+	IPAddress *string `type:"string" required:"true"`
 
-	NetworkType *string `type:"string"`
+	// NetworkType is a required field
+	NetworkType *string `type:"string" required:"true" enum:"NetworkTypeForConnectionInfoObjectInput"`
 
-	Port *string `type:"string"`
+	// Port is a required field
+	Port *string `type:"string" required:"true"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -7444,6 +7538,34 @@ func (s AddressForConnectionInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s AddressForConnectionInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AddressForConnectionInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AddressForConnectionInfoObjectInput"}
+	if s.Domain == nil {
+		invalidParams.Add(request.NewErrParamRequired("Domain"))
+	}
+	if s.EipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("EipId"))
+	}
+	if s.IPAddress == nil {
+		invalidParams.Add(request.NewErrParamRequired("IPAddress"))
+	}
+	if s.NetworkType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkType"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDomain sets the Domain field's value.
@@ -7547,17 +7669,23 @@ func (s *AddressForDescribeDBInstanceDetailOutput) SetSubnetId(v string) *Addres
 type AddressObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	Domain *string `type:"string"`
+	// Domain is a required field
+	Domain *string `type:"string" required:"true"`
 
-	EipId *string `type:"string"`
+	// EipId is a required field
+	EipId *string `type:"string" required:"true"`
 
-	IPAddress *string `type:"string"`
+	// IPAddress is a required field
+	IPAddress *string `type:"string" required:"true"`
 
-	NetworkType *string `type:"string"`
+	// NetworkType is a required field
+	NetworkType *string `type:"string" required:"true" enum:"NetworkTypeForAddressObjectInput"`
 
-	Port *string `type:"string"`
+	// Port is a required field
+	Port *string `type:"string" required:"true"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -7568,6 +7696,34 @@ func (s AddressObjectInput) String() string {
 // GoString returns the string representation
 func (s AddressObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AddressObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AddressObjectInput"}
+	if s.Domain == nil {
+		invalidParams.Add(request.NewErrParamRequired("Domain"))
+	}
+	if s.EipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("EipId"))
+	}
+	if s.IPAddress == nil {
+		invalidParams.Add(request.NewErrParamRequired("IPAddress"))
+	}
+	if s.NetworkType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkType"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDomain sets the Domain field's value.
@@ -7623,25 +7779,35 @@ func (s AddressObjectOutput) GoString() string {
 type BackupInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	BackupEndTime *string `type:"string"`
+	// BackupEndTime is a required field
+	BackupEndTime *string `type:"string" required:"true"`
 
-	BackupFileName *string `type:"string"`
+	// BackupFileName is a required field
+	BackupFileName *string `type:"string" required:"true"`
 
-	BackupFileSize *int64 `type:"int64"`
+	// BackupFileSize is a required field
+	BackupFileSize *int64 `type:"int64" required:"true"`
 
-	BackupId *string `type:"string"`
+	// BackupId is a required field
+	BackupId *string `type:"string" required:"true"`
 
-	BackupMethod *string `type:"string"`
+	// BackupMethod is a required field
+	BackupMethod *string `type:"string" required:"true" enum:"BackupMethodForBackupInfoInput"`
 
-	BackupStartTime *string `type:"string"`
+	// BackupStartTime is a required field
+	BackupStartTime *string `type:"string" required:"true"`
 
-	BackupStatus *string `type:"string"`
+	// BackupStatus is a required field
+	BackupStatus *string `type:"string" required:"true" enum:"BackupStatusForBackupInfoInput"`
 
-	BackupType *string `type:"string"`
+	// BackupType is a required field
+	BackupType *string `type:"string" required:"true" enum:"BackupTypeForBackupInfoInput"`
 
-	ConsistentTime *string `type:"string"`
+	// ConsistentTime is a required field
+	ConsistentTime *string `type:"string" required:"true"`
 
-	CreateType *string `type:"string"`
+	// CreateType is a required field
+	CreateType *string `type:"string" required:"true" enum:"CreateTypeForBackupInfoInput"`
 }
 
 // String returns the string representation
@@ -7652,6 +7818,46 @@ func (s BackupInfoInput) String() string {
 // GoString returns the string representation
 func (s BackupInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BackupInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BackupInfoInput"}
+	if s.BackupEndTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupEndTime"))
+	}
+	if s.BackupFileName == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupFileName"))
+	}
+	if s.BackupFileSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupFileSize"))
+	}
+	if s.BackupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupId"))
+	}
+	if s.BackupMethod == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupMethod"))
+	}
+	if s.BackupStartTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupStartTime"))
+	}
+	if s.BackupStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupStatus"))
+	}
+	if s.BackupType == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupType"))
+	}
+	if s.ConsistentTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("ConsistentTime"))
+	}
+	if s.CreateType == nil {
+		invalidParams.Add(request.NewErrParamRequired("CreateType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupEndTime sets the BackupEndTime field's value.
@@ -7731,7 +7937,8 @@ func (s BackupInfoOutput) GoString() string {
 type BackupMetaForCreateBackupInput struct {
 	_ struct{} `type:"structure"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -7744,6 +7951,19 @@ func (s BackupMetaForCreateBackupInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BackupMetaForCreateBackupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BackupMetaForCreateBackupInput"}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetDBName sets the DBName field's value.
 func (s *BackupMetaForCreateBackupInput) SetDBName(v string) *BackupMetaForCreateBackupInput {
 	s.DBName = &v
@@ -7753,7 +7973,8 @@ func (s *BackupMetaForCreateBackupInput) SetDBName(v string) *BackupMetaForCreat
 type BackupMetaInput struct {
 	_ struct{} `type:"structure"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -7764,6 +7985,19 @@ func (s BackupMetaInput) String() string {
 // GoString returns the string representation
 func (s BackupMetaInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BackupMetaInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BackupMetaInput"}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBName sets the DBName field's value.
@@ -8097,55 +8331,80 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetZoneId(v string) *BasicI
 type BasicInfoObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	BackupUse *int32 `type:"int32"`
+	// BackupUse is a required field
+	BackupUse *int32 `type:"int32" required:"true"`
 
-	CreateTime *string `type:"string"`
+	// CreateTime is a required field
+	CreateTime *string `type:"string" required:"true"`
 
-	DBEngine *string `type:"string"`
+	// DBEngine is a required field
+	DBEngine *string `type:"string" required:"true" enum:"DBEngineForBasicInfoObjectInput"`
 
-	DBEngineVersion *string `type:"string"`
+	// DBEngineVersion is a required field
+	DBEngineVersion *string `type:"string" required:"true" enum:"DBEngineVersionForBasicInfoObjectInput"`
 
-	DataSyncMode *string `type:"string"`
+	// DataSyncMode is a required field
+	DataSyncMode *string `type:"string" required:"true" enum:"DataSyncModeForBasicInfoObjectInput"`
 
-	InnerVersion *string `type:"string"`
+	// InnerVersion is a required field
+	InnerVersion *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	InstanceName *string `type:"string"`
+	// InstanceName is a required field
+	InstanceName *string `type:"string" required:"true"`
 
-	InstanceStatus *string `type:"string"`
+	// InstanceStatus is a required field
+	InstanceStatus *string `type:"string" required:"true" enum:"InstanceStatusForBasicInfoObjectInput"`
 
-	InstanceType *string `type:"string"`
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForBasicInfoObjectInput"`
 
-	IsLatestVersion *bool `type:"boolean"`
+	// IsLatestVersion is a required field
+	IsLatestVersion *bool `type:"boolean" required:"true"`
 
-	LowerCaseTableNames *string `type:"string"`
+	// LowerCaseTableNames is a required field
+	LowerCaseTableNames *string `type:"string" required:"true"`
 
-	Memory *int32 `type:"int32"`
+	// Memory is a required field
+	Memory *int32 `type:"int32" required:"true"`
 
-	NodeNumber *string `type:"string"`
+	// NodeNumber is a required field
+	NodeNumber *string `type:"string" required:"true"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
-	ProjectName *string `type:"string"`
+	// ProjectName is a required field
+	ProjectName *string `type:"string" required:"true"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 
-	StorageSpace *int32 `type:"int32"`
+	// StorageSpace is a required field
+	StorageSpace *int32 `type:"int32" required:"true"`
 
-	StorageType *string `type:"string"`
+	// StorageType is a required field
+	StorageType *string `type:"string" required:"true" enum:"StorageTypeForBasicInfoObjectInput"`
 
-	StorageUse *int32 `type:"int32"`
+	// StorageUse is a required field
+	StorageUse *int32 `type:"int32" required:"true"`
 
-	TimeZone *string `type:"string"`
+	// TimeZone is a required field
+	TimeZone *string `type:"string" required:"true"`
 
-	UpdateTime *string `type:"string"`
+	// UpdateTime is a required field
+	UpdateTime *string `type:"string" required:"true"`
 
-	VCPU *int32 `type:"int32"`
+	// VCPU is a required field
+	VCPU *int32 `type:"int32" required:"true"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -8156,6 +8415,91 @@ func (s BasicInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s BasicInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *BasicInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "BasicInfoObjectInput"}
+	if s.BackupUse == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupUse"))
+	}
+	if s.CreateTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("CreateTime"))
+	}
+	if s.DBEngine == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBEngine"))
+	}
+	if s.DBEngineVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBEngineVersion"))
+	}
+	if s.DataSyncMode == nil {
+		invalidParams.Add(request.NewErrParamRequired("DataSyncMode"))
+	}
+	if s.InnerVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("InnerVersion"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.InstanceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceName"))
+	}
+	if s.InstanceStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceStatus"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
+	}
+	if s.IsLatestVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("IsLatestVersion"))
+	}
+	if s.LowerCaseTableNames == nil {
+		invalidParams.Add(request.NewErrParamRequired("LowerCaseTableNames"))
+	}
+	if s.Memory == nil {
+		invalidParams.Add(request.NewErrParamRequired("Memory"))
+	}
+	if s.NodeNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.ProjectName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ProjectName"))
+	}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+	if s.StorageSpace == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageSpace"))
+	}
+	if s.StorageType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageType"))
+	}
+	if s.StorageUse == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageUse"))
+	}
+	if s.TimeZone == nil {
+		invalidParams.Add(request.NewErrParamRequired("TimeZone"))
+	}
+	if s.UpdateTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("UpdateTime"))
+	}
+	if s.VCPU == nil {
+		invalidParams.Add(request.NewErrParamRequired("VCPU"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupUse sets the BackupUse field's value.
@@ -8513,25 +8857,35 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetPeriodUnit(v string) *Char
 type ChargeDetailForInstanceInfoObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	AutoRenew *bool `type:"boolean"`
+	// AutoRenew is a required field
+	AutoRenew *bool `type:"boolean" required:"true"`
 
-	ChargeEndTime *string `type:"string"`
+	// ChargeEndTime is a required field
+	ChargeEndTime *string `type:"string" required:"true"`
 
-	ChargeStartTime *string `type:"string"`
+	// ChargeStartTime is a required field
+	ChargeStartTime *string `type:"string" required:"true"`
 
-	ChargeStatus *string `type:"string"`
+	// ChargeStatus is a required field
+	ChargeStatus *string `type:"string" required:"true" enum:"ChargeStatusForInstanceInfoObjectInput"`
 
-	ChargeType *string `type:"string"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true" enum:"ChargeTypeForInstanceInfoObjectInput"`
 
-	Number *int32 `type:"int32"`
+	// Number is a required field
+	Number *int32 `type:"int32" required:"true"`
 
-	OverdueReclaimTime *string `type:"string"`
+	// OverdueReclaimTime is a required field
+	OverdueReclaimTime *string `type:"string" required:"true"`
 
-	OverdueTime *string `type:"string"`
+	// OverdueTime is a required field
+	OverdueTime *string `type:"string" required:"true"`
 
-	Period *int32 `type:"int32"`
+	// Period is a required field
+	Period *int32 `type:"int32" required:"true"`
 
-	PeriodUnit *string `type:"string"`
+	// PeriodUnit is a required field
+	PeriodUnit *string `type:"string" required:"true" enum:"PeriodUnitForInstanceInfoObjectInput"`
 }
 
 // String returns the string representation
@@ -8542,6 +8896,46 @@ func (s ChargeDetailForInstanceInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s ChargeDetailForInstanceInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ChargeDetailForInstanceInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ChargeDetailForInstanceInfoObjectInput"}
+	if s.AutoRenew == nil {
+		invalidParams.Add(request.NewErrParamRequired("AutoRenew"))
+	}
+	if s.ChargeEndTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeEndTime"))
+	}
+	if s.ChargeStartTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeStartTime"))
+	}
+	if s.ChargeStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeStatus"))
+	}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+	if s.Number == nil {
+		invalidParams.Add(request.NewErrParamRequired("Number"))
+	}
+	if s.OverdueReclaimTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("OverdueReclaimTime"))
+	}
+	if s.OverdueTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("OverdueTime"))
+	}
+	if s.Period == nil {
+		invalidParams.Add(request.NewErrParamRequired("Period"))
+	}
+	if s.PeriodUnit == nil {
+		invalidParams.Add(request.NewErrParamRequired("PeriodUnit"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -8607,25 +9001,35 @@ func (s *ChargeDetailForInstanceInfoObjectInput) SetPeriodUnit(v string) *Charge
 type ChargeDetailObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	AutoRenew *bool `type:"boolean"`
+	// AutoRenew is a required field
+	AutoRenew *bool `type:"boolean" required:"true"`
 
-	ChargeEndTime *string `type:"string"`
+	// ChargeEndTime is a required field
+	ChargeEndTime *string `type:"string" required:"true"`
 
-	ChargeStartTime *string `type:"string"`
+	// ChargeStartTime is a required field
+	ChargeStartTime *string `type:"string" required:"true"`
 
-	ChargeStatus *string `type:"string"`
+	// ChargeStatus is a required field
+	ChargeStatus *string `type:"string" required:"true" enum:"ChargeStatusForChargeDetailObjectInput"`
 
-	ChargeType *string `type:"string"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true" enum:"ChargeTypeForChargeDetailObjectInput"`
 
-	Number *int32 `type:"int32"`
+	// Number is a required field
+	Number *int32 `type:"int32" required:"true"`
 
-	OverdueReclaimTime *string `type:"string"`
+	// OverdueReclaimTime is a required field
+	OverdueReclaimTime *string `type:"string" required:"true"`
 
-	OverdueTime *string `type:"string"`
+	// OverdueTime is a required field
+	OverdueTime *string `type:"string" required:"true"`
 
-	Period *int32 `type:"int32"`
+	// Period is a required field
+	Period *int32 `type:"int32" required:"true"`
 
-	PeriodUnit *string `type:"string"`
+	// PeriodUnit is a required field
+	PeriodUnit *string `type:"string" required:"true" enum:"PeriodUnitForChargeDetailObjectInput"`
 }
 
 // String returns the string representation
@@ -8636,6 +9040,46 @@ func (s ChargeDetailObjectInput) String() string {
 // GoString returns the string representation
 func (s ChargeDetailObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ChargeDetailObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ChargeDetailObjectInput"}
+	if s.AutoRenew == nil {
+		invalidParams.Add(request.NewErrParamRequired("AutoRenew"))
+	}
+	if s.ChargeEndTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeEndTime"))
+	}
+	if s.ChargeStartTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeStartTime"))
+	}
+	if s.ChargeStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeStatus"))
+	}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+	if s.Number == nil {
+		invalidParams.Add(request.NewErrParamRequired("Number"))
+	}
+	if s.OverdueReclaimTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("OverdueReclaimTime"))
+	}
+	if s.OverdueTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("OverdueTime"))
+	}
+	if s.Period == nil {
+		invalidParams.Add(request.NewErrParamRequired("Period"))
+	}
+	if s.PeriodUnit == nil {
+		invalidParams.Add(request.NewErrParamRequired("PeriodUnit"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -8717,13 +9161,14 @@ type ChargeInfoForCreateDBInstanceInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	ChargeType *string `type:"string"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true" enum:"ChargeTypeForCreateDBInstanceInput"`
 
 	Number *int32 `type:"int32"`
 
 	Period *int32 `type:"int32"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateDBInstanceInput"`
 }
 
 // String returns the string representation
@@ -8734,6 +9179,19 @@ func (s ChargeInfoForCreateDBInstanceInput) String() string {
 // GoString returns the string representation
 func (s ChargeInfoForCreateDBInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ChargeInfoForCreateDBInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ChargeInfoForCreateDBInstanceInput"}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -8771,13 +9229,14 @@ type ChargeInfoForRestoreToNewInstanceInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	ChargeType *string `type:"string"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true" enum:"ChargeTypeForRestoreToNewInstanceInput"`
 
 	Number *int32 `type:"int32"`
 
 	Period *int32 `type:"int32"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" enum:"PeriodUnitForRestoreToNewInstanceInput"`
 }
 
 // String returns the string representation
@@ -8788,6 +9247,19 @@ func (s ChargeInfoForRestoreToNewInstanceInput) String() string {
 // GoString returns the string representation
 func (s ChargeInfoForRestoreToNewInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ChargeInfoForRestoreToNewInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ChargeInfoForRestoreToNewInstanceInput"}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -8825,13 +9297,14 @@ type ChargeInfoObjectInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	ChargeType *string `type:"string"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true" enum:"ChargeTypeForChargeInfoObjectInput"`
 
 	Number *int32 `type:"int32"`
 
 	Period *int32 `type:"int32"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" enum:"PeriodUnitForChargeInfoObjectInput"`
 }
 
 // String returns the string representation
@@ -8842,6 +9315,19 @@ func (s ChargeInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s ChargeInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ChargeInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ChargeInfoObjectInput"}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -8963,17 +9449,23 @@ type ConnectionInfoObjectInput struct {
 
 	Address []*AddressForConnectionInfoObjectInput `type:"list"`
 
-	Description *string `type:"string"`
+	// Description is a required field
+	Description *string `type:"string" required:"true"`
 
-	EnableReadOnly *string `type:"string"`
+	// EnableReadOnly is a required field
+	EnableReadOnly *string `type:"string" required:"true" enum:"EnableReadOnlyForConnectionInfoObjectInput"`
 
-	EnableReadWriteSplitting *string `type:"string"`
+	// EnableReadWriteSplitting is a required field
+	EnableReadWriteSplitting *string `type:"string" required:"true" enum:"EnableReadWriteSplittingForConnectionInfoObjectInput"`
 
-	EndpointId *string `type:"string"`
+	// EndpointId is a required field
+	EndpointId *string `type:"string" required:"true"`
 
-	EndpointType *string `type:"string"`
+	// EndpointType is a required field
+	EndpointType *string `type:"string" required:"true" enum:"EndpointTypeForConnectionInfoObjectInput"`
 
-	Nodes *string `type:"string"`
+	// Nodes is a required field
+	Nodes *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -8984,6 +9476,44 @@ func (s ConnectionInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s ConnectionInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConnectionInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConnectionInfoObjectInput"}
+	if s.Description == nil {
+		invalidParams.Add(request.NewErrParamRequired("Description"))
+	}
+	if s.EnableReadOnly == nil {
+		invalidParams.Add(request.NewErrParamRequired("EnableReadOnly"))
+	}
+	if s.EnableReadWriteSplitting == nil {
+		invalidParams.Add(request.NewErrParamRequired("EnableReadWriteSplitting"))
+	}
+	if s.EndpointId == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndpointId"))
+	}
+	if s.EndpointType == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndpointType"))
+	}
+	if s.Nodes == nil {
+		invalidParams.Add(request.NewErrParamRequired("Nodes"))
+	}
+	if s.Address != nil {
+		for i, v := range s.Address {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Address", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAddress sets the Address field's value.
@@ -9047,11 +9577,12 @@ type CreateBackupInput struct {
 
 	BackupMeta []*BackupMetaForCreateBackupInput `type:"list"`
 
-	BackupMethod *string `type:"string"`
+	BackupMethod *string `type:"string" enum:"BackupMethodForCreateBackupInput"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" enum:"BackupTypeForCreateBackupInput"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9062,6 +9593,29 @@ func (s CreateBackupInput) String() string {
 // GoString returns the string representation
 func (s CreateBackupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateBackupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateBackupInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.BackupMeta != nil {
+		for i, v := range s.BackupMeta {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "BackupMeta", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupMeta sets the BackupMeta field's value.
@@ -9113,15 +9667,19 @@ func (s *CreateBackupOutput) SetBackupId(v string) *CreateBackupOutput {
 type CreateDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `min:"2" max:"16" type:"string" required:"true"`
 
-	AccountPassword *string `type:"string"`
+	// AccountPassword is a required field
+	AccountPassword *string `min:"8" max:"32" type:"string" required:"true"`
 
 	AccountPrivilegesInfo []*AccountPrivilegesInfoForCreateDBAccountInput `type:"list"`
 
-	AccountType *string `type:"string"`
+	// AccountType is a required field
+	AccountType *string `type:"string" required:"true" enum:"AccountTypeForCreateDBAccountInput"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9132,6 +9690,50 @@ func (s CreateDBAccountInput) String() string {
 // GoString returns the string representation
 func (s CreateDBAccountInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDBAccountInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDBAccountInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.AccountName != nil && len(*s.AccountName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
+	}
+	if s.AccountName != nil && len(*s.AccountName) > 16 {
+		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 16, *s.AccountName))
+	}
+	if s.AccountPassword == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPassword"))
+	}
+	if s.AccountPassword != nil && len(*s.AccountPassword) < 8 {
+		invalidParams.Add(request.NewErrParamMinLen("AccountPassword", 8))
+	}
+	if s.AccountPassword != nil && len(*s.AccountPassword) > 32 {
+		invalidParams.Add(request.NewErrParamMaxLen("AccountPassword", 32, *s.AccountPassword))
+	}
+	if s.AccountType == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountType"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.AccountPrivilegesInfo != nil {
+		for i, v := range s.AccountPrivilegesInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "AccountPrivilegesInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -9183,7 +9785,8 @@ type CreateDBInstanceInput struct {
 
 	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure"`
 
-	DBEngineVersion *string `type:"string"`
+	// DBEngineVersion is a required field
+	DBEngineVersion *string `type:"string" required:"true" enum:"DBEngineVersionForCreateDBInstanceInput"`
 
 	DBParamGroupId *string `type:"string"`
 
@@ -9191,29 +9794,35 @@ type CreateDBInstanceInput struct {
 
 	InstanceName *string `type:"string"`
 
-	InstanceType *string `type:"string"`
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForCreateDBInstanceInput"`
 
 	LowerCaseTableNames *string `type:"string"`
 
 	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list"`
 
-	NodeNumber *int32 `type:"int32"`
+	// NodeNumber is a required field
+	NodeNumber *int32 `type:"int32" required:"true"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
 
 	StorageSpace *int32 `type:"int32"`
 
-	StorageType *string `type:"string"`
+	// StorageType is a required field
+	StorageType *string `type:"string" required:"true" enum:"StorageTypeForCreateDBInstanceInput"`
 
-	SuperAccountName *string `type:"string"`
+	SuperAccountName *string `min:"2" max:"16" type:"string"`
 
-	SuperAccountPassword *string `type:"string"`
+	SuperAccountPassword *string `min:"8" max:"32" type:"string"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9224,6 +9833,64 @@ func (s CreateDBInstanceInput) String() string {
 // GoString returns the string representation
 func (s CreateDBInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDBInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDBInstanceInput"}
+	if s.DBEngineVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBEngineVersion"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
+	}
+	if s.NodeNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.StorageType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageType"))
+	}
+	if s.SuperAccountName != nil && len(*s.SuperAccountName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("SuperAccountName", 2))
+	}
+	if s.SuperAccountName != nil && len(*s.SuperAccountName) > 16 {
+		invalidParams.Add(request.NewErrParamMaxLen("SuperAccountName", 16, *s.SuperAccountName))
+	}
+	if s.SuperAccountPassword != nil && len(*s.SuperAccountPassword) < 8 {
+		invalidParams.Add(request.NewErrParamMinLen("SuperAccountPassword", 8))
+	}
+	if s.SuperAccountPassword != nil && len(*s.SuperAccountPassword) > 32 {
+		invalidParams.Add(request.NewErrParamMaxLen("SuperAccountPassword", 32, *s.SuperAccountPassword))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+	if s.ChargeInfo != nil {
+		if err := s.ChargeInfo.Validate(); err != nil {
+			invalidParams.AddNested("ChargeInfo", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.NodeInfo != nil {
+		for i, v := range s.NodeInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "NodeInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetChargeInfo sets the ChargeInfo field's value.
@@ -9363,11 +10030,13 @@ type CreateDatabaseInput struct {
 
 	CharacterSetName *string `type:"string"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `min:"2" max:"64" type:"string" required:"true"`
 
 	DatabasePrivilegesInfo []*DatabasePrivilegesInfoForCreateDatabaseInput `type:"list"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9378,6 +10047,38 @@ func (s CreateDatabaseInput) String() string {
 // GoString returns the string representation
 func (s CreateDatabaseInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDatabaseInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDatabaseInput"}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+	if s.DBName != nil && len(*s.DBName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("DBName", 2))
+	}
+	if s.DBName != nil && len(*s.DBName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("DBName", 64, *s.DBName))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.DatabasePrivilegesInfo != nil {
+		for i, v := range s.DatabasePrivilegesInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "DatabasePrivilegesInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCharacterSetName sets the CharacterSetName field's value.
@@ -9421,11 +10122,14 @@ func (s CreateDatabaseOutput) GoString() string {
 type DatabaseInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	CharacterSetName *string `type:"string"`
+	// CharacterSetName is a required field
+	CharacterSetName *string `type:"string" required:"true"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 
-	DBStatus *string `type:"string"`
+	// DBStatus is a required field
+	DBStatus *string `type:"string" required:"true" enum:"DBStatusForDatabaseInfoInput"`
 
 	DatabasePrivilegesInfo []*DatabasePrivilegesInfoForDatabaseInfoInput `type:"list"`
 }
@@ -9438,6 +10142,35 @@ func (s DatabaseInfoInput) String() string {
 // GoString returns the string representation
 func (s DatabaseInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DatabaseInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DatabaseInfoInput"}
+	if s.CharacterSetName == nil {
+		invalidParams.Add(request.NewErrParamRequired("CharacterSetName"))
+	}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+	if s.DBStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBStatus"))
+	}
+	if s.DatabasePrivilegesInfo != nil {
+		for i, v := range s.DatabasePrivilegesInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "DatabasePrivilegesInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCharacterSetName sets the CharacterSetName field's value.
@@ -9481,9 +10214,11 @@ func (s DatabaseInfoOutput) GoString() string {
 type DatabasePrivilegesInfoForCreateDatabaseInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `type:"string" required:"true"`
 
-	AccountPrivilege *string `type:"string"`
+	// AccountPrivilege is a required field
+	AccountPrivilege *string `type:"string" required:"true" enum:"AccountPrivilegeForCreateDatabaseInput"`
 
 	AccountPrivilegeCustom *string `type:"string"`
 }
@@ -9496,6 +10231,22 @@ func (s DatabasePrivilegesInfoForCreateDatabaseInput) String() string {
 // GoString returns the string representation
 func (s DatabasePrivilegesInfoForCreateDatabaseInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DatabasePrivilegesInfoForCreateDatabaseInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DatabasePrivilegesInfoForCreateDatabaseInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.AccountPrivilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPrivilege"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -9519,9 +10270,11 @@ func (s *DatabasePrivilegesInfoForCreateDatabaseInput) SetAccountPrivilegeCustom
 type DatabasePrivilegesInfoForDatabaseInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `type:"string" required:"true"`
 
-	AccountPrivilege *string `type:"string"`
+	// AccountPrivilege is a required field
+	AccountPrivilege *string `type:"string" required:"true" enum:"AccountPrivilegeForDatabaseInfoInput"`
 
 	AccountPrivilegeCustom *string `type:"string"`
 }
@@ -9534,6 +10287,22 @@ func (s DatabasePrivilegesInfoForDatabaseInfoInput) String() string {
 // GoString returns the string representation
 func (s DatabasePrivilegesInfoForDatabaseInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DatabasePrivilegesInfoForDatabaseInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DatabasePrivilegesInfoForDatabaseInfoInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.AccountPrivilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPrivilege"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -9595,9 +10364,11 @@ func (s *DatabasePrivilegesInfoForDescribeDatabasesOutput) SetAccountPrivilegeCu
 type DatabasePrivilegesInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `type:"string" required:"true"`
 
-	AccountPrivilege *string `type:"string"`
+	// AccountPrivilege is a required field
+	AccountPrivilege *string `type:"string" required:"true" enum:"AccountPrivilegeForDatabasePrivilegesInfoInput"`
 
 	AccountPrivilegeCustom *string `type:"string"`
 }
@@ -9610,6 +10381,22 @@ func (s DatabasePrivilegesInfoInput) String() string {
 // GoString returns the string representation
 func (s DatabasePrivilegesInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DatabasePrivilegesInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DatabasePrivilegesInfoInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.AccountPrivilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPrivilege"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -9693,9 +10480,11 @@ func (s *DatabasesInfoForDescribeDatabasesOutput) SetDatabasePrivilegesInfo(v []
 type DeleteBackupInput struct {
 	_ struct{} `type:"structure"`
 
-	BackupId *string `type:"string"`
+	// BackupId is a required field
+	BackupId *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9706,6 +10495,22 @@ func (s DeleteBackupInput) String() string {
 // GoString returns the string representation
 func (s DeleteBackupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteBackupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteBackupInput"}
+	if s.BackupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupId sets the BackupId field's value.
@@ -9737,9 +10542,11 @@ func (s DeleteBackupOutput) GoString() string {
 type DeleteDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `min:"2" max:"16" type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9750,6 +10557,28 @@ func (s DeleteDBAccountInput) String() string {
 // GoString returns the string representation
 func (s DeleteDBAccountInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteDBAccountInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteDBAccountInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.AccountName != nil && len(*s.AccountName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
+	}
+	if s.AccountName != nil && len(*s.AccountName) > 16 {
+		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 16, *s.AccountName))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -9781,9 +10610,10 @@ func (s DeleteDBAccountOutput) GoString() string {
 type DeleteDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	DataKeepPolicy *string `type:"string"`
+	DataKeepPolicy *string `type:"string" enum:"DataKeepPolicyForDeleteDBInstanceInput"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9794,6 +10624,19 @@ func (s DeleteDBInstanceInput) String() string {
 // GoString returns the string representation
 func (s DeleteDBInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteDBInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteDBInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDataKeepPolicy sets the DataKeepPolicy field's value.
@@ -9825,9 +10668,11 @@ func (s DeleteDBInstanceOutput) GoString() string {
 type DeleteDatabaseInput struct {
 	_ struct{} `type:"structure"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `min:"2" max:"64" type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9838,6 +10683,28 @@ func (s DeleteDatabaseInput) String() string {
 // GoString returns the string representation
 func (s DeleteDatabaseInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteDatabaseInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteDatabaseInput"}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+	if s.DBName != nil && len(*s.DBName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("DBName", 2))
+	}
+	if s.DBName != nil && len(*s.DBName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("DBName", 64, *s.DBName))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBName sets the DBName field's value.
@@ -9921,7 +10788,8 @@ func (s *DescribeAvailabilityZonesOutput) SetZones(v []*ZoneForDescribeAvailabil
 type DescribeBackupPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9932,6 +10800,19 @@ func (s DescribeBackupPolicyInput) String() string {
 // GoString returns the string representation
 func (s DescribeBackupPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeBackupPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeBackupPolicyInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -9999,19 +10880,22 @@ type DescribeBackupsInput struct {
 
 	BackupEndTime *string `type:"string"`
 
-	BackupMethod *string `type:"string"`
+	BackupMethod *string `type:"string" enum:"BackupMethodForDescribeBackupsInput"`
 
 	BackupStartTime *string `type:"string"`
 
-	BackupStatus *string `type:"string"`
+	BackupStatus *string `type:"string" enum:"BackupStatusForDescribeBackupsInput"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" enum:"BackupTypeForDescribeBackupsInput"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 }
 
 // String returns the string representation
@@ -10022,6 +10906,25 @@ func (s DescribeBackupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeBackupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeBackupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeBackupsInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupEndTime sets the BackupEndTime field's value.
@@ -10105,13 +11008,16 @@ func (s *DescribeBackupsOutput) SetTotal(v int32) *DescribeBackupsOutput {
 type DescribeDBAccountsInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `min:"2" max:"16" type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 }
 
 // String returns the string representation
@@ -10122,6 +11028,31 @@ func (s DescribeDBAccountsInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBAccountsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDBAccountsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDBAccountsInput"}
+	if s.AccountName != nil && len(*s.AccountName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
+	}
+	if s.AccountName != nil && len(*s.AccountName) > 16 {
+		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 16, *s.AccountName))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -10181,7 +11112,8 @@ func (s *DescribeDBAccountsOutput) SetTotal(v int32) *DescribeDBAccountsOutput {
 type DescribeDBInstanceDetailInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -10192,6 +11124,19 @@ func (s DescribeDBInstanceDetailInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstanceDetailInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDBInstanceDetailInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstanceDetailInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -10249,19 +11194,23 @@ func (s *DescribeDBInstanceDetailOutput) SetNodeDetailInfo(v []*NodeDetailInfoFo
 type DescribeDBInstancePriceDetailInput struct {
 	_ struct{} `type:"structure"`
 
-	ChargeType *string `type:"string"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true" enum:"ChargeTypeForDescribeDBInstancePriceDetailInput"`
 
-	NodeNumber *string `type:"string"`
+	// NodeNumber is a required field
+	NodeNumber *string `type:"string" required:"true"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
 	Number *int32 `type:"int32"`
 
 	Period *int32 `type:"int32"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" enum:"PeriodUnitForDescribeDBInstancePriceDetailInput"`
 
-	StorageSpace *int32 `type:"int32"`
+	// StorageSpace is a required field
+	StorageSpace *int32 `type:"int32" required:"true"`
 }
 
 // String returns the string representation
@@ -10272,6 +11221,28 @@ func (s DescribeDBInstancePriceDetailInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstancePriceDetailInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDBInstancePriceDetailInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstancePriceDetailInput"}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+	if s.NodeNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.StorageSpace == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageSpace"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetChargeType sets the ChargeType field's value.
@@ -10373,9 +11344,9 @@ func (s *DescribeDBInstancePriceDetailOutput) SetPayablePrice(v float64) *Descri
 type DescribeDBInstanceSpecsInput struct {
 	_ struct{} `type:"structure"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" enum:"DBEngineVersionForDescribeDBInstanceSpecsInput"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"InstanceTypeForDescribeDBInstanceSpecsInput"`
 
 	SpecCode *string `type:"string"`
 
@@ -10441,27 +11412,29 @@ func (s *DescribeDBInstanceSpecsOutput) SetInstanceSpecsInfo(v []*InstanceSpecsI
 type DescribeDBInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" enum:"ChargeTypeForDescribeDBInstancesInput"`
 
 	CreateTimeEnd *string `type:"string"`
 
 	CreateTimeStart *string `type:"string"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" enum:"DBEngineVersionForDescribeDBInstancesInput"`
 
 	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" enum:"InstanceStatusForDescribeDBInstancesInput"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"InstanceTypeForDescribeDBInstancesInput"`
 
 	NodeSpec *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 
 	TenantId *string `type:"string"`
 
@@ -10476,6 +11449,22 @@ func (s DescribeDBInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDBInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstancesInput"}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetChargeType sets the ChargeType field's value.
@@ -10589,13 +11578,16 @@ func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput
 type DescribeDatabasesInput struct {
 	_ struct{} `type:"structure"`
 
-	DBName *string `type:"string"`
+	DBName *string `min:"2" max:"64" type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 }
 
 // String returns the string representation
@@ -10606,6 +11598,31 @@ func (s DescribeDatabasesInput) String() string {
 // GoString returns the string representation
 func (s DescribeDatabasesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDatabasesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDatabasesInput"}
+	if s.DBName != nil && len(*s.DBName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("DBName", 2))
+	}
+	if s.DBName != nil && len(*s.DBName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("DBName", 64, *s.DBName))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBName sets the DBName field's value.
@@ -10665,19 +11682,22 @@ func (s *DescribeDatabasesOutput) SetTotal(v int32) *DescribeDatabasesOutput {
 type DescribeErrorLogsInput struct {
 	_ struct{} `type:"structure"`
 
-	ErrorLevel *string `type:"string"`
+	ErrorLevel *string `type:"string" enum:"ErrorLevelForDescribeErrorLogsInput"`
 
 	ErrorLogEndTime *string `type:"string"`
 
 	ErrorLogStartTime *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	NodeId *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 }
 
 // String returns the string representation
@@ -10688,6 +11708,25 @@ func (s DescribeErrorLogsInput) String() string {
 // GoString returns the string representation
 func (s DescribeErrorLogsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeErrorLogsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeErrorLogsInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetErrorLevel sets the ErrorLevel field's value.
@@ -10773,7 +11812,8 @@ func (s *DescribeErrorLogsOutput) SetTotal(v int32) *DescribeErrorLogsOutput {
 type DescribeRecoverableTimeInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -10784,6 +11824,19 @@ func (s DescribeRecoverableTimeInput) String() string {
 // GoString returns the string representation
 func (s DescribeRecoverableTimeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeRecoverableTimeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeRecoverableTimeInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -10855,11 +11908,14 @@ type DescribeSlowLogsInput struct {
 
 	DBName *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 
 	QueryEndTime *string `type:"string"`
 
@@ -10874,6 +11930,25 @@ func (s DescribeSlowLogsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSlowLogsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSlowLogsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSlowLogsInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBName sets the DBName field's value.
@@ -10999,13 +12074,17 @@ func (s *ErrorLogForDescribeErrorLogsOutput) SetNodeId(v string) *ErrorLogForDes
 type ErrorLogObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	CreateTime *string `type:"string"`
+	// CreateTime is a required field
+	CreateTime *string `type:"string" required:"true"`
 
-	LogInfo *string `type:"string"`
+	// LogInfo is a required field
+	LogInfo *string `type:"string" required:"true"`
 
-	LogLevel *string `type:"string"`
+	// LogLevel is a required field
+	LogLevel *string `type:"string" required:"true" enum:"LogLevelForErrorLogObjectInput"`
 
-	NodeId *string `type:"string"`
+	// NodeId is a required field
+	NodeId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -11016,6 +12095,28 @@ func (s ErrorLogObjectInput) String() string {
 // GoString returns the string representation
 func (s ErrorLogObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ErrorLogObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ErrorLogObjectInput"}
+	if s.CreateTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("CreateTime"))
+	}
+	if s.LogInfo == nil {
+		invalidParams.Add(request.NewErrParamRequired("LogInfo"))
+	}
+	if s.LogLevel == nil {
+		invalidParams.Add(request.NewErrParamRequired("LogLevel"))
+	}
+	if s.NodeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCreateTime sets the CreateTime field's value.
@@ -11061,43 +12162,61 @@ type InstanceInfoObjectInput struct {
 
 	ChargeDetail *ChargeDetailForInstanceInfoObjectInput `type:"structure"`
 
-	CreateTime *string `type:"string"`
+	// CreateTime is a required field
+	CreateTime *string `type:"string" required:"true"`
 
-	DBEngineVersion *string `type:"string"`
+	// DBEngineVersion is a required field
+	DBEngineVersion *string `type:"string" required:"true" enum:"DBEngineVersionForInstanceInfoObjectInput"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	InstanceName *string `type:"string"`
+	// InstanceName is a required field
+	InstanceName *string `type:"string" required:"true"`
 
-	InstanceStatus *string `type:"string"`
+	// InstanceStatus is a required field
+	InstanceStatus *string `type:"string" required:"true" enum:"InstanceStatusForInstanceInfoObjectInput"`
 
-	InstanceType *string `type:"string"`
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForInstanceInfoObjectInput"`
 
-	LowerCaseTableNames *string `type:"string"`
+	// LowerCaseTableNames is a required field
+	LowerCaseTableNames *string `type:"string" required:"true"`
 
 	NodeDetailInfo []*NodeDetailInfoForInstanceInfoObjectInput `type:"list"`
 
-	NodeNumber *int32 `type:"int32"`
+	// NodeNumber is a required field
+	NodeNumber *int32 `type:"int32" required:"true"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
-	Port *string `type:"string"`
+	// Port is a required field
+	Port *string `type:"string" required:"true"`
 
-	ProjectName *string `type:"string"`
+	// ProjectName is a required field
+	ProjectName *string `type:"string" required:"true"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 
-	StorageSpace *int32 `type:"int32"`
+	// StorageSpace is a required field
+	StorageSpace *int32 `type:"int32" required:"true"`
 
-	StorageType *string `type:"string"`
+	// StorageType is a required field
+	StorageType *string `type:"string" required:"true" enum:"StorageTypeForInstanceInfoObjectInput"`
 
-	StorageUse *int32 `type:"int32"`
+	// StorageUse is a required field
+	StorageUse *int32 `type:"int32" required:"true"`
 
-	TimeZone *string `type:"string"`
+	// TimeZone is a required field
+	TimeZone *string `type:"string" required:"true"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -11108,6 +12227,85 @@ func (s InstanceInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s InstanceInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *InstanceInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "InstanceInfoObjectInput"}
+	if s.CreateTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("CreateTime"))
+	}
+	if s.DBEngineVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBEngineVersion"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.InstanceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceName"))
+	}
+	if s.InstanceStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceStatus"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
+	}
+	if s.LowerCaseTableNames == nil {
+		invalidParams.Add(request.NewErrParamRequired("LowerCaseTableNames"))
+	}
+	if s.NodeNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.ProjectName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ProjectName"))
+	}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+	if s.StorageSpace == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageSpace"))
+	}
+	if s.StorageType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageType"))
+	}
+	if s.StorageUse == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageUse"))
+	}
+	if s.TimeZone == nil {
+		invalidParams.Add(request.NewErrParamRequired("TimeZone"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+	if s.ChargeDetail != nil {
+		if err := s.ChargeDetail.Validate(); err != nil {
+			invalidParams.AddNested("ChargeDetail", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.NodeDetailInfo != nil {
+		for i, v := range s.NodeDetailInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "NodeDetailInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetChargeDetail sets the ChargeDetail field's value.
@@ -11373,33 +12571,47 @@ func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetZoneId(v string) 
 type InstanceSpecsInfoObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	Connection *int32 `type:"int32"`
+	// Connection is a required field
+	Connection *int32 `type:"int32" required:"true"`
 
-	DBEngineVersion *string `type:"string"`
+	// DBEngineVersion is a required field
+	DBEngineVersion *string `type:"string" required:"true" enum:"DBEngineVersionForInstanceSpecsInfoObjectInput"`
 
-	IOPS *int32 `type:"int32"`
+	// IOPS is a required field
+	IOPS *int32 `type:"int32" required:"true"`
 
-	InstanceType *string `type:"string"`
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForInstanceSpecsInfoObjectInput"`
 
-	Memory *int32 `type:"int32"`
+	// Memory is a required field
+	Memory *int32 `type:"int32" required:"true"`
 
-	QPS *int32 `type:"int32"`
+	// QPS is a required field
+	QPS *int32 `type:"int32" required:"true"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 
-	SpecCode *string `type:"string"`
+	// SpecCode is a required field
+	SpecCode *string `type:"string" required:"true"`
 
-	SpecStatus *string `type:"string"`
+	// SpecStatus is a required field
+	SpecStatus *string `type:"string" required:"true" enum:"SpecStatusForInstanceSpecsInfoObjectInput"`
 
-	StorageMax *int32 `type:"int32"`
+	// StorageMax is a required field
+	StorageMax *int32 `type:"int32" required:"true"`
 
-	StorageMin *int32 `type:"int32"`
+	// StorageMin is a required field
+	StorageMin *int32 `type:"int32" required:"true"`
 
-	StorageStep *int32 `type:"int32"`
+	// StorageStep is a required field
+	StorageStep *int32 `type:"int32" required:"true"`
 
-	VCPU *int32 `type:"int32"`
+	// VCPU is a required field
+	VCPU *int32 `type:"int32" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -11410,6 +12622,58 @@ func (s InstanceSpecsInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s InstanceSpecsInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *InstanceSpecsInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "InstanceSpecsInfoObjectInput"}
+	if s.Connection == nil {
+		invalidParams.Add(request.NewErrParamRequired("Connection"))
+	}
+	if s.DBEngineVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBEngineVersion"))
+	}
+	if s.IOPS == nil {
+		invalidParams.Add(request.NewErrParamRequired("IOPS"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
+	}
+	if s.Memory == nil {
+		invalidParams.Add(request.NewErrParamRequired("Memory"))
+	}
+	if s.QPS == nil {
+		invalidParams.Add(request.NewErrParamRequired("QPS"))
+	}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+	if s.SpecCode == nil {
+		invalidParams.Add(request.NewErrParamRequired("SpecCode"))
+	}
+	if s.SpecStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("SpecStatus"))
+	}
+	if s.StorageMax == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageMax"))
+	}
+	if s.StorageMin == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageMin"))
+	}
+	if s.StorageStep == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageStep"))
+	}
+	if s.VCPU == nil {
+		invalidParams.Add(request.NewErrParamRequired("VCPU"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetConnection sets the Connection field's value.
@@ -11687,11 +12951,14 @@ func (s *InstancesInfoForDescribeDBInstancesOutput) SetZoneId(v string) *Instanc
 type ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput struct {
 	_ struct{} `type:"structure"`
 
-	ActionType *string `type:"string"`
+	// ActionType is a required field
+	ActionType *string `type:"string" required:"true" enum:"ActionTypeForModifyDBAccountPrivilegeInput"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 
-	Privilege *string `type:"string"`
+	// Privilege is a required field
+	Privilege *string `type:"string" required:"true" enum:"PrivilegeForModifyDBAccountPrivilegeInput"`
 
 	PrivilegeCustom *string `type:"string"`
 }
@@ -11704,6 +12971,25 @@ func (s ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput) String() st
 // GoString returns the string representation
 func (s ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput"}
+	if s.ActionType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ActionType"))
+	}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+	if s.Privilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("Privilege"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetActionType sets the ActionType field's value.
@@ -11733,11 +13019,14 @@ func (s *ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput) SetPrivile
 type ModifyAccountPrivilegesInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	ActionType *string `type:"string"`
+	// ActionType is a required field
+	ActionType *string `type:"string" required:"true" enum:"ActionTypeForModifyAccountPrivilegesInfoInput"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 
-	Privilege *string `type:"string"`
+	// Privilege is a required field
+	Privilege *string `type:"string" required:"true" enum:"PrivilegeForModifyAccountPrivilegesInfoInput"`
 
 	PrivilegeCustom *string `type:"string"`
 }
@@ -11750,6 +13039,25 @@ func (s ModifyAccountPrivilegesInfoInput) String() string {
 // GoString returns the string representation
 func (s ModifyAccountPrivilegesInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyAccountPrivilegesInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyAccountPrivilegesInfoInput"}
+	if s.ActionType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ActionType"))
+	}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+	if s.Privilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("Privilege"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetActionType sets the ActionType field's value.
@@ -11793,15 +13101,20 @@ func (s ModifyAccountPrivilegesInfoOutput) GoString() string {
 type ModifyBackupPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	BackupRetentionPeriod *int32 `type:"int32"`
+	// BackupRetentionPeriod is a required field
+	BackupRetentionPeriod *int32 `type:"int32" required:"true"`
 
-	BackupTime *string `type:"string"`
+	// BackupTime is a required field
+	BackupTime *string `type:"string" required:"true"`
 
-	FullBackupPeriod *string `type:"string"`
+	// FullBackupPeriod is a required field
+	FullBackupPeriod *string `type:"string" required:"true"`
 
-	IncrementBackupPeriod *string `type:"string"`
+	// IncrementBackupPeriod is a required field
+	IncrementBackupPeriod *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -11812,6 +13125,31 @@ func (s ModifyBackupPolicyInput) String() string {
 // GoString returns the string representation
 func (s ModifyBackupPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyBackupPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyBackupPolicyInput"}
+	if s.BackupRetentionPeriod == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupRetentionPeriod"))
+	}
+	if s.BackupTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupTime"))
+	}
+	if s.FullBackupPeriod == nil {
+		invalidParams.Add(request.NewErrParamRequired("FullBackupPeriod"))
+	}
+	if s.IncrementBackupPeriod == nil {
+		invalidParams.Add(request.NewErrParamRequired("IncrementBackupPeriod"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupRetentionPeriod sets the BackupRetentionPeriod field's value.
@@ -11861,9 +13199,11 @@ func (s ModifyBackupPolicyOutput) GoString() string {
 type ModifyDBAccountPrivilegeInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `min:"2" max:"16" type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	ModifyAccountPrivilegesInfo []*ModifyAccountPrivilegesInfoForModifyDBAccountPrivilegeInput `type:"list"`
 }
@@ -11876,6 +13216,38 @@ func (s ModifyDBAccountPrivilegeInput) String() string {
 // GoString returns the string representation
 func (s ModifyDBAccountPrivilegeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDBAccountPrivilegeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDBAccountPrivilegeInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.AccountName != nil && len(*s.AccountName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
+	}
+	if s.AccountName != nil && len(*s.AccountName) > 16 {
+		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 16, *s.AccountName))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.ModifyAccountPrivilegesInfo != nil {
+		for i, v := range s.ModifyAccountPrivilegesInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "ModifyAccountPrivilegesInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -11913,9 +13285,11 @@ func (s ModifyDBAccountPrivilegeOutput) GoString() string {
 type ModifyDBInstanceNameInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	InstanceNewName *string `type:"string"`
+	// InstanceNewName is a required field
+	InstanceNewName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -11926,6 +13300,22 @@ func (s ModifyDBInstanceNameInput) String() string {
 // GoString returns the string representation
 func (s ModifyDBInstanceNameInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDBInstanceNameInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceNameInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.InstanceNewName == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceNewName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -11957,15 +13347,18 @@ func (s ModifyDBInstanceNameOutput) GoString() string {
 type ModifyDBInstanceSpecInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	NodeInfo []*NodeInfoForModifyDBInstanceSpecInput `type:"list"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
 	StorageSpace *int32 `type:"int32"`
 
-	StorageType *string `type:"string"`
+	// StorageType is a required field
+	StorageType *string `type:"string" required:"true" enum:"StorageTypeForModifyDBInstanceSpecInput"`
 }
 
 // String returns the string representation
@@ -11976,6 +13369,35 @@ func (s ModifyDBInstanceSpecInput) String() string {
 // GoString returns the string representation
 func (s ModifyDBInstanceSpecInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDBInstanceSpecInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceSpecInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.StorageType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageType"))
+	}
+	if s.NodeInfo != nil {
+		for i, v := range s.NodeInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "NodeInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -12041,9 +13463,11 @@ func (s *ModifyDBInstanceSpecOutput) SetOrderId(v string) *ModifyDBInstanceSpecO
 type ModifyDatabasePrivilegeInput struct {
 	_ struct{} `type:"structure"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `min:"2" max:"64" type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	ModifyDatabasePrivilegesInfo []*ModifyDatabasePrivilegesInfoForModifyDatabasePrivilegeInput `type:"list"`
 }
@@ -12056,6 +13480,38 @@ func (s ModifyDatabasePrivilegeInput) String() string {
 // GoString returns the string representation
 func (s ModifyDatabasePrivilegeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDatabasePrivilegeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDatabasePrivilegeInput"}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+	if s.DBName != nil && len(*s.DBName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("DBName", 2))
+	}
+	if s.DBName != nil && len(*s.DBName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("DBName", 64, *s.DBName))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.ModifyDatabasePrivilegesInfo != nil {
+		for i, v := range s.ModifyDatabasePrivilegesInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "ModifyDatabasePrivilegesInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBName sets the DBName field's value.
@@ -12093,11 +13549,14 @@ func (s ModifyDatabasePrivilegeOutput) GoString() string {
 type ModifyDatabasePrivilegesInfoForModifyDatabasePrivilegeInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `type:"string" required:"true"`
 
-	ActionType *string `type:"string"`
+	// ActionType is a required field
+	ActionType *string `type:"string" required:"true" enum:"ActionTypeForModifyDatabasePrivilegeInput"`
 
-	Privilege *string `type:"string"`
+	// Privilege is a required field
+	Privilege *string `type:"string" required:"true" enum:"PrivilegeForModifyDatabasePrivilegeInput"`
 
 	PrivilegeCustom *string `type:"string"`
 }
@@ -12110,6 +13569,25 @@ func (s ModifyDatabasePrivilegesInfoForModifyDatabasePrivilegeInput) String() st
 // GoString returns the string representation
 func (s ModifyDatabasePrivilegesInfoForModifyDatabasePrivilegeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDatabasePrivilegesInfoForModifyDatabasePrivilegeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDatabasePrivilegesInfoForModifyDatabasePrivilegeInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.ActionType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ActionType"))
+	}
+	if s.Privilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("Privilege"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -12139,11 +13617,14 @@ func (s *ModifyDatabasePrivilegesInfoForModifyDatabasePrivilegeInput) SetPrivile
 type ModifyDatabasePrivilegesInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `type:"string" required:"true"`
 
-	ActionType *string `type:"string"`
+	// ActionType is a required field
+	ActionType *string `type:"string" required:"true" enum:"ActionTypeForModifyDatabasePrivilegesInfoInput"`
 
-	Privilege *string `type:"string"`
+	// Privilege is a required field
+	Privilege *string `type:"string" required:"true" enum:"PrivilegeForModifyDatabasePrivilegesInfoInput"`
 
 	PrivilegeCustom *string `type:"string"`
 }
@@ -12156,6 +13637,25 @@ func (s ModifyDatabasePrivilegesInfoInput) String() string {
 // GoString returns the string representation
 func (s ModifyDatabasePrivilegesInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDatabasePrivilegesInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDatabasePrivilegesInfoInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.ActionType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ActionType"))
+	}
+	if s.Privilege == nil {
+		invalidParams.Add(request.NewErrParamRequired("Privilege"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -12403,27 +13903,38 @@ func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetZoneId(v string) *NodeDe
 type NodeDetailInfoForInstanceInfoObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	CreateTime *string `type:"string"`
+	// CreateTime is a required field
+	CreateTime *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	Memory *int32 `type:"int32"`
+	// Memory is a required field
+	Memory *int32 `type:"int32" required:"true"`
 
-	NodeId *string `type:"string"`
+	// NodeId is a required field
+	NodeId *string `type:"string" required:"true"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
-	NodeStatus *string `type:"string"`
+	// NodeStatus is a required field
+	NodeStatus *string `type:"string" required:"true" enum:"NodeStatusForInstanceInfoObjectInput"`
 
-	NodeType *string `type:"string"`
+	// NodeType is a required field
+	NodeType *string `type:"string" required:"true" enum:"NodeTypeForInstanceInfoObjectInput"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 
-	UpdateTime *string `type:"string"`
+	// UpdateTime is a required field
+	UpdateTime *string `type:"string" required:"true"`
 
-	VCPU *int32 `type:"int32"`
+	// VCPU is a required field
+	VCPU *int32 `type:"int32" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -12434,6 +13945,49 @@ func (s NodeDetailInfoForInstanceInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s NodeDetailInfoForInstanceInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NodeDetailInfoForInstanceInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NodeDetailInfoForInstanceInfoObjectInput"}
+	if s.CreateTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("CreateTime"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.Memory == nil {
+		invalidParams.Add(request.NewErrParamRequired("Memory"))
+	}
+	if s.NodeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeId"))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.NodeStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeStatus"))
+	}
+	if s.NodeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeType"))
+	}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+	if s.UpdateTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("UpdateTime"))
+	}
+	if s.VCPU == nil {
+		invalidParams.Add(request.NewErrParamRequired("VCPU"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCreateTime sets the CreateTime field's value.
@@ -12505,27 +14059,38 @@ func (s *NodeDetailInfoForInstanceInfoObjectInput) SetZoneId(v string) *NodeDeta
 type NodeDetailInfoObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	CreateTime *string `type:"string"`
+	// CreateTime is a required field
+	CreateTime *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	Memory *int32 `type:"int32"`
+	// Memory is a required field
+	Memory *int32 `type:"int32" required:"true"`
 
-	NodeId *string `type:"string"`
+	// NodeId is a required field
+	NodeId *string `type:"string" required:"true"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
-	NodeStatus *string `type:"string"`
+	// NodeStatus is a required field
+	NodeStatus *string `type:"string" required:"true" enum:"NodeStatusForNodeDetailInfoObjectInput"`
 
-	NodeType *string `type:"string"`
+	// NodeType is a required field
+	NodeType *string `type:"string" required:"true" enum:"NodeTypeForNodeDetailInfoObjectInput"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 
-	UpdateTime *string `type:"string"`
+	// UpdateTime is a required field
+	UpdateTime *string `type:"string" required:"true"`
 
-	VCPU *int32 `type:"int32"`
+	// VCPU is a required field
+	VCPU *int32 `type:"int32" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -12536,6 +14101,49 @@ func (s NodeDetailInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s NodeDetailInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NodeDetailInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NodeDetailInfoObjectInput"}
+	if s.CreateTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("CreateTime"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.Memory == nil {
+		invalidParams.Add(request.NewErrParamRequired("Memory"))
+	}
+	if s.NodeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeId"))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.NodeStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeStatus"))
+	}
+	if s.NodeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeType"))
+	}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+	if s.UpdateTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("UpdateTime"))
+	}
+	if s.VCPU == nil {
+		invalidParams.Add(request.NewErrParamRequired("VCPU"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCreateTime sets the CreateTime field's value.
@@ -12623,11 +14231,13 @@ type NodeInfoForCreateDBInstanceInput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeOperateType *string `type:"string"`
+	NodeOperateType *string `type:"string" enum:"NodeOperateTypeForCreateDBInstanceInput"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
-	NodeType *string `type:"string"`
+	// NodeType is a required field
+	NodeType *string `type:"string" required:"true" enum:"NodeTypeForCreateDBInstanceInput"`
 }
 
 // String returns the string representation
@@ -12638,6 +14248,22 @@ func (s NodeInfoForCreateDBInstanceInput) String() string {
 // GoString returns the string representation
 func (s NodeInfoForCreateDBInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NodeInfoForCreateDBInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NodeInfoForCreateDBInstanceInput"}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.NodeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNodeId sets the NodeId field's value.
@@ -12669,11 +14295,13 @@ type NodeInfoForModifyDBInstanceSpecInput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeOperateType *string `type:"string"`
+	NodeOperateType *string `type:"string" enum:"NodeOperateTypeForModifyDBInstanceSpecInput"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
-	NodeType *string `type:"string"`
+	// NodeType is a required field
+	NodeType *string `type:"string" required:"true" enum:"NodeTypeForModifyDBInstanceSpecInput"`
 }
 
 // String returns the string representation
@@ -12684,6 +14312,22 @@ func (s NodeInfoForModifyDBInstanceSpecInput) String() string {
 // GoString returns the string representation
 func (s NodeInfoForModifyDBInstanceSpecInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NodeInfoForModifyDBInstanceSpecInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NodeInfoForModifyDBInstanceSpecInput"}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.NodeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNodeId sets the NodeId field's value.
@@ -12715,11 +14359,13 @@ type NodeInfoForRestoreToNewInstanceInput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeOperateType *string `type:"string"`
+	NodeOperateType *string `type:"string" enum:"NodeOperateTypeForRestoreToNewInstanceInput"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
-	NodeType *string `type:"string"`
+	// NodeType is a required field
+	NodeType *string `type:"string" required:"true" enum:"NodeTypeForRestoreToNewInstanceInput"`
 }
 
 // String returns the string representation
@@ -12730,6 +14376,22 @@ func (s NodeInfoForRestoreToNewInstanceInput) String() string {
 // GoString returns the string representation
 func (s NodeInfoForRestoreToNewInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NodeInfoForRestoreToNewInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NodeInfoForRestoreToNewInstanceInput"}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.NodeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNodeId sets the NodeId field's value.
@@ -12761,11 +14423,13 @@ type NodeInfoObjectInput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeOperateType *string `type:"string"`
+	NodeOperateType *string `type:"string" enum:"NodeOperateTypeForNodeInfoObjectInput"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
-	NodeType *string `type:"string"`
+	// NodeType is a required field
+	NodeType *string `type:"string" required:"true" enum:"NodeTypeForNodeInfoObjectInput"`
 }
 
 // String returns the string representation
@@ -12776,6 +14440,22 @@ func (s NodeInfoObjectInput) String() string {
 // GoString returns the string representation
 func (s NodeInfoObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NodeInfoObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NodeInfoObjectInput"}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.NodeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNodeId sets the NodeId field's value.
@@ -12849,9 +14529,11 @@ func (s *RecoverableTimeInfoForDescribeRecoverableTimeOutput) SetLatestRecoverab
 type RecoverableTimeInfoInput struct {
 	_ struct{} `type:"structure"`
 
-	EarliestRecoverableTime *string `type:"string"`
+	// EarliestRecoverableTime is a required field
+	EarliestRecoverableTime *string `type:"string" required:"true"`
 
-	LatestRecoverableTime *string `type:"string"`
+	// LatestRecoverableTime is a required field
+	LatestRecoverableTime *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -12862,6 +14544,22 @@ func (s RecoverableTimeInfoInput) String() string {
 // GoString returns the string representation
 func (s RecoverableTimeInfoInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RecoverableTimeInfoInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RecoverableTimeInfoInput"}
+	if s.EarliestRecoverableTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("EarliestRecoverableTime"))
+	}
+	if s.LatestRecoverableTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("LatestRecoverableTime"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEarliestRecoverableTime sets the EarliestRecoverableTime field's value.
@@ -12923,9 +14621,11 @@ func (s *RegionForDescribeRegionsOutput) SetRegionName(v string) *RegionForDescr
 type RegionInput struct {
 	_ struct{} `type:"structure"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 
-	RegionName *string `type:"string"`
+	// RegionName is a required field
+	RegionName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -12936,6 +14636,22 @@ func (s RegionInput) String() string {
 // GoString returns the string representation
 func (s RegionInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RegionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RegionInput"}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+	if s.RegionName == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetRegionId sets the RegionId field's value.
@@ -12967,11 +14683,13 @@ func (s RegionOutput) GoString() string {
 type ResetDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `min:"2" max:"16" type:"string" required:"true"`
 
-	AccountPassword *string `type:"string"`
+	AccountPassword *string `min:"8" max:"32" type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -12982,6 +14700,34 @@ func (s ResetDBAccountInput) String() string {
 // GoString returns the string representation
 func (s ResetDBAccountInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ResetDBAccountInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ResetDBAccountInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.AccountName != nil && len(*s.AccountName) < 2 {
+		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
+	}
+	if s.AccountName != nil && len(*s.AccountName) > 16 {
+		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 16, *s.AccountName))
+	}
+	if s.AccountPassword != nil && len(*s.AccountPassword) < 8 {
+		invalidParams.Add(request.NewErrParamMinLen("AccountPassword", 8))
+	}
+	if s.AccountPassword != nil && len(*s.AccountPassword) > 32 {
+		invalidParams.Add(request.NewErrParamMaxLen("AccountPassword", 32, *s.AccountPassword))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccountName sets the AccountName field's value.
@@ -13019,7 +14765,8 @@ func (s ResetDBAccountOutput) GoString() string {
 type RestartDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -13030,6 +14777,19 @@ func (s RestartDBInstanceInput) String() string {
 // GoString returns the string representation
 func (s RestartDBInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestartDBInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestartDBInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -13061,15 +14821,18 @@ type RestoreToNewInstanceInput struct {
 
 	DBParamGroupId *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	InstanceName *string `type:"string"`
 
 	NodeInfo []*NodeInfoForRestoreToNewInstanceInput `type:"list"`
 
-	NodeNumber *int32 `type:"int32"`
+	// NodeNumber is a required field
+	NodeNumber *int32 `type:"int32" required:"true"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
 
@@ -13077,13 +14840,16 @@ type RestoreToNewInstanceInput struct {
 
 	StorageSpace *int32 `type:"int32"`
 
-	StorageType *string `type:"string"`
+	// StorageType is a required field
+	StorageType *string `type:"string" required:"true" enum:"StorageTypeForRestoreToNewInstanceInput"`
 
 	TableMeta []*TableMetaForRestoreToNewInstanceInput `type:"list"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -13094,6 +14860,59 @@ func (s RestoreToNewInstanceInput) String() string {
 // GoString returns the string representation
 func (s RestoreToNewInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestoreToNewInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestoreToNewInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.NodeNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.StorageType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageType"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+	if s.ChargeInfo != nil {
+		if err := s.ChargeInfo.Validate(); err != nil {
+			invalidParams.AddNested("ChargeInfo", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.NodeInfo != nil {
+		for i, v := range s.NodeInfo {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "NodeInfo", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.TableMeta != nil {
+		for i, v := range s.TableMeta {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "TableMeta", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupId sets the BackupId field's value.
@@ -13313,25 +15132,35 @@ func (s *SlowQueryForDescribeSlowLogsOutput) SetUserName(v string) *SlowQueryFor
 type SlowQueryObjectInput struct {
 	_ struct{} `type:"structure"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 
-	ExecutionStartTime *string `type:"string"`
+	// ExecutionStartTime is a required field
+	ExecutionStartTime *string `type:"string" required:"true"`
 
-	HostAddress *string `type:"string"`
+	// HostAddress is a required field
+	HostAddress *string `type:"string" required:"true"`
 
-	LockTimes *int64 `type:"int64"`
+	// LockTimes is a required field
+	LockTimes *int64 `type:"int64" required:"true"`
 
-	ParseRowCounts *int64 `type:"int64"`
+	// ParseRowCounts is a required field
+	ParseRowCounts *int64 `type:"int64" required:"true"`
 
-	QueryText *string `type:"string"`
+	// QueryText is a required field
+	QueryText *string `type:"string" required:"true"`
 
-	QueryTimes *int64 `type:"int64"`
+	// QueryTimes is a required field
+	QueryTimes *int64 `type:"int64" required:"true"`
 
-	QueryType *string `type:"string"`
+	// QueryType is a required field
+	QueryType *string `type:"string" required:"true"`
 
-	ReturnRowCounts *int64 `type:"int64"`
+	// ReturnRowCounts is a required field
+	ReturnRowCounts *int64 `type:"int64" required:"true"`
 
-	UserName *string `type:"string"`
+	// UserName is a required field
+	UserName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -13342,6 +15171,46 @@ func (s SlowQueryObjectInput) String() string {
 // GoString returns the string representation
 func (s SlowQueryObjectInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SlowQueryObjectInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SlowQueryObjectInput"}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+	if s.ExecutionStartTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("ExecutionStartTime"))
+	}
+	if s.HostAddress == nil {
+		invalidParams.Add(request.NewErrParamRequired("HostAddress"))
+	}
+	if s.LockTimes == nil {
+		invalidParams.Add(request.NewErrParamRequired("LockTimes"))
+	}
+	if s.ParseRowCounts == nil {
+		invalidParams.Add(request.NewErrParamRequired("ParseRowCounts"))
+	}
+	if s.QueryText == nil {
+		invalidParams.Add(request.NewErrParamRequired("QueryText"))
+	}
+	if s.QueryTimes == nil {
+		invalidParams.Add(request.NewErrParamRequired("QueryTimes"))
+	}
+	if s.QueryType == nil {
+		invalidParams.Add(request.NewErrParamRequired("QueryType"))
+	}
+	if s.ReturnRowCounts == nil {
+		invalidParams.Add(request.NewErrParamRequired("ReturnRowCounts"))
+	}
+	if s.UserName == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBName sets the DBName field's value.
@@ -13423,7 +15292,8 @@ type TableForRestoreToNewInstanceInput struct {
 
 	NewTableName *string `type:"string"`
 
-	TableName *string `type:"string"`
+	// TableName is a required field
+	TableName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -13434,6 +15304,19 @@ func (s TableForRestoreToNewInstanceInput) String() string {
 // GoString returns the string representation
 func (s TableForRestoreToNewInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TableForRestoreToNewInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TableForRestoreToNewInstanceInput"}
+	if s.TableName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TableName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNewTableName sets the NewTableName field's value.
@@ -13453,7 +15336,8 @@ type TableForTableMetaInput struct {
 
 	NewTableName *string `type:"string"`
 
-	TableName *string `type:"string"`
+	// TableName is a required field
+	TableName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -13464,6 +15348,19 @@ func (s TableForTableMetaInput) String() string {
 // GoString returns the string representation
 func (s TableForTableMetaInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TableForTableMetaInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TableForTableMetaInput"}
+	if s.TableName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TableName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNewTableName sets the NewTableName field's value.
@@ -13483,7 +15380,8 @@ type TableInput struct {
 
 	NewTableName *string `type:"string"`
 
-	TableName *string `type:"string"`
+	// TableName is a required field
+	TableName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -13494,6 +15392,19 @@ func (s TableInput) String() string {
 // GoString returns the string representation
 func (s TableInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TableInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TableInput"}
+	if s.TableName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TableName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNewTableName sets the NewTableName field's value.
@@ -13511,7 +15422,8 @@ func (s *TableInput) SetTableName(v string) *TableInput {
 type TableMetaForRestoreToNewInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 
 	NewDBName *string `type:"string"`
 
@@ -13526,6 +15438,29 @@ func (s TableMetaForRestoreToNewInstanceInput) String() string {
 // GoString returns the string representation
 func (s TableMetaForRestoreToNewInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TableMetaForRestoreToNewInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TableMetaForRestoreToNewInstanceInput"}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+	if s.Table != nil {
+		for i, v := range s.Table {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Table", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBName sets the DBName field's value.
@@ -13549,7 +15484,8 @@ func (s *TableMetaForRestoreToNewInstanceInput) SetTable(v []*TableForRestoreToN
 type TableMetaInput struct {
 	_ struct{} `type:"structure"`
 
-	DBName *string `type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 
 	NewDBName *string `type:"string"`
 
@@ -13564,6 +15500,29 @@ func (s TableMetaInput) String() string {
 // GoString returns the string representation
 func (s TableMetaInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TableMetaInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TableMetaInput"}
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
+	}
+	if s.Table != nil {
+		for i, v := range s.Table {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Table", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBName sets the DBName field's value.
@@ -13653,11 +15612,14 @@ func (s *ZoneForDescribeAvailabilityZonesOutput) SetZoneName(v string) *ZoneForD
 type ZoneInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	// Description is a required field
+	Description *string `type:"string" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 
-	ZoneName *string `type:"string"`
+	// ZoneName is a required field
+	ZoneName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -13668,6 +15630,25 @@ func (s ZoneInput) String() string {
 // GoString returns the string representation
 func (s ZoneInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ZoneInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ZoneInput"}
+	if s.Description == nil {
+		invalidParams.Add(request.NewErrParamRequired("Description"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+	if s.ZoneName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.
@@ -13701,3 +15682,1115 @@ func (s ZoneOutput) String() string {
 func (s ZoneOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// AccountPrivilegeForAccountPrivilegesInfoInputReadWrite is a AccountPrivilegeForAccountPrivilegesInfoInput enum value
+	AccountPrivilegeForAccountPrivilegesInfoInputReadWrite = "ReadWrite"
+
+	// AccountPrivilegeForAccountPrivilegesInfoInputReadOnly is a AccountPrivilegeForAccountPrivilegesInfoInput enum value
+	AccountPrivilegeForAccountPrivilegesInfoInputReadOnly = "ReadOnly"
+
+	// AccountPrivilegeForAccountPrivilegesInfoInputDdlonly is a AccountPrivilegeForAccountPrivilegesInfoInput enum value
+	AccountPrivilegeForAccountPrivilegesInfoInputDdlonly = "DDLOnly"
+
+	// AccountPrivilegeForAccountPrivilegesInfoInputDmlonly is a AccountPrivilegeForAccountPrivilegesInfoInput enum value
+	AccountPrivilegeForAccountPrivilegesInfoInputDmlonly = "DMLOnly"
+
+	// AccountPrivilegeForAccountPrivilegesInfoInputCustom is a AccountPrivilegeForAccountPrivilegesInfoInput enum value
+	AccountPrivilegeForAccountPrivilegesInfoInputCustom = "Custom"
+
+	// AccountPrivilegeForAccountPrivilegesInfoInputNone is a AccountPrivilegeForAccountPrivilegesInfoInput enum value
+	AccountPrivilegeForAccountPrivilegesInfoInputNone = "None"
+)
+
+const (
+	// AccountPrivilegeForAccountsInfoObjectInputReadWrite is a AccountPrivilegeForAccountsInfoObjectInput enum value
+	AccountPrivilegeForAccountsInfoObjectInputReadWrite = "ReadWrite"
+
+	// AccountPrivilegeForAccountsInfoObjectInputReadOnly is a AccountPrivilegeForAccountsInfoObjectInput enum value
+	AccountPrivilegeForAccountsInfoObjectInputReadOnly = "ReadOnly"
+
+	// AccountPrivilegeForAccountsInfoObjectInputDdlonly is a AccountPrivilegeForAccountsInfoObjectInput enum value
+	AccountPrivilegeForAccountsInfoObjectInputDdlonly = "DDLOnly"
+
+	// AccountPrivilegeForAccountsInfoObjectInputDmlonly is a AccountPrivilegeForAccountsInfoObjectInput enum value
+	AccountPrivilegeForAccountsInfoObjectInputDmlonly = "DMLOnly"
+
+	// AccountPrivilegeForAccountsInfoObjectInputCustom is a AccountPrivilegeForAccountsInfoObjectInput enum value
+	AccountPrivilegeForAccountsInfoObjectInputCustom = "Custom"
+
+	// AccountPrivilegeForAccountsInfoObjectInputNone is a AccountPrivilegeForAccountsInfoObjectInput enum value
+	AccountPrivilegeForAccountsInfoObjectInputNone = "None"
+)
+
+const (
+	// AccountPrivilegeForCreateDBAccountInputReadWrite is a AccountPrivilegeForCreateDBAccountInput enum value
+	AccountPrivilegeForCreateDBAccountInputReadWrite = "ReadWrite"
+
+	// AccountPrivilegeForCreateDBAccountInputReadOnly is a AccountPrivilegeForCreateDBAccountInput enum value
+	AccountPrivilegeForCreateDBAccountInputReadOnly = "ReadOnly"
+
+	// AccountPrivilegeForCreateDBAccountInputDdlonly is a AccountPrivilegeForCreateDBAccountInput enum value
+	AccountPrivilegeForCreateDBAccountInputDdlonly = "DDLOnly"
+
+	// AccountPrivilegeForCreateDBAccountInputDmlonly is a AccountPrivilegeForCreateDBAccountInput enum value
+	AccountPrivilegeForCreateDBAccountInputDmlonly = "DMLOnly"
+
+	// AccountPrivilegeForCreateDBAccountInputCustom is a AccountPrivilegeForCreateDBAccountInput enum value
+	AccountPrivilegeForCreateDBAccountInputCustom = "Custom"
+
+	// AccountPrivilegeForCreateDBAccountInputNone is a AccountPrivilegeForCreateDBAccountInput enum value
+	AccountPrivilegeForCreateDBAccountInputNone = "None"
+)
+
+const (
+	// AccountPrivilegeForCreateDatabaseInputReadWrite is a AccountPrivilegeForCreateDatabaseInput enum value
+	AccountPrivilegeForCreateDatabaseInputReadWrite = "ReadWrite"
+
+	// AccountPrivilegeForCreateDatabaseInputReadOnly is a AccountPrivilegeForCreateDatabaseInput enum value
+	AccountPrivilegeForCreateDatabaseInputReadOnly = "ReadOnly"
+
+	// AccountPrivilegeForCreateDatabaseInputDdlonly is a AccountPrivilegeForCreateDatabaseInput enum value
+	AccountPrivilegeForCreateDatabaseInputDdlonly = "DDLOnly"
+
+	// AccountPrivilegeForCreateDatabaseInputDmlonly is a AccountPrivilegeForCreateDatabaseInput enum value
+	AccountPrivilegeForCreateDatabaseInputDmlonly = "DMLOnly"
+
+	// AccountPrivilegeForCreateDatabaseInputCustom is a AccountPrivilegeForCreateDatabaseInput enum value
+	AccountPrivilegeForCreateDatabaseInputCustom = "Custom"
+
+	// AccountPrivilegeForCreateDatabaseInputNone is a AccountPrivilegeForCreateDatabaseInput enum value
+	AccountPrivilegeForCreateDatabaseInputNone = "None"
+)
+
+const (
+	// AccountPrivilegeForDatabaseInfoInputReadWrite is a AccountPrivilegeForDatabaseInfoInput enum value
+	AccountPrivilegeForDatabaseInfoInputReadWrite = "ReadWrite"
+
+	// AccountPrivilegeForDatabaseInfoInputReadOnly is a AccountPrivilegeForDatabaseInfoInput enum value
+	AccountPrivilegeForDatabaseInfoInputReadOnly = "ReadOnly"
+
+	// AccountPrivilegeForDatabaseInfoInputDdlonly is a AccountPrivilegeForDatabaseInfoInput enum value
+	AccountPrivilegeForDatabaseInfoInputDdlonly = "DDLOnly"
+
+	// AccountPrivilegeForDatabaseInfoInputDmlonly is a AccountPrivilegeForDatabaseInfoInput enum value
+	AccountPrivilegeForDatabaseInfoInputDmlonly = "DMLOnly"
+
+	// AccountPrivilegeForDatabaseInfoInputCustom is a AccountPrivilegeForDatabaseInfoInput enum value
+	AccountPrivilegeForDatabaseInfoInputCustom = "Custom"
+
+	// AccountPrivilegeForDatabaseInfoInputNone is a AccountPrivilegeForDatabaseInfoInput enum value
+	AccountPrivilegeForDatabaseInfoInputNone = "None"
+)
+
+const (
+	// AccountPrivilegeForDatabasePrivilegesInfoInputReadWrite is a AccountPrivilegeForDatabasePrivilegesInfoInput enum value
+	AccountPrivilegeForDatabasePrivilegesInfoInputReadWrite = "ReadWrite"
+
+	// AccountPrivilegeForDatabasePrivilegesInfoInputReadOnly is a AccountPrivilegeForDatabasePrivilegesInfoInput enum value
+	AccountPrivilegeForDatabasePrivilegesInfoInputReadOnly = "ReadOnly"
+
+	// AccountPrivilegeForDatabasePrivilegesInfoInputDdlonly is a AccountPrivilegeForDatabasePrivilegesInfoInput enum value
+	AccountPrivilegeForDatabasePrivilegesInfoInputDdlonly = "DDLOnly"
+
+	// AccountPrivilegeForDatabasePrivilegesInfoInputDmlonly is a AccountPrivilegeForDatabasePrivilegesInfoInput enum value
+	AccountPrivilegeForDatabasePrivilegesInfoInputDmlonly = "DMLOnly"
+
+	// AccountPrivilegeForDatabasePrivilegesInfoInputCustom is a AccountPrivilegeForDatabasePrivilegesInfoInput enum value
+	AccountPrivilegeForDatabasePrivilegesInfoInputCustom = "Custom"
+
+	// AccountPrivilegeForDatabasePrivilegesInfoInputNone is a AccountPrivilegeForDatabasePrivilegesInfoInput enum value
+	AccountPrivilegeForDatabasePrivilegesInfoInputNone = "None"
+)
+
+const (
+	// AccountStatusForAccountsInfoObjectInputUnavailable is a AccountStatusForAccountsInfoObjectInput enum value
+	AccountStatusForAccountsInfoObjectInputUnavailable = "Unavailable"
+
+	// AccountStatusForAccountsInfoObjectInputAvailable is a AccountStatusForAccountsInfoObjectInput enum value
+	AccountStatusForAccountsInfoObjectInputAvailable = "Available"
+)
+
+const (
+	// AccountTypeForAccountsInfoObjectInputSuper is a AccountTypeForAccountsInfoObjectInput enum value
+	AccountTypeForAccountsInfoObjectInputSuper = "Super"
+
+	// AccountTypeForAccountsInfoObjectInputNormal is a AccountTypeForAccountsInfoObjectInput enum value
+	AccountTypeForAccountsInfoObjectInputNormal = "Normal"
+
+	// AccountTypeForAccountsInfoObjectInputGrant is a AccountTypeForAccountsInfoObjectInput enum value
+	AccountTypeForAccountsInfoObjectInputGrant = "Grant"
+)
+
+const (
+	// AccountTypeForCreateDBAccountInputSuper is a AccountTypeForCreateDBAccountInput enum value
+	AccountTypeForCreateDBAccountInputSuper = "Super"
+
+	// AccountTypeForCreateDBAccountInputNormal is a AccountTypeForCreateDBAccountInput enum value
+	AccountTypeForCreateDBAccountInputNormal = "Normal"
+
+	// AccountTypeForCreateDBAccountInputGrant is a AccountTypeForCreateDBAccountInput enum value
+	AccountTypeForCreateDBAccountInputGrant = "Grant"
+)
+
+const (
+	// ActionTypeForModifyAccountPrivilegesInfoInputRevoke is a ActionTypeForModifyAccountPrivilegesInfoInput enum value
+	ActionTypeForModifyAccountPrivilegesInfoInputRevoke = "Revoke"
+
+	// ActionTypeForModifyAccountPrivilegesInfoInputGrant is a ActionTypeForModifyAccountPrivilegesInfoInput enum value
+	ActionTypeForModifyAccountPrivilegesInfoInputGrant = "Grant"
+)
+
+const (
+	// ActionTypeForModifyDBAccountPrivilegeInputRevoke is a ActionTypeForModifyDBAccountPrivilegeInput enum value
+	ActionTypeForModifyDBAccountPrivilegeInputRevoke = "Revoke"
+
+	// ActionTypeForModifyDBAccountPrivilegeInputGrant is a ActionTypeForModifyDBAccountPrivilegeInput enum value
+	ActionTypeForModifyDBAccountPrivilegeInputGrant = "Grant"
+)
+
+const (
+	// ActionTypeForModifyDatabasePrivilegeInputRevoke is a ActionTypeForModifyDatabasePrivilegeInput enum value
+	ActionTypeForModifyDatabasePrivilegeInputRevoke = "Revoke"
+
+	// ActionTypeForModifyDatabasePrivilegeInputGrant is a ActionTypeForModifyDatabasePrivilegeInput enum value
+	ActionTypeForModifyDatabasePrivilegeInputGrant = "Grant"
+)
+
+const (
+	// ActionTypeForModifyDatabasePrivilegesInfoInputRevoke is a ActionTypeForModifyDatabasePrivilegesInfoInput enum value
+	ActionTypeForModifyDatabasePrivilegesInfoInputRevoke = "Revoke"
+
+	// ActionTypeForModifyDatabasePrivilegesInfoInputGrant is a ActionTypeForModifyDatabasePrivilegesInfoInput enum value
+	ActionTypeForModifyDatabasePrivilegesInfoInputGrant = "Grant"
+)
+
+const (
+	// BackupMethodForBackupInfoInputLogical is a BackupMethodForBackupInfoInput enum value
+	BackupMethodForBackupInfoInputLogical = "Logical"
+
+	// BackupMethodForBackupInfoInputPhysical is a BackupMethodForBackupInfoInput enum value
+	BackupMethodForBackupInfoInputPhysical = "Physical"
+
+	// BackupMethodForBackupInfoInputSnapshot is a BackupMethodForBackupInfoInput enum value
+	BackupMethodForBackupInfoInputSnapshot = "Snapshot"
+)
+
+const (
+	// BackupMethodForCreateBackupInputLogical is a BackupMethodForCreateBackupInput enum value
+	BackupMethodForCreateBackupInputLogical = "Logical"
+
+	// BackupMethodForCreateBackupInputPhysical is a BackupMethodForCreateBackupInput enum value
+	BackupMethodForCreateBackupInputPhysical = "Physical"
+
+	// BackupMethodForCreateBackupInputSnapshot is a BackupMethodForCreateBackupInput enum value
+	BackupMethodForCreateBackupInputSnapshot = "Snapshot"
+)
+
+const (
+	// BackupMethodForDescribeBackupsInputLogical is a BackupMethodForDescribeBackupsInput enum value
+	BackupMethodForDescribeBackupsInputLogical = "Logical"
+
+	// BackupMethodForDescribeBackupsInputPhysical is a BackupMethodForDescribeBackupsInput enum value
+	BackupMethodForDescribeBackupsInputPhysical = "Physical"
+
+	// BackupMethodForDescribeBackupsInputSnapshot is a BackupMethodForDescribeBackupsInput enum value
+	BackupMethodForDescribeBackupsInputSnapshot = "Snapshot"
+)
+
+const (
+	// BackupStatusForBackupInfoInputSuccess is a BackupStatusForBackupInfoInput enum value
+	BackupStatusForBackupInfoInputSuccess = "Success"
+
+	// BackupStatusForBackupInfoInputFailed is a BackupStatusForBackupInfoInput enum value
+	BackupStatusForBackupInfoInputFailed = "Failed"
+
+	// BackupStatusForBackupInfoInputRunning is a BackupStatusForBackupInfoInput enum value
+	BackupStatusForBackupInfoInputRunning = "Running"
+)
+
+const (
+	// BackupStatusForDescribeBackupsInputSuccess is a BackupStatusForDescribeBackupsInput enum value
+	BackupStatusForDescribeBackupsInputSuccess = "Success"
+
+	// BackupStatusForDescribeBackupsInputFailed is a BackupStatusForDescribeBackupsInput enum value
+	BackupStatusForDescribeBackupsInputFailed = "Failed"
+
+	// BackupStatusForDescribeBackupsInputRunning is a BackupStatusForDescribeBackupsInput enum value
+	BackupStatusForDescribeBackupsInputRunning = "Running"
+)
+
+const (
+	// BackupTypeForBackupInfoInputFull is a BackupTypeForBackupInfoInput enum value
+	BackupTypeForBackupInfoInputFull = "Full"
+
+	// BackupTypeForBackupInfoInputIncrement is a BackupTypeForBackupInfoInput enum value
+	BackupTypeForBackupInfoInputIncrement = "Increment"
+)
+
+const (
+	// BackupTypeForCreateBackupInputFull is a BackupTypeForCreateBackupInput enum value
+	BackupTypeForCreateBackupInputFull = "Full"
+
+	// BackupTypeForCreateBackupInputIncrement is a BackupTypeForCreateBackupInput enum value
+	BackupTypeForCreateBackupInputIncrement = "Increment"
+)
+
+const (
+	// BackupTypeForDescribeBackupsInputFull is a BackupTypeForDescribeBackupsInput enum value
+	BackupTypeForDescribeBackupsInputFull = "Full"
+
+	// BackupTypeForDescribeBackupsInputIncrement is a BackupTypeForDescribeBackupsInput enum value
+	BackupTypeForDescribeBackupsInputIncrement = "Increment"
+)
+
+const (
+	// ChargeStatusForChargeDetailObjectInputNormal is a ChargeStatusForChargeDetailObjectInput enum value
+	ChargeStatusForChargeDetailObjectInputNormal = "Normal"
+
+	// ChargeStatusForChargeDetailObjectInputOverdue is a ChargeStatusForChargeDetailObjectInput enum value
+	ChargeStatusForChargeDetailObjectInputOverdue = "Overdue"
+
+	// ChargeStatusForChargeDetailObjectInputUnpaid is a ChargeStatusForChargeDetailObjectInput enum value
+	ChargeStatusForChargeDetailObjectInputUnpaid = "Unpaid"
+)
+
+const (
+	// ChargeStatusForInstanceInfoObjectInputNormal is a ChargeStatusForInstanceInfoObjectInput enum value
+	ChargeStatusForInstanceInfoObjectInputNormal = "Normal"
+
+	// ChargeStatusForInstanceInfoObjectInputOverdue is a ChargeStatusForInstanceInfoObjectInput enum value
+	ChargeStatusForInstanceInfoObjectInputOverdue = "Overdue"
+
+	// ChargeStatusForInstanceInfoObjectInputUnpaid is a ChargeStatusForInstanceInfoObjectInput enum value
+	ChargeStatusForInstanceInfoObjectInputUnpaid = "Unpaid"
+)
+
+const (
+	// ChargeTypeForChargeDetailObjectInputNotEnabled is a ChargeTypeForChargeDetailObjectInput enum value
+	ChargeTypeForChargeDetailObjectInputNotEnabled = "NotEnabled"
+
+	// ChargeTypeForChargeDetailObjectInputPostPaid is a ChargeTypeForChargeDetailObjectInput enum value
+	ChargeTypeForChargeDetailObjectInputPostPaid = "PostPaid"
+
+	// ChargeTypeForChargeDetailObjectInputPrePaid is a ChargeTypeForChargeDetailObjectInput enum value
+	ChargeTypeForChargeDetailObjectInputPrePaid = "PrePaid"
+)
+
+const (
+	// ChargeTypeForChargeInfoObjectInputNotEnabled is a ChargeTypeForChargeInfoObjectInput enum value
+	ChargeTypeForChargeInfoObjectInputNotEnabled = "NotEnabled"
+
+	// ChargeTypeForChargeInfoObjectInputPostPaid is a ChargeTypeForChargeInfoObjectInput enum value
+	ChargeTypeForChargeInfoObjectInputPostPaid = "PostPaid"
+
+	// ChargeTypeForChargeInfoObjectInputPrePaid is a ChargeTypeForChargeInfoObjectInput enum value
+	ChargeTypeForChargeInfoObjectInputPrePaid = "PrePaid"
+)
+
+const (
+	// ChargeTypeForCreateDBInstanceInputNotEnabled is a ChargeTypeForCreateDBInstanceInput enum value
+	ChargeTypeForCreateDBInstanceInputNotEnabled = "NotEnabled"
+
+	// ChargeTypeForCreateDBInstanceInputPostPaid is a ChargeTypeForCreateDBInstanceInput enum value
+	ChargeTypeForCreateDBInstanceInputPostPaid = "PostPaid"
+
+	// ChargeTypeForCreateDBInstanceInputPrePaid is a ChargeTypeForCreateDBInstanceInput enum value
+	ChargeTypeForCreateDBInstanceInputPrePaid = "PrePaid"
+)
+
+const (
+	// ChargeTypeForDescribeDBInstancePriceDetailInputNotEnabled is a ChargeTypeForDescribeDBInstancePriceDetailInput enum value
+	ChargeTypeForDescribeDBInstancePriceDetailInputNotEnabled = "NotEnabled"
+
+	// ChargeTypeForDescribeDBInstancePriceDetailInputPostPaid is a ChargeTypeForDescribeDBInstancePriceDetailInput enum value
+	ChargeTypeForDescribeDBInstancePriceDetailInputPostPaid = "PostPaid"
+
+	// ChargeTypeForDescribeDBInstancePriceDetailInputPrePaid is a ChargeTypeForDescribeDBInstancePriceDetailInput enum value
+	ChargeTypeForDescribeDBInstancePriceDetailInputPrePaid = "PrePaid"
+)
+
+const (
+	// ChargeTypeForDescribeDBInstancesInputNotEnabled is a ChargeTypeForDescribeDBInstancesInput enum value
+	ChargeTypeForDescribeDBInstancesInputNotEnabled = "NotEnabled"
+
+	// ChargeTypeForDescribeDBInstancesInputPostPaid is a ChargeTypeForDescribeDBInstancesInput enum value
+	ChargeTypeForDescribeDBInstancesInputPostPaid = "PostPaid"
+
+	// ChargeTypeForDescribeDBInstancesInputPrePaid is a ChargeTypeForDescribeDBInstancesInput enum value
+	ChargeTypeForDescribeDBInstancesInputPrePaid = "PrePaid"
+)
+
+const (
+	// ChargeTypeForInstanceInfoObjectInputNotEnabled is a ChargeTypeForInstanceInfoObjectInput enum value
+	ChargeTypeForInstanceInfoObjectInputNotEnabled = "NotEnabled"
+
+	// ChargeTypeForInstanceInfoObjectInputPostPaid is a ChargeTypeForInstanceInfoObjectInput enum value
+	ChargeTypeForInstanceInfoObjectInputPostPaid = "PostPaid"
+
+	// ChargeTypeForInstanceInfoObjectInputPrePaid is a ChargeTypeForInstanceInfoObjectInput enum value
+	ChargeTypeForInstanceInfoObjectInputPrePaid = "PrePaid"
+)
+
+const (
+	// ChargeTypeForRestoreToNewInstanceInputNotEnabled is a ChargeTypeForRestoreToNewInstanceInput enum value
+	ChargeTypeForRestoreToNewInstanceInputNotEnabled = "NotEnabled"
+
+	// ChargeTypeForRestoreToNewInstanceInputPostPaid is a ChargeTypeForRestoreToNewInstanceInput enum value
+	ChargeTypeForRestoreToNewInstanceInputPostPaid = "PostPaid"
+
+	// ChargeTypeForRestoreToNewInstanceInputPrePaid is a ChargeTypeForRestoreToNewInstanceInput enum value
+	ChargeTypeForRestoreToNewInstanceInputPrePaid = "PrePaid"
+)
+
+const (
+	// CreateTypeForBackupInfoInputSystem is a CreateTypeForBackupInfoInput enum value
+	CreateTypeForBackupInfoInputSystem = "System"
+
+	// CreateTypeForBackupInfoInputUser is a CreateTypeForBackupInfoInput enum value
+	CreateTypeForBackupInfoInputUser = "User"
+)
+
+const (
+	// DBEngineForBasicInfoObjectInputMysql is a DBEngineForBasicInfoObjectInput enum value
+	DBEngineForBasicInfoObjectInputMysql = "Mysql"
+
+	// DBEngineForBasicInfoObjectInputPostgresql is a DBEngineForBasicInfoObjectInput enum value
+	DBEngineForBasicInfoObjectInputPostgresql = "Postgresql"
+)
+
+const (
+	// DBEngineVersionForBasicInfoObjectInputMySql57 is a DBEngineVersionForBasicInfoObjectInput enum value
+	DBEngineVersionForBasicInfoObjectInputMySql57 = "MySQL_5_7"
+
+	// DBEngineVersionForBasicInfoObjectInputMySql80 is a DBEngineVersionForBasicInfoObjectInput enum value
+	DBEngineVersionForBasicInfoObjectInputMySql80 = "MySQL_8_0"
+)
+
+const (
+	// DBEngineVersionForCreateDBInstanceInputMySql57 is a DBEngineVersionForCreateDBInstanceInput enum value
+	DBEngineVersionForCreateDBInstanceInputMySql57 = "MySQL_5_7"
+
+	// DBEngineVersionForCreateDBInstanceInputMySql80 is a DBEngineVersionForCreateDBInstanceInput enum value
+	DBEngineVersionForCreateDBInstanceInputMySql80 = "MySQL_8_0"
+)
+
+const (
+	// DBEngineVersionForDescribeDBInstanceSpecsInputMySql57 is a DBEngineVersionForDescribeDBInstanceSpecsInput enum value
+	DBEngineVersionForDescribeDBInstanceSpecsInputMySql57 = "MySQL_5_7"
+
+	// DBEngineVersionForDescribeDBInstanceSpecsInputMySql80 is a DBEngineVersionForDescribeDBInstanceSpecsInput enum value
+	DBEngineVersionForDescribeDBInstanceSpecsInputMySql80 = "MySQL_8_0"
+)
+
+const (
+	// DBEngineVersionForDescribeDBInstancesInputMySql57 is a DBEngineVersionForDescribeDBInstancesInput enum value
+	DBEngineVersionForDescribeDBInstancesInputMySql57 = "MySQL_5_7"
+
+	// DBEngineVersionForDescribeDBInstancesInputMySql80 is a DBEngineVersionForDescribeDBInstancesInput enum value
+	DBEngineVersionForDescribeDBInstancesInputMySql80 = "MySQL_8_0"
+)
+
+const (
+	// DBEngineVersionForInstanceInfoObjectInputMySql57 is a DBEngineVersionForInstanceInfoObjectInput enum value
+	DBEngineVersionForInstanceInfoObjectInputMySql57 = "MySQL_5_7"
+
+	// DBEngineVersionForInstanceInfoObjectInputMySql80 is a DBEngineVersionForInstanceInfoObjectInput enum value
+	DBEngineVersionForInstanceInfoObjectInputMySql80 = "MySQL_8_0"
+)
+
+const (
+	// DBEngineVersionForInstanceSpecsInfoObjectInputMySql57 is a DBEngineVersionForInstanceSpecsInfoObjectInput enum value
+	DBEngineVersionForInstanceSpecsInfoObjectInputMySql57 = "MySQL_5_7"
+
+	// DBEngineVersionForInstanceSpecsInfoObjectInputMySql80 is a DBEngineVersionForInstanceSpecsInfoObjectInput enum value
+	DBEngineVersionForInstanceSpecsInfoObjectInputMySql80 = "MySQL_8_0"
+)
+
+const (
+	// DBStatusForDatabaseInfoInputAvailable is a DBStatusForDatabaseInfoInput enum value
+	DBStatusForDatabaseInfoInputAvailable = "Available"
+
+	// DBStatusForDatabaseInfoInputUnavailable is a DBStatusForDatabaseInfoInput enum value
+	DBStatusForDatabaseInfoInputUnavailable = "Unavailable"
+)
+
+const (
+	// DataKeepPolicyForDeleteDBInstanceInputNone is a DataKeepPolicyForDeleteDBInstanceInput enum value
+	DataKeepPolicyForDeleteDBInstanceInputNone = "None"
+
+	// DataKeepPolicyForDeleteDBInstanceInputLast is a DataKeepPolicyForDeleteDBInstanceInput enum value
+	DataKeepPolicyForDeleteDBInstanceInputLast = "Last"
+
+	// DataKeepPolicyForDeleteDBInstanceInputAll is a DataKeepPolicyForDeleteDBInstanceInput enum value
+	DataKeepPolicyForDeleteDBInstanceInputAll = "All"
+)
+
+const (
+	// DataSyncModeForBasicInfoObjectInputSemiSync is a DataSyncModeForBasicInfoObjectInput enum value
+	DataSyncModeForBasicInfoObjectInputSemiSync = "SemiSync"
+
+	// DataSyncModeForBasicInfoObjectInputAsync is a DataSyncModeForBasicInfoObjectInput enum value
+	DataSyncModeForBasicInfoObjectInputAsync = "Async"
+
+	// DataSyncModeForBasicInfoObjectInputSync is a DataSyncModeForBasicInfoObjectInput enum value
+	DataSyncModeForBasicInfoObjectInputSync = "Sync"
+)
+
+const (
+	// EnableReadOnlyForConnectionInfoObjectInputEnable is a EnableReadOnlyForConnectionInfoObjectInput enum value
+	EnableReadOnlyForConnectionInfoObjectInputEnable = "Enable"
+
+	// EnableReadOnlyForConnectionInfoObjectInputDisable is a EnableReadOnlyForConnectionInfoObjectInput enum value
+	EnableReadOnlyForConnectionInfoObjectInputDisable = "Disable"
+)
+
+const (
+	// EnableReadWriteSplittingForConnectionInfoObjectInputEnable is a EnableReadWriteSplittingForConnectionInfoObjectInput enum value
+	EnableReadWriteSplittingForConnectionInfoObjectInputEnable = "Enable"
+
+	// EnableReadWriteSplittingForConnectionInfoObjectInputDisable is a EnableReadWriteSplittingForConnectionInfoObjectInput enum value
+	EnableReadWriteSplittingForConnectionInfoObjectInputDisable = "Disable"
+)
+
+const (
+	// EndpointTypeForConnectionInfoObjectInputCluster is a EndpointTypeForConnectionInfoObjectInput enum value
+	EndpointTypeForConnectionInfoObjectInputCluster = "Cluster"
+
+	// EndpointTypeForConnectionInfoObjectInputPrimary is a EndpointTypeForConnectionInfoObjectInput enum value
+	EndpointTypeForConnectionInfoObjectInputPrimary = "Primary"
+
+	// EndpointTypeForConnectionInfoObjectInputCustom is a EndpointTypeForConnectionInfoObjectInput enum value
+	EndpointTypeForConnectionInfoObjectInputCustom = "Custom"
+)
+
+const (
+	// ErrorLevelForDescribeErrorLogsInputAll is a ErrorLevelForDescribeErrorLogsInput enum value
+	ErrorLevelForDescribeErrorLogsInputAll = "All"
+
+	// ErrorLevelForDescribeErrorLogsInputError is a ErrorLevelForDescribeErrorLogsInput enum value
+	ErrorLevelForDescribeErrorLogsInputError = "Error"
+
+	// ErrorLevelForDescribeErrorLogsInputWarning is a ErrorLevelForDescribeErrorLogsInput enum value
+	ErrorLevelForDescribeErrorLogsInputWarning = "Warning"
+
+	// ErrorLevelForDescribeErrorLogsInputNote is a ErrorLevelForDescribeErrorLogsInput enum value
+	ErrorLevelForDescribeErrorLogsInputNote = "Note"
+)
+
+const (
+	// InstanceStatusForBasicInfoObjectInputDeleting is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputDeleting = "Deleting"
+
+	// InstanceStatusForBasicInfoObjectInputWaitingPaid is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputWaitingPaid = "WaitingPaid"
+
+	// InstanceStatusForBasicInfoObjectInputClosing is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputClosing = "Closing"
+
+	// InstanceStatusForBasicInfoObjectInputReleased is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputReleased = "Released"
+
+	// InstanceStatusForBasicInfoObjectInputRunning is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputRunning = "Running"
+
+	// InstanceStatusForBasicInfoObjectInputMigrating is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputMigrating = "Migrating"
+
+	// InstanceStatusForBasicInfoObjectInputError is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputError = "Error"
+
+	// InstanceStatusForBasicInfoObjectInputMasterChanging is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputMasterChanging = "MasterChanging"
+
+	// InstanceStatusForBasicInfoObjectInputMaintaining is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputMaintaining = "Maintaining"
+
+	// InstanceStatusForBasicInfoObjectInputCreating is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputCreating = "Creating"
+
+	// InstanceStatusForBasicInfoObjectInputRestarting is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputRestarting = "Restarting"
+
+	// InstanceStatusForBasicInfoObjectInputRestoring is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputRestoring = "Restoring"
+
+	// InstanceStatusForBasicInfoObjectInputImporting is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputImporting = "Importing"
+
+	// InstanceStatusForBasicInfoObjectInputReclaiming is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputReclaiming = "Reclaiming"
+
+	// InstanceStatusForBasicInfoObjectInputCreateFailed is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputCreateFailed = "CreateFailed"
+
+	// InstanceStatusForBasicInfoObjectInputResuming is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputResuming = "Resuming"
+
+	// InstanceStatusForBasicInfoObjectInputDestroying is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputDestroying = "Destroying"
+
+	// InstanceStatusForBasicInfoObjectInputUpdating is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputUpdating = "Updating"
+
+	// InstanceStatusForBasicInfoObjectInputUpgrading is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputUpgrading = "Upgrading"
+
+	// InstanceStatusForBasicInfoObjectInputRecycled is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputRecycled = "Recycled"
+
+	// InstanceStatusForBasicInfoObjectInputTdeupdating is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputTdeupdating = "TDEUpdating"
+
+	// InstanceStatusForBasicInfoObjectInputClosed is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputClosed = "Closed"
+
+	// InstanceStatusForBasicInfoObjectInputDestroyed is a InstanceStatusForBasicInfoObjectInput enum value
+	InstanceStatusForBasicInfoObjectInputDestroyed = "Destroyed"
+)
+
+const (
+	// InstanceStatusForDescribeDBInstancesInputDeleting is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputDeleting = "Deleting"
+
+	// InstanceStatusForDescribeDBInstancesInputWaitingPaid is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputWaitingPaid = "WaitingPaid"
+
+	// InstanceStatusForDescribeDBInstancesInputClosing is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputClosing = "Closing"
+
+	// InstanceStatusForDescribeDBInstancesInputReleased is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputReleased = "Released"
+
+	// InstanceStatusForDescribeDBInstancesInputRunning is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputRunning = "Running"
+
+	// InstanceStatusForDescribeDBInstancesInputMigrating is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputMigrating = "Migrating"
+
+	// InstanceStatusForDescribeDBInstancesInputError is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputError = "Error"
+
+	// InstanceStatusForDescribeDBInstancesInputMasterChanging is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputMasterChanging = "MasterChanging"
+
+	// InstanceStatusForDescribeDBInstancesInputMaintaining is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputMaintaining = "Maintaining"
+
+	// InstanceStatusForDescribeDBInstancesInputCreating is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputCreating = "Creating"
+
+	// InstanceStatusForDescribeDBInstancesInputRestarting is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputRestarting = "Restarting"
+
+	// InstanceStatusForDescribeDBInstancesInputRestoring is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputRestoring = "Restoring"
+
+	// InstanceStatusForDescribeDBInstancesInputImporting is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputImporting = "Importing"
+
+	// InstanceStatusForDescribeDBInstancesInputReclaiming is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputReclaiming = "Reclaiming"
+
+	// InstanceStatusForDescribeDBInstancesInputCreateFailed is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputCreateFailed = "CreateFailed"
+
+	// InstanceStatusForDescribeDBInstancesInputResuming is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputResuming = "Resuming"
+
+	// InstanceStatusForDescribeDBInstancesInputDestroying is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputDestroying = "Destroying"
+
+	// InstanceStatusForDescribeDBInstancesInputUpdating is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputUpdating = "Updating"
+
+	// InstanceStatusForDescribeDBInstancesInputUpgrading is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputUpgrading = "Upgrading"
+
+	// InstanceStatusForDescribeDBInstancesInputRecycled is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputRecycled = "Recycled"
+
+	// InstanceStatusForDescribeDBInstancesInputTdeupdating is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputTdeupdating = "TDEUpdating"
+
+	// InstanceStatusForDescribeDBInstancesInputClosed is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputClosed = "Closed"
+
+	// InstanceStatusForDescribeDBInstancesInputDestroyed is a InstanceStatusForDescribeDBInstancesInput enum value
+	InstanceStatusForDescribeDBInstancesInputDestroyed = "Destroyed"
+)
+
+const (
+	// InstanceStatusForInstanceInfoObjectInputDeleting is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputDeleting = "Deleting"
+
+	// InstanceStatusForInstanceInfoObjectInputWaitingPaid is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputWaitingPaid = "WaitingPaid"
+
+	// InstanceStatusForInstanceInfoObjectInputClosing is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputClosing = "Closing"
+
+	// InstanceStatusForInstanceInfoObjectInputReleased is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputReleased = "Released"
+
+	// InstanceStatusForInstanceInfoObjectInputRunning is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputRunning = "Running"
+
+	// InstanceStatusForInstanceInfoObjectInputMigrating is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputMigrating = "Migrating"
+
+	// InstanceStatusForInstanceInfoObjectInputError is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputError = "Error"
+
+	// InstanceStatusForInstanceInfoObjectInputMasterChanging is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputMasterChanging = "MasterChanging"
+
+	// InstanceStatusForInstanceInfoObjectInputMaintaining is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputMaintaining = "Maintaining"
+
+	// InstanceStatusForInstanceInfoObjectInputCreating is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputCreating = "Creating"
+
+	// InstanceStatusForInstanceInfoObjectInputRestarting is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputRestarting = "Restarting"
+
+	// InstanceStatusForInstanceInfoObjectInputRestoring is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputRestoring = "Restoring"
+
+	// InstanceStatusForInstanceInfoObjectInputImporting is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputImporting = "Importing"
+
+	// InstanceStatusForInstanceInfoObjectInputReclaiming is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputReclaiming = "Reclaiming"
+
+	// InstanceStatusForInstanceInfoObjectInputCreateFailed is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputCreateFailed = "CreateFailed"
+
+	// InstanceStatusForInstanceInfoObjectInputResuming is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputResuming = "Resuming"
+
+	// InstanceStatusForInstanceInfoObjectInputDestroying is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputDestroying = "Destroying"
+
+	// InstanceStatusForInstanceInfoObjectInputUpdating is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputUpdating = "Updating"
+
+	// InstanceStatusForInstanceInfoObjectInputUpgrading is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputUpgrading = "Upgrading"
+
+	// InstanceStatusForInstanceInfoObjectInputRecycled is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputRecycled = "Recycled"
+
+	// InstanceStatusForInstanceInfoObjectInputTdeupdating is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputTdeupdating = "TDEUpdating"
+
+	// InstanceStatusForInstanceInfoObjectInputClosed is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputClosed = "Closed"
+
+	// InstanceStatusForInstanceInfoObjectInputDestroyed is a InstanceStatusForInstanceInfoObjectInput enum value
+	InstanceStatusForInstanceInfoObjectInputDestroyed = "Destroyed"
+)
+
+const (
+	// InstanceTypeForBasicInfoObjectInputHa is a InstanceTypeForBasicInfoObjectInput enum value
+	InstanceTypeForBasicInfoObjectInputHa = "HA"
+
+	// InstanceTypeForBasicInfoObjectInputBasic is a InstanceTypeForBasicInfoObjectInput enum value
+	InstanceTypeForBasicInfoObjectInputBasic = "Basic"
+)
+
+const (
+	// InstanceTypeForCreateDBInstanceInputHa is a InstanceTypeForCreateDBInstanceInput enum value
+	InstanceTypeForCreateDBInstanceInputHa = "HA"
+
+	// InstanceTypeForCreateDBInstanceInputBasic is a InstanceTypeForCreateDBInstanceInput enum value
+	InstanceTypeForCreateDBInstanceInputBasic = "Basic"
+)
+
+const (
+	// InstanceTypeForDescribeDBInstanceSpecsInputHa is a InstanceTypeForDescribeDBInstanceSpecsInput enum value
+	InstanceTypeForDescribeDBInstanceSpecsInputHa = "HA"
+
+	// InstanceTypeForDescribeDBInstanceSpecsInputBasic is a InstanceTypeForDescribeDBInstanceSpecsInput enum value
+	InstanceTypeForDescribeDBInstanceSpecsInputBasic = "Basic"
+)
+
+const (
+	// InstanceTypeForDescribeDBInstancesInputHa is a InstanceTypeForDescribeDBInstancesInput enum value
+	InstanceTypeForDescribeDBInstancesInputHa = "HA"
+
+	// InstanceTypeForDescribeDBInstancesInputBasic is a InstanceTypeForDescribeDBInstancesInput enum value
+	InstanceTypeForDescribeDBInstancesInputBasic = "Basic"
+)
+
+const (
+	// InstanceTypeForInstanceInfoObjectInputHa is a InstanceTypeForInstanceInfoObjectInput enum value
+	InstanceTypeForInstanceInfoObjectInputHa = "HA"
+
+	// InstanceTypeForInstanceInfoObjectInputBasic is a InstanceTypeForInstanceInfoObjectInput enum value
+	InstanceTypeForInstanceInfoObjectInputBasic = "Basic"
+)
+
+const (
+	// InstanceTypeForInstanceSpecsInfoObjectInputHa is a InstanceTypeForInstanceSpecsInfoObjectInput enum value
+	InstanceTypeForInstanceSpecsInfoObjectInputHa = "HA"
+
+	// InstanceTypeForInstanceSpecsInfoObjectInputBasic is a InstanceTypeForInstanceSpecsInfoObjectInput enum value
+	InstanceTypeForInstanceSpecsInfoObjectInputBasic = "Basic"
+)
+
+const (
+	// LogLevelForErrorLogObjectInputAll is a LogLevelForErrorLogObjectInput enum value
+	LogLevelForErrorLogObjectInputAll = "All"
+
+	// LogLevelForErrorLogObjectInputError is a LogLevelForErrorLogObjectInput enum value
+	LogLevelForErrorLogObjectInputError = "Error"
+
+	// LogLevelForErrorLogObjectInputWarning is a LogLevelForErrorLogObjectInput enum value
+	LogLevelForErrorLogObjectInputWarning = "Warning"
+
+	// LogLevelForErrorLogObjectInputNote is a LogLevelForErrorLogObjectInput enum value
+	LogLevelForErrorLogObjectInputNote = "Note"
+)
+
+const (
+	// NetworkTypeForAddressObjectInputPublic is a NetworkTypeForAddressObjectInput enum value
+	NetworkTypeForAddressObjectInputPublic = "Public"
+
+	// NetworkTypeForAddressObjectInputPrivate is a NetworkTypeForAddressObjectInput enum value
+	NetworkTypeForAddressObjectInputPrivate = "Private"
+)
+
+const (
+	// NetworkTypeForConnectionInfoObjectInputPublic is a NetworkTypeForConnectionInfoObjectInput enum value
+	NetworkTypeForConnectionInfoObjectInputPublic = "Public"
+
+	// NetworkTypeForConnectionInfoObjectInputPrivate is a NetworkTypeForConnectionInfoObjectInput enum value
+	NetworkTypeForConnectionInfoObjectInputPrivate = "Private"
+)
+
+const (
+	// NodeOperateTypeForCreateDBInstanceInputCreate is a NodeOperateTypeForCreateDBInstanceInput enum value
+	NodeOperateTypeForCreateDBInstanceInputCreate = "Create"
+
+	// NodeOperateTypeForCreateDBInstanceInputDelete is a NodeOperateTypeForCreateDBInstanceInput enum value
+	NodeOperateTypeForCreateDBInstanceInputDelete = "Delete"
+
+	// NodeOperateTypeForCreateDBInstanceInputModify is a NodeOperateTypeForCreateDBInstanceInput enum value
+	NodeOperateTypeForCreateDBInstanceInputModify = "Modify"
+)
+
+const (
+	// NodeOperateTypeForModifyDBInstanceSpecInputCreate is a NodeOperateTypeForModifyDBInstanceSpecInput enum value
+	NodeOperateTypeForModifyDBInstanceSpecInputCreate = "Create"
+
+	// NodeOperateTypeForModifyDBInstanceSpecInputDelete is a NodeOperateTypeForModifyDBInstanceSpecInput enum value
+	NodeOperateTypeForModifyDBInstanceSpecInputDelete = "Delete"
+
+	// NodeOperateTypeForModifyDBInstanceSpecInputModify is a NodeOperateTypeForModifyDBInstanceSpecInput enum value
+	NodeOperateTypeForModifyDBInstanceSpecInputModify = "Modify"
+)
+
+const (
+	// NodeOperateTypeForNodeInfoObjectInputCreate is a NodeOperateTypeForNodeInfoObjectInput enum value
+	NodeOperateTypeForNodeInfoObjectInputCreate = "Create"
+
+	// NodeOperateTypeForNodeInfoObjectInputDelete is a NodeOperateTypeForNodeInfoObjectInput enum value
+	NodeOperateTypeForNodeInfoObjectInputDelete = "Delete"
+
+	// NodeOperateTypeForNodeInfoObjectInputModify is a NodeOperateTypeForNodeInfoObjectInput enum value
+	NodeOperateTypeForNodeInfoObjectInputModify = "Modify"
+)
+
+const (
+	// NodeOperateTypeForRestoreToNewInstanceInputCreate is a NodeOperateTypeForRestoreToNewInstanceInput enum value
+	NodeOperateTypeForRestoreToNewInstanceInputCreate = "Create"
+
+	// NodeOperateTypeForRestoreToNewInstanceInputDelete is a NodeOperateTypeForRestoreToNewInstanceInput enum value
+	NodeOperateTypeForRestoreToNewInstanceInputDelete = "Delete"
+
+	// NodeOperateTypeForRestoreToNewInstanceInputModify is a NodeOperateTypeForRestoreToNewInstanceInput enum value
+	NodeOperateTypeForRestoreToNewInstanceInputModify = "Modify"
+)
+
+const (
+	// NodeStatusForInstanceInfoObjectInputCreating is a NodeStatusForInstanceInfoObjectInput enum value
+	NodeStatusForInstanceInfoObjectInputCreating = "Creating"
+
+	// NodeStatusForInstanceInfoObjectInputDeleting is a NodeStatusForInstanceInfoObjectInput enum value
+	NodeStatusForInstanceInfoObjectInputDeleting = "Deleting"
+
+	// NodeStatusForInstanceInfoObjectInputRestarting is a NodeStatusForInstanceInfoObjectInput enum value
+	NodeStatusForInstanceInfoObjectInputRestarting = "Restarting"
+
+	// NodeStatusForInstanceInfoObjectInputRestoring is a NodeStatusForInstanceInfoObjectInput enum value
+	NodeStatusForInstanceInfoObjectInputRestoring = "Restoring"
+
+	// NodeStatusForInstanceInfoObjectInputUpdating is a NodeStatusForInstanceInfoObjectInput enum value
+	NodeStatusForInstanceInfoObjectInputUpdating = "Updating"
+
+	// NodeStatusForInstanceInfoObjectInputUpgrading is a NodeStatusForInstanceInfoObjectInput enum value
+	NodeStatusForInstanceInfoObjectInputUpgrading = "Upgrading"
+
+	// NodeStatusForInstanceInfoObjectInputError is a NodeStatusForInstanceInfoObjectInput enum value
+	NodeStatusForInstanceInfoObjectInputError = "Error"
+
+	// NodeStatusForInstanceInfoObjectInputRunning is a NodeStatusForInstanceInfoObjectInput enum value
+	NodeStatusForInstanceInfoObjectInputRunning = "Running"
+)
+
+const (
+	// NodeStatusForNodeDetailInfoObjectInputCreating is a NodeStatusForNodeDetailInfoObjectInput enum value
+	NodeStatusForNodeDetailInfoObjectInputCreating = "Creating"
+
+	// NodeStatusForNodeDetailInfoObjectInputDeleting is a NodeStatusForNodeDetailInfoObjectInput enum value
+	NodeStatusForNodeDetailInfoObjectInputDeleting = "Deleting"
+
+	// NodeStatusForNodeDetailInfoObjectInputRestarting is a NodeStatusForNodeDetailInfoObjectInput enum value
+	NodeStatusForNodeDetailInfoObjectInputRestarting = "Restarting"
+
+	// NodeStatusForNodeDetailInfoObjectInputRestoring is a NodeStatusForNodeDetailInfoObjectInput enum value
+	NodeStatusForNodeDetailInfoObjectInputRestoring = "Restoring"
+
+	// NodeStatusForNodeDetailInfoObjectInputUpdating is a NodeStatusForNodeDetailInfoObjectInput enum value
+	NodeStatusForNodeDetailInfoObjectInputUpdating = "Updating"
+
+	// NodeStatusForNodeDetailInfoObjectInputUpgrading is a NodeStatusForNodeDetailInfoObjectInput enum value
+	NodeStatusForNodeDetailInfoObjectInputUpgrading = "Upgrading"
+
+	// NodeStatusForNodeDetailInfoObjectInputError is a NodeStatusForNodeDetailInfoObjectInput enum value
+	NodeStatusForNodeDetailInfoObjectInputError = "Error"
+
+	// NodeStatusForNodeDetailInfoObjectInputRunning is a NodeStatusForNodeDetailInfoObjectInput enum value
+	NodeStatusForNodeDetailInfoObjectInputRunning = "Running"
+)
+
+const (
+	// NodeTypeForCreateDBInstanceInputPrimary is a NodeTypeForCreateDBInstanceInput enum value
+	NodeTypeForCreateDBInstanceInputPrimary = "Primary"
+
+	// NodeTypeForCreateDBInstanceInputSecondary is a NodeTypeForCreateDBInstanceInput enum value
+	NodeTypeForCreateDBInstanceInputSecondary = "Secondary"
+
+	// NodeTypeForCreateDBInstanceInputReadOnly is a NodeTypeForCreateDBInstanceInput enum value
+	NodeTypeForCreateDBInstanceInputReadOnly = "ReadOnly"
+)
+
+const (
+	// NodeTypeForInstanceInfoObjectInputPrimary is a NodeTypeForInstanceInfoObjectInput enum value
+	NodeTypeForInstanceInfoObjectInputPrimary = "Primary"
+
+	// NodeTypeForInstanceInfoObjectInputSecondary is a NodeTypeForInstanceInfoObjectInput enum value
+	NodeTypeForInstanceInfoObjectInputSecondary = "Secondary"
+
+	// NodeTypeForInstanceInfoObjectInputReadOnly is a NodeTypeForInstanceInfoObjectInput enum value
+	NodeTypeForInstanceInfoObjectInputReadOnly = "ReadOnly"
+)
+
+const (
+	// NodeTypeForModifyDBInstanceSpecInputPrimary is a NodeTypeForModifyDBInstanceSpecInput enum value
+	NodeTypeForModifyDBInstanceSpecInputPrimary = "Primary"
+
+	// NodeTypeForModifyDBInstanceSpecInputSecondary is a NodeTypeForModifyDBInstanceSpecInput enum value
+	NodeTypeForModifyDBInstanceSpecInputSecondary = "Secondary"
+
+	// NodeTypeForModifyDBInstanceSpecInputReadOnly is a NodeTypeForModifyDBInstanceSpecInput enum value
+	NodeTypeForModifyDBInstanceSpecInputReadOnly = "ReadOnly"
+)
+
+const (
+	// NodeTypeForNodeDetailInfoObjectInputPrimary is a NodeTypeForNodeDetailInfoObjectInput enum value
+	NodeTypeForNodeDetailInfoObjectInputPrimary = "Primary"
+
+	// NodeTypeForNodeDetailInfoObjectInputSecondary is a NodeTypeForNodeDetailInfoObjectInput enum value
+	NodeTypeForNodeDetailInfoObjectInputSecondary = "Secondary"
+
+	// NodeTypeForNodeDetailInfoObjectInputReadOnly is a NodeTypeForNodeDetailInfoObjectInput enum value
+	NodeTypeForNodeDetailInfoObjectInputReadOnly = "ReadOnly"
+)
+
+const (
+	// NodeTypeForNodeInfoObjectInputPrimary is a NodeTypeForNodeInfoObjectInput enum value
+	NodeTypeForNodeInfoObjectInputPrimary = "Primary"
+
+	// NodeTypeForNodeInfoObjectInputSecondary is a NodeTypeForNodeInfoObjectInput enum value
+	NodeTypeForNodeInfoObjectInputSecondary = "Secondary"
+
+	// NodeTypeForNodeInfoObjectInputReadOnly is a NodeTypeForNodeInfoObjectInput enum value
+	NodeTypeForNodeInfoObjectInputReadOnly = "ReadOnly"
+)
+
+const (
+	// NodeTypeForRestoreToNewInstanceInputPrimary is a NodeTypeForRestoreToNewInstanceInput enum value
+	NodeTypeForRestoreToNewInstanceInputPrimary = "Primary"
+
+	// NodeTypeForRestoreToNewInstanceInputSecondary is a NodeTypeForRestoreToNewInstanceInput enum value
+	NodeTypeForRestoreToNewInstanceInputSecondary = "Secondary"
+
+	// NodeTypeForRestoreToNewInstanceInputReadOnly is a NodeTypeForRestoreToNewInstanceInput enum value
+	NodeTypeForRestoreToNewInstanceInputReadOnly = "ReadOnly"
+)
+
+const (
+	// PeriodUnitForChargeDetailObjectInputYear is a PeriodUnitForChargeDetailObjectInput enum value
+	PeriodUnitForChargeDetailObjectInputYear = "Year"
+
+	// PeriodUnitForChargeDetailObjectInputMonth is a PeriodUnitForChargeDetailObjectInput enum value
+	PeriodUnitForChargeDetailObjectInputMonth = "Month"
+)
+
+const (
+	// PeriodUnitForChargeInfoObjectInputYear is a PeriodUnitForChargeInfoObjectInput enum value
+	PeriodUnitForChargeInfoObjectInputYear = "Year"
+
+	// PeriodUnitForChargeInfoObjectInputMonth is a PeriodUnitForChargeInfoObjectInput enum value
+	PeriodUnitForChargeInfoObjectInputMonth = "Month"
+)
+
+const (
+	// PeriodUnitForCreateDBInstanceInputYear is a PeriodUnitForCreateDBInstanceInput enum value
+	PeriodUnitForCreateDBInstanceInputYear = "Year"
+
+	// PeriodUnitForCreateDBInstanceInputMonth is a PeriodUnitForCreateDBInstanceInput enum value
+	PeriodUnitForCreateDBInstanceInputMonth = "Month"
+)
+
+const (
+	// PeriodUnitForDescribeDBInstancePriceDetailInputYear is a PeriodUnitForDescribeDBInstancePriceDetailInput enum value
+	PeriodUnitForDescribeDBInstancePriceDetailInputYear = "Year"
+
+	// PeriodUnitForDescribeDBInstancePriceDetailInputMonth is a PeriodUnitForDescribeDBInstancePriceDetailInput enum value
+	PeriodUnitForDescribeDBInstancePriceDetailInputMonth = "Month"
+)
+
+const (
+	// PeriodUnitForInstanceInfoObjectInputYear is a PeriodUnitForInstanceInfoObjectInput enum value
+	PeriodUnitForInstanceInfoObjectInputYear = "Year"
+
+	// PeriodUnitForInstanceInfoObjectInputMonth is a PeriodUnitForInstanceInfoObjectInput enum value
+	PeriodUnitForInstanceInfoObjectInputMonth = "Month"
+)
+
+const (
+	// PeriodUnitForRestoreToNewInstanceInputYear is a PeriodUnitForRestoreToNewInstanceInput enum value
+	PeriodUnitForRestoreToNewInstanceInputYear = "Year"
+
+	// PeriodUnitForRestoreToNewInstanceInputMonth is a PeriodUnitForRestoreToNewInstanceInput enum value
+	PeriodUnitForRestoreToNewInstanceInputMonth = "Month"
+)
+
+const (
+	// PrivilegeForModifyAccountPrivilegesInfoInputReadWrite is a PrivilegeForModifyAccountPrivilegesInfoInput enum value
+	PrivilegeForModifyAccountPrivilegesInfoInputReadWrite = "ReadWrite"
+
+	// PrivilegeForModifyAccountPrivilegesInfoInputReadOnly is a PrivilegeForModifyAccountPrivilegesInfoInput enum value
+	PrivilegeForModifyAccountPrivilegesInfoInputReadOnly = "ReadOnly"
+
+	// PrivilegeForModifyAccountPrivilegesInfoInputDdlonly is a PrivilegeForModifyAccountPrivilegesInfoInput enum value
+	PrivilegeForModifyAccountPrivilegesInfoInputDdlonly = "DDLOnly"
+
+	// PrivilegeForModifyAccountPrivilegesInfoInputDmlonly is a PrivilegeForModifyAccountPrivilegesInfoInput enum value
+	PrivilegeForModifyAccountPrivilegesInfoInputDmlonly = "DMLOnly"
+
+	// PrivilegeForModifyAccountPrivilegesInfoInputCustom is a PrivilegeForModifyAccountPrivilegesInfoInput enum value
+	PrivilegeForModifyAccountPrivilegesInfoInputCustom = "Custom"
+
+	// PrivilegeForModifyAccountPrivilegesInfoInputNone is a PrivilegeForModifyAccountPrivilegesInfoInput enum value
+	PrivilegeForModifyAccountPrivilegesInfoInputNone = "None"
+)
+
+const (
+	// PrivilegeForModifyDBAccountPrivilegeInputReadWrite is a PrivilegeForModifyDBAccountPrivilegeInput enum value
+	PrivilegeForModifyDBAccountPrivilegeInputReadWrite = "ReadWrite"
+
+	// PrivilegeForModifyDBAccountPrivilegeInputReadOnly is a PrivilegeForModifyDBAccountPrivilegeInput enum value
+	PrivilegeForModifyDBAccountPrivilegeInputReadOnly = "ReadOnly"
+
+	// PrivilegeForModifyDBAccountPrivilegeInputDdlonly is a PrivilegeForModifyDBAccountPrivilegeInput enum value
+	PrivilegeForModifyDBAccountPrivilegeInputDdlonly = "DDLOnly"
+
+	// PrivilegeForModifyDBAccountPrivilegeInputDmlonly is a PrivilegeForModifyDBAccountPrivilegeInput enum value
+	PrivilegeForModifyDBAccountPrivilegeInputDmlonly = "DMLOnly"
+
+	// PrivilegeForModifyDBAccountPrivilegeInputCustom is a PrivilegeForModifyDBAccountPrivilegeInput enum value
+	PrivilegeForModifyDBAccountPrivilegeInputCustom = "Custom"
+
+	// PrivilegeForModifyDBAccountPrivilegeInputNone is a PrivilegeForModifyDBAccountPrivilegeInput enum value
+	PrivilegeForModifyDBAccountPrivilegeInputNone = "None"
+)
+
+const (
+	// PrivilegeForModifyDatabasePrivilegeInputReadWrite is a PrivilegeForModifyDatabasePrivilegeInput enum value
+	PrivilegeForModifyDatabasePrivilegeInputReadWrite = "ReadWrite"
+
+	// PrivilegeForModifyDatabasePrivilegeInputReadOnly is a PrivilegeForModifyDatabasePrivilegeInput enum value
+	PrivilegeForModifyDatabasePrivilegeInputReadOnly = "ReadOnly"
+
+	// PrivilegeForModifyDatabasePrivilegeInputDdlonly is a PrivilegeForModifyDatabasePrivilegeInput enum value
+	PrivilegeForModifyDatabasePrivilegeInputDdlonly = "DDLOnly"
+
+	// PrivilegeForModifyDatabasePrivilegeInputDmlonly is a PrivilegeForModifyDatabasePrivilegeInput enum value
+	PrivilegeForModifyDatabasePrivilegeInputDmlonly = "DMLOnly"
+
+	// PrivilegeForModifyDatabasePrivilegeInputCustom is a PrivilegeForModifyDatabasePrivilegeInput enum value
+	PrivilegeForModifyDatabasePrivilegeInputCustom = "Custom"
+
+	// PrivilegeForModifyDatabasePrivilegeInputNone is a PrivilegeForModifyDatabasePrivilegeInput enum value
+	PrivilegeForModifyDatabasePrivilegeInputNone = "None"
+)
+
+const (
+	// PrivilegeForModifyDatabasePrivilegesInfoInputReadWrite is a PrivilegeForModifyDatabasePrivilegesInfoInput enum value
+	PrivilegeForModifyDatabasePrivilegesInfoInputReadWrite = "ReadWrite"
+
+	// PrivilegeForModifyDatabasePrivilegesInfoInputReadOnly is a PrivilegeForModifyDatabasePrivilegesInfoInput enum value
+	PrivilegeForModifyDatabasePrivilegesInfoInputReadOnly = "ReadOnly"
+
+	// PrivilegeForModifyDatabasePrivilegesInfoInputDdlonly is a PrivilegeForModifyDatabasePrivilegesInfoInput enum value
+	PrivilegeForModifyDatabasePrivilegesInfoInputDdlonly = "DDLOnly"
+
+	// PrivilegeForModifyDatabasePrivilegesInfoInputDmlonly is a PrivilegeForModifyDatabasePrivilegesInfoInput enum value
+	PrivilegeForModifyDatabasePrivilegesInfoInputDmlonly = "DMLOnly"
+
+	// PrivilegeForModifyDatabasePrivilegesInfoInputCustom is a PrivilegeForModifyDatabasePrivilegesInfoInput enum value
+	PrivilegeForModifyDatabasePrivilegesInfoInputCustom = "Custom"
+
+	// PrivilegeForModifyDatabasePrivilegesInfoInputNone is a PrivilegeForModifyDatabasePrivilegesInfoInput enum value
+	PrivilegeForModifyDatabasePrivilegesInfoInputNone = "None"
+)
+
+const (
+	// SpecStatusForInstanceSpecsInfoObjectInputNormal is a SpecStatusForInstanceSpecsInfoObjectInput enum value
+	SpecStatusForInstanceSpecsInfoObjectInputNormal = "Normal"
+
+	// SpecStatusForInstanceSpecsInfoObjectInputUnsupported is a SpecStatusForInstanceSpecsInfoObjectInput enum value
+	SpecStatusForInstanceSpecsInfoObjectInputUnsupported = "Unsupported"
+
+	// SpecStatusForInstanceSpecsInfoObjectInputSoldout is a SpecStatusForInstanceSpecsInfoObjectInput enum value
+	SpecStatusForInstanceSpecsInfoObjectInputSoldout = "Soldout"
+)
+
+const (
+	// StorageTypeForBasicInfoObjectInputLocalSsd is a StorageTypeForBasicInfoObjectInput enum value
+	StorageTypeForBasicInfoObjectInputLocalSsd = "LocalSSD"
+)
+
+const (
+	// StorageTypeForCreateDBInstanceInputLocalSsd is a StorageTypeForCreateDBInstanceInput enum value
+	StorageTypeForCreateDBInstanceInputLocalSsd = "LocalSSD"
+)
+
+const (
+	// StorageTypeForInstanceInfoObjectInputLocalSsd is a StorageTypeForInstanceInfoObjectInput enum value
+	StorageTypeForInstanceInfoObjectInputLocalSsd = "LocalSSD"
+)
+
+const (
+	// StorageTypeForModifyDBInstanceSpecInputLocalSsd is a StorageTypeForModifyDBInstanceSpecInput enum value
+	StorageTypeForModifyDBInstanceSpecInputLocalSsd = "LocalSSD"
+)
+
+const (
+	// StorageTypeForRestoreToNewInstanceInputLocalSsd is a StorageTypeForRestoreToNewInstanceInput enum value
+	StorageTypeForRestoreToNewInstanceInputLocalSsd = "LocalSSD"
+)

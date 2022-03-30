@@ -1311,9 +1311,9 @@ func (c *NATGATEWAY) ModifySnatEntryAttributesWithContext(ctx volcstack.Context,
 type CreateNatGatewayInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	NatGatewayName *string `type:"string"`
+	NatGatewayName *string `min:"1" max:"128" type:"string"`
 
 	Spec *string `type:"string" enum:"SpecForCreateNatGatewayInput"`
 
@@ -1336,6 +1336,18 @@ func (s CreateNatGatewayInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateNatGatewayInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateNatGatewayInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.NatGatewayName != nil && len(*s.NatGatewayName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NatGatewayName", 1))
+	}
+	if s.NatGatewayName != nil && len(*s.NatGatewayName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("NatGatewayName", 128, *s.NatGatewayName))
+	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
@@ -1415,7 +1427,7 @@ type CreateSnatEntryInput struct {
 	// NatGatewayId is a required field
 	NatGatewayId *string `type:"string" required:"true"`
 
-	SnatEntryName *string `type:"string"`
+	SnatEntryName *string `min:"1" max:"128" type:"string"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -1439,6 +1451,12 @@ func (s *CreateSnatEntryInput) Validate() error {
 	}
 	if s.NatGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NatGatewayId"))
+	}
+	if s.SnatEntryName != nil && len(*s.SnatEntryName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SnatEntryName", 1))
+	}
+	if s.SnatEntryName != nil && len(*s.SnatEntryName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("SnatEntryName", 128, *s.SnatEntryName))
 	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
@@ -1817,7 +1835,7 @@ type DescribeNatGatewaysInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	Spec *string `type:"string" enum:"SpecForDescribeNatGatewaysInput"`
 
@@ -1960,7 +1978,7 @@ type DescribeSnatEntriesInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	SnatEntryIds []*string `type:"list"`
 
@@ -2281,12 +2299,12 @@ func (s *EipAddressForDescribeNatGatewaysOutput) SetUsingStatus(v string) *EipAd
 type ModifyNatGatewayAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// NatGatewayId is a required field
 	NatGatewayId *string `type:"string" required:"true"`
 
-	NatGatewayName *string `type:"string"`
+	NatGatewayName *string `min:"1" max:"128" type:"string"`
 
 	Spec *string `type:"string" enum:"SpecForModifyNatGatewayAttributesInput"`
 }
@@ -2304,8 +2322,20 @@ func (s ModifyNatGatewayAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyNatGatewayAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyNatGatewayAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.NatGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NatGatewayId"))
+	}
+	if s.NatGatewayName != nil && len(*s.NatGatewayName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NatGatewayName", 1))
+	}
+	if s.NatGatewayName != nil && len(*s.NatGatewayName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("NatGatewayName", 128, *s.NatGatewayName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -2368,7 +2398,7 @@ type ModifySnatEntryAttributesInput struct {
 	// SnatEntryId is a required field
 	SnatEntryId *string `type:"string" required:"true"`
 
-	SnatEntryName *string `type:"string"`
+	SnatEntryName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -2386,6 +2416,12 @@ func (s *ModifySnatEntryAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifySnatEntryAttributesInput"}
 	if s.SnatEntryId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SnatEntryId"))
+	}
+	if s.SnatEntryName != nil && len(*s.SnatEntryName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SnatEntryName", 1))
+	}
+	if s.SnatEntryName != nil && len(*s.SnatEntryName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("SnatEntryName", 128, *s.SnatEntryName))
 	}
 
 	if invalidParams.Len() > 0 {

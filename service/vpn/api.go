@@ -2871,9 +2871,9 @@ func (c *VPN) SetVpnGatewayRenewalWithContext(ctx volcstack.Context, input *SetV
 type CreateCustomerVpnGatewayInput struct {
 	_ struct{} `type:"structure"`
 
-	CustomerVpnGatewayName *string `type:"string"`
+	CustomerVpnGatewayName *string `min:"1" max:"128" type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// IPAddress is a required field
 	IPAddress *string `type:"string" required:"true"`
@@ -2892,6 +2892,18 @@ func (s CreateCustomerVpnGatewayInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateCustomerVpnGatewayInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateCustomerVpnGatewayInput"}
+	if s.CustomerVpnGatewayName != nil && len(*s.CustomerVpnGatewayName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomerVpnGatewayName", 1))
+	}
+	if s.CustomerVpnGatewayName != nil && len(*s.CustomerVpnGatewayName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("CustomerVpnGatewayName", 128, *s.CustomerVpnGatewayName))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.IPAddress == nil {
 		invalidParams.Add(request.NewErrParamRequired("IPAddress"))
 	}
@@ -2956,7 +2968,7 @@ type CreateVpnConnectionInput struct {
 	// CustomerVpnGatewayId is a required field
 	CustomerVpnGatewayId *string `type:"string" required:"true"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// IkeConfig is a required field
 	IkeConfig *IkeConfigForCreateVpnConnectionInput `type:"structure" required:"true"`
@@ -2971,7 +2983,7 @@ type CreateVpnConnectionInput struct {
 	// RemoteSubnet is a required field
 	RemoteSubnet *string `type:"string" required:"true"`
 
-	VpnConnectionName *string `type:"string"`
+	VpnConnectionName *string `min:"1" max:"128" type:"string"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
@@ -2993,6 +3005,12 @@ func (s *CreateVpnConnectionInput) Validate() error {
 	if s.CustomerVpnGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("CustomerVpnGatewayId"))
 	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.IkeConfig == nil {
 		invalidParams.Add(request.NewErrParamRequired("IkeConfig"))
 	}
@@ -3001,6 +3019,12 @@ func (s *CreateVpnConnectionInput) Validate() error {
 	}
 	if s.RemoteSubnet == nil {
 		invalidParams.Add(request.NewErrParamRequired("RemoteSubnet"))
+	}
+	if s.VpnConnectionName != nil && len(*s.VpnConnectionName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VpnConnectionName", 1))
+	}
+	if s.VpnConnectionName != nil && len(*s.VpnConnectionName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VpnConnectionName", 128, *s.VpnConnectionName))
 	}
 	if s.VpnGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
@@ -3105,11 +3129,11 @@ type CreateVpnGatewayInput struct {
 	_ struct{} `type:"structure"`
 
 	// Bandwidth is a required field
-	Bandwidth *int64 `min:"5" type:"integer" required:"true"`
+	Bandwidth *int64 `min:"5" max:"200" type:"integer" required:"true"`
 
-	BillingType *int64 `min:"1" type:"integer"`
+	BillingType *int64 `min:"1" max:"1" type:"integer"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	Period *int64 `type:"integer"`
 
@@ -3119,7 +3143,7 @@ type CreateVpnGatewayInput struct {
 
 	RenewPeriod *int64 `type:"integer"`
 
-	RenewType *int64 `min:"1" type:"integer"`
+	RenewType *int64 `min:"1" max:"3" type:"integer"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -3127,7 +3151,7 @@ type CreateVpnGatewayInput struct {
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
-	VpnGatewayName *string `type:"string"`
+	VpnGatewayName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -3158,6 +3182,12 @@ func (s *CreateVpnGatewayInput) Validate() error {
 	if s.BillingType != nil && *s.BillingType > 1 {
 		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 1))
 	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.RenewType != nil && *s.RenewType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
 	}
@@ -3169,6 +3199,12 @@ func (s *CreateVpnGatewayInput) Validate() error {
 	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.VpnGatewayName != nil && len(*s.VpnGatewayName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VpnGatewayName", 1))
+	}
+	if s.VpnGatewayName != nil && len(*s.VpnGatewayName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VpnGatewayName", 128, *s.VpnGatewayName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -4722,7 +4758,7 @@ type DescribeVpnGatewaysBillingInput struct {
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	// VpnGatewayIds is a required field
 	VpnGatewayIds []*string `type:"list" required:"true"`
@@ -5506,9 +5542,9 @@ type ModifyCustomerVpnGatewayAttributesInput struct {
 	// CustomerVpnGatewayId is a required field
 	CustomerVpnGatewayId *string `type:"string" required:"true"`
 
-	CustomerVpnGatewayName *string `type:"string"`
+	CustomerVpnGatewayName *string `min:"1" max:"128" type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 }
 
 // String returns the string representation
@@ -5526,6 +5562,18 @@ func (s *ModifyCustomerVpnGatewayAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyCustomerVpnGatewayAttributesInput"}
 	if s.CustomerVpnGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("CustomerVpnGatewayId"))
+	}
+	if s.CustomerVpnGatewayName != nil && len(*s.CustomerVpnGatewayName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("CustomerVpnGatewayName", 1))
+	}
+	if s.CustomerVpnGatewayName != nil && len(*s.CustomerVpnGatewayName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("CustomerVpnGatewayName", 128, *s.CustomerVpnGatewayName))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -5577,7 +5625,7 @@ func (s *ModifyCustomerVpnGatewayAttributesOutput) SetRequestId(v string) *Modif
 type ModifyVpnConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	IkeConfig *IkeConfigForModifyVpnConnectionAttributesInput `type:"structure"`
 
@@ -5592,7 +5640,7 @@ type ModifyVpnConnectionAttributesInput struct {
 	// VpnConnectionId is a required field
 	VpnConnectionId *string `type:"string" required:"true"`
 
-	VpnConnectionName *string `type:"string"`
+	VpnConnectionName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -5608,8 +5656,20 @@ func (s ModifyVpnConnectionAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyVpnConnectionAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyVpnConnectionAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.VpnConnectionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnConnectionId"))
+	}
+	if s.VpnConnectionName != nil && len(*s.VpnConnectionName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VpnConnectionName", 1))
+	}
+	if s.VpnConnectionName != nil && len(*s.VpnConnectionName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VpnConnectionName", 128, *s.VpnConnectionName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -5691,14 +5751,14 @@ func (s *ModifyVpnConnectionAttributesOutput) SetRequestId(v string) *ModifyVpnC
 type ModifyVpnGatewayAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `min:"5" type:"integer"`
+	Bandwidth *int64 `min:"5" max:"200" type:"integer"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
 
-	VpnGatewayName *string `type:"string"`
+	VpnGatewayName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -5720,8 +5780,20 @@ func (s *ModifyVpnGatewayAttributesInput) Validate() error {
 	if s.Bandwidth != nil && *s.Bandwidth > 200 {
 		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 200))
 	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.VpnGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
+	}
+	if s.VpnGatewayName != nil && len(*s.VpnGatewayName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VpnGatewayName", 1))
+	}
+	if s.VpnGatewayName != nil && len(*s.VpnGatewayName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VpnGatewayName", 128, *s.VpnGatewayName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -5866,7 +5938,7 @@ type SetVpnGatewayRenewalInput struct {
 	RenewPeriod *int64 `type:"integer"`
 
 	// RenewType is a required field
-	RenewType *int64 `min:"1" type:"integer" required:"true"`
+	RenewType *int64 `min:"1" max:"3" type:"integer" required:"true"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`

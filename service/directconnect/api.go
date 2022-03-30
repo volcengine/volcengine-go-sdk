@@ -3752,9 +3752,9 @@ type CreateBgpPeerInput struct {
 	// AuthKey is a required field
 	AuthKey *string `type:"string" required:"true"`
 
-	BgpPeerName *string `type:"string"`
+	BgpPeerName *string `min:"1" max:"128" type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// RemoteAsn is a required field
 	RemoteAsn *int64 `type:"integer" required:"true"`
@@ -3778,6 +3778,18 @@ func (s *CreateBgpPeerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateBgpPeerInput"}
 	if s.AuthKey == nil {
 		invalidParams.Add(request.NewErrParamRequired("AuthKey"))
+	}
+	if s.BgpPeerName != nil && len(*s.BgpPeerName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("BgpPeerName", 1))
+	}
+	if s.BgpPeerName != nil && len(*s.BgpPeerName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("BgpPeerName", 128, *s.BgpPeerName))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 	if s.RemoteAsn == nil {
 		invalidParams.Add(request.NewErrParamRequired("RemoteAsn"))
@@ -4027,7 +4039,7 @@ func (s *CreateDirectConnectGatewayRouteOutput) SetRequestId(v string) *CreateDi
 type CreateDirectConnectVirtualInterfaceInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// DirectConnectConnectionId is a required field
 	DirectConnectConnectionId *string `type:"string" required:"true"`
@@ -4043,7 +4055,7 @@ type CreateDirectConnectVirtualInterfaceInput struct {
 
 	RouteType *string `type:"string" enum:"RouteTypeForCreateDirectConnectVirtualInterfaceInput"`
 
-	VirtualInterfaceName *string `type:"string"`
+	VirtualInterfaceName *string `min:"1" max:"128" type:"string"`
 
 	// VlanId is a required field
 	VlanId *int64 `type:"integer" required:"true"`
@@ -4062,6 +4074,12 @@ func (s CreateDirectConnectVirtualInterfaceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDirectConnectVirtualInterfaceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDirectConnectVirtualInterfaceInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.DirectConnectConnectionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("DirectConnectConnectionId"))
 	}
@@ -4073,6 +4091,12 @@ func (s *CreateDirectConnectVirtualInterfaceInput) Validate() error {
 	}
 	if s.PeerIp == nil {
 		invalidParams.Add(request.NewErrParamRequired("PeerIp"))
+	}
+	if s.VirtualInterfaceName != nil && len(*s.VirtualInterfaceName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VirtualInterfaceName", 1))
+	}
+	if s.VirtualInterfaceName != nil && len(*s.VirtualInterfaceName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VirtualInterfaceName", 128, *s.VirtualInterfaceName))
 	}
 	if s.VlanId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VlanId"))
@@ -6668,9 +6692,9 @@ type ModifyBgpPeerAttributesInput struct {
 	// BgpPeerId is a required field
 	BgpPeerId *string `type:"string" required:"true"`
 
-	BgpPeerName *string `type:"string"`
+	BgpPeerName *string `min:"1" max:"128" type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 }
 
 // String returns the string representation
@@ -6688,6 +6712,18 @@ func (s *ModifyBgpPeerAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyBgpPeerAttributesInput"}
 	if s.BgpPeerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BgpPeerId"))
+	}
+	if s.BgpPeerName != nil && len(*s.BgpPeerName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("BgpPeerName", 1))
+	}
+	if s.BgpPeerName != nil && len(*s.BgpPeerName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("BgpPeerName", 128, *s.BgpPeerName))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -6887,12 +6923,12 @@ func (s *ModifyDirectConnectGatewayAttributesOutput) SetRequestId(v string) *Mod
 type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// VirtualInterfaceId is a required field
 	VirtualInterfaceId *string `type:"string" required:"true"`
 
-	VirtualInterfaceName *string `type:"string"`
+	VirtualInterfaceName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -6908,8 +6944,20 @@ func (s ModifyDirectConnectVirtualInterfaceAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDirectConnectVirtualInterfaceAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.VirtualInterfaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VirtualInterfaceId"))
+	}
+	if s.VirtualInterfaceName != nil && len(*s.VirtualInterfaceName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VirtualInterfaceName", 1))
+	}
+	if s.VirtualInterfaceName != nil && len(*s.VirtualInterfaceName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VirtualInterfaceName", 128, *s.VirtualInterfaceName))
 	}
 
 	if invalidParams.Len() > 0 {
