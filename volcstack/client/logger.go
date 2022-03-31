@@ -64,8 +64,8 @@ func logStructLog(r *request.Request, level string, logStruct LogStruct) {
 	if r.IsJsonBody && strings.HasSuffix(logStruct.OperationName, "Request") {
 		logStruct.Body = r.Params
 	}
-	if r.Config.AccountId != nil {
-		logStruct.AccountId = *r.Config.AccountId
+	if r.Config.LogAccount != nil {
+		logStruct.AccountId = *r.Config.LogAccount(r.Context())
 	}
 	b, _ := json.Marshal(logStruct)
 	r.Config.Logger.Log(string(b))

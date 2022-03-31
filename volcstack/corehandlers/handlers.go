@@ -225,7 +225,7 @@ var AfterRetryHandler = request.NamedHandler{
 // appropriate Region and Endpoint set. Will set r.Error if the endpoint or
 // region is not valid.
 var ValidateEndpointHandler = request.NamedHandler{Name: "core.ValidateEndpointHandler", Fn: func(r *request.Request) {
-	if r.ClientInfo.SigningRegion == "" && volcstack.StringValue(r.Config.Region) == "" {
+	if r.ClientInfo.SigningRegion == "" && volcstack.StringValue(r.Config.Region) == "" && r.Config.DynamicCredentials == nil {
 		r.Error = volcstack.ErrMissingRegion
 	} else if r.ClientInfo.Endpoint == "" {
 		r.Error = volcstack.ErrMissingEndpoint
