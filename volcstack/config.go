@@ -215,7 +215,9 @@ type Config struct {
 
 	LogSensitives []string
 
-	AccountId *string
+	DynamicCredentials custom.DynamicCredentials
+
+	LogAccount custom.LogAccount
 
 	ExtendHttpRequest custom.ExtendHttpRequest
 
@@ -289,8 +291,13 @@ func (c *Config) WithExtraUserAgent(extra *string) *Config {
 	return c
 }
 
-func (c *Config) WithAccountId(accountId string) *Config {
-	c.AccountId = &accountId
+func (c *Config) WithLogAccount(account custom.LogAccount) *Config {
+	c.LogAccount = account
+	return c
+}
+
+func (c *Config) WithDynamicCredentials(f custom.DynamicCredentials) *Config {
+	c.DynamicCredentials = f
 	return c
 }
 
@@ -512,8 +519,12 @@ func mergeInConfig(dst *Config, other *Config) {
 		dst.LogSensitives = other.LogSensitives
 	}
 
-	if other.AccountId != nil {
-		dst.AccountId = other.AccountId
+	if other.LogAccount != nil {
+		dst.LogAccount = other.LogAccount
+	}
+
+	if other.DynamicCredentials != nil {
+		dst.DynamicCredentials = other.DynamicCredentials
 	}
 
 	if other.ExtendHttpRequest != nil {
