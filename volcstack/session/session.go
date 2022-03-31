@@ -21,6 +21,7 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/volcstack/endpoints"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 const (
@@ -128,6 +129,10 @@ func New(cfgs ...*volcstack.Config) *Session {
 func NewSession(cfgs ...*volcstack.Config) (*Session, error) {
 	opts := Options{}
 	opts.Config.MergeIn(cfgs...)
+
+	if opts.Config.Endpoint == nil {
+		opts.Config.Endpoint = volcstack.String(volcstackutil.NewEndpoint().GetEndpoint())
+	}
 
 	return NewSessionWithOptions(opts)
 }
