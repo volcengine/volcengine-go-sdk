@@ -1053,6 +1053,136 @@ func (c *ECS) DescribeUserDataWithContext(ctx volcstack.Context, input *Describe
 	return out, req.Send()
 }
 
+const opDescribeZonesCommon = "DescribeZones"
+
+// DescribeZonesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeZonesCommon operation. The "output" return
+// value will be populated with the DescribeZonesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeZonesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeZonesCommon Send returns without error.
+//
+// See DescribeZonesCommon for more information on using the DescribeZonesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeZonesCommonRequest method.
+//    req, resp := client.DescribeZonesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeZonesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeZonesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeZonesCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeZonesCommon for usage and error information.
+func (c *ECS) DescribeZonesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeZonesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeZonesCommonWithContext is the same as DescribeZonesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeZonesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeZonesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeZonesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeZones = "DescribeZones"
+
+// DescribeZonesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeZones operation. The "output" return
+// value will be populated with the DescribeZonesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeZonesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeZonesCommon Send returns without error.
+//
+// See DescribeZones for more information on using the DescribeZones
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeZonesRequest method.
+//    req, resp := client.DescribeZonesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) DescribeZonesRequest(input *DescribeZonesInput) (req *request.Request, output *DescribeZonesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeZones,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeZonesInput{}
+	}
+
+	output = &DescribeZonesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeZones API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation DescribeZones for usage and error information.
+func (c *ECS) DescribeZones(input *DescribeZonesInput) (*DescribeZonesOutput, error) {
+	req, out := c.DescribeZonesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeZonesWithContext is the same as DescribeZones with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeZones for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) DescribeZonesWithContext(ctx volcstack.Context, input *DescribeZonesInput, opts ...request.Option) (*DescribeZonesOutput, error) {
+	req, out := c.DescribeZonesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opModifyInstanceAttributeCommon = "ModifyInstanceAttribute"
 
 // ModifyInstanceAttributeCommonRequest generates a "volcstack/request.Request" representing the
@@ -1707,6 +1837,137 @@ func (c *ECS) RenewInstanceWithContext(ctx volcstack.Context, input *RenewInstan
 	return out, req.Send()
 }
 
+const opReplaceSystemVolumeCommon = "ReplaceSystemVolume"
+
+// ReplaceSystemVolumeCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ReplaceSystemVolumeCommon operation. The "output" return
+// value will be populated with the ReplaceSystemVolumeCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ReplaceSystemVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ReplaceSystemVolumeCommon Send returns without error.
+//
+// See ReplaceSystemVolumeCommon for more information on using the ReplaceSystemVolumeCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ReplaceSystemVolumeCommonRequest method.
+//    req, resp := client.ReplaceSystemVolumeCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ReplaceSystemVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opReplaceSystemVolumeCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ReplaceSystemVolumeCommon API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ReplaceSystemVolumeCommon for usage and error information.
+func (c *ECS) ReplaceSystemVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ReplaceSystemVolumeCommonRequest(input)
+	return out, req.Send()
+}
+
+// ReplaceSystemVolumeCommonWithContext is the same as ReplaceSystemVolumeCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ReplaceSystemVolumeCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ReplaceSystemVolumeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ReplaceSystemVolumeCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opReplaceSystemVolume = "ReplaceSystemVolume"
+
+// ReplaceSystemVolumeRequest generates a "volcstack/request.Request" representing the
+// client's request for the ReplaceSystemVolume operation. The "output" return
+// value will be populated with the ReplaceSystemVolumeCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ReplaceSystemVolumeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ReplaceSystemVolumeCommon Send returns without error.
+//
+// See ReplaceSystemVolume for more information on using the ReplaceSystemVolume
+// API call, and error handling.
+//
+//    // Example sending a request using the ReplaceSystemVolumeRequest method.
+//    req, resp := client.ReplaceSystemVolumeRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *ECS) ReplaceSystemVolumeRequest(input *ReplaceSystemVolumeInput) (req *request.Request, output *ReplaceSystemVolumeOutput) {
+	op := &request.Operation{
+		Name:       opReplaceSystemVolume,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ReplaceSystemVolumeInput{}
+	}
+
+	output = &ReplaceSystemVolumeOutput{}
+	req = c.newRequest(op, input, output)
+
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// ReplaceSystemVolume API operation for ECS.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for ECS's
+// API operation ReplaceSystemVolume for usage and error information.
+func (c *ECS) ReplaceSystemVolume(input *ReplaceSystemVolumeInput) (*ReplaceSystemVolumeOutput, error) {
+	req, out := c.ReplaceSystemVolumeRequest(input)
+	return out, req.Send()
+}
+
+// ReplaceSystemVolumeWithContext is the same as ReplaceSystemVolume with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ReplaceSystemVolume for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ECS) ReplaceSystemVolumeWithContext(ctx volcstack.Context, input *ReplaceSystemVolumeInput, opts ...request.Option) (*ReplaceSystemVolumeOutput, error) {
+	req, out := c.ReplaceSystemVolumeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opRunInstancesCommon = "RunInstances"
 
 // RunInstancesCommonRequest generates a "volcstack/request.Request" representing the
@@ -2342,11 +2603,11 @@ type DescribeImagesInput struct {
 
 	IsSupportCloudInit *bool `type:"boolean"`
 
+	MaxResults *int32 `type:"int32"`
+
+	NextToken *string `type:"string"`
+
 	OsType *string `type:"string"`
-
-	PageNumber *int32 `type:"int32"`
-
-	PageSize *int32 `type:"int32"`
 
 	Visibility *string `type:"string"`
 }
@@ -2385,21 +2646,21 @@ func (s *DescribeImagesInput) SetIsSupportCloudInit(v bool) *DescribeImagesInput
 	return s
 }
 
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeImagesInput) SetMaxResults(v int32) *DescribeImagesInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeImagesInput) SetNextToken(v string) *DescribeImagesInput {
+	s.NextToken = &v
+	return s
+}
+
 // SetOsType sets the OsType field's value.
 func (s *DescribeImagesInput) SetOsType(v string) *DescribeImagesInput {
 	s.OsType = &v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeImagesInput) SetPageNumber(v int32) *DescribeImagesInput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeImagesInput) SetPageSize(v int32) *DescribeImagesInput {
-	s.PageSize = &v
 	return s
 }
 
@@ -2414,9 +2675,7 @@ type DescribeImagesOutput struct {
 
 	Images []*ImageForDescribeImagesOutput `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
-
-	PageSize *int32 `type:"int32"`
+	NextToken *string `type:"string"`
 
 	TotalCount *int32 `type:"int32"`
 }
@@ -2437,15 +2696,9 @@ func (s *DescribeImagesOutput) SetImages(v []*ImageForDescribeImagesOutput) *Des
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeImagesOutput) SetPageNumber(v int32) *DescribeImagesOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeImagesOutput) SetPageSize(v int32) *DescribeImagesOutput {
-	s.PageSize = &v
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeImagesOutput) SetNextToken(v string) *DescribeImagesOutput {
+	s.NextToken = &v
 	return s
 }
 
@@ -2460,9 +2713,9 @@ type DescribeInstanceTypesInput struct {
 
 	InstanceTypes []*string `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
+	MaxResults *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	NextToken *string `type:"string"`
 }
 
 // String returns the string representation
@@ -2481,15 +2734,15 @@ func (s *DescribeInstanceTypesInput) SetInstanceTypes(v []*string) *DescribeInst
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeInstanceTypesInput) SetPageNumber(v int32) *DescribeInstanceTypesInput {
-	s.PageNumber = &v
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeInstanceTypesInput) SetMaxResults(v int32) *DescribeInstanceTypesInput {
+	s.MaxResults = &v
 	return s
 }
 
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeInstanceTypesInput) SetPageSize(v int32) *DescribeInstanceTypesInput {
-	s.PageSize = &v
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeInstanceTypesInput) SetNextToken(v string) *DescribeInstanceTypesInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -2498,9 +2751,7 @@ type DescribeInstanceTypesOutput struct {
 
 	InstanceTypes []*InstanceTypeForDescribeInstanceTypesOutput `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
-
-	PageSize *int32 `type:"int32"`
+	NextToken *string `type:"string"`
 
 	TotalCount *int32 `type:"int32"`
 }
@@ -2521,15 +2772,9 @@ func (s *DescribeInstanceTypesOutput) SetInstanceTypes(v []*InstanceTypeForDescr
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeInstanceTypesOutput) SetPageNumber(v int32) *DescribeInstanceTypesOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeInstanceTypesOutput) SetPageSize(v int32) *DescribeInstanceTypesOutput {
-	s.PageSize = &v
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeInstanceTypesOutput) SetNextToken(v string) *DescribeInstanceTypesOutput {
+	s.NextToken = &v
 	return s
 }
 
@@ -2596,9 +2841,9 @@ type DescribeInstancesInput struct {
 
 	KeyPairName *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	MaxResults *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	NextToken *string `type:"string"`
 
 	PrimaryIpAddress *string `type:"string"`
 
@@ -2649,15 +2894,15 @@ func (s *DescribeInstancesInput) SetKeyPairName(v string) *DescribeInstancesInpu
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeInstancesInput) SetPageNumber(v int32) *DescribeInstancesInput {
-	s.PageNumber = &v
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeInstancesInput) SetMaxResults(v int32) *DescribeInstancesInput {
+	s.MaxResults = &v
 	return s
 }
 
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeInstancesInput) SetPageSize(v int32) *DescribeInstancesInput {
-	s.PageSize = &v
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeInstancesInput) SetNextToken(v string) *DescribeInstancesInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -2690,9 +2935,7 @@ type DescribeInstancesOutput struct {
 
 	Instances []*InstanceForDescribeInstancesOutput `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
-
-	PageSize *int32 `type:"int32"`
+	NextToken *string `type:"string"`
 
 	TotalCount *int32 `type:"int32"`
 }
@@ -2713,15 +2956,9 @@ func (s *DescribeInstancesOutput) SetInstances(v []*InstanceForDescribeInstances
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeInstancesOutput) SetPageNumber(v int32) *DescribeInstancesOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeInstancesOutput) SetPageSize(v int32) *DescribeInstancesOutput {
-	s.PageSize = &v
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeInstancesOutput) SetNextToken(v string) *DescribeInstancesOutput {
+	s.NextToken = &v
 	return s
 }
 
@@ -2780,6 +3017,50 @@ func (s *DescribeUserDataOutput) SetInstanceId(v string) *DescribeUserDataOutput
 // SetUserData sets the UserData field's value.
 func (s *DescribeUserDataOutput) SetUserData(v string) *DescribeUserDataOutput {
 	s.UserData = &v
+	return s
+}
+
+type DescribeZonesInput struct {
+	_ struct{} `type:"structure"`
+
+	ZoneIds []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeZonesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeZonesInput) GoString() string {
+	return s.String()
+}
+
+// SetZoneIds sets the ZoneIds field's value.
+func (s *DescribeZonesInput) SetZoneIds(v []*string) *DescribeZonesInput {
+	s.ZoneIds = v
+	return s
+}
+
+type DescribeZonesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Zones []*ZoneForDescribeZonesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeZonesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeZonesOutput) GoString() string {
+	return s.String()
+}
+
+// SetZones sets the Zones field's value.
+func (s *DescribeZonesOutput) SetZones(v []*ZoneForDescribeZonesOutput) *DescribeZonesOutput {
+	s.Zones = v
 	return s
 }
 
@@ -2978,11 +3259,11 @@ type InstanceForDescribeInstancesOutput struct {
 
 	HostName *string `type:"string"`
 
-	Id *string `type:"string"`
-
 	ImageId *string `type:"string"`
 
 	InstanceChargeType *string `type:"string"`
+
+	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
 
@@ -3037,12 +3318,6 @@ func (s *InstanceForDescribeInstancesOutput) SetHostName(v string) *InstanceForD
 	return s
 }
 
-// SetId sets the Id field's value.
-func (s *InstanceForDescribeInstancesOutput) SetId(v string) *InstanceForDescribeInstancesOutput {
-	s.Id = &v
-	return s
-}
-
 // SetImageId sets the ImageId field's value.
 func (s *InstanceForDescribeInstancesOutput) SetImageId(v string) *InstanceForDescribeInstancesOutput {
 	s.ImageId = &v
@@ -3052,6 +3327,12 @@ func (s *InstanceForDescribeInstancesOutput) SetImageId(v string) *InstanceForDe
 // SetInstanceChargeType sets the InstanceChargeType field's value.
 func (s *InstanceForDescribeInstancesOutput) SetInstanceChargeType(v string) *InstanceForDescribeInstancesOutput {
 	s.InstanceChargeType = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *InstanceForDescribeInstancesOutput) SetInstanceId(v string) *InstanceForDescribeInstancesOutput {
+	s.InstanceId = &v
 	return s
 }
 
@@ -3464,27 +3745,17 @@ func (s ModifyInstanceSpecOutput) GoString() string {
 type NetworkInterfaceForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
-	EipAddress *string `type:"string"`
-
 	MacAddress *string `type:"string"`
 
 	NetworkInterfaceId *string `type:"string"`
 
-	NetworkInterfaceName *string `type:"string"`
-
 	PrimaryIpAddress *string `type:"string"`
-
-	SecurityGroupIds []*string `type:"list"`
-
-	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
 
 	Type *string `type:"string"`
 
 	VpcId *string `type:"string"`
-
-	VpcName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3495,12 +3766,6 @@ func (s NetworkInterfaceForDescribeInstancesOutput) String() string {
 // GoString returns the string representation
 func (s NetworkInterfaceForDescribeInstancesOutput) GoString() string {
 	return s.String()
-}
-
-// SetEipAddress sets the EipAddress field's value.
-func (s *NetworkInterfaceForDescribeInstancesOutput) SetEipAddress(v string) *NetworkInterfaceForDescribeInstancesOutput {
-	s.EipAddress = &v
-	return s
 }
 
 // SetMacAddress sets the MacAddress field's value.
@@ -3515,27 +3780,9 @@ func (s *NetworkInterfaceForDescribeInstancesOutput) SetNetworkInterfaceId(v str
 	return s
 }
 
-// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
-func (s *NetworkInterfaceForDescribeInstancesOutput) SetNetworkInterfaceName(v string) *NetworkInterfaceForDescribeInstancesOutput {
-	s.NetworkInterfaceName = &v
-	return s
-}
-
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
 func (s *NetworkInterfaceForDescribeInstancesOutput) SetPrimaryIpAddress(v string) *NetworkInterfaceForDescribeInstancesOutput {
 	s.PrimaryIpAddress = &v
-	return s
-}
-
-// SetSecurityGroupIds sets the SecurityGroupIds field's value.
-func (s *NetworkInterfaceForDescribeInstancesOutput) SetSecurityGroupIds(v []*string) *NetworkInterfaceForDescribeInstancesOutput {
-	s.SecurityGroupIds = v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *NetworkInterfaceForDescribeInstancesOutput) SetStatus(v string) *NetworkInterfaceForDescribeInstancesOutput {
-	s.Status = &v
 	return s
 }
 
@@ -3554,12 +3801,6 @@ func (s *NetworkInterfaceForDescribeInstancesOutput) SetType(v string) *NetworkI
 // SetVpcId sets the VpcId field's value.
 func (s *NetworkInterfaceForDescribeInstancesOutput) SetVpcId(v string) *NetworkInterfaceForDescribeInstancesOutput {
 	s.VpcId = &v
-	return s
-}
-
-// SetVpcName sets the VpcName field's value.
-func (s *NetworkInterfaceForDescribeInstancesOutput) SetVpcName(v string) *NetworkInterfaceForDescribeInstancesOutput {
-	s.VpcName = &v
 	return s
 }
 
@@ -3739,6 +3980,82 @@ func (s RenewInstanceOutput) GoString() string {
 func (s *RenewInstanceOutput) SetOrderId(v string) *RenewInstanceOutput {
 	s.OrderId = &v
 	return s
+}
+
+type ReplaceSystemVolumeInput struct {
+	_ struct{} `type:"structure"`
+
+	ImageId *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	KeyPairName *string `type:"string"`
+
+	Password *string `type:"string"`
+
+	Size *json.Number `type:"json_number"`
+
+	UserData *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ReplaceSystemVolumeInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReplaceSystemVolumeInput) GoString() string {
+	return s.String()
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *ReplaceSystemVolumeInput) SetImageId(v string) *ReplaceSystemVolumeInput {
+	s.ImageId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ReplaceSystemVolumeInput) SetInstanceId(v string) *ReplaceSystemVolumeInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetKeyPairName sets the KeyPairName field's value.
+func (s *ReplaceSystemVolumeInput) SetKeyPairName(v string) *ReplaceSystemVolumeInput {
+	s.KeyPairName = &v
+	return s
+}
+
+// SetPassword sets the Password field's value.
+func (s *ReplaceSystemVolumeInput) SetPassword(v string) *ReplaceSystemVolumeInput {
+	s.Password = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *ReplaceSystemVolumeInput) SetSize(v json.Number) *ReplaceSystemVolumeInput {
+	s.Size = &v
+	return s
+}
+
+// SetUserData sets the UserData field's value.
+func (s *ReplaceSystemVolumeInput) SetUserData(v string) *ReplaceSystemVolumeInput {
+	s.UserData = &v
+	return s
+}
+
+type ReplaceSystemVolumeOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ReplaceSystemVolumeOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReplaceSystemVolumeOutput) GoString() string {
+	return s.String()
 }
 
 type RunInstancesInput struct {
@@ -4098,5 +4415,27 @@ func (s *VolumeForRunInstancesInput) SetSize(v int32) *VolumeForRunInstancesInpu
 // SetVolumeType sets the VolumeType field's value.
 func (s *VolumeForRunInstancesInput) SetVolumeType(v string) *VolumeForRunInstancesInput {
 	s.VolumeType = &v
+	return s
+}
+
+type ZoneForDescribeZonesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ZoneForDescribeZonesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZoneForDescribeZonesOutput) GoString() string {
+	return s.String()
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *ZoneForDescribeZonesOutput) SetZoneId(v string) *ZoneForDescribeZonesOutput {
+	s.ZoneId = &v
 	return s
 }
