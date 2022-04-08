@@ -94,6 +94,14 @@ type ECSAPI interface {
 	DescribeUserDataWithContext(volcstack.Context, *DescribeUserDataInput, ...request.Option) (*DescribeUserDataOutput, error)
 	DescribeUserDataRequest(*DescribeUserDataInput) (*request.Request, *DescribeUserDataOutput)
 
+	DescribeZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeZonesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeZones(*DescribeZonesInput) (*DescribeZonesOutput, error)
+	DescribeZonesWithContext(volcstack.Context, *DescribeZonesInput, ...request.Option) (*DescribeZonesOutput, error)
+	DescribeZonesRequest(*DescribeZonesInput) (*request.Request, *DescribeZonesOutput)
+
 	ModifyInstanceAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceAttributeCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyInstanceAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +141,14 @@ type ECSAPI interface {
 	RenewInstance(*RenewInstanceInput) (*RenewInstanceOutput, error)
 	RenewInstanceWithContext(volcstack.Context, *RenewInstanceInput, ...request.Option) (*RenewInstanceOutput, error)
 	RenewInstanceRequest(*RenewInstanceInput) (*request.Request, *RenewInstanceOutput)
+
+	ReplaceSystemVolumeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReplaceSystemVolumeCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReplaceSystemVolumeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReplaceSystemVolume(*ReplaceSystemVolumeInput) (*ReplaceSystemVolumeOutput, error)
+	ReplaceSystemVolumeWithContext(volcstack.Context, *ReplaceSystemVolumeInput, ...request.Option) (*ReplaceSystemVolumeOutput, error)
+	ReplaceSystemVolumeRequest(*ReplaceSystemVolumeInput) (*request.Request, *ReplaceSystemVolumeOutput)
 
 	RunInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RunInstancesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
