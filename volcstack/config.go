@@ -224,6 +224,10 @@ type Config struct {
 	ExtraHttpParameters custom.ExtraHttpParameters
 
 	ExtraUserAgent *string
+
+	BeforeCall custom.RequestInterceptor
+
+	AfterCall custom.ResponseInterceptor
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -298,6 +302,16 @@ func (c *Config) WithLogAccount(account custom.LogAccount) *Config {
 
 func (c *Config) WithDynamicCredentials(f custom.DynamicCredentials) *Config {
 	c.DynamicCredentials = f
+	return c
+}
+
+func (c *Config) WithBeforeCall(f custom.RequestInterceptor) *Config {
+	c.BeforeCall = f
+	return c
+}
+
+func (c *Config) WithAfterCall(f custom.ResponseInterceptor) *Config {
+	c.AfterCall = f
 	return c
 }
 
@@ -537,6 +551,14 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.ExtraUserAgent != nil {
 		dst.ExtraUserAgent = other.ExtraUserAgent
+	}
+
+	if other.BeforeCall != nil {
+		dst.BeforeCall = other.BeforeCall
+	}
+
+	if other.AfterCall != nil {
+		dst.AfterCall = other.AfterCall
 	}
 }
 

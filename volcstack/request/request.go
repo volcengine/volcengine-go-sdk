@@ -92,6 +92,8 @@ type Request struct {
 	safeBody   *offsetReader
 	Input      interface{}
 	IsJsonBody bool
+
+	holders []interface{}
 }
 
 // An Operation is the service API operation to be made.
@@ -511,7 +513,14 @@ func (r *Request) Send() error {
 		// Regardless of success or failure of the request trigger the Complete
 		// request handlers.
 		r.Handlers.Complete.Run(r)
+		if r.Config.AfterCall != nil {
+			r.Config.AfterCall(r.context, r.HTTPRequest, r.holders, r.Data)
+		}
 	}()
+
+	if r.Config.BeforeCall != nil {
+		r.holders = r.Config.BeforeCall(r.context, r.HTTPRequest)
+	}
 
 	if err := r.Error; err != nil {
 		return err
