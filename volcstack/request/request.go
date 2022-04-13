@@ -514,12 +514,12 @@ func (r *Request) Send() error {
 		// request handlers.
 		r.Handlers.Complete.Run(r)
 		if r.Config.AfterCall != nil {
-			r.Config.AfterCall(r.context, r.HTTPRequest, r.holders, r.Data)
+			r.Config.AfterCall(r.context, r.HTTPRequest, r.holders, r.Input, r.Data)
 		}
 	}()
 
 	if r.Config.BeforeCall != nil {
-		r.holders = r.Config.BeforeCall(r.context, r.HTTPRequest)
+		r.holders = r.Config.BeforeCall(r.context, r.HTTPRequest, r.Input)
 	}
 
 	if err := r.Error; err != nil {

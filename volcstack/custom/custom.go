@@ -15,6 +15,6 @@ type LogAccount func(ctx context.Context) *string
 
 type DynamicCredentials func(ctx context.Context) (*credentials.Credentials, *string)
 
-type RequestInterceptor func(ctx context.Context, request *http.Request) []interface{}
+type RequestInterceptor func(ctx context.Context, request *http.Request, input interface{}) []interface{}
 
-type ResponseInterceptor func(ctx context.Context, request *http.Request, holder []interface{}, data interface{})
+type ResponseInterceptor func(ctx context.Context, request *http.Request, holder []interface{}, input interface{}, output interface{})
