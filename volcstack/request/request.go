@@ -703,15 +703,16 @@ func isDefaultPort(scheme, port string) bool {
 
 func (r *Request) MergeSdkInterceptor() custom.SdkInterceptor {
 	return custom.SdkInterceptor{
-		Context: r.context,
-		Request: r.HTTPRequest,
-		Name:    r.Operation.Name,
-		Method:  r.Operation.HTTPMethod,
-		URI:     r.HTTPRequest.RequestURI,
-		Header:  r.HTTPRequest.Header,
-		URL:     r.HTTPRequest.URL,
-		Input:   r.Params,
-		Output:  r.Data,
-		Holders: r.holders,
+		Context:    r.context,
+		Request:    r.HTTPRequest,
+		Name:       r.Operation.Name,
+		Method:     r.Operation.HTTPMethod,
+		ClientInfo: r.ClientInfo,
+		URI:        r.HTTPRequest.RequestURI,
+		Header:     r.HTTPRequest.Header,
+		URL:        r.HTTPRequest.URL,
+		Input:      r.Params,
+		Output:     r.Data,
+		Holders:    r.holders,
 	}
 }
