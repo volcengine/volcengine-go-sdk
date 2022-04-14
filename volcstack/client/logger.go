@@ -5,6 +5,7 @@ package client
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -57,6 +58,7 @@ type LogStruct struct {
 	Response      interface{} `json:"Response,omitempty"`
 	Type          string
 	AccountId     string `json:"AccountId,omitempty"`
+	Context       context.Context
 }
 
 func logStructLog(r *request.Request, level string, logStruct LogStruct) {
@@ -84,6 +86,7 @@ func logInput(r *request.Request) {
 		OperationName: r.Operation.Name,
 		Type:          "Request",
 		Request:       r.Input,
+		Context:       r.Context(),
 	}
 
 	if logInfoStruct {
@@ -106,6 +109,7 @@ func LogOutput(r *request.Request) {
 		OperationName: r.Operation.Name,
 		Response:      r.Data,
 		Type:          "Response",
+		Context:       r.Context(),
 	}
 
 	if logInfoStruct {

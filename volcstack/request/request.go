@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/custom"
 
 	"github.com/volcengine/volcstack-go-sdk/internal/sdkio"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"
@@ -514,13 +515,9 @@ func (r *Request) Send() error {
 		// request handlers.
 		r.Handlers.Complete.Run(r)
 		if r.Config.AfterCall != nil {
-			r.Config.AfterCall(r.context, r.HTTPRequest, r.holders, r.Input, r.Data)
+			r.Config.AfterCall(r.MergeSdkInterceptor())
 		}
 	}()
-
-	if r.Config.BeforeCall != nil {
-		r.holders = r.Config.BeforeCall(r.context, r.HTTPRequest, r.Input)
-	}
 
 	if err := r.Error; err != nil {
 		return err
@@ -533,6 +530,10 @@ func (r *Request) Send() error {
 		if err := r.Sign(); err != nil {
 			debugLogReqError(r, "Sign Request", notRetrying, err)
 			return err
+		}
+
+		if r.Config.BeforeCall != nil {
+			r.holders = r.Config.BeforeCall(r.MergeSdkInterceptor())
 		}
 
 		if err := r.sendRequest(); err == nil {
@@ -698,4 +699,19 @@ func isDefaultPort(scheme, port string) bool {
 	}
 
 	return false
+}
+
+func (r *Request) MergeSdkInterceptor() custom.SdkInterceptor {
+	return custom.SdkInterceptor{
+		Context: r.context,
+		Request: r.HTTPRequest,
+		Name:    r.Operation.Name,
+		Method:  r.Operation.HTTPMethod,
+		URI:     r.HTTPRequest.RequestURI,
+		Header:  r.HTTPRequest.Header,
+		URL:     r.HTTPRequest.URL,
+		Input:   r.Params,
+		Output:  r.Data,
+		Holders: r.holders,
+	}
 }
