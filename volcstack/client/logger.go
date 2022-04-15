@@ -6,7 +6,6 @@ package client
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -69,8 +68,8 @@ func logStructLog(r *request.Request, level string, logStruct LogStruct) {
 	if r.Config.LogAccount != nil {
 		logStruct.AccountId = *r.Config.LogAccount(r.Context())
 	}
-	b, _ := json.Marshal(logStruct)
-	r.Config.Logger.Log(string(b))
+	//b, _ := json.Marshal(logStruct)
+	r.Config.Logger.Log(logStruct)
 }
 
 var LogInputHandler = request.NamedHandler{
