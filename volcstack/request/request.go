@@ -510,12 +510,15 @@ func (r *Request) GetBody() io.ReadSeeker {
 //
 // Send will not close the request.Request's volcstackbody.
 func (r *Request) Send() error {
+	interceptorMapping := make(map[int]interface{})
 	defer func() {
 		// Regardless of success or failure of the request trigger the Complete
 		// request handlers.
 		r.Handlers.Complete.Run(r)
-		if r.Config.AfterCall != nil {
-			r.Config.AfterCall(r.MergeSdkInterceptor())
+		for index, interceptor := range r.Config.Interceptors {
+			if interceptor.After != nil {
+				interceptor.After(r.MergeRequestInfo(), interceptorMapping[index])
+			}
 		}
 	}()
 
@@ -532,8 +535,13 @@ func (r *Request) Send() error {
 			return err
 		}
 
-		if r.Config.BeforeCall != nil {
-			r.holders = r.Config.BeforeCall(r.MergeSdkInterceptor())
+		for index, interceptor := range r.Config.Interceptors {
+			if interceptor.Before != nil {
+				interceptorMapping[index] = interceptor.Before(r.MergeRequestInfo())
+			} else {
+				interceptorMapping[index] = nil
+			}
+
 		}
 
 		if err := r.sendRequest(); err == nil {
@@ -701,8 +709,8 @@ func isDefaultPort(scheme, port string) bool {
 	return false
 }
 
-func (r *Request) MergeSdkInterceptor() custom.SdkInterceptor {
-	return custom.SdkInterceptor{
+func (r *Request) MergeRequestInfo() custom.RequestInfo {
+	return custom.RequestInfo{
 		Context:    r.context,
 		Request:    r.HTTPRequest,
 		Name:       r.Operation.Name,
@@ -713,6 +721,5 @@ func (r *Request) MergeSdkInterceptor() custom.SdkInterceptor {
 		URL:        r.HTTPRequest.URL,
 		Input:      r.Params,
 		Output:     r.Data,
-		Holders:    r.holders,
 	}
 }

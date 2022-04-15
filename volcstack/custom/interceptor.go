@@ -9,6 +9,11 @@ import (
 )
 
 type SdkInterceptor struct {
+	Before BeforeCall
+	After  AfterCall
+}
+
+type RequestInfo struct {
 	Context    context.Context
 	Request    *http.Request
 	Name       string
@@ -19,5 +24,8 @@ type SdkInterceptor struct {
 	URL        *url.URL
 	Input      interface{}
 	Output     interface{}
-	Holders    []interface{}
 }
+
+type BeforeCall func(RequestInfo) interface{}
+
+type AfterCall func(RequestInfo, interface{})

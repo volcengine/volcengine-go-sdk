@@ -225,9 +225,7 @@ type Config struct {
 
 	ExtraUserAgent *string
 
-	BeforeCall custom.RequestInterceptor
-
-	AfterCall custom.ResponseInterceptor
+	Interceptors []custom.SdkInterceptor
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -245,6 +243,11 @@ type Config struct {
 //     )
 func NewConfig() *Config {
 	return &Config{}
+}
+
+func (c *Config) AddInterceptor(interceptor custom.SdkInterceptor) *Config {
+	c.Interceptors = append(c.Interceptors, interceptor)
+	return c
 }
 
 // WithCredentialsChainVerboseErrors sets a config verbose errors boolean and returning
@@ -302,16 +305,6 @@ func (c *Config) WithLogAccount(account custom.LogAccount) *Config {
 
 func (c *Config) WithDynamicCredentials(f custom.DynamicCredentials) *Config {
 	c.DynamicCredentials = f
-	return c
-}
-
-func (c *Config) WithBeforeCall(f custom.RequestInterceptor) *Config {
-	c.BeforeCall = f
-	return c
-}
-
-func (c *Config) WithAfterCall(f custom.ResponseInterceptor) *Config {
-	c.AfterCall = f
 	return c
 }
 
@@ -553,13 +546,7 @@ func mergeInConfig(dst *Config, other *Config) {
 		dst.ExtraUserAgent = other.ExtraUserAgent
 	}
 
-	if other.BeforeCall != nil {
-		dst.BeforeCall = other.BeforeCall
-	}
-
-	if other.AfterCall != nil {
-		dst.AfterCall = other.AfterCall
-	}
+	dst.Interceptors = other.Interceptors
 }
 
 // Copy will return a shallow copy of the Config object. If any additional
