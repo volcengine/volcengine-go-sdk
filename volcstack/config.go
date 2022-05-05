@@ -226,6 +226,8 @@ type Config struct {
 	ExtraUserAgent *string
 
 	Interceptors []custom.SdkInterceptor
+
+	SimpleError *bool
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -275,6 +277,11 @@ func (c *Config) WithAkSk(ak, sk string) *Config {
 // chaining.
 func (c *Config) WithEndpoint(endpoint string) *Config {
 	c.Endpoint = &endpoint
+	return c
+}
+
+func (c *Config) WithSimpleError(simpleError bool) *Config {
+	c.SimpleError = &simpleError
 	return c
 }
 
@@ -544,6 +551,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.ExtraUserAgent != nil {
 		dst.ExtraUserAgent = other.ExtraUserAgent
+	}
+
+	if other.SimpleError != nil {
+		dst.SimpleError = other.SimpleError
 	}
 
 	dst.Interceptors = other.Interceptors
