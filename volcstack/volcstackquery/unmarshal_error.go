@@ -52,6 +52,7 @@ func UnmarshalError(r *request.Request) {
 			volcstackerr.New(resp.ResponseMetadata.Error.Code, resp.ResponseMetadata.Error.Message, nil),
 			r.HTTPResponse.StatusCode,
 			resp.ResponseMetadata.RequestId,
+			r.Config.SimpleError,
 		)
 		return
 	} else {

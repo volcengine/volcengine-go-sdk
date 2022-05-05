@@ -123,9 +123,10 @@ type volcstackerror Error
 // Composed of baseError for code, message, and original error.
 type requestError struct {
 	volcstackerror
-	statusCode int
-	requestID  string
-	bytes      []byte
+	statusCode  int
+	requestID   string
+	bytes       []byte
+	simpleError bool
 }
 
 // newRequestError returns a wrapped error with additional information for
@@ -136,20 +137,33 @@ type requestError struct {
 // that may be meaningful.
 //
 // Also wraps original errors via the baseError.
-func newRequestError(err Error, statusCode int, requestID string) *requestError {
+func newRequestError(err Error, statusCode int, requestID string, simple ...*bool) *requestError {
+	if simple == nil || len(simple) != 1 {
+		return &requestError{
+			volcstackerror: err,
+			statusCode:     statusCode,
+			requestID:      requestID,
+		}
+	}
 	return &requestError{
 		volcstackerror: err,
 		statusCode:     statusCode,
 		requestID:      requestID,
+		simpleError:    *simple[0],
 	}
+
 }
 
 // Error returns the string representation of the error.
 // Satisfies the error interface.
 func (r requestError) Error() string {
-	extra := fmt.Sprintf("status code: %d, request id: %s",
-		r.statusCode, r.requestID)
-	return SprintError(r.Code(), r.Message(), extra, r.OrigErr())
+	if !r.simpleError {
+		extra := fmt.Sprintf("status code: %d, request id: %s",
+			r.statusCode, r.requestID)
+		return SprintError(r.Code(), r.Message(), extra, r.OrigErr())
+	}
+	return r.Code()
+
 }
 
 // String returns the string representation of the error.
