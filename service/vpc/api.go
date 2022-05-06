@@ -12782,6 +12782,28 @@ func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetZoneId(v stri
 
 type PermissionForDescribeSecurityGroupAttributesOutput struct {
 	_ struct{} `type:"structure"`
+
+	CidrIp *string `type:"string"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	Direction *string `type:"string"`
+
+	Policy *string `type:"string"`
+
+	PortEnd *int64 `type:"integer"`
+
+	PortStart *int64 `type:"integer"`
+
+	Priority *int64 `type:"integer"`
+
+	Protocol *string `type:"string"`
+
+	SourceGroupId *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -12792,6 +12814,72 @@ func (s PermissionForDescribeSecurityGroupAttributesOutput) String() string {
 // GoString returns the string representation
 func (s PermissionForDescribeSecurityGroupAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCidrIp sets the CidrIp field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetCidrIp(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.CidrIp = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetCreationTime(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetDescription(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDirection sets the Direction field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetDirection(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.Direction = &v
+	return s
+}
+
+// SetPolicy sets the Policy field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPolicy(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.Policy = &v
+	return s
+}
+
+// SetPortEnd sets the PortEnd field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortEnd(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.PortEnd = &v
+	return s
+}
+
+// SetPortStart sets the PortStart field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortStart(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.PortStart = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPriority(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.Priority = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetProtocol(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.Protocol = &v
+	return s
+}
+
+// SetSourceGroupId sets the SourceGroupId field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetSourceGroupId(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.SourceGroupId = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetUpdateTime(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.UpdateTime = &v
+	return s
 }
 
 type PrivateIpSetForDescribeNetworkInterfacesOutput struct {
