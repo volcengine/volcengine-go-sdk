@@ -138,7 +138,7 @@ type requestError struct {
 //
 // Also wraps original errors via the baseError.
 func newRequestError(err Error, statusCode int, requestID string, simple ...*bool) *requestError {
-	if simple == nil || len(simple) != 1 {
+	if simple == nil || len(simple) != 1 || simple[0] == nil {
 		return &requestError{
 			volcstackerror: err,
 			statusCode:     statusCode,
