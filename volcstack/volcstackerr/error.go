@@ -99,8 +99,8 @@ type RequestFailure interface {
 // Should be used to wrap all request which involve service requests. Even if
 // the request failed without a service response, but had an HTTP status code
 // that may be meaningful.
-func NewRequestFailure(err Error, statusCode int, reqID string) RequestFailure {
-	return newRequestError(err, statusCode, reqID)
+func NewRequestFailure(err Error, statusCode int, reqID string, simple ...*bool) RequestFailure {
+	return newRequestError(err, statusCode, reqID, simple...)
 }
 
 // UnmarshalError provides the interface for the SDK failing to unmarshal data.
