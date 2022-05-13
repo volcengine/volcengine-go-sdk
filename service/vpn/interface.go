@@ -19,7 +19,7 @@ import (
 //    // volcstack sdk func uses an SDK service client to make a request to
 //    // VPN.
 //    func myFunc(svc VPNAPI) bool {
-//        // Make svc.CreateCustomerVpnGateway request
+//        // Make svc.CreateCustomerGateway request
 //    }
 //
 //    func main() {
@@ -30,13 +30,13 @@ import (
 //    }
 //
 type VPNAPI interface {
-	CreateCustomerVpnGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateCustomerVpnGatewayCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateCustomerVpnGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	CreateCustomerGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateCustomerGatewayCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateCustomerGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	CreateCustomerVpnGateway(*CreateCustomerVpnGatewayInput) (*CreateCustomerVpnGatewayOutput, error)
-	CreateCustomerVpnGatewayWithContext(volcstack.Context, *CreateCustomerVpnGatewayInput, ...request.Option) (*CreateCustomerVpnGatewayOutput, error)
-	CreateCustomerVpnGatewayRequest(*CreateCustomerVpnGatewayInput) (*request.Request, *CreateCustomerVpnGatewayOutput)
+	CreateCustomerGateway(*CreateCustomerGatewayInput) (*CreateCustomerGatewayOutput, error)
+	CreateCustomerGatewayWithContext(volcstack.Context, *CreateCustomerGatewayInput, ...request.Option) (*CreateCustomerGatewayOutput, error)
+	CreateCustomerGatewayRequest(*CreateCustomerGatewayInput) (*request.Request, *CreateCustomerGatewayOutput)
 
 	CreateVpnConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateVpnConnectionCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -62,13 +62,13 @@ type VPNAPI interface {
 	CreateVpnGatewayRouteWithContext(volcstack.Context, *CreateVpnGatewayRouteInput, ...request.Option) (*CreateVpnGatewayRouteOutput, error)
 	CreateVpnGatewayRouteRequest(*CreateVpnGatewayRouteInput) (*request.Request, *CreateVpnGatewayRouteOutput)
 
-	DeleteCustomerVpnGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteCustomerVpnGatewayCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteCustomerVpnGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DeleteCustomerGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteCustomerGatewayCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteCustomerGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DeleteCustomerVpnGateway(*DeleteCustomerVpnGatewayInput) (*DeleteCustomerVpnGatewayOutput, error)
-	DeleteCustomerVpnGatewayWithContext(volcstack.Context, *DeleteCustomerVpnGatewayInput, ...request.Option) (*DeleteCustomerVpnGatewayOutput, error)
-	DeleteCustomerVpnGatewayRequest(*DeleteCustomerVpnGatewayInput) (*request.Request, *DeleteCustomerVpnGatewayOutput)
+	DeleteCustomerGateway(*DeleteCustomerGatewayInput) (*DeleteCustomerGatewayOutput, error)
+	DeleteCustomerGatewayWithContext(volcstack.Context, *DeleteCustomerGatewayInput, ...request.Option) (*DeleteCustomerGatewayOutput, error)
+	DeleteCustomerGatewayRequest(*DeleteCustomerGatewayInput) (*request.Request, *DeleteCustomerGatewayOutput)
 
 	DeleteVpnConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVpnConnectionCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -94,21 +94,21 @@ type VPNAPI interface {
 	DeleteVpnGatewayRouteWithContext(volcstack.Context, *DeleteVpnGatewayRouteInput, ...request.Option) (*DeleteVpnGatewayRouteOutput, error)
 	DeleteVpnGatewayRouteRequest(*DeleteVpnGatewayRouteInput) (*request.Request, *DeleteVpnGatewayRouteOutput)
 
-	DescribeCustomerVpnGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeCustomerVpnGatewayAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeCustomerVpnGatewayAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DescribeCustomerGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCustomerGatewayAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCustomerGatewayAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DescribeCustomerVpnGatewayAttributes(*DescribeCustomerVpnGatewayAttributesInput) (*DescribeCustomerVpnGatewayAttributesOutput, error)
-	DescribeCustomerVpnGatewayAttributesWithContext(volcstack.Context, *DescribeCustomerVpnGatewayAttributesInput, ...request.Option) (*DescribeCustomerVpnGatewayAttributesOutput, error)
-	DescribeCustomerVpnGatewayAttributesRequest(*DescribeCustomerVpnGatewayAttributesInput) (*request.Request, *DescribeCustomerVpnGatewayAttributesOutput)
+	DescribeCustomerGatewayAttributes(*DescribeCustomerGatewayAttributesInput) (*DescribeCustomerGatewayAttributesOutput, error)
+	DescribeCustomerGatewayAttributesWithContext(volcstack.Context, *DescribeCustomerGatewayAttributesInput, ...request.Option) (*DescribeCustomerGatewayAttributesOutput, error)
+	DescribeCustomerGatewayAttributesRequest(*DescribeCustomerGatewayAttributesInput) (*request.Request, *DescribeCustomerGatewayAttributesOutput)
 
-	DescribeCustomerVpnGatewaysCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeCustomerVpnGatewaysCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeCustomerVpnGatewaysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DescribeCustomerGatewaysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCustomerGatewaysCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCustomerGatewaysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DescribeCustomerVpnGateways(*DescribeCustomerVpnGatewaysInput) (*DescribeCustomerVpnGatewaysOutput, error)
-	DescribeCustomerVpnGatewaysWithContext(volcstack.Context, *DescribeCustomerVpnGatewaysInput, ...request.Option) (*DescribeCustomerVpnGatewaysOutput, error)
-	DescribeCustomerVpnGatewaysRequest(*DescribeCustomerVpnGatewaysInput) (*request.Request, *DescribeCustomerVpnGatewaysOutput)
+	DescribeCustomerGateways(*DescribeCustomerGatewaysInput) (*DescribeCustomerGatewaysOutput, error)
+	DescribeCustomerGatewaysWithContext(volcstack.Context, *DescribeCustomerGatewaysInput, ...request.Option) (*DescribeCustomerGatewaysOutput, error)
+	DescribeCustomerGatewaysRequest(*DescribeCustomerGatewaysInput) (*request.Request, *DescribeCustomerGatewaysOutput)
 
 	DescribeVpnConnectionAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpnConnectionAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -166,13 +166,13 @@ type VPNAPI interface {
 	DescribeVpnGatewaysBillingWithContext(volcstack.Context, *DescribeVpnGatewaysBillingInput, ...request.Option) (*DescribeVpnGatewaysBillingOutput, error)
 	DescribeVpnGatewaysBillingRequest(*DescribeVpnGatewaysBillingInput) (*request.Request, *DescribeVpnGatewaysBillingOutput)
 
-	ModifyCustomerVpnGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyCustomerVpnGatewayAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyCustomerVpnGatewayAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ModifyCustomerGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyCustomerGatewayAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyCustomerGatewayAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	ModifyCustomerVpnGatewayAttributes(*ModifyCustomerVpnGatewayAttributesInput) (*ModifyCustomerVpnGatewayAttributesOutput, error)
-	ModifyCustomerVpnGatewayAttributesWithContext(volcstack.Context, *ModifyCustomerVpnGatewayAttributesInput, ...request.Option) (*ModifyCustomerVpnGatewayAttributesOutput, error)
-	ModifyCustomerVpnGatewayAttributesRequest(*ModifyCustomerVpnGatewayAttributesInput) (*request.Request, *ModifyCustomerVpnGatewayAttributesOutput)
+	ModifyCustomerGatewayAttributes(*ModifyCustomerGatewayAttributesInput) (*ModifyCustomerGatewayAttributesOutput, error)
+	ModifyCustomerGatewayAttributesWithContext(volcstack.Context, *ModifyCustomerGatewayAttributesInput, ...request.Option) (*ModifyCustomerGatewayAttributesOutput, error)
+	ModifyCustomerGatewayAttributesRequest(*ModifyCustomerGatewayAttributesInput) (*request.Request, *ModifyCustomerGatewayAttributesOutput)
 
 	ModifyVpnConnectionAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpnConnectionAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

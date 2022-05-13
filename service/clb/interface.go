@@ -46,6 +46,14 @@ type CLBAPI interface {
 	AddServerGroupBackendServersWithContext(volcstack.Context, *AddServerGroupBackendServersInput, ...request.Option) (*AddServerGroupBackendServersOutput, error)
 	AddServerGroupBackendServersRequest(*AddServerGroupBackendServersInput) (*request.Request, *AddServerGroupBackendServersOutput)
 
+	ConvertLoadBalancerBillingTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ConvertLoadBalancerBillingTypeCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ConvertLoadBalancerBillingTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ConvertLoadBalancerBillingType(*ConvertLoadBalancerBillingTypeInput) (*ConvertLoadBalancerBillingTypeOutput, error)
+	ConvertLoadBalancerBillingTypeWithContext(volcstack.Context, *ConvertLoadBalancerBillingTypeInput, ...request.Option) (*ConvertLoadBalancerBillingTypeOutput, error)
+	ConvertLoadBalancerBillingTypeRequest(*ConvertLoadBalancerBillingTypeInput) (*request.Request, *ConvertLoadBalancerBillingTypeOutput)
+
 	CreateAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAclCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -301,6 +309,22 @@ type CLBAPI interface {
 	RemoveServerGroupBackendServers(*RemoveServerGroupBackendServersInput) (*RemoveServerGroupBackendServersOutput, error)
 	RemoveServerGroupBackendServersWithContext(volcstack.Context, *RemoveServerGroupBackendServersInput, ...request.Option) (*RemoveServerGroupBackendServersOutput, error)
 	RemoveServerGroupBackendServersRequest(*RemoveServerGroupBackendServersInput) (*request.Request, *RemoveServerGroupBackendServersOutput)
+
+	RenewLoadBalancerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RenewLoadBalancerCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RenewLoadBalancerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RenewLoadBalancer(*RenewLoadBalancerInput) (*RenewLoadBalancerOutput, error)
+	RenewLoadBalancerWithContext(volcstack.Context, *RenewLoadBalancerInput, ...request.Option) (*RenewLoadBalancerOutput, error)
+	RenewLoadBalancerRequest(*RenewLoadBalancerInput) (*request.Request, *RenewLoadBalancerOutput)
+
+	SetLoadBalancerRenewalCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetLoadBalancerRenewalCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetLoadBalancerRenewalCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetLoadBalancerRenewal(*SetLoadBalancerRenewalInput) (*SetLoadBalancerRenewalOutput, error)
+	SetLoadBalancerRenewalWithContext(volcstack.Context, *SetLoadBalancerRenewalInput, ...request.Option) (*SetLoadBalancerRenewalOutput, error)
+	SetLoadBalancerRenewalRequest(*SetLoadBalancerRenewalInput) (*request.Request, *SetLoadBalancerRenewalOutput)
 
 	UploadCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UploadCertificateCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

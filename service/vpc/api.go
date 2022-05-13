@@ -6914,6 +6914,8 @@ type AllocateEipAddressInput struct {
 	Period *int64 `type:"integer"`
 
 	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
+
+	SecurityProtectionTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -7005,6 +7007,12 @@ func (s *AllocateEipAddressInput) SetPeriod(v int64) *AllocateEipAddressInput {
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *AllocateEipAddressInput) SetPeriodUnit(v int64) *AllocateEipAddressInput {
 	s.PeriodUnit = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *AllocateEipAddressInput) SetSecurityProtectionTypes(v []*string) *AllocateEipAddressInput {
+	s.SecurityProtectionTypes = v
 	return s
 }
 
@@ -7104,6 +7112,8 @@ type AssignPrivateIpAddressesOutput struct {
 	NetworkInterfaceId *string `type:"string"`
 
 	PrivateIpSet []*string `type:"list"`
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -7125,6 +7135,12 @@ func (s *AssignPrivateIpAddressesOutput) SetNetworkInterfaceId(v string) *Assign
 // SetPrivateIpSet sets the PrivateIpSet field's value.
 func (s *AssignPrivateIpAddressesOutput) SetPrivateIpSet(v []*string) *AssignPrivateIpAddressesOutput {
 	s.PrivateIpSet = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AssignPrivateIpAddressesOutput) SetRequestId(v string) *AssignPrivateIpAddressesOutput {
+	s.RequestId = &v
 	return s
 }
 
@@ -9109,6 +9125,8 @@ type DescribeEipAddressAttributesOutput struct {
 
 	RequestId *string `type:"string"`
 
+	SecurityProtectionTypes []*string `type:"list"`
+
 	Status *string `type:"string"`
 
 	UpdatedAt *string `type:"string"`
@@ -9226,6 +9244,12 @@ func (s *DescribeEipAddressAttributesOutput) SetRequestId(v string) *DescribeEip
 	return s
 }
 
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *DescribeEipAddressAttributesOutput) SetSecurityProtectionTypes(v []*string) *DescribeEipAddressAttributesOutput {
+	s.SecurityProtectionTypes = v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DescribeEipAddressAttributesOutput) SetStatus(v string) *DescribeEipAddressAttributesOutput {
 	s.Status = &v
@@ -9258,6 +9282,8 @@ type DescribeEipAddressesInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
+
+	SecurityProtectionEnabled *bool `type:"boolean"`
 
 	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
 }
@@ -9342,6 +9368,12 @@ func (s *DescribeEipAddressesInput) SetPageNumber(v int64) *DescribeEipAddresses
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeEipAddressesInput) SetPageSize(v int64) *DescribeEipAddressesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetSecurityProtectionEnabled sets the SecurityProtectionEnabled field's value.
+func (s *DescribeEipAddressesInput) SetSecurityProtectionEnabled(v bool) *DescribeEipAddressesInput {
+	s.SecurityProtectionEnabled = &v
 	return s
 }
 
@@ -9609,9 +9641,13 @@ type DescribeNetworkInterfaceAttributesOutput struct {
 
 	PrimaryIpAddress *string `type:"string"`
 
+	PrivateIpSets *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput `type:"structure"`
+
 	RequestId *string `type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
+
+	ServiceManaged *bool `type:"boolean"`
 
 	Status *string `type:"string"`
 
@@ -9698,6 +9734,12 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetPrimaryIpAddress(v string)
 	return s
 }
 
+// SetPrivateIpSets sets the PrivateIpSets field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetPrivateIpSets(v *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) *DescribeNetworkInterfaceAttributesOutput {
+	s.PrivateIpSets = v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeNetworkInterfaceAttributesOutput) SetRequestId(v string) *DescribeNetworkInterfaceAttributesOutput {
 	s.RequestId = &v
@@ -9707,6 +9749,12 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetRequestId(v string) *Descr
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *DescribeNetworkInterfaceAttributesOutput) SetSecurityGroupIds(v []*string) *DescribeNetworkInterfaceAttributesOutput {
 	s.SecurityGroupIds = v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetServiceManaged(v bool) *DescribeNetworkInterfaceAttributesOutput {
+	s.ServiceManaged = &v
 	return s
 }
 
@@ -10511,6 +10559,8 @@ type DescribeSubnetAttributesOutput struct {
 
 	Description *string `type:"string"`
 
+	NetworkAclId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	RouteTable *RouteTableForDescribeSubnetAttributesOutput `type:"structure"`
@@ -10567,6 +10617,12 @@ func (s *DescribeSubnetAttributesOutput) SetCreationTime(v string) *DescribeSubn
 // SetDescription sets the Description field's value.
 func (s *DescribeSubnetAttributesOutput) SetDescription(v string) *DescribeSubnetAttributesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetNetworkAclId sets the NetworkAclId field's value.
+func (s *DescribeSubnetAttributesOutput) SetNetworkAclId(v string) *DescribeSubnetAttributesOutput {
+	s.NetworkAclId = &v
 	return s
 }
 
@@ -10818,6 +10874,8 @@ type DescribeVpcAttributesOutput struct {
 
 	NatGatewayIds []*string `type:"list"`
 
+	NetworkAclNum *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	RouteTableIds []*string `type:"list"`
@@ -10884,6 +10942,12 @@ func (s *DescribeVpcAttributesOutput) SetDnsServers(v []*string) *DescribeVpcAtt
 // SetNatGatewayIds sets the NatGatewayIds field's value.
 func (s *DescribeVpcAttributesOutput) SetNatGatewayIds(v []*string) *DescribeVpcAttributesOutput {
 	s.NatGatewayIds = v
+	return s
+}
+
+// SetNetworkAclNum sets the NetworkAclNum field's value.
+func (s *DescribeVpcAttributesOutput) SetNetworkAclNum(v string) *DescribeVpcAttributesOutput {
+	s.NetworkAclNum = &v
 	return s
 }
 
@@ -11375,6 +11439,8 @@ type EipAddressForDescribeEipAddressesOutput struct {
 
 	OverdueTime *string `type:"string"`
 
+	SecurityProtectionTypes []*string `type:"list"`
+
 	Status *string `type:"string"`
 
 	UpdatedAt *string `type:"string"`
@@ -11483,6 +11549,12 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetName(v string) *EipAddressF
 // SetOverdueTime sets the OverdueTime field's value.
 func (s *EipAddressForDescribeEipAddressesOutput) SetOverdueTime(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.OverdueTime = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetSecurityProtectionTypes(v []*string) *EipAddressForDescribeEipAddressesOutput {
+	s.SecurityProtectionTypes = v
 	return s
 }
 
@@ -12882,6 +12954,44 @@ func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetUpdateTime(v str
 	return s
 }
 
+type PrivateIpSetForDescribeNetworkInterfaceAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput `type:"structure"`
+
+	Primary *bool `type:"boolean"`
+
+	PrivateIpAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
+	s.AssociatedElasticIp = v
+	return s
+}
+
+// SetPrimary sets the Primary field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetPrimary(v bool) *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
+	s.Primary = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpAddress(v string) *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
+	s.PrivateIpAddress = &v
+	return s
+}
+
 type PrivateIpSetForDescribeNetworkInterfacesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -12917,6 +13027,28 @@ func (s *PrivateIpSetForDescribeNetworkInterfacesOutput) SetPrimary(v bool) *Pri
 // SetPrivateIpAddress sets the PrivateIpAddress field's value.
 func (s *PrivateIpSetForDescribeNetworkInterfacesOutput) SetPrivateIpAddress(v string) *PrivateIpSetForDescribeNetworkInterfacesOutput {
 	s.PrivateIpAddress = &v
+	return s
+}
+
+type PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrivateIpSet []*PrivateIpSetForDescribeNetworkInterfaceAttributesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetPrivateIpSet sets the PrivateIpSet field's value.
+func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpSet(v []*PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
+	s.PrivateIpSet = v
 	return s
 }
 
@@ -13615,6 +13747,8 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	Description *string `type:"string"`
 
+	NetworkAclId *string `type:"string"`
+
 	RouteTable *RouteTableForDescribeSubnetsOutput `type:"structure"`
 
 	Status *string `type:"string"`
@@ -13669,6 +13803,12 @@ func (s *SubnetForDescribeSubnetsOutput) SetCreationTime(v string) *SubnetForDes
 // SetDescription sets the Description field's value.
 func (s *SubnetForDescribeSubnetsOutput) SetDescription(v string) *SubnetForDescribeSubnetsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetNetworkAclId sets the NetworkAclId field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetNetworkAclId(v string) *SubnetForDescribeSubnetsOutput {
+	s.NetworkAclId = &v
 	return s
 }
 
@@ -13803,6 +13943,8 @@ type VpcForDescribeVpcsOutput struct {
 
 	NatGatewayIds []*string `type:"list"`
 
+	NetworkAclNum *string `type:"string"`
+
 	RouteTableIds []*string `type:"list"`
 
 	SecurityGroupIds []*string `type:"list"`
@@ -13870,6 +14012,12 @@ func (s *VpcForDescribeVpcsOutput) SetNatGatewayIds(v []*string) *VpcForDescribe
 	return s
 }
 
+// SetNetworkAclNum sets the NetworkAclNum field's value.
+func (s *VpcForDescribeVpcsOutput) SetNetworkAclNum(v string) *VpcForDescribeVpcsOutput {
+	s.NetworkAclNum = &v
+	return s
+}
+
 // SetRouteTableIds sets the RouteTableIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetRouteTableIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.RouteTableIds = v
@@ -13924,6 +14072,9 @@ const (
 
 	// AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
 	AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance = "ClbInstance"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputAlbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputAlbInstance = "AlbInstance"
 )
 
 const (
@@ -13963,6 +14114,9 @@ const (
 
 	// InstanceTypeForAssociateEipAddressInputClbInstance is a InstanceTypeForAssociateEipAddressInput enum value
 	InstanceTypeForAssociateEipAddressInputClbInstance = "ClbInstance"
+
+	// InstanceTypeForAssociateEipAddressInputAlbInstance is a InstanceTypeForAssociateEipAddressInput enum value
+	InstanceTypeForAssociateEipAddressInputAlbInstance = "AlbInstance"
 
 	// InstanceTypeForAssociateEipAddressInputEcsInstance is a InstanceTypeForAssociateEipAddressInput enum value
 	InstanceTypeForAssociateEipAddressInputEcsInstance = "EcsInstance"

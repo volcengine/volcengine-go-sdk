@@ -38,13 +38,29 @@ type AUTOSCALINGAPI interface {
 	AttachInstancesWithContext(volcstack.Context, *AttachInstancesInput, ...request.Option) (*AttachInstancesOutput, error)
 	AttachInstancesRequest(*AttachInstancesInput) (*request.Request, *AttachInstancesOutput)
 
-	AttachLoadBalancersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AttachLoadBalancersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AttachLoadBalancersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	AttachServerGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AttachServerGroupsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AttachServerGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	AttachLoadBalancers(*AttachLoadBalancersInput) (*AttachLoadBalancersOutput, error)
-	AttachLoadBalancersWithContext(volcstack.Context, *AttachLoadBalancersInput, ...request.Option) (*AttachLoadBalancersOutput, error)
-	AttachLoadBalancersRequest(*AttachLoadBalancersInput) (*request.Request, *AttachLoadBalancersOutput)
+	AttachServerGroups(*AttachServerGroupsInput) (*AttachServerGroupsOutput, error)
+	AttachServerGroupsWithContext(volcstack.Context, *AttachServerGroupsInput, ...request.Option) (*AttachServerGroupsOutput, error)
+	AttachServerGroupsRequest(*AttachServerGroupsInput) (*request.Request, *AttachServerGroupsOutput)
+
+	CompleteLifecycleActivityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CompleteLifecycleActivityCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CompleteLifecycleActivityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CompleteLifecycleActivity(*CompleteLifecycleActivityInput) (*CompleteLifecycleActivityOutput, error)
+	CompleteLifecycleActivityWithContext(volcstack.Context, *CompleteLifecycleActivityInput, ...request.Option) (*CompleteLifecycleActivityOutput, error)
+	CompleteLifecycleActivityRequest(*CompleteLifecycleActivityInput) (*request.Request, *CompleteLifecycleActivityOutput)
+
+	CreateLifecycleHookCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateLifecycleHookCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateLifecycleHookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateLifecycleHook(*CreateLifecycleHookInput) (*CreateLifecycleHookOutput, error)
+	CreateLifecycleHookWithContext(volcstack.Context, *CreateLifecycleHookInput, ...request.Option) (*CreateLifecycleHookOutput, error)
+	CreateLifecycleHookRequest(*CreateLifecycleHookInput) (*request.Request, *CreateLifecycleHookOutput)
 
 	CreateScalingConfigurationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateScalingConfigurationCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -70,6 +86,14 @@ type AUTOSCALINGAPI interface {
 	CreateScalingPolicyWithContext(volcstack.Context, *CreateScalingPolicyInput, ...request.Option) (*CreateScalingPolicyOutput, error)
 	CreateScalingPolicyRequest(*CreateScalingPolicyInput) (*request.Request, *CreateScalingPolicyOutput)
 
+	DeleteLifecycleHookCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteLifecycleHookCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteLifecycleHookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteLifecycleHook(*DeleteLifecycleHookInput) (*DeleteLifecycleHookOutput, error)
+	DeleteLifecycleHookWithContext(volcstack.Context, *DeleteLifecycleHookInput, ...request.Option) (*DeleteLifecycleHookOutput, error)
+	DeleteLifecycleHookRequest(*DeleteLifecycleHookInput) (*request.Request, *DeleteLifecycleHookOutput)
+
 	DeleteScalingConfigurationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteScalingConfigurationCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteScalingConfigurationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +117,22 @@ type AUTOSCALINGAPI interface {
 	DeleteScalingPolicy(*DeleteScalingPolicyInput) (*DeleteScalingPolicyOutput, error)
 	DeleteScalingPolicyWithContext(volcstack.Context, *DeleteScalingPolicyInput, ...request.Option) (*DeleteScalingPolicyOutput, error)
 	DeleteScalingPolicyRequest(*DeleteScalingPolicyInput) (*request.Request, *DeleteScalingPolicyOutput)
+
+	DescribeLifecycleActivitiesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLifecycleActivitiesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLifecycleActivitiesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLifecycleActivities(*DescribeLifecycleActivitiesInput) (*DescribeLifecycleActivitiesOutput, error)
+	DescribeLifecycleActivitiesWithContext(volcstack.Context, *DescribeLifecycleActivitiesInput, ...request.Option) (*DescribeLifecycleActivitiesOutput, error)
+	DescribeLifecycleActivitiesRequest(*DescribeLifecycleActivitiesInput) (*request.Request, *DescribeLifecycleActivitiesOutput)
+
+	DescribeLifecycleHooksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLifecycleHooksCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLifecycleHooksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLifecycleHooks(*DescribeLifecycleHooksInput) (*DescribeLifecycleHooksOutput, error)
+	DescribeLifecycleHooksWithContext(volcstack.Context, *DescribeLifecycleHooksInput, ...request.Option) (*DescribeLifecycleHooksOutput, error)
+	DescribeLifecycleHooksRequest(*DescribeLifecycleHooksInput) (*request.Request, *DescribeLifecycleHooksOutput)
 
 	DescribeScalingActivitiesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeScalingActivitiesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -142,13 +182,13 @@ type AUTOSCALINGAPI interface {
 	DetachInstancesWithContext(volcstack.Context, *DetachInstancesInput, ...request.Option) (*DetachInstancesOutput, error)
 	DetachInstancesRequest(*DetachInstancesInput) (*request.Request, *DetachInstancesOutput)
 
-	DetachLoadBalancersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DetachLoadBalancersCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DetachLoadBalancersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DetachServerGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetachServerGroupsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetachServerGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DetachLoadBalancers(*DetachLoadBalancersInput) (*DetachLoadBalancersOutput, error)
-	DetachLoadBalancersWithContext(volcstack.Context, *DetachLoadBalancersInput, ...request.Option) (*DetachLoadBalancersOutput, error)
-	DetachLoadBalancersRequest(*DetachLoadBalancersInput) (*request.Request, *DetachLoadBalancersOutput)
+	DetachServerGroups(*DetachServerGroupsInput) (*DetachServerGroupsOutput, error)
+	DetachServerGroupsWithContext(volcstack.Context, *DetachServerGroupsInput, ...request.Option) (*DetachServerGroupsOutput, error)
+	DetachServerGroupsRequest(*DetachServerGroupsInput) (*request.Request, *DetachServerGroupsOutput)
 
 	DisableScalingGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableScalingGroupCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -157,6 +197,14 @@ type AUTOSCALINGAPI interface {
 	DisableScalingGroup(*DisableScalingGroupInput) (*DisableScalingGroupOutput, error)
 	DisableScalingGroupWithContext(volcstack.Context, *DisableScalingGroupInput, ...request.Option) (*DisableScalingGroupOutput, error)
 	DisableScalingGroupRequest(*DisableScalingGroupInput) (*request.Request, *DisableScalingGroupOutput)
+
+	DisableScalingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableScalingPolicyCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableScalingPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableScalingPolicy(*DisableScalingPolicyInput) (*DisableScalingPolicyOutput, error)
+	DisableScalingPolicyWithContext(volcstack.Context, *DisableScalingPolicyInput, ...request.Option) (*DisableScalingPolicyOutput, error)
+	DisableScalingPolicyRequest(*DisableScalingPolicyInput) (*request.Request, *DisableScalingPolicyOutput)
 
 	EnableScalingConfigurationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableScalingConfigurationCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -174,13 +222,21 @@ type AUTOSCALINGAPI interface {
 	EnableScalingGroupWithContext(volcstack.Context, *EnableScalingGroupInput, ...request.Option) (*EnableScalingGroupOutput, error)
 	EnableScalingGroupRequest(*EnableScalingGroupInput) (*request.Request, *EnableScalingGroupOutput)
 
-	ModifyInstancesProtectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyInstancesProtectionCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyInstancesProtectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	EnableScalingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableScalingPolicyCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableScalingPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	ModifyInstancesProtection(*ModifyInstancesProtectionInput) (*ModifyInstancesProtectionOutput, error)
-	ModifyInstancesProtectionWithContext(volcstack.Context, *ModifyInstancesProtectionInput, ...request.Option) (*ModifyInstancesProtectionOutput, error)
-	ModifyInstancesProtectionRequest(*ModifyInstancesProtectionInput) (*request.Request, *ModifyInstancesProtectionOutput)
+	EnableScalingPolicy(*EnableScalingPolicyInput) (*EnableScalingPolicyOutput, error)
+	EnableScalingPolicyWithContext(volcstack.Context, *EnableScalingPolicyInput, ...request.Option) (*EnableScalingPolicyOutput, error)
+	EnableScalingPolicyRequest(*EnableScalingPolicyInput) (*request.Request, *EnableScalingPolicyOutput)
+
+	ModifyLifecycleHookCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyLifecycleHookCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyLifecycleHookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyLifecycleHook(*ModifyLifecycleHookInput) (*ModifyLifecycleHookOutput, error)
+	ModifyLifecycleHookWithContext(volcstack.Context, *ModifyLifecycleHookInput, ...request.Option) (*ModifyLifecycleHookOutput, error)
+	ModifyLifecycleHookRequest(*ModifyLifecycleHookInput) (*request.Request, *ModifyLifecycleHookOutput)
 
 	ModifyScalingConfigurationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyScalingConfigurationCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -214,21 +270,13 @@ type AUTOSCALINGAPI interface {
 	RemoveInstancesWithContext(volcstack.Context, *RemoveInstancesInput, ...request.Option) (*RemoveInstancesOutput, error)
 	RemoveInstancesRequest(*RemoveInstancesInput) (*request.Request, *RemoveInstancesOutput)
 
-	StartScalingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	StartScalingPolicyCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	StartScalingPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	SetInstancesProtectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetInstancesProtectionCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetInstancesProtectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	StartScalingPolicy(*StartScalingPolicyInput) (*StartScalingPolicyOutput, error)
-	StartScalingPolicyWithContext(volcstack.Context, *StartScalingPolicyInput, ...request.Option) (*StartScalingPolicyOutput, error)
-	StartScalingPolicyRequest(*StartScalingPolicyInput) (*request.Request, *StartScalingPolicyOutput)
-
-	StopScalingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	StopScalingPolicyCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	StopScalingPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	StopScalingPolicy(*StopScalingPolicyInput) (*StopScalingPolicyOutput, error)
-	StopScalingPolicyWithContext(volcstack.Context, *StopScalingPolicyInput, ...request.Option) (*StopScalingPolicyOutput, error)
-	StopScalingPolicyRequest(*StopScalingPolicyInput) (*request.Request, *StopScalingPolicyOutput)
+	SetInstancesProtection(*SetInstancesProtectionInput) (*SetInstancesProtectionOutput, error)
+	SetInstancesProtectionWithContext(volcstack.Context, *SetInstancesProtectionInput, ...request.Option) (*SetInstancesProtectionOutput, error)
+	SetInstancesProtectionRequest(*SetInstancesProtectionInput) (*request.Request, *SetInstancesProtectionOutput)
 }
 
 var _ AUTOSCALINGAPI = (*AUTOSCALING)(nil)

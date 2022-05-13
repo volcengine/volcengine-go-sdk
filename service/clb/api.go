@@ -270,6 +270,136 @@ func (c *CLB) AddServerGroupBackendServersWithContext(ctx volcstack.Context, inp
 	return out, req.Send()
 }
 
+const opConvertLoadBalancerBillingTypeCommon = "ConvertLoadBalancerBillingType"
+
+// ConvertLoadBalancerBillingTypeCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ConvertLoadBalancerBillingTypeCommon operation. The "output" return
+// value will be populated with the ConvertLoadBalancerBillingTypeCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ConvertLoadBalancerBillingTypeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ConvertLoadBalancerBillingTypeCommon Send returns without error.
+//
+// See ConvertLoadBalancerBillingTypeCommon for more information on using the ConvertLoadBalancerBillingTypeCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ConvertLoadBalancerBillingTypeCommonRequest method.
+//    req, resp := client.ConvertLoadBalancerBillingTypeCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) ConvertLoadBalancerBillingTypeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opConvertLoadBalancerBillingTypeCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ConvertLoadBalancerBillingTypeCommon API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation ConvertLoadBalancerBillingTypeCommon for usage and error information.
+func (c *CLB) ConvertLoadBalancerBillingTypeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ConvertLoadBalancerBillingTypeCommonRequest(input)
+	return out, req.Send()
+}
+
+// ConvertLoadBalancerBillingTypeCommonWithContext is the same as ConvertLoadBalancerBillingTypeCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ConvertLoadBalancerBillingTypeCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) ConvertLoadBalancerBillingTypeCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ConvertLoadBalancerBillingTypeCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opConvertLoadBalancerBillingType = "ConvertLoadBalancerBillingType"
+
+// ConvertLoadBalancerBillingTypeRequest generates a "volcstack/request.Request" representing the
+// client's request for the ConvertLoadBalancerBillingType operation. The "output" return
+// value will be populated with the ConvertLoadBalancerBillingTypeCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ConvertLoadBalancerBillingTypeCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ConvertLoadBalancerBillingTypeCommon Send returns without error.
+//
+// See ConvertLoadBalancerBillingType for more information on using the ConvertLoadBalancerBillingType
+// API call, and error handling.
+//
+//    // Example sending a request using the ConvertLoadBalancerBillingTypeRequest method.
+//    req, resp := client.ConvertLoadBalancerBillingTypeRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) ConvertLoadBalancerBillingTypeRequest(input *ConvertLoadBalancerBillingTypeInput) (req *request.Request, output *ConvertLoadBalancerBillingTypeOutput) {
+	op := &request.Operation{
+		Name:       opConvertLoadBalancerBillingType,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ConvertLoadBalancerBillingTypeInput{}
+	}
+
+	output = &ConvertLoadBalancerBillingTypeOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ConvertLoadBalancerBillingType API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation ConvertLoadBalancerBillingType for usage and error information.
+func (c *CLB) ConvertLoadBalancerBillingType(input *ConvertLoadBalancerBillingTypeInput) (*ConvertLoadBalancerBillingTypeOutput, error) {
+	req, out := c.ConvertLoadBalancerBillingTypeRequest(input)
+	return out, req.Send()
+}
+
+// ConvertLoadBalancerBillingTypeWithContext is the same as ConvertLoadBalancerBillingType with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ConvertLoadBalancerBillingType for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) ConvertLoadBalancerBillingTypeWithContext(ctx volcstack.Context, input *ConvertLoadBalancerBillingTypeInput, opts ...request.Option) (*ConvertLoadBalancerBillingTypeOutput, error) {
+	req, out := c.ConvertLoadBalancerBillingTypeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateAclCommon = "CreateAcl"
 
 // CreateAclCommonRequest generates a "volcstack/request.Request" representing the
@@ -4430,6 +4560,266 @@ func (c *CLB) RemoveServerGroupBackendServersWithContext(ctx volcstack.Context, 
 	return out, req.Send()
 }
 
+const opRenewLoadBalancerCommon = "RenewLoadBalancer"
+
+// RenewLoadBalancerCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the RenewLoadBalancerCommon operation. The "output" return
+// value will be populated with the RenewLoadBalancerCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned RenewLoadBalancerCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RenewLoadBalancerCommon Send returns without error.
+//
+// See RenewLoadBalancerCommon for more information on using the RenewLoadBalancerCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the RenewLoadBalancerCommonRequest method.
+//    req, resp := client.RenewLoadBalancerCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) RenewLoadBalancerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opRenewLoadBalancerCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RenewLoadBalancerCommon API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation RenewLoadBalancerCommon for usage and error information.
+func (c *CLB) RenewLoadBalancerCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.RenewLoadBalancerCommonRequest(input)
+	return out, req.Send()
+}
+
+// RenewLoadBalancerCommonWithContext is the same as RenewLoadBalancerCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RenewLoadBalancerCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) RenewLoadBalancerCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.RenewLoadBalancerCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRenewLoadBalancer = "RenewLoadBalancer"
+
+// RenewLoadBalancerRequest generates a "volcstack/request.Request" representing the
+// client's request for the RenewLoadBalancer operation. The "output" return
+// value will be populated with the RenewLoadBalancerCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned RenewLoadBalancerCommon Request to send the API call to the service.
+// the "output" return value is not valid until after RenewLoadBalancerCommon Send returns without error.
+//
+// See RenewLoadBalancer for more information on using the RenewLoadBalancer
+// API call, and error handling.
+//
+//    // Example sending a request using the RenewLoadBalancerRequest method.
+//    req, resp := client.RenewLoadBalancerRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) RenewLoadBalancerRequest(input *RenewLoadBalancerInput) (req *request.Request, output *RenewLoadBalancerOutput) {
+	op := &request.Operation{
+		Name:       opRenewLoadBalancer,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RenewLoadBalancerInput{}
+	}
+
+	output = &RenewLoadBalancerOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// RenewLoadBalancer API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation RenewLoadBalancer for usage and error information.
+func (c *CLB) RenewLoadBalancer(input *RenewLoadBalancerInput) (*RenewLoadBalancerOutput, error) {
+	req, out := c.RenewLoadBalancerRequest(input)
+	return out, req.Send()
+}
+
+// RenewLoadBalancerWithContext is the same as RenewLoadBalancer with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RenewLoadBalancer for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) RenewLoadBalancerWithContext(ctx volcstack.Context, input *RenewLoadBalancerInput, opts ...request.Option) (*RenewLoadBalancerOutput, error) {
+	req, out := c.RenewLoadBalancerRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opSetLoadBalancerRenewalCommon = "SetLoadBalancerRenewal"
+
+// SetLoadBalancerRenewalCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the SetLoadBalancerRenewalCommon operation. The "output" return
+// value will be populated with the SetLoadBalancerRenewalCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned SetLoadBalancerRenewalCommon Request to send the API call to the service.
+// the "output" return value is not valid until after SetLoadBalancerRenewalCommon Send returns without error.
+//
+// See SetLoadBalancerRenewalCommon for more information on using the SetLoadBalancerRenewalCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the SetLoadBalancerRenewalCommonRequest method.
+//    req, resp := client.SetLoadBalancerRenewalCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) SetLoadBalancerRenewalCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opSetLoadBalancerRenewalCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// SetLoadBalancerRenewalCommon API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation SetLoadBalancerRenewalCommon for usage and error information.
+func (c *CLB) SetLoadBalancerRenewalCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.SetLoadBalancerRenewalCommonRequest(input)
+	return out, req.Send()
+}
+
+// SetLoadBalancerRenewalCommonWithContext is the same as SetLoadBalancerRenewalCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SetLoadBalancerRenewalCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) SetLoadBalancerRenewalCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.SetLoadBalancerRenewalCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opSetLoadBalancerRenewal = "SetLoadBalancerRenewal"
+
+// SetLoadBalancerRenewalRequest generates a "volcstack/request.Request" representing the
+// client's request for the SetLoadBalancerRenewal operation. The "output" return
+// value will be populated with the SetLoadBalancerRenewalCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned SetLoadBalancerRenewalCommon Request to send the API call to the service.
+// the "output" return value is not valid until after SetLoadBalancerRenewalCommon Send returns without error.
+//
+// See SetLoadBalancerRenewal for more information on using the SetLoadBalancerRenewal
+// API call, and error handling.
+//
+//    // Example sending a request using the SetLoadBalancerRenewalRequest method.
+//    req, resp := client.SetLoadBalancerRenewalRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *CLB) SetLoadBalancerRenewalRequest(input *SetLoadBalancerRenewalInput) (req *request.Request, output *SetLoadBalancerRenewalOutput) {
+	op := &request.Operation{
+		Name:       opSetLoadBalancerRenewal,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &SetLoadBalancerRenewalInput{}
+	}
+
+	output = &SetLoadBalancerRenewalOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// SetLoadBalancerRenewal API operation for CLB.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for CLB's
+// API operation SetLoadBalancerRenewal for usage and error information.
+func (c *CLB) SetLoadBalancerRenewal(input *SetLoadBalancerRenewalInput) (*SetLoadBalancerRenewalOutput, error) {
+	req, out := c.SetLoadBalancerRenewalRequest(input)
+	return out, req.Send()
+}
+
+// SetLoadBalancerRenewalWithContext is the same as SetLoadBalancerRenewal with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SetLoadBalancerRenewal for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CLB) SetLoadBalancerRenewalWithContext(ctx volcstack.Context, input *SetLoadBalancerRenewalInput, opts ...request.Option) (*SetLoadBalancerRenewalOutput, error) {
+	req, out := c.SetLoadBalancerRenewalRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUploadCertificateCommon = "UploadCertificate"
 
 // UploadCertificateCommonRequest generates a "volcstack/request.Request" representing the
@@ -4679,6 +5069,8 @@ type AclForDescribeAclsOutput struct {
 
 	Listeners []*string `type:"list"`
 
+	Status *string `type:"string"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -4725,6 +5117,12 @@ func (s *AclForDescribeAclsOutput) SetDescription(v string) *AclForDescribeAclsO
 // SetListeners sets the Listeners field's value.
 func (s *AclForDescribeAclsOutput) SetListeners(v []*string) *AclForDescribeAclsOutput {
 	s.Listeners = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *AclForDescribeAclsOutput) SetStatus(v string) *AclForDescribeAclsOutput {
+	s.Status = &v
 	return s
 }
 
@@ -4969,6 +5367,100 @@ func (s *CertificateForDescribeCertificatesOutput) SetExpiredAt(v string) *Certi
 // SetListeners sets the Listeners field's value.
 func (s *CertificateForDescribeCertificatesOutput) SetListeners(v []*string) *CertificateForDescribeCertificatesOutput {
 	s.Listeners = v
+	return s
+}
+
+type ConvertLoadBalancerBillingTypeInput struct {
+	_ struct{} `type:"structure"`
+
+	// LoadBalancerBillingType is a required field
+	LoadBalancerBillingType *int64 `type:"integer" required:"true"`
+
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
+
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertLoadBalancerBillingTypeInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertLoadBalancerBillingTypeInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConvertLoadBalancerBillingTypeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConvertLoadBalancerBillingTypeInput"}
+	if s.LoadBalancerBillingType == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerBillingType"))
+	}
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLoadBalancerBillingType sets the LoadBalancerBillingType field's value.
+func (s *ConvertLoadBalancerBillingTypeInput) SetLoadBalancerBillingType(v int64) *ConvertLoadBalancerBillingTypeInput {
+	s.LoadBalancerBillingType = &v
+	return s
+}
+
+// SetLoadBalancerId sets the LoadBalancerId field's value.
+func (s *ConvertLoadBalancerBillingTypeInput) SetLoadBalancerId(v string) *ConvertLoadBalancerBillingTypeInput {
+	s.LoadBalancerId = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *ConvertLoadBalancerBillingTypeInput) SetPeriod(v int64) *ConvertLoadBalancerBillingTypeInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *ConvertLoadBalancerBillingTypeInput) SetPeriodUnit(v string) *ConvertLoadBalancerBillingTypeInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type ConvertLoadBalancerBillingTypeOutput struct {
+	_ struct{} `type:"structure"`
+
+	OrderId *string `type:"string"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertLoadBalancerBillingTypeOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertLoadBalancerBillingTypeOutput) GoString() string {
+	return s.String()
+}
+
+// SetOrderId sets the OrderId field's value.
+func (s *ConvertLoadBalancerBillingTypeOutput) SetOrderId(v string) *ConvertLoadBalancerBillingTypeOutput {
+	s.OrderId = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ConvertLoadBalancerBillingTypeOutput) SetRequestId(v string) *ConvertLoadBalancerBillingTypeOutput {
+	s.RequestId = &v
 	return s
 }
 
@@ -5387,6 +5879,8 @@ type CreateLoadBalancerOutput struct {
 
 	LoadBalancerId *string `type:"string"`
 
+	OrderId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -5403,6 +5897,12 @@ func (s CreateLoadBalancerOutput) GoString() string {
 // SetLoadBalancerId sets the LoadBalancerId field's value.
 func (s *CreateLoadBalancerOutput) SetLoadBalancerId(v string) *CreateLoadBalancerOutput {
 	s.LoadBalancerId = &v
+	return s
+}
+
+// SetOrderId sets the OrderId field's value.
+func (s *CreateLoadBalancerOutput) SetOrderId(v string) *CreateLoadBalancerOutput {
+	s.OrderId = &v
 	return s
 }
 
@@ -6017,6 +6517,8 @@ type DescribeAclAttributesOutput struct {
 
 	RequestId *string `type:"string"`
 
+	Status *string `type:"string"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -6069,6 +6571,12 @@ func (s *DescribeAclAttributesOutput) SetListeners(v []*ListenerForDescribeAclAt
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeAclAttributesOutput) SetRequestId(v string) *DescribeAclAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeAclAttributesOutput) SetStatus(v string) *DescribeAclAttributesOutput {
+	s.Status = &v
 	return s
 }
 
@@ -6775,6 +7283,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	EniID *string `type:"string"`
 
+	ExpiredTime *string `type:"string"`
+
 	Listeners []*ListenerForDescribeLoadBalancerAttributesOutput `type:"list"`
 
 	LoadBalancerBillingType *int64 `type:"integer"`
@@ -6869,6 +7379,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetEniAddress(v string) *Describe
 // SetEniID sets the EniID field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetEniID(v string) *DescribeLoadBalancerAttributesOutput {
 	s.EniID = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetExpiredTime(v string) *DescribeLoadBalancerAttributesOutput {
+	s.ExpiredTime = &v
 	return s
 }
 
@@ -7015,6 +7531,8 @@ type DescribeLoadBalancersBillingOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	RequestId *string `type:"string"`
+
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -7043,6 +7561,12 @@ func (s *DescribeLoadBalancersBillingOutput) SetPageNumber(v int64) *DescribeLoa
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeLoadBalancersBillingOutput) SetPageSize(v int64) *DescribeLoadBalancersBillingOutput {
 	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeLoadBalancersBillingOutput) SetRequestId(v string) *DescribeLoadBalancersBillingOutput {
+	s.RequestId = &v
 	return s
 }
 
@@ -8303,6 +8827,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	EniID *string `type:"string"`
 
+	ExpiredTime *string `type:"string"`
+
 	LoadBalancerBillingType *int64 `type:"integer"`
 
 	LoadBalancerId *string `type:"string"`
@@ -8385,6 +8911,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniAddress(v string) *Lo
 // SetEniID sets the EniID field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniID(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.EniID = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetExpiredTime(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ExpiredTime = &v
 	return s
 }
 
@@ -9106,6 +9638,80 @@ func (s *RemoveServerGroupBackendServersOutput) SetRequestId(v string) *RemoveSe
 	return s
 }
 
+type RenewLoadBalancerInput struct {
+	_ struct{} `type:"structure"`
+
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
+
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RenewLoadBalancerInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RenewLoadBalancerInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RenewLoadBalancerInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RenewLoadBalancerInput"}
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLoadBalancerId sets the LoadBalancerId field's value.
+func (s *RenewLoadBalancerInput) SetLoadBalancerId(v string) *RenewLoadBalancerInput {
+	s.LoadBalancerId = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *RenewLoadBalancerInput) SetPeriod(v int64) *RenewLoadBalancerInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *RenewLoadBalancerInput) SetPeriodUnit(v string) *RenewLoadBalancerInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+type RenewLoadBalancerOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RenewLoadBalancerOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RenewLoadBalancerOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *RenewLoadBalancerOutput) SetRequestId(v string) *RenewLoadBalancerOutput {
+	s.RequestId = &v
+	return s
+}
+
 type ResultForDescribeListenerHealthOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -9122,6 +9728,8 @@ type ResultForDescribeListenerHealthOutput struct {
 	ServerId *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -9173,6 +9781,12 @@ func (s *ResultForDescribeListenerHealthOutput) SetServerId(v string) *ResultFor
 // SetStatus sets the Status field's value.
 func (s *ResultForDescribeListenerHealthOutput) SetStatus(v string) *ResultForDescribeListenerHealthOutput {
 	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ResultForDescribeListenerHealthOutput) SetType(v string) *ResultForDescribeListenerHealthOutput {
+	s.Type = &v
 	return s
 }
 
@@ -9737,6 +10351,94 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupName(v string) 
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetUpdateTime(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type SetLoadBalancerRenewalInput struct {
+	_ struct{} `type:"structure"`
+
+	LoadBalancerId *string `type:"string"`
+
+	RemainRenewTimes *int64 `type:"integer"`
+
+	RenewPeriodTimes *int64 `type:"integer"`
+
+	// RenewType is a required field
+	RenewType *int64 `min:"1" max:"2" type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s SetLoadBalancerRenewalInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetLoadBalancerRenewalInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SetLoadBalancerRenewalInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SetLoadBalancerRenewalInput"}
+	if s.RenewType == nil {
+		invalidParams.Add(request.NewErrParamRequired("RenewType"))
+	}
+	if s.RenewType != nil && *s.RenewType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
+	}
+	if s.RenewType != nil && *s.RenewType > 2 {
+		invalidParams.Add(request.NewErrParamMaxValue("RenewType", 2))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLoadBalancerId sets the LoadBalancerId field's value.
+func (s *SetLoadBalancerRenewalInput) SetLoadBalancerId(v string) *SetLoadBalancerRenewalInput {
+	s.LoadBalancerId = &v
+	return s
+}
+
+// SetRemainRenewTimes sets the RemainRenewTimes field's value.
+func (s *SetLoadBalancerRenewalInput) SetRemainRenewTimes(v int64) *SetLoadBalancerRenewalInput {
+	s.RemainRenewTimes = &v
+	return s
+}
+
+// SetRenewPeriodTimes sets the RenewPeriodTimes field's value.
+func (s *SetLoadBalancerRenewalInput) SetRenewPeriodTimes(v int64) *SetLoadBalancerRenewalInput {
+	s.RenewPeriodTimes = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *SetLoadBalancerRenewalInput) SetRenewType(v int64) *SetLoadBalancerRenewalInput {
+	s.RenewType = &v
+	return s
+}
+
+type SetLoadBalancerRenewalOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SetLoadBalancerRenewalOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetLoadBalancerRenewalOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *SetLoadBalancerRenewalOutput) SetRequestId(v string) *SetLoadBalancerRenewalOutput {
+	s.RequestId = &v
 	return s
 }
 
