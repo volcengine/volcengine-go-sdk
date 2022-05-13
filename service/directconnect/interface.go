@@ -19,7 +19,7 @@ import (
 //    // volcstack sdk func uses an SDK service client to make a request to
 //    // DIRECTCONNECT.
 //    func myFunc(svc DIRECTCONNECTAPI) bool {
-//        // Make svc.AssociateConnectionToDirectConnectGateway request
+//        // Make svc.ConfirmDirectConnectConnection request
 //    }
 //
 //    func main() {
@@ -30,13 +30,13 @@ import (
 //    }
 //
 type DIRECTCONNECTAPI interface {
-	AssociateConnectionToDirectConnectGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AssociateConnectionToDirectConnectGatewayCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AssociateConnectionToDirectConnectGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ConfirmDirectConnectConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ConfirmDirectConnectConnectionCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ConfirmDirectConnectConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	AssociateConnectionToDirectConnectGateway(*AssociateConnectionToDirectConnectGatewayInput) (*AssociateConnectionToDirectConnectGatewayOutput, error)
-	AssociateConnectionToDirectConnectGatewayWithContext(volcstack.Context, *AssociateConnectionToDirectConnectGatewayInput, ...request.Option) (*AssociateConnectionToDirectConnectGatewayOutput, error)
-	AssociateConnectionToDirectConnectGatewayRequest(*AssociateConnectionToDirectConnectGatewayInput) (*request.Request, *AssociateConnectionToDirectConnectGatewayOutput)
+	ConfirmDirectConnectConnection(*ConfirmDirectConnectConnectionInput) (*ConfirmDirectConnectConnectionOutput, error)
+	ConfirmDirectConnectConnectionWithContext(volcstack.Context, *ConfirmDirectConnectConnectionInput, ...request.Option) (*ConfirmDirectConnectConnectionOutput, error)
+	ConfirmDirectConnectConnectionRequest(*ConfirmDirectConnectConnectionInput) (*request.Request, *ConfirmDirectConnectConnectionOutput)
 
 	CreateBgpPeerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBgpPeerCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -70,6 +70,14 @@ type DIRECTCONNECTAPI interface {
 	CreateDirectConnectVirtualInterfaceWithContext(volcstack.Context, *CreateDirectConnectVirtualInterfaceInput, ...request.Option) (*CreateDirectConnectVirtualInterfaceOutput, error)
 	CreateDirectConnectVirtualInterfaceRequest(*CreateDirectConnectVirtualInterfaceInput) (*request.Request, *CreateDirectConnectVirtualInterfaceOutput)
 
+	CreateSharedDirectConnectConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSharedDirectConnectConnectionCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSharedDirectConnectConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSharedDirectConnectConnection(*CreateSharedDirectConnectConnectionInput) (*CreateSharedDirectConnectConnectionOutput, error)
+	CreateSharedDirectConnectConnectionWithContext(volcstack.Context, *CreateSharedDirectConnectConnectionInput, ...request.Option) (*CreateSharedDirectConnectConnectionOutput, error)
+	CreateSharedDirectConnectConnectionRequest(*CreateSharedDirectConnectConnectionInput) (*request.Request, *CreateSharedDirectConnectConnectionOutput)
+
 	DeleteBgpPeerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteBgpPeerCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteBgpPeerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -78,6 +86,14 @@ type DIRECTCONNECTAPI interface {
 	DeleteBgpPeerWithContext(volcstack.Context, *DeleteBgpPeerInput, ...request.Option) (*DeleteBgpPeerOutput, error)
 	DeleteBgpPeerRequest(*DeleteBgpPeerInput) (*request.Request, *DeleteBgpPeerOutput)
 
+	DeleteDirectConnectConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDirectConnectConnectionCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDirectConnectConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDirectConnectConnection(*DeleteDirectConnectConnectionInput) (*DeleteDirectConnectConnectionOutput, error)
+	DeleteDirectConnectConnectionWithContext(volcstack.Context, *DeleteDirectConnectConnectionInput, ...request.Option) (*DeleteDirectConnectConnectionOutput, error)
+	DeleteDirectConnectConnectionRequest(*DeleteDirectConnectConnectionInput) (*request.Request, *DeleteDirectConnectConnectionOutput)
+
 	DeleteDirectConnectGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDirectConnectGatewayCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteDirectConnectGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,14 +101,6 @@ type DIRECTCONNECTAPI interface {
 	DeleteDirectConnectGateway(*DeleteDirectConnectGatewayInput) (*DeleteDirectConnectGatewayOutput, error)
 	DeleteDirectConnectGatewayWithContext(volcstack.Context, *DeleteDirectConnectGatewayInput, ...request.Option) (*DeleteDirectConnectGatewayOutput, error)
 	DeleteDirectConnectGatewayRequest(*DeleteDirectConnectGatewayInput) (*request.Request, *DeleteDirectConnectGatewayOutput)
-
-	DeleteDirectConnectGatewayAssociationCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteDirectConnectGatewayAssociationCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteDirectConnectGatewayAssociationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteDirectConnectGatewayAssociation(*DeleteDirectConnectGatewayAssociationInput) (*DeleteDirectConnectGatewayAssociationOutput, error)
-	DeleteDirectConnectGatewayAssociationWithContext(volcstack.Context, *DeleteDirectConnectGatewayAssociationInput, ...request.Option) (*DeleteDirectConnectGatewayAssociationOutput, error)
-	DeleteDirectConnectGatewayAssociationRequest(*DeleteDirectConnectGatewayAssociationInput) (*request.Request, *DeleteDirectConnectGatewayAssociationOutput)
 
 	DeleteDirectConnectGatewayRouteCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDirectConnectGatewayRouteCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -142,22 +150,6 @@ type DIRECTCONNECTAPI interface {
 	DescribeDirectConnectConnectionsWithContext(volcstack.Context, *DescribeDirectConnectConnectionsInput, ...request.Option) (*DescribeDirectConnectConnectionsOutput, error)
 	DescribeDirectConnectConnectionsRequest(*DescribeDirectConnectConnectionsInput) (*request.Request, *DescribeDirectConnectConnectionsOutput)
 
-	DescribeDirectConnectGatewayAssociationAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeDirectConnectGatewayAssociationAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeDirectConnectGatewayAssociationAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeDirectConnectGatewayAssociationAttributes(*DescribeDirectConnectGatewayAssociationAttributesInput) (*DescribeDirectConnectGatewayAssociationAttributesOutput, error)
-	DescribeDirectConnectGatewayAssociationAttributesWithContext(volcstack.Context, *DescribeDirectConnectGatewayAssociationAttributesInput, ...request.Option) (*DescribeDirectConnectGatewayAssociationAttributesOutput, error)
-	DescribeDirectConnectGatewayAssociationAttributesRequest(*DescribeDirectConnectGatewayAssociationAttributesInput) (*request.Request, *DescribeDirectConnectGatewayAssociationAttributesOutput)
-
-	DescribeDirectConnectGatewayAssociationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeDirectConnectGatewayAssociationsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeDirectConnectGatewayAssociationsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeDirectConnectGatewayAssociations(*DescribeDirectConnectGatewayAssociationsInput) (*DescribeDirectConnectGatewayAssociationsOutput, error)
-	DescribeDirectConnectGatewayAssociationsWithContext(volcstack.Context, *DescribeDirectConnectGatewayAssociationsInput, ...request.Option) (*DescribeDirectConnectGatewayAssociationsOutput, error)
-	DescribeDirectConnectGatewayAssociationsRequest(*DescribeDirectConnectGatewayAssociationsInput) (*request.Request, *DescribeDirectConnectGatewayAssociationsOutput)
-
 	DescribeDirectConnectGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDirectConnectGatewayAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDirectConnectGatewayAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -206,13 +198,13 @@ type DIRECTCONNECTAPI interface {
 	DescribeDirectConnectVirtualInterfacesWithContext(volcstack.Context, *DescribeDirectConnectVirtualInterfacesInput, ...request.Option) (*DescribeDirectConnectVirtualInterfacesOutput, error)
 	DescribeDirectConnectVirtualInterfacesRequest(*DescribeDirectConnectVirtualInterfacesInput) (*request.Request, *DescribeDirectConnectVirtualInterfacesOutput)
 
-	DisassociateConnectionFromDirectConnectGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DisassociateConnectionFromDirectConnectGatewayCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DisassociateConnectionFromDirectConnectGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DescribeSharedDirectConnectConnectionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSharedDirectConnectConnectionsCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSharedDirectConnectConnectionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DisassociateConnectionFromDirectConnectGateway(*DisassociateConnectionFromDirectConnectGatewayInput) (*DisassociateConnectionFromDirectConnectGatewayOutput, error)
-	DisassociateConnectionFromDirectConnectGatewayWithContext(volcstack.Context, *DisassociateConnectionFromDirectConnectGatewayInput, ...request.Option) (*DisassociateConnectionFromDirectConnectGatewayOutput, error)
-	DisassociateConnectionFromDirectConnectGatewayRequest(*DisassociateConnectionFromDirectConnectGatewayInput) (*request.Request, *DisassociateConnectionFromDirectConnectGatewayOutput)
+	DescribeSharedDirectConnectConnections(*DescribeSharedDirectConnectConnectionsInput) (*DescribeSharedDirectConnectConnectionsOutput, error)
+	DescribeSharedDirectConnectConnectionsWithContext(volcstack.Context, *DescribeSharedDirectConnectConnectionsInput, ...request.Option) (*DescribeSharedDirectConnectConnectionsOutput, error)
+	DescribeSharedDirectConnectConnectionsRequest(*DescribeSharedDirectConnectConnectionsInput) (*request.Request, *DescribeSharedDirectConnectConnectionsOutput)
 
 	ModifyBgpPeerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyBgpPeerAttributesCommonWithContext(volcstack.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

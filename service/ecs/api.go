@@ -1413,7 +1413,6 @@ func (c *ECS) ModifyInstanceChargeTypeRequest(input *ModifyInstanceChargeTypeInp
 	output = &ModifyInstanceChargeTypeOutput{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -2539,6 +2538,8 @@ type DescribeAvailableResourceInput struct {
 
 	InstanceType *string `type:"string"`
 
+	InstanceTypeId *string `type:"string"`
+
 	ZoneId *string `type:"string"`
 }
 
@@ -2561,6 +2562,12 @@ func (s *DescribeAvailableResourceInput) SetDestinationResource(v string) *Descr
 // SetInstanceType sets the InstanceType field's value.
 func (s *DescribeAvailableResourceInput) SetInstanceType(v string) *DescribeAvailableResourceInput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *DescribeAvailableResourceInput) SetInstanceTypeId(v string) *DescribeAvailableResourceInput {
+	s.InstanceTypeId = &v
 	return s
 }
 
@@ -2608,6 +2615,8 @@ type DescribeImagesInput struct {
 	NextToken *string `type:"string"`
 
 	OsType *string `type:"string"`
+
+	Status []*string `type:"list"`
 
 	Visibility *string `type:"string"`
 }
@@ -2664,6 +2673,12 @@ func (s *DescribeImagesInput) SetOsType(v string) *DescribeImagesInput {
 	return s
 }
 
+// SetStatus sets the Status field's value.
+func (s *DescribeImagesInput) SetStatus(v []*string) *DescribeImagesInput {
+	s.Status = v
+	return s
+}
+
 // SetVisibility sets the Visibility field's value.
 func (s *DescribeImagesInput) SetVisibility(v string) *DescribeImagesInput {
 	s.Visibility = &v
@@ -2711,6 +2726,8 @@ func (s *DescribeImagesOutput) SetTotalCount(v int32) *DescribeImagesOutput {
 type DescribeInstanceTypesInput struct {
 	_ struct{} `type:"structure"`
 
+	InstanceTypeIds []*string `type:"list"`
+
 	InstanceTypes []*string `type:"list"`
 
 	MaxResults *int32 `type:"int32"`
@@ -2726,6 +2743,12 @@ func (s DescribeInstanceTypesInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstanceTypesInput) GoString() string {
 	return s.String()
+}
+
+// SetInstanceTypeIds sets the InstanceTypeIds field's value.
+func (s *DescribeInstanceTypesInput) SetInstanceTypeIds(v []*string) *DescribeInstanceTypesInput {
+	s.InstanceTypeIds = v
+	return s
 }
 
 // SetInstanceTypes sets the InstanceTypes field's value.
@@ -2839,6 +2862,12 @@ type DescribeInstancesInput struct {
 
 	InstanceName *string `type:"string"`
 
+	InstanceTypeFamilies []*string `type:"list"`
+
+	InstanceTypeIds []*string `type:"list"`
+
+	InstanceTypes []*string `type:"list"`
+
 	KeyPairName *string `type:"string"`
 
 	MaxResults *int32 `type:"int32"`
@@ -2885,6 +2914,24 @@ func (s *DescribeInstancesInput) SetInstanceIds(v []*string) *DescribeInstancesI
 // SetInstanceName sets the InstanceName field's value.
 func (s *DescribeInstancesInput) SetInstanceName(v string) *DescribeInstancesInput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceTypeFamilies sets the InstanceTypeFamilies field's value.
+func (s *DescribeInstancesInput) SetInstanceTypeFamilies(v []*string) *DescribeInstancesInput {
+	s.InstanceTypeFamilies = v
+	return s
+}
+
+// SetInstanceTypeIds sets the InstanceTypeIds field's value.
+func (s *DescribeInstancesInput) SetInstanceTypeIds(v []*string) *DescribeInstancesInput {
+	s.InstanceTypeIds = v
+	return s
+}
+
+// SetInstanceTypes sets the InstanceTypes field's value.
+func (s *DescribeInstancesInput) SetInstanceTypes(v []*string) *DescribeInstancesInput {
+	s.InstanceTypes = v
 	return s
 }
 
@@ -3147,6 +3194,10 @@ type ImageForDescribeImagesOutput struct {
 
 	PlatformVersion *string `type:"string"`
 
+	ShareStatus *string `type:"string"`
+
+	Size *int32 `type:"int32"`
+
 	Status *string `type:"string"`
 
 	UpdatedAt *string `type:"string"`
@@ -3226,6 +3277,18 @@ func (s *ImageForDescribeImagesOutput) SetPlatformVersion(v string) *ImageForDes
 	return s
 }
 
+// SetShareStatus sets the ShareStatus field's value.
+func (s *ImageForDescribeImagesOutput) SetShareStatus(v string) *ImageForDescribeImagesOutput {
+	s.ShareStatus = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *ImageForDescribeImagesOutput) SetSize(v int32) *ImageForDescribeImagesOutput {
+	s.Size = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *ImageForDescribeImagesOutput) SetStatus(v string) *ImageForDescribeImagesOutput {
 	s.Status = &v
@@ -3253,9 +3316,13 @@ func (s *ImageForDescribeImagesOutput) SetVisibility(v string) *ImageForDescribe
 type InstanceForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Cpus *int32 `type:"int32"`
+
 	CreatedAt *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	ExpiredAt *string `type:"string"`
 
 	HostName *string `type:"string"`
 
@@ -3273,7 +3340,13 @@ type InstanceForDescribeInstancesOutput struct {
 
 	KeyPairName *string `type:"string"`
 
+	MemorySize *int32 `type:"int32"`
+
 	NetworkInterfaces []*NetworkInterfaceForDescribeInstancesOutput `type:"list"`
+
+	OsName *string `type:"string"`
+
+	OsType *string `type:"string"`
 
 	RdmaIpAddresses []*string `type:"list"`
 
@@ -3282,8 +3355,6 @@ type InstanceForDescribeInstancesOutput struct {
 	StoppedMode *string `type:"string"`
 
 	UpdatedAt *string `type:"string"`
-
-	UserData *string `type:"string"`
 
 	VpcId *string `type:"string"`
 
@@ -3300,6 +3371,12 @@ func (s InstanceForDescribeInstancesOutput) GoString() string {
 	return s.String()
 }
 
+// SetCpus sets the Cpus field's value.
+func (s *InstanceForDescribeInstancesOutput) SetCpus(v int32) *InstanceForDescribeInstancesOutput {
+	s.Cpus = &v
+	return s
+}
+
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *InstanceForDescribeInstancesOutput) SetCreatedAt(v string) *InstanceForDescribeInstancesOutput {
 	s.CreatedAt = &v
@@ -3309,6 +3386,12 @@ func (s *InstanceForDescribeInstancesOutput) SetCreatedAt(v string) *InstanceFor
 // SetDescription sets the Description field's value.
 func (s *InstanceForDescribeInstancesOutput) SetDescription(v string) *InstanceForDescribeInstancesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetExpiredAt sets the ExpiredAt field's value.
+func (s *InstanceForDescribeInstancesOutput) SetExpiredAt(v string) *InstanceForDescribeInstancesOutput {
+	s.ExpiredAt = &v
 	return s
 }
 
@@ -3360,9 +3443,27 @@ func (s *InstanceForDescribeInstancesOutput) SetKeyPairName(v string) *InstanceF
 	return s
 }
 
+// SetMemorySize sets the MemorySize field's value.
+func (s *InstanceForDescribeInstancesOutput) SetMemorySize(v int32) *InstanceForDescribeInstancesOutput {
+	s.MemorySize = &v
+	return s
+}
+
 // SetNetworkInterfaces sets the NetworkInterfaces field's value.
 func (s *InstanceForDescribeInstancesOutput) SetNetworkInterfaces(v []*NetworkInterfaceForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
 	s.NetworkInterfaces = v
+	return s
+}
+
+// SetOsName sets the OsName field's value.
+func (s *InstanceForDescribeInstancesOutput) SetOsName(v string) *InstanceForDescribeInstancesOutput {
+	s.OsName = &v
+	return s
+}
+
+// SetOsType sets the OsType field's value.
+func (s *InstanceForDescribeInstancesOutput) SetOsType(v string) *InstanceForDescribeInstancesOutput {
+	s.OsType = &v
 	return s
 }
 
@@ -3387,12 +3488,6 @@ func (s *InstanceForDescribeInstancesOutput) SetStoppedMode(v string) *InstanceF
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *InstanceForDescribeInstancesOutput) SetUpdatedAt(v string) *InstanceForDescribeInstancesOutput {
 	s.UpdatedAt = &v
-	return s
-}
-
-// SetUserData sets the UserData field's value.
-func (s *InstanceForDescribeInstancesOutput) SetUserData(v string) *InstanceForDescribeInstancesOutput {
-	s.UserData = &v
 	return s
 }
 
@@ -3424,6 +3519,8 @@ type InstanceTypeForDescribeInstanceTypesOutput struct {
 	Processor *ProcessorForDescribeInstanceTypesOutput `type:"structure"`
 
 	Rdma *RdmaForDescribeInstanceTypesOutput `type:"structure"`
+
+	Volume *VolumeForDescribeInstanceTypesOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -3475,6 +3572,12 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetProcessor(v *ProcessorFo
 // SetRdma sets the Rdma field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetRdma(v *RdmaForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.Rdma = v
+	return s
+}
+
+// SetVolume sets the Volume field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetVolume(v *VolumeForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Volume = v
 	return s
 }
 
@@ -3678,6 +3781,8 @@ func (s *ModifyInstanceChargeTypeInput) SetPeriodUnit(v string) *ModifyInstanceC
 
 type ModifyInstanceChargeTypeOutput struct {
 	_ struct{} `type:"structure"`
+
+	OrderId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3688,6 +3793,12 @@ func (s ModifyInstanceChargeTypeOutput) String() string {
 // GoString returns the string representation
 func (s ModifyInstanceChargeTypeOutput) GoString() string {
 	return s.String()
+}
+
+// SetOrderId sets the OrderId field's value.
+func (s *ModifyInstanceChargeTypeOutput) SetOrderId(v string) *ModifyInstanceChargeTypeOutput {
+	s.OrderId = &v
+	return s
 }
 
 type ModifyInstanceSpecInput struct {
@@ -3881,6 +3992,8 @@ func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int32) *
 type RebootInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	ForceStop *bool `type:"boolean"`
+
 	InstanceId *string `type:"string"`
 }
 
@@ -3892,6 +4005,12 @@ func (s RebootInstanceInput) String() string {
 // GoString returns the string representation
 func (s RebootInstanceInput) GoString() string {
 	return s.String()
+}
+
+// SetForceStop sets the ForceStop field's value.
+func (s *RebootInstanceInput) SetForceStop(v bool) *RebootInstanceInput {
+	s.ForceStop = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -3985,6 +4104,8 @@ func (s *RenewInstanceOutput) SetOrderId(v string) *RenewInstanceOutput {
 type ReplaceSystemVolumeInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	ImageId *string `type:"string"`
 
 	InstanceId *string `type:"string"`
@@ -4006,6 +4127,12 @@ func (s ReplaceSystemVolumeInput) String() string {
 // GoString returns the string representation
 func (s ReplaceSystemVolumeInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ReplaceSystemVolumeInput) SetClientToken(v string) *ReplaceSystemVolumeInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetImageId sets the ImageId field's value.
@@ -4082,6 +4209,8 @@ type RunInstancesInput struct {
 	InstanceName *string `type:"string"`
 
 	InstanceType *string `type:"string"`
+
+	InstanceTypeId *string `type:"string"`
 
 	KeyPairName *string `type:"string"`
 
@@ -4179,6 +4308,12 @@ func (s *RunInstancesInput) SetInstanceName(v string) *RunInstancesInput {
 // SetInstanceType sets the InstanceType field's value.
 func (s *RunInstancesInput) SetInstanceType(v string) *RunInstancesInput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *RunInstancesInput) SetInstanceTypeId(v string) *RunInstancesInput {
+	s.InstanceTypeId = &v
 	return s
 }
 
@@ -4309,6 +4444,8 @@ func (s StartInstanceOutput) GoString() string {
 type StopInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	ForceStop *bool `type:"boolean"`
+
 	InstanceId *string `type:"string"`
 
 	StoppedMode *string `type:"string"`
@@ -4322,6 +4459,12 @@ func (s StopInstanceInput) String() string {
 // GoString returns the string representation
 func (s StopInstanceInput) GoString() string {
 	return s.String()
+}
+
+// SetForceStop sets the ForceStop field's value.
+func (s *StopInstanceInput) SetForceStop(v bool) *StopInstanceInput {
+	s.ForceStop = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -4377,6 +4520,28 @@ func (s *SupportedResourceForDescribeAvailableResourceOutput) SetStatus(v string
 // SetValue sets the Value field's value.
 func (s *SupportedResourceForDescribeAvailableResourceOutput) SetValue(v string) *SupportedResourceForDescribeAvailableResourceOutput {
 	s.Value = &v
+	return s
+}
+
+type VolumeForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	SupportedVolumeTypes []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s VolumeForDescribeInstanceTypesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VolumeForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetSupportedVolumeTypes sets the SupportedVolumeTypes field's value.
+func (s *VolumeForDescribeInstanceTypesOutput) SetSupportedVolumeTypes(v []*string) *VolumeForDescribeInstanceTypesOutput {
+	s.SupportedVolumeTypes = v
 	return s
 }
 

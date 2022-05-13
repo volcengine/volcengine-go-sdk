@@ -8,29 +8,29 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
-const opAssociateConnectionToDirectConnectGatewayCommon = "AssociateConnectionToDirectConnectGateway"
+const opConfirmDirectConnectConnectionCommon = "ConfirmDirectConnectConnection"
 
-// AssociateConnectionToDirectConnectGatewayCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the AssociateConnectionToDirectConnectGatewayCommon operation. The "output" return
-// value will be populated with the AssociateConnectionToDirectConnectGatewayCommon request's response once the request completes
+// ConfirmDirectConnectConnectionCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ConfirmDirectConnectConnectionCommon operation. The "output" return
+// value will be populated with the ConfirmDirectConnectConnectionCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned AssociateConnectionToDirectConnectGatewayCommon Request to send the API call to the service.
-// the "output" return value is not valid until after AssociateConnectionToDirectConnectGatewayCommon Send returns without error.
+// Use "Send" method on the returned ConfirmDirectConnectConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ConfirmDirectConnectConnectionCommon Send returns without error.
 //
-// See AssociateConnectionToDirectConnectGatewayCommon for more information on using the AssociateConnectionToDirectConnectGatewayCommon
+// See ConfirmDirectConnectConnectionCommon for more information on using the ConfirmDirectConnectConnectionCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateConnectionToDirectConnectGatewayCommonRequest method.
-//    req, resp := client.AssociateConnectionToDirectConnectGatewayCommonRequest(params)
+//    // Example sending a request using the ConfirmDirectConnectConnectionCommonRequest method.
+//    req, resp := client.ConfirmDirectConnectConnectionCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *DIRECTCONNECT) AssociateConnectionToDirectConnectGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *DIRECTCONNECT) ConfirmDirectConnectConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opAssociateConnectionToDirectConnectGatewayCommon,
+		Name:       opConfirmDirectConnectConnectionCommon,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
@@ -45,94 +45,94 @@ func (c *DIRECTCONNECT) AssociateConnectionToDirectConnectGatewayCommonRequest(i
 	return
 }
 
-// AssociateConnectionToDirectConnectGatewayCommon API operation for DIRECTCONNECT.
+// ConfirmDirectConnectConnectionCommon API operation for DIRECTCONNECT.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation AssociateConnectionToDirectConnectGatewayCommon for usage and error information.
-func (c *DIRECTCONNECT) AssociateConnectionToDirectConnectGatewayCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.AssociateConnectionToDirectConnectGatewayCommonRequest(input)
+// API operation ConfirmDirectConnectConnectionCommon for usage and error information.
+func (c *DIRECTCONNECT) ConfirmDirectConnectConnectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ConfirmDirectConnectConnectionCommonRequest(input)
 	return out, req.Send()
 }
 
-// AssociateConnectionToDirectConnectGatewayCommonWithContext is the same as AssociateConnectionToDirectConnectGatewayCommon with the addition of
+// ConfirmDirectConnectConnectionCommonWithContext is the same as ConfirmDirectConnectConnectionCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See AssociateConnectionToDirectConnectGatewayCommon for details on how to use this API operation.
+// See ConfirmDirectConnectConnectionCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *DIRECTCONNECT) AssociateConnectionToDirectConnectGatewayCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.AssociateConnectionToDirectConnectGatewayCommonRequest(input)
+func (c *DIRECTCONNECT) ConfirmDirectConnectConnectionCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ConfirmDirectConnectConnectionCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opAssociateConnectionToDirectConnectGateway = "AssociateConnectionToDirectConnectGateway"
+const opConfirmDirectConnectConnection = "ConfirmDirectConnectConnection"
 
-// AssociateConnectionToDirectConnectGatewayRequest generates a "volcstack/request.Request" representing the
-// client's request for the AssociateConnectionToDirectConnectGateway operation. The "output" return
-// value will be populated with the AssociateConnectionToDirectConnectGatewayCommon request's response once the request completes
+// ConfirmDirectConnectConnectionRequest generates a "volcstack/request.Request" representing the
+// client's request for the ConfirmDirectConnectConnection operation. The "output" return
+// value will be populated with the ConfirmDirectConnectConnectionCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned AssociateConnectionToDirectConnectGatewayCommon Request to send the API call to the service.
-// the "output" return value is not valid until after AssociateConnectionToDirectConnectGatewayCommon Send returns without error.
+// Use "Send" method on the returned ConfirmDirectConnectConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ConfirmDirectConnectConnectionCommon Send returns without error.
 //
-// See AssociateConnectionToDirectConnectGateway for more information on using the AssociateConnectionToDirectConnectGateway
+// See ConfirmDirectConnectConnection for more information on using the ConfirmDirectConnectConnection
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateConnectionToDirectConnectGatewayRequest method.
-//    req, resp := client.AssociateConnectionToDirectConnectGatewayRequest(params)
+//    // Example sending a request using the ConfirmDirectConnectConnectionRequest method.
+//    req, resp := client.ConfirmDirectConnectConnectionRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *DIRECTCONNECT) AssociateConnectionToDirectConnectGatewayRequest(input *AssociateConnectionToDirectConnectGatewayInput) (req *request.Request, output *AssociateConnectionToDirectConnectGatewayOutput) {
+func (c *DIRECTCONNECT) ConfirmDirectConnectConnectionRequest(input *ConfirmDirectConnectConnectionInput) (req *request.Request, output *ConfirmDirectConnectConnectionOutput) {
 	op := &request.Operation{
-		Name:       opAssociateConnectionToDirectConnectGateway,
+		Name:       opConfirmDirectConnectConnection,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &AssociateConnectionToDirectConnectGatewayInput{}
+		input = &ConfirmDirectConnectConnectionInput{}
 	}
 
-	output = &AssociateConnectionToDirectConnectGatewayOutput{}
+	output = &ConfirmDirectConnectConnectionOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// AssociateConnectionToDirectConnectGateway API operation for DIRECTCONNECT.
+// ConfirmDirectConnectConnection API operation for DIRECTCONNECT.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation AssociateConnectionToDirectConnectGateway for usage and error information.
-func (c *DIRECTCONNECT) AssociateConnectionToDirectConnectGateway(input *AssociateConnectionToDirectConnectGatewayInput) (*AssociateConnectionToDirectConnectGatewayOutput, error) {
-	req, out := c.AssociateConnectionToDirectConnectGatewayRequest(input)
+// API operation ConfirmDirectConnectConnection for usage and error information.
+func (c *DIRECTCONNECT) ConfirmDirectConnectConnection(input *ConfirmDirectConnectConnectionInput) (*ConfirmDirectConnectConnectionOutput, error) {
+	req, out := c.ConfirmDirectConnectConnectionRequest(input)
 	return out, req.Send()
 }
 
-// AssociateConnectionToDirectConnectGatewayWithContext is the same as AssociateConnectionToDirectConnectGateway with the addition of
+// ConfirmDirectConnectConnectionWithContext is the same as ConfirmDirectConnectConnection with the addition of
 // the ability to pass a context and additional request options.
 //
-// See AssociateConnectionToDirectConnectGateway for details on how to use this API operation.
+// See ConfirmDirectConnectConnection for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *DIRECTCONNECT) AssociateConnectionToDirectConnectGatewayWithContext(ctx volcstack.Context, input *AssociateConnectionToDirectConnectGatewayInput, opts ...request.Option) (*AssociateConnectionToDirectConnectGatewayOutput, error) {
-	req, out := c.AssociateConnectionToDirectConnectGatewayRequest(input)
+func (c *DIRECTCONNECT) ConfirmDirectConnectConnectionWithContext(ctx volcstack.Context, input *ConfirmDirectConnectConnectionInput, opts ...request.Option) (*ConfirmDirectConnectConnectionOutput, error) {
+	req, out := c.ConfirmDirectConnectConnectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -658,6 +658,136 @@ func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterfaceWithContext(ctx volcs
 	return out, req.Send()
 }
 
+const opCreateSharedDirectConnectConnectionCommon = "CreateSharedDirectConnectConnection"
+
+// CreateSharedDirectConnectConnectionCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateSharedDirectConnectConnectionCommon operation. The "output" return
+// value will be populated with the CreateSharedDirectConnectConnectionCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CreateSharedDirectConnectConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateSharedDirectConnectConnectionCommon Send returns without error.
+//
+// See CreateSharedDirectConnectConnectionCommon for more information on using the CreateSharedDirectConnectConnectionCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the CreateSharedDirectConnectConnectionCommonRequest method.
+//    req, resp := client.CreateSharedDirectConnectConnectionCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *DIRECTCONNECT) CreateSharedDirectConnectConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateSharedDirectConnectConnectionCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateSharedDirectConnectConnectionCommon API operation for DIRECTCONNECT.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// API operation CreateSharedDirectConnectConnectionCommon for usage and error information.
+func (c *DIRECTCONNECT) CreateSharedDirectConnectConnectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateSharedDirectConnectConnectionCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateSharedDirectConnectConnectionCommonWithContext is the same as CreateSharedDirectConnectConnectionCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateSharedDirectConnectConnectionCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *DIRECTCONNECT) CreateSharedDirectConnectConnectionCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateSharedDirectConnectConnectionCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateSharedDirectConnectConnection = "CreateSharedDirectConnectConnection"
+
+// CreateSharedDirectConnectConnectionRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateSharedDirectConnectConnection operation. The "output" return
+// value will be populated with the CreateSharedDirectConnectConnectionCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CreateSharedDirectConnectConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateSharedDirectConnectConnectionCommon Send returns without error.
+//
+// See CreateSharedDirectConnectConnection for more information on using the CreateSharedDirectConnectConnection
+// API call, and error handling.
+//
+//    // Example sending a request using the CreateSharedDirectConnectConnectionRequest method.
+//    req, resp := client.CreateSharedDirectConnectConnectionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *DIRECTCONNECT) CreateSharedDirectConnectConnectionRequest(input *CreateSharedDirectConnectConnectionInput) (req *request.Request, output *CreateSharedDirectConnectConnectionOutput) {
+	op := &request.Operation{
+		Name:       opCreateSharedDirectConnectConnection,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateSharedDirectConnectConnectionInput{}
+	}
+
+	output = &CreateSharedDirectConnectConnectionOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateSharedDirectConnectConnection API operation for DIRECTCONNECT.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// API operation CreateSharedDirectConnectConnection for usage and error information.
+func (c *DIRECTCONNECT) CreateSharedDirectConnectConnection(input *CreateSharedDirectConnectConnectionInput) (*CreateSharedDirectConnectConnectionOutput, error) {
+	req, out := c.CreateSharedDirectConnectConnectionRequest(input)
+	return out, req.Send()
+}
+
+// CreateSharedDirectConnectConnectionWithContext is the same as CreateSharedDirectConnectConnection with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateSharedDirectConnectConnection for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *DIRECTCONNECT) CreateSharedDirectConnectConnectionWithContext(ctx volcstack.Context, input *CreateSharedDirectConnectConnectionInput, opts ...request.Option) (*CreateSharedDirectConnectConnectionOutput, error) {
+	req, out := c.CreateSharedDirectConnectConnectionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteBgpPeerCommon = "DeleteBgpPeer"
 
 // DeleteBgpPeerCommonRequest generates a "volcstack/request.Request" representing the
@@ -788,6 +918,136 @@ func (c *DIRECTCONNECT) DeleteBgpPeerWithContext(ctx volcstack.Context, input *D
 	return out, req.Send()
 }
 
+const opDeleteDirectConnectConnectionCommon = "DeleteDirectConnectConnection"
+
+// DeleteDirectConnectConnectionCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteDirectConnectConnectionCommon operation. The "output" return
+// value will be populated with the DeleteDirectConnectConnectionCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteDirectConnectConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteDirectConnectConnectionCommon Send returns without error.
+//
+// See DeleteDirectConnectConnectionCommon for more information on using the DeleteDirectConnectConnectionCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteDirectConnectConnectionCommonRequest method.
+//    req, resp := client.DeleteDirectConnectConnectionCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *DIRECTCONNECT) DeleteDirectConnectConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteDirectConnectConnectionCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteDirectConnectConnectionCommon API operation for DIRECTCONNECT.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// API operation DeleteDirectConnectConnectionCommon for usage and error information.
+func (c *DIRECTCONNECT) DeleteDirectConnectConnectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteDirectConnectConnectionCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteDirectConnectConnectionCommonWithContext is the same as DeleteDirectConnectConnectionCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteDirectConnectConnectionCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *DIRECTCONNECT) DeleteDirectConnectConnectionCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteDirectConnectConnectionCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteDirectConnectConnection = "DeleteDirectConnectConnection"
+
+// DeleteDirectConnectConnectionRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteDirectConnectConnection operation. The "output" return
+// value will be populated with the DeleteDirectConnectConnectionCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteDirectConnectConnectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteDirectConnectConnectionCommon Send returns without error.
+//
+// See DeleteDirectConnectConnection for more information on using the DeleteDirectConnectConnection
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteDirectConnectConnectionRequest method.
+//    req, resp := client.DeleteDirectConnectConnectionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *DIRECTCONNECT) DeleteDirectConnectConnectionRequest(input *DeleteDirectConnectConnectionInput) (req *request.Request, output *DeleteDirectConnectConnectionOutput) {
+	op := &request.Operation{
+		Name:       opDeleteDirectConnectConnection,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteDirectConnectConnectionInput{}
+	}
+
+	output = &DeleteDirectConnectConnectionOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteDirectConnectConnection API operation for DIRECTCONNECT.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// API operation DeleteDirectConnectConnection for usage and error information.
+func (c *DIRECTCONNECT) DeleteDirectConnectConnection(input *DeleteDirectConnectConnectionInput) (*DeleteDirectConnectConnectionOutput, error) {
+	req, out := c.DeleteDirectConnectConnectionRequest(input)
+	return out, req.Send()
+}
+
+// DeleteDirectConnectConnectionWithContext is the same as DeleteDirectConnectConnection with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteDirectConnectConnection for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *DIRECTCONNECT) DeleteDirectConnectConnectionWithContext(ctx volcstack.Context, input *DeleteDirectConnectConnectionInput, opts ...request.Option) (*DeleteDirectConnectConnectionOutput, error) {
+	req, out := c.DeleteDirectConnectConnectionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteDirectConnectGatewayCommon = "DeleteDirectConnectGateway"
 
 // DeleteDirectConnectGatewayCommonRequest generates a "volcstack/request.Request" representing the
@@ -913,136 +1173,6 @@ func (c *DIRECTCONNECT) DeleteDirectConnectGateway(input *DeleteDirectConnectGat
 // for more information on using Contexts.
 func (c *DIRECTCONNECT) DeleteDirectConnectGatewayWithContext(ctx volcstack.Context, input *DeleteDirectConnectGatewayInput, opts ...request.Option) (*DeleteDirectConnectGatewayOutput, error) {
 	req, out := c.DeleteDirectConnectGatewayRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opDeleteDirectConnectGatewayAssociationCommon = "DeleteDirectConnectGatewayAssociation"
-
-// DeleteDirectConnectGatewayAssociationCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the DeleteDirectConnectGatewayAssociationCommon operation. The "output" return
-// value will be populated with the DeleteDirectConnectGatewayAssociationCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned DeleteDirectConnectGatewayAssociationCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DeleteDirectConnectGatewayAssociationCommon Send returns without error.
-//
-// See DeleteDirectConnectGatewayAssociationCommon for more information on using the DeleteDirectConnectGatewayAssociationCommon
-// API call, and error handling.
-//
-//    // Example sending a request using the DeleteDirectConnectGatewayAssociationCommonRequest method.
-//    req, resp := client.DeleteDirectConnectGatewayAssociationCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *DIRECTCONNECT) DeleteDirectConnectGatewayAssociationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opDeleteDirectConnectGatewayAssociationCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
-
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// DeleteDirectConnectGatewayAssociationCommon API operation for DIRECTCONNECT.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation DeleteDirectConnectGatewayAssociationCommon for usage and error information.
-func (c *DIRECTCONNECT) DeleteDirectConnectGatewayAssociationCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.DeleteDirectConnectGatewayAssociationCommonRequest(input)
-	return out, req.Send()
-}
-
-// DeleteDirectConnectGatewayAssociationCommonWithContext is the same as DeleteDirectConnectGatewayAssociationCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See DeleteDirectConnectGatewayAssociationCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *DIRECTCONNECT) DeleteDirectConnectGatewayAssociationCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.DeleteDirectConnectGatewayAssociationCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opDeleteDirectConnectGatewayAssociation = "DeleteDirectConnectGatewayAssociation"
-
-// DeleteDirectConnectGatewayAssociationRequest generates a "volcstack/request.Request" representing the
-// client's request for the DeleteDirectConnectGatewayAssociation operation. The "output" return
-// value will be populated with the DeleteDirectConnectGatewayAssociationCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned DeleteDirectConnectGatewayAssociationCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DeleteDirectConnectGatewayAssociationCommon Send returns without error.
-//
-// See DeleteDirectConnectGatewayAssociation for more information on using the DeleteDirectConnectGatewayAssociation
-// API call, and error handling.
-//
-//    // Example sending a request using the DeleteDirectConnectGatewayAssociationRequest method.
-//    req, resp := client.DeleteDirectConnectGatewayAssociationRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *DIRECTCONNECT) DeleteDirectConnectGatewayAssociationRequest(input *DeleteDirectConnectGatewayAssociationInput) (req *request.Request, output *DeleteDirectConnectGatewayAssociationOutput) {
-	op := &request.Operation{
-		Name:       opDeleteDirectConnectGatewayAssociation,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &DeleteDirectConnectGatewayAssociationInput{}
-	}
-
-	output = &DeleteDirectConnectGatewayAssociationOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// DeleteDirectConnectGatewayAssociation API operation for DIRECTCONNECT.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation DeleteDirectConnectGatewayAssociation for usage and error information.
-func (c *DIRECTCONNECT) DeleteDirectConnectGatewayAssociation(input *DeleteDirectConnectGatewayAssociationInput) (*DeleteDirectConnectGatewayAssociationOutput, error) {
-	req, out := c.DeleteDirectConnectGatewayAssociationRequest(input)
-	return out, req.Send()
-}
-
-// DeleteDirectConnectGatewayAssociationWithContext is the same as DeleteDirectConnectGatewayAssociation with the addition of
-// the ability to pass a context and additional request options.
-//
-// See DeleteDirectConnectGatewayAssociation for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *DIRECTCONNECT) DeleteDirectConnectGatewayAssociationWithContext(ctx volcstack.Context, input *DeleteDirectConnectGatewayAssociationInput, opts ...request.Option) (*DeleteDirectConnectGatewayAssociationOutput, error) {
-	req, out := c.DeleteDirectConnectGatewayAssociationRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1828,266 +1958,6 @@ func (c *DIRECTCONNECT) DescribeDirectConnectConnectionsWithContext(ctx volcstac
 	return out, req.Send()
 }
 
-const opDescribeDirectConnectGatewayAssociationAttributesCommon = "DescribeDirectConnectGatewayAssociationAttributes"
-
-// DescribeDirectConnectGatewayAssociationAttributesCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the DescribeDirectConnectGatewayAssociationAttributesCommon operation. The "output" return
-// value will be populated with the DescribeDirectConnectGatewayAssociationAttributesCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned DescribeDirectConnectGatewayAssociationAttributesCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DescribeDirectConnectGatewayAssociationAttributesCommon Send returns without error.
-//
-// See DescribeDirectConnectGatewayAssociationAttributesCommon for more information on using the DescribeDirectConnectGatewayAssociationAttributesCommon
-// API call, and error handling.
-//
-//    // Example sending a request using the DescribeDirectConnectGatewayAssociationAttributesCommonRequest method.
-//    req, resp := client.DescribeDirectConnectGatewayAssociationAttributesCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opDescribeDirectConnectGatewayAssociationAttributesCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
-
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// DescribeDirectConnectGatewayAssociationAttributesCommon API operation for DIRECTCONNECT.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation DescribeDirectConnectGatewayAssociationAttributesCommon for usage and error information.
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.DescribeDirectConnectGatewayAssociationAttributesCommonRequest(input)
-	return out, req.Send()
-}
-
-// DescribeDirectConnectGatewayAssociationAttributesCommonWithContext is the same as DescribeDirectConnectGatewayAssociationAttributesCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See DescribeDirectConnectGatewayAssociationAttributesCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationAttributesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.DescribeDirectConnectGatewayAssociationAttributesCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opDescribeDirectConnectGatewayAssociationAttributes = "DescribeDirectConnectGatewayAssociationAttributes"
-
-// DescribeDirectConnectGatewayAssociationAttributesRequest generates a "volcstack/request.Request" representing the
-// client's request for the DescribeDirectConnectGatewayAssociationAttributes operation. The "output" return
-// value will be populated with the DescribeDirectConnectGatewayAssociationAttributesCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned DescribeDirectConnectGatewayAssociationAttributesCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DescribeDirectConnectGatewayAssociationAttributesCommon Send returns without error.
-//
-// See DescribeDirectConnectGatewayAssociationAttributes for more information on using the DescribeDirectConnectGatewayAssociationAttributes
-// API call, and error handling.
-//
-//    // Example sending a request using the DescribeDirectConnectGatewayAssociationAttributesRequest method.
-//    req, resp := client.DescribeDirectConnectGatewayAssociationAttributesRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationAttributesRequest(input *DescribeDirectConnectGatewayAssociationAttributesInput) (req *request.Request, output *DescribeDirectConnectGatewayAssociationAttributesOutput) {
-	op := &request.Operation{
-		Name:       opDescribeDirectConnectGatewayAssociationAttributes,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &DescribeDirectConnectGatewayAssociationAttributesInput{}
-	}
-
-	output = &DescribeDirectConnectGatewayAssociationAttributesOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// DescribeDirectConnectGatewayAssociationAttributes API operation for DIRECTCONNECT.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation DescribeDirectConnectGatewayAssociationAttributes for usage and error information.
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationAttributes(input *DescribeDirectConnectGatewayAssociationAttributesInput) (*DescribeDirectConnectGatewayAssociationAttributesOutput, error) {
-	req, out := c.DescribeDirectConnectGatewayAssociationAttributesRequest(input)
-	return out, req.Send()
-}
-
-// DescribeDirectConnectGatewayAssociationAttributesWithContext is the same as DescribeDirectConnectGatewayAssociationAttributes with the addition of
-// the ability to pass a context and additional request options.
-//
-// See DescribeDirectConnectGatewayAssociationAttributes for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationAttributesWithContext(ctx volcstack.Context, input *DescribeDirectConnectGatewayAssociationAttributesInput, opts ...request.Option) (*DescribeDirectConnectGatewayAssociationAttributesOutput, error) {
-	req, out := c.DescribeDirectConnectGatewayAssociationAttributesRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opDescribeDirectConnectGatewayAssociationsCommon = "DescribeDirectConnectGatewayAssociations"
-
-// DescribeDirectConnectGatewayAssociationsCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the DescribeDirectConnectGatewayAssociationsCommon operation. The "output" return
-// value will be populated with the DescribeDirectConnectGatewayAssociationsCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned DescribeDirectConnectGatewayAssociationsCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DescribeDirectConnectGatewayAssociationsCommon Send returns without error.
-//
-// See DescribeDirectConnectGatewayAssociationsCommon for more information on using the DescribeDirectConnectGatewayAssociationsCommon
-// API call, and error handling.
-//
-//    // Example sending a request using the DescribeDirectConnectGatewayAssociationsCommonRequest method.
-//    req, resp := client.DescribeDirectConnectGatewayAssociationsCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opDescribeDirectConnectGatewayAssociationsCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
-
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// DescribeDirectConnectGatewayAssociationsCommon API operation for DIRECTCONNECT.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation DescribeDirectConnectGatewayAssociationsCommon for usage and error information.
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.DescribeDirectConnectGatewayAssociationsCommonRequest(input)
-	return out, req.Send()
-}
-
-// DescribeDirectConnectGatewayAssociationsCommonWithContext is the same as DescribeDirectConnectGatewayAssociationsCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See DescribeDirectConnectGatewayAssociationsCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.DescribeDirectConnectGatewayAssociationsCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
-const opDescribeDirectConnectGatewayAssociations = "DescribeDirectConnectGatewayAssociations"
-
-// DescribeDirectConnectGatewayAssociationsRequest generates a "volcstack/request.Request" representing the
-// client's request for the DescribeDirectConnectGatewayAssociations operation. The "output" return
-// value will be populated with the DescribeDirectConnectGatewayAssociationsCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned DescribeDirectConnectGatewayAssociationsCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DescribeDirectConnectGatewayAssociationsCommon Send returns without error.
-//
-// See DescribeDirectConnectGatewayAssociations for more information on using the DescribeDirectConnectGatewayAssociations
-// API call, and error handling.
-//
-//    // Example sending a request using the DescribeDirectConnectGatewayAssociationsRequest method.
-//    req, resp := client.DescribeDirectConnectGatewayAssociationsRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationsRequest(input *DescribeDirectConnectGatewayAssociationsInput) (req *request.Request, output *DescribeDirectConnectGatewayAssociationsOutput) {
-	op := &request.Operation{
-		Name:       opDescribeDirectConnectGatewayAssociations,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &DescribeDirectConnectGatewayAssociationsInput{}
-	}
-
-	output = &DescribeDirectConnectGatewayAssociationsOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
-}
-
-// DescribeDirectConnectGatewayAssociations API operation for DIRECTCONNECT.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation DescribeDirectConnectGatewayAssociations for usage and error information.
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociations(input *DescribeDirectConnectGatewayAssociationsInput) (*DescribeDirectConnectGatewayAssociationsOutput, error) {
-	req, out := c.DescribeDirectConnectGatewayAssociationsRequest(input)
-	return out, req.Send()
-}
-
-// DescribeDirectConnectGatewayAssociationsWithContext is the same as DescribeDirectConnectGatewayAssociations with the addition of
-// the ability to pass a context and additional request options.
-//
-// See DescribeDirectConnectGatewayAssociations for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAssociationsWithContext(ctx volcstack.Context, input *DescribeDirectConnectGatewayAssociationsInput, opts ...request.Option) (*DescribeDirectConnectGatewayAssociationsOutput, error) {
-	req, out := c.DescribeDirectConnectGatewayAssociationsRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
-}
-
 const opDescribeDirectConnectGatewayAttributesCommon = "DescribeDirectConnectGatewayAttributes"
 
 // DescribeDirectConnectGatewayAttributesCommonRequest generates a "volcstack/request.Request" representing the
@@ -2868,29 +2738,29 @@ func (c *DIRECTCONNECT) DescribeDirectConnectVirtualInterfacesWithContext(ctx vo
 	return out, req.Send()
 }
 
-const opDisassociateConnectionFromDirectConnectGatewayCommon = "DisassociateConnectionFromDirectConnectGateway"
+const opDescribeSharedDirectConnectConnectionsCommon = "DescribeSharedDirectConnectConnections"
 
-// DisassociateConnectionFromDirectConnectGatewayCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the DisassociateConnectionFromDirectConnectGatewayCommon operation. The "output" return
-// value will be populated with the DisassociateConnectionFromDirectConnectGatewayCommon request's response once the request completes
+// DescribeSharedDirectConnectConnectionsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSharedDirectConnectConnectionsCommon operation. The "output" return
+// value will be populated with the DescribeSharedDirectConnectConnectionsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned DisassociateConnectionFromDirectConnectGatewayCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DisassociateConnectionFromDirectConnectGatewayCommon Send returns without error.
+// Use "Send" method on the returned DescribeSharedDirectConnectConnectionsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeSharedDirectConnectConnectionsCommon Send returns without error.
 //
-// See DisassociateConnectionFromDirectConnectGatewayCommon for more information on using the DisassociateConnectionFromDirectConnectGatewayCommon
+// See DescribeSharedDirectConnectConnectionsCommon for more information on using the DescribeSharedDirectConnectConnectionsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateConnectionFromDirectConnectGatewayCommonRequest method.
-//    req, resp := client.DisassociateConnectionFromDirectConnectGatewayCommonRequest(params)
+//    // Example sending a request using the DescribeSharedDirectConnectConnectionsCommonRequest method.
+//    req, resp := client.DescribeSharedDirectConnectConnectionsCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *DIRECTCONNECT) DisassociateConnectionFromDirectConnectGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *DIRECTCONNECT) DescribeSharedDirectConnectConnectionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opDisassociateConnectionFromDirectConnectGatewayCommon,
+		Name:       opDescribeSharedDirectConnectConnectionsCommon,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
@@ -2905,94 +2775,94 @@ func (c *DIRECTCONNECT) DisassociateConnectionFromDirectConnectGatewayCommonRequ
 	return
 }
 
-// DisassociateConnectionFromDirectConnectGatewayCommon API operation for DIRECTCONNECT.
+// DescribeSharedDirectConnectConnectionsCommon API operation for DIRECTCONNECT.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation DisassociateConnectionFromDirectConnectGatewayCommon for usage and error information.
-func (c *DIRECTCONNECT) DisassociateConnectionFromDirectConnectGatewayCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.DisassociateConnectionFromDirectConnectGatewayCommonRequest(input)
+// API operation DescribeSharedDirectConnectConnectionsCommon for usage and error information.
+func (c *DIRECTCONNECT) DescribeSharedDirectConnectConnectionsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeSharedDirectConnectConnectionsCommonRequest(input)
 	return out, req.Send()
 }
 
-// DisassociateConnectionFromDirectConnectGatewayCommonWithContext is the same as DisassociateConnectionFromDirectConnectGatewayCommon with the addition of
+// DescribeSharedDirectConnectConnectionsCommonWithContext is the same as DescribeSharedDirectConnectConnectionsCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See DisassociateConnectionFromDirectConnectGatewayCommon for details on how to use this API operation.
+// See DescribeSharedDirectConnectConnectionsCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *DIRECTCONNECT) DisassociateConnectionFromDirectConnectGatewayCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.DisassociateConnectionFromDirectConnectGatewayCommonRequest(input)
+func (c *DIRECTCONNECT) DescribeSharedDirectConnectConnectionsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeSharedDirectConnectConnectionsCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opDisassociateConnectionFromDirectConnectGateway = "DisassociateConnectionFromDirectConnectGateway"
+const opDescribeSharedDirectConnectConnections = "DescribeSharedDirectConnectConnections"
 
-// DisassociateConnectionFromDirectConnectGatewayRequest generates a "volcstack/request.Request" representing the
-// client's request for the DisassociateConnectionFromDirectConnectGateway operation. The "output" return
-// value will be populated with the DisassociateConnectionFromDirectConnectGatewayCommon request's response once the request completes
+// DescribeSharedDirectConnectConnectionsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeSharedDirectConnectConnections operation. The "output" return
+// value will be populated with the DescribeSharedDirectConnectConnectionsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned DisassociateConnectionFromDirectConnectGatewayCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DisassociateConnectionFromDirectConnectGatewayCommon Send returns without error.
+// Use "Send" method on the returned DescribeSharedDirectConnectConnectionsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeSharedDirectConnectConnectionsCommon Send returns without error.
 //
-// See DisassociateConnectionFromDirectConnectGateway for more information on using the DisassociateConnectionFromDirectConnectGateway
+// See DescribeSharedDirectConnectConnections for more information on using the DescribeSharedDirectConnectConnections
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateConnectionFromDirectConnectGatewayRequest method.
-//    req, resp := client.DisassociateConnectionFromDirectConnectGatewayRequest(params)
+//    // Example sending a request using the DescribeSharedDirectConnectConnectionsRequest method.
+//    req, resp := client.DescribeSharedDirectConnectConnectionsRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *DIRECTCONNECT) DisassociateConnectionFromDirectConnectGatewayRequest(input *DisassociateConnectionFromDirectConnectGatewayInput) (req *request.Request, output *DisassociateConnectionFromDirectConnectGatewayOutput) {
+func (c *DIRECTCONNECT) DescribeSharedDirectConnectConnectionsRequest(input *DescribeSharedDirectConnectConnectionsInput) (req *request.Request, output *DescribeSharedDirectConnectConnectionsOutput) {
 	op := &request.Operation{
-		Name:       opDisassociateConnectionFromDirectConnectGateway,
+		Name:       opDescribeSharedDirectConnectConnections,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &DisassociateConnectionFromDirectConnectGatewayInput{}
+		input = &DescribeSharedDirectConnectConnectionsInput{}
 	}
 
-	output = &DisassociateConnectionFromDirectConnectGatewayOutput{}
+	output = &DescribeSharedDirectConnectConnectionsOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// DisassociateConnectionFromDirectConnectGateway API operation for DIRECTCONNECT.
+// DescribeSharedDirectConnectConnections API operation for DIRECTCONNECT.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for DIRECTCONNECT's
-// API operation DisassociateConnectionFromDirectConnectGateway for usage and error information.
-func (c *DIRECTCONNECT) DisassociateConnectionFromDirectConnectGateway(input *DisassociateConnectionFromDirectConnectGatewayInput) (*DisassociateConnectionFromDirectConnectGatewayOutput, error) {
-	req, out := c.DisassociateConnectionFromDirectConnectGatewayRequest(input)
+// API operation DescribeSharedDirectConnectConnections for usage and error information.
+func (c *DIRECTCONNECT) DescribeSharedDirectConnectConnections(input *DescribeSharedDirectConnectConnectionsInput) (*DescribeSharedDirectConnectConnectionsOutput, error) {
+	req, out := c.DescribeSharedDirectConnectConnectionsRequest(input)
 	return out, req.Send()
 }
 
-// DisassociateConnectionFromDirectConnectGatewayWithContext is the same as DisassociateConnectionFromDirectConnectGateway with the addition of
+// DescribeSharedDirectConnectConnectionsWithContext is the same as DescribeSharedDirectConnectConnections with the addition of
 // the ability to pass a context and additional request options.
 //
-// See DisassociateConnectionFromDirectConnectGateway for details on how to use this API operation.
+// See DescribeSharedDirectConnectConnections for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *DIRECTCONNECT) DisassociateConnectionFromDirectConnectGatewayWithContext(ctx volcstack.Context, input *DisassociateConnectionFromDirectConnectGatewayInput, opts ...request.Option) (*DisassociateConnectionFromDirectConnectGatewayOutput, error) {
-	req, out := c.DisassociateConnectionFromDirectConnectGatewayRequest(input)
+func (c *DIRECTCONNECT) DescribeSharedDirectConnectConnectionsWithContext(ctx volcstack.Context, input *DescribeSharedDirectConnectConnectionsInput, opts ...request.Option) (*DescribeSharedDirectConnectConnectionsOutput, error) {
+	req, out := c.DescribeSharedDirectConnectConnectionsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -3518,129 +3388,79 @@ func (c *DIRECTCONNECT) ModifyDirectConnectVirtualInterfaceAttributesWithContext
 	return out, req.Send()
 }
 
-type AssociateConnectionToDirectConnectGatewayInput struct {
+type AssociateCenForDescribeDirectConnectGatewayAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
-	// DirectConnectConnectionId is a required field
-	DirectConnectConnectionId *string `type:"string" required:"true"`
+	CenId *string `type:"string"`
 
-	// DirectConnectGatewayId is a required field
-	DirectConnectGatewayId *string `type:"string" required:"true"`
+	CenOwnerId *string `type:"string"`
 
-	// LocalIP is a required field
-	LocalIP *string `type:"string" required:"true"`
-
-	// Mask is a required field
-	Mask *string `type:"string" required:"true"`
-
-	// PeerIp is a required field
-	PeerIp *string `type:"string" required:"true"`
-
-	// VlanId is a required field
-	VlanId *int64 `type:"integer" required:"true"`
+	CenStatus *string `type:"string"`
 }
 
 // String returns the string representation
-func (s AssociateConnectionToDirectConnectGatewayInput) String() string {
+func (s AssociateCenForDescribeDirectConnectGatewayAttributesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AssociateConnectionToDirectConnectGatewayInput) GoString() string {
+func (s AssociateCenForDescribeDirectConnectGatewayAttributesOutput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *AssociateConnectionToDirectConnectGatewayInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "AssociateConnectionToDirectConnectGatewayInput"}
-	if s.DirectConnectConnectionId == nil {
-		invalidParams.Add(request.NewErrParamRequired("DirectConnectConnectionId"))
-	}
-	if s.DirectConnectGatewayId == nil {
-		invalidParams.Add(request.NewErrParamRequired("DirectConnectGatewayId"))
-	}
-	if s.LocalIP == nil {
-		invalidParams.Add(request.NewErrParamRequired("LocalIP"))
-	}
-	if s.Mask == nil {
-		invalidParams.Add(request.NewErrParamRequired("Mask"))
-	}
-	if s.PeerIp == nil {
-		invalidParams.Add(request.NewErrParamRequired("PeerIp"))
-	}
-	if s.VlanId == nil {
-		invalidParams.Add(request.NewErrParamRequired("VlanId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetDirectConnectConnectionId sets the DirectConnectConnectionId field's value.
-func (s *AssociateConnectionToDirectConnectGatewayInput) SetDirectConnectConnectionId(v string) *AssociateConnectionToDirectConnectGatewayInput {
-	s.DirectConnectConnectionId = &v
+// SetCenId sets the CenId field's value.
+func (s *AssociateCenForDescribeDirectConnectGatewayAttributesOutput) SetCenId(v string) *AssociateCenForDescribeDirectConnectGatewayAttributesOutput {
+	s.CenId = &v
 	return s
 }
 
-// SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
-func (s *AssociateConnectionToDirectConnectGatewayInput) SetDirectConnectGatewayId(v string) *AssociateConnectionToDirectConnectGatewayInput {
-	s.DirectConnectGatewayId = &v
+// SetCenOwnerId sets the CenOwnerId field's value.
+func (s *AssociateCenForDescribeDirectConnectGatewayAttributesOutput) SetCenOwnerId(v string) *AssociateCenForDescribeDirectConnectGatewayAttributesOutput {
+	s.CenOwnerId = &v
 	return s
 }
 
-// SetLocalIP sets the LocalIP field's value.
-func (s *AssociateConnectionToDirectConnectGatewayInput) SetLocalIP(v string) *AssociateConnectionToDirectConnectGatewayInput {
-	s.LocalIP = &v
+// SetCenStatus sets the CenStatus field's value.
+func (s *AssociateCenForDescribeDirectConnectGatewayAttributesOutput) SetCenStatus(v string) *AssociateCenForDescribeDirectConnectGatewayAttributesOutput {
+	s.CenStatus = &v
 	return s
 }
 
-// SetMask sets the Mask field's value.
-func (s *AssociateConnectionToDirectConnectGatewayInput) SetMask(v string) *AssociateConnectionToDirectConnectGatewayInput {
-	s.Mask = &v
-	return s
-}
-
-// SetPeerIp sets the PeerIp field's value.
-func (s *AssociateConnectionToDirectConnectGatewayInput) SetPeerIp(v string) *AssociateConnectionToDirectConnectGatewayInput {
-	s.PeerIp = &v
-	return s
-}
-
-// SetVlanId sets the VlanId field's value.
-func (s *AssociateConnectionToDirectConnectGatewayInput) SetVlanId(v int64) *AssociateConnectionToDirectConnectGatewayInput {
-	s.VlanId = &v
-	return s
-}
-
-type AssociateConnectionToDirectConnectGatewayOutput struct {
+type AssociateCenForDescribeDirectConnectGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
-	DirectConnectGatewayAssociationId *string `type:"string"`
+	CenId *string `type:"string"`
 
-	RequestId *string `type:"string"`
+	CenOwnerId *string `type:"string"`
+
+	CenStatus *string `type:"string"`
 }
 
 // String returns the string representation
-func (s AssociateConnectionToDirectConnectGatewayOutput) String() string {
+func (s AssociateCenForDescribeDirectConnectGatewaysOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AssociateConnectionToDirectConnectGatewayOutput) GoString() string {
+func (s AssociateCenForDescribeDirectConnectGatewaysOutput) GoString() string {
 	return s.String()
 }
 
-// SetDirectConnectGatewayAssociationId sets the DirectConnectGatewayAssociationId field's value.
-func (s *AssociateConnectionToDirectConnectGatewayOutput) SetDirectConnectGatewayAssociationId(v string) *AssociateConnectionToDirectConnectGatewayOutput {
-	s.DirectConnectGatewayAssociationId = &v
+// SetCenId sets the CenId field's value.
+func (s *AssociateCenForDescribeDirectConnectGatewaysOutput) SetCenId(v string) *AssociateCenForDescribeDirectConnectGatewaysOutput {
+	s.CenId = &v
 	return s
 }
 
-// SetRequestId sets the RequestId field's value.
-func (s *AssociateConnectionToDirectConnectGatewayOutput) SetRequestId(v string) *AssociateConnectionToDirectConnectGatewayOutput {
-	s.RequestId = &v
+// SetCenOwnerId sets the CenOwnerId field's value.
+func (s *AssociateCenForDescribeDirectConnectGatewaysOutput) SetCenOwnerId(v string) *AssociateCenForDescribeDirectConnectGatewaysOutput {
+	s.CenOwnerId = &v
+	return s
+}
+
+// SetCenStatus sets the CenStatus field's value.
+func (s *AssociateCenForDescribeDirectConnectGatewaysOutput) SetCenStatus(v string) *AssociateCenForDescribeDirectConnectGatewaysOutput {
+	s.CenStatus = &v
 	return s
 }
 
@@ -3743,6 +3563,64 @@ func (s *BgpPeerForDescribeBgpPeersOutput) SetUpdateTime(v string) *BgpPeerForDe
 // SetVirtualInterfaceId sets the VirtualInterfaceId field's value.
 func (s *BgpPeerForDescribeBgpPeersOutput) SetVirtualInterfaceId(v string) *BgpPeerForDescribeBgpPeersOutput {
 	s.VirtualInterfaceId = &v
+	return s
+}
+
+type ConfirmDirectConnectConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	// DirectConnectConnectionId is a required field
+	DirectConnectConnectionId *string `type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ConfirmDirectConnectConnectionInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfirmDirectConnectConnectionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ConfirmDirectConnectConnectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ConfirmDirectConnectConnectionInput"}
+	if s.DirectConnectConnectionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DirectConnectConnectionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDirectConnectConnectionId sets the DirectConnectConnectionId field's value.
+func (s *ConfirmDirectConnectConnectionInput) SetDirectConnectConnectionId(v string) *ConfirmDirectConnectConnectionInput {
+	s.DirectConnectConnectionId = &v
+	return s
+}
+
+type ConfirmDirectConnectConnectionOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConfirmDirectConnectConnectionOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfirmDirectConnectConnectionOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ConfirmDirectConnectConnectionOutput) SetRequestId(v string) *ConfirmDirectConnectConnectionOutput {
+	s.RequestId = &v
 	return s
 }
 
@@ -4186,6 +4064,130 @@ func (s *CreateDirectConnectVirtualInterfaceOutput) SetVirtualInterfaceId(v stri
 	return s
 }
 
+type CreateSharedDirectConnectConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	// Bandwidth is a required field
+	Bandwidth *int64 `min:"50" max:"1000" type:"integer" required:"true"`
+
+	Description *string `type:"string"`
+
+	// DirectConnectConnectionId is a required field
+	DirectConnectConnectionId *string `type:"string" required:"true"`
+
+	SharedDirectConnectConnectionName *string `type:"string"`
+
+	// UserAccountId is a required field
+	UserAccountId *string `type:"string" required:"true"`
+
+	// VlanId is a required field
+	VlanId *int64 `type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateSharedDirectConnectConnectionInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateSharedDirectConnectConnectionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateSharedDirectConnectConnectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateSharedDirectConnectConnectionInput"}
+	if s.Bandwidth == nil {
+		invalidParams.Add(request.NewErrParamRequired("Bandwidth"))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth < 50 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 50))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
+	}
+	if s.DirectConnectConnectionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DirectConnectConnectionId"))
+	}
+	if s.UserAccountId == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserAccountId"))
+	}
+	if s.VlanId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VlanId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *CreateSharedDirectConnectConnectionInput) SetBandwidth(v int64) *CreateSharedDirectConnectConnectionInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateSharedDirectConnectConnectionInput) SetDescription(v string) *CreateSharedDirectConnectConnectionInput {
+	s.Description = &v
+	return s
+}
+
+// SetDirectConnectConnectionId sets the DirectConnectConnectionId field's value.
+func (s *CreateSharedDirectConnectConnectionInput) SetDirectConnectConnectionId(v string) *CreateSharedDirectConnectConnectionInput {
+	s.DirectConnectConnectionId = &v
+	return s
+}
+
+// SetSharedDirectConnectConnectionName sets the SharedDirectConnectConnectionName field's value.
+func (s *CreateSharedDirectConnectConnectionInput) SetSharedDirectConnectConnectionName(v string) *CreateSharedDirectConnectConnectionInput {
+	s.SharedDirectConnectConnectionName = &v
+	return s
+}
+
+// SetUserAccountId sets the UserAccountId field's value.
+func (s *CreateSharedDirectConnectConnectionInput) SetUserAccountId(v string) *CreateSharedDirectConnectConnectionInput {
+	s.UserAccountId = &v
+	return s
+}
+
+// SetVlanId sets the VlanId field's value.
+func (s *CreateSharedDirectConnectConnectionInput) SetVlanId(v int64) *CreateSharedDirectConnectConnectionInput {
+	s.VlanId = &v
+	return s
+}
+
+type CreateSharedDirectConnectConnectionOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `type:"string"`
+
+	SharedDirectConnectConnectionId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateSharedDirectConnectConnectionOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateSharedDirectConnectConnectionOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateSharedDirectConnectConnectionOutput) SetRequestId(v string) *CreateSharedDirectConnectConnectionOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetSharedDirectConnectConnectionId sets the SharedDirectConnectConnectionId field's value.
+func (s *CreateSharedDirectConnectConnectionOutput) SetSharedDirectConnectConnectionId(v string) *CreateSharedDirectConnectConnectionOutput {
+	s.SharedDirectConnectConnectionId = &v
+	return s
+}
+
 type DeleteBgpPeerInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4244,28 +4246,28 @@ func (s *DeleteBgpPeerOutput) SetRequestId(v string) *DeleteBgpPeerOutput {
 	return s
 }
 
-type DeleteDirectConnectGatewayAssociationInput struct {
+type DeleteDirectConnectConnectionInput struct {
 	_ struct{} `type:"structure"`
 
-	// DirectConnectGatewayAssociationId is a required field
-	DirectConnectGatewayAssociationId *string `type:"string" required:"true"`
+	// DirectConnectConnectionId is a required field
+	DirectConnectConnectionId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
-func (s DeleteDirectConnectGatewayAssociationInput) String() string {
+func (s DeleteDirectConnectConnectionInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DeleteDirectConnectGatewayAssociationInput) GoString() string {
+func (s DeleteDirectConnectConnectionInput) GoString() string {
 	return s.String()
 }
 
 // Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteDirectConnectGatewayAssociationInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteDirectConnectGatewayAssociationInput"}
-	if s.DirectConnectGatewayAssociationId == nil {
-		invalidParams.Add(request.NewErrParamRequired("DirectConnectGatewayAssociationId"))
+func (s *DeleteDirectConnectConnectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteDirectConnectConnectionInput"}
+	if s.DirectConnectConnectionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DirectConnectConnectionId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -4274,30 +4276,30 @@ func (s *DeleteDirectConnectGatewayAssociationInput) Validate() error {
 	return nil
 }
 
-// SetDirectConnectGatewayAssociationId sets the DirectConnectGatewayAssociationId field's value.
-func (s *DeleteDirectConnectGatewayAssociationInput) SetDirectConnectGatewayAssociationId(v string) *DeleteDirectConnectGatewayAssociationInput {
-	s.DirectConnectGatewayAssociationId = &v
+// SetDirectConnectConnectionId sets the DirectConnectConnectionId field's value.
+func (s *DeleteDirectConnectConnectionInput) SetDirectConnectConnectionId(v string) *DeleteDirectConnectConnectionInput {
+	s.DirectConnectConnectionId = &v
 	return s
 }
 
-type DeleteDirectConnectGatewayAssociationOutput struct {
+type DeleteDirectConnectConnectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s DeleteDirectConnectGatewayAssociationOutput) String() string {
+func (s DeleteDirectConnectConnectionOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DeleteDirectConnectGatewayAssociationOutput) GoString() string {
+func (s DeleteDirectConnectConnectionOutput) GoString() string {
 	return s.String()
 }
 
 // SetRequestId sets the RequestId field's value.
-func (s *DeleteDirectConnectGatewayAssociationOutput) SetRequestId(v string) *DeleteDirectConnectGatewayAssociationOutput {
+func (s *DeleteDirectConnectConnectionOutput) SetRequestId(v string) *DeleteDirectConnectConnectionOutput {
 	s.RequestId = &v
 	return s
 }
@@ -4797,7 +4799,9 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
-	Bandwidth *string `type:"string"`
+	Bandwidth *int64 `type:"integer"`
+
+	ConnectionType *string `type:"string"`
 
 	CreationTime *string `type:"string"`
 
@@ -4809,6 +4813,10 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 
 	Operator *string `type:"string"`
 
+	ParentConnectionAccountId *string `type:"string"`
+
+	ParentConnectionId *string `type:"string"`
+
 	PeerLocation *string `type:"string"`
 
 	PortType *string `type:"string"`
@@ -4818,6 +4826,8 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
+
+	VlanId *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -4843,8 +4853,14 @@ func (s *DescribeDirectConnectConnectionAttributesOutput) SetAccountId(v string)
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetBandwidth(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetBandwidth(v int64) *DescribeDirectConnectConnectionAttributesOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetConnectionType sets the ConnectionType field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetConnectionType(v string) *DescribeDirectConnectConnectionAttributesOutput {
+	s.ConnectionType = &v
 	return s
 }
 
@@ -4878,6 +4894,18 @@ func (s *DescribeDirectConnectConnectionAttributesOutput) SetOperator(v string) 
 	return s
 }
 
+// SetParentConnectionAccountId sets the ParentConnectionAccountId field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetParentConnectionAccountId(v string) *DescribeDirectConnectConnectionAttributesOutput {
+	s.ParentConnectionAccountId = &v
+	return s
+}
+
+// SetParentConnectionId sets the ParentConnectionId field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetParentConnectionId(v string) *DescribeDirectConnectConnectionAttributesOutput {
+	s.ParentConnectionId = &v
+	return s
+}
+
 // SetPeerLocation sets the PeerLocation field's value.
 func (s *DescribeDirectConnectConnectionAttributesOutput) SetPeerLocation(v string) *DescribeDirectConnectConnectionAttributesOutput {
 	s.PeerLocation = &v
@@ -4905,6 +4933,12 @@ func (s *DescribeDirectConnectConnectionAttributesOutput) SetStatus(v string) *D
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeDirectConnectConnectionAttributesOutput) SetUpdateTime(v string) *DescribeDirectConnectConnectionAttributesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetVlanId sets the VlanId field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetVlanId(v int64) *DescribeDirectConnectConnectionAttributesOutput {
+	s.VlanId = &v
 	return s
 }
 
@@ -5032,308 +5066,6 @@ func (s *DescribeDirectConnectConnectionsOutput) SetTotalCount(v int64) *Describ
 	return s
 }
 
-type DescribeDirectConnectGatewayAssociationAttributesInput struct {
-	_ struct{} `type:"structure"`
-
-	// DirectConnectGatewayAssociationId is a required field
-	DirectConnectGatewayAssociationId *string `type:"string" required:"true"`
-}
-
-// String returns the string representation
-func (s DescribeDirectConnectGatewayAssociationAttributesInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DescribeDirectConnectGatewayAssociationAttributesInput) GoString() string {
-	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeDirectConnectGatewayAssociationAttributesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeDirectConnectGatewayAssociationAttributesInput"}
-	if s.DirectConnectGatewayAssociationId == nil {
-		invalidParams.Add(request.NewErrParamRequired("DirectConnectGatewayAssociationId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetDirectConnectGatewayAssociationId sets the DirectConnectGatewayAssociationId field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesInput) SetDirectConnectGatewayAssociationId(v string) *DescribeDirectConnectGatewayAssociationAttributesInput {
-	s.DirectConnectGatewayAssociationId = &v
-	return s
-}
-
-type DescribeDirectConnectGatewayAssociationAttributesOutput struct {
-	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
-
-	CreatedAt *string `type:"string"`
-
-	DirectConnectConnectionId *string `type:"string"`
-
-	DirectConnectConnectionName *string `type:"string"`
-
-	DirectConnectGatewayAssociationId *string `type:"string"`
-
-	DirectConnectGatewayId *string `type:"string"`
-
-	DirectConnectGatewayName *string `type:"string"`
-
-	LocalIp *string `type:"string"`
-
-	Mask *string `type:"string"`
-
-	PeerIp *string `type:"string"`
-
-	ProjectName *string `type:"string"`
-
-	RequestId *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	UpdatedAt *string `type:"string"`
-
-	VlanId *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s DescribeDirectConnectGatewayAssociationAttributesOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DescribeDirectConnectGatewayAssociationAttributesOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetAccountId(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.AccountId = &v
-	return s
-}
-
-// SetCreatedAt sets the CreatedAt field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetCreatedAt(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.CreatedAt = &v
-	return s
-}
-
-// SetDirectConnectConnectionId sets the DirectConnectConnectionId field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetDirectConnectConnectionId(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.DirectConnectConnectionId = &v
-	return s
-}
-
-// SetDirectConnectConnectionName sets the DirectConnectConnectionName field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetDirectConnectConnectionName(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.DirectConnectConnectionName = &v
-	return s
-}
-
-// SetDirectConnectGatewayAssociationId sets the DirectConnectGatewayAssociationId field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetDirectConnectGatewayAssociationId(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.DirectConnectGatewayAssociationId = &v
-	return s
-}
-
-// SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetDirectConnectGatewayId(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.DirectConnectGatewayId = &v
-	return s
-}
-
-// SetDirectConnectGatewayName sets the DirectConnectGatewayName field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetDirectConnectGatewayName(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.DirectConnectGatewayName = &v
-	return s
-}
-
-// SetLocalIp sets the LocalIp field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetLocalIp(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.LocalIp = &v
-	return s
-}
-
-// SetMask sets the Mask field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetMask(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.Mask = &v
-	return s
-}
-
-// SetPeerIp sets the PeerIp field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetPeerIp(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.PeerIp = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetProjectName(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.ProjectName = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetRequestId(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.RequestId = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetStatus(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.Status = &v
-	return s
-}
-
-// SetUpdatedAt sets the UpdatedAt field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetUpdatedAt(v string) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.UpdatedAt = &v
-	return s
-}
-
-// SetVlanId sets the VlanId field's value.
-func (s *DescribeDirectConnectGatewayAssociationAttributesOutput) SetVlanId(v int64) *DescribeDirectConnectGatewayAssociationAttributesOutput {
-	s.VlanId = &v
-	return s
-}
-
-type DescribeDirectConnectGatewayAssociationsInput struct {
-	_ struct{} `type:"structure"`
-
-	DirectConnectConnectionId *string `type:"string"`
-
-	DirectConnectConnectionName *string `type:"string"`
-
-	DirectConnectGatewayAssociationIds []*string `type:"list"`
-
-	DirectConnectGatewayId *string `type:"string"`
-
-	DirectConnectGatewayName *string `type:"string"`
-
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
-
-	VlanId *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s DescribeDirectConnectGatewayAssociationsInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DescribeDirectConnectGatewayAssociationsInput) GoString() string {
-	return s.String()
-}
-
-// SetDirectConnectConnectionId sets the DirectConnectConnectionId field's value.
-func (s *DescribeDirectConnectGatewayAssociationsInput) SetDirectConnectConnectionId(v string) *DescribeDirectConnectGatewayAssociationsInput {
-	s.DirectConnectConnectionId = &v
-	return s
-}
-
-// SetDirectConnectConnectionName sets the DirectConnectConnectionName field's value.
-func (s *DescribeDirectConnectGatewayAssociationsInput) SetDirectConnectConnectionName(v string) *DescribeDirectConnectGatewayAssociationsInput {
-	s.DirectConnectConnectionName = &v
-	return s
-}
-
-// SetDirectConnectGatewayAssociationIds sets the DirectConnectGatewayAssociationIds field's value.
-func (s *DescribeDirectConnectGatewayAssociationsInput) SetDirectConnectGatewayAssociationIds(v []*string) *DescribeDirectConnectGatewayAssociationsInput {
-	s.DirectConnectGatewayAssociationIds = v
-	return s
-}
-
-// SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
-func (s *DescribeDirectConnectGatewayAssociationsInput) SetDirectConnectGatewayId(v string) *DescribeDirectConnectGatewayAssociationsInput {
-	s.DirectConnectGatewayId = &v
-	return s
-}
-
-// SetDirectConnectGatewayName sets the DirectConnectGatewayName field's value.
-func (s *DescribeDirectConnectGatewayAssociationsInput) SetDirectConnectGatewayName(v string) *DescribeDirectConnectGatewayAssociationsInput {
-	s.DirectConnectGatewayName = &v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeDirectConnectGatewayAssociationsInput) SetPageNumber(v int64) *DescribeDirectConnectGatewayAssociationsInput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeDirectConnectGatewayAssociationsInput) SetPageSize(v int64) *DescribeDirectConnectGatewayAssociationsInput {
-	s.PageSize = &v
-	return s
-}
-
-// SetVlanId sets the VlanId field's value.
-func (s *DescribeDirectConnectGatewayAssociationsInput) SetVlanId(v int64) *DescribeDirectConnectGatewayAssociationsInput {
-	s.VlanId = &v
-	return s
-}
-
-type DescribeDirectConnectGatewayAssociationsOutput struct {
-	_ struct{} `type:"structure"`
-
-	DirectConnectGatewayAssociations []*DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput `type:"list"`
-
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
-
-	RequestId *string `type:"string"`
-
-	TotalCount *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s DescribeDirectConnectGatewayAssociationsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DescribeDirectConnectGatewayAssociationsOutput) GoString() string {
-	return s.String()
-}
-
-// SetDirectConnectGatewayAssociations sets the DirectConnectGatewayAssociations field's value.
-func (s *DescribeDirectConnectGatewayAssociationsOutput) SetDirectConnectGatewayAssociations(v []*DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) *DescribeDirectConnectGatewayAssociationsOutput {
-	s.DirectConnectGatewayAssociations = v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeDirectConnectGatewayAssociationsOutput) SetPageNumber(v int64) *DescribeDirectConnectGatewayAssociationsOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeDirectConnectGatewayAssociationsOutput) SetPageSize(v int64) *DescribeDirectConnectGatewayAssociationsOutput {
-	s.PageSize = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeDirectConnectGatewayAssociationsOutput) SetRequestId(v string) *DescribeDirectConnectGatewayAssociationsOutput {
-	s.RequestId = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *DescribeDirectConnectGatewayAssociationsOutput) SetTotalCount(v int64) *DescribeDirectConnectGatewayAssociationsOutput {
-	s.TotalCount = &v
-	return s
-}
-
 type DescribeDirectConnectGatewayAttributesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5375,9 +5107,9 @@ type DescribeDirectConnectGatewayAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
-	BusinessStatus *string `type:"string"`
+	AssociateCens []*AssociateCenForDescribeDirectConnectGatewayAttributesOutput `type:"list"`
 
-	CenId *string `type:"string"`
+	BusinessStatus *string `type:"string"`
 
 	CreationTime *string `type:"string"`
 
@@ -5416,15 +5148,15 @@ func (s *DescribeDirectConnectGatewayAttributesOutput) SetAccountId(v string) *D
 	return s
 }
 
-// SetBusinessStatus sets the BusinessStatus field's value.
-func (s *DescribeDirectConnectGatewayAttributesOutput) SetBusinessStatus(v string) *DescribeDirectConnectGatewayAttributesOutput {
-	s.BusinessStatus = &v
+// SetAssociateCens sets the AssociateCens field's value.
+func (s *DescribeDirectConnectGatewayAttributesOutput) SetAssociateCens(v []*AssociateCenForDescribeDirectConnectGatewayAttributesOutput) *DescribeDirectConnectGatewayAttributesOutput {
+	s.AssociateCens = v
 	return s
 }
 
-// SetCenId sets the CenId field's value.
-func (s *DescribeDirectConnectGatewayAttributesOutput) SetCenId(v string) *DescribeDirectConnectGatewayAttributesOutput {
-	s.CenId = &v
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *DescribeDirectConnectGatewayAttributesOutput) SetBusinessStatus(v string) *DescribeDirectConnectGatewayAttributesOutput {
+	s.BusinessStatus = &v
 	return s
 }
 
@@ -5899,6 +5631,12 @@ type DescribeDirectConnectVirtualInterfaceAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
+	Bandwidth *int64 `type:"integer"`
+
+	BfdDetectInterval *int64 `type:"integer"`
+
+	BfdDetectMultiplier *int64 `type:"integer"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -5906,6 +5644,8 @@ type DescribeDirectConnectVirtualInterfaceAttributesOutput struct {
 	DirectConnectConnectionId *string `type:"string"`
 
 	DirectConnectGatewayId *string `type:"string"`
+
+	EnableBfd *bool `type:"boolean"`
 
 	LocalIp *string `type:"string"`
 
@@ -5942,6 +5682,24 @@ func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetAccountId(v s
 	return s
 }
 
+// SetBandwidth sets the Bandwidth field's value.
+func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetBandwidth(v int64) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBfdDetectInterval sets the BfdDetectInterval field's value.
+func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetBfdDetectInterval(v int64) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
+	s.BfdDetectInterval = &v
+	return s
+}
+
+// SetBfdDetectMultiplier sets the BfdDetectMultiplier field's value.
+func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetBfdDetectMultiplier(v int64) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
+	s.BfdDetectMultiplier = &v
+	return s
+}
+
 // SetCreationTime sets the CreationTime field's value.
 func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetCreationTime(v string) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
 	s.CreationTime = &v
@@ -5963,6 +5721,12 @@ func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetDirectConnect
 // SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
 func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetDirectConnectGatewayId(v string) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
 	s.DirectConnectGatewayId = &v
+	return s
+}
+
+// SetEnableBfd sets the EnableBfd field's value.
+func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetEnableBfd(v bool) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
+	s.EnableBfd = &v
 	return s
 }
 
@@ -6176,6 +5940,138 @@ func (s *DescribeDirectConnectVirtualInterfacesOutput) SetVirtualInterfaces(v []
 	return s
 }
 
+type DescribeSharedDirectConnectConnectionsInput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	ParentConnectionId *string `type:"string"`
+
+	SharedDirectConnectConnectionIds []*string `type:"list"`
+
+	SharedDirectConnectConnectionName *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UserAccountId *string `type:"string"`
+
+	VlanId *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeSharedDirectConnectConnectionsInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSharedDirectConnectConnectionsInput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeSharedDirectConnectConnectionsInput) SetPageNumber(v int64) *DescribeSharedDirectConnectConnectionsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeSharedDirectConnectConnectionsInput) SetPageSize(v int64) *DescribeSharedDirectConnectConnectionsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetParentConnectionId sets the ParentConnectionId field's value.
+func (s *DescribeSharedDirectConnectConnectionsInput) SetParentConnectionId(v string) *DescribeSharedDirectConnectConnectionsInput {
+	s.ParentConnectionId = &v
+	return s
+}
+
+// SetSharedDirectConnectConnectionIds sets the SharedDirectConnectConnectionIds field's value.
+func (s *DescribeSharedDirectConnectConnectionsInput) SetSharedDirectConnectConnectionIds(v []*string) *DescribeSharedDirectConnectConnectionsInput {
+	s.SharedDirectConnectConnectionIds = v
+	return s
+}
+
+// SetSharedDirectConnectConnectionName sets the SharedDirectConnectConnectionName field's value.
+func (s *DescribeSharedDirectConnectConnectionsInput) SetSharedDirectConnectConnectionName(v string) *DescribeSharedDirectConnectConnectionsInput {
+	s.SharedDirectConnectConnectionName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeSharedDirectConnectConnectionsInput) SetStatus(v string) *DescribeSharedDirectConnectConnectionsInput {
+	s.Status = &v
+	return s
+}
+
+// SetUserAccountId sets the UserAccountId field's value.
+func (s *DescribeSharedDirectConnectConnectionsInput) SetUserAccountId(v string) *DescribeSharedDirectConnectConnectionsInput {
+	s.UserAccountId = &v
+	return s
+}
+
+// SetVlanId sets the VlanId field's value.
+func (s *DescribeSharedDirectConnectConnectionsInput) SetVlanId(v int64) *DescribeSharedDirectConnectConnectionsInput {
+	s.VlanId = &v
+	return s
+}
+
+type DescribeSharedDirectConnectConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
+
+	SharedDirectConnectConnections []*SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput `type:"list"`
+
+	TotalCount *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeSharedDirectConnectConnectionsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeSharedDirectConnectConnectionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeSharedDirectConnectConnectionsOutput) SetPageNumber(v int64) *DescribeSharedDirectConnectConnectionsOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeSharedDirectConnectConnectionsOutput) SetPageSize(v int64) *DescribeSharedDirectConnectConnectionsOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeSharedDirectConnectConnectionsOutput) SetRequestId(v string) *DescribeSharedDirectConnectConnectionsOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetSharedDirectConnectConnections sets the SharedDirectConnectConnections field's value.
+func (s *DescribeSharedDirectConnectConnectionsOutput) SetSharedDirectConnectConnections(v []*SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) *DescribeSharedDirectConnectConnectionsOutput {
+	s.SharedDirectConnectConnections = v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeSharedDirectConnectConnectionsOutput) SetTotalCount(v int64) *DescribeSharedDirectConnectConnectionsOutput {
+	s.TotalCount = &v
+	return s
+}
+
 type DirectConnectConnectionForDescribeDirectConnectConnectionsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -6183,7 +6079,9 @@ type DirectConnectConnectionForDescribeDirectConnectConnectionsOutput struct {
 
 	AccountId *string `type:"string"`
 
-	Bandwidth *string `type:"string"`
+	Bandwidth *int64 `type:"integer"`
+
+	ConnectionType *string `type:"string"`
 
 	CreationTime *string `type:"string"`
 
@@ -6195,6 +6093,10 @@ type DirectConnectConnectionForDescribeDirectConnectConnectionsOutput struct {
 
 	Operator *string `type:"string"`
 
+	ParentConnectionAccountId *string `type:"string"`
+
+	ParentConnectionId *string `type:"string"`
+
 	PeerLocation *string `type:"string"`
 
 	PortType *string `type:"string"`
@@ -6202,6 +6104,8 @@ type DirectConnectConnectionForDescribeDirectConnectConnectionsOutput struct {
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
+
+	VlanId *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -6227,8 +6131,14 @@ func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetAc
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetBandwidth(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetBandwidth(v int64) *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetConnectionType sets the ConnectionType field's value.
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetConnectionType(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
+	s.ConnectionType = &v
 	return s
 }
 
@@ -6262,6 +6172,18 @@ func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetOp
 	return s
 }
 
+// SetParentConnectionAccountId sets the ParentConnectionAccountId field's value.
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetParentConnectionAccountId(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
+	s.ParentConnectionAccountId = &v
+	return s
+}
+
+// SetParentConnectionId sets the ParentConnectionId field's value.
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetParentConnectionId(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
+	s.ParentConnectionId = &v
+	return s
+}
+
 // SetPeerLocation sets the PeerLocation field's value.
 func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetPeerLocation(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 	s.PeerLocation = &v
@@ -6286,128 +6208,8 @@ func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetUp
 	return s
 }
 
-type DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput struct {
-	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
-
-	CreatedAt *string `type:"string"`
-
-	DirectConnectConnectionId *string `type:"string"`
-
-	DirectConnectConnectionName *string `type:"string"`
-
-	DirectConnectGatewayAssociationId *string `type:"string"`
-
-	DirectConnectGatewayId *string `type:"string"`
-
-	DirectConnectGatewayName *string `type:"string"`
-
-	LocalIp *string `type:"string"`
-
-	Mask *string `type:"string"`
-
-	PeerIp *string `type:"string"`
-
-	ProjectName *string `type:"string"`
-
-	Status *string `type:"string"`
-
-	UpdatedAt *string `type:"string"`
-
-	VlanId *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetAccountId(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.AccountId = &v
-	return s
-}
-
-// SetCreatedAt sets the CreatedAt field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetCreatedAt(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.CreatedAt = &v
-	return s
-}
-
-// SetDirectConnectConnectionId sets the DirectConnectConnectionId field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetDirectConnectConnectionId(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.DirectConnectConnectionId = &v
-	return s
-}
-
-// SetDirectConnectConnectionName sets the DirectConnectConnectionName field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetDirectConnectConnectionName(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.DirectConnectConnectionName = &v
-	return s
-}
-
-// SetDirectConnectGatewayAssociationId sets the DirectConnectGatewayAssociationId field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetDirectConnectGatewayAssociationId(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.DirectConnectGatewayAssociationId = &v
-	return s
-}
-
-// SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetDirectConnectGatewayId(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.DirectConnectGatewayId = &v
-	return s
-}
-
-// SetDirectConnectGatewayName sets the DirectConnectGatewayName field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetDirectConnectGatewayName(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.DirectConnectGatewayName = &v
-	return s
-}
-
-// SetLocalIp sets the LocalIp field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetLocalIp(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.LocalIp = &v
-	return s
-}
-
-// SetMask sets the Mask field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetMask(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.Mask = &v
-	return s
-}
-
-// SetPeerIp sets the PeerIp field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetPeerIp(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.PeerIp = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetProjectName(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.ProjectName = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetStatus(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.Status = &v
-	return s
-}
-
-// SetUpdatedAt sets the UpdatedAt field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetUpdatedAt(v string) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
-	s.UpdatedAt = &v
-	return s
-}
-
 // SetVlanId sets the VlanId field's value.
-func (s *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput) SetVlanId(v int64) *DirectConnectGatewayAssociationForDescribeDirectConnectGatewayAssociationsOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetVlanId(v int64) *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 	s.VlanId = &v
 	return s
 }
@@ -6417,9 +6219,9 @@ type DirectConnectGatewayForDescribeDirectConnectGatewaysOutput struct {
 
 	AccountId *string `type:"string"`
 
-	BusinessStatus *string `type:"string"`
+	AssociateCens []*AssociateCenForDescribeDirectConnectGatewaysOutput `type:"list"`
 
-	CenId *string `type:"string"`
+	BusinessStatus *string `type:"string"`
 
 	CreationTime *string `type:"string"`
 
@@ -6456,15 +6258,15 @@ func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetAccountI
 	return s
 }
 
-// SetBusinessStatus sets the BusinessStatus field's value.
-func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetBusinessStatus(v string) *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
-	s.BusinessStatus = &v
+// SetAssociateCens sets the AssociateCens field's value.
+func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetAssociateCens(v []*AssociateCenForDescribeDirectConnectGatewaysOutput) *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
+	s.AssociateCens = v
 	return s
 }
 
-// SetCenId sets the CenId field's value.
-func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetCenId(v string) *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
-	s.CenId = &v
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetBusinessStatus(v string) *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
+	s.BusinessStatus = &v
 	return s
 }
 
@@ -6605,84 +6407,6 @@ func (s *DirectConnectGatewayRouteForDescribeDirectConnectGatewayRoutesOutput) S
 // SetStatus sets the Status field's value.
 func (s *DirectConnectGatewayRouteForDescribeDirectConnectGatewayRoutesOutput) SetStatus(v string) *DirectConnectGatewayRouteForDescribeDirectConnectGatewayRoutesOutput {
 	s.Status = &v
-	return s
-}
-
-type DisassociateConnectionFromDirectConnectGatewayInput struct {
-	_ struct{} `type:"structure"`
-
-	// DirectConnectConnectionId is a required field
-	DirectConnectConnectionId *string `type:"string" required:"true"`
-
-	// DirectConnectGatewayId is a required field
-	DirectConnectGatewayId *string `type:"string" required:"true"`
-
-	VlanId *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s DisassociateConnectionFromDirectConnectGatewayInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DisassociateConnectionFromDirectConnectGatewayInput) GoString() string {
-	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DisassociateConnectionFromDirectConnectGatewayInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DisassociateConnectionFromDirectConnectGatewayInput"}
-	if s.DirectConnectConnectionId == nil {
-		invalidParams.Add(request.NewErrParamRequired("DirectConnectConnectionId"))
-	}
-	if s.DirectConnectGatewayId == nil {
-		invalidParams.Add(request.NewErrParamRequired("DirectConnectGatewayId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetDirectConnectConnectionId sets the DirectConnectConnectionId field's value.
-func (s *DisassociateConnectionFromDirectConnectGatewayInput) SetDirectConnectConnectionId(v string) *DisassociateConnectionFromDirectConnectGatewayInput {
-	s.DirectConnectConnectionId = &v
-	return s
-}
-
-// SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
-func (s *DisassociateConnectionFromDirectConnectGatewayInput) SetDirectConnectGatewayId(v string) *DisassociateConnectionFromDirectConnectGatewayInput {
-	s.DirectConnectGatewayId = &v
-	return s
-}
-
-// SetVlanId sets the VlanId field's value.
-func (s *DisassociateConnectionFromDirectConnectGatewayInput) SetVlanId(v int64) *DisassociateConnectionFromDirectConnectGatewayInput {
-	s.VlanId = &v
-	return s
-}
-
-type DisassociateConnectionFromDirectConnectGatewayOutput struct {
-	_ struct{} `type:"structure"`
-
-	RequestId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s DisassociateConnectionFromDirectConnectGatewayOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DisassociateConnectionFromDirectConnectGatewayOutput) GoString() string {
-	return s.String()
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DisassociateConnectionFromDirectConnectGatewayOutput) SetRequestId(v string) *DisassociateConnectionFromDirectConnectGatewayOutput {
-	s.RequestId = &v
 	return s
 }
 
@@ -7006,10 +6730,142 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesOutput) SetRequestId(v str
 	return s
 }
 
+type SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccessPoint *string `type:"string"`
+
+	AccountId *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	CreationTime *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	Operator *string `type:"string"`
+
+	ParentConnectionId *string `type:"string"`
+
+	PortType *string `type:"string"`
+
+	SharedDirectConnectConnectionId *string `type:"string"`
+
+	SharedDirectConnectConnectionName *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
+
+	UserAccountId *string `type:"string"`
+
+	VlanId *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessPoint sets the AccessPoint field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetAccessPoint(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.AccessPoint = &v
+	return s
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetAccountId(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetBandwidth(v int64) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetCreationTime sets the CreationTime field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetCreationTime(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.CreationTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetDescription(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetOperator(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.Operator = &v
+	return s
+}
+
+// SetParentConnectionId sets the ParentConnectionId field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetParentConnectionId(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.ParentConnectionId = &v
+	return s
+}
+
+// SetPortType sets the PortType field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetPortType(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.PortType = &v
+	return s
+}
+
+// SetSharedDirectConnectConnectionId sets the SharedDirectConnectConnectionId field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetSharedDirectConnectConnectionId(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.SharedDirectConnectConnectionId = &v
+	return s
+}
+
+// SetSharedDirectConnectConnectionName sets the SharedDirectConnectConnectionName field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetSharedDirectConnectConnectionName(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.SharedDirectConnectConnectionName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetStatus(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetUpdateTime(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.UpdateTime = &v
+	return s
+}
+
+// SetUserAccountId sets the UserAccountId field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetUserAccountId(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.UserAccountId = &v
+	return s
+}
+
+// SetVlanId sets the VlanId field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetVlanId(v int64) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.VlanId = &v
+	return s
+}
+
 type VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput struct {
 	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BfdDetectInterval *int64 `type:"integer"`
+
+	BfdDetectMultiplier *int64 `type:"integer"`
 
 	CreationTime *string `type:"string"`
 
@@ -7018,6 +6874,8 @@ type VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput struct {
 	DirectConnectConnectionId *string `type:"string"`
 
 	DirectConnectGatewayId *string `type:"string"`
+
+	EnableBfd *bool `type:"boolean"`
 
 	LocalIp *string `type:"string"`
 
@@ -7052,6 +6910,24 @@ func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetAcc
 	return s
 }
 
+// SetBandwidth sets the Bandwidth field's value.
+func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetBandwidth(v int64) *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBfdDetectInterval sets the BfdDetectInterval field's value.
+func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetBfdDetectInterval(v int64) *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
+	s.BfdDetectInterval = &v
+	return s
+}
+
+// SetBfdDetectMultiplier sets the BfdDetectMultiplier field's value.
+func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetBfdDetectMultiplier(v int64) *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
+	s.BfdDetectMultiplier = &v
+	return s
+}
+
 // SetCreationTime sets the CreationTime field's value.
 func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetCreationTime(v string) *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 	s.CreationTime = &v
@@ -7073,6 +6949,12 @@ func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetDir
 // SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
 func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetDirectConnectGatewayId(v string) *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 	s.DirectConnectGatewayId = &v
+	return s
+}
+
+// SetEnableBfd sets the EnableBfd field's value.
+func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetEnableBfd(v bool) *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
+	s.EnableBfd = &v
 	return s
 }
 

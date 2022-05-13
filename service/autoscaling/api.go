@@ -3,8 +3,8 @@
 package autoscaling
 
 import (
-	"encoding/json"
-
+	"github.com/volcengine/volcstack-go-sdk/private/protocol"
+	"github.com/volcengine/volcstack-go-sdk/private/protocol/volcstackquery"
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
@@ -109,6 +109,7 @@ func (c *AUTOSCALING) AttachInstancesRequest(input *AttachInstancesInput) (req *
 	output = &AttachInstancesOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -140,29 +141,29 @@ func (c *AUTOSCALING) AttachInstancesWithContext(ctx volcstack.Context, input *A
 	return out, req.Send()
 }
 
-const opAttachLoadBalancersCommon = "AttachLoadBalancers"
+const opAttachServerGroupsCommon = "AttachServerGroups"
 
-// AttachLoadBalancersCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the AttachLoadBalancersCommon operation. The "output" return
-// value will be populated with the AttachLoadBalancersCommon request's response once the request completes
+// AttachServerGroupsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the AttachServerGroupsCommon operation. The "output" return
+// value will be populated with the AttachServerGroupsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned AttachLoadBalancersCommon Request to send the API call to the service.
-// the "output" return value is not valid until after AttachLoadBalancersCommon Send returns without error.
+// Use "Send" method on the returned AttachServerGroupsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachServerGroupsCommon Send returns without error.
 //
-// See AttachLoadBalancersCommon for more information on using the AttachLoadBalancersCommon
+// See AttachServerGroupsCommon for more information on using the AttachServerGroupsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachLoadBalancersCommonRequest method.
-//    req, resp := client.AttachLoadBalancersCommonRequest(params)
+//    // Example sending a request using the AttachServerGroupsCommonRequest method.
+//    req, resp := client.AttachServerGroupsCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AUTOSCALING) AttachLoadBalancersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *AUTOSCALING) AttachServerGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opAttachLoadBalancersCommon,
+		Name:       opAttachServerGroupsCommon,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
@@ -177,94 +178,354 @@ func (c *AUTOSCALING) AttachLoadBalancersCommonRequest(input *map[string]interfa
 	return
 }
 
-// AttachLoadBalancersCommon API operation for AUTO_SCALING.
+// AttachServerGroupsCommon API operation for AUTO_SCALING.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation AttachLoadBalancersCommon for usage and error information.
-func (c *AUTOSCALING) AttachLoadBalancersCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.AttachLoadBalancersCommonRequest(input)
+// API operation AttachServerGroupsCommon for usage and error information.
+func (c *AUTOSCALING) AttachServerGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.AttachServerGroupsCommonRequest(input)
 	return out, req.Send()
 }
 
-// AttachLoadBalancersCommonWithContext is the same as AttachLoadBalancersCommon with the addition of
+// AttachServerGroupsCommonWithContext is the same as AttachServerGroupsCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See AttachLoadBalancersCommon for details on how to use this API operation.
+// See AttachServerGroupsCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AUTOSCALING) AttachLoadBalancersCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.AttachLoadBalancersCommonRequest(input)
+func (c *AUTOSCALING) AttachServerGroupsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.AttachServerGroupsCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opAttachLoadBalancers = "AttachLoadBalancers"
+const opAttachServerGroups = "AttachServerGroups"
 
-// AttachLoadBalancersRequest generates a "volcstack/request.Request" representing the
-// client's request for the AttachLoadBalancers operation. The "output" return
-// value will be populated with the AttachLoadBalancersCommon request's response once the request completes
+// AttachServerGroupsRequest generates a "volcstack/request.Request" representing the
+// client's request for the AttachServerGroups operation. The "output" return
+// value will be populated with the AttachServerGroupsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned AttachLoadBalancersCommon Request to send the API call to the service.
-// the "output" return value is not valid until after AttachLoadBalancersCommon Send returns without error.
+// Use "Send" method on the returned AttachServerGroupsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after AttachServerGroupsCommon Send returns without error.
 //
-// See AttachLoadBalancers for more information on using the AttachLoadBalancers
+// See AttachServerGroups for more information on using the AttachServerGroups
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachLoadBalancersRequest method.
-//    req, resp := client.AttachLoadBalancersRequest(params)
+//    // Example sending a request using the AttachServerGroupsRequest method.
+//    req, resp := client.AttachServerGroupsRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AUTOSCALING) AttachLoadBalancersRequest(input *AttachLoadBalancersInput) (req *request.Request, output *AttachLoadBalancersOutput) {
+func (c *AUTOSCALING) AttachServerGroupsRequest(input *AttachServerGroupsInput) (req *request.Request, output *AttachServerGroupsOutput) {
 	op := &request.Operation{
-		Name:       opAttachLoadBalancers,
+		Name:       opAttachServerGroups,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &AttachLoadBalancersInput{}
+		input = &AttachServerGroupsInput{}
 	}
 
-	output = &AttachLoadBalancersOutput{}
+	output = &AttachServerGroupsOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// AttachLoadBalancers API operation for AUTO_SCALING.
+// AttachServerGroups API operation for AUTO_SCALING.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation AttachLoadBalancers for usage and error information.
-func (c *AUTOSCALING) AttachLoadBalancers(input *AttachLoadBalancersInput) (*AttachLoadBalancersOutput, error) {
-	req, out := c.AttachLoadBalancersRequest(input)
+// API operation AttachServerGroups for usage and error information.
+func (c *AUTOSCALING) AttachServerGroups(input *AttachServerGroupsInput) (*AttachServerGroupsOutput, error) {
+	req, out := c.AttachServerGroupsRequest(input)
 	return out, req.Send()
 }
 
-// AttachLoadBalancersWithContext is the same as AttachLoadBalancers with the addition of
+// AttachServerGroupsWithContext is the same as AttachServerGroups with the addition of
 // the ability to pass a context and additional request options.
 //
-// See AttachLoadBalancers for details on how to use this API operation.
+// See AttachServerGroups for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AUTOSCALING) AttachLoadBalancersWithContext(ctx volcstack.Context, input *AttachLoadBalancersInput, opts ...request.Option) (*AttachLoadBalancersOutput, error) {
-	req, out := c.AttachLoadBalancersRequest(input)
+func (c *AUTOSCALING) AttachServerGroupsWithContext(ctx volcstack.Context, input *AttachServerGroupsInput, opts ...request.Option) (*AttachServerGroupsOutput, error) {
+	req, out := c.AttachServerGroupsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCompleteLifecycleActivityCommon = "CompleteLifecycleActivity"
+
+// CompleteLifecycleActivityCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CompleteLifecycleActivityCommon operation. The "output" return
+// value will be populated with the CompleteLifecycleActivityCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CompleteLifecycleActivityCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CompleteLifecycleActivityCommon Send returns without error.
+//
+// See CompleteLifecycleActivityCommon for more information on using the CompleteLifecycleActivityCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the CompleteLifecycleActivityCommonRequest method.
+//    req, resp := client.CompleteLifecycleActivityCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) CompleteLifecycleActivityCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCompleteLifecycleActivityCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CompleteLifecycleActivityCommon API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation CompleteLifecycleActivityCommon for usage and error information.
+func (c *AUTOSCALING) CompleteLifecycleActivityCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CompleteLifecycleActivityCommonRequest(input)
+	return out, req.Send()
+}
+
+// CompleteLifecycleActivityCommonWithContext is the same as CompleteLifecycleActivityCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CompleteLifecycleActivityCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) CompleteLifecycleActivityCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CompleteLifecycleActivityCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCompleteLifecycleActivity = "CompleteLifecycleActivity"
+
+// CompleteLifecycleActivityRequest generates a "volcstack/request.Request" representing the
+// client's request for the CompleteLifecycleActivity operation. The "output" return
+// value will be populated with the CompleteLifecycleActivityCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CompleteLifecycleActivityCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CompleteLifecycleActivityCommon Send returns without error.
+//
+// See CompleteLifecycleActivity for more information on using the CompleteLifecycleActivity
+// API call, and error handling.
+//
+//    // Example sending a request using the CompleteLifecycleActivityRequest method.
+//    req, resp := client.CompleteLifecycleActivityRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) CompleteLifecycleActivityRequest(input *CompleteLifecycleActivityInput) (req *request.Request, output *CompleteLifecycleActivityOutput) {
+	op := &request.Operation{
+		Name:       opCompleteLifecycleActivity,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CompleteLifecycleActivityInput{}
+	}
+
+	output = &CompleteLifecycleActivityOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CompleteLifecycleActivity API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation CompleteLifecycleActivity for usage and error information.
+func (c *AUTOSCALING) CompleteLifecycleActivity(input *CompleteLifecycleActivityInput) (*CompleteLifecycleActivityOutput, error) {
+	req, out := c.CompleteLifecycleActivityRequest(input)
+	return out, req.Send()
+}
+
+// CompleteLifecycleActivityWithContext is the same as CompleteLifecycleActivity with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CompleteLifecycleActivity for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) CompleteLifecycleActivityWithContext(ctx volcstack.Context, input *CompleteLifecycleActivityInput, opts ...request.Option) (*CompleteLifecycleActivityOutput, error) {
+	req, out := c.CompleteLifecycleActivityRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateLifecycleHookCommon = "CreateLifecycleHook"
+
+// CreateLifecycleHookCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateLifecycleHookCommon operation. The "output" return
+// value will be populated with the CreateLifecycleHookCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CreateLifecycleHookCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateLifecycleHookCommon Send returns without error.
+//
+// See CreateLifecycleHookCommon for more information on using the CreateLifecycleHookCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the CreateLifecycleHookCommonRequest method.
+//    req, resp := client.CreateLifecycleHookCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) CreateLifecycleHookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opCreateLifecycleHookCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateLifecycleHookCommon API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation CreateLifecycleHookCommon for usage and error information.
+func (c *AUTOSCALING) CreateLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.CreateLifecycleHookCommonRequest(input)
+	return out, req.Send()
+}
+
+// CreateLifecycleHookCommonWithContext is the same as CreateLifecycleHookCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateLifecycleHookCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) CreateLifecycleHookCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.CreateLifecycleHookCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateLifecycleHook = "CreateLifecycleHook"
+
+// CreateLifecycleHookRequest generates a "volcstack/request.Request" representing the
+// client's request for the CreateLifecycleHook operation. The "output" return
+// value will be populated with the CreateLifecycleHookCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned CreateLifecycleHookCommon Request to send the API call to the service.
+// the "output" return value is not valid until after CreateLifecycleHookCommon Send returns without error.
+//
+// See CreateLifecycleHook for more information on using the CreateLifecycleHook
+// API call, and error handling.
+//
+//    // Example sending a request using the CreateLifecycleHookRequest method.
+//    req, resp := client.CreateLifecycleHookRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) CreateLifecycleHookRequest(input *CreateLifecycleHookInput) (req *request.Request, output *CreateLifecycleHookOutput) {
+	op := &request.Operation{
+		Name:       opCreateLifecycleHook,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateLifecycleHookInput{}
+	}
+
+	output = &CreateLifecycleHookOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// CreateLifecycleHook API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation CreateLifecycleHook for usage and error information.
+func (c *AUTOSCALING) CreateLifecycleHook(input *CreateLifecycleHookInput) (*CreateLifecycleHookOutput, error) {
+	req, out := c.CreateLifecycleHookRequest(input)
+	return out, req.Send()
+}
+
+// CreateLifecycleHookWithContext is the same as CreateLifecycleHook with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateLifecycleHook for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) CreateLifecycleHookWithContext(ctx volcstack.Context, input *CreateLifecycleHookInput, opts ...request.Option) (*CreateLifecycleHookOutput, error) {
+	req, out := c.CreateLifecycleHookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -660,6 +921,136 @@ func (c *AUTOSCALING) CreateScalingPolicyWithContext(ctx volcstack.Context, inpu
 	return out, req.Send()
 }
 
+const opDeleteLifecycleHookCommon = "DeleteLifecycleHook"
+
+// DeleteLifecycleHookCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteLifecycleHookCommon operation. The "output" return
+// value will be populated with the DeleteLifecycleHookCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteLifecycleHookCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteLifecycleHookCommon Send returns without error.
+//
+// See DeleteLifecycleHookCommon for more information on using the DeleteLifecycleHookCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteLifecycleHookCommonRequest method.
+//    req, resp := client.DeleteLifecycleHookCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) DeleteLifecycleHookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDeleteLifecycleHookCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteLifecycleHookCommon API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation DeleteLifecycleHookCommon for usage and error information.
+func (c *AUTOSCALING) DeleteLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DeleteLifecycleHookCommonRequest(input)
+	return out, req.Send()
+}
+
+// DeleteLifecycleHookCommonWithContext is the same as DeleteLifecycleHookCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteLifecycleHookCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) DeleteLifecycleHookCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DeleteLifecycleHookCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteLifecycleHook = "DeleteLifecycleHook"
+
+// DeleteLifecycleHookRequest generates a "volcstack/request.Request" representing the
+// client's request for the DeleteLifecycleHook operation. The "output" return
+// value will be populated with the DeleteLifecycleHookCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DeleteLifecycleHookCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DeleteLifecycleHookCommon Send returns without error.
+//
+// See DeleteLifecycleHook for more information on using the DeleteLifecycleHook
+// API call, and error handling.
+//
+//    // Example sending a request using the DeleteLifecycleHookRequest method.
+//    req, resp := client.DeleteLifecycleHookRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) DeleteLifecycleHookRequest(input *DeleteLifecycleHookInput) (req *request.Request, output *DeleteLifecycleHookOutput) {
+	op := &request.Operation{
+		Name:       opDeleteLifecycleHook,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteLifecycleHookInput{}
+	}
+
+	output = &DeleteLifecycleHookOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DeleteLifecycleHook API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation DeleteLifecycleHook for usage and error information.
+func (c *AUTOSCALING) DeleteLifecycleHook(input *DeleteLifecycleHookInput) (*DeleteLifecycleHookOutput, error) {
+	req, out := c.DeleteLifecycleHookRequest(input)
+	return out, req.Send()
+}
+
+// DeleteLifecycleHookWithContext is the same as DeleteLifecycleHook with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteLifecycleHook for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) DeleteLifecycleHookWithContext(ctx volcstack.Context, input *DeleteLifecycleHookInput, opts ...request.Option) (*DeleteLifecycleHookOutput, error) {
+	req, out := c.DeleteLifecycleHookRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteScalingConfigurationCommon = "DeleteScalingConfiguration"
 
 // DeleteScalingConfigurationCommonRequest generates a "volcstack/request.Request" representing the
@@ -1045,6 +1436,266 @@ func (c *AUTOSCALING) DeleteScalingPolicy(input *DeleteScalingPolicyInput) (*Del
 // for more information on using Contexts.
 func (c *AUTOSCALING) DeleteScalingPolicyWithContext(ctx volcstack.Context, input *DeleteScalingPolicyInput, opts ...request.Option) (*DeleteScalingPolicyOutput, error) {
 	req, out := c.DeleteScalingPolicyRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeLifecycleActivitiesCommon = "DescribeLifecycleActivities"
+
+// DescribeLifecycleActivitiesCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeLifecycleActivitiesCommon operation. The "output" return
+// value will be populated with the DescribeLifecycleActivitiesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeLifecycleActivitiesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeLifecycleActivitiesCommon Send returns without error.
+//
+// See DescribeLifecycleActivitiesCommon for more information on using the DescribeLifecycleActivitiesCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeLifecycleActivitiesCommonRequest method.
+//    req, resp := client.DescribeLifecycleActivitiesCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) DescribeLifecycleActivitiesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeLifecycleActivitiesCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeLifecycleActivitiesCommon API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation DescribeLifecycleActivitiesCommon for usage and error information.
+func (c *AUTOSCALING) DescribeLifecycleActivitiesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeLifecycleActivitiesCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeLifecycleActivitiesCommonWithContext is the same as DescribeLifecycleActivitiesCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeLifecycleActivitiesCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) DescribeLifecycleActivitiesCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeLifecycleActivitiesCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeLifecycleActivities = "DescribeLifecycleActivities"
+
+// DescribeLifecycleActivitiesRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeLifecycleActivities operation. The "output" return
+// value will be populated with the DescribeLifecycleActivitiesCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeLifecycleActivitiesCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeLifecycleActivitiesCommon Send returns without error.
+//
+// See DescribeLifecycleActivities for more information on using the DescribeLifecycleActivities
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeLifecycleActivitiesRequest method.
+//    req, resp := client.DescribeLifecycleActivitiesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) DescribeLifecycleActivitiesRequest(input *DescribeLifecycleActivitiesInput) (req *request.Request, output *DescribeLifecycleActivitiesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeLifecycleActivities,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeLifecycleActivitiesInput{}
+	}
+
+	output = &DescribeLifecycleActivitiesOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeLifecycleActivities API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation DescribeLifecycleActivities for usage and error information.
+func (c *AUTOSCALING) DescribeLifecycleActivities(input *DescribeLifecycleActivitiesInput) (*DescribeLifecycleActivitiesOutput, error) {
+	req, out := c.DescribeLifecycleActivitiesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeLifecycleActivitiesWithContext is the same as DescribeLifecycleActivities with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeLifecycleActivities for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) DescribeLifecycleActivitiesWithContext(ctx volcstack.Context, input *DescribeLifecycleActivitiesInput, opts ...request.Option) (*DescribeLifecycleActivitiesOutput, error) {
+	req, out := c.DescribeLifecycleActivitiesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeLifecycleHooksCommon = "DescribeLifecycleHooks"
+
+// DescribeLifecycleHooksCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeLifecycleHooksCommon operation. The "output" return
+// value will be populated with the DescribeLifecycleHooksCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeLifecycleHooksCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeLifecycleHooksCommon Send returns without error.
+//
+// See DescribeLifecycleHooksCommon for more information on using the DescribeLifecycleHooksCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeLifecycleHooksCommonRequest method.
+//    req, resp := client.DescribeLifecycleHooksCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) DescribeLifecycleHooksCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDescribeLifecycleHooksCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeLifecycleHooksCommon API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation DescribeLifecycleHooksCommon for usage and error information.
+func (c *AUTOSCALING) DescribeLifecycleHooksCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DescribeLifecycleHooksCommonRequest(input)
+	return out, req.Send()
+}
+
+// DescribeLifecycleHooksCommonWithContext is the same as DescribeLifecycleHooksCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeLifecycleHooksCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) DescribeLifecycleHooksCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DescribeLifecycleHooksCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeLifecycleHooks = "DescribeLifecycleHooks"
+
+// DescribeLifecycleHooksRequest generates a "volcstack/request.Request" representing the
+// client's request for the DescribeLifecycleHooks operation. The "output" return
+// value will be populated with the DescribeLifecycleHooksCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DescribeLifecycleHooksCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DescribeLifecycleHooksCommon Send returns without error.
+//
+// See DescribeLifecycleHooks for more information on using the DescribeLifecycleHooks
+// API call, and error handling.
+//
+//    // Example sending a request using the DescribeLifecycleHooksRequest method.
+//    req, resp := client.DescribeLifecycleHooksRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) DescribeLifecycleHooksRequest(input *DescribeLifecycleHooksInput) (req *request.Request, output *DescribeLifecycleHooksOutput) {
+	op := &request.Operation{
+		Name:       opDescribeLifecycleHooks,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeLifecycleHooksInput{}
+	}
+
+	output = &DescribeLifecycleHooksOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DescribeLifecycleHooks API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation DescribeLifecycleHooks for usage and error information.
+func (c *AUTOSCALING) DescribeLifecycleHooks(input *DescribeLifecycleHooksInput) (*DescribeLifecycleHooksOutput, error) {
+	req, out := c.DescribeLifecycleHooksRequest(input)
+	return out, req.Send()
+}
+
+// DescribeLifecycleHooksWithContext is the same as DescribeLifecycleHooks with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeLifecycleHooks for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) DescribeLifecycleHooksWithContext(ctx volcstack.Context, input *DescribeLifecycleHooksInput, opts ...request.Option) (*DescribeLifecycleHooksOutput, error) {
+	req, out := c.DescribeLifecycleHooksRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1799,6 +2450,7 @@ func (c *AUTOSCALING) DetachInstancesRequest(input *DetachInstancesInput) (req *
 	output = &DetachInstancesOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1830,29 +2482,29 @@ func (c *AUTOSCALING) DetachInstancesWithContext(ctx volcstack.Context, input *D
 	return out, req.Send()
 }
 
-const opDetachLoadBalancersCommon = "DetachLoadBalancers"
+const opDetachServerGroupsCommon = "DetachServerGroups"
 
-// DetachLoadBalancersCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the DetachLoadBalancersCommon operation. The "output" return
-// value will be populated with the DetachLoadBalancersCommon request's response once the request completes
+// DetachServerGroupsCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DetachServerGroupsCommon operation. The "output" return
+// value will be populated with the DetachServerGroupsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned DetachLoadBalancersCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DetachLoadBalancersCommon Send returns without error.
+// Use "Send" method on the returned DetachServerGroupsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachServerGroupsCommon Send returns without error.
 //
-// See DetachLoadBalancersCommon for more information on using the DetachLoadBalancersCommon
+// See DetachServerGroupsCommon for more information on using the DetachServerGroupsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachLoadBalancersCommonRequest method.
-//    req, resp := client.DetachLoadBalancersCommonRequest(params)
+//    // Example sending a request using the DetachServerGroupsCommonRequest method.
+//    req, resp := client.DetachServerGroupsCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AUTOSCALING) DetachLoadBalancersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *AUTOSCALING) DetachServerGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opDetachLoadBalancersCommon,
+		Name:       opDetachServerGroupsCommon,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
@@ -1867,94 +2519,94 @@ func (c *AUTOSCALING) DetachLoadBalancersCommonRequest(input *map[string]interfa
 	return
 }
 
-// DetachLoadBalancersCommon API operation for AUTO_SCALING.
+// DetachServerGroupsCommon API operation for AUTO_SCALING.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation DetachLoadBalancersCommon for usage and error information.
-func (c *AUTOSCALING) DetachLoadBalancersCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.DetachLoadBalancersCommonRequest(input)
+// API operation DetachServerGroupsCommon for usage and error information.
+func (c *AUTOSCALING) DetachServerGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DetachServerGroupsCommonRequest(input)
 	return out, req.Send()
 }
 
-// DetachLoadBalancersCommonWithContext is the same as DetachLoadBalancersCommon with the addition of
+// DetachServerGroupsCommonWithContext is the same as DetachServerGroupsCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See DetachLoadBalancersCommon for details on how to use this API operation.
+// See DetachServerGroupsCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AUTOSCALING) DetachLoadBalancersCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.DetachLoadBalancersCommonRequest(input)
+func (c *AUTOSCALING) DetachServerGroupsCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DetachServerGroupsCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opDetachLoadBalancers = "DetachLoadBalancers"
+const opDetachServerGroups = "DetachServerGroups"
 
-// DetachLoadBalancersRequest generates a "volcstack/request.Request" representing the
-// client's request for the DetachLoadBalancers operation. The "output" return
-// value will be populated with the DetachLoadBalancersCommon request's response once the request completes
+// DetachServerGroupsRequest generates a "volcstack/request.Request" representing the
+// client's request for the DetachServerGroups operation. The "output" return
+// value will be populated with the DetachServerGroupsCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned DetachLoadBalancersCommon Request to send the API call to the service.
-// the "output" return value is not valid until after DetachLoadBalancersCommon Send returns without error.
+// Use "Send" method on the returned DetachServerGroupsCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DetachServerGroupsCommon Send returns without error.
 //
-// See DetachLoadBalancers for more information on using the DetachLoadBalancers
+// See DetachServerGroups for more information on using the DetachServerGroups
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachLoadBalancersRequest method.
-//    req, resp := client.DetachLoadBalancersRequest(params)
+//    // Example sending a request using the DetachServerGroupsRequest method.
+//    req, resp := client.DetachServerGroupsRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AUTOSCALING) DetachLoadBalancersRequest(input *DetachLoadBalancersInput) (req *request.Request, output *DetachLoadBalancersOutput) {
+func (c *AUTOSCALING) DetachServerGroupsRequest(input *DetachServerGroupsInput) (req *request.Request, output *DetachServerGroupsOutput) {
 	op := &request.Operation{
-		Name:       opDetachLoadBalancers,
+		Name:       opDetachServerGroups,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &DetachLoadBalancersInput{}
+		input = &DetachServerGroupsInput{}
 	}
 
-	output = &DetachLoadBalancersOutput{}
+	output = &DetachServerGroupsOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// DetachLoadBalancers API operation for AUTO_SCALING.
+// DetachServerGroups API operation for AUTO_SCALING.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation DetachLoadBalancers for usage and error information.
-func (c *AUTOSCALING) DetachLoadBalancers(input *DetachLoadBalancersInput) (*DetachLoadBalancersOutput, error) {
-	req, out := c.DetachLoadBalancersRequest(input)
+// API operation DetachServerGroups for usage and error information.
+func (c *AUTOSCALING) DetachServerGroups(input *DetachServerGroupsInput) (*DetachServerGroupsOutput, error) {
+	req, out := c.DetachServerGroupsRequest(input)
 	return out, req.Send()
 }
 
-// DetachLoadBalancersWithContext is the same as DetachLoadBalancers with the addition of
+// DetachServerGroupsWithContext is the same as DetachServerGroups with the addition of
 // the ability to pass a context and additional request options.
 //
-// See DetachLoadBalancers for details on how to use this API operation.
+// See DetachServerGroups for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AUTOSCALING) DetachLoadBalancersWithContext(ctx volcstack.Context, input *DetachLoadBalancersInput, opts ...request.Option) (*DetachLoadBalancersOutput, error) {
-	req, out := c.DetachLoadBalancersRequest(input)
+func (c *AUTOSCALING) DetachServerGroupsWithContext(ctx volcstack.Context, input *DetachServerGroupsInput, opts ...request.Option) (*DetachServerGroupsOutput, error) {
+	req, out := c.DetachServerGroupsRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2085,6 +2737,136 @@ func (c *AUTOSCALING) DisableScalingGroup(input *DisableScalingGroupInput) (*Dis
 // for more information on using Contexts.
 func (c *AUTOSCALING) DisableScalingGroupWithContext(ctx volcstack.Context, input *DisableScalingGroupInput, opts ...request.Option) (*DisableScalingGroupOutput, error) {
 	req, out := c.DisableScalingGroupRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisableScalingPolicyCommon = "DisableScalingPolicy"
+
+// DisableScalingPolicyCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisableScalingPolicyCommon operation. The "output" return
+// value will be populated with the DisableScalingPolicyCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DisableScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisableScalingPolicyCommon Send returns without error.
+//
+// See DisableScalingPolicyCommon for more information on using the DisableScalingPolicyCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the DisableScalingPolicyCommonRequest method.
+//    req, resp := client.DisableScalingPolicyCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) DisableScalingPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opDisableScalingPolicyCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisableScalingPolicyCommon API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation DisableScalingPolicyCommon for usage and error information.
+func (c *AUTOSCALING) DisableScalingPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.DisableScalingPolicyCommonRequest(input)
+	return out, req.Send()
+}
+
+// DisableScalingPolicyCommonWithContext is the same as DisableScalingPolicyCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisableScalingPolicyCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) DisableScalingPolicyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.DisableScalingPolicyCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDisableScalingPolicy = "DisableScalingPolicy"
+
+// DisableScalingPolicyRequest generates a "volcstack/request.Request" representing the
+// client's request for the DisableScalingPolicy operation. The "output" return
+// value will be populated with the DisableScalingPolicyCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned DisableScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after DisableScalingPolicyCommon Send returns without error.
+//
+// See DisableScalingPolicy for more information on using the DisableScalingPolicy
+// API call, and error handling.
+//
+//    // Example sending a request using the DisableScalingPolicyRequest method.
+//    req, resp := client.DisableScalingPolicyRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) DisableScalingPolicyRequest(input *DisableScalingPolicyInput) (req *request.Request, output *DisableScalingPolicyOutput) {
+	op := &request.Operation{
+		Name:       opDisableScalingPolicy,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DisableScalingPolicyInput{}
+	}
+
+	output = &DisableScalingPolicyOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// DisableScalingPolicy API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation DisableScalingPolicy for usage and error information.
+func (c *AUTOSCALING) DisableScalingPolicy(input *DisableScalingPolicyInput) (*DisableScalingPolicyOutput, error) {
+	req, out := c.DisableScalingPolicyRequest(input)
+	return out, req.Send()
+}
+
+// DisableScalingPolicyWithContext is the same as DisableScalingPolicy with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisableScalingPolicy for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) DisableScalingPolicyWithContext(ctx volcstack.Context, input *DisableScalingPolicyInput, opts ...request.Option) (*DisableScalingPolicyOutput, error) {
+	req, out := c.DisableScalingPolicyRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2350,29 +3132,29 @@ func (c *AUTOSCALING) EnableScalingGroupWithContext(ctx volcstack.Context, input
 	return out, req.Send()
 }
 
-const opModifyInstancesProtectionCommon = "ModifyInstancesProtection"
+const opEnableScalingPolicyCommon = "EnableScalingPolicy"
 
-// ModifyInstancesProtectionCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the ModifyInstancesProtectionCommon operation. The "output" return
-// value will be populated with the ModifyInstancesProtectionCommon request's response once the request completes
+// EnableScalingPolicyCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the EnableScalingPolicyCommon operation. The "output" return
+// value will be populated with the EnableScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned ModifyInstancesProtectionCommon Request to send the API call to the service.
-// the "output" return value is not valid until after ModifyInstancesProtectionCommon Send returns without error.
+// Use "Send" method on the returned EnableScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after EnableScalingPolicyCommon Send returns without error.
 //
-// See ModifyInstancesProtectionCommon for more information on using the ModifyInstancesProtectionCommon
+// See EnableScalingPolicyCommon for more information on using the EnableScalingPolicyCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyInstancesProtectionCommonRequest method.
-//    req, resp := client.ModifyInstancesProtectionCommonRequest(params)
+//    // Example sending a request using the EnableScalingPolicyCommonRequest method.
+//    req, resp := client.EnableScalingPolicyCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AUTOSCALING) ModifyInstancesProtectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *AUTOSCALING) EnableScalingPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opModifyInstancesProtectionCommon,
+		Name:       opEnableScalingPolicyCommon,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
@@ -2387,94 +3169,224 @@ func (c *AUTOSCALING) ModifyInstancesProtectionCommonRequest(input *map[string]i
 	return
 }
 
-// ModifyInstancesProtectionCommon API operation for AUTO_SCALING.
+// EnableScalingPolicyCommon API operation for AUTO_SCALING.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation ModifyInstancesProtectionCommon for usage and error information.
-func (c *AUTOSCALING) ModifyInstancesProtectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.ModifyInstancesProtectionCommonRequest(input)
+// API operation EnableScalingPolicyCommon for usage and error information.
+func (c *AUTOSCALING) EnableScalingPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.EnableScalingPolicyCommonRequest(input)
 	return out, req.Send()
 }
 
-// ModifyInstancesProtectionCommonWithContext is the same as ModifyInstancesProtectionCommon with the addition of
+// EnableScalingPolicyCommonWithContext is the same as EnableScalingPolicyCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See ModifyInstancesProtectionCommon for details on how to use this API operation.
+// See EnableScalingPolicyCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AUTOSCALING) ModifyInstancesProtectionCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.ModifyInstancesProtectionCommonRequest(input)
+func (c *AUTOSCALING) EnableScalingPolicyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.EnableScalingPolicyCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opModifyInstancesProtection = "ModifyInstancesProtection"
+const opEnableScalingPolicy = "EnableScalingPolicy"
 
-// ModifyInstancesProtectionRequest generates a "volcstack/request.Request" representing the
-// client's request for the ModifyInstancesProtection operation. The "output" return
-// value will be populated with the ModifyInstancesProtectionCommon request's response once the request completes
+// EnableScalingPolicyRequest generates a "volcstack/request.Request" representing the
+// client's request for the EnableScalingPolicy operation. The "output" return
+// value will be populated with the EnableScalingPolicyCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned ModifyInstancesProtectionCommon Request to send the API call to the service.
-// the "output" return value is not valid until after ModifyInstancesProtectionCommon Send returns without error.
+// Use "Send" method on the returned EnableScalingPolicyCommon Request to send the API call to the service.
+// the "output" return value is not valid until after EnableScalingPolicyCommon Send returns without error.
 //
-// See ModifyInstancesProtection for more information on using the ModifyInstancesProtection
+// See EnableScalingPolicy for more information on using the EnableScalingPolicy
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyInstancesProtectionRequest method.
-//    req, resp := client.ModifyInstancesProtectionRequest(params)
+//    // Example sending a request using the EnableScalingPolicyRequest method.
+//    req, resp := client.EnableScalingPolicyRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AUTOSCALING) ModifyInstancesProtectionRequest(input *ModifyInstancesProtectionInput) (req *request.Request, output *ModifyInstancesProtectionOutput) {
+func (c *AUTOSCALING) EnableScalingPolicyRequest(input *EnableScalingPolicyInput) (req *request.Request, output *EnableScalingPolicyOutput) {
 	op := &request.Operation{
-		Name:       opModifyInstancesProtection,
+		Name:       opEnableScalingPolicy,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &ModifyInstancesProtectionInput{}
+		input = &EnableScalingPolicyInput{}
 	}
 
-	output = &ModifyInstancesProtectionOutput{}
+	output = &EnableScalingPolicyOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// ModifyInstancesProtection API operation for AUTO_SCALING.
+// EnableScalingPolicy API operation for AUTO_SCALING.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation ModifyInstancesProtection for usage and error information.
-func (c *AUTOSCALING) ModifyInstancesProtection(input *ModifyInstancesProtectionInput) (*ModifyInstancesProtectionOutput, error) {
-	req, out := c.ModifyInstancesProtectionRequest(input)
+// API operation EnableScalingPolicy for usage and error information.
+func (c *AUTOSCALING) EnableScalingPolicy(input *EnableScalingPolicyInput) (*EnableScalingPolicyOutput, error) {
+	req, out := c.EnableScalingPolicyRequest(input)
 	return out, req.Send()
 }
 
-// ModifyInstancesProtectionWithContext is the same as ModifyInstancesProtection with the addition of
+// EnableScalingPolicyWithContext is the same as EnableScalingPolicy with the addition of
 // the ability to pass a context and additional request options.
 //
-// See ModifyInstancesProtection for details on how to use this API operation.
+// See EnableScalingPolicy for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AUTOSCALING) ModifyInstancesProtectionWithContext(ctx volcstack.Context, input *ModifyInstancesProtectionInput, opts ...request.Option) (*ModifyInstancesProtectionOutput, error) {
-	req, out := c.ModifyInstancesProtectionRequest(input)
+func (c *AUTOSCALING) EnableScalingPolicyWithContext(ctx volcstack.Context, input *EnableScalingPolicyInput, opts ...request.Option) (*EnableScalingPolicyOutput, error) {
+	req, out := c.EnableScalingPolicyRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyLifecycleHookCommon = "ModifyLifecycleHook"
+
+// ModifyLifecycleHookCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyLifecycleHookCommon operation. The "output" return
+// value will be populated with the ModifyLifecycleHookCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyLifecycleHookCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyLifecycleHookCommon Send returns without error.
+//
+// See ModifyLifecycleHookCommon for more information on using the ModifyLifecycleHookCommon
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyLifecycleHookCommonRequest method.
+//    req, resp := client.ModifyLifecycleHookCommonRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) ModifyLifecycleHookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+	op := &request.Operation{
+		Name:       opModifyLifecycleHookCommon,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &map[string]interface{}{}
+	}
+
+	output = &map[string]interface{}{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyLifecycleHookCommon API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation ModifyLifecycleHookCommon for usage and error information.
+func (c *AUTOSCALING) ModifyLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.ModifyLifecycleHookCommonRequest(input)
+	return out, req.Send()
+}
+
+// ModifyLifecycleHookCommonWithContext is the same as ModifyLifecycleHookCommon with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyLifecycleHookCommon for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) ModifyLifecycleHookCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.ModifyLifecycleHookCommonRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyLifecycleHook = "ModifyLifecycleHook"
+
+// ModifyLifecycleHookRequest generates a "volcstack/request.Request" representing the
+// client's request for the ModifyLifecycleHook operation. The "output" return
+// value will be populated with the ModifyLifecycleHookCommon request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned ModifyLifecycleHookCommon Request to send the API call to the service.
+// the "output" return value is not valid until after ModifyLifecycleHookCommon Send returns without error.
+//
+// See ModifyLifecycleHook for more information on using the ModifyLifecycleHook
+// API call, and error handling.
+//
+//    // Example sending a request using the ModifyLifecycleHookRequest method.
+//    req, resp := client.ModifyLifecycleHookRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+func (c *AUTOSCALING) ModifyLifecycleHookRequest(input *ModifyLifecycleHookInput) (req *request.Request, output *ModifyLifecycleHookOutput) {
+	op := &request.Operation{
+		Name:       opModifyLifecycleHook,
+		HTTPMethod: "GET",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ModifyLifecycleHookInput{}
+	}
+
+	output = &ModifyLifecycleHookOutput{}
+	req = c.newRequest(op, input, output)
+
+	return
+}
+
+// ModifyLifecycleHook API operation for AUTO_SCALING.
+//
+// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
+// with volcstackerr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// API operation ModifyLifecycleHook for usage and error information.
+func (c *AUTOSCALING) ModifyLifecycleHook(input *ModifyLifecycleHookInput) (*ModifyLifecycleHookOutput, error) {
+	req, out := c.ModifyLifecycleHookRequest(input)
+	return out, req.Send()
+}
+
+// ModifyLifecycleHookWithContext is the same as ModifyLifecycleHook with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyLifecycleHook for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
+// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *AUTOSCALING) ModifyLifecycleHookWithContext(ctx volcstack.Context, input *ModifyLifecycleHookInput, opts ...request.Option) (*ModifyLifecycleHookOutput, error) {
+	req, out := c.ModifyLifecycleHookRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -2969,6 +3881,7 @@ func (c *AUTOSCALING) RemoveInstancesRequest(input *RemoveInstancesInput) (req *
 	output = &RemoveInstancesOutput{}
 	req = c.newRequest(op, input, output)
 
+	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -3000,29 +3913,29 @@ func (c *AUTOSCALING) RemoveInstancesWithContext(ctx volcstack.Context, input *R
 	return out, req.Send()
 }
 
-const opStartScalingPolicyCommon = "StartScalingPolicy"
+const opSetInstancesProtectionCommon = "SetInstancesProtection"
 
-// StartScalingPolicyCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the StartScalingPolicyCommon operation. The "output" return
-// value will be populated with the StartScalingPolicyCommon request's response once the request completes
+// SetInstancesProtectionCommonRequest generates a "volcstack/request.Request" representing the
+// client's request for the SetInstancesProtectionCommon operation. The "output" return
+// value will be populated with the SetInstancesProtectionCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned StartScalingPolicyCommon Request to send the API call to the service.
-// the "output" return value is not valid until after StartScalingPolicyCommon Send returns without error.
+// Use "Send" method on the returned SetInstancesProtectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after SetInstancesProtectionCommon Send returns without error.
 //
-// See StartScalingPolicyCommon for more information on using the StartScalingPolicyCommon
+// See SetInstancesProtectionCommon for more information on using the SetInstancesProtectionCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the StartScalingPolicyCommonRequest method.
-//    req, resp := client.StartScalingPolicyCommonRequest(params)
+//    // Example sending a request using the SetInstancesProtectionCommonRequest method.
+//    req, resp := client.SetInstancesProtectionCommonRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AUTOSCALING) StartScalingPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
+func (c *AUTOSCALING) SetInstancesProtectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
-		Name:       opStartScalingPolicyCommon,
+		Name:       opSetInstancesProtectionCommon,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
@@ -3037,227 +3950,303 @@ func (c *AUTOSCALING) StartScalingPolicyCommonRequest(input *map[string]interfac
 	return
 }
 
-// StartScalingPolicyCommon API operation for AUTO_SCALING.
+// SetInstancesProtectionCommon API operation for AUTO_SCALING.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation StartScalingPolicyCommon for usage and error information.
-func (c *AUTOSCALING) StartScalingPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.StartScalingPolicyCommonRequest(input)
+// API operation SetInstancesProtectionCommon for usage and error information.
+func (c *AUTOSCALING) SetInstancesProtectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
+	req, out := c.SetInstancesProtectionCommonRequest(input)
 	return out, req.Send()
 }
 
-// StartScalingPolicyCommonWithContext is the same as StartScalingPolicyCommon with the addition of
+// SetInstancesProtectionCommonWithContext is the same as SetInstancesProtectionCommon with the addition of
 // the ability to pass a context and additional request options.
 //
-// See StartScalingPolicyCommon for details on how to use this API operation.
+// See SetInstancesProtectionCommon for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AUTOSCALING) StartScalingPolicyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.StartScalingPolicyCommonRequest(input)
+func (c *AUTOSCALING) SetInstancesProtectionCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
+	req, out := c.SetInstancesProtectionCommonRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opStartScalingPolicy = "StartScalingPolicy"
+const opSetInstancesProtection = "SetInstancesProtection"
 
-// StartScalingPolicyRequest generates a "volcstack/request.Request" representing the
-// client's request for the StartScalingPolicy operation. The "output" return
-// value will be populated with the StartScalingPolicyCommon request's response once the request completes
+// SetInstancesProtectionRequest generates a "volcstack/request.Request" representing the
+// client's request for the SetInstancesProtection operation. The "output" return
+// value will be populated with the SetInstancesProtectionCommon request's response once the request completes
 // successfully.
 //
-// Use "Send" method on the returned StartScalingPolicyCommon Request to send the API call to the service.
-// the "output" return value is not valid until after StartScalingPolicyCommon Send returns without error.
+// Use "Send" method on the returned SetInstancesProtectionCommon Request to send the API call to the service.
+// the "output" return value is not valid until after SetInstancesProtectionCommon Send returns without error.
 //
-// See StartScalingPolicy for more information on using the StartScalingPolicy
+// See SetInstancesProtection for more information on using the SetInstancesProtection
 // API call, and error handling.
 //
-//    // Example sending a request using the StartScalingPolicyRequest method.
-//    req, resp := client.StartScalingPolicyRequest(params)
+//    // Example sending a request using the SetInstancesProtectionRequest method.
+//    req, resp := client.SetInstancesProtectionRequest(params)
 //
 //    err := req.Send()
 //    if err == nil { // resp is now filled
 //        fmt.Println(resp)
 //    }
-func (c *AUTOSCALING) StartScalingPolicyRequest(input *StartScalingPolicyInput) (req *request.Request, output *StartScalingPolicyOutput) {
+func (c *AUTOSCALING) SetInstancesProtectionRequest(input *SetInstancesProtectionInput) (req *request.Request, output *SetInstancesProtectionOutput) {
 	op := &request.Operation{
-		Name:       opStartScalingPolicy,
+		Name:       opSetInstancesProtection,
 		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
 	if input == nil {
-		input = &StartScalingPolicyInput{}
+		input = &SetInstancesProtectionInput{}
 	}
 
-	output = &StartScalingPolicyOutput{}
+	output = &SetInstancesProtectionOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
 }
 
-// StartScalingPolicy API operation for AUTO_SCALING.
+// SetInstancesProtection API operation for AUTO_SCALING.
 //
 // Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcstackerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
 // See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation StartScalingPolicy for usage and error information.
-func (c *AUTOSCALING) StartScalingPolicy(input *StartScalingPolicyInput) (*StartScalingPolicyOutput, error) {
-	req, out := c.StartScalingPolicyRequest(input)
+// API operation SetInstancesProtection for usage and error information.
+func (c *AUTOSCALING) SetInstancesProtection(input *SetInstancesProtectionInput) (*SetInstancesProtectionOutput, error) {
+	req, out := c.SetInstancesProtectionRequest(input)
 	return out, req.Send()
 }
 
-// StartScalingPolicyWithContext is the same as StartScalingPolicy with the addition of
+// SetInstancesProtectionWithContext is the same as SetInstancesProtection with the addition of
 // the ability to pass a context and additional request options.
 //
-// See StartScalingPolicy for details on how to use this API operation.
+// See SetInstancesProtection for details on how to use this API operation.
 //
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *AUTOSCALING) StartScalingPolicyWithContext(ctx volcstack.Context, input *StartScalingPolicyInput, opts ...request.Option) (*StartScalingPolicyOutput, error) {
-	req, out := c.StartScalingPolicyRequest(input)
+func (c *AUTOSCALING) SetInstancesProtectionWithContext(ctx volcstack.Context, input *SetInstancesProtectionInput, opts ...request.Option) (*SetInstancesProtectionOutput, error) {
+	req, out := c.SetInstancesProtectionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
 }
 
-const opStopScalingPolicyCommon = "StopScalingPolicy"
+type AlarmPolicyConditionForCreateScalingPolicyInput struct {
+	_ struct{} `type:"structure"`
 
-// StopScalingPolicyCommonRequest generates a "volcstack/request.Request" representing the
-// client's request for the StopScalingPolicyCommon operation. The "output" return
-// value will be populated with the StopScalingPolicyCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned StopScalingPolicyCommon Request to send the API call to the service.
-// the "output" return value is not valid until after StopScalingPolicyCommon Send returns without error.
-//
-// See StopScalingPolicyCommon for more information on using the StopScalingPolicyCommon
-// API call, and error handling.
-//
-//    // Example sending a request using the StopScalingPolicyCommonRequest method.
-//    req, resp := client.StopScalingPolicyCommonRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *AUTOSCALING) StopScalingPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
-	op := &request.Operation{
-		Name:       opStopScalingPolicyCommon,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
+	ComparisonOperator *string `type:"string"`
 
-	if input == nil {
-		input = &map[string]interface{}{}
-	}
+	MetricName *string `type:"string"`
 
-	output = &map[string]interface{}{}
-	req = c.newRequest(op, input, output)
+	MetricUnit *string `type:"string"`
 
-	return
+	Threshold *string `type:"string"`
 }
 
-// StopScalingPolicyCommon API operation for AUTO_SCALING.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation StopScalingPolicyCommon for usage and error information.
-func (c *AUTOSCALING) StopScalingPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
-	req, out := c.StopScalingPolicyCommonRequest(input)
-	return out, req.Send()
+// String returns the string representation
+func (s AlarmPolicyConditionForCreateScalingPolicyInput) String() string {
+	return volcstackutil.Prettify(s)
 }
 
-// StopScalingPolicyCommonWithContext is the same as StopScalingPolicyCommon with the addition of
-// the ability to pass a context and additional request options.
-//
-// See StopScalingPolicyCommon for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. If the context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *AUTOSCALING) StopScalingPolicyCommonWithContext(ctx volcstack.Context, input *map[string]interface{}, opts ...request.Option) (*map[string]interface{}, error) {
-	req, out := c.StopScalingPolicyCommonRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
+// GoString returns the string representation
+func (s AlarmPolicyConditionForCreateScalingPolicyInput) GoString() string {
+	return s.String()
 }
 
-const opStopScalingPolicy = "StopScalingPolicy"
-
-// StopScalingPolicyRequest generates a "volcstack/request.Request" representing the
-// client's request for the StopScalingPolicy operation. The "output" return
-// value will be populated with the StopScalingPolicyCommon request's response once the request completes
-// successfully.
-//
-// Use "Send" method on the returned StopScalingPolicyCommon Request to send the API call to the service.
-// the "output" return value is not valid until after StopScalingPolicyCommon Send returns without error.
-//
-// See StopScalingPolicy for more information on using the StopScalingPolicy
-// API call, and error handling.
-//
-//    // Example sending a request using the StopScalingPolicyRequest method.
-//    req, resp := client.StopScalingPolicyRequest(params)
-//
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *AUTOSCALING) StopScalingPolicyRequest(input *StopScalingPolicyInput) (req *request.Request, output *StopScalingPolicyOutput) {
-	op := &request.Operation{
-		Name:       opStopScalingPolicy,
-		HTTPMethod: "GET",
-		HTTPPath:   "/",
-	}
-
-	if input == nil {
-		input = &StopScalingPolicyInput{}
-	}
-
-	output = &StopScalingPolicyOutput{}
-	req = c.newRequest(op, input, output)
-
-	return
+// SetComparisonOperator sets the ComparisonOperator field's value.
+func (s *AlarmPolicyConditionForCreateScalingPolicyInput) SetComparisonOperator(v string) *AlarmPolicyConditionForCreateScalingPolicyInput {
+	s.ComparisonOperator = &v
+	return s
 }
 
-// StopScalingPolicy API operation for AUTO_SCALING.
-//
-// Returns volcstackerr.Error for service API and SDK errors. Use runtime type assertions
-// with volcstackerr.Error's Code and Message methods to get detailed information about
-// the error.
-//
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
-// API operation StopScalingPolicy for usage and error information.
-func (c *AUTOSCALING) StopScalingPolicy(input *StopScalingPolicyInput) (*StopScalingPolicyOutput, error) {
-	req, out := c.StopScalingPolicyRequest(input)
-	return out, req.Send()
+// SetMetricName sets the MetricName field's value.
+func (s *AlarmPolicyConditionForCreateScalingPolicyInput) SetMetricName(v string) *AlarmPolicyConditionForCreateScalingPolicyInput {
+	s.MetricName = &v
+	return s
 }
 
-// StopScalingPolicyWithContext is the same as StopScalingPolicy with the addition of
-// the ability to pass a context and additional request options.
-//
-// See StopScalingPolicy for details on how to use this API operation.
-//
-// The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
-// In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
-// for more information on using Contexts.
-func (c *AUTOSCALING) StopScalingPolicyWithContext(ctx volcstack.Context, input *StopScalingPolicyInput, opts ...request.Option) (*StopScalingPolicyOutput, error) {
-	req, out := c.StopScalingPolicyRequest(input)
-	req.SetContext(ctx)
-	req.ApplyOptions(opts...)
-	return out, req.Send()
+// SetMetricUnit sets the MetricUnit field's value.
+func (s *AlarmPolicyConditionForCreateScalingPolicyInput) SetMetricUnit(v string) *AlarmPolicyConditionForCreateScalingPolicyInput {
+	s.MetricUnit = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *AlarmPolicyConditionForCreateScalingPolicyInput) SetThreshold(v string) *AlarmPolicyConditionForCreateScalingPolicyInput {
+	s.Threshold = &v
+	return s
+}
+
+type AlarmPolicyConditionForModifyScalingPolicyInput struct {
+	_ struct{} `type:"structure"`
+
+	ComparisonOperator *string `type:"string"`
+
+	MetricName *string `type:"string"`
+
+	MetricUnit *string `type:"string"`
+
+	Threshold *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AlarmPolicyConditionForModifyScalingPolicyInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AlarmPolicyConditionForModifyScalingPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetComparisonOperator sets the ComparisonOperator field's value.
+func (s *AlarmPolicyConditionForModifyScalingPolicyInput) SetComparisonOperator(v string) *AlarmPolicyConditionForModifyScalingPolicyInput {
+	s.ComparisonOperator = &v
+	return s
+}
+
+// SetMetricName sets the MetricName field's value.
+func (s *AlarmPolicyConditionForModifyScalingPolicyInput) SetMetricName(v string) *AlarmPolicyConditionForModifyScalingPolicyInput {
+	s.MetricName = &v
+	return s
+}
+
+// SetMetricUnit sets the MetricUnit field's value.
+func (s *AlarmPolicyConditionForModifyScalingPolicyInput) SetMetricUnit(v string) *AlarmPolicyConditionForModifyScalingPolicyInput {
+	s.MetricUnit = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *AlarmPolicyConditionForModifyScalingPolicyInput) SetThreshold(v string) *AlarmPolicyConditionForModifyScalingPolicyInput {
+	s.Threshold = &v
+	return s
+}
+
+type AlarmPolicyForCreateScalingPolicyInput struct {
+	_ struct{} `type:"structure"`
+
+	Condition *AlarmPolicyConditionForCreateScalingPolicyInput `type:"structure"`
+
+	EvaluationCount *int32 `type:"int32"`
+
+	RuleType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AlarmPolicyForCreateScalingPolicyInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AlarmPolicyForCreateScalingPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *AlarmPolicyForCreateScalingPolicyInput) SetCondition(v *AlarmPolicyConditionForCreateScalingPolicyInput) *AlarmPolicyForCreateScalingPolicyInput {
+	s.Condition = v
+	return s
+}
+
+// SetEvaluationCount sets the EvaluationCount field's value.
+func (s *AlarmPolicyForCreateScalingPolicyInput) SetEvaluationCount(v int32) *AlarmPolicyForCreateScalingPolicyInput {
+	s.EvaluationCount = &v
+	return s
+}
+
+// SetRuleType sets the RuleType field's value.
+func (s *AlarmPolicyForCreateScalingPolicyInput) SetRuleType(v string) *AlarmPolicyForCreateScalingPolicyInput {
+	s.RuleType = &v
+	return s
+}
+
+type AlarmPolicyForDescribeScalingPoliciesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Condition *ConditionForDescribeScalingPoliciesOutput `type:"structure"`
+
+	EvaluationCount *int32 `type:"int32"`
+
+	RuleType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AlarmPolicyForDescribeScalingPoliciesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AlarmPolicyForDescribeScalingPoliciesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *AlarmPolicyForDescribeScalingPoliciesOutput) SetCondition(v *ConditionForDescribeScalingPoliciesOutput) *AlarmPolicyForDescribeScalingPoliciesOutput {
+	s.Condition = v
+	return s
+}
+
+// SetEvaluationCount sets the EvaluationCount field's value.
+func (s *AlarmPolicyForDescribeScalingPoliciesOutput) SetEvaluationCount(v int32) *AlarmPolicyForDescribeScalingPoliciesOutput {
+	s.EvaluationCount = &v
+	return s
+}
+
+// SetRuleType sets the RuleType field's value.
+func (s *AlarmPolicyForDescribeScalingPoliciesOutput) SetRuleType(v string) *AlarmPolicyForDescribeScalingPoliciesOutput {
+	s.RuleType = &v
+	return s
+}
+
+type AlarmPolicyForModifyScalingPolicyInput struct {
+	_ struct{} `type:"structure"`
+
+	Condition *AlarmPolicyConditionForModifyScalingPolicyInput `type:"structure"`
+
+	EvaluationCount *int32 `type:"int32"`
+
+	RuleType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AlarmPolicyForModifyScalingPolicyInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AlarmPolicyForModifyScalingPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *AlarmPolicyForModifyScalingPolicyInput) SetCondition(v *AlarmPolicyConditionForModifyScalingPolicyInput) *AlarmPolicyForModifyScalingPolicyInput {
+	s.Condition = v
+	return s
+}
+
+// SetEvaluationCount sets the EvaluationCount field's value.
+func (s *AlarmPolicyForModifyScalingPolicyInput) SetEvaluationCount(v int32) *AlarmPolicyForModifyScalingPolicyInput {
+	s.EvaluationCount = &v
+	return s
+}
+
+// SetRuleType sets the RuleType field's value.
+func (s *AlarmPolicyForModifyScalingPolicyInput) SetRuleType(v string) *AlarmPolicyForModifyScalingPolicyInput {
+	s.RuleType = &v
+	return s
 }
 
 type AttachInstancesInput struct {
@@ -3300,8 +4289,6 @@ func (s *AttachInstancesInput) SetScalingGroupId(v string) *AttachInstancesInput
 
 type AttachInstancesOutput struct {
 	_ struct{} `type:"structure"`
-
-	ScalingActivityId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3314,61 +4301,237 @@ func (s AttachInstancesOutput) GoString() string {
 	return s.String()
 }
 
-// SetScalingActivityId sets the ScalingActivityId field's value.
-func (s *AttachInstancesOutput) SetScalingActivityId(v string) *AttachInstancesOutput {
-	s.ScalingActivityId = &v
-	return s
-}
-
-type AttachLoadBalancersInput struct {
+type AttachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	LoadBalancerGroups []*LoadBalancerGroupForAttachLoadBalancersInput `type:"list"`
-
 	ScalingGroupId *string `type:"string"`
+
+	ServerGroupAttributes []*ServerGroupAttributeForAttachServerGroupsInput `type:"list"`
 }
 
 // String returns the string representation
-func (s AttachLoadBalancersInput) String() string {
+func (s AttachServerGroupsInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AttachLoadBalancersInput) GoString() string {
+func (s AttachServerGroupsInput) GoString() string {
 	return s.String()
 }
 
-// SetLoadBalancerGroups sets the LoadBalancerGroups field's value.
-func (s *AttachLoadBalancersInput) SetLoadBalancerGroups(v []*LoadBalancerGroupForAttachLoadBalancersInput) *AttachLoadBalancersInput {
-	s.LoadBalancerGroups = v
-	return s
-}
-
 // SetScalingGroupId sets the ScalingGroupId field's value.
-func (s *AttachLoadBalancersInput) SetScalingGroupId(v string) *AttachLoadBalancersInput {
+func (s *AttachServerGroupsInput) SetScalingGroupId(v string) *AttachServerGroupsInput {
 	s.ScalingGroupId = &v
 	return s
 }
 
-type AttachLoadBalancersOutput struct {
+// SetServerGroupAttributes sets the ServerGroupAttributes field's value.
+func (s *AttachServerGroupsInput) SetServerGroupAttributes(v []*ServerGroupAttributeForAttachServerGroupsInput) *AttachServerGroupsInput {
+	s.ServerGroupAttributes = v
+	return s
+}
+
+type AttachServerGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s AttachLoadBalancersOutput) String() string {
+func (s AttachServerGroupsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AttachLoadBalancersOutput) GoString() string {
+func (s AttachServerGroupsOutput) GoString() string {
 	return s.String()
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.
-func (s *AttachLoadBalancersOutput) SetScalingGroupId(v string) *AttachLoadBalancersOutput {
+func (s *AttachServerGroupsOutput) SetScalingGroupId(v string) *AttachServerGroupsOutput {
 	s.ScalingGroupId = &v
+	return s
+}
+
+type CompleteLifecycleActivityInput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleActivityId *string `type:"string"`
+
+	LifecycleActivityPolicy *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CompleteLifecycleActivityInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CompleteLifecycleActivityInput) GoString() string {
+	return s.String()
+}
+
+// SetLifecycleActivityId sets the LifecycleActivityId field's value.
+func (s *CompleteLifecycleActivityInput) SetLifecycleActivityId(v string) *CompleteLifecycleActivityInput {
+	s.LifecycleActivityId = &v
+	return s
+}
+
+// SetLifecycleActivityPolicy sets the LifecycleActivityPolicy field's value.
+func (s *CompleteLifecycleActivityInput) SetLifecycleActivityPolicy(v string) *CompleteLifecycleActivityInput {
+	s.LifecycleActivityPolicy = &v
+	return s
+}
+
+type CompleteLifecycleActivityOutput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceId *string `type:"string"`
+
+	LifecycleActivityId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CompleteLifecycleActivityOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CompleteLifecycleActivityOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CompleteLifecycleActivityOutput) SetInstanceId(v string) *CompleteLifecycleActivityOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetLifecycleActivityId sets the LifecycleActivityId field's value.
+func (s *CompleteLifecycleActivityOutput) SetLifecycleActivityId(v string) *CompleteLifecycleActivityOutput {
+	s.LifecycleActivityId = &v
+	return s
+}
+
+type ConditionForDescribeScalingPoliciesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ComparisonOperator *string `type:"string"`
+
+	MetricName *string `type:"string"`
+
+	MetricUnit *string `type:"string"`
+
+	Threshold *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConditionForDescribeScalingPoliciesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionForDescribeScalingPoliciesOutput) GoString() string {
+	return s.String()
+}
+
+// SetComparisonOperator sets the ComparisonOperator field's value.
+func (s *ConditionForDescribeScalingPoliciesOutput) SetComparisonOperator(v string) *ConditionForDescribeScalingPoliciesOutput {
+	s.ComparisonOperator = &v
+	return s
+}
+
+// SetMetricName sets the MetricName field's value.
+func (s *ConditionForDescribeScalingPoliciesOutput) SetMetricName(v string) *ConditionForDescribeScalingPoliciesOutput {
+	s.MetricName = &v
+	return s
+}
+
+// SetMetricUnit sets the MetricUnit field's value.
+func (s *ConditionForDescribeScalingPoliciesOutput) SetMetricUnit(v string) *ConditionForDescribeScalingPoliciesOutput {
+	s.MetricUnit = &v
+	return s
+}
+
+// SetThreshold sets the Threshold field's value.
+func (s *ConditionForDescribeScalingPoliciesOutput) SetThreshold(v string) *ConditionForDescribeScalingPoliciesOutput {
+	s.Threshold = &v
+	return s
+}
+
+type CreateLifecycleHookInput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleHookName *string `type:"string"`
+
+	LifecycleHookPolicy *string `type:"string"`
+
+	LifecycleHookTimeout *int32 `type:"int32"`
+
+	LifecycleHookType *string `type:"string"`
+
+	ScalingGroupId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateLifecycleHookInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateLifecycleHookInput) GoString() string {
+	return s.String()
+}
+
+// SetLifecycleHookName sets the LifecycleHookName field's value.
+func (s *CreateLifecycleHookInput) SetLifecycleHookName(v string) *CreateLifecycleHookInput {
+	s.LifecycleHookName = &v
+	return s
+}
+
+// SetLifecycleHookPolicy sets the LifecycleHookPolicy field's value.
+func (s *CreateLifecycleHookInput) SetLifecycleHookPolicy(v string) *CreateLifecycleHookInput {
+	s.LifecycleHookPolicy = &v
+	return s
+}
+
+// SetLifecycleHookTimeout sets the LifecycleHookTimeout field's value.
+func (s *CreateLifecycleHookInput) SetLifecycleHookTimeout(v int32) *CreateLifecycleHookInput {
+	s.LifecycleHookTimeout = &v
+	return s
+}
+
+// SetLifecycleHookType sets the LifecycleHookType field's value.
+func (s *CreateLifecycleHookInput) SetLifecycleHookType(v string) *CreateLifecycleHookInput {
+	s.LifecycleHookType = &v
+	return s
+}
+
+// SetScalingGroupId sets the ScalingGroupId field's value.
+func (s *CreateLifecycleHookInput) SetScalingGroupId(v string) *CreateLifecycleHookInput {
+	s.ScalingGroupId = &v
+	return s
+}
+
+type CreateLifecycleHookOutput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleHookId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CreateLifecycleHookOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateLifecycleHookOutput) GoString() string {
+	return s.String()
+}
+
+// SetLifecycleHookId sets the LifecycleHookId field's value.
+func (s *CreateLifecycleHookOutput) SetLifecycleHookId(v string) *CreateLifecycleHookOutput {
+	s.LifecycleHookId = &v
 	return s
 }
 
@@ -3387,13 +4550,9 @@ type CreateScalingConfigurationInput struct {
 
 	InstanceTypes []*string `type:"list"`
 
-	KeyPairId *string `type:"string"`
-
 	KeyPairName *string `type:"string"`
 
 	Password *string `type:"string"`
-
-	ProjectName *string `type:"string"`
 
 	ScalingConfigurationName *string `type:"string"`
 
@@ -3456,12 +4615,6 @@ func (s *CreateScalingConfigurationInput) SetInstanceTypes(v []*string) *CreateS
 	return s
 }
 
-// SetKeyPairId sets the KeyPairId field's value.
-func (s *CreateScalingConfigurationInput) SetKeyPairId(v string) *CreateScalingConfigurationInput {
-	s.KeyPairId = &v
-	return s
-}
-
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *CreateScalingConfigurationInput) SetKeyPairName(v string) *CreateScalingConfigurationInput {
 	s.KeyPairName = &v
@@ -3471,12 +4624,6 @@ func (s *CreateScalingConfigurationInput) SetKeyPairName(v string) *CreateScalin
 // SetPassword sets the Password field's value.
 func (s *CreateScalingConfigurationInput) SetPassword(v string) *CreateScalingConfigurationInput {
 	s.Password = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *CreateScalingConfigurationInput) SetProjectName(v string) *CreateScalingConfigurationInput {
-	s.ProjectName = &v
 	return s
 }
 
@@ -3551,25 +4698,17 @@ type CreateScalingGroupInput struct {
 
 	DesireInstanceNumber *int32 `type:"int32"`
 
-	HealthCheckType *string `type:"string"`
-
 	InstanceTerminatePolicy *string `type:"string"`
-
-	LaunchTemplateId *string `type:"string"`
-
-	LoadBalancerGroups []*LoadBalancerGroupForCreateScalingGroupInput `type:"list"`
 
 	MaxInstanceNumber *int32 `type:"int32"`
 
 	MinInstanceNumber *int32 `type:"int32"`
 
-	NetworkInterfaces []*NetworkInterfaceForCreateScalingGroupInput `type:"list"`
-
 	ScalingGroupName *string `type:"string"`
 
-	VpcId *string `type:"string"`
+	ServerGroupAttributes []*ServerGroupAttributeForCreateScalingGroupInput `type:"list"`
 
-	ZoneId *string `type:"string"`
+	SubnetIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -3594,27 +4733,9 @@ func (s *CreateScalingGroupInput) SetDesireInstanceNumber(v int32) *CreateScalin
 	return s
 }
 
-// SetHealthCheckType sets the HealthCheckType field's value.
-func (s *CreateScalingGroupInput) SetHealthCheckType(v string) *CreateScalingGroupInput {
-	s.HealthCheckType = &v
-	return s
-}
-
 // SetInstanceTerminatePolicy sets the InstanceTerminatePolicy field's value.
 func (s *CreateScalingGroupInput) SetInstanceTerminatePolicy(v string) *CreateScalingGroupInput {
 	s.InstanceTerminatePolicy = &v
-	return s
-}
-
-// SetLaunchTemplateId sets the LaunchTemplateId field's value.
-func (s *CreateScalingGroupInput) SetLaunchTemplateId(v string) *CreateScalingGroupInput {
-	s.LaunchTemplateId = &v
-	return s
-}
-
-// SetLoadBalancerGroups sets the LoadBalancerGroups field's value.
-func (s *CreateScalingGroupInput) SetLoadBalancerGroups(v []*LoadBalancerGroupForCreateScalingGroupInput) *CreateScalingGroupInput {
-	s.LoadBalancerGroups = v
 	return s
 }
 
@@ -3630,27 +4751,21 @@ func (s *CreateScalingGroupInput) SetMinInstanceNumber(v int32) *CreateScalingGr
 	return s
 }
 
-// SetNetworkInterfaces sets the NetworkInterfaces field's value.
-func (s *CreateScalingGroupInput) SetNetworkInterfaces(v []*NetworkInterfaceForCreateScalingGroupInput) *CreateScalingGroupInput {
-	s.NetworkInterfaces = v
-	return s
-}
-
 // SetScalingGroupName sets the ScalingGroupName field's value.
 func (s *CreateScalingGroupInput) SetScalingGroupName(v string) *CreateScalingGroupInput {
 	s.ScalingGroupName = &v
 	return s
 }
 
-// SetVpcId sets the VpcId field's value.
-func (s *CreateScalingGroupInput) SetVpcId(v string) *CreateScalingGroupInput {
-	s.VpcId = &v
+// SetServerGroupAttributes sets the ServerGroupAttributes field's value.
+func (s *CreateScalingGroupInput) SetServerGroupAttributes(v []*ServerGroupAttributeForCreateScalingGroupInput) *CreateScalingGroupInput {
+	s.ServerGroupAttributes = v
 	return s
 }
 
-// SetZoneId sets the ZoneId field's value.
-func (s *CreateScalingGroupInput) SetZoneId(v string) *CreateScalingGroupInput {
-	s.ZoneId = &v
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *CreateScalingGroupInput) SetSubnetIds(v []*string) *CreateScalingGroupInput {
+	s.SubnetIds = v
 	return s
 }
 
@@ -3683,7 +4798,7 @@ type CreateScalingPolicyInput struct {
 
 	AdjustmentValue *int32 `type:"int32"`
 
-	AlarmId *string `type:"string"`
+	AlarmPolicy *AlarmPolicyForCreateScalingPolicyInput `type:"structure"`
 
 	Cooldown *int32 `type:"int32"`
 
@@ -3718,9 +4833,9 @@ func (s *CreateScalingPolicyInput) SetAdjustmentValue(v int32) *CreateScalingPol
 	return s
 }
 
-// SetAlarmId sets the AlarmId field's value.
-func (s *CreateScalingPolicyInput) SetAlarmId(v string) *CreateScalingPolicyInput {
-	s.AlarmId = &v
+// SetAlarmPolicy sets the AlarmPolicy field's value.
+func (s *CreateScalingPolicyInput) SetAlarmPolicy(v *AlarmPolicyForCreateScalingPolicyInput) *CreateScalingPolicyInput {
+	s.AlarmPolicy = v
 	return s
 }
 
@@ -3776,6 +4891,50 @@ func (s *CreateScalingPolicyOutput) SetScalingPolicyId(v string) *CreateScalingP
 	return s
 }
 
+type DeleteLifecycleHookInput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleHookId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteLifecycleHookInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteLifecycleHookInput) GoString() string {
+	return s.String()
+}
+
+// SetLifecycleHookId sets the LifecycleHookId field's value.
+func (s *DeleteLifecycleHookInput) SetLifecycleHookId(v string) *DeleteLifecycleHookInput {
+	s.LifecycleHookId = &v
+	return s
+}
+
+type DeleteLifecycleHookOutput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleHookId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteLifecycleHookOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteLifecycleHookOutput) GoString() string {
+	return s.String()
+}
+
+// SetLifecycleHookId sets the LifecycleHookId field's value.
+func (s *DeleteLifecycleHookOutput) SetLifecycleHookId(v string) *DeleteLifecycleHookOutput {
+	s.LifecycleHookId = &v
+	return s
+}
+
 type DeleteScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3823,8 +4982,6 @@ func (s *DeleteScalingConfigurationOutput) SetScalingConfigurationId(v string) *
 type DeleteScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	ForceDelete *string `type:"string"`
-
 	ScalingGroupId *string `type:"string"`
 }
 
@@ -3836,12 +4993,6 @@ func (s DeleteScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s DeleteScalingGroupInput) GoString() string {
 	return s.String()
-}
-
-// SetForceDelete sets the ForceDelete field's value.
-func (s *DeleteScalingGroupInput) SetForceDelete(v string) *DeleteScalingGroupInput {
-	s.ForceDelete = &v
-	return s
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.
@@ -3916,6 +5067,206 @@ func (s *DeleteScalingPolicyOutput) SetScalingPolicyId(v string) *DeleteScalingP
 	return s
 }
 
+type DescribeLifecycleActivitiesInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceId *string `type:"string"`
+
+	LifecycleActivityStatus *string `type:"string"`
+
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
+	ScalingActivityId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeLifecycleActivitiesInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeLifecycleActivitiesInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeLifecycleActivitiesInput) SetInstanceId(v string) *DescribeLifecycleActivitiesInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetLifecycleActivityStatus sets the LifecycleActivityStatus field's value.
+func (s *DescribeLifecycleActivitiesInput) SetLifecycleActivityStatus(v string) *DescribeLifecycleActivitiesInput {
+	s.LifecycleActivityStatus = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeLifecycleActivitiesInput) SetPageNumber(v int32) *DescribeLifecycleActivitiesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeLifecycleActivitiesInput) SetPageSize(v int32) *DescribeLifecycleActivitiesInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetScalingActivityId sets the ScalingActivityId field's value.
+func (s *DescribeLifecycleActivitiesInput) SetScalingActivityId(v string) *DescribeLifecycleActivitiesInput {
+	s.ScalingActivityId = &v
+	return s
+}
+
+type DescribeLifecycleActivitiesOutput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleActivities []*LifecycleActivityForDescribeLifecycleActivitiesOutput `type:"list"`
+
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
+	TotalCount *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s DescribeLifecycleActivitiesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeLifecycleActivitiesOutput) GoString() string {
+	return s.String()
+}
+
+// SetLifecycleActivities sets the LifecycleActivities field's value.
+func (s *DescribeLifecycleActivitiesOutput) SetLifecycleActivities(v []*LifecycleActivityForDescribeLifecycleActivitiesOutput) *DescribeLifecycleActivitiesOutput {
+	s.LifecycleActivities = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeLifecycleActivitiesOutput) SetPageNumber(v int32) *DescribeLifecycleActivitiesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeLifecycleActivitiesOutput) SetPageSize(v int32) *DescribeLifecycleActivitiesOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeLifecycleActivitiesOutput) SetTotalCount(v int32) *DescribeLifecycleActivitiesOutput {
+	s.TotalCount = &v
+	return s
+}
+
+type DescribeLifecycleHooksInput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleHookIds []*string `type:"list"`
+
+	LifecycleHookName *string `type:"string"`
+
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
+	ScalingGroupId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeLifecycleHooksInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeLifecycleHooksInput) GoString() string {
+	return s.String()
+}
+
+// SetLifecycleHookIds sets the LifecycleHookIds field's value.
+func (s *DescribeLifecycleHooksInput) SetLifecycleHookIds(v []*string) *DescribeLifecycleHooksInput {
+	s.LifecycleHookIds = v
+	return s
+}
+
+// SetLifecycleHookName sets the LifecycleHookName field's value.
+func (s *DescribeLifecycleHooksInput) SetLifecycleHookName(v string) *DescribeLifecycleHooksInput {
+	s.LifecycleHookName = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeLifecycleHooksInput) SetPageNumber(v int32) *DescribeLifecycleHooksInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeLifecycleHooksInput) SetPageSize(v int32) *DescribeLifecycleHooksInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetScalingGroupId sets the ScalingGroupId field's value.
+func (s *DescribeLifecycleHooksInput) SetScalingGroupId(v string) *DescribeLifecycleHooksInput {
+	s.ScalingGroupId = &v
+	return s
+}
+
+type DescribeLifecycleHooksOutput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleHooks []*LifecycleHookForDescribeLifecycleHooksOutput `type:"list"`
+
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
+	TotalCount *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s DescribeLifecycleHooksOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeLifecycleHooksOutput) GoString() string {
+	return s.String()
+}
+
+// SetLifecycleHooks sets the LifecycleHooks field's value.
+func (s *DescribeLifecycleHooksOutput) SetLifecycleHooks(v []*LifecycleHookForDescribeLifecycleHooksOutput) *DescribeLifecycleHooksOutput {
+	s.LifecycleHooks = v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeLifecycleHooksOutput) SetPageNumber(v int32) *DescribeLifecycleHooksOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeLifecycleHooksOutput) SetPageSize(v int32) *DescribeLifecycleHooksOutput {
+	s.PageSize = &v
+	return s
+}
+
+// SetTotalCount sets the TotalCount field's value.
+func (s *DescribeLifecycleHooksOutput) SetTotalCount(v int32) *DescribeLifecycleHooksOutput {
+	s.TotalCount = &v
+	return s
+}
+
 type DescribeScalingActivitiesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3925,13 +5276,13 @@ type DescribeScalingActivitiesInput struct {
 
 	PageSize *int32 `type:"int32"`
 
-	ScalingActivityId *string `type:"string"`
+	ScalingActivityIds []*string `type:"list"`
 
 	ScalingGroupId *string `type:"string"`
 
 	StartTime *string `type:"string"`
 
-	Status *string `type:"string"`
+	StatusCode *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3962,9 +5313,9 @@ func (s *DescribeScalingActivitiesInput) SetPageSize(v int32) *DescribeScalingAc
 	return s
 }
 
-// SetScalingActivityId sets the ScalingActivityId field's value.
-func (s *DescribeScalingActivitiesInput) SetScalingActivityId(v string) *DescribeScalingActivitiesInput {
-	s.ScalingActivityId = &v
+// SetScalingActivityIds sets the ScalingActivityIds field's value.
+func (s *DescribeScalingActivitiesInput) SetScalingActivityIds(v []*string) *DescribeScalingActivitiesInput {
+	s.ScalingActivityIds = v
 	return s
 }
 
@@ -3980,9 +5331,9 @@ func (s *DescribeScalingActivitiesInput) SetStartTime(v string) *DescribeScaling
 	return s
 }
 
-// SetStatus sets the Status field's value.
-func (s *DescribeScalingActivitiesInput) SetStatus(v string) *DescribeScalingActivitiesInput {
-	s.Status = &v
+// SetStatusCode sets the StatusCode field's value.
+func (s *DescribeScalingActivitiesInput) SetStatusCode(v string) *DescribeScalingActivitiesInput {
+	s.StatusCode = &v
 	return s
 }
 
@@ -4044,8 +5395,6 @@ type DescribeScalingConfigurationsInput struct {
 	ScalingConfigurationNames []*string `type:"list"`
 
 	ScalingGroupId *string `type:"string"`
-
-	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4085,12 +5434,6 @@ func (s *DescribeScalingConfigurationsInput) SetScalingConfigurationNames(v []*s
 // SetScalingGroupId sets the ScalingGroupId field's value.
 func (s *DescribeScalingConfigurationsInput) SetScalingGroupId(v string) *DescribeScalingConfigurationsInput {
 	s.ScalingGroupId = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *DescribeScalingConfigurationsInput) SetZoneId(v string) *DescribeScalingConfigurationsInput {
-	s.ZoneId = &v
 	return s
 }
 
@@ -4150,8 +5493,6 @@ type DescribeScalingGroupsInput struct {
 	ScalingGroupIds []*string `type:"list"`
 
 	ScalingGroupNames []*string `type:"list"`
-
-	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4185,12 +5526,6 @@ func (s *DescribeScalingGroupsInput) SetScalingGroupIds(v []*string) *DescribeSc
 // SetScalingGroupNames sets the ScalingGroupNames field's value.
 func (s *DescribeScalingGroupsInput) SetScalingGroupNames(v []*string) *DescribeScalingGroupsInput {
 	s.ScalingGroupNames = v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *DescribeScalingGroupsInput) SetZoneId(v string) *DescribeScalingGroupsInput {
-	s.ZoneId = &v
 	return s
 }
 
@@ -4243,15 +5578,19 @@ func (s *DescribeScalingGroupsOutput) SetTotalCount(v int32) *DescribeScalingGro
 type DescribeScalingInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	CreationType *string `type:"string"`
 
-	InstanceName *string `type:"string"`
+	InstanceIds []*string `type:"list"`
 
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
 
+	ScalingConfigurationId *string `type:"string"`
+
 	ScalingGroupId *string `type:"string"`
+
+	Status *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4264,15 +5603,15 @@ func (s DescribeScalingInstancesInput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *DescribeScalingInstancesInput) SetInstanceId(v string) *DescribeScalingInstancesInput {
-	s.InstanceId = &v
+// SetCreationType sets the CreationType field's value.
+func (s *DescribeScalingInstancesInput) SetCreationType(v string) *DescribeScalingInstancesInput {
+	s.CreationType = &v
 	return s
 }
 
-// SetInstanceName sets the InstanceName field's value.
-func (s *DescribeScalingInstancesInput) SetInstanceName(v string) *DescribeScalingInstancesInput {
-	s.InstanceName = &v
+// SetInstanceIds sets the InstanceIds field's value.
+func (s *DescribeScalingInstancesInput) SetInstanceIds(v []*string) *DescribeScalingInstancesInput {
+	s.InstanceIds = v
 	return s
 }
 
@@ -4288,9 +5627,21 @@ func (s *DescribeScalingInstancesInput) SetPageSize(v int32) *DescribeScalingIns
 	return s
 }
 
+// SetScalingConfigurationId sets the ScalingConfigurationId field's value.
+func (s *DescribeScalingInstancesInput) SetScalingConfigurationId(v string) *DescribeScalingInstancesInput {
+	s.ScalingConfigurationId = &v
+	return s
+}
+
 // SetScalingGroupId sets the ScalingGroupId field's value.
 func (s *DescribeScalingInstancesInput) SetScalingGroupId(v string) *DescribeScalingInstancesInput {
 	s.ScalingGroupId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeScalingInstancesInput) SetStatus(v string) *DescribeScalingInstancesInput {
+	s.Status = &v
 	return s
 }
 
@@ -4496,8 +5847,6 @@ func (s *DetachInstancesInput) SetScalingGroupId(v string) *DetachInstancesInput
 
 type DetachInstancesOutput struct {
 	_ struct{} `type:"structure"`
-
-	ScalingActivityId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4510,60 +5859,54 @@ func (s DetachInstancesOutput) GoString() string {
 	return s.String()
 }
 
-// SetScalingActivityId sets the ScalingActivityId field's value.
-func (s *DetachInstancesOutput) SetScalingActivityId(v string) *DetachInstancesOutput {
-	s.ScalingActivityId = &v
-	return s
-}
-
-type DetachLoadBalancersInput struct {
+type DetachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	LoadBalancerGroups []*LoadBalancerGroupForDetachLoadBalancersInput `type:"list"`
-
 	ScalingGroupId *string `type:"string"`
+
+	ServerGroupAttributes []*ServerGroupAttributeForDetachServerGroupsInput `type:"list"`
 }
 
 // String returns the string representation
-func (s DetachLoadBalancersInput) String() string {
+func (s DetachServerGroupsInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DetachLoadBalancersInput) GoString() string {
+func (s DetachServerGroupsInput) GoString() string {
 	return s.String()
 }
 
-// SetLoadBalancerGroups sets the LoadBalancerGroups field's value.
-func (s *DetachLoadBalancersInput) SetLoadBalancerGroups(v []*LoadBalancerGroupForDetachLoadBalancersInput) *DetachLoadBalancersInput {
-	s.LoadBalancerGroups = v
-	return s
-}
-
 // SetScalingGroupId sets the ScalingGroupId field's value.
-func (s *DetachLoadBalancersInput) SetScalingGroupId(v string) *DetachLoadBalancersInput {
+func (s *DetachServerGroupsInput) SetScalingGroupId(v string) *DetachServerGroupsInput {
 	s.ScalingGroupId = &v
 	return s
 }
 
-type DetachLoadBalancersOutput struct {
+// SetServerGroupAttributes sets the ServerGroupAttributes field's value.
+func (s *DetachServerGroupsInput) SetServerGroupAttributes(v []*ServerGroupAttributeForDetachServerGroupsInput) *DetachServerGroupsInput {
+	s.ServerGroupAttributes = v
+	return s
+}
+
+type DetachServerGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s DetachLoadBalancersOutput) String() string {
+func (s DetachServerGroupsOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DetachLoadBalancersOutput) GoString() string {
+func (s DetachServerGroupsOutput) GoString() string {
 	return s.String()
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.
-func (s *DetachLoadBalancersOutput) SetScalingGroupId(v string) *DetachLoadBalancersOutput {
+func (s *DetachServerGroupsOutput) SetScalingGroupId(v string) *DetachServerGroupsOutput {
 	s.ScalingGroupId = &v
 	return s
 }
@@ -4612,12 +5955,54 @@ func (s *DisableScalingGroupOutput) SetScalingGroupId(v string) *DisableScalingG
 	return s
 }
 
+type DisableScalingPolicyInput struct {
+	_ struct{} `type:"structure"`
+
+	ScalingPolicyId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisableScalingPolicyInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisableScalingPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetScalingPolicyId sets the ScalingPolicyId field's value.
+func (s *DisableScalingPolicyInput) SetScalingPolicyId(v string) *DisableScalingPolicyInput {
+	s.ScalingPolicyId = &v
+	return s
+}
+
+type DisableScalingPolicyOutput struct {
+	_ struct{} `type:"structure"`
+
+	ScalingPolicyId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DisableScalingPolicyOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisableScalingPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetScalingPolicyId sets the ScalingPolicyId field's value.
+func (s *DisableScalingPolicyOutput) SetScalingPolicyId(v string) *DisableScalingPolicyOutput {
+	s.ScalingPolicyId = &v
+	return s
+}
+
 type EipForCreateScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *json.Number `type:"json_number"`
-
-	BillingType *int32 `type:"int32"`
+	Bandwidth *int32 `type:"int32"`
 
 	ISP *string `type:"string"`
 }
@@ -4633,14 +6018,8 @@ func (s EipForCreateScalingConfigurationInput) GoString() string {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *EipForCreateScalingConfigurationInput) SetBandwidth(v json.Number) *EipForCreateScalingConfigurationInput {
+func (s *EipForCreateScalingConfigurationInput) SetBandwidth(v int32) *EipForCreateScalingConfigurationInput {
 	s.Bandwidth = &v
-	return s
-}
-
-// SetBillingType sets the BillingType field's value.
-func (s *EipForCreateScalingConfigurationInput) SetBillingType(v int32) *EipForCreateScalingConfigurationInput {
-	s.BillingType = &v
 	return s
 }
 
@@ -4653,9 +6032,7 @@ func (s *EipForCreateScalingConfigurationInput) SetISP(v string) *EipForCreateSc
 type EipForDescribeScalingConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *json.Number `type:"json_number"`
-
-	BillingType *int32 `type:"int32"`
+	Bandwidth *int32 `type:"int32"`
 
 	ISP *string `type:"string"`
 }
@@ -4671,14 +6048,8 @@ func (s EipForDescribeScalingConfigurationsOutput) GoString() string {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *EipForDescribeScalingConfigurationsOutput) SetBandwidth(v json.Number) *EipForDescribeScalingConfigurationsOutput {
+func (s *EipForDescribeScalingConfigurationsOutput) SetBandwidth(v int32) *EipForDescribeScalingConfigurationsOutput {
 	s.Bandwidth = &v
-	return s
-}
-
-// SetBillingType sets the BillingType field's value.
-func (s *EipForDescribeScalingConfigurationsOutput) SetBillingType(v int32) *EipForDescribeScalingConfigurationsOutput {
-	s.BillingType = &v
 	return s
 }
 
@@ -4691,9 +6062,7 @@ func (s *EipForDescribeScalingConfigurationsOutput) SetISP(v string) *EipForDesc
 type EipForModifyScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *json.Number `type:"json_number"`
-
-	BillingType *int32 `type:"int32"`
+	Bandwidth *int32 `type:"int32"`
 
 	ISP *string `type:"string"`
 }
@@ -4709,14 +6078,8 @@ func (s EipForModifyScalingConfigurationInput) GoString() string {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *EipForModifyScalingConfigurationInput) SetBandwidth(v json.Number) *EipForModifyScalingConfigurationInput {
+func (s *EipForModifyScalingConfigurationInput) SetBandwidth(v int32) *EipForModifyScalingConfigurationInput {
 	s.Bandwidth = &v
-	return s
-}
-
-// SetBillingType sets the BillingType field's value.
-func (s *EipForModifyScalingConfigurationInput) SetBillingType(v int32) *EipForModifyScalingConfigurationInput {
-	s.BillingType = &v
 	return s
 }
 
@@ -4822,243 +6185,285 @@ func (s *EnableScalingGroupOutput) SetScalingGroupId(v string) *EnableScalingGro
 	return s
 }
 
-type ErrorForModifyInstancesProtectionOutput struct {
+type EnableScalingPolicyInput struct {
+	_ struct{} `type:"structure"`
+
+	ScalingPolicyId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EnableScalingPolicyInput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnableScalingPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetScalingPolicyId sets the ScalingPolicyId field's value.
+func (s *EnableScalingPolicyInput) SetScalingPolicyId(v string) *EnableScalingPolicyInput {
+	s.ScalingPolicyId = &v
+	return s
+}
+
+type EnableScalingPolicyOutput struct {
+	_ struct{} `type:"structure"`
+
+	ScalingPolicyId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EnableScalingPolicyOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EnableScalingPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetScalingPolicyId sets the ScalingPolicyId field's value.
+func (s *EnableScalingPolicyOutput) SetScalingPolicyId(v string) *EnableScalingPolicyOutput {
+	s.ScalingPolicyId = &v
+	return s
+}
+
+type InstanceProtectionResultForSetInstancesProtectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	Code *string `type:"string"`
 
+	InstanceId *string `type:"string"`
+
 	Message *string `type:"string"`
+
+	Result *string `type:"string"`
 }
 
 // String returns the string representation
-func (s ErrorForModifyInstancesProtectionOutput) String() string {
+func (s InstanceProtectionResultForSetInstancesProtectionOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ErrorForModifyInstancesProtectionOutput) GoString() string {
+func (s InstanceProtectionResultForSetInstancesProtectionOutput) GoString() string {
 	return s.String()
 }
 
 // SetCode sets the Code field's value.
-func (s *ErrorForModifyInstancesProtectionOutput) SetCode(v string) *ErrorForModifyInstancesProtectionOutput {
+func (s *InstanceProtectionResultForSetInstancesProtectionOutput) SetCode(v string) *InstanceProtectionResultForSetInstancesProtectionOutput {
 	s.Code = &v
 	return s
 }
 
-// SetMessage sets the Message field's value.
-func (s *ErrorForModifyInstancesProtectionOutput) SetMessage(v string) *ErrorForModifyInstancesProtectionOutput {
-	s.Message = &v
-	return s
-}
-
-type LoadBalancerGroupForAttachLoadBalancersInput struct {
-	_ struct{} `type:"structure"`
-
-	LoadBalancerId *string `type:"string"`
-
-	ServerGroupAttributes []*ServerGroupAttributeForAttachLoadBalancersInput `type:"list"`
-}
-
-// String returns the string representation
-func (s LoadBalancerGroupForAttachLoadBalancersInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LoadBalancerGroupForAttachLoadBalancersInput) GoString() string {
-	return s.String()
-}
-
-// SetLoadBalancerId sets the LoadBalancerId field's value.
-func (s *LoadBalancerGroupForAttachLoadBalancersInput) SetLoadBalancerId(v string) *LoadBalancerGroupForAttachLoadBalancersInput {
-	s.LoadBalancerId = &v
-	return s
-}
-
-// SetServerGroupAttributes sets the ServerGroupAttributes field's value.
-func (s *LoadBalancerGroupForAttachLoadBalancersInput) SetServerGroupAttributes(v []*ServerGroupAttributeForAttachLoadBalancersInput) *LoadBalancerGroupForAttachLoadBalancersInput {
-	s.ServerGroupAttributes = v
-	return s
-}
-
-type LoadBalancerGroupForCreateScalingGroupInput struct {
-	_ struct{} `type:"structure"`
-
-	LoadBalancerId *string `type:"string"`
-
-	ServerGroupAttributes []*ServerGroupAttributeForCreateScalingGroupInput `type:"list"`
-}
-
-// String returns the string representation
-func (s LoadBalancerGroupForCreateScalingGroupInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LoadBalancerGroupForCreateScalingGroupInput) GoString() string {
-	return s.String()
-}
-
-// SetLoadBalancerId sets the LoadBalancerId field's value.
-func (s *LoadBalancerGroupForCreateScalingGroupInput) SetLoadBalancerId(v string) *LoadBalancerGroupForCreateScalingGroupInput {
-	s.LoadBalancerId = &v
-	return s
-}
-
-// SetServerGroupAttributes sets the ServerGroupAttributes field's value.
-func (s *LoadBalancerGroupForCreateScalingGroupInput) SetServerGroupAttributes(v []*ServerGroupAttributeForCreateScalingGroupInput) *LoadBalancerGroupForCreateScalingGroupInput {
-	s.ServerGroupAttributes = v
-	return s
-}
-
-type LoadBalancerGroupForDescribeScalingGroupsOutput struct {
-	_ struct{} `type:"structure"`
-
-	LoadBalancerId *string `type:"string"`
-
-	ServerGroupAttributes []*ServerGroupAttributeForDescribeScalingGroupsOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s LoadBalancerGroupForDescribeScalingGroupsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LoadBalancerGroupForDescribeScalingGroupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetLoadBalancerId sets the LoadBalancerId field's value.
-func (s *LoadBalancerGroupForDescribeScalingGroupsOutput) SetLoadBalancerId(v string) *LoadBalancerGroupForDescribeScalingGroupsOutput {
-	s.LoadBalancerId = &v
-	return s
-}
-
-// SetServerGroupAttributes sets the ServerGroupAttributes field's value.
-func (s *LoadBalancerGroupForDescribeScalingGroupsOutput) SetServerGroupAttributes(v []*ServerGroupAttributeForDescribeScalingGroupsOutput) *LoadBalancerGroupForDescribeScalingGroupsOutput {
-	s.ServerGroupAttributes = v
-	return s
-}
-
-type LoadBalancerGroupForDetachLoadBalancersInput struct {
-	_ struct{} `type:"structure"`
-
-	LoadBalancerId *string `type:"string"`
-
-	ServerGroupIds []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s LoadBalancerGroupForDetachLoadBalancersInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s LoadBalancerGroupForDetachLoadBalancersInput) GoString() string {
-	return s.String()
-}
-
-// SetLoadBalancerId sets the LoadBalancerId field's value.
-func (s *LoadBalancerGroupForDetachLoadBalancersInput) SetLoadBalancerId(v string) *LoadBalancerGroupForDetachLoadBalancersInput {
-	s.LoadBalancerId = &v
-	return s
-}
-
-// SetServerGroupIds sets the ServerGroupIds field's value.
-func (s *LoadBalancerGroupForDetachLoadBalancersInput) SetServerGroupIds(v []*string) *LoadBalancerGroupForDetachLoadBalancersInput {
-	s.ServerGroupIds = v
-	return s
-}
-
-type ModifyInstanceProtectionResultForModifyInstancesProtectionOutput struct {
-	_ struct{} `type:"structure"`
-
-	Error *ErrorForModifyInstancesProtectionOutput `type:"structure"`
-
-	InstanceId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) GoString() string {
-	return s.String()
-}
-
-// SetError sets the Error field's value.
-func (s *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) SetError(v *ErrorForModifyInstancesProtectionOutput) *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput {
-	s.Error = v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
-func (s *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) SetInstanceId(v string) *ModifyInstanceProtectionResultForModifyInstancesProtectionOutput {
+func (s *InstanceProtectionResultForSetInstancesProtectionOutput) SetInstanceId(v string) *InstanceProtectionResultForSetInstancesProtectionOutput {
 	s.InstanceId = &v
 	return s
 }
 
-type ModifyInstancesProtectionInput struct {
+// SetMessage sets the Message field's value.
+func (s *InstanceProtectionResultForSetInstancesProtectionOutput) SetMessage(v string) *InstanceProtectionResultForSetInstancesProtectionOutput {
+	s.Message = &v
+	return s
+}
+
+// SetResult sets the Result field's value.
+func (s *InstanceProtectionResultForSetInstancesProtectionOutput) SetResult(v string) *InstanceProtectionResultForSetInstancesProtectionOutput {
+	s.Result = &v
+	return s
+}
+
+type LifecycleActivityForDescribeLifecycleActivitiesOutput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceIds []*string `type:"list"`
+	InstanceId *string `type:"string"`
 
-	ProtectedFromScaleIn *bool `type:"boolean"`
+	LifecycleActivityId *string `type:"string"`
+
+	LifecycleActivityStatus *string `type:"string"`
+
+	LifecycleHookId *string `type:"string"`
+
+	LifecycleHookPolicy *string `type:"string"`
+
+	ScalingActivityId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LifecycleActivityForDescribeLifecycleActivitiesOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleActivityForDescribeLifecycleActivitiesOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *LifecycleActivityForDescribeLifecycleActivitiesOutput) SetInstanceId(v string) *LifecycleActivityForDescribeLifecycleActivitiesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetLifecycleActivityId sets the LifecycleActivityId field's value.
+func (s *LifecycleActivityForDescribeLifecycleActivitiesOutput) SetLifecycleActivityId(v string) *LifecycleActivityForDescribeLifecycleActivitiesOutput {
+	s.LifecycleActivityId = &v
+	return s
+}
+
+// SetLifecycleActivityStatus sets the LifecycleActivityStatus field's value.
+func (s *LifecycleActivityForDescribeLifecycleActivitiesOutput) SetLifecycleActivityStatus(v string) *LifecycleActivityForDescribeLifecycleActivitiesOutput {
+	s.LifecycleActivityStatus = &v
+	return s
+}
+
+// SetLifecycleHookId sets the LifecycleHookId field's value.
+func (s *LifecycleActivityForDescribeLifecycleActivitiesOutput) SetLifecycleHookId(v string) *LifecycleActivityForDescribeLifecycleActivitiesOutput {
+	s.LifecycleHookId = &v
+	return s
+}
+
+// SetLifecycleHookPolicy sets the LifecycleHookPolicy field's value.
+func (s *LifecycleActivityForDescribeLifecycleActivitiesOutput) SetLifecycleHookPolicy(v string) *LifecycleActivityForDescribeLifecycleActivitiesOutput {
+	s.LifecycleHookPolicy = &v
+	return s
+}
+
+// SetScalingActivityId sets the ScalingActivityId field's value.
+func (s *LifecycleActivityForDescribeLifecycleActivitiesOutput) SetScalingActivityId(v string) *LifecycleActivityForDescribeLifecycleActivitiesOutput {
+	s.ScalingActivityId = &v
+	return s
+}
+
+type LifecycleHookForDescribeLifecycleHooksOutput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleHookId *string `type:"string"`
+
+	LifecycleHookName *string `type:"string"`
+
+	LifecycleHookPolicy *string `type:"string"`
+
+	LifecycleHookTimeout *int32 `type:"int32"`
+
+	LifecycleHookType *string `type:"string"`
 
 	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s ModifyInstancesProtectionInput) String() string {
+func (s LifecycleHookForDescribeLifecycleHooksOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ModifyInstancesProtectionInput) GoString() string {
+func (s LifecycleHookForDescribeLifecycleHooksOutput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceIds sets the InstanceIds field's value.
-func (s *ModifyInstancesProtectionInput) SetInstanceIds(v []*string) *ModifyInstancesProtectionInput {
-	s.InstanceIds = v
+// SetLifecycleHookId sets the LifecycleHookId field's value.
+func (s *LifecycleHookForDescribeLifecycleHooksOutput) SetLifecycleHookId(v string) *LifecycleHookForDescribeLifecycleHooksOutput {
+	s.LifecycleHookId = &v
 	return s
 }
 
-// SetProtectedFromScaleIn sets the ProtectedFromScaleIn field's value.
-func (s *ModifyInstancesProtectionInput) SetProtectedFromScaleIn(v bool) *ModifyInstancesProtectionInput {
-	s.ProtectedFromScaleIn = &v
+// SetLifecycleHookName sets the LifecycleHookName field's value.
+func (s *LifecycleHookForDescribeLifecycleHooksOutput) SetLifecycleHookName(v string) *LifecycleHookForDescribeLifecycleHooksOutput {
+	s.LifecycleHookName = &v
+	return s
+}
+
+// SetLifecycleHookPolicy sets the LifecycleHookPolicy field's value.
+func (s *LifecycleHookForDescribeLifecycleHooksOutput) SetLifecycleHookPolicy(v string) *LifecycleHookForDescribeLifecycleHooksOutput {
+	s.LifecycleHookPolicy = &v
+	return s
+}
+
+// SetLifecycleHookTimeout sets the LifecycleHookTimeout field's value.
+func (s *LifecycleHookForDescribeLifecycleHooksOutput) SetLifecycleHookTimeout(v int32) *LifecycleHookForDescribeLifecycleHooksOutput {
+	s.LifecycleHookTimeout = &v
+	return s
+}
+
+// SetLifecycleHookType sets the LifecycleHookType field's value.
+func (s *LifecycleHookForDescribeLifecycleHooksOutput) SetLifecycleHookType(v string) *LifecycleHookForDescribeLifecycleHooksOutput {
+	s.LifecycleHookType = &v
 	return s
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.
-func (s *ModifyInstancesProtectionInput) SetScalingGroupId(v string) *ModifyInstancesProtectionInput {
+func (s *LifecycleHookForDescribeLifecycleHooksOutput) SetScalingGroupId(v string) *LifecycleHookForDescribeLifecycleHooksOutput {
 	s.ScalingGroupId = &v
 	return s
 }
 
-type ModifyInstancesProtectionOutput struct {
+type ModifyLifecycleHookInput struct {
 	_ struct{} `type:"structure"`
 
-	ModifyInstanceProtectionResults []*ModifyInstanceProtectionResultForModifyInstancesProtectionOutput `type:"list"`
+	LifecycleHookId *string `type:"string"`
+
+	LifecycleHookPolicy *string `type:"string"`
+
+	LifecycleHookTimeout *int32 `type:"int32"`
+
+	LifecycleHookType *string `type:"string"`
 }
 
 // String returns the string representation
-func (s ModifyInstancesProtectionOutput) String() string {
+func (s ModifyLifecycleHookInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ModifyInstancesProtectionOutput) GoString() string {
+func (s ModifyLifecycleHookInput) GoString() string {
 	return s.String()
 }
 
-// SetModifyInstanceProtectionResults sets the ModifyInstanceProtectionResults field's value.
-func (s *ModifyInstancesProtectionOutput) SetModifyInstanceProtectionResults(v []*ModifyInstanceProtectionResultForModifyInstancesProtectionOutput) *ModifyInstancesProtectionOutput {
-	s.ModifyInstanceProtectionResults = v
+// SetLifecycleHookId sets the LifecycleHookId field's value.
+func (s *ModifyLifecycleHookInput) SetLifecycleHookId(v string) *ModifyLifecycleHookInput {
+	s.LifecycleHookId = &v
+	return s
+}
+
+// SetLifecycleHookPolicy sets the LifecycleHookPolicy field's value.
+func (s *ModifyLifecycleHookInput) SetLifecycleHookPolicy(v string) *ModifyLifecycleHookInput {
+	s.LifecycleHookPolicy = &v
+	return s
+}
+
+// SetLifecycleHookTimeout sets the LifecycleHookTimeout field's value.
+func (s *ModifyLifecycleHookInput) SetLifecycleHookTimeout(v int32) *ModifyLifecycleHookInput {
+	s.LifecycleHookTimeout = &v
+	return s
+}
+
+// SetLifecycleHookType sets the LifecycleHookType field's value.
+func (s *ModifyLifecycleHookInput) SetLifecycleHookType(v string) *ModifyLifecycleHookInput {
+	s.LifecycleHookType = &v
+	return s
+}
+
+type ModifyLifecycleHookOutput struct {
+	_ struct{} `type:"structure"`
+
+	LifecycleHookId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyLifecycleHookOutput) String() string {
+	return volcstackutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyLifecycleHookOutput) GoString() string {
+	return s.String()
+}
+
+// SetLifecycleHookId sets the LifecycleHookId field's value.
+func (s *ModifyLifecycleHookOutput) SetLifecycleHookId(v string) *ModifyLifecycleHookOutput {
+	s.LifecycleHookId = &v
 	return s
 }
 
@@ -5076,8 +6481,6 @@ type ModifyScalingConfigurationInput struct {
 	InstanceName *string `type:"string"`
 
 	InstanceTypes []*string `type:"list"`
-
-	KeyPairId *string `type:"string"`
 
 	KeyPairName *string `type:"string"`
 
@@ -5141,12 +6544,6 @@ func (s *ModifyScalingConfigurationInput) SetInstanceName(v string) *ModifyScali
 // SetInstanceTypes sets the InstanceTypes field's value.
 func (s *ModifyScalingConfigurationInput) SetInstanceTypes(v []*string) *ModifyScalingConfigurationInput {
 	s.InstanceTypes = v
-	return s
-}
-
-// SetKeyPairId sets the KeyPairId field's value.
-func (s *ModifyScalingConfigurationInput) SetKeyPairId(v string) *ModifyScalingConfigurationInput {
-	s.KeyPairId = &v
 	return s
 }
 
@@ -5231,25 +6628,19 @@ type ModifyScalingGroupInput struct {
 
 	ActiveScalingConfigurationId *string `type:"string"`
 
-	DefaultCooldown *int32 `type:"int32"`
-
 	DesireInstanceNumber *int32 `type:"int32"`
 
-	HealthCheckType *string `type:"string"`
-
 	InstanceTerminatePolicy *string `type:"string"`
-
-	LaunchTemplateId *string `type:"string"`
 
 	MaxInstanceNumber *int32 `type:"int32"`
 
 	MinInstanceNumber *int32 `type:"int32"`
 
-	NetworkInterfaces []*NetworkInterfaceForModifyScalingGroupInput `type:"list"`
-
 	ScalingGroupId *string `type:"string"`
 
 	ScalingGroupName *string `type:"string"`
+
+	SubnetIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -5268,33 +6659,15 @@ func (s *ModifyScalingGroupInput) SetActiveScalingConfigurationId(v string) *Mod
 	return s
 }
 
-// SetDefaultCooldown sets the DefaultCooldown field's value.
-func (s *ModifyScalingGroupInput) SetDefaultCooldown(v int32) *ModifyScalingGroupInput {
-	s.DefaultCooldown = &v
-	return s
-}
-
 // SetDesireInstanceNumber sets the DesireInstanceNumber field's value.
 func (s *ModifyScalingGroupInput) SetDesireInstanceNumber(v int32) *ModifyScalingGroupInput {
 	s.DesireInstanceNumber = &v
 	return s
 }
 
-// SetHealthCheckType sets the HealthCheckType field's value.
-func (s *ModifyScalingGroupInput) SetHealthCheckType(v string) *ModifyScalingGroupInput {
-	s.HealthCheckType = &v
-	return s
-}
-
 // SetInstanceTerminatePolicy sets the InstanceTerminatePolicy field's value.
 func (s *ModifyScalingGroupInput) SetInstanceTerminatePolicy(v string) *ModifyScalingGroupInput {
 	s.InstanceTerminatePolicy = &v
-	return s
-}
-
-// SetLaunchTemplateId sets the LaunchTemplateId field's value.
-func (s *ModifyScalingGroupInput) SetLaunchTemplateId(v string) *ModifyScalingGroupInput {
-	s.LaunchTemplateId = &v
 	return s
 }
 
@@ -5310,12 +6683,6 @@ func (s *ModifyScalingGroupInput) SetMinInstanceNumber(v int32) *ModifyScalingGr
 	return s
 }
 
-// SetNetworkInterfaces sets the NetworkInterfaces field's value.
-func (s *ModifyScalingGroupInput) SetNetworkInterfaces(v []*NetworkInterfaceForModifyScalingGroupInput) *ModifyScalingGroupInput {
-	s.NetworkInterfaces = v
-	return s
-}
-
 // SetScalingGroupId sets the ScalingGroupId field's value.
 func (s *ModifyScalingGroupInput) SetScalingGroupId(v string) *ModifyScalingGroupInput {
 	s.ScalingGroupId = &v
@@ -5325,6 +6692,12 @@ func (s *ModifyScalingGroupInput) SetScalingGroupId(v string) *ModifyScalingGrou
 // SetScalingGroupName sets the ScalingGroupName field's value.
 func (s *ModifyScalingGroupInput) SetScalingGroupName(v string) *ModifyScalingGroupInput {
 	s.ScalingGroupName = &v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *ModifyScalingGroupInput) SetSubnetIds(v []*string) *ModifyScalingGroupInput {
+	s.SubnetIds = v
 	return s
 }
 
@@ -5357,15 +6730,13 @@ type ModifyScalingPolicyInput struct {
 
 	AdjustmentValue *int32 `type:"int32"`
 
-	AlarmId *string `type:"string"`
+	AlarmPolicy *AlarmPolicyForModifyScalingPolicyInput `type:"structure"`
 
 	Cooldown *int32 `type:"int32"`
 
 	ScalingPolicyId *string `type:"string"`
 
 	ScalingPolicyName *string `type:"string"`
-
-	ScalingPolicyType *string `type:"string"`
 
 	ScheduledPolicy *ScheduledPolicyForModifyScalingPolicyInput `type:"structure"`
 }
@@ -5392,9 +6763,9 @@ func (s *ModifyScalingPolicyInput) SetAdjustmentValue(v int32) *ModifyScalingPol
 	return s
 }
 
-// SetAlarmId sets the AlarmId field's value.
-func (s *ModifyScalingPolicyInput) SetAlarmId(v string) *ModifyScalingPolicyInput {
-	s.AlarmId = &v
+// SetAlarmPolicy sets the AlarmPolicy field's value.
+func (s *ModifyScalingPolicyInput) SetAlarmPolicy(v *AlarmPolicyForModifyScalingPolicyInput) *ModifyScalingPolicyInput {
+	s.AlarmPolicy = v
 	return s
 }
 
@@ -5413,12 +6784,6 @@ func (s *ModifyScalingPolicyInput) SetScalingPolicyId(v string) *ModifyScalingPo
 // SetScalingPolicyName sets the ScalingPolicyName field's value.
 func (s *ModifyScalingPolicyInput) SetScalingPolicyName(v string) *ModifyScalingPolicyInput {
 	s.ScalingPolicyName = &v
-	return s
-}
-
-// SetScalingPolicyType sets the ScalingPolicyType field's value.
-func (s *ModifyScalingPolicyInput) SetScalingPolicyType(v string) *ModifyScalingPolicyInput {
-	s.ScalingPolicyType = &v
 	return s
 }
 
@@ -5450,69 +6815,49 @@ func (s *ModifyScalingPolicyOutput) SetScalingPolicyId(v string) *ModifyScalingP
 	return s
 }
 
-type NetworkInterfaceForCreateScalingGroupInput struct {
+type RelatedInstanceForDescribeScalingActivitiesOutput struct {
 	_ struct{} `type:"structure"`
 
-	SubnetId *string `type:"string"`
+	InstanceId *string `type:"string"`
+
+	Message *string `type:"string"`
+
+	OperateType *string `type:"string"`
+
+	Status *string `type:"string"`
 }
 
 // String returns the string representation
-func (s NetworkInterfaceForCreateScalingGroupInput) String() string {
+func (s RelatedInstanceForDescribeScalingActivitiesOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s NetworkInterfaceForCreateScalingGroupInput) GoString() string {
+func (s RelatedInstanceForDescribeScalingActivitiesOutput) GoString() string {
 	return s.String()
 }
 
-// SetSubnetId sets the SubnetId field's value.
-func (s *NetworkInterfaceForCreateScalingGroupInput) SetSubnetId(v string) *NetworkInterfaceForCreateScalingGroupInput {
-	s.SubnetId = &v
+// SetInstanceId sets the InstanceId field's value.
+func (s *RelatedInstanceForDescribeScalingActivitiesOutput) SetInstanceId(v string) *RelatedInstanceForDescribeScalingActivitiesOutput {
+	s.InstanceId = &v
 	return s
 }
 
-type NetworkInterfaceForDescribeScalingGroupsOutput struct {
-	_ struct{} `type:"structure"`
-
-	SubnetId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s NetworkInterfaceForDescribeScalingGroupsOutput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s NetworkInterfaceForDescribeScalingGroupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *NetworkInterfaceForDescribeScalingGroupsOutput) SetSubnetId(v string) *NetworkInterfaceForDescribeScalingGroupsOutput {
-	s.SubnetId = &v
+// SetMessage sets the Message field's value.
+func (s *RelatedInstanceForDescribeScalingActivitiesOutput) SetMessage(v string) *RelatedInstanceForDescribeScalingActivitiesOutput {
+	s.Message = &v
 	return s
 }
 
-type NetworkInterfaceForModifyScalingGroupInput struct {
-	_ struct{} `type:"structure"`
-
-	SubnetId *string `type:"string"`
+// SetOperateType sets the OperateType field's value.
+func (s *RelatedInstanceForDescribeScalingActivitiesOutput) SetOperateType(v string) *RelatedInstanceForDescribeScalingActivitiesOutput {
+	s.OperateType = &v
+	return s
 }
 
-// String returns the string representation
-func (s NetworkInterfaceForModifyScalingGroupInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s NetworkInterfaceForModifyScalingGroupInput) GoString() string {
-	return s.String()
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *NetworkInterfaceForModifyScalingGroupInput) SetSubnetId(v string) *NetworkInterfaceForModifyScalingGroupInput {
-	s.SubnetId = &v
+// SetStatus sets the Status field's value.
+func (s *RelatedInstanceForDescribeScalingActivitiesOutput) SetStatus(v string) *RelatedInstanceForDescribeScalingActivitiesOutput {
+	s.Status = &v
 	return s
 }
 
@@ -5556,8 +6901,6 @@ func (s *RemoveInstancesInput) SetScalingGroupId(v string) *RemoveInstancesInput
 
 type RemoveInstancesOutput struct {
 	_ struct{} `type:"structure"`
-
-	ScalingActivityId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -5570,14 +6913,10 @@ func (s RemoveInstancesOutput) GoString() string {
 	return s.String()
 }
 
-// SetScalingActivityId sets the ScalingActivityId field's value.
-func (s *RemoveInstancesOutput) SetScalingActivityId(v string) *RemoveInstancesOutput {
-	s.ScalingActivityId = &v
-	return s
-}
-
 type ScalingActivityForDescribeScalingActivitiesOutput struct {
 	_ struct{} `type:"structure"`
+
+	ActivityType *string `type:"string"`
 
 	ActualAdjustInstanceNumber *int32 `type:"int32"`
 
@@ -5587,19 +6926,13 @@ type ScalingActivityForDescribeScalingActivitiesOutput struct {
 
 	CurrentInstanceNumber *int32 `type:"int32"`
 
-	ErrorInstanceIds []*string `type:"list"`
-
-	ExceptedAdjustmentType *string `type:"string"`
-
-	ExceptedAdjustmentValue *int32 `type:"int32"`
-
 	ExpectedRunTime *string `type:"string"`
 
 	MaxInstanceNumber *int32 `type:"int32"`
 
 	MinInstanceNumber *int32 `type:"int32"`
 
-	RelatedInstanceIds []*string `type:"list"`
+	RelatedInstances []*RelatedInstanceForDescribeScalingActivitiesOutput `type:"list"`
 
 	ResultMsg *string `type:"string"`
 
@@ -5607,13 +6940,9 @@ type ScalingActivityForDescribeScalingActivitiesOutput struct {
 
 	ScalingGroupId *string `type:"string"`
 
-	ScalingPolicyId *string `type:"string"`
-
-	Status *string `type:"string"`
+	StatusCode *string `type:"string"`
 
 	StoppedAt *string `type:"string"`
-
-	SuccessInstanceIds []*string `type:"list"`
 
 	TaskCategory *string `type:"string"`
 }
@@ -5626,6 +6955,12 @@ func (s ScalingActivityForDescribeScalingActivitiesOutput) String() string {
 // GoString returns the string representation
 func (s ScalingActivityForDescribeScalingActivitiesOutput) GoString() string {
 	return s.String()
+}
+
+// SetActivityType sets the ActivityType field's value.
+func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetActivityType(v string) *ScalingActivityForDescribeScalingActivitiesOutput {
+	s.ActivityType = &v
+	return s
 }
 
 // SetActualAdjustInstanceNumber sets the ActualAdjustInstanceNumber field's value.
@@ -5652,24 +6987,6 @@ func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetCurrentInstanceNu
 	return s
 }
 
-// SetErrorInstanceIds sets the ErrorInstanceIds field's value.
-func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetErrorInstanceIds(v []*string) *ScalingActivityForDescribeScalingActivitiesOutput {
-	s.ErrorInstanceIds = v
-	return s
-}
-
-// SetExceptedAdjustmentType sets the ExceptedAdjustmentType field's value.
-func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetExceptedAdjustmentType(v string) *ScalingActivityForDescribeScalingActivitiesOutput {
-	s.ExceptedAdjustmentType = &v
-	return s
-}
-
-// SetExceptedAdjustmentValue sets the ExceptedAdjustmentValue field's value.
-func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetExceptedAdjustmentValue(v int32) *ScalingActivityForDescribeScalingActivitiesOutput {
-	s.ExceptedAdjustmentValue = &v
-	return s
-}
-
 // SetExpectedRunTime sets the ExpectedRunTime field's value.
 func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetExpectedRunTime(v string) *ScalingActivityForDescribeScalingActivitiesOutput {
 	s.ExpectedRunTime = &v
@@ -5688,9 +7005,9 @@ func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetMinInstanceNumber
 	return s
 }
 
-// SetRelatedInstanceIds sets the RelatedInstanceIds field's value.
-func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetRelatedInstanceIds(v []*string) *ScalingActivityForDescribeScalingActivitiesOutput {
-	s.RelatedInstanceIds = v
+// SetRelatedInstances sets the RelatedInstances field's value.
+func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetRelatedInstances(v []*RelatedInstanceForDescribeScalingActivitiesOutput) *ScalingActivityForDescribeScalingActivitiesOutput {
+	s.RelatedInstances = v
 	return s
 }
 
@@ -5712,27 +7029,15 @@ func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetScalingGroupId(v 
 	return s
 }
 
-// SetScalingPolicyId sets the ScalingPolicyId field's value.
-func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetScalingPolicyId(v string) *ScalingActivityForDescribeScalingActivitiesOutput {
-	s.ScalingPolicyId = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetStatus(v string) *ScalingActivityForDescribeScalingActivitiesOutput {
-	s.Status = &v
+// SetStatusCode sets the StatusCode field's value.
+func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetStatusCode(v string) *ScalingActivityForDescribeScalingActivitiesOutput {
+	s.StatusCode = &v
 	return s
 }
 
 // SetStoppedAt sets the StoppedAt field's value.
 func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetStoppedAt(v string) *ScalingActivityForDescribeScalingActivitiesOutput {
 	s.StoppedAt = &v
-	return s
-}
-
-// SetSuccessInstanceIds sets the SuccessInstanceIds field's value.
-func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetSuccessInstanceIds(v []*string) *ScalingActivityForDescribeScalingActivitiesOutput {
-	s.SuccessInstanceIds = v
 	return s
 }
 
@@ -5753,15 +7058,11 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 
 	ImageId *string `type:"string"`
 
-	InstanceChargeType *string `type:"string"`
-
 	InstanceDescription *string `type:"string"`
 
 	InstanceName *string `type:"string"`
 
 	InstanceTypes []*string `type:"list"`
-
-	KeyPairId *string `type:"string"`
 
 	KeyPairName *string `type:"string"`
 
@@ -5820,12 +7121,6 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetImageId(
 	return s
 }
 
-// SetInstanceChargeType sets the InstanceChargeType field's value.
-func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetInstanceChargeType(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
-	s.InstanceChargeType = &v
-	return s
-}
-
 // SetInstanceDescription sets the InstanceDescription field's value.
 func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetInstanceDescription(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.InstanceDescription = &v
@@ -5841,12 +7136,6 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetInstance
 // SetInstanceTypes sets the InstanceTypes field's value.
 func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetInstanceTypes(v []*string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.InstanceTypes = v
-	return s
-}
-
-// SetKeyPairId sets the KeyPairId field's value.
-func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetKeyPairId(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
-	s.KeyPairId = &v
 	return s
 }
 
@@ -5927,33 +7216,25 @@ type ScalingGroupForDescribeScalingGroupsOutput struct {
 
 	DesireInstanceNumber *int32 `type:"int32"`
 
-	HealthCheckType *string `type:"string"`
-
-	InstanceTerminatePolicy *string `type:"string"`
-
-	LaunchTemplateId *string `type:"string"`
-
-	LifeCycleState *string `type:"string"`
-
-	LoadBalancerGroups []*LoadBalancerGroupForDescribeScalingGroupsOutput `type:"list"`
+	LifecycleState *string `type:"string"`
 
 	MaxInstanceNumber *int32 `type:"int32"`
 
 	MinInstanceNumber *int32 `type:"int32"`
 
-	NetworkInterfaces []*NetworkInterfaceForDescribeScalingGroupsOutput `type:"list"`
-
 	ScalingGroupId *string `type:"string"`
 
 	ScalingGroupName *string `type:"string"`
+
+	ServerGroupAttributes []*ServerGroupAttributeForDescribeScalingGroupsOutput `type:"list"`
+
+	SubnetIds []*string `type:"list"`
 
 	TotalInstanceCount *int32 `type:"int32"`
 
 	UpdatedAt *string `type:"string"`
 
 	VpcId *string `type:"string"`
-
-	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -5990,33 +7271,9 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetDesireInstanceNumber(v i
 	return s
 }
 
-// SetHealthCheckType sets the HealthCheckType field's value.
-func (s *ScalingGroupForDescribeScalingGroupsOutput) SetHealthCheckType(v string) *ScalingGroupForDescribeScalingGroupsOutput {
-	s.HealthCheckType = &v
-	return s
-}
-
-// SetInstanceTerminatePolicy sets the InstanceTerminatePolicy field's value.
-func (s *ScalingGroupForDescribeScalingGroupsOutput) SetInstanceTerminatePolicy(v string) *ScalingGroupForDescribeScalingGroupsOutput {
-	s.InstanceTerminatePolicy = &v
-	return s
-}
-
-// SetLaunchTemplateId sets the LaunchTemplateId field's value.
-func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLaunchTemplateId(v string) *ScalingGroupForDescribeScalingGroupsOutput {
-	s.LaunchTemplateId = &v
-	return s
-}
-
-// SetLifeCycleState sets the LifeCycleState field's value.
-func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLifeCycleState(v string) *ScalingGroupForDescribeScalingGroupsOutput {
-	s.LifeCycleState = &v
-	return s
-}
-
-// SetLoadBalancerGroups sets the LoadBalancerGroups field's value.
-func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLoadBalancerGroups(v []*LoadBalancerGroupForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
-	s.LoadBalancerGroups = v
+// SetLifecycleState sets the LifecycleState field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLifecycleState(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.LifecycleState = &v
 	return s
 }
 
@@ -6032,12 +7289,6 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetMinInstanceNumber(v int3
 	return s
 }
 
-// SetNetworkInterfaces sets the NetworkInterfaces field's value.
-func (s *ScalingGroupForDescribeScalingGroupsOutput) SetNetworkInterfaces(v []*NetworkInterfaceForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
-	s.NetworkInterfaces = v
-	return s
-}
-
 // SetScalingGroupId sets the ScalingGroupId field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetScalingGroupId(v string) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.ScalingGroupId = &v
@@ -6047,6 +7298,18 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetScalingGroupId(v string)
 // SetScalingGroupName sets the ScalingGroupName field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetScalingGroupName(v string) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.ScalingGroupName = &v
+	return s
+}
+
+// SetServerGroupAttributes sets the ServerGroupAttributes field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetServerGroupAttributes(v []*ServerGroupAttributeForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.ServerGroupAttributes = v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetSubnetIds(v []*string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.SubnetIds = v
 	return s
 }
 
@@ -6068,14 +7331,14 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetVpcId(v string) *Scaling
 	return s
 }
 
-// SetZoneId sets the ZoneId field's value.
-func (s *ScalingGroupForDescribeScalingGroupsOutput) SetZoneId(v string) *ScalingGroupForDescribeScalingGroupsOutput {
-	s.ZoneId = &v
-	return s
-}
-
 type ScalingInstanceForDescribeScalingInstancesOutput struct {
 	_ struct{} `type:"structure"`
+
+	CreatedTime *string `type:"string"`
+
+	CreationType *string `type:"string"`
+
+	Entrusted *bool `type:"boolean"`
 
 	InstanceId *string `type:"string"`
 
@@ -6086,6 +7349,8 @@ type ScalingInstanceForDescribeScalingInstancesOutput struct {
 	ScalingPolicyId *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -6096,6 +7361,24 @@ func (s ScalingInstanceForDescribeScalingInstancesOutput) String() string {
 // GoString returns the string representation
 func (s ScalingInstanceForDescribeScalingInstancesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreatedTime sets the CreatedTime field's value.
+func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetCreatedTime(v string) *ScalingInstanceForDescribeScalingInstancesOutput {
+	s.CreatedTime = &v
+	return s
+}
+
+// SetCreationType sets the CreationType field's value.
+func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetCreationType(v string) *ScalingInstanceForDescribeScalingInstancesOutput {
+	s.CreationType = &v
+	return s
+}
+
+// SetEntrusted sets the Entrusted field's value.
+func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetEntrusted(v bool) *ScalingInstanceForDescribeScalingInstancesOutput {
+	s.Entrusted = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -6128,6 +7411,12 @@ func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetStatus(v string) *
 	return s
 }
 
+// SetZoneId sets the ZoneId field's value.
+func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetZoneId(v string) *ScalingInstanceForDescribeScalingInstancesOutput {
+	s.ZoneId = &v
+	return s
+}
+
 type ScalingPolicyForDescribeScalingPoliciesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -6135,7 +7424,7 @@ type ScalingPolicyForDescribeScalingPoliciesOutput struct {
 
 	AdjustmentValue *int32 `type:"int32"`
 
-	AlarmId *string `type:"string"`
+	AlarmPolicy *AlarmPolicyForDescribeScalingPoliciesOutput `type:"structure"`
 
 	Cooldown *int32 `type:"int32"`
 
@@ -6174,9 +7463,9 @@ func (s *ScalingPolicyForDescribeScalingPoliciesOutput) SetAdjustmentValue(v int
 	return s
 }
 
-// SetAlarmId sets the AlarmId field's value.
-func (s *ScalingPolicyForDescribeScalingPoliciesOutput) SetAlarmId(v string) *ScalingPolicyForDescribeScalingPoliciesOutput {
-	s.AlarmId = &v
+// SetAlarmPolicy sets the AlarmPolicy field's value.
+func (s *ScalingPolicyForDescribeScalingPoliciesOutput) SetAlarmPolicy(v *AlarmPolicyForDescribeScalingPoliciesOutput) *ScalingPolicyForDescribeScalingPoliciesOutput {
+	s.AlarmPolicy = v
 	return s
 }
 
@@ -6229,8 +7518,6 @@ type ScheduledPolicyForCreateScalingPolicyInput struct {
 
 	RecurrenceEndTime *string `type:"string"`
 
-	RecurrenceStartTime *string `type:"string"`
-
 	RecurrenceType *string `type:"string"`
 
 	RecurrenceValue *string `type:"string"`
@@ -6255,12 +7542,6 @@ func (s *ScheduledPolicyForCreateScalingPolicyInput) SetLaunchTime(v string) *Sc
 // SetRecurrenceEndTime sets the RecurrenceEndTime field's value.
 func (s *ScheduledPolicyForCreateScalingPolicyInput) SetRecurrenceEndTime(v string) *ScheduledPolicyForCreateScalingPolicyInput {
 	s.RecurrenceEndTime = &v
-	return s
-}
-
-// SetRecurrenceStartTime sets the RecurrenceStartTime field's value.
-func (s *ScheduledPolicyForCreateScalingPolicyInput) SetRecurrenceStartTime(v string) *ScheduledPolicyForCreateScalingPolicyInput {
-	s.RecurrenceStartTime = &v
 	return s
 }
 
@@ -6337,8 +7618,6 @@ type ScheduledPolicyForModifyScalingPolicyInput struct {
 
 	RecurrenceEndTime *string `type:"string"`
 
-	RecurrenceStartTime *string `type:"string"`
-
 	RecurrenceType *string `type:"string"`
 
 	RecurrenceValue *string `type:"string"`
@@ -6366,12 +7645,6 @@ func (s *ScheduledPolicyForModifyScalingPolicyInput) SetRecurrenceEndTime(v stri
 	return s
 }
 
-// SetRecurrenceStartTime sets the RecurrenceStartTime field's value.
-func (s *ScheduledPolicyForModifyScalingPolicyInput) SetRecurrenceStartTime(v string) *ScheduledPolicyForModifyScalingPolicyInput {
-	s.RecurrenceStartTime = &v
-	return s
-}
-
 // SetRecurrenceType sets the RecurrenceType field's value.
 func (s *ScheduledPolicyForModifyScalingPolicyInput) SetRecurrenceType(v string) *ScheduledPolicyForModifyScalingPolicyInput {
 	s.RecurrenceType = &v
@@ -6384,7 +7657,7 @@ func (s *ScheduledPolicyForModifyScalingPolicyInput) SetRecurrenceValue(v string
 	return s
 }
 
-type ServerGroupAttributeForAttachLoadBalancersInput struct {
+type ServerGroupAttributeForAttachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
 	Port *int32 `type:"int32"`
@@ -6395,29 +7668,29 @@ type ServerGroupAttributeForAttachLoadBalancersInput struct {
 }
 
 // String returns the string representation
-func (s ServerGroupAttributeForAttachLoadBalancersInput) String() string {
+func (s ServerGroupAttributeForAttachServerGroupsInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s ServerGroupAttributeForAttachLoadBalancersInput) GoString() string {
+func (s ServerGroupAttributeForAttachServerGroupsInput) GoString() string {
 	return s.String()
 }
 
 // SetPort sets the Port field's value.
-func (s *ServerGroupAttributeForAttachLoadBalancersInput) SetPort(v int32) *ServerGroupAttributeForAttachLoadBalancersInput {
+func (s *ServerGroupAttributeForAttachServerGroupsInput) SetPort(v int32) *ServerGroupAttributeForAttachServerGroupsInput {
 	s.Port = &v
 	return s
 }
 
 // SetServerGroupId sets the ServerGroupId field's value.
-func (s *ServerGroupAttributeForAttachLoadBalancersInput) SetServerGroupId(v string) *ServerGroupAttributeForAttachLoadBalancersInput {
+func (s *ServerGroupAttributeForAttachServerGroupsInput) SetServerGroupId(v string) *ServerGroupAttributeForAttachServerGroupsInput {
 	s.ServerGroupId = &v
 	return s
 }
 
 // SetWeight sets the Weight field's value.
-func (s *ServerGroupAttributeForAttachLoadBalancersInput) SetWeight(v int32) *ServerGroupAttributeForAttachLoadBalancersInput {
+func (s *ServerGroupAttributeForAttachServerGroupsInput) SetWeight(v int32) *ServerGroupAttributeForAttachServerGroupsInput {
 	s.Weight = &v
 	return s
 }
@@ -6463,6 +7736,8 @@ func (s *ServerGroupAttributeForCreateScalingGroupInput) SetWeight(v int32) *Ser
 type ServerGroupAttributeForDescribeScalingGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
+	LoadBalancerId *string `type:"string"`
+
 	Port *int32 `type:"int32"`
 
 	ServerGroupId *string `type:"string"`
@@ -6478,6 +7753,12 @@ func (s ServerGroupAttributeForDescribeScalingGroupsOutput) String() string {
 // GoString returns the string representation
 func (s ServerGroupAttributeForDescribeScalingGroupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetLoadBalancerId sets the LoadBalancerId field's value.
+func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetLoadBalancerId(v string) *ServerGroupAttributeForDescribeScalingGroupsOutput {
+	s.LoadBalancerId = &v
+	return s
 }
 
 // SetPort sets the Port field's value.
@@ -6498,91 +7779,85 @@ func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetWeight(v int32) 
 	return s
 }
 
-type StartScalingPolicyInput struct {
+type ServerGroupAttributeForDetachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingPolicyId *string `type:"string"`
+	ServerGroupId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s StartScalingPolicyInput) String() string {
+func (s ServerGroupAttributeForDetachServerGroupsInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s StartScalingPolicyInput) GoString() string {
+func (s ServerGroupAttributeForDetachServerGroupsInput) GoString() string {
 	return s.String()
 }
 
-// SetScalingPolicyId sets the ScalingPolicyId field's value.
-func (s *StartScalingPolicyInput) SetScalingPolicyId(v string) *StartScalingPolicyInput {
-	s.ScalingPolicyId = &v
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ServerGroupAttributeForDetachServerGroupsInput) SetServerGroupId(v string) *ServerGroupAttributeForDetachServerGroupsInput {
+	s.ServerGroupId = &v
 	return s
 }
 
-type StartScalingPolicyOutput struct {
+type SetInstancesProtectionInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingPolicyId *string `type:"string"`
+	InstanceIds []*string `type:"list"`
+
+	ProtectedFromScaleIn *bool `type:"boolean"`
+
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
-func (s StartScalingPolicyOutput) String() string {
+func (s SetInstancesProtectionInput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s StartScalingPolicyOutput) GoString() string {
+func (s SetInstancesProtectionInput) GoString() string {
 	return s.String()
 }
 
-// SetScalingPolicyId sets the ScalingPolicyId field's value.
-func (s *StartScalingPolicyOutput) SetScalingPolicyId(v string) *StartScalingPolicyOutput {
-	s.ScalingPolicyId = &v
+// SetInstanceIds sets the InstanceIds field's value.
+func (s *SetInstancesProtectionInput) SetInstanceIds(v []*string) *SetInstancesProtectionInput {
+	s.InstanceIds = v
 	return s
 }
 
-type StopScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
-
-	ScalingPolicyId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s StopScalingPolicyInput) String() string {
-	return volcstackutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s StopScalingPolicyInput) GoString() string {
-	return s.String()
-}
-
-// SetScalingPolicyId sets the ScalingPolicyId field's value.
-func (s *StopScalingPolicyInput) SetScalingPolicyId(v string) *StopScalingPolicyInput {
-	s.ScalingPolicyId = &v
+// SetProtectedFromScaleIn sets the ProtectedFromScaleIn field's value.
+func (s *SetInstancesProtectionInput) SetProtectedFromScaleIn(v bool) *SetInstancesProtectionInput {
+	s.ProtectedFromScaleIn = &v
 	return s
 }
 
-type StopScalingPolicyOutput struct {
+// SetScalingGroupId sets the ScalingGroupId field's value.
+func (s *SetInstancesProtectionInput) SetScalingGroupId(v string) *SetInstancesProtectionInput {
+	s.ScalingGroupId = &v
+	return s
+}
+
+type SetInstancesProtectionOutput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingPolicyId *string `type:"string"`
+	InstanceProtectionResults []*InstanceProtectionResultForSetInstancesProtectionOutput `type:"list"`
 }
 
 // String returns the string representation
-func (s StopScalingPolicyOutput) String() string {
+func (s SetInstancesProtectionOutput) String() string {
 	return volcstackutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s StopScalingPolicyOutput) GoString() string {
+func (s SetInstancesProtectionOutput) GoString() string {
 	return s.String()
 }
 
-// SetScalingPolicyId sets the ScalingPolicyId field's value.
-func (s *StopScalingPolicyOutput) SetScalingPolicyId(v string) *StopScalingPolicyOutput {
-	s.ScalingPolicyId = &v
+// SetInstanceProtectionResults sets the InstanceProtectionResults field's value.
+func (s *SetInstancesProtectionOutput) SetInstanceProtectionResults(v []*InstanceProtectionResultForSetInstancesProtectionOutput) *SetInstancesProtectionOutput {
+	s.InstanceProtectionResults = v
 	return s
 }
 

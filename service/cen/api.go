@@ -3969,8 +3969,6 @@ type CenBandwidthPackageForDescribeCenBandwidthPackagesOutput struct {
 
 	LocalGeographicRegionSetId *string `type:"string"`
 
-	LockReason *string `type:"string"`
-
 	PeerGeographicRegionSetId *string `type:"string"`
 
 	RemainingBandwidth *int64 `type:"integer"`
@@ -4059,12 +4057,6 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetExpiredTim
 // SetLocalGeographicRegionSetId sets the LocalGeographicRegionSetId field's value.
 func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetLocalGeographicRegionSetId(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 	s.LocalGeographicRegionSetId = &v
-	return s
-}
-
-// SetLockReason sets the LockReason field's value.
-func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetLockReason(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
-	s.LockReason = &v
 	return s
 }
 
@@ -5169,8 +5161,6 @@ type DescribeCenBandwidthPackageAttributesOutput struct {
 
 	LocalGeographicRegionSetId *string `type:"string"`
 
-	LockReason *string `type:"string"`
-
 	PeerGeographicRegionSetId *string `type:"string"`
 
 	RemainingBandwidth *int64 `type:"integer"`
@@ -5259,12 +5249,6 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetExpiredTime(v string) *
 // SetLocalGeographicRegionSetId sets the LocalGeographicRegionSetId field's value.
 func (s *DescribeCenBandwidthPackageAttributesOutput) SetLocalGeographicRegionSetId(v string) *DescribeCenBandwidthPackageAttributesOutput {
 	s.LocalGeographicRegionSetId = &v
-	return s
-}
-
-// SetLockReason sets the LockReason field's value.
-func (s *DescribeCenBandwidthPackageAttributesOutput) SetLockReason(v string) *DescribeCenBandwidthPackageAttributesOutput {
-	s.LockReason = &v
 	return s
 }
 
