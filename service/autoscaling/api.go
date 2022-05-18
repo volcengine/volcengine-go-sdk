@@ -7,6 +7,7 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/private/protocol/volcstackquery"
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackquery"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
@@ -4044,7 +4045,8 @@ func (c *AUTOSCALING) SetInstancesProtectionWithContext(ctx volcstack.Context, i
 }
 
 type AlarmPolicyConditionForCreateScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ComparisonOperator *string `type:"string"`
 
@@ -4090,7 +4092,8 @@ func (s *AlarmPolicyConditionForCreateScalingPolicyInput) SetThreshold(v string)
 }
 
 type AlarmPolicyConditionForModifyScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ComparisonOperator *string `type:"string"`
 
@@ -4136,7 +4139,8 @@ func (s *AlarmPolicyConditionForModifyScalingPolicyInput) SetThreshold(v string)
 }
 
 type AlarmPolicyForCreateScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Condition *AlarmPolicyConditionForCreateScalingPolicyInput `type:"structure"`
 
@@ -4174,7 +4178,8 @@ func (s *AlarmPolicyForCreateScalingPolicyInput) SetRuleType(v string) *AlarmPol
 }
 
 type AlarmPolicyForDescribeScalingPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Condition *ConditionForDescribeScalingPoliciesOutput `type:"structure"`
 
@@ -4212,7 +4217,8 @@ func (s *AlarmPolicyForDescribeScalingPoliciesOutput) SetRuleType(v string) *Ala
 }
 
 type AlarmPolicyForModifyScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Condition *AlarmPolicyConditionForModifyScalingPolicyInput `type:"structure"`
 
@@ -4250,7 +4256,8 @@ func (s *AlarmPolicyForModifyScalingPolicyInput) SetRuleType(v string) *AlarmPol
 }
 
 type AttachInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Entrusted *bool `type:"boolean"`
 
@@ -4288,7 +4295,8 @@ func (s *AttachInstancesInput) SetScalingGroupId(v string) *AttachInstancesInput
 }
 
 type AttachInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -4302,7 +4310,8 @@ func (s AttachInstancesOutput) GoString() string {
 }
 
 type AttachServerGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 
@@ -4332,7 +4341,8 @@ func (s *AttachServerGroupsInput) SetServerGroupAttributes(v []*ServerGroupAttri
 }
 
 type AttachServerGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -4354,7 +4364,8 @@ func (s *AttachServerGroupsOutput) SetScalingGroupId(v string) *AttachServerGrou
 }
 
 type CompleteLifecycleActivityInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleActivityId *string `type:"string"`
 
@@ -4384,7 +4395,8 @@ func (s *CompleteLifecycleActivityInput) SetLifecycleActivityPolicy(v string) *C
 }
 
 type CompleteLifecycleActivityOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	InstanceId *string `type:"string"`
 
@@ -4414,7 +4426,8 @@ func (s *CompleteLifecycleActivityOutput) SetLifecycleActivityId(v string) *Comp
 }
 
 type ConditionForDescribeScalingPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ComparisonOperator *string `type:"string"`
 
@@ -4460,7 +4473,8 @@ func (s *ConditionForDescribeScalingPoliciesOutput) SetThreshold(v string) *Cond
 }
 
 type CreateLifecycleHookInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleHookName *string `type:"string"`
 
@@ -4514,7 +4528,8 @@ func (s *CreateLifecycleHookInput) SetScalingGroupId(v string) *CreateLifecycleH
 }
 
 type CreateLifecycleHookOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleHookId *string `type:"string"`
 }
@@ -4536,7 +4551,8 @@ func (s *CreateLifecycleHookOutput) SetLifecycleHookId(v string) *CreateLifecycl
 }
 
 type CreateScalingConfigurationInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Eip *EipForCreateScalingConfigurationInput `type:"structure"`
 
@@ -4670,7 +4686,8 @@ func (s *CreateScalingConfigurationInput) SetZoneId(v string) *CreateScalingConf
 }
 
 type CreateScalingConfigurationOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingConfigurationId *string `type:"string"`
 }
@@ -4692,7 +4709,8 @@ func (s *CreateScalingConfigurationOutput) SetScalingConfigurationId(v string) *
 }
 
 type CreateScalingGroupInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	DefaultCooldown *int32 `type:"int32"`
 
@@ -4770,7 +4788,8 @@ func (s *CreateScalingGroupInput) SetSubnetIds(v []*string) *CreateScalingGroupI
 }
 
 type CreateScalingGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -4792,7 +4811,8 @@ func (s *CreateScalingGroupOutput) SetScalingGroupId(v string) *CreateScalingGro
 }
 
 type CreateScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	AdjustmentType *string `type:"string"`
 
@@ -4870,7 +4890,8 @@ func (s *CreateScalingPolicyInput) SetScheduledPolicy(v *ScheduledPolicyForCreat
 }
 
 type CreateScalingPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingPolicyId *string `type:"string"`
 }
@@ -4892,7 +4913,8 @@ func (s *CreateScalingPolicyOutput) SetScalingPolicyId(v string) *CreateScalingP
 }
 
 type DeleteLifecycleHookInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleHookId *string `type:"string"`
 }
@@ -4914,7 +4936,8 @@ func (s *DeleteLifecycleHookInput) SetLifecycleHookId(v string) *DeleteLifecycle
 }
 
 type DeleteLifecycleHookOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleHookId *string `type:"string"`
 }
@@ -4936,7 +4959,8 @@ func (s *DeleteLifecycleHookOutput) SetLifecycleHookId(v string) *DeleteLifecycl
 }
 
 type DeleteScalingConfigurationInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingConfigurationId *string `type:"string"`
 }
@@ -4958,7 +4982,8 @@ func (s *DeleteScalingConfigurationInput) SetScalingConfigurationId(v string) *D
 }
 
 type DeleteScalingConfigurationOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingConfigurationId *string `type:"string"`
 }
@@ -4980,7 +5005,8 @@ func (s *DeleteScalingConfigurationOutput) SetScalingConfigurationId(v string) *
 }
 
 type DeleteScalingGroupInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -5002,7 +5028,8 @@ func (s *DeleteScalingGroupInput) SetScalingGroupId(v string) *DeleteScalingGrou
 }
 
 type DeleteScalingGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -5024,7 +5051,8 @@ func (s *DeleteScalingGroupOutput) SetScalingGroupId(v string) *DeleteScalingGro
 }
 
 type DeleteScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingPolicyId *string `type:"string"`
 }
@@ -5046,7 +5074,8 @@ func (s *DeleteScalingPolicyInput) SetScalingPolicyId(v string) *DeleteScalingPo
 }
 
 type DeleteScalingPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingPolicyId *string `type:"string"`
 }
@@ -5068,7 +5097,8 @@ func (s *DeleteScalingPolicyOutput) SetScalingPolicyId(v string) *DeleteScalingP
 }
 
 type DescribeLifecycleActivitiesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	InstanceId *string `type:"string"`
 
@@ -5122,7 +5152,8 @@ func (s *DescribeLifecycleActivitiesInput) SetScalingActivityId(v string) *Descr
 }
 
 type DescribeLifecycleActivitiesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleActivities []*LifecycleActivityForDescribeLifecycleActivitiesOutput `type:"list"`
 
@@ -5168,7 +5199,8 @@ func (s *DescribeLifecycleActivitiesOutput) SetTotalCount(v int32) *DescribeLife
 }
 
 type DescribeLifecycleHooksInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleHookIds []*string `type:"list"`
 
@@ -5222,7 +5254,8 @@ func (s *DescribeLifecycleHooksInput) SetScalingGroupId(v string) *DescribeLifec
 }
 
 type DescribeLifecycleHooksOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleHooks []*LifecycleHookForDescribeLifecycleHooksOutput `type:"list"`
 
@@ -5268,7 +5301,8 @@ func (s *DescribeLifecycleHooksOutput) SetTotalCount(v int32) *DescribeLifecycle
 }
 
 type DescribeScalingActivitiesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	EndTime *string `type:"string"`
 
@@ -5338,7 +5372,8 @@ func (s *DescribeScalingActivitiesInput) SetStatusCode(v string) *DescribeScalin
 }
 
 type DescribeScalingActivitiesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PageNumber *int32 `type:"int32"`
 
@@ -5384,7 +5419,8 @@ func (s *DescribeScalingActivitiesOutput) SetTotalCount(v int32) *DescribeScalin
 }
 
 type DescribeScalingConfigurationsInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PageNumber *int32 `type:"int32"`
 
@@ -5438,7 +5474,8 @@ func (s *DescribeScalingConfigurationsInput) SetScalingGroupId(v string) *Descri
 }
 
 type DescribeScalingConfigurationsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PageNumber *int32 `type:"int32"`
 
@@ -5484,7 +5521,8 @@ func (s *DescribeScalingConfigurationsOutput) SetTotalCount(v int32) *DescribeSc
 }
 
 type DescribeScalingGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PageNumber *int32 `type:"int32"`
 
@@ -5530,7 +5568,8 @@ func (s *DescribeScalingGroupsInput) SetScalingGroupNames(v []*string) *Describe
 }
 
 type DescribeScalingGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PageNumber *int32 `type:"int32"`
 
@@ -5576,7 +5615,8 @@ func (s *DescribeScalingGroupsOutput) SetTotalCount(v int32) *DescribeScalingGro
 }
 
 type DescribeScalingInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CreationType *string `type:"string"`
 
@@ -5646,7 +5686,8 @@ func (s *DescribeScalingInstancesInput) SetStatus(v string) *DescribeScalingInst
 }
 
 type DescribeScalingInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PageNumber *int32 `type:"int32"`
 
@@ -5692,7 +5733,8 @@ func (s *DescribeScalingInstancesOutput) SetTotalCount(v int32) *DescribeScaling
 }
 
 type DescribeScalingPoliciesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PageNumber *int32 `type:"int32"`
 
@@ -5754,7 +5796,8 @@ func (s *DescribeScalingPoliciesInput) SetScalingPolicyType(v string) *DescribeS
 }
 
 type DescribeScalingPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PageNumber *int32 `type:"int32"`
 
@@ -5800,7 +5843,8 @@ func (s *DescribeScalingPoliciesOutput) SetTotalCount(v int32) *DescribeScalingP
 }
 
 type DetachInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	DecreaseDesiredCapacity *bool `type:"boolean"`
 
@@ -5846,7 +5890,8 @@ func (s *DetachInstancesInput) SetScalingGroupId(v string) *DetachInstancesInput
 }
 
 type DetachInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -5860,7 +5905,8 @@ func (s DetachInstancesOutput) GoString() string {
 }
 
 type DetachServerGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 
@@ -5890,7 +5936,8 @@ func (s *DetachServerGroupsInput) SetServerGroupAttributes(v []*ServerGroupAttri
 }
 
 type DetachServerGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -5912,7 +5959,8 @@ func (s *DetachServerGroupsOutput) SetScalingGroupId(v string) *DetachServerGrou
 }
 
 type DisableScalingGroupInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -5934,7 +5982,8 @@ func (s *DisableScalingGroupInput) SetScalingGroupId(v string) *DisableScalingGr
 }
 
 type DisableScalingGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -5956,7 +6005,8 @@ func (s *DisableScalingGroupOutput) SetScalingGroupId(v string) *DisableScalingG
 }
 
 type DisableScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingPolicyId *string `type:"string"`
 }
@@ -5978,7 +6028,8 @@ func (s *DisableScalingPolicyInput) SetScalingPolicyId(v string) *DisableScaling
 }
 
 type DisableScalingPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingPolicyId *string `type:"string"`
 }
@@ -6000,7 +6051,8 @@ func (s *DisableScalingPolicyOutput) SetScalingPolicyId(v string) *DisableScalin
 }
 
 type EipForCreateScalingConfigurationInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Bandwidth *int32 `type:"int32"`
 
@@ -6030,7 +6082,8 @@ func (s *EipForCreateScalingConfigurationInput) SetISP(v string) *EipForCreateSc
 }
 
 type EipForDescribeScalingConfigurationsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Bandwidth *int32 `type:"int32"`
 
@@ -6060,7 +6113,8 @@ func (s *EipForDescribeScalingConfigurationsOutput) SetISP(v string) *EipForDesc
 }
 
 type EipForModifyScalingConfigurationInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Bandwidth *int32 `type:"int32"`
 
@@ -6090,7 +6144,8 @@ func (s *EipForModifyScalingConfigurationInput) SetISP(v string) *EipForModifySc
 }
 
 type EnableScalingConfigurationInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingConfigurationId *string `type:"string"`
 
@@ -6120,7 +6175,8 @@ func (s *EnableScalingConfigurationInput) SetScalingGroupId(v string) *EnableSca
 }
 
 type EnableScalingConfigurationOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingConfigurationId *string `type:"string"`
 }
@@ -6142,7 +6198,8 @@ func (s *EnableScalingConfigurationOutput) SetScalingConfigurationId(v string) *
 }
 
 type EnableScalingGroupInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -6164,7 +6221,8 @@ func (s *EnableScalingGroupInput) SetScalingGroupId(v string) *EnableScalingGrou
 }
 
 type EnableScalingGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -6186,7 +6244,8 @@ func (s *EnableScalingGroupOutput) SetScalingGroupId(v string) *EnableScalingGro
 }
 
 type EnableScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingPolicyId *string `type:"string"`
 }
@@ -6208,7 +6267,8 @@ func (s *EnableScalingPolicyInput) SetScalingPolicyId(v string) *EnableScalingPo
 }
 
 type EnableScalingPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingPolicyId *string `type:"string"`
 }
@@ -6230,7 +6290,8 @@ func (s *EnableScalingPolicyOutput) SetScalingPolicyId(v string) *EnableScalingP
 }
 
 type InstanceProtectionResultForSetInstancesProtectionOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Code *string `type:"string"`
 
@@ -6276,7 +6337,8 @@ func (s *InstanceProtectionResultForSetInstancesProtectionOutput) SetResult(v st
 }
 
 type LifecycleActivityForDescribeLifecycleActivitiesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	InstanceId *string `type:"string"`
 
@@ -6338,7 +6400,8 @@ func (s *LifecycleActivityForDescribeLifecycleActivitiesOutput) SetScalingActivi
 }
 
 type LifecycleHookForDescribeLifecycleHooksOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleHookId *string `type:"string"`
 
@@ -6400,7 +6463,8 @@ func (s *LifecycleHookForDescribeLifecycleHooksOutput) SetScalingGroupId(v strin
 }
 
 type ModifyLifecycleHookInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleHookId *string `type:"string"`
 
@@ -6446,7 +6510,8 @@ func (s *ModifyLifecycleHookInput) SetLifecycleHookType(v string) *ModifyLifecyc
 }
 
 type ModifyLifecycleHookOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LifecycleHookId *string `type:"string"`
 }
@@ -6468,7 +6533,8 @@ func (s *ModifyLifecycleHookOutput) SetLifecycleHookId(v string) *ModifyLifecycl
 }
 
 type ModifyScalingConfigurationInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Eip *EipForModifyScalingConfigurationInput `type:"structure"`
 
@@ -6602,7 +6668,8 @@ func (s *ModifyScalingConfigurationInput) SetZoneId(v string) *ModifyScalingConf
 }
 
 type ModifyScalingConfigurationOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingConfigurationId *string `type:"string"`
 }
@@ -6624,7 +6691,8 @@ func (s *ModifyScalingConfigurationOutput) SetScalingConfigurationId(v string) *
 }
 
 type ModifyScalingGroupInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ActiveScalingConfigurationId *string `type:"string"`
 
@@ -6702,7 +6770,8 @@ func (s *ModifyScalingGroupInput) SetSubnetIds(v []*string) *ModifyScalingGroupI
 }
 
 type ModifyScalingGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingGroupId *string `type:"string"`
 }
@@ -6724,7 +6793,8 @@ func (s *ModifyScalingGroupOutput) SetScalingGroupId(v string) *ModifyScalingGro
 }
 
 type ModifyScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	AdjustmentType *string `type:"string"`
 
@@ -6794,7 +6864,8 @@ func (s *ModifyScalingPolicyInput) SetScheduledPolicy(v *ScheduledPolicyForModif
 }
 
 type ModifyScalingPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ScalingPolicyId *string `type:"string"`
 }
@@ -6816,7 +6887,8 @@ func (s *ModifyScalingPolicyOutput) SetScalingPolicyId(v string) *ModifyScalingP
 }
 
 type RelatedInstanceForDescribeScalingActivitiesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	InstanceId *string `type:"string"`
 
@@ -6862,7 +6934,8 @@ func (s *RelatedInstanceForDescribeScalingActivitiesOutput) SetStatus(v string) 
 }
 
 type RemoveInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	DecreaseDesiredCapacity *bool `type:"boolean"`
 
@@ -6900,7 +6973,8 @@ func (s *RemoveInstancesInput) SetScalingGroupId(v string) *RemoveInstancesInput
 }
 
 type RemoveInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -6914,7 +6988,8 @@ func (s RemoveInstancesOutput) GoString() string {
 }
 
 type ScalingActivityForDescribeScalingActivitiesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ActivityType *string `type:"string"`
 
@@ -7048,7 +7123,8 @@ func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetTaskCategory(v st
 }
 
 type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CreatedAt *string `type:"string"`
 
@@ -7206,7 +7282,8 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetZoneId(v
 }
 
 type ScalingGroupForDescribeScalingGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ActiveScalingConfigurationId *string `type:"string"`
 
@@ -7332,7 +7409,8 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetVpcId(v string) *Scaling
 }
 
 type ScalingInstanceForDescribeScalingInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CreatedTime *string `type:"string"`
 
@@ -7418,7 +7496,8 @@ func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetZoneId(v string) *
 }
 
 type ScalingPolicyForDescribeScalingPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	AdjustmentType *string `type:"string"`
 
@@ -7512,7 +7591,8 @@ func (s *ScalingPolicyForDescribeScalingPoliciesOutput) SetStatus(v string) *Sca
 }
 
 type ScheduledPolicyForCreateScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LaunchTime *string `type:"string"`
 
@@ -7558,7 +7638,8 @@ func (s *ScheduledPolicyForCreateScalingPolicyInput) SetRecurrenceValue(v string
 }
 
 type ScheduledPolicyForDescribeScalingPoliciesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LaunchTime *string `type:"string"`
 
@@ -7612,7 +7693,8 @@ func (s *ScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceValue(v s
 }
 
 type ScheduledPolicyForModifyScalingPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LaunchTime *string `type:"string"`
 
@@ -7658,7 +7740,8 @@ func (s *ScheduledPolicyForModifyScalingPolicyInput) SetRecurrenceValue(v string
 }
 
 type ServerGroupAttributeForAttachServerGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Port *int32 `type:"int32"`
 
@@ -7696,7 +7779,8 @@ func (s *ServerGroupAttributeForAttachServerGroupsInput) SetWeight(v int32) *Ser
 }
 
 type ServerGroupAttributeForCreateScalingGroupInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Port *int32 `type:"int32"`
 
@@ -7734,7 +7818,8 @@ func (s *ServerGroupAttributeForCreateScalingGroupInput) SetWeight(v int32) *Ser
 }
 
 type ServerGroupAttributeForDescribeScalingGroupsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	LoadBalancerId *string `type:"string"`
 
@@ -7780,7 +7865,8 @@ func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetWeight(v int32) 
 }
 
 type ServerGroupAttributeForDetachServerGroupsInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	ServerGroupId *string `type:"string"`
 }
@@ -7802,7 +7888,8 @@ func (s *ServerGroupAttributeForDetachServerGroupsInput) SetServerGroupId(v stri
 }
 
 type SetInstancesProtectionInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	InstanceIds []*string `type:"list"`
 
@@ -7840,7 +7927,8 @@ func (s *SetInstancesProtectionInput) SetScalingGroupId(v string) *SetInstancesP
 }
 
 type SetInstancesProtectionOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	InstanceProtectionResults []*InstanceProtectionResultForSetInstancesProtectionOutput `type:"list"`
 }
@@ -7862,7 +7950,8 @@ func (s *SetInstancesProtectionOutput) SetInstanceProtectionResults(v []*Instanc
 }
 
 type VolumeForCreateScalingConfigurationInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	DeleteWithInstance *bool `type:"boolean"`
 
@@ -7900,7 +7989,8 @@ func (s *VolumeForCreateScalingConfigurationInput) SetVolumeType(v string) *Volu
 }
 
 type VolumeForDescribeScalingConfigurationsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	DeleteWithInstance *bool `type:"boolean"`
 
@@ -7938,7 +8028,8 @@ func (s *VolumeForDescribeScalingConfigurationsOutput) SetVolumeType(v string) *
 }
 
 type VolumeForModifyScalingConfigurationInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	DeleteWithInstance *bool `type:"boolean"`
 
