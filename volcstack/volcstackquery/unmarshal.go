@@ -57,8 +57,18 @@ func Unmarshal(r *request.Request) {
 			if processBodyError(r, &volcstackResponse, body) {
 				return
 			}
+
+			mm := map[string]interface{}{}
+			if err = json.Unmarshal(body, &mm); err != nil {
+				fmt.Printf("Unmarshal err, %v\n", err)
+				r.Error = err
+				return
+			}
+			meta, _ := volcstackutil.ObtainSdkValue("ResponseMetadata", mm)
+			mm["Result"].(map[string]interface{})["Metadata"] = meta
+
 			var b []byte
-			if b, err = json.Marshal(volcstackResponse.Result); err != nil {
+			if b, err = json.Marshal(mm["Result"]); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
 				r.Error = err
 				return
