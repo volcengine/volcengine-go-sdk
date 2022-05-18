@@ -7,6 +7,7 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/private/protocol/volcstackquery"
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackquery"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
@@ -3663,7 +3664,8 @@ func (c *CEN) WithdrawCenRouteEntryWithContext(ctx volcstack.Context, input *Wit
 }
 
 type AssociateCenBandwidthPackageInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenBandwidthPackageId is a required field
 	CenBandwidthPackageId *string `type:"string" required:"true"`
@@ -3711,7 +3713,8 @@ func (s *AssociateCenBandwidthPackageInput) SetCenId(v string) *AssociateCenBand
 }
 
 type AssociateCenBandwidthPackageOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -3725,7 +3728,8 @@ func (s AssociateCenBandwidthPackageOutput) GoString() string {
 }
 
 type AttachInstanceToCenInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenId is a required field
 	CenId *string `type:"string" required:"true"`
@@ -3797,7 +3801,8 @@ func (s *AttachInstanceToCenInput) SetInstanceType(v string) *AttachInstanceToCe
 }
 
 type AttachInstanceToCenOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -3811,7 +3816,8 @@ func (s AttachInstanceToCenOutput) GoString() string {
 }
 
 type AttachedInstanceForDescribeCenAttachedInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenId *string `type:"string"`
 
@@ -3873,7 +3879,8 @@ func (s *AttachedInstanceForDescribeCenAttachedInstancesOutput) SetStatus(v stri
 }
 
 type CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	BillingStatus *int64 `type:"integer"`
 
@@ -3943,7 +3950,8 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput) SetRen
 }
 
 type CenBandwidthPackageForDescribeCenBandwidthPackagesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -4085,7 +4093,8 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetUpdateTime
 }
 
 type CenForDescribeCensOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -4163,7 +4172,8 @@ func (s *CenForDescribeCensOutput) SetUpdateTime(v string) *CenForDescribeCensOu
 }
 
 type CenRouteEntryForDescribeCenRouteEntriesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	AsPath []*string `type:"list"`
 
@@ -4241,7 +4251,8 @@ func (s *CenRouteEntryForDescribeCenRouteEntriesOutput) SetStatus(v string) *Cen
 }
 
 type CenSupportedRegionForDescribeCenSupportedRegionsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	RegionId *string `type:"string"`
 }
@@ -4263,7 +4274,8 @@ func (s *CenSupportedRegionForDescribeCenSupportedRegionsOutput) SetRegionId(v s
 }
 
 type CreateCenBandwidthPackageInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Bandwidth *int64 `type:"integer"`
 
@@ -4409,7 +4421,8 @@ func (s *CreateCenBandwidthPackageInput) SetRenewType(v string) *CreateCenBandwi
 }
 
 type CreateCenBandwidthPackageOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenBandwidthPackageId *string `type:"string"`
 
@@ -4439,7 +4452,8 @@ func (s *CreateCenBandwidthPackageOutput) SetPreOrderNumber(v string) *CreateCen
 }
 
 type CreateCenInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenName *string `type:"string"`
 
@@ -4469,7 +4483,8 @@ func (s *CreateCenInput) SetDescription(v string) *CreateCenInput {
 }
 
 type CreateCenInterRegionBandwidthInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// Bandwidth is a required field
 	Bandwidth *int64 `type:"integer" required:"true"`
@@ -4541,7 +4556,8 @@ func (s *CreateCenInterRegionBandwidthInput) SetPeerRegionId(v string) *CreateCe
 }
 
 type CreateCenInterRegionBandwidthOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	InterRegionBandwidthId *string `type:"string"`
 }
@@ -4563,7 +4579,8 @@ func (s *CreateCenInterRegionBandwidthOutput) SetInterRegionBandwidthId(v string
 }
 
 type CreateCenOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenId *string `type:"string"`
 }
@@ -4585,7 +4602,8 @@ func (s *CreateCenOutput) SetCenId(v string) *CreateCenOutput {
 }
 
 type DeleteCenBandwidthPackageInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenBandwidthPackageId is a required field
 	CenBandwidthPackageId *string `type:"string" required:"true"`
@@ -4621,7 +4639,8 @@ func (s *DeleteCenBandwidthPackageInput) SetCenBandwidthPackageId(v string) *Del
 }
 
 type DeleteCenBandwidthPackageOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PreOrderNumber *string `type:"string"`
 }
@@ -4643,7 +4662,8 @@ func (s *DeleteCenBandwidthPackageOutput) SetPreOrderNumber(v string) *DeleteCen
 }
 
 type DeleteCenInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenId is a required field
 	CenId *string `type:"string" required:"true"`
@@ -4679,7 +4699,8 @@ func (s *DeleteCenInput) SetCenId(v string) *DeleteCenInput {
 }
 
 type DeleteCenInterRegionBandwidthInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// InterRegionBandwidthId is a required field
 	InterRegionBandwidthId *string `type:"string" required:"true"`
@@ -4715,7 +4736,8 @@ func (s *DeleteCenInterRegionBandwidthInput) SetInterRegionBandwidthId(v string)
 }
 
 type DeleteCenInterRegionBandwidthOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -4729,7 +4751,8 @@ func (s DeleteCenInterRegionBandwidthOutput) GoString() string {
 }
 
 type DeleteCenOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -4743,7 +4766,8 @@ func (s DeleteCenOutput) GoString() string {
 }
 
 type DescribeCenAttachedInstanceAttributesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenId is a required field
 	CenId *string `type:"string" required:"true"`
@@ -4815,7 +4839,8 @@ func (s *DescribeCenAttachedInstanceAttributesInput) SetInstanceType(v string) *
 }
 
 type DescribeCenAttachedInstanceAttributesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenId *string `type:"string"`
 
@@ -4877,7 +4902,8 @@ func (s *DescribeCenAttachedInstanceAttributesOutput) SetStatus(v string) *Descr
 }
 
 type DescribeCenAttachedInstancesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenId *string `type:"string"`
 
@@ -4939,7 +4965,8 @@ func (s *DescribeCenAttachedInstancesInput) SetPageSize(v int64) *DescribeCenAtt
 }
 
 type DescribeCenAttachedInstancesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	AttachedInstances []*AttachedInstanceForDescribeCenAttachedInstancesOutput `type:"list"`
 
@@ -4985,7 +5012,8 @@ func (s *DescribeCenAttachedInstancesOutput) SetTotalCount(v int64) *DescribeCen
 }
 
 type DescribeCenAttributesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenId is a required field
 	CenId *string `type:"string" required:"true"`
@@ -5021,7 +5049,8 @@ func (s *DescribeCenAttributesInput) SetCenId(v string) *DescribeCenAttributesIn
 }
 
 type DescribeCenAttributesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -5099,7 +5128,8 @@ func (s *DescribeCenAttributesOutput) SetUpdateTime(v string) *DescribeCenAttrib
 }
 
 type DescribeCenBandwidthPackageAttributesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenBandwidthPackageId is a required field
 	CenBandwidthPackageId *string `type:"string" required:"true"`
@@ -5135,7 +5165,8 @@ func (s *DescribeCenBandwidthPackageAttributesInput) SetCenBandwidthPackageId(v 
 }
 
 type DescribeCenBandwidthPackageAttributesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -5277,7 +5308,8 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetUpdateTime(v string) *D
 }
 
 type DescribeCenBandwidthPackagesBillingInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenBandwidthPackageIds is a required field
 	CenBandwidthPackageIds []*string `type:"list" required:"true"`
@@ -5332,7 +5364,8 @@ func (s *DescribeCenBandwidthPackagesBillingInput) SetPageSize(v int64) *Describ
 }
 
 type DescribeCenBandwidthPackagesBillingOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenBandwidthPackages []*CenBandwidthPackageForDescribeCenBandwidthPackagesBillingOutput `type:"list"`
 
@@ -5378,7 +5411,8 @@ func (s *DescribeCenBandwidthPackagesBillingOutput) SetTotalCount(v int64) *Desc
 }
 
 type DescribeCenBandwidthPackagesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenBandwidthPackageIds []*string `type:"list"`
 
@@ -5448,7 +5482,8 @@ func (s *DescribeCenBandwidthPackagesInput) SetPeerGeographicRegionSetId(v strin
 }
 
 type DescribeCenBandwidthPackagesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenBandwidthPackages []*CenBandwidthPackageForDescribeCenBandwidthPackagesOutput `type:"list"`
 
@@ -5494,7 +5529,8 @@ func (s *DescribeCenBandwidthPackagesOutput) SetTotalCount(v int64) *DescribeCen
 }
 
 type DescribeCenInterRegionBandwidthAttributesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// InterRegionBandwidthId is a required field
 	InterRegionBandwidthId *string `type:"string" required:"true"`
@@ -5530,7 +5566,8 @@ func (s *DescribeCenInterRegionBandwidthAttributesInput) SetInterRegionBandwidth
 }
 
 type DescribeCenInterRegionBandwidthAttributesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Bandwidth *int64 `type:"integer"`
 
@@ -5608,7 +5645,8 @@ func (s *DescribeCenInterRegionBandwidthAttributesOutput) SetUpdateTime(v string
 }
 
 type DescribeCenInterRegionBandwidthsInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenId *string `type:"string"`
 
@@ -5654,7 +5692,8 @@ func (s *DescribeCenInterRegionBandwidthsInput) SetPageSize(v string) *DescribeC
 }
 
 type DescribeCenInterRegionBandwidthsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	InterRegionBandwidths []*InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput `type:"list"`
 
@@ -5700,7 +5739,8 @@ func (s *DescribeCenInterRegionBandwidthsOutput) SetTotalCount(v int64) *Describ
 }
 
 type DescribeCenRouteEntriesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenId *string `type:"string"`
 
@@ -5754,7 +5794,8 @@ func (s *DescribeCenRouteEntriesInput) SetInstanceType(v string) *DescribeCenRou
 }
 
 type DescribeCenRouteEntriesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenRouteEntries []*CenRouteEntryForDescribeCenRouteEntriesOutput `type:"list"`
 
@@ -5800,7 +5841,8 @@ func (s *DescribeCenRouteEntriesOutput) SetTotalCount(v int64) *DescribeCenRoute
 }
 
 type DescribeCenSupportedRegionsInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -5838,7 +5880,8 @@ func (s *DescribeCenSupportedRegionsInput) SetRegionId(v string) *DescribeCenSup
 }
 
 type DescribeCenSupportedRegionsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenSupportedRegions []*CenSupportedRegionForDescribeCenSupportedRegionsOutput `type:"list"`
 
@@ -5884,7 +5927,8 @@ func (s *DescribeCenSupportedRegionsOutput) SetTotalCount(v int64) *DescribeCenS
 }
 
 type DescribeCensInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	CenIds *string `type:"string"`
 
@@ -5930,7 +5974,8 @@ func (s *DescribeCensInput) SetPageSize(v int64) *DescribeCensInput {
 }
 
 type DescribeCensOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Cens []*CenForDescribeCensOutput `type:"list"`
 
@@ -5976,7 +6021,8 @@ func (s *DescribeCensOutput) SetTotalCount(v int64) *DescribeCensOutput {
 }
 
 type DetachInstanceFromCenInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenId is a required field
 	CenId *string `type:"string" required:"true"`
@@ -6048,7 +6094,8 @@ func (s *DetachInstanceFromCenInput) SetInstanceType(v string) *DetachInstanceFr
 }
 
 type DetachInstanceFromCenOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -6062,7 +6109,8 @@ func (s DetachInstanceFromCenOutput) GoString() string {
 }
 
 type DisassociateCenBandwidthPackageInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenBandwidthPackageId is a required field
 	CenBandwidthPackageId *string `type:"string" required:"true"`
@@ -6110,7 +6158,8 @@ func (s *DisassociateCenBandwidthPackageInput) SetCenId(v string) *DisassociateC
 }
 
 type DisassociateCenBandwidthPackageOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -6124,7 +6173,8 @@ func (s DisassociateCenBandwidthPackageOutput) GoString() string {
 }
 
 type InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Bandwidth *int64 `type:"integer"`
 
@@ -6202,7 +6252,8 @@ func (s *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput) SetUpdat
 }
 
 type ModifyCenAttributesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenId is a required field
 	CenId *string `type:"string" required:"true"`
@@ -6254,7 +6305,8 @@ func (s *ModifyCenAttributesInput) SetDescription(v string) *ModifyCenAttributes
 }
 
 type ModifyCenAttributesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -6268,7 +6320,8 @@ func (s ModifyCenAttributesOutput) GoString() string {
 }
 
 type ModifyCenBandwidthPackageAttributesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Bandwidth *int64 `type:"integer"`
 
@@ -6340,7 +6393,8 @@ func (s *ModifyCenBandwidthPackageAttributesInput) SetDescription(v string) *Mod
 }
 
 type ModifyCenBandwidthPackageAttributesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	PreOrderNumber *string `type:"string"`
 }
@@ -6362,7 +6416,8 @@ func (s *ModifyCenBandwidthPackageAttributesOutput) SetPreOrderNumber(v string) 
 }
 
 type ModifyCenInterRegionBandwidthAttributesInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	Bandwidth *int64 `type:"integer"`
 
@@ -6406,7 +6461,8 @@ func (s *ModifyCenInterRegionBandwidthAttributesInput) SetInterRegionBandwidthId
 }
 
 type ModifyCenInterRegionBandwidthAttributesOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -6420,7 +6476,8 @@ func (s ModifyCenInterRegionBandwidthAttributesOutput) GoString() string {
 }
 
 type PublishCenRouteEntryInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenId is a required field
 	CenId *string `type:"string" required:"true"`
@@ -6504,7 +6561,8 @@ func (s *PublishCenRouteEntryInput) SetInstanceType(v string) *PublishCenRouteEn
 }
 
 type PublishCenRouteEntryOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -6518,7 +6576,8 @@ func (s PublishCenRouteEntryOutput) GoString() string {
 }
 
 type RenewCenBandwidthPackageInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenBandwidthPackageId is a required field
 	CenBandwidthPackageId *string `type:"string" required:"true"`
@@ -6570,7 +6629,8 @@ func (s *RenewCenBandwidthPackageInput) SetPeriodUnit(v string) *RenewCenBandwid
 }
 
 type RenewCenBandwidthPackageOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -6584,7 +6644,8 @@ func (s RenewCenBandwidthPackageOutput) GoString() string {
 }
 
 type SetCenBandwidthPackageRenewalInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenBandwidthPackageId is a required field
 	CenBandwidthPackageId *string `type:"string" required:"true"`
@@ -6648,7 +6709,8 @@ func (s *SetCenBandwidthPackageRenewalInput) SetRenewType(v string) *SetCenBandw
 }
 
 type SetCenBandwidthPackageRenewalOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
@@ -6662,7 +6724,8 @@ func (s SetCenBandwidthPackageRenewalOutput) GoString() string {
 }
 
 type WithdrawCenRouteEntryInput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 
 	// CenId is a required field
 	CenId *string `type:"string" required:"true"`
@@ -6746,7 +6809,8 @@ func (s *WithdrawCenRouteEntryInput) SetInstanceType(v string) *WithdrawCenRoute
 }
 
 type WithdrawCenRouteEntryOutput struct {
-	_ struct{} `type:"structure"`
+	_        struct{} `type:"structure"`
+	Metadata *volcstackquery.ResponseMetadata
 }
 
 // String returns the string representation
