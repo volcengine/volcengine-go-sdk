@@ -5,11 +5,9 @@ package storageebs
 import (
 	"encoding/json"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol"
-	"github.com/volcengine/volcstack-go-sdk/private/protocol/volcstackquery"
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackquery"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/response"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
@@ -112,7 +110,6 @@ func (c *STORAGEEBS) AttachVolumeRequest(input *AttachVolumeInput) (req *request
 	output = &AttachVolumeOutput{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -373,7 +370,6 @@ func (c *STORAGEEBS) DeleteVolumeRequest(input *DeleteVolumeInput) (req *request
 	output = &DeleteVolumeOutput{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -634,7 +630,6 @@ func (c *STORAGEEBS) DetachVolumeRequest(input *DetachVolumeInput) (req *request
 	output = &DetachVolumeOutput{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -765,7 +760,6 @@ func (c *STORAGEEBS) ExtendVolumeRequest(input *ExtendVolumeInput) (req *request
 	output = &ExtendVolumeOutput{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -896,7 +890,6 @@ func (c *STORAGEEBS) ModifyVolumeAttributeRequest(input *ModifyVolumeAttributeIn
 	output = &ModifyVolumeAttributeOutput{}
 	req = c.newRequest(op, input, output)
 
-	req.Handlers.Unmarshal.Swap(volcstackquery.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -930,7 +923,7 @@ func (c *STORAGEEBS) ModifyVolumeAttributeWithContext(ctx volcstack.Context, inp
 
 type AttachVolumeInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	DeleteWithInstance *bool `type:"boolean"`
 
@@ -969,7 +962,7 @@ func (s *AttachVolumeInput) SetVolumeId(v string) *AttachVolumeInput {
 
 type AttachVolumeOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 }
 
 // String returns the string representation
@@ -984,7 +977,7 @@ func (s AttachVolumeOutput) GoString() string {
 
 type CreateVolumeInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `type:"string"`
 
@@ -1055,7 +1048,7 @@ func (s *CreateVolumeInput) SetZoneId(v string) *CreateVolumeInput {
 
 type CreateVolumeOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	VolumeId *string `type:"string"`
 }
@@ -1078,7 +1071,7 @@ func (s *CreateVolumeOutput) SetVolumeId(v string) *CreateVolumeOutput {
 
 type DeleteVolumeInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	VolumeId *string `type:"string"`
 }
@@ -1101,7 +1094,7 @@ func (s *DeleteVolumeInput) SetVolumeId(v string) *DeleteVolumeInput {
 
 type DeleteVolumeOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 }
 
 // String returns the string representation
@@ -1116,7 +1109,7 @@ func (s DeleteVolumeOutput) GoString() string {
 
 type DescribeVolumesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	InstanceId *string `type:"string"`
 
@@ -1203,7 +1196,7 @@ func (s *DescribeVolumesInput) SetZoneId(v string) *DescribeVolumesInput {
 
 type DescribeVolumesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int32 `type:"int32"`
 
@@ -1250,7 +1243,7 @@ func (s *DescribeVolumesOutput) SetVolumes(v []*VolumeForDescribeVolumesOutput) 
 
 type DetachVolumeInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	InstanceId *string `type:"string"`
 
@@ -1281,7 +1274,7 @@ func (s *DetachVolumeInput) SetVolumeId(v string) *DetachVolumeInput {
 
 type DetachVolumeOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 }
 
 // String returns the string representation
@@ -1296,7 +1289,7 @@ func (s DetachVolumeOutput) GoString() string {
 
 type ExtendVolumeInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	NewSize *json.Number `type:"json_number"`
 
@@ -1327,7 +1320,7 @@ func (s *ExtendVolumeInput) SetVolumeId(v string) *ExtendVolumeInput {
 
 type ExtendVolumeOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 }
 
 // String returns the string representation
@@ -1342,7 +1335,7 @@ func (s ExtendVolumeOutput) GoString() string {
 
 type ModifyVolumeAttributeInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	DeleteWithInstance *bool `type:"boolean"`
 
@@ -1389,7 +1382,7 @@ func (s *ModifyVolumeAttributeInput) SetVolumeName(v string) *ModifyVolumeAttrib
 
 type ModifyVolumeAttributeOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 }
 
 // String returns the string representation
@@ -1404,7 +1397,7 @@ func (s ModifyVolumeAttributeOutput) GoString() string {
 
 type VolumeForDescribeVolumesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	BillingType *int32 `type:"int32"`
 

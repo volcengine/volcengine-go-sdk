@@ -5,7 +5,7 @@ package vpc
 import (
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackquery"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/response"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
@@ -6901,7 +6901,7 @@ func (c *VPC) UnassignPrivateIpAddressesWithContext(ctx volcstack.Context, input
 
 type AllocateEipAddressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Bandwidth *int64 `min:"1" max:"500" type:"integer"`
 
@@ -7020,7 +7020,7 @@ func (s *AllocateEipAddressInput) SetSecurityProtectionTypes(v []*string) *Alloc
 
 type AllocateEipAddressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AllocationId *string `type:"string"`
 
@@ -7059,7 +7059,7 @@ func (s *AllocateEipAddressOutput) SetRequestId(v string) *AllocateEipAddressOut
 
 type AssignPrivateIpAddressesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
@@ -7112,7 +7112,7 @@ func (s *AssignPrivateIpAddressesInput) SetSecondaryPrivateIpAddressCount(v int6
 
 type AssignPrivateIpAddressesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	NetworkInterfaceId *string `type:"string"`
 
@@ -7151,7 +7151,7 @@ func (s *AssignPrivateIpAddressesOutput) SetRequestId(v string) *AssignPrivateIp
 
 type AssociateCenForDescribeVpcAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	CenId *string `type:"string"`
 
@@ -7190,7 +7190,7 @@ func (s *AssociateCenForDescribeVpcAttributesOutput) SetCenStatus(v string) *Ass
 
 type AssociateCenForDescribeVpcsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	CenId *string `type:"string"`
 
@@ -7229,7 +7229,7 @@ func (s *AssociateCenForDescribeVpcsOutput) SetCenStatus(v string) *AssociateCen
 
 type AssociateEipAddressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
@@ -7298,7 +7298,7 @@ func (s *AssociateEipAddressInput) SetPrivateIpAddress(v string) *AssociateEipAd
 
 type AssociateEipAddressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -7321,7 +7321,7 @@ func (s *AssociateEipAddressOutput) SetRequestId(v string) *AssociateEipAddressO
 
 type AssociateHaVipInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// HaVipId is a required field
 	HaVipId *string `type:"string" required:"true"`
@@ -7378,7 +7378,7 @@ func (s *AssociateHaVipInput) SetInstanceType(v string) *AssociateHaVipInput {
 
 type AssociateHaVipOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -7401,7 +7401,7 @@ func (s *AssociateHaVipOutput) SetRequestId(v string) *AssociateHaVipOutput {
 
 type AssociateRouteTableInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
@@ -7450,7 +7450,7 @@ func (s *AssociateRouteTableInput) SetSubnetId(v string) *AssociateRouteTableInp
 
 type AssociateRouteTableOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -7473,7 +7473,7 @@ func (s *AssociateRouteTableOutput) SetRequestId(v string) *AssociateRouteTableO
 
 type AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AllocationId *string `type:"string"`
 
@@ -7504,7 +7504,7 @@ func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetEipA
 
 type AssociatedElasticIpForDescribeNetworkInterfacesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AllocationId *string `type:"string"`
 
@@ -7535,7 +7535,7 @@ func (s *AssociatedElasticIpForDescribeNetworkInterfacesOutput) SetEipAddress(v 
 
 type AttachNetworkInterfaceInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -7584,7 +7584,7 @@ func (s *AttachNetworkInterfaceInput) SetNetworkInterfaceId(v string) *AttachNet
 
 type AttachNetworkInterfaceOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -7607,7 +7607,7 @@ func (s *AttachNetworkInterfaceOutput) SetRequestId(v string) *AttachNetworkInte
 
 type AuthorizeSecurityGroupEgressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// CidrIp is a required field
 	CidrIp *string `type:"string" required:"true"`
@@ -7724,7 +7724,7 @@ func (s *AuthorizeSecurityGroupEgressInput) SetSourceGroupId(v string) *Authoriz
 
 type AuthorizeSecurityGroupEgressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -7747,7 +7747,7 @@ func (s *AuthorizeSecurityGroupEgressOutput) SetRequestId(v string) *AuthorizeSe
 
 type AuthorizeSecurityGroupIngressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// CidrIp is a required field
 	CidrIp *string `type:"string" required:"true"`
@@ -7864,7 +7864,7 @@ func (s *AuthorizeSecurityGroupIngressInput) SetSourceGroupId(v string) *Authori
 
 type AuthorizeSecurityGroupIngressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -7887,7 +7887,7 @@ func (s *AuthorizeSecurityGroupIngressOutput) SetRequestId(v string) *AuthorizeS
 
 type CreateHaVipInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -7960,7 +7960,7 @@ func (s *CreateHaVipInput) SetSubnetId(v string) *CreateHaVipInput {
 
 type CreateHaVipOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	HaVipId *string `type:"string"`
 
@@ -7999,7 +7999,7 @@ func (s *CreateHaVipOutput) SetRequestId(v string) *CreateHaVipOutput {
 
 type CreateNetworkInterfaceInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -8108,7 +8108,7 @@ func (s *CreateNetworkInterfaceInput) SetSubnetId(v string) *CreateNetworkInterf
 
 type CreateNetworkInterfaceOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	NetworkInterfaceId *string `type:"string"`
 
@@ -8139,7 +8139,7 @@ func (s *CreateNetworkInterfaceOutput) SetRequestId(v string) *CreateNetworkInte
 
 type CreateRouteEntryInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -8240,7 +8240,7 @@ func (s *CreateRouteEntryInput) SetRouteTableId(v string) *CreateRouteEntryInput
 
 type CreateRouteEntryOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 
@@ -8271,7 +8271,7 @@ func (s *CreateRouteEntryOutput) SetRouteEntryId(v string) *CreateRouteEntryOutp
 
 type CreateRouteTableInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -8336,7 +8336,7 @@ func (s *CreateRouteTableInput) SetVpcId(v string) *CreateRouteTableInput {
 
 type CreateRouteTableOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 
@@ -8367,7 +8367,7 @@ func (s *CreateRouteTableOutput) SetRouteTableId(v string) *CreateRouteTableOutp
 
 type CreateSecurityGroupInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `type:"string"`
 
@@ -8420,7 +8420,7 @@ func (s *CreateSecurityGroupInput) SetVpcId(v string) *CreateSecurityGroupInput 
 
 type CreateSecurityGroupOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 
@@ -8451,7 +8451,7 @@ func (s *CreateSecurityGroupOutput) SetSecurityGroupId(v string) *CreateSecurity
 
 type CreateSubnetInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// CidrBlock is a required field
 	CidrBlock *string `type:"string" required:"true"`
@@ -8540,7 +8540,7 @@ func (s *CreateSubnetInput) SetZoneId(v string) *CreateSubnetInput {
 
 type CreateSubnetOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 
@@ -8571,7 +8571,7 @@ func (s *CreateSubnetOutput) SetSubnetId(v string) *CreateSubnetOutput {
 
 type CreateVpcInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// CidrBlock is a required field
 	CidrBlock *string `type:"string" required:"true"`
@@ -8644,7 +8644,7 @@ func (s *CreateVpcInput) SetVpcName(v string) *CreateVpcInput {
 
 type CreateVpcOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 
@@ -8683,7 +8683,7 @@ func (s *CreateVpcOutput) SetVpcId(v string) *CreateVpcOutput {
 
 type DeleteHaVipInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// HaVipId is a required field
 	HaVipId *string `type:"string" required:"true"`
@@ -8720,7 +8720,7 @@ func (s *DeleteHaVipInput) SetHaVipId(v string) *DeleteHaVipInput {
 
 type DeleteHaVipOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -8743,7 +8743,7 @@ func (s *DeleteHaVipOutput) SetRequestId(v string) *DeleteHaVipOutput {
 
 type DeleteNetworkInterfaceInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
@@ -8780,7 +8780,7 @@ func (s *DeleteNetworkInterfaceInput) SetNetworkInterfaceId(v string) *DeleteNet
 
 type DeleteNetworkInterfaceOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -8803,7 +8803,7 @@ func (s *DeleteNetworkInterfaceOutput) SetRequestId(v string) *DeleteNetworkInte
 
 type DeleteRouteEntryInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// RouteEntryId is a required field
 	RouteEntryId *string `type:"string" required:"true"`
@@ -8840,7 +8840,7 @@ func (s *DeleteRouteEntryInput) SetRouteEntryId(v string) *DeleteRouteEntryInput
 
 type DeleteRouteEntryOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -8863,7 +8863,7 @@ func (s *DeleteRouteEntryOutput) SetRequestId(v string) *DeleteRouteEntryOutput 
 
 type DeleteRouteTableInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
@@ -8900,7 +8900,7 @@ func (s *DeleteRouteTableInput) SetRouteTableId(v string) *DeleteRouteTableInput
 
 type DeleteRouteTableOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -8923,7 +8923,7 @@ func (s *DeleteRouteTableOutput) SetRequestId(v string) *DeleteRouteTableOutput 
 
 type DeleteSecurityGroupInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// SecurityGroupId is a required field
 	SecurityGroupId *string `type:"string" required:"true"`
@@ -8960,7 +8960,7 @@ func (s *DeleteSecurityGroupInput) SetSecurityGroupId(v string) *DeleteSecurityG
 
 type DeleteSecurityGroupOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -8983,7 +8983,7 @@ func (s *DeleteSecurityGroupOutput) SetRequestId(v string) *DeleteSecurityGroupO
 
 type DeleteSubnetInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -9020,7 +9020,7 @@ func (s *DeleteSubnetInput) SetSubnetId(v string) *DeleteSubnetInput {
 
 type DeleteSubnetOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -9043,7 +9043,7 @@ func (s *DeleteSubnetOutput) SetRequestId(v string) *DeleteSubnetOutput {
 
 type DeleteVpcInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -9080,7 +9080,7 @@ func (s *DeleteVpcInput) SetVpcId(v string) *DeleteVpcInput {
 
 type DeleteVpcOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -9103,7 +9103,7 @@ func (s *DeleteVpcOutput) SetRequestId(v string) *DeleteVpcOutput {
 
 type DescribeEipAddressAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
@@ -9140,7 +9140,7 @@ func (s *DescribeEipAddressAttributesInput) SetAllocationId(v string) *DescribeE
 
 type DescribeEipAddressAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AllocationId *string `type:"string"`
 
@@ -9315,7 +9315,7 @@ func (s *DescribeEipAddressAttributesOutput) SetUpdatedAt(v string) *DescribeEip
 
 type DescribeEipAddressesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AllocationIds []*string `type:"list"`
 
@@ -9437,7 +9437,7 @@ func (s *DescribeEipAddressesInput) SetStatus(v string) *DescribeEipAddressesInp
 
 type DescribeEipAddressesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	EipAddresses []*EipAddressForDescribeEipAddressesOutput `type:"list"`
 
@@ -9492,7 +9492,7 @@ func (s *DescribeEipAddressesOutput) SetTotalCount(v int64) *DescribeEipAddresse
 
 type DescribeHaVipsInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	HaVipIds []*string `type:"list"`
 
@@ -9584,7 +9584,7 @@ func (s *DescribeHaVipsInput) SetVpcId(v string) *DescribeHaVipsInput {
 
 type DescribeHaVipsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	HaVips []*HaVipForDescribeHaVipsOutput `type:"list"`
 
@@ -9639,7 +9639,7 @@ func (s *DescribeHaVipsOutput) SetTotalCount(v int64) *DescribeHaVipsOutput {
 
 type DescribeNetworkInterfaceAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
@@ -9676,7 +9676,7 @@ func (s *DescribeNetworkInterfaceAttributesInput) SetNetworkInterfaceId(v string
 
 type DescribeNetworkInterfaceAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -9859,7 +9859,7 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetZoneId(v string) *Describe
 
 type DescribeNetworkInterfacesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	InstanceId *string `type:"string"`
 
@@ -9991,7 +9991,7 @@ func (s *DescribeNetworkInterfacesInput) SetZoneId(v string) *DescribeNetworkInt
 
 type DescribeNetworkInterfacesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	NetworkInterfaceSets []*NetworkInterfaceSetForDescribeNetworkInterfacesOutput `type:"list"`
 
@@ -10046,7 +10046,7 @@ func (s *DescribeNetworkInterfacesOutput) SetTotalCount(v int64) *DescribeNetwor
 
 type DescribeRouteEntryListInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	DestinationCidrBlock *string `type:"string"`
 
@@ -10146,7 +10146,7 @@ func (s *DescribeRouteEntryListInput) SetRouteTableId(v string) *DescribeRouteEn
 
 type DescribeRouteEntryListOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -10201,7 +10201,7 @@ func (s *DescribeRouteEntryListOutput) SetTotalCount(v int64) *DescribeRouteEntr
 
 type DescribeRouteTableListInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -10269,7 +10269,7 @@ func (s *DescribeRouteTableListInput) SetVpcId(v string) *DescribeRouteTableList
 
 type DescribeRouteTableListOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -10324,7 +10324,7 @@ func (s *DescribeRouteTableListOutput) SetTotalCount(v int64) *DescribeRouteTabl
 
 type DescribeSecurityGroupAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Direction *string `type:"string"`
 
@@ -10369,7 +10369,7 @@ func (s *DescribeSecurityGroupAttributesInput) SetSecurityGroupId(v string) *Des
 
 type DescribeSecurityGroupAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	CreationTime *string `type:"string"`
 
@@ -10456,7 +10456,7 @@ func (s *DescribeSecurityGroupAttributesOutput) SetVpcId(v string) *DescribeSecu
 
 type DescribeSecurityGroupsInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -10524,7 +10524,7 @@ func (s *DescribeSecurityGroupsInput) SetVpcId(v string) *DescribeSecurityGroups
 
 type DescribeSecurityGroupsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -10579,7 +10579,7 @@ func (s *DescribeSecurityGroupsOutput) SetTotalCount(v int64) *DescribeSecurityG
 
 type DescribeSubnetAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -10616,7 +10616,7 @@ func (s *DescribeSubnetAttributesInput) SetSubnetId(v string) *DescribeSubnetAtt
 
 type DescribeSubnetAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -10751,7 +10751,7 @@ func (s *DescribeSubnetAttributesOutput) SetZoneId(v string) *DescribeSubnetAttr
 
 type DescribeSubnetsInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -10839,7 +10839,7 @@ func (s *DescribeSubnetsInput) SetZoneId(v string) *DescribeSubnetsInput {
 
 type DescribeSubnetsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -10894,7 +10894,7 @@ func (s *DescribeSubnetsOutput) SetTotalCount(v int64) *DescribeSubnetsOutput {
 
 type DescribeVpcAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -10931,7 +10931,7 @@ func (s *DescribeVpcAttributesInput) SetVpcId(v string) *DescribeVpcAttributesIn
 
 type DescribeVpcAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -11074,7 +11074,7 @@ func (s *DescribeVpcAttributesOutput) SetVpcName(v string) *DescribeVpcAttribute
 
 type DescribeVpcsInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -11134,7 +11134,7 @@ func (s *DescribeVpcsInput) SetVpcName(v string) *DescribeVpcsInput {
 
 type DescribeVpcsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
 
@@ -11189,7 +11189,7 @@ func (s *DescribeVpcsOutput) SetVpcs(v []*VpcForDescribeVpcsOutput) *DescribeVpc
 
 type DetachNetworkInterfaceInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -11238,7 +11238,7 @@ func (s *DetachNetworkInterfaceInput) SetNetworkInterfaceId(v string) *DetachNet
 
 type DetachNetworkInterfaceOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -11261,7 +11261,7 @@ func (s *DetachNetworkInterfaceOutput) SetRequestId(v string) *DetachNetworkInte
 
 type DisassociateEipAddressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
@@ -11314,7 +11314,7 @@ func (s *DisassociateEipAddressInput) SetInstanceType(v string) *DisassociateEip
 
 type DisassociateEipAddressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -11337,7 +11337,7 @@ func (s *DisassociateEipAddressOutput) SetRequestId(v string) *DisassociateEipAd
 
 type DisassociateHaVipInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// HaVipId is a required field
 	HaVipId *string `type:"string" required:"true"`
@@ -11394,7 +11394,7 @@ func (s *DisassociateHaVipInput) SetInstanceType(v string) *DisassociateHaVipInp
 
 type DisassociateHaVipOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -11417,7 +11417,7 @@ func (s *DisassociateHaVipOutput) SetRequestId(v string) *DisassociateHaVipOutpu
 
 type DisassociateRouteTableInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
@@ -11466,7 +11466,7 @@ func (s *DisassociateRouteTableInput) SetSubnetId(v string) *DisassociateRouteTa
 
 type DisassociateRouteTableOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -11489,7 +11489,7 @@ func (s *DisassociateRouteTableOutput) SetRequestId(v string) *DisassociateRoute
 
 type EipAddressForDescribeEipAddressesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AllocationId *string `type:"string"`
 
@@ -11656,7 +11656,7 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetUpdatedAt(v string) *EipAdd
 
 type HaVipForDescribeHaVipsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -11783,7 +11783,7 @@ func (s *HaVipForDescribeHaVipsOutput) SetVpcId(v string) *HaVipForDescribeHaVip
 
 type ModifyEipAddressAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
@@ -11862,7 +11862,7 @@ func (s *ModifyEipAddressAttributesInput) SetName(v string) *ModifyEipAddressAtt
 
 type ModifyEipAddressAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -11885,7 +11885,7 @@ func (s *ModifyEipAddressAttributesOutput) SetRequestId(v string) *ModifyEipAddr
 
 type ModifyHaVipAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -11950,7 +11950,7 @@ func (s *ModifyHaVipAttributesInput) SetHaVipName(v string) *ModifyHaVipAttribut
 
 type ModifyHaVipAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -11973,7 +11973,7 @@ func (s *ModifyHaVipAttributesOutput) SetRequestId(v string) *ModifyHaVipAttribu
 
 type ModifyNetworkInterfaceAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -12046,7 +12046,7 @@ func (s *ModifyNetworkInterfaceAttributesInput) SetSecurityGroupIds(v []*string)
 
 type ModifyNetworkInterfaceAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -12069,7 +12069,7 @@ func (s *ModifyNetworkInterfaceAttributesOutput) SetRequestId(v string) *ModifyN
 
 type ModifyRouteEntryInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -12134,7 +12134,7 @@ func (s *ModifyRouteEntryInput) SetRouteEntryName(v string) *ModifyRouteEntryInp
 
 type ModifyRouteEntryOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -12157,7 +12157,7 @@ func (s *ModifyRouteEntryOutput) SetRequestId(v string) *ModifyRouteEntryOutput 
 
 type ModifyRouteTableAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -12222,7 +12222,7 @@ func (s *ModifyRouteTableAttributesInput) SetRouteTableName(v string) *ModifyRou
 
 type ModifyRouteTableAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -12245,7 +12245,7 @@ func (s *ModifyRouteTableAttributesOutput) SetRequestId(v string) *ModifyRouteTa
 
 type ModifySecurityGroupAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `type:"string"`
 
@@ -12298,7 +12298,7 @@ func (s *ModifySecurityGroupAttributesInput) SetSecurityGroupName(v string) *Mod
 
 type ModifySecurityGroupAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -12321,7 +12321,7 @@ func (s *ModifySecurityGroupAttributesOutput) SetRequestId(v string) *ModifySecu
 
 type ModifySecurityGroupRuleDescriptionsEgressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// CidrIp is a required field
 	CidrIp *string `type:"string" required:"true"`
@@ -12438,7 +12438,7 @@ func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetSourceGroupId(v stri
 
 type ModifySecurityGroupRuleDescriptionsEgressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -12461,7 +12461,7 @@ func (s *ModifySecurityGroupRuleDescriptionsEgressOutput) SetRequestId(v string)
 
 type ModifySecurityGroupRuleDescriptionsIngressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// CidrIp is a required field
 	CidrIp *string `type:"string" required:"true"`
@@ -12578,7 +12578,7 @@ func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetSourceGroupId(v str
 
 type ModifySecurityGroupRuleDescriptionsIngressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -12601,7 +12601,7 @@ func (s *ModifySecurityGroupRuleDescriptionsIngressOutput) SetRequestId(v string
 
 type ModifySubnetAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -12666,7 +12666,7 @@ func (s *ModifySubnetAttributesInput) SetSubnetName(v string) *ModifySubnetAttri
 
 type ModifySubnetAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -12689,7 +12689,7 @@ func (s *ModifySubnetAttributesOutput) SetRequestId(v string) *ModifySubnetAttri
 
 type ModifyVpcAttributesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -12762,7 +12762,7 @@ func (s *ModifyVpcAttributesInput) SetVpcName(v string) *ModifyVpcAttributesInpu
 
 type ModifyVpcAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -12785,7 +12785,7 @@ func (s *ModifyVpcAttributesOutput) SetRequestId(v string) *ModifyVpcAttributesO
 
 type NetworkInterfaceSetForDescribeNetworkInterfacesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -12960,7 +12960,7 @@ func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetZoneId(v stri
 
 type PermissionForDescribeSecurityGroupAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	CidrIp *string `type:"string"`
 
@@ -13063,7 +13063,7 @@ func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetUpdateTime(v str
 
 type PrivateIpSetForDescribeNetworkInterfaceAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput `type:"structure"`
 
@@ -13102,7 +13102,7 @@ func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpAd
 
 type PrivateIpSetForDescribeNetworkInterfacesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfacesOutput `type:"structure"`
 
@@ -13141,7 +13141,7 @@ func (s *PrivateIpSetForDescribeNetworkInterfacesOutput) SetPrivateIpAddress(v s
 
 type PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PrivateIpSet []*PrivateIpSetForDescribeNetworkInterfaceAttributesOutput `type:"list"`
 }
@@ -13164,7 +13164,7 @@ func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpS
 
 type PrivateIpSetsForDescribeNetworkInterfacesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	PrivateIpSet []*PrivateIpSetForDescribeNetworkInterfacesOutput `type:"list"`
 }
@@ -13187,7 +13187,7 @@ func (s *PrivateIpSetsForDescribeNetworkInterfacesOutput) SetPrivateIpSet(v []*P
 
 type ReleaseEipAddressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
@@ -13224,7 +13224,7 @@ func (s *ReleaseEipAddressInput) SetAllocationId(v string) *ReleaseEipAddressInp
 
 type ReleaseEipAddressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -13247,7 +13247,7 @@ func (s *ReleaseEipAddressOutput) SetRequestId(v string) *ReleaseEipAddressOutpu
 
 type RevokeSecurityGroupEgressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// CidrIp is a required field
 	CidrIp *string `type:"string" required:"true"`
@@ -13364,7 +13364,7 @@ func (s *RevokeSecurityGroupEgressInput) SetSourceGroupId(v string) *RevokeSecur
 
 type RevokeSecurityGroupEgressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -13387,7 +13387,7 @@ func (s *RevokeSecurityGroupEgressOutput) SetRequestId(v string) *RevokeSecurity
 
 type RevokeSecurityGroupIngressInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// CidrIp is a required field
 	CidrIp *string `type:"string" required:"true"`
@@ -13504,7 +13504,7 @@ func (s *RevokeSecurityGroupIngressInput) SetSourceGroupId(v string) *RevokeSecu
 
 type RevokeSecurityGroupIngressOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -13527,7 +13527,7 @@ func (s *RevokeSecurityGroupIngressOutput) SetRequestId(v string) *RevokeSecurit
 
 type RouteEntryForDescribeRouteEntryListOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	Description *string `type:"string"`
 
@@ -13630,7 +13630,7 @@ func (s *RouteEntryForDescribeRouteEntryListOutput) SetVpcId(v string) *RouteEnt
 
 type RouteTableForDescribeSubnetAttributesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RouteTableId *string `type:"string"`
 
@@ -13661,7 +13661,7 @@ func (s *RouteTableForDescribeSubnetAttributesOutput) SetRouteTableType(v string
 
 type RouteTableForDescribeSubnetsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RouteTableId *string `type:"string"`
 
@@ -13692,7 +13692,7 @@ func (s *RouteTableForDescribeSubnetsOutput) SetRouteTableType(v string) *RouteT
 
 type RouterTableListForDescribeRouteTableListOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -13787,7 +13787,7 @@ func (s *RouterTableListForDescribeRouteTableListOutput) SetVpcName(v string) *R
 
 type SecurityGroupForDescribeSecurityGroupsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	CreationTime *string `type:"string"`
 
@@ -13858,7 +13858,7 @@ func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetVpcId(v string) *Secur
 
 type SubnetForDescribeSubnetsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
@@ -13985,7 +13985,7 @@ func (s *SubnetForDescribeSubnetsOutput) SetZoneId(v string) *SubnetForDescribeS
 
 type UnassignPrivateIpAddressesInput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
@@ -14030,7 +14030,7 @@ func (s *UnassignPrivateIpAddressesInput) SetPrivateIpAddress(v []*string) *Unas
 
 type UnassignPrivateIpAddressesOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
 }
@@ -14053,7 +14053,7 @@ func (s *UnassignPrivateIpAddressesOutput) SetRequestId(v string) *UnassignPriva
 
 type VpcForDescribeVpcsOutput struct {
 	_        struct{} `type:"structure"`
-	Metadata *volcstackquery.ResponseMetadata
+	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
 
