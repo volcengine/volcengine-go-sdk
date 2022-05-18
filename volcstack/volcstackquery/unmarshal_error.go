@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/response"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 )
 
@@ -18,7 +19,7 @@ var UnmarshalErrorHandler = request.NamedHandler{Name: "kscsdk.volcstackquery.Un
 // UnmarshalError unmarshals an error response for an VOLCSTACK Query service.
 func UnmarshalError(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
-	resp := VolcstackResponse{}
+	resp := response.VolcstackResponse{}
 	if r.DataFilled() {
 		body, err := ioutil.ReadAll(r.HTTPResponse.Body)
 		if err != nil {
@@ -34,14 +35,14 @@ func UnmarshalError(r *request.Request) {
 		}
 
 		if resp.ResponseMetadata == nil {
-			simple := VolcstackSimpleError{}
+			simple := response.VolcstackSimpleError{}
 			if err = json.Unmarshal(body, &simple); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
 				r.Error = err
 				return
 			}
-			resp.ResponseMetadata = &ResponseMetadata{
-				Error: &Error{
+			resp.ResponseMetadata = &response.ResponseMetadata{
+				Error: &response.Error{
 					Code:    simple.ErrorCode,
 					Message: simple.Message,
 				},
