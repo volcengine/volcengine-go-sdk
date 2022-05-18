@@ -1,4 +1,4 @@
-package volcstackquery
+package response
 
 type VolcstackResponse struct {
 	ResponseMetadata *ResponseMetadata

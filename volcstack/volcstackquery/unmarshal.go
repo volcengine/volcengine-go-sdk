@@ -11,6 +11,7 @@ import (
 	"reflect"
 
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/response"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
@@ -47,13 +48,13 @@ func Unmarshal(r *request.Request) {
 				return
 			}
 			if info != nil {
-				if processBodyError(r, &VolcstackResponse{}, body) {
+				if processBodyError(r, &response.VolcstackResponse{}, body) {
 					return
 				}
 			}
 
 		} else {
-			volcstackResponse := VolcstackResponse{}
+			volcstackResponse := response.VolcstackResponse{}
 			if processBodyError(r, &volcstackResponse, body) {
 				return
 			}
@@ -88,7 +89,7 @@ func UnmarshalMeta(r *request.Request) {
 
 }
 
-func processBodyError(r *request.Request, volcstackResponse *VolcstackResponse, body []byte) bool {
+func processBodyError(r *request.Request, volcstackResponse *response.VolcstackResponse, body []byte) bool {
 	if err := json.Unmarshal(body, &volcstackResponse); err != nil {
 		fmt.Printf("Unmarshal err, %v\n", err)
 		r.Error = err
