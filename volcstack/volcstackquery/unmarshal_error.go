@@ -7,10 +7,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"reflect"
 
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/response"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 // UnmarshalErrorHandler is a name request handler to unmarshal request errors
@@ -55,6 +57,29 @@ func UnmarshalError(r *request.Request) {
 			resp.ResponseMetadata.RequestId,
 			r.Config.SimpleError,
 		)
+		if reflect.TypeOf(r.Data) != reflect.TypeOf(&map[string]interface{}{}) {
+			mm := map[string]interface{}{}
+			if err = json.Unmarshal(body, &mm); err != nil {
+				fmt.Printf("Unmarshal err, %v\n", err)
+				r.Error = err
+				return
+			}
+			meta, _ := volcstackutil.ObtainSdkValue("ResponseMetadata", mm)
+			mm["Result"] = map[string]interface{}{}
+			mm["Result"].(map[string]interface{})["Metadata"] = meta
+
+			var b []byte
+			if b, err = json.Marshal(mm["Result"]); err != nil {
+				fmt.Printf("Unmarshal err, %v\n", err)
+				r.Error = err
+				return
+			}
+			if err = json.Unmarshal(b, &r.Data); err != nil {
+				fmt.Printf("Unmarshal err, %v\n", err)
+				r.Error = err
+				return
+			}
+		}
 		return
 	} else {
 		r.Error = volcstackerr.NewRequestFailure(
