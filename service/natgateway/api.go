@@ -1310,8 +1310,7 @@ func (c *NATGATEWAY) ModifySnatEntryAttributesWithContext(ctx volcstack.Context,
 }
 
 type CreateNatGatewayInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -1391,7 +1390,8 @@ func (s *CreateNatGatewayInput) SetVpcId(v string) *CreateNatGatewayInput {
 }
 
 type CreateNatGatewayOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	NatGatewayId *string `type:"string"`
@@ -1422,8 +1422,7 @@ func (s *CreateNatGatewayOutput) SetRequestId(v string) *CreateNatGatewayOutput 
 }
 
 type CreateSnatEntryInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// EipId is a required field
 	EipId *string `type:"string" required:"true"`
@@ -1497,7 +1496,8 @@ func (s *CreateSnatEntryInput) SetSubnetId(v string) *CreateSnatEntryInput {
 }
 
 type CreateSnatEntryOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -1528,8 +1528,7 @@ func (s *CreateSnatEntryOutput) SetSnatEntryId(v string) *CreateSnatEntryOutput 
 }
 
 type DeleteNatGatewayInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// NatGatewayId is a required field
 	NatGatewayId *string `type:"string" required:"true"`
@@ -1565,7 +1564,8 @@ func (s *DeleteNatGatewayInput) SetNatGatewayId(v string) *DeleteNatGatewayInput
 }
 
 type DeleteNatGatewayOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -1588,8 +1588,7 @@ func (s *DeleteNatGatewayOutput) SetRequestId(v string) *DeleteNatGatewayOutput 
 }
 
 type DeleteSnatEntryInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// SnatEntryId is a required field
 	SnatEntryId *string `type:"string" required:"true"`
@@ -1625,7 +1624,8 @@ func (s *DeleteSnatEntryInput) SetSnatEntryId(v string) *DeleteSnatEntryInput {
 }
 
 type DeleteSnatEntryOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -1648,8 +1648,7 @@ func (s *DeleteSnatEntryOutput) SetRequestId(v string) *DeleteSnatEntryOutput {
 }
 
 type DescribeNatGatewayAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// NatGatewayId is a required field
 	NatGatewayId *string `type:"string" required:"true"`
@@ -1685,7 +1684,8 @@ func (s *DescribeNatGatewayAttributesInput) SetNatGatewayId(v string) *DescribeN
 }
 
 type DescribeNatGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	BillingType *int64 `type:"integer"`
@@ -1836,8 +1836,7 @@ func (s *DescribeNatGatewayAttributesOutput) SetVpcId(v string) *DescribeNatGate
 }
 
 type DescribeNatGatewaysInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -1928,7 +1927,8 @@ func (s *DescribeNatGatewaysInput) SetVpcId(v string) *DescribeNatGatewaysInput 
 }
 
 type DescribeNatGatewaysOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	NatGateways []*NatGatewayForDescribeNatGatewaysOutput `type:"list"`
@@ -1983,8 +1983,7 @@ func (s *DescribeNatGatewaysOutput) SetTotalCount(v int64) *DescribeNatGatewaysO
 }
 
 type DescribeSnatEntriesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	EipId *string `type:"string"`
 
@@ -2067,7 +2066,8 @@ func (s *DescribeSnatEntriesInput) SetSubnetId(v string) *DescribeSnatEntriesInp
 }
 
 type DescribeSnatEntriesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
@@ -2122,8 +2122,7 @@ func (s *DescribeSnatEntriesOutput) SetTotalCount(v int64) *DescribeSnatEntriesO
 }
 
 type DescribeSnatEntryAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// SnatEntryId is a required field
 	SnatEntryId *string `type:"string" required:"true"`
@@ -2159,7 +2158,8 @@ func (s *DescribeSnatEntryAttributesInput) SetSnatEntryId(v string) *DescribeSna
 }
 
 type DescribeSnatEntryAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	EipAddress *string `type:"string"`
@@ -2238,8 +2238,7 @@ func (s *DescribeSnatEntryAttributesOutput) SetSubnetId(v string) *DescribeSnatE
 }
 
 type EipAddressForDescribeNatGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AllocationId *string `type:"string"`
 
@@ -2277,8 +2276,7 @@ func (s *EipAddressForDescribeNatGatewayAttributesOutput) SetUsingStatus(v strin
 }
 
 type EipAddressForDescribeNatGatewaysOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AllocationId *string `type:"string"`
 
@@ -2316,8 +2314,7 @@ func (s *EipAddressForDescribeNatGatewaysOutput) SetUsingStatus(v string) *EipAd
 }
 
 type ModifyNatGatewayAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -2389,7 +2386,8 @@ func (s *ModifyNatGatewayAttributesInput) SetSpec(v string) *ModifyNatGatewayAtt
 }
 
 type ModifyNatGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -2412,8 +2410,7 @@ func (s *ModifyNatGatewayAttributesOutput) SetRequestId(v string) *ModifyNatGate
 }
 
 type ModifySnatEntryAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	EipId *string `type:"string"`
 
@@ -2471,7 +2468,8 @@ func (s *ModifySnatEntryAttributesInput) SetSnatEntryName(v string) *ModifySnatE
 }
 
 type ModifySnatEntryAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -2494,8 +2492,7 @@ func (s *ModifySnatEntryAttributesOutput) SetRequestId(v string) *ModifySnatEntr
 }
 
 type NatGatewayForDescribeNatGatewaysOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	BillingType *int64 `type:"integer"`
 
@@ -2637,8 +2634,7 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetVpcId(v string) *NatGatewayF
 }
 
 type SnatEntryForDescribeSnatEntriesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	EipAddress *string `type:"string"`
 
