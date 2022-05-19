@@ -4952,8 +4952,7 @@ func (c *CLB) UploadCertificateWithContext(ctx volcstack.Context, input *UploadC
 }
 
 type AccessLogForDescribeLoadBalancerAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	BucketName *string `type:"string"`
 
@@ -4983,8 +4982,7 @@ func (s *AccessLogForDescribeLoadBalancerAttributesOutput) SetEnabled(v bool) *A
 }
 
 type AclEntryForAddAclEntriesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -5028,8 +5026,7 @@ func (s *AclEntryForAddAclEntriesInput) SetEntry(v string) *AclEntryForAddAclEnt
 }
 
 type AclEntryForDescribeAclAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -5059,8 +5056,7 @@ func (s *AclEntryForDescribeAclAttributesOutput) SetEntry(v string) *AclEntryFor
 }
 
 type AclForDescribeAclsOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AclEntryCount *int64 `type:"integer"`
 
@@ -5138,8 +5134,7 @@ func (s *AclForDescribeAclsOutput) SetUpdateTime(v string) *AclForDescribeAclsOu
 }
 
 type AddAclEntriesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// AclEntries is a required field
 	AclEntries []*AclEntryForAddAclEntriesInput `type:"list" required:"true"`
@@ -5197,7 +5192,8 @@ func (s *AddAclEntriesInput) SetAclId(v string) *AddAclEntriesInput {
 }
 
 type AddAclEntriesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -5220,8 +5216,7 @@ func (s *AddAclEntriesOutput) SetRequestId(v string) *AddAclEntriesOutput {
 }
 
 type AddServerGroupBackendServersInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
@@ -5279,7 +5274,8 @@ func (s *AddServerGroupBackendServersInput) SetServers(v []*ServerForAddServerGr
 }
 
 type AddServerGroupBackendServersOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -5310,8 +5306,7 @@ func (s *AddServerGroupBackendServersOutput) SetServerIds(v []*string) *AddServe
 }
 
 type CertificateForDescribeCertificatesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CertificateId *string `type:"string"`
 
@@ -5381,8 +5376,7 @@ func (s *CertificateForDescribeCertificatesOutput) SetListeners(v []*string) *Ce
 }
 
 type ConvertLoadBalancerBillingTypeInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// LoadBalancerBillingType is a required field
 	LoadBalancerBillingType *int64 `type:"integer" required:"true"`
@@ -5446,7 +5440,8 @@ func (s *ConvertLoadBalancerBillingTypeInput) SetPeriodUnit(v string) *ConvertLo
 }
 
 type ConvertLoadBalancerBillingTypeOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	OrderId *string `type:"string"`
@@ -5477,8 +5472,7 @@ func (s *ConvertLoadBalancerBillingTypeOutput) SetRequestId(v string) *ConvertLo
 }
 
 type CreateAclInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AclName *string `min:"2" max:"255" type:"string"`
 
@@ -5524,7 +5518,8 @@ func (s *CreateAclInput) SetDescription(v string) *CreateAclInput {
 }
 
 type CreateAclOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AclId *string `type:"string"`
@@ -5555,8 +5550,7 @@ func (s *CreateAclOutput) SetRequestId(v string) *CreateAclOutput {
 }
 
 type CreateListenerInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AclIds []*string `type:"list"`
 
@@ -5708,7 +5702,8 @@ func (s *CreateListenerInput) SetServerGroupId(v string) *CreateListenerInput {
 }
 
 type CreateListenerOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	ListenerId *string `type:"string"`
@@ -5739,8 +5734,7 @@ func (s *CreateListenerOutput) SetRequestId(v string) *CreateListenerOutput {
 }
 
 type CreateLoadBalancerInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -5892,7 +5886,8 @@ func (s *CreateLoadBalancerInput) SetVpcId(v string) *CreateLoadBalancerInput {
 }
 
 type CreateLoadBalancerOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	LoadBalancerId *string `type:"string"`
@@ -5931,8 +5926,7 @@ func (s *CreateLoadBalancerOutput) SetRequestId(v string) *CreateLoadBalancerOut
 }
 
 type CreateRulesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
@@ -5990,7 +5984,8 @@ func (s *CreateRulesInput) SetRules(v []*RuleForCreateRulesInput) *CreateRulesIn
 }
 
 type CreateRulesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6021,8 +6016,7 @@ func (s *CreateRulesOutput) SetRuleIds(v []*string) *CreateRulesOutput {
 }
 
 type CreateServerGroupInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -6096,7 +6090,8 @@ func (s *CreateServerGroupInput) SetServers(v []*ServerForCreateServerGroupInput
 }
 
 type CreateServerGroupOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6127,8 +6122,7 @@ func (s *CreateServerGroupOutput) SetServerGroupId(v string) *CreateServerGroupO
 }
 
 type DeleteAclInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// AclId is a required field
 	AclId *string `type:"string" required:"true"`
@@ -6164,7 +6158,8 @@ func (s *DeleteAclInput) SetAclId(v string) *DeleteAclInput {
 }
 
 type DeleteAclOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6187,8 +6182,7 @@ func (s *DeleteAclOutput) SetRequestId(v string) *DeleteAclOutput {
 }
 
 type DeleteCertificateInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// CertificateId is a required field
 	CertificateId *string `type:"string" required:"true"`
@@ -6224,7 +6218,8 @@ func (s *DeleteCertificateInput) SetCertificateId(v string) *DeleteCertificateIn
 }
 
 type DeleteCertificateOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6247,8 +6242,7 @@ func (s *DeleteCertificateOutput) SetRequestId(v string) *DeleteCertificateOutpu
 }
 
 type DeleteListenerInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
@@ -6284,7 +6278,8 @@ func (s *DeleteListenerInput) SetListenerId(v string) *DeleteListenerInput {
 }
 
 type DeleteListenerOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6307,8 +6302,7 @@ func (s *DeleteListenerOutput) SetRequestId(v string) *DeleteListenerOutput {
 }
 
 type DeleteLoadBalancerInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
@@ -6344,7 +6338,8 @@ func (s *DeleteLoadBalancerInput) SetLoadBalancerId(v string) *DeleteLoadBalance
 }
 
 type DeleteLoadBalancerOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6367,8 +6362,7 @@ func (s *DeleteLoadBalancerOutput) SetRequestId(v string) *DeleteLoadBalancerOut
 }
 
 type DeleteRulesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
@@ -6416,7 +6410,8 @@ func (s *DeleteRulesInput) SetRuleIds(v []*string) *DeleteRulesInput {
 }
 
 type DeleteRulesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6439,8 +6434,7 @@ func (s *DeleteRulesOutput) SetRequestId(v string) *DeleteRulesOutput {
 }
 
 type DeleteServerGroupInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
@@ -6476,7 +6470,8 @@ func (s *DeleteServerGroupInput) SetServerGroupId(v string) *DeleteServerGroupIn
 }
 
 type DeleteServerGroupOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6499,8 +6494,7 @@ func (s *DeleteServerGroupOutput) SetRequestId(v string) *DeleteServerGroupOutpu
 }
 
 type DescribeAclAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// AclId is a required field
 	AclId *string `type:"string" required:"true"`
@@ -6536,7 +6530,8 @@ func (s *DescribeAclAttributesInput) SetAclId(v string) *DescribeAclAttributesIn
 }
 
 type DescribeAclAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AclEntries []*AclEntryForDescribeAclAttributesOutput `type:"list"`
@@ -6623,8 +6618,7 @@ func (s *DescribeAclAttributesOutput) SetUpdateTime(v string) *DescribeAclAttrib
 }
 
 type DescribeAclsInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AclIds []*string `type:"list"`
 
@@ -6670,7 +6664,8 @@ func (s *DescribeAclsInput) SetPageSize(v int64) *DescribeAclsInput {
 }
 
 type DescribeAclsOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	Acls []*AclForDescribeAclsOutput `type:"list"`
@@ -6725,8 +6720,7 @@ func (s *DescribeAclsOutput) SetTotalCount(v int64) *DescribeAclsOutput {
 }
 
 type DescribeCertificatesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CertificateIds []*string `type:"list"`
 
@@ -6772,7 +6766,8 @@ func (s *DescribeCertificatesInput) SetPageSize(v int64) *DescribeCertificatesIn
 }
 
 type DescribeCertificatesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	Certificates []*CertificateForDescribeCertificatesOutput `type:"list"`
@@ -6827,8 +6822,7 @@ func (s *DescribeCertificatesOutput) SetTotalCount(v int64) *DescribeCertificate
 }
 
 type DescribeListenerAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
@@ -6864,7 +6858,8 @@ func (s *DescribeListenerAttributesInput) SetListenerId(v string) *DescribeListe
 }
 
 type DescribeListenerAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AclIds []*string `type:"list"`
@@ -7031,8 +7026,7 @@ func (s *DescribeListenerAttributesOutput) SetUpdateTime(v string) *DescribeList
 }
 
 type DescribeListenerHealthInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
@@ -7092,7 +7086,8 @@ func (s *DescribeListenerHealthInput) SetPageSize(v int64) *DescribeListenerHeal
 }
 
 type DescribeListenerHealthOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
@@ -7163,8 +7158,7 @@ func (s *DescribeListenerHealthOutput) SetUnHealthyCount(v int64) *DescribeListe
 }
 
 type DescribeListenersInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ListenerIds []*string `type:"list"`
 
@@ -7218,7 +7212,8 @@ func (s *DescribeListenersInput) SetPageSize(v int64) *DescribeListenersInput {
 }
 
 type DescribeListenersOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	Listeners []*ListenerForDescribeListenersOutput `type:"list"`
@@ -7273,8 +7268,7 @@ func (s *DescribeListenersOutput) SetTotalCount(v int64) *DescribeListenersOutpu
 }
 
 type DescribeLoadBalancerAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
@@ -7310,7 +7304,8 @@ func (s *DescribeLoadBalancerAttributesInput) SetLoadBalancerId(v string) *Descr
 }
 
 type DescribeLoadBalancerAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AccessLog *AccessLogForDescribeLoadBalancerAttributesOutput `type:"structure"`
@@ -7533,8 +7528,7 @@ func (s *DescribeLoadBalancerAttributesOutput) SetVpcId(v string) *DescribeLoadB
 }
 
 type DescribeLoadBalancersBillingInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	LoadBalancerIds []*string `type:"list"`
 
@@ -7572,7 +7566,8 @@ func (s *DescribeLoadBalancersBillingInput) SetPageSize(v int64) *DescribeLoadBa
 }
 
 type DescribeLoadBalancersBillingOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	LoadBalancerBillingConfigs []*LoadBalancerBillingConfigForDescribeLoadBalancersBillingOutput `type:"list"`
@@ -7627,8 +7622,7 @@ func (s *DescribeLoadBalancersBillingOutput) SetTotalCount(v int64) *DescribeLoa
 }
 
 type DescribeLoadBalancersInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	EniAddress *string `type:"string"`
 
@@ -7690,7 +7684,8 @@ func (s *DescribeLoadBalancersInput) SetVpcId(v string) *DescribeLoadBalancersIn
 }
 
 type DescribeLoadBalancersOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	LoadBalancers []*LoadBalancerForDescribeLoadBalancersOutput `type:"list"`
@@ -7745,8 +7740,7 @@ func (s *DescribeLoadBalancersOutput) SetTotalCount(v int64) *DescribeLoadBalanc
 }
 
 type DescribeRulesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
@@ -7782,7 +7776,8 @@ func (s *DescribeRulesInput) SetListenerId(v string) *DescribeRulesInput {
 }
 
 type DescribeRulesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -7813,8 +7808,7 @@ func (s *DescribeRulesOutput) SetRules(v []*RuleForDescribeRulesOutput) *Describ
 }
 
 type DescribeServerGroupAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
@@ -7850,7 +7844,8 @@ func (s *DescribeServerGroupAttributesInput) SetServerGroupId(v string) *Describ
 }
 
 type DescribeServerGroupAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	Listeners []*string `type:"list"`
@@ -7913,8 +7908,7 @@ func (s *DescribeServerGroupAttributesOutput) SetServers(v []*ServerForDescribeS
 }
 
 type DescribeServerGroupsInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	LoadBalancerId *string `type:"string"`
 
@@ -7968,7 +7962,8 @@ func (s *DescribeServerGroupsInput) SetServerGroupName(v string) *DescribeServer
 }
 
 type DescribeServerGroupsOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
@@ -8023,8 +8018,7 @@ func (s *DescribeServerGroupsOutput) SetTotalCount(v int64) *DescribeServerGroup
 }
 
 type DisableAccessLogInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
@@ -8060,7 +8054,8 @@ func (s *DisableAccessLogInput) SetLoadBalancerId(v string) *DisableAccessLogInp
 }
 
 type DisableAccessLogOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -8083,8 +8078,7 @@ func (s *DisableAccessLogOutput) SetRequestId(v string) *DisableAccessLogOutput 
 }
 
 type EipBillingConfigForCreateLoadBalancerInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Bandwidth *int64 `type:"integer"`
 
@@ -8122,8 +8116,7 @@ func (s *EipBillingConfigForCreateLoadBalancerInput) SetISP(v string) *EipBillin
 }
 
 type EipForDescribeLoadBalancerAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Bandwidth *int64 `type:"integer"`
 
@@ -8169,8 +8162,7 @@ func (s *EipForDescribeLoadBalancerAttributesOutput) SetISP(v string) *EipForDes
 }
 
 type EnableAccessLogInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// BucketName is a required field
 	BucketName *string `type:"string" required:"true"`
@@ -8218,7 +8210,8 @@ func (s *EnableAccessLogInput) SetLoadBalancerId(v string) *EnableAccessLogInput
 }
 
 type EnableAccessLogOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -8241,8 +8234,7 @@ func (s *EnableAccessLogOutput) SetRequestId(v string) *EnableAccessLogOutput {
 }
 
 type HealthCheckForCreateListenerInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Domain *string `type:"string"`
 
@@ -8320,8 +8312,7 @@ func (s *HealthCheckForCreateListenerInput) SetURI(v string) *HealthCheckForCrea
 }
 
 type HealthCheckForDescribeListenerAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Domain *string `type:"string"`
 
@@ -8407,8 +8398,7 @@ func (s *HealthCheckForDescribeListenerAttributesOutput) SetUri(v string) *Healt
 }
 
 type HealthCheckForDescribeListenersOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Domain *string `type:"string"`
 
@@ -8494,8 +8484,7 @@ func (s *HealthCheckForDescribeListenersOutput) SetUri(v string) *HealthCheckFor
 }
 
 type HealthCheckForModifyListenerAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Domain *string `type:"string"`
 
@@ -8573,8 +8562,7 @@ func (s *HealthCheckForModifyListenerAttributesInput) SetURI(v string) *HealthCh
 }
 
 type ListenerForDescribeAclAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AclType *string `type:"string"`
 
@@ -8628,8 +8616,7 @@ func (s *ListenerForDescribeAclAttributesOutput) SetProtocol(v string) *Listener
 }
 
 type ListenerForDescribeListenersOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AclIds []*string `type:"list"`
 
@@ -8755,8 +8742,7 @@ func (s *ListenerForDescribeListenersOutput) SetUpdateTime(v string) *ListenerFo
 }
 
 type ListenerForDescribeLoadBalancerAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ListenerId *string `type:"string"`
 
@@ -8786,8 +8772,7 @@ func (s *ListenerForDescribeLoadBalancerAttributesOutput) SetListenerName(v stri
 }
 
 type LoadBalancerBillingConfigForDescribeLoadBalancersBillingOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	BillingType *int64 `type:"integer"`
 
@@ -8881,8 +8866,7 @@ func (s *LoadBalancerBillingConfigForDescribeLoadBalancersBillingOutput) SetRene
 }
 
 type LoadBalancerForDescribeLoadBalancersOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	BusinessStatus *string `type:"string"`
 
@@ -9072,8 +9056,7 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetVpcId(v string) *LoadBal
 }
 
 type ModifyAclAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// AclId is a required field
 	AclId *string `type:"string" required:"true"`
@@ -9131,7 +9114,8 @@ func (s *ModifyAclAttributesInput) SetDescription(v string) *ModifyAclAttributes
 }
 
 type ModifyAclAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -9154,8 +9138,7 @@ func (s *ModifyAclAttributesOutput) SetRequestId(v string) *ModifyAclAttributesO
 }
 
 type ModifyListenerAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AclIds []*string `type:"list"`
 
@@ -9279,7 +9262,8 @@ func (s *ModifyListenerAttributesInput) SetServerGroupId(v string) *ModifyListen
 }
 
 type ModifyListenerAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -9302,8 +9286,7 @@ func (s *ModifyListenerAttributesOutput) SetRequestId(v string) *ModifyListenerA
 }
 
 type ModifyLoadBalancerAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -9379,7 +9362,8 @@ func (s *ModifyLoadBalancerAttributesInput) SetModificationProtectionStatus(v st
 }
 
 type ModifyLoadBalancerAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -9402,8 +9386,7 @@ func (s *ModifyLoadBalancerAttributesOutput) SetRequestId(v string) *ModifyLoadB
 }
 
 type ModifyRulesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
@@ -9461,7 +9444,8 @@ func (s *ModifyRulesInput) SetRules(v []*RuleForModifyRulesInput) *ModifyRulesIn
 }
 
 type ModifyRulesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -9484,8 +9468,7 @@ func (s *ModifyRulesOutput) SetRequestId(v string) *ModifyRulesOutput {
 }
 
 type ModifyServerGroupAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -9559,7 +9542,8 @@ func (s *ModifyServerGroupAttributesInput) SetServers(v []*ServerForModifyServer
 }
 
 type ModifyServerGroupAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -9582,8 +9566,7 @@ func (s *ModifyServerGroupAttributesOutput) SetRequestId(v string) *ModifyServer
 }
 
 type RemoveAclEntriesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// AclId is a required field
 	AclId *string `type:"string" required:"true"`
@@ -9631,7 +9614,8 @@ func (s *RemoveAclEntriesInput) SetEntries(v []*string) *RemoveAclEntriesInput {
 }
 
 type RemoveAclEntriesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -9654,8 +9638,7 @@ func (s *RemoveAclEntriesOutput) SetRequestId(v string) *RemoveAclEntriesOutput 
 }
 
 type RemoveServerGroupBackendServersInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
@@ -9703,7 +9686,8 @@ func (s *RemoveServerGroupBackendServersInput) SetServerIds(v []*string) *Remove
 }
 
 type RemoveServerGroupBackendServersOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -9726,8 +9710,7 @@ func (s *RemoveServerGroupBackendServersOutput) SetRequestId(v string) *RemoveSe
 }
 
 type RenewLoadBalancerInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
@@ -9779,7 +9762,8 @@ func (s *RenewLoadBalancerInput) SetPeriodUnit(v string) *RenewLoadBalancerInput
 }
 
 type RenewLoadBalancerOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -9802,8 +9786,7 @@ func (s *RenewLoadBalancerOutput) SetRequestId(v string) *RenewLoadBalancerOutpu
 }
 
 type ResultForDescribeListenerHealthOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	InstanceId *string `type:"string"`
 
@@ -9881,8 +9864,7 @@ func (s *ResultForDescribeListenerHealthOutput) SetType(v string) *ResultForDesc
 }
 
 type RuleForCreateRulesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -9942,8 +9924,7 @@ func (s *RuleForCreateRulesInput) SetUrl(v string) *RuleForCreateRulesInput {
 }
 
 type RuleForDescribeRulesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -9997,8 +9978,7 @@ func (s *RuleForDescribeRulesOutput) SetUrl(v string) *RuleForDescribeRulesOutpu
 }
 
 type RuleForModifyRulesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -10050,8 +10030,7 @@ func (s *RuleForModifyRulesInput) SetServerGroupId(v string) *RuleForModifyRules
 }
 
 type ServerForAddServerGroupBackendServersInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -10139,8 +10118,7 @@ func (s *ServerForAddServerGroupBackendServersInput) SetWeight(v int64) *ServerF
 }
 
 type ServerForCreateServerGroupInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -10228,8 +10206,7 @@ func (s *ServerForCreateServerGroupInput) SetWeight(v int64) *ServerForCreateSer
 }
 
 type ServerForDescribeServerGroupAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -10299,8 +10276,7 @@ func (s *ServerForDescribeServerGroupAttributesOutput) SetWeight(v int64) *Serve
 }
 
 type ServerForModifyServerGroupAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -10368,8 +10344,7 @@ func (s *ServerForModifyServerGroupAttributesInput) SetWeight(v int64) *ServerFo
 }
 
 type ServerGroupForDescribeLoadBalancerAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ServerGroupId *string `type:"string"`
 
@@ -10399,8 +10374,7 @@ func (s *ServerGroupForDescribeLoadBalancerAttributesOutput) SetServerGroupName(
 }
 
 type ServerGroupForDescribeServerGroupsOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CreateTime *string `type:"string"`
 
@@ -10454,8 +10428,7 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetUpdateTime(v string) *Serv
 }
 
 type SetLoadBalancerRenewalInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	LoadBalancerId *string `type:"string"`
 
@@ -10521,7 +10494,8 @@ func (s *SetLoadBalancerRenewalInput) SetRenewType(v int64) *SetLoadBalancerRene
 }
 
 type SetLoadBalancerRenewalOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -10544,8 +10518,7 @@ func (s *SetLoadBalancerRenewalOutput) SetRequestId(v string) *SetLoadBalancerRe
 }
 
 type UploadCertificateInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CertificateName *string `type:"string"`
 
@@ -10609,7 +10582,8 @@ func (s *UploadCertificateInput) SetPublicKey(v string) *UploadCertificateInput 
 }
 
 type UploadCertificateOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	CertificateId *string `type:"string"`

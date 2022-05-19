@@ -3390,8 +3390,7 @@ func (c *DIRECTCONNECT) ModifyDirectConnectVirtualInterfaceAttributesWithContext
 }
 
 type AssociateCenForDescribeDirectConnectGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CenId *string `type:"string"`
 
@@ -3429,8 +3428,7 @@ func (s *AssociateCenForDescribeDirectConnectGatewayAttributesOutput) SetCenStat
 }
 
 type AssociateCenForDescribeDirectConnectGatewaysOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CenId *string `type:"string"`
 
@@ -3468,8 +3466,7 @@ func (s *AssociateCenForDescribeDirectConnectGatewaysOutput) SetCenStatus(v stri
 }
 
 type BgpPeerForDescribeBgpPeersOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
 
@@ -3571,8 +3568,7 @@ func (s *BgpPeerForDescribeBgpPeersOutput) SetVirtualInterfaceId(v string) *BgpP
 }
 
 type ConfirmDirectConnectConnectionInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// DirectConnectConnectionId is a required field
 	DirectConnectConnectionId *string `type:"string" required:"true"`
@@ -3608,7 +3604,8 @@ func (s *ConfirmDirectConnectConnectionInput) SetDirectConnectConnectionId(v str
 }
 
 type ConfirmDirectConnectConnectionOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -3631,8 +3628,7 @@ func (s *ConfirmDirectConnectConnectionOutput) SetRequestId(v string) *ConfirmDi
 }
 
 type CreateBgpPeerInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// AuthKey is a required field
 	AuthKey *string `type:"string" required:"true"`
@@ -3720,7 +3716,8 @@ func (s *CreateBgpPeerInput) SetVirtualInterfaceId(v string) *CreateBgpPeerInput
 }
 
 type CreateBgpPeerOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	BgpPeerId *string `type:"string"`
@@ -3751,8 +3748,7 @@ func (s *CreateBgpPeerOutput) SetRequestId(v string) *CreateBgpPeerOutput {
 }
 
 type CreateDirectConnectGatewayInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -3796,7 +3792,8 @@ func (s *CreateDirectConnectGatewayInput) SetDirectConnectGatewayName(v string) 
 }
 
 type CreateDirectConnectGatewayOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	DirectConnectGatewayId *string `type:"string"`
@@ -3835,8 +3832,7 @@ func (s *CreateDirectConnectGatewayOutput) SetRequestId(v string) *CreateDirectC
 }
 
 type CreateDirectConnectGatewayRouteInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// DestinationCidrBlock is a required field
 	DestinationCidrBlock *string `type:"string" required:"true"`
@@ -3896,7 +3892,8 @@ func (s *CreateDirectConnectGatewayRouteInput) SetNextHopId(v string) *CreateDir
 }
 
 type CreateDirectConnectGatewayRouteOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	DirectConnectGatewayRouteId *string `type:"string"`
@@ -3927,8 +3924,7 @@ func (s *CreateDirectConnectGatewayRouteOutput) SetRequestId(v string) *CreateDi
 }
 
 type CreateDirectConnectVirtualInterfaceInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -4048,7 +4044,8 @@ func (s *CreateDirectConnectVirtualInterfaceInput) SetVlanId(v int64) *CreateDir
 }
 
 type CreateDirectConnectVirtualInterfaceOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -4079,8 +4076,7 @@ func (s *CreateDirectConnectVirtualInterfaceOutput) SetVirtualInterfaceId(v stri
 }
 
 type CreateSharedDirectConnectConnectionInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// Bandwidth is a required field
 	Bandwidth *int64 `min:"50" max:"1000" type:"integer" required:"true"`
@@ -4174,7 +4170,8 @@ func (s *CreateSharedDirectConnectConnectionInput) SetVlanId(v int64) *CreateSha
 }
 
 type CreateSharedDirectConnectConnectionOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -4205,8 +4202,7 @@ func (s *CreateSharedDirectConnectConnectionOutput) SetSharedDirectConnectConnec
 }
 
 type DeleteBgpPeerInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// BgpPeerId is a required field
 	BgpPeerId *string `type:"string" required:"true"`
@@ -4242,7 +4238,8 @@ func (s *DeleteBgpPeerInput) SetBgpPeerId(v string) *DeleteBgpPeerInput {
 }
 
 type DeleteBgpPeerOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -4265,8 +4262,7 @@ func (s *DeleteBgpPeerOutput) SetRequestId(v string) *DeleteBgpPeerOutput {
 }
 
 type DeleteDirectConnectConnectionInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// DirectConnectConnectionId is a required field
 	DirectConnectConnectionId *string `type:"string" required:"true"`
@@ -4302,7 +4298,8 @@ func (s *DeleteDirectConnectConnectionInput) SetDirectConnectConnectionId(v stri
 }
 
 type DeleteDirectConnectConnectionOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -4325,8 +4322,7 @@ func (s *DeleteDirectConnectConnectionOutput) SetRequestId(v string) *DeleteDire
 }
 
 type DeleteDirectConnectGatewayInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// DirectConnectGatewayId is a required field
 	DirectConnectGatewayId *string `type:"string" required:"true"`
@@ -4362,7 +4358,8 @@ func (s *DeleteDirectConnectGatewayInput) SetDirectConnectGatewayId(v string) *D
 }
 
 type DeleteDirectConnectGatewayOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PreOrderNumber *string `type:"string"`
@@ -4393,8 +4390,7 @@ func (s *DeleteDirectConnectGatewayOutput) SetRequestId(v string) *DeleteDirectC
 }
 
 type DeleteDirectConnectGatewayRouteInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// DirectConnectGatewayRouteId is a required field
 	DirectConnectGatewayRouteId *string `type:"string" required:"true"`
@@ -4430,7 +4426,8 @@ func (s *DeleteDirectConnectGatewayRouteInput) SetDirectConnectGatewayRouteId(v 
 }
 
 type DeleteDirectConnectGatewayRouteOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -4453,8 +4450,7 @@ func (s *DeleteDirectConnectGatewayRouteOutput) SetRequestId(v string) *DeleteDi
 }
 
 type DeleteDirectConnectVirtualInterfaceInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// VirtualInterfaceId is a required field
 	VirtualInterfaceId *string `type:"string" required:"true"`
@@ -4490,7 +4486,8 @@ func (s *DeleteDirectConnectVirtualInterfaceInput) SetVirtualInterfaceId(v strin
 }
 
 type DeleteDirectConnectVirtualInterfaceOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -4513,8 +4510,7 @@ func (s *DeleteDirectConnectVirtualInterfaceOutput) SetRequestId(v string) *Dele
 }
 
 type DescribeBgpPeerAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// BgpPeerId is a required field
 	BgpPeerId *string `type:"string" required:"true"`
@@ -4550,7 +4546,8 @@ func (s *DescribeBgpPeerAttributesInput) SetBgpPeerId(v string) *DescribeBgpPeer
 }
 
 type DescribeBgpPeerAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
@@ -4661,8 +4658,7 @@ func (s *DescribeBgpPeerAttributesOutput) SetVirtualInterfaceId(v string) *Descr
 }
 
 type DescribeBgpPeersInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	BgpPeerIds []*string `type:"list"`
 
@@ -4732,7 +4728,8 @@ func (s *DescribeBgpPeersInput) SetVirtualInterfaceId(v string) *DescribeBgpPeer
 }
 
 type DescribeBgpPeersOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	BgpPeers []*BgpPeerForDescribeBgpPeersOutput `type:"list"`
@@ -4787,8 +4784,7 @@ func (s *DescribeBgpPeersOutput) SetTotalCount(v int64) *DescribeBgpPeersOutput 
 }
 
 type DescribeDirectConnectConnectionAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// DirectConnectConnectionId is a required field
 	DirectConnectConnectionId *string `type:"string" required:"true"`
@@ -4824,7 +4820,8 @@ func (s *DescribeDirectConnectConnectionAttributesInput) SetDirectConnectConnect
 }
 
 type DescribeDirectConnectConnectionAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AccessPoint *string `type:"string"`
@@ -4975,8 +4972,7 @@ func (s *DescribeDirectConnectConnectionAttributesOutput) SetVlanId(v int64) *De
 }
 
 type DescribeDirectConnectConnectionsInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccessPoint *string `type:"string"`
 
@@ -5046,7 +5042,8 @@ func (s *DescribeDirectConnectConnectionsInput) SetPeerLocation(v string) *Descr
 }
 
 type DescribeDirectConnectConnectionsOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	DirectConnectConnections []*DirectConnectConnectionForDescribeDirectConnectConnectionsOutput `type:"list"`
@@ -5101,8 +5098,7 @@ func (s *DescribeDirectConnectConnectionsOutput) SetTotalCount(v int64) *Describ
 }
 
 type DescribeDirectConnectGatewayAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// DirectConnectGatewayId is a required field
 	DirectConnectGatewayId *string `type:"string" required:"true"`
@@ -5138,7 +5134,8 @@ func (s *DescribeDirectConnectGatewayAttributesInput) SetDirectConnectGatewayId(
 }
 
 type DescribeDirectConnectGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
@@ -5257,8 +5254,7 @@ func (s *DescribeDirectConnectGatewayAttributesOutput) SetUpdateTime(v string) *
 }
 
 type DescribeDirectConnectGatewayRouteAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// DirectConnectGatewayRouteId is a required field
 	DirectConnectGatewayRouteId *string `type:"string" required:"true"`
@@ -5294,7 +5290,8 @@ func (s *DescribeDirectConnectGatewayRouteAttributesInput) SetDirectConnectGatew
 }
 
 type DescribeDirectConnectGatewayRouteAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
@@ -5389,8 +5386,7 @@ func (s *DescribeDirectConnectGatewayRouteAttributesOutput) SetStatus(v string) 
 }
 
 type DescribeDirectConnectGatewayRoutesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	DestinationCidrBlock *string `type:"string"`
 
@@ -5468,7 +5464,8 @@ func (s *DescribeDirectConnectGatewayRoutesInput) SetRouteType(v string) *Descri
 }
 
 type DescribeDirectConnectGatewayRoutesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	DirectConnectGatewayRoutes []*DirectConnectGatewayRouteForDescribeDirectConnectGatewayRoutesOutput `type:"list"`
@@ -5523,8 +5520,7 @@ func (s *DescribeDirectConnectGatewayRoutesOutput) SetTotalCount(v int64) *Descr
 }
 
 type DescribeDirectConnectGatewaysInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CenId *string `type:"string"`
 
@@ -5578,7 +5574,8 @@ func (s *DescribeDirectConnectGatewaysInput) SetPageSize(v int64) *DescribeDirec
 }
 
 type DescribeDirectConnectGatewaysOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	DirectConnectGateways []*DirectConnectGatewayForDescribeDirectConnectGatewaysOutput `type:"list"`
@@ -5633,8 +5630,7 @@ func (s *DescribeDirectConnectGatewaysOutput) SetTotalCount(v int64) *DescribeDi
 }
 
 type DescribeDirectConnectVirtualInterfaceAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// VirtualInterfaceId is a required field
 	VirtualInterfaceId *string `type:"string" required:"true"`
@@ -5670,7 +5666,8 @@ func (s *DescribeDirectConnectVirtualInterfaceAttributesInput) SetVirtualInterfa
 }
 
 type DescribeDirectConnectVirtualInterfaceAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
@@ -5829,8 +5826,7 @@ func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetVlanId(v int6
 }
 
 type DescribeDirectConnectVirtualInterfacesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	DirectConnectConnectionId *string `type:"string"`
 
@@ -5932,7 +5928,8 @@ func (s *DescribeDirectConnectVirtualInterfacesInput) SetVlanId(v int64) *Descri
 }
 
 type DescribeDirectConnectVirtualInterfacesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
@@ -5987,8 +5984,7 @@ func (s *DescribeDirectConnectVirtualInterfacesOutput) SetVirtualInterfaces(v []
 }
 
 type DescribeSharedDirectConnectConnectionsInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -6066,7 +6062,8 @@ func (s *DescribeSharedDirectConnectConnectionsInput) SetVlanId(v int64) *Descri
 }
 
 type DescribeSharedDirectConnectConnectionsOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
@@ -6121,8 +6118,7 @@ func (s *DescribeSharedDirectConnectConnectionsOutput) SetTotalCount(v int64) *D
 }
 
 type DirectConnectConnectionForDescribeDirectConnectConnectionsOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccessPoint *string `type:"string"`
 
@@ -6264,8 +6260,7 @@ func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetVl
 }
 
 type DirectConnectGatewayForDescribeDirectConnectGatewaysOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
 
@@ -6375,8 +6370,7 @@ func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetUpdateTi
 }
 
 type DirectConnectGatewayRouteForDescribeDirectConnectGatewayRoutesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
 
@@ -6462,8 +6456,7 @@ func (s *DirectConnectGatewayRouteForDescribeDirectConnectGatewayRoutesOutput) S
 }
 
 type ModifyBgpPeerAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// BgpPeerId is a required field
 	BgpPeerId *string `type:"string" required:"true"`
@@ -6527,7 +6520,8 @@ func (s *ModifyBgpPeerAttributesInput) SetDescription(v string) *ModifyBgpPeerAt
 }
 
 type ModifyBgpPeerAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6550,8 +6544,7 @@ func (s *ModifyBgpPeerAttributesOutput) SetRequestId(v string) *ModifyBgpPeerAtt
 }
 
 type ModifyDirectConnectConnectionAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -6603,7 +6596,8 @@ func (s *ModifyDirectConnectConnectionAttributesInput) SetDirectConnectConnectio
 }
 
 type ModifyDirectConnectConnectionAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6626,8 +6620,7 @@ func (s *ModifyDirectConnectConnectionAttributesOutput) SetRequestId(v string) *
 }
 
 type ModifyDirectConnectGatewayAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -6679,7 +6672,8 @@ func (s *ModifyDirectConnectGatewayAttributesInput) SetDirectConnectGatewayName(
 }
 
 type ModifyDirectConnectGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6702,8 +6696,7 @@ func (s *ModifyDirectConnectGatewayAttributesOutput) SetRequestId(v string) *Mod
 }
 
 type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -6767,7 +6760,8 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetVirtualInterface
 }
 
 type ModifyDirectConnectVirtualInterfaceAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6790,8 +6784,7 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesOutput) SetRequestId(v str
 }
 
 type SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccessPoint *string `type:"string"`
 
@@ -6917,8 +6910,7 @@ func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsO
 }
 
 type VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
 

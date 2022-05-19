@@ -2870,8 +2870,7 @@ func (c *VPN) SetVpnGatewayRenewalWithContext(ctx volcstack.Context, input *SetV
 }
 
 type CreateCustomerGatewayInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CustomerGatewayName *string `min:"1" max:"128" type:"string"`
 
@@ -2935,7 +2934,8 @@ func (s *CreateCustomerGatewayInput) SetIPAddress(v string) *CreateCustomerGatew
 }
 
 type CreateCustomerGatewayOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	CustomerGatewayId *string `type:"string"`
@@ -2966,8 +2966,7 @@ func (s *CreateCustomerGatewayOutput) SetRequestId(v string) *CreateCustomerGate
 }
 
 type CreateVpnConnectionInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// CustomerGatewayId is a required field
 	CustomerGatewayId *string `type:"string" required:"true"`
@@ -3100,7 +3099,8 @@ func (s *CreateVpnConnectionInput) SetVpnGatewayId(v string) *CreateVpnConnectio
 }
 
 type CreateVpnConnectionOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -3131,8 +3131,7 @@ func (s *CreateVpnConnectionOutput) SetVpnConnectionId(v string) *CreateVpnConne
 }
 
 type CreateVpnGatewayInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// Bandwidth is a required field
 	Bandwidth *int64 `min:"5" max:"200" type:"integer" required:"true"`
@@ -3286,7 +3285,8 @@ func (s *CreateVpnGatewayInput) SetVpnGatewayName(v string) *CreateVpnGatewayInp
 }
 
 type CreateVpnGatewayOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	OrderId *string `type:"string"`
@@ -3333,8 +3333,7 @@ func (s *CreateVpnGatewayOutput) SetVpnGatewayId(v string) *CreateVpnGatewayOutp
 }
 
 type CreateVpnGatewayRouteInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// DestinationCidrBlock is a required field
 	DestinationCidrBlock *string `type:"string" required:"true"`
@@ -3394,7 +3393,8 @@ func (s *CreateVpnGatewayRouteInput) SetVpnGatewayId(v string) *CreateVpnGateway
 }
 
 type CreateVpnGatewayRouteOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -3425,8 +3425,7 @@ func (s *CreateVpnGatewayRouteOutput) SetVpnGatewayRouteId(v string) *CreateVpnG
 }
 
 type CustomerGatewayForDescribeCustomerGatewaysOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
 
@@ -3512,8 +3511,7 @@ func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetUpdateTime(v strin
 }
 
 type DeleteCustomerGatewayInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// CustomerGatewayId is a required field
 	CustomerGatewayId *string `type:"string" required:"true"`
@@ -3549,7 +3547,8 @@ func (s *DeleteCustomerGatewayInput) SetCustomerGatewayId(v string) *DeleteCusto
 }
 
 type DeleteCustomerGatewayOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -3572,8 +3571,7 @@ func (s *DeleteCustomerGatewayOutput) SetRequestId(v string) *DeleteCustomerGate
 }
 
 type DeleteVpnConnectionInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// VpnConnectionId is a required field
 	VpnConnectionId *string `type:"string" required:"true"`
@@ -3609,7 +3607,8 @@ func (s *DeleteVpnConnectionInput) SetVpnConnectionId(v string) *DeleteVpnConnec
 }
 
 type DeleteVpnConnectionOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -3632,8 +3631,7 @@ func (s *DeleteVpnConnectionOutput) SetRequestId(v string) *DeleteVpnConnectionO
 }
 
 type DeleteVpnGatewayInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
@@ -3669,7 +3667,8 @@ func (s *DeleteVpnGatewayInput) SetVpnGatewayId(v string) *DeleteVpnGatewayInput
 }
 
 type DeleteVpnGatewayOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PreOrderNumber *string `type:"string"`
@@ -3700,8 +3699,7 @@ func (s *DeleteVpnGatewayOutput) SetRequestId(v string) *DeleteVpnGatewayOutput 
 }
 
 type DeleteVpnGatewayRouteInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// VpnGatewayRouteId is a required field
 	VpnGatewayRouteId *string `type:"string" required:"true"`
@@ -3737,7 +3735,8 @@ func (s *DeleteVpnGatewayRouteInput) SetVpnGatewayRouteId(v string) *DeleteVpnGa
 }
 
 type DeleteVpnGatewayRouteOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -3760,8 +3759,7 @@ func (s *DeleteVpnGatewayRouteOutput) SetRequestId(v string) *DeleteVpnGatewayRo
 }
 
 type DescribeCustomerGatewayAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// CustomerGatewayId is a required field
 	CustomerGatewayId *string `type:"string" required:"true"`
@@ -3797,7 +3795,8 @@ func (s *DescribeCustomerGatewayAttributesInput) SetCustomerGatewayId(v string) 
 }
 
 type DescribeCustomerGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
@@ -3892,8 +3891,7 @@ func (s *DescribeCustomerGatewayAttributesOutput) SetUpdateTime(v string) *Descr
 }
 
 type DescribeCustomerGatewaysInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CustomerGatewayIds []*string `type:"list"`
 
@@ -3955,7 +3953,8 @@ func (s *DescribeCustomerGatewaysInput) SetStatus(v string) *DescribeCustomerGat
 }
 
 type DescribeCustomerGatewaysOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	CustomerGateways []*CustomerGatewayForDescribeCustomerGatewaysOutput `type:"list"`
@@ -4010,8 +4009,7 @@ func (s *DescribeCustomerGatewaysOutput) SetTotalCount(v int64) *DescribeCustome
 }
 
 type DescribeVpnConnectionAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// VpnConnectionId is a required field
 	VpnConnectionId *string `type:"string" required:"true"`
@@ -4047,7 +4045,8 @@ func (s *DescribeVpnConnectionAttributesInput) SetVpnConnectionId(v string) *Des
 }
 
 type DescribeVpnConnectionAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
@@ -4182,8 +4181,7 @@ func (s *DescribeVpnConnectionAttributesOutput) SetVpnGatewayId(v string) *Descr
 }
 
 type DescribeVpnConnectionsInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CustomerGatewayId *string `type:"string"`
 
@@ -4253,7 +4251,8 @@ func (s *DescribeVpnConnectionsInput) SetVpnGatewayId(v string) *DescribeVpnConn
 }
 
 type DescribeVpnConnectionsOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
@@ -4308,8 +4307,7 @@ func (s *DescribeVpnConnectionsOutput) SetVpnConnections(v []*VpnConnectionForDe
 }
 
 type DescribeVpnGatewayAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
@@ -4345,7 +4343,8 @@ func (s *DescribeVpnGatewayAttributesInput) SetVpnGatewayId(v string) *DescribeV
 }
 
 type DescribeVpnGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AccountId *string `type:"string"`
@@ -4512,8 +4511,7 @@ func (s *DescribeVpnGatewayAttributesOutput) SetVpnGatewayName(v string) *Descri
 }
 
 type DescribeVpnGatewayRouteAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// VpnGatewayRouteId is a required field
 	VpnGatewayRouteId *string `type:"string" required:"true"`
@@ -4549,7 +4547,8 @@ func (s *DescribeVpnGatewayRouteAttributesInput) SetVpnGatewayRouteId(v string) 
 }
 
 type DescribeVpnGatewayRouteAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	CreationTime *string `type:"string"`
@@ -4628,8 +4627,7 @@ func (s *DescribeVpnGatewayRouteAttributesOutput) SetVpnGatewayRouteId(v string)
 }
 
 type DescribeVpnGatewayRoutesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	DestinationCidrBlock *string `type:"string"`
 
@@ -4699,7 +4697,8 @@ func (s *DescribeVpnGatewayRoutesInput) SetVpnGatewayRouteIds(v []*string) *Desc
 }
 
 type DescribeVpnGatewayRoutesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
@@ -4754,8 +4753,7 @@ func (s *DescribeVpnGatewayRoutesOutput) SetVpnGatewayRoutes(v []*VpnGatewayRout
 }
 
 type DescribeVpnGatewaysBillingInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -4810,7 +4808,8 @@ func (s *DescribeVpnGatewaysBillingInput) SetVpnGatewayIds(v []*string) *Describ
 }
 
 type DescribeVpnGatewaysBillingOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
@@ -4865,8 +4864,7 @@ func (s *DescribeVpnGatewaysBillingOutput) SetVpnGateways(v []*VpnGatewayForDesc
 }
 
 type DescribeVpnGatewaysInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	IpAddress *string `type:"string"`
 
@@ -4944,7 +4942,8 @@ func (s *DescribeVpnGatewaysInput) SetVpnGatewayName(v string) *DescribeVpnGatew
 }
 
 type DescribeVpnGatewaysOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PageNumber *int64 `type:"integer"`
@@ -4999,8 +4998,7 @@ func (s *DescribeVpnGatewaysOutput) SetVpnGateways(v []*VpnGatewayForDescribeVpn
 }
 
 type IkeConfigForCreateVpnConnectionInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AuthAlg *string `type:"string" enum:"IkeConfigAuthAlgForCreateVpnConnectionInput"`
 
@@ -5100,8 +5098,7 @@ func (s *IkeConfigForCreateVpnConnectionInput) SetVersion(v string) *IkeConfigFo
 }
 
 type IkeConfigForDescribeVpnConnectionAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AuthAlg *string `type:"string"`
 
@@ -5187,8 +5184,7 @@ func (s *IkeConfigForDescribeVpnConnectionAttributesOutput) SetVersion(v string)
 }
 
 type IkeConfigForDescribeVpnConnectionsOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AuthAlg *string `type:"string"`
 
@@ -5274,8 +5270,7 @@ func (s *IkeConfigForDescribeVpnConnectionsOutput) SetVersion(v string) *IkeConf
 }
 
 type IkeConfigForModifyVpnConnectionAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AuthAlg *string `type:"string" enum:"IkeConfigAuthAlgForModifyVpnConnectionAttributesInput"`
 
@@ -5361,8 +5356,7 @@ func (s *IkeConfigForModifyVpnConnectionAttributesInput) SetVersion(v string) *I
 }
 
 type IpsecConfigForCreateVpnConnectionInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AuthAlg *string `type:"string" enum:"IpsecConfigAuthAlgForCreateVpnConnectionInput"`
 
@@ -5408,8 +5402,7 @@ func (s *IpsecConfigForCreateVpnConnectionInput) SetLifetime(v string) *IpsecCon
 }
 
 type IpsecConfigForDescribeVpnConnectionAttributesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AuthAlg *string `type:"string"`
 
@@ -5455,8 +5448,7 @@ func (s *IpsecConfigForDescribeVpnConnectionAttributesOutput) SetLifetime(v int6
 }
 
 type IpsecConfigForDescribeVpnConnectionsOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AuthAlg *string `type:"string"`
 
@@ -5502,8 +5494,7 @@ func (s *IpsecConfigForDescribeVpnConnectionsOutput) SetLifetime(v int64) *Ipsec
 }
 
 type IpsecConfigForModifyVpnConnectionAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AuthAlg *string `type:"string" enum:"IpsecConfigAuthAlgForModifyVpnConnectionAttributesInput"`
 
@@ -5549,8 +5540,7 @@ func (s *IpsecConfigForModifyVpnConnectionAttributesInput) SetLifetime(v string)
 }
 
 type ModifyCustomerGatewayAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	// CustomerGatewayId is a required field
 	CustomerGatewayId *string `type:"string" required:"true"`
@@ -5614,7 +5604,8 @@ func (s *ModifyCustomerGatewayAttributesInput) SetDescription(v string) *ModifyC
 }
 
 type ModifyCustomerGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -5637,8 +5628,7 @@ func (s *ModifyCustomerGatewayAttributesOutput) SetRequestId(v string) *ModifyCu
 }
 
 type ModifyVpnConnectionAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -5742,7 +5732,8 @@ func (s *ModifyVpnConnectionAttributesInput) SetVpnConnectionName(v string) *Mod
 }
 
 type ModifyVpnConnectionAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -5765,8 +5756,7 @@ func (s *ModifyVpnConnectionAttributesOutput) SetRequestId(v string) *ModifyVpnC
 }
 
 type ModifyVpnGatewayAttributesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Bandwidth *int64 `min:"5" max:"200" type:"integer"`
 
@@ -5844,7 +5834,8 @@ func (s *ModifyVpnGatewayAttributesInput) SetVpnGatewayName(v string) *ModifyVpn
 }
 
 type ModifyVpnGatewayAttributesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	PreOrderNumber *string `type:"string"`
@@ -5875,8 +5866,7 @@ func (s *ModifyVpnGatewayAttributesOutput) SetRequestId(v string) *ModifyVpnGate
 }
 
 type RenewVpnGatewayInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Period *int64 `type:"integer"`
 
@@ -5928,7 +5918,8 @@ func (s *RenewVpnGatewayInput) SetVpnGatewayId(v string) *RenewVpnGatewayInput {
 }
 
 type RenewVpnGatewayOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -5951,8 +5942,7 @@ func (s *RenewVpnGatewayOutput) SetRequestId(v string) *RenewVpnGatewayOutput {
 }
 
 type SetVpnGatewayRenewalInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	RemainRenewTimes *int64 `type:"integer"`
 
@@ -6022,7 +6012,8 @@ func (s *SetVpnGatewayRenewalInput) SetVpnGatewayId(v string) *SetVpnGatewayRene
 }
 
 type SetVpnGatewayRenewalOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
@@ -6045,8 +6036,7 @@ func (s *SetVpnGatewayRenewalOutput) SetRequestId(v string) *SetVpnGatewayRenewa
 }
 
 type VpnConnectionForDescribeVpnConnectionsOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
 
@@ -6172,8 +6162,7 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetVpnGatewayId(v string)
 }
 
 type VpnGatewayForDescribeVpnGatewaysBillingOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	BillingStatus *int64 `type:"integer"`
 
@@ -6243,8 +6232,7 @@ func (s *VpnGatewayForDescribeVpnGatewaysBillingOutput) SetVpnGatewayId(v string
 }
 
 type VpnGatewayForDescribeVpnGatewaysOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
 
@@ -6402,8 +6390,7 @@ func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetVpnGatewayName(v string) *Vp
 }
 
 type VpnGatewayRouteForDescribeVpnGatewayRoutesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	CreationTime *string `type:"string"`
 

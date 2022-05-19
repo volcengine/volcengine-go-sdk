@@ -2352,8 +2352,7 @@ func (c *ECS) StopInstanceWithContext(ctx volcstack.Context, input *StopInstance
 }
 
 type AvailableResourceForDescribeAvailableResourceOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	SupportedResources []*SupportedResourceForDescribeAvailableResourceOutput `type:"list"`
 
@@ -2383,8 +2382,7 @@ func (s *AvailableResourceForDescribeAvailableResourceOutput) SetType(v string) 
 }
 
 type AvailableZoneForDescribeAvailableResourceOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AvailableResources []*AvailableResourceForDescribeAvailableResourceOutput `type:"list"`
 
@@ -2430,8 +2428,7 @@ func (s *AvailableZoneForDescribeAvailableResourceOutput) SetZoneId(v string) *A
 }
 
 type CreateImageInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -2469,7 +2466,8 @@ func (s *CreateImageInput) SetInstanceId(v string) *CreateImageInput {
 }
 
 type CreateImageOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	ImageId *string `type:"string"`
@@ -2492,8 +2490,7 @@ func (s *CreateImageOutput) SetImageId(v string) *CreateImageOutput {
 }
 
 type DeleteInstanceInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	InstanceId *string `type:"string"`
 }
@@ -2515,7 +2512,8 @@ func (s *DeleteInstanceInput) SetInstanceId(v string) *DeleteInstanceInput {
 }
 
 type DeleteInstanceOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 }
 
@@ -2530,8 +2528,7 @@ func (s DeleteInstanceOutput) GoString() string {
 }
 
 type DescribeAvailableResourceInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	DestinationResource *string `type:"string"`
 
@@ -2577,7 +2574,8 @@ func (s *DescribeAvailableResourceInput) SetZoneId(v string) *DescribeAvailableR
 }
 
 type DescribeAvailableResourceOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	AvailableZones []*AvailableZoneForDescribeAvailableResourceOutput `type:"list"`
@@ -2600,8 +2598,7 @@ func (s *DescribeAvailableResourceOutput) SetAvailableZones(v []*AvailableZoneFo
 }
 
 type DescribeImagesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ImageIds []*string `type:"list"`
 
@@ -2687,7 +2684,8 @@ func (s *DescribeImagesInput) SetVisibility(v string) *DescribeImagesInput {
 }
 
 type DescribeImagesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	Images []*ImageForDescribeImagesOutput `type:"list"`
@@ -2726,8 +2724,7 @@ func (s *DescribeImagesOutput) SetTotalCount(v int32) *DescribeImagesOutput {
 }
 
 type DescribeInstanceTypesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	InstanceTypeIds []*string `type:"list"`
 
@@ -2773,7 +2770,8 @@ func (s *DescribeInstanceTypesInput) SetNextToken(v string) *DescribeInstanceTyp
 }
 
 type DescribeInstanceTypesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	InstanceTypes []*InstanceTypeForDescribeInstanceTypesOutput `type:"list"`
@@ -2812,8 +2810,7 @@ func (s *DescribeInstanceTypesOutput) SetTotalCount(v int32) *DescribeInstanceTy
 }
 
 type DescribeInstanceVncUrlInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	InstanceId *string `type:"string"`
 }
@@ -2835,7 +2832,8 @@ func (s *DescribeInstanceVncUrlInput) SetInstanceId(v string) *DescribeInstanceV
 }
 
 type DescribeInstanceVncUrlOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	VncUrl *string `type:"string"`
@@ -2858,8 +2856,7 @@ func (s *DescribeInstanceVncUrlOutput) SetVncUrl(v string) *DescribeInstanceVncU
 }
 
 type DescribeInstancesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	HpcClusterId *string `type:"string"`
 
@@ -2985,7 +2982,8 @@ func (s *DescribeInstancesInput) SetZoneId(v string) *DescribeInstancesInput {
 }
 
 type DescribeInstancesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	Instances []*InstanceForDescribeInstancesOutput `type:"list"`
@@ -3024,8 +3022,7 @@ func (s *DescribeInstancesOutput) SetTotalCount(v int32) *DescribeInstancesOutpu
 }
 
 type DescribeUserDataInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	InstanceId *string `type:"string"`
 }
@@ -3047,7 +3044,8 @@ func (s *DescribeUserDataInput) SetInstanceId(v string) *DescribeUserDataInput {
 }
 
 type DescribeUserDataOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	InstanceId *string `type:"string"`
@@ -3078,8 +3076,7 @@ func (s *DescribeUserDataOutput) SetUserData(v string) *DescribeUserDataOutput {
 }
 
 type DescribeZonesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ZoneIds []*string `type:"list"`
 }
@@ -3101,7 +3098,8 @@ func (s *DescribeZonesInput) SetZoneIds(v []*string) *DescribeZonesInput {
 }
 
 type DescribeZonesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	Zones []*ZoneForDescribeZonesOutput `type:"list"`
@@ -3124,8 +3122,7 @@ func (s *DescribeZonesOutput) SetZones(v []*ZoneForDescribeZonesOutput) *Describ
 }
 
 type GpuDeviceForDescribeInstanceTypesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Count *int32 `type:"int32"`
 
@@ -3163,8 +3160,7 @@ func (s *GpuDeviceForDescribeInstanceTypesOutput) SetProductName(v string) *GpuD
 }
 
 type GpuForDescribeInstanceTypesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	GpuDevices []*GpuDeviceForDescribeInstanceTypesOutput `type:"list"`
 }
@@ -3186,8 +3182,7 @@ func (s *GpuForDescribeInstanceTypesOutput) SetGpuDevices(v []*GpuDeviceForDescr
 }
 
 type ImageForDescribeImagesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Architecture *string `type:"string"`
 
@@ -3329,8 +3324,7 @@ func (s *ImageForDescribeImagesOutput) SetVisibility(v string) *ImageForDescribe
 }
 
 type InstanceForDescribeInstancesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Cpus *int32 `type:"int32"`
 
@@ -3520,8 +3514,7 @@ func (s *InstanceForDescribeInstancesOutput) SetZoneId(v string) *InstanceForDes
 }
 
 type InstanceTypeForDescribeInstanceTypesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Gpu *GpuForDescribeInstanceTypesOutput `type:"structure"`
 
@@ -3599,8 +3592,7 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetVolume(v *VolumeForDescr
 }
 
 type LocalVolumeForDescribeInstanceTypesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Count *int32 `type:"int32"`
 
@@ -3638,8 +3630,7 @@ func (s *LocalVolumeForDescribeInstanceTypesOutput) SetVolumeType(v string) *Loc
 }
 
 type MemoryForDescribeInstanceTypesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Size *int32 `type:"int32"`
 }
@@ -3661,8 +3652,7 @@ func (s *MemoryForDescribeInstanceTypesOutput) SetSize(v int32) *MemoryForDescri
 }
 
 type ModifyInstanceAttributeInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
@@ -3716,7 +3706,8 @@ func (s *ModifyInstanceAttributeInput) SetUserData(v string) *ModifyInstanceAttr
 }
 
 type ModifyInstanceAttributeOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 }
 
@@ -3731,8 +3722,7 @@ func (s ModifyInstanceAttributeOutput) GoString() string {
 }
 
 type ModifyInstanceChargeTypeInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AutoPay *bool `type:"boolean"`
 
@@ -3802,7 +3792,8 @@ func (s *ModifyInstanceChargeTypeInput) SetPeriodUnit(v string) *ModifyInstanceC
 }
 
 type ModifyInstanceChargeTypeOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	OrderId *string `type:"string"`
@@ -3825,8 +3816,7 @@ func (s *ModifyInstanceChargeTypeOutput) SetOrderId(v string) *ModifyInstanceCha
 }
 
 type ModifyInstanceSpecInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ClientToken *string `type:"string"`
 
@@ -3864,7 +3854,8 @@ func (s *ModifyInstanceSpecInput) SetInstanceType(v string) *ModifyInstanceSpecI
 }
 
 type ModifyInstanceSpecOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 }
 
@@ -3879,8 +3870,7 @@ func (s ModifyInstanceSpecOutput) GoString() string {
 }
 
 type NetworkInterfaceForDescribeInstancesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	MacAddress *string `type:"string"`
 
@@ -3942,8 +3932,7 @@ func (s *NetworkInterfaceForDescribeInstancesOutput) SetVpcId(v string) *Network
 }
 
 type NetworkInterfaceForRunInstancesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	SecurityGroupIds []*string `type:"list"`
 
@@ -3973,8 +3962,7 @@ func (s *NetworkInterfaceForRunInstancesInput) SetSubnetId(v string) *NetworkInt
 }
 
 type ProcessorForDescribeInstanceTypesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Cpus *int32 `type:"int32"`
 }
@@ -3996,8 +3984,7 @@ func (s *ProcessorForDescribeInstanceTypesOutput) SetCpus(v int32) *ProcessorFor
 }
 
 type RdmaForDescribeInstanceTypesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	RdmaNetworkInterfaces *int32 `type:"int32"`
 }
@@ -4019,8 +4006,7 @@ func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int32) *
 }
 
 type RebootInstanceInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ForceStop *bool `type:"boolean"`
 
@@ -4050,7 +4036,8 @@ func (s *RebootInstanceInput) SetInstanceId(v string) *RebootInstanceInput {
 }
 
 type RebootInstanceOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 }
 
@@ -4065,8 +4052,7 @@ func (s RebootInstanceOutput) GoString() string {
 }
 
 type RenewInstanceInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ClientToken *string `type:"string"`
 
@@ -4112,7 +4098,8 @@ func (s *RenewInstanceInput) SetPeriodUnit(v string) *RenewInstanceInput {
 }
 
 type RenewInstanceOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	OrderId *string `type:"string"`
@@ -4135,8 +4122,7 @@ func (s *RenewInstanceOutput) SetOrderId(v string) *RenewInstanceOutput {
 }
 
 type ReplaceSystemVolumeInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ClientToken *string `type:"string"`
 
@@ -4206,7 +4192,8 @@ func (s *ReplaceSystemVolumeInput) SetUserData(v string) *ReplaceSystemVolumeInp
 }
 
 type ReplaceSystemVolumeOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 }
 
@@ -4221,8 +4208,7 @@ func (s ReplaceSystemVolumeOutput) GoString() string {
 }
 
 type RunInstancesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	AutoRenew *bool `type:"boolean"`
 
@@ -4420,7 +4406,8 @@ func (s *RunInstancesInput) SetZoneId(v string) *RunInstancesInput {
 }
 
 type RunInstancesOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 
 	InstanceIds []*string `type:"list"`
@@ -4443,8 +4430,7 @@ func (s *RunInstancesOutput) SetInstanceIds(v []*string) *RunInstancesOutput {
 }
 
 type StartInstanceInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	InstanceId *string `type:"string"`
 }
@@ -4466,7 +4452,8 @@ func (s *StartInstanceInput) SetInstanceId(v string) *StartInstanceInput {
 }
 
 type StartInstanceOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 }
 
@@ -4481,8 +4468,7 @@ func (s StartInstanceOutput) GoString() string {
 }
 
 type StopInstanceInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ForceStop *bool `type:"boolean"`
 
@@ -4520,7 +4506,8 @@ func (s *StopInstanceInput) SetStoppedMode(v string) *StopInstanceInput {
 }
 
 type StopInstanceOutput struct {
-	_        struct{} `type:"structure"`
+	_ struct{} `type:"structure"`
+
 	Metadata *response.ResponseMetadata
 }
 
@@ -4535,8 +4522,7 @@ func (s StopInstanceOutput) GoString() string {
 }
 
 type SupportedResourceForDescribeAvailableResourceOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	Status *string `type:"string"`
 
@@ -4566,8 +4552,7 @@ func (s *SupportedResourceForDescribeAvailableResourceOutput) SetValue(v string)
 }
 
 type VolumeForDescribeInstanceTypesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	SupportedVolumeTypes []*string `type:"list"`
 }
@@ -4589,8 +4574,7 @@ func (s *VolumeForDescribeInstanceTypesOutput) SetSupportedVolumeTypes(v []*stri
 }
 
 type VolumeForRunInstancesInput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	DeleteWithInstance *string `type:"string"`
 
@@ -4628,8 +4612,7 @@ func (s *VolumeForRunInstancesInput) SetVolumeType(v string) *VolumeForRunInstan
 }
 
 type ZoneForDescribeZonesOutput struct {
-	_        struct{} `type:"structure"`
-	Metadata *response.ResponseMetadata
+	_ struct{} `type:"structure"`
 
 	ZoneId *string `type:"string"`
 }
