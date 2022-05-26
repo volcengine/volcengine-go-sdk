@@ -17,6 +17,7 @@ type SdkInterceptor struct {
 type RequestInfo struct {
 	Context    context.Context
 	Request    *http.Request
+	Response   *http.Response
 	Name       string
 	Method     string
 	ClientInfo metadata.ClientInfo

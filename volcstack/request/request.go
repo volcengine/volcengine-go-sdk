@@ -716,6 +716,7 @@ func (r *Request) MergeRequestInfo() custom.RequestInfo {
 	return custom.RequestInfo{
 		Context:    r.context,
 		Request:    r.HTTPRequest,
+		Response:   r.HTTPResponse,
 		Name:       r.Operation.Name,
 		Method:     r.Operation.HTTPMethod,
 		ClientInfo: r.ClientInfo,
