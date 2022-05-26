@@ -6,6 +6,7 @@ import (
 	"net/url"
 
 	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/response"
 )
 
 type SdkInterceptor struct {
@@ -16,6 +17,7 @@ type SdkInterceptor struct {
 type RequestInfo struct {
 	Context    context.Context
 	Request    *http.Request
+	Response   *http.Response
 	Name       string
 	Method     string
 	ClientInfo metadata.ClientInfo
@@ -24,6 +26,7 @@ type RequestInfo struct {
 	URL        *url.URL
 	Input      interface{}
 	Output     interface{}
+	Metadata   response.ResponseMetadata
 }
 
 type BeforeCall func(RequestInfo) interface{}
