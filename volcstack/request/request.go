@@ -14,6 +14,7 @@ import (
 
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/custom"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/response"
 
 	"github.com/volcengine/volcstack-go-sdk/internal/sdkio"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"
@@ -95,6 +96,8 @@ type Request struct {
 	IsJsonBody bool
 
 	holders []interface{}
+
+	Metadata response.ResponseMetadata
 }
 
 // An Operation is the service API operation to be made.
@@ -721,5 +724,6 @@ func (r *Request) MergeRequestInfo() custom.RequestInfo {
 		URL:        r.HTTPRequest.URL,
 		Input:      r.Params,
 		Output:     r.Data,
+		Metadata:   r.Metadata,
 	}
 }
