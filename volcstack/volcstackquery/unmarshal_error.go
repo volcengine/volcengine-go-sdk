@@ -49,6 +49,7 @@ func UnmarshalError(r *request.Request) {
 					Message: simple.Message,
 				},
 			}
+			return
 		}
 
 		r.Error = volcstackerr.NewRequestFailure(
@@ -64,22 +65,30 @@ func UnmarshalError(r *request.Request) {
 				r.Error = err
 				return
 			}
-			meta, _ := volcstackutil.ObtainSdkValue("ResponseMetadata", mm)
-			mm["Result"] = map[string]interface{}{}
-			mm["Result"].(map[string]interface{})["Metadata"] = meta
+			var meta interface{}
 
-			var metaStr []byte
-			if metaStr, err = json.Marshal(meta); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
-			if err = json.Unmarshal(metaStr, &r.Metadata); err != nil {
+			if meta, err = volcstackutil.ObtainSdkValue("ResponseMetadata", mm); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
 				r.Error = err
 				return
 			}
 
+			if meta != nil {
+				mm["Result"] = map[string]interface{}{}
+				mm["Result"].(map[string]interface{})["Metadata"] = meta
+
+				var metaStr []byte
+				if metaStr, err = json.Marshal(meta); err != nil {
+					fmt.Printf("Unmarshal err, %v\n", err)
+					r.Error = err
+					return
+				}
+				if err = json.Unmarshal(metaStr, &r.Metadata); err != nil {
+					fmt.Printf("Unmarshal err, %v\n", err)
+					r.Error = err
+					return
+				}
+			}
 			var b []byte
 			if b, err = json.Marshal(mm["Result"]); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
