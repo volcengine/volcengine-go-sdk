@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	ak := ""
-	sk := ""
-	var region = "cn-north-3"
+	ak := "your ak"
+	sk := "your sk"
+	var region = "cn-beijing"
 
 	//if use env Credentials
 	//please
