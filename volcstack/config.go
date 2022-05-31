@@ -221,7 +221,11 @@ type Config struct {
 
 	ExtendHttpRequest custom.ExtendHttpRequest
 
+	ExtendHttpRequestWithMeta custom.ExtendHttpRequestWithMeta
+
 	ExtraHttpParameters custom.ExtraHttpParameters
+
+	ExtraHttpParametersWithMeta custom.ExtraHttpParametersWithMeta
 
 	ExtraUserAgent *string
 
@@ -295,8 +299,18 @@ func (c *Config) WithExtendHttpRequest(extendHttpRequest custom.ExtendHttpReques
 	return c
 }
 
+func (c *Config) WithExtendHttpRequestWithMeta(extendHttpRequestWithMeta custom.ExtendHttpRequestWithMeta) *Config {
+	c.ExtendHttpRequestWithMeta = extendHttpRequestWithMeta
+	return c
+}
+
 func (c *Config) WithExtraHttpParameters(extraHttpParameters custom.ExtraHttpParameters) *Config {
 	c.ExtraHttpParameters = extraHttpParameters
+	return c
+}
+
+func (c *Config) WithExtraHttpParametersWithMeta(extraHttpParametersWithMeta custom.ExtraHttpParametersWithMeta) *Config {
+	c.ExtraHttpParametersWithMeta = extraHttpParametersWithMeta
 	return c
 }
 
@@ -545,8 +559,16 @@ func mergeInConfig(dst *Config, other *Config) {
 		dst.ExtendHttpRequest = other.ExtendHttpRequest
 	}
 
+	if other.ExtendHttpRequestWithMeta != nil {
+		dst.ExtendHttpRequestWithMeta = other.ExtendHttpRequestWithMeta
+	}
+
 	if other.ExtraHttpParameters != nil {
 		dst.ExtraHttpParameters = other.ExtraHttpParameters
+	}
+
+	if other.ExtraHttpParametersWithMeta != nil {
+		dst.ExtraHttpParametersWithMeta = other.ExtraHttpParametersWithMeta
 	}
 
 	if other.ExtraUserAgent != nil {
