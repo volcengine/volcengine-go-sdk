@@ -11,6 +11,7 @@ import (
 
 	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/custom"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackbody"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
@@ -77,6 +78,20 @@ func Build(r *request.Request) {
 	r.HTTPRequest.URL.Query()
 	if r.Config.ExtraHttpParameters != nil {
 		extra := r.Config.ExtraHttpParameters(r.Context())
+		if extra != nil {
+			for k, value := range extra {
+				body.Add(k, value)
+			}
+		}
+	}
+	if r.Config.ExtraHttpParametersWithMeta != nil {
+		extra := r.Config.ExtraHttpParametersWithMeta(r.Context(), custom.RequestMetadata{
+			ServiceName: r.ClientInfo.ServiceName,
+			Version:     r.ClientInfo.APIVersion,
+			Action:      r.Operation.Name,
+			HttpMethod:  r.Operation.HTTPMethod,
+			Region:      *r.Config.Region,
+		})
 		if extra != nil {
 			for k, value := range extra {
 				body.Add(k, value)
