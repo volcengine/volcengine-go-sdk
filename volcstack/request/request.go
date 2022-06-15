@@ -726,5 +726,6 @@ func (r *Request) MergeRequestInfo() custom.RequestInfo {
 		Input:      r.Params,
 		Output:     r.Data,
 		Metadata:   r.Metadata,
+		Error:      r.Error,
 	}
 }

@@ -27,6 +27,7 @@ type RequestInfo struct {
 	Input      interface{}
 	Output     interface{}
 	Metadata   response.ResponseMetadata
+	Error      error
 }
 
 type BeforeCall func(RequestInfo) interface{}
