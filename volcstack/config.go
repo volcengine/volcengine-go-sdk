@@ -227,6 +227,8 @@ type Config struct {
 
 	ExtraHttpParametersWithMeta custom.ExtraHttpParametersWithMeta
 
+	ExtraHttpJsonBody custom.ExtraHttpJsonBody
+
 	ExtraUserAgent *string
 
 	Interceptors []custom.SdkInterceptor
@@ -311,6 +313,11 @@ func (c *Config) WithExtraHttpParameters(extraHttpParameters custom.ExtraHttpPar
 
 func (c *Config) WithExtraHttpParametersWithMeta(extraHttpParametersWithMeta custom.ExtraHttpParametersWithMeta) *Config {
 	c.ExtraHttpParametersWithMeta = extraHttpParametersWithMeta
+	return c
+}
+
+func (c *Config) WithExtraHttpJsonBody(extraHttpJsonBody custom.ExtraHttpJsonBody) *Config {
+	c.ExtraHttpJsonBody = extraHttpJsonBody
 	return c
 }
 
@@ -577,6 +584,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.SimpleError != nil {
 		dst.SimpleError = other.SimpleError
+	}
+
+	if other.ExtraHttpJsonBody != nil {
+		dst.ExtraHttpJsonBody = other.ExtraHttpJsonBody
 	}
 
 	dst.Interceptors = other.Interceptors
