@@ -8,4 +8,4 @@ package volcstack
 const SDKName = "volcstack-go-sdk"
 
 // SDKVersion is the version of this SDK
-const SDKVersion = "1.0.2"
+const SDKVersion = "1.0.3"
