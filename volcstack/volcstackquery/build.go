@@ -4,18 +4,11 @@ package volcstackquery
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
-	"fmt"
 	"net/url"
-	"reflect"
 	"strings"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/custom"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackbody"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 // BuildHandler is a named request handler for building volcstackquery protocol requests
@@ -38,72 +31,16 @@ func Build(r *request.Request) {
 		}
 
 	}
-
-	r.HTTPRequest.URL.RawQuery = body.Encode()
 	r.HTTPRequest.Host = r.HTTPRequest.URL.Host
 	v := r.HTTPRequest.Header.Get("Content-Type")
-	if len(v) > 0 && strings.Contains(strings.ToLower(v), "application/json") {
+	if (strings.ToUpper(r.HTTPRequest.Method) == "PUT" ||
+		strings.ToUpper(r.HTTPRequest.Method) == "POST" ||
+		strings.ToUpper(r.HTTPRequest.Method) == "DELETE" ||
+		strings.ToUpper(r.HTTPRequest.Method) == "PATCH") &&
+		strings.Contains(strings.ToLower(v), "application/json") {
 		r.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
-		volcstackbody.BodyJson(r)
-		return
-	}
-	if reflect.TypeOf(r.Params) == reflect.TypeOf(&map[string]interface{}{}) {
-		m := *(r.Params).(*map[string]interface{})
-		for k, v := range m {
-			if reflect.TypeOf(v).String() == "string" {
-				body.Add(k, v.(string))
-			} else {
-				body.Add(k, fmt.Sprintf("%v", v))
-			}
-		}
-	} else if err := queryutil.Parse(body, r.Params, false); err != nil {
-		r.Error = volcstackerr.New("SerializationError", "failed encoding Query request", err)
-		return
-	}
-
-	r.Input = volcstackutil.BodyToMap(body.Encode(), r.Config.LogSensitives,
-		r.Config.LogLevel.Matches(volcstack.LogInfoWithInputAndOutput) || r.Config.LogLevel.Matches(volcstack.LogDebugWithInputAndOutput))
-
-	if len(v) > 0 && strings.Contains(strings.ToLower(v), "x-www-form-urlencoded") {
-		r.HTTPRequest.Header.Set("Content-Type", "application/x-www-form-urlencoded; charset=utf-8")
-		r.SetBufferBody([]byte(body.Encode()))
-		return
-	}
-	if len(v) > 0 {
-		r.Error = volcstackerr.New("SerializationError", "not support such content-type", nil)
-		return
-	}
-
-	method := strings.ToUpper(r.HTTPRequest.Method)
-	r.HTTPRequest.URL.Query()
-	if r.Config.ExtraHttpParameters != nil {
-		extra := r.Config.ExtraHttpParameters(r.Context())
-		if extra != nil {
-			for k, value := range extra {
-				body.Add(k, value)
-			}
-		}
-	}
-	if r.Config.ExtraHttpParametersWithMeta != nil {
-		extra := r.Config.ExtraHttpParametersWithMeta(r.Context(), custom.RequestMetadata{
-			ServiceName: r.ClientInfo.ServiceName,
-			Version:     r.ClientInfo.APIVersion,
-			Action:      r.Operation.Name,
-			HttpMethod:  r.Operation.HTTPMethod,
-			Region:      *r.Config.Region,
-		})
-		if extra != nil {
-			for k, value := range extra {
-				body.Add(k, value)
-			}
-		}
-	}
-	if method == "GET" || method == "DELETE" {
-		r.HTTPRequest.URL.RawQuery = body.Encode()
-	} else if method == "POST" || method == "PUT" {
-		r.HTTPRequest.Header.Set("Content-Type", "application/x-www-form-urlencoded; charset=utf-8")
-		r.SetBufferBody([]byte(body.Encode()))
+		volcstackbody.BodyJson(&body, r)
 	} else {
-		r.HTTPRequest.URL.RawQuery = body.Encode()
+		volcstackbody.BodyParam(&body, r)
 	}
 }
