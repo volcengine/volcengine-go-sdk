@@ -1,4 +1,4 @@
-Volcstack SDK for Go
+Volcengine SDK for Go
 Copyright 2022 Beijing Volcanoengine Technology Ltd.  All Rights Reserved.
 
 

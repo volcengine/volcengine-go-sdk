@@ -13,7 +13,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol/xml/xmlutil"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol/xml/xmlutil"
 )
 
 // GoFmt returns the Go formated string of the input.

@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol"
 )
 
 // BuildXML will serialize params into an xml.Encoder. Error will be returned
@@ -59,7 +59,7 @@ func (b *xmlBuilder) buildValue(value reflect.Value, current *XMLNode, tag refle
 	value = elemOf(value)
 	if !value.IsValid() { // no need to handle zero values
 		return nil
-	} else if tag.Get("location") != "" { // don't handle non-volcstackbody location values
+	} else if tag.Get("location") != "" { // don't handle non-volcenginebody location values
 		return nil
 	}
 
@@ -139,7 +139,7 @@ func (b *xmlBuilder) buildStruct(value reflect.Value, current *XMLNode, tag refl
 		}
 
 		mTag := field.Tag
-		if mTag.Get("location") != "" { // skip non-volcstackbody members
+		if mTag.Get("location") != "" { // skip non-volcenginebody members
 			nonPayloadFields++
 			continue
 		}
@@ -161,7 +161,7 @@ func (b *xmlBuilder) buildStruct(value reflect.Value, current *XMLNode, tag refl
 	}
 
 	// Only case where the child shape is not added is if the shape only contains
-	// non-payload fields, e.g headers/volcstackquery.
+	// non-payload fields, e.g headers/volcenginequery.
 	if !(payloadFields == 0 && nonPayloadFields > 0) {
 		current.AddChild(child)
 	}

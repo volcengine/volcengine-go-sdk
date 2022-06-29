@@ -2,16 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/volcengine/volcstack-go-sdk/service/clb"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcengine-go-sdk/service/clb"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
 func CreateListener(svc *clb.CLB) {
 	input := &clb.CreateListenerInput{
-		LoadBalancerId: volcstack.String("clb-xxx"),
-		Protocol:       volcstack.String("TCP"),
-		Port:           volcstack.Int64(80),
-		ServerGroupId:  volcstack.String("rsp-xxx"),
+		LoadBalancerId: volcengine.String("clb-xxx"),
+		Protocol:       volcengine.String("TCP"),
+		Port:           volcengine.Int64(80),
+		ServerGroupId:  volcengine.String("rsp-xxx"),
 	}
 
 	resp, err := svc.CreateListener(input)
@@ -23,8 +23,8 @@ func CreateListener(svc *clb.CLB) {
 
 func ModifyListenerAttributes(svc *clb.CLB) {
 	input := &clb.ModifyListenerAttributesInput{
-		ListenerId:   volcstack.String("lsn-xxx"),
-		ListenerName: volcstack.String("listener-name"),
+		ListenerId:   volcengine.String("lsn-xxx"),
+		ListenerName: volcengine.String("listener-name"),
 	}
 
 	resp, err := svc.ModifyListenerAttributes(input)
@@ -36,7 +36,7 @@ func ModifyListenerAttributes(svc *clb.CLB) {
 
 func DescribeListeners(svc *clb.CLB) {
 	input := &clb.DescribeListenersInput{
-		LoadBalancerId: volcstack.String("clb-xxx"),
+		LoadBalancerId: volcengine.String("clb-xxx"),
 	}
 
 	resp, err := svc.DescribeListeners(input)
@@ -48,7 +48,7 @@ func DescribeListeners(svc *clb.CLB) {
 
 func DescribeListenerAttributes(svc *clb.CLB) {
 	input := &clb.DescribeListenerAttributesInput{
-		ListenerId: volcstack.String("lsn-xxx"),
+		ListenerId: volcengine.String("lsn-xxx"),
 	}
 
 	resp, err := svc.DescribeListenerAttributes(input)
@@ -60,7 +60,7 @@ func DescribeListenerAttributes(svc *clb.CLB) {
 
 func DescribeListenerHealth(svc *clb.CLB) {
 	input := &clb.DescribeListenerHealthInput{
-		ListenerId: volcstack.String("lsn-xxx"),
+		ListenerId: volcengine.String("lsn-xxx"),
 	}
 
 	resp, err := svc.DescribeListenerHealth(input)
@@ -72,7 +72,7 @@ func DescribeListenerHealth(svc *clb.CLB) {
 
 func DeleteListener(svc *clb.CLB) {
 	input := &clb.DeleteListenerInput{
-		ListenerId: volcstack.String("lsn-xxx"),
+		ListenerId: volcengine.String("lsn-xxx"),
 	}
 
 	resp, err := svc.DeleteListener(input)

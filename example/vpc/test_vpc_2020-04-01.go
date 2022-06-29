@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/volcengine/volcstack-go-sdk/service/vpc"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/session"
+	"github.com/volcengine/volcengine-go-sdk/service/vpc"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 )
 
 func main() {
@@ -18,24 +18,24 @@ func main() {
 	//export VOLCSTACK_ACCESS_KEY=AK
 	//export VOLCSTACK_SECRET_KEY=SK
 	// and WithCredentials(credentials.NewEnvCredentials())
-	config := volcstack.NewConfig().
+	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithAkSk(ak, sk).
 		//WithCredentials(credentials.NewEnvCredentials()).
 		WithDisableSSL(true)
-	//WithLogLevel(volcstack.LogDebugWithHTTPBody).
-	//WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
+	//WithLogLevel(volcengine.LogDebugWithHTTPBody).
+	//WithEndpoint(volcengineutil.NewEndpoint().GetEndpoint())
 	sess, _ := session.NewSession(config)
 	svc := vpc.New(sess)
 
 	// ENI CreateNetworkInterface
 	//query := &vpc.CreateNetworkInterfaceInput{
-	//	SubnetId:     			volcstack.String("subnet-274xwulapzc3k7fap8thue3pl"),
-	//	SecurityGroupIds: 		[]*string{volcstack.String("sg-2744odkqfhkhs7fap8tnp49r6")},
-	//	PrimaryIpAddress: 		volcstack.String("192.168.1.2"),
-	//	NetworkInterfaceName: 	volcstack.String("test"),
-	//	Description: 			volcstack.String("test"),
-	//	PortSecurityEnabled: 	volcstack.Bool(false),
+	//	SubnetId:     			volcengine.String("subnet-274xwulapzc3k7fap8thue3pl"),
+	//	SecurityGroupIds: 		[]*string{volcengine.String("sg-2744odkqfhkhs7fap8tnp49r6")},
+	//	PrimaryIpAddress: 		volcengine.String("192.168.1.2"),
+	//	NetworkInterfaceName: 	volcengine.String("test"),
+	//	Description: 			volcengine.String("test"),
+	//	PortSecurityEnabled: 	volcengine.Bool(false),
 	//}
 	//resp, err := svc.CreateNetworkInterface(query)
 	//if err != nil {
@@ -45,10 +45,10 @@ func main() {
 
 	// ENI ModifyNetworkInterfaceAttributes
 	//query := &vpc.ModifyNetworkInterfaceAttributesInput{
-	//	NetworkInterfaceId:     volcstack.String("eni-274t9vh8ndm9s7fap8shjokny"),
-	//	SecurityGroupIds: 		[]*string{volcstack.String("sg-2744odkqfhkhs7fap8tnp49r6"), volcstack.String("sg-274k348d2mhog7fap8thr09gd")},
-	//	NetworkInterfaceName: 	volcstack.String("test-up"),
-	//	Description: 			volcstack.String("test-up"),
+	//	NetworkInterfaceId:     volcengine.String("eni-274t9vh8ndm9s7fap8shjokny"),
+	//	SecurityGroupIds: 		[]*string{volcengine.String("sg-2744odkqfhkhs7fap8tnp49r6"), volcengine.String("sg-274k348d2mhog7fap8thr09gd")},
+	//	NetworkInterfaceName: 	volcengine.String("test-up"),
+	//	Description: 			volcengine.String("test-up"),
 	//}
 	//resp, err := svc.ModifyNetworkInterfaceAttributes(query)
 	//if err != nil {
@@ -58,19 +58,19 @@ func main() {
 
 	// ENI DescribeNetworkInterfaces
 	//query := &vpc.DescribeNetworkInterfacesInput{
-	//	Type: 					volcstack.String("secondary"),
-	//	Status: 			    volcstack.String("Available"),
-	//	VpcId:                  volcstack.String("vpc-2744odetc5ekg7fap8tlh9dl3"),
-	//	SubnetId:     			volcstack.String("subnet-274xwulapzc3k7fap8thue3pl"),
-	//	//InstanceId:     	    volcstack.String("subnet-274xwulapzc3k7fap8thue3pl"),
-	//	PrimaryIpAddresses:     []*string{volcstack.String("192.168.1.2")},
-	//	SecurityGroupId:        volcstack.String("sg-2744odkqfhkhs7fap8tnp49r6"),
-	//	NetworkInterfaceIds:    []*string{volcstack.String("eni-274t9vh8ndm9s7fap8shjokny")},
-	//	NetworkInterfaceName: 	volcstack.String("test-up"),
-	//	PageNumber:             volcstack.Int64(1),
-	//	PageSize:             	volcstack.Int64(20),
-	//	//PrivateIpAddresses:     []*string{volcstack.String("192.168.1.2")},
-	//	//ZoneId:                 volcstack.String("cn-lingqiu-a"),
+	//	Type: 					volcengine.String("secondary"),
+	//	Status: 			    volcengine.String("Available"),
+	//	VpcId:                  volcengine.String("vpc-2744odetc5ekg7fap8tlh9dl3"),
+	//	SubnetId:     			volcengine.String("subnet-274xwulapzc3k7fap8thue3pl"),
+	//	//InstanceId:     	    volcengine.String("subnet-274xwulapzc3k7fap8thue3pl"),
+	//	PrimaryIpAddresses:     []*string{volcengine.String("192.168.1.2")},
+	//	SecurityGroupId:        volcengine.String("sg-2744odkqfhkhs7fap8tnp49r6"),
+	//	NetworkInterfaceIds:    []*string{volcengine.String("eni-274t9vh8ndm9s7fap8shjokny")},
+	//	NetworkInterfaceName: 	volcengine.String("test-up"),
+	//	PageNumber:             volcengine.Int64(1),
+	//	PageSize:             	volcengine.Int64(20),
+	//	//PrivateIpAddresses:     []*string{volcengine.String("192.168.1.2")},
+	//	//ZoneId:                 volcengine.String("cn-lingqiu-a"),
 	//}
 	//resp, err := svc.DescribeNetworkInterfaces(query)
 	//if err != nil {
@@ -80,7 +80,7 @@ func main() {
 
 	// ENI DescribeNetworkInterfaceAttributes
 	//query := &vpc.DescribeNetworkInterfaceAttributesInput{
-	//	NetworkInterfaceId:    volcstack.String("eni-274ngjt4wp2io7fap8sfxgfzn"),
+	//	NetworkInterfaceId:    volcengine.String("eni-274ngjt4wp2io7fap8sfxgfzn"),
 	//}
 	//resp, err := svc.DescribeNetworkInterfaceAttributes(query)
 	//if err != nil {
@@ -90,7 +90,7 @@ func main() {
 
 	// ENI DeleteNetworkInterface
 	//query := &vpc.DeleteNetworkInterfaceInput{
-	//	NetworkInterfaceId:    volcstack.String("eni-274t9vh8ndm9s7fap8shjokny"),
+	//	NetworkInterfaceId:    volcengine.String("eni-274t9vh8ndm9s7fap8shjokny"),
 	//}
 	//resp, err := svc.DeleteNetworkInterface(query)
 	//if err != nil {
@@ -100,8 +100,8 @@ func main() {
 
 	// ENI AttachNetworkInterface
 	//query := &vpc.AttachNetworkInterfaceInput{
-	//	NetworkInterfaceId:    volcstack.String("eni-2few40gfjx2bk59gp68wu110z"),
-	//	InstanceId:    		   volcstack.String("i-ybkbqfzie1l8j1or2ke5"),
+	//	NetworkInterfaceId:    volcengine.String("eni-2few40gfjx2bk59gp68wu110z"),
+	//	InstanceId:    		   volcengine.String("i-ybkbqfzie1l8j1or2ke5"),
 	//}
 	//resp, err := svc.AttachNetworkInterface(query)
 	//if err != nil {
@@ -111,8 +111,8 @@ func main() {
 
 	// ENI DetachNetworkInterface
 	//query := &vpc.DetachNetworkInterfaceInput{
-	//	NetworkInterfaceId:    volcstack.String("eni-2few40gfjx2bk59gp68wu110z"),
-	//	InstanceId:    		   volcstack.String("i-ybkbqfzie1l8j1or2ke5"),
+	//	NetworkInterfaceId:    volcengine.String("eni-2few40gfjx2bk59gp68wu110z"),
+	//	InstanceId:    		   volcengine.String("i-ybkbqfzie1l8j1or2ke5"),
 	//}
 	//resp, err := svc.DetachNetworkInterface(query)
 	//if err != nil {
@@ -124,9 +124,9 @@ func main() {
 
 	// RouteTable CreateRouteTable
 	//query := &vpc.CreateRouteTableInput{
-	//	VpcId:     			volcstack.String("vpc-2fevwte3frk0059gp67d69r4j"),
-	//	RouteTableName: 	volcstack.String("test"),
-	//	Description: 	    volcstack.String("test"),
+	//	VpcId:     			volcengine.String("vpc-2fevwte3frk0059gp67d69r4j"),
+	//	RouteTableName: 	volcengine.String("test"),
+	//	Description: 	    volcengine.String("test"),
 	//}
 	//resp, err := svc.CreateRouteTable(query)
 	//if err != nil {
@@ -136,7 +136,7 @@ func main() {
 
 	// RouteTable DeleteRouteTable
 	//query := &vpc.DeleteRouteTableInput{
-	//	RouteTableId:  volcstack.String("vtb-12bhqhvptkl4w17q7y1pv9qmc"),
+	//	RouteTableId:  volcengine.String("vtb-12bhqhvptkl4w17q7y1pv9qmc"),
 	//}
 	//resp, err := svc.DeleteRouteTable(query)
 	//if err != nil {
@@ -146,9 +146,9 @@ func main() {
 
 	// RouteTable ModifyRouteTableAttributes
 	//query := &vpc.ModifyRouteTableAttributesInput{
-	//	RouteTableId:   volcstack.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
-	//	RouteTableName: volcstack.String("test"),
-	//	Description:   	volcstack.String("test"),
+	//	RouteTableId:   volcengine.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
+	//	RouteTableName: volcengine.String("test"),
+	//	Description:   	volcengine.String("test"),
 	//}
 	//resp, err := svc.ModifyRouteTableAttributes(query)
 	//if err != nil {
@@ -158,11 +158,11 @@ func main() {
 
 	// RouteTable DescribeRouteTableList
 	//query := &vpc.DescribeRouteTableListInput{
-	//	VpcId:          volcstack.String("vpc-2fevwte3frk0059gp67d69r4j"),
-	//	RouteTableId:   volcstack.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
-	//	RouteTableName: volcstack.String("test"),
-	//	PageSize:   	volcstack.Int64(20),
-	//	PageNumber:   	volcstack.Int64(1),
+	//	VpcId:          volcengine.String("vpc-2fevwte3frk0059gp67d69r4j"),
+	//	RouteTableId:   volcengine.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
+	//	RouteTableName: volcengine.String("test"),
+	//	PageSize:   	volcengine.Int64(20),
+	//	PageNumber:   	volcengine.Int64(1),
 	//}
 	//resp, err := svc.DescribeRouteTableList(query)
 	//if err != nil {
@@ -172,8 +172,8 @@ func main() {
 
 	// RouteTable AssociateRouteTable
 	//query := &vpc.AssociateRouteTableInput{
-	//	RouteTableId:   volcstack.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
-	//	SubnetId: 		volcstack.String("subnet-12b0gepopmdxc17q7y1ros7up"),
+	//	RouteTableId:   volcengine.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
+	//	SubnetId: 		volcengine.String("subnet-12b0gepopmdxc17q7y1ros7up"),
 	//}
 	//resp, err := svc.AssociateRouteTable(query)
 	//if err != nil {
@@ -183,8 +183,8 @@ func main() {
 
 	// RouteTable DisassociateRouteTable
 	//query := &vpc.DisassociateRouteTableInput{
-	//	RouteTableId:   volcstack.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
-	//	SubnetId: 		volcstack.String("subnet-12b0gepopmdxc17q7y1ros7up"),
+	//	RouteTableId:   volcengine.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
+	//	SubnetId: 		volcengine.String("subnet-12b0gepopmdxc17q7y1ros7up"),
 	//}
 	//resp, err := svc.DisassociateRouteTable(query)
 	//if err != nil {
@@ -194,12 +194,12 @@ func main() {
 
 	// RouteEntry CreateRouteEntry
 	//query := &vpc.CreateRouteEntryInput{
-	//	RouteTableId:   		volcstack.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
-	//	DestinationCidrBlock:  	volcstack.String("192.168.0.0/16"),
-	//	NextHopType:   			volcstack.String("Instance"),
-	//	NextHopId:   			volcstack.String("i-ybkbqfzie1l8j1or2ke5"),
-	//	RouteEntryName:   		volcstack.String("test"),
-	//	Description:   			volcstack.String("test"),
+	//	RouteTableId:   		volcengine.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
+	//	DestinationCidrBlock:  	volcengine.String("192.168.0.0/16"),
+	//	NextHopType:   			volcengine.String("Instance"),
+	//	NextHopId:   			volcengine.String("i-ybkbqfzie1l8j1or2ke5"),
+	//	RouteEntryName:   		volcengine.String("test"),
+	//	Description:   			volcengine.String("test"),
 	//}
 	//resp, err := svc.CreateRouteEntry(query)
 	//if err != nil {
@@ -209,9 +209,9 @@ func main() {
 
 	// RouteEntry ModifyRouteEntry
 	//query := &vpc.ModifyRouteEntryInput{
-	//	RouteEntryId:   	    volcstack.String("rte-12bhqix7op81s17q7y39jk947"),
-	//	RouteEntryName:   		volcstack.String("test-up"),
-	//	Description:   			volcstack.String("test-up"),
+	//	RouteEntryId:   	    volcengine.String("rte-12bhqix7op81s17q7y39jk947"),
+	//	RouteEntryName:   		volcengine.String("test-up"),
+	//	Description:   			volcengine.String("test-up"),
 	//}
 	//resp, err := svc.ModifyRouteEntry(query)
 	//if err != nil {
@@ -221,15 +221,15 @@ func main() {
 
 	// RouteEntry DescribeRouteEntryList
 	//query := &vpc.DescribeRouteEntryListInput{
-	//	RouteTableId:   	    volcstack.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
-	//	RouteEntryType:   	    volcstack.String("Custom"),
-	//	RouteEntryId:   	    volcstack.String("rte-12bhqix7op81s17q7y39jk947"),
-	//	RouteEntryName:   		volcstack.String("test-up"),
-	//	DestinationCidrBlock:  	volcstack.String("192.168.0.0/16"),
-	//	NextHopType:   			volcstack.String("Instance"),
-	//	NextHopId:   			volcstack.String("i-ybkbqfzie1l8j1or2ke5"),
-	//	PageSize:   			volcstack.Int64(20),
-	//	PageNumber:   			volcstack.Int64(1),
+	//	RouteTableId:   	    volcengine.String("vtb-12bhqi3ly0t1c17q7y2aham35"),
+	//	RouteEntryType:   	    volcengine.String("Custom"),
+	//	RouteEntryId:   	    volcengine.String("rte-12bhqix7op81s17q7y39jk947"),
+	//	RouteEntryName:   		volcengine.String("test-up"),
+	//	DestinationCidrBlock:  	volcengine.String("192.168.0.0/16"),
+	//	NextHopType:   			volcengine.String("Instance"),
+	//	NextHopId:   			volcengine.String("i-ybkbqfzie1l8j1or2ke5"),
+	//	PageSize:   			volcengine.Int64(20),
+	//	PageNumber:   			volcengine.Int64(1),
 	//}
 	//resp, err := svc.DescribeRouteEntryList(query)
 	//if err != nil {
@@ -239,7 +239,7 @@ func main() {
 
 	// RouteEntry DeleteRouteEntry
 	//query := &vpc.DeleteRouteEntryInput{
-	//	RouteEntryId:   volcstack.String("rte-12bhqix7op81s17q7y39jk947"),
+	//	RouteEntryId:   volcengine.String("rte-12bhqix7op81s17q7y39jk947"),
 	//}
 	//resp, err := svc.DeleteRouteEntry(query)
 	//if err != nil {
@@ -249,10 +249,10 @@ func main() {
 
 	// HaVip CreateHaVip
 	//query := &vpc.CreateHaVipInput{
-	//	SubnetId:    volcstack.String("subnet-12b0gepopmdxc17q7y1ros7up"),
-	//	IpAddress:   volcstack.String("192.168.1.21"),
-	//	HaVipName:   volcstack.String("test"),
-	//	Description: volcstack.String("test"),
+	//	SubnetId:    volcengine.String("subnet-12b0gepopmdxc17q7y1ros7up"),
+	//	IpAddress:   volcengine.String("192.168.1.21"),
+	//	HaVipName:   volcengine.String("test"),
+	//	Description: volcengine.String("test"),
 	//}
 	//resp, err := svc.CreateHaVip(query)
 	//if err != nil {
@@ -262,9 +262,9 @@ func main() {
 
 	// HaVip ModifyHaVipAttributes
 	//query := &vpc.ModifyHaVipAttributesInput{
-	//	HaVipId:     volcstack.String("havip-2few45rudt62o59gp67nybytl"),
-	//	HaVipName:   volcstack.String("test-up"),
-	//	Description: volcstack.String("test-up"),
+	//	HaVipId:     volcengine.String("havip-2few45rudt62o59gp67nybytl"),
+	//	HaVipName:   volcengine.String("test-up"),
+	//	Description: volcengine.String("test-up"),
 	//}
 	//resp, err := svc.ModifyHaVipAttributes(query)
 	//if err != nil {
@@ -274,7 +274,7 @@ func main() {
 
 	// HaVip DeleteHaVip
 	//query := &vpc.DeleteHaVipInput{
-	//	HaVipId:     volcstack.String("havip-2few45rudt62o59gp67nybytl"),
+	//	HaVipId:     volcengine.String("havip-2few45rudt62o59gp67nybytl"),
 	//}
 	//resp, err := svc.DeleteHaVip(query)
 	//if err != nil {
@@ -284,9 +284,9 @@ func main() {
 
 	// HaVip AssociateHaVip
 	//query := &vpc.AssociateHaVipInput{
-	//	HaVipId:     	volcstack.String("havip-imv9e3nn8q2o8gbssxfxarvx"),
-	//	InstanceId:     volcstack.String("i-l8j1k9sk6cjww1u29v09"),
-	//	InstanceType:   volcstack.String("EcsInstance"),
+	//	HaVipId:     	volcengine.String("havip-imv9e3nn8q2o8gbssxfxarvx"),
+	//	InstanceId:     volcengine.String("i-l8j1k9sk6cjww1u29v09"),
+	//	InstanceType:   volcengine.String("EcsInstance"),
 	//}
 	//resp, err := svc.AssociateHaVip(query)
 	//if err != nil {
@@ -296,9 +296,9 @@ func main() {
 
 	// HaVip DisassociateHaVip
 	//query := &vpc.DisassociateHaVipInput{
-	//	HaVipId:     	volcstack.String("havip-imv9e3nn8q2o8gbssxfxarvx"),
-	//	InstanceId:     volcstack.String("i-l8j1k9sk6cjww1u29v09"),
-	//	InstanceType:   volcstack.String("EcsInstance"),
+	//	HaVipId:     	volcengine.String("havip-imv9e3nn8q2o8gbssxfxarvx"),
+	//	InstanceId:     volcengine.String("i-l8j1k9sk6cjww1u29v09"),
+	//	InstanceType:   volcengine.String("EcsInstance"),
 	//}
 	//resp, err := svc.DisassociateHaVip(query)
 	//if err != nil {
@@ -308,14 +308,14 @@ func main() {
 
 	// HaVip DescribeHaVips
 	query := &vpc.DescribeHaVipsInput{
-		VpcId:      volcstack.String("vpc-2fevwte3frk0059gp67d69r4j"),
-		SubnetId:   volcstack.String("subnet-12b0gepopmdxc17q7y1ros7up"),
-		IpAddress:  volcstack.String("192.168.1.22"),
-		HaVipIds:   []*string{volcstack.String("havip-imv9e3nn8q2o8gbssxfxarvx")},
-		HaVipName:  volcstack.String("tf-test"),
-		Status:     volcstack.String("Available"),
-		PageSize:   volcstack.Int64(20),
-		PageNumber: volcstack.Int64(1),
+		VpcId:      volcengine.String("vpc-2fevwte3frk0059gp67d69r4j"),
+		SubnetId:   volcengine.String("subnet-12b0gepopmdxc17q7y1ros7up"),
+		IpAddress:  volcengine.String("192.168.1.22"),
+		HaVipIds:   []*string{volcengine.String("havip-imv9e3nn8q2o8gbssxfxarvx")},
+		HaVipName:  volcengine.String("tf-test"),
+		Status:     volcengine.String("Available"),
+		PageSize:   volcengine.Int64(20),
+		PageNumber: volcengine.Int64(1),
 	}
 	resp, err := svc.DescribeHaVips(query)
 	if err != nil {

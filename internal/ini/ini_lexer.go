@@ -8,7 +8,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 const (
@@ -62,7 +62,7 @@ type iniLexer struct{}
 func (l *iniLexer) Tokenize(r io.Reader) ([]Token, error) {
 	b, err := ioutil.ReadAll(r)
 	if err != nil {
-		return nil, volcstackerr.New(ErrCodeUnableToReadFile, "unable to read file", err)
+		return nil, volcengineerr.New(ErrCodeUnableToReadFile, "unable to read file", err)
 	}
 
 	return l.tokenize(b)

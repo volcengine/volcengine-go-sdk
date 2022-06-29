@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/volcengine/volcstack-go-sdk/service/clb"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcengine-go-sdk/service/clb"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
 func CreateAcl(svc *clb.CLB) {
 	input := &clb.CreateAclInput{
-		AclName:     volcstack.String("acl-name"),
-		Description: volcstack.String("acl description"),
+		AclName:     volcengine.String("acl-name"),
+		Description: volcengine.String("acl description"),
 	}
 
 	resp, err := svc.CreateAcl(input)
@@ -21,9 +21,9 @@ func CreateAcl(svc *clb.CLB) {
 
 func ModifyAclAttributes(svc *clb.CLB) {
 	input := &clb.ModifyAclAttributesInput{
-		AclId:       volcstack.String("acl-xxx"),
-		AclName:     volcstack.String("acl-name"),
-		Description: volcstack.String("acl description"),
+		AclId:       volcengine.String("acl-xxx"),
+		AclName:     volcengine.String("acl-name"),
+		Description: volcengine.String("acl description"),
 	}
 
 	resp, err := svc.ModifyAclAttributes(input)
@@ -35,8 +35,8 @@ func ModifyAclAttributes(svc *clb.CLB) {
 
 func DescribeAcls(svc *clb.CLB) {
 	input := &clb.DescribeAclsInput{
-		PageSize:   volcstack.Int64(100),
-		PageNumber: volcstack.Int64(1),
+		PageSize:   volcengine.Int64(100),
+		PageNumber: volcengine.Int64(1),
 	}
 
 	resp, err := svc.DescribeAcls(input)
@@ -48,7 +48,7 @@ func DescribeAcls(svc *clb.CLB) {
 
 func DescribeAclAttributes(svc *clb.CLB) {
 	input := &clb.DescribeAclAttributesInput{
-		AclId: volcstack.String("acl-xxx"),
+		AclId: volcengine.String("acl-xxx"),
 	}
 
 	resp, err := svc.DescribeAclAttributes(input)
@@ -60,11 +60,11 @@ func DescribeAclAttributes(svc *clb.CLB) {
 
 func AddAclEntries(svc *clb.CLB) {
 	input := &clb.AddAclEntriesInput{
-		AclId: volcstack.String("acl-xxx"),
+		AclId: volcengine.String("acl-xxx"),
 		AclEntries: []*clb.AclEntryForAddAclEntriesInput{
 			{
-				Entry:       volcstack.String("192.XX.XX.7/16"),
-				Description: volcstack.String("acl entry description"),
+				Entry:       volcengine.String("192.XX.XX.7/16"),
+				Description: volcengine.String("acl entry description"),
 			},
 		},
 	}
@@ -78,9 +78,9 @@ func AddAclEntries(svc *clb.CLB) {
 
 func RemoveAclEntries(svc *clb.CLB) {
 	input := &clb.RemoveAclEntriesInput{
-		AclId: volcstack.String("acl-xxx"),
+		AclId: volcengine.String("acl-xxx"),
 		Entries: []*string{
-			volcstack.String("192.XX.XX.7/16"),
+			volcengine.String("192.XX.XX.7/16"),
 		},
 	}
 
@@ -93,7 +93,7 @@ func RemoveAclEntries(svc *clb.CLB) {
 
 func DeleteAcl(svc *clb.CLB) {
 	input := &clb.DeleteAclInput{
-		AclId: volcstack.String("acl-xxx"),
+		AclId: volcengine.String("acl-xxx"),
 	}
 
 	resp, err := svc.DeleteAcl(input)

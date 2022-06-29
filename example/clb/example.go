@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/volcengine/volcstack-go-sdk/service/clb"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/session"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
+	"github.com/volcengine/volcengine-go-sdk/service/clb"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
 func main() {
@@ -19,13 +19,13 @@ func main() {
 	// and WithCredentials(credentials.NewEnvCredentials())
 
 	// Init client
-	config := volcstack.NewConfig().
+	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithAkSk(ak, sk).
 		//WithCredentials(credentials.NewEnvCredentials()).
 		WithDisableSSL(true).
-		//WithLogLevel(volcstack.LogDebugWithHTTPBody).
-		WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
+		//WithLogLevel(volcengine.LogDebugWithHTTPBody).
+		WithEndpoint(volcengineutil.NewEndpoint().GetEndpoint())
 	sess, _ := session.NewSession(config)
 	svc := clb.New(sess)
 

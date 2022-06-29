@@ -12,9 +12,9 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 // UnmarshalJSONError unmarshal's the reader's JSON document into the passed in
@@ -31,7 +31,7 @@ func UnmarshalJSONError(v interface{}, stream io.Reader) error {
 			msg = "error message missing"
 			err = nil
 		}
-		return volcstackerr.NewUnmarshalError(err, msg, errBuf.Bytes())
+		return volcengineerr.NewUnmarshalError(err, msg, errBuf.Bytes())
 	}
 
 	return nil
@@ -72,7 +72,7 @@ func unmarshalAny(value reflect.Value, data interface{}, tag reflect.StructTag) 
 			}
 		case reflect.Map:
 			// cannot be a JSONValue map
-			if _, ok := value.Interface().(volcstack.JSONValue); !ok {
+			if _, ok := value.Interface().(volcengine.JSONValue); !ok {
 				t = "map"
 			}
 		}
@@ -215,7 +215,7 @@ func unmarshalScalar(value reflect.Value, data interface{}, tag reflect.StructTa
 				return err
 			}
 			value.Set(reflect.ValueOf(&t))
-		case volcstack.JSONValue:
+		case volcengine.JSONValue:
 			// No need to use escaping as the value is a non-quoted string.
 			v, err := protocol.DecodeJSONValue(d, protocol.NoEscape)
 			if err != nil {

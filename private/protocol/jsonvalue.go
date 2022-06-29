@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
 // EscapeMode is the mode that should be use for escaping a value
@@ -26,7 +26,7 @@ const (
 // encodes the string before returning it.
 //
 // Will panic if the escape mode is unknown.
-func EncodeJSONValue(v volcstack.JSONValue, escape EscapeMode) (string, error) {
+func EncodeJSONValue(v volcengine.JSONValue, escape EscapeMode) (string, error) {
 	b, err := json.Marshal(v)
 	if err != nil {
 		return "", err
@@ -48,7 +48,7 @@ func EncodeJSONValue(v volcstack.JSONValue, escape EscapeMode) (string, error) {
 // Optionally decoding base64 the value first before JSON unmarshaling.
 //
 // Will panic if the escape mode is unknown.
-func DecodeJSONValue(v string, escape EscapeMode) (volcstack.JSONValue, error) {
+func DecodeJSONValue(v string, escape EscapeMode) (volcengine.JSONValue, error) {
 	var b []byte
 	var err error
 
@@ -69,7 +69,7 @@ func DecodeJSONValue(v string, escape EscapeMode) (volcstack.JSONValue, error) {
 		return nil, err
 	}
 
-	m := volcstack.JSONValue{}
+	m := volcengine.JSONValue{}
 	err = json.Unmarshal(b, &m)
 	if err != nil {
 		return nil, err

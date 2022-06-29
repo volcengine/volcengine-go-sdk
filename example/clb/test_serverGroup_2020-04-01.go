@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/volcengine/volcstack-go-sdk/service/clb"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcengine-go-sdk/service/clb"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
 func CreateServerGroup(svc *clb.CLB) {
 	input := &clb.CreateServerGroupInput{
-		LoadBalancerId: volcstack.String("clb-xxx"),
+		LoadBalancerId: volcengine.String("clb-xxx"),
 	}
 
 	resp, err := svc.CreateServerGroup(input)
@@ -20,7 +20,7 @@ func CreateServerGroup(svc *clb.CLB) {
 
 func ModifyServerGroupAttributes(svc *clb.CLB) {
 	input := &clb.ModifyServerGroupAttributesInput{
-		ServerGroupId: volcstack.String("rsp-xxx"),
+		ServerGroupId: volcengine.String("rsp-xxx"),
 	}
 
 	resp, err := svc.ModifyServerGroupAttributes(input)
@@ -32,8 +32,8 @@ func ModifyServerGroupAttributes(svc *clb.CLB) {
 
 func DescribeServerGroups(svc *clb.CLB) {
 	input := &clb.DescribeServerGroupsInput{
-		PageSize:   volcstack.Int64(100),
-		PageNumber: volcstack.Int64(1),
+		PageSize:   volcengine.Int64(100),
+		PageNumber: volcengine.Int64(1),
 	}
 
 	resp, err := svc.DescribeServerGroups(input)
@@ -45,7 +45,7 @@ func DescribeServerGroups(svc *clb.CLB) {
 
 func DescribeServerGroupAttributes(svc *clb.CLB) {
 	input := &clb.DescribeServerGroupAttributesInput{
-		ServerGroupId: volcstack.String("rsp-xxx"),
+		ServerGroupId: volcengine.String("rsp-xxx"),
 	}
 
 	resp, err := svc.DescribeServerGroupAttributes(input)
@@ -57,15 +57,15 @@ func DescribeServerGroupAttributes(svc *clb.CLB) {
 
 func AddServerGroupBackendServers(svc *clb.CLB) {
 	input := &clb.AddServerGroupBackendServersInput{
-		ServerGroupId: volcstack.String("rsp-xxx"),
+		ServerGroupId: volcengine.String("rsp-xxx"),
 		Servers: []*clb.ServerForAddServerGroupBackendServersInput{
 			{
-				InstanceId:  volcstack.String("i-xxx"),
-				Type:        volcstack.String("ecs"),
-				Weight:      volcstack.Int64(100),
-				Ip:          volcstack.String("192.168.1.1"),
-				Port:        volcstack.Int64(80),
-				Description: volcstack.String("ecs description"),
+				InstanceId:  volcengine.String("i-xxx"),
+				Type:        volcengine.String("ecs"),
+				Weight:      volcengine.Int64(100),
+				Ip:          volcengine.String("192.168.1.1"),
+				Port:        volcengine.Int64(80),
+				Description: volcengine.String("ecs description"),
 			},
 		},
 	}
@@ -79,10 +79,10 @@ func AddServerGroupBackendServers(svc *clb.CLB) {
 
 func RemoveServerGroupBackendServers(svc *clb.CLB) {
 	input := &clb.RemoveServerGroupBackendServersInput{
-		ServerGroupId: volcstack.String("rsp-xxx"),
+		ServerGroupId: volcengine.String("rsp-xxx"),
 		ServerIds: []*string{
-			volcstack.String("rsp-xxx"),
-			volcstack.String("rsp-xxx"),
+			volcengine.String("rsp-xxx"),
+			volcengine.String("rsp-xxx"),
 		},
 	}
 
@@ -95,7 +95,7 @@ func RemoveServerGroupBackendServers(svc *clb.CLB) {
 
 func DeleteServerGroup(svc *clb.CLB) {
 	input := &clb.DeleteServerGroupInput{
-		ServerGroupId: volcstack.String("rsp-xxx"),
+		ServerGroupId: volcengine.String("rsp-xxx"),
 	}
 
 	resp, err := svc.DeleteServerGroup(input)

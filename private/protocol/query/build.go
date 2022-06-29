@@ -1,4 +1,4 @@
-// Package query provides serialization of VOLCSTACK volcstackquery requests, and responses.
+// Package query provides serialization of VOLCSTACK volcenginequery requests, and responses.
 package query
 
 // Copy from https://github.com/aws/aws-sdk-go
@@ -7,13 +7,13 @@ package query
 import (
 	"net/url"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol/query/queryutil"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol/query/queryutil"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
-// BuildHandler is a named request handler for building volcstackquery protocol requests
-var BuildHandler = request.NamedHandler{Name: "awssdk.volcstackquery.Build", Fn: Build}
+// BuildHandler is a named request handler for building volcenginequery protocol requests
+var BuildHandler = request.NamedHandler{Name: "awssdk.volcenginequery.Build", Fn: Build}
 
 // Build builds a request for an VOLCSTACK Query service.
 func Build(r *request.Request) {
@@ -22,7 +22,7 @@ func Build(r *request.Request) {
 		"Version": {r.ClientInfo.APIVersion},
 	}
 	if err := queryutil.Parse(body, r.Params, false); err != nil {
-		r.Error = volcstackerr.New(request.ErrCodeSerialization, "failed encoding Query request", err)
+		r.Error = volcengineerr.New(request.ErrCodeSerialization, "failed encoding Query request", err)
 		return
 	}
 

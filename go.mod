@@ -1,4 +1,4 @@
-module github.com/volcengine/volcstack-go-sdk
+module github.com/volcengine/volcengine-go-sdk
 
 go 1.12
 

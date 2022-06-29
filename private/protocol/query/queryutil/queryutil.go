@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol"
 )
 
 // Parse parses an object i and fills a url.Values object. The isEC2 flag

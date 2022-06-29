@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/volcengine/volcstack-go-sdk/internal/sdkmath"
+	"github.com/volcengine/volcengine-go-sdk/internal/sdkmath"
 )
 
 // Names of time formats supported by the SDK

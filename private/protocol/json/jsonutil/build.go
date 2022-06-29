@@ -15,8 +15,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
 var timeType = reflect.ValueOf(time.Time{}).Type()
@@ -54,7 +54,7 @@ func buildAny(value reflect.Value, buf *bytes.Buffer, tag reflect.StructTag) err
 			}
 		case reflect.Map:
 			// cannot be a JSONValue map
-			if _, ok := value.Interface().(volcstack.JSONValue); !ok {
+			if _, ok := value.Interface().(volcengine.JSONValue); !ok {
 				t = "map"
 			}
 		}
@@ -110,7 +110,7 @@ func buildStruct(value reflect.Value, buf *bytes.Buffer, tag reflect.StructTag) 
 			continue
 		}
 		if field.Tag.Get("location") != "" {
-			continue // ignore non-volcstackbody elements
+			continue // ignore non-volcenginebody elements
 		}
 		if field.Tag.Get("ignore") != "" {
 			continue
@@ -247,7 +247,7 @@ func buildScalar(v reflect.Value, buf *bytes.Buffer, tag reflect.StructTag) erro
 				}
 				buf.WriteByte('"')
 			}
-		case volcstack.JSONValue:
+		case volcengine.JSONValue:
 			str, err := protocol.EncodeJSONValue(converted, protocol.QuotedEscape)
 			if err != nil {
 				return fmt.Errorf("unable to encode JSONValue, %v", err)

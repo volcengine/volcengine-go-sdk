@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/volcengine/volcstack-go-sdk/service/storageebs"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/session"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
+	"github.com/volcengine/volcengine-go-sdk/service/storageebs"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
 func main() {
@@ -14,10 +14,10 @@ func main() {
 	sk := "sk"
 	region := "region"
 
-	config := volcstack.NewConfig().
+	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithAkSk(ak, sk).
-		WithDisableSSL(true).WithLogLevel(volcstack.LogDebugWithHTTPBody).WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
+		WithDisableSSL(true).WithLogLevel(volcengine.LogDebugWithHTTPBody).WithEndpoint(volcengineutil.NewEndpoint().GetEndpoint())
 	sess, _ := session.NewSession(config)
 
 	ebsService := storageebs.New(sess)

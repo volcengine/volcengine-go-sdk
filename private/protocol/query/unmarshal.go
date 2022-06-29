@@ -5,16 +5,16 @@ package query
 import (
 	"encoding/xml"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol/xml/xmlutil"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol/xml/xmlutil"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
-// UnmarshalHandler is a named request handler for unmarshaling volcstackquery protocol requests
-var UnmarshalHandler = request.NamedHandler{Name: "awssdk.volcstackquery.Unmarshal", Fn: Unmarshal}
+// UnmarshalHandler is a named request handler for unmarshaling volcenginequery protocol requests
+var UnmarshalHandler = request.NamedHandler{Name: "awssdk.volcenginequery.Unmarshal", Fn: Unmarshal}
 
-// UnmarshalMetaHandler is a named request handler for unmarshaling volcstackquery protocol request metadata
-var UnmarshalMetaHandler = request.NamedHandler{Name: "awssdk.volcstackquery.UnmarshalMeta", Fn: UnmarshalMeta}
+// UnmarshalMetaHandler is a named request handler for unmarshaling volcenginequery protocol request metadata
+var UnmarshalMetaHandler = request.NamedHandler{Name: "awssdk.volcenginequery.UnmarshalMeta", Fn: UnmarshalMeta}
 
 // Unmarshal unmarshals a response for an VOLCSTACK Query service.
 func Unmarshal(r *request.Request) {
@@ -23,8 +23,8 @@ func Unmarshal(r *request.Request) {
 		decoder := xml.NewDecoder(r.HTTPResponse.Body)
 		err := xmlutil.UnmarshalXML(r.Data, decoder, r.Operation.Name+"Result")
 		if err != nil {
-			r.Error = volcstackerr.NewRequestFailure(
-				volcstackerr.New(request.ErrCodeSerialization, "failed decoding Query response", err),
+			r.Error = volcengineerr.NewRequestFailure(
+				volcengineerr.New(request.ErrCodeSerialization, "failed decoding Query response", err),
 				r.HTTPResponse.StatusCode,
 				r.RequestID,
 			)

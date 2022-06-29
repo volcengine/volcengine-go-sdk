@@ -2,18 +2,18 @@ package main
 
 import (
 	"fmt"
-	"github.com/volcengine/volcstack-go-sdk/service/clb"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcengine-go-sdk/service/clb"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
 func CreateRules(svc *clb.CLB) {
 	input := &clb.CreateRulesInput{
-		ListenerId: volcstack.String("lsn-xxx"),
+		ListenerId: volcengine.String("lsn-xxx"),
 		Rules: []*clb.RuleForCreateRulesInput{
 			{
-				ServerGroupId: volcstack.String("rsp-xxx"),
-				Domain:        volcstack.String("*.com"),
-				Description:   volcstack.String("rule description"),
+				ServerGroupId: volcengine.String("rsp-xxx"),
+				Domain:        volcengine.String("*.com"),
+				Description:   volcengine.String("rule description"),
 			},
 		},
 	}
@@ -27,12 +27,12 @@ func CreateRules(svc *clb.CLB) {
 
 func ModifyRules(svc *clb.CLB) {
 	input := &clb.ModifyRulesInput{
-		ListenerId: volcstack.String("rsp-xxx"),
+		ListenerId: volcengine.String("rsp-xxx"),
 		Rules: []*clb.RuleForModifyRulesInput{
 			{
-				RuleId:        volcstack.String("rule-xxx"),
-				ServerGroupId: volcstack.String("rsp-xxx"),
-				Description:   volcstack.String("rule description"),
+				RuleId:        volcengine.String("rule-xxx"),
+				ServerGroupId: volcengine.String("rsp-xxx"),
+				Description:   volcengine.String("rule description"),
 			},
 		},
 	}
@@ -46,7 +46,7 @@ func ModifyRules(svc *clb.CLB) {
 
 func DescribeRules(svc *clb.CLB) {
 	input := &clb.DescribeRulesInput{
-		ListenerId: volcstack.String("lsn-xxx"),
+		ListenerId: volcengine.String("lsn-xxx"),
 	}
 
 	resp, err := svc.DescribeRules(input)
@@ -58,10 +58,10 @@ func DescribeRules(svc *clb.CLB) {
 
 func DeleteRules(svc *clb.CLB) {
 	input := &clb.DeleteRulesInput{
-		ListenerId: volcstack.String("lsn-xxx"),
+		ListenerId: volcengine.String("lsn-xxx"),
 		RuleIds: []*string{
-			volcstack.String("rule-xxx"),
-			volcstack.String("rule-xxx"),
+			volcengine.String("rule-xxx"),
+			volcengine.String("rule-xxx"),
 		},
 	}
 

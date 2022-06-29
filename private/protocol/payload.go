@@ -8,9 +8,9 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/client/metadata"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/client/metadata"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 )
 
 // PayloadUnmarshaler provides the interface for unmarshaling a payload's
@@ -63,7 +63,7 @@ type HandlerPayloadMarshal struct {
 // fails.
 func (h HandlerPayloadMarshal) MarshalPayload(w io.Writer, v interface{}) error {
 	req := request.New(
-		volcstack.Config{},
+		volcengine.Config{},
 		metadata.ClientInfo{},
 		request.Handlers{},
 		nil,

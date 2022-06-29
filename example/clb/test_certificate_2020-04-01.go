@@ -2,16 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/volcengine/volcstack-go-sdk/service/clb"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcengine-go-sdk/service/clb"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
 func UploadCertificate(svc *clb.CLB) {
 	input := &clb.UploadCertificateInput{
-		CertificateName: volcstack.String("cert-name"),
-		Description:     volcstack.String("cert description"),
-		PrivateKey:      volcstack.String("xxx"),
-		PublicKey:       volcstack.String("xxx"),
+		CertificateName: volcengine.String("cert-name"),
+		Description:     volcengine.String("cert description"),
+		PrivateKey:      volcengine.String("xxx"),
+		PublicKey:       volcengine.String("xxx"),
 	}
 
 	resp, err := svc.UploadCertificate(input)
@@ -23,8 +23,8 @@ func UploadCertificate(svc *clb.CLB) {
 
 func DescribeCertificates(svc *clb.CLB) {
 	input := &clb.DescribeCertificatesInput{
-		PageSize:   volcstack.Int64(100),
-		PageNumber: volcstack.Int64(1),
+		PageSize:   volcengine.Int64(100),
+		PageNumber: volcengine.Int64(1),
 	}
 
 	resp, err := svc.DescribeCertificates(input)
@@ -36,7 +36,7 @@ func DescribeCertificates(svc *clb.CLB) {
 
 func DeleteCertificate(svc *clb.CLB) {
 	input := &clb.DeleteCertificateInput{
-		CertificateId: volcstack.String("cert-xxx"),
+		CertificateId: volcengine.String("cert-xxx"),
 	}
 
 	resp, err := svc.DeleteCertificate(input)

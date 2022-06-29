@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/volcengine/volcstack-go-sdk/service/vpc"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/session"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
+	"github.com/volcengine/volcengine-go-sdk/service/vpc"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
 func main() {
@@ -19,25 +19,25 @@ func main() {
 	//export VOLCSTACK_ACCESS_KEY=AK
 	//export VOLCSTACK_SECRET_KEY=SK
 	// and WithCredentials(credentials.NewEnvCredentials())
-	config := volcstack.NewConfig().
+	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithAkSk(ak, sk).
 		//WithCredentials(credentials.NewEnvCredentials()).
 		WithDisableSSL(true).
-		//WithLogLevel(volcstack.LogDebugWithHTTPBody).
-		WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
+		//WithLogLevel(volcengine.LogDebugWithHTTPBody).
+		WithEndpoint(volcengineutil.NewEndpoint().GetEndpoint())
 	sess, _ := session.NewSession(config)
 	svc := vpc.New(sess)
 
 	// eip AllocateEipAddress
 	//in := &vpc.AllocateEipAddressInput{
-	//	BillingType: volcstack.Int64(2),
-	//	Bandwidth:   volcstack.Int64(1),
-	//	ISP:         volcstack.String("BGP"),
-	//	Name:        volcstack.String("test"),
-	//	Description: volcstack.String("test"),
-	//	PeriodUnit:  volcstack.Int64(1),
-	//	Period:   	 volcstack.Int64(1),
+	//	BillingType: volcengine.Int64(2),
+	//	Bandwidth:   volcengine.Int64(1),
+	//	ISP:         volcengine.String("BGP"),
+	//	Name:        volcengine.String("test"),
+	//	Description: volcengine.String("test"),
+	//	PeriodUnit:  volcengine.Int64(1),
+	//	Period:   	 volcengine.Int64(1),
 	//}
 	//resp, err := svc.AllocateEipAddress(in)
 	//if err != nil {
@@ -47,15 +47,15 @@ func main() {
 
 	// eip DescribeEipAddresses
 	//in := &vpc.DescribeEipAddressesInput{
-	//	Status:      			 volcstack.String("Available"),
-	//	EipAddresses: 			 []*string{volcstack.String("10.227.135.195")},
-	//	AllocationIds: 			 []*string{volcstack.String("eip-274shqcruf08w7fap8sbtslqu")},
-	//	PageNumber:     		 volcstack.Int64(1),
-	//	PageSize:     			 volcstack.Int64(20),
-	//	Name:        			 volcstack.String("test"),
-	//	ISP:         			 volcstack.String("BGP"),
-	//	//AssociatedInstanceId:    volcstack.String(""),
-	//	//AssociatedInstanceType:  volcstack.String("EcsInstance"),
+	//	Status:      			 volcengine.String("Available"),
+	//	EipAddresses: 			 []*string{volcengine.String("10.227.135.195")},
+	//	AllocationIds: 			 []*string{volcengine.String("eip-274shqcruf08w7fap8sbtslqu")},
+	//	PageNumber:     		 volcengine.Int64(1),
+	//	PageSize:     			 volcengine.Int64(20),
+	//	Name:        			 volcengine.String("test"),
+	//	ISP:         			 volcengine.String("BGP"),
+	//	//AssociatedInstanceId:    volcengine.String(""),
+	//	//AssociatedInstanceType:  volcengine.String("EcsInstance"),
 	//}
 	//resp, err := svc.DescribeEipAddresses(in)
 	//if err != nil {
@@ -65,10 +65,10 @@ func main() {
 
 	// eip AssociateEipAddress
 	//in := &vpc.AssociateEipAddressInput{
-	//	AllocationId:     volcstack.String("eip-274shqcruf08w7fap8sbtslqu"),
-	//	InstanceId:    	  volcstack.String("i-72q1xwbl4t5zogd59ls9"),
-	//	InstanceType:     volcstack.String("EcsInstance"),
-	//	PrivateIpAddress: volcstack.String("192.168.0.191"),
+	//	AllocationId:     volcengine.String("eip-274shqcruf08w7fap8sbtslqu"),
+	//	InstanceId:    	  volcengine.String("i-72q1xwbl4t5zogd59ls9"),
+	//	InstanceType:     volcengine.String("EcsInstance"),
+	//	PrivateIpAddress: volcengine.String("192.168.0.191"),
 	//}
 	//resp, err := svc.AssociateEipAddress(in)
 	//if err != nil {
@@ -78,9 +78,9 @@ func main() {
 
 	// eip DisassociateEipAddress
 	//in := &vpc.DisassociateEipAddressInput{
-	//	AllocationId:     volcstack.String("eip-274shqcruf08w7fap8sbtslqu"),
-	//	InstanceId:    	  volcstack.String("i-72q1xwbl4t5zogd59ls9"),
-	//	InstanceType:     volcstack.String("EcsInstance"),
+	//	AllocationId:     volcengine.String("eip-274shqcruf08w7fap8sbtslqu"),
+	//	InstanceId:    	  volcengine.String("i-72q1xwbl4t5zogd59ls9"),
+	//	InstanceType:     volcengine.String("EcsInstance"),
 	//}
 	//resp, err := svc.DisassociateEipAddress(in)
 	//if err != nil {
@@ -90,7 +90,7 @@ func main() {
 
 	// eip DisassociateEipAddress
 	//in := &vpc.ReleaseEipAddressInput{
-	//	AllocationId:     volcstack.String("eip-274shqcruf08w7fap8sbtslqu"),
+	//	AllocationId:     volcengine.String("eip-274shqcruf08w7fap8sbtslqu"),
 	//}
 	//resp, err := svc.ReleaseEipAddress(in)
 	//if err != nil {
@@ -100,10 +100,10 @@ func main() {
 
 	// eip ModifyEipAddressAttributes
 	//in := &vpc.ModifyEipAddressAttributesInput{
-	//	AllocationId:   volcstack.String("eip-274t1gtv5fugw7fap8scozv4s"),
-	//	Bandwidth:     	volcstack.Int64(2),
-	//	Name:     		volcstack.String("test"),
-	//	Description:    volcstack.String("test"),
+	//	AllocationId:   volcengine.String("eip-274t1gtv5fugw7fap8scozv4s"),
+	//	Bandwidth:     	volcengine.Int64(2),
+	//	Name:     		volcengine.String("test"),
+	//	Description:    volcengine.String("test"),
 	//}
 	//resp, err := svc.ModifyEipAddressAttributes(in)
 	//if err != nil {
@@ -113,7 +113,7 @@ func main() {
 
 	// eip DescribeEipAddressAttributes
 	in := &vpc.DescribeEipAddressAttributesInput{
-		AllocationId: volcstack.String("eip-274t1gtv5fugw7fap8scozv4s"),
+		AllocationId: volcengine.String("eip-274t1gtv5fugw7fap8scozv4s"),
 	}
 	resp, err := svc.DescribeEipAddressAttributes(in)
 	if err != nil {

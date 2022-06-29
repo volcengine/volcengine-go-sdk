@@ -3,16 +3,16 @@ package main
 import (
 	"fmt"
 
-	"github.com/volcengine/volcstack-go-sdk/service/clb"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcengine-go-sdk/service/clb"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
 )
 
 func CreateLoadBalancer(svc *clb.CLB) {
 	input := &clb.CreateLoadBalancerInput{
-		Type:             volcstack.String("private"),
-		SubnetId:         volcstack.String("subnet-xxx"),
-		LoadBalancerSpec: volcstack.String("small_1"),
-		RegionId:         volcstack.String("cn-north-3"),
+		Type:             volcengine.String("private"),
+		SubnetId:         volcengine.String("subnet-xxx"),
+		LoadBalancerSpec: volcengine.String("small_1"),
+		RegionId:         volcengine.String("cn-north-3"),
 	}
 
 	resp, err := svc.CreateLoadBalancer(input)
@@ -24,8 +24,8 @@ func CreateLoadBalancer(svc *clb.CLB) {
 
 func ModifyLoadBalancerAttributes(svc *clb.CLB) {
 	input := &clb.ModifyLoadBalancerAttributesInput{
-		LoadBalancerId:   volcstack.String("clb-xxx"),
-		LoadBalancerName: volcstack.String("clb-name"),
+		LoadBalancerId:   volcengine.String("clb-xxx"),
+		LoadBalancerName: volcengine.String("clb-name"),
 	}
 
 	resp, err := svc.ModifyLoadBalancerAttributes(input)
@@ -37,8 +37,8 @@ func ModifyLoadBalancerAttributes(svc *clb.CLB) {
 
 func DescribeLoadBalancers(svc *clb.CLB) {
 	input := &clb.DescribeLoadBalancersInput{
-		PageSize:   volcstack.Int64(100),
-		PageNumber: volcstack.Int64(1),
+		PageSize:   volcengine.Int64(100),
+		PageNumber: volcengine.Int64(1),
 	}
 
 	resp, err := svc.DescribeLoadBalancers(input)
@@ -50,7 +50,7 @@ func DescribeLoadBalancers(svc *clb.CLB) {
 
 func DescribeLoadBalancerAttributes(svc *clb.CLB) {
 	input := &clb.DescribeLoadBalancerAttributesInput{
-		LoadBalancerId: volcstack.String("clb-xxx"),
+		LoadBalancerId: volcengine.String("clb-xxx"),
 	}
 
 	resp, err := svc.DescribeLoadBalancerAttributes(input)
@@ -62,7 +62,7 @@ func DescribeLoadBalancerAttributes(svc *clb.CLB) {
 
 func DeleteLoadBalancer(svc *clb.CLB) {
 	input := &clb.DeleteLoadBalancerInput{
-		LoadBalancerId: volcstack.String("clb-xxx"),
+		LoadBalancerId: volcengine.String("clb-xxx"),
 	}
 
 	resp, err := svc.DeleteLoadBalancer(input)

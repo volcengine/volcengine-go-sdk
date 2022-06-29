@@ -14,10 +14,10 @@ import (
 //
 // Builds the shared config file path based on the OS's platform.
 //
-//   - Linux/Unix: $HOME/.volcstack/credentials
-//   - Windows: %USERPROFILE%\.volcstack\credentials
+//   - Linux/Unix: $HOME/.volcengine/credentials
+//   - Windows: %USERPROFILE%\.volcengine\credentials
 func SharedCredentialsFilename() string {
-	return filepath.Join(UserHomeDir(), ".volcstack", "credentials")
+	return filepath.Join(UserHomeDir(), ".volcengine", "credentials")
 }
 
 // SharedConfigFilename returns the SDK's default file path for
@@ -25,10 +25,10 @@ func SharedCredentialsFilename() string {
 //
 // Builds the shared config file path based on the OS's platform.
 //
-//   - Linux/Unix: $HOME/.volcstack/config
-//   - Windows: %USERPROFILE%\.volcstack\config
+//   - Linux/Unix: $HOME/.volcengine/config
+//   - Windows: %USERPROFILE%\.volcengine\config
 func SharedConfigFilename() string {
-	return filepath.Join(UserHomeDir(), ".volcstack", "config")
+	return filepath.Join(UserHomeDir(), ".volcengine", "config")
 }
 
 // UserHomeDir returns the home directory for the user the process is

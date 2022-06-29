@@ -14,21 +14,21 @@ import (
 	"strings"
 	"time"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 // UnmarshalXMLError unmarshals the XML error from the stream into the value
 // type specified. The value must be a pointer. If the message fails to
 // unmarshal, the message content will be included in the returned error as a
-// volcstackerr.UnmarshalError.
+// volcengineerr.UnmarshalError.
 func UnmarshalXMLError(v interface{}, stream io.Reader) error {
 	var errBuf bytes.Buffer
 	body := io.TeeReader(stream, &errBuf)
 
 	err := xml.NewDecoder(body).Decode(v)
 	if err != nil && err != io.EOF {
-		return volcstackerr.NewUnmarshalError(err,
+		return volcengineerr.NewUnmarshalError(err,
 			"failed to unmarshal error message", errBuf.Bytes())
 	}
 

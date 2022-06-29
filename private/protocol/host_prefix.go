@@ -6,13 +6,13 @@ package protocol
 import (
 	"strings"
 
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 )
 
 // HostPrefixHandlerName is the handler name for the host prefix request
 // handler.
-const HostPrefixHandlerName = "volcstacksdk.endpoint.HostPrefixHandler"
+const HostPrefixHandlerName = "volcenginesdk.endpoint.HostPrefixHandler"
 
 // NewHostPrefixHandler constructs a build handler
 func NewHostPrefixHandler(prefix string, labelsFn func() map[string]string) request.NamedHandler {
@@ -36,7 +36,7 @@ type HostPrefixBuilder struct {
 
 // Build updates the passed in Request with the HostPrefix template expanded.
 func (h HostPrefixBuilder) Build(r *request.Request) {
-	if volcstack.BoolValue(r.Config.DisableEndpointHostPrefix) {
+	if volcengine.BoolValue(r.Config.DisableEndpointHostPrefix) {
 		return
 	}
 

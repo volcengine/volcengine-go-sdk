@@ -1,4 +1,4 @@
-### Volcstack SDK for Go
+### Volcengine SDK for Go
 ####  概述
 1. 火山引擎-云计算-Go语言SDK
 2. Go版本最低1.5+ 推荐是用1.12+ 
@@ -13,10 +13,10 @@
     import (
     "fmt"
 
-	"github.com/volcengine/volcstack-go-sdk/service/vpc"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/credentials"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/session"
+	"github.com/volcengine/volcengine-go-sdk/service/vpc"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
     )
 
     func main() {
@@ -24,7 +24,7 @@
       ak     string
       sk     string
       region string
-      config *volcstack.Config
+      config *volcengine.Config
       sess   *session.Session
       client *vpc.VPC
       resp   *vpc.DescribeVpcsOutput
@@ -33,7 +33,7 @@
      ak = "your ak"
      sk = "your sk"
      region = "cn-beijing"
-     config = volcstack.NewConfig().
+     config = volcengine.NewConfig().
              WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
              WithRegion(region)
 
@@ -41,8 +41,8 @@
 	 client = vpc.New(sess)
 
 	 resp, err = client.DescribeVpcs(&vpc.DescribeVpcsInput{
-		PageNumber: volcstack.Int64(1),
-		PageSize:   volcstack.Int64(10),
+		PageNumber: volcengine.Int64(1),
+		PageSize:   volcengine.Int64(10),
 	 })
 
 	 if err != nil {

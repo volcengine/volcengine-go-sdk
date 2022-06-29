@@ -7,13 +7,13 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol/xml/xmlutil"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol/xml/xmlutil"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 // UnmarshalErrorHandler is a name request handler to unmarshal request errors
-var UnmarshalErrorHandler = request.NamedHandler{Name: "volcstacksdk.volcstackquery.UnmarshalError", Fn: UnmarshalError}
+var UnmarshalErrorHandler = request.NamedHandler{Name: "volcenginesdk.volcenginequery.UnmarshalError", Fn: UnmarshalError}
 
 type xmlErrorResponse struct {
 	Code      string `xml:"Error>Code"`
@@ -50,8 +50,8 @@ func UnmarshalError(r *request.Request) {
 	var respErr xmlResponseError
 	err := xmlutil.UnmarshalXMLError(&respErr, r.HTTPResponse.Body)
 	if err != nil {
-		r.Error = volcstackerr.NewRequestFailure(
-			volcstackerr.New(request.ErrCodeSerialization,
+		r.Error = volcengineerr.NewRequestFailure(
+			volcengineerr.New(request.ErrCodeSerialization,
 				"failed to unmarshal error message", err),
 			r.HTTPResponse.StatusCode,
 			r.RequestID,
@@ -64,8 +64,8 @@ func UnmarshalError(r *request.Request) {
 		reqID = r.RequestID
 	}
 
-	r.Error = volcstackerr.NewRequestFailure(
-		volcstackerr.New(respErr.Code, respErr.Message, nil),
+	r.Error = volcengineerr.NewRequestFailure(
+		volcengineerr.New(respErr.Code, respErr.Message, nil),
 		r.HTTPResponse.StatusCode,
 		reqID,
 	)

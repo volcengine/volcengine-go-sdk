@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/volcengine/volcstack-go-sdk/service/natgateway"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/session"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
+	"github.com/volcengine/volcengine-go-sdk/service/natgateway"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
 func main() {
@@ -19,22 +19,22 @@ func main() {
 	//export VOLCSTACK_ACCESS_KEY=AK
 	//export VOLCSTACK_SECRET_KEY=SK
 	// and WithCredentials(credentials.NewEnvCredentials())
-	config := volcstack.NewConfig().
+	config := volcengine.NewConfig().
 		WithRegion(region).
 		WithAkSk(ak, sk).
 		//WithCredentials(credentials.NewEnvCredentials()).
 		WithDisableSSL(true).
-		//WithLogLevel(volcstack.LogDebugWithHTTPBody).
-		WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
+		//WithLogLevel(volcengine.LogDebugWithHTTPBody).
+		WithEndpoint(volcengineutil.NewEndpoint().GetEndpoint())
 	sess, _ := session.NewSession(config)
 	svc := natgateway.New(sess)
 
 	// nat CreateSnatEntry
 	//in := &natgateway.CreateSnatEntryInput{
-	//	NatGatewayId: 	 volcstack.String("ngw-274zlbpdrwz5s7fap8sr2zc2i"),
-	//	SubnetId: 	  	 volcstack.String("subnet-2740cym8mv9q87fap8u3hfx4i"),
-	//	EipId: 	 		 volcstack.String("eip-274t1gtv5fugw7fap8scozv4s"),
-	//	SnatEntryName: 	 volcstack.String("test"),
+	//	NatGatewayId: 	 volcengine.String("ngw-274zlbpdrwz5s7fap8sr2zc2i"),
+	//	SubnetId: 	  	 volcengine.String("subnet-2740cym8mv9q87fap8u3hfx4i"),
+	//	EipId: 	 		 volcengine.String("eip-274t1gtv5fugw7fap8scozv4s"),
+	//	SnatEntryName: 	 volcengine.String("test"),
 	//}
 	//resp, err := svc.CreateSnatEntry(in)
 	//if err != nil {
@@ -44,7 +44,7 @@ func main() {
 
 	// nat DescribeSnatEntryAttributes
 	//in := &natgateway.DescribeSnatEntryAttributesInput{
-	//	SnatEntryId: 	 volcstack.String("snat-274t6q0ye8g007fap8tv89xs4"),
+	//	SnatEntryId: 	 volcengine.String("snat-274t6q0ye8g007fap8tv89xs4"),
 	//}
 	//resp, err := svc.DescribeSnatEntryAttributes(in)
 	//if err != nil {
@@ -54,9 +54,9 @@ func main() {
 
 	// nat ModifySnatEntryAttributes
 	//in := &natgateway.ModifySnatEntryAttributesInput{
-	//	SnatEntryId: 	 volcstack.String("snat-274t6q0ye8g007fap8tv89xs4"),
-	//	SnatEntryName: 	 volcstack.String("test"),
-	//	EipId: 	 		 volcstack.String("eip-274t1gtv5fugw7fap8scozv4s"),
+	//	SnatEntryId: 	 volcengine.String("snat-274t6q0ye8g007fap8tv89xs4"),
+	//	SnatEntryName: 	 volcengine.String("test"),
+	//	EipId: 	 		 volcengine.String("eip-274t1gtv5fugw7fap8scozv4s"),
 	//}
 	//resp, err := svc.ModifySnatEntryAttributes(in)
 	//if err != nil {
@@ -66,13 +66,13 @@ func main() {
 
 	// nat DescribeSnatEntries
 	//in := &natgateway.DescribeSnatEntriesInput{
-	//	PageSize:        volcstack.Int64(20),
-	//	PageNumber:      volcstack.Int64(1),
-	//	SnatEntryIds: 	 []*string{volcstack.String("snat-274t6q0ye8g007fap8tv89xs4")},
-	//	SnatEntryName: 	 volcstack.String("test"),
-	//	NatGatewayId: 	 volcstack.String("ngw-274zlbpdrwz5s7fap8sr2zc2i"),
-	//	SubnetId: 	 	 volcstack.String("subnet-2740cym8mv9q87fap8u3hfx4i"),
-	//	EipId: 	 		 volcstack.String("eip-274t1gtv5fugw7fap8scozv4s"),
+	//	PageSize:        volcengine.Int64(20),
+	//	PageNumber:      volcengine.Int64(1),
+	//	SnatEntryIds: 	 []*string{volcengine.String("snat-274t6q0ye8g007fap8tv89xs4")},
+	//	SnatEntryName: 	 volcengine.String("test"),
+	//	NatGatewayId: 	 volcengine.String("ngw-274zlbpdrwz5s7fap8sr2zc2i"),
+	//	SubnetId: 	 	 volcengine.String("subnet-2740cym8mv9q87fap8u3hfx4i"),
+	//	EipId: 	 		 volcengine.String("eip-274t1gtv5fugw7fap8scozv4s"),
 	//}
 	//resp, err := svc.DescribeSnatEntries(in)
 	//if err != nil {
@@ -82,7 +82,7 @@ func main() {
 
 	// nat DeleteSnatEntry
 	in := &natgateway.DeleteSnatEntryInput{
-		SnatEntryId: volcstack.String("snat-274t6q0ye8g007fap8tv89xs4"),
+		SnatEntryId: volcengine.String("snat-274t6q0ye8g007fap8tv89xs4"),
 	}
 	resp, err := svc.DeleteSnatEntry(in)
 	if err != nil {

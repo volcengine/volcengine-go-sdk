@@ -17,10 +17,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 // Whether the byte value can be sent without escaping in VOLCSTACK URLs
@@ -56,7 +56,7 @@ func Build(r *request.Request) {
 }
 
 // BuildAsGET builds the REST component of a service request with the ability to hoist
-// data from the volcstackbody.
+// data from the volcenginebody.
 func BuildAsGET(r *request.Request) {
 	if r.ParamsFilled() {
 		v := reflect.ValueOf(r.Params).Elem()
@@ -130,7 +130,7 @@ func buildLocationElements(r *request.Request, v reflect.Value, buildGETQuery bo
 	}
 
 	r.HTTPRequest.URL.RawQuery = query.Encode()
-	if !volcstack.BoolValue(r.Config.DisableRestProtocolURICleaning) {
+	if !volcengine.BoolValue(r.Config.DisableRestProtocolURICleaning) {
 		cleanPath(r.HTTPRequest.URL)
 	}
 }
@@ -150,7 +150,7 @@ func buildBody(r *request.Request, v reflect.Value) {
 					case string:
 						r.SetStringBody(reader)
 					default:
-						r.Error = volcstackerr.New(request.ErrCodeSerialization,
+						r.Error = volcengineerr.New(request.ErrCodeSerialization,
 							"failed to encode REST request",
 							fmt.Errorf("unknown payload type %s", payload.Type()))
 					}
@@ -165,7 +165,7 @@ func buildHeader(header *http.Header, v reflect.Value, name string, tag reflect.
 	if err == errValueNotSet {
 		return nil
 	} else if err != nil {
-		return volcstackerr.New(request.ErrCodeSerialization, "failed to encode REST request", err)
+		return volcengineerr.New(request.ErrCodeSerialization, "failed to encode REST request", err)
 	}
 
 	name = strings.TrimSpace(name)
@@ -183,7 +183,7 @@ func buildHeaderMap(header *http.Header, v reflect.Value, tag reflect.StructTag)
 		if err == errValueNotSet {
 			continue
 		} else if err != nil {
-			return volcstackerr.New(request.ErrCodeSerialization, "failed to encode REST request", err)
+			return volcengineerr.New(request.ErrCodeSerialization, "failed to encode REST request", err)
 
 		}
 		keyStr := strings.TrimSpace(key.String())
@@ -199,7 +199,7 @@ func buildURI(u *url.URL, v reflect.Value, name string, tag reflect.StructTag) e
 	if err == errValueNotSet {
 		return nil
 	} else if err != nil {
-		return volcstackerr.New(request.ErrCodeSerialization, "failed to encode REST request", err)
+		return volcengineerr.New(request.ErrCodeSerialization, "failed to encode REST request", err)
 	}
 
 	u.Path = strings.Replace(u.Path, "{"+name+"}", value, -1)
@@ -232,7 +232,7 @@ func buildQueryString(query url.Values, v reflect.Value, name string, tag reflec
 		if err == errValueNotSet {
 			return nil
 		} else if err != nil {
-			return volcstackerr.New(request.ErrCodeSerialization, "failed to encode REST request", err)
+			return volcengineerr.New(request.ErrCodeSerialization, "failed to encode REST request", err)
 		}
 		query.Set(name, str)
 	}
@@ -293,7 +293,7 @@ func convertType(v reflect.Value, tag reflect.StructTag) (str string, err error)
 			}
 		}
 		str = protocol.FormatTime(format, value)
-	case volcstack.JSONValue:
+	case volcengine.JSONValue:
 		if len(value) == 0 {
 			return "", errValueNotSet
 		}

@@ -6,13 +6,13 @@ package protocol
 import (
 	"strings"
 
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 )
 
 // ValidateEndpointHostHandler is a request handler that will validate the
 // request endpoint's hosts is a valid RFC 3986 host.
 var ValidateEndpointHostHandler = request.NamedHandler{
-	Name: "volcstacksdk.protocol.ValidateEndpointHostHandler",
+	Name: "volcenginesdk.protocol.ValidateEndpointHostHandler",
 	Fn: func(r *request.Request) {
 		err := ValidateEndpointHost(r.Operation.Name, r.HTTPRequest.URL.Host)
 		if err != nil {

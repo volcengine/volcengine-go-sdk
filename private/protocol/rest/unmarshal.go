@@ -15,17 +15,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/volcengine/volcstack-go-sdk/private/protocol"
-	"github.com/volcengine/volcstack-go-sdk/volcstack"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/request"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcengine-go-sdk/private/protocol"
+	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 // UnmarshalHandler is a named request handler for unmarshaling rest protocol requests
-var UnmarshalHandler = request.NamedHandler{Name: "volcstacksdk.rest.Unmarshal", Fn: Unmarshal}
+var UnmarshalHandler = request.NamedHandler{Name: "volcenginesdk.rest.Unmarshal", Fn: Unmarshal}
 
 // UnmarshalMetaHandler is a named request handler for unmarshaling rest protocol request metadata
-var UnmarshalMetaHandler = request.NamedHandler{Name: "volcstacksdk.rest.UnmarshalMeta", Fn: UnmarshalMeta}
+var UnmarshalMetaHandler = request.NamedHandler{Name: "volcenginesdk.rest.UnmarshalMeta", Fn: UnmarshalMeta}
 
 // Unmarshal unmarshals the REST component of a response in a REST service.
 func Unmarshal(r *request.Request) {
@@ -60,7 +60,7 @@ func unmarshalBody(r *request.Request, v reflect.Value) {
 						defer r.HTTPResponse.Body.Close()
 						b, err := ioutil.ReadAll(r.HTTPResponse.Body)
 						if err != nil {
-							r.Error = volcstackerr.New(request.ErrCodeSerialization, "failed to decode REST response", err)
+							r.Error = volcengineerr.New(request.ErrCodeSerialization, "failed to decode REST response", err)
 						} else {
 							payload.Set(reflect.ValueOf(b))
 						}
@@ -68,7 +68,7 @@ func unmarshalBody(r *request.Request, v reflect.Value) {
 						defer r.HTTPResponse.Body.Close()
 						b, err := ioutil.ReadAll(r.HTTPResponse.Body)
 						if err != nil {
-							r.Error = volcstackerr.New(request.ErrCodeSerialization, "failed to decode REST response", err)
+							r.Error = volcengineerr.New(request.ErrCodeSerialization, "failed to decode REST response", err)
 						} else {
 							str := string(b)
 							payload.Set(reflect.ValueOf(&str))
@@ -80,15 +80,15 @@ func unmarshalBody(r *request.Request, v reflect.Value) {
 						case "io.ReadSeeker":
 							b, err := ioutil.ReadAll(r.HTTPResponse.Body)
 							if err != nil {
-								r.Error = volcstackerr.New(request.ErrCodeSerialization,
-									"failed to read response volcstackbody", err)
+								r.Error = volcengineerr.New(request.ErrCodeSerialization,
+									"failed to read response volcenginebody", err)
 								return
 							}
 							payload.Set(reflect.ValueOf(ioutil.NopCloser(bytes.NewReader(b))))
 						default:
 							io.Copy(ioutil.Discard, r.HTTPResponse.Body)
 							defer r.HTTPResponse.Body.Close()
-							r.Error = volcstackerr.New(request.ErrCodeSerialization,
+							r.Error = volcengineerr.New(request.ErrCodeSerialization,
 								"failed to decode REST response",
 								fmt.Errorf("unknown payload type %s", payload.Type()))
 						}
@@ -118,14 +118,14 @@ func unmarshalLocationElements(r *request.Request, v reflect.Value) {
 			case "header":
 				err := unmarshalHeader(m, r.HTTPResponse.Header.Get(name), field.Tag)
 				if err != nil {
-					r.Error = volcstackerr.New(request.ErrCodeSerialization, "failed to decode REST response", err)
+					r.Error = volcengineerr.New(request.ErrCodeSerialization, "failed to decode REST response", err)
 					break
 				}
 			case "headers":
 				prefix := field.Tag.Get("locationName")
 				err := unmarshalHeaderMap(m, r.HTTPResponse.Header, prefix)
 				if err != nil {
-					r.Error = volcstackerr.New(request.ErrCodeSerialization, "failed to decode REST response", err)
+					r.Error = volcengineerr.New(request.ErrCodeSerialization, "failed to decode REST response", err)
 					break
 				}
 			}
@@ -222,7 +222,7 @@ func unmarshalHeader(v reflect.Value, header string, tag reflect.StructTag) erro
 			return err
 		}
 		v.Set(reflect.ValueOf(&t))
-	case volcstack.JSONValue:
+	case volcengine.JSONValue:
 		escaping := protocol.NoEscape
 		if tag.Get("location") == "header" {
 			escaping = protocol.Base64Escape

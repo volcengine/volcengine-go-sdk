@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackerr"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 // OpenFile takes a path to a given file, and will open  and parse
@@ -15,7 +15,7 @@ import (
 func OpenFile(path string) (Sections, error) {
 	f, err := os.Open(path)
 	if err != nil {
-		return Sections{}, volcstackerr.New(ErrCodeUnableToReadFile, "unable to open file", err)
+		return Sections{}, volcengineerr.New(ErrCodeUnableToReadFile, "unable to open file", err)
 	}
 	defer f.Close()
 
