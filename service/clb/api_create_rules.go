@@ -54,7 +54,7 @@ func (c *CLB) CreateRulesCommonRequest(input *map[string]interface{}) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation CreateRulesCommon for usage and error information.
 func (c *CLB) CreateRulesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateRulesCommonRequest(input)
@@ -119,7 +119,7 @@ func (c *CLB) CreateRulesRequest(input *CreateRulesInput) (req *request.Request,
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation CreateRules for usage and error information.
 func (c *CLB) CreateRules(input *CreateRulesInput) (*CreateRulesOutput, error) {
 	req, out := c.CreateRulesRequest(input)

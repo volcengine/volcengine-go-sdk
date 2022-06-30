@@ -54,7 +54,7 @@ func (c *CLB) AddAclEntriesCommonRequest(input *map[string]interface{}) (req *re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation AddAclEntriesCommon for usage and error information.
 func (c *CLB) AddAclEntriesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AddAclEntriesCommonRequest(input)
@@ -119,7 +119,7 @@ func (c *CLB) AddAclEntriesRequest(input *AddAclEntriesInput) (req *request.Requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation AddAclEntries for usage and error information.
 func (c *CLB) AddAclEntries(input *AddAclEntriesInput) (*AddAclEntriesOutput, error) {
 	req, out := c.AddAclEntriesRequest(input)

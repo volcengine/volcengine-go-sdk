@@ -52,7 +52,7 @@ func (c *ECS) DescribeUserDataCommonRequest(input *map[string]interface{}) (req 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeUserDataCommon for usage and error information.
 func (c *ECS) DescribeUserDataCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeUserDataCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) DescribeUserDataRequest(input *DescribeUserDataInput) (req *reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeUserData for usage and error information.
 func (c *ECS) DescribeUserData(input *DescribeUserDataInput) (*DescribeUserDataOutput, error) {
 	req, out := c.DescribeUserDataRequest(input)

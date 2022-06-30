@@ -52,7 +52,7 @@ func (c *CLB) DeleteLoadBalancerCommonRequest(input *map[string]interface{}) (re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteLoadBalancerCommon for usage and error information.
 func (c *CLB) DeleteLoadBalancerCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteLoadBalancerCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DeleteLoadBalancerRequest(input *DeleteLoadBalancerInput) (req *re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteLoadBalancer for usage and error information.
 func (c *CLB) DeleteLoadBalancer(input *DeleteLoadBalancerInput) (*DeleteLoadBalancerOutput, error) {
 	req, out := c.DeleteLoadBalancerRequest(input)

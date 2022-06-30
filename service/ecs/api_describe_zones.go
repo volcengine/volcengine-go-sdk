@@ -52,7 +52,7 @@ func (c *ECS) DescribeZonesCommonRequest(input *map[string]interface{}) (req *re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeZonesCommon for usage and error information.
 func (c *ECS) DescribeZonesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeZonesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) DescribeZonesRequest(input *DescribeZonesInput) (req *request.Requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeZones for usage and error information.
 func (c *ECS) DescribeZones(input *DescribeZonesInput) (*DescribeZonesOutput, error) {
 	req, out := c.DescribeZonesRequest(input)

@@ -52,7 +52,7 @@ func (c *STORAGEEBS) DeleteVolumeCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteVolumeCommon for usage and error information.
 func (c *STORAGEEBS) DeleteVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteVolumeCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *STORAGEEBS) DeleteVolumeRequest(input *DeleteVolumeInput) (req *request
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteVolume for usage and error information.
 func (c *STORAGEEBS) DeleteVolume(input *DeleteVolumeInput) (*DeleteVolumeOutput, error) {
 	req, out := c.DeleteVolumeRequest(input)

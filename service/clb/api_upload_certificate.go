@@ -52,7 +52,7 @@ func (c *CLB) UploadCertificateCommonRequest(input *map[string]interface{}) (req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation UploadCertificateCommon for usage and error information.
 func (c *CLB) UploadCertificateCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.UploadCertificateCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) UploadCertificateRequest(input *UploadCertificateInput) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation UploadCertificate for usage and error information.
 func (c *CLB) UploadCertificate(input *UploadCertificateInput) (*UploadCertificateOutput, error) {
 	req, out := c.UploadCertificateRequest(input)

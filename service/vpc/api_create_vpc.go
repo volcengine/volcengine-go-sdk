@@ -52,7 +52,7 @@ func (c *VPC) CreateVpcCommonRequest(input *map[string]interface{}) (req *reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation CreateVpcCommon for usage and error information.
 func (c *VPC) CreateVpcCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateVpcCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) CreateVpcRequest(input *CreateVpcInput) (req *request.Request, out
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation CreateVpc for usage and error information.
 func (c *VPC) CreateVpc(input *CreateVpcInput) (*CreateVpcOutput, error) {
 	req, out := c.CreateVpcRequest(input)

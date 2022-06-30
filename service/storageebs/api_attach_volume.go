@@ -52,7 +52,7 @@ func (c *STORAGEEBS) AttachVolumeCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation AttachVolumeCommon for usage and error information.
 func (c *STORAGEEBS) AttachVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachVolumeCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *STORAGEEBS) AttachVolumeRequest(input *AttachVolumeInput) (req *request
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation AttachVolume for usage and error information.
 func (c *STORAGEEBS) AttachVolume(input *AttachVolumeInput) (*AttachVolumeOutput, error) {
 	req, out := c.AttachVolumeRequest(input)

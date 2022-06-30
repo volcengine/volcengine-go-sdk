@@ -52,7 +52,7 @@ func (c *CLB) DeleteCertificateCommonRequest(input *map[string]interface{}) (req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteCertificateCommon for usage and error information.
 func (c *CLB) DeleteCertificateCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteCertificateCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DeleteCertificateRequest(input *DeleteCertificateInput) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteCertificate for usage and error information.
 func (c *CLB) DeleteCertificate(input *DeleteCertificateInput) (*DeleteCertificateOutput, error) {
 	req, out := c.DeleteCertificateRequest(input)

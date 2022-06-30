@@ -52,7 +52,7 @@ func (c *VPC) CreateHaVipCommonRequest(input *map[string]interface{}) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation CreateHaVipCommon for usage and error information.
 func (c *VPC) CreateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateHaVipCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) CreateHaVipRequest(input *CreateHaVipInput) (req *request.Request,
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation CreateHaVip for usage and error information.
 func (c *VPC) CreateHaVip(input *CreateHaVipInput) (*CreateHaVipOutput, error) {
 	req, out := c.CreateHaVipRequest(input)

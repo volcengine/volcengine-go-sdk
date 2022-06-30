@@ -52,7 +52,7 @@ func (c *ECS) RenewInstanceCommonRequest(input *map[string]interface{}) (req *re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation RenewInstanceCommon for usage and error information.
 func (c *ECS) RenewInstanceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RenewInstanceCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) RenewInstanceRequest(input *RenewInstanceInput) (req *request.Requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation RenewInstance for usage and error information.
 func (c *ECS) RenewInstance(input *RenewInstanceInput) (*RenewInstanceOutput, error) {
 	req, out := c.RenewInstanceRequest(input)

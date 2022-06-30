@@ -52,7 +52,7 @@ func (c *VPC) DeleteHaVipCommonRequest(input *map[string]interface{}) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteHaVipCommon for usage and error information.
 func (c *VPC) DeleteHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteHaVipCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DeleteHaVipRequest(input *DeleteHaVipInput) (req *request.Request,
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteHaVip for usage and error information.
 func (c *VPC) DeleteHaVip(input *DeleteHaVipInput) (*DeleteHaVipOutput, error) {
 	req, out := c.DeleteHaVipRequest(input)

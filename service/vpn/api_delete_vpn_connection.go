@@ -52,7 +52,7 @@ func (c *VPN) DeleteVpnConnectionCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation DeleteVpnConnectionCommon for usage and error information.
 func (c *VPN) DeleteVpnConnectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteVpnConnectionCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPN) DeleteVpnConnectionRequest(input *DeleteVpnConnectionInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation DeleteVpnConnection for usage and error information.
 func (c *VPN) DeleteVpnConnection(input *DeleteVpnConnectionInput) (*DeleteVpnConnectionOutput, error) {
 	req, out := c.DeleteVpnConnectionRequest(input)

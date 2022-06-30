@@ -52,7 +52,7 @@ func (c *VPC) ModifyEipAddressAttributesCommonRequest(input *map[string]interfac
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifyEipAddressAttributesCommon for usage and error information.
 func (c *VPC) ModifyEipAddressAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyEipAddressAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) ModifyEipAddressAttributesRequest(input *ModifyEipAddressAttribute
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifyEipAddressAttributes for usage and error information.
 func (c *VPC) ModifyEipAddressAttributes(input *ModifyEipAddressAttributesInput) (*ModifyEipAddressAttributesOutput, error) {
 	req, out := c.ModifyEipAddressAttributesRequest(input)

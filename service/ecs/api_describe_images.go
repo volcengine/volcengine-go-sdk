@@ -54,7 +54,7 @@ func (c *ECS) DescribeImagesCommonRequest(input *map[string]interface{}) (req *r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeImagesCommon for usage and error information.
 func (c *ECS) DescribeImagesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeImagesCommonRequest(input)
@@ -119,7 +119,7 @@ func (c *ECS) DescribeImagesRequest(input *DescribeImagesInput) (req *request.Re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeImages for usage and error information.
 func (c *ECS) DescribeImages(input *DescribeImagesInput) (*DescribeImagesOutput, error) {
 	req, out := c.DescribeImagesRequest(input)

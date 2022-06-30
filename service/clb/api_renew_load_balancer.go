@@ -52,7 +52,7 @@ func (c *CLB) RenewLoadBalancerCommonRequest(input *map[string]interface{}) (req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation RenewLoadBalancerCommon for usage and error information.
 func (c *CLB) RenewLoadBalancerCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RenewLoadBalancerCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) RenewLoadBalancerRequest(input *RenewLoadBalancerInput) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation RenewLoadBalancer for usage and error information.
 func (c *CLB) RenewLoadBalancer(input *RenewLoadBalancerInput) (*RenewLoadBalancerOutput, error) {
 	req, out := c.RenewLoadBalancerRequest(input)

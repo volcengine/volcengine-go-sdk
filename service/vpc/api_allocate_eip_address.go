@@ -52,7 +52,7 @@ func (c *VPC) AllocateEipAddressCommonRequest(input *map[string]interface{}) (re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation AllocateEipAddressCommon for usage and error information.
 func (c *VPC) AllocateEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AllocateEipAddressCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) AllocateEipAddressRequest(input *AllocateEipAddressInput) (req *re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation AllocateEipAddress for usage and error information.
 func (c *VPC) AllocateEipAddress(input *AllocateEipAddressInput) (*AllocateEipAddressOutput, error) {
 	req, out := c.AllocateEipAddressRequest(input)

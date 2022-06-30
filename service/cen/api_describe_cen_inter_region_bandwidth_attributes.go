@@ -52,7 +52,7 @@ func (c *CEN) DescribeCenInterRegionBandwidthAttributesCommonRequest(input *map[
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DescribeCenInterRegionBandwidthAttributesCommon for usage and error information.
 func (c *CEN) DescribeCenInterRegionBandwidthAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeCenInterRegionBandwidthAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) DescribeCenInterRegionBandwidthAttributesRequest(input *DescribeCe
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DescribeCenInterRegionBandwidthAttributes for usage and error information.
 func (c *CEN) DescribeCenInterRegionBandwidthAttributes(input *DescribeCenInterRegionBandwidthAttributesInput) (*DescribeCenInterRegionBandwidthAttributesOutput, error) {
 	req, out := c.DescribeCenInterRegionBandwidthAttributesRequest(input)

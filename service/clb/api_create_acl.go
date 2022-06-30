@@ -52,7 +52,7 @@ func (c *CLB) CreateAclCommonRequest(input *map[string]interface{}) (req *reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation CreateAclCommon for usage and error information.
 func (c *CLB) CreateAclCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateAclCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) CreateAclRequest(input *CreateAclInput) (req *request.Request, out
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation CreateAcl for usage and error information.
 func (c *CLB) CreateAcl(input *CreateAclInput) (*CreateAclOutput, error) {
 	req, out := c.CreateAclRequest(input)

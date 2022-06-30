@@ -52,7 +52,7 @@ func (c *AUTOSCALING) DetachServerGroupsCommonRequest(input *map[string]interfac
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachServerGroupsCommon for usage and error information.
 func (c *AUTOSCALING) DetachServerGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachServerGroupsCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *AUTOSCALING) DetachServerGroupsRequest(input *DetachServerGroupsInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachServerGroups for usage and error information.
 func (c *AUTOSCALING) DetachServerGroups(input *DetachServerGroupsInput) (*DetachServerGroupsOutput, error) {
 	req, out := c.DetachServerGroupsRequest(input)

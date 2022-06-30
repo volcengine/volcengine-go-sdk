@@ -52,7 +52,7 @@ func (c *VPC) DeleteSubnetCommonRequest(input *map[string]interface{}) (req *req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteSubnetCommon for usage and error information.
 func (c *VPC) DeleteSubnetCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteSubnetCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DeleteSubnetRequest(input *DeleteSubnetInput) (req *request.Reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteSubnet for usage and error information.
 func (c *VPC) DeleteSubnet(input *DeleteSubnetInput) (*DeleteSubnetOutput, error) {
 	req, out := c.DeleteSubnetRequest(input)

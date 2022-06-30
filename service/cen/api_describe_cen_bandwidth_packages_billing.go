@@ -52,7 +52,7 @@ func (c *CEN) DescribeCenBandwidthPackagesBillingCommonRequest(input *map[string
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DescribeCenBandwidthPackagesBillingCommon for usage and error information.
 func (c *CEN) DescribeCenBandwidthPackagesBillingCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeCenBandwidthPackagesBillingCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) DescribeCenBandwidthPackagesBillingRequest(input *DescribeCenBandw
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DescribeCenBandwidthPackagesBilling for usage and error information.
 func (c *CEN) DescribeCenBandwidthPackagesBilling(input *DescribeCenBandwidthPackagesBillingInput) (*DescribeCenBandwidthPackagesBillingOutput, error) {
 	req, out := c.DescribeCenBandwidthPackagesBillingRequest(input)

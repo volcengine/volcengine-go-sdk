@@ -52,7 +52,7 @@ func (c *VPC) ModifyHaVipAttributesCommonRequest(input *map[string]interface{}) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifyHaVipAttributesCommon for usage and error information.
 func (c *VPC) ModifyHaVipAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyHaVipAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) ModifyHaVipAttributesRequest(input *ModifyHaVipAttributesInput) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifyHaVipAttributes for usage and error information.
 func (c *VPC) ModifyHaVipAttributes(input *ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error) {
 	req, out := c.ModifyHaVipAttributesRequest(input)

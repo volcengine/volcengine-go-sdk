@@ -52,7 +52,7 @@ func (c *ECS) DeleteInstanceCommonRequest(input *map[string]interface{}) (req *r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DeleteInstanceCommon for usage and error information.
 func (c *ECS) DeleteInstanceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteInstanceCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) DeleteInstanceRequest(input *DeleteInstanceInput) (req *request.Re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DeleteInstance for usage and error information.
 func (c *ECS) DeleteInstance(input *DeleteInstanceInput) (*DeleteInstanceOutput, error) {
 	req, out := c.DeleteInstanceRequest(input)

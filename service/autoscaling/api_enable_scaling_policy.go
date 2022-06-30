@@ -52,7 +52,7 @@ func (c *AUTOSCALING) EnableScalingPolicyCommonRequest(input *map[string]interfa
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation EnableScalingPolicyCommon for usage and error information.
 func (c *AUTOSCALING) EnableScalingPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.EnableScalingPolicyCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *AUTOSCALING) EnableScalingPolicyRequest(input *EnableScalingPolicyInput
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation EnableScalingPolicy for usage and error information.
 func (c *AUTOSCALING) EnableScalingPolicy(input *EnableScalingPolicyInput) (*EnableScalingPolicyOutput, error) {
 	req, out := c.EnableScalingPolicyRequest(input)

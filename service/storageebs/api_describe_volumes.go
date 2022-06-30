@@ -54,7 +54,7 @@ func (c *STORAGEEBS) DescribeVolumesCommonRequest(input *map[string]interface{})
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DescribeVolumesCommon for usage and error information.
 func (c *STORAGEEBS) DescribeVolumesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeVolumesCommonRequest(input)
@@ -119,7 +119,7 @@ func (c *STORAGEEBS) DescribeVolumesRequest(input *DescribeVolumesInput) (req *r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DescribeVolumes for usage and error information.
 func (c *STORAGEEBS) DescribeVolumes(input *DescribeVolumesInput) (*DescribeVolumesOutput, error) {
 	req, out := c.DescribeVolumesRequest(input)

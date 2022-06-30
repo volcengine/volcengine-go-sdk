@@ -52,7 +52,7 @@ func (c *CEN) PublishCenRouteEntryCommonRequest(input *map[string]interface{}) (
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation PublishCenRouteEntryCommon for usage and error information.
 func (c *CEN) PublishCenRouteEntryCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.PublishCenRouteEntryCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) PublishCenRouteEntryRequest(input *PublishCenRouteEntryInput) (req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation PublishCenRouteEntry for usage and error information.
 func (c *CEN) PublishCenRouteEntry(input *PublishCenRouteEntryInput) (*PublishCenRouteEntryOutput, error) {
 	req, out := c.PublishCenRouteEntryRequest(input)

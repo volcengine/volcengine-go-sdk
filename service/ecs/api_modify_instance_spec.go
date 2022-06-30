@@ -52,7 +52,7 @@ func (c *ECS) ModifyInstanceSpecCommonRequest(input *map[string]interface{}) (re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation ModifyInstanceSpecCommon for usage and error information.
 func (c *ECS) ModifyInstanceSpecCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstanceSpecCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) ModifyInstanceSpecRequest(input *ModifyInstanceSpecInput) (req *re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation ModifyInstanceSpec for usage and error information.
 func (c *ECS) ModifyInstanceSpec(input *ModifyInstanceSpecInput) (*ModifyInstanceSpecOutput, error) {
 	req, out := c.ModifyInstanceSpecRequest(input)

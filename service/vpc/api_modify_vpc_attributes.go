@@ -52,7 +52,7 @@ func (c *VPC) ModifyVpcAttributesCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifyVpcAttributesCommon for usage and error information.
 func (c *VPC) ModifyVpcAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyVpcAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) ModifyVpcAttributesRequest(input *ModifyVpcAttributesInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifyVpcAttributes for usage and error information.
 func (c *VPC) ModifyVpcAttributes(input *ModifyVpcAttributesInput) (*ModifyVpcAttributesOutput, error) {
 	req, out := c.ModifyVpcAttributesRequest(input)

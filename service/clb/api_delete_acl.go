@@ -52,7 +52,7 @@ func (c *CLB) DeleteAclCommonRequest(input *map[string]interface{}) (req *reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteAclCommon for usage and error information.
 func (c *CLB) DeleteAclCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteAclCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DeleteAclRequest(input *DeleteAclInput) (req *request.Request, out
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteAcl for usage and error information.
 func (c *CLB) DeleteAcl(input *DeleteAclInput) (*DeleteAclOutput, error) {
 	req, out := c.DeleteAclRequest(input)

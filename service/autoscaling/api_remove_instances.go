@@ -52,7 +52,7 @@ func (c *AUTOSCALING) RemoveInstancesCommonRequest(input *map[string]interface{}
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation RemoveInstancesCommon for usage and error information.
 func (c *AUTOSCALING) RemoveInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RemoveInstancesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *AUTOSCALING) RemoveInstancesRequest(input *RemoveInstancesInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation RemoveInstances for usage and error information.
 func (c *AUTOSCALING) RemoveInstances(input *RemoveInstancesInput) (*RemoveInstancesOutput, error) {
 	req, out := c.RemoveInstancesRequest(input)

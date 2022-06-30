@@ -52,7 +52,7 @@ func (c *VPC) ModifyRouteTableAttributesCommonRequest(input *map[string]interfac
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifyRouteTableAttributesCommon for usage and error information.
 func (c *VPC) ModifyRouteTableAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyRouteTableAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) ModifyRouteTableAttributesRequest(input *ModifyRouteTableAttribute
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifyRouteTableAttributes for usage and error information.
 func (c *VPC) ModifyRouteTableAttributes(input *ModifyRouteTableAttributesInput) (*ModifyRouteTableAttributesOutput, error) {
 	req, out := c.ModifyRouteTableAttributesRequest(input)

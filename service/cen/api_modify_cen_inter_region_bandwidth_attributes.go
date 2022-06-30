@@ -52,7 +52,7 @@ func (c *CEN) ModifyCenInterRegionBandwidthAttributesCommonRequest(input *map[st
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation ModifyCenInterRegionBandwidthAttributesCommon for usage and error information.
 func (c *CEN) ModifyCenInterRegionBandwidthAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyCenInterRegionBandwidthAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) ModifyCenInterRegionBandwidthAttributesRequest(input *ModifyCenInt
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation ModifyCenInterRegionBandwidthAttributes for usage and error information.
 func (c *CEN) ModifyCenInterRegionBandwidthAttributes(input *ModifyCenInterRegionBandwidthAttributesInput) (*ModifyCenInterRegionBandwidthAttributesOutput, error) {
 	req, out := c.ModifyCenInterRegionBandwidthAttributesRequest(input)

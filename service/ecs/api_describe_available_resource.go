@@ -52,7 +52,7 @@ func (c *ECS) DescribeAvailableResourceCommonRequest(input *map[string]interface
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeAvailableResourceCommon for usage and error information.
 func (c *ECS) DescribeAvailableResourceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeAvailableResourceCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) DescribeAvailableResourceRequest(input *DescribeAvailableResourceI
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeAvailableResource for usage and error information.
 func (c *ECS) DescribeAvailableResource(input *DescribeAvailableResourceInput) (*DescribeAvailableResourceOutput, error) {
 	req, out := c.DescribeAvailableResourceRequest(input)

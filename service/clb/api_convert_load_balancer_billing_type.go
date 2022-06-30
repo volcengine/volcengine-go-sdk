@@ -52,7 +52,7 @@ func (c *CLB) ConvertLoadBalancerBillingTypeCommonRequest(input *map[string]inte
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation ConvertLoadBalancerBillingTypeCommon for usage and error information.
 func (c *CLB) ConvertLoadBalancerBillingTypeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ConvertLoadBalancerBillingTypeCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) ConvertLoadBalancerBillingTypeRequest(input *ConvertLoadBalancerBi
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation ConvertLoadBalancerBillingType for usage and error information.
 func (c *CLB) ConvertLoadBalancerBillingType(input *ConvertLoadBalancerBillingTypeInput) (*ConvertLoadBalancerBillingTypeOutput, error) {
 	req, out := c.ConvertLoadBalancerBillingTypeRequest(input)

@@ -52,7 +52,7 @@ func (c *CEN) DisassociateCenBandwidthPackageCommonRequest(input *map[string]int
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DisassociateCenBandwidthPackageCommon for usage and error information.
 func (c *CEN) DisassociateCenBandwidthPackageCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DisassociateCenBandwidthPackageCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) DisassociateCenBandwidthPackageRequest(input *DisassociateCenBandw
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DisassociateCenBandwidthPackage for usage and error information.
 func (c *CEN) DisassociateCenBandwidthPackage(input *DisassociateCenBandwidthPackageInput) (*DisassociateCenBandwidthPackageOutput, error) {
 	req, out := c.DisassociateCenBandwidthPackageRequest(input)

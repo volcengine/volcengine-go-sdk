@@ -52,7 +52,7 @@ func (c *ECS) StopInstanceCommonRequest(input *map[string]interface{}) (req *req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation StopInstanceCommon for usage and error information.
 func (c *ECS) StopInstanceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.StopInstanceCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) StopInstanceRequest(input *StopInstanceInput) (req *request.Reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation StopInstance for usage and error information.
 func (c *ECS) StopInstance(input *StopInstanceInput) (*StopInstanceOutput, error) {
 	req, out := c.StopInstanceRequest(input)

@@ -52,7 +52,7 @@ func (c *VPC) DescribeHaVipsCommonRequest(input *map[string]interface{}) (req *r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeHaVipsCommon for usage and error information.
 func (c *VPC) DescribeHaVipsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeHaVipsCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DescribeHaVipsRequest(input *DescribeHaVipsInput) (req *request.Re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeHaVips for usage and error information.
 func (c *VPC) DescribeHaVips(input *DescribeHaVipsInput) (*DescribeHaVipsOutput, error) {
 	req, out := c.DescribeHaVipsRequest(input)

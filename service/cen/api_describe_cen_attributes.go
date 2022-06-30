@@ -52,7 +52,7 @@ func (c *CEN) DescribeCenAttributesCommonRequest(input *map[string]interface{}) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DescribeCenAttributesCommon for usage and error information.
 func (c *CEN) DescribeCenAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeCenAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) DescribeCenAttributesRequest(input *DescribeCenAttributesInput) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DescribeCenAttributes for usage and error information.
 func (c *CEN) DescribeCenAttributes(input *DescribeCenAttributesInput) (*DescribeCenAttributesOutput, error) {
 	req, out := c.DescribeCenAttributesRequest(input)

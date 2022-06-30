@@ -52,7 +52,7 @@ func (c *CLB) DescribeLoadBalancersBillingCommonRequest(input *map[string]interf
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeLoadBalancersBillingCommon for usage and error information.
 func (c *CLB) DescribeLoadBalancersBillingCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeLoadBalancersBillingCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DescribeLoadBalancersBillingRequest(input *DescribeLoadBalancersBi
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeLoadBalancersBilling for usage and error information.
 func (c *CLB) DescribeLoadBalancersBilling(input *DescribeLoadBalancersBillingInput) (*DescribeLoadBalancersBillingOutput, error) {
 	req, out := c.DescribeLoadBalancersBillingRequest(input)

@@ -52,7 +52,7 @@ func (c *AUTOSCALING) ModifyLifecycleHookCommonRequest(input *map[string]interfa
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyLifecycleHookCommon for usage and error information.
 func (c *AUTOSCALING) ModifyLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyLifecycleHookCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *AUTOSCALING) ModifyLifecycleHookRequest(input *ModifyLifecycleHookInput
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyLifecycleHook for usage and error information.
 func (c *AUTOSCALING) ModifyLifecycleHook(input *ModifyLifecycleHookInput) (*ModifyLifecycleHookOutput, error) {
 	req, out := c.ModifyLifecycleHookRequest(input)

@@ -52,7 +52,7 @@ func (c *VPC) AssociateEipAddressCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation AssociateEipAddressCommon for usage and error information.
 func (c *VPC) AssociateEipAddressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AssociateEipAddressCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) AssociateEipAddressRequest(input *AssociateEipAddressInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation AssociateEipAddress for usage and error information.
 func (c *VPC) AssociateEipAddress(input *AssociateEipAddressInput) (*AssociateEipAddressOutput, error) {
 	req, out := c.AssociateEipAddressRequest(input)

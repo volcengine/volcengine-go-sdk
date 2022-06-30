@@ -52,7 +52,7 @@ func (c *VPC) DetachNetworkInterfaceCommonRequest(input *map[string]interface{})
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DetachNetworkInterfaceCommon for usage and error information.
 func (c *VPC) DetachNetworkInterfaceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachNetworkInterfaceCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DetachNetworkInterfaceRequest(input *DetachNetworkInterfaceInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DetachNetworkInterface for usage and error information.
 func (c *VPC) DetachNetworkInterface(input *DetachNetworkInterfaceInput) (*DetachNetworkInterfaceOutput, error) {
 	req, out := c.DetachNetworkInterfaceRequest(input)

@@ -52,7 +52,7 @@ func (c *CEN) WithdrawCenRouteEntryCommonRequest(input *map[string]interface{}) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation WithdrawCenRouteEntryCommon for usage and error information.
 func (c *CEN) WithdrawCenRouteEntryCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.WithdrawCenRouteEntryCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) WithdrawCenRouteEntryRequest(input *WithdrawCenRouteEntryInput) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation WithdrawCenRouteEntry for usage and error information.
 func (c *CEN) WithdrawCenRouteEntry(input *WithdrawCenRouteEntryInput) (*WithdrawCenRouteEntryOutput, error) {
 	req, out := c.WithdrawCenRouteEntryRequest(input)

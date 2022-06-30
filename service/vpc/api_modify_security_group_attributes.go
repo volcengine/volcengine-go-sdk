@@ -52,7 +52,7 @@ func (c *VPC) ModifySecurityGroupAttributesCommonRequest(input *map[string]inter
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifySecurityGroupAttributesCommon for usage and error information.
 func (c *VPC) ModifySecurityGroupAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifySecurityGroupAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) ModifySecurityGroupAttributesRequest(input *ModifySecurityGroupAtt
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifySecurityGroupAttributes for usage and error information.
 func (c *VPC) ModifySecurityGroupAttributes(input *ModifySecurityGroupAttributesInput) (*ModifySecurityGroupAttributesOutput, error) {
 	req, out := c.ModifySecurityGroupAttributesRequest(input)

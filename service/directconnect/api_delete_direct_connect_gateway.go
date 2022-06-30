@@ -52,7 +52,7 @@ func (c *DIRECTCONNECT) DeleteDirectConnectGatewayCommonRequest(input *map[strin
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation DeleteDirectConnectGatewayCommon for usage and error information.
 func (c *DIRECTCONNECT) DeleteDirectConnectGatewayCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteDirectConnectGatewayCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *DIRECTCONNECT) DeleteDirectConnectGatewayRequest(input *DeleteDirectCon
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation DeleteDirectConnectGateway for usage and error information.
 func (c *DIRECTCONNECT) DeleteDirectConnectGateway(input *DeleteDirectConnectGatewayInput) (*DeleteDirectConnectGatewayOutput, error) {
 	req, out := c.DeleteDirectConnectGatewayRequest(input)

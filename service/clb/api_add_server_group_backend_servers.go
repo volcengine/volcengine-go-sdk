@@ -54,7 +54,7 @@ func (c *CLB) AddServerGroupBackendServersCommonRequest(input *map[string]interf
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation AddServerGroupBackendServersCommon for usage and error information.
 func (c *CLB) AddServerGroupBackendServersCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AddServerGroupBackendServersCommonRequest(input)
@@ -119,7 +119,7 @@ func (c *CLB) AddServerGroupBackendServersRequest(input *AddServerGroupBackendSe
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation AddServerGroupBackendServers for usage and error information.
 func (c *CLB) AddServerGroupBackendServers(input *AddServerGroupBackendServersInput) (*AddServerGroupBackendServersOutput, error) {
 	req, out := c.AddServerGroupBackendServersRequest(input)

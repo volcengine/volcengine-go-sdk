@@ -52,7 +52,7 @@ func (c *VPC) DescribeEipAddressesCommonRequest(input *map[string]interface{}) (
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeEipAddressesCommon for usage and error information.
 func (c *VPC) DescribeEipAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeEipAddressesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DescribeEipAddressesRequest(input *DescribeEipAddressesInput) (req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeEipAddresses for usage and error information.
 func (c *VPC) DescribeEipAddresses(input *DescribeEipAddressesInput) (*DescribeEipAddressesOutput, error) {
 	req, out := c.DescribeEipAddressesRequest(input)

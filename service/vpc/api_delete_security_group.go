@@ -52,7 +52,7 @@ func (c *VPC) DeleteSecurityGroupCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteSecurityGroupCommon for usage and error information.
 func (c *VPC) DeleteSecurityGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteSecurityGroupCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DeleteSecurityGroupRequest(input *DeleteSecurityGroupInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteSecurityGroup for usage and error information.
 func (c *VPC) DeleteSecurityGroup(input *DeleteSecurityGroupInput) (*DeleteSecurityGroupOutput, error) {
 	req, out := c.DeleteSecurityGroupRequest(input)

@@ -52,7 +52,7 @@ func (c *CEN) DeleteCenBandwidthPackageCommonRequest(input *map[string]interface
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DeleteCenBandwidthPackageCommon for usage and error information.
 func (c *CEN) DeleteCenBandwidthPackageCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteCenBandwidthPackageCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) DeleteCenBandwidthPackageRequest(input *DeleteCenBandwidthPackageI
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DeleteCenBandwidthPackage for usage and error information.
 func (c *CEN) DeleteCenBandwidthPackage(input *DeleteCenBandwidthPackageInput) (*DeleteCenBandwidthPackageOutput, error) {
 	req, out := c.DeleteCenBandwidthPackageRequest(input)

@@ -52,7 +52,7 @@ func (c *VPC) ModifySecurityGroupRuleDescriptionsEgressCommonRequest(input *map[
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifySecurityGroupRuleDescriptionsEgressCommon for usage and error information.
 func (c *VPC) ModifySecurityGroupRuleDescriptionsEgressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifySecurityGroupRuleDescriptionsEgressCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) ModifySecurityGroupRuleDescriptionsEgressRequest(input *ModifySecu
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifySecurityGroupRuleDescriptionsEgress for usage and error information.
 func (c *VPC) ModifySecurityGroupRuleDescriptionsEgress(input *ModifySecurityGroupRuleDescriptionsEgressInput) (*ModifySecurityGroupRuleDescriptionsEgressOutput, error) {
 	req, out := c.ModifySecurityGroupRuleDescriptionsEgressRequest(input)

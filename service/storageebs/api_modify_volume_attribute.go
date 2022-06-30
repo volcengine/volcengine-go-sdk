@@ -52,7 +52,7 @@ func (c *STORAGEEBS) ModifyVolumeAttributeCommonRequest(input *map[string]interf
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifyVolumeAttributeCommon for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeAttributeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyVolumeAttributeCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *STORAGEEBS) ModifyVolumeAttributeRequest(input *ModifyVolumeAttributeIn
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifyVolumeAttribute for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeAttribute(input *ModifyVolumeAttributeInput) (*ModifyVolumeAttributeOutput, error) {
 	req, out := c.ModifyVolumeAttributeRequest(input)

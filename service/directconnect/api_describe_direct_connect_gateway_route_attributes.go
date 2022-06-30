@@ -52,7 +52,7 @@ func (c *DIRECTCONNECT) DescribeDirectConnectGatewayRouteAttributesCommonRequest
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation DescribeDirectConnectGatewayRouteAttributesCommon for usage and error information.
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewayRouteAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeDirectConnectGatewayRouteAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *DIRECTCONNECT) DescribeDirectConnectGatewayRouteAttributesRequest(input
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation DescribeDirectConnectGatewayRouteAttributes for usage and error information.
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewayRouteAttributes(input *DescribeDirectConnectGatewayRouteAttributesInput) (*DescribeDirectConnectGatewayRouteAttributesOutput, error) {
 	req, out := c.DescribeDirectConnectGatewayRouteAttributesRequest(input)

@@ -52,7 +52,7 @@ func (c *ECS) RebootInstanceCommonRequest(input *map[string]interface{}) (req *r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation RebootInstanceCommon for usage and error information.
 func (c *ECS) RebootInstanceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RebootInstanceCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) RebootInstanceRequest(input *RebootInstanceInput) (req *request.Re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation RebootInstance for usage and error information.
 func (c *ECS) RebootInstance(input *RebootInstanceInput) (*RebootInstanceOutput, error) {
 	req, out := c.RebootInstanceRequest(input)

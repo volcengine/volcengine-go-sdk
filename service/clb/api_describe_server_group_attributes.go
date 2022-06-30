@@ -52,7 +52,7 @@ func (c *CLB) DescribeServerGroupAttributesCommonRequest(input *map[string]inter
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeServerGroupAttributesCommon for usage and error information.
 func (c *CLB) DescribeServerGroupAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeServerGroupAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DescribeServerGroupAttributesRequest(input *DescribeServerGroupAtt
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeServerGroupAttributes for usage and error information.
 func (c *CLB) DescribeServerGroupAttributes(input *DescribeServerGroupAttributesInput) (*DescribeServerGroupAttributesOutput, error) {
 	req, out := c.DescribeServerGroupAttributesRequest(input)

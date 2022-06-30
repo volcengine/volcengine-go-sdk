@@ -52,7 +52,7 @@ func (c *VPC) RevokeSecurityGroupEgressCommonRequest(input *map[string]interface
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation RevokeSecurityGroupEgressCommon for usage and error information.
 func (c *VPC) RevokeSecurityGroupEgressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RevokeSecurityGroupEgressCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) RevokeSecurityGroupEgressRequest(input *RevokeSecurityGroupEgressI
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation RevokeSecurityGroupEgress for usage and error information.
 func (c *VPC) RevokeSecurityGroupEgress(input *RevokeSecurityGroupEgressInput) (*RevokeSecurityGroupEgressOutput, error) {
 	req, out := c.RevokeSecurityGroupEgressRequest(input)

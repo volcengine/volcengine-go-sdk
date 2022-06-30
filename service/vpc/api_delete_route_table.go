@@ -52,7 +52,7 @@ func (c *VPC) DeleteRouteTableCommonRequest(input *map[string]interface{}) (req 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteRouteTableCommon for usage and error information.
 func (c *VPC) DeleteRouteTableCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteRouteTableCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DeleteRouteTableRequest(input *DeleteRouteTableInput) (req *reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteRouteTable for usage and error information.
 func (c *VPC) DeleteRouteTable(input *DeleteRouteTableInput) (*DeleteRouteTableOutput, error) {
 	req, out := c.DeleteRouteTableRequest(input)

@@ -52,7 +52,7 @@ func (c *CLB) RemoveServerGroupBackendServersCommonRequest(input *map[string]int
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation RemoveServerGroupBackendServersCommon for usage and error information.
 func (c *CLB) RemoveServerGroupBackendServersCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RemoveServerGroupBackendServersCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) RemoveServerGroupBackendServersRequest(input *RemoveServerGroupBac
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation RemoveServerGroupBackendServers for usage and error information.
 func (c *CLB) RemoveServerGroupBackendServers(input *RemoveServerGroupBackendServersInput) (*RemoveServerGroupBackendServersOutput, error) {
 	req, out := c.RemoveServerGroupBackendServersRequest(input)

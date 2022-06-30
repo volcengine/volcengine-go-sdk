@@ -52,7 +52,7 @@ func (c *ECS) RunInstancesCommonRequest(input *map[string]interface{}) (req *req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation RunInstancesCommon for usage and error information.
 func (c *ECS) RunInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RunInstancesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) RunInstancesRequest(input *RunInstancesInput) (req *request.Reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation RunInstances for usage and error information.
 func (c *ECS) RunInstances(input *RunInstancesInput) (*RunInstancesOutput, error) {
 	req, out := c.RunInstancesRequest(input)

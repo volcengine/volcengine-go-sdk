@@ -54,7 +54,7 @@ func (c *STORAGEEBS) CreateVolumeCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CreateVolumeCommon for usage and error information.
 func (c *STORAGEEBS) CreateVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateVolumeCommonRequest(input)
@@ -119,7 +119,7 @@ func (c *STORAGEEBS) CreateVolumeRequest(input *CreateVolumeInput) (req *request
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CreateVolume for usage and error information.
 func (c *STORAGEEBS) CreateVolume(input *CreateVolumeInput) (*CreateVolumeOutput, error) {
 	req, out := c.CreateVolumeRequest(input)

@@ -52,7 +52,7 @@ func (c *ECS) DescribeInstanceVncUrlCommonRequest(input *map[string]interface{})
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeInstanceVncUrlCommon for usage and error information.
 func (c *ECS) DescribeInstanceVncUrlCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeInstanceVncUrlCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) DescribeInstanceVncUrlRequest(input *DescribeInstanceVncUrlInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation DescribeInstanceVncUrl for usage and error information.
 func (c *ECS) DescribeInstanceVncUrl(input *DescribeInstanceVncUrlInput) (*DescribeInstanceVncUrlOutput, error) {
 	req, out := c.DescribeInstanceVncUrlRequest(input)

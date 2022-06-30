@@ -52,7 +52,7 @@ func (c *CLB) DeleteRulesCommonRequest(input *map[string]interface{}) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteRulesCommon for usage and error information.
 func (c *CLB) DeleteRulesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteRulesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DeleteRulesRequest(input *DeleteRulesInput) (req *request.Request,
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteRules for usage and error information.
 func (c *CLB) DeleteRules(input *DeleteRulesInput) (*DeleteRulesOutput, error) {
 	req, out := c.DeleteRulesRequest(input)

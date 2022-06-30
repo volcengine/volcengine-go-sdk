@@ -52,7 +52,7 @@ func (c *VPC) DisassociateHaVipCommonRequest(input *map[string]interface{}) (req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DisassociateHaVipCommon for usage and error information.
 func (c *VPC) DisassociateHaVipCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DisassociateHaVipCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DisassociateHaVipRequest(input *DisassociateHaVipInput) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DisassociateHaVip for usage and error information.
 func (c *VPC) DisassociateHaVip(input *DisassociateHaVipInput) (*DisassociateHaVipOutput, error) {
 	req, out := c.DisassociateHaVipRequest(input)

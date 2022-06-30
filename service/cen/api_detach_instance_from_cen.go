@@ -52,7 +52,7 @@ func (c *CEN) DetachInstanceFromCenCommonRequest(input *map[string]interface{}) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DetachInstanceFromCenCommon for usage and error information.
 func (c *CEN) DetachInstanceFromCenCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachInstanceFromCenCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) DetachInstanceFromCenRequest(input *DetachInstanceFromCenInput) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DetachInstanceFromCen for usage and error information.
 func (c *CEN) DetachInstanceFromCen(input *DetachInstanceFromCenInput) (*DetachInstanceFromCenOutput, error) {
 	req, out := c.DetachInstanceFromCenRequest(input)

@@ -52,7 +52,7 @@ func (c *ECS) CreateImageCommonRequest(input *map[string]interface{}) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation CreateImageCommon for usage and error information.
 func (c *ECS) CreateImageCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateImageCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) CreateImageRequest(input *CreateImageInput) (req *request.Request,
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation CreateImage for usage and error information.
 func (c *ECS) CreateImage(input *CreateImageInput) (*CreateImageOutput, error) {
 	req, out := c.CreateImageRequest(input)
