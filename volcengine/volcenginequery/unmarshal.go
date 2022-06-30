@@ -73,6 +73,11 @@ func Unmarshal(r *request.Request) {
 				r.Error = err
 				return
 			}
+
+			if v, ok := mm["Result"]; !ok || v == nil {
+				mm["Result"] = make(map[string]interface{})
+			}
+
 			mm["Result"].(map[string]interface{})["Metadata"] = meta
 
 			var metaStr []byte
