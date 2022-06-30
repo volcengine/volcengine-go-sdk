@@ -52,7 +52,7 @@ func (c *VPN) SetVpnGatewayRenewalCommonRequest(input *map[string]interface{}) (
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation SetVpnGatewayRenewalCommon for usage and error information.
 func (c *VPN) SetVpnGatewayRenewalCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.SetVpnGatewayRenewalCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPN) SetVpnGatewayRenewalRequest(input *SetVpnGatewayRenewalInput) (req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation SetVpnGatewayRenewal for usage and error information.
 func (c *VPN) SetVpnGatewayRenewal(input *SetVpnGatewayRenewalInput) (*SetVpnGatewayRenewalOutput, error) {
 	req, out := c.SetVpnGatewayRenewalRequest(input)

@@ -52,7 +52,7 @@ func (c *AUTOSCALING) DeleteScalingGroupCommonRequest(input *map[string]interfac
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DeleteScalingGroupCommon for usage and error information.
 func (c *AUTOSCALING) DeleteScalingGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteScalingGroupCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *AUTOSCALING) DeleteScalingGroupRequest(input *DeleteScalingGroupInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DeleteScalingGroup for usage and error information.
 func (c *AUTOSCALING) DeleteScalingGroup(input *DeleteScalingGroupInput) (*DeleteScalingGroupOutput, error) {
 	req, out := c.DeleteScalingGroupRequest(input)

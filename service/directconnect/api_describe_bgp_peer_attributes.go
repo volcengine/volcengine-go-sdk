@@ -52,7 +52,7 @@ func (c *DIRECTCONNECT) DescribeBgpPeerAttributesCommonRequest(input *map[string
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation DescribeBgpPeerAttributesCommon for usage and error information.
 func (c *DIRECTCONNECT) DescribeBgpPeerAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeBgpPeerAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *DIRECTCONNECT) DescribeBgpPeerAttributesRequest(input *DescribeBgpPeerA
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation DescribeBgpPeerAttributes for usage and error information.
 func (c *DIRECTCONNECT) DescribeBgpPeerAttributes(input *DescribeBgpPeerAttributesInput) (*DescribeBgpPeerAttributesOutput, error) {
 	req, out := c.DescribeBgpPeerAttributesRequest(input)

@@ -52,7 +52,7 @@ func (c *CLB) ModifyAclAttributesCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation ModifyAclAttributesCommon for usage and error information.
 func (c *CLB) ModifyAclAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyAclAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) ModifyAclAttributesRequest(input *ModifyAclAttributesInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation ModifyAclAttributes for usage and error information.
 func (c *CLB) ModifyAclAttributes(input *ModifyAclAttributesInput) (*ModifyAclAttributesOutput, error) {
 	req, out := c.ModifyAclAttributesRequest(input)

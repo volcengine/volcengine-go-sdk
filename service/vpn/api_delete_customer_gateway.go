@@ -52,7 +52,7 @@ func (c *VPN) DeleteCustomerGatewayCommonRequest(input *map[string]interface{}) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation DeleteCustomerGatewayCommon for usage and error information.
 func (c *VPN) DeleteCustomerGatewayCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteCustomerGatewayCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPN) DeleteCustomerGatewayRequest(input *DeleteCustomerGatewayInput) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation DeleteCustomerGateway for usage and error information.
 func (c *VPN) DeleteCustomerGateway(input *DeleteCustomerGatewayInput) (*DeleteCustomerGatewayOutput, error) {
 	req, out := c.DeleteCustomerGatewayRequest(input)

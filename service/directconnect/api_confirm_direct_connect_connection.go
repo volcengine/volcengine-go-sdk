@@ -52,7 +52,7 @@ func (c *DIRECTCONNECT) ConfirmDirectConnectConnectionCommonRequest(input *map[s
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation ConfirmDirectConnectConnectionCommon for usage and error information.
 func (c *DIRECTCONNECT) ConfirmDirectConnectConnectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ConfirmDirectConnectConnectionCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *DIRECTCONNECT) ConfirmDirectConnectConnectionRequest(input *ConfirmDire
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation ConfirmDirectConnectConnection for usage and error information.
 func (c *DIRECTCONNECT) ConfirmDirectConnectConnection(input *ConfirmDirectConnectConnectionInput) (*ConfirmDirectConnectConnectionOutput, error) {
 	req, out := c.ConfirmDirectConnectConnectionRequest(input)

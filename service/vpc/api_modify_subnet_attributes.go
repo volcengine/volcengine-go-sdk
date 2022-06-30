@@ -52,7 +52,7 @@ func (c *VPC) ModifySubnetAttributesCommonRequest(input *map[string]interface{})
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifySubnetAttributesCommon for usage and error information.
 func (c *VPC) ModifySubnetAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifySubnetAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) ModifySubnetAttributesRequest(input *ModifySubnetAttributesInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation ModifySubnetAttributes for usage and error information.
 func (c *VPC) ModifySubnetAttributes(input *ModifySubnetAttributesInput) (*ModifySubnetAttributesOutput, error) {
 	req, out := c.ModifySubnetAttributesRequest(input)

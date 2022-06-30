@@ -52,7 +52,7 @@ func (c *NATGATEWAY) DeleteSnatEntryCommonRequest(input *map[string]interface{})
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for NATGATEWAY's
+// See the VOLCENGINE API reference guide for NATGATEWAY's
 // API operation DeleteSnatEntryCommon for usage and error information.
 func (c *NATGATEWAY) DeleteSnatEntryCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteSnatEntryCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *NATGATEWAY) DeleteSnatEntryRequest(input *DeleteSnatEntryInput) (req *r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for NATGATEWAY's
+// See the VOLCENGINE API reference guide for NATGATEWAY's
 // API operation DeleteSnatEntry for usage and error information.
 func (c *NATGATEWAY) DeleteSnatEntry(input *DeleteSnatEntryInput) (*DeleteSnatEntryOutput, error) {
 	req, out := c.DeleteSnatEntryRequest(input)

@@ -52,7 +52,7 @@ func (c *NATGATEWAY) DescribeNatGatewaysCommonRequest(input *map[string]interfac
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for NATGATEWAY's
+// See the VOLCENGINE API reference guide for NATGATEWAY's
 // API operation DescribeNatGatewaysCommon for usage and error information.
 func (c *NATGATEWAY) DescribeNatGatewaysCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeNatGatewaysCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *NATGATEWAY) DescribeNatGatewaysRequest(input *DescribeNatGatewaysInput)
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for NATGATEWAY's
+// See the VOLCENGINE API reference guide for NATGATEWAY's
 // API operation DescribeNatGateways for usage and error information.
 func (c *NATGATEWAY) DescribeNatGateways(input *DescribeNatGatewaysInput) (*DescribeNatGatewaysOutput, error) {
 	req, out := c.DescribeNatGatewaysRequest(input)

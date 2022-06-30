@@ -52,7 +52,7 @@ func (c *CEN) RenewCenBandwidthPackageCommonRequest(input *map[string]interface{
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation RenewCenBandwidthPackageCommon for usage and error information.
 func (c *CEN) RenewCenBandwidthPackageCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RenewCenBandwidthPackageCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) RenewCenBandwidthPackageRequest(input *RenewCenBandwidthPackageInp
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation RenewCenBandwidthPackage for usage and error information.
 func (c *CEN) RenewCenBandwidthPackage(input *RenewCenBandwidthPackageInput) (*RenewCenBandwidthPackageOutput, error) {
 	req, out := c.RenewCenBandwidthPackageRequest(input)

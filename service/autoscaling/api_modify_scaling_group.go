@@ -52,7 +52,7 @@ func (c *AUTOSCALING) ModifyScalingGroupCommonRequest(input *map[string]interfac
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyScalingGroupCommon for usage and error information.
 func (c *AUTOSCALING) ModifyScalingGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyScalingGroupCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *AUTOSCALING) ModifyScalingGroupRequest(input *ModifyScalingGroupInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyScalingGroup for usage and error information.
 func (c *AUTOSCALING) ModifyScalingGroup(input *ModifyScalingGroupInput) (*ModifyScalingGroupOutput, error) {
 	req, out := c.ModifyScalingGroupRequest(input)

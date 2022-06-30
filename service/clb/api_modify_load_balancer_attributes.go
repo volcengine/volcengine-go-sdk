@@ -52,7 +52,7 @@ func (c *CLB) ModifyLoadBalancerAttributesCommonRequest(input *map[string]interf
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation ModifyLoadBalancerAttributesCommon for usage and error information.
 func (c *CLB) ModifyLoadBalancerAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyLoadBalancerAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) ModifyLoadBalancerAttributesRequest(input *ModifyLoadBalancerAttri
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation ModifyLoadBalancerAttributes for usage and error information.
 func (c *CLB) ModifyLoadBalancerAttributes(input *ModifyLoadBalancerAttributesInput) (*ModifyLoadBalancerAttributesOutput, error) {
 	req, out := c.ModifyLoadBalancerAttributesRequest(input)

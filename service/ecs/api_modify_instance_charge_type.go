@@ -52,7 +52,7 @@ func (c *ECS) ModifyInstanceChargeTypeCommonRequest(input *map[string]interface{
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation ModifyInstanceChargeTypeCommon for usage and error information.
 func (c *ECS) ModifyInstanceChargeTypeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstanceChargeTypeCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) ModifyInstanceChargeTypeRequest(input *ModifyInstanceChargeTypeInp
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation ModifyInstanceChargeType for usage and error information.
 func (c *ECS) ModifyInstanceChargeType(input *ModifyInstanceChargeTypeInput) (*ModifyInstanceChargeTypeOutput, error) {
 	req, out := c.ModifyInstanceChargeTypeRequest(input)

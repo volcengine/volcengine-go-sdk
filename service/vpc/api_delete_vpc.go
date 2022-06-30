@@ -52,7 +52,7 @@ func (c *VPC) DeleteVpcCommonRequest(input *map[string]interface{}) (req *reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteVpcCommon for usage and error information.
 func (c *VPC) DeleteVpcCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteVpcCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DeleteVpcRequest(input *DeleteVpcInput) (req *request.Request, out
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DeleteVpc for usage and error information.
 func (c *VPC) DeleteVpc(input *DeleteVpcInput) (*DeleteVpcOutput, error) {
 	req, out := c.DeleteVpcRequest(input)

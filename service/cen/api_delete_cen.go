@@ -52,7 +52,7 @@ func (c *CEN) DeleteCenCommonRequest(input *map[string]interface{}) (req *reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DeleteCenCommon for usage and error information.
 func (c *CEN) DeleteCenCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteCenCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) DeleteCenRequest(input *DeleteCenInput) (req *request.Request, out
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DeleteCen for usage and error information.
 func (c *CEN) DeleteCen(input *DeleteCenInput) (*DeleteCenOutput, error) {
 	req, out := c.DeleteCenRequest(input)

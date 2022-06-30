@@ -52,7 +52,7 @@ func (c *AUTOSCALING) DetachInstancesCommonRequest(input *map[string]interface{}
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachInstancesCommon for usage and error information.
 func (c *AUTOSCALING) DetachInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachInstancesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *AUTOSCALING) DetachInstancesRequest(input *DetachInstancesInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachInstances for usage and error information.
 func (c *AUTOSCALING) DetachInstances(input *DetachInstancesInput) (*DetachInstancesOutput, error) {
 	req, out := c.DetachInstancesRequest(input)

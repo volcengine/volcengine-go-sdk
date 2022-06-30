@@ -52,7 +52,7 @@ func (c *CLB) DescribeAclAttributesCommonRequest(input *map[string]interface{}) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeAclAttributesCommon for usage and error information.
 func (c *CLB) DescribeAclAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeAclAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DescribeAclAttributesRequest(input *DescribeAclAttributesInput) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeAclAttributes for usage and error information.
 func (c *CLB) DescribeAclAttributes(input *DescribeAclAttributesInput) (*DescribeAclAttributesOutput, error) {
 	req, out := c.DescribeAclAttributesRequest(input)

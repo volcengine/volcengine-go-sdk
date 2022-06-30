@@ -54,7 +54,7 @@ func (c *CLB) CreateServerGroupCommonRequest(input *map[string]interface{}) (req
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation CreateServerGroupCommon for usage and error information.
 func (c *CLB) CreateServerGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateServerGroupCommonRequest(input)
@@ -119,7 +119,7 @@ func (c *CLB) CreateServerGroupRequest(input *CreateServerGroupInput) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation CreateServerGroup for usage and error information.
 func (c *CLB) CreateServerGroup(input *CreateServerGroupInput) (*CreateServerGroupOutput, error) {
 	req, out := c.CreateServerGroupRequest(input)

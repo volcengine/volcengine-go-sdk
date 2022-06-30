@@ -52,7 +52,7 @@ func (c *VPC) AuthorizeSecurityGroupIngressCommonRequest(input *map[string]inter
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation AuthorizeSecurityGroupIngressCommon for usage and error information.
 func (c *VPC) AuthorizeSecurityGroupIngressCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AuthorizeSecurityGroupIngressCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) AuthorizeSecurityGroupIngressRequest(input *AuthorizeSecurityGroup
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation AuthorizeSecurityGroupIngress for usage and error information.
 func (c *VPC) AuthorizeSecurityGroupIngress(input *AuthorizeSecurityGroupIngressInput) (*AuthorizeSecurityGroupIngressOutput, error) {
 	req, out := c.AuthorizeSecurityGroupIngressRequest(input)

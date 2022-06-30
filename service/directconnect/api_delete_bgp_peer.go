@@ -52,7 +52,7 @@ func (c *DIRECTCONNECT) DeleteBgpPeerCommonRequest(input *map[string]interface{}
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation DeleteBgpPeerCommon for usage and error information.
 func (c *DIRECTCONNECT) DeleteBgpPeerCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteBgpPeerCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *DIRECTCONNECT) DeleteBgpPeerRequest(input *DeleteBgpPeerInput) (req *re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation DeleteBgpPeer for usage and error information.
 func (c *DIRECTCONNECT) DeleteBgpPeer(input *DeleteBgpPeerInput) (*DeleteBgpPeerOutput, error) {
 	req, out := c.DeleteBgpPeerRequest(input)

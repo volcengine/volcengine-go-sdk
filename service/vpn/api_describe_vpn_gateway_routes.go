@@ -52,7 +52,7 @@ func (c *VPN) DescribeVpnGatewayRoutesCommonRequest(input *map[string]interface{
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation DescribeVpnGatewayRoutesCommon for usage and error information.
 func (c *VPN) DescribeVpnGatewayRoutesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeVpnGatewayRoutesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPN) DescribeVpnGatewayRoutesRequest(input *DescribeVpnGatewayRoutesInp
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation DescribeVpnGatewayRoutes for usage and error information.
 func (c *VPN) DescribeVpnGatewayRoutes(input *DescribeVpnGatewayRoutesInput) (*DescribeVpnGatewayRoutesOutput, error) {
 	req, out := c.DescribeVpnGatewayRoutesRequest(input)

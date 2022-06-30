@@ -52,7 +52,7 @@ func (c *VPC) DescribeSecurityGroupsCommonRequest(input *map[string]interface{})
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeSecurityGroupsCommon for usage and error information.
 func (c *VPC) DescribeSecurityGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeSecurityGroupsCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DescribeSecurityGroupsRequest(input *DescribeSecurityGroupsInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeSecurityGroups for usage and error information.
 func (c *VPC) DescribeSecurityGroups(input *DescribeSecurityGroupsInput) (*DescribeSecurityGroupsOutput, error) {
 	req, out := c.DescribeSecurityGroupsRequest(input)

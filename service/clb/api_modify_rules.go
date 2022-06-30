@@ -54,7 +54,7 @@ func (c *CLB) ModifyRulesCommonRequest(input *map[string]interface{}) (req *requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation ModifyRulesCommon for usage and error information.
 func (c *CLB) ModifyRulesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyRulesCommonRequest(input)
@@ -119,7 +119,7 @@ func (c *CLB) ModifyRulesRequest(input *ModifyRulesInput) (req *request.Request,
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation ModifyRules for usage and error information.
 func (c *CLB) ModifyRules(input *ModifyRulesInput) (*ModifyRulesOutput, error) {
 	req, out := c.ModifyRulesRequest(input)

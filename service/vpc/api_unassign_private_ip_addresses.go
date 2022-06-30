@@ -52,7 +52,7 @@ func (c *VPC) UnassignPrivateIpAddressesCommonRequest(input *map[string]interfac
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation UnassignPrivateIpAddressesCommon for usage and error information.
 func (c *VPC) UnassignPrivateIpAddressesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.UnassignPrivateIpAddressesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) UnassignPrivateIpAddressesRequest(input *UnassignPrivateIpAddresse
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation UnassignPrivateIpAddresses for usage and error information.
 func (c *VPC) UnassignPrivateIpAddresses(input *UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error) {
 	req, out := c.UnassignPrivateIpAddressesRequest(input)

@@ -54,7 +54,7 @@ func (c *ECS) ReplaceSystemVolumeCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation ReplaceSystemVolumeCommon for usage and error information.
 func (c *ECS) ReplaceSystemVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ReplaceSystemVolumeCommonRequest(input)
@@ -119,7 +119,7 @@ func (c *ECS) ReplaceSystemVolumeRequest(input *ReplaceSystemVolumeInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation ReplaceSystemVolume for usage and error information.
 func (c *ECS) ReplaceSystemVolume(input *ReplaceSystemVolumeInput) (*ReplaceSystemVolumeOutput, error) {
 	req, out := c.ReplaceSystemVolumeRequest(input)

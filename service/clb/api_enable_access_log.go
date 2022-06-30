@@ -52,7 +52,7 @@ func (c *CLB) EnableAccessLogCommonRequest(input *map[string]interface{}) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation EnableAccessLogCommon for usage and error information.
 func (c *CLB) EnableAccessLogCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.EnableAccessLogCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) EnableAccessLogRequest(input *EnableAccessLogInput) (req *request.
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation EnableAccessLog for usage and error information.
 func (c *CLB) EnableAccessLog(input *EnableAccessLogInput) (*EnableAccessLogOutput, error) {
 	req, out := c.EnableAccessLogRequest(input)

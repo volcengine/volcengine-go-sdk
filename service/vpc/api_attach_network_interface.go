@@ -52,7 +52,7 @@ func (c *VPC) AttachNetworkInterfaceCommonRequest(input *map[string]interface{})
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation AttachNetworkInterfaceCommon for usage and error information.
 func (c *VPC) AttachNetworkInterfaceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachNetworkInterfaceCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) AttachNetworkInterfaceRequest(input *AttachNetworkInterfaceInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation AttachNetworkInterface for usage and error information.
 func (c *VPC) AttachNetworkInterface(input *AttachNetworkInterfaceInput) (*AttachNetworkInterfaceOutput, error) {
 	req, out := c.AttachNetworkInterfaceRequest(input)

@@ -52,7 +52,7 @@ func (c *VPC) DescribeNetworkInterfaceAttributesCommonRequest(input *map[string]
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeNetworkInterfaceAttributesCommon for usage and error information.
 func (c *VPC) DescribeNetworkInterfaceAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeNetworkInterfaceAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DescribeNetworkInterfaceAttributesRequest(input *DescribeNetworkIn
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeNetworkInterfaceAttributes for usage and error information.
 func (c *VPC) DescribeNetworkInterfaceAttributes(input *DescribeNetworkInterfaceAttributesInput) (*DescribeNetworkInterfaceAttributesOutput, error) {
 	req, out := c.DescribeNetworkInterfaceAttributesRequest(input)

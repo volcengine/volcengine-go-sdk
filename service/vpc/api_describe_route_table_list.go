@@ -52,7 +52,7 @@ func (c *VPC) DescribeRouteTableListCommonRequest(input *map[string]interface{})
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeRouteTableListCommon for usage and error information.
 func (c *VPC) DescribeRouteTableListCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeRouteTableListCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPC) DescribeRouteTableListRequest(input *DescribeRouteTableListInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPC's
+// See the VOLCENGINE API reference guide for VPC's
 // API operation DescribeRouteTableList for usage and error information.
 func (c *VPC) DescribeRouteTableList(input *DescribeRouteTableListInput) (*DescribeRouteTableListOutput, error) {
 	req, out := c.DescribeRouteTableListRequest(input)

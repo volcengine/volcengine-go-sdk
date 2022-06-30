@@ -52,7 +52,7 @@ func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterfaceCommonRequest(input *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation CreateDirectConnectVirtualInterfaceCommon for usage and error information.
 func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterfaceCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateDirectConnectVirtualInterfaceCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterfaceRequest(input *Create
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for DIRECTCONNECT's
+// See the VOLCENGINE API reference guide for DIRECTCONNECT's
 // API operation CreateDirectConnectVirtualInterface for usage and error information.
 func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterface(input *CreateDirectConnectVirtualInterfaceInput) (*CreateDirectConnectVirtualInterfaceOutput, error) {
 	req, out := c.CreateDirectConnectVirtualInterfaceRequest(input)

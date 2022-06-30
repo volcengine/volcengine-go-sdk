@@ -52,7 +52,7 @@ func (c *AUTOSCALING) AttachInstancesCommonRequest(input *map[string]interface{}
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation AttachInstancesCommon for usage and error information.
 func (c *AUTOSCALING) AttachInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachInstancesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *AUTOSCALING) AttachInstancesRequest(input *AttachInstancesInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation AttachInstances for usage and error information.
 func (c *AUTOSCALING) AttachInstances(input *AttachInstancesInput) (*AttachInstancesOutput, error) {
 	req, out := c.AttachInstancesRequest(input)

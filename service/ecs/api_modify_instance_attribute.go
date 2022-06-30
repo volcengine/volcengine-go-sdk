@@ -52,7 +52,7 @@ func (c *ECS) ModifyInstanceAttributeCommonRequest(input *map[string]interface{}
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation ModifyInstanceAttributeCommon for usage and error information.
 func (c *ECS) ModifyInstanceAttributeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyInstanceAttributeCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *ECS) ModifyInstanceAttributeRequest(input *ModifyInstanceAttributeInput
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for ECS's
+// See the VOLCENGINE API reference guide for ECS's
 // API operation ModifyInstanceAttribute for usage and error information.
 func (c *ECS) ModifyInstanceAttribute(input *ModifyInstanceAttributeInput) (*ModifyInstanceAttributeOutput, error) {
 	req, out := c.ModifyInstanceAttributeRequest(input)

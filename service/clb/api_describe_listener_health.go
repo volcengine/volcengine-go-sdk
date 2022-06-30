@@ -52,7 +52,7 @@ func (c *CLB) DescribeListenerHealthCommonRequest(input *map[string]interface{})
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeListenerHealthCommon for usage and error information.
 func (c *CLB) DescribeListenerHealthCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeListenerHealthCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DescribeListenerHealthRequest(input *DescribeListenerHealthInput) 
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeListenerHealth for usage and error information.
 func (c *CLB) DescribeListenerHealth(input *DescribeListenerHealthInput) (*DescribeListenerHealthOutput, error) {
 	req, out := c.DescribeListenerHealthRequest(input)

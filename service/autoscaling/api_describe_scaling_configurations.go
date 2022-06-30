@@ -52,7 +52,7 @@ func (c *AUTOSCALING) DescribeScalingConfigurationsCommonRequest(input *map[stri
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingConfigurationsCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingConfigurationsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingConfigurationsCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *AUTOSCALING) DescribeScalingConfigurationsRequest(input *DescribeScalin
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingConfigurations for usage and error information.
 func (c *AUTOSCALING) DescribeScalingConfigurations(input *DescribeScalingConfigurationsInput) (*DescribeScalingConfigurationsOutput, error) {
 	req, out := c.DescribeScalingConfigurationsRequest(input)

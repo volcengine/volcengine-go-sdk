@@ -52,7 +52,7 @@ func (c *VPN) ModifyVpnConnectionAttributesCommonRequest(input *map[string]inter
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation ModifyVpnConnectionAttributesCommon for usage and error information.
 func (c *VPN) ModifyVpnConnectionAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyVpnConnectionAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *VPN) ModifyVpnConnectionAttributesRequest(input *ModifyVpnConnectionAtt
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for VPN's
+// See the VOLCENGINE API reference guide for VPN's
 // API operation ModifyVpnConnectionAttributes for usage and error information.
 func (c *VPN) ModifyVpnConnectionAttributes(input *ModifyVpnConnectionAttributesInput) (*ModifyVpnConnectionAttributesOutput, error) {
 	req, out := c.ModifyVpnConnectionAttributesRequest(input)

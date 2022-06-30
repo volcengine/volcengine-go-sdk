@@ -52,7 +52,7 @@ func (c *CEN) AttachInstanceToCenCommonRequest(input *map[string]interface{}) (r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation AttachInstanceToCenCommon for usage and error information.
 func (c *CEN) AttachInstanceToCenCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachInstanceToCenCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) AttachInstanceToCenRequest(input *AttachInstanceToCenInput) (req *
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation AttachInstanceToCen for usage and error information.
 func (c *CEN) AttachInstanceToCen(input *AttachInstanceToCenInput) (*AttachInstanceToCenOutput, error) {
 	req, out := c.AttachInstanceToCenRequest(input)

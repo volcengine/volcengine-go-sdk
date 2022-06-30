@@ -52,7 +52,7 @@ func (c *CLB) DeleteListenerCommonRequest(input *map[string]interface{}) (req *r
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteListenerCommon for usage and error information.
 func (c *CLB) DeleteListenerCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteListenerCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DeleteListenerRequest(input *DeleteListenerInput) (req *request.Re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DeleteListener for usage and error information.
 func (c *CLB) DeleteListener(input *DeleteListenerInput) (*DeleteListenerOutput, error) {
 	req, out := c.DeleteListenerRequest(input)

@@ -52,7 +52,7 @@ func (c *NATGATEWAY) ModifySnatEntryAttributesCommonRequest(input *map[string]in
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for NATGATEWAY's
+// See the VOLCENGINE API reference guide for NATGATEWAY's
 // API operation ModifySnatEntryAttributesCommon for usage and error information.
 func (c *NATGATEWAY) ModifySnatEntryAttributesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifySnatEntryAttributesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *NATGATEWAY) ModifySnatEntryAttributesRequest(input *ModifySnatEntryAttr
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for NATGATEWAY's
+// See the VOLCENGINE API reference guide for NATGATEWAY's
 // API operation ModifySnatEntryAttributes for usage and error information.
 func (c *NATGATEWAY) ModifySnatEntryAttributes(input *ModifySnatEntryAttributesInput) (*ModifySnatEntryAttributesOutput, error) {
 	req, out := c.ModifySnatEntryAttributesRequest(input)

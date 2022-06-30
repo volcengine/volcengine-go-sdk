@@ -52,7 +52,7 @@ func (c *CEN) CreateCenCommonRequest(input *map[string]interface{}) (req *reques
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation CreateCenCommon for usage and error information.
 func (c *CEN) CreateCenCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateCenCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) CreateCenRequest(input *CreateCenInput) (req *request.Request, out
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation CreateCen for usage and error information.
 func (c *CEN) CreateCen(input *CreateCenInput) (*CreateCenOutput, error) {
 	req, out := c.CreateCenRequest(input)

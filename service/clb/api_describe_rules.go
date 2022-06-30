@@ -52,7 +52,7 @@ func (c *CLB) DescribeRulesCommonRequest(input *map[string]interface{}) (req *re
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeRulesCommon for usage and error information.
 func (c *CLB) DescribeRulesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeRulesCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CLB) DescribeRulesRequest(input *DescribeRulesInput) (req *request.Requ
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CLB's
+// See the VOLCENGINE API reference guide for CLB's
 // API operation DescribeRules for usage and error information.
 func (c *CLB) DescribeRules(input *DescribeRulesInput) (*DescribeRulesOutput, error) {
 	req, out := c.DescribeRulesRequest(input)

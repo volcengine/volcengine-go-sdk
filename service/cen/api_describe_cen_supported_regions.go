@@ -52,7 +52,7 @@ func (c *CEN) DescribeCenSupportedRegionsCommonRequest(input *map[string]interfa
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DescribeCenSupportedRegionsCommon for usage and error information.
 func (c *CEN) DescribeCenSupportedRegionsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeCenSupportedRegionsCommonRequest(input)
@@ -117,7 +117,7 @@ func (c *CEN) DescribeCenSupportedRegionsRequest(input *DescribeCenSupportedRegi
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCSTACK API reference guide for CEN's
+// See the VOLCENGINE API reference guide for CEN's
 // API operation DescribeCenSupportedRegions for usage and error information.
 func (c *CEN) DescribeCenSupportedRegions(input *DescribeCenSupportedRegionsInput) (*DescribeCenSupportedRegionsOutput, error) {
 	req, out := c.DescribeCenSupportedRegionsRequest(input)
