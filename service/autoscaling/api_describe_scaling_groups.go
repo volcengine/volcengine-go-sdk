@@ -240,15 +240,21 @@ type ScalingGroupForDescribeScalingGroupsOutput struct {
 
 	CreatedAt *string `type:"string"`
 
+	DBInstanceIds []*string `type:"list"`
+
 	DefaultCooldown *int32 `type:"int32"`
 
 	DesireInstanceNumber *int32 `type:"int32"`
+
+	InstanceTerminatePolicy *string `type:"string"`
 
 	LifecycleState *string `type:"string"`
 
 	MaxInstanceNumber *int32 `type:"int32"`
 
 	MinInstanceNumber *int32 `type:"int32"`
+
+	MultiAZPolicy *string `type:"string"`
 
 	ScalingGroupId *string `type:"string"`
 
@@ -287,6 +293,12 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetCreatedAt(v string) *Sca
 	return s
 }
 
+// SetDBInstanceIds sets the DBInstanceIds field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetDBInstanceIds(v []*string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.DBInstanceIds = v
+	return s
+}
+
 // SetDefaultCooldown sets the DefaultCooldown field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetDefaultCooldown(v int32) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.DefaultCooldown = &v
@@ -296,6 +308,12 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetDefaultCooldown(v int32)
 // SetDesireInstanceNumber sets the DesireInstanceNumber field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetDesireInstanceNumber(v int32) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.DesireInstanceNumber = &v
+	return s
+}
+
+// SetInstanceTerminatePolicy sets the InstanceTerminatePolicy field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetInstanceTerminatePolicy(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.InstanceTerminatePolicy = &v
 	return s
 }
 
@@ -314,6 +332,12 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetMaxInstanceNumber(v int3
 // SetMinInstanceNumber sets the MinInstanceNumber field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetMinInstanceNumber(v int32) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.MinInstanceNumber = &v
+	return s
+}
+
+// SetMultiAZPolicy sets the MultiAZPolicy field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetMultiAZPolicy(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.MultiAZPolicy = &v
 	return s
 }
 

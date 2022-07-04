@@ -246,6 +246,8 @@ type EipForDescribeScalingConfigurationsOutput struct {
 
 	Bandwidth *int32 `type:"int32"`
 
+	BillingType *string `type:"string"`
+
 	ISP *string `type:"string"`
 }
 
@@ -262,6 +264,12 @@ func (s EipForDescribeScalingConfigurationsOutput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *EipForDescribeScalingConfigurationsOutput) SetBandwidth(v int32) *EipForDescribeScalingConfigurationsOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *EipForDescribeScalingConfigurationsOutput) SetBillingType(v string) *EipForDescribeScalingConfigurationsOutput {
+	s.BillingType = &v
 	return s
 }
 

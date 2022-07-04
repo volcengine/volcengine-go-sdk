@@ -142,6 +142,8 @@ func (c *AUTOSCALING) CreateScalingGroupWithContext(ctx volcengine.Context, inpu
 type CreateScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	DBInstanceIds []*string `type:"list"`
+
 	DefaultCooldown *int32 `type:"int32"`
 
 	DesireInstanceNumber *int32 `type:"int32"`
@@ -151,6 +153,8 @@ type CreateScalingGroupInput struct {
 	MaxInstanceNumber *int32 `type:"int32"`
 
 	MinInstanceNumber *int32 `type:"int32"`
+
+	MultiAZPolicy *string `type:"string"`
 
 	ScalingGroupName *string `type:"string"`
 
@@ -167,6 +171,12 @@ func (s CreateScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s CreateScalingGroupInput) GoString() string {
 	return s.String()
+}
+
+// SetDBInstanceIds sets the DBInstanceIds field's value.
+func (s *CreateScalingGroupInput) SetDBInstanceIds(v []*string) *CreateScalingGroupInput {
+	s.DBInstanceIds = v
+	return s
 }
 
 // SetDefaultCooldown sets the DefaultCooldown field's value.
@@ -196,6 +206,12 @@ func (s *CreateScalingGroupInput) SetMaxInstanceNumber(v int32) *CreateScalingGr
 // SetMinInstanceNumber sets the MinInstanceNumber field's value.
 func (s *CreateScalingGroupInput) SetMinInstanceNumber(v int32) *CreateScalingGroupInput {
 	s.MinInstanceNumber = &v
+	return s
+}
+
+// SetMultiAZPolicy sets the MultiAZPolicy field's value.
+func (s *CreateScalingGroupInput) SetMultiAZPolicy(v string) *CreateScalingGroupInput {
+	s.MultiAZPolicy = &v
 	return s
 }
 

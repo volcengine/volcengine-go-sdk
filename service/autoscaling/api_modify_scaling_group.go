@@ -144,6 +144,8 @@ type ModifyScalingGroupInput struct {
 
 	ActiveScalingConfigurationId *string `type:"string"`
 
+	DefaultCooldown *int32 `type:"int32"`
+
 	DesireInstanceNumber *int32 `type:"int32"`
 
 	InstanceTerminatePolicy *string `type:"string"`
@@ -172,6 +174,12 @@ func (s ModifyScalingGroupInput) GoString() string {
 // SetActiveScalingConfigurationId sets the ActiveScalingConfigurationId field's value.
 func (s *ModifyScalingGroupInput) SetActiveScalingConfigurationId(v string) *ModifyScalingGroupInput {
 	s.ActiveScalingConfigurationId = &v
+	return s
+}
+
+// SetDefaultCooldown sets the DefaultCooldown field's value.
+func (s *ModifyScalingGroupInput) SetDefaultCooldown(v int32) *ModifyScalingGroupInput {
+	s.DefaultCooldown = &v
 	return s
 }
 
