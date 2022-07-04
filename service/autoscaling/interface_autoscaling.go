@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // AUTO_SCALING.
 //    func myFunc(svc AUTOSCALINGAPI) bool {
-//        // Make svc.AttachInstances request
+//        // Make svc.AttachDBInstances request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type AUTOSCALINGAPI interface {
+	AttachDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AttachDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AttachDBInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AttachDBInstances(*AttachDBInstancesInput) (*AttachDBInstancesOutput, error)
+	AttachDBInstancesWithContext(volcengine.Context, *AttachDBInstancesInput, ...request.Option) (*AttachDBInstancesOutput, error)
+	AttachDBInstancesRequest(*AttachDBInstancesInput) (*request.Request, *AttachDBInstancesOutput)
+
 	AttachInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AttachInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -173,6 +181,14 @@ type AUTOSCALINGAPI interface {
 	DescribeScalingPolicies(*DescribeScalingPoliciesInput) (*DescribeScalingPoliciesOutput, error)
 	DescribeScalingPoliciesWithContext(volcengine.Context, *DescribeScalingPoliciesInput, ...request.Option) (*DescribeScalingPoliciesOutput, error)
 	DescribeScalingPoliciesRequest(*DescribeScalingPoliciesInput) (*request.Request, *DescribeScalingPoliciesOutput)
+
+	DetachDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetachDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetachDBInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetachDBInstances(*DetachDBInstancesInput) (*DetachDBInstancesOutput, error)
+	DetachDBInstancesWithContext(volcengine.Context, *DetachDBInstancesInput, ...request.Option) (*DetachDBInstancesOutput, error)
+	DetachDBInstancesRequest(*DetachDBInstancesInput) (*request.Request, *DetachDBInstancesOutput)
 
 	DetachInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DetachInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
