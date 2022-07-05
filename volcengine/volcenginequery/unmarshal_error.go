@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"reflect"
 
+	"github.com/volcengine/volcengine-go-sdk/volcengine/custom"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
@@ -34,6 +35,20 @@ func UnmarshalError(r *request.Request) {
 			fmt.Printf("Unmarshal err, %v\n", err)
 			r.Error = err
 			return
+		}
+
+		if r.Config.CustomerUnmarshalError != nil {
+			customerErr := r.Config.CustomerUnmarshalError(r.Context(), custom.RequestMetadata{
+				ServiceName: r.ClientInfo.ServiceName,
+				Version:     r.ClientInfo.APIVersion,
+				Action:      r.Operation.Name,
+				HttpMethod:  r.Operation.HTTPMethod,
+				Region:      *r.Config.Region,
+			}, resp)
+			if customerErr != nil {
+				r.Error = customerErr
+				return
+			}
 		}
 
 		if resp.ResponseMetadata == nil {

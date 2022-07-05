@@ -229,6 +229,8 @@ type Config struct {
 
 	ExtraHttpJsonBody custom.ExtraHttpJsonBody
 
+	CustomerUnmarshalError custom.CustomerUnmarshalError
+
 	ExtraUserAgent *string
 
 	Interceptors []custom.SdkInterceptor
@@ -333,6 +335,11 @@ func (c *Config) WithLogAccount(account custom.LogAccount) *Config {
 
 func (c *Config) WithDynamicCredentials(f custom.DynamicCredentials) *Config {
 	c.DynamicCredentials = f
+	return c
+}
+
+func (c *Config) WithCustomerUnmarshalError(f custom.CustomerUnmarshalError) *Config {
+	c.CustomerUnmarshalError = f
 	return c
 }
 
@@ -588,6 +595,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.ExtraHttpJsonBody != nil {
 		dst.ExtraHttpJsonBody = other.ExtraHttpJsonBody
+	}
+
+	if other.CustomerUnmarshalError != nil {
+		dst.CustomerUnmarshalError = other.CustomerUnmarshalError
 	}
 
 	dst.Interceptors = other.Interceptors
