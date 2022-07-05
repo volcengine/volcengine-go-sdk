@@ -17,7 +17,7 @@ import (
 )
 
 // UnmarshalErrorHandler is a name request handler to unmarshal request errors
-var UnmarshalErrorHandler = request.NamedHandler{Name: "kscsdk.volcenginequery.UnmarshalError", Fn: UnmarshalError}
+var UnmarshalErrorHandler = request.NamedHandler{Name: "volcenginesdk.volcenginequery.UnmarshalError", Fn: UnmarshalError}
 
 // UnmarshalError unmarshals an error response for an VOLCSTACK Query service.
 func UnmarshalError(r *request.Request) {
