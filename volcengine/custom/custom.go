@@ -6,6 +6,7 @@ import (
 	"net/url"
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
 )
 
 type RequestMetadata struct {
@@ -31,3 +32,5 @@ type ExtraHttpJsonBody func(ctx context.Context, input *map[string]interface{}, 
 type LogAccount func(ctx context.Context) *string
 
 type DynamicCredentials func(ctx context.Context) (*credentials.Credentials, *string)
+
+type CustomerUnmarshalError func(ctx context.Context, meta RequestMetadata, resp response.VolcengineResponse) error
