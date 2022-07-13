@@ -125,6 +125,12 @@ func processBodyError(r *request.Request, volcengineResponse *response.Volcengin
 			http.StatusBadRequest,
 			volcengineResponse.ResponseMetadata.RequestId,
 		)
+		processUnmarshalError(unmarshalErrorInfo{
+			Request:  r,
+			Response: volcengineResponse,
+			Body:     body,
+			Err:      r.Error,
+		})
 		return true
 	}
 	return false

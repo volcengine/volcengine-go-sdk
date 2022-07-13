@@ -150,8 +150,7 @@ type CreateSnatEntryInput struct {
 
 	SnatEntryName *string `min:"1" max:"128" type:"string"`
 
-	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -178,9 +177,6 @@ func (s *CreateSnatEntryInput) Validate() error {
 	}
 	if s.SnatEntryName != nil && len(*s.SnatEntryName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("SnatEntryName", 128, *s.SnatEntryName))
-	}
-	if s.SubnetId == nil {
-		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
 	}
 
 	if invalidParams.Len() > 0 {

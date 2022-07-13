@@ -142,6 +142,8 @@ func (c *VPC) CreateRouteEntryWithContext(ctx volcengine.Context, input *CreateR
 type CreateRouteEntryInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	// DestinationCidrBlock is a required field
@@ -201,6 +203,12 @@ func (s *CreateRouteEntryInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateRouteEntryInput) SetClientToken(v string) *CreateRouteEntryInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

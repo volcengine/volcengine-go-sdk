@@ -145,6 +145,8 @@ type AuthorizeSecurityGroupEgressInput struct {
 	// CidrIp is a required field
 	CidrIp *string `type:"string" required:"true"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	Policy *string `type:"string"`
@@ -204,6 +206,12 @@ func (s *AuthorizeSecurityGroupEgressInput) Validate() error {
 // SetCidrIp sets the CidrIp field's value.
 func (s *AuthorizeSecurityGroupEgressInput) SetCidrIp(v string) *AuthorizeSecurityGroupEgressInput {
 	s.CidrIp = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *AuthorizeSecurityGroupEgressInput) SetClientToken(v string) *AuthorizeSecurityGroupEgressInput {
+	s.ClientToken = &v
 	return s
 }
 

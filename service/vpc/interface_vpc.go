@@ -62,6 +62,14 @@ type VPCAPI interface {
 	AssociateHaVipWithContext(volcengine.Context, *AssociateHaVipInput, ...request.Option) (*AssociateHaVipOutput, error)
 	AssociateHaVipRequest(*AssociateHaVipInput) (*request.Request, *AssociateHaVipOutput)
 
+	AssociateNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateNetworkAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateNetworkAcl(*AssociateNetworkAclInput) (*AssociateNetworkAclOutput, error)
+	AssociateNetworkAclWithContext(volcengine.Context, *AssociateNetworkAclInput, ...request.Option) (*AssociateNetworkAclOutput, error)
+	AssociateNetworkAclRequest(*AssociateNetworkAclInput) (*request.Request, *AssociateNetworkAclOutput)
+
 	AssociateRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateRouteTableCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateRouteTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +109,14 @@ type VPCAPI interface {
 	CreateHaVip(*CreateHaVipInput) (*CreateHaVipOutput, error)
 	CreateHaVipWithContext(volcengine.Context, *CreateHaVipInput, ...request.Option) (*CreateHaVipOutput, error)
 	CreateHaVipRequest(*CreateHaVipInput) (*request.Request, *CreateHaVipOutput)
+
+	CreateNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateNetworkAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateNetworkAcl(*CreateNetworkAclInput) (*CreateNetworkAclOutput, error)
+	CreateNetworkAclWithContext(volcengine.Context, *CreateNetworkAclInput, ...request.Option) (*CreateNetworkAclOutput, error)
+	CreateNetworkAclRequest(*CreateNetworkAclInput) (*request.Request, *CreateNetworkAclOutput)
 
 	CreateNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNetworkInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -157,6 +173,14 @@ type VPCAPI interface {
 	DeleteHaVip(*DeleteHaVipInput) (*DeleteHaVipOutput, error)
 	DeleteHaVipWithContext(volcengine.Context, *DeleteHaVipInput, ...request.Option) (*DeleteHaVipOutput, error)
 	DeleteHaVipRequest(*DeleteHaVipInput) (*request.Request, *DeleteHaVipOutput)
+
+	DeleteNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteNetworkAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteNetworkAcl(*DeleteNetworkAclInput) (*DeleteNetworkAclOutput, error)
+	DeleteNetworkAclWithContext(volcengine.Context, *DeleteNetworkAclInput, ...request.Option) (*DeleteNetworkAclOutput, error)
+	DeleteNetworkAclRequest(*DeleteNetworkAclInput) (*request.Request, *DeleteNetworkAclOutput)
 
 	DeleteNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNetworkInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -229,6 +253,22 @@ type VPCAPI interface {
 	DescribeHaVips(*DescribeHaVipsInput) (*DescribeHaVipsOutput, error)
 	DescribeHaVipsWithContext(volcengine.Context, *DescribeHaVipsInput, ...request.Option) (*DescribeHaVipsOutput, error)
 	DescribeHaVipsRequest(*DescribeHaVipsInput) (*request.Request, *DescribeHaVipsOutput)
+
+	DescribeNetworkAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNetworkAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNetworkAclAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNetworkAclAttributes(*DescribeNetworkAclAttributesInput) (*DescribeNetworkAclAttributesOutput, error)
+	DescribeNetworkAclAttributesWithContext(volcengine.Context, *DescribeNetworkAclAttributesInput, ...request.Option) (*DescribeNetworkAclAttributesOutput, error)
+	DescribeNetworkAclAttributesRequest(*DescribeNetworkAclAttributesInput) (*request.Request, *DescribeNetworkAclAttributesOutput)
+
+	DescribeNetworkAclsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNetworkAclsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNetworkAclsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNetworkAcls(*DescribeNetworkAclsInput) (*DescribeNetworkAclsOutput, error)
+	DescribeNetworkAclsWithContext(volcengine.Context, *DescribeNetworkAclsInput, ...request.Option) (*DescribeNetworkAclsOutput, error)
+	DescribeNetworkAclsRequest(*DescribeNetworkAclsInput) (*request.Request, *DescribeNetworkAclsOutput)
 
 	DescribeNetworkInterfaceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNetworkInterfaceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -334,6 +374,14 @@ type VPCAPI interface {
 	DisassociateHaVipWithContext(volcengine.Context, *DisassociateHaVipInput, ...request.Option) (*DisassociateHaVipOutput, error)
 	DisassociateHaVipRequest(*DisassociateHaVipInput) (*request.Request, *DisassociateHaVipOutput)
 
+	DisassociateNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateNetworkAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateNetworkAcl(*DisassociateNetworkAclInput) (*DisassociateNetworkAclOutput, error)
+	DisassociateNetworkAclWithContext(volcengine.Context, *DisassociateNetworkAclInput, ...request.Option) (*DisassociateNetworkAclOutput, error)
+	DisassociateNetworkAclRequest(*DisassociateNetworkAclInput) (*request.Request, *DisassociateNetworkAclOutput)
+
 	DisassociateRouteTableCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateRouteTableCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisassociateRouteTableCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -357,6 +405,14 @@ type VPCAPI interface {
 	ModifyHaVipAttributes(*ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error)
 	ModifyHaVipAttributesWithContext(volcengine.Context, *ModifyHaVipAttributesInput, ...request.Option) (*ModifyHaVipAttributesOutput, error)
 	ModifyHaVipAttributesRequest(*ModifyHaVipAttributesInput) (*request.Request, *ModifyHaVipAttributesOutput)
+
+	ModifyNetworkAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyNetworkAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyNetworkAclAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyNetworkAclAttributes(*ModifyNetworkAclAttributesInput) (*ModifyNetworkAclAttributesOutput, error)
+	ModifyNetworkAclAttributesWithContext(volcengine.Context, *ModifyNetworkAclAttributesInput, ...request.Option) (*ModifyNetworkAclAttributesOutput, error)
+	ModifyNetworkAclAttributesRequest(*ModifyNetworkAclAttributesInput) (*request.Request, *ModifyNetworkAclAttributesOutput)
 
 	ModifyNetworkInterfaceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyNetworkInterfaceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -453,6 +509,14 @@ type VPCAPI interface {
 	UnassignPrivateIpAddresses(*UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error)
 	UnassignPrivateIpAddressesWithContext(volcengine.Context, *UnassignPrivateIpAddressesInput, ...request.Option) (*UnassignPrivateIpAddressesOutput, error)
 	UnassignPrivateIpAddressesRequest(*UnassignPrivateIpAddressesInput) (*request.Request, *UnassignPrivateIpAddressesOutput)
+
+	UpdateNetworkAclEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateNetworkAclEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateNetworkAclEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateNetworkAclEntries(*UpdateNetworkAclEntriesInput) (*UpdateNetworkAclEntriesOutput, error)
+	UpdateNetworkAclEntriesWithContext(volcengine.Context, *UpdateNetworkAclEntriesInput, ...request.Option) (*UpdateNetworkAclEntriesOutput, error)
+	UpdateNetworkAclEntriesRequest(*UpdateNetworkAclEntriesInput) (*request.Request, *UpdateNetworkAclEntriesOutput)
 }
 
 var _ VPCAPI = (*VPC)(nil)

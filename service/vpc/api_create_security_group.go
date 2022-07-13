@@ -142,6 +142,8 @@ func (c *VPC) CreateSecurityGroupWithContext(ctx volcengine.Context, input *Crea
 type CreateSecurityGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	SecurityGroupName *string `type:"string"`
@@ -171,6 +173,12 @@ func (s *CreateSecurityGroupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateSecurityGroupInput) SetClientToken(v string) *CreateSecurityGroupInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
