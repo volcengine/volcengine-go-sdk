@@ -404,6 +404,8 @@ func (s *LocalVolumeForDescribeInstanceTypesOutput) SetVolumeType(v string) *Loc
 type MemoryForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
+	EncryptedSize *int32 `type:"int32"`
+
 	Size *int32 `type:"int32"`
 }
 
@@ -415,6 +417,12 @@ func (s MemoryForDescribeInstanceTypesOutput) String() string {
 // GoString returns the string representation
 func (s MemoryForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
+}
+
+// SetEncryptedSize sets the EncryptedSize field's value.
+func (s *MemoryForDescribeInstanceTypesOutput) SetEncryptedSize(v int32) *MemoryForDescribeInstanceTypesOutput {
+	s.EncryptedSize = &v
+	return s
 }
 
 // SetSize sets the Size field's value.
@@ -470,6 +478,8 @@ func (s *RdmaForDescribeInstanceTypesOutput) SetRdmaNetworkInterfaces(v int32) *
 type VolumeForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
+	MaximumCount *int32 `type:"int32"`
+
 	SupportedVolumeTypes []*string `type:"list"`
 }
 
@@ -481,6 +491,12 @@ func (s VolumeForDescribeInstanceTypesOutput) String() string {
 // GoString returns the string representation
 func (s VolumeForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
+}
+
+// SetMaximumCount sets the MaximumCount field's value.
+func (s *VolumeForDescribeInstanceTypesOutput) SetMaximumCount(v int32) *VolumeForDescribeInstanceTypesOutput {
+	s.MaximumCount = &v
+	return s
 }
 
 // SetSupportedVolumeTypes sets the SupportedVolumeTypes field's value.

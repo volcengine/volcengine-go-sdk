@@ -280,6 +280,8 @@ type ImageForDescribeImagesOutput struct {
 
 	ImageName *string `type:"string"`
 
+	ImageOwnerId *string `type:"string"`
+
 	IsSupportCloudInit *bool `type:"boolean"`
 
 	OsName *string `type:"string"`
@@ -340,6 +342,12 @@ func (s *ImageForDescribeImagesOutput) SetImageId(v string) *ImageForDescribeIma
 // SetImageName sets the ImageName field's value.
 func (s *ImageForDescribeImagesOutput) SetImageName(v string) *ImageForDescribeImagesOutput {
 	s.ImageName = &v
+	return s
+}
+
+// SetImageOwnerId sets the ImageOwnerId field's value.
+func (s *ImageForDescribeImagesOutput) SetImageOwnerId(v string) *ImageForDescribeImagesOutput {
+	s.ImageOwnerId = &v
 	return s
 }
 

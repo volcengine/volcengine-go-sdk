@@ -144,6 +144,8 @@ func (c *STORAGEEBS) CreateVolumeWithContext(ctx volcengine.Context, input *Crea
 type CreateVolumeInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	Kind *string `type:"string"`
@@ -167,6 +169,12 @@ func (s CreateVolumeInput) String() string {
 // GoString returns the string representation
 func (s CreateVolumeInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateVolumeInput) SetClientToken(v string) *CreateVolumeInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

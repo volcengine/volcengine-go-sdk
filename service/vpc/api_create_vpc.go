@@ -145,6 +145,8 @@ type CreateVpcInput struct {
 	// CidrBlock is a required field
 	CidrBlock *string `type:"string" required:"true"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	DnsServers []*string `type:"list"`
@@ -190,6 +192,12 @@ func (s *CreateVpcInput) Validate() error {
 // SetCidrBlock sets the CidrBlock field's value.
 func (s *CreateVpcInput) SetCidrBlock(v string) *CreateVpcInput {
 	s.CidrBlock = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateVpcInput) SetClientToken(v string) *CreateVpcInput {
+	s.ClientToken = &v
 	return s
 }
 

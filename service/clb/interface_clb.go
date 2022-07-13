@@ -46,6 +46,14 @@ type CLBAPI interface {
 	AddServerGroupBackendServersWithContext(volcengine.Context, *AddServerGroupBackendServersInput, ...request.Option) (*AddServerGroupBackendServersOutput, error)
 	AddServerGroupBackendServersRequest(*AddServerGroupBackendServersInput) (*request.Request, *AddServerGroupBackendServersOutput)
 
+	AttachHealthCheckLogTopicCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AttachHealthCheckLogTopicCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AttachHealthCheckLogTopicCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AttachHealthCheckLogTopic(*AttachHealthCheckLogTopicInput) (*AttachHealthCheckLogTopicOutput, error)
+	AttachHealthCheckLogTopicWithContext(volcengine.Context, *AttachHealthCheckLogTopicInput, ...request.Option) (*AttachHealthCheckLogTopicOutput, error)
+	AttachHealthCheckLogTopicRequest(*AttachHealthCheckLogTopicInput) (*request.Request, *AttachHealthCheckLogTopicOutput)
+
 	ConvertLoadBalancerBillingTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ConvertLoadBalancerBillingTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ConvertLoadBalancerBillingTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +69,14 @@ type CLBAPI interface {
 	CreateAcl(*CreateAclInput) (*CreateAclOutput, error)
 	CreateAclWithContext(volcengine.Context, *CreateAclInput, ...request.Option) (*CreateAclOutput, error)
 	CreateAclRequest(*CreateAclInput) (*request.Request, *CreateAclOutput)
+
+	CreateHealthCheckLogProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateHealthCheckLogProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateHealthCheckLogProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateHealthCheckLogProject(*CreateHealthCheckLogProjectInput) (*CreateHealthCheckLogProjectOutput, error)
+	CreateHealthCheckLogProjectWithContext(volcengine.Context, *CreateHealthCheckLogProjectInput, ...request.Option) (*CreateHealthCheckLogProjectOutput, error)
+	CreateHealthCheckLogProjectRequest(*CreateHealthCheckLogProjectInput) (*request.Request, *CreateHealthCheckLogProjectOutput)
 
 	CreateListenerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateListenerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -109,6 +125,14 @@ type CLBAPI interface {
 	DeleteCertificate(*DeleteCertificateInput) (*DeleteCertificateOutput, error)
 	DeleteCertificateWithContext(volcengine.Context, *DeleteCertificateInput, ...request.Option) (*DeleteCertificateOutput, error)
 	DeleteCertificateRequest(*DeleteCertificateInput) (*request.Request, *DeleteCertificateOutput)
+
+	DeleteHealthCheckLogProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteHealthCheckLogProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteHealthCheckLogProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteHealthCheckLogProject(*DeleteHealthCheckLogProjectInput) (*DeleteHealthCheckLogProjectOutput, error)
+	DeleteHealthCheckLogProjectWithContext(volcengine.Context, *DeleteHealthCheckLogProjectInput, ...request.Option) (*DeleteHealthCheckLogProjectOutput, error)
+	DeleteHealthCheckLogProjectRequest(*DeleteHealthCheckLogProjectInput) (*request.Request, *DeleteHealthCheckLogProjectOutput)
 
 	DeleteListenerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteListenerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -165,6 +189,22 @@ type CLBAPI interface {
 	DescribeCertificates(*DescribeCertificatesInput) (*DescribeCertificatesOutput, error)
 	DescribeCertificatesWithContext(volcengine.Context, *DescribeCertificatesInput, ...request.Option) (*DescribeCertificatesOutput, error)
 	DescribeCertificatesRequest(*DescribeCertificatesInput) (*request.Request, *DescribeCertificatesOutput)
+
+	DescribeHealthCheckLogProjectAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeHealthCheckLogProjectAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeHealthCheckLogProjectAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeHealthCheckLogProjectAttributes(*DescribeHealthCheckLogProjectAttributesInput) (*DescribeHealthCheckLogProjectAttributesOutput, error)
+	DescribeHealthCheckLogProjectAttributesWithContext(volcengine.Context, *DescribeHealthCheckLogProjectAttributesInput, ...request.Option) (*DescribeHealthCheckLogProjectAttributesOutput, error)
+	DescribeHealthCheckLogProjectAttributesRequest(*DescribeHealthCheckLogProjectAttributesInput) (*request.Request, *DescribeHealthCheckLogProjectAttributesOutput)
+
+	DescribeHealthCheckLogTopicAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeHealthCheckLogTopicAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeHealthCheckLogTopicAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeHealthCheckLogTopicAttributes(*DescribeHealthCheckLogTopicAttributesInput) (*DescribeHealthCheckLogTopicAttributesOutput, error)
+	DescribeHealthCheckLogTopicAttributesWithContext(volcengine.Context, *DescribeHealthCheckLogTopicAttributesInput, ...request.Option) (*DescribeHealthCheckLogTopicAttributesOutput, error)
+	DescribeHealthCheckLogTopicAttributesRequest(*DescribeHealthCheckLogTopicAttributesInput) (*request.Request, *DescribeHealthCheckLogTopicAttributesOutput)
 
 	DescribeListenerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeListenerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -237,6 +277,14 @@ type CLBAPI interface {
 	DescribeServerGroups(*DescribeServerGroupsInput) (*DescribeServerGroupsOutput, error)
 	DescribeServerGroupsWithContext(volcengine.Context, *DescribeServerGroupsInput, ...request.Option) (*DescribeServerGroupsOutput, error)
 	DescribeServerGroupsRequest(*DescribeServerGroupsInput) (*request.Request, *DescribeServerGroupsOutput)
+
+	DetachHealthCheckLogTopicCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetachHealthCheckLogTopicCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetachHealthCheckLogTopicCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetachHealthCheckLogTopic(*DetachHealthCheckLogTopicInput) (*DetachHealthCheckLogTopicOutput, error)
+	DetachHealthCheckLogTopicWithContext(volcengine.Context, *DetachHealthCheckLogTopicInput, ...request.Option) (*DetachHealthCheckLogTopicOutput, error)
+	DetachHealthCheckLogTopicRequest(*DetachHealthCheckLogTopicInput) (*request.Request, *DetachHealthCheckLogTopicOutput)
 
 	DisableAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableAccessLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
