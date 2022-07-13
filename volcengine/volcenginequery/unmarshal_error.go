@@ -22,107 +22,132 @@ var UnmarshalErrorHandler = request.NamedHandler{Name: "volcenginesdk.volcengine
 // UnmarshalError unmarshals an error response for an VOLCSTACK Query service.
 func UnmarshalError(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
-	resp := response.VolcengineResponse{}
-	if r.DataFilled() {
-		body, err := ioutil.ReadAll(r.HTTPResponse.Body)
-		if err != nil {
-			fmt.Printf("read volcenginebody err, %v\n", err)
+	processUnmarshalError(unmarshalErrorInfo{
+		Request: r,
+	})
+}
+
+type unmarshalErrorInfo struct {
+	Request  *request.Request
+	Response *response.VolcengineResponse
+	Body     []byte
+	Err      error
+}
+
+func processUnmarshalError(info unmarshalErrorInfo) {
+	var (
+		body []byte
+		err  error
+	)
+	r := info.Request
+	if info.Response == nil && info.Body == nil {
+		info.Response = &response.VolcengineResponse{}
+		if r.DataFilled() {
+			body, err = ioutil.ReadAll(r.HTTPResponse.Body)
+			if err != nil {
+				fmt.Printf("read volcenginebody err, %v\n", err)
+				r.Error = err
+				return
+			}
+			info.Body = body
+			if err = json.Unmarshal(body, info.Response); err != nil {
+				fmt.Printf("Unmarshal err, %v\n", err)
+				r.Error = err
+				return
+			}
+		} else {
+			r.Error = volcengineerr.NewRequestFailure(
+				volcengineerr.New("ServiceUnavailableException", "service is unavailable", nil),
+				r.HTTPResponse.StatusCode,
+				r.RequestID,
+			)
+			return
+		}
+	}
+
+	if r.Config.CustomerUnmarshalError != nil {
+		customerErr := r.Config.CustomerUnmarshalError(r.Context(), custom.RequestMetadata{
+			ServiceName: r.ClientInfo.ServiceName,
+			Version:     r.ClientInfo.APIVersion,
+			Action:      r.Operation.Name,
+			HttpMethod:  r.Operation.HTTPMethod,
+			Region:      *r.Config.Region,
+		}, *info.Response)
+		if customerErr != nil {
+			r.Error = customerErr
+			return
+		}
+	}
+
+	if info.Response.ResponseMetadata == nil {
+		simple := response.VolcengineSimpleError{}
+		if err = json.Unmarshal(info.Body, &simple); err != nil {
+			fmt.Printf("Unmarshal err, %v\n", err)
 			r.Error = err
 			return
 		}
+		info.Response.ResponseMetadata = &response.ResponseMetadata{
+			Error: &response.Error{
+				Code:    simple.ErrorCode,
+				Message: simple.Message,
+			},
+		}
+		return
+	}
 
-		if err = json.Unmarshal(body, &resp); err != nil {
+	if info.Err != nil {
+		r.Error = info.Err
+	} else {
+		r.Error = volcengineerr.NewRequestFailure(
+			volcengineerr.New(info.Response.ResponseMetadata.Error.Code, info.Response.ResponseMetadata.Error.Message, nil),
+			r.HTTPResponse.StatusCode,
+			info.Response.ResponseMetadata.RequestId,
+			r.Config.SimpleError,
+		)
+	}
+	if reflect.TypeOf(r.Data) != reflect.TypeOf(&map[string]interface{}{}) {
+		mm := map[string]interface{}{}
+		if err = json.Unmarshal(info.Body, &mm); err != nil {
+			fmt.Printf("Unmarshal err, %v\n", err)
+			r.Error = err
+			return
+		}
+		var meta interface{}
+
+		if meta, err = volcengineutil.ObtainSdkValue("ResponseMetadata", mm); err != nil {
 			fmt.Printf("Unmarshal err, %v\n", err)
 			r.Error = err
 			return
 		}
 
-		if r.Config.CustomerUnmarshalError != nil {
-			customerErr := r.Config.CustomerUnmarshalError(r.Context(), custom.RequestMetadata{
-				ServiceName: r.ClientInfo.ServiceName,
-				Version:     r.ClientInfo.APIVersion,
-				Action:      r.Operation.Name,
-				HttpMethod:  r.Operation.HTTPMethod,
-				Region:      *r.Config.Region,
-			}, resp)
-			if customerErr != nil {
-				r.Error = customerErr
-				return
-			}
-		}
+		if meta != nil {
+			mm["Result"] = map[string]interface{}{}
+			mm["Result"].(map[string]interface{})["Metadata"] = meta
 
-		if resp.ResponseMetadata == nil {
-			simple := response.VolcengineSimpleError{}
-			if err = json.Unmarshal(body, &simple); err != nil {
+			var metaStr []byte
+			if metaStr, err = json.Marshal(meta); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
 				r.Error = err
 				return
 			}
-			resp.ResponseMetadata = &response.ResponseMetadata{
-				Error: &response.Error{
-					Code:    simple.ErrorCode,
-					Message: simple.Message,
-				},
+			if err = json.Unmarshal(metaStr, &r.Metadata); err != nil {
+				fmt.Printf("Unmarshal err, %v\n", err)
+				r.Error = err
+				return
 			}
+		}
+		var b []byte
+		if b, err = json.Marshal(mm["Result"]); err != nil {
+			fmt.Printf("Unmarshal err, %v\n", err)
+			r.Error = err
 			return
 		}
-
-		r.Error = volcengineerr.NewRequestFailure(
-			volcengineerr.New(resp.ResponseMetadata.Error.Code, resp.ResponseMetadata.Error.Message, nil),
-			r.HTTPResponse.StatusCode,
-			resp.ResponseMetadata.RequestId,
-			r.Config.SimpleError,
-		)
-		if reflect.TypeOf(r.Data) != reflect.TypeOf(&map[string]interface{}{}) {
-			mm := map[string]interface{}{}
-			if err = json.Unmarshal(body, &mm); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
-			var meta interface{}
-
-			if meta, err = volcengineutil.ObtainSdkValue("ResponseMetadata", mm); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
-
-			if meta != nil {
-				mm["Result"] = map[string]interface{}{}
-				mm["Result"].(map[string]interface{})["Metadata"] = meta
-
-				var metaStr []byte
-				if metaStr, err = json.Marshal(meta); err != nil {
-					fmt.Printf("Unmarshal err, %v\n", err)
-					r.Error = err
-					return
-				}
-				if err = json.Unmarshal(metaStr, &r.Metadata); err != nil {
-					fmt.Printf("Unmarshal err, %v\n", err)
-					r.Error = err
-					return
-				}
-			}
-			var b []byte
-			if b, err = json.Marshal(mm["Result"]); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
-			if err = json.Unmarshal(b, &r.Data); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
+		if err = json.Unmarshal(b, &r.Data); err != nil {
+			fmt.Printf("Unmarshal err, %v\n", err)
+			r.Error = err
+			return
 		}
-		return
-	} else {
-		r.Error = volcengineerr.NewRequestFailure(
-			volcengineerr.New("ServiceUnavailableException", "service is unavailable", nil),
-			r.HTTPResponse.StatusCode,
-			r.RequestID,
-		)
-		return
 	}
+	return
+
 }
