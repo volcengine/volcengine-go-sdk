@@ -144,6 +144,8 @@ func (c *STORAGEEBS) ExtendVolumeWithContext(ctx volcengine.Context, input *Exte
 type ExtendVolumeInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	NewSize *json.Number `type:"json_number"`
 
 	VolumeId *string `type:"string"`
@@ -157,6 +159,12 @@ func (s ExtendVolumeInput) String() string {
 // GoString returns the string representation
 func (s ExtendVolumeInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ExtendVolumeInput) SetClientToken(v string) *ExtendVolumeInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetNewSize sets the NewSize field's value.

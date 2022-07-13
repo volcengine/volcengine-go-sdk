@@ -180,7 +180,11 @@ type RunInstancesInput struct {
 
 	Count *int32 `type:"int32"`
 
+	CreditSpecification *string `type:"string"`
+
 	Description *string `type:"string"`
+
+	DryRun *bool `type:"boolean"`
 
 	HostName *string `type:"string"`
 
@@ -197,6 +201,8 @@ type RunInstancesInput struct {
 	InstanceTypeId *string `type:"string"`
 
 	KeyPairName *string `type:"string"`
+
+	MinCount *int32 `type:"int32"`
 
 	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list"`
 
@@ -253,9 +259,21 @@ func (s *RunInstancesInput) SetCount(v int32) *RunInstancesInput {
 	return s
 }
 
+// SetCreditSpecification sets the CreditSpecification field's value.
+func (s *RunInstancesInput) SetCreditSpecification(v string) *RunInstancesInput {
+	s.CreditSpecification = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *RunInstancesInput) SetDescription(v string) *RunInstancesInput {
 	s.Description = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *RunInstancesInput) SetDryRun(v bool) *RunInstancesInput {
+	s.DryRun = &v
 	return s
 }
 
@@ -304,6 +322,12 @@ func (s *RunInstancesInput) SetInstanceTypeId(v string) *RunInstancesInput {
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *RunInstancesInput) SetKeyPairName(v string) *RunInstancesInput {
 	s.KeyPairName = &v
+	return s
+}
+
+// SetMinCount sets the MinCount field's value.
+func (s *RunInstancesInput) SetMinCount(v int32) *RunInstancesInput {
+	s.MinCount = &v
 	return s
 }
 

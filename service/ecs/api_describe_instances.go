@@ -305,6 +305,28 @@ func (s *DescribeInstancesOutput) SetTotalCount(v int32) *DescribeInstancesOutpu
 	return s
 }
 
+type EipAddressForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AllocationId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EipAddressForDescribeInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipAddressForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *EipAddressForDescribeInstancesOutput) SetAllocationId(v string) *EipAddressForDescribeInstancesOutput {
+	s.AllocationId = &v
+	return s
+}
+
 type InstanceForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -313,6 +335,8 @@ type InstanceForDescribeInstancesOutput struct {
 	CreatedAt *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	EipAddress *EipAddressForDescribeInstancesOutput `type:"structure"`
 
 	ExpiredAt *string `type:"string"`
 
@@ -332,6 +356,8 @@ type InstanceForDescribeInstancesOutput struct {
 
 	KeyPairName *string `type:"string"`
 
+	LocalVolumes []*LocalVolumeForDescribeInstancesOutput `type:"list"`
+
 	MemorySize *int32 `type:"int32"`
 
 	NetworkInterfaces []*NetworkInterfaceForDescribeInstancesOutput `type:"list"`
@@ -347,6 +373,8 @@ type InstanceForDescribeInstancesOutput struct {
 	StoppedMode *string `type:"string"`
 
 	UpdatedAt *string `type:"string"`
+
+	Uuid *string `type:"string"`
 
 	VpcId *string `type:"string"`
 
@@ -378,6 +406,12 @@ func (s *InstanceForDescribeInstancesOutput) SetCreatedAt(v string) *InstanceFor
 // SetDescription sets the Description field's value.
 func (s *InstanceForDescribeInstancesOutput) SetDescription(v string) *InstanceForDescribeInstancesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *InstanceForDescribeInstancesOutput) SetEipAddress(v *EipAddressForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
+	s.EipAddress = v
 	return s
 }
 
@@ -435,6 +469,12 @@ func (s *InstanceForDescribeInstancesOutput) SetKeyPairName(v string) *InstanceF
 	return s
 }
 
+// SetLocalVolumes sets the LocalVolumes field's value.
+func (s *InstanceForDescribeInstancesOutput) SetLocalVolumes(v []*LocalVolumeForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
+	s.LocalVolumes = v
+	return s
+}
+
 // SetMemorySize sets the MemorySize field's value.
 func (s *InstanceForDescribeInstancesOutput) SetMemorySize(v int32) *InstanceForDescribeInstancesOutput {
 	s.MemorySize = &v
@@ -483,6 +523,12 @@ func (s *InstanceForDescribeInstancesOutput) SetUpdatedAt(v string) *InstanceFor
 	return s
 }
 
+// SetUuid sets the Uuid field's value.
+func (s *InstanceForDescribeInstancesOutput) SetUuid(v string) *InstanceForDescribeInstancesOutput {
+	s.Uuid = &v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *InstanceForDescribeInstancesOutput) SetVpcId(v string) *InstanceForDescribeInstancesOutput {
 	s.VpcId = &v
@@ -492,6 +538,44 @@ func (s *InstanceForDescribeInstancesOutput) SetVpcId(v string) *InstanceForDesc
 // SetZoneId sets the ZoneId field's value.
 func (s *InstanceForDescribeInstancesOutput) SetZoneId(v string) *InstanceForDescribeInstancesOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type LocalVolumeForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Count *int32 `type:"int32"`
+
+	Size *int32 `type:"int32"`
+
+	VolumeType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LocalVolumeForDescribeInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LocalVolumeForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *LocalVolumeForDescribeInstancesOutput) SetCount(v int32) *LocalVolumeForDescribeInstancesOutput {
+	s.Count = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *LocalVolumeForDescribeInstancesOutput) SetSize(v int32) *LocalVolumeForDescribeInstancesOutput {
+	s.Size = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *LocalVolumeForDescribeInstancesOutput) SetVolumeType(v string) *LocalVolumeForDescribeInstancesOutput {
+	s.VolumeType = &v
 	return s
 }
 
