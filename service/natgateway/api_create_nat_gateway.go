@@ -142,9 +142,17 @@ func (c *NATGATEWAY) CreateNatGatewayWithContext(ctx volcengine.Context, input *
 type CreateNatGatewayInput struct {
 	_ struct{} `type:"structure"`
 
+	BillingType *int64 `min:"1" max:"1" type:"integer"`
+
+	ClientToken *string `type:"string"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	NatGatewayName *string `min:"1" max:"128" type:"string"`
+
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateNatGatewayInput"`
 
 	Spec *string `type:"string" enum:"SpecForCreateNatGatewayInput"`
 
@@ -167,6 +175,12 @@ func (s CreateNatGatewayInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateNatGatewayInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateNatGatewayInput"}
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
+	}
+	if s.BillingType != nil && *s.BillingType > 1 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 1))
+	}
 	if s.Description != nil && len(*s.Description) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
 	}
@@ -189,6 +203,18 @@ func (s *CreateNatGatewayInput) Validate() error {
 	return nil
 }
 
+// SetBillingType sets the BillingType field's value.
+func (s *CreateNatGatewayInput) SetBillingType(v int64) *CreateNatGatewayInput {
+	s.BillingType = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateNatGatewayInput) SetClientToken(v string) *CreateNatGatewayInput {
+	s.ClientToken = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateNatGatewayInput) SetDescription(v string) *CreateNatGatewayInput {
 	s.Description = &v
@@ -198,6 +224,18 @@ func (s *CreateNatGatewayInput) SetDescription(v string) *CreateNatGatewayInput 
 // SetNatGatewayName sets the NatGatewayName field's value.
 func (s *CreateNatGatewayInput) SetNatGatewayName(v string) *CreateNatGatewayInput {
 	s.NatGatewayName = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *CreateNatGatewayInput) SetPeriod(v int64) *CreateNatGatewayInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *CreateNatGatewayInput) SetPeriodUnit(v string) *CreateNatGatewayInput {
+	s.PeriodUnit = &v
 	return s
 }
 
@@ -250,6 +288,14 @@ func (s *CreateNatGatewayOutput) SetRequestId(v string) *CreateNatGatewayOutput 
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// PeriodUnitForCreateNatGatewayInputMonth is a PeriodUnitForCreateNatGatewayInput enum value
+	PeriodUnitForCreateNatGatewayInputMonth = "Month"
+
+	// PeriodUnitForCreateNatGatewayInputYear is a PeriodUnitForCreateNatGatewayInput enum value
+	PeriodUnitForCreateNatGatewayInputYear = "Year"
+)
 
 const (
 	// SpecForCreateNatGatewayInputSmall is a SpecForCreateNatGatewayInput enum value
