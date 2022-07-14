@@ -339,6 +339,8 @@ type NatGatewayForDescribeNatGatewaysOutput struct {
 
 	EipAddresses []*EipAddressForDescribeNatGatewaysOutput `type:"list"`
 
+	ExpiredTime *string `type:"string"`
+
 	LockReason *string `type:"string"`
 
 	NatGatewayId *string `type:"string"`
@@ -403,6 +405,12 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetDescription(v string) *NatGa
 // SetEipAddresses sets the EipAddresses field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetEipAddresses(v []*EipAddressForDescribeNatGatewaysOutput) *NatGatewayForDescribeNatGatewaysOutput {
 	s.EipAddresses = v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetExpiredTime(v string) *NatGatewayForDescribeNatGatewaysOutput {
+	s.ExpiredTime = &v
 	return s
 }
 
