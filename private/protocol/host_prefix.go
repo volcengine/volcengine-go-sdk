@@ -6,7 +6,6 @@ package protocol
 import (
 	"strings"
 
-	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 )
 
@@ -36,9 +35,9 @@ type HostPrefixBuilder struct {
 
 // Build updates the passed in Request with the HostPrefix template expanded.
 func (h HostPrefixBuilder) Build(r *request.Request) {
-	if volcengine.BoolValue(r.Config.DisableEndpointHostPrefix) {
-		return
-	}
+	//if volcengine.BoolValue(r.Config.DisableEndpointHostPrefix) {
+	//	return
+	//}
 
 	var labels map[string]string
 	if h.LabelsFn != nil {
