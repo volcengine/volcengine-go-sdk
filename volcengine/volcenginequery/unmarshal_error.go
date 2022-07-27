@@ -13,7 +13,6 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
-	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
 // UnmarshalErrorHandler is a name request handler to unmarshal request errors
@@ -106,46 +105,10 @@ func processUnmarshalError(info unmarshalErrorInfo) {
 		)
 	}
 	if reflect.TypeOf(r.Data) != reflect.TypeOf(&map[string]interface{}{}) {
-		mm := map[string]interface{}{}
-		if err = json.Unmarshal(info.Body, &mm); err != nil {
-			fmt.Printf("Unmarshal err, %v\n", err)
-			r.Error = err
-			return
-		}
-		var meta interface{}
 
-		if meta, err = volcengineutil.ObtainSdkValue("ResponseMetadata", mm); err != nil {
-			fmt.Printf("Unmarshal err, %v\n", err)
-			r.Error = err
-			return
-		}
-
-		if meta != nil {
-			mm["Result"] = map[string]interface{}{}
-			mm["Result"].(map[string]interface{})["Metadata"] = meta
-
-			var metaStr []byte
-			if metaStr, err = json.Marshal(meta); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
-			if err = json.Unmarshal(metaStr, &r.Metadata); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
-		}
-		var b []byte
-		if b, err = json.Marshal(mm["Result"]); err != nil {
-			fmt.Printf("Unmarshal err, %v\n", err)
-			r.Error = err
-			return
-		}
-		if err = json.Unmarshal(b, &r.Data); err != nil {
-			fmt.Printf("Unmarshal err, %v\n", err)
-			r.Error = err
-			return
+		if _, ok := reflect.TypeOf(r.Data).Elem().FieldByName("Metadata"); ok {
+			r.Metadata = *(info.Response.ResponseMetadata)
+			reflect.ValueOf(r.Data).Elem().FieldByName("Metadata").Set(reflect.ValueOf(info.Response.ResponseMetadata))
 		}
 	}
 	return
