@@ -253,7 +253,7 @@ func cleanPath(u *url.URL) {
 	}
 }
 
-// EscapePath escapes part of a URL path in Amazon style
+// EscapePath escapes part of a URL path in style
 func EscapePath(path string, encodeSep bool) string {
 	var buf bytes.Buffer
 	for i := 0; i < len(path); i++ {
