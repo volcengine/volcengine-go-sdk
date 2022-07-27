@@ -59,41 +59,13 @@ func Unmarshal(r *request.Request) {
 				return
 			}
 
-			mm := map[string]interface{}{}
-			if err = json.Unmarshal(body, &mm); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
-
-			var meta interface{}
-
-			if meta, err = volcengineutil.ObtainSdkValue("ResponseMetadata", mm); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
-
-			if v, ok := mm["Result"]; !ok || v == nil {
-				mm["Result"] = make(map[string]interface{})
-			}
-
-			mm["Result"].(map[string]interface{})["Metadata"] = meta
-
-			var metaStr []byte
-			if metaStr, err = json.Marshal(meta); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
-			}
-			if err = json.Unmarshal(metaStr, &r.Metadata); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
+			if _, ok := reflect.TypeOf(r.Data).Elem().FieldByName("Metadata"); ok {
+				r.Metadata = *(volcengineResponse.ResponseMetadata)
+				reflect.ValueOf(r.Data).Elem().FieldByName("Metadata").Set(reflect.ValueOf(volcengineResponse.ResponseMetadata))
 			}
 
 			var b []byte
-			if b, err = json.Marshal(mm["Result"]); err != nil {
+			if b, err = json.Marshal(volcengineResponse.Result); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
 				r.Error = err
 				return
