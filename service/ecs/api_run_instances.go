@@ -142,6 +142,8 @@ func (c *ECS) RunInstancesWithContext(ctx volcengine.Context, input *RunInstance
 type NetworkInterfaceForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	PrimaryIpAddress *string `type:"string"`
+
 	SecurityGroupIds []*string `type:"list"`
 
 	SubnetId *string `type:"string"`
@@ -155,6 +157,12 @@ func (s NetworkInterfaceForRunInstancesInput) String() string {
 // GoString returns the string representation
 func (s NetworkInterfaceForRunInstancesInput) GoString() string {
 	return s.String()
+}
+
+// SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
+func (s *NetworkInterfaceForRunInstancesInput) SetPrimaryIpAddress(v string) *NetworkInterfaceForRunInstancesInput {
+	s.PrimaryIpAddress = &v
+	return s
 }
 
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
@@ -211,6 +219,8 @@ type RunInstancesInput struct {
 	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	SecurityEnhancementStrategy *string `type:"string"`
 
@@ -352,6 +362,12 @@ func (s *RunInstancesInput) SetPeriod(v int32) *RunInstancesInput {
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *RunInstancesInput) SetPeriodUnit(v string) *RunInstancesInput {
 	s.PeriodUnit = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *RunInstancesInput) SetProjectName(v string) *RunInstancesInput {
+	s.ProjectName = &v
 	return s
 }
 
