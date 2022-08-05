@@ -150,6 +150,8 @@ type CreateVolumeInput struct {
 
 	Kind *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Size *json.Number `type:"json_number"`
 
 	VolumeChargeType *string `type:"string"`
@@ -186,6 +188,12 @@ func (s *CreateVolumeInput) SetDescription(v string) *CreateVolumeInput {
 // SetKind sets the Kind field's value.
 func (s *CreateVolumeInput) SetKind(v string) *CreateVolumeInput {
 	s.Kind = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateVolumeInput) SetProjectName(v string) *CreateVolumeInput {
+	s.ProjectName = &v
 	return s
 }
 

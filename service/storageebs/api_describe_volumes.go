@@ -152,6 +152,8 @@ type DescribeVolumesInput struct {
 
 	PageSize *int32 `type:"int32"`
 
+	ProjectName *string `type:"string"`
+
 	VolumeIds []*string `type:"list"`
 
 	VolumeName *string `type:"string"`
@@ -194,6 +196,12 @@ func (s *DescribeVolumesInput) SetPageNumber(v int32) *DescribeVolumesInput {
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVolumesInput) SetPageSize(v int32) *DescribeVolumesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVolumesInput) SetProjectName(v string) *DescribeVolumesInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -298,6 +306,8 @@ type VolumeForDescribeVolumesOutput struct {
 
 	PayType *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RenewType *int32 `type:"int32"`
 
 	Size *json.Number `type:"json_number"`
@@ -384,6 +394,12 @@ func (s *VolumeForDescribeVolumesOutput) SetKind(v string) *VolumeForDescribeVol
 // SetPayType sets the PayType field's value.
 func (s *VolumeForDescribeVolumesOutput) SetPayType(v string) *VolumeForDescribeVolumesOutput {
 	s.PayType = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *VolumeForDescribeVolumesOutput) SetProjectName(v string) *VolumeForDescribeVolumesOutput {
+	s.ProjectName = &v
 	return s
 }
 
