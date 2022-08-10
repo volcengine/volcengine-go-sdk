@@ -110,6 +110,14 @@ type ECSAPI interface {
 	DescribeImagesWithContext(volcengine.Context, *DescribeImagesInput, ...request.Option) (*DescribeImagesOutput, error)
 	DescribeImagesRequest(*DescribeImagesInput) (*request.Request, *DescribeImagesOutput)
 
+	DescribeInstanceECSTerminalUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeInstanceECSTerminalUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeInstanceECSTerminalUrlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeInstanceECSTerminalUrl(*DescribeInstanceECSTerminalUrlInput) (*DescribeInstanceECSTerminalUrlOutput, error)
+	DescribeInstanceECSTerminalUrlWithContext(volcengine.Context, *DescribeInstanceECSTerminalUrlInput, ...request.Option) (*DescribeInstanceECSTerminalUrlOutput, error)
+	DescribeInstanceECSTerminalUrlRequest(*DescribeInstanceECSTerminalUrlInput) (*request.Request, *DescribeInstanceECSTerminalUrlOutput)
+
 	DescribeInstanceTypeFamiliesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeInstanceTypeFamiliesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeInstanceTypeFamiliesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
