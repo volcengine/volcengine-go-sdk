@@ -166,6 +166,14 @@ type ECSAPI interface {
 	DescribeKeyPairsWithContext(volcengine.Context, *DescribeKeyPairsInput, ...request.Option) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsRequest(*DescribeKeyPairsInput) (*request.Request, *DescribeKeyPairsOutput)
 
+	DescribeTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTasksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTasks(*DescribeTasksInput) (*DescribeTasksOutput, error)
+	DescribeTasksWithContext(volcengine.Context, *DescribeTasksInput, ...request.Option) (*DescribeTasksOutput, error)
+	DescribeTasksRequest(*DescribeTasksInput) (*request.Request, *DescribeTasksOutput)
+
 	DescribeUserDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeUserDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeUserDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
