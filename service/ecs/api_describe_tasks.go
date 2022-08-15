@@ -219,20 +219,6 @@ func (s *DescribeTasksOutput) SetTasks(v []*TaskForDescribeTasksOutput) *Describ
 	return s
 }
 
-type StatusForDescribeTasksOutput struct {
-	_ struct{} `type:"structure"`
-}
-
-// String returns the string representation
-func (s StatusForDescribeTasksOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s StatusForDescribeTasksOutput) GoString() string {
-	return s.String()
-}
-
 type TaskForDescribeTasksOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -246,9 +232,9 @@ type TaskForDescribeTasksOutput struct {
 
 	ResourceId *string `type:"string"`
 
-	Status *StatusForDescribeTasksOutput `type:"structure"`
+	Status *string `type:"string" enum:"StatusForDescribeTasksOutput"`
 
-	Type *TypeForDescribeTasksOutput `type:"structure"`
+	Type *string `type:"string" enum:"TypeForDescribeTasksOutput"`
 
 	UpdatedAt *string `type:"string"`
 }
@@ -294,14 +280,14 @@ func (s *TaskForDescribeTasksOutput) SetResourceId(v string) *TaskForDescribeTas
 }
 
 // SetStatus sets the Status field's value.
-func (s *TaskForDescribeTasksOutput) SetStatus(v *StatusForDescribeTasksOutput) *TaskForDescribeTasksOutput {
-	s.Status = v
+func (s *TaskForDescribeTasksOutput) SetStatus(v string) *TaskForDescribeTasksOutput {
+	s.Status = &v
 	return s
 }
 
 // SetType sets the Type field's value.
-func (s *TaskForDescribeTasksOutput) SetType(v *TypeForDescribeTasksOutput) *TaskForDescribeTasksOutput {
-	s.Type = v
+func (s *TaskForDescribeTasksOutput) SetType(v string) *TaskForDescribeTasksOutput {
+	s.Type = &v
 	return s
 }
 
@@ -311,16 +297,30 @@ func (s *TaskForDescribeTasksOutput) SetUpdatedAt(v string) *TaskForDescribeTask
 	return s
 }
 
-type TypeForDescribeTasksOutput struct {
-	_ struct{} `type:"structure"`
-}
+const (
+	// StatusForDescribeTasksOutputUnknownStatus is a StatusForDescribeTasksOutput enum value
+	StatusForDescribeTasksOutputUnknownStatus = "UnknownStatus"
 
-// String returns the string representation
-func (s TypeForDescribeTasksOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
+	// StatusForDescribeTasksOutputPending is a StatusForDescribeTasksOutput enum value
+	StatusForDescribeTasksOutputPending = "Pending"
 
-// GoString returns the string representation
-func (s TypeForDescribeTasksOutput) GoString() string {
-	return s.String()
-}
+	// StatusForDescribeTasksOutputRunning is a StatusForDescribeTasksOutput enum value
+	StatusForDescribeTasksOutputRunning = "Running"
+
+	// StatusForDescribeTasksOutputSucceeded is a StatusForDescribeTasksOutput enum value
+	StatusForDescribeTasksOutputSucceeded = "Succeeded"
+
+	// StatusForDescribeTasksOutputFailed is a StatusForDescribeTasksOutput enum value
+	StatusForDescribeTasksOutputFailed = "Failed"
+)
+
+const (
+	// TypeForDescribeTasksOutputUnknownType is a TypeForDescribeTasksOutput enum value
+	TypeForDescribeTasksOutputUnknownType = "UnknownType"
+
+	// TypeForDescribeTasksOutputExportImage is a TypeForDescribeTasksOutput enum value
+	TypeForDescribeTasksOutputExportImage = "ExportImage"
+
+	// TypeForDescribeTasksOutputCopyImage is a TypeForDescribeTasksOutput enum value
+	TypeForDescribeTasksOutputCopyImage = "CopyImage"
+)
