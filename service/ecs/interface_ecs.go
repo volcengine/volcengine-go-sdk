@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // ECS.
 //    func myFunc(svc ECSAPI) bool {
-//        // Make svc.AttachKeyPair request
+//        // Make svc.AssociateInstancesIamRole request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type ECSAPI interface {
+	AssociateInstancesIamRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateInstancesIamRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateInstancesIamRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateInstancesIamRole(*AssociateInstancesIamRoleInput) (*AssociateInstancesIamRoleOutput, error)
+	AssociateInstancesIamRoleWithContext(volcengine.Context, *AssociateInstancesIamRoleInput, ...request.Option) (*AssociateInstancesIamRoleOutput, error)
+	AssociateInstancesIamRoleRequest(*AssociateInstancesIamRoleInput) (*request.Request, *AssociateInstancesIamRoleOutput)
+
 	AttachKeyPairCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachKeyPairCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AttachKeyPairCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
