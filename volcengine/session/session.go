@@ -479,13 +479,13 @@ func mergeConfigSrcs(cfg, userCfg *volcengine.Config,
 		}
 	}
 
-	if cfg.EnableEndpointDiscovery == nil {
-		if envCfg.EnableEndpointDiscovery != nil {
-			cfg.WithEndpointDiscovery(*envCfg.EnableEndpointDiscovery)
-		} else if envCfg.EnableSharedConfig && sharedCfg.EnableEndpointDiscovery != nil {
-			cfg.WithEndpointDiscovery(*sharedCfg.EnableEndpointDiscovery)
-		}
-	}
+	//if cfg.EnableEndpointDiscovery == nil {
+	//	if envCfg.EnableEndpointDiscovery != nil {
+	//		cfg.WithEndpointDiscovery(*envCfg.EnableEndpointDiscovery)
+	//	} else if envCfg.EnableSharedConfig && sharedCfg.EnableEndpointDiscovery != nil {
+	//		cfg.WithEndpointDiscovery(*sharedCfg.EnableEndpointDiscovery)
+	//	}
+	//}
 
 	// Configure credentials if not already set by the user when creating the
 	// Session.

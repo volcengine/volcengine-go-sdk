@@ -164,6 +164,8 @@ type DescribeInstancesInput struct {
 
 	PrimaryIpAddress *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -244,6 +246,12 @@ func (s *DescribeInstancesInput) SetNextToken(v string) *DescribeInstancesInput 
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
 func (s *DescribeInstancesInput) SetPrimaryIpAddress(v string) *DescribeInstancesInput {
 	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeInstancesInput) SetProjectName(v string) *DescribeInstancesInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -365,6 +373,8 @@ type InstanceForDescribeInstancesOutput struct {
 	OsName *string `type:"string"`
 
 	OsType *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	RdmaIpAddresses []*string `type:"list"`
 
@@ -496,6 +506,12 @@ func (s *InstanceForDescribeInstancesOutput) SetOsName(v string) *InstanceForDes
 // SetOsType sets the OsType field's value.
 func (s *InstanceForDescribeInstancesOutput) SetOsType(v string) *InstanceForDescribeInstancesOutput {
 	s.OsType = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *InstanceForDescribeInstancesOutput) SetProjectName(v string) *InstanceForDescribeInstancesOutput {
+	s.ProjectName = &v
 	return s
 }
 

@@ -105,8 +105,7 @@ type Config struct {
 	//DisableParamValidation *bool
 
 	// Disables the computation of request and response checksums, e.g.,
-	// CRC32 checksums in Amazon DynamoDB.
-	DisableComputeChecksums *bool
+	//DisableComputeChecksums *bool
 
 	// Set this to `true` to enable S3 Accelerate feature. For all operations
 	// compatible with S3 Accelerate will use the accelerate endpoint for
@@ -116,7 +115,7 @@ type Config struct {
 	// accelerate enabled. If the bucket is not enabled for accelerate an error
 	// will be returned. The bucket name must be DNS compatible to also work
 	// with accelerate.
-	S3UseAccelerate *bool
+	//S3UseAccelerate *bool
 
 	// S3DisableContentMD5Validation config option is temporarily disabled,
 	// For S3 GetObject API calls, #1837.
@@ -125,7 +124,7 @@ type Config struct {
 	// adding the ContentMD5 to S3 Object Put and Upload API calls. This option
 	// will also disable the SDK from performing object ContentMD5 validation
 	// on GetObject API calls.
-	S3DisableContentMD5Validation *bool
+	//S3DisableContentMD5Validation *bool
 
 	// Set this to `true` to disable the EC2Metadata client from overriding the
 	// default http.Client's Timeout. This is helpful if you do not want the
@@ -142,7 +141,7 @@ type Config struct {
 	//
 	//    svc := s3.New(sess)
 	//
-	EC2MetadataDisableTimeoutOverride *bool
+	//EC2MetadataDisableTimeoutOverride *bool
 
 	// Instructs the endpoint to be generated for a service client to
 	// be the dual stack endpoint. The dual stack endpoint will support
@@ -163,7 +162,7 @@ type Config struct {
 	//     svc := s3.New(sess, &volcengine.Config{
 	//         UseDualStack: volcengine.Bool(true),
 	//     })
-	UseDualStack *bool
+	//UseDualStack *bool
 
 	// SleepDelay is an override for the func the SDK will call when sleeping
 	// during the lifecycle of a request. Specifically this will be used for
@@ -204,14 +203,14 @@ type Config struct {
 	//    	Bucket: volcengine.String("bucketname"),
 	//    	Key: volcengine.String("/foo/bar/moo"),
 	//    })
-	EnableEndpointDiscovery *bool
+	//EnableEndpointDiscovery *bool
 
 	// DisableEndpointHostPrefix will disable the SDK's behavior of prefixing
 	// request endpoint hosts with modeled information.
 	//
 	// Disabling this feature is useful when you want to use local endpoints
 	// for testing that do not support the modeled host prefix pattern.
-	DisableEndpointHostPrefix *bool
+	//DisableEndpointHostPrefix *bool
 
 	LogSensitives []string
 
@@ -388,10 +387,10 @@ func (c *Config) WithMaxRetries(max int) *Config {
 
 // WithDisableComputeChecksums sets a config DisableComputeChecksums value
 // returning a Config pointer for chaining.
-func (c *Config) WithDisableComputeChecksums(disable bool) *Config {
-	c.DisableComputeChecksums = &disable
-	return c
-}
+//func (c *Config) WithDisableComputeChecksums(disable bool) *Config {
+//	c.DisableComputeChecksums = &disable
+//	return c
+//}
 
 // WithLogLevel sets a config LogLevel value returning a Config pointer for
 // chaining.
@@ -409,33 +408,33 @@ func (c *Config) WithLogger(logger Logger) *Config {
 
 // WithS3UseAccelerate sets a config S3UseAccelerate value returning a Config
 // pointer for chaining.
-func (c *Config) WithS3UseAccelerate(enable bool) *Config {
-	c.S3UseAccelerate = &enable
-	return c
-
-}
+//func (c *Config) WithS3UseAccelerate(enable bool) *Config {
+//	c.S3UseAccelerate = &enable
+//	return c
+//
+//}
 
 // WithS3DisableContentMD5Validation sets a config
 // S3DisableContentMD5Validation value returning a Config pointer for chaining.
-func (c *Config) WithS3DisableContentMD5Validation(enable bool) *Config {
-	c.S3DisableContentMD5Validation = &enable
-	return c
-
-}
+//func (c *Config) WithS3DisableContentMD5Validation(enable bool) *Config {
+//	c.S3DisableContentMD5Validation = &enable
+//	return c
+//
+//}
 
 // WithUseDualStack sets a config UseDualStack value returning a Config
 // pointer for chaining.
-func (c *Config) WithUseDualStack(enable bool) *Config {
-	c.UseDualStack = &enable
-	return c
-}
+//func (c *Config) WithUseDualStack(enable bool) *Config {
+//	c.UseDualStack = &enable
+//	return c
+//}
 
 // WithEC2MetadataDisableTimeoutOverride sets a config EC2MetadataDisableTimeoutOverride value
 // returning a Config pointer for chaining.
-func (c *Config) WithEC2MetadataDisableTimeoutOverride(enable bool) *Config {
-	c.EC2MetadataDisableTimeoutOverride = &enable
-	return c
-}
+//func (c *Config) WithEC2MetadataDisableTimeoutOverride(enable bool) *Config {
+//	c.EC2MetadataDisableTimeoutOverride = &enable
+//	return c
+//}
 
 // WithSleepDelay overrides the function used to sleep while waiting for the
 // next retry. Defaults to time.Sleep.
@@ -445,17 +444,17 @@ func (c *Config) WithSleepDelay(fn func(time.Duration)) *Config {
 }
 
 // WithEndpointDiscovery will set whether or not to use endpoint discovery.
-func (c *Config) WithEndpointDiscovery(t bool) *Config {
-	c.EnableEndpointDiscovery = &t
-	return c
-}
+//func (c *Config) WithEndpointDiscovery(t bool) *Config {
+//	c.EnableEndpointDiscovery = &t
+//	return c
+//}
 
 // WithDisableEndpointHostPrefix will set whether or not to use modeled host prefix
 // when making requests.
-func (c *Config) WithDisableEndpointHostPrefix(t bool) *Config {
-	c.DisableEndpointHostPrefix = &t
-	return c
-}
+//func (c *Config) WithDisableEndpointHostPrefix(t bool) *Config {
+//	c.DisableEndpointHostPrefix = &t
+//	return c
+//}
 
 // MergeIn merges the passed in configs into the existing config object.
 func (c *Config) MergeIn(cfgs ...*Config) {
@@ -517,45 +516,45 @@ func mergeInConfig(dst *Config, other *Config) {
 	//	dst.DisableParamValidation = other.DisableParamValidation
 	//}
 
-	if other.DisableComputeChecksums != nil {
-		dst.DisableComputeChecksums = other.DisableComputeChecksums
-	}
+	//if other.DisableComputeChecksums != nil {
+	//	dst.DisableComputeChecksums = other.DisableComputeChecksums
+	//}
 
-	if other.S3UseAccelerate != nil {
-		dst.S3UseAccelerate = other.S3UseAccelerate
-	}
-
-	if other.S3DisableContentMD5Validation != nil {
-		dst.S3DisableContentMD5Validation = other.S3DisableContentMD5Validation
-	}
-
-	if other.UseDualStack != nil {
-		dst.UseDualStack = other.UseDualStack
-	}
-
-	if other.EC2MetadataDisableTimeoutOverride != nil {
-		dst.EC2MetadataDisableTimeoutOverride = other.EC2MetadataDisableTimeoutOverride
-	}
-
+	//if other.S3UseAccelerate != nil {
+	//	dst.S3UseAccelerate = other.S3UseAccelerate
+	//}
+	//
+	//if other.S3DisableContentMD5Validation != nil {
+	//	dst.S3DisableContentMD5Validation = other.S3DisableContentMD5Validation
+	//}
+	//
+	//if other.UseDualStack != nil {
+	//	dst.UseDualStack = other.UseDualStack
+	//}
+	//
+	//if other.EC2MetadataDisableTimeoutOverride != nil {
+	//	dst.EC2MetadataDisableTimeoutOverride = other.EC2MetadataDisableTimeoutOverride
+	//}
+	//
 	if other.SleepDelay != nil {
 		dst.SleepDelay = other.SleepDelay
 	}
-
+	//
 	if other.DisableRestProtocolURICleaning != nil {
 		dst.DisableRestProtocolURICleaning = other.DisableRestProtocolURICleaning
 	}
-
-	if other.EnforceShouldRetryCheck != nil {
-		dst.EnforceShouldRetryCheck = other.EnforceShouldRetryCheck
-	}
-
-	if other.EnableEndpointDiscovery != nil {
-		dst.EnableEndpointDiscovery = other.EnableEndpointDiscovery
-	}
-
-	if other.DisableEndpointHostPrefix != nil {
-		dst.DisableEndpointHostPrefix = other.DisableEndpointHostPrefix
-	}
+	//
+	//if other.EnforceShouldRetryCheck != nil {
+	//	dst.EnforceShouldRetryCheck = other.EnforceShouldRetryCheck
+	//}
+	//
+	//if other.EnableEndpointDiscovery != nil {
+	//	dst.EnableEndpointDiscovery = other.EnableEndpointDiscovery
+	//}
+	//
+	//if other.DisableEndpointHostPrefix != nil {
+	//	dst.DisableEndpointHostPrefix = other.DisableEndpointHostPrefix
+	//}
 
 	if other.LogSensitives != nil {
 		dst.LogSensitives = other.LogSensitives
