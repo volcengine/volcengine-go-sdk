@@ -264,6 +264,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	CreateTime *string `type:"string"`
 
+	DNSName *string `type:"string"`
+
 	DeletedTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -318,6 +320,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetBusinessStatus(v string)
 // SetCreateTime sets the CreateTime field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetCreateTime(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetDNSName sets the DNSName field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetDNSName(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.DNSName = &v
 	return s
 }
 
