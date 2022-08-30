@@ -216,6 +216,8 @@ type Config struct {
 
 	DynamicCredentials custom.DynamicCredentials
 
+	DynamicCredentialsIncludeError custom.DynamicCredentialsIncludeError
+
 	LogAccount custom.LogAccount
 
 	ExtendHttpRequest custom.ExtendHttpRequest
@@ -334,6 +336,13 @@ func (c *Config) WithLogAccount(account custom.LogAccount) *Config {
 
 func (c *Config) WithDynamicCredentials(f custom.DynamicCredentials) *Config {
 	c.DynamicCredentials = f
+	return c
+}
+
+// WithDynamicCredentialsIncludeError sets a config DynamicCredentialsIncludeError value returning a Config pointer for
+// chaining.
+func (c *Config) WithDynamicCredentialsIncludeError(f custom.DynamicCredentialsIncludeError) *Config {
+	c.DynamicCredentialsIncludeError = f
 	return c
 }
 
@@ -566,6 +575,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.DynamicCredentials != nil {
 		dst.DynamicCredentials = other.DynamicCredentials
+	}
+
+	if other.DynamicCredentialsIncludeError != nil {
+		dst.DynamicCredentialsIncludeError = other.DynamicCredentialsIncludeError
 	}
 
 	if other.ExtendHttpRequest != nil {

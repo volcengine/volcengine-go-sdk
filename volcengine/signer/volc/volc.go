@@ -16,17 +16,28 @@ func SignSDKRequest(req *request.Request) {
 	region := req.ClientInfo.SigningRegion
 
 	var (
-		_credentials *credentials.Credentials
-		_region      *string
-		c1           base.Credentials
+		dynamicCredentials *credentials.Credentials
+		dynamicRegion      *string
+		c1                 base.Credentials
+		err                error
 	)
 
-	if req.Config.DynamicCredentials != nil {
-		_credentials, _region = req.Config.DynamicCredentials(req.Context())
-		if volcengine.StringValue(_region) == "" {
-			req.Error = volcengine.ErrMissingRegion
+	if req.Config.DynamicCredentialsIncludeError != nil {
+		dynamicCredentials, dynamicRegion, err = req.Config.DynamicCredentialsIncludeError(req.Context())
+		if err != nil {
+			req.Error = err
+			return
 		}
-		region = volcengine.StringValue(_region)
+	} else if req.Config.DynamicCredentials != nil {
+		dynamicCredentials, dynamicRegion = req.Config.DynamicCredentials(req.Context())
+	}
+
+	if req.Config.DynamicCredentials != nil || req.Config.DynamicCredentialsIncludeError != nil {
+		if volcengine.StringValue(dynamicRegion) == "" {
+			req.Error = volcengine.ErrMissingRegion
+			return
+		}
+		region = volcengine.StringValue(dynamicRegion)
 	} else if region == "" {
 		region = volcengine.StringValue(req.Config.Region)
 	}
@@ -36,10 +47,10 @@ func SignSDKRequest(req *request.Request) {
 		name = req.ClientInfo.ServiceID
 	}
 
-	if _credentials == nil {
+	if dynamicCredentials == nil {
 		c1 = req.Config.Credentials.GetBase(region, name)
 	} else {
-		c1 = _credentials.GetBase(region, name)
+		c1 = dynamicCredentials.GetBase(region, name)
 	}
 	r := c1.Sign(req.HTTPRequest)
 	req.HTTPRequest.Header = r.Header
