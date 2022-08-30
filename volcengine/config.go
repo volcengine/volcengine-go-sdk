@@ -339,6 +339,8 @@ func (c *Config) WithDynamicCredentials(f custom.DynamicCredentials) *Config {
 	return c
 }
 
+// WithDynamicCredentialsIncludeError sets a config DynamicCredentialsIncludeError value returning a Config pointer for
+// chaining.
 func (c *Config) WithDynamicCredentialsIncludeError(f custom.DynamicCredentialsIncludeError) *Config {
 	c.DynamicCredentialsIncludeError = f
 	return c
