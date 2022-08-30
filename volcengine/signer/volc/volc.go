@@ -19,12 +19,24 @@ func SignSDKRequest(req *request.Request) {
 		_credentials *credentials.Credentials
 		_region      *string
 		c1           base.Credentials
+		_err         error
 	)
+
+	if req.Config.DynamicCredentialsIncludeError != nil {
+		_credentials, _region, _err = req.Config.DynamicCredentialsIncludeError(req.Context())
+		if _err != nil {
+			req.Error = _err
+			return
+		}
+	} else if req.Config.DynamicCredentials != nil {
+		_credentials, _region = req.Config.DynamicCredentials(req.Context())
+	}
 
 	if req.Config.DynamicCredentials != nil {
 		_credentials, _region = req.Config.DynamicCredentials(req.Context())
 		if volcengine.StringValue(_region) == "" {
 			req.Error = volcengine.ErrMissingRegion
+			return
 		}
 		region = volcengine.StringValue(_region)
 	} else if region == "" {
