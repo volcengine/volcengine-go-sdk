@@ -32,8 +32,7 @@ func SignSDKRequest(req *request.Request) {
 		dynamicCredentials, dynamicRegion = req.Config.DynamicCredentials(req.Context())
 	}
 
-	if req.Config.DynamicCredentials != nil {
-		dynamicCredentials, dynamicRegion = req.Config.DynamicCredentials(req.Context())
+	if req.Config.DynamicCredentials != nil || req.Config.DynamicCredentialsIncludeError != nil {
 		if volcengine.StringValue(dynamicRegion) == "" {
 			req.Error = volcengine.ErrMissingRegion
 			return
