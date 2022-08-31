@@ -188,6 +188,8 @@ type ItemForListRegistriesOutput struct {
 
 	CreateTime *string `type:"string"`
 
+	Name *string `type:"string"`
+
 	Status *StatusForListRegistriesOutput `type:"structure"`
 
 	Type *string `type:"string"`
@@ -212,6 +214,12 @@ func (s *ItemForListRegistriesOutput) SetChargeType(v string) *ItemForListRegist
 // SetCreateTime sets the CreateTime field's value.
 func (s *ItemForListRegistriesOutput) SetCreateTime(v string) *ItemForListRegistriesOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ItemForListRegistriesOutput) SetName(v string) *ItemForListRegistriesOutput {
+	s.Name = &v
 	return s
 }
 
