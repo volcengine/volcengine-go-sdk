@@ -107,6 +107,9 @@ func processUnmarshalError(info unmarshalErrorInfo) {
 	if reflect.TypeOf(r.Data) != reflect.TypeOf(&map[string]interface{}{}) {
 
 		if _, ok := reflect.TypeOf(r.Data).Elem().FieldByName("Metadata"); ok {
+			if info.Response.ResponseMetadata != nil {
+				info.Response.ResponseMetadata.HttpCode = r.HTTPResponse.StatusCode
+			}
 			r.Metadata = *(info.Response.ResponseMetadata)
 			reflect.ValueOf(r.Data).Elem().FieldByName("Metadata").Set(reflect.ValueOf(info.Response.ResponseMetadata))
 		}
