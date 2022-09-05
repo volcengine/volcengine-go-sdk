@@ -62,6 +62,14 @@ type ECSAPI interface {
 	CreateKeyPairWithContext(volcengine.Context, *CreateKeyPairInput, ...request.Option) (*CreateKeyPairOutput, error)
 	CreateKeyPairRequest(*CreateKeyPairInput) (*request.Request, *CreateKeyPairOutput)
 
+	CreateTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTags(*CreateTagsInput) (*CreateTagsOutput, error)
+	CreateTagsWithContext(volcengine.Context, *CreateTagsInput, ...request.Option) (*CreateTagsOutput, error)
+	CreateTagsRequest(*CreateTagsInput) (*request.Request, *CreateTagsOutput)
+
 	DeleteImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteImagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteImagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +101,14 @@ type ECSAPI interface {
 	DeleteKeyPairs(*DeleteKeyPairsInput) (*DeleteKeyPairsOutput, error)
 	DeleteKeyPairsWithContext(volcengine.Context, *DeleteKeyPairsInput, ...request.Option) (*DeleteKeyPairsOutput, error)
 	DeleteKeyPairsRequest(*DeleteKeyPairsInput) (*request.Request, *DeleteKeyPairsOutput)
+
+	DeleteTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTags(*DeleteTagsInput) (*DeleteTagsOutput, error)
+	DeleteTagsWithContext(volcengine.Context, *DeleteTagsInput, ...request.Option) (*DeleteTagsOutput, error)
+	DeleteTagsRequest(*DeleteTagsInput) (*request.Request, *DeleteTagsOutput)
 
 	DescribeAvailableResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAvailableResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,6 +189,14 @@ type ECSAPI interface {
 	DescribeKeyPairs(*DescribeKeyPairsInput) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsWithContext(volcengine.Context, *DescribeKeyPairsInput, ...request.Option) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsRequest(*DescribeKeyPairsInput) (*request.Request, *DescribeKeyPairsOutput)
+
+	DescribeTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTags(*DescribeTagsInput) (*DescribeTagsOutput, error)
+	DescribeTagsWithContext(volcengine.Context, *DescribeTagsInput, ...request.Option) (*DescribeTagsOutput, error)
+	DescribeTagsRequest(*DescribeTagsInput) (*request.Request, *DescribeTagsOutput)
 
 	DescribeTasksCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTasksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

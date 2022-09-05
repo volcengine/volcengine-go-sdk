@@ -154,6 +154,8 @@ type CreateNetworkInterfaceInput struct {
 
 	PrivateIpAddress []*string `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
 
 	// SecurityGroupIds is a required field
@@ -161,6 +163,8 @@ type CreateNetworkInterfaceInput struct {
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
+
+	Tags []*TagForCreateNetworkInterfaceInput `type:"list"`
 }
 
 // String returns the string representation
@@ -237,6 +241,12 @@ func (s *CreateNetworkInterfaceInput) SetPrivateIpAddress(v []*string) *CreateNe
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateNetworkInterfaceInput) SetProjectName(v string) *CreateNetworkInterfaceInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
 func (s *CreateNetworkInterfaceInput) SetSecondaryPrivateIpAddressCount(v int64) *CreateNetworkInterfaceInput {
 	s.SecondaryPrivateIpAddressCount = &v
@@ -252,6 +262,12 @@ func (s *CreateNetworkInterfaceInput) SetSecurityGroupIds(v []*string) *CreateNe
 // SetSubnetId sets the SubnetId field's value.
 func (s *CreateNetworkInterfaceInput) SetSubnetId(v string) *CreateNetworkInterfaceInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateNetworkInterfaceInput) SetTags(v []*TagForCreateNetworkInterfaceInput) *CreateNetworkInterfaceInput {
+	s.Tags = v
 	return s
 }
 
@@ -284,5 +300,35 @@ func (s *CreateNetworkInterfaceOutput) SetNetworkInterfaceId(v string) *CreateNe
 // SetRequestId sets the RequestId field's value.
 func (s *CreateNetworkInterfaceOutput) SetRequestId(v string) *CreateNetworkInterfaceOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForCreateNetworkInterfaceInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateNetworkInterfaceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateNetworkInterfaceInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateNetworkInterfaceInput) SetKey(v string) *TagForCreateNetworkInterfaceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateNetworkInterfaceInput) SetValue(v string) *TagForCreateNetworkInterfaceInput {
+	s.Value = &v
 	return s
 }

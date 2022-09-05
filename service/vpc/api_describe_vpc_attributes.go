@@ -234,6 +234,8 @@ type DescribeVpcAttributesOutput struct {
 
 	NetworkAclNum *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	RouteTableIds []*string `type:"list"`
@@ -243,6 +245,8 @@ type DescribeVpcAttributesOutput struct {
 	Status *string `type:"string"`
 
 	SubnetIds []*string `type:"list"`
+
+	Tags []*TagForDescribeVpcAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 
@@ -309,6 +313,12 @@ func (s *DescribeVpcAttributesOutput) SetNetworkAclNum(v string) *DescribeVpcAtt
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpcAttributesOutput) SetProjectName(v string) *DescribeVpcAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeVpcAttributesOutput) SetRequestId(v string) *DescribeVpcAttributesOutput {
 	s.RequestId = &v
@@ -339,6 +349,12 @@ func (s *DescribeVpcAttributesOutput) SetSubnetIds(v []*string) *DescribeVpcAttr
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeVpcAttributesOutput) SetTags(v []*TagForDescribeVpcAttributesOutput) *DescribeVpcAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeVpcAttributesOutput) SetUpdateTime(v string) *DescribeVpcAttributesOutput {
 	s.UpdateTime = &v
@@ -354,5 +370,35 @@ func (s *DescribeVpcAttributesOutput) SetVpcId(v string) *DescribeVpcAttributesO
 // SetVpcName sets the VpcName field's value.
 func (s *DescribeVpcAttributesOutput) SetVpcName(v string) *DescribeVpcAttributesOutput {
 	s.VpcName = &v
+	return s
+}
+
+type TagForDescribeVpcAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeVpcAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeVpcAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeVpcAttributesOutput) SetKey(v string) *TagForDescribeVpcAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeVpcAttributesOutput) SetValue(v string) *TagForDescribeVpcAttributesOutput {
+	s.Value = &v
 	return s
 }

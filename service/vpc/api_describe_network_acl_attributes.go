@@ -348,6 +348,8 @@ type NetworkAclAttributeForDescribeNetworkAclAttributesOutput struct {
 
 	NetworkAclName *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Resources []*ResourceForDescribeNetworkAclAttributesOutput `type:"list"`
 
 	Status *string `type:"string"`
@@ -400,6 +402,12 @@ func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetNetworkAcl
 // SetNetworkAclName sets the NetworkAclName field's value.
 func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetNetworkAclName(v string) *NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
 	s.NetworkAclName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetProjectName(v string) *NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

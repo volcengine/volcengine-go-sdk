@@ -154,6 +154,8 @@ type AclForDescribeAclsOutput struct {
 
 	Listeners []*string `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -205,6 +207,12 @@ func (s *AclForDescribeAclsOutput) SetListeners(v []*string) *AclForDescribeAcls
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *AclForDescribeAclsOutput) SetProjectName(v string) *AclForDescribeAclsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *AclForDescribeAclsOutput) SetStatus(v string) *AclForDescribeAclsOutput {
 	s.Status = &v
@@ -227,6 +235,8 @@ type DescribeAclsInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -260,6 +270,12 @@ func (s *DescribeAclsInput) SetPageNumber(v int64) *DescribeAclsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeAclsInput) SetPageSize(v int64) *DescribeAclsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAclsInput) SetProjectName(v string) *DescribeAclsInput {
+	s.ProjectName = &v
 	return s
 }
 

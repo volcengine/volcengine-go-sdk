@@ -145,6 +145,8 @@ type CreateAclInput struct {
 	AclName *string `min:"2" max:"255" type:"string"`
 
 	Description *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -182,6 +184,12 @@ func (s *CreateAclInput) SetAclName(v string) *CreateAclInput {
 // SetDescription sets the Description field's value.
 func (s *CreateAclInput) SetDescription(v string) *CreateAclInput {
 	s.Description = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateAclInput) SetProjectName(v string) *CreateAclInput {
+	s.ProjectName = &v
 	return s
 }
 
