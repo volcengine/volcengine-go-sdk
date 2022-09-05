@@ -155,7 +155,13 @@ type CreateVpnConnectionInput struct {
 
 	IpsecConfig *string `type:"string"`
 
+	// LocalSubnet is a required field
+	LocalSubnet []*string `type:"list" required:"true"`
+
 	NatTraversal *bool `type:"boolean"`
+
+	// RemoteSubnet is a required field
+	RemoteSubnet []*string `type:"list" required:"true"`
 
 	VpnConnectionName *string `min:"1" max:"128" type:"string"`
 
@@ -184,6 +190,12 @@ func (s *CreateVpnConnectionInput) Validate() error {
 	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.LocalSubnet == nil {
+		invalidParams.Add(request.NewErrParamRequired("LocalSubnet"))
+	}
+	if s.RemoteSubnet == nil {
+		invalidParams.Add(request.NewErrParamRequired("RemoteSubnet"))
 	}
 	if s.VpnConnectionName != nil && len(*s.VpnConnectionName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("VpnConnectionName", 1))
@@ -237,9 +249,21 @@ func (s *CreateVpnConnectionInput) SetIpsecConfig(v string) *CreateVpnConnection
 	return s
 }
 
+// SetLocalSubnet sets the LocalSubnet field's value.
+func (s *CreateVpnConnectionInput) SetLocalSubnet(v []*string) *CreateVpnConnectionInput {
+	s.LocalSubnet = v
+	return s
+}
+
 // SetNatTraversal sets the NatTraversal field's value.
 func (s *CreateVpnConnectionInput) SetNatTraversal(v bool) *CreateVpnConnectionInput {
 	s.NatTraversal = &v
+	return s
+}
+
+// SetRemoteSubnet sets the RemoteSubnet field's value.
+func (s *CreateVpnConnectionInput) SetRemoteSubnet(v []*string) *CreateVpnConnectionInput {
+	s.RemoteSubnet = v
 	return s
 }
 

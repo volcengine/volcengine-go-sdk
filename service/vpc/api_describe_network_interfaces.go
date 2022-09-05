@@ -186,11 +186,15 @@ type DescribeNetworkInterfacesInput struct {
 
 	PrivateIpAddresses []*string `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	SecurityGroupId *string `type:"string"`
 
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeNetworkInterfacesInput `type:"list"`
 
 	Type *string `type:"string"`
 
@@ -264,6 +268,12 @@ func (s *DescribeNetworkInterfacesInput) SetPrivateIpAddresses(v []*string) *Des
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeNetworkInterfacesInput) SetProjectName(v string) *DescribeNetworkInterfacesInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurityGroupId sets the SecurityGroupId field's value.
 func (s *DescribeNetworkInterfacesInput) SetSecurityGroupId(v string) *DescribeNetworkInterfacesInput {
 	s.SecurityGroupId = &v
@@ -279,6 +289,12 @@ func (s *DescribeNetworkInterfacesInput) SetStatus(v string) *DescribeNetworkInt
 // SetSubnetId sets the SubnetId field's value.
 func (s *DescribeNetworkInterfacesInput) SetSubnetId(v string) *DescribeNetworkInterfacesInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeNetworkInterfacesInput) SetTagFilters(v []*TagFilterForDescribeNetworkInterfacesInput) *DescribeNetworkInterfacesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -381,6 +397,8 @@ type NetworkInterfaceSetForDescribeNetworkInterfacesOutput struct {
 
 	PrivateIpSets *PrivateIpSetsForDescribeNetworkInterfacesOutput `type:"structure"`
 
+	ProjectName *string `type:"string"`
+
 	SecurityGroupIds []*string `type:"list"`
 
 	ServiceManaged *bool `type:"boolean"`
@@ -388,6 +406,8 @@ type NetworkInterfaceSetForDescribeNetworkInterfacesOutput struct {
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
+
+	Tags []*TagForDescribeNetworkInterfacesOutput `type:"list"`
 
 	Type *string `type:"string"`
 
@@ -476,6 +496,12 @@ func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetPrivateIpSets
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetProjectName(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetSecurityGroupIds(v []*string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 	s.SecurityGroupIds = v
@@ -497,6 +523,12 @@ func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetStatus(v stri
 // SetSubnetId sets the SubnetId field's value.
 func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetSubnetId(v string) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *NetworkInterfaceSetForDescribeNetworkInterfacesOutput) SetTags(v []*TagForDescribeNetworkInterfacesOutput) *NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -587,5 +619,65 @@ func (s PrivateIpSetsForDescribeNetworkInterfacesOutput) GoString() string {
 // SetPrivateIpSet sets the PrivateIpSet field's value.
 func (s *PrivateIpSetsForDescribeNetworkInterfacesOutput) SetPrivateIpSet(v []*PrivateIpSetForDescribeNetworkInterfacesOutput) *PrivateIpSetsForDescribeNetworkInterfacesOutput {
 	s.PrivateIpSet = v
+	return s
+}
+
+type TagFilterForDescribeNetworkInterfacesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeNetworkInterfacesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeNetworkInterfacesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeNetworkInterfacesInput) SetKey(v string) *TagFilterForDescribeNetworkInterfacesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeNetworkInterfacesInput) SetValues(v []*string) *TagFilterForDescribeNetworkInterfacesInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeNetworkInterfacesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeNetworkInterfacesOutput) SetKey(v string) *TagForDescribeNetworkInterfacesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeNetworkInterfacesOutput) SetValue(v string) *TagForDescribeNetworkInterfacesOutput {
+	s.Value = &v
 	return s
 }

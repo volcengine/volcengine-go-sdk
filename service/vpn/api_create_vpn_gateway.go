@@ -143,7 +143,7 @@ type CreateVpnGatewayInput struct {
 	_ struct{} `type:"structure"`
 
 	// Bandwidth is a required field
-	Bandwidth *int64 `min:"5" max:"200" type:"integer" required:"true"`
+	Bandwidth *int64 `min:"5" max:"1000" type:"integer" required:"true"`
 
 	BillingType *int64 `min:"1" max:"1" type:"integer"`
 
@@ -181,8 +181,8 @@ func (s *CreateVpnGatewayInput) Validate() error {
 	if s.Bandwidth != nil && *s.Bandwidth < 5 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 5))
 	}
-	if s.Bandwidth != nil && *s.Bandwidth > 200 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 200))
+	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
 	}
 	if s.BillingType != nil && *s.BillingType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))

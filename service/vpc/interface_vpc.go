@@ -390,6 +390,14 @@ type VPCAPI interface {
 	DisassociateRouteTableWithContext(volcengine.Context, *DisassociateRouteTableInput, ...request.Option) (*DisassociateRouteTableOutput, error)
 	DisassociateRouteTableRequest(*DisassociateRouteTableInput) (*request.Request, *DisassociateRouteTableOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
 	ModifyEipAddressAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyEipAddressAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyEipAddressAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -502,6 +510,14 @@ type VPCAPI interface {
 	RevokeSecurityGroupIngressWithContext(volcengine.Context, *RevokeSecurityGroupIngressInput, ...request.Option) (*RevokeSecurityGroupIngressOutput, error)
 	RevokeSecurityGroupIngressRequest(*RevokeSecurityGroupIngressInput) (*request.Request, *RevokeSecurityGroupIngressOutput)
 
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
 	UnassignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UnassignPrivateIpAddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UnassignPrivateIpAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -509,6 +525,14 @@ type VPCAPI interface {
 	UnassignPrivateIpAddresses(*UnassignPrivateIpAddressesInput) (*UnassignPrivateIpAddressesOutput, error)
 	UnassignPrivateIpAddressesWithContext(volcengine.Context, *UnassignPrivateIpAddressesInput, ...request.Option) (*UnassignPrivateIpAddressesOutput, error)
 	UnassignPrivateIpAddressesRequest(*UnassignPrivateIpAddressesInput) (*request.Request, *UnassignPrivateIpAddressesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 
 	UpdateNetworkAclEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateNetworkAclEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

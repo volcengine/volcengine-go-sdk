@@ -224,6 +224,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	EipID *string `type:"string"`
 
+	Enabled *bool `type:"boolean"`
+
 	EniAddress *string `type:"string"`
 
 	EniID *string `type:"string"`
@@ -248,6 +250,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	OverdueTime *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	ServerGroups []*ServerGroupForDescribeLoadBalancerAttributesOutput `type:"list"`
@@ -255,6 +259,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
+
+	Tags []*TagForDescribeLoadBalancerAttributesOutput `type:"list"`
 
 	Type *string `type:"string"`
 
@@ -312,6 +318,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetEipAddress(v string) *Describe
 // SetEipID sets the EipID field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetEipID(v string) *DescribeLoadBalancerAttributesOutput {
 	s.EipID = &v
+	return s
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetEnabled(v bool) *DescribeLoadBalancerAttributesOutput {
+	s.Enabled = &v
 	return s
 }
 
@@ -387,6 +399,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetOverdueTime(v string) *Describ
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetProjectName(v string) *DescribeLoadBalancerAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetRequestId(v string) *DescribeLoadBalancerAttributesOutput {
 	s.RequestId = &v
@@ -408,6 +426,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetStatus(v string) *DescribeLoad
 // SetSubnetId sets the SubnetId field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetSubnetId(v string) *DescribeLoadBalancerAttributesOutput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetTags(v []*TagForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -532,5 +556,35 @@ func (s *ServerGroupForDescribeLoadBalancerAttributesOutput) SetServerGroupId(v 
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *ServerGroupForDescribeLoadBalancerAttributesOutput) SetServerGroupName(v string) *ServerGroupForDescribeLoadBalancerAttributesOutput {
 	s.ServerGroupName = &v
+	return s
+}
+
+type TagForDescribeLoadBalancerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeLoadBalancerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeLoadBalancerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeLoadBalancerAttributesOutput) SetKey(v string) *TagForDescribeLoadBalancerAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeLoadBalancerAttributesOutput) SetValue(v string) *TagForDescribeLoadBalancerAttributesOutput {
+	s.Value = &v
 	return s
 }

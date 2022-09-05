@@ -242,6 +242,8 @@ type DescribeNetworkInterfaceAttributesOutput struct {
 
 	SubnetId *string `type:"string"`
 
+	Tags []*TagForDescribeNetworkInterfaceAttributesOutput `type:"list"`
+
 	Type *string `type:"string"`
 
 	UpdatedAt *string `type:"string"`
@@ -359,6 +361,12 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetSubnetId(v string) *Descri
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetTags(v []*TagForDescribeNetworkInterfaceAttributesOutput) *DescribeNetworkInterfaceAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *DescribeNetworkInterfaceAttributesOutput) SetType(v string) *DescribeNetworkInterfaceAttributesOutput {
 	s.Type = &v
@@ -446,5 +454,35 @@ func (s PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) GoString() str
 // SetPrivateIpSet sets the PrivateIpSet field's value.
 func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpSet(v []*PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
 	s.PrivateIpSet = v
+	return s
+}
+
+type TagForDescribeNetworkInterfaceAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeNetworkInterfaceAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeNetworkInterfaceAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeNetworkInterfaceAttributesOutput) SetKey(v string) *TagForDescribeNetworkInterfaceAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeNetworkInterfaceAttributesOutput) SetValue(v string) *TagForDescribeNetworkInterfaceAttributesOutput {
+	s.Value = &v
 	return s
 }

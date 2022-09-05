@@ -150,7 +150,11 @@ type ModifyVpnConnectionAttributesInput struct {
 
 	IpsecConfig *string `type:"string"`
 
+	LocalSubnet []*string `type:"list"`
+
 	NatTraversal *bool `type:"boolean"`
+
+	RemoteSubnet []*string `type:"list"`
 
 	// VpnConnectionId is a required field
 	VpnConnectionId *string `type:"string" required:"true"`
@@ -217,9 +221,21 @@ func (s *ModifyVpnConnectionAttributesInput) SetIpsecConfig(v string) *ModifyVpn
 	return s
 }
 
+// SetLocalSubnet sets the LocalSubnet field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetLocalSubnet(v []*string) *ModifyVpnConnectionAttributesInput {
+	s.LocalSubnet = v
+	return s
+}
+
 // SetNatTraversal sets the NatTraversal field's value.
 func (s *ModifyVpnConnectionAttributesInput) SetNatTraversal(v bool) *ModifyVpnConnectionAttributesInput {
 	s.NatTraversal = &v
+	return s
+}
+
+// SetRemoteSubnet sets the RemoteSubnet field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetRemoteSubnet(v []*string) *ModifyVpnConnectionAttributesInput {
+	s.RemoteSubnet = v
 	return s
 }
 

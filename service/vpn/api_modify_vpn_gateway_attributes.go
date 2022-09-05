@@ -142,7 +142,7 @@ func (c *VPN) ModifyVpnGatewayAttributesWithContext(ctx volcengine.Context, inpu
 type ModifyVpnGatewayAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `min:"5" max:"200" type:"integer"`
+	Bandwidth *int64 `min:"5" max:"1000" type:"integer"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -168,8 +168,8 @@ func (s *ModifyVpnGatewayAttributesInput) Validate() error {
 	if s.Bandwidth != nil && *s.Bandwidth < 5 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 5))
 	}
-	if s.Bandwidth != nil && *s.Bandwidth > 200 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 200))
+	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
 	}
 	if s.Description != nil && len(*s.Description) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Description", 1))

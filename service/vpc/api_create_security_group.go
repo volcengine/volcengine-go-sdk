@@ -146,7 +146,11 @@ type CreateSecurityGroupInput struct {
 
 	Description *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	SecurityGroupName *string `type:"string"`
+
+	Tags []*TagForCreateSecurityGroupInput `type:"list"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -187,9 +191,21 @@ func (s *CreateSecurityGroupInput) SetDescription(v string) *CreateSecurityGroup
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateSecurityGroupInput) SetProjectName(v string) *CreateSecurityGroupInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurityGroupName sets the SecurityGroupName field's value.
 func (s *CreateSecurityGroupInput) SetSecurityGroupName(v string) *CreateSecurityGroupInput {
 	s.SecurityGroupName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateSecurityGroupInput) SetTags(v []*TagForCreateSecurityGroupInput) *CreateSecurityGroupInput {
+	s.Tags = v
 	return s
 }
 
@@ -228,5 +244,35 @@ func (s *CreateSecurityGroupOutput) SetRequestId(v string) *CreateSecurityGroupO
 // SetSecurityGroupId sets the SecurityGroupId field's value.
 func (s *CreateSecurityGroupOutput) SetSecurityGroupId(v string) *CreateSecurityGroupOutput {
 	s.SecurityGroupId = &v
+	return s
+}
+
+type TagForCreateSecurityGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateSecurityGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateSecurityGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateSecurityGroupInput) SetKey(v string) *TagForCreateSecurityGroupInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateSecurityGroupInput) SetValue(v string) *TagForCreateSecurityGroupInput {
+	s.Value = &v
 	return s
 }

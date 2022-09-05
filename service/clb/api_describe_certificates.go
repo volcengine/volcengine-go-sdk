@@ -155,6 +155,8 @@ type CertificateForDescribeCertificatesOutput struct {
 	ExpiredAt *string `type:"string"`
 
 	Listeners []*string `type:"list"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -209,6 +211,12 @@ func (s *CertificateForDescribeCertificatesOutput) SetListeners(v []*string) *Ce
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetProjectName(v string) *CertificateForDescribeCertificatesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 type DescribeCertificatesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -219,6 +227,8 @@ type DescribeCertificatesInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -252,6 +262,12 @@ func (s *DescribeCertificatesInput) SetPageNumber(v int64) *DescribeCertificates
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCertificatesInput) SetPageSize(v int64) *DescribeCertificatesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCertificatesInput) SetProjectName(v string) *DescribeCertificatesInput {
+	s.ProjectName = &v
 	return s
 }
 

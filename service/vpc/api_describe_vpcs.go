@@ -184,6 +184,10 @@ type DescribeVpcsInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeVpcsInput `type:"list"`
+
 	VpcIds []*string `type:"list"`
 
 	VpcName *string `type:"string"`
@@ -221,6 +225,18 @@ func (s *DescribeVpcsInput) SetPageNumber(v int64) *DescribeVpcsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVpcsInput) SetPageSize(v int64) *DescribeVpcsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpcsInput) SetProjectName(v string) *DescribeVpcsInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeVpcsInput) SetTagFilters(v []*TagFilterForDescribeVpcsInput) *DescribeVpcsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -292,6 +308,66 @@ func (s *DescribeVpcsOutput) SetVpcs(v []*VpcForDescribeVpcsOutput) *DescribeVpc
 	return s
 }
 
+type TagFilterForDescribeVpcsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeVpcsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeVpcsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeVpcsInput) SetKey(v string) *TagFilterForDescribeVpcsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeVpcsInput) SetValues(v []*string) *TagFilterForDescribeVpcsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeVpcsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeVpcsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeVpcsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeVpcsOutput) SetKey(v string) *TagForDescribeVpcsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeVpcsOutput) SetValue(v string) *TagForDescribeVpcsOutput {
+	s.Value = &v
+	return s
+}
+
 type VpcForDescribeVpcsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -311,6 +387,8 @@ type VpcForDescribeVpcsOutput struct {
 
 	NetworkAclNum *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RouteTableIds []*string `type:"list"`
 
 	SecurityGroupIds []*string `type:"list"`
@@ -318,6 +396,8 @@ type VpcForDescribeVpcsOutput struct {
 	Status *string `type:"string"`
 
 	SubnetIds []*string `type:"list"`
+
+	Tags []*TagForDescribeVpcsOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 
@@ -384,6 +464,12 @@ func (s *VpcForDescribeVpcsOutput) SetNetworkAclNum(v string) *VpcForDescribeVpc
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *VpcForDescribeVpcsOutput) SetProjectName(v string) *VpcForDescribeVpcsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRouteTableIds sets the RouteTableIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetRouteTableIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.RouteTableIds = v
@@ -405,6 +491,12 @@ func (s *VpcForDescribeVpcsOutput) SetStatus(v string) *VpcForDescribeVpcsOutput
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetSubnetIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.SubnetIds = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *VpcForDescribeVpcsOutput) SetTags(v []*TagForDescribeVpcsOutput) *VpcForDescribeVpcsOutput {
+	s.Tags = v
 	return s
 }
 

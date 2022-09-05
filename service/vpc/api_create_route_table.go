@@ -146,6 +146,8 @@ type CreateRouteTableInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RouteTableName *string `min:"1" max:"128" type:"string"`
 
 	// VpcId is a required field
@@ -196,6 +198,12 @@ func (s *CreateRouteTableInput) SetClientToken(v string) *CreateRouteTableInput 
 // SetDescription sets the Description field's value.
 func (s *CreateRouteTableInput) SetDescription(v string) *CreateRouteTableInput {
 	s.Description = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateRouteTableInput) SetProjectName(v string) *CreateRouteTableInput {
+	s.ProjectName = &v
 	return s
 }
 
