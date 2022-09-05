@@ -298,6 +298,8 @@ type InstanceTypeForDescribeInstanceTypesOutput struct {
 
 	Memory *MemoryForDescribeInstanceTypesOutput `type:"structure"`
 
+	Network *NetworkForDescribeInstanceTypesOutput `type:"structure"`
+
 	Processor *ProcessorForDescribeInstanceTypesOutput `type:"structure"`
 
 	Rdma *RdmaForDescribeInstanceTypesOutput `type:"structure"`
@@ -342,6 +344,12 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetLocalVolumes(v []*LocalV
 // SetMemory sets the Memory field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetMemory(v *MemoryForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.Memory = v
+	return s
+}
+
+// SetNetwork sets the Network field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetwork(v *NetworkForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Network = v
 	return s
 }
 
@@ -428,6 +436,44 @@ func (s *MemoryForDescribeInstanceTypesOutput) SetEncryptedSize(v int32) *Memory
 // SetSize sets the Size field's value.
 func (s *MemoryForDescribeInstanceTypesOutput) SetSize(v int32) *MemoryForDescribeInstanceTypesOutput {
 	s.Size = &v
+	return s
+}
+
+type NetworkForDescribeInstanceTypesOutput struct {
+	_ struct{} `type:"structure"`
+
+	MaximumNetworkInterfaces *int32 `type:"int32"`
+
+	MaximumPrivateIpv4AddressesPerNetworkInterface *int32 `type:"int32"`
+
+	MaximumQueuesPerNetworkInterface *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s NetworkForDescribeInstanceTypesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkForDescribeInstanceTypesOutput) GoString() string {
+	return s.String()
+}
+
+// SetMaximumNetworkInterfaces sets the MaximumNetworkInterfaces field's value.
+func (s *NetworkForDescribeInstanceTypesOutput) SetMaximumNetworkInterfaces(v int32) *NetworkForDescribeInstanceTypesOutput {
+	s.MaximumNetworkInterfaces = &v
+	return s
+}
+
+// SetMaximumPrivateIpv4AddressesPerNetworkInterface sets the MaximumPrivateIpv4AddressesPerNetworkInterface field's value.
+func (s *NetworkForDescribeInstanceTypesOutput) SetMaximumPrivateIpv4AddressesPerNetworkInterface(v int32) *NetworkForDescribeInstanceTypesOutput {
+	s.MaximumPrivateIpv4AddressesPerNetworkInterface = &v
+	return s
+}
+
+// SetMaximumQueuesPerNetworkInterface sets the MaximumQueuesPerNetworkInterface field's value.
+func (s *NetworkForDescribeInstanceTypesOutput) SetMaximumQueuesPerNetworkInterface(v int32) *NetworkForDescribeInstanceTypesOutput {
+	s.MaximumQueuesPerNetworkInterface = &v
 	return s
 }
 

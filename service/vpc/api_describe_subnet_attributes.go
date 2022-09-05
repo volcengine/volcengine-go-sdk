@@ -192,6 +192,8 @@ type DescribeSubnetAttributesOutput struct {
 
 	NetworkAclId *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	RouteTable *RouteTableForDescribeSubnetAttributesOutput `type:"structure"`
@@ -254,6 +256,12 @@ func (s *DescribeSubnetAttributesOutput) SetDescription(v string) *DescribeSubne
 // SetNetworkAclId sets the NetworkAclId field's value.
 func (s *DescribeSubnetAttributesOutput) SetNetworkAclId(v string) *DescribeSubnetAttributesOutput {
 	s.NetworkAclId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeSubnetAttributesOutput) SetProjectName(v string) *DescribeSubnetAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

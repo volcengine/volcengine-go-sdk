@@ -42,20 +42,19 @@ loop:
 					continue loop
 				}
 			}
+		}
+		var (
+			next    map[string]interface{}
+			nextPtr *map[string]interface{}
+			ok      bool
+		)
 
-			var (
-				next    map[string]interface{}
-				nextPtr *map[string]interface{}
-				ok      bool
-			)
-
-			if next, ok = v.(map[string]interface{}); ok {
-				result[k] = BodyToMap(next, sensitive, enable)
-			} else if nextPtr, ok = v.(*map[string]interface{}); ok {
-				result[k] = BodyToMap(*nextPtr, sensitive, enable)
-			} else {
-				result[k] = v
-			}
+		if next, ok = v.(map[string]interface{}); ok {
+			result[k] = BodyToMap(next, sensitive, enable)
+		} else if nextPtr, ok = v.(*map[string]interface{}); ok {
+			result[k] = BodyToMap(*nextPtr, sensitive, enable)
+		} else {
+			result[k] = v
 		}
 	}
 	return result

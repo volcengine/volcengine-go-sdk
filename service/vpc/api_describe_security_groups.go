@@ -146,9 +146,13 @@ type DescribeSecurityGroupsInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	SecurityGroupIds []*string `type:"list"`
 
 	SecurityGroupNames []*string `type:"list"`
+
+	TagFilters []*TagFilterForDescribeSecurityGroupsInput `type:"list"`
 
 	VpcId *string `type:"string"`
 }
@@ -188,6 +192,12 @@ func (s *DescribeSecurityGroupsInput) SetPageSize(v int64) *DescribeSecurityGrou
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeSecurityGroupsInput) SetProjectName(v string) *DescribeSecurityGroupsInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *DescribeSecurityGroupsInput) SetSecurityGroupIds(v []*string) *DescribeSecurityGroupsInput {
 	s.SecurityGroupIds = v
@@ -197,6 +207,12 @@ func (s *DescribeSecurityGroupsInput) SetSecurityGroupIds(v []*string) *Describe
 // SetSecurityGroupNames sets the SecurityGroupNames field's value.
 func (s *DescribeSecurityGroupsInput) SetSecurityGroupNames(v []*string) *DescribeSecurityGroupsInput {
 	s.SecurityGroupNames = v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeSecurityGroupsInput) SetTagFilters(v []*TagFilterForDescribeSecurityGroupsInput) *DescribeSecurityGroupsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -269,11 +285,15 @@ type SecurityGroupForDescribeSecurityGroupsOutput struct {
 
 	Description *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	SecurityGroupId *string `type:"string"`
 
 	SecurityGroupName *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeSecurityGroupsOutput `type:"list"`
 
 	Type *string `type:"string"`
 
@@ -302,6 +322,12 @@ func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetDescription(v string) 
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetProjectName(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurityGroupId sets the SecurityGroupId field's value.
 func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupId(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
 	s.SecurityGroupId = &v
@@ -320,6 +346,12 @@ func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetStatus(v string) *Secu
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetTags(v []*TagForDescribeSecurityGroupsOutput) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetType(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
 	s.Type = &v
@@ -329,5 +361,65 @@ func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetType(v string) *Securi
 // SetVpcId sets the VpcId field's value.
 func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetVpcId(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
 	s.VpcId = &v
+	return s
+}
+
+type TagFilterForDescribeSecurityGroupsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeSecurityGroupsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeSecurityGroupsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeSecurityGroupsInput) SetKey(v string) *TagFilterForDescribeSecurityGroupsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeSecurityGroupsInput) SetValues(v []*string) *TagFilterForDescribeSecurityGroupsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeSecurityGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeSecurityGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeSecurityGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeSecurityGroupsOutput) SetKey(v string) *TagForDescribeSecurityGroupsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeSecurityGroupsOutput) SetValue(v string) *TagForDescribeSecurityGroupsOutput {
+	s.Value = &v
 	return s
 }

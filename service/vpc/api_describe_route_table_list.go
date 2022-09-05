@@ -146,6 +146,8 @@ type DescribeRouteTableListInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	RouteTableId *string `type:"string"`
 
 	RouteTableName *string `type:"string"`
@@ -185,6 +187,12 @@ func (s *DescribeRouteTableListInput) SetPageNumber(v int64) *DescribeRouteTable
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeRouteTableListInput) SetPageSize(v int64) *DescribeRouteTableListInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeRouteTableListInput) SetProjectName(v string) *DescribeRouteTableListInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -271,6 +279,8 @@ type RouterTableListForDescribeRouteTableListOutput struct {
 
 	Description *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RouteTableId *string `type:"string"`
 
 	RouteTableName *string `type:"string"`
@@ -311,6 +321,12 @@ func (s *RouterTableListForDescribeRouteTableListOutput) SetCreationTime(v strin
 // SetDescription sets the Description field's value.
 func (s *RouterTableListForDescribeRouteTableListOutput) SetDescription(v string) *RouterTableListForDescribeRouteTableListOutput {
 	s.Description = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetProjectName(v string) *RouterTableListForDescribeRouteTableListOutput {
+	s.ProjectName = &v
 	return s
 }
 

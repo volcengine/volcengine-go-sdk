@@ -11,6 +11,7 @@ type ResponseMetadata struct {
 	Version   string
 	Service   string
 	Region    string
+	HTTPCode  int
 	Error     *Error
 }
 

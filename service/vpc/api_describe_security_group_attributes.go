@@ -200,6 +200,8 @@ type DescribeSecurityGroupAttributesOutput struct {
 
 	SecurityGroupName *string `type:"string"`
 
+	Tags []*TagForDescribeSecurityGroupAttributesOutput `type:"list"`
+
 	Type *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -250,6 +252,12 @@ func (s *DescribeSecurityGroupAttributesOutput) SetSecurityGroupId(v string) *De
 // SetSecurityGroupName sets the SecurityGroupName field's value.
 func (s *DescribeSecurityGroupAttributesOutput) SetSecurityGroupName(v string) *DescribeSecurityGroupAttributesOutput {
 	s.SecurityGroupName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetTags(v []*TagForDescribeSecurityGroupAttributesOutput) *DescribeSecurityGroupAttributesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -370,5 +378,35 @@ func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetSourceGroupId(v 
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetUpdateTime(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type TagForDescribeSecurityGroupAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeSecurityGroupAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeSecurityGroupAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeSecurityGroupAttributesOutput) SetKey(v string) *TagForDescribeSecurityGroupAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeSecurityGroupAttributesOutput) SetValue(v string) *TagForDescribeSecurityGroupAttributesOutput {
+	s.Value = &v
 	return s
 }

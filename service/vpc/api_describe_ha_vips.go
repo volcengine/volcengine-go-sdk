@@ -293,6 +293,8 @@ type HaVipForDescribeHaVipsOutput struct {
 
 	AssociatedEipAddress *string `type:"string"`
 
+	AssociatedEipId *string `type:"string"`
+
 	AssociatedInstanceIds []*string `type:"list"`
 
 	AssociatedInstanceType *string `type:"string"`
@@ -337,6 +339,12 @@ func (s *HaVipForDescribeHaVipsOutput) SetAccountId(v string) *HaVipForDescribeH
 // SetAssociatedEipAddress sets the AssociatedEipAddress field's value.
 func (s *HaVipForDescribeHaVipsOutput) SetAssociatedEipAddress(v string) *HaVipForDescribeHaVipsOutput {
 	s.AssociatedEipAddress = &v
+	return s
+}
+
+// SetAssociatedEipId sets the AssociatedEipId field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetAssociatedEipId(v string) *HaVipForDescribeHaVipsOutput {
+	s.AssociatedEipId = &v
 	return s
 }
 
