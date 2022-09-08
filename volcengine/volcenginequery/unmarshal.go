@@ -60,15 +60,22 @@ func Unmarshal(r *request.Request) {
 			}
 
 			if _, ok := reflect.TypeOf(r.Data).Elem().FieldByName("Metadata"); ok {
-				if volcengineResponse.ResponseMetadata != nil {
-					volcengineResponse.ResponseMetadata.HTTPCode = r.HTTPResponse.StatusCode
-				}
 				r.Metadata = *(volcengineResponse.ResponseMetadata)
 				reflect.ValueOf(r.Data).Elem().FieldByName("Metadata").Set(reflect.ValueOf(volcengineResponse.ResponseMetadata))
 			}
 
-			var b []byte
-			if b, err = json.Marshal(volcengineResponse.Result); err != nil {
+			var (
+				b      []byte
+				source interface{}
+			)
+
+			if r.Config.CustomerUnmarshalData != nil {
+				source = r.Config.CustomerUnmarshalData(r.Context(), r.MergeRequestInfo(), volcengineResponse)
+			} else {
+				source = volcengineResponse.Result
+			}
+
+			if b, err = json.Marshal(source); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
 				r.Error = err
 				return
