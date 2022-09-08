@@ -232,6 +232,8 @@ type Config struct {
 
 	CustomerUnmarshalError custom.CustomerUnmarshalError
 
+	CustomerUnmarshalData custom.CustomerUnmarshalData
+
 	ExtraUserAgent *string
 
 	Interceptors []custom.SdkInterceptor
@@ -348,6 +350,11 @@ func (c *Config) WithDynamicCredentialsIncludeError(f custom.DynamicCredentialsI
 
 func (c *Config) WithCustomerUnmarshalError(f custom.CustomerUnmarshalError) *Config {
 	c.CustomerUnmarshalError = f
+	return c
+}
+
+func (c *Config) WithCustomerUnmarshalData(f custom.CustomerUnmarshalData) *Config {
+	c.CustomerUnmarshalData = f
 	return c
 }
 
@@ -611,6 +618,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.CustomerUnmarshalError != nil {
 		dst.CustomerUnmarshalError = other.CustomerUnmarshalError
+	}
+
+	if other.CustomerUnmarshalData != nil {
+		dst.CustomerUnmarshalData = other.CustomerUnmarshalData
 	}
 
 	dst.Interceptors = other.Interceptors
