@@ -170,8 +170,6 @@ type FilterForListAddonsInput struct {
 
 	ClusterIds []*string `type:"list"`
 
-	ClusterTypes []*string `type:"list"`
-
 	CreateClientToken *string `type:"string"`
 
 	DeployModes []*string `type:"list"`
@@ -198,12 +196,6 @@ func (s FilterForListAddonsInput) GoString() string {
 // SetClusterIds sets the ClusterIds field's value.
 func (s *FilterForListAddonsInput) SetClusterIds(v []*string) *FilterForListAddonsInput {
 	s.ClusterIds = v
-	return s
-}
-
-// SetClusterTypes sets the ClusterTypes field's value.
-func (s *FilterForListAddonsInput) SetClusterTypes(v []*string) *FilterForListAddonsInput {
-	s.ClusterTypes = v
 	return s
 }
 
@@ -498,17 +490,6 @@ func (s *StatusForListAddonsOutput) SetPhase(v string) *StatusForListAddonsOutpu
 	s.Phase = &v
 	return s
 }
-
-const (
-	// EnumOfClusterTypeListForListAddonsInputOnPremise is a EnumOfClusterTypeListForListAddonsInput enum value
-	EnumOfClusterTypeListForListAddonsInputOnPremise = "OnPremise"
-
-	// EnumOfClusterTypeListForListAddonsInputRegistered is a EnumOfClusterTypeListForListAddonsInput enum value
-	EnumOfClusterTypeListForListAddonsInputRegistered = "Registered"
-
-	// EnumOfClusterTypeListForListAddonsInputStandard is a EnumOfClusterTypeListForListAddonsInput enum value
-	EnumOfClusterTypeListForListAddonsInputStandard = "Standard"
-)
 
 const (
 	// EnumOfConditionsTypeForListAddonsInputClusterNotRunning is a EnumOfConditionsTypeForListAddonsInput enum value

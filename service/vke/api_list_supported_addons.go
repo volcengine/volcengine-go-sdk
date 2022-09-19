@@ -148,8 +148,6 @@ type FilterForListSupportedAddonsInput struct {
 
 	Categories []*string `type:"list"`
 
-	ClusterTypes []*string `type:"list"`
-
 	DeployModes []*string `type:"list"`
 
 	DeployNodeTypes []*string `type:"list"`
@@ -174,12 +172,6 @@ func (s FilterForListSupportedAddonsInput) GoString() string {
 // SetCategories sets the Categories field's value.
 func (s *FilterForListSupportedAddonsInput) SetCategories(v []*string) *FilterForListSupportedAddonsInput {
 	s.Categories = v
-	return s
-}
-
-// SetClusterTypes sets the ClusterTypes field's value.
-func (s *FilterForListSupportedAddonsInput) SetClusterTypes(v []*string) *FilterForListSupportedAddonsInput {
-	s.ClusterTypes = v
 	return s
 }
 
@@ -218,8 +210,6 @@ type ItemForListSupportedAddonsOutput struct {
 
 	Categories []*string `type:"list"`
 
-	ClusterTypes []*string `type:"list"`
-
 	DeployMode *string `type:"string"`
 
 	DeployNodeTypes []*string `type:"list"`
@@ -244,12 +234,6 @@ func (s ItemForListSupportedAddonsOutput) GoString() string {
 // SetCategories sets the Categories field's value.
 func (s *ItemForListSupportedAddonsOutput) SetCategories(v []*string) *ItemForListSupportedAddonsOutput {
 	s.Categories = v
-	return s
-}
-
-// SetClusterTypes sets the ClusterTypes field's value.
-func (s *ItemForListSupportedAddonsOutput) SetClusterTypes(v []*string) *ItemForListSupportedAddonsOutput {
-	s.ClusterTypes = v
 	return s
 }
 
@@ -387,28 +371,6 @@ const (
 
 	// EnumOfCategoryListForListSupportedAddonsOutputStorage is a EnumOfCategoryListForListSupportedAddonsOutput enum value
 	EnumOfCategoryListForListSupportedAddonsOutputStorage = "Storage"
-)
-
-const (
-	// EnumOfClusterTypeListForListSupportedAddonsInputOnPremise is a EnumOfClusterTypeListForListSupportedAddonsInput enum value
-	EnumOfClusterTypeListForListSupportedAddonsInputOnPremise = "OnPremise"
-
-	// EnumOfClusterTypeListForListSupportedAddonsInputRegistered is a EnumOfClusterTypeListForListSupportedAddonsInput enum value
-	EnumOfClusterTypeListForListSupportedAddonsInputRegistered = "Registered"
-
-	// EnumOfClusterTypeListForListSupportedAddonsInputStandard is a EnumOfClusterTypeListForListSupportedAddonsInput enum value
-	EnumOfClusterTypeListForListSupportedAddonsInputStandard = "Standard"
-)
-
-const (
-	// EnumOfClusterTypeListForListSupportedAddonsOutputOnPremise is a EnumOfClusterTypeListForListSupportedAddonsOutput enum value
-	EnumOfClusterTypeListForListSupportedAddonsOutputOnPremise = "OnPremise"
-
-	// EnumOfClusterTypeListForListSupportedAddonsOutputRegistered is a EnumOfClusterTypeListForListSupportedAddonsOutput enum value
-	EnumOfClusterTypeListForListSupportedAddonsOutputRegistered = "Registered"
-
-	// EnumOfClusterTypeListForListSupportedAddonsOutputStandard is a EnumOfClusterTypeListForListSupportedAddonsOutput enum value
-	EnumOfClusterTypeListForListSupportedAddonsOutputStandard = "Standard"
 )
 
 const (
