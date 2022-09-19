@@ -60,6 +60,9 @@ func Unmarshal(r *request.Request) {
 			}
 
 			if _, ok := reflect.TypeOf(r.Data).Elem().FieldByName("Metadata"); ok {
+				if volcengineResponse.ResponseMetadata != nil {
+					volcengineResponse.ResponseMetadata.HTTPCode = r.HTTPResponse.StatusCode
+				}
 				r.Metadata = *(volcengineResponse.ResponseMetadata)
 				reflect.ValueOf(r.Data).Elem().FieldByName("Metadata").Set(reflect.ValueOf(volcengineResponse.ResponseMetadata))
 			}
