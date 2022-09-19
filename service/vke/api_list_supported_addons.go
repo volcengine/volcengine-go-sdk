@@ -219,6 +219,8 @@ type ItemForListSupportedAddonsOutput struct {
 	Necessary *string `type:"string"`
 
 	PodNetworkModes []*string `type:"list"`
+
+	Versions []*VersionForListSupportedAddonsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -264,6 +266,12 @@ func (s *ItemForListSupportedAddonsOutput) SetNecessary(v string) *ItemForListSu
 // SetPodNetworkModes sets the PodNetworkModes field's value.
 func (s *ItemForListSupportedAddonsOutput) SetPodNetworkModes(v []*string) *ItemForListSupportedAddonsOutput {
 	s.PodNetworkModes = v
+	return s
+}
+
+// SetVersions sets the Versions field's value.
+func (s *ItemForListSupportedAddonsOutput) SetVersions(v []*VersionForListSupportedAddonsOutput) *ItemForListSupportedAddonsOutput {
+	s.Versions = v
 	return s
 }
 
@@ -318,6 +326,36 @@ func (s *ListSupportedAddonsOutput) SetItems(v []*ItemForListSupportedAddonsOutp
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListSupportedAddonsOutput) SetTotalCount(v int32) *ListSupportedAddonsOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type VersionForListSupportedAddonsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CompatibleVersions []*string `type:"list"`
+
+	Version *string `type:"string"`
+}
+
+// String returns the string representation
+func (s VersionForListSupportedAddonsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VersionForListSupportedAddonsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCompatibleVersions sets the CompatibleVersions field's value.
+func (s *VersionForListSupportedAddonsOutput) SetCompatibleVersions(v []*string) *VersionForListSupportedAddonsOutput {
+	s.CompatibleVersions = v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *VersionForListSupportedAddonsOutput) SetVersion(v string) *VersionForListSupportedAddonsOutput {
+	s.Version = &v
 	return s
 }
 
