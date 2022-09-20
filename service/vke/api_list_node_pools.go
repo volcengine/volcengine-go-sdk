@@ -222,6 +222,8 @@ func (s *ConditionForListNodePoolsOutput) SetType(v string) *ConditionForListNod
 type DataVolumeForListNodePoolsOutput struct {
 	_ struct{} `type:"structure"`
 
+	MountPoint *string `type:"string"`
+
 	Size *int32 `type:"int32"`
 
 	Type *string `type:"string"`
@@ -235,6 +237,12 @@ func (s DataVolumeForListNodePoolsOutput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForListNodePoolsOutput) GoString() string {
 	return s.String()
+}
+
+// SetMountPoint sets the MountPoint field's value.
+func (s *DataVolumeForListNodePoolsOutput) SetMountPoint(v string) *DataVolumeForListNodePoolsOutput {
+	s.MountPoint = &v
+	return s
 }
 
 // SetSize sets the Size field's value.
@@ -618,11 +626,21 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	AdditionalContainerStorageEnabled *bool `type:"boolean"`
 
+	AutoRenew *bool `type:"boolean"`
+
+	AutoRenewPeriod *int32 `type:"int32"`
+
 	DataVolumes []*DataVolumeForListNodePoolsOutput `type:"list"`
+
+	ImageId *string `type:"string"`
 
 	InitializeScript *string `type:"string"`
 
+	InstanceChargeType *string `type:"string"`
+
 	InstanceTypeIds []*string `type:"list"`
+
+	Period *int32 `type:"int32"`
 
 	Security *SecurityForListNodePoolsOutput `type:"structure"`
 
@@ -647,9 +665,27 @@ func (s *NodeConfigForListNodePoolsOutput) SetAdditionalContainerStorageEnabled(
 	return s
 }
 
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetAutoRenew(v bool) *NodeConfigForListNodePoolsOutput {
+	s.AutoRenew = &v
+	return s
+}
+
+// SetAutoRenewPeriod sets the AutoRenewPeriod field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetAutoRenewPeriod(v int32) *NodeConfigForListNodePoolsOutput {
+	s.AutoRenewPeriod = &v
+	return s
+}
+
 // SetDataVolumes sets the DataVolumes field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetDataVolumes(v []*DataVolumeForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
 	s.DataVolumes = v
+	return s
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetImageId(v string) *NodeConfigForListNodePoolsOutput {
+	s.ImageId = &v
 	return s
 }
 
@@ -659,9 +695,21 @@ func (s *NodeConfigForListNodePoolsOutput) SetInitializeScript(v string) *NodeCo
 	return s
 }
 
+// SetInstanceChargeType sets the InstanceChargeType field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetInstanceChargeType(v string) *NodeConfigForListNodePoolsOutput {
+	s.InstanceChargeType = &v
+	return s
+}
+
 // SetInstanceTypeIds sets the InstanceTypeIds field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetInstanceTypeIds(v []*string) *NodeConfigForListNodePoolsOutput {
 	s.InstanceTypeIds = v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetPeriod(v int32) *NodeConfigForListNodePoolsOutput {
+	s.Period = &v
 	return s
 }
 

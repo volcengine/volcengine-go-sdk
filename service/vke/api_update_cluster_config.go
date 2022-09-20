@@ -201,6 +201,8 @@ type PublicAccessNetworkConfigForUpdateClusterConfigInput struct {
 	Bandwidth *int32 `type:"int32"`
 
 	BillingType *int32 `type:"int32"`
+
+	Isp *string `type:"string" enum:"EnumOfIspForUpdateClusterConfigInput"`
 }
 
 // String returns the string representation
@@ -222,6 +224,12 @@ func (s *PublicAccessNetworkConfigForUpdateClusterConfigInput) SetBandwidth(v in
 // SetBillingType sets the BillingType field's value.
 func (s *PublicAccessNetworkConfigForUpdateClusterConfigInput) SetBillingType(v int32) *PublicAccessNetworkConfigForUpdateClusterConfigInput {
 	s.BillingType = &v
+	return s
+}
+
+// SetIsp sets the Isp field's value.
+func (s *PublicAccessNetworkConfigForUpdateClusterConfigInput) SetIsp(v string) *PublicAccessNetworkConfigForUpdateClusterConfigInput {
+	s.Isp = &v
 	return s
 }
 
@@ -302,3 +310,11 @@ func (s UpdateClusterConfigOutput) String() string {
 func (s UpdateClusterConfigOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfIspForUpdateClusterConfigInputBgp is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputBgp = "BGP"
+
+	// EnumOfIspForUpdateClusterConfigInputChinaMobile is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputChinaMobile = "ChinaMobile"
+)

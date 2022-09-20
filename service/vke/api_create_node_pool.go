@@ -286,6 +286,8 @@ func (s *CreateNodePoolOutput) SetId(v string) *CreateNodePoolOutput {
 type DataVolumeForCreateNodePoolInput struct {
 	_ struct{} `type:"structure"`
 
+	MountPoint *string `type:"string"`
+
 	Size *int32 `type:"int32"`
 
 	Type *string `type:"string" enum:"EnumOfTypeForCreateNodePoolInput"`
@@ -299,6 +301,12 @@ func (s DataVolumeForCreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForCreateNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetMountPoint sets the MountPoint field's value.
+func (s *DataVolumeForCreateNodePoolInput) SetMountPoint(v string) *DataVolumeForCreateNodePoolInput {
+	s.MountPoint = &v
+	return s
 }
 
 // SetSize sets the Size field's value.
@@ -416,11 +424,21 @@ type NodeConfigForCreateNodePoolInput struct {
 
 	AdditionalContainerStorageEnabled *bool `type:"boolean"`
 
+	AutoRenew *bool `type:"boolean"`
+
+	AutoRenewPeriod *int32 `type:"int32"`
+
 	DataVolumes []*DataVolumeForCreateNodePoolInput `type:"list"`
+
+	ImageId *string `type:"string"`
 
 	InitializeScript *string `type:"string"`
 
+	InstanceChargeType *string `type:"string" enum:"EnumOfInstanceChargeTypeForCreateNodePoolInput"`
+
 	InstanceTypeIds []*string `type:"list"`
+
+	Period *int32 `type:"int32"`
 
 	Security *SecurityForCreateNodePoolInput `type:"structure"`
 
@@ -445,9 +463,27 @@ func (s *NodeConfigForCreateNodePoolInput) SetAdditionalContainerStorageEnabled(
 	return s
 }
 
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetAutoRenew(v bool) *NodeConfigForCreateNodePoolInput {
+	s.AutoRenew = &v
+	return s
+}
+
+// SetAutoRenewPeriod sets the AutoRenewPeriod field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetAutoRenewPeriod(v int32) *NodeConfigForCreateNodePoolInput {
+	s.AutoRenewPeriod = &v
+	return s
+}
+
 // SetDataVolumes sets the DataVolumes field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetDataVolumes(v []*DataVolumeForCreateNodePoolInput) *NodeConfigForCreateNodePoolInput {
 	s.DataVolumes = v
+	return s
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetImageId(v string) *NodeConfigForCreateNodePoolInput {
+	s.ImageId = &v
 	return s
 }
 
@@ -457,9 +493,21 @@ func (s *NodeConfigForCreateNodePoolInput) SetInitializeScript(v string) *NodeCo
 	return s
 }
 
+// SetInstanceChargeType sets the InstanceChargeType field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetInstanceChargeType(v string) *NodeConfigForCreateNodePoolInput {
+	s.InstanceChargeType = &v
+	return s
+}
+
 // SetInstanceTypeIds sets the InstanceTypeIds field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetInstanceTypeIds(v []*string) *NodeConfigForCreateNodePoolInput {
 	s.InstanceTypeIds = v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetPeriod(v int32) *NodeConfigForCreateNodePoolInput {
+	s.Period = &v
 	return s
 }
 
@@ -599,11 +647,25 @@ const (
 )
 
 const (
+	// EnumOfInstanceChargeTypeForCreateNodePoolInputPostPaid is a EnumOfInstanceChargeTypeForCreateNodePoolInput enum value
+	EnumOfInstanceChargeTypeForCreateNodePoolInputPostPaid = "PostPaid"
+
+	// EnumOfInstanceChargeTypeForCreateNodePoolInputPrePaid is a EnumOfInstanceChargeTypeForCreateNodePoolInput enum value
+	EnumOfInstanceChargeTypeForCreateNodePoolInputPrePaid = "PrePaid"
+)
+
+const (
 	// EnumOfSecurityStrategyListForCreateNodePoolInputHids is a EnumOfSecurityStrategyListForCreateNodePoolInput enum value
 	EnumOfSecurityStrategyListForCreateNodePoolInputHids = "Hids"
 )
 
 const (
+	// EnumOfTypeForCreateNodePoolInputEssd is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputEssd = "ESSD"
+
+	// EnumOfTypeForCreateNodePoolInputEssdFlexPl is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputEssdFlexPl = "ESSD_FlexPL"
+
 	// EnumOfTypeForCreateNodePoolInputEssdPl0 is a EnumOfTypeForCreateNodePoolInput enum value
 	EnumOfTypeForCreateNodePoolInputEssdPl0 = "ESSD_PL0"
 

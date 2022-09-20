@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VKE.
 //    func myFunc(svc VKEAPI) bool {
-//        // Make svc.CreateCluster request
+//        // Make svc.CreateAddon request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type VKEAPI interface {
+	CreateAddonCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAddonCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAddonCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAddon(*CreateAddonInput) (*CreateAddonOutput, error)
+	CreateAddonWithContext(volcengine.Context, *CreateAddonInput, ...request.Option) (*CreateAddonOutput, error)
+	CreateAddonRequest(*CreateAddonInput) (*request.Request, *CreateAddonOutput)
+
 	CreateClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +45,14 @@ type VKEAPI interface {
 	CreateCluster(*CreateClusterInput) (*CreateClusterOutput, error)
 	CreateClusterWithContext(volcengine.Context, *CreateClusterInput, ...request.Option) (*CreateClusterOutput, error)
 	CreateClusterRequest(*CreateClusterInput) (*request.Request, *CreateClusterOutput)
+
+	CreateDefaultNodePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDefaultNodePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDefaultNodePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDefaultNodePool(*CreateDefaultNodePoolInput) (*CreateDefaultNodePoolOutput, error)
+	CreateDefaultNodePoolWithContext(volcengine.Context, *CreateDefaultNodePoolInput, ...request.Option) (*CreateDefaultNodePoolOutput, error)
+	CreateDefaultNodePoolRequest(*CreateDefaultNodePoolInput) (*request.Request, *CreateDefaultNodePoolOutput)
 
 	CreateNodePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNodePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -53,6 +69,14 @@ type VKEAPI interface {
 	CreateNodes(*CreateNodesInput) (*CreateNodesOutput, error)
 	CreateNodesWithContext(volcengine.Context, *CreateNodesInput, ...request.Option) (*CreateNodesOutput, error)
 	CreateNodesRequest(*CreateNodesInput) (*request.Request, *CreateNodesOutput)
+
+	DeleteAddonCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAddonCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAddonCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAddon(*DeleteAddonInput) (*DeleteAddonOutput, error)
+	DeleteAddonWithContext(volcengine.Context, *DeleteAddonInput, ...request.Option) (*DeleteAddonOutput, error)
+	DeleteAddonRequest(*DeleteAddonInput) (*request.Request, *DeleteAddonOutput)
 
 	DeleteClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -78,6 +102,14 @@ type VKEAPI interface {
 	DeleteNodesWithContext(volcengine.Context, *DeleteNodesInput, ...request.Option) (*DeleteNodesOutput, error)
 	DeleteNodesRequest(*DeleteNodesInput) (*request.Request, *DeleteNodesOutput)
 
+	ListAddonsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAddonsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAddonsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAddons(*ListAddonsInput) (*ListAddonsOutput, error)
+	ListAddonsWithContext(volcengine.Context, *ListAddonsInput, ...request.Option) (*ListAddonsOutput, error)
+	ListAddonsRequest(*ListAddonsInput) (*request.Request, *ListAddonsOutput)
+
 	ListClustersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListClustersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListClustersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -102,6 +134,14 @@ type VKEAPI interface {
 	ListNodesWithContext(volcengine.Context, *ListNodesInput, ...request.Option) (*ListNodesOutput, error)
 	ListNodesRequest(*ListNodesInput) (*request.Request, *ListNodesOutput)
 
+	ListSupportedAddonsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSupportedAddonsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSupportedAddonsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSupportedAddons(*ListSupportedAddonsInput) (*ListSupportedAddonsOutput, error)
+	ListSupportedAddonsWithContext(volcengine.Context, *ListSupportedAddonsInput, ...request.Option) (*ListSupportedAddonsOutput, error)
+	ListSupportedAddonsRequest(*ListSupportedAddonsInput) (*request.Request, *ListSupportedAddonsOutput)
+
 	ListSupportedResourceTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSupportedResourceTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSupportedResourceTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -109,6 +149,22 @@ type VKEAPI interface {
 	ListSupportedResourceTypes(*ListSupportedResourceTypesInput) (*ListSupportedResourceTypesOutput, error)
 	ListSupportedResourceTypesWithContext(volcengine.Context, *ListSupportedResourceTypesInput, ...request.Option) (*ListSupportedResourceTypesOutput, error)
 	ListSupportedResourceTypesRequest(*ListSupportedResourceTypesInput) (*request.Request, *ListSupportedResourceTypesOutput)
+
+	UpdateAddonConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAddonConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAddonConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAddonConfig(*UpdateAddonConfigInput) (*UpdateAddonConfigOutput, error)
+	UpdateAddonConfigWithContext(volcengine.Context, *UpdateAddonConfigInput, ...request.Option) (*UpdateAddonConfigOutput, error)
+	UpdateAddonConfigRequest(*UpdateAddonConfigInput) (*request.Request, *UpdateAddonConfigOutput)
+
+	UpdateAddonVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAddonVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAddonVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAddonVersion(*UpdateAddonVersionInput) (*UpdateAddonVersionOutput, error)
+	UpdateAddonVersionWithContext(volcengine.Context, *UpdateAddonVersionInput, ...request.Option) (*UpdateAddonVersionOutput, error)
+	UpdateAddonVersionRequest(*UpdateAddonVersionInput) (*request.Request, *UpdateAddonVersionOutput)
 
 	UpdateClusterConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateClusterConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
