@@ -440,14 +440,26 @@ func (s *VpcCniConfigForCreateClusterInput) SetSubnetIds(v []*string) *VpcCniCon
 }
 
 const (
+	// EnumOfPodNetworkModeForCreateClusterInputCalicoBgp is a EnumOfPodNetworkModeForCreateClusterInput enum value
+	EnumOfPodNetworkModeForCreateClusterInputCalicoBgp = "CalicoBgp"
+
+	// EnumOfPodNetworkModeForCreateClusterInputCalicoVxlan is a EnumOfPodNetworkModeForCreateClusterInput enum value
+	EnumOfPodNetworkModeForCreateClusterInputCalicoVxlan = "CalicoVxlan"
+
 	// EnumOfPodNetworkModeForCreateClusterInputCarma is a EnumOfPodNetworkModeForCreateClusterInput enum value
 	EnumOfPodNetworkModeForCreateClusterInputCarma = "Carma"
+
+	// EnumOfPodNetworkModeForCreateClusterInputCilium is a EnumOfPodNetworkModeForCreateClusterInput enum value
+	EnumOfPodNetworkModeForCreateClusterInputCilium = "Cilium"
 
 	// EnumOfPodNetworkModeForCreateClusterInputDefault is a EnumOfPodNetworkModeForCreateClusterInput enum value
 	EnumOfPodNetworkModeForCreateClusterInputDefault = "Default"
 
 	// EnumOfPodNetworkModeForCreateClusterInputFlannel is a EnumOfPodNetworkModeForCreateClusterInput enum value
 	EnumOfPodNetworkModeForCreateClusterInputFlannel = "Flannel"
+
+	// EnumOfPodNetworkModeForCreateClusterInputKubeOvn is a EnumOfPodNetworkModeForCreateClusterInput enum value
+	EnumOfPodNetworkModeForCreateClusterInputKubeOvn = "KubeOvn"
 
 	// EnumOfPodNetworkModeForCreateClusterInputVpcCniDedicated is a EnumOfPodNetworkModeForCreateClusterInput enum value
 	EnumOfPodNetworkModeForCreateClusterInputVpcCniDedicated = "VpcCniDedicated"

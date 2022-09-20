@@ -209,4 +209,7 @@ const (
 
 	// EnumOfCascadingDeleteResourceListForDeleteClusterInputNodePoolResource is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
 	EnumOfCascadingDeleteResourceListForDeleteClusterInputNodePoolResource = "NodePoolResource"
+
+	// EnumOfCascadingDeleteResourceListForDeleteClusterInputTryBest is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
+	EnumOfCascadingDeleteResourceListForDeleteClusterInputTryBest = "TryBest"
 )

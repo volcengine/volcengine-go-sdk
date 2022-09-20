@@ -176,6 +176,8 @@ func (s *ApiServerEndpointsForListClustersOutput) SetPublicIp(v *PublicIpForList
 type ApiServerPublicAccessConfigForListClustersOutput struct {
 	_ struct{} `type:"structure"`
 
+	AccessSourceIpsv4 []*string `type:"list"`
+
 	PublicAccessNetworkConfig *PublicAccessNetworkConfigForListClustersOutput `type:"structure"`
 }
 
@@ -187,6 +189,12 @@ func (s ApiServerPublicAccessConfigForListClustersOutput) String() string {
 // GoString returns the string representation
 func (s ApiServerPublicAccessConfigForListClustersOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccessSourceIpsv4 sets the AccessSourceIpsv4 field's value.
+func (s *ApiServerPublicAccessConfigForListClustersOutput) SetAccessSourceIpsv4(v []*string) *ApiServerPublicAccessConfigForListClustersOutput {
+	s.AccessSourceIpsv4 = v
+	return s
 }
 
 // SetPublicAccessNetworkConfig sets the PublicAccessNetworkConfig field's value.
@@ -967,14 +975,26 @@ const (
 )
 
 const (
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoBgp is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoBgp = "CalicoBgp"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoVxlan is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoVxlan = "CalicoVxlan"
+
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputCarma is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputCarma = "Carma"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputCilium is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputCilium = "Cilium"
 
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputDefault is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputDefault = "Default"
 
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputFlannel is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputFlannel = "Flannel"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputKubeOvn is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputKubeOvn = "KubeOvn"
 
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniDedicated is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniDedicated = "VpcCniDedicated"
