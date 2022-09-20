@@ -37,3 +37,5 @@ type DynamicCredentials func(ctx context.Context) (*credentials.Credentials, *st
 type DynamicCredentialsIncludeError func(ctx context.Context) (*credentials.Credentials, *string, error)
 
 type CustomerUnmarshalError func(ctx context.Context, meta RequestMetadata, resp response.VolcengineResponse) error
+
+type CustomerUnmarshalData func(ctx context.Context, info RequestInfo, resp response.VolcengineResponse) interface{}
