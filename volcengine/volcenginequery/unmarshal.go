@@ -12,6 +12,7 @@ import (
 
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/special"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
@@ -75,7 +76,11 @@ func Unmarshal(r *request.Request) {
 			if r.Config.CustomerUnmarshalData != nil {
 				source = r.Config.CustomerUnmarshalData(r.Context(), r.MergeRequestInfo(), volcengineResponse)
 			} else {
-				source = volcengineResponse.Result
+				if sp, ok := special.ResponseSpecialMapping()[r.ClientInfo.ServiceName]; ok {
+					source = sp(volcengineResponse, r.Data)
+				} else {
+					source = volcengineResponse.Result
+				}
 			}
 
 			if b, err = json.Marshal(source); err != nil {
