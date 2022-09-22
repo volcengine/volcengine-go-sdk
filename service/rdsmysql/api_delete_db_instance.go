@@ -148,6 +148,8 @@ type DeleteDBInstanceInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
+
+	ReleasedKeepPolicy *string `type:"string" enum:"EnumOfReleasedKeepPolicyForDeleteDBInstanceInput"`
 }
 
 // String returns the string representation
@@ -179,6 +181,12 @@ func (s *DeleteDBInstanceInput) SetInstanceId(v string) *DeleteDBInstanceInput {
 	return s
 }
 
+// SetReleasedKeepPolicy sets the ReleasedKeepPolicy field's value.
+func (s *DeleteDBInstanceInput) SetReleasedKeepPolicy(v string) *DeleteDBInstanceInput {
+	s.ReleasedKeepPolicy = &v
+	return s
+}
+
 type DeleteDBInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -194,3 +202,11 @@ func (s DeleteDBInstanceOutput) String() string {
 func (s DeleteDBInstanceOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfReleasedKeepPolicyForDeleteDBInstanceInputLastest is a EnumOfReleasedKeepPolicyForDeleteDBInstanceInput enum value
+	EnumOfReleasedKeepPolicyForDeleteDBInstanceInputLastest = "Lastest"
+
+	// EnumOfReleasedKeepPolicyForDeleteDBInstanceInputNone is a EnumOfReleasedKeepPolicyForDeleteDBInstanceInput enum value
+	EnumOfReleasedKeepPolicyForDeleteDBInstanceInputNone = "None"
+)
