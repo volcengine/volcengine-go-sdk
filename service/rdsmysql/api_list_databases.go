@@ -143,52 +143,6 @@ func (c *RDSMYSQL) ListDatabasesWithContext(ctx volcengine.Context, input *ListD
 	return out, req.Send()
 }
 
-type DataForListDatabasesOutput struct {
-	_ struct{} `type:"structure"`
-
-	AccountNames *string `type:"string"`
-
-	CharacterSetName *string `type:"string"`
-
-	DBName *string `type:"string"`
-
-	DBStatus *string `type:"string"`
-}
-
-// String returns the string representation
-func (s DataForListDatabasesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DataForListDatabasesOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountNames sets the AccountNames field's value.
-func (s *DataForListDatabasesOutput) SetAccountNames(v string) *DataForListDatabasesOutput {
-	s.AccountNames = &v
-	return s
-}
-
-// SetCharacterSetName sets the CharacterSetName field's value.
-func (s *DataForListDatabasesOutput) SetCharacterSetName(v string) *DataForListDatabasesOutput {
-	s.CharacterSetName = &v
-	return s
-}
-
-// SetDBName sets the DBName field's value.
-func (s *DataForListDatabasesOutput) SetDBName(v string) *DataForListDatabasesOutput {
-	s.DBName = &v
-	return s
-}
-
-// SetDBStatus sets the DBStatus field's value.
-func (s *DataForListDatabasesOutput) SetDBStatus(v string) *DataForListDatabasesOutput {
-	s.DBStatus = &v
-	return s
-}
-
 type ListDatabasesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -240,8 +194,6 @@ type ListDatabasesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Datas []*DataForListDatabasesOutput `type:"list"`
-
 	Total *int32 `type:"int32"`
 }
 
@@ -253,12 +205,6 @@ func (s ListDatabasesOutput) String() string {
 // GoString returns the string representation
 func (s ListDatabasesOutput) GoString() string {
 	return s.String()
-}
-
-// SetDatas sets the Datas field's value.
-func (s *ListDatabasesOutput) SetDatas(v []*DataForListDatabasesOutput) *ListDatabasesOutput {
-	s.Datas = v
-	return s
 }
 
 // SetTotal sets the Total field's value.

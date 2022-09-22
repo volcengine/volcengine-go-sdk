@@ -143,100 +143,6 @@ func (c *RDSMYSQL) ListBackupsWithContext(ctx volcengine.Context, input *ListBac
 	return out, req.Send()
 }
 
-type DataForListBackupsOutput struct {
-	_ struct{} `type:"structure"`
-
-	BackupEndTime *string `type:"string"`
-
-	BackupFileName *string `type:"string"`
-
-	BackupFileSize *int64 `type:"int64"`
-
-	BackupId *string `type:"string"`
-
-	BackupMode *string `type:"string"`
-
-	BackupStartTime *string `type:"string"`
-
-	BackupStatus *string `type:"string"`
-
-	BackupStrategy *string `type:"string"`
-
-	BackupType *string `type:"string"`
-
-	CreateType *string `type:"string"`
-}
-
-// String returns the string representation
-func (s DataForListBackupsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DataForListBackupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetBackupEndTime sets the BackupEndTime field's value.
-func (s *DataForListBackupsOutput) SetBackupEndTime(v string) *DataForListBackupsOutput {
-	s.BackupEndTime = &v
-	return s
-}
-
-// SetBackupFileName sets the BackupFileName field's value.
-func (s *DataForListBackupsOutput) SetBackupFileName(v string) *DataForListBackupsOutput {
-	s.BackupFileName = &v
-	return s
-}
-
-// SetBackupFileSize sets the BackupFileSize field's value.
-func (s *DataForListBackupsOutput) SetBackupFileSize(v int64) *DataForListBackupsOutput {
-	s.BackupFileSize = &v
-	return s
-}
-
-// SetBackupId sets the BackupId field's value.
-func (s *DataForListBackupsOutput) SetBackupId(v string) *DataForListBackupsOutput {
-	s.BackupId = &v
-	return s
-}
-
-// SetBackupMode sets the BackupMode field's value.
-func (s *DataForListBackupsOutput) SetBackupMode(v string) *DataForListBackupsOutput {
-	s.BackupMode = &v
-	return s
-}
-
-// SetBackupStartTime sets the BackupStartTime field's value.
-func (s *DataForListBackupsOutput) SetBackupStartTime(v string) *DataForListBackupsOutput {
-	s.BackupStartTime = &v
-	return s
-}
-
-// SetBackupStatus sets the BackupStatus field's value.
-func (s *DataForListBackupsOutput) SetBackupStatus(v string) *DataForListBackupsOutput {
-	s.BackupStatus = &v
-	return s
-}
-
-// SetBackupStrategy sets the BackupStrategy field's value.
-func (s *DataForListBackupsOutput) SetBackupStrategy(v string) *DataForListBackupsOutput {
-	s.BackupStrategy = &v
-	return s
-}
-
-// SetBackupType sets the BackupType field's value.
-func (s *DataForListBackupsOutput) SetBackupType(v string) *DataForListBackupsOutput {
-	s.BackupType = &v
-	return s
-}
-
-// SetCreateType sets the CreateType field's value.
-func (s *DataForListBackupsOutput) SetCreateType(v string) *DataForListBackupsOutput {
-	s.CreateType = &v
-	return s
-}
-
 type ListBackupsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -326,8 +232,6 @@ type ListBackupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Datas []*DataForListBackupsOutput `type:"list"`
-
 	Total *int32 `type:"int32"`
 }
 
@@ -339,12 +243,6 @@ func (s ListBackupsOutput) String() string {
 // GoString returns the string representation
 func (s ListBackupsOutput) GoString() string {
 	return s.String()
-}
-
-// SetDatas sets the Datas field's value.
-func (s *ListBackupsOutput) SetDatas(v []*DataForListBackupsOutput) *ListBackupsOutput {
-	s.Datas = v
-	return s
 }
 
 // SetTotal sets the Total field's value.

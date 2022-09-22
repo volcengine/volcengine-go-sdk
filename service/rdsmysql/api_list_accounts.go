@@ -143,90 +143,6 @@ func (c *RDSMYSQL) ListAccountsWithContext(ctx volcengine.Context, input *ListAc
 	return out, req.Send()
 }
 
-type DBPrivilegeForListAccountsOutput struct {
-	_ struct{} `type:"structure"`
-
-	AccountPrivilege *string `type:"string"`
-
-	AccountPrivilegeStr *string `type:"string"`
-
-	DBName *string `type:"string"`
-}
-
-// String returns the string representation
-func (s DBPrivilegeForListAccountsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DBPrivilegeForListAccountsOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountPrivilege sets the AccountPrivilege field's value.
-func (s *DBPrivilegeForListAccountsOutput) SetAccountPrivilege(v string) *DBPrivilegeForListAccountsOutput {
-	s.AccountPrivilege = &v
-	return s
-}
-
-// SetAccountPrivilegeStr sets the AccountPrivilegeStr field's value.
-func (s *DBPrivilegeForListAccountsOutput) SetAccountPrivilegeStr(v string) *DBPrivilegeForListAccountsOutput {
-	s.AccountPrivilegeStr = &v
-	return s
-}
-
-// SetDBName sets the DBName field's value.
-func (s *DBPrivilegeForListAccountsOutput) SetDBName(v string) *DBPrivilegeForListAccountsOutput {
-	s.DBName = &v
-	return s
-}
-
-type DataForListAccountsOutput struct {
-	_ struct{} `type:"structure"`
-
-	AccountName *string `type:"string"`
-
-	AccountStatus *string `type:"string"`
-
-	AccountType *string `type:"string"`
-
-	DBPrivileges []*DBPrivilegeForListAccountsOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s DataForListAccountsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DataForListAccountsOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountName sets the AccountName field's value.
-func (s *DataForListAccountsOutput) SetAccountName(v string) *DataForListAccountsOutput {
-	s.AccountName = &v
-	return s
-}
-
-// SetAccountStatus sets the AccountStatus field's value.
-func (s *DataForListAccountsOutput) SetAccountStatus(v string) *DataForListAccountsOutput {
-	s.AccountStatus = &v
-	return s
-}
-
-// SetAccountType sets the AccountType field's value.
-func (s *DataForListAccountsOutput) SetAccountType(v string) *DataForListAccountsOutput {
-	s.AccountType = &v
-	return s
-}
-
-// SetDBPrivileges sets the DBPrivileges field's value.
-func (s *DataForListAccountsOutput) SetDBPrivileges(v []*DBPrivilegeForListAccountsOutput) *DataForListAccountsOutput {
-	s.DBPrivileges = v
-	return s
-}
-
 type ListAccountsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -298,8 +214,6 @@ type ListAccountsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Datas []*DataForListAccountsOutput `type:"list"`
-
 	Total *int32 `type:"int32"`
 }
 
@@ -311,12 +225,6 @@ func (s ListAccountsOutput) String() string {
 // GoString returns the string representation
 func (s ListAccountsOutput) GoString() string {
 	return s.String()
-}
-
-// SetDatas sets the Datas field's value.
-func (s *ListAccountsOutput) SetDatas(v []*DataForListAccountsOutput) *ListAccountsOutput {
-	s.Datas = v
-	return s
 }
 
 // SetTotal sets the Total field's value.

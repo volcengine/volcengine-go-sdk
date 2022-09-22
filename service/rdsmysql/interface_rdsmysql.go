@@ -174,6 +174,22 @@ type RDSMYSQLAPI interface {
 	ListDatabasesWithContext(volcengine.Context, *ListDatabasesInput, ...request.Option) (*ListDatabasesOutput, error)
 	ListDatabasesRequest(*ListDatabasesInput) (*request.Request, *ListDatabasesOutput)
 
+	ListVpcsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListVpcsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListVpcsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListVpcs(*ListVpcsInput) (*ListVpcsOutput, error)
+	ListVpcsWithContext(volcengine.Context, *ListVpcsInput, ...request.Option) (*ListVpcsOutput, error)
+	ListVpcsRequest(*ListVpcsInput) (*request.Request, *ListVpcsOutput)
+
+	ListZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListZones(*ListZonesInput) (*ListZonesOutput, error)
+	ListZonesWithContext(volcengine.Context, *ListZonesInput, ...request.Option) (*ListZonesOutput, error)
+	ListZonesRequest(*ListZonesInput) (*request.Request, *ListZonesOutput)
+
 	ModifyDBInstanceIPListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceIPListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceIPListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -205,14 +221,6 @@ type RDSMYSQLAPI interface {
 	RestartDBInstance(*RestartDBInstanceInput) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
-
-	RevokeAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RevokeAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RevokeAccountPrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RevokeAccountPrivilege(*RevokeAccountPrivilegeInput) (*RevokeAccountPrivilegeOutput, error)
-	RevokeAccountPrivilegeWithContext(volcengine.Context, *RevokeAccountPrivilegeInput, ...request.Option) (*RevokeAccountPrivilegeOutput, error)
-	RevokeAccountPrivilegeRequest(*RevokeAccountPrivilegeInput) (*request.Request, *RevokeAccountPrivilegeOutput)
 }
 
 var _ RDSMYSQLAPI = (*RDSMYSQL)(nil)
