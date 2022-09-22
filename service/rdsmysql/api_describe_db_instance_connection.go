@@ -146,9 +146,9 @@ func (c *RDSMYSQL) DescribeDBInstanceConnectionWithContext(ctx volcengine.Contex
 type ConnectionInfoForDescribeDBInstanceConnectionOutput struct {
 	_ struct{} `type:"structure"`
 
-	EnableReadOnly *string `type:"string"`
+	EnableReadOnly *string `type:"string" enum:"EnumOfEnableReadOnlyForDescribeDBInstanceConnectionOutput"`
 
-	EnableReadWriteSplitting *string `type:"string"`
+	EnableReadWriteSplitting *string `type:"string" enum:"EnumOfEnableReadWriteSplittingForDescribeDBInstanceConnectionOutput"`
 
 	InternalDomain *string `type:"string"`
 
@@ -264,3 +264,19 @@ func (s *DescribeDBInstanceConnectionOutput) SetConnectionInfo(v *ConnectionInfo
 	s.ConnectionInfo = v
 	return s
 }
+
+const (
+	// EnumOfEnableReadOnlyForDescribeDBInstanceConnectionOutputDisable is a EnumOfEnableReadOnlyForDescribeDBInstanceConnectionOutput enum value
+	EnumOfEnableReadOnlyForDescribeDBInstanceConnectionOutputDisable = "Disable"
+
+	// EnumOfEnableReadOnlyForDescribeDBInstanceConnectionOutputEnable is a EnumOfEnableReadOnlyForDescribeDBInstanceConnectionOutput enum value
+	EnumOfEnableReadOnlyForDescribeDBInstanceConnectionOutputEnable = "Enable"
+)
+
+const (
+	// EnumOfEnableReadWriteSplittingForDescribeDBInstanceConnectionOutputDisable is a EnumOfEnableReadWriteSplittingForDescribeDBInstanceConnectionOutput enum value
+	EnumOfEnableReadWriteSplittingForDescribeDBInstanceConnectionOutputDisable = "Disable"
+
+	// EnumOfEnableReadWriteSplittingForDescribeDBInstanceConnectionOutputEnable is a EnumOfEnableReadWriteSplittingForDescribeDBInstanceConnectionOutput enum value
+	EnumOfEnableReadWriteSplittingForDescribeDBInstanceConnectionOutputEnable = "Enable"
+)

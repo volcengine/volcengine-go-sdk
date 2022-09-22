@@ -333,8 +333,11 @@ const (
 	// EnumOfStorageTypeForRecoveryDBInstanceInputCloudStorage is a EnumOfStorageTypeForRecoveryDBInstanceInput enum value
 	EnumOfStorageTypeForRecoveryDBInstanceInputCloudStorage = "CloudStorage"
 
-	// EnumOfStorageTypeForRecoveryDBInstanceInputEssdflexPl is a EnumOfStorageTypeForRecoveryDBInstanceInput enum value
-	EnumOfStorageTypeForRecoveryDBInstanceInputEssdflexPl = "ESSDFlexPL"
+	// EnumOfStorageTypeForRecoveryDBInstanceInputEssdpl1 is a EnumOfStorageTypeForRecoveryDBInstanceInput enum value
+	EnumOfStorageTypeForRecoveryDBInstanceInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForRecoveryDBInstanceInputEssdpl2 is a EnumOfStorageTypeForRecoveryDBInstanceInput enum value
+	EnumOfStorageTypeForRecoveryDBInstanceInputEssdpl2 = "ESSDPL2"
 
 	// EnumOfStorageTypeForRecoveryDBInstanceInputLocalSsd is a EnumOfStorageTypeForRecoveryDBInstanceInput enum value
 	EnumOfStorageTypeForRecoveryDBInstanceInputLocalSsd = "LocalSSD"
