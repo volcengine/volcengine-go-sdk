@@ -360,8 +360,6 @@ type HealthCheckForDescribeListenerAttributesOutput struct {
 
 	Timeout *int64 `type:"integer"`
 
-	UnHealthyThreshold *int64 `type:"integer"`
-
 	Uri *string `type:"string"`
 }
 
@@ -414,12 +412,6 @@ func (s *HealthCheckForDescribeListenerAttributesOutput) SetMethod(v string) *He
 // SetTimeout sets the Timeout field's value.
 func (s *HealthCheckForDescribeListenerAttributesOutput) SetTimeout(v int64) *HealthCheckForDescribeListenerAttributesOutput {
 	s.Timeout = &v
-	return s
-}
-
-// SetUnHealthyThreshold sets the UnHealthyThreshold field's value.
-func (s *HealthCheckForDescribeListenerAttributesOutput) SetUnHealthyThreshold(v int64) *HealthCheckForDescribeListenerAttributesOutput {
-	s.UnHealthyThreshold = &v
 	return s
 }
 
