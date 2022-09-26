@@ -146,15 +146,15 @@ func (c *RDSMYSQL) ListDBInstancesWithContext(ctx volcengine.Context, input *Lis
 type DataForListDBInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
-	ChargeStatus *string `type:"string"`
+	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForListDBInstancesOutput"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForListDBInstancesOutput"`
 
 	CreateTime *string `type:"string"`
 
-	DBEngine *string `type:"string"`
+	DBEngine *string `type:"string" enum:"EnumOfDBEngineForListDBInstancesOutput"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForListDBInstancesOutput"`
 
 	InstanceId *string `type:"string"`
 
@@ -162,9 +162,9 @@ type DataForListDBInstancesOutput struct {
 
 	InstanceSpec *InstanceSpecForListDBInstancesOutput `type:"structure"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForListDBInstancesOutput"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForListDBInstancesOutput"`
 
 	ReadOnlyInstanceIds []*string `type:"list"`
 
@@ -442,6 +442,65 @@ func (s *ListDBInstancesOutput) SetTotal(v int32) *ListDBInstancesOutput {
 }
 
 const (
+	// EnumOfChargeStatusForListDBInstancesOutputNormal is a EnumOfChargeStatusForListDBInstancesOutput enum value
+	EnumOfChargeStatusForListDBInstancesOutputNormal = "Normal"
+
+	// EnumOfChargeStatusForListDBInstancesOutputOverdue is a EnumOfChargeStatusForListDBInstancesOutput enum value
+	EnumOfChargeStatusForListDBInstancesOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForListDBInstancesOutputUnpaid is a EnumOfChargeStatusForListDBInstancesOutput enum value
+	EnumOfChargeStatusForListDBInstancesOutputUnpaid = "Unpaid"
+)
+
+const (
+	// EnumOfChargeTypeForListDBInstancesOutputNotEnabled is a EnumOfChargeTypeForListDBInstancesOutput enum value
+	EnumOfChargeTypeForListDBInstancesOutputNotEnabled = "NotEnabled"
+
+	// EnumOfChargeTypeForListDBInstancesOutputPostPaid is a EnumOfChargeTypeForListDBInstancesOutput enum value
+	EnumOfChargeTypeForListDBInstancesOutputPostPaid = "PostPaid"
+
+	// EnumOfChargeTypeForListDBInstancesOutputPrepaid is a EnumOfChargeTypeForListDBInstancesOutput enum value
+	EnumOfChargeTypeForListDBInstancesOutputPrepaid = "Prepaid"
+)
+
+const (
+	// EnumOfDBEngineForListDBInstancesOutputMySql is a EnumOfDBEngineForListDBInstancesOutput enum value
+	EnumOfDBEngineForListDBInstancesOutputMySql = "MySQL"
+
+	// EnumOfDBEngineForListDBInstancesOutputPostgres is a EnumOfDBEngineForListDBInstancesOutput enum value
+	EnumOfDBEngineForListDBInstancesOutputPostgres = "Postgres"
+
+	// EnumOfDBEngineForListDBInstancesOutputSqlserver is a EnumOfDBEngineForListDBInstancesOutput enum value
+	EnumOfDBEngineForListDBInstancesOutputSqlserver = "Sqlserver"
+)
+
+const (
+	// EnumOfDBEngineVersionForListDBInstancesOutputMySql55 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
+	EnumOfDBEngineVersionForListDBInstancesOutputMySql55 = "MySQL_5_5"
+
+	// EnumOfDBEngineVersionForListDBInstancesOutputMySql56 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
+	EnumOfDBEngineVersionForListDBInstancesOutputMySql56 = "MySQL_5_6"
+
+	// EnumOfDBEngineVersionForListDBInstancesOutputMySql80 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
+	EnumOfDBEngineVersionForListDBInstancesOutputMySql80 = "MySQL_8_0"
+
+	// EnumOfDBEngineVersionForListDBInstancesOutputMySqlCommunity57 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
+	EnumOfDBEngineVersionForListDBInstancesOutputMySqlCommunity57 = "MySQL_Community_5_7"
+
+	// EnumOfDBEngineVersionForListDBInstancesOutputPostgres12 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
+	EnumOfDBEngineVersionForListDBInstancesOutputPostgres12 = "Postgres_12"
+
+	// EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Ent is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
+	EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Ent = "SQLServer_2019_Ent"
+
+	// EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Std is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
+	EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Std = "SQLServer_2019_Std"
+
+	// EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Web is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
+	EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Web = "SQLServer_2019_Web"
+)
+
+const (
 	// EnumOfInstanceStatusForListDBInstancesInputAllowListMaintaining is a EnumOfInstanceStatusForListDBInstancesInput enum value
 	EnumOfInstanceStatusForListDBInstancesInputAllowListMaintaining = "AllowListMaintaining"
 
@@ -522,6 +581,86 @@ const (
 )
 
 const (
+	// EnumOfInstanceStatusForListDBInstancesOutputAllowListMaintaining is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputAllowListMaintaining = "AllowListMaintaining"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputClosed is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputClosed = "Closed"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputClosing is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputClosing = "Closing"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputCreateFailed is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputCreateFailed = "CreateFailed"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputCreating is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputCreating = "Creating"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputDeleting is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputDeleting = "Deleting"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputDestroyed is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputDestroyed = "Destroyed"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputDestroying is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputDestroying = "Destroying"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputError is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputError = "Error"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputImporting is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputImporting = "Importing"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputMaintaining is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputMaintaining = "Maintaining"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputMasterChanging is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputMasterChanging = "MasterChanging"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputMigrating is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputMigrating = "Migrating"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputReclaiming is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputReclaiming = "Reclaiming"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputRecycled is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputRecycled = "Recycled"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputReleased is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputReleased = "Released"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputRestarting is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputRestarting = "Restarting"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputRestoring is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputRestoring = "Restoring"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputResuming is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputResuming = "Resuming"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputRunning is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputRunning = "Running"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputSslupdating is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputSslupdating = "SSLUpdating"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputTdeupdating is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputTdeupdating = "TDEUpdating"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputUnknown is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputUnknown = "Unknown"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputUpdating is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputUpdating = "Updating"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputUpgrading is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputUpgrading = "Upgrading"
+
+	// EnumOfInstanceStatusForListDBInstancesOutputWaitingPaid is a EnumOfInstanceStatusForListDBInstancesOutput enum value
+	EnumOfInstanceStatusForListDBInstancesOutputWaitingPaid = "WaitingPaid"
+)
+
+const (
 	// EnumOfInstanceTypeForListDBInstancesInputBasic is a EnumOfInstanceTypeForListDBInstancesInput enum value
 	EnumOfInstanceTypeForListDBInstancesInputBasic = "Basic"
 
@@ -533,4 +672,18 @@ const (
 
 	// EnumOfInstanceTypeForListDBInstancesInputHa is a EnumOfInstanceTypeForListDBInstancesInput enum value
 	EnumOfInstanceTypeForListDBInstancesInputHa = "HA"
+)
+
+const (
+	// EnumOfInstanceTypeForListDBInstancesOutputBasic is a EnumOfInstanceTypeForListDBInstancesOutput enum value
+	EnumOfInstanceTypeForListDBInstancesOutputBasic = "Basic"
+
+	// EnumOfInstanceTypeForListDBInstancesOutputCluster is a EnumOfInstanceTypeForListDBInstancesOutput enum value
+	EnumOfInstanceTypeForListDBInstancesOutputCluster = "Cluster"
+
+	// EnumOfInstanceTypeForListDBInstancesOutputFinance is a EnumOfInstanceTypeForListDBInstancesOutput enum value
+	EnumOfInstanceTypeForListDBInstancesOutputFinance = "Finance"
+
+	// EnumOfInstanceTypeForListDBInstancesOutputHa is a EnumOfInstanceTypeForListDBInstancesOutput enum value
+	EnumOfInstanceTypeForListDBInstancesOutputHa = "HA"
 )

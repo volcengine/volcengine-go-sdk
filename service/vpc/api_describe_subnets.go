@@ -146,6 +146,8 @@ type DescribeSubnetsInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	RouteTableId *string `type:"string"`
 
 	SubnetIds []*string `type:"list"`
@@ -193,6 +195,12 @@ func (s *DescribeSubnetsInput) SetPageNumber(v int64) *DescribeSubnetsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeSubnetsInput) SetPageSize(v int64) *DescribeSubnetsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeSubnetsInput) SetProjectName(v string) *DescribeSubnetsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -327,6 +335,8 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	NetworkAclId *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RouteTable *RouteTableForDescribeSubnetsOutput `type:"structure"`
 
 	Status *string `type:"string"`
@@ -387,6 +397,12 @@ func (s *SubnetForDescribeSubnetsOutput) SetDescription(v string) *SubnetForDesc
 // SetNetworkAclId sets the NetworkAclId field's value.
 func (s *SubnetForDescribeSubnetsOutput) SetNetworkAclId(v string) *SubnetForDescribeSubnetsOutput {
 	s.NetworkAclId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetProjectName(v string) *SubnetForDescribeSubnetsOutput {
+	s.ProjectName = &v
 	return s
 }
 

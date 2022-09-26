@@ -157,6 +157,8 @@ type HealthCheckForModifyListenerAttributesInput struct {
 	Timeout *int64 `type:"integer"`
 
 	URI *string `type:"string"`
+
+	UnhealthyThreshold *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -214,6 +216,12 @@ func (s *HealthCheckForModifyListenerAttributesInput) SetTimeout(v int64) *Healt
 // SetURI sets the URI field's value.
 func (s *HealthCheckForModifyListenerAttributesInput) SetURI(v string) *HealthCheckForModifyListenerAttributesInput {
 	s.URI = &v
+	return s
+}
+
+// SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
+func (s *HealthCheckForModifyListenerAttributesInput) SetUnhealthyThreshold(v int64) *HealthCheckForModifyListenerAttributesInput {
+	s.UnhealthyThreshold = &v
 	return s
 }
 

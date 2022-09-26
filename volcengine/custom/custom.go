@@ -33,4 +33,9 @@ type LogAccount func(ctx context.Context) *string
 
 type DynamicCredentials func(ctx context.Context) (*credentials.Credentials, *string)
 
+// DynamicCredentialsIncludeError func return Credentials info and error info when error appear
+type DynamicCredentialsIncludeError func(ctx context.Context) (*credentials.Credentials, *string, error)
+
 type CustomerUnmarshalError func(ctx context.Context, meta RequestMetadata, resp response.VolcengineResponse) error
+
+type CustomerUnmarshalData func(ctx context.Context, info RequestInfo, resp response.VolcengineResponse) interface{}

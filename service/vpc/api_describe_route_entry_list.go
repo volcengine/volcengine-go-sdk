@@ -158,7 +158,8 @@ type DescribeRouteEntryListInput struct {
 
 	RouteEntryType *string `type:"string"`
 
-	RouteTableId *string `type:"string"`
+	// RouteTableId is a required field
+	RouteTableId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -176,6 +177,9 @@ func (s *DescribeRouteEntryListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeRouteEntryListInput"}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+	if s.RouteTableId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
 	}
 
 	if invalidParams.Len() > 0 {

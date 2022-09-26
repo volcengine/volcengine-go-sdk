@@ -154,7 +154,7 @@ type CreateDBInstanceInput struct {
 
 	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
 
-	InstanceCategory *string `type:"string" enum:"EnumOfInstanceCategoryForCreateDBInstanceInput"`
+	InstanceName *string `type:"string"`
 
 	InstanceSpecName *string `type:"string"`
 
@@ -164,6 +164,8 @@ type CreateDBInstanceInput struct {
 
 	PrepaidPeriod *string `type:"string" enum:"EnumOfPrepaidPeriodForCreateDBInstanceInput"`
 
+	ProjectName *string `type:"string"`
+
 	// Region is a required field
 	Region *string `type:"string" required:"true"`
 
@@ -171,6 +173,12 @@ type CreateDBInstanceInput struct {
 	StorageSpaceGB *int32 `type:"int32" required:"true"`
 
 	StorageType *string `type:"string" enum:"EnumOfStorageTypeForCreateDBInstanceInput"`
+
+	SubnetId *string `type:"string"`
+
+	SuperAccountName *string `type:"string"`
+
+	SuperAccountPassword *string `type:"string"`
 
 	UsedTime *int32 `type:"int32"`
 
@@ -233,9 +241,9 @@ func (s *CreateDBInstanceInput) SetDBEngineVersion(v string) *CreateDBInstanceIn
 	return s
 }
 
-// SetInstanceCategory sets the InstanceCategory field's value.
-func (s *CreateDBInstanceInput) SetInstanceCategory(v string) *CreateDBInstanceInput {
-	s.InstanceCategory = &v
+// SetInstanceName sets the InstanceName field's value.
+func (s *CreateDBInstanceInput) SetInstanceName(v string) *CreateDBInstanceInput {
+	s.InstanceName = &v
 	return s
 }
 
@@ -263,6 +271,12 @@ func (s *CreateDBInstanceInput) SetPrepaidPeriod(v string) *CreateDBInstanceInpu
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRegion sets the Region field's value.
 func (s *CreateDBInstanceInput) SetRegion(v string) *CreateDBInstanceInput {
 	s.Region = &v
@@ -278,6 +292,24 @@ func (s *CreateDBInstanceInput) SetStorageSpaceGB(v int32) *CreateDBInstanceInpu
 // SetStorageType sets the StorageType field's value.
 func (s *CreateDBInstanceInput) SetStorageType(v string) *CreateDBInstanceInput {
 	s.StorageType = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *CreateDBInstanceInput) SetSubnetId(v string) *CreateDBInstanceInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetSuperAccountName sets the SuperAccountName field's value.
+func (s *CreateDBInstanceInput) SetSuperAccountName(v string) *CreateDBInstanceInput {
+	s.SuperAccountName = &v
+	return s
+}
+
+// SetSuperAccountPassword sets the SuperAccountPassword field's value.
+func (s *CreateDBInstanceInput) SetSuperAccountPassword(v string) *CreateDBInstanceInput {
+	s.SuperAccountPassword = &v
 	return s
 }
 
@@ -372,14 +404,6 @@ const (
 )
 
 const (
-	// EnumOfInstanceCategoryForCreateDBInstanceInputPrimary is a EnumOfInstanceCategoryForCreateDBInstanceInput enum value
-	EnumOfInstanceCategoryForCreateDBInstanceInputPrimary = "Primary"
-
-	// EnumOfInstanceCategoryForCreateDBInstanceInputReadOnly is a EnumOfInstanceCategoryForCreateDBInstanceInput enum value
-	EnumOfInstanceCategoryForCreateDBInstanceInputReadOnly = "ReadOnly"
-)
-
-const (
 	// EnumOfInstanceTypeForCreateDBInstanceInputBasic is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
 	EnumOfInstanceTypeForCreateDBInstanceInputBasic = "Basic"
 
@@ -405,8 +429,11 @@ const (
 	// EnumOfStorageTypeForCreateDBInstanceInputCloudStorage is a EnumOfStorageTypeForCreateDBInstanceInput enum value
 	EnumOfStorageTypeForCreateDBInstanceInputCloudStorage = "CloudStorage"
 
-	// EnumOfStorageTypeForCreateDBInstanceInputEssdflexPl is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputEssdflexPl = "ESSDFlexPL"
+	// EnumOfStorageTypeForCreateDBInstanceInputEssdpl1 is a EnumOfStorageTypeForCreateDBInstanceInput enum value
+	EnumOfStorageTypeForCreateDBInstanceInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForCreateDBInstanceInputEssdpl2 is a EnumOfStorageTypeForCreateDBInstanceInput enum value
+	EnumOfStorageTypeForCreateDBInstanceInputEssdpl2 = "ESSDPL2"
 
 	// EnumOfStorageTypeForCreateDBInstanceInputLocalSsd is a EnumOfStorageTypeForCreateDBInstanceInput enum value
 	EnumOfStorageTypeForCreateDBInstanceInputLocalSsd = "LocalSSD"

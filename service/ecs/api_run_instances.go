@@ -226,6 +226,8 @@ type RunInstancesInput struct {
 
 	SuffixIndex *int32 `type:"int32"`
 
+	Tags []*TagForRunInstancesInput `type:"list"`
+
 	UniqueSuffix *bool `type:"boolean"`
 
 	UserData *string `type:"string"`
@@ -383,6 +385,12 @@ func (s *RunInstancesInput) SetSuffixIndex(v int32) *RunInstancesInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *RunInstancesInput) SetTags(v []*TagForRunInstancesInput) *RunInstancesInput {
+	s.Tags = v
+	return s
+}
+
 // SetUniqueSuffix sets the UniqueSuffix field's value.
 func (s *RunInstancesInput) SetUniqueSuffix(v bool) *RunInstancesInput {
 	s.UniqueSuffix = &v
@@ -428,6 +436,36 @@ func (s RunInstancesOutput) GoString() string {
 // SetInstanceIds sets the InstanceIds field's value.
 func (s *RunInstancesOutput) SetInstanceIds(v []*string) *RunInstancesOutput {
 	s.InstanceIds = v
+	return s
+}
+
+type TagForRunInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForRunInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForRunInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForRunInstancesInput) SetKey(v string) *TagForRunInstancesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForRunInstancesInput) SetValue(v string) *TagForRunInstancesInput {
+	s.Value = &v
 	return s
 }
 

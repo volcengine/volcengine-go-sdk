@@ -143,36 +143,6 @@ func (c *RDSMYSQL) ListDBInstanceIPListsWithContext(ctx volcengine.Context, inpu
 	return out, req.Send()
 }
 
-type DataForListDBInstanceIPListsOutput struct {
-	_ struct{} `type:"structure"`
-
-	GroupName *string `type:"string"`
-
-	IPList []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s DataForListDBInstanceIPListsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DataForListDBInstanceIPListsOutput) GoString() string {
-	return s.String()
-}
-
-// SetGroupName sets the GroupName field's value.
-func (s *DataForListDBInstanceIPListsOutput) SetGroupName(v string) *DataForListDBInstanceIPListsOutput {
-	s.GroupName = &v
-	return s
-}
-
-// SetIPList sets the IPList field's value.
-func (s *DataForListDBInstanceIPListsOutput) SetIPList(v []*string) *DataForListDBInstanceIPListsOutput {
-	s.IPList = v
-	return s
-}
-
 type ListDBInstanceIPListsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -214,8 +184,6 @@ type ListDBInstanceIPListsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Datas []*DataForListDBInstanceIPListsOutput `type:"list"`
-
 	Total *int32 `type:"int32"`
 }
 
@@ -227,12 +195,6 @@ func (s ListDBInstanceIPListsOutput) String() string {
 // GoString returns the string representation
 func (s ListDBInstanceIPListsOutput) GoString() string {
 	return s.String()
-}
-
-// SetDatas sets the Datas field's value.
-func (s *ListDBInstanceIPListsOutput) SetDatas(v []*DataForListDBInstanceIPListsOutput) *ListDBInstanceIPListsOutput {
-	s.Datas = v
-	return s
 }
 
 // SetTotal sets the Total field's value.

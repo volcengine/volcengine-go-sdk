@@ -216,6 +216,8 @@ type Config struct {
 
 	DynamicCredentials custom.DynamicCredentials
 
+	DynamicCredentialsIncludeError custom.DynamicCredentialsIncludeError
+
 	LogAccount custom.LogAccount
 
 	ExtendHttpRequest custom.ExtendHttpRequest
@@ -229,6 +231,8 @@ type Config struct {
 	ExtraHttpJsonBody custom.ExtraHttpJsonBody
 
 	CustomerUnmarshalError custom.CustomerUnmarshalError
+
+	CustomerUnmarshalData custom.CustomerUnmarshalData
 
 	ExtraUserAgent *string
 
@@ -337,8 +341,20 @@ func (c *Config) WithDynamicCredentials(f custom.DynamicCredentials) *Config {
 	return c
 }
 
+// WithDynamicCredentialsIncludeError sets a config DynamicCredentialsIncludeError value returning a Config pointer for
+// chaining.
+func (c *Config) WithDynamicCredentialsIncludeError(f custom.DynamicCredentialsIncludeError) *Config {
+	c.DynamicCredentialsIncludeError = f
+	return c
+}
+
 func (c *Config) WithCustomerUnmarshalError(f custom.CustomerUnmarshalError) *Config {
 	c.CustomerUnmarshalError = f
+	return c
+}
+
+func (c *Config) WithCustomerUnmarshalData(f custom.CustomerUnmarshalData) *Config {
+	c.CustomerUnmarshalData = f
 	return c
 }
 
@@ -568,6 +584,10 @@ func mergeInConfig(dst *Config, other *Config) {
 		dst.DynamicCredentials = other.DynamicCredentials
 	}
 
+	if other.DynamicCredentialsIncludeError != nil {
+		dst.DynamicCredentialsIncludeError = other.DynamicCredentialsIncludeError
+	}
+
 	if other.ExtendHttpRequest != nil {
 		dst.ExtendHttpRequest = other.ExtendHttpRequest
 	}
@@ -598,6 +618,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.CustomerUnmarshalError != nil {
 		dst.CustomerUnmarshalError = other.CustomerUnmarshalError
+	}
+
+	if other.CustomerUnmarshalData != nil {
+		dst.CustomerUnmarshalData = other.CustomerUnmarshalData
 	}
 
 	dst.Interceptors = other.Interceptors

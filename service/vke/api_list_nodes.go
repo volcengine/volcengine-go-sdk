@@ -179,6 +179,8 @@ type FilterForListNodesInput struct {
 	NodePoolIds []*string `type:"list"`
 
 	Statuses []*StatusForListNodesInput `type:"list"`
+
+	ZoneIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -227,6 +229,12 @@ func (s *FilterForListNodesInput) SetStatuses(v []*StatusForListNodesInput) *Fil
 	return s
 }
 
+// SetZoneIds sets the ZoneIds field's value.
+func (s *FilterForListNodesInput) SetZoneIds(v []*string) *FilterForListNodesInput {
+	s.ZoneIds = v
+	return s
+}
+
 type ItemForListNodesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -255,6 +263,8 @@ type ItemForListNodesOutput struct {
 	Status *StatusForListNodesOutput `type:"structure"`
 
 	UpdateTime *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -342,6 +352,12 @@ func (s *ItemForListNodesOutput) SetStatus(v *StatusForListNodesOutput) *ItemFor
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ItemForListNodesOutput) SetUpdateTime(v string) *ItemForListNodesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *ItemForListNodesOutput) SetZoneId(v string) *ItemForListNodesOutput {
+	s.ZoneId = &v
 	return s
 }
 
@@ -532,6 +548,15 @@ const (
 
 	// EnumOfPhaseForListNodesInputRunning is a EnumOfPhaseForListNodesInput enum value
 	EnumOfPhaseForListNodesInputRunning = "Running"
+
+	// EnumOfPhaseForListNodesInputStarting is a EnumOfPhaseForListNodesInput enum value
+	EnumOfPhaseForListNodesInputStarting = "Starting"
+
+	// EnumOfPhaseForListNodesInputStopped is a EnumOfPhaseForListNodesInput enum value
+	EnumOfPhaseForListNodesInputStopped = "Stopped"
+
+	// EnumOfPhaseForListNodesInputStopping is a EnumOfPhaseForListNodesInput enum value
+	EnumOfPhaseForListNodesInputStopping = "Stopping"
 
 	// EnumOfPhaseForListNodesInputUpdating is a EnumOfPhaseForListNodesInput enum value
 	EnumOfPhaseForListNodesInputUpdating = "Updating"

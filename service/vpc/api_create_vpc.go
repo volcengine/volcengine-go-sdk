@@ -151,6 +151,10 @@ type CreateVpcInput struct {
 
 	DnsServers []*string `type:"list"`
 
+	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateVpcInput `type:"list"`
+
 	VpcName *string `min:"1" max:"128" type:"string"`
 }
 
@@ -213,6 +217,18 @@ func (s *CreateVpcInput) SetDnsServers(v []*string) *CreateVpcInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateVpcInput) SetProjectName(v string) *CreateVpcInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateVpcInput) SetTags(v []*TagForCreateVpcInput) *CreateVpcInput {
+	s.Tags = v
+	return s
+}
+
 // SetVpcName sets the VpcName field's value.
 func (s *CreateVpcInput) SetVpcName(v string) *CreateVpcInput {
 	s.VpcName = &v
@@ -256,5 +272,35 @@ func (s *CreateVpcOutput) SetRouteTableId(v string) *CreateVpcOutput {
 // SetVpcId sets the VpcId field's value.
 func (s *CreateVpcOutput) SetVpcId(v string) *CreateVpcOutput {
 	s.VpcId = &v
+	return s
+}
+
+type TagForCreateVpcInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateVpcInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateVpcInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateVpcInput) SetKey(v string) *TagForCreateVpcInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateVpcInput) SetValue(v string) *TagForCreateVpcInput {
+	s.Value = &v
 	return s
 }

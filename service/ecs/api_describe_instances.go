@@ -139,6 +139,36 @@ func (c *ECS) DescribeInstancesWithContext(ctx volcengine.Context, input *Descri
 	return out, req.Send()
 }
 
+type CpuOptionsForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	CoreCount *int32 `type:"int32"`
+
+	ThreadsPerCore *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s CpuOptionsForDescribeInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CpuOptionsForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCoreCount sets the CoreCount field's value.
+func (s *CpuOptionsForDescribeInstancesOutput) SetCoreCount(v int32) *CpuOptionsForDescribeInstancesOutput {
+	s.CoreCount = &v
+	return s
+}
+
+// SetThreadsPerCore sets the ThreadsPerCore field's value.
+func (s *CpuOptionsForDescribeInstancesOutput) SetThreadsPerCore(v int32) *CpuOptionsForDescribeInstancesOutput {
+	s.ThreadsPerCore = &v
+	return s
+}
+
 type DescribeInstancesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -167,6 +197,8 @@ type DescribeInstancesInput struct {
 	ProjectName *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeInstancesInput `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -261,6 +293,12 @@ func (s *DescribeInstancesInput) SetStatus(v string) *DescribeInstancesInput {
 	return s
 }
 
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeInstancesInput) SetTagFilters(v []*TagFilterForDescribeInstancesInput) *DescribeInstancesInput {
+	s.TagFilters = v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *DescribeInstancesInput) SetVpcId(v string) *DescribeInstancesInput {
 	s.VpcId = &v
@@ -338,17 +376,19 @@ func (s *EipAddressForDescribeInstancesOutput) SetAllocationId(v string) *EipAdd
 type InstanceForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Cpus *int32 `type:"int32"`
+	CpuOptions *CpuOptionsForDescribeInstancesOutput `type:"structure"`
+
+	Cpus *int32 `min:"1" type:"int32"`
 
 	CreatedAt *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `max:"256" type:"string"`
 
 	EipAddress *EipAddressForDescribeInstancesOutput `type:"structure"`
 
 	ExpiredAt *string `type:"string"`
 
-	HostName *string `type:"string"`
+	HostName *string `min:"1" type:"string"`
 
 	ImageId *string `type:"string"`
 
@@ -356,9 +396,9 @@ type InstanceForDescribeInstancesOutput struct {
 
 	InstanceId *string `type:"string"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `min:"1" type:"string"`
 
-	InstanceTypeId *string `type:"string"`
+	InstanceTypeId *string `min:"1" type:"string"`
 
 	KeyPairId *string `type:"string"`
 
@@ -366,7 +406,7 @@ type InstanceForDescribeInstancesOutput struct {
 
 	LocalVolumes []*LocalVolumeForDescribeInstancesOutput `type:"list"`
 
-	MemorySize *int32 `type:"int32"`
+	MemorySize *int32 `min:"1024" type:"int32"`
 
 	NetworkInterfaces []*NetworkInterfaceForDescribeInstancesOutput `type:"list"`
 
@@ -382,13 +422,15 @@ type InstanceForDescribeInstancesOutput struct {
 
 	StoppedMode *string `type:"string"`
 
+	Tags []*TagForDescribeInstancesOutput `type:"list"`
+
 	UpdatedAt *string `type:"string"`
 
 	Uuid *string `type:"string"`
 
 	VpcId *string `type:"string"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -399,6 +441,12 @@ func (s InstanceForDescribeInstancesOutput) String() string {
 // GoString returns the string representation
 func (s InstanceForDescribeInstancesOutput) GoString() string {
 	return s.String()
+}
+
+// SetCpuOptions sets the CpuOptions field's value.
+func (s *InstanceForDescribeInstancesOutput) SetCpuOptions(v *CpuOptionsForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
+	s.CpuOptions = v
+	return s
 }
 
 // SetCpus sets the Cpus field's value.
@@ -533,6 +581,12 @@ func (s *InstanceForDescribeInstancesOutput) SetStoppedMode(v string) *InstanceF
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *InstanceForDescribeInstancesOutput) SetTags(v []*TagForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *InstanceForDescribeInstancesOutput) SetUpdatedAt(v string) *InstanceForDescribeInstancesOutput {
 	s.UpdatedAt = &v
@@ -654,5 +708,65 @@ func (s *NetworkInterfaceForDescribeInstancesOutput) SetType(v string) *NetworkI
 // SetVpcId sets the VpcId field's value.
 func (s *NetworkInterfaceForDescribeInstancesOutput) SetVpcId(v string) *NetworkInterfaceForDescribeInstancesOutput {
 	s.VpcId = &v
+	return s
+}
+
+type TagFilterForDescribeInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeInstancesInput) SetKey(v string) *TagFilterForDescribeInstancesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeInstancesInput) SetValues(v []*string) *TagFilterForDescribeInstancesInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeInstancesOutput) SetKey(v string) *TagForDescribeInstancesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeInstancesOutput) SetValue(v string) *TagForDescribeInstancesOutput {
+	s.Value = &v
 	return s
 }

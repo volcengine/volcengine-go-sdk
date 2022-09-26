@@ -150,6 +150,8 @@ type DescribeNetworkAclsInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	SubnetId *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -199,6 +201,12 @@ func (s *DescribeNetworkAclsInput) SetPageNumber(v int64) *DescribeNetworkAclsIn
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeNetworkAclsInput) SetPageSize(v int64) *DescribeNetworkAclsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeNetworkAclsInput) SetProjectName(v string) *DescribeNetworkAclsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -425,6 +433,8 @@ type NetworkAclForDescribeNetworkAclsOutput struct {
 
 	NetworkAclName *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Resources []*ResourceForDescribeNetworkAclsOutput `type:"list"`
 
 	Status *string `type:"string"`
@@ -477,6 +487,12 @@ func (s *NetworkAclForDescribeNetworkAclsOutput) SetNetworkAclId(v string) *Netw
 // SetNetworkAclName sets the NetworkAclName field's value.
 func (s *NetworkAclForDescribeNetworkAclsOutput) SetNetworkAclName(v string) *NetworkAclForDescribeNetworkAclsOutput {
 	s.NetworkAclName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *NetworkAclForDescribeNetworkAclsOutput) SetProjectName(v string) *NetworkAclForDescribeNetworkAclsOutput {
+	s.ProjectName = &v
 	return s
 }
 
