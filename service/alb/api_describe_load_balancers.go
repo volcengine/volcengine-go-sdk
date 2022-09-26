@@ -257,12 +257,114 @@ func (s *DescribeLoadBalancersOutput) SetTotalCount(v int64) *DescribeLoadBalanc
 	return s
 }
 
+type EipForDescribeLoadBalancersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	EipAddress *string `type:"string"`
+
+	EipBillingType *int64 `type:"integer"`
+
+	ISP *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EipForDescribeLoadBalancersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipForDescribeLoadBalancersOutput) GoString() string {
+	return s.String()
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *EipForDescribeLoadBalancersOutput) SetBandwidth(v int64) *EipForDescribeLoadBalancersOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EipForDescribeLoadBalancersOutput) SetEipAddress(v string) *EipForDescribeLoadBalancersOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipBillingType sets the EipBillingType field's value.
+func (s *EipForDescribeLoadBalancersOutput) SetEipBillingType(v int64) *EipForDescribeLoadBalancersOutput {
+	s.EipBillingType = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *EipForDescribeLoadBalancersOutput) SetISP(v string) *EipForDescribeLoadBalancersOutput {
+	s.ISP = &v
+	return s
+}
+
+type LoadBalancerAddressForDescribeLoadBalancersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Eip *EipForDescribeLoadBalancersOutput `type:"structure"`
+
+	EipAddress *string `type:"string"`
+
+	EipId *string `type:"string"`
+
+	EniAddress *string `type:"string"`
+
+	EniId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LoadBalancerAddressForDescribeLoadBalancersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoadBalancerAddressForDescribeLoadBalancersOutput) GoString() string {
+	return s.String()
+}
+
+// SetEip sets the Eip field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetEip(v *EipForDescribeLoadBalancersOutput) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.Eip = v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetEipAddress(v string) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetEipId(v string) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.EipId = &v
+	return s
+}
+
+// SetEniAddress sets the EniAddress field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetEniAddress(v string) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.EniAddress = &v
+	return s
+}
+
+// SetEniId sets the EniId field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetEniId(v string) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.EniId = &v
+	return s
+}
+
 type LoadBalancerForDescribeLoadBalancersOutput struct {
 	_ struct{} `type:"structure"`
 
 	BusinessStatus *string `type:"string"`
 
 	CreateTime *string `type:"string"`
+
+	DNSName *string `type:"string"`
 
 	DeletedTime *string `type:"string"`
 
@@ -297,6 +399,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 	UpdateTime *string `type:"string"`
 
 	VpcId *string `type:"string"`
+
+	ZoneMappings []*ZoneMappingForDescribeLoadBalancersOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -318,6 +422,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetBusinessStatus(v string)
 // SetCreateTime sets the CreateTime field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetCreateTime(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetDNSName sets the DNSName field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetDNSName(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.DNSName = &v
 	return s
 }
 
@@ -420,5 +530,49 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetUpdateTime(v string) *Lo
 // SetVpcId sets the VpcId field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetVpcId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.VpcId = &v
+	return s
+}
+
+// SetZoneMappings sets the ZoneMappings field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetZoneMappings(v []*ZoneMappingForDescribeLoadBalancersOutput) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ZoneMappings = v
+	return s
+}
+
+type ZoneMappingForDescribeLoadBalancersOutput struct {
+	_ struct{} `type:"structure"`
+
+	LoadBalancerAddresses []*LoadBalancerAddressForDescribeLoadBalancersOutput `type:"list"`
+
+	SubnetId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ZoneMappingForDescribeLoadBalancersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZoneMappingForDescribeLoadBalancersOutput) GoString() string {
+	return s.String()
+}
+
+// SetLoadBalancerAddresses sets the LoadBalancerAddresses field's value.
+func (s *ZoneMappingForDescribeLoadBalancersOutput) SetLoadBalancerAddresses(v []*LoadBalancerAddressForDescribeLoadBalancersOutput) *ZoneMappingForDescribeLoadBalancersOutput {
+	s.LoadBalancerAddresses = v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *ZoneMappingForDescribeLoadBalancersOutput) SetSubnetId(v string) *ZoneMappingForDescribeLoadBalancersOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *ZoneMappingForDescribeLoadBalancersOutput) SetZoneId(v string) *ZoneMappingForDescribeLoadBalancersOutput {
+	s.ZoneId = &v
 	return s
 }
