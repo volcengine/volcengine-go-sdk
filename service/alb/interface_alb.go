@@ -246,14 +246,6 @@ type ALBAPI interface {
 	DescribeLoadBalancerAttributesWithContext(volcengine.Context, *DescribeLoadBalancerAttributesInput, ...request.Option) (*DescribeLoadBalancerAttributesOutput, error)
 	DescribeLoadBalancerAttributesRequest(*DescribeLoadBalancerAttributesInput) (*request.Request, *DescribeLoadBalancerAttributesOutput)
 
-	DescribeLoadBalancerSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeLoadBalancerSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeLoadBalancerSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeLoadBalancerSpecs(*DescribeLoadBalancerSpecsInput) (*DescribeLoadBalancerSpecsOutput, error)
-	DescribeLoadBalancerSpecsWithContext(volcengine.Context, *DescribeLoadBalancerSpecsInput, ...request.Option) (*DescribeLoadBalancerSpecsOutput, error)
-	DescribeLoadBalancerSpecsRequest(*DescribeLoadBalancerSpecsInput) (*request.Request, *DescribeLoadBalancerSpecsOutput)
-
 	DescribeLoadBalancersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeLoadBalancersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeLoadBalancersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -285,6 +277,14 @@ type ALBAPI interface {
 	DescribeServerGroups(*DescribeServerGroupsInput) (*DescribeServerGroupsOutput, error)
 	DescribeServerGroupsWithContext(volcengine.Context, *DescribeServerGroupsInput, ...request.Option) (*DescribeServerGroupsOutput, error)
 	DescribeServerGroupsRequest(*DescribeServerGroupsInput) (*request.Request, *DescribeServerGroupsOutput)
+
+	DescribeZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeZones(*DescribeZonesInput) (*DescribeZonesOutput, error)
+	DescribeZonesWithContext(volcengine.Context, *DescribeZonesInput, ...request.Option) (*DescribeZonesOutput, error)
+	DescribeZonesRequest(*DescribeZonesInput) (*request.Request, *DescribeZonesOutput)
 
 	DisableAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableAccessLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

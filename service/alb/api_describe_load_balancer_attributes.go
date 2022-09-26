@@ -216,6 +216,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	CreateTime *string `type:"string"`
 
+	DNSName *string `type:"string"`
+
 	DeletedTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -259,6 +261,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 	UpdateTime *string `type:"string"`
 
 	VpcId *string `type:"string"`
+
+	ZoneMappings []*ZoneMappingForDescribeLoadBalancerAttributesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -286,6 +290,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetBusinessStatus(v string) *Desc
 // SetCreateTime sets the CreateTime field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetCreateTime(v string) *DescribeLoadBalancerAttributesOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetDNSName sets the DNSName field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetDNSName(v string) *DescribeLoadBalancerAttributesOutput {
+	s.DNSName = &v
 	return s
 }
 
@@ -421,6 +431,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetVpcId(v string) *DescribeLoadB
 	return s
 }
 
+// SetZoneMappings sets the ZoneMappings field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetZoneMappings(v []*ZoneMappingForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
+	s.ZoneMappings = v
+	return s
+}
+
 type EipForDescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -532,5 +548,97 @@ func (s *ListenerForDescribeLoadBalancerAttributesOutput) SetListenerId(v string
 // SetListenerName sets the ListenerName field's value.
 func (s *ListenerForDescribeLoadBalancerAttributesOutput) SetListenerName(v string) *ListenerForDescribeLoadBalancerAttributesOutput {
 	s.ListenerName = &v
+	return s
+}
+
+type LoadBalancerAddressForDescribeLoadBalancerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Eip *EipForDescribeLoadBalancerAttributesOutput `type:"structure"`
+
+	EipAddress *string `type:"string"`
+
+	EipId *string `type:"string"`
+
+	EniAddress *string `type:"string"`
+
+	EniId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEip sets the Eip field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEip(v *EipForDescribeLoadBalancerAttributesOutput) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.Eip = v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEipAddress(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEipId(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.EipId = &v
+	return s
+}
+
+// SetEniAddress sets the EniAddress field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniAddress(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.EniAddress = &v
+	return s
+}
+
+// SetEniId sets the EniId field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniId(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.EniId = &v
+	return s
+}
+
+type ZoneMappingForDescribeLoadBalancerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	LoadBalancerAddresses []*LoadBalancerAddressForDescribeLoadBalancerAttributesOutput `type:"list"`
+
+	SubnetId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ZoneMappingForDescribeLoadBalancerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZoneMappingForDescribeLoadBalancerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetLoadBalancerAddresses sets the LoadBalancerAddresses field's value.
+func (s *ZoneMappingForDescribeLoadBalancerAttributesOutput) SetLoadBalancerAddresses(v []*LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) *ZoneMappingForDescribeLoadBalancerAttributesOutput {
+	s.LoadBalancerAddresses = v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *ZoneMappingForDescribeLoadBalancerAttributesOutput) SetSubnetId(v string) *ZoneMappingForDescribeLoadBalancerAttributesOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *ZoneMappingForDescribeLoadBalancerAttributesOutput) SetZoneId(v string) *ZoneMappingForDescribeLoadBalancerAttributesOutput {
+	s.ZoneId = &v
 	return s
 }

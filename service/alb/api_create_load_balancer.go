@@ -160,6 +160,8 @@ type CreateLoadBalancerInput struct {
 	Type *string `type:"string" required:"true"`
 
 	VpcId *string `type:"string"`
+
+	ZoneMappings []*ZoneMappingForCreateLoadBalancerInput `type:"list"`
 }
 
 // String returns the string representation
@@ -239,6 +241,12 @@ func (s *CreateLoadBalancerInput) SetVpcId(v string) *CreateLoadBalancerInput {
 	return s
 }
 
+// SetZoneMappings sets the ZoneMappings field's value.
+func (s *CreateLoadBalancerInput) SetZoneMappings(v []*ZoneMappingForCreateLoadBalancerInput) *CreateLoadBalancerInput {
+	s.ZoneMappings = v
+	return s
+}
+
 type CreateLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -306,5 +314,35 @@ func (s *EipBillingConfigForCreateLoadBalancerInput) SetEipBillingType(v int64) 
 // SetISP sets the ISP field's value.
 func (s *EipBillingConfigForCreateLoadBalancerInput) SetISP(v string) *EipBillingConfigForCreateLoadBalancerInput {
 	s.ISP = &v
+	return s
+}
+
+type ZoneMappingForCreateLoadBalancerInput struct {
+	_ struct{} `type:"structure"`
+
+	SubnetId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ZoneMappingForCreateLoadBalancerInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ZoneMappingForCreateLoadBalancerInput) GoString() string {
+	return s.String()
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *ZoneMappingForCreateLoadBalancerInput) SetSubnetId(v string) *ZoneMappingForCreateLoadBalancerInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *ZoneMappingForCreateLoadBalancerInput) SetZoneId(v string) *ZoneMappingForCreateLoadBalancerInput {
+	s.ZoneId = &v
 	return s
 }
