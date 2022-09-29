@@ -293,8 +293,12 @@ func (c *Credentials) ExpiresAt() (time.Time, error) {
 	return expirer.ExpiresAt(), nil
 }
 
-func (c *Credentials) GetBase(region string, service string) base.Credentials {
-	value, _ := c.provider.Retrieve()
+func (c *Credentials) GetBase(region string, service string) (base.Credentials, error) {
+	value, err := c.Get()
+
+	if err != nil {
+		return base.Credentials{}, err
+	}
 
 	return base.Credentials{
 		AccessKeyID:     value.AccessKeyID,
@@ -302,5 +306,5 @@ func (c *Credentials) GetBase(region string, service string) base.Credentials {
 		SessionToken:    value.SessionToken,
 		Service:         service,
 		Region:          region,
-	}
+	}, nil
 }
