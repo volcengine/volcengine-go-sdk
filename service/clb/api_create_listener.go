@@ -342,6 +342,10 @@ type HealthCheckForCreateListenerInput struct {
 
 	URI *string `type:"string"`
 
+	UdpExpect *string `type:"string"`
+
+	UdpRequest *string `type:"string"`
+
 	UnhealthyThreshold *int64 `type:"integer"`
 }
 
@@ -400,6 +404,18 @@ func (s *HealthCheckForCreateListenerInput) SetTimeout(v int64) *HealthCheckForC
 // SetURI sets the URI field's value.
 func (s *HealthCheckForCreateListenerInput) SetURI(v string) *HealthCheckForCreateListenerInput {
 	s.URI = &v
+	return s
+}
+
+// SetUdpExpect sets the UdpExpect field's value.
+func (s *HealthCheckForCreateListenerInput) SetUdpExpect(v string) *HealthCheckForCreateListenerInput {
+	s.UdpExpect = &v
+	return s
+}
+
+// SetUdpRequest sets the UdpRequest field's value.
+func (s *HealthCheckForCreateListenerInput) SetUdpRequest(v string) *HealthCheckForCreateListenerInput {
+	s.UdpRequest = &v
 	return s
 }
 
