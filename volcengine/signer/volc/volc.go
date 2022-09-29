@@ -48,10 +48,16 @@ func SignSDKRequest(req *request.Request) {
 	}
 
 	if dynamicCredentials == nil {
-		c1 = req.Config.Credentials.GetBase(region, name)
+		c1, err = req.Config.Credentials.GetBase(region, name)
 	} else {
-		c1 = dynamicCredentials.GetBase(region, name)
+		c1, err = dynamicCredentials.GetBase(region, name)
 	}
+
+	if err != nil {
+		req.Error = err
+		return
+	}
+
 	r := c1.Sign(req.HTTPRequest)
 	req.HTTPRequest.Header = r.Header
 }
