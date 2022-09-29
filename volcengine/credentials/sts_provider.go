@@ -27,6 +27,10 @@ func (s *StsProvider) Retrieve() (Value, error) {
 	if s.Timeout > 0 {
 		ins.Client.SetTimeout(s.Timeout)
 	}
+	if s.DurationSeconds < 900 {
+		return Value{}, fmt.Errorf("DurationSeconds must greater than 900 seconds ")
+	}
+
 	ins.Client.SetAccessKey(s.AccessKey)
 	ins.Client.SetSecretKey(s.SecurityKey)
 	input := &sts.AssumeRoleRequest{
@@ -34,8 +38,7 @@ func (s *StsProvider) Retrieve() (Value, error) {
 		RoleTrn:         fmt.Sprintf("trn:iam::%s:role/%s", s.AccountId, s.RoleName),
 		RoleSessionName: uuid.New().String(),
 	}
-	//t := time.Now().Add(time.Duration(s.DurationSeconds) * time.Second)
-	t := time.Now().Add(20 * time.Second)
+	t := time.Now().Add(time.Duration(s.DurationSeconds-60) * time.Second)
 	output, _, err := ins.AssumeRole(input)
 	if err != nil || output.ResponseMetadata.Error != nil {
 		if err == nil {
@@ -62,11 +65,10 @@ func (s *StsProvider) IsExpired() bool {
 }
 
 func NewStsCredentials(value StsValue) *Credentials {
+
 	p := &StsProvider{
 		StsValue: value,
 		Expiry:   Expiry{},
 	}
-	return &Credentials{
-		provider: p,
-	}
+	return NewExpireAbleCredentials(p)
 }
