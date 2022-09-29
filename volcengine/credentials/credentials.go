@@ -208,6 +208,13 @@ func NewCredentials(provider Provider) *Credentials {
 	}
 }
 
+//NewExpireAbleCredentials returns a pointer to a new Credentials with the provider set and disable forceRefresh.
+func NewExpireAbleCredentials(provider Provider) *Credentials {
+	return &Credentials{
+		provider: provider,
+	}
+}
+
 // Get returns the credentials value, or error if the credentials Value failed
 // to be retrieved.
 //
