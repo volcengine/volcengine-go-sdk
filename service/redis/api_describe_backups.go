@@ -326,6 +326,8 @@ type InstanceDetailForDescribeBackupsOutput struct {
 
 	EngineVersion *string `type:"string"`
 
+	ExpiredTime *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
@@ -386,6 +388,12 @@ func (s *InstanceDetailForDescribeBackupsOutput) SetChargeType(v string) *Instan
 // SetEngineVersion sets the EngineVersion field's value.
 func (s *InstanceDetailForDescribeBackupsOutput) SetEngineVersion(v string) *InstanceDetailForDescribeBackupsOutput {
 	s.EngineVersion = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *InstanceDetailForDescribeBackupsOutput) SetExpiredTime(v string) *InstanceDetailForDescribeBackupsOutput {
+	s.ExpiredTime = &v
 	return s
 }
 
