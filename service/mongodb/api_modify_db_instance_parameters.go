@@ -149,7 +149,7 @@ type ModifyDBInstanceParametersInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	Parameters *string `type:"string"`
+	ParametersObject *ParametersObjectForModifyDBInstanceParametersInput `type:"structure"`
 }
 
 // String returns the string representation
@@ -181,9 +181,9 @@ func (s *ModifyDBInstanceParametersInput) SetInstanceId(v string) *ModifyDBInsta
 	return s
 }
 
-// SetParameters sets the Parameters field's value.
-func (s *ModifyDBInstanceParametersInput) SetParameters(v string) *ModifyDBInstanceParametersInput {
-	s.Parameters = &v
+// SetParametersObject sets the ParametersObject field's value.
+func (s *ModifyDBInstanceParametersInput) SetParametersObject(v *ParametersObjectForModifyDBInstanceParametersInput) *ModifyDBInstanceParametersInput {
+	s.ParametersObject = v
 	return s
 }
 
@@ -210,3 +210,58 @@ func (s *ModifyDBInstanceParametersOutput) SetInstanceId(v string) *ModifyDBInst
 	s.InstanceId = &v
 	return s
 }
+
+type ParametersObjectForModifyDBInstanceParametersInput struct {
+	_ struct{} `type:"structure"`
+
+	ParameterName *string `type:"string"`
+
+	ParameterRole *string `type:"string" enum:"EnumOfParameterRoleForModifyDBInstanceParametersInput"`
+
+	ParameterValue *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ParametersObjectForModifyDBInstanceParametersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ParametersObjectForModifyDBInstanceParametersInput) GoString() string {
+	return s.String()
+}
+
+// SetParameterName sets the ParameterName field's value.
+func (s *ParametersObjectForModifyDBInstanceParametersInput) SetParameterName(v string) *ParametersObjectForModifyDBInstanceParametersInput {
+	s.ParameterName = &v
+	return s
+}
+
+// SetParameterRole sets the ParameterRole field's value.
+func (s *ParametersObjectForModifyDBInstanceParametersInput) SetParameterRole(v string) *ParametersObjectForModifyDBInstanceParametersInput {
+	s.ParameterRole = &v
+	return s
+}
+
+// SetParameterValue sets the ParameterValue field's value.
+func (s *ParametersObjectForModifyDBInstanceParametersInput) SetParameterValue(v string) *ParametersObjectForModifyDBInstanceParametersInput {
+	s.ParameterValue = &v
+	return s
+}
+
+const (
+	// EnumOfParameterRoleForModifyDBInstanceParametersInputConfigServer is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
+	EnumOfParameterRoleForModifyDBInstanceParametersInputConfigServer = "ConfigServer"
+
+	// EnumOfParameterRoleForModifyDBInstanceParametersInputMongos is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
+	EnumOfParameterRoleForModifyDBInstanceParametersInputMongos = "Mongos"
+
+	// EnumOfParameterRoleForModifyDBInstanceParametersInputNode is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
+	EnumOfParameterRoleForModifyDBInstanceParametersInputNode = "Node"
+
+	// EnumOfParameterRoleForModifyDBInstanceParametersInputShard is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
+	EnumOfParameterRoleForModifyDBInstanceParametersInputShard = "Shard"
+
+	// EnumOfParameterRoleForModifyDBInstanceParametersInputUnknown is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
+	EnumOfParameterRoleForModifyDBInstanceParametersInputUnknown = "Unknown"
+)
