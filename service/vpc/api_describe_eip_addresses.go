@@ -160,6 +160,8 @@ type DescribeEipAddressesInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	SecurityProtectionEnabled *bool `type:"boolean"`
 
 	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
@@ -247,6 +249,12 @@ func (s *DescribeEipAddressesInput) SetPageNumber(v int64) *DescribeEipAddresses
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeEipAddressesInput) SetPageSize(v int64) *DescribeEipAddressesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeEipAddressesInput) SetProjectName(v string) *DescribeEipAddressesInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -359,6 +367,8 @@ type EipAddressForDescribeEipAddressesOutput struct {
 
 	OverdueTime *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	SecurityProtectionTypes []*string `type:"list"`
 
 	Status *string `type:"string"`
@@ -469,6 +479,12 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetName(v string) *EipAddressF
 // SetOverdueTime sets the OverdueTime field's value.
 func (s *EipAddressForDescribeEipAddressesOutput) SetOverdueTime(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.OverdueTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetProjectName(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.ProjectName = &v
 	return s
 }
 

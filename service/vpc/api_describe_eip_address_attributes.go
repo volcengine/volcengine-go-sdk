@@ -212,6 +212,8 @@ type DescribeEipAddressAttributesOutput struct {
 
 	OverdueTime *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	SecurityProtectionTypes []*string `type:"list"`
@@ -324,6 +326,12 @@ func (s *DescribeEipAddressAttributesOutput) SetName(v string) *DescribeEipAddre
 // SetOverdueTime sets the OverdueTime field's value.
 func (s *DescribeEipAddressAttributesOutput) SetOverdueTime(v string) *DescribeEipAddressAttributesOutput {
 	s.OverdueTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeEipAddressAttributesOutput) SetProjectName(v string) *DescribeEipAddressAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

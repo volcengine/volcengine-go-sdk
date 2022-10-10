@@ -146,6 +146,8 @@ type AllocateEipAddressInput struct {
 
 	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	ISP *string `type:"string" enum:"ISPForAllocateEipAddressInput"`
@@ -155,6 +157,8 @@ type AllocateEipAddressInput struct {
 	Period *int64 `type:"integer"`
 
 	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
+
+	ProjectName *string `type:"string"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -223,6 +227,12 @@ func (s *AllocateEipAddressInput) SetBillingType(v int64) *AllocateEipAddressInp
 	return s
 }
 
+// SetClientToken sets the ClientToken field's value.
+func (s *AllocateEipAddressInput) SetClientToken(v string) *AllocateEipAddressInput {
+	s.ClientToken = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *AllocateEipAddressInput) SetDescription(v string) *AllocateEipAddressInput {
 	s.Description = &v
@@ -250,6 +260,12 @@ func (s *AllocateEipAddressInput) SetPeriod(v int64) *AllocateEipAddressInput {
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *AllocateEipAddressInput) SetPeriodUnit(v int64) *AllocateEipAddressInput {
 	s.PeriodUnit = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *AllocateEipAddressInput) SetProjectName(v string) *AllocateEipAddressInput {
+	s.ProjectName = &v
 	return s
 }
 
