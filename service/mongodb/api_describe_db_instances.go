@@ -148,6 +148,8 @@ type DBInstanceForDescribeDBInstancesOutput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
+	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeDBInstancesOutput"`
+
 	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
 
 	ClosedTime *string `type:"string"`
@@ -174,6 +176,8 @@ type DBInstanceForDescribeDBInstancesOutput struct {
 
 	MongosId *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	ReclaimTime *string `type:"string"`
 
 	SubnetId *string `type:"string"`
@@ -198,6 +202,12 @@ func (s DBInstanceForDescribeDBInstancesOutput) GoString() string {
 // SetAutoRenew sets the AutoRenew field's value.
 func (s *DBInstanceForDescribeDBInstancesOutput) SetAutoRenew(v bool) *DBInstanceForDescribeDBInstancesOutput {
 	s.AutoRenew = &v
+	return s
+}
+
+// SetChargeStatus sets the ChargeStatus field's value.
+func (s *DBInstanceForDescribeDBInstancesOutput) SetChargeStatus(v string) *DBInstanceForDescribeDBInstancesOutput {
+	s.ChargeStatus = &v
 	return s
 }
 
@@ -279,6 +289,12 @@ func (s *DBInstanceForDescribeDBInstancesOutput) SetMongosId(v string) *DBInstan
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DBInstanceForDescribeDBInstancesOutput) SetProjectName(v string) *DBInstanceForDescribeDBInstancesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetReclaimTime sets the ReclaimTime field's value.
 func (s *DBInstanceForDescribeDBInstancesOutput) SetReclaimTime(v string) *DBInstanceForDescribeDBInstancesOutput {
 	s.ReclaimTime = &v
@@ -335,6 +351,8 @@ type DescribeDBInstancesInput struct {
 	UpdateEndTime *string `type:"string"`
 
 	UpdateStartTime *string `type:"string"`
+
+	VpcId *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -434,6 +452,12 @@ func (s *DescribeDBInstancesInput) SetUpdateStartTime(v string) *DescribeDBInsta
 	return s
 }
 
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeDBInstancesInput) SetVpcId(v string) *DescribeDBInstancesInput {
+	s.VpcId = &v
+	return s
+}
+
 // SetZoneId sets the ZoneId field's value.
 func (s *DescribeDBInstancesInput) SetZoneId(v string) *DescribeDBInstancesInput {
 	s.ZoneId = &v
@@ -471,6 +495,29 @@ func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput
 	s.Total = &v
 	return s
 }
+
+const (
+	// EnumOfChargeStatusForDescribeDBInstancesOutputNormal is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputNormal = "Normal"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputOverdue is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputOwing is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputOwing = "Owing"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputRenewing is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputRenewing = "Renewing"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputUnDeploy is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputUnDeploy = "UnDeploy"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputUnsubscribing is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputUnsubscribing = "Unsubscribing"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputWaitingPaid is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputWaitingPaid = "WaitingPaid"
+)
 
 const (
 	// EnumOfChargeTypeForDescribeDBInstancesOutputNotEnabled is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
@@ -579,6 +626,9 @@ const (
 	// EnumOfInstanceStatusForDescribeDBInstancesInputRunning is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputRunning = "Running"
 
+	// EnumOfInstanceStatusForDescribeDBInstancesInputSslupdating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputSslupdating = "SSLUpdating"
+
 	// EnumOfInstanceStatusForDescribeDBInstancesInputScaling is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputScaling = "Scaling"
 
@@ -670,6 +720,9 @@ const (
 
 	// EnumOfInstanceStatusForDescribeDBInstancesOutputRunning is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesOutputRunning = "Running"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputSslupdating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputSslupdating = "SSLUpdating"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesOutputScaling is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesOutputScaling = "Scaling"

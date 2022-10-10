@@ -172,6 +172,8 @@ type CreateDBInstanceInput struct {
 
 	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
 
+	ProjectName *string `type:"string"`
+
 	ShardNumber *int32 `type:"int32"`
 
 	StorageSpaceGB *int32 `type:"int32"`
@@ -285,6 +287,12 @@ func (s *CreateDBInstanceInput) SetPeriod(v int32) *CreateDBInstanceInput {
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *CreateDBInstanceInput) SetPeriodUnit(v string) *CreateDBInstanceInput {
 	s.PeriodUnit = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput {
+	s.ProjectName = &v
 	return s
 }
 

@@ -134,6 +134,22 @@ type MONGODBAPI interface {
 	DescribeDBInstanceDetailWithContext(volcengine.Context, *DescribeDBInstanceDetailInput, ...request.Option) (*DescribeDBInstanceDetailOutput, error)
 	DescribeDBInstanceDetailRequest(*DescribeDBInstanceDetailInput) (*request.Request, *DescribeDBInstanceDetailOutput)
 
+	DescribeDBInstanceParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceParametersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceParameters(*DescribeDBInstanceParametersInput) (*DescribeDBInstanceParametersOutput, error)
+	DescribeDBInstanceParametersWithContext(volcengine.Context, *DescribeDBInstanceParametersInput, ...request.Option) (*DescribeDBInstanceParametersOutput, error)
+	DescribeDBInstanceParametersRequest(*DescribeDBInstanceParametersInput) (*request.Request, *DescribeDBInstanceParametersOutput)
+
+	DescribeDBInstanceParametersLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceParametersLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceParametersLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceParametersLog(*DescribeDBInstanceParametersLogInput) (*DescribeDBInstanceParametersLogOutput, error)
+	DescribeDBInstanceParametersLogWithContext(volcengine.Context, *DescribeDBInstanceParametersLogInput, ...request.Option) (*DescribeDBInstanceParametersLogOutput, error)
+	DescribeDBInstanceParametersLogRequest(*DescribeDBInstanceParametersLogInput) (*request.Request, *DescribeDBInstanceParametersLogOutput)
+
 	DescribeDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -189,6 +205,14 @@ type MONGODBAPI interface {
 	ModifyDBInstanceName(*ModifyDBInstanceNameInput) (*ModifyDBInstanceNameOutput, error)
 	ModifyDBInstanceNameWithContext(volcengine.Context, *ModifyDBInstanceNameInput, ...request.Option) (*ModifyDBInstanceNameOutput, error)
 	ModifyDBInstanceNameRequest(*ModifyDBInstanceNameInput) (*request.Request, *ModifyDBInstanceNameOutput)
+
+	ModifyDBInstanceParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceParametersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceParameters(*ModifyDBInstanceParametersInput) (*ModifyDBInstanceParametersOutput, error)
+	ModifyDBInstanceParametersWithContext(volcengine.Context, *ModifyDBInstanceParametersInput, ...request.Option) (*ModifyDBInstanceParametersOutput, error)
+	ModifyDBInstanceParametersRequest(*ModifyDBInstanceParametersInput) (*request.Request, *ModifyDBInstanceParametersOutput)
 
 	ModifyDBInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
