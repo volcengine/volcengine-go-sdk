@@ -373,6 +373,8 @@ type EipAddressForDescribeEipAddressesOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeEipAddressesOutput `type:"list"`
+
 	UpdatedAt *string `type:"string"`
 }
 
@@ -500,6 +502,12 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetStatus(v string) *EipAddres
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetTags(v []*TagForDescribeEipAddressesOutput) *EipAddressForDescribeEipAddressesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *EipAddressForDescribeEipAddressesOutput) SetUpdatedAt(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.UpdatedAt = &v
@@ -533,6 +541,36 @@ func (s *TagFilterForDescribeEipAddressesInput) SetKey(v string) *TagFilterForDe
 // SetValues sets the Values field's value.
 func (s *TagFilterForDescribeEipAddressesInput) SetValues(v []*string) *TagFilterForDescribeEipAddressesInput {
 	s.Values = v
+	return s
+}
+
+type TagForDescribeEipAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeEipAddressesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeEipAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeEipAddressesOutput) SetKey(v string) *TagForDescribeEipAddressesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeEipAddressesOutput) SetValue(v string) *TagForDescribeEipAddressesOutput {
+	s.Value = &v
 	return s
 }
 
