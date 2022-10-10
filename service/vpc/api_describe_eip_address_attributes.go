@@ -212,11 +212,15 @@ type DescribeEipAddressAttributesOutput struct {
 
 	OverdueTime *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeEipAddressAttributesOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
 }
@@ -327,6 +331,12 @@ func (s *DescribeEipAddressAttributesOutput) SetOverdueTime(v string) *DescribeE
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeEipAddressAttributesOutput) SetProjectName(v string) *DescribeEipAddressAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeEipAddressAttributesOutput) SetRequestId(v string) *DescribeEipAddressAttributesOutput {
 	s.RequestId = &v
@@ -345,8 +355,44 @@ func (s *DescribeEipAddressAttributesOutput) SetStatus(v string) *DescribeEipAdd
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeEipAddressAttributesOutput) SetTags(v []*TagForDescribeEipAddressAttributesOutput) *DescribeEipAddressAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *DescribeEipAddressAttributesOutput) SetUpdatedAt(v string) *DescribeEipAddressAttributesOutput {
 	s.UpdatedAt = &v
+	return s
+}
+
+type TagForDescribeEipAddressAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeEipAddressAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeEipAddressAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeEipAddressAttributesOutput) SetKey(v string) *TagForDescribeEipAddressAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeEipAddressAttributesOutput) SetValue(v string) *TagForDescribeEipAddressAttributesOutput {
+	s.Value = &v
 	return s
 }

@@ -160,6 +160,8 @@ type DescribeEipAddressesInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	SecurityProtectionEnabled *bool `type:"boolean"`
 
 	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
@@ -247,6 +249,12 @@ func (s *DescribeEipAddressesInput) SetPageNumber(v int64) *DescribeEipAddresses
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeEipAddressesInput) SetPageSize(v int64) *DescribeEipAddressesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeEipAddressesInput) SetProjectName(v string) *DescribeEipAddressesInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -359,9 +367,13 @@ type EipAddressForDescribeEipAddressesOutput struct {
 
 	OverdueTime *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	SecurityProtectionTypes []*string `type:"list"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeEipAddressesOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
 }
@@ -472,6 +484,12 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetOverdueTime(v string) *EipA
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetProjectName(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
 func (s *EipAddressForDescribeEipAddressesOutput) SetSecurityProtectionTypes(v []*string) *EipAddressForDescribeEipAddressesOutput {
 	s.SecurityProtectionTypes = v
@@ -481,6 +499,12 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetSecurityProtectionTypes(v [
 // SetStatus sets the Status field's value.
 func (s *EipAddressForDescribeEipAddressesOutput) SetStatus(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetTags(v []*TagForDescribeEipAddressesOutput) *EipAddressForDescribeEipAddressesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -517,6 +541,36 @@ func (s *TagFilterForDescribeEipAddressesInput) SetKey(v string) *TagFilterForDe
 // SetValues sets the Values field's value.
 func (s *TagFilterForDescribeEipAddressesInput) SetValues(v []*string) *TagFilterForDescribeEipAddressesInput {
 	s.Values = v
+	return s
+}
+
+type TagForDescribeEipAddressesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeEipAddressesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeEipAddressesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeEipAddressesOutput) SetKey(v string) *TagForDescribeEipAddressesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeEipAddressesOutput) SetValue(v string) *TagForDescribeEipAddressesOutput {
+	s.Value = &v
 	return s
 }
 
