@@ -158,8 +158,7 @@ type DescribeSlowLogsInput struct {
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" required:"true"`
 
-	// QueryEndTime is a required field
-	QueryEndTime *string `type:"string" required:"true"`
+	QueryEndTime *string `type:"string"`
 
 	QueryStartTime *string `type:"string"`
 }
@@ -182,9 +181,6 @@ func (s *DescribeSlowLogsInput) Validate() error {
 	}
 	if s.PageSize == nil {
 		invalidParams.Add(request.NewErrParamRequired("PageSize"))
-	}
-	if s.QueryEndTime == nil {
-		invalidParams.Add(request.NewErrParamRequired("QueryEndTime"))
 	}
 
 	if invalidParams.Len() > 0 {
