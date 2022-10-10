@@ -153,6 +153,10 @@ type DBAddressForDescribeDBEndpointOutput struct {
 	AddressPort *string `type:"string"`
 
 	AddressType *string `type:"string" enum:"EnumOfAddressTypeForDescribeDBEndpointOutput"`
+
+	EipId *string `type:"string"`
+
+	NodeId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -189,6 +193,18 @@ func (s *DBAddressForDescribeDBEndpointOutput) SetAddressType(v string) *DBAddre
 	return s
 }
 
+// SetEipId sets the EipId field's value.
+func (s *DBAddressForDescribeDBEndpointOutput) SetEipId(v string) *DBAddressForDescribeDBEndpointOutput {
+	s.EipId = &v
+	return s
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *DBAddressForDescribeDBEndpointOutput) SetNodeId(v string) *DBAddressForDescribeDBEndpointOutput {
+	s.NodeId = &v
+	return s
+}
+
 type DBEndpointForDescribeDBEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -203,6 +219,8 @@ type DBEndpointForDescribeDBEndpointOutput struct {
 	NetworkType *string `type:"string" enum:"EnumOfNetworkTypeForDescribeDBEndpointOutput"`
 
 	ObjectId *string `type:"string"`
+
+	SubnetId *string `type:"string"`
 
 	VpcId *string `type:"string"`
 }
@@ -250,6 +268,12 @@ func (s *DBEndpointForDescribeDBEndpointOutput) SetNetworkType(v string) *DBEndp
 // SetObjectId sets the ObjectId field's value.
 func (s *DBEndpointForDescribeDBEndpointOutput) SetObjectId(v string) *DBEndpointForDescribeDBEndpointOutput {
 	s.ObjectId = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DBEndpointForDescribeDBEndpointOutput) SetSubnetId(v string) *DBEndpointForDescribeDBEndpointOutput {
+	s.SubnetId = &v
 	return s
 }
 

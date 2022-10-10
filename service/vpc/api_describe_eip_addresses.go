@@ -163,6 +163,8 @@ type DescribeEipAddressesInput struct {
 	SecurityProtectionEnabled *bool `type:"boolean"`
 
 	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
+
+	TagFilters []*TagFilterForDescribeEipAddressesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -257,6 +259,12 @@ func (s *DescribeEipAddressesInput) SetSecurityProtectionEnabled(v bool) *Descri
 // SetStatus sets the Status field's value.
 func (s *DescribeEipAddressesInput) SetStatus(v string) *DescribeEipAddressesInput {
 	s.Status = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeEipAddressesInput) SetTagFilters(v []*TagFilterForDescribeEipAddressesInput) *DescribeEipAddressesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -479,6 +487,36 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetStatus(v string) *EipAddres
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *EipAddressForDescribeEipAddressesOutput) SetUpdatedAt(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.UpdatedAt = &v
+	return s
+}
+
+type TagFilterForDescribeEipAddressesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeEipAddressesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeEipAddressesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeEipAddressesInput) SetKey(v string) *TagFilterForDescribeEipAddressesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeEipAddressesInput) SetValues(v []*string) *TagFilterForDescribeEipAddressesInput {
+	s.Values = v
 	return s
 }
 
