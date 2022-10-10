@@ -157,6 +157,8 @@ type AllocateEipAddressInput struct {
 	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
 
 	SecurityProtectionTypes []*string `type:"list"`
+
+	Tags []*TagForAllocateEipAddressInput `type:"list"`
 }
 
 // String returns the string representation
@@ -257,6 +259,12 @@ func (s *AllocateEipAddressInput) SetSecurityProtectionTypes(v []*string) *Alloc
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *AllocateEipAddressInput) SetTags(v []*TagForAllocateEipAddressInput) *AllocateEipAddressInput {
+	s.Tags = v
+	return s
+}
+
 type AllocateEipAddressOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -294,6 +302,36 @@ func (s *AllocateEipAddressOutput) SetEipAddress(v string) *AllocateEipAddressOu
 // SetRequestId sets the RequestId field's value.
 func (s *AllocateEipAddressOutput) SetRequestId(v string) *AllocateEipAddressOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForAllocateEipAddressInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForAllocateEipAddressInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForAllocateEipAddressInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForAllocateEipAddressInput) SetKey(v string) *TagForAllocateEipAddressInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForAllocateEipAddressInput) SetValue(v string) *TagForAllocateEipAddressInput {
+	s.Value = &v
 	return s
 }
 

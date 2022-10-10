@@ -174,7 +174,7 @@ type DescribeNodeSpecsOutput struct {
 
 	NodeSpecs []*NodeSpecForDescribeNodeSpecsOutput `type:"list"`
 
-	ShardNodeSpecs []*ShardNodeSpecForDescribeNodeSpecsOutput `type:"list"`
+	ShardNodeSpecs []*NodeSpecForDescribeNodeSpecsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -200,7 +200,7 @@ func (s *DescribeNodeSpecsOutput) SetNodeSpecs(v []*NodeSpecForDescribeNodeSpecs
 }
 
 // SetShardNodeSpecs sets the ShardNodeSpecs field's value.
-func (s *DescribeNodeSpecsOutput) SetShardNodeSpecs(v []*ShardNodeSpecForDescribeNodeSpecsOutput) *DescribeNodeSpecsOutput {
+func (s *DescribeNodeSpecsOutput) SetShardNodeSpecs(v []*NodeSpecForDescribeNodeSpecsOutput) *DescribeNodeSpecsOutput {
 	s.ShardNodeSpecs = v
 	return s
 }
@@ -301,60 +301,6 @@ func (s *NodeSpecForDescribeNodeSpecsOutput) SetMemInGb(v float64) *NodeSpecForD
 
 // SetSpecName sets the SpecName field's value.
 func (s *NodeSpecForDescribeNodeSpecsOutput) SetSpecName(v string) *NodeSpecForDescribeNodeSpecsOutput {
-	s.SpecName = &v
-	return s
-}
-
-type ShardNodeSpecForDescribeNodeSpecsOutput struct {
-	_ struct{} `type:"structure"`
-
-	CpuNum *float64 `type:"double"`
-
-	MaxConn *int64 `type:"int64"`
-
-	MaxStorage *int64 `type:"int64"`
-
-	MemInGb *float64 `type:"double"`
-
-	SpecName *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ShardNodeSpecForDescribeNodeSpecsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ShardNodeSpecForDescribeNodeSpecsOutput) GoString() string {
-	return s.String()
-}
-
-// SetCpuNum sets the CpuNum field's value.
-func (s *ShardNodeSpecForDescribeNodeSpecsOutput) SetCpuNum(v float64) *ShardNodeSpecForDescribeNodeSpecsOutput {
-	s.CpuNum = &v
-	return s
-}
-
-// SetMaxConn sets the MaxConn field's value.
-func (s *ShardNodeSpecForDescribeNodeSpecsOutput) SetMaxConn(v int64) *ShardNodeSpecForDescribeNodeSpecsOutput {
-	s.MaxConn = &v
-	return s
-}
-
-// SetMaxStorage sets the MaxStorage field's value.
-func (s *ShardNodeSpecForDescribeNodeSpecsOutput) SetMaxStorage(v int64) *ShardNodeSpecForDescribeNodeSpecsOutput {
-	s.MaxStorage = &v
-	return s
-}
-
-// SetMemInGb sets the MemInGb field's value.
-func (s *ShardNodeSpecForDescribeNodeSpecsOutput) SetMemInGb(v float64) *ShardNodeSpecForDescribeNodeSpecsOutput {
-	s.MemInGb = &v
-	return s
-}
-
-// SetSpecName sets the SpecName field's value.
-func (s *ShardNodeSpecForDescribeNodeSpecsOutput) SetSpecName(v string) *ShardNodeSpecForDescribeNodeSpecsOutput {
 	s.SpecName = &v
 	return s
 }

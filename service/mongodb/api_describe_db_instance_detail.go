@@ -218,6 +218,8 @@ type DBInstanceForDescribeDBInstanceDetailOutput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
+	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeDBInstanceDetailOutput"`
+
 	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
 
 	ClosedTime *string `type:"string"`
@@ -250,6 +252,8 @@ type DBInstanceForDescribeDBInstanceDetailOutput struct {
 
 	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	ReclaimTime *string `type:"string"`
 
 	Shards []*ShardForDescribeDBInstanceDetailOutput `type:"list"`
@@ -276,6 +280,12 @@ func (s DBInstanceForDescribeDBInstanceDetailOutput) GoString() string {
 // SetAutoRenew sets the AutoRenew field's value.
 func (s *DBInstanceForDescribeDBInstanceDetailOutput) SetAutoRenew(v bool) *DBInstanceForDescribeDBInstanceDetailOutput {
 	s.AutoRenew = &v
+	return s
+}
+
+// SetChargeStatus sets the ChargeStatus field's value.
+func (s *DBInstanceForDescribeDBInstanceDetailOutput) SetChargeStatus(v string) *DBInstanceForDescribeDBInstanceDetailOutput {
+	s.ChargeStatus = &v
 	return s
 }
 
@@ -372,6 +382,12 @@ func (s *DBInstanceForDescribeDBInstanceDetailOutput) SetMongosId(v string) *DBI
 // SetNodes sets the Nodes field's value.
 func (s *DBInstanceForDescribeDBInstanceDetailOutput) SetNodes(v []*NodeForDescribeDBInstanceDetailOutput) *DBInstanceForDescribeDBInstanceDetailOutput {
 	s.Nodes = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DBInstanceForDescribeDBInstanceDetailOutput) SetProjectName(v string) *DBInstanceForDescribeDBInstanceDetailOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -674,6 +690,29 @@ func (s *ShardForDescribeDBInstanceDetailOutput) SetShardId(v string) *ShardForD
 }
 
 const (
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal = "Normal"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputOwing is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputOwing = "Owing"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputRenewing is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputRenewing = "Renewing"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnDeploy is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnDeploy = "UnDeploy"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnsubscribing is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnsubscribing = "Unsubscribing"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputWaitingPaid is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputWaitingPaid = "WaitingPaid"
+)
+
+const (
 	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputNotEnabled is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
 	EnumOfChargeTypeForDescribeDBInstanceDetailOutputNotEnabled = "NotEnabled"
 
@@ -766,6 +805,9 @@ const (
 
 	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRunning is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRunning = "Running"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputSslupdating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputSslupdating = "SSLUpdating"
 
 	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputScaling is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputScaling = "Scaling"

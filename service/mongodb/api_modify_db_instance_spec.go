@@ -151,9 +151,13 @@ type ModifyDBInstanceSpecInput struct {
 
 	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForModifyDBInstanceSpecInput"`
 
+	MongosNodeNumber *int32 `type:"int32"`
+
 	MongosNodeSpec *string `type:"string"`
 
 	NodeSpec *string `type:"string"`
+
+	ShardNumber *int32 `type:"int32"`
 
 	StorageSpaceGB *int32 `type:"int32"`
 }
@@ -193,6 +197,12 @@ func (s *ModifyDBInstanceSpecInput) SetInstanceType(v string) *ModifyDBInstanceS
 	return s
 }
 
+// SetMongosNodeNumber sets the MongosNodeNumber field's value.
+func (s *ModifyDBInstanceSpecInput) SetMongosNodeNumber(v int32) *ModifyDBInstanceSpecInput {
+	s.MongosNodeNumber = &v
+	return s
+}
+
 // SetMongosNodeSpec sets the MongosNodeSpec field's value.
 func (s *ModifyDBInstanceSpecInput) SetMongosNodeSpec(v string) *ModifyDBInstanceSpecInput {
 	s.MongosNodeSpec = &v
@@ -202,6 +212,12 @@ func (s *ModifyDBInstanceSpecInput) SetMongosNodeSpec(v string) *ModifyDBInstanc
 // SetNodeSpec sets the NodeSpec field's value.
 func (s *ModifyDBInstanceSpecInput) SetNodeSpec(v string) *ModifyDBInstanceSpecInput {
 	s.NodeSpec = &v
+	return s
+}
+
+// SetShardNumber sets the ShardNumber field's value.
+func (s *ModifyDBInstanceSpecInput) SetShardNumber(v int32) *ModifyDBInstanceSpecInput {
+	s.ShardNumber = &v
 	return s
 }
 
