@@ -150,15 +150,15 @@ type BasicInfoForDescribeDBInstanceOutput struct {
 
 	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstanceOutput"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *interface{} `type:"interface"`
 
 	DBEngine *string `type:"string" enum:"EnumOfDBEngineForDescribeDBInstanceOutput"`
 
 	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstanceOutput"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *interface{} `type:"interface"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *interface{} `type:"interface"`
 
 	InstanceSpec *InstanceSpecForDescribeDBInstanceOutput `type:"structure"`
 
@@ -166,17 +166,17 @@ type BasicInfoForDescribeDBInstanceOutput struct {
 
 	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeDBInstanceOutput"`
 
-	ReadOnlyInstanceIds []*string `type:"list"`
+	ReadOnlyInstanceIds []*interface{} `type:"list"`
 
-	Region *string `type:"string"`
+	Region *interface{} `type:"interface"`
 
 	StorageSpaceGB *int32 `type:"int32"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *interface{} `type:"interface"`
 
-	VpcID *string `type:"string"`
+	VpcID *interface{} `type:"interface"`
 
-	Zone *string `type:"string"`
+	Zone *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -202,7 +202,7 @@ func (s *BasicInfoForDescribeDBInstanceOutput) SetChargeType(v string) *BasicInf
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *BasicInfoForDescribeDBInstanceOutput) SetCreateTime(v string) *BasicInfoForDescribeDBInstanceOutput {
+func (s *BasicInfoForDescribeDBInstanceOutput) SetCreateTime(v interface{}) *BasicInfoForDescribeDBInstanceOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -220,13 +220,13 @@ func (s *BasicInfoForDescribeDBInstanceOutput) SetDBEngineVersion(v string) *Bas
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceId(v string) *BasicInfoForDescribeDBInstanceOutput {
+func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceId(v interface{}) *BasicInfoForDescribeDBInstanceOutput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetInstanceName sets the InstanceName field's value.
-func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceName(v string) *BasicInfoForDescribeDBInstanceOutput {
+func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceName(v interface{}) *BasicInfoForDescribeDBInstanceOutput {
 	s.InstanceName = &v
 	return s
 }
@@ -250,13 +250,13 @@ func (s *BasicInfoForDescribeDBInstanceOutput) SetInstanceType(v string) *BasicI
 }
 
 // SetReadOnlyInstanceIds sets the ReadOnlyInstanceIds field's value.
-func (s *BasicInfoForDescribeDBInstanceOutput) SetReadOnlyInstanceIds(v []*string) *BasicInfoForDescribeDBInstanceOutput {
+func (s *BasicInfoForDescribeDBInstanceOutput) SetReadOnlyInstanceIds(v []*interface{}) *BasicInfoForDescribeDBInstanceOutput {
 	s.ReadOnlyInstanceIds = v
 	return s
 }
 
 // SetRegion sets the Region field's value.
-func (s *BasicInfoForDescribeDBInstanceOutput) SetRegion(v string) *BasicInfoForDescribeDBInstanceOutput {
+func (s *BasicInfoForDescribeDBInstanceOutput) SetRegion(v interface{}) *BasicInfoForDescribeDBInstanceOutput {
 	s.Region = &v
 	return s
 }
@@ -268,19 +268,19 @@ func (s *BasicInfoForDescribeDBInstanceOutput) SetStorageSpaceGB(v int32) *Basic
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *BasicInfoForDescribeDBInstanceOutput) SetUpdateTime(v string) *BasicInfoForDescribeDBInstanceOutput {
+func (s *BasicInfoForDescribeDBInstanceOutput) SetUpdateTime(v interface{}) *BasicInfoForDescribeDBInstanceOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetVpcID sets the VpcID field's value.
-func (s *BasicInfoForDescribeDBInstanceOutput) SetVpcID(v string) *BasicInfoForDescribeDBInstanceOutput {
+func (s *BasicInfoForDescribeDBInstanceOutput) SetVpcID(v interface{}) *BasicInfoForDescribeDBInstanceOutput {
 	s.VpcID = &v
 	return s
 }
 
 // SetZone sets the Zone field's value.
-func (s *BasicInfoForDescribeDBInstanceOutput) SetZone(v string) *BasicInfoForDescribeDBInstanceOutput {
+func (s *BasicInfoForDescribeDBInstanceOutput) SetZone(v interface{}) *BasicInfoForDescribeDBInstanceOutput {
 	s.Zone = &v
 	return s
 }
@@ -292,13 +292,13 @@ type ConnectionInfoForDescribeDBInstanceOutput struct {
 
 	EnableReadWriteSplitting *string `type:"string" enum:"EnumOfEnableReadWriteSplittingForDescribeDBInstanceOutput"`
 
-	InternalDomain *string `type:"string"`
+	InternalDomain *interface{} `type:"interface"`
 
-	InternalPort *string `type:"string"`
+	InternalPort *interface{} `type:"interface"`
 
-	PublicDomain *string `type:"string"`
+	PublicDomain *interface{} `type:"interface"`
 
-	PublicPort *string `type:"string"`
+	PublicPort *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -324,25 +324,25 @@ func (s *ConnectionInfoForDescribeDBInstanceOutput) SetEnableReadWriteSplitting(
 }
 
 // SetInternalDomain sets the InternalDomain field's value.
-func (s *ConnectionInfoForDescribeDBInstanceOutput) SetInternalDomain(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetInternalDomain(v interface{}) *ConnectionInfoForDescribeDBInstanceOutput {
 	s.InternalDomain = &v
 	return s
 }
 
 // SetInternalPort sets the InternalPort field's value.
-func (s *ConnectionInfoForDescribeDBInstanceOutput) SetInternalPort(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetInternalPort(v interface{}) *ConnectionInfoForDescribeDBInstanceOutput {
 	s.InternalPort = &v
 	return s
 }
 
 // SetPublicDomain sets the PublicDomain field's value.
-func (s *ConnectionInfoForDescribeDBInstanceOutput) SetPublicDomain(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetPublicDomain(v interface{}) *ConnectionInfoForDescribeDBInstanceOutput {
 	s.PublicDomain = &v
 	return s
 }
 
 // SetPublicPort sets the PublicPort field's value.
-func (s *ConnectionInfoForDescribeDBInstanceOutput) SetPublicPort(v string) *ConnectionInfoForDescribeDBInstanceOutput {
+func (s *ConnectionInfoForDescribeDBInstanceOutput) SetPublicPort(v interface{}) *ConnectionInfoForDescribeDBInstanceOutput {
 	s.PublicPort = &v
 	return s
 }
@@ -351,7 +351,7 @@ type DescribeDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -378,7 +378,7 @@ func (s *DescribeDBInstanceInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DescribeDBInstanceInput) SetInstanceId(v string) *DescribeDBInstanceInput {
+func (s *DescribeDBInstanceInput) SetInstanceId(v interface{}) *DescribeDBInstanceInput {
 	s.InstanceId = &v
 	return s
 }
@@ -438,7 +438,7 @@ type InstanceSpecForDescribeDBInstanceOutput struct {
 
 	MemInGb *float64 `type:"double"`
 
-	SpecName *string `type:"string"`
+	SpecName *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -464,7 +464,7 @@ func (s *InstanceSpecForDescribeDBInstanceOutput) SetMemInGb(v float64) *Instanc
 }
 
 // SetSpecName sets the SpecName field's value.
-func (s *InstanceSpecForDescribeDBInstanceOutput) SetSpecName(v string) *InstanceSpecForDescribeDBInstanceOutput {
+func (s *InstanceSpecForDescribeDBInstanceOutput) SetSpecName(v interface{}) *InstanceSpecForDescribeDBInstanceOutput {
 	s.SpecName = &v
 	return s
 }

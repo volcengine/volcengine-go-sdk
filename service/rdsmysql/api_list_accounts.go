@@ -149,7 +149,7 @@ type ListAccountsInput struct {
 	AccountName *string `min:"2" max:"32" type:"string"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 
 	Limit *int32 `type:"int32"`
 
@@ -192,7 +192,7 @@ func (s *ListAccountsInput) SetAccountName(v string) *ListAccountsInput {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ListAccountsInput) SetInstanceId(v string) *ListAccountsInput {
+func (s *ListAccountsInput) SetInstanceId(v interface{}) *ListAccountsInput {
 	s.InstanceId = &v
 	return s
 }

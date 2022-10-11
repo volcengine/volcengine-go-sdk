@@ -155,7 +155,7 @@ type CreateBackupInput struct {
 	BackupType *string `type:"string" enum:"EnumOfBackupTypeForCreateBackupInput"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -206,7 +206,7 @@ func (s *CreateBackupInput) SetBackupType(v string) *CreateBackupInput {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *CreateBackupInput) SetInstanceId(v string) *CreateBackupInput {
+func (s *CreateBackupInput) SetInstanceId(v interface{}) *CreateBackupInput {
 	s.InstanceId = &v
 	return s
 }

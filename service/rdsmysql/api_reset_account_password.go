@@ -152,7 +152,7 @@ type ResetAccountPasswordInput struct {
 	AccountPassword *string `min:"8" max:"32" type:"string"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -206,7 +206,7 @@ func (s *ResetAccountPasswordInput) SetAccountPassword(v string) *ResetAccountPa
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ResetAccountPasswordInput) SetInstanceId(v string) *ResetAccountPasswordInput {
+func (s *ResetAccountPasswordInput) SetInstanceId(v interface{}) *ResetAccountPasswordInput {
 	s.InstanceId = &v
 	return s
 }

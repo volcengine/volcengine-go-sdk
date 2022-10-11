@@ -148,7 +148,7 @@ type ListDatabasesInput struct {
 
 	DBStatus *string `type:"string" enum:"EnumOfDBStatusForListDatabasesInput"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *interface{} `type:"interface"`
 
 	Limit *int32 `type:"int32"`
 
@@ -172,7 +172,7 @@ func (s *ListDatabasesInput) SetDBStatus(v string) *ListDatabasesInput {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ListDatabasesInput) SetInstanceId(v string) *ListDatabasesInput {
+func (s *ListDatabasesInput) SetInstanceId(v interface{}) *ListDatabasesInput {
 	s.InstanceId = &v
 	return s
 }

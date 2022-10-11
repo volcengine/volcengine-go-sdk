@@ -154,9 +154,9 @@ type CreateDBInstanceInput struct {
 
 	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *interface{} `type:"interface"`
 
-	InstanceSpecName *string `type:"string"`
+	InstanceSpecName *interface{} `type:"interface"`
 
 	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForCreateDBInstanceInput"`
 
@@ -164,28 +164,28 @@ type CreateDBInstanceInput struct {
 
 	PrepaidPeriod *string `type:"string" enum:"EnumOfPrepaidPeriodForCreateDBInstanceInput"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *interface{} `type:"interface"`
 
 	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *interface{} `type:"interface" required:"true"`
 
 	// StorageSpaceGB is a required field
 	StorageSpaceGB *int32 `type:"int32" required:"true"`
 
 	StorageType *string `type:"string" enum:"EnumOfStorageTypeForCreateDBInstanceInput"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *interface{} `type:"interface"`
 
-	SuperAccountName *string `type:"string"`
+	SuperAccountName *interface{} `type:"interface"`
 
-	SuperAccountPassword *string `type:"string"`
+	SuperAccountPassword *interface{} `type:"interface"`
 
 	UsedTime *int32 `type:"int32"`
 
-	VpcID *string `type:"string"`
+	VpcID *interface{} `type:"interface"`
 
 	// Zone is a required field
-	Zone *string `type:"string" required:"true"`
+	Zone *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -242,13 +242,13 @@ func (s *CreateDBInstanceInput) SetDBEngineVersion(v string) *CreateDBInstanceIn
 }
 
 // SetInstanceName sets the InstanceName field's value.
-func (s *CreateDBInstanceInput) SetInstanceName(v string) *CreateDBInstanceInput {
+func (s *CreateDBInstanceInput) SetInstanceName(v interface{}) *CreateDBInstanceInput {
 	s.InstanceName = &v
 	return s
 }
 
 // SetInstanceSpecName sets the InstanceSpecName field's value.
-func (s *CreateDBInstanceInput) SetInstanceSpecName(v string) *CreateDBInstanceInput {
+func (s *CreateDBInstanceInput) SetInstanceSpecName(v interface{}) *CreateDBInstanceInput {
 	s.InstanceSpecName = &v
 	return s
 }
@@ -272,13 +272,13 @@ func (s *CreateDBInstanceInput) SetPrepaidPeriod(v string) *CreateDBInstanceInpu
 }
 
 // SetProjectName sets the ProjectName field's value.
-func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput {
+func (s *CreateDBInstanceInput) SetProjectName(v interface{}) *CreateDBInstanceInput {
 	s.ProjectName = &v
 	return s
 }
 
 // SetRegion sets the Region field's value.
-func (s *CreateDBInstanceInput) SetRegion(v string) *CreateDBInstanceInput {
+func (s *CreateDBInstanceInput) SetRegion(v interface{}) *CreateDBInstanceInput {
 	s.Region = &v
 	return s
 }
@@ -296,19 +296,19 @@ func (s *CreateDBInstanceInput) SetStorageType(v string) *CreateDBInstanceInput 
 }
 
 // SetSubnetId sets the SubnetId field's value.
-func (s *CreateDBInstanceInput) SetSubnetId(v string) *CreateDBInstanceInput {
+func (s *CreateDBInstanceInput) SetSubnetId(v interface{}) *CreateDBInstanceInput {
 	s.SubnetId = &v
 	return s
 }
 
 // SetSuperAccountName sets the SuperAccountName field's value.
-func (s *CreateDBInstanceInput) SetSuperAccountName(v string) *CreateDBInstanceInput {
+func (s *CreateDBInstanceInput) SetSuperAccountName(v interface{}) *CreateDBInstanceInput {
 	s.SuperAccountName = &v
 	return s
 }
 
 // SetSuperAccountPassword sets the SuperAccountPassword field's value.
-func (s *CreateDBInstanceInput) SetSuperAccountPassword(v string) *CreateDBInstanceInput {
+func (s *CreateDBInstanceInput) SetSuperAccountPassword(v interface{}) *CreateDBInstanceInput {
 	s.SuperAccountPassword = &v
 	return s
 }
@@ -320,13 +320,13 @@ func (s *CreateDBInstanceInput) SetUsedTime(v int32) *CreateDBInstanceInput {
 }
 
 // SetVpcID sets the VpcID field's value.
-func (s *CreateDBInstanceInput) SetVpcID(v string) *CreateDBInstanceInput {
+func (s *CreateDBInstanceInput) SetVpcID(v interface{}) *CreateDBInstanceInput {
 	s.VpcID = &v
 	return s
 }
 
 // SetZone sets the Zone field's value.
-func (s *CreateDBInstanceInput) SetZone(v string) *CreateDBInstanceInput {
+func (s *CreateDBInstanceInput) SetZone(v interface{}) *CreateDBInstanceInput {
 	s.Zone = &v
 	return s
 }
@@ -336,7 +336,7 @@ type CreateDBInstanceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -350,7 +350,7 @@ func (s CreateDBInstanceOutput) GoString() string {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *CreateDBInstanceOutput) SetInstanceId(v string) *CreateDBInstanceOutput {
+func (s *CreateDBInstanceOutput) SetInstanceId(v interface{}) *CreateDBInstanceOutput {
 	s.InstanceId = &v
 	return s
 }

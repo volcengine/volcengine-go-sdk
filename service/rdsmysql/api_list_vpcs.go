@@ -146,7 +146,7 @@ func (c *RDSMYSQL) ListVpcsWithContext(ctx volcengine.Context, input *ListVpcsIn
 type ListVpcsInput struct {
 	_ struct{} `type:"structure"`
 
-	Region *string `type:"string"`
+	Region *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -160,7 +160,7 @@ func (s ListVpcsInput) GoString() string {
 }
 
 // SetRegion sets the Region field's value.
-func (s *ListVpcsInput) SetRegion(v string) *ListVpcsInput {
+func (s *ListVpcsInput) SetRegion(v interface{}) *ListVpcsInput {
 	s.Region = &v
 	return s
 }

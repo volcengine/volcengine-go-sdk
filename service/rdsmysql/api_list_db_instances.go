@@ -150,15 +150,15 @@ type DataForListDBInstancesOutput struct {
 
 	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForListDBInstancesOutput"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *interface{} `type:"interface"`
 
 	DBEngine *string `type:"string" enum:"EnumOfDBEngineForListDBInstancesOutput"`
 
 	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForListDBInstancesOutput"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *interface{} `type:"interface"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *interface{} `type:"interface"`
 
 	InstanceSpec *InstanceSpecForListDBInstancesOutput `type:"structure"`
 
@@ -166,17 +166,17 @@ type DataForListDBInstancesOutput struct {
 
 	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForListDBInstancesOutput"`
 
-	ReadOnlyInstanceIds []*string `type:"list"`
+	ReadOnlyInstanceIds []*interface{} `type:"list"`
 
-	Region *string `type:"string"`
+	Region *interface{} `type:"interface"`
 
 	StorageSpaceGB *int32 `type:"int32"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *interface{} `type:"interface"`
 
-	VpcID *string `type:"string"`
+	VpcID *interface{} `type:"interface"`
 
-	Zone *string `type:"string"`
+	Zone *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -202,7 +202,7 @@ func (s *DataForListDBInstancesOutput) SetChargeType(v string) *DataForListDBIns
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *DataForListDBInstancesOutput) SetCreateTime(v string) *DataForListDBInstancesOutput {
+func (s *DataForListDBInstancesOutput) SetCreateTime(v interface{}) *DataForListDBInstancesOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -220,13 +220,13 @@ func (s *DataForListDBInstancesOutput) SetDBEngineVersion(v string) *DataForList
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DataForListDBInstancesOutput) SetInstanceId(v string) *DataForListDBInstancesOutput {
+func (s *DataForListDBInstancesOutput) SetInstanceId(v interface{}) *DataForListDBInstancesOutput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetInstanceName sets the InstanceName field's value.
-func (s *DataForListDBInstancesOutput) SetInstanceName(v string) *DataForListDBInstancesOutput {
+func (s *DataForListDBInstancesOutput) SetInstanceName(v interface{}) *DataForListDBInstancesOutput {
 	s.InstanceName = &v
 	return s
 }
@@ -250,13 +250,13 @@ func (s *DataForListDBInstancesOutput) SetInstanceType(v string) *DataForListDBI
 }
 
 // SetReadOnlyInstanceIds sets the ReadOnlyInstanceIds field's value.
-func (s *DataForListDBInstancesOutput) SetReadOnlyInstanceIds(v []*string) *DataForListDBInstancesOutput {
+func (s *DataForListDBInstancesOutput) SetReadOnlyInstanceIds(v []*interface{}) *DataForListDBInstancesOutput {
 	s.ReadOnlyInstanceIds = v
 	return s
 }
 
 // SetRegion sets the Region field's value.
-func (s *DataForListDBInstancesOutput) SetRegion(v string) *DataForListDBInstancesOutput {
+func (s *DataForListDBInstancesOutput) SetRegion(v interface{}) *DataForListDBInstancesOutput {
 	s.Region = &v
 	return s
 }
@@ -268,19 +268,19 @@ func (s *DataForListDBInstancesOutput) SetStorageSpaceGB(v int32) *DataForListDB
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListDBInstancesOutput) SetUpdateTime(v string) *DataForListDBInstancesOutput {
+func (s *DataForListDBInstancesOutput) SetUpdateTime(v interface{}) *DataForListDBInstancesOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetVpcID sets the VpcID field's value.
-func (s *DataForListDBInstancesOutput) SetVpcID(v string) *DataForListDBInstancesOutput {
+func (s *DataForListDBInstancesOutput) SetVpcID(v interface{}) *DataForListDBInstancesOutput {
 	s.VpcID = &v
 	return s
 }
 
 // SetZone sets the Zone field's value.
-func (s *DataForListDBInstancesOutput) SetZone(v string) *DataForListDBInstancesOutput {
+func (s *DataForListDBInstancesOutput) SetZone(v interface{}) *DataForListDBInstancesOutput {
 	s.Zone = &v
 	return s
 }
@@ -292,7 +292,7 @@ type InstanceSpecForListDBInstancesOutput struct {
 
 	MemInGb *float64 `type:"double"`
 
-	SpecName *string `type:"string"`
+	SpecName *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -318,7 +318,7 @@ func (s *InstanceSpecForListDBInstancesOutput) SetMemInGb(v float64) *InstanceSp
 }
 
 // SetSpecName sets the SpecName field's value.
-func (s *InstanceSpecForListDBInstancesOutput) SetSpecName(v string) *InstanceSpecForListDBInstancesOutput {
+func (s *InstanceSpecForListDBInstancesOutput) SetSpecName(v interface{}) *InstanceSpecForListDBInstancesOutput {
 	s.SpecName = &v
 	return s
 }
@@ -326,11 +326,11 @@ func (s *InstanceSpecForListDBInstancesOutput) SetSpecName(v string) *InstanceSp
 type ListDBInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	CreateEndTime *string `type:"string"`
+	CreateEndTime *interface{} `type:"interface"`
 
-	CreateStartTime *string `type:"string"`
+	CreateStartTime *interface{} `type:"interface"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *interface{} `type:"interface"`
 
 	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForListDBInstancesInput"`
 
@@ -340,9 +340,9 @@ type ListDBInstancesInput struct {
 
 	Offset *int32 `type:"int32"`
 
-	Region *string `type:"string"`
+	Region *interface{} `type:"interface"`
 
-	Zone *string `type:"string"`
+	Zone *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -356,19 +356,19 @@ func (s ListDBInstancesInput) GoString() string {
 }
 
 // SetCreateEndTime sets the CreateEndTime field's value.
-func (s *ListDBInstancesInput) SetCreateEndTime(v string) *ListDBInstancesInput {
+func (s *ListDBInstancesInput) SetCreateEndTime(v interface{}) *ListDBInstancesInput {
 	s.CreateEndTime = &v
 	return s
 }
 
 // SetCreateStartTime sets the CreateStartTime field's value.
-func (s *ListDBInstancesInput) SetCreateStartTime(v string) *ListDBInstancesInput {
+func (s *ListDBInstancesInput) SetCreateStartTime(v interface{}) *ListDBInstancesInput {
 	s.CreateStartTime = &v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ListDBInstancesInput) SetInstanceId(v string) *ListDBInstancesInput {
+func (s *ListDBInstancesInput) SetInstanceId(v interface{}) *ListDBInstancesInput {
 	s.InstanceId = &v
 	return s
 }
@@ -398,13 +398,13 @@ func (s *ListDBInstancesInput) SetOffset(v int32) *ListDBInstancesInput {
 }
 
 // SetRegion sets the Region field's value.
-func (s *ListDBInstancesInput) SetRegion(v string) *ListDBInstancesInput {
+func (s *ListDBInstancesInput) SetRegion(v interface{}) *ListDBInstancesInput {
 	s.Region = &v
 	return s
 }
 
 // SetZone sets the Zone field's value.
-func (s *ListDBInstancesInput) SetZone(v string) *ListDBInstancesInput {
+func (s *ListDBInstancesInput) SetZone(v interface{}) *ListDBInstancesInput {
 	s.Zone = &v
 	return s
 }

@@ -147,7 +147,7 @@ type RestartDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *RestartDBInstanceInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *RestartDBInstanceInput) SetInstanceId(v string) *RestartDBInstanceInput {
+func (s *RestartDBInstanceInput) SetInstanceId(v interface{}) *RestartDBInstanceInput {
 	s.InstanceId = &v
 	return s
 }

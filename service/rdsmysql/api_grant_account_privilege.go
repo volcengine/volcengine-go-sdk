@@ -151,13 +151,13 @@ type GrantAccountPrivilegeInput struct {
 
 	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForGrantAccountPrivilegeInput"`
 
-	AccountPrivilegeStr *string `type:"string"`
+	AccountPrivilegeStr *interface{} `type:"interface"`
 
 	// DBName is a required field
-	DBName *string `type:"string" required:"true"`
+	DBName *interface{} `type:"interface" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -208,19 +208,19 @@ func (s *GrantAccountPrivilegeInput) SetAccountPrivilege(v string) *GrantAccount
 }
 
 // SetAccountPrivilegeStr sets the AccountPrivilegeStr field's value.
-func (s *GrantAccountPrivilegeInput) SetAccountPrivilegeStr(v string) *GrantAccountPrivilegeInput {
+func (s *GrantAccountPrivilegeInput) SetAccountPrivilegeStr(v interface{}) *GrantAccountPrivilegeInput {
 	s.AccountPrivilegeStr = &v
 	return s
 }
 
 // SetDBName sets the DBName field's value.
-func (s *GrantAccountPrivilegeInput) SetDBName(v string) *GrantAccountPrivilegeInput {
+func (s *GrantAccountPrivilegeInput) SetDBName(v interface{}) *GrantAccountPrivilegeInput {
 	s.DBName = &v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *GrantAccountPrivilegeInput) SetInstanceId(v string) *GrantAccountPrivilegeInput {
+func (s *GrantAccountPrivilegeInput) SetInstanceId(v interface{}) *GrantAccountPrivilegeInput {
 	s.InstanceId = &v
 	return s
 }

@@ -150,13 +150,13 @@ type ConnectionInfoForDescribeDBInstanceConnectionOutput struct {
 
 	EnableReadWriteSplitting *string `type:"string" enum:"EnumOfEnableReadWriteSplittingForDescribeDBInstanceConnectionOutput"`
 
-	InternalDomain *string `type:"string"`
+	InternalDomain *interface{} `type:"interface"`
 
-	InternalPort *string `type:"string"`
+	InternalPort *interface{} `type:"interface"`
 
-	PublicDomain *string `type:"string"`
+	PublicDomain *interface{} `type:"interface"`
 
-	PublicPort *string `type:"string"`
+	PublicPort *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -182,25 +182,25 @@ func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetEnableReadWrite
 }
 
 // SetInternalDomain sets the InternalDomain field's value.
-func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetInternalDomain(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetInternalDomain(v interface{}) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
 	s.InternalDomain = &v
 	return s
 }
 
 // SetInternalPort sets the InternalPort field's value.
-func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetInternalPort(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetInternalPort(v interface{}) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
 	s.InternalPort = &v
 	return s
 }
 
 // SetPublicDomain sets the PublicDomain field's value.
-func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetPublicDomain(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetPublicDomain(v interface{}) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
 	s.PublicDomain = &v
 	return s
 }
 
 // SetPublicPort sets the PublicPort field's value.
-func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetPublicPort(v string) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
+func (s *ConnectionInfoForDescribeDBInstanceConnectionOutput) SetPublicPort(v interface{}) *ConnectionInfoForDescribeDBInstanceConnectionOutput {
 	s.PublicPort = &v
 	return s
 }
@@ -209,7 +209,7 @@ type DescribeDBInstanceConnectionInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -236,7 +236,7 @@ func (s *DescribeDBInstanceConnectionInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DescribeDBInstanceConnectionInput) SetInstanceId(v string) *DescribeDBInstanceConnectionInput {
+func (s *DescribeDBInstanceConnectionInput) SetInstanceId(v interface{}) *DescribeDBInstanceConnectionInput {
 	s.InstanceId = &v
 	return s
 }

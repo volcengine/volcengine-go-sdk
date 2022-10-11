@@ -148,22 +148,22 @@ type RecoveryDBInstanceInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	BackupId *string `type:"string"`
+	BackupId *interface{} `type:"interface"`
 
 	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForRecoveryDBInstanceInput"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *interface{} `type:"interface"`
 
-	InstanceSpecName *string `type:"string"`
+	InstanceSpecName *interface{} `type:"interface"`
 
 	PrepaidPeriod *string `type:"string" enum:"EnumOfPrepaidPeriodForRecoveryDBInstanceInput"`
 
 	RecoveryType *string `type:"string" enum:"EnumOfRecoveryTypeForRecoveryDBInstanceInput"`
 
-	RestoreTime *string `type:"string"`
+	RestoreTime *interface{} `type:"interface"`
 
 	StorageSpaceGB *int32 `type:"int32"`
 
@@ -171,7 +171,7 @@ type RecoveryDBInstanceInput struct {
 
 	UsedTime *int32 `type:"int32"`
 
-	VpcID *string `type:"string"`
+	VpcID *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *RecoveryDBInstanceInput) SetAutoRenew(v bool) *RecoveryDBInstanceInput 
 }
 
 // SetBackupId sets the BackupId field's value.
-func (s *RecoveryDBInstanceInput) SetBackupId(v string) *RecoveryDBInstanceInput {
+func (s *RecoveryDBInstanceInput) SetBackupId(v interface{}) *RecoveryDBInstanceInput {
 	s.BackupId = &v
 	return s
 }
@@ -216,19 +216,19 @@ func (s *RecoveryDBInstanceInput) SetChargeType(v string) *RecoveryDBInstanceInp
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *RecoveryDBInstanceInput) SetInstanceId(v string) *RecoveryDBInstanceInput {
+func (s *RecoveryDBInstanceInput) SetInstanceId(v interface{}) *RecoveryDBInstanceInput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetInstanceName sets the InstanceName field's value.
-func (s *RecoveryDBInstanceInput) SetInstanceName(v string) *RecoveryDBInstanceInput {
+func (s *RecoveryDBInstanceInput) SetInstanceName(v interface{}) *RecoveryDBInstanceInput {
 	s.InstanceName = &v
 	return s
 }
 
 // SetInstanceSpecName sets the InstanceSpecName field's value.
-func (s *RecoveryDBInstanceInput) SetInstanceSpecName(v string) *RecoveryDBInstanceInput {
+func (s *RecoveryDBInstanceInput) SetInstanceSpecName(v interface{}) *RecoveryDBInstanceInput {
 	s.InstanceSpecName = &v
 	return s
 }
@@ -246,7 +246,7 @@ func (s *RecoveryDBInstanceInput) SetRecoveryType(v string) *RecoveryDBInstanceI
 }
 
 // SetRestoreTime sets the RestoreTime field's value.
-func (s *RecoveryDBInstanceInput) SetRestoreTime(v string) *RecoveryDBInstanceInput {
+func (s *RecoveryDBInstanceInput) SetRestoreTime(v interface{}) *RecoveryDBInstanceInput {
 	s.RestoreTime = &v
 	return s
 }
@@ -270,7 +270,7 @@ func (s *RecoveryDBInstanceInput) SetUsedTime(v int32) *RecoveryDBInstanceInput 
 }
 
 // SetVpcID sets the VpcID field's value.
-func (s *RecoveryDBInstanceInput) SetVpcID(v string) *RecoveryDBInstanceInput {
+func (s *RecoveryDBInstanceInput) SetVpcID(v interface{}) *RecoveryDBInstanceInput {
 	s.VpcID = &v
 	return s
 }
@@ -280,7 +280,7 @@ type RecoveryDBInstanceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -294,7 +294,7 @@ func (s RecoveryDBInstanceOutput) GoString() string {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *RecoveryDBInstanceOutput) SetInstanceId(v string) *RecoveryDBInstanceOutput {
+func (s *RecoveryDBInstanceOutput) SetInstanceId(v interface{}) *RecoveryDBInstanceOutput {
 	s.InstanceId = &v
 	return s
 }

@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // RDS_MYSQL.
 //    func myFunc(svc RDSMYSQLAPI) bool {
-//        // Make svc.CreateAccount request
+//        // Make svc.AssociateAllowList request
 //    }
 //
 //    func main() {
@@ -30,6 +30,22 @@ import (
 //    }
 //
 type RDSMYSQLAPI interface {
+	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateAllowList(*AssociateAllowListInput) (*AssociateAllowListOutput, error)
+	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
+	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
+
+	CopyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CopyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CopyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CopyParameterTemplate(*CopyParameterTemplateInput) (*CopyParameterTemplateOutput, error)
+	CopyParameterTemplateWithContext(volcengine.Context, *CopyParameterTemplateInput, ...request.Option) (*CopyParameterTemplateOutput, error)
+	CopyParameterTemplateRequest(*CopyParameterTemplateInput) (*request.Request, *CopyParameterTemplateOutput)
+
 	CreateAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +53,14 @@ type RDSMYSQLAPI interface {
 	CreateAccount(*CreateAccountInput) (*CreateAccountOutput, error)
 	CreateAccountWithContext(volcengine.Context, *CreateAccountInput, ...request.Option) (*CreateAccountOutput, error)
 	CreateAccountRequest(*CreateAccountInput) (*request.Request, *CreateAccountOutput)
+
+	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAllowList(*CreateAllowListInput) (*CreateAllowListOutput, error)
+	CreateAllowListWithContext(volcengine.Context, *CreateAllowListInput, ...request.Option) (*CreateAllowListOutput, error)
+	CreateAllowListRequest(*CreateAllowListInput) (*request.Request, *CreateAllowListOutput)
 
 	CreateBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -70,6 +94,14 @@ type RDSMYSQLAPI interface {
 	CreateDatabaseWithContext(volcengine.Context, *CreateDatabaseInput, ...request.Option) (*CreateDatabaseOutput, error)
 	CreateDatabaseRequest(*CreateDatabaseInput) (*request.Request, *CreateDatabaseOutput)
 
+	CreateParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateParameterTemplate(*CreateParameterTemplateInput) (*CreateParameterTemplateOutput, error)
+	CreateParameterTemplateWithContext(volcengine.Context, *CreateParameterTemplateInput, ...request.Option) (*CreateParameterTemplateOutput, error)
+	CreateParameterTemplateRequest(*CreateParameterTemplateInput) (*request.Request, *CreateParameterTemplateOutput)
+
 	DeleteAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +109,14 @@ type RDSMYSQLAPI interface {
 	DeleteAccount(*DeleteAccountInput) (*DeleteAccountOutput, error)
 	DeleteAccountWithContext(volcengine.Context, *DeleteAccountInput, ...request.Option) (*DeleteAccountOutput, error)
 	DeleteAccountRequest(*DeleteAccountInput) (*request.Request, *DeleteAccountOutput)
+
+	DeleteAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAllowList(*DeleteAllowListInput) (*DeleteAllowListOutput, error)
+	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
+	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
 
 	DeleteDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -102,6 +142,38 @@ type RDSMYSQLAPI interface {
 	DeleteDatabaseWithContext(volcengine.Context, *DeleteDatabaseInput, ...request.Option) (*DeleteDatabaseOutput, error)
 	DeleteDatabaseRequest(*DeleteDatabaseInput) (*request.Request, *DeleteDatabaseOutput)
 
+	DeleteParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteParameterTemplate(*DeleteParameterTemplateInput) (*DeleteParameterTemplateOutput, error)
+	DeleteParameterTemplateWithContext(volcengine.Context, *DeleteParameterTemplateInput, ...request.Option) (*DeleteParameterTemplateOutput, error)
+	DeleteParameterTemplateRequest(*DeleteParameterTemplateInput) (*request.Request, *DeleteParameterTemplateOutput)
+
+	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowListDetail(*DescribeAllowListDetailInput) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailWithContext(volcengine.Context, *DescribeAllowListDetailInput, ...request.Option) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailRequest(*DescribeAllowListDetailInput) (*request.Request, *DescribeAllowListDetailOutput)
+
+	DescribeAllowListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowLists(*DescribeAllowListsInput) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsWithContext(volcengine.Context, *DescribeAllowListsInput, ...request.Option) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsRequest(*DescribeAllowListsInput) (*request.Request, *DescribeAllowListsOutput)
+
+	DescribeApplyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeApplyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeApplyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeApplyParameterTemplate(*DescribeApplyParameterTemplateInput) (*DescribeApplyParameterTemplateOutput, error)
+	DescribeApplyParameterTemplateWithContext(volcengine.Context, *DescribeApplyParameterTemplateInput, ...request.Option) (*DescribeApplyParameterTemplateOutput, error)
+	DescribeApplyParameterTemplateRequest(*DescribeApplyParameterTemplateInput) (*request.Request, *DescribeApplyParameterTemplateOutput)
+
 	DescribeDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -118,6 +190,14 @@ type RDSMYSQLAPI interface {
 	DescribeDBInstanceConnectionWithContext(volcengine.Context, *DescribeDBInstanceConnectionInput, ...request.Option) (*DescribeDBInstanceConnectionOutput, error)
 	DescribeDBInstanceConnectionRequest(*DescribeDBInstanceConnectionInput) (*request.Request, *DescribeDBInstanceConnectionOutput)
 
+	DescribeParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeParameterTemplate(*DescribeParameterTemplateInput) (*DescribeParameterTemplateOutput, error)
+	DescribeParameterTemplateWithContext(volcengine.Context, *DescribeParameterTemplateInput, ...request.Option) (*DescribeParameterTemplateOutput, error)
+	DescribeParameterTemplateRequest(*DescribeParameterTemplateInput) (*request.Request, *DescribeParameterTemplateOutput)
+
 	DescribeRecoverableTimeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRecoverableTimeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRecoverableTimeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +205,14 @@ type RDSMYSQLAPI interface {
 	DescribeRecoverableTime(*DescribeRecoverableTimeInput) (*DescribeRecoverableTimeOutput, error)
 	DescribeRecoverableTimeWithContext(volcengine.Context, *DescribeRecoverableTimeInput, ...request.Option) (*DescribeRecoverableTimeOutput, error)
 	DescribeRecoverableTimeRequest(*DescribeRecoverableTimeInput) (*request.Request, *DescribeRecoverableTimeOutput)
+
+	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateAllowList(*DisassociateAllowListInput) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
 
 	GrantAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GrantAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -174,6 +262,30 @@ type RDSMYSQLAPI interface {
 	ListDatabasesWithContext(volcengine.Context, *ListDatabasesInput, ...request.Option) (*ListDatabasesOutput, error)
 	ListDatabasesRequest(*ListDatabasesInput) (*request.Request, *ListDatabasesOutput)
 
+	ListInstanceParamsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListInstanceParamsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListInstanceParamsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListInstanceParams(*ListInstanceParamsInput) (*ListInstanceParamsOutput, error)
+	ListInstanceParamsWithContext(volcengine.Context, *ListInstanceParamsInput, ...request.Option) (*ListInstanceParamsOutput, error)
+	ListInstanceParamsRequest(*ListInstanceParamsInput) (*request.Request, *ListInstanceParamsOutput)
+
+	ListInstanceParamsHistoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListInstanceParamsHistoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListInstanceParamsHistoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListInstanceParamsHistory(*ListInstanceParamsHistoryInput) (*ListInstanceParamsHistoryOutput, error)
+	ListInstanceParamsHistoryWithContext(volcengine.Context, *ListInstanceParamsHistoryInput, ...request.Option) (*ListInstanceParamsHistoryOutput, error)
+	ListInstanceParamsHistoryRequest(*ListInstanceParamsHistoryInput) (*request.Request, *ListInstanceParamsHistoryOutput)
+
+	ListParameterTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListParameterTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListParameterTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListParameterTemplates(*ListParameterTemplatesInput) (*ListParameterTemplatesOutput, error)
+	ListParameterTemplatesWithContext(volcengine.Context, *ListParameterTemplatesInput, ...request.Option) (*ListParameterTemplatesOutput, error)
+	ListParameterTemplatesRequest(*ListParameterTemplatesInput) (*request.Request, *ListParameterTemplatesOutput)
+
 	ListVpcsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVpcsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListVpcsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -190,6 +302,14 @@ type RDSMYSQLAPI interface {
 	ListZonesWithContext(volcengine.Context, *ListZonesInput, ...request.Option) (*ListZonesOutput, error)
 	ListZonesRequest(*ListZonesInput) (*request.Request, *ListZonesOutput)
 
+	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyAllowList(*ModifyAllowListInput) (*ModifyAllowListOutput, error)
+	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
+	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
+
 	ModifyDBInstanceIPListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceIPListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceIPListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -197,6 +317,22 @@ type RDSMYSQLAPI interface {
 	ModifyDBInstanceIPList(*ModifyDBInstanceIPListInput) (*ModifyDBInstanceIPListOutput, error)
 	ModifyDBInstanceIPListWithContext(volcengine.Context, *ModifyDBInstanceIPListInput, ...request.Option) (*ModifyDBInstanceIPListOutput, error)
 	ModifyDBInstanceIPListRequest(*ModifyDBInstanceIPListInput) (*request.Request, *ModifyDBInstanceIPListOutput)
+
+	ModifyInstanceParamsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyInstanceParamsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyInstanceParamsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyInstanceParams(*ModifyInstanceParamsInput) (*ModifyInstanceParamsOutput, error)
+	ModifyInstanceParamsWithContext(volcengine.Context, *ModifyInstanceParamsInput, ...request.Option) (*ModifyInstanceParamsOutput, error)
+	ModifyInstanceParamsRequest(*ModifyInstanceParamsInput) (*request.Request, *ModifyInstanceParamsOutput)
+
+	ModifyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyParameterTemplate(*ModifyParameterTemplateInput) (*ModifyParameterTemplateOutput, error)
+	ModifyParameterTemplateWithContext(volcengine.Context, *ModifyParameterTemplateInput, ...request.Option) (*ModifyParameterTemplateOutput, error)
+	ModifyParameterTemplateRequest(*ModifyParameterTemplateInput) (*request.Request, *ModifyParameterTemplateOutput)
 
 	RecoveryDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RecoveryDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -221,6 +357,22 @@ type RDSMYSQLAPI interface {
 	RestartDBInstance(*RestartDBInstanceInput) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
+
+	SaveAsParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SaveAsParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SaveAsParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SaveAsParameterTemplate(*SaveAsParameterTemplateInput) (*SaveAsParameterTemplateOutput, error)
+	SaveAsParameterTemplateWithContext(volcengine.Context, *SaveAsParameterTemplateInput, ...request.Option) (*SaveAsParameterTemplateOutput, error)
+	SaveAsParameterTemplateRequest(*SaveAsParameterTemplateInput) (*request.Request, *SaveAsParameterTemplateOutput)
+
+	UpgradeAllowListVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpgradeAllowListVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpgradeAllowListVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpgradeAllowListVersion(*UpgradeAllowListVersionInput) (*UpgradeAllowListVersionOutput, error)
+	UpgradeAllowListVersionWithContext(volcengine.Context, *UpgradeAllowListVersionInput, ...request.Option) (*UpgradeAllowListVersionOutput, error)
+	UpgradeAllowListVersionRequest(*UpgradeAllowListVersionInput) (*request.Request, *UpgradeAllowListVersionOutput)
 }
 
 var _ RDSMYSQLAPI = (*RDSMYSQL)(nil)

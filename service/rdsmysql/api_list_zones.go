@@ -147,7 +147,7 @@ type ListZonesInput struct {
 	_ struct{} `type:"structure"`
 
 	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *ListZonesInput) Validate() error {
 }
 
 // SetRegion sets the Region field's value.
-func (s *ListZonesInput) SetRegion(v string) *ListZonesInput {
+func (s *ListZonesInput) SetRegion(v interface{}) *ListZonesInput {
 	s.Region = &v
 	return s
 }

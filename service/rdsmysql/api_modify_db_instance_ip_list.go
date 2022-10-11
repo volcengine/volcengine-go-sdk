@@ -149,10 +149,10 @@ type ModifyDBInstanceIPListInput struct {
 	// GroupName is a required field
 	GroupName *string `min:"2" max:"120" type:"string" required:"true"`
 
-	IPList []*string `type:"list"`
+	IPList []*interface{} `type:"list"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -194,13 +194,13 @@ func (s *ModifyDBInstanceIPListInput) SetGroupName(v string) *ModifyDBInstanceIP
 }
 
 // SetIPList sets the IPList field's value.
-func (s *ModifyDBInstanceIPListInput) SetIPList(v []*string) *ModifyDBInstanceIPListInput {
+func (s *ModifyDBInstanceIPListInput) SetIPList(v []*interface{}) *ModifyDBInstanceIPListInput {
 	s.IPList = v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ModifyDBInstanceIPListInput) SetInstanceId(v string) *ModifyDBInstanceIPListInput {
+func (s *ModifyDBInstanceIPListInput) SetInstanceId(v interface{}) *ModifyDBInstanceIPListInput {
 	s.InstanceId = &v
 	return s
 }

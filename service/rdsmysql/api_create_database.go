@@ -147,12 +147,12 @@ type CreateDatabaseInput struct {
 	_ struct{} `type:"structure"`
 
 	// CharacterSetName is a required field
-	CharacterSetName *string `type:"string" required:"true"`
+	CharacterSetName *interface{} `type:"interface" required:"true"`
 
 	DBName *string `min:"2" max:"64" type:"string"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *interface{} `type:"interface" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *CreateDatabaseInput) Validate() error {
 }
 
 // SetCharacterSetName sets the CharacterSetName field's value.
-func (s *CreateDatabaseInput) SetCharacterSetName(v string) *CreateDatabaseInput {
+func (s *CreateDatabaseInput) SetCharacterSetName(v interface{}) *CreateDatabaseInput {
 	s.CharacterSetName = &v
 	return s
 }
@@ -200,7 +200,7 @@ func (s *CreateDatabaseInput) SetDBName(v string) *CreateDatabaseInput {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *CreateDatabaseInput) SetInstanceId(v string) *CreateDatabaseInput {
+func (s *CreateDatabaseInput) SetInstanceId(v interface{}) *CreateDatabaseInput {
 	s.InstanceId = &v
 	return s
 }
