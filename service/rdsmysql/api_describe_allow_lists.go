@@ -146,15 +146,15 @@ func (c *RDSMYSQL) DescribeAllowListsWithContext(ctx volcengine.Context, input *
 type AllowListForDescribeAllowListsOutput struct {
 	_ struct{} `type:"structure"`
 
-	AllowListDesc *interface{} `type:"interface"`
+	AllowListDesc *string `type:"string"`
 
 	AllowListIPNum *int32 `type:"int32"`
 
-	AllowListId *interface{} `type:"interface"`
+	AllowListId *string `type:"string"`
 
-	AllowListName *interface{} `type:"interface"`
+	AllowListName *string `type:"string"`
 
-	AllowListType *interface{} `type:"interface"`
+	AllowListType *string `type:"string"`
 
 	AssociatedInstanceNum *int32 `type:"int32"`
 }
@@ -170,7 +170,7 @@ func (s AllowListForDescribeAllowListsOutput) GoString() string {
 }
 
 // SetAllowListDesc sets the AllowListDesc field's value.
-func (s *AllowListForDescribeAllowListsOutput) SetAllowListDesc(v interface{}) *AllowListForDescribeAllowListsOutput {
+func (s *AllowListForDescribeAllowListsOutput) SetAllowListDesc(v string) *AllowListForDescribeAllowListsOutput {
 	s.AllowListDesc = &v
 	return s
 }
@@ -182,19 +182,19 @@ func (s *AllowListForDescribeAllowListsOutput) SetAllowListIPNum(v int32) *Allow
 }
 
 // SetAllowListId sets the AllowListId field's value.
-func (s *AllowListForDescribeAllowListsOutput) SetAllowListId(v interface{}) *AllowListForDescribeAllowListsOutput {
+func (s *AllowListForDescribeAllowListsOutput) SetAllowListId(v string) *AllowListForDescribeAllowListsOutput {
 	s.AllowListId = &v
 	return s
 }
 
 // SetAllowListName sets the AllowListName field's value.
-func (s *AllowListForDescribeAllowListsOutput) SetAllowListName(v interface{}) *AllowListForDescribeAllowListsOutput {
+func (s *AllowListForDescribeAllowListsOutput) SetAllowListName(v string) *AllowListForDescribeAllowListsOutput {
 	s.AllowListName = &v
 	return s
 }
 
 // SetAllowListType sets the AllowListType field's value.
-func (s *AllowListForDescribeAllowListsOutput) SetAllowListType(v interface{}) *AllowListForDescribeAllowListsOutput {
+func (s *AllowListForDescribeAllowListsOutput) SetAllowListType(v string) *AllowListForDescribeAllowListsOutput {
 	s.AllowListType = &v
 	return s
 }
@@ -208,10 +208,10 @@ func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int32)
 type DescribeAllowListsInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *interface{} `type:"interface"`
+	InstanceId *string `type:"string"`
 
 	// RegionId is a required field
-	RegionId *interface{} `type:"interface" required:"true"`
+	RegionId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -238,13 +238,13 @@ func (s *DescribeAllowListsInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DescribeAllowListsInput) SetInstanceId(v interface{}) *DescribeAllowListsInput {
+func (s *DescribeAllowListsInput) SetInstanceId(v string) *DescribeAllowListsInput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetRegionId sets the RegionId field's value.
-func (s *DescribeAllowListsInput) SetRegionId(v interface{}) *DescribeAllowListsInput {
+func (s *DescribeAllowListsInput) SetRegionId(v string) *DescribeAllowListsInput {
 	s.RegionId = &v
 	return s
 }

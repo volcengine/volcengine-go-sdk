@@ -147,7 +147,7 @@ type UpgradeAllowListVersionInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *UpgradeAllowListVersionInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *UpgradeAllowListVersionInput) SetInstanceId(v interface{}) *UpgradeAllowListVersionInput {
+func (s *UpgradeAllowListVersionInput) SetInstanceId(v string) *UpgradeAllowListVersionInput {
 	s.InstanceId = &v
 	return s
 }

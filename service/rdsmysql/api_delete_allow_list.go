@@ -147,7 +147,7 @@ type DeleteAllowListInput struct {
 	_ struct{} `type:"structure"`
 
 	// AllowListId is a required field
-	AllowListId *interface{} `type:"interface" required:"true"`
+	AllowListId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *DeleteAllowListInput) Validate() error {
 }
 
 // SetAllowListId sets the AllowListId field's value.
-func (s *DeleteAllowListInput) SetAllowListId(v interface{}) *DeleteAllowListInput {
+func (s *DeleteAllowListInput) SetAllowListId(v string) *DeleteAllowListInput {
 	s.AllowListId = &v
 	return s
 }

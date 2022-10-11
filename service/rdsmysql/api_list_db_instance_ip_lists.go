@@ -147,7 +147,7 @@ type ListDBInstanceIPListsInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *ListDBInstanceIPListsInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ListDBInstanceIPListsInput) SetInstanceId(v interface{}) *ListDBInstanceIPListsInput {
+func (s *ListDBInstanceIPListsInput) SetInstanceId(v string) *ListDBInstanceIPListsInput {
 	s.InstanceId = &v
 	return s
 }

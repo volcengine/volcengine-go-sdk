@@ -150,16 +150,16 @@ type ListBackupsInput struct {
 
 	BackupStatus *string `type:"string" enum:"EnumOfBackupStatusForListBackupsInput"`
 
-	EndTime *interface{} `type:"interface"`
+	EndTime *string `type:"string"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 
 	Limit *int32 `type:"int32"`
 
 	Offset *int32 `type:"int32"`
 
-	StartTime *interface{} `type:"interface"`
+	StartTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -198,13 +198,13 @@ func (s *ListBackupsInput) SetBackupStatus(v string) *ListBackupsInput {
 }
 
 // SetEndTime sets the EndTime field's value.
-func (s *ListBackupsInput) SetEndTime(v interface{}) *ListBackupsInput {
+func (s *ListBackupsInput) SetEndTime(v string) *ListBackupsInput {
 	s.EndTime = &v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ListBackupsInput) SetInstanceId(v interface{}) *ListBackupsInput {
+func (s *ListBackupsInput) SetInstanceId(v string) *ListBackupsInput {
 	s.InstanceId = &v
 	return s
 }
@@ -222,7 +222,7 @@ func (s *ListBackupsInput) SetOffset(v int32) *ListBackupsInput {
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *ListBackupsInput) SetStartTime(v interface{}) *ListBackupsInput {
+func (s *ListBackupsInput) SetStartTime(v string) *ListBackupsInput {
 	s.StartTime = &v
 	return s
 }

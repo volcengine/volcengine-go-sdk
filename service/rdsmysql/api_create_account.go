@@ -153,7 +153,7 @@ type CreateAccountInput struct {
 	AccountType *string `type:"string" enum:"EnumOfAccountTypeForCreateAccountInput"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -210,7 +210,7 @@ func (s *CreateAccountInput) SetAccountType(v string) *CreateAccountInput {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *CreateAccountInput) SetInstanceId(v interface{}) *CreateAccountInput {
+func (s *CreateAccountInput) SetInstanceId(v string) *CreateAccountInput {
 	s.InstanceId = &v
 	return s
 }

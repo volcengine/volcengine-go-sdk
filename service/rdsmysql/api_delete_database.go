@@ -150,7 +150,7 @@ type DeleteDatabaseInput struct {
 	DBName *string `min:"2" max:"64" type:"string" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DeleteDatabaseInput) SetDBName(v string) *DeleteDatabaseInput {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DeleteDatabaseInput) SetInstanceId(v interface{}) *DeleteDatabaseInput {
+func (s *DeleteDatabaseInput) SetInstanceId(v string) *DeleteDatabaseInput {
 	s.InstanceId = &v
 	return s
 }

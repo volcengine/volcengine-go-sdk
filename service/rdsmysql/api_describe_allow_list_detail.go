@@ -146,11 +146,11 @@ func (c *RDSMYSQL) DescribeAllowListDetailWithContext(ctx volcengine.Context, in
 type AssociatedInstanceForDescribeAllowListDetailOutput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *interface{} `type:"interface"`
+	InstanceId *string `type:"string"`
 
-	InstanceName *interface{} `type:"interface"`
+	InstanceName *string `type:"string"`
 
-	VPC *interface{} `type:"interface"`
+	VPC *string `type:"string"`
 }
 
 // String returns the string representation
@@ -164,19 +164,19 @@ func (s AssociatedInstanceForDescribeAllowListDetailOutput) GoString() string {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetInstanceId(v interface{}) *AssociatedInstanceForDescribeAllowListDetailOutput {
+func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetInstanceId(v string) *AssociatedInstanceForDescribeAllowListDetailOutput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetInstanceName sets the InstanceName field's value.
-func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetInstanceName(v interface{}) *AssociatedInstanceForDescribeAllowListDetailOutput {
+func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetInstanceName(v string) *AssociatedInstanceForDescribeAllowListDetailOutput {
 	s.InstanceName = &v
 	return s
 }
 
 // SetVPC sets the VPC field's value.
-func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetVPC(v interface{}) *AssociatedInstanceForDescribeAllowListDetailOutput {
+func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetVPC(v string) *AssociatedInstanceForDescribeAllowListDetailOutput {
 	s.VPC = &v
 	return s
 }
@@ -185,7 +185,7 @@ type DescribeAllowListDetailInput struct {
 	_ struct{} `type:"structure"`
 
 	// AllowListId is a required field
-	AllowListId *interface{} `type:"interface" required:"true"`
+	AllowListId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ func (s *DescribeAllowListDetailInput) Validate() error {
 }
 
 // SetAllowListId sets the AllowListId field's value.
-func (s *DescribeAllowListDetailInput) SetAllowListId(v interface{}) *DescribeAllowListDetailInput {
+func (s *DescribeAllowListDetailInput) SetAllowListId(v string) *DescribeAllowListDetailInput {
 	s.AllowListId = &v
 	return s
 }
@@ -222,15 +222,15 @@ type DescribeAllowListDetailOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AllowList *interface{} `type:"interface"`
+	AllowList *string `type:"string"`
 
-	AllowListDesc *interface{} `type:"interface"`
+	AllowListDesc *string `type:"string"`
 
-	AllowListId *interface{} `type:"interface"`
+	AllowListId *string `type:"string"`
 
-	AllowListName *interface{} `type:"interface"`
+	AllowListName *string `type:"string"`
 
-	AllowListType *interface{} `type:"interface"`
+	AllowListType *string `type:"string"`
 
 	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list"`
 }
@@ -246,31 +246,31 @@ func (s DescribeAllowListDetailOutput) GoString() string {
 }
 
 // SetAllowList sets the AllowList field's value.
-func (s *DescribeAllowListDetailOutput) SetAllowList(v interface{}) *DescribeAllowListDetailOutput {
+func (s *DescribeAllowListDetailOutput) SetAllowList(v string) *DescribeAllowListDetailOutput {
 	s.AllowList = &v
 	return s
 }
 
 // SetAllowListDesc sets the AllowListDesc field's value.
-func (s *DescribeAllowListDetailOutput) SetAllowListDesc(v interface{}) *DescribeAllowListDetailOutput {
+func (s *DescribeAllowListDetailOutput) SetAllowListDesc(v string) *DescribeAllowListDetailOutput {
 	s.AllowListDesc = &v
 	return s
 }
 
 // SetAllowListId sets the AllowListId field's value.
-func (s *DescribeAllowListDetailOutput) SetAllowListId(v interface{}) *DescribeAllowListDetailOutput {
+func (s *DescribeAllowListDetailOutput) SetAllowListId(v string) *DescribeAllowListDetailOutput {
 	s.AllowListId = &v
 	return s
 }
 
 // SetAllowListName sets the AllowListName field's value.
-func (s *DescribeAllowListDetailOutput) SetAllowListName(v interface{}) *DescribeAllowListDetailOutput {
+func (s *DescribeAllowListDetailOutput) SetAllowListName(v string) *DescribeAllowListDetailOutput {
 	s.AllowListName = &v
 	return s
 }
 
 // SetAllowListType sets the AllowListType field's value.
-func (s *DescribeAllowListDetailOutput) SetAllowListType(v interface{}) *DescribeAllowListDetailOutput {
+func (s *DescribeAllowListDetailOutput) SetAllowListType(v string) *DescribeAllowListDetailOutput {
 	s.AllowListType = &v
 	return s
 }

@@ -147,7 +147,7 @@ type ListInstanceParamsInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *ListInstanceParamsInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ListInstanceParamsInput) SetInstanceId(v interface{}) *ListInstanceParamsInput {
+func (s *ListInstanceParamsInput) SetInstanceId(v string) *ListInstanceParamsInput {
 	s.InstanceId = &v
 	return s
 }

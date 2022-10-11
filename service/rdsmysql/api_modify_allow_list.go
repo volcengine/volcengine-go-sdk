@@ -146,19 +146,19 @@ func (c *RDSMYSQL) ModifyAllowListWithContext(ctx volcengine.Context, input *Mod
 type ModifyAllowListInput struct {
 	_ struct{} `type:"structure"`
 
-	AllowList *interface{} `type:"interface"`
+	AllowList *string `type:"string"`
 
-	AllowListDesc *interface{} `type:"interface"`
+	AllowListDesc *string `type:"string"`
 
 	// AllowListId is a required field
-	AllowListId *interface{} `type:"interface" required:"true"`
+	AllowListId *string `type:"string" required:"true"`
 
 	// AllowListName is a required field
-	AllowListName *interface{} `type:"interface" required:"true"`
+	AllowListName *string `type:"string" required:"true"`
 
 	ApplyInstanceNum *int32 `type:"int32"`
 
-	ModifyMode *interface{} `type:"interface"`
+	ModifyMode *string `type:"string"`
 }
 
 // String returns the string representation
@@ -188,25 +188,25 @@ func (s *ModifyAllowListInput) Validate() error {
 }
 
 // SetAllowList sets the AllowList field's value.
-func (s *ModifyAllowListInput) SetAllowList(v interface{}) *ModifyAllowListInput {
+func (s *ModifyAllowListInput) SetAllowList(v string) *ModifyAllowListInput {
 	s.AllowList = &v
 	return s
 }
 
 // SetAllowListDesc sets the AllowListDesc field's value.
-func (s *ModifyAllowListInput) SetAllowListDesc(v interface{}) *ModifyAllowListInput {
+func (s *ModifyAllowListInput) SetAllowListDesc(v string) *ModifyAllowListInput {
 	s.AllowListDesc = &v
 	return s
 }
 
 // SetAllowListId sets the AllowListId field's value.
-func (s *ModifyAllowListInput) SetAllowListId(v interface{}) *ModifyAllowListInput {
+func (s *ModifyAllowListInput) SetAllowListId(v string) *ModifyAllowListInput {
 	s.AllowListId = &v
 	return s
 }
 
 // SetAllowListName sets the AllowListName field's value.
-func (s *ModifyAllowListInput) SetAllowListName(v interface{}) *ModifyAllowListInput {
+func (s *ModifyAllowListInput) SetAllowListName(v string) *ModifyAllowListInput {
 	s.AllowListName = &v
 	return s
 }
@@ -218,7 +218,7 @@ func (s *ModifyAllowListInput) SetApplyInstanceNum(v int32) *ModifyAllowListInpu
 }
 
 // SetModifyMode sets the ModifyMode field's value.
-func (s *ModifyAllowListInput) SetModifyMode(v interface{}) *ModifyAllowListInput {
+func (s *ModifyAllowListInput) SetModifyMode(v string) *ModifyAllowListInput {
 	s.ModifyMode = &v
 	return s
 }

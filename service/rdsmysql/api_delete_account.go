@@ -150,7 +150,7 @@ type DeleteAccountInput struct {
 	AccountName *string `min:"2" max:"32" type:"string" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DeleteAccountInput) SetAccountName(v string) *DeleteAccountInput {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DeleteAccountInput) SetInstanceId(v interface{}) *DeleteAccountInput {
+func (s *DeleteAccountInput) SetInstanceId(v string) *DeleteAccountInput {
 	s.InstanceId = &v
 	return s
 }

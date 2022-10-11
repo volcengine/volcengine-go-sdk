@@ -147,7 +147,7 @@ type DeleteParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
 	// TemplateId is a required field
-	TemplateId *interface{} `type:"interface" required:"true"`
+	TemplateId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *DeleteParameterTemplateInput) Validate() error {
 }
 
 // SetTemplateId sets the TemplateId field's value.
-func (s *DeleteParameterTemplateInput) SetTemplateId(v interface{}) *DeleteParameterTemplateInput {
+func (s *DeleteParameterTemplateInput) SetTemplateId(v string) *DeleteParameterTemplateInput {
 	s.TemplateId = &v
 	return s
 }

@@ -150,7 +150,7 @@ type DeleteDBInstanceIPListInput struct {
 	GroupName *string `min:"2" max:"120" type:"string" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DeleteDBInstanceIPListInput) SetGroupName(v string) *DeleteDBInstanceIP
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DeleteDBInstanceIPListInput) SetInstanceId(v interface{}) *DeleteDBInstanceIPListInput {
+func (s *DeleteDBInstanceIPListInput) SetInstanceId(v string) *DeleteDBInstanceIPListInput {
 	s.InstanceId = &v
 	return s
 }

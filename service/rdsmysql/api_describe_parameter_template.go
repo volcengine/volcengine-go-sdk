@@ -147,7 +147,7 @@ type DescribeParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
 	// TemplateId is a required field
-	TemplateId *interface{} `type:"interface" required:"true"`
+	TemplateId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *DescribeParameterTemplateInput) Validate() error {
 }
 
 // SetTemplateId sets the TemplateId field's value.
-func (s *DescribeParameterTemplateInput) SetTemplateId(v interface{}) *DescribeParameterTemplateInput {
+func (s *DescribeParameterTemplateInput) SetTemplateId(v string) *DescribeParameterTemplateInput {
 	s.TemplateId = &v
 	return s
 }
@@ -206,9 +206,9 @@ func (s *DescribeParameterTemplateOutput) SetTemplateInfo(v *TemplateInfoForDesc
 type TemplateInfoForDescribeParameterTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *interface{} `type:"interface"`
+	AccountId *string `type:"string"`
 
-	CreateTime *interface{} `type:"interface"`
+	CreateTime *string `type:"string"`
 
 	NeedRestart *bool `type:"boolean"`
 
@@ -216,11 +216,11 @@ type TemplateInfoForDescribeParameterTemplateOutput struct {
 
 	TemplateCategory *string `type:"string" enum:"EnumOfTemplateCategoryForDescribeParameterTemplateOutput"`
 
-	TemplateDesc *interface{} `type:"interface"`
+	TemplateDesc *string `type:"string"`
 
-	TemplateId *interface{} `type:"interface"`
+	TemplateId *string `type:"string"`
 
-	TemplateName *interface{} `type:"interface"`
+	TemplateName *string `type:"string"`
 
 	TemplateParams []*TemplateParamForDescribeParameterTemplateOutput `type:"list"`
 
@@ -230,7 +230,7 @@ type TemplateInfoForDescribeParameterTemplateOutput struct {
 
 	TemplateTypeVersion *string `type:"string" enum:"EnumOfTemplateTypeVersionForDescribeParameterTemplateOutput"`
 
-	UpdateTime *interface{} `type:"interface"`
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -244,13 +244,13 @@ func (s TemplateInfoForDescribeParameterTemplateOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *TemplateInfoForDescribeParameterTemplateOutput) SetAccountId(v interface{}) *TemplateInfoForDescribeParameterTemplateOutput {
+func (s *TemplateInfoForDescribeParameterTemplateOutput) SetAccountId(v string) *TemplateInfoForDescribeParameterTemplateOutput {
 	s.AccountId = &v
 	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *TemplateInfoForDescribeParameterTemplateOutput) SetCreateTime(v interface{}) *TemplateInfoForDescribeParameterTemplateOutput {
+func (s *TemplateInfoForDescribeParameterTemplateOutput) SetCreateTime(v string) *TemplateInfoForDescribeParameterTemplateOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -274,19 +274,19 @@ func (s *TemplateInfoForDescribeParameterTemplateOutput) SetTemplateCategory(v s
 }
 
 // SetTemplateDesc sets the TemplateDesc field's value.
-func (s *TemplateInfoForDescribeParameterTemplateOutput) SetTemplateDesc(v interface{}) *TemplateInfoForDescribeParameterTemplateOutput {
+func (s *TemplateInfoForDescribeParameterTemplateOutput) SetTemplateDesc(v string) *TemplateInfoForDescribeParameterTemplateOutput {
 	s.TemplateDesc = &v
 	return s
 }
 
 // SetTemplateId sets the TemplateId field's value.
-func (s *TemplateInfoForDescribeParameterTemplateOutput) SetTemplateId(v interface{}) *TemplateInfoForDescribeParameterTemplateOutput {
+func (s *TemplateInfoForDescribeParameterTemplateOutput) SetTemplateId(v string) *TemplateInfoForDescribeParameterTemplateOutput {
 	s.TemplateId = &v
 	return s
 }
 
 // SetTemplateName sets the TemplateName field's value.
-func (s *TemplateInfoForDescribeParameterTemplateOutput) SetTemplateName(v interface{}) *TemplateInfoForDescribeParameterTemplateOutput {
+func (s *TemplateInfoForDescribeParameterTemplateOutput) SetTemplateName(v string) *TemplateInfoForDescribeParameterTemplateOutput {
 	s.TemplateName = &v
 	return s
 }
@@ -316,7 +316,7 @@ func (s *TemplateInfoForDescribeParameterTemplateOutput) SetTemplateTypeVersion(
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *TemplateInfoForDescribeParameterTemplateOutput) SetUpdateTime(v interface{}) *TemplateInfoForDescribeParameterTemplateOutput {
+func (s *TemplateInfoForDescribeParameterTemplateOutput) SetUpdateTime(v string) *TemplateInfoForDescribeParameterTemplateOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -324,19 +324,19 @@ func (s *TemplateInfoForDescribeParameterTemplateOutput) SetUpdateTime(v interfa
 type TemplateParamForDescribeParameterTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
-	DefaultValue *interface{} `type:"interface"`
+	DefaultValue *string `type:"string"`
 
-	Description *interface{} `type:"interface"`
+	Description *string `type:"string"`
 
-	ExpectValue *interface{} `type:"interface"`
+	ExpectValue *string `type:"string"`
 
-	Name *interface{} `type:"interface"`
+	Name *string `type:"string"`
 
 	Restart *bool `type:"boolean"`
 
-	RunningValue *interface{} `type:"interface"`
+	RunningValue *string `type:"string"`
 
-	ValueRange *interface{} `type:"interface"`
+	ValueRange *string `type:"string"`
 }
 
 // String returns the string representation
@@ -350,25 +350,25 @@ func (s TemplateParamForDescribeParameterTemplateOutput) GoString() string {
 }
 
 // SetDefaultValue sets the DefaultValue field's value.
-func (s *TemplateParamForDescribeParameterTemplateOutput) SetDefaultValue(v interface{}) *TemplateParamForDescribeParameterTemplateOutput {
+func (s *TemplateParamForDescribeParameterTemplateOutput) SetDefaultValue(v string) *TemplateParamForDescribeParameterTemplateOutput {
 	s.DefaultValue = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *TemplateParamForDescribeParameterTemplateOutput) SetDescription(v interface{}) *TemplateParamForDescribeParameterTemplateOutput {
+func (s *TemplateParamForDescribeParameterTemplateOutput) SetDescription(v string) *TemplateParamForDescribeParameterTemplateOutput {
 	s.Description = &v
 	return s
 }
 
 // SetExpectValue sets the ExpectValue field's value.
-func (s *TemplateParamForDescribeParameterTemplateOutput) SetExpectValue(v interface{}) *TemplateParamForDescribeParameterTemplateOutput {
+func (s *TemplateParamForDescribeParameterTemplateOutput) SetExpectValue(v string) *TemplateParamForDescribeParameterTemplateOutput {
 	s.ExpectValue = &v
 	return s
 }
 
 // SetName sets the Name field's value.
-func (s *TemplateParamForDescribeParameterTemplateOutput) SetName(v interface{}) *TemplateParamForDescribeParameterTemplateOutput {
+func (s *TemplateParamForDescribeParameterTemplateOutput) SetName(v string) *TemplateParamForDescribeParameterTemplateOutput {
 	s.Name = &v
 	return s
 }
@@ -380,13 +380,13 @@ func (s *TemplateParamForDescribeParameterTemplateOutput) SetRestart(v bool) *Te
 }
 
 // SetRunningValue sets the RunningValue field's value.
-func (s *TemplateParamForDescribeParameterTemplateOutput) SetRunningValue(v interface{}) *TemplateParamForDescribeParameterTemplateOutput {
+func (s *TemplateParamForDescribeParameterTemplateOutput) SetRunningValue(v string) *TemplateParamForDescribeParameterTemplateOutput {
 	s.RunningValue = &v
 	return s
 }
 
 // SetValueRange sets the ValueRange field's value.
-func (s *TemplateParamForDescribeParameterTemplateOutput) SetValueRange(v interface{}) *TemplateParamForDescribeParameterTemplateOutput {
+func (s *TemplateParamForDescribeParameterTemplateOutput) SetValueRange(v string) *TemplateParamForDescribeParameterTemplateOutput {
 	s.ValueRange = &v
 	return s
 }

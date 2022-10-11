@@ -147,14 +147,14 @@ type CreateAllowListInput struct {
 	_ struct{} `type:"structure"`
 
 	// AllowList is a required field
-	AllowList *interface{} `type:"interface" required:"true"`
+	AllowList *string `type:"string" required:"true"`
 
-	AllowListDesc *interface{} `type:"interface"`
+	AllowListDesc *string `type:"string"`
 
 	// AllowListName is a required field
-	AllowListName *interface{} `type:"interface" required:"true"`
+	AllowListName *string `type:"string" required:"true"`
 
-	AllowListType *interface{} `type:"interface"`
+	AllowListType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -184,25 +184,25 @@ func (s *CreateAllowListInput) Validate() error {
 }
 
 // SetAllowList sets the AllowList field's value.
-func (s *CreateAllowListInput) SetAllowList(v interface{}) *CreateAllowListInput {
+func (s *CreateAllowListInput) SetAllowList(v string) *CreateAllowListInput {
 	s.AllowList = &v
 	return s
 }
 
 // SetAllowListDesc sets the AllowListDesc field's value.
-func (s *CreateAllowListInput) SetAllowListDesc(v interface{}) *CreateAllowListInput {
+func (s *CreateAllowListInput) SetAllowListDesc(v string) *CreateAllowListInput {
 	s.AllowListDesc = &v
 	return s
 }
 
 // SetAllowListName sets the AllowListName field's value.
-func (s *CreateAllowListInput) SetAllowListName(v interface{}) *CreateAllowListInput {
+func (s *CreateAllowListInput) SetAllowListName(v string) *CreateAllowListInput {
 	s.AllowListName = &v
 	return s
 }
 
 // SetAllowListType sets the AllowListType field's value.
-func (s *CreateAllowListInput) SetAllowListType(v interface{}) *CreateAllowListInput {
+func (s *CreateAllowListInput) SetAllowListType(v string) *CreateAllowListInput {
 	s.AllowListType = &v
 	return s
 }
@@ -212,7 +212,7 @@ type CreateAllowListOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AllowListId *interface{} `type:"interface"`
+	AllowListId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -226,7 +226,7 @@ func (s CreateAllowListOutput) GoString() string {
 }
 
 // SetAllowListId sets the AllowListId field's value.
-func (s *CreateAllowListOutput) SetAllowListId(v interface{}) *CreateAllowListOutput {
+func (s *CreateAllowListOutput) SetAllowListId(v string) *CreateAllowListOutput {
 	s.AllowListId = &v
 	return s
 }

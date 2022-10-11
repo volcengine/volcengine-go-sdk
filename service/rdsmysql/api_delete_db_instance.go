@@ -147,7 +147,7 @@ type DeleteDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 
 	ReleasedKeepPolicy *string `type:"string" enum:"EnumOfReleasedKeepPolicyForDeleteDBInstanceInput"`
 }
@@ -176,7 +176,7 @@ func (s *DeleteDBInstanceInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DeleteDBInstanceInput) SetInstanceId(v interface{}) *DeleteDBInstanceInput {
+func (s *DeleteDBInstanceInput) SetInstanceId(v string) *DeleteDBInstanceInput {
 	s.InstanceId = &v
 	return s
 }

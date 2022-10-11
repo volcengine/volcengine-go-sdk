@@ -147,7 +147,7 @@ type SaveAsParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 
 	TemplateDesc *string `max:"200" type:"string"`
 
@@ -187,7 +187,7 @@ func (s *SaveAsParameterTemplateInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *SaveAsParameterTemplateInput) SetInstanceId(v interface{}) *SaveAsParameterTemplateInput {
+func (s *SaveAsParameterTemplateInput) SetInstanceId(v string) *SaveAsParameterTemplateInput {
 	s.InstanceId = &v
 	return s
 }

@@ -146,9 +146,9 @@ func (c *RDSMYSQL) AssociateAllowListWithContext(ctx volcengine.Context, input *
 type AssociateAllowListInput struct {
 	_ struct{} `type:"structure"`
 
-	AllowListIds []*interface{} `type:"list"`
+	AllowListIds []*string `type:"list"`
 
-	InstanceIds []*interface{} `type:"list"`
+	InstanceIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -162,13 +162,13 @@ func (s AssociateAllowListInput) GoString() string {
 }
 
 // SetAllowListIds sets the AllowListIds field's value.
-func (s *AssociateAllowListInput) SetAllowListIds(v []*interface{}) *AssociateAllowListInput {
+func (s *AssociateAllowListInput) SetAllowListIds(v []*string) *AssociateAllowListInput {
 	s.AllowListIds = v
 	return s
 }
 
 // SetInstanceIds sets the InstanceIds field's value.
-func (s *AssociateAllowListInput) SetInstanceIds(v []*interface{}) *AssociateAllowListInput {
+func (s *AssociateAllowListInput) SetInstanceIds(v []*string) *AssociateAllowListInput {
 	s.InstanceIds = v
 	return s
 }

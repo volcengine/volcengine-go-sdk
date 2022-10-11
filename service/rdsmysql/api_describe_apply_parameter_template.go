@@ -147,10 +147,10 @@ type DescribeApplyParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 
 	// TemplateId is a required field
-	TemplateId *interface{} `type:"interface" required:"true"`
+	TemplateId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -180,13 +180,13 @@ func (s *DescribeApplyParameterTemplateInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DescribeApplyParameterTemplateInput) SetInstanceId(v interface{}) *DescribeApplyParameterTemplateInput {
+func (s *DescribeApplyParameterTemplateInput) SetInstanceId(v string) *DescribeApplyParameterTemplateInput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetTemplateId sets the TemplateId field's value.
-func (s *DescribeApplyParameterTemplateInput) SetTemplateId(v interface{}) *DescribeApplyParameterTemplateInput {
+func (s *DescribeApplyParameterTemplateInput) SetTemplateId(v string) *DescribeApplyParameterTemplateInput {
 	s.TemplateId = &v
 	return s
 }
@@ -196,11 +196,11 @@ type DescribeApplyParameterTemplateOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *interface{} `type:"interface"`
+	InstanceId *string `type:"string"`
 
 	Parameters []*ParameterForDescribeApplyParameterTemplateOutput `type:"list"`
 
-	TemplateId *interface{} `type:"interface"`
+	TemplateId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -214,7 +214,7 @@ func (s DescribeApplyParameterTemplateOutput) GoString() string {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DescribeApplyParameterTemplateOutput) SetInstanceId(v interface{}) *DescribeApplyParameterTemplateOutput {
+func (s *DescribeApplyParameterTemplateOutput) SetInstanceId(v string) *DescribeApplyParameterTemplateOutput {
 	s.InstanceId = &v
 	return s
 }
@@ -226,7 +226,7 @@ func (s *DescribeApplyParameterTemplateOutput) SetParameters(v []*ParameterForDe
 }
 
 // SetTemplateId sets the TemplateId field's value.
-func (s *DescribeApplyParameterTemplateOutput) SetTemplateId(v interface{}) *DescribeApplyParameterTemplateOutput {
+func (s *DescribeApplyParameterTemplateOutput) SetTemplateId(v string) *DescribeApplyParameterTemplateOutput {
 	s.TemplateId = &v
 	return s
 }
@@ -234,15 +234,15 @@ func (s *DescribeApplyParameterTemplateOutput) SetTemplateId(v interface{}) *Des
 type ParameterForDescribeApplyParameterTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
-	Name *interface{} `type:"interface"`
+	Name *string `type:"string"`
 
-	NewValue *interface{} `type:"interface"`
+	NewValue *string `type:"string"`
 
-	OldValue *interface{} `type:"interface"`
+	OldValue *string `type:"string"`
 
 	Restart *bool `type:"boolean"`
 
-	Result *interface{} `type:"interface"`
+	Result *string `type:"string"`
 }
 
 // String returns the string representation
@@ -256,19 +256,19 @@ func (s ParameterForDescribeApplyParameterTemplateOutput) GoString() string {
 }
 
 // SetName sets the Name field's value.
-func (s *ParameterForDescribeApplyParameterTemplateOutput) SetName(v interface{}) *ParameterForDescribeApplyParameterTemplateOutput {
+func (s *ParameterForDescribeApplyParameterTemplateOutput) SetName(v string) *ParameterForDescribeApplyParameterTemplateOutput {
 	s.Name = &v
 	return s
 }
 
 // SetNewValue sets the NewValue field's value.
-func (s *ParameterForDescribeApplyParameterTemplateOutput) SetNewValue(v interface{}) *ParameterForDescribeApplyParameterTemplateOutput {
+func (s *ParameterForDescribeApplyParameterTemplateOutput) SetNewValue(v string) *ParameterForDescribeApplyParameterTemplateOutput {
 	s.NewValue = &v
 	return s
 }
 
 // SetOldValue sets the OldValue field's value.
-func (s *ParameterForDescribeApplyParameterTemplateOutput) SetOldValue(v interface{}) *ParameterForDescribeApplyParameterTemplateOutput {
+func (s *ParameterForDescribeApplyParameterTemplateOutput) SetOldValue(v string) *ParameterForDescribeApplyParameterTemplateOutput {
 	s.OldValue = &v
 	return s
 }
@@ -280,7 +280,7 @@ func (s *ParameterForDescribeApplyParameterTemplateOutput) SetRestart(v bool) *P
 }
 
 // SetResult sets the Result field's value.
-func (s *ParameterForDescribeApplyParameterTemplateOutput) SetResult(v interface{}) *ParameterForDescribeApplyParameterTemplateOutput {
+func (s *ParameterForDescribeApplyParameterTemplateOutput) SetResult(v string) *ParameterForDescribeApplyParameterTemplateOutput {
 	s.Result = &v
 	return s
 }

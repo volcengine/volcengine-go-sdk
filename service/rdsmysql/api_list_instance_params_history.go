@@ -146,13 +146,13 @@ func (c *RDSMYSQL) ListInstanceParamsHistoryWithContext(ctx volcengine.Context, 
 type DataForListInstanceParamsHistoryOutput struct {
 	_ struct{} `type:"structure"`
 
-	ModifyTime *interface{} `type:"interface"`
+	ModifyTime *string `type:"string"`
 
-	NewParameterValue *interface{} `type:"interface"`
+	NewParameterValue *string `type:"string"`
 
-	OldParameterValue *interface{} `type:"interface"`
+	OldParameterValue *string `type:"string"`
 
-	ParameterName *interface{} `type:"interface"`
+	ParameterName *string `type:"string"`
 
 	ParamsStatus *string `type:"string" enum:"EnumOfParamsStatusForListInstanceParamsHistoryOutput"`
 }
@@ -168,25 +168,25 @@ func (s DataForListInstanceParamsHistoryOutput) GoString() string {
 }
 
 // SetModifyTime sets the ModifyTime field's value.
-func (s *DataForListInstanceParamsHistoryOutput) SetModifyTime(v interface{}) *DataForListInstanceParamsHistoryOutput {
+func (s *DataForListInstanceParamsHistoryOutput) SetModifyTime(v string) *DataForListInstanceParamsHistoryOutput {
 	s.ModifyTime = &v
 	return s
 }
 
 // SetNewParameterValue sets the NewParameterValue field's value.
-func (s *DataForListInstanceParamsHistoryOutput) SetNewParameterValue(v interface{}) *DataForListInstanceParamsHistoryOutput {
+func (s *DataForListInstanceParamsHistoryOutput) SetNewParameterValue(v string) *DataForListInstanceParamsHistoryOutput {
 	s.NewParameterValue = &v
 	return s
 }
 
 // SetOldParameterValue sets the OldParameterValue field's value.
-func (s *DataForListInstanceParamsHistoryOutput) SetOldParameterValue(v interface{}) *DataForListInstanceParamsHistoryOutput {
+func (s *DataForListInstanceParamsHistoryOutput) SetOldParameterValue(v string) *DataForListInstanceParamsHistoryOutput {
 	s.OldParameterValue = &v
 	return s
 }
 
 // SetParameterName sets the ParameterName field's value.
-func (s *DataForListInstanceParamsHistoryOutput) SetParameterName(v interface{}) *DataForListInstanceParamsHistoryOutput {
+func (s *DataForListInstanceParamsHistoryOutput) SetParameterName(v string) *DataForListInstanceParamsHistoryOutput {
 	s.ParameterName = &v
 	return s
 }
@@ -201,13 +201,13 @@ type ListInstanceParamsHistoryInput struct {
 	_ struct{} `type:"structure"`
 
 	// EndTime is a required field
-	EndTime *interface{} `type:"interface" required:"true"`
+	EndTime *string `type:"string" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 
 	// StartTime is a required field
-	StartTime *interface{} `type:"interface" required:"true"`
+	StartTime *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -240,19 +240,19 @@ func (s *ListInstanceParamsHistoryInput) Validate() error {
 }
 
 // SetEndTime sets the EndTime field's value.
-func (s *ListInstanceParamsHistoryInput) SetEndTime(v interface{}) *ListInstanceParamsHistoryInput {
+func (s *ListInstanceParamsHistoryInput) SetEndTime(v string) *ListInstanceParamsHistoryInput {
 	s.EndTime = &v
 	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ListInstanceParamsHistoryInput) SetInstanceId(v interface{}) *ListInstanceParamsHistoryInput {
+func (s *ListInstanceParamsHistoryInput) SetInstanceId(v string) *ListInstanceParamsHistoryInput {
 	s.InstanceId = &v
 	return s
 }
 
 // SetStartTime sets the StartTime field's value.
-func (s *ListInstanceParamsHistoryInput) SetStartTime(v interface{}) *ListInstanceParamsHistoryInput {
+func (s *ListInstanceParamsHistoryInput) SetStartTime(v string) *ListInstanceParamsHistoryInput {
 	s.StartTime = &v
 	return s
 }

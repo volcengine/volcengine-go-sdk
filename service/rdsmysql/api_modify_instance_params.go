@@ -147,7 +147,7 @@ type ModifyInstanceParamsInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 
 	Parameters []*ParameterForModifyInstanceParamsInput `type:"list"`
 }
@@ -176,7 +176,7 @@ func (s *ModifyInstanceParamsInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *ModifyInstanceParamsInput) SetInstanceId(v interface{}) *ModifyInstanceParamsInput {
+func (s *ModifyInstanceParamsInput) SetInstanceId(v string) *ModifyInstanceParamsInput {
 	s.InstanceId = &v
 	return s
 }
@@ -206,15 +206,15 @@ func (s ModifyInstanceParamsOutput) GoString() string {
 type ParameterForModifyInstanceParamsInput struct {
 	_ struct{} `type:"structure"`
 
-	Name *interface{} `type:"interface"`
+	Name *string `type:"string"`
 
-	NewValue *interface{} `type:"interface"`
+	NewValue *string `type:"string"`
 
-	OldValue *interface{} `type:"interface"`
+	OldValue *string `type:"string"`
 
 	Restart *bool `type:"boolean"`
 
-	Result *interface{} `type:"interface"`
+	Result *string `type:"string"`
 }
 
 // String returns the string representation
@@ -228,19 +228,19 @@ func (s ParameterForModifyInstanceParamsInput) GoString() string {
 }
 
 // SetName sets the Name field's value.
-func (s *ParameterForModifyInstanceParamsInput) SetName(v interface{}) *ParameterForModifyInstanceParamsInput {
+func (s *ParameterForModifyInstanceParamsInput) SetName(v string) *ParameterForModifyInstanceParamsInput {
 	s.Name = &v
 	return s
 }
 
 // SetNewValue sets the NewValue field's value.
-func (s *ParameterForModifyInstanceParamsInput) SetNewValue(v interface{}) *ParameterForModifyInstanceParamsInput {
+func (s *ParameterForModifyInstanceParamsInput) SetNewValue(v string) *ParameterForModifyInstanceParamsInput {
 	s.NewValue = &v
 	return s
 }
 
 // SetOldValue sets the OldValue field's value.
-func (s *ParameterForModifyInstanceParamsInput) SetOldValue(v interface{}) *ParameterForModifyInstanceParamsInput {
+func (s *ParameterForModifyInstanceParamsInput) SetOldValue(v string) *ParameterForModifyInstanceParamsInput {
 	s.OldValue = &v
 	return s
 }
@@ -252,7 +252,7 @@ func (s *ParameterForModifyInstanceParamsInput) SetRestart(v bool) *ParameterFor
 }
 
 // SetResult sets the Result field's value.
-func (s *ParameterForModifyInstanceParamsInput) SetResult(v interface{}) *ParameterForModifyInstanceParamsInput {
+func (s *ParameterForModifyInstanceParamsInput) SetResult(v string) *ParameterForModifyInstanceParamsInput {
 	s.Result = &v
 	return s
 }

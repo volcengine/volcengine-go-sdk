@@ -147,7 +147,7 @@ type CopyParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
 	// SrcTemplateId is a required field
-	SrcTemplateId *interface{} `type:"interface" required:"true"`
+	SrcTemplateId *string `type:"string" required:"true"`
 
 	TemplateDesc *string `max:"200" type:"string"`
 
@@ -187,7 +187,7 @@ func (s *CopyParameterTemplateInput) Validate() error {
 }
 
 // SetSrcTemplateId sets the SrcTemplateId field's value.
-func (s *CopyParameterTemplateInput) SetSrcTemplateId(v interface{}) *CopyParameterTemplateInput {
+func (s *CopyParameterTemplateInput) SetSrcTemplateId(v string) *CopyParameterTemplateInput {
 	s.SrcTemplateId = &v
 	return s
 }

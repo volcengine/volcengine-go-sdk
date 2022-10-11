@@ -146,9 +146,9 @@ func (c *RDSMYSQL) DisassociateAllowListWithContext(ctx volcengine.Context, inpu
 type DisassociateAllowListInput struct {
 	_ struct{} `type:"structure"`
 
-	AllowListIds []*interface{} `type:"list"`
+	AllowListIds []*string `type:"list"`
 
-	InstanceIds []*interface{} `type:"list"`
+	InstanceIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -162,13 +162,13 @@ func (s DisassociateAllowListInput) GoString() string {
 }
 
 // SetAllowListIds sets the AllowListIds field's value.
-func (s *DisassociateAllowListInput) SetAllowListIds(v []*interface{}) *DisassociateAllowListInput {
+func (s *DisassociateAllowListInput) SetAllowListIds(v []*string) *DisassociateAllowListInput {
 	s.AllowListIds = v
 	return s
 }
 
 // SetInstanceIds sets the InstanceIds field's value.
-func (s *DisassociateAllowListInput) SetInstanceIds(v []*interface{}) *DisassociateAllowListInput {
+func (s *DisassociateAllowListInput) SetInstanceIds(v []*string) *DisassociateAllowListInput {
 	s.InstanceIds = v
 	return s
 }

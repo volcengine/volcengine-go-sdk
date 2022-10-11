@@ -147,7 +147,7 @@ type DescribeRecoverableTimeInput struct {
 	_ struct{} `type:"structure"`
 
 	// InstanceId is a required field
-	InstanceId *interface{} `type:"interface" required:"true"`
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ func (s *DescribeRecoverableTimeInput) Validate() error {
 }
 
 // SetInstanceId sets the InstanceId field's value.
-func (s *DescribeRecoverableTimeInput) SetInstanceId(v interface{}) *DescribeRecoverableTimeInput {
+func (s *DescribeRecoverableTimeInput) SetInstanceId(v string) *DescribeRecoverableTimeInput {
 	s.InstanceId = &v
 	return s
 }
@@ -184,7 +184,7 @@ type DescribeRecoverableTimeOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	EarliestRecoverableTime *interface{} `type:"interface"`
+	EarliestRecoverableTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -198,7 +198,7 @@ func (s DescribeRecoverableTimeOutput) GoString() string {
 }
 
 // SetEarliestRecoverableTime sets the EarliestRecoverableTime field's value.
-func (s *DescribeRecoverableTimeOutput) SetEarliestRecoverableTime(v interface{}) *DescribeRecoverableTimeOutput {
+func (s *DescribeRecoverableTimeOutput) SetEarliestRecoverableTime(v string) *DescribeRecoverableTimeOutput {
 	s.EarliestRecoverableTime = &v
 	return s
 }

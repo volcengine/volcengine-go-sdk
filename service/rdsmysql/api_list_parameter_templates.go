@@ -146,9 +146,9 @@ func (c *RDSMYSQL) ListParameterTemplatesWithContext(ctx volcengine.Context, inp
 type DataForListParameterTemplatesOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *interface{} `type:"interface"`
+	AccountId *string `type:"string"`
 
-	CreateTime *interface{} `type:"interface"`
+	CreateTime *string `type:"string"`
 
 	NeedRestart *bool `type:"boolean"`
 
@@ -156,11 +156,11 @@ type DataForListParameterTemplatesOutput struct {
 
 	TemplateCategory *string `type:"string" enum:"EnumOfTemplateCategoryForListParameterTemplatesOutput"`
 
-	TemplateDesc *interface{} `type:"interface"`
+	TemplateDesc *string `type:"string"`
 
-	TemplateId *interface{} `type:"interface"`
+	TemplateId *string `type:"string"`
 
-	TemplateName *interface{} `type:"interface"`
+	TemplateName *string `type:"string"`
 
 	TemplateParams []*TemplateParamForListParameterTemplatesOutput `type:"list"`
 
@@ -170,7 +170,7 @@ type DataForListParameterTemplatesOutput struct {
 
 	TemplateTypeVersion *string `type:"string" enum:"EnumOfTemplateTypeVersionForListParameterTemplatesOutput"`
 
-	UpdateTime *interface{} `type:"interface"`
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -184,13 +184,13 @@ func (s DataForListParameterTemplatesOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *DataForListParameterTemplatesOutput) SetAccountId(v interface{}) *DataForListParameterTemplatesOutput {
+func (s *DataForListParameterTemplatesOutput) SetAccountId(v string) *DataForListParameterTemplatesOutput {
 	s.AccountId = &v
 	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *DataForListParameterTemplatesOutput) SetCreateTime(v interface{}) *DataForListParameterTemplatesOutput {
+func (s *DataForListParameterTemplatesOutput) SetCreateTime(v string) *DataForListParameterTemplatesOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -214,19 +214,19 @@ func (s *DataForListParameterTemplatesOutput) SetTemplateCategory(v string) *Dat
 }
 
 // SetTemplateDesc sets the TemplateDesc field's value.
-func (s *DataForListParameterTemplatesOutput) SetTemplateDesc(v interface{}) *DataForListParameterTemplatesOutput {
+func (s *DataForListParameterTemplatesOutput) SetTemplateDesc(v string) *DataForListParameterTemplatesOutput {
 	s.TemplateDesc = &v
 	return s
 }
 
 // SetTemplateId sets the TemplateId field's value.
-func (s *DataForListParameterTemplatesOutput) SetTemplateId(v interface{}) *DataForListParameterTemplatesOutput {
+func (s *DataForListParameterTemplatesOutput) SetTemplateId(v string) *DataForListParameterTemplatesOutput {
 	s.TemplateId = &v
 	return s
 }
 
 // SetTemplateName sets the TemplateName field's value.
-func (s *DataForListParameterTemplatesOutput) SetTemplateName(v interface{}) *DataForListParameterTemplatesOutput {
+func (s *DataForListParameterTemplatesOutput) SetTemplateName(v string) *DataForListParameterTemplatesOutput {
 	s.TemplateName = &v
 	return s
 }
@@ -256,7 +256,7 @@ func (s *DataForListParameterTemplatesOutput) SetTemplateTypeVersion(v string) *
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DataForListParameterTemplatesOutput) SetUpdateTime(v interface{}) *DataForListParameterTemplatesOutput {
+func (s *DataForListParameterTemplatesOutput) SetUpdateTime(v string) *DataForListParameterTemplatesOutput {
 	s.UpdateTime = &v
 	return s
 }
@@ -342,19 +342,19 @@ func (s *ListParameterTemplatesOutput) SetTotal(v int32) *ListParameterTemplates
 type TemplateParamForListParameterTemplatesOutput struct {
 	_ struct{} `type:"structure"`
 
-	DefaultValue *interface{} `type:"interface"`
+	DefaultValue *string `type:"string"`
 
-	Description *interface{} `type:"interface"`
+	Description *string `type:"string"`
 
-	ExpectValue *interface{} `type:"interface"`
+	ExpectValue *string `type:"string"`
 
-	Name *interface{} `type:"interface"`
+	Name *string `type:"string"`
 
 	Restart *bool `type:"boolean"`
 
-	RunningValue *interface{} `type:"interface"`
+	RunningValue *string `type:"string"`
 
-	ValueRange *interface{} `type:"interface"`
+	ValueRange *string `type:"string"`
 }
 
 // String returns the string representation
@@ -368,25 +368,25 @@ func (s TemplateParamForListParameterTemplatesOutput) GoString() string {
 }
 
 // SetDefaultValue sets the DefaultValue field's value.
-func (s *TemplateParamForListParameterTemplatesOutput) SetDefaultValue(v interface{}) *TemplateParamForListParameterTemplatesOutput {
+func (s *TemplateParamForListParameterTemplatesOutput) SetDefaultValue(v string) *TemplateParamForListParameterTemplatesOutput {
 	s.DefaultValue = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *TemplateParamForListParameterTemplatesOutput) SetDescription(v interface{}) *TemplateParamForListParameterTemplatesOutput {
+func (s *TemplateParamForListParameterTemplatesOutput) SetDescription(v string) *TemplateParamForListParameterTemplatesOutput {
 	s.Description = &v
 	return s
 }
 
 // SetExpectValue sets the ExpectValue field's value.
-func (s *TemplateParamForListParameterTemplatesOutput) SetExpectValue(v interface{}) *TemplateParamForListParameterTemplatesOutput {
+func (s *TemplateParamForListParameterTemplatesOutput) SetExpectValue(v string) *TemplateParamForListParameterTemplatesOutput {
 	s.ExpectValue = &v
 	return s
 }
 
 // SetName sets the Name field's value.
-func (s *TemplateParamForListParameterTemplatesOutput) SetName(v interface{}) *TemplateParamForListParameterTemplatesOutput {
+func (s *TemplateParamForListParameterTemplatesOutput) SetName(v string) *TemplateParamForListParameterTemplatesOutput {
 	s.Name = &v
 	return s
 }
@@ -398,13 +398,13 @@ func (s *TemplateParamForListParameterTemplatesOutput) SetRestart(v bool) *Templ
 }
 
 // SetRunningValue sets the RunningValue field's value.
-func (s *TemplateParamForListParameterTemplatesOutput) SetRunningValue(v interface{}) *TemplateParamForListParameterTemplatesOutput {
+func (s *TemplateParamForListParameterTemplatesOutput) SetRunningValue(v string) *TemplateParamForListParameterTemplatesOutput {
 	s.RunningValue = &v
 	return s
 }
 
 // SetValueRange sets the ValueRange field's value.
-func (s *TemplateParamForListParameterTemplatesOutput) SetValueRange(v interface{}) *TemplateParamForListParameterTemplatesOutput {
+func (s *TemplateParamForListParameterTemplatesOutput) SetValueRange(v string) *TemplateParamForListParameterTemplatesOutput {
 	s.ValueRange = &v
 	return s
 }

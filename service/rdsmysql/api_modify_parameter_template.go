@@ -146,19 +146,19 @@ func (c *RDSMYSQL) ModifyParameterTemplateWithContext(ctx volcengine.Context, in
 type CustomParamForModifyParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
-	DefaultValue *interface{} `type:"interface"`
+	DefaultValue *string `type:"string"`
 
-	Description *interface{} `type:"interface"`
+	Description *string `type:"string"`
 
-	ExpectValue *interface{} `type:"interface"`
+	ExpectValue *string `type:"string"`
 
-	Name *interface{} `type:"interface"`
+	Name *string `type:"string"`
 
 	Restart *bool `type:"boolean"`
 
-	RunningValue *interface{} `type:"interface"`
+	RunningValue *string `type:"string"`
 
-	ValueRange *interface{} `type:"interface"`
+	ValueRange *string `type:"string"`
 }
 
 // String returns the string representation
@@ -172,25 +172,25 @@ func (s CustomParamForModifyParameterTemplateInput) GoString() string {
 }
 
 // SetDefaultValue sets the DefaultValue field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetDefaultValue(v interface{}) *CustomParamForModifyParameterTemplateInput {
+func (s *CustomParamForModifyParameterTemplateInput) SetDefaultValue(v string) *CustomParamForModifyParameterTemplateInput {
 	s.DefaultValue = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetDescription(v interface{}) *CustomParamForModifyParameterTemplateInput {
+func (s *CustomParamForModifyParameterTemplateInput) SetDescription(v string) *CustomParamForModifyParameterTemplateInput {
 	s.Description = &v
 	return s
 }
 
 // SetExpectValue sets the ExpectValue field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetExpectValue(v interface{}) *CustomParamForModifyParameterTemplateInput {
+func (s *CustomParamForModifyParameterTemplateInput) SetExpectValue(v string) *CustomParamForModifyParameterTemplateInput {
 	s.ExpectValue = &v
 	return s
 }
 
 // SetName sets the Name field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetName(v interface{}) *CustomParamForModifyParameterTemplateInput {
+func (s *CustomParamForModifyParameterTemplateInput) SetName(v string) *CustomParamForModifyParameterTemplateInput {
 	s.Name = &v
 	return s
 }
@@ -202,13 +202,13 @@ func (s *CustomParamForModifyParameterTemplateInput) SetRestart(v bool) *CustomP
 }
 
 // SetRunningValue sets the RunningValue field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetRunningValue(v interface{}) *CustomParamForModifyParameterTemplateInput {
+func (s *CustomParamForModifyParameterTemplateInput) SetRunningValue(v string) *CustomParamForModifyParameterTemplateInput {
 	s.RunningValue = &v
 	return s
 }
 
 // SetValueRange sets the ValueRange field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetValueRange(v interface{}) *CustomParamForModifyParameterTemplateInput {
+func (s *CustomParamForModifyParameterTemplateInput) SetValueRange(v string) *CustomParamForModifyParameterTemplateInput {
 	s.ValueRange = &v
 	return s
 }
@@ -219,7 +219,7 @@ type ModifyParameterTemplateInput struct {
 	TemplateDesc *string `max:"200" type:"string"`
 
 	// TemplateId is a required field
-	TemplateId *interface{} `type:"interface" required:"true"`
+	TemplateId *string `type:"string" required:"true"`
 
 	TemplateName *string `min:"2" max:"64" type:"string"`
 
@@ -265,7 +265,7 @@ func (s *ModifyParameterTemplateInput) SetTemplateDesc(v string) *ModifyParamete
 }
 
 // SetTemplateId sets the TemplateId field's value.
-func (s *ModifyParameterTemplateInput) SetTemplateId(v interface{}) *ModifyParameterTemplateInput {
+func (s *ModifyParameterTemplateInput) SetTemplateId(v string) *ModifyParameterTemplateInput {
 	s.TemplateId = &v
 	return s
 }
