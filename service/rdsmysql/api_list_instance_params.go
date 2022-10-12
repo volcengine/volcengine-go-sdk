@@ -143,6 +143,76 @@ func (c *RDSMYSQL) ListInstanceParamsWithContext(ctx volcengine.Context, input *
 	return out, req.Send()
 }
 
+type DataForListInstanceParamsOutput struct {
+	_ struct{} `type:"structure"`
+
+	DefaultValue *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	ExpectValue *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	Restart *bool `type:"boolean"`
+
+	RunningValue *string `type:"string"`
+
+	ValueRange *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DataForListInstanceParamsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForListInstanceParamsOutput) GoString() string {
+	return s.String()
+}
+
+// SetDefaultValue sets the DefaultValue field's value.
+func (s *DataForListInstanceParamsOutput) SetDefaultValue(v string) *DataForListInstanceParamsOutput {
+	s.DefaultValue = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *DataForListInstanceParamsOutput) SetDescription(v string) *DataForListInstanceParamsOutput {
+	s.Description = &v
+	return s
+}
+
+// SetExpectValue sets the ExpectValue field's value.
+func (s *DataForListInstanceParamsOutput) SetExpectValue(v string) *DataForListInstanceParamsOutput {
+	s.ExpectValue = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *DataForListInstanceParamsOutput) SetName(v string) *DataForListInstanceParamsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetRestart sets the Restart field's value.
+func (s *DataForListInstanceParamsOutput) SetRestart(v bool) *DataForListInstanceParamsOutput {
+	s.Restart = &v
+	return s
+}
+
+// SetRunningValue sets the RunningValue field's value.
+func (s *DataForListInstanceParamsOutput) SetRunningValue(v string) *DataForListInstanceParamsOutput {
+	s.RunningValue = &v
+	return s
+}
+
+// SetValueRange sets the ValueRange field's value.
+func (s *DataForListInstanceParamsOutput) SetValueRange(v string) *DataForListInstanceParamsOutput {
+	s.ValueRange = &v
+	return s
+}
+
 type ListInstanceParamsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -183,6 +253,8 @@ type ListInstanceParamsOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Datas []*DataForListInstanceParamsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -193,4 +265,10 @@ func (s ListInstanceParamsOutput) String() string {
 // GoString returns the string representation
 func (s ListInstanceParamsOutput) GoString() string {
 	return s.String()
+}
+
+// SetDatas sets the Datas field's value.
+func (s *ListInstanceParamsOutput) SetDatas(v []*DataForListInstanceParamsOutput) *ListInstanceParamsOutput {
+	s.Datas = v
+	return s
 }
