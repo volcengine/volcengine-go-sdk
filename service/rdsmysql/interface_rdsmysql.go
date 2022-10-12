@@ -70,14 +70,6 @@ type RDSMYSQLAPI interface {
 	CreateBackupWithContext(volcengine.Context, *CreateBackupInput, ...request.Option) (*CreateBackupOutput, error)
 	CreateBackupRequest(*CreateBackupInput) (*request.Request, *CreateBackupOutput)
 
-	CreateDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateDBInstance(*CreateDBInstanceInput) (*CreateDBInstanceOutput, error)
-	CreateDBInstanceWithContext(volcengine.Context, *CreateDBInstanceInput, ...request.Option) (*CreateDBInstanceOutput, error)
-	CreateDBInstanceRequest(*CreateDBInstanceInput) (*request.Request, *CreateDBInstanceOutput)
-
 	CreateDBInstanceIPListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDBInstanceIPListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDBInstanceIPListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,14 +109,6 @@ type RDSMYSQLAPI interface {
 	DeleteAllowList(*DeleteAllowListInput) (*DeleteAllowListOutput, error)
 	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
 	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
-
-	DeleteDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteDBInstance(*DeleteDBInstanceInput) (*DeleteDBInstanceOutput, error)
-	DeleteDBInstanceWithContext(volcengine.Context, *DeleteDBInstanceInput, ...request.Option) (*DeleteDBInstanceOutput, error)
-	DeleteDBInstanceRequest(*DeleteDBInstanceInput) (*request.Request, *DeleteDBInstanceOutput)
 
 	DeleteDBInstanceIPListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDBInstanceIPListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -173,14 +157,6 @@ type RDSMYSQLAPI interface {
 	DescribeApplyParameterTemplate(*DescribeApplyParameterTemplateInput) (*DescribeApplyParameterTemplateOutput, error)
 	DescribeApplyParameterTemplateWithContext(volcengine.Context, *DescribeApplyParameterTemplateInput, ...request.Option) (*DescribeApplyParameterTemplateOutput, error)
 	DescribeApplyParameterTemplateRequest(*DescribeApplyParameterTemplateInput) (*request.Request, *DescribeApplyParameterTemplateOutput)
-
-	DescribeDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeDBInstance(*DescribeDBInstanceInput) (*DescribeDBInstanceOutput, error)
-	DescribeDBInstanceWithContext(volcengine.Context, *DescribeDBInstanceInput, ...request.Option) (*DescribeDBInstanceOutput, error)
-	DescribeDBInstanceRequest(*DescribeDBInstanceInput) (*request.Request, *DescribeDBInstanceOutput)
 
 	DescribeDBInstanceConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -246,14 +222,6 @@ type RDSMYSQLAPI interface {
 	ListDBInstanceIPListsWithContext(volcengine.Context, *ListDBInstanceIPListsInput, ...request.Option) (*ListDBInstanceIPListsOutput, error)
 	ListDBInstanceIPListsRequest(*ListDBInstanceIPListsInput) (*request.Request, *ListDBInstanceIPListsOutput)
 
-	ListDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListDBInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListDBInstances(*ListDBInstancesInput) (*ListDBInstancesOutput, error)
-	ListDBInstancesWithContext(volcengine.Context, *ListDBInstancesInput, ...request.Option) (*ListDBInstancesOutput, error)
-	ListDBInstancesRequest(*ListDBInstancesInput) (*request.Request, *ListDBInstancesOutput)
-
 	ListDatabasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDatabasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListDatabasesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -286,22 +254,6 @@ type RDSMYSQLAPI interface {
 	ListParameterTemplatesWithContext(volcengine.Context, *ListParameterTemplatesInput, ...request.Option) (*ListParameterTemplatesOutput, error)
 	ListParameterTemplatesRequest(*ListParameterTemplatesInput) (*request.Request, *ListParameterTemplatesOutput)
 
-	ListVpcsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListVpcsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListVpcsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListVpcs(*ListVpcsInput) (*ListVpcsOutput, error)
-	ListVpcsWithContext(volcengine.Context, *ListVpcsInput, ...request.Option) (*ListVpcsOutput, error)
-	ListVpcsRequest(*ListVpcsInput) (*request.Request, *ListVpcsOutput)
-
-	ListZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListZones(*ListZonesInput) (*ListZonesOutput, error)
-	ListZonesWithContext(volcengine.Context, *ListZonesInput, ...request.Option) (*ListZonesOutput, error)
-	ListZonesRequest(*ListZonesInput) (*request.Request, *ListZonesOutput)
-
 	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -317,6 +269,14 @@ type RDSMYSQLAPI interface {
 	ModifyDBInstanceIPList(*ModifyDBInstanceIPListInput) (*ModifyDBInstanceIPListOutput, error)
 	ModifyDBInstanceIPListWithContext(volcengine.Context, *ModifyDBInstanceIPListInput, ...request.Option) (*ModifyDBInstanceIPListOutput, error)
 	ModifyDBInstanceIPListRequest(*ModifyDBInstanceIPListInput) (*request.Request, *ModifyDBInstanceIPListOutput)
+
+	ModifyDBInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceSpec(*ModifyDBInstanceSpecInput) (*ModifyDBInstanceSpecOutput, error)
+	ModifyDBInstanceSpecWithContext(volcengine.Context, *ModifyDBInstanceSpecInput, ...request.Option) (*ModifyDBInstanceSpecOutput, error)
+	ModifyDBInstanceSpecRequest(*ModifyDBInstanceSpecInput) (*request.Request, *ModifyDBInstanceSpecOutput)
 
 	ModifyInstanceParamsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceParamsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -349,14 +309,6 @@ type RDSMYSQLAPI interface {
 	ResetAccountPassword(*ResetAccountPasswordInput) (*ResetAccountPasswordOutput, error)
 	ResetAccountPasswordWithContext(volcengine.Context, *ResetAccountPasswordInput, ...request.Option) (*ResetAccountPasswordOutput, error)
 	ResetAccountPasswordRequest(*ResetAccountPasswordInput) (*request.Request, *ResetAccountPasswordOutput)
-
-	RestartDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RestartDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RestartDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RestartDBInstance(*RestartDBInstanceInput) (*RestartDBInstanceOutput, error)
-	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
-	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
 
 	SaveAsParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SaveAsParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
