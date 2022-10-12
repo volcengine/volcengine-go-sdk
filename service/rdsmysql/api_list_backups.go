@@ -143,6 +143,100 @@ func (c *RDSMYSQL) ListBackupsWithContext(ctx volcengine.Context, input *ListBac
 	return out, req.Send()
 }
 
+type DataForListBackupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	BackupEndTime *string `type:"string"`
+
+	BackupFileName *string `type:"string"`
+
+	BackupFileSize *int64 `type:"int64"`
+
+	BackupId *string `type:"string"`
+
+	BackupMode *string `type:"string" enum:"EnumOfBackupModeForListBackupsOutput"`
+
+	BackupStartTime *string `type:"string"`
+
+	BackupStatus *string `type:"string" enum:"EnumOfBackupStatusForListBackupsOutput"`
+
+	BackupStrategy *string `type:"string" enum:"EnumOfBackupStrategyForListBackupsOutput"`
+
+	BackupType *string `type:"string" enum:"EnumOfBackupTypeForListBackupsOutput"`
+
+	CreateType *string `type:"string" enum:"EnumOfCreateTypeForListBackupsOutput"`
+}
+
+// String returns the string representation
+func (s DataForListBackupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForListBackupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackupEndTime sets the BackupEndTime field's value.
+func (s *DataForListBackupsOutput) SetBackupEndTime(v string) *DataForListBackupsOutput {
+	s.BackupEndTime = &v
+	return s
+}
+
+// SetBackupFileName sets the BackupFileName field's value.
+func (s *DataForListBackupsOutput) SetBackupFileName(v string) *DataForListBackupsOutput {
+	s.BackupFileName = &v
+	return s
+}
+
+// SetBackupFileSize sets the BackupFileSize field's value.
+func (s *DataForListBackupsOutput) SetBackupFileSize(v int64) *DataForListBackupsOutput {
+	s.BackupFileSize = &v
+	return s
+}
+
+// SetBackupId sets the BackupId field's value.
+func (s *DataForListBackupsOutput) SetBackupId(v string) *DataForListBackupsOutput {
+	s.BackupId = &v
+	return s
+}
+
+// SetBackupMode sets the BackupMode field's value.
+func (s *DataForListBackupsOutput) SetBackupMode(v string) *DataForListBackupsOutput {
+	s.BackupMode = &v
+	return s
+}
+
+// SetBackupStartTime sets the BackupStartTime field's value.
+func (s *DataForListBackupsOutput) SetBackupStartTime(v string) *DataForListBackupsOutput {
+	s.BackupStartTime = &v
+	return s
+}
+
+// SetBackupStatus sets the BackupStatus field's value.
+func (s *DataForListBackupsOutput) SetBackupStatus(v string) *DataForListBackupsOutput {
+	s.BackupStatus = &v
+	return s
+}
+
+// SetBackupStrategy sets the BackupStrategy field's value.
+func (s *DataForListBackupsOutput) SetBackupStrategy(v string) *DataForListBackupsOutput {
+	s.BackupStrategy = &v
+	return s
+}
+
+// SetBackupType sets the BackupType field's value.
+func (s *DataForListBackupsOutput) SetBackupType(v string) *DataForListBackupsOutput {
+	s.BackupType = &v
+	return s
+}
+
+// SetCreateType sets the CreateType field's value.
+func (s *DataForListBackupsOutput) SetCreateType(v string) *DataForListBackupsOutput {
+	s.CreateType = &v
+	return s
+}
+
 type ListBackupsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -232,6 +326,8 @@ type ListBackupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Datas []*DataForListBackupsOutput `type:"list"`
+
 	Total *int32 `type:"int32"`
 }
 
@@ -243,6 +339,12 @@ func (s ListBackupsOutput) String() string {
 // GoString returns the string representation
 func (s ListBackupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetDatas sets the Datas field's value.
+func (s *ListBackupsOutput) SetDatas(v []*DataForListBackupsOutput) *ListBackupsOutput {
+	s.Datas = v
+	return s
 }
 
 // SetTotal sets the Total field's value.
@@ -260,6 +362,17 @@ const (
 )
 
 const (
+	// EnumOfBackupModeForListBackupsOutputFull is a EnumOfBackupModeForListBackupsOutput enum value
+	EnumOfBackupModeForListBackupsOutputFull = "Full"
+
+	// EnumOfBackupModeForListBackupsOutputIncrement is a EnumOfBackupModeForListBackupsOutput enum value
+	EnumOfBackupModeForListBackupsOutputIncrement = "Increment"
+
+	// EnumOfBackupModeForListBackupsOutputLog is a EnumOfBackupModeForListBackupsOutput enum value
+	EnumOfBackupModeForListBackupsOutputLog = "Log"
+)
+
+const (
 	// EnumOfBackupStatusForListBackupsInputFailed is a EnumOfBackupStatusForListBackupsInput enum value
 	EnumOfBackupStatusForListBackupsInputFailed = "Failed"
 
@@ -268,4 +381,39 @@ const (
 
 	// EnumOfBackupStatusForListBackupsInputSuccess is a EnumOfBackupStatusForListBackupsInput enum value
 	EnumOfBackupStatusForListBackupsInputSuccess = "Success"
+)
+
+const (
+	// EnumOfBackupStatusForListBackupsOutputFailed is a EnumOfBackupStatusForListBackupsOutput enum value
+	EnumOfBackupStatusForListBackupsOutputFailed = "Failed"
+
+	// EnumOfBackupStatusForListBackupsOutputRunning is a EnumOfBackupStatusForListBackupsOutput enum value
+	EnumOfBackupStatusForListBackupsOutputRunning = "Running"
+
+	// EnumOfBackupStatusForListBackupsOutputSuccess is a EnumOfBackupStatusForListBackupsOutput enum value
+	EnumOfBackupStatusForListBackupsOutputSuccess = "Success"
+)
+
+const (
+	// EnumOfBackupStrategyForListBackupsOutputDatabase is a EnumOfBackupStrategyForListBackupsOutput enum value
+	EnumOfBackupStrategyForListBackupsOutputDatabase = "Database"
+
+	// EnumOfBackupStrategyForListBackupsOutputInstance is a EnumOfBackupStrategyForListBackupsOutput enum value
+	EnumOfBackupStrategyForListBackupsOutputInstance = "Instance"
+)
+
+const (
+	// EnumOfBackupTypeForListBackupsOutputLogical is a EnumOfBackupTypeForListBackupsOutput enum value
+	EnumOfBackupTypeForListBackupsOutputLogical = "Logical"
+
+	// EnumOfBackupTypeForListBackupsOutputPhysical is a EnumOfBackupTypeForListBackupsOutput enum value
+	EnumOfBackupTypeForListBackupsOutputPhysical = "Physical"
+)
+
+const (
+	// EnumOfCreateTypeForListBackupsOutputSystem is a EnumOfCreateTypeForListBackupsOutput enum value
+	EnumOfCreateTypeForListBackupsOutputSystem = "System"
+
+	// EnumOfCreateTypeForListBackupsOutputUser is a EnumOfCreateTypeForListBackupsOutput enum value
+	EnumOfCreateTypeForListBackupsOutputUser = "User"
 )
