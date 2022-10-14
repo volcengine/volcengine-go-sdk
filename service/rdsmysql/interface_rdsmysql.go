@@ -374,14 +374,6 @@ type RDSMYSQLAPI interface {
 	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
 
-	RevokeAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RevokeAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RevokeAccountPrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RevokeAccountPrivilege(*RevokeAccountPrivilegeInput) (*RevokeAccountPrivilegeOutput, error)
-	RevokeAccountPrivilegeWithContext(volcengine.Context, *RevokeAccountPrivilegeInput, ...request.Option) (*RevokeAccountPrivilegeOutput, error)
-	RevokeAccountPrivilegeRequest(*RevokeAccountPrivilegeInput) (*request.Request, *RevokeAccountPrivilegeOutput)
-
 	SaveAsParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SaveAsParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	SaveAsParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
