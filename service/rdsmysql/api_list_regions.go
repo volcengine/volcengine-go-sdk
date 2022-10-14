@@ -143,6 +143,36 @@ func (c *RDSMYSQL) ListRegionsWithContext(ctx volcengine.Context, input *ListReg
 	return out, req.Send()
 }
 
+type DataForListRegionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DataForListRegionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForListRegionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *DataForListRegionsOutput) SetId(v string) *DataForListRegionsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *DataForListRegionsOutput) SetValue(v string) *DataForListRegionsOutput {
+	s.Value = &v
+	return s
+}
+
 type ListRegionsInput struct {
 	_ struct{} `type:"structure"`
 }
@@ -162,6 +192,8 @@ type ListRegionsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Datas []*DataForListRegionsOutput `type:"list"`
+
 	Total *int32 `type:"int32"`
 }
 
@@ -173,6 +205,12 @@ func (s ListRegionsOutput) String() string {
 // GoString returns the string representation
 func (s ListRegionsOutput) GoString() string {
 	return s.String()
+}
+
+// SetDatas sets the Datas field's value.
+func (s *ListRegionsOutput) SetDatas(v []*DataForListRegionsOutput) *ListRegionsOutput {
+	s.Datas = v
+	return s
 }
 
 // SetTotal sets the Total field's value.
