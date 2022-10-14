@@ -143,11 +143,48 @@ func (c *RDSMYSQL) ListZonesWithContext(ctx volcengine.Context, input *ListZones
 	return out, req.Send()
 }
 
+type DataForListZonesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Desc *string `type:"string"`
+
+	Id *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DataForListZonesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForListZonesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDesc sets the Desc field's value.
+func (s *DataForListZonesOutput) SetDesc(v string) *DataForListZonesOutput {
+	s.Desc = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *DataForListZonesOutput) SetId(v string) *DataForListZonesOutput {
+	s.Id = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *DataForListZonesOutput) SetValue(v string) *DataForListZonesOutput {
+	s.Value = &v
+	return s
+}
+
 type ListZonesInput struct {
 	_ struct{} `type:"structure"`
 
-	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *string `type:"string"`
 }
 
 // String returns the string representation
@@ -160,19 +197,6 @@ func (s ListZonesInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ListZonesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ListZonesInput"}
-	if s.Region == nil {
-		invalidParams.Add(request.NewErrParamRequired("Region"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetRegion sets the Region field's value.
 func (s *ListZonesInput) SetRegion(v string) *ListZonesInput {
 	s.Region = &v
@@ -183,6 +207,10 @@ type ListZonesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Datas []*DataForListZonesOutput `type:"list"`
+
+	Total *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -193,4 +221,16 @@ func (s ListZonesOutput) String() string {
 // GoString returns the string representation
 func (s ListZonesOutput) GoString() string {
 	return s.String()
+}
+
+// SetDatas sets the Datas field's value.
+func (s *ListZonesOutput) SetDatas(v []*DataForListZonesOutput) *ListZonesOutput {
+	s.Datas = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListZonesOutput) SetTotal(v int32) *ListZonesOutput {
+	s.Total = &v
+	return s
 }

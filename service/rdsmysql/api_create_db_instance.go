@@ -166,8 +166,7 @@ type CreateDBInstanceInput struct {
 
 	ProjectName *string `type:"string"`
 
-	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *string `type:"string"`
 
 	// StorageSpaceGB is a required field
 	StorageSpaceGB *int32 `type:"int32" required:"true"`
@@ -201,9 +200,6 @@ func (s CreateDBInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDBInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBInstanceInput"}
-	if s.Region == nil {
-		invalidParams.Add(request.NewErrParamRequired("Region"))
-	}
 	if s.StorageSpaceGB == nil {
 		invalidParams.Add(request.NewErrParamRequired("StorageSpaceGB"))
 	}

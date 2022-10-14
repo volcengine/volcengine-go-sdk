@@ -286,6 +286,14 @@ type RDSMYSQLAPI interface {
 	ListParameterTemplatesWithContext(volcengine.Context, *ListParameterTemplatesInput, ...request.Option) (*ListParameterTemplatesOutput, error)
 	ListParameterTemplatesRequest(*ListParameterTemplatesInput) (*request.Request, *ListParameterTemplatesOutput)
 
+	ListRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRegions(*ListRegionsInput) (*ListRegionsOutput, error)
+	ListRegionsWithContext(volcengine.Context, *ListRegionsInput, ...request.Option) (*ListRegionsOutput, error)
+	ListRegionsRequest(*ListRegionsInput) (*request.Request, *ListRegionsOutput)
+
 	ListVpcsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListVpcsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListVpcsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
