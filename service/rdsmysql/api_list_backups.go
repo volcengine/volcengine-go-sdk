@@ -356,9 +356,6 @@ func (s *ListBackupsOutput) SetTotal(v int32) *ListBackupsOutput {
 const (
 	// EnumOfBackupDataTypeForListBackupsInputData is a EnumOfBackupDataTypeForListBackupsInput enum value
 	EnumOfBackupDataTypeForListBackupsInputData = "Data"
-
-	// EnumOfBackupDataTypeForListBackupsInputLog is a EnumOfBackupDataTypeForListBackupsInput enum value
-	EnumOfBackupDataTypeForListBackupsInputLog = "Log"
 )
 
 const (
@@ -367,9 +364,6 @@ const (
 
 	// EnumOfBackupModeForListBackupsOutputIncrement is a EnumOfBackupModeForListBackupsOutput enum value
 	EnumOfBackupModeForListBackupsOutputIncrement = "Increment"
-
-	// EnumOfBackupModeForListBackupsOutputLog is a EnumOfBackupModeForListBackupsOutput enum value
-	EnumOfBackupModeForListBackupsOutputLog = "Log"
 )
 
 const (

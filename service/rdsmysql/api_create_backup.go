@@ -230,9 +230,6 @@ func (s CreateBackupOutput) GoString() string {
 const (
 	// EnumOfBackupDataTypeForCreateBackupInputData is a EnumOfBackupDataTypeForCreateBackupInput enum value
 	EnumOfBackupDataTypeForCreateBackupInputData = "Data"
-
-	// EnumOfBackupDataTypeForCreateBackupInputLog is a EnumOfBackupDataTypeForCreateBackupInput enum value
-	EnumOfBackupDataTypeForCreateBackupInputLog = "Log"
 )
 
 const (
@@ -241,9 +238,6 @@ const (
 
 	// EnumOfBackupModeForCreateBackupInputIncrement is a EnumOfBackupModeForCreateBackupInput enum value
 	EnumOfBackupModeForCreateBackupInputIncrement = "Increment"
-
-	// EnumOfBackupModeForCreateBackupInputLog is a EnumOfBackupModeForCreateBackupInput enum value
-	EnumOfBackupModeForCreateBackupInputLog = "Log"
 )
 
 const (

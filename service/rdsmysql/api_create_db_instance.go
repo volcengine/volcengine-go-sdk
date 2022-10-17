@@ -373,38 +373,14 @@ const (
 const (
 	// EnumOfDBEngineForCreateDBInstanceInputMySql is a EnumOfDBEngineForCreateDBInstanceInput enum value
 	EnumOfDBEngineForCreateDBInstanceInputMySql = "MySQL"
-
-	// EnumOfDBEngineForCreateDBInstanceInputPostgres is a EnumOfDBEngineForCreateDBInstanceInput enum value
-	EnumOfDBEngineForCreateDBInstanceInputPostgres = "Postgres"
-
-	// EnumOfDBEngineForCreateDBInstanceInputSqlserver is a EnumOfDBEngineForCreateDBInstanceInput enum value
-	EnumOfDBEngineForCreateDBInstanceInputSqlserver = "Sqlserver"
 )
 
 const (
-	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql55 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputMySql55 = "MySQL_5_5"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql56 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputMySql56 = "MySQL_5_6"
-
 	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 = "MySQL_8_0"
 
 	// EnumOfDBEngineVersionForCreateDBInstanceInputMySqlCommunity57 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputMySqlCommunity57 = "MySQL_Community_5_7"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputPostgres12 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputPostgres12 = "Postgres_12"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Ent is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Std is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Web is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Web = "SQLServer_2019_Web"
 )
 
 const (

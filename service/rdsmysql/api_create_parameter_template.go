@@ -150,7 +150,7 @@ type CreateParameterTemplateInput struct {
 
 	TemplateName *string `min:"2" max:"64" type:"string"`
 
-	TemplateParams []*CustomParamForModifyParameterTemplateInput `type:"list"`
+	TemplateParams []*TemplateParamForCreateParameterTemplateInput `type:"list"`
 
 	TemplateType *string `type:"string" enum:"EnumOfTemplateTypeForCreateParameterTemplateInput"`
 
@@ -199,7 +199,7 @@ func (s *CreateParameterTemplateInput) SetTemplateName(v string) *CreateParamete
 }
 
 // SetTemplateParams sets the TemplateParams field's value.
-func (s *CreateParameterTemplateInput) SetTemplateParams(v []*CustomParamForModifyParameterTemplateInput) *CreateParameterTemplateInput {
+func (s *CreateParameterTemplateInput) SetTemplateParams(v []*TemplateParamForCreateParameterTemplateInput) *CreateParameterTemplateInput {
 	s.TemplateParams = v
 	return s
 }
@@ -232,39 +232,85 @@ func (s CreateParameterTemplateOutput) GoString() string {
 	return s.String()
 }
 
+type TemplateParamForCreateParameterTemplateInput struct {
+	_ struct{} `type:"structure"`
+
+	DefaultValue *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	ExpectValue *string `type:"string"`
+
+	Name *string `type:"string"`
+
+	Restart *bool `type:"boolean"`
+
+	RunningValue *string `type:"string"`
+
+	ValueRange *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TemplateParamForCreateParameterTemplateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TemplateParamForCreateParameterTemplateInput) GoString() string {
+	return s.String()
+}
+
+// SetDefaultValue sets the DefaultValue field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetDefaultValue(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.DefaultValue = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetDescription(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.Description = &v
+	return s
+}
+
+// SetExpectValue sets the ExpectValue field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetExpectValue(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.ExpectValue = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetName(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.Name = &v
+	return s
+}
+
+// SetRestart sets the Restart field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetRestart(v bool) *TemplateParamForCreateParameterTemplateInput {
+	s.Restart = &v
+	return s
+}
+
+// SetRunningValue sets the RunningValue field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetRunningValue(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.RunningValue = &v
+	return s
+}
+
+// SetValueRange sets the ValueRange field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetValueRange(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.ValueRange = &v
+	return s
+}
+
 const (
 	// EnumOfTemplateTypeForCreateParameterTemplateInputMySql is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
 	EnumOfTemplateTypeForCreateParameterTemplateInputMySql = "MySQL"
-
-	// EnumOfTemplateTypeForCreateParameterTemplateInputPostgres is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeForCreateParameterTemplateInputPostgres = "Postgres"
-
-	// EnumOfTemplateTypeForCreateParameterTemplateInputSqlserver is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeForCreateParameterTemplateInputSqlserver = "Sqlserver"
 )
 
 const (
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql55 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql55 = "MySQL_5_5"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql56 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql56 = "MySQL_5_6"
-
 	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql80 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
 	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql80 = "MySQL_8_0"
 
 	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySqlCommunity57 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
 	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySqlCommunity57 = "MySQL_Community_5_7"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputPostgres12 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputPostgres12 = "Postgres_12"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Ent is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Std is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Web is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Web = "SQLServer_2019_Web"
 )

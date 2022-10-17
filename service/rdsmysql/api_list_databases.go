@@ -192,7 +192,7 @@ func (s *DataForListDatabasesOutput) SetDBStatus(v string) *DataForListDatabases
 type ListDatabasesInput struct {
 	_ struct{} `type:"structure"`
 
-	DBStatus *string `type:"string" enum:"EnumOfDBStatusForListDatabasesInput"`
+	DBStatus *string `type:"string"`
 
 	InstanceId *string `type:"string"`
 
@@ -268,23 +268,6 @@ func (s *ListDatabasesOutput) SetTotal(v int32) *ListDatabasesOutput {
 }
 
 const (
-	// EnumOfDBStatusForListDatabasesInputCreating is a EnumOfDBStatusForListDatabasesInput enum value
-	EnumOfDBStatusForListDatabasesInputCreating = "Creating"
-
-	// EnumOfDBStatusForListDatabasesInputDeleting is a EnumOfDBStatusForListDatabasesInput enum value
-	EnumOfDBStatusForListDatabasesInputDeleting = "Deleting"
-
-	// EnumOfDBStatusForListDatabasesInputRunning is a EnumOfDBStatusForListDatabasesInput enum value
-	EnumOfDBStatusForListDatabasesInputRunning = "Running"
-)
-
-const (
-	// EnumOfDBStatusForListDatabasesOutputCreating is a EnumOfDBStatusForListDatabasesOutput enum value
-	EnumOfDBStatusForListDatabasesOutputCreating = "Creating"
-
-	// EnumOfDBStatusForListDatabasesOutputDeleting is a EnumOfDBStatusForListDatabasesOutput enum value
-	EnumOfDBStatusForListDatabasesOutputDeleting = "Deleting"
-
 	// EnumOfDBStatusForListDatabasesOutputRunning is a EnumOfDBStatusForListDatabasesOutput enum value
 	EnumOfDBStatusForListDatabasesOutputRunning = "Running"
 )
