@@ -333,6 +333,8 @@ type CreateDBInstanceOutput struct {
 	Metadata *response.ResponseMetadata
 
 	InstanceId *string `type:"string"`
+
+	OrderNO *string `type:"string"`
 }
 
 // String returns the string representation
@@ -348,6 +350,12 @@ func (s CreateDBInstanceOutput) GoString() string {
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateDBInstanceOutput) SetInstanceId(v string) *CreateDBInstanceOutput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetOrderNO sets the OrderNO field's value.
+func (s *CreateDBInstanceOutput) SetOrderNO(v string) *CreateDBInstanceOutput {
+	s.OrderNO = &v
 	return s
 }
 
