@@ -612,15 +612,6 @@ const (
 )
 
 const (
-	// EnumOfInstanceTypeForDescribeDBInstanceOutputBasic is a EnumOfInstanceTypeForDescribeDBInstanceOutput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceOutputBasic = "Basic"
-
-	// EnumOfInstanceTypeForDescribeDBInstanceOutputCluster is a EnumOfInstanceTypeForDescribeDBInstanceOutput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceOutputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForDescribeDBInstanceOutputFinance is a EnumOfInstanceTypeForDescribeDBInstanceOutput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceOutputFinance = "Finance"
-
 	// EnumOfInstanceTypeForDescribeDBInstanceOutputHa is a EnumOfInstanceTypeForDescribeDBInstanceOutput enum value
 	EnumOfInstanceTypeForDescribeDBInstanceOutputHa = "HA"
 )

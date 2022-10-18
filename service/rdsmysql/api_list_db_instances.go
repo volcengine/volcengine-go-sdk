@@ -637,29 +637,11 @@ const (
 )
 
 const (
-	// EnumOfInstanceTypeForListDBInstancesInputBasic is a EnumOfInstanceTypeForListDBInstancesInput enum value
-	EnumOfInstanceTypeForListDBInstancesInputBasic = "Basic"
-
-	// EnumOfInstanceTypeForListDBInstancesInputCluster is a EnumOfInstanceTypeForListDBInstancesInput enum value
-	EnumOfInstanceTypeForListDBInstancesInputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForListDBInstancesInputFinance is a EnumOfInstanceTypeForListDBInstancesInput enum value
-	EnumOfInstanceTypeForListDBInstancesInputFinance = "Finance"
-
 	// EnumOfInstanceTypeForListDBInstancesInputHa is a EnumOfInstanceTypeForListDBInstancesInput enum value
 	EnumOfInstanceTypeForListDBInstancesInputHa = "HA"
 )
 
 const (
-	// EnumOfInstanceTypeForListDBInstancesOutputBasic is a EnumOfInstanceTypeForListDBInstancesOutput enum value
-	EnumOfInstanceTypeForListDBInstancesOutputBasic = "Basic"
-
-	// EnumOfInstanceTypeForListDBInstancesOutputCluster is a EnumOfInstanceTypeForListDBInstancesOutput enum value
-	EnumOfInstanceTypeForListDBInstancesOutputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForListDBInstancesOutputFinance is a EnumOfInstanceTypeForListDBInstancesOutput enum value
-	EnumOfInstanceTypeForListDBInstancesOutputFinance = "Finance"
-
 	// EnumOfInstanceTypeForListDBInstancesOutputHa is a EnumOfInstanceTypeForListDBInstancesOutput enum value
 	EnumOfInstanceTypeForListDBInstancesOutputHa = "HA"
 )

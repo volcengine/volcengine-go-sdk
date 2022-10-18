@@ -289,15 +289,6 @@ const (
 )
 
 const (
-	// EnumOfInstanceTypeForModifyDBInstanceInputBasic is a EnumOfInstanceTypeForModifyDBInstanceInput enum value
-	EnumOfInstanceTypeForModifyDBInstanceInputBasic = "Basic"
-
-	// EnumOfInstanceTypeForModifyDBInstanceInputCluster is a EnumOfInstanceTypeForModifyDBInstanceInput enum value
-	EnumOfInstanceTypeForModifyDBInstanceInputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForModifyDBInstanceInputFinance is a EnumOfInstanceTypeForModifyDBInstanceInput enum value
-	EnumOfInstanceTypeForModifyDBInstanceInputFinance = "Finance"
-
 	// EnumOfInstanceTypeForModifyDBInstanceInputHa is a EnumOfInstanceTypeForModifyDBInstanceInput enum value
 	EnumOfInstanceTypeForModifyDBInstanceInputHa = "HA"
 )
