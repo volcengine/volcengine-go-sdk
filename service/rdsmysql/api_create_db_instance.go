@@ -166,8 +166,6 @@ type CreateDBInstanceInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Region *string `type:"string"`
-
 	// StorageSpaceGB is a required field
 	StorageSpaceGB *int32 `type:"int32" required:"true"`
 
@@ -270,12 +268,6 @@ func (s *CreateDBInstanceInput) SetPrepaidPeriod(v string) *CreateDBInstanceInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *CreateDBInstanceInput) SetRegion(v string) *CreateDBInstanceInput {
-	s.Region = &v
 	return s
 }
 

@@ -183,8 +183,6 @@ func (s *DataForListZonesOutput) SetValue(v string) *DataForListZonesOutput {
 
 type ListZonesInput struct {
 	_ struct{} `type:"structure"`
-
-	Region *string `type:"string"`
 }
 
 // String returns the string representation
@@ -195,12 +193,6 @@ func (s ListZonesInput) String() string {
 // GoString returns the string representation
 func (s ListZonesInput) GoString() string {
 	return s.String()
-}
-
-// SetRegion sets the Region field's value.
-func (s *ListZonesInput) SetRegion(v string) *ListZonesInput {
-	s.Region = &v
-	return s
 }
 
 type ListZonesOutput struct {

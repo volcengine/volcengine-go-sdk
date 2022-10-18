@@ -318,6 +318,14 @@ type RDSMYSQLAPI interface {
 	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
 	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
 
+	ModifyDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstance(*ModifyDBInstanceInput) (*ModifyDBInstanceOutput, error)
+	ModifyDBInstanceWithContext(volcengine.Context, *ModifyDBInstanceInput, ...request.Option) (*ModifyDBInstanceOutput, error)
+	ModifyDBInstanceRequest(*ModifyDBInstanceInput) (*request.Request, *ModifyDBInstanceOutput)
+
 	ModifyDBInstanceIPListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceIPListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceIPListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -325,14 +333,6 @@ type RDSMYSQLAPI interface {
 	ModifyDBInstanceIPList(*ModifyDBInstanceIPListInput) (*ModifyDBInstanceIPListOutput, error)
 	ModifyDBInstanceIPListWithContext(volcengine.Context, *ModifyDBInstanceIPListInput, ...request.Option) (*ModifyDBInstanceIPListOutput, error)
 	ModifyDBInstanceIPListRequest(*ModifyDBInstanceIPListInput) (*request.Request, *ModifyDBInstanceIPListOutput)
-
-	ModifyDBInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyDBInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyDBInstanceSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyDBInstanceSpec(*ModifyDBInstanceSpecInput) (*ModifyDBInstanceSpecOutput, error)
-	ModifyDBInstanceSpecWithContext(volcengine.Context, *ModifyDBInstanceSpecInput, ...request.Option) (*ModifyDBInstanceSpecOutput, error)
-	ModifyDBInstanceSpecRequest(*ModifyDBInstanceSpecInput) (*request.Request, *ModifyDBInstanceSpecOutput)
 
 	ModifyInstanceParamsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceParamsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
