@@ -154,6 +154,8 @@ type CreateBackupInput struct {
 
 	BackupType *string `type:"string" enum:"EnumOfBackupTypeForCreateBackupInput"`
 
+	DBNames *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 }
@@ -202,6 +204,12 @@ func (s *CreateBackupInput) SetBackupStrategy(v string) *CreateBackupInput {
 // SetBackupType sets the BackupType field's value.
 func (s *CreateBackupInput) SetBackupType(v string) *CreateBackupInput {
 	s.BackupType = &v
+	return s
+}
+
+// SetDBNames sets the DBNames field's value.
+func (s *CreateBackupInput) SetDBNames(v string) *CreateBackupInput {
+	s.DBNames = &v
 	return s
 }
 
