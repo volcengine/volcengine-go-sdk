@@ -145,6 +145,14 @@ func (c *RDSMYSQL) ModifyDBInstanceWithContext(ctx volcengine.Context, input *Mo
 
 type InstanceSpecForModifyDBInstanceInput struct {
 	_ struct{} `type:"structure"`
+
+	CpuNum *float64 `type:"double"`
+
+	InstanceFamily *string `type:"string" enum:"EnumOfInstanceFamilyForModifyDBInstanceInput"`
+
+	MemInGb *float64 `type:"double"`
+
+	SpecName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -155,6 +163,30 @@ func (s InstanceSpecForModifyDBInstanceInput) String() string {
 // GoString returns the string representation
 func (s InstanceSpecForModifyDBInstanceInput) GoString() string {
 	return s.String()
+}
+
+// SetCpuNum sets the CpuNum field's value.
+func (s *InstanceSpecForModifyDBInstanceInput) SetCpuNum(v float64) *InstanceSpecForModifyDBInstanceInput {
+	s.CpuNum = &v
+	return s
+}
+
+// SetInstanceFamily sets the InstanceFamily field's value.
+func (s *InstanceSpecForModifyDBInstanceInput) SetInstanceFamily(v string) *InstanceSpecForModifyDBInstanceInput {
+	s.InstanceFamily = &v
+	return s
+}
+
+// SetMemInGb sets the MemInGb field's value.
+func (s *InstanceSpecForModifyDBInstanceInput) SetMemInGb(v float64) *InstanceSpecForModifyDBInstanceInput {
+	s.MemInGb = &v
+	return s
+}
+
+// SetSpecName sets the SpecName field's value.
+func (s *InstanceSpecForModifyDBInstanceInput) SetSpecName(v string) *InstanceSpecForModifyDBInstanceInput {
+	s.SpecName = &v
+	return s
 }
 
 type ModifyDBInstanceInput struct {
@@ -244,6 +276,17 @@ func (s *ModifyDBInstanceOutput) SetInstanceId(v string) *ModifyDBInstanceOutput
 	s.InstanceId = &v
 	return s
 }
+
+const (
+	// EnumOfInstanceFamilyForModifyDBInstanceInputExclusive is a EnumOfInstanceFamilyForModifyDBInstanceInput enum value
+	EnumOfInstanceFamilyForModifyDBInstanceInputExclusive = "Exclusive"
+
+	// EnumOfInstanceFamilyForModifyDBInstanceInputExclusiveHost is a EnumOfInstanceFamilyForModifyDBInstanceInput enum value
+	EnumOfInstanceFamilyForModifyDBInstanceInputExclusiveHost = "ExclusiveHost"
+
+	// EnumOfInstanceFamilyForModifyDBInstanceInputGeneral is a EnumOfInstanceFamilyForModifyDBInstanceInput enum value
+	EnumOfInstanceFamilyForModifyDBInstanceInputGeneral = "General"
+)
 
 const (
 	// EnumOfInstanceTypeForModifyDBInstanceInputBasic is a EnumOfInstanceTypeForModifyDBInstanceInput enum value
