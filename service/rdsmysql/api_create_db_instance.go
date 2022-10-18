@@ -166,9 +166,6 @@ type CreateDBInstanceInput struct {
 
 	ProjectName *string `type:"string"`
 
-	// Region is a required field
-	Region *string `type:"string" required:"true"`
-
 	// StorageSpaceGB is a required field
 	StorageSpaceGB *int32 `type:"int32" required:"true"`
 
@@ -201,9 +198,6 @@ func (s CreateDBInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDBInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBInstanceInput"}
-	if s.Region == nil {
-		invalidParams.Add(request.NewErrParamRequired("Region"))
-	}
 	if s.StorageSpaceGB == nil {
 		invalidParams.Add(request.NewErrParamRequired("StorageSpaceGB"))
 	}
@@ -277,12 +271,6 @@ func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput 
 	return s
 }
 
-// SetRegion sets the Region field's value.
-func (s *CreateDBInstanceInput) SetRegion(v string) *CreateDBInstanceInput {
-	s.Region = &v
-	return s
-}
-
 // SetStorageSpaceGB sets the StorageSpaceGB field's value.
 func (s *CreateDBInstanceInput) SetStorageSpaceGB(v int32) *CreateDBInstanceInput {
 	s.StorageSpaceGB = &v
@@ -337,6 +325,8 @@ type CreateDBInstanceOutput struct {
 	Metadata *response.ResponseMetadata
 
 	InstanceId *string `type:"string"`
+
+	OrderNO *string `type:"string"`
 }
 
 // String returns the string representation
@@ -355,6 +345,12 @@ func (s *CreateDBInstanceOutput) SetInstanceId(v string) *CreateDBInstanceOutput
 	return s
 }
 
+// SetOrderNO sets the OrderNO field's value.
+func (s *CreateDBInstanceOutput) SetOrderNO(v string) *CreateDBInstanceOutput {
+	s.OrderNO = &v
+	return s
+}
+
 const (
 	// EnumOfChargeTypeForCreateDBInstanceInputNotEnabled is a EnumOfChargeTypeForCreateDBInstanceInput enum value
 	EnumOfChargeTypeForCreateDBInstanceInputNotEnabled = "NotEnabled"
@@ -369,50 +365,17 @@ const (
 const (
 	// EnumOfDBEngineForCreateDBInstanceInputMySql is a EnumOfDBEngineForCreateDBInstanceInput enum value
 	EnumOfDBEngineForCreateDBInstanceInputMySql = "MySQL"
-
-	// EnumOfDBEngineForCreateDBInstanceInputPostgres is a EnumOfDBEngineForCreateDBInstanceInput enum value
-	EnumOfDBEngineForCreateDBInstanceInputPostgres = "Postgres"
-
-	// EnumOfDBEngineForCreateDBInstanceInputSqlserver is a EnumOfDBEngineForCreateDBInstanceInput enum value
-	EnumOfDBEngineForCreateDBInstanceInputSqlserver = "Sqlserver"
 )
 
 const (
-	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql55 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputMySql55 = "MySQL_5_5"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql56 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputMySql56 = "MySQL_5_6"
-
 	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 = "MySQL_8_0"
 
 	// EnumOfDBEngineVersionForCreateDBInstanceInputMySqlCommunity57 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputMySqlCommunity57 = "MySQL_Community_5_7"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputPostgres12 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputPostgres12 = "Postgres_12"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Ent is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Std is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Web is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Web = "SQLServer_2019_Web"
 )
 
 const (
-	// EnumOfInstanceTypeForCreateDBInstanceInputBasic is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
-	EnumOfInstanceTypeForCreateDBInstanceInputBasic = "Basic"
-
-	// EnumOfInstanceTypeForCreateDBInstanceInputCluster is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
-	EnumOfInstanceTypeForCreateDBInstanceInputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForCreateDBInstanceInputFinance is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
-	EnumOfInstanceTypeForCreateDBInstanceInputFinance = "Finance"
-
 	// EnumOfInstanceTypeForCreateDBInstanceInputHa is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
 	EnumOfInstanceTypeForCreateDBInstanceInputHa = "HA"
 )
