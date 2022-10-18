@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VPC.
 //    func myFunc(svc VPCAPI) bool {
-//        // Make svc.AllocateEipAddress request
+//        // Make svc.AddBandwidthPackageIp request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type VPCAPI interface {
+	AddBandwidthPackageIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddBandwidthPackageIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddBandwidthPackageIpCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddBandwidthPackageIp(*AddBandwidthPackageIpInput) (*AddBandwidthPackageIpOutput, error)
+	AddBandwidthPackageIpWithContext(volcengine.Context, *AddBandwidthPackageIpInput, ...request.Option) (*AddBandwidthPackageIpOutput, error)
+	AddBandwidthPackageIpRequest(*AddBandwidthPackageIpInput) (*request.Request, *AddBandwidthPackageIpOutput)
+
 	AllocateEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AllocateEipAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AllocateEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -102,6 +110,14 @@ type VPCAPI interface {
 	AuthorizeSecurityGroupIngressWithContext(volcengine.Context, *AuthorizeSecurityGroupIngressInput, ...request.Option) (*AuthorizeSecurityGroupIngressOutput, error)
 	AuthorizeSecurityGroupIngressRequest(*AuthorizeSecurityGroupIngressInput) (*request.Request, *AuthorizeSecurityGroupIngressOutput)
 
+	CreateBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateBandwidthPackageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateBandwidthPackage(*CreateBandwidthPackageInput) (*CreateBandwidthPackageOutput, error)
+	CreateBandwidthPackageWithContext(volcengine.Context, *CreateBandwidthPackageInput, ...request.Option) (*CreateBandwidthPackageOutput, error)
+	CreateBandwidthPackageRequest(*CreateBandwidthPackageInput) (*request.Request, *CreateBandwidthPackageOutput)
+
 	CreateHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateHaVipCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -166,6 +182,14 @@ type VPCAPI interface {
 	CreateVpcWithContext(volcengine.Context, *CreateVpcInput, ...request.Option) (*CreateVpcOutput, error)
 	CreateVpcRequest(*CreateVpcInput) (*request.Request, *CreateVpcOutput)
 
+	DeleteBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteBandwidthPackageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteBandwidthPackage(*DeleteBandwidthPackageInput) (*DeleteBandwidthPackageOutput, error)
+	DeleteBandwidthPackageWithContext(volcengine.Context, *DeleteBandwidthPackageInput, ...request.Option) (*DeleteBandwidthPackageOutput, error)
+	DeleteBandwidthPackageRequest(*DeleteBandwidthPackageInput) (*request.Request, *DeleteBandwidthPackageOutput)
+
 	DeleteHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteHaVipCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -229,6 +253,14 @@ type VPCAPI interface {
 	DeleteVpc(*DeleteVpcInput) (*DeleteVpcOutput, error)
 	DeleteVpcWithContext(volcengine.Context, *DeleteVpcInput, ...request.Option) (*DeleteVpcOutput, error)
 	DeleteVpcRequest(*DeleteVpcInput) (*request.Request, *DeleteVpcOutput)
+
+	DescribeBandwidthPackagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBandwidthPackagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBandwidthPackagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBandwidthPackages(*DescribeBandwidthPackagesInput) (*DescribeBandwidthPackagesOutput, error)
+	DescribeBandwidthPackagesWithContext(volcengine.Context, *DescribeBandwidthPackagesInput, ...request.Option) (*DescribeBandwidthPackagesOutput, error)
+	DescribeBandwidthPackagesRequest(*DescribeBandwidthPackagesInput) (*request.Request, *DescribeBandwidthPackagesOutput)
 
 	DescribeEipAddressAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeEipAddressAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -398,6 +430,22 @@ type VPCAPI interface {
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
+	ModifyBandwidthPackageAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyBandwidthPackageAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyBandwidthPackageAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyBandwidthPackageAttributes(*ModifyBandwidthPackageAttributesInput) (*ModifyBandwidthPackageAttributesOutput, error)
+	ModifyBandwidthPackageAttributesWithContext(volcengine.Context, *ModifyBandwidthPackageAttributesInput, ...request.Option) (*ModifyBandwidthPackageAttributesOutput, error)
+	ModifyBandwidthPackageAttributesRequest(*ModifyBandwidthPackageAttributesInput) (*request.Request, *ModifyBandwidthPackageAttributesOutput)
+
+	ModifyBandwidthPackageSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyBandwidthPackageSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyBandwidthPackageSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyBandwidthPackageSpec(*ModifyBandwidthPackageSpecInput) (*ModifyBandwidthPackageSpecOutput, error)
+	ModifyBandwidthPackageSpecWithContext(volcengine.Context, *ModifyBandwidthPackageSpecInput, ...request.Option) (*ModifyBandwidthPackageSpecOutput, error)
+	ModifyBandwidthPackageSpecRequest(*ModifyBandwidthPackageSpecInput) (*request.Request, *ModifyBandwidthPackageSpecOutput)
+
 	ModifyEipAddressAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyEipAddressAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyEipAddressAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -493,6 +541,14 @@ type VPCAPI interface {
 	ReleaseEipAddress(*ReleaseEipAddressInput) (*ReleaseEipAddressOutput, error)
 	ReleaseEipAddressWithContext(volcengine.Context, *ReleaseEipAddressInput, ...request.Option) (*ReleaseEipAddressOutput, error)
 	ReleaseEipAddressRequest(*ReleaseEipAddressInput) (*request.Request, *ReleaseEipAddressOutput)
+
+	RemoveBandwidthPackageIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveBandwidthPackageIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveBandwidthPackageIpCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveBandwidthPackageIp(*RemoveBandwidthPackageIpInput) (*RemoveBandwidthPackageIpOutput, error)
+	RemoveBandwidthPackageIpWithContext(volcengine.Context, *RemoveBandwidthPackageIpInput, ...request.Option) (*RemoveBandwidthPackageIpOutput, error)
+	RemoveBandwidthPackageIpRequest(*RemoveBandwidthPackageIpInput) (*request.Request, *RemoveBandwidthPackageIpOutput)
 
 	RevokeSecurityGroupEgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RevokeSecurityGroupEgressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
