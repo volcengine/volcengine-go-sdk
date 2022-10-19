@@ -162,6 +162,8 @@ type CreateDBInstanceInput struct {
 
 	Number *int32 `type:"int32"`
 
+	ParameterTemplateId *string `type:"string"`
+
 	PrepaidPeriod *string `type:"string" enum:"EnumOfPrepaidPeriodForCreateDBInstanceInput"`
 
 	ProjectName *string `type:"string"`
@@ -256,6 +258,12 @@ func (s *CreateDBInstanceInput) SetInstanceType(v string) *CreateDBInstanceInput
 // SetNumber sets the Number field's value.
 func (s *CreateDBInstanceInput) SetNumber(v int32) *CreateDBInstanceInput {
 	s.Number = &v
+	return s
+}
+
+// SetParameterTemplateId sets the ParameterTemplateId field's value.
+func (s *CreateDBInstanceInput) SetParameterTemplateId(v string) *CreateDBInstanceInput {
+	s.ParameterTemplateId = &v
 	return s
 }
 
