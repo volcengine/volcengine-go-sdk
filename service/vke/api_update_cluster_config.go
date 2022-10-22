@@ -317,4 +317,10 @@ const (
 
 	// EnumOfIspForUpdateClusterConfigInputChinaMobile is a EnumOfIspForUpdateClusterConfigInput enum value
 	EnumOfIspForUpdateClusterConfigInputChinaMobile = "ChinaMobile"
+
+	// EnumOfIspForUpdateClusterConfigInputChinaTelecom is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputChinaTelecom = "ChinaTelecom"
+
+	// EnumOfIspForUpdateClusterConfigInputChinaUnicom is a EnumOfIspForUpdateClusterConfigInput enum value
+	EnumOfIspForUpdateClusterConfigInputChinaUnicom = "ChinaUnicom"
 )
