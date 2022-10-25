@@ -154,9 +154,13 @@ type CreateNodesInput struct {
 
 	ContainerStoragePath *string `type:"string"`
 
+	InitializeScript *string `type:"string"`
+
 	InstanceIds []*string `type:"list"`
 
 	KeepInstanceName *bool `type:"boolean"`
+
+	KubernetesConfig *KubernetesConfigForCreateNodesInput `type:"structure"`
 }
 
 // String returns the string representation
@@ -193,6 +197,12 @@ func (s *CreateNodesInput) SetContainerStoragePath(v string) *CreateNodesInput {
 	return s
 }
 
+// SetInitializeScript sets the InitializeScript field's value.
+func (s *CreateNodesInput) SetInitializeScript(v string) *CreateNodesInput {
+	s.InitializeScript = &v
+	return s
+}
+
 // SetInstanceIds sets the InstanceIds field's value.
 func (s *CreateNodesInput) SetInstanceIds(v []*string) *CreateNodesInput {
 	s.InstanceIds = v
@@ -202,6 +212,12 @@ func (s *CreateNodesInput) SetInstanceIds(v []*string) *CreateNodesInput {
 // SetKeepInstanceName sets the KeepInstanceName field's value.
 func (s *CreateNodesInput) SetKeepInstanceName(v bool) *CreateNodesInput {
 	s.KeepInstanceName = &v
+	return s
+}
+
+// SetKubernetesConfig sets the KubernetesConfig field's value.
+func (s *CreateNodesInput) SetKubernetesConfig(v *KubernetesConfigForCreateNodesInput) *CreateNodesInput {
+	s.KubernetesConfig = v
 	return s
 }
 
@@ -228,3 +244,120 @@ func (s *CreateNodesOutput) SetIds(v []*string) *CreateNodesOutput {
 	s.Ids = v
 	return s
 }
+
+type KubernetesConfigForCreateNodesInput struct {
+	_ struct{} `type:"structure"`
+
+	Cordon *bool `type:"boolean"`
+
+	Labels []*LabelForCreateNodesInput `type:"list"`
+
+	Taints []*TaintForCreateNodesInput `type:"list"`
+}
+
+// String returns the string representation
+func (s KubernetesConfigForCreateNodesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubernetesConfigForCreateNodesInput) GoString() string {
+	return s.String()
+}
+
+// SetCordon sets the Cordon field's value.
+func (s *KubernetesConfigForCreateNodesInput) SetCordon(v bool) *KubernetesConfigForCreateNodesInput {
+	s.Cordon = &v
+	return s
+}
+
+// SetLabels sets the Labels field's value.
+func (s *KubernetesConfigForCreateNodesInput) SetLabels(v []*LabelForCreateNodesInput) *KubernetesConfigForCreateNodesInput {
+	s.Labels = v
+	return s
+}
+
+// SetTaints sets the Taints field's value.
+func (s *KubernetesConfigForCreateNodesInput) SetTaints(v []*TaintForCreateNodesInput) *KubernetesConfigForCreateNodesInput {
+	s.Taints = v
+	return s
+}
+
+type LabelForCreateNodesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LabelForCreateNodesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LabelForCreateNodesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *LabelForCreateNodesInput) SetKey(v string) *LabelForCreateNodesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *LabelForCreateNodesInput) SetValue(v string) *LabelForCreateNodesInput {
+	s.Value = &v
+	return s
+}
+
+type TaintForCreateNodesInput struct {
+	_ struct{} `type:"structure"`
+
+	Effect *string `type:"string" enum:"EnumOfEffectForCreateNodesInput"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TaintForCreateNodesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TaintForCreateNodesInput) GoString() string {
+	return s.String()
+}
+
+// SetEffect sets the Effect field's value.
+func (s *TaintForCreateNodesInput) SetEffect(v string) *TaintForCreateNodesInput {
+	s.Effect = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *TaintForCreateNodesInput) SetKey(v string) *TaintForCreateNodesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TaintForCreateNodesInput) SetValue(v string) *TaintForCreateNodesInput {
+	s.Value = &v
+	return s
+}
+
+const (
+	// EnumOfEffectForCreateNodesInputNoExecute is a EnumOfEffectForCreateNodesInput enum value
+	EnumOfEffectForCreateNodesInputNoExecute = "NoExecute"
+
+	// EnumOfEffectForCreateNodesInputNoSchedule is a EnumOfEffectForCreateNodesInput enum value
+	EnumOfEffectForCreateNodesInputNoSchedule = "NoSchedule"
+
+	// EnumOfEffectForCreateNodesInputPreferNoSchedule is a EnumOfEffectForCreateNodesInput enum value
+	EnumOfEffectForCreateNodesInputPreferNoSchedule = "PreferNoSchedule"
+)

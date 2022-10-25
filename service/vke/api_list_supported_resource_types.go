@@ -146,6 +146,8 @@ func (c *VKE) ListSupportedResourceTypesWithContext(ctx volcengine.Context, inpu
 type FilterForListSupportedResourceTypesInput struct {
 	_ struct{} `type:"structure"`
 
+	ResourceTypes []*string `type:"list"`
+
 	ZoneIds []*string `type:"list"`
 }
 
@@ -157,6 +159,12 @@ func (s FilterForListSupportedResourceTypesInput) String() string {
 // GoString returns the string representation
 func (s FilterForListSupportedResourceTypesInput) GoString() string {
 	return s.String()
+}
+
+// SetResourceTypes sets the ResourceTypes field's value.
+func (s *FilterForListSupportedResourceTypesInput) SetResourceTypes(v []*string) *FilterForListSupportedResourceTypesInput {
+	s.ResourceTypes = v
+	return s
 }
 
 // SetZoneIds sets the ZoneIds field's value.
@@ -296,3 +304,11 @@ func (s *ListSupportedResourceTypesOutput) SetTotalCount(v int32) *ListSupported
 	s.TotalCount = &v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeListForListSupportedResourceTypesInputEcs is a EnumOfResourceTypeListForListSupportedResourceTypesInput enum value
+	EnumOfResourceTypeListForListSupportedResourceTypesInputEcs = "Ecs"
+
+	// EnumOfResourceTypeListForListSupportedResourceTypesInputZone is a EnumOfResourceTypeListForListSupportedResourceTypesInput enum value
+	EnumOfResourceTypeListForListSupportedResourceTypesInputZone = "Zone"
+)
