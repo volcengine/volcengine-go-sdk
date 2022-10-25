@@ -102,6 +102,14 @@ type VKEAPI interface {
 	DeleteNodesWithContext(volcengine.Context, *DeleteNodesInput, ...request.Option) (*DeleteNodesOutput, error)
 	DeleteNodesRequest(*DeleteNodesInput) (*request.Request, *DeleteNodesOutput)
 
+	ForwardKubernetesApiCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ForwardKubernetesApiCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ForwardKubernetesApiCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ForwardKubernetesApi(*ForwardKubernetesApiInput) (*ForwardKubernetesApiOutput, error)
+	ForwardKubernetesApiWithContext(volcengine.Context, *ForwardKubernetesApiInput, ...request.Option) (*ForwardKubernetesApiOutput, error)
+	ForwardKubernetesApiRequest(*ForwardKubernetesApiInput) (*request.Request, *ForwardKubernetesApiOutput)
+
 	ListAddonsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAddonsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAddonsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

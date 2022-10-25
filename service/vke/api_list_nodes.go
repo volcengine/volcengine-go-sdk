@@ -250,9 +250,13 @@ type ItemForListNodesOutput struct {
 
 	Id *string `type:"string"`
 
+	InitializeScript *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	IsVirtual *bool `type:"boolean"`
+
+	KubernetesConfig *KubernetesConfigForListNodesOutput `type:"structure"`
 
 	Name *string `type:"string"`
 
@@ -313,6 +317,12 @@ func (s *ItemForListNodesOutput) SetId(v string) *ItemForListNodesOutput {
 	return s
 }
 
+// SetInitializeScript sets the InitializeScript field's value.
+func (s *ItemForListNodesOutput) SetInitializeScript(v string) *ItemForListNodesOutput {
+	s.InitializeScript = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *ItemForListNodesOutput) SetInstanceId(v string) *ItemForListNodesOutput {
 	s.InstanceId = &v
@@ -322,6 +332,12 @@ func (s *ItemForListNodesOutput) SetInstanceId(v string) *ItemForListNodesOutput
 // SetIsVirtual sets the IsVirtual field's value.
 func (s *ItemForListNodesOutput) SetIsVirtual(v bool) *ItemForListNodesOutput {
 	s.IsVirtual = &v
+	return s
+}
+
+// SetKubernetesConfig sets the KubernetesConfig field's value.
+func (s *ItemForListNodesOutput) SetKubernetesConfig(v *KubernetesConfigForListNodesOutput) *ItemForListNodesOutput {
+	s.KubernetesConfig = v
 	return s
 }
 
@@ -358,6 +374,74 @@ func (s *ItemForListNodesOutput) SetUpdateTime(v string) *ItemForListNodesOutput
 // SetZoneId sets the ZoneId field's value.
 func (s *ItemForListNodesOutput) SetZoneId(v string) *ItemForListNodesOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type KubernetesConfigForListNodesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Cordon *bool `type:"boolean"`
+
+	Labels []*LabelForListNodesOutput `type:"list"`
+
+	Taints []*TaintForListNodesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s KubernetesConfigForListNodesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KubernetesConfigForListNodesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCordon sets the Cordon field's value.
+func (s *KubernetesConfigForListNodesOutput) SetCordon(v bool) *KubernetesConfigForListNodesOutput {
+	s.Cordon = &v
+	return s
+}
+
+// SetLabels sets the Labels field's value.
+func (s *KubernetesConfigForListNodesOutput) SetLabels(v []*LabelForListNodesOutput) *KubernetesConfigForListNodesOutput {
+	s.Labels = v
+	return s
+}
+
+// SetTaints sets the Taints field's value.
+func (s *KubernetesConfigForListNodesOutput) SetTaints(v []*TaintForListNodesOutput) *KubernetesConfigForListNodesOutput {
+	s.Taints = v
+	return s
+}
+
+type LabelForListNodesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LabelForListNodesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LabelForListNodesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *LabelForListNodesOutput) SetKey(v string) *LabelForListNodesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *LabelForListNodesOutput) SetValue(v string) *LabelForListNodesOutput {
+	s.Value = &v
 	return s
 }
 
@@ -504,6 +588,44 @@ func (s *StatusForListNodesOutput) SetConditions(v []*ConditionForListNodesOutpu
 // SetPhase sets the Phase field's value.
 func (s *StatusForListNodesOutput) SetPhase(v string) *StatusForListNodesOutput {
 	s.Phase = &v
+	return s
+}
+
+type TaintForListNodesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Effect *string `type:"string"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TaintForListNodesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TaintForListNodesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEffect sets the Effect field's value.
+func (s *TaintForListNodesOutput) SetEffect(v string) *TaintForListNodesOutput {
+	s.Effect = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *TaintForListNodesOutput) SetKey(v string) *TaintForListNodesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TaintForListNodesOutput) SetValue(v string) *TaintForListNodesOutput {
+	s.Value = &v
 	return s
 }
 
