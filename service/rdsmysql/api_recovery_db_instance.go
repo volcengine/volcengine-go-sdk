@@ -321,12 +321,6 @@ const (
 const (
 	// EnumOfRecoveryTypeForRecoveryDBInstanceInputInstance is a EnumOfRecoveryTypeForRecoveryDBInstanceInput enum value
 	EnumOfRecoveryTypeForRecoveryDBInstanceInputInstance = "Instance"
-
-	// EnumOfRecoveryTypeForRecoveryDBInstanceInputSlave is a EnumOfRecoveryTypeForRecoveryDBInstanceInput enum value
-	EnumOfRecoveryTypeForRecoveryDBInstanceInputSlave = "Slave"
-
-	// EnumOfRecoveryTypeForRecoveryDBInstanceInputTable is a EnumOfRecoveryTypeForRecoveryDBInstanceInput enum value
-	EnumOfRecoveryTypeForRecoveryDBInstanceInputTable = "Table"
 )
 
 const (

@@ -466,38 +466,14 @@ const (
 const (
 	// EnumOfDBEngineForListDBInstancesOutputMySql is a EnumOfDBEngineForListDBInstancesOutput enum value
 	EnumOfDBEngineForListDBInstancesOutputMySql = "MySQL"
-
-	// EnumOfDBEngineForListDBInstancesOutputPostgres is a EnumOfDBEngineForListDBInstancesOutput enum value
-	EnumOfDBEngineForListDBInstancesOutputPostgres = "Postgres"
-
-	// EnumOfDBEngineForListDBInstancesOutputSqlserver is a EnumOfDBEngineForListDBInstancesOutput enum value
-	EnumOfDBEngineForListDBInstancesOutputSqlserver = "Sqlserver"
 )
 
 const (
-	// EnumOfDBEngineVersionForListDBInstancesOutputMySql55 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
-	EnumOfDBEngineVersionForListDBInstancesOutputMySql55 = "MySQL_5_5"
-
-	// EnumOfDBEngineVersionForListDBInstancesOutputMySql56 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
-	EnumOfDBEngineVersionForListDBInstancesOutputMySql56 = "MySQL_5_6"
-
 	// EnumOfDBEngineVersionForListDBInstancesOutputMySql80 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
 	EnumOfDBEngineVersionForListDBInstancesOutputMySql80 = "MySQL_8_0"
 
 	// EnumOfDBEngineVersionForListDBInstancesOutputMySqlCommunity57 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
 	EnumOfDBEngineVersionForListDBInstancesOutputMySqlCommunity57 = "MySQL_Community_5_7"
-
-	// EnumOfDBEngineVersionForListDBInstancesOutputPostgres12 is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
-	EnumOfDBEngineVersionForListDBInstancesOutputPostgres12 = "Postgres_12"
-
-	// EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Ent is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
-	EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Std is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
-	EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Web is a EnumOfDBEngineVersionForListDBInstancesOutput enum value
-	EnumOfDBEngineVersionForListDBInstancesOutputSqlserver2019Web = "SQLServer_2019_Web"
 )
 
 const (
@@ -661,29 +637,11 @@ const (
 )
 
 const (
-	// EnumOfInstanceTypeForListDBInstancesInputBasic is a EnumOfInstanceTypeForListDBInstancesInput enum value
-	EnumOfInstanceTypeForListDBInstancesInputBasic = "Basic"
-
-	// EnumOfInstanceTypeForListDBInstancesInputCluster is a EnumOfInstanceTypeForListDBInstancesInput enum value
-	EnumOfInstanceTypeForListDBInstancesInputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForListDBInstancesInputFinance is a EnumOfInstanceTypeForListDBInstancesInput enum value
-	EnumOfInstanceTypeForListDBInstancesInputFinance = "Finance"
-
 	// EnumOfInstanceTypeForListDBInstancesInputHa is a EnumOfInstanceTypeForListDBInstancesInput enum value
 	EnumOfInstanceTypeForListDBInstancesInputHa = "HA"
 )
 
 const (
-	// EnumOfInstanceTypeForListDBInstancesOutputBasic is a EnumOfInstanceTypeForListDBInstancesOutput enum value
-	EnumOfInstanceTypeForListDBInstancesOutputBasic = "Basic"
-
-	// EnumOfInstanceTypeForListDBInstancesOutputCluster is a EnumOfInstanceTypeForListDBInstancesOutput enum value
-	EnumOfInstanceTypeForListDBInstancesOutputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForListDBInstancesOutputFinance is a EnumOfInstanceTypeForListDBInstancesOutput enum value
-	EnumOfInstanceTypeForListDBInstancesOutputFinance = "Finance"
-
 	// EnumOfInstanceTypeForListDBInstancesOutputHa is a EnumOfInstanceTypeForListDBInstancesOutput enum value
 	EnumOfInstanceTypeForListDBInstancesOutputHa = "HA"
 )
