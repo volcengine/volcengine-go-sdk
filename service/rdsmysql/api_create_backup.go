@@ -154,6 +154,8 @@ type CreateBackupInput struct {
 
 	BackupType *string `type:"string" enum:"EnumOfBackupTypeForCreateBackupInput"`
 
+	DBNames *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 }
@@ -205,6 +207,12 @@ func (s *CreateBackupInput) SetBackupType(v string) *CreateBackupInput {
 	return s
 }
 
+// SetDBNames sets the DBNames field's value.
+func (s *CreateBackupInput) SetDBNames(v string) *CreateBackupInput {
+	s.DBNames = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateBackupInput) SetInstanceId(v string) *CreateBackupInput {
 	s.InstanceId = &v
@@ -230,9 +238,6 @@ func (s CreateBackupOutput) GoString() string {
 const (
 	// EnumOfBackupDataTypeForCreateBackupInputData is a EnumOfBackupDataTypeForCreateBackupInput enum value
 	EnumOfBackupDataTypeForCreateBackupInputData = "Data"
-
-	// EnumOfBackupDataTypeForCreateBackupInputLog is a EnumOfBackupDataTypeForCreateBackupInput enum value
-	EnumOfBackupDataTypeForCreateBackupInputLog = "Log"
 )
 
 const (
@@ -241,9 +246,6 @@ const (
 
 	// EnumOfBackupModeForCreateBackupInputIncrement is a EnumOfBackupModeForCreateBackupInput enum value
 	EnumOfBackupModeForCreateBackupInputIncrement = "Increment"
-
-	// EnumOfBackupModeForCreateBackupInputLog is a EnumOfBackupModeForCreateBackupInput enum value
-	EnumOfBackupModeForCreateBackupInputLog = "Log"
 )
 
 const (

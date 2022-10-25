@@ -143,6 +143,36 @@ func (c *RDSMYSQL) ListVpcsWithContext(ctx volcengine.Context, input *ListVpcsIn
 	return out, req.Send()
 }
 
+type DataForListVpcsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Id *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DataForListVpcsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForListVpcsOutput) GoString() string {
+	return s.String()
+}
+
+// SetId sets the Id field's value.
+func (s *DataForListVpcsOutput) SetId(v string) *DataForListVpcsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *DataForListVpcsOutput) SetValue(v string) *DataForListVpcsOutput {
+	s.Value = &v
+	return s
+}
+
 type ListVpcsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -169,6 +199,10 @@ type ListVpcsOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Datas []*DataForListVpcsOutput `type:"list"`
+
+	Total *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -179,4 +213,16 @@ func (s ListVpcsOutput) String() string {
 // GoString returns the string representation
 func (s ListVpcsOutput) GoString() string {
 	return s.String()
+}
+
+// SetDatas sets the Datas field's value.
+func (s *ListVpcsOutput) SetDatas(v []*DataForListVpcsOutput) *ListVpcsOutput {
+	s.Datas = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListVpcsOutput) SetTotal(v int32) *ListVpcsOutput {
+	s.Total = &v
+	return s
 }
