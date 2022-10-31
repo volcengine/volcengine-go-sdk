@@ -227,6 +227,8 @@ type CreateClusterInput struct {
 	PodsConfig *PodsConfigForCreateClusterInput `type:"structure"`
 
 	ServicesConfig *ServicesConfigForCreateClusterInput `type:"structure"`
+
+	Tags []*TagForCreateClusterInput `type:"list"`
 }
 
 // String returns the string representation
@@ -278,6 +280,12 @@ func (s *CreateClusterInput) SetPodsConfig(v *PodsConfigForCreateClusterInput) *
 // SetServicesConfig sets the ServicesConfig field's value.
 func (s *CreateClusterInput) SetServicesConfig(v *ServicesConfigForCreateClusterInput) *CreateClusterInput {
 	s.ServicesConfig = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateClusterInput) SetTags(v []*TagForCreateClusterInput) *CreateClusterInput {
+	s.Tags = v
 	return s
 }
 
@@ -414,6 +422,36 @@ func (s ServicesConfigForCreateClusterInput) GoString() string {
 // SetServiceCidrsv4 sets the ServiceCidrsv4 field's value.
 func (s *ServicesConfigForCreateClusterInput) SetServiceCidrsv4(v []*string) *ServicesConfigForCreateClusterInput {
 	s.ServiceCidrsv4 = v
+	return s
+}
+
+type TagForCreateClusterInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateClusterInput) SetKey(v string) *TagForCreateClusterInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateClusterInput) SetValue(v string) *TagForCreateClusterInput {
+	s.Value = &v
 	return s
 }
 
