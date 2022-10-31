@@ -142,6 +142,10 @@ func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterfaceWithContext(ctx volce
 type CreateDirectConnectVirtualInterfaceInput struct {
 	_ struct{} `type:"structure"`
 
+	BfdDetectInterval *int64 `min:"200" max:"1000" type:"integer"`
+
+	BfdDetectMultiplier *int64 `min:"3" max:"10" type:"integer"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	// DirectConnectConnectionId is a required field
@@ -149,6 +153,8 @@ type CreateDirectConnectVirtualInterfaceInput struct {
 
 	// DirectConnectGatewayId is a required field
 	DirectConnectGatewayId *string `type:"string" required:"true"`
+
+	EnableBfd *bool `type:"boolean"`
 
 	// LocalIp is a required field
 	LocalIp *string `type:"string" required:"true"`
@@ -183,6 +189,18 @@ func (s CreateDirectConnectVirtualInterfaceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDirectConnectVirtualInterfaceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDirectConnectVirtualInterfaceInput"}
+	if s.BfdDetectInterval != nil && *s.BfdDetectInterval < 200 {
+		invalidParams.Add(request.NewErrParamMinValue("BfdDetectInterval", 200))
+	}
+	if s.BfdDetectInterval != nil && *s.BfdDetectInterval > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectInterval", 1000))
+	}
+	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier < 3 {
+		invalidParams.Add(request.NewErrParamMinValue("BfdDetectMultiplier", 3))
+	}
+	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier > 10 {
+		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectMultiplier", 10))
+	}
 	if s.Description != nil && len(*s.Description) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
 	}
@@ -217,6 +235,18 @@ func (s *CreateDirectConnectVirtualInterfaceInput) Validate() error {
 	return nil
 }
 
+// SetBfdDetectInterval sets the BfdDetectInterval field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetBfdDetectInterval(v int64) *CreateDirectConnectVirtualInterfaceInput {
+	s.BfdDetectInterval = &v
+	return s
+}
+
+// SetBfdDetectMultiplier sets the BfdDetectMultiplier field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetBfdDetectMultiplier(v int64) *CreateDirectConnectVirtualInterfaceInput {
+	s.BfdDetectMultiplier = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetDescription(v string) *CreateDirectConnectVirtualInterfaceInput {
 	s.Description = &v
@@ -232,6 +262,12 @@ func (s *CreateDirectConnectVirtualInterfaceInput) SetDirectConnectConnectionId(
 // SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetDirectConnectGatewayId(v string) *CreateDirectConnectVirtualInterfaceInput {
 	s.DirectConnectGatewayId = &v
+	return s
+}
+
+// SetEnableBfd sets the EnableBfd field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetEnableBfd(v bool) *CreateDirectConnectVirtualInterfaceInput {
+	s.EnableBfd = &v
 	return s
 }
 

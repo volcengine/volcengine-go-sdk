@@ -280,15 +280,25 @@ type SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutpu
 
 	Bandwidth *int64 `type:"integer"`
 
+	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
 	CreationTime *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	DirectConnectAccessPointId *string `type:"string"`
 
+	ExpiredTime *string `type:"string"`
+
 	LineOperator *string `type:"string"`
 
 	ParentConnectionId *string `type:"string"`
+
+	PortSpec *string `type:"string"`
 
 	PortType *string `type:"string"`
 
@@ -327,9 +337,27 @@ func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsO
 	return s
 }
 
+// SetBillingType sets the BillingType field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetBillingType(v int64) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetBusinessStatus(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
 // SetCreationTime sets the CreationTime field's value.
 func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetCreationTime(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
 	s.CreationTime = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetDeletedTime(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.DeletedTime = &v
 	return s
 }
 
@@ -345,6 +373,12 @@ func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsO
 	return s
 }
 
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetExpiredTime(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
 // SetLineOperator sets the LineOperator field's value.
 func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetLineOperator(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
 	s.LineOperator = &v
@@ -354,6 +388,12 @@ func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsO
 // SetParentConnectionId sets the ParentConnectionId field's value.
 func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetParentConnectionId(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
 	s.ParentConnectionId = &v
+	return s
+}
+
+// SetPortSpec sets the PortSpec field's value.
+func (s *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput) SetPortSpec(v string) *SharedDirectConnectConnectionForDescribeSharedDirectConnectConnectionsOutput {
+	s.PortSpec = &v
 	return s
 }
 

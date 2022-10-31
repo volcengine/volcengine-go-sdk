@@ -472,7 +472,7 @@ func (s *TagForRunInstancesInput) SetValue(v string) *TagForRunInstancesInput {
 type VolumeForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	DeleteWithInstance *string `type:"string"`
+	DeleteWithInstance *bool `type:"boolean"`
 
 	Size *int32 `type:"int32"`
 
@@ -490,7 +490,7 @@ func (s VolumeForRunInstancesInput) GoString() string {
 }
 
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
-func (s *VolumeForRunInstancesInput) SetDeleteWithInstance(v string) *VolumeForRunInstancesInput {
+func (s *VolumeForRunInstancesInput) SetDeleteWithInstance(v bool) *VolumeForRunInstancesInput {
 	s.DeleteWithInstance = &v
 	return s
 }

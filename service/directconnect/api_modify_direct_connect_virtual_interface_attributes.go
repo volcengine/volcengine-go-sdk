@@ -142,7 +142,13 @@ func (c *DIRECTCONNECT) ModifyDirectConnectVirtualInterfaceAttributesWithContext
 type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	BfdDetectInterval *int64 `min:"200" max:"1000" type:"integer"`
+
+	BfdDetectMultiplier *int64 `min:"3" max:"10" type:"integer"`
+
 	Description *string `min:"1" max:"255" type:"string"`
+
+	EnableBfd *bool `type:"boolean"`
 
 	LocalIpv6Ip *string `type:"string"`
 
@@ -167,6 +173,18 @@ func (s ModifyDirectConnectVirtualInterfaceAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDirectConnectVirtualInterfaceAttributesInput"}
+	if s.BfdDetectInterval != nil && *s.BfdDetectInterval < 200 {
+		invalidParams.Add(request.NewErrParamMinValue("BfdDetectInterval", 200))
+	}
+	if s.BfdDetectInterval != nil && *s.BfdDetectInterval > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectInterval", 1000))
+	}
+	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier < 3 {
+		invalidParams.Add(request.NewErrParamMinValue("BfdDetectMultiplier", 3))
+	}
+	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier > 10 {
+		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectMultiplier", 10))
+	}
 	if s.Description != nil && len(*s.Description) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
 	}
@@ -189,9 +207,27 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) Validate() error {
 	return nil
 }
 
+// SetBfdDetectInterval sets the BfdDetectInterval field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetBfdDetectInterval(v int64) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.BfdDetectInterval = &v
+	return s
+}
+
+// SetBfdDetectMultiplier sets the BfdDetectMultiplier field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetBfdDetectMultiplier(v int64) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.BfdDetectMultiplier = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetDescription(v string) *ModifyDirectConnectVirtualInterfaceAttributesInput {
 	s.Description = &v
+	return s
+}
+
+// SetEnableBfd sets the EnableBfd field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetEnableBfd(v bool) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.EnableBfd = &v
 	return s
 }
 
