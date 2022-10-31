@@ -142,6 +142,8 @@ func (c *ALB) CreateLoadBalancerWithContext(ctx volcengine.Context, input *Creat
 type CreateLoadBalancerInput struct {
 	_ struct{} `type:"structure"`
 
+	BandwidthPackageId *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	EipBillingConfig *EipBillingConfigForCreateLoadBalancerInput `type:"structure"`
@@ -153,8 +155,7 @@ type CreateLoadBalancerInput struct {
 	// RegionId is a required field
 	RegionId *string `type:"string" required:"true"`
 
-	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string"`
 
 	// Type is a required field
 	Type *string `type:"string" required:"true"`
@@ -180,9 +181,6 @@ func (s *CreateLoadBalancerInput) Validate() error {
 	if s.RegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RegionId"))
 	}
-	if s.SubnetId == nil {
-		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
-	}
 	if s.Type == nil {
 		invalidParams.Add(request.NewErrParamRequired("Type"))
 	}
@@ -191,6 +189,12 @@ func (s *CreateLoadBalancerInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *CreateLoadBalancerInput) SetBandwidthPackageId(v string) *CreateLoadBalancerInput {
+	s.BandwidthPackageId = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

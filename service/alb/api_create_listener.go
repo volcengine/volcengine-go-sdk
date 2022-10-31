@@ -148,6 +148,8 @@ type CreateListenerInput struct {
 
 	AclType *string `type:"string"`
 
+	CACertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -228,6 +230,12 @@ func (s *CreateListenerInput) SetAclStatus(v string) *CreateListenerInput {
 // SetAclType sets the AclType field's value.
 func (s *CreateListenerInput) SetAclType(v string) *CreateListenerInput {
 	s.AclType = &v
+	return s
+}
+
+// SetCACertificateId sets the CACertificateId field's value.
+func (s *CreateListenerInput) SetCACertificateId(v string) *CreateListenerInput {
+	s.CACertificateId = &v
 	return s
 }
 

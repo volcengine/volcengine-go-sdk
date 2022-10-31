@@ -224,6 +224,8 @@ type DescribeAclAttributesOutput struct {
 
 	RequestId *string `type:"string"`
 
+	Status *string `type:"string"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -276,6 +278,12 @@ func (s *DescribeAclAttributesOutput) SetListeners(v []*ListenerForDescribeAclAt
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeAclAttributesOutput) SetRequestId(v string) *DescribeAclAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeAclAttributesOutput) SetStatus(v string) *DescribeAclAttributesOutput {
+	s.Status = &v
 	return s
 }
 

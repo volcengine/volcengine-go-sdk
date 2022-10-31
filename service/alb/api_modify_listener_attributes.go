@@ -194,6 +194,8 @@ type ModifyListenerAttributesInput struct {
 
 	AclType *string `type:"string"`
 
+	CACertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
 
 	CustomizedCfgId *string `type:"string"`
@@ -260,6 +262,12 @@ func (s *ModifyListenerAttributesInput) SetAclStatus(v string) *ModifyListenerAt
 // SetAclType sets the AclType field's value.
 func (s *ModifyListenerAttributesInput) SetAclType(v string) *ModifyListenerAttributesInput {
 	s.AclType = &v
+	return s
+}
+
+// SetCACertificateId sets the CACertificateId field's value.
+func (s *ModifyListenerAttributesInput) SetCACertificateId(v string) *ModifyListenerAttributesInput {
+	s.CACertificateId = &v
 	return s
 }
 

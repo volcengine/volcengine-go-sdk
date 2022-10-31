@@ -186,6 +186,8 @@ type DescribeListenerAttributesOutput struct {
 
 	AclType *string `type:"string"`
 
+	CACertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
 
 	CreateTime *string `type:"string"`
@@ -248,6 +250,12 @@ func (s *DescribeListenerAttributesOutput) SetAclStatus(v string) *DescribeListe
 // SetAclType sets the AclType field's value.
 func (s *DescribeListenerAttributesOutput) SetAclType(v string) *DescribeListenerAttributesOutput {
 	s.AclType = &v
+	return s
+}
+
+// SetCACertificateId sets the CACertificateId field's value.
+func (s *DescribeListenerAttributesOutput) SetCACertificateId(v string) *DescribeListenerAttributesOutput {
+	s.CACertificateId = &v
 	return s
 }
 
