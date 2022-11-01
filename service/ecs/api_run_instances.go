@@ -196,6 +196,8 @@ type RunInstancesInput struct {
 
 	HostName *string `type:"string"`
 
+	Hostname *string `type:"string"`
+
 	HpcClusterId *string `type:"string"`
 
 	ImageId *string `type:"string"`
@@ -292,6 +294,12 @@ func (s *RunInstancesInput) SetDryRun(v bool) *RunInstancesInput {
 // SetHostName sets the HostName field's value.
 func (s *RunInstancesInput) SetHostName(v string) *RunInstancesInput {
 	s.HostName = &v
+	return s
+}
+
+// SetHostname sets the Hostname field's value.
+func (s *RunInstancesInput) SetHostname(v string) *RunInstancesInput {
+	s.Hostname = &v
 	return s
 }
 
