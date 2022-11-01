@@ -390,6 +390,8 @@ type InstanceForDescribeInstancesOutput struct {
 
 	HostName *string `type:"string"`
 
+	Hostname *string `type:"string"`
+
 	ImageId *string `type:"string"`
 
 	InstanceChargeType *string `type:"string"`
@@ -482,6 +484,12 @@ func (s *InstanceForDescribeInstancesOutput) SetExpiredAt(v string) *InstanceFor
 // SetHostName sets the HostName field's value.
 func (s *InstanceForDescribeInstancesOutput) SetHostName(v string) *InstanceForDescribeInstancesOutput {
 	s.HostName = &v
+	return s
+}
+
+// SetHostname sets the Hostname field's value.
+func (s *InstanceForDescribeInstancesOutput) SetHostname(v string) *InstanceForDescribeInstancesOutput {
+	s.Hostname = &v
 	return s
 }
 
