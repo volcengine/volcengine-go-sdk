@@ -378,17 +378,19 @@ type InstanceForDescribeInstancesOutput struct {
 
 	CpuOptions *CpuOptionsForDescribeInstancesOutput `type:"structure"`
 
-	Cpus *int32 `min:"1" type:"int32"`
+	Cpus *int32 `type:"int32"`
 
 	CreatedAt *string `type:"string"`
 
-	Description *string `max:"256" type:"string"`
+	Description *string `type:"string"`
 
 	EipAddress *EipAddressForDescribeInstancesOutput `type:"structure"`
 
 	ExpiredAt *string `type:"string"`
 
-	HostName *string `min:"1" type:"string"`
+	HostName *string `type:"string"`
+
+	Hostname *string `type:"string"`
 
 	ImageId *string `type:"string"`
 
@@ -396,9 +398,9 @@ type InstanceForDescribeInstancesOutput struct {
 
 	InstanceId *string `type:"string"`
 
-	InstanceName *string `min:"1" type:"string"`
+	InstanceName *string `type:"string"`
 
-	InstanceTypeId *string `min:"1" type:"string"`
+	InstanceTypeId *string `type:"string"`
 
 	KeyPairId *string `type:"string"`
 
@@ -406,7 +408,7 @@ type InstanceForDescribeInstancesOutput struct {
 
 	LocalVolumes []*LocalVolumeForDescribeInstancesOutput `type:"list"`
 
-	MemorySize *int32 `min:"1024" type:"int32"`
+	MemorySize *int32 `type:"int32"`
 
 	NetworkInterfaces []*NetworkInterfaceForDescribeInstancesOutput `type:"list"`
 
@@ -430,7 +432,7 @@ type InstanceForDescribeInstancesOutput struct {
 
 	VpcId *string `type:"string"`
 
-	ZoneId *string `min:"1" type:"string"`
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -482,6 +484,12 @@ func (s *InstanceForDescribeInstancesOutput) SetExpiredAt(v string) *InstanceFor
 // SetHostName sets the HostName field's value.
 func (s *InstanceForDescribeInstancesOutput) SetHostName(v string) *InstanceForDescribeInstancesOutput {
 	s.HostName = &v
+	return s
+}
+
+// SetHostname sets the Hostname field's value.
+func (s *InstanceForDescribeInstancesOutput) SetHostname(v string) *InstanceForDescribeInstancesOutput {
+	s.Hostname = &v
 	return s
 }
 

@@ -274,11 +274,11 @@ type ImageForDescribeImagesOutput struct {
 
 	CreatedAt *string `type:"string"`
 
-	Description *string `max:"255" type:"string"`
+	Description *string `type:"string"`
 
 	ImageId *string `type:"string"`
 
-	ImageName *string `min:"1" max:"128" type:"string"`
+	ImageName *string `type:"string"`
 
 	ImageOwnerId *string `type:"string"`
 
@@ -294,7 +294,7 @@ type ImageForDescribeImagesOutput struct {
 
 	ShareStatus *string `type:"string"`
 
-	Size *int32 `min:"1" max:"2001" type:"int32"`
+	Size *int32 `type:"int32"`
 
 	Status *string `type:"string"`
 
