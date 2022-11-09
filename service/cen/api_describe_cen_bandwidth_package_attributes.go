@@ -206,9 +206,13 @@ type DescribeCenBandwidthPackageAttributesOutput struct {
 
 	PeerGeographicRegionSetId *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RemainingBandwidth *int64 `type:"integer"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeCenBandwidthPackageAttributesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -299,6 +303,12 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetPeerGeographicRegionSet
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCenBandwidthPackageAttributesOutput) SetProjectName(v string) *DescribeCenBandwidthPackageAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRemainingBandwidth sets the RemainingBandwidth field's value.
 func (s *DescribeCenBandwidthPackageAttributesOutput) SetRemainingBandwidth(v int64) *DescribeCenBandwidthPackageAttributesOutput {
 	s.RemainingBandwidth = &v
@@ -308,5 +318,41 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetRemainingBandwidth(v in
 // SetStatus sets the Status field's value.
 func (s *DescribeCenBandwidthPackageAttributesOutput) SetStatus(v string) *DescribeCenBandwidthPackageAttributesOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeCenBandwidthPackageAttributesOutput) SetTags(v []*TagForDescribeCenBandwidthPackageAttributesOutput) *DescribeCenBandwidthPackageAttributesOutput {
+	s.Tags = v
+	return s
+}
+
+type TagForDescribeCenBandwidthPackageAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCenBandwidthPackageAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCenBandwidthPackageAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCenBandwidthPackageAttributesOutput) SetKey(v string) *TagForDescribeCenBandwidthPackageAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeCenBandwidthPackageAttributesOutput) SetValue(v string) *TagForDescribeCenBandwidthPackageAttributesOutput {
+	s.Value = &v
 	return s
 }

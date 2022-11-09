@@ -156,6 +156,8 @@ type CustomerGatewayForDescribeCustomerGatewaysOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -213,6 +215,12 @@ func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetIpAddress(v string
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetProjectName(v string) *CustomerGatewayForDescribeCustomerGatewaysOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *CustomerGatewayForDescribeCustomerGatewaysOutput) SetStatus(v string) *CustomerGatewayForDescribeCustomerGatewaysOutput {
 	s.Status = &v
@@ -237,6 +245,8 @@ type DescribeCustomerGatewaysInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -276,6 +286,12 @@ func (s *DescribeCustomerGatewaysInput) SetPageNumber(v int64) *DescribeCustomer
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCustomerGatewaysInput) SetPageSize(v int64) *DescribeCustomerGatewaysInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCustomerGatewaysInput) SetProjectName(v string) *DescribeCustomerGatewaysInput {
+	s.ProjectName = &v
 	return s
 }
 

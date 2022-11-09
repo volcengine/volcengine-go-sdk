@@ -155,6 +155,8 @@ type CreateBandwidthPackageInput struct {
 
 	ProjectName *string `type:"string"`
 
+	SecurityProtectionTypes []*string `type:"list"`
+
 	Tags []*TagForCreateBandwidthPackageInput `type:"list"`
 }
 
@@ -238,6 +240,12 @@ func (s *CreateBandwidthPackageInput) SetISP(v string) *CreateBandwidthPackageIn
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateBandwidthPackageInput) SetProjectName(v string) *CreateBandwidthPackageInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *CreateBandwidthPackageInput) SetSecurityProtectionTypes(v []*string) *CreateBandwidthPackageInput {
+	s.SecurityProtectionTypes = v
 	return s
 }
 

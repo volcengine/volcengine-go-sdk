@@ -148,6 +148,8 @@ type DescribeVpnGatewaysInput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	SubnetId *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -182,6 +184,12 @@ func (s *DescribeVpnGatewaysInput) SetPageNumber(v int64) *DescribeVpnGatewaysIn
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVpnGatewaysInput) SetPageSize(v int64) *DescribeVpnGatewaysInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpnGatewaysInput) SetProjectName(v string) *DescribeVpnGatewaysInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -290,6 +298,8 @@ type VpnGatewayForDescribeVpnGatewaysOutput struct {
 
 	LockReason *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RouteCount *int64 `type:"integer"`
 
 	Status *string `type:"string"`
@@ -378,6 +388,12 @@ func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetIpAddress(v string) *VpnGate
 // SetLockReason sets the LockReason field's value.
 func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetLockReason(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.LockReason = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetProjectName(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.ProjectName = &v
 	return s
 }
 

@@ -163,6 +163,10 @@ type CreateCenBandwidthPackageInput struct {
 	Period *int64 `type:"integer"`
 
 	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateCenBandwidthPackageInput"`
+
+	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateCenBandwidthPackageInput `type:"list"`
 }
 
 // String returns the string representation
@@ -269,6 +273,18 @@ func (s *CreateCenBandwidthPackageInput) SetPeriodUnit(v string) *CreateCenBandw
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateCenBandwidthPackageInput) SetProjectName(v string) *CreateCenBandwidthPackageInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateCenBandwidthPackageInput) SetTags(v []*TagForCreateCenBandwidthPackageInput) *CreateCenBandwidthPackageInput {
+	s.Tags = v
+	return s
+}
+
 type CreateCenBandwidthPackageOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -290,6 +306,28 @@ func (s CreateCenBandwidthPackageOutput) GoString() string {
 // SetCenBandwidthPackageId sets the CenBandwidthPackageId field's value.
 func (s *CreateCenBandwidthPackageOutput) SetCenBandwidthPackageId(v string) *CreateCenBandwidthPackageOutput {
 	s.CenBandwidthPackageId = &v
+	return s
+}
+
+type TagForCreateCenBandwidthPackageInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateCenBandwidthPackageInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateCenBandwidthPackageInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateCenBandwidthPackageInput) SetKey(v string) *TagForCreateCenBandwidthPackageInput {
+	s.Key = &v
 	return s
 }
 

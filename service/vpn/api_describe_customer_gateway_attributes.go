@@ -194,6 +194,8 @@ type DescribeCustomerGatewayAttributesOutput struct {
 
 	IpAddress *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -250,6 +252,12 @@ func (s *DescribeCustomerGatewayAttributesOutput) SetDescription(v string) *Desc
 // SetIpAddress sets the IpAddress field's value.
 func (s *DescribeCustomerGatewayAttributesOutput) SetIpAddress(v string) *DescribeCustomerGatewayAttributesOutput {
 	s.IpAddress = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCustomerGatewayAttributesOutput) SetProjectName(v string) *DescribeCustomerGatewayAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 
