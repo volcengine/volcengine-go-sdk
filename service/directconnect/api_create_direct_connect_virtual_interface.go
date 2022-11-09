@@ -142,6 +142,8 @@ func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterfaceWithContext(ctx volce
 type CreateDirectConnectVirtualInterfaceInput struct {
 	_ struct{} `type:"structure"`
 
+	Bandwidth *int64 `type:"integer"`
+
 	BfdDetectInterval *int64 `min:"200" max:"1000" type:"integer"`
 
 	BfdDetectMultiplier *int64 `min:"3" max:"10" type:"integer"`
@@ -233,6 +235,12 @@ func (s *CreateDirectConnectVirtualInterfaceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetBandwidth(v int64) *CreateDirectConnectVirtualInterfaceInput {
+	s.Bandwidth = &v
+	return s
 }
 
 // SetBfdDetectInterval sets the BfdDetectInterval field's value.

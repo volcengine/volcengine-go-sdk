@@ -142,6 +142,8 @@ func (c *DIRECTCONNECT) ModifyDirectConnectVirtualInterfaceAttributesWithContext
 type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	Bandwidth *int64 `type:"integer"`
+
 	BfdDetectInterval *int64 `min:"200" max:"1000" type:"integer"`
 
 	BfdDetectMultiplier *int64 `min:"3" max:"10" type:"integer"`
@@ -205,6 +207,12 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetBandwidth(v int64) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.Bandwidth = &v
+	return s
 }
 
 // SetBfdDetectInterval sets the BfdDetectInterval field's value.

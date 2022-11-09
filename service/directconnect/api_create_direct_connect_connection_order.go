@@ -227,6 +227,12 @@ type CreateDirectConnectConnectionOrderOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	OrderNumber *string `type:"string"`
+
+	PreOrderNumber *string `type:"string"`
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -237,6 +243,24 @@ func (s CreateDirectConnectConnectionOrderOutput) String() string {
 // GoString returns the string representation
 func (s CreateDirectConnectConnectionOrderOutput) GoString() string {
 	return s.String()
+}
+
+// SetOrderNumber sets the OrderNumber field's value.
+func (s *CreateDirectConnectConnectionOrderOutput) SetOrderNumber(v string) *CreateDirectConnectConnectionOrderOutput {
+	s.OrderNumber = &v
+	return s
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *CreateDirectConnectConnectionOrderOutput) SetPreOrderNumber(v string) *CreateDirectConnectConnectionOrderOutput {
+	s.PreOrderNumber = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateDirectConnectConnectionOrderOutput) SetRequestId(v string) *CreateDirectConnectConnectionOrderOutput {
+	s.RequestId = &v
+	return s
 }
 
 const (

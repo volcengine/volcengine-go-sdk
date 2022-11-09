@@ -144,9 +144,13 @@ type DescribeDirectConnectConnectionsInput struct {
 
 	AccessPoint *string `type:"string"`
 
+	ConnectionType *string `type:"string"`
+
 	DirectConnectConnectionIds []*string `type:"list"`
 
 	DirectConnectConnectionName *string `type:"string"`
+
+	LineOperator *string `type:"string"`
 
 	Operator *string `type:"string"`
 
@@ -175,6 +179,12 @@ func (s *DescribeDirectConnectConnectionsInput) SetAccessPoint(v string) *Descri
 	return s
 }
 
+// SetConnectionType sets the ConnectionType field's value.
+func (s *DescribeDirectConnectConnectionsInput) SetConnectionType(v string) *DescribeDirectConnectConnectionsInput {
+	s.ConnectionType = &v
+	return s
+}
+
 // SetDirectConnectConnectionIds sets the DirectConnectConnectionIds field's value.
 func (s *DescribeDirectConnectConnectionsInput) SetDirectConnectConnectionIds(v []*string) *DescribeDirectConnectConnectionsInput {
 	s.DirectConnectConnectionIds = v
@@ -184,6 +194,12 @@ func (s *DescribeDirectConnectConnectionsInput) SetDirectConnectConnectionIds(v 
 // SetDirectConnectConnectionName sets the DirectConnectConnectionName field's value.
 func (s *DescribeDirectConnectConnectionsInput) SetDirectConnectConnectionName(v string) *DescribeDirectConnectConnectionsInput {
 	s.DirectConnectConnectionName = &v
+	return s
+}
+
+// SetLineOperator sets the LineOperator field's value.
+func (s *DescribeDirectConnectConnectionsInput) SetLineOperator(v string) *DescribeDirectConnectConnectionsInput {
+	s.LineOperator = &v
 	return s
 }
 
