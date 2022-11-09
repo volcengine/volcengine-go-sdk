@@ -152,10 +152,6 @@ type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 
 	EnableBfd *bool `type:"boolean"`
 
-	LocalIpv6Ip *string `type:"string"`
-
-	PeerIpv6Ip *string `type:"string"`
-
 	// VirtualInterfaceId is a required field
 	VirtualInterfaceId *string `type:"string" required:"true"`
 
@@ -236,18 +232,6 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetDescription(v st
 // SetEnableBfd sets the EnableBfd field's value.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetEnableBfd(v bool) *ModifyDirectConnectVirtualInterfaceAttributesInput {
 	s.EnableBfd = &v
-	return s
-}
-
-// SetLocalIpv6Ip sets the LocalIpv6Ip field's value.
-func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetLocalIpv6Ip(v string) *ModifyDirectConnectVirtualInterfaceAttributesInput {
-	s.LocalIpv6Ip = &v
-	return s
-}
-
-// SetPeerIpv6Ip sets the PeerIpv6Ip field's value.
-func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetPeerIpv6Ip(v string) *ModifyDirectConnectVirtualInterfaceAttributesInput {
-	s.PeerIpv6Ip = &v
 	return s
 }
 

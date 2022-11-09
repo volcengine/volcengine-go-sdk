@@ -161,12 +161,8 @@ type CreateDirectConnectVirtualInterfaceInput struct {
 	// LocalIp is a required field
 	LocalIp *string `type:"string" required:"true"`
 
-	LocalIpv6Ip *string `type:"string"`
-
 	// PeerIp is a required field
 	PeerIp *string `type:"string" required:"true"`
-
-	PeerIpv6Ip *string `type:"string"`
 
 	RouteType *string `type:"string" enum:"RouteTypeForCreateDirectConnectVirtualInterfaceInput"`
 
@@ -285,21 +281,9 @@ func (s *CreateDirectConnectVirtualInterfaceInput) SetLocalIp(v string) *CreateD
 	return s
 }
 
-// SetLocalIpv6Ip sets the LocalIpv6Ip field's value.
-func (s *CreateDirectConnectVirtualInterfaceInput) SetLocalIpv6Ip(v string) *CreateDirectConnectVirtualInterfaceInput {
-	s.LocalIpv6Ip = &v
-	return s
-}
-
 // SetPeerIp sets the PeerIp field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetPeerIp(v string) *CreateDirectConnectVirtualInterfaceInput {
 	s.PeerIp = &v
-	return s
-}
-
-// SetPeerIpv6Ip sets the PeerIpv6Ip field's value.
-func (s *CreateDirectConnectVirtualInterfaceInput) SetPeerIpv6Ip(v string) *CreateDirectConnectVirtualInterfaceInput {
-	s.PeerIpv6Ip = &v
 	return s
 }
 

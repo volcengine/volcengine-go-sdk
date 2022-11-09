@@ -150,12 +150,6 @@ type CreateDirectConnectConnectionOrderInput struct {
 	Period *int64 `type:"integer"`
 
 	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateDirectConnectConnectionOrderInput"`
-
-	RemainRenewTimes *int64 `type:"integer"`
-
-	RenewPeriod *int64 `type:"integer"`
-
-	RenewType *string `type:"string" enum:"RenewTypeForCreateDirectConnectConnectionOrderInput"`
 }
 
 // String returns the string representation
@@ -205,32 +199,12 @@ func (s *CreateDirectConnectConnectionOrderInput) SetPeriodUnit(v string) *Creat
 	return s
 }
 
-// SetRemainRenewTimes sets the RemainRenewTimes field's value.
-func (s *CreateDirectConnectConnectionOrderInput) SetRemainRenewTimes(v int64) *CreateDirectConnectConnectionOrderInput {
-	s.RemainRenewTimes = &v
-	return s
-}
-
-// SetRenewPeriod sets the RenewPeriod field's value.
-func (s *CreateDirectConnectConnectionOrderInput) SetRenewPeriod(v int64) *CreateDirectConnectConnectionOrderInput {
-	s.RenewPeriod = &v
-	return s
-}
-
-// SetRenewType sets the RenewType field's value.
-func (s *CreateDirectConnectConnectionOrderInput) SetRenewType(v string) *CreateDirectConnectConnectionOrderInput {
-	s.RenewType = &v
-	return s
-}
-
 type CreateDirectConnectConnectionOrderOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 
 	OrderNumber *string `type:"string"`
-
-	PreOrderNumber *string `type:"string"`
 
 	RequestId *string `type:"string"`
 }
@@ -251,12 +225,6 @@ func (s *CreateDirectConnectConnectionOrderOutput) SetOrderNumber(v string) *Cre
 	return s
 }
 
-// SetPreOrderNumber sets the PreOrderNumber field's value.
-func (s *CreateDirectConnectConnectionOrderOutput) SetPreOrderNumber(v string) *CreateDirectConnectConnectionOrderOutput {
-	s.PreOrderNumber = &v
-	return s
-}
-
 // SetRequestId sets the RequestId field's value.
 func (s *CreateDirectConnectConnectionOrderOutput) SetRequestId(v string) *CreateDirectConnectConnectionOrderOutput {
 	s.RequestId = &v
@@ -269,15 +237,4 @@ const (
 
 	// PeriodUnitForCreateDirectConnectConnectionOrderInputYear is a PeriodUnitForCreateDirectConnectConnectionOrderInput enum value
 	PeriodUnitForCreateDirectConnectConnectionOrderInputYear = "Year"
-)
-
-const (
-	// RenewTypeForCreateDirectConnectConnectionOrderInputManual is a RenewTypeForCreateDirectConnectConnectionOrderInput enum value
-	RenewTypeForCreateDirectConnectConnectionOrderInputManual = "Manual"
-
-	// RenewTypeForCreateDirectConnectConnectionOrderInputAuto is a RenewTypeForCreateDirectConnectConnectionOrderInput enum value
-	RenewTypeForCreateDirectConnectConnectionOrderInputAuto = "Auto"
-
-	// RenewTypeForCreateDirectConnectConnectionOrderInputNoRenew is a RenewTypeForCreateDirectConnectConnectionOrderInput enum value
-	RenewTypeForCreateDirectConnectConnectionOrderInputNoRenew = "NoRenew"
 )
