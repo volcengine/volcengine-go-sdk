@@ -150,6 +150,8 @@ type ReplaceSystemVolumeInput struct {
 
 	InstanceId *string `type:"string"`
 
+	KeepImageCredential *bool `type:"boolean"`
+
 	KeyPairName *string `type:"string"`
 
 	Password *string `type:"string"`
@@ -184,6 +186,12 @@ func (s *ReplaceSystemVolumeInput) SetImageId(v string) *ReplaceSystemVolumeInpu
 // SetInstanceId sets the InstanceId field's value.
 func (s *ReplaceSystemVolumeInput) SetInstanceId(v string) *ReplaceSystemVolumeInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetKeepImageCredential sets the KeepImageCredential field's value.
+func (s *ReplaceSystemVolumeInput) SetKeepImageCredential(v bool) *ReplaceSystemVolumeInput {
+	s.KeepImageCredential = &v
 	return s
 }
 

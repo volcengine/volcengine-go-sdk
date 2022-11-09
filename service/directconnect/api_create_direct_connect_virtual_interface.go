@@ -142,6 +142,12 @@ func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterfaceWithContext(ctx volce
 type CreateDirectConnectVirtualInterfaceInput struct {
 	_ struct{} `type:"structure"`
 
+	Bandwidth *int64 `type:"integer"`
+
+	BfdDetectInterval *int64 `min:"200" max:"1000" type:"integer"`
+
+	BfdDetectMultiplier *int64 `min:"3" max:"10" type:"integer"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	// DirectConnectConnectionId is a required field
@@ -150,15 +156,13 @@ type CreateDirectConnectVirtualInterfaceInput struct {
 	// DirectConnectGatewayId is a required field
 	DirectConnectGatewayId *string `type:"string" required:"true"`
 
+	EnableBfd *bool `type:"boolean"`
+
 	// LocalIp is a required field
 	LocalIp *string `type:"string" required:"true"`
 
-	LocalIpv6Ip *string `type:"string"`
-
 	// PeerIp is a required field
 	PeerIp *string `type:"string" required:"true"`
-
-	PeerIpv6Ip *string `type:"string"`
 
 	RouteType *string `type:"string" enum:"RouteTypeForCreateDirectConnectVirtualInterfaceInput"`
 
@@ -183,6 +187,18 @@ func (s CreateDirectConnectVirtualInterfaceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDirectConnectVirtualInterfaceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDirectConnectVirtualInterfaceInput"}
+	if s.BfdDetectInterval != nil && *s.BfdDetectInterval < 200 {
+		invalidParams.Add(request.NewErrParamMinValue("BfdDetectInterval", 200))
+	}
+	if s.BfdDetectInterval != nil && *s.BfdDetectInterval > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectInterval", 1000))
+	}
+	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier < 3 {
+		invalidParams.Add(request.NewErrParamMinValue("BfdDetectMultiplier", 3))
+	}
+	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier > 10 {
+		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectMultiplier", 10))
+	}
 	if s.Description != nil && len(*s.Description) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
 	}
@@ -217,6 +233,24 @@ func (s *CreateDirectConnectVirtualInterfaceInput) Validate() error {
 	return nil
 }
 
+// SetBandwidth sets the Bandwidth field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetBandwidth(v int64) *CreateDirectConnectVirtualInterfaceInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBfdDetectInterval sets the BfdDetectInterval field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetBfdDetectInterval(v int64) *CreateDirectConnectVirtualInterfaceInput {
+	s.BfdDetectInterval = &v
+	return s
+}
+
+// SetBfdDetectMultiplier sets the BfdDetectMultiplier field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetBfdDetectMultiplier(v int64) *CreateDirectConnectVirtualInterfaceInput {
+	s.BfdDetectMultiplier = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetDescription(v string) *CreateDirectConnectVirtualInterfaceInput {
 	s.Description = &v
@@ -235,27 +269,21 @@ func (s *CreateDirectConnectVirtualInterfaceInput) SetDirectConnectGatewayId(v s
 	return s
 }
 
+// SetEnableBfd sets the EnableBfd field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetEnableBfd(v bool) *CreateDirectConnectVirtualInterfaceInput {
+	s.EnableBfd = &v
+	return s
+}
+
 // SetLocalIp sets the LocalIp field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetLocalIp(v string) *CreateDirectConnectVirtualInterfaceInput {
 	s.LocalIp = &v
 	return s
 }
 
-// SetLocalIpv6Ip sets the LocalIpv6Ip field's value.
-func (s *CreateDirectConnectVirtualInterfaceInput) SetLocalIpv6Ip(v string) *CreateDirectConnectVirtualInterfaceInput {
-	s.LocalIpv6Ip = &v
-	return s
-}
-
 // SetPeerIp sets the PeerIp field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetPeerIp(v string) *CreateDirectConnectVirtualInterfaceInput {
 	s.PeerIp = &v
-	return s
-}
-
-// SetPeerIpv6Ip sets the PeerIpv6Ip field's value.
-func (s *CreateDirectConnectVirtualInterfaceInput) SetPeerIpv6Ip(v string) *CreateDirectConnectVirtualInterfaceInput {
-	s.PeerIpv6Ip = &v
 	return s
 }
 

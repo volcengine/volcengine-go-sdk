@@ -144,9 +144,13 @@ type DescribeVpnConnectionsInput struct {
 
 	CustomerGatewayId *string `type:"string"`
 
+	NegotiateInstantly *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
 
 	VpnConnectionIds []*string `type:"list"`
 
@@ -171,6 +175,12 @@ func (s *DescribeVpnConnectionsInput) SetCustomerGatewayId(v string) *DescribeVp
 	return s
 }
 
+// SetNegotiateInstantly sets the NegotiateInstantly field's value.
+func (s *DescribeVpnConnectionsInput) SetNegotiateInstantly(v string) *DescribeVpnConnectionsInput {
+	s.NegotiateInstantly = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeVpnConnectionsInput) SetPageNumber(v int64) *DescribeVpnConnectionsInput {
 	s.PageNumber = &v
@@ -180,6 +190,12 @@ func (s *DescribeVpnConnectionsInput) SetPageNumber(v int64) *DescribeVpnConnect
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVpnConnectionsInput) SetPageSize(v int64) *DescribeVpnConnectionsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpnConnectionsInput) SetProjectName(v string) *DescribeVpnConnectionsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -412,6 +428,8 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 
 	NatTraversal *bool `type:"boolean"`
 
+	ProjectName *string `type:"string"`
+
 	RemoteSubnet []*string `type:"list"`
 
 	Status *string `type:"string"`
@@ -492,6 +510,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetLocalSubnet(v []*strin
 // SetNatTraversal sets the NatTraversal field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetNatTraversal(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.NatTraversal = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetProjectName(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.ProjectName = &v
 	return s
 }
 

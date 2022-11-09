@@ -210,6 +210,8 @@ type RunInstancesInput struct {
 
 	InstanceTypeId *string `type:"string"`
 
+	KeepImageCredential *bool `type:"boolean"`
+
 	KeyPairName *string `type:"string"`
 
 	MinCount *int32 `type:"int32"`
@@ -225,6 +227,8 @@ type RunInstancesInput struct {
 	ProjectName *string `type:"string"`
 
 	SecurityEnhancementStrategy *string `type:"string"`
+
+	SpotStrategy *string `type:"string"`
 
 	SuffixIndex *int32 `type:"int32"`
 
@@ -339,6 +343,12 @@ func (s *RunInstancesInput) SetInstanceTypeId(v string) *RunInstancesInput {
 	return s
 }
 
+// SetKeepImageCredential sets the KeepImageCredential field's value.
+func (s *RunInstancesInput) SetKeepImageCredential(v bool) *RunInstancesInput {
+	s.KeepImageCredential = &v
+	return s
+}
+
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *RunInstancesInput) SetKeyPairName(v string) *RunInstancesInput {
 	s.KeyPairName = &v
@@ -384,6 +394,12 @@ func (s *RunInstancesInput) SetProjectName(v string) *RunInstancesInput {
 // SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
 func (s *RunInstancesInput) SetSecurityEnhancementStrategy(v string) *RunInstancesInput {
 	s.SecurityEnhancementStrategy = &v
+	return s
+}
+
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *RunInstancesInput) SetSpotStrategy(v string) *RunInstancesInput {
+	s.SpotStrategy = &v
 	return s
 }
 

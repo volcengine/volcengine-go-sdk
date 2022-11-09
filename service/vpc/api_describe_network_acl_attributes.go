@@ -142,7 +142,8 @@ func (c *VPC) DescribeNetworkAclAttributesWithContext(ctx volcengine.Context, in
 type DescribeNetworkAclAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	NetworkAclId *string `type:"string"`
+	// NetworkAclId is a required field
+	NetworkAclId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DescribeNetworkAclAttributesInput) String() string {
 // GoString returns the string representation
 func (s DescribeNetworkAclAttributesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeNetworkAclAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeNetworkAclAttributesInput"}
+	if s.NetworkAclId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkAclId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNetworkAclId sets the NetworkAclId field's value.

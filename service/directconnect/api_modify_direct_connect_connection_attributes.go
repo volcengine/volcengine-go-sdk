@@ -142,6 +142,12 @@ func (c *DIRECTCONNECT) ModifyDirectConnectConnectionAttributesWithContext(ctx v
 type ModifyDirectConnectConnectionAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	CustomerContactEmail *string `type:"string"`
+
+	CustomerContactPhone *string `type:"string"`
+
+	CustomerName *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	// DirectConnectConnectionId is a required field
@@ -171,6 +177,24 @@ func (s *ModifyDirectConnectConnectionAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCustomerContactEmail sets the CustomerContactEmail field's value.
+func (s *ModifyDirectConnectConnectionAttributesInput) SetCustomerContactEmail(v string) *ModifyDirectConnectConnectionAttributesInput {
+	s.CustomerContactEmail = &v
+	return s
+}
+
+// SetCustomerContactPhone sets the CustomerContactPhone field's value.
+func (s *ModifyDirectConnectConnectionAttributesInput) SetCustomerContactPhone(v string) *ModifyDirectConnectConnectionAttributesInput {
+	s.CustomerContactPhone = &v
+	return s
+}
+
+// SetCustomerName sets the CustomerName field's value.
+func (s *ModifyDirectConnectConnectionAttributesInput) SetCustomerName(v string) *ModifyDirectConnectConnectionAttributesInput {
+	s.CustomerName = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

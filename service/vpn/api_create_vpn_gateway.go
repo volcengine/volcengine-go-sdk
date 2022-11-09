@@ -153,8 +153,12 @@ type CreateVpnGatewayInput struct {
 
 	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateVpnGatewayInput"`
 
+	ProjectName *string `type:"string"`
+
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
+
+	Tags []*TagForCreateVpnGatewayInput `type:"list"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -245,9 +249,21 @@ func (s *CreateVpnGatewayInput) SetPeriodUnit(v string) *CreateVpnGatewayInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateVpnGatewayInput) SetProjectName(v string) *CreateVpnGatewayInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSubnetId sets the SubnetId field's value.
 func (s *CreateVpnGatewayInput) SetSubnetId(v string) *CreateVpnGatewayInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateVpnGatewayInput) SetTags(v []*TagForCreateVpnGatewayInput) *CreateVpnGatewayInput {
+	s.Tags = v
 	return s
 }
 
@@ -300,6 +316,36 @@ func (s *CreateVpnGatewayOutput) SetRequestId(v string) *CreateVpnGatewayOutput 
 // SetVpnGatewayId sets the VpnGatewayId field's value.
 func (s *CreateVpnGatewayOutput) SetVpnGatewayId(v string) *CreateVpnGatewayOutput {
 	s.VpnGatewayId = &v
+	return s
+}
+
+type TagForCreateVpnGatewayInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateVpnGatewayInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateVpnGatewayInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateVpnGatewayInput) SetKey(v string) *TagForCreateVpnGatewayInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateVpnGatewayInput) SetValue(v string) *TagForCreateVpnGatewayInput {
+	s.Value = &v
 	return s
 }
 

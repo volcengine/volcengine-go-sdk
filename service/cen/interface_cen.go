@@ -70,6 +70,14 @@ type CENAPI interface {
 	CreateCenInterRegionBandwidthWithContext(volcengine.Context, *CreateCenInterRegionBandwidthInput, ...request.Option) (*CreateCenInterRegionBandwidthOutput, error)
 	CreateCenInterRegionBandwidthRequest(*CreateCenInterRegionBandwidthInput) (*request.Request, *CreateCenInterRegionBandwidthOutput)
 
+	CreateCenServiceRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateCenServiceRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateCenServiceRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateCenServiceRouteEntry(*CreateCenServiceRouteEntryInput) (*CreateCenServiceRouteEntryOutput, error)
+	CreateCenServiceRouteEntryWithContext(volcengine.Context, *CreateCenServiceRouteEntryInput, ...request.Option) (*CreateCenServiceRouteEntryOutput, error)
+	CreateCenServiceRouteEntryRequest(*CreateCenServiceRouteEntryInput) (*request.Request, *CreateCenServiceRouteEntryOutput)
+
 	DeleteCenCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteCenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteCenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -237,6 +245,14 @@ type CENAPI interface {
 	RevokeInstanceFromCen(*RevokeInstanceFromCenInput) (*RevokeInstanceFromCenOutput, error)
 	RevokeInstanceFromCenWithContext(volcengine.Context, *RevokeInstanceFromCenInput, ...request.Option) (*RevokeInstanceFromCenOutput, error)
 	RevokeInstanceFromCenRequest(*RevokeInstanceFromCenInput) (*request.Request, *RevokeInstanceFromCenOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
 }
 
 var _ CENAPI = (*CEN)(nil)

@@ -202,6 +202,8 @@ type DescribeVpnGatewayAttributesOutput struct {
 
 	LockReason *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	RouteCount *int64 `type:"integer"`
@@ -292,6 +294,12 @@ func (s *DescribeVpnGatewayAttributesOutput) SetIpAddress(v string) *DescribeVpn
 // SetLockReason sets the LockReason field's value.
 func (s *DescribeVpnGatewayAttributesOutput) SetLockReason(v string) *DescribeVpnGatewayAttributesOutput {
 	s.LockReason = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetProjectName(v string) *DescribeVpnGatewayAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 
