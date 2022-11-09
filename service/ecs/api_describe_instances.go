@@ -420,6 +420,8 @@ type InstanceForDescribeInstancesOutput struct {
 
 	RdmaIpAddresses []*string `type:"list"`
 
+	SpotStrategy *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	StoppedMode *string `type:"string"`
@@ -574,6 +576,12 @@ func (s *InstanceForDescribeInstancesOutput) SetProjectName(v string) *InstanceF
 // SetRdmaIpAddresses sets the RdmaIpAddresses field's value.
 func (s *InstanceForDescribeInstancesOutput) SetRdmaIpAddresses(v []*string) *InstanceForDescribeInstancesOutput {
 	s.RdmaIpAddresses = v
+	return s
+}
+
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *InstanceForDescribeInstancesOutput) SetSpotStrategy(v string) *InstanceForDescribeInstancesOutput {
+	s.SpotStrategy = &v
 	return s
 }
 

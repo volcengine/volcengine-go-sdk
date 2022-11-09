@@ -241,9 +241,6 @@ const (
 	// InstanceTypeForAssociateEipAddressInputClbInstance is a InstanceTypeForAssociateEipAddressInput enum value
 	InstanceTypeForAssociateEipAddressInputClbInstance = "ClbInstance"
 
-	// InstanceTypeForAssociateEipAddressInputAlbInstance is a InstanceTypeForAssociateEipAddressInput enum value
-	InstanceTypeForAssociateEipAddressInputAlbInstance = "AlbInstance"
-
 	// InstanceTypeForAssociateEipAddressInputEcsInstance is a InstanceTypeForAssociateEipAddressInput enum value
 	InstanceTypeForAssociateEipAddressInputEcsInstance = "EcsInstance"
 

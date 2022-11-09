@@ -149,8 +149,6 @@ type CreateDirectConnectGatewayInput struct {
 	// DirectConnectGatewayName is a required field
 	DirectConnectGatewayName *string `type:"string" required:"true"`
 
-	EnableIpv6 *bool `type:"boolean"`
-
 	Tags []*TagForCreateDirectConnectGatewayInput `type:"list"`
 }
 
@@ -195,12 +193,6 @@ func (s *CreateDirectConnectGatewayInput) SetDirectConnectGatewayName(v string) 
 	return s
 }
 
-// SetEnableIpv6 sets the EnableIpv6 field's value.
-func (s *CreateDirectConnectGatewayInput) SetEnableIpv6(v bool) *CreateDirectConnectGatewayInput {
-	s.EnableIpv6 = &v
-	return s
-}
-
 // SetTags sets the Tags field's value.
 func (s *CreateDirectConnectGatewayInput) SetTags(v []*TagForCreateDirectConnectGatewayInput) *CreateDirectConnectGatewayInput {
 	s.Tags = v
@@ -213,8 +205,6 @@ type CreateDirectConnectGatewayOutput struct {
 	Metadata *response.ResponseMetadata
 
 	DirectConnectGatewayId *string `type:"string"`
-
-	PreOrderNumber *string `type:"string"`
 
 	RequestId *string `type:"string"`
 }
@@ -232,12 +222,6 @@ func (s CreateDirectConnectGatewayOutput) GoString() string {
 // SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
 func (s *CreateDirectConnectGatewayOutput) SetDirectConnectGatewayId(v string) *CreateDirectConnectGatewayOutput {
 	s.DirectConnectGatewayId = &v
-	return s
-}
-
-// SetPreOrderNumber sets the PreOrderNumber field's value.
-func (s *CreateDirectConnectGatewayOutput) SetPreOrderNumber(v string) *CreateDirectConnectGatewayOutput {
-	s.PreOrderNumber = &v
 	return s
 }
 

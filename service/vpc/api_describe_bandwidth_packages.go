@@ -166,6 +166,8 @@ type BandwidthPackageForDescribeBandwidthPackagesOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	SecurityProtectionTypes []*string `type:"list"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeBandwidthPackagesOutput `type:"list"`
@@ -255,6 +257,12 @@ func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetProjectName(v st
 	return s
 }
 
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetSecurityProtectionTypes(v []*string) *BandwidthPackageForDescribeBandwidthPackagesOutput {
+	s.SecurityProtectionTypes = v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetStatus(v string) *BandwidthPackageForDescribeBandwidthPackagesOutput {
 	s.Status = &v
@@ -283,6 +291,8 @@ type DescribeBandwidthPackagesInput struct {
 	ISP *string `type:"string" enum:"ISPForDescribeBandwidthPackagesInput"`
 
 	ProjectName *string `type:"string"`
+
+	SecurityProtectionEnabled *bool `type:"boolean"`
 
 	TagFilters []*TagFilterForDescribeBandwidthPackagesInput `type:"list"`
 }
@@ -318,6 +328,12 @@ func (s *DescribeBandwidthPackagesInput) SetISP(v string) *DescribeBandwidthPack
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeBandwidthPackagesInput) SetProjectName(v string) *DescribeBandwidthPackagesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSecurityProtectionEnabled sets the SecurityProtectionEnabled field's value.
+func (s *DescribeBandwidthPackagesInput) SetSecurityProtectionEnabled(v bool) *DescribeBandwidthPackagesInput {
+	s.SecurityProtectionEnabled = &v
 	return s
 }
 
