@@ -211,6 +211,8 @@ type CreateNodePoolInput struct {
 	Name *string `type:"string"`
 
 	NodeConfig *NodeConfigForCreateNodePoolInput `type:"structure"`
+
+	Tags []*TagForCreateNodePoolInput `type:"list"`
 }
 
 // String returns the string representation
@@ -256,6 +258,12 @@ func (s *CreateNodePoolInput) SetName(v string) *CreateNodePoolInput {
 // SetNodeConfig sets the NodeConfig field's value.
 func (s *CreateNodePoolInput) SetNodeConfig(v *NodeConfigForCreateNodePoolInput) *CreateNodePoolInput {
 	s.NodeConfig = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateNodePoolInput) SetTags(v []*TagForCreateNodePoolInput) *CreateNodePoolInput {
+	s.Tags = v
 	return s
 }
 
@@ -438,6 +446,8 @@ type NodeConfigForCreateNodePoolInput struct {
 
 	InstanceTypeIds []*string `type:"list"`
 
+	NamePrefix *string `type:"string"`
+
 	Period *int32 `type:"int32"`
 
 	Security *SecurityForCreateNodePoolInput `type:"structure"`
@@ -445,6 +455,8 @@ type NodeConfigForCreateNodePoolInput struct {
 	SubnetIds []*string `type:"list"`
 
 	SystemVolume *SystemVolumeForCreateNodePoolInput `type:"structure"`
+
+	Tags []*TagForCreateNodePoolInput `type:"list"`
 }
 
 // String returns the string representation
@@ -505,6 +517,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetInstanceTypeIds(v []*string) *Node
 	return s
 }
 
+// SetNamePrefix sets the NamePrefix field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetNamePrefix(v string) *NodeConfigForCreateNodePoolInput {
+	s.NamePrefix = &v
+	return s
+}
+
 // SetPeriod sets the Period field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetPeriod(v int32) *NodeConfigForCreateNodePoolInput {
 	s.Period = &v
@@ -526,6 +544,12 @@ func (s *NodeConfigForCreateNodePoolInput) SetSubnetIds(v []*string) *NodeConfig
 // SetSystemVolume sets the SystemVolume field's value.
 func (s *NodeConfigForCreateNodePoolInput) SetSystemVolume(v *SystemVolumeForCreateNodePoolInput) *NodeConfigForCreateNodePoolInput {
 	s.SystemVolume = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *NodeConfigForCreateNodePoolInput) SetTags(v []*TagForCreateNodePoolInput) *NodeConfigForCreateNodePoolInput {
+	s.Tags = v
 	return s
 }
 
@@ -594,6 +618,36 @@ func (s *SystemVolumeForCreateNodePoolInput) SetSize(v int32) *SystemVolumeForCr
 // SetType sets the Type field's value.
 func (s *SystemVolumeForCreateNodePoolInput) SetType(v string) *SystemVolumeForCreateNodePoolInput {
 	s.Type = &v
+	return s
+}
+
+type TagForCreateNodePoolInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateNodePoolInput) SetKey(v string) *TagForCreateNodePoolInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateNodePoolInput) SetValue(v string) *TagForCreateNodePoolInput {
+	s.Value = &v
 	return s
 }
 

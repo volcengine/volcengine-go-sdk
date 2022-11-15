@@ -424,6 +424,8 @@ type ItemForListClustersOutput struct {
 
 	Status *StatusForListClustersOutput `type:"structure"`
 
+	Tags []*TagForListClustersOutput `type:"list"`
+
 	UpdateClientToken *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -517,6 +519,12 @@ func (s *ItemForListClustersOutput) SetStatus(v *StatusForListClustersOutput) *I
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ItemForListClustersOutput) SetTags(v []*TagForListClustersOutput) *ItemForListClustersOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateClientToken sets the UpdateClientToken field's value.
 func (s *ItemForListClustersOutput) SetUpdateClientToken(v string) *ItemForListClustersOutput {
 	s.UpdateClientToken = &v
@@ -537,6 +545,8 @@ type ListClustersInput struct {
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
+
+	Tags []*TagForListClustersInput `type:"list"`
 }
 
 // String returns the string representation
@@ -564,6 +574,12 @@ func (s *ListClustersInput) SetPageNumber(v int32) *ListClustersInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListClustersInput) SetPageSize(v int32) *ListClustersInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ListClustersInput) SetTags(v []*TagForListClustersInput) *ListClustersInput {
+	s.Tags = v
 	return s
 }
 
@@ -876,6 +892,74 @@ func (s *StatusForListClustersOutput) SetConditions(v []*ConditionForListCluster
 // SetPhase sets the Phase field's value.
 func (s *StatusForListClustersOutput) SetPhase(v string) *StatusForListClustersOutput {
 	s.Phase = &v
+	return s
+}
+
+type TagForListClustersInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForListClustersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListClustersInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListClustersInput) SetKey(v string) *TagForListClustersInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListClustersInput) SetValue(v string) *TagForListClustersInput {
+	s.Value = &v
+	return s
+}
+
+type TagForListClustersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListClustersOutput) SetKey(v string) *TagForListClustersOutput {
+	s.Key = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *TagForListClustersOutput) SetType(v string) *TagForListClustersOutput {
+	s.Type = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListClustersOutput) SetValue(v string) *TagForListClustersOutput {
+	s.Value = &v
 	return s
 }
 

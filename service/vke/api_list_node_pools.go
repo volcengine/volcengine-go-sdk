@@ -219,6 +219,44 @@ func (s *ConditionForListNodePoolsOutput) SetType(v string) *ConditionForListNod
 	return s
 }
 
+type ConvertTagForListNodePoolsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertTagForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertTagForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *ConvertTagForListNodePoolsOutput) SetKey(v string) *ConvertTagForListNodePoolsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ConvertTagForListNodePoolsOutput) SetType(v string) *ConvertTagForListNodePoolsOutput {
+	s.Type = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConvertTagForListNodePoolsOutput) SetValue(v string) *ConvertTagForListNodePoolsOutput {
+	s.Value = &v
+	return s
+}
+
 type DataVolumeForListNodePoolsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -350,6 +388,8 @@ type ItemForListNodePoolsOutput struct {
 
 	Status *StatusForListNodePoolsOutput `type:"structure"`
 
+	Tags []*ConvertTagForListNodePoolsOutput `type:"list"`
+
 	UpdateClientToken *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -422,6 +462,12 @@ func (s *ItemForListNodePoolsOutput) SetNodeStatistics(v *NodeStatisticsForListN
 // SetStatus sets the Status field's value.
 func (s *ItemForListNodePoolsOutput) SetStatus(v *StatusForListNodePoolsOutput) *ItemForListNodePoolsOutput {
 	s.Status = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ItemForListNodePoolsOutput) SetTags(v []*ConvertTagForListNodePoolsOutput) *ItemForListNodePoolsOutput {
+	s.Tags = v
 	return s
 }
 
@@ -640,6 +686,8 @@ type NodeConfigForListNodePoolsOutput struct {
 
 	InstanceTypeIds []*string `type:"list"`
 
+	NamePrefix *string `type:"string"`
+
 	Period *int32 `type:"int32"`
 
 	Security *SecurityForListNodePoolsOutput `type:"structure"`
@@ -647,6 +695,8 @@ type NodeConfigForListNodePoolsOutput struct {
 	SubnetIds []*string `type:"list"`
 
 	SystemVolume *SystemVolumeForListNodePoolsOutput `type:"structure"`
+
+	Tags []*TagForListNodePoolsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -707,6 +757,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetInstanceTypeIds(v []*string) *Node
 	return s
 }
 
+// SetNamePrefix sets the NamePrefix field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetNamePrefix(v string) *NodeConfigForListNodePoolsOutput {
+	s.NamePrefix = &v
+	return s
+}
+
 // SetPeriod sets the Period field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetPeriod(v int32) *NodeConfigForListNodePoolsOutput {
 	s.Period = &v
@@ -728,6 +784,12 @@ func (s *NodeConfigForListNodePoolsOutput) SetSubnetIds(v []*string) *NodeConfig
 // SetSystemVolume sets the SystemVolume field's value.
 func (s *NodeConfigForListNodePoolsOutput) SetSystemVolume(v *SystemVolumeForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
 	s.SystemVolume = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *NodeConfigForListNodePoolsOutput) SetTags(v []*TagForListNodePoolsOutput) *NodeConfigForListNodePoolsOutput {
+	s.Tags = v
 	return s
 }
 
@@ -926,6 +988,36 @@ func (s *SystemVolumeForListNodePoolsOutput) SetSize(v int32) *SystemVolumeForLi
 // SetType sets the Type field's value.
 func (s *SystemVolumeForListNodePoolsOutput) SetType(v string) *SystemVolumeForListNodePoolsOutput {
 	s.Type = &v
+	return s
+}
+
+type TagForListNodePoolsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForListNodePoolsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListNodePoolsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListNodePoolsOutput) SetKey(v string) *TagForListNodePoolsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListNodePoolsOutput) SetValue(v string) *TagForListNodePoolsOutput {
+	s.Value = &v
 	return s
 }
 
