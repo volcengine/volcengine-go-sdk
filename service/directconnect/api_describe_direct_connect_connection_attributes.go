@@ -184,6 +184,10 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	BillingType *int64 `type:"integer"`
+
+	BusinessStatus *string `type:"string"`
+
 	ConnectionType *string `type:"string"`
 
 	CreationTime *string `type:"string"`
@@ -194,6 +198,8 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 
 	CustomerName *string `type:"string"`
 
+	DeletedTime *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	DirectConnectAccessPointId *string `type:"string"`
@@ -202,6 +208,8 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 
 	DirectConnectConnectionName *string `type:"string"`
 
+	ExpiredTime *string `type:"string"`
+
 	LineOperator *string `type:"string"`
 
 	ParentConnectionAccountId *string `type:"string"`
@@ -209,6 +217,8 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 	ParentConnectionId *string `type:"string"`
 
 	PeerLocation *string `type:"string"`
+
+	PortSpec *string `type:"string"`
 
 	PortType *string `type:"string"`
 
@@ -245,6 +255,18 @@ func (s *DescribeDirectConnectConnectionAttributesOutput) SetBandwidth(v int64) 
 	return s
 }
 
+// SetBillingType sets the BillingType field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetBillingType(v int64) *DescribeDirectConnectConnectionAttributesOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetBusinessStatus(v string) *DescribeDirectConnectConnectionAttributesOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
 // SetConnectionType sets the ConnectionType field's value.
 func (s *DescribeDirectConnectConnectionAttributesOutput) SetConnectionType(v string) *DescribeDirectConnectConnectionAttributesOutput {
 	s.ConnectionType = &v
@@ -275,6 +297,12 @@ func (s *DescribeDirectConnectConnectionAttributesOutput) SetCustomerName(v stri
 	return s
 }
 
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetDeletedTime(v string) *DescribeDirectConnectConnectionAttributesOutput {
+	s.DeletedTime = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *DescribeDirectConnectConnectionAttributesOutput) SetDescription(v string) *DescribeDirectConnectConnectionAttributesOutput {
 	s.Description = &v
@@ -299,6 +327,12 @@ func (s *DescribeDirectConnectConnectionAttributesOutput) SetDirectConnectConnec
 	return s
 }
 
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetExpiredTime(v string) *DescribeDirectConnectConnectionAttributesOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
 // SetLineOperator sets the LineOperator field's value.
 func (s *DescribeDirectConnectConnectionAttributesOutput) SetLineOperator(v string) *DescribeDirectConnectConnectionAttributesOutput {
 	s.LineOperator = &v
@@ -320,6 +354,12 @@ func (s *DescribeDirectConnectConnectionAttributesOutput) SetParentConnectionId(
 // SetPeerLocation sets the PeerLocation field's value.
 func (s *DescribeDirectConnectConnectionAttributesOutput) SetPeerLocation(v string) *DescribeDirectConnectConnectionAttributesOutput {
 	s.PeerLocation = &v
+	return s
+}
+
+// SetPortSpec sets the PortSpec field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetPortSpec(v string) *DescribeDirectConnectConnectionAttributesOutput {
+	s.PortSpec = &v
 	return s
 }
 

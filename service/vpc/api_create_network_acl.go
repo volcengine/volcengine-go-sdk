@@ -148,6 +148,8 @@ type CreateNetworkAclInput struct {
 
 	NetworkAclName *string `min:"1" max:"128" type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 }
@@ -202,6 +204,12 @@ func (s *CreateNetworkAclInput) SetDescription(v string) *CreateNetworkAclInput 
 // SetNetworkAclName sets the NetworkAclName field's value.
 func (s *CreateNetworkAclInput) SetNetworkAclName(v string) *CreateNetworkAclInput {
 	s.NetworkAclName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateNetworkAclInput) SetProjectName(v string) *CreateNetworkAclInput {
+	s.ProjectName = &v
 	return s
 }
 

@@ -144,6 +144,8 @@ type AllocateEipAddressInput struct {
 
 	Bandwidth *int64 `min:"1" max:"500" type:"integer"`
 
+	BandwidthPackageId *string `type:"string"`
+
 	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
 	ClientToken *string `type:"string"`
@@ -218,6 +220,12 @@ func (s *AllocateEipAddressInput) Validate() error {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *AllocateEipAddressInput) SetBandwidth(v int64) *AllocateEipAddressInput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *AllocateEipAddressInput) SetBandwidthPackageId(v string) *AllocateEipAddressInput {
+	s.BandwidthPackageId = &v
 	return s
 }
 

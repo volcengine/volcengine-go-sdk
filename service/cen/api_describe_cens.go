@@ -154,7 +154,11 @@ type CenForDescribeCensOutput struct {
 
 	Description *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeCensOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -205,9 +209,21 @@ func (s *CenForDescribeCensOutput) SetDescription(v string) *CenForDescribeCensO
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CenForDescribeCensOutput) SetProjectName(v string) *CenForDescribeCensOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *CenForDescribeCensOutput) SetStatus(v string) *CenForDescribeCensOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CenForDescribeCensOutput) SetTags(v []*TagForDescribeCensOutput) *CenForDescribeCensOutput {
+	s.Tags = v
 	return s
 }
 
@@ -225,6 +241,10 @@ type DescribeCensInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeCensInput `type:"list"`
 }
 
 // String returns the string representation
@@ -252,6 +272,18 @@ func (s *DescribeCensInput) SetPageNumber(v int64) *DescribeCensInput {
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCensInput) SetPageSize(v int64) *DescribeCensInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCensInput) SetProjectName(v string) *DescribeCensInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeCensInput) SetTagFilters(v []*TagFilterForDescribeCensInput) *DescribeCensInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -300,5 +332,57 @@ func (s *DescribeCensOutput) SetPageSize(v int64) *DescribeCensOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeCensOutput) SetTotalCount(v int64) *DescribeCensOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagFilterForDescribeCensInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeCensInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeCensInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeCensInput) SetKey(v string) *TagFilterForDescribeCensInput {
+	s.Key = &v
+	return s
+}
+
+type TagForDescribeCensOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCensOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCensOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCensOutput) SetKey(v string) *TagForDescribeCensOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeCensOutput) SetValue(v string) *TagForDescribeCensOutput {
+	s.Value = &v
 	return s
 }

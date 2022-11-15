@@ -309,8 +309,6 @@ type TagFilterForDescribeDirectConnectVirtualInterfacesInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
-
-	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -326,12 +324,6 @@ func (s TagFilterForDescribeDirectConnectVirtualInterfacesInput) GoString() stri
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeDirectConnectVirtualInterfacesInput) SetKey(v string) *TagFilterForDescribeDirectConnectVirtualInterfacesInput {
 	s.Key = &v
-	return s
-}
-
-// SetValues sets the Values field's value.
-func (s *TagFilterForDescribeDirectConnectVirtualInterfacesInput) SetValues(v []*string) *TagFilterForDescribeDirectConnectVirtualInterfacesInput {
-	s.Values = v
 	return s
 }
 
@@ -388,11 +380,7 @@ type VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput struct {
 
 	LocalIp *string `type:"string"`
 
-	LocalIpv6Ip *string `type:"string"`
-
 	PeerIp *string `type:"string"`
-
-	PeerIpv6Ip *string `type:"string"`
 
 	RouteType *string `type:"string"`
 
@@ -479,21 +467,9 @@ func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetLoc
 	return s
 }
 
-// SetLocalIpv6Ip sets the LocalIpv6Ip field's value.
-func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetLocalIpv6Ip(v string) *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
-	s.LocalIpv6Ip = &v
-	return s
-}
-
 // SetPeerIp sets the PeerIp field's value.
 func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetPeerIp(v string) *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 	s.PeerIp = &v
-	return s
-}
-
-// SetPeerIpv6Ip sets the PeerIpv6Ip field's value.
-func (s *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) SetPeerIpv6Ip(v string) *VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
-	s.PeerIpv6Ip = &v
 	return s
 }
 

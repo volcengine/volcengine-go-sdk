@@ -142,8 +142,7 @@ func (c *VPC) ModifySecurityGroupRuleDescriptionsIngressWithContext(ctx volcengi
 type ModifySecurityGroupRuleDescriptionsIngressInput struct {
 	_ struct{} `type:"structure"`
 
-	// CidrIp is a required field
-	CidrIp *string `type:"string" required:"true"`
+	CidrIp *string `type:"string"`
 
 	Description *string `type:"string"`
 
@@ -179,9 +178,6 @@ func (s ModifySecurityGroupRuleDescriptionsIngressInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifySecurityGroupRuleDescriptionsIngressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifySecurityGroupRuleDescriptionsIngressInput"}
-	if s.CidrIp == nil {
-		invalidParams.Add(request.NewErrParamRequired("CidrIp"))
-	}
 	if s.PortEnd == nil {
 		invalidParams.Add(request.NewErrParamRequired("PortEnd"))
 	}

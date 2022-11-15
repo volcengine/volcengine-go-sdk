@@ -360,6 +360,8 @@ type NatGatewayForDescribeNatGatewaysOutput struct {
 	UpdatedAt *string `type:"string"`
 
 	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -471,6 +473,12 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetUpdatedAt(v string) *NatGate
 // SetVpcId sets the VpcId field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetVpcId(v string) *NatGatewayForDescribeNatGatewaysOutput {
 	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetZoneId(v string) *NatGatewayForDescribeNatGatewaysOutput {
+	s.ZoneId = &v
 	return s
 }
 

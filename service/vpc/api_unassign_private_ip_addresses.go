@@ -145,7 +145,8 @@ type UnassignPrivateIpAddressesInput struct {
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
 
-	PrivateIpAddress []*string `type:"list"`
+	// PrivateIpAddress is a required field
+	PrivateIpAddress []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -163,6 +164,9 @@ func (s *UnassignPrivateIpAddressesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UnassignPrivateIpAddressesInput"}
 	if s.NetworkInterfaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+	if s.PrivateIpAddress == nil {
+		invalidParams.Add(request.NewErrParamRequired("PrivateIpAddress"))
 	}
 
 	if invalidParams.Len() > 0 {

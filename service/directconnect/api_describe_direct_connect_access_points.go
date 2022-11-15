@@ -142,7 +142,7 @@ func (c *DIRECTCONNECT) DescribeDirectConnectAccessPointsWithContext(ctx volceng
 type DescribeDirectConnectAccessPointsInput struct {
 	_ struct{} `type:"structure"`
 
-	DescribeDirectConnectAccessPointIds []*string `type:"list"`
+	DirectConnectAccessPointIds []*string `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -159,9 +159,9 @@ func (s DescribeDirectConnectAccessPointsInput) GoString() string {
 	return s.String()
 }
 
-// SetDescribeDirectConnectAccessPointIds sets the DescribeDirectConnectAccessPointIds field's value.
-func (s *DescribeDirectConnectAccessPointsInput) SetDescribeDirectConnectAccessPointIds(v []*string) *DescribeDirectConnectAccessPointsInput {
-	s.DescribeDirectConnectAccessPointIds = v
+// SetDirectConnectAccessPointIds sets the DirectConnectAccessPointIds field's value.
+func (s *DescribeDirectConnectAccessPointsInput) SetDirectConnectAccessPointIds(v []*string) *DescribeDirectConnectAccessPointsInput {
+	s.DirectConnectAccessPointIds = v
 	return s
 }
 
