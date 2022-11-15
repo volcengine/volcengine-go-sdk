@@ -147,6 +147,10 @@ type CreateCenInput struct {
 	ClientToken *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateCenInput `type:"list"`
 }
 
 // String returns the string representation
@@ -177,6 +181,18 @@ func (s *CreateCenInput) SetDescription(v string) *CreateCenInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateCenInput) SetProjectName(v string) *CreateCenInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateCenInput) SetTags(v []*TagForCreateCenInput) *CreateCenInput {
+	s.Tags = v
+	return s
+}
+
 type CreateCenOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -198,5 +214,27 @@ func (s CreateCenOutput) GoString() string {
 // SetCenId sets the CenId field's value.
 func (s *CreateCenOutput) SetCenId(v string) *CreateCenOutput {
 	s.CenId = &v
+	return s
+}
+
+type TagForCreateCenInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateCenInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateCenInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateCenInput) SetKey(v string) *TagForCreateCenInput {
+	s.Key = &v
 	return s
 }

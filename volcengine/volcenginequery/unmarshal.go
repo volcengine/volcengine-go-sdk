@@ -4,6 +4,7 @@ package volcenginequery
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -27,6 +28,7 @@ var UnmarshalMetaHandler = request.NamedHandler{Name: "volcenginesdk.volcengineq
 func Unmarshal(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
 	if r.DataFilled() {
+
 		body, err := ioutil.ReadAll(r.HTTPResponse.Body)
 		if err != nil {
 			fmt.Printf("read volcenginebody err, %v\n", err)
@@ -34,8 +36,11 @@ func Unmarshal(r *request.Request) {
 			return
 		}
 
+		decoder := json.NewDecoder(bytes.NewReader(body))
+		decoder.UseNumber()
+
 		if reflect.TypeOf(r.Data) == reflect.TypeOf(&map[string]interface{}{}) {
-			if err = json.Unmarshal(body, &r.Data); err != nil {
+			if err = decoder.Decode(&r.Data); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
 				r.Error = err
 				return
@@ -88,7 +93,11 @@ func Unmarshal(r *request.Request) {
 				r.Error = err
 				return
 			}
-			if err = json.Unmarshal(b, &r.Data); err != nil {
+
+			decoder = json.NewDecoder(bytes.NewReader(b))
+			decoder.UseNumber()
+
+			if err = decoder.Decode(&r.Data); err != nil {
 				fmt.Printf("Unmarshal err, %v\n", err)
 				r.Error = err
 				return
@@ -104,7 +113,9 @@ func UnmarshalMeta(r *request.Request) {
 }
 
 func processBodyError(r *request.Request, volcengineResponse *response.VolcengineResponse, body []byte) bool {
-	if err := json.Unmarshal(body, &volcengineResponse); err != nil {
+	decoder := json.NewDecoder(bytes.NewReader(body))
+	decoder.UseNumber()
+	if err := decoder.Decode(volcengineResponse); err != nil {
 		fmt.Printf("Unmarshal err, %v\n", err)
 		r.Error = err
 		return true

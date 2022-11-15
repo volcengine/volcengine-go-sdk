@@ -200,6 +200,10 @@ type DescribeVpnConnectionAttributesOutput struct {
 
 	NatTraversal *bool `type:"boolean"`
 
+	NegotiateInstantly *bool `type:"boolean"`
+
+	ProjectName *string `type:"string"`
+
 	RemoteSubnet []*string `type:"list"`
 
 	RequestId *string `type:"string"`
@@ -282,6 +286,18 @@ func (s *DescribeVpnConnectionAttributesOutput) SetLocalSubnet(v []*string) *Des
 // SetNatTraversal sets the NatTraversal field's value.
 func (s *DescribeVpnConnectionAttributesOutput) SetNatTraversal(v bool) *DescribeVpnConnectionAttributesOutput {
 	s.NatTraversal = &v
+	return s
+}
+
+// SetNegotiateInstantly sets the NegotiateInstantly field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetNegotiateInstantly(v bool) *DescribeVpnConnectionAttributesOutput {
+	s.NegotiateInstantly = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetProjectName(v string) *DescribeVpnConnectionAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

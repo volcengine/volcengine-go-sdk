@@ -157,6 +157,8 @@ type CenRouteEntryForDescribeCenRouteEntriesOutput struct {
 	PublishStatus *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -214,6 +216,12 @@ func (s *CenRouteEntryForDescribeCenRouteEntriesOutput) SetPublishStatus(v strin
 // SetStatus sets the Status field's value.
 func (s *CenRouteEntryForDescribeCenRouteEntriesOutput) SetStatus(v string) *CenRouteEntryForDescribeCenRouteEntriesOutput {
 	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *CenRouteEntryForDescribeCenRouteEntriesOutput) SetType(v string) *CenRouteEntryForDescribeCenRouteEntriesOutput {
+	s.Type = &v
 	return s
 }
 

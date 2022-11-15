@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // NATGATEWAY.
 //    func myFunc(svc NATGATEWAYAPI) bool {
-//        // Make svc.CreateNatGateway request
+//        // Make svc.CreateDnatEntry request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type NATGATEWAYAPI interface {
+	CreateDnatEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDnatEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDnatEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDnatEntry(*CreateDnatEntryInput) (*CreateDnatEntryOutput, error)
+	CreateDnatEntryWithContext(volcengine.Context, *CreateDnatEntryInput, ...request.Option) (*CreateDnatEntryOutput, error)
+	CreateDnatEntryRequest(*CreateDnatEntryInput) (*request.Request, *CreateDnatEntryOutput)
+
 	CreateNatGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNatGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateNatGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -46,6 +54,14 @@ type NATGATEWAYAPI interface {
 	CreateSnatEntryWithContext(volcengine.Context, *CreateSnatEntryInput, ...request.Option) (*CreateSnatEntryOutput, error)
 	CreateSnatEntryRequest(*CreateSnatEntryInput) (*request.Request, *CreateSnatEntryOutput)
 
+	DeleteDnatEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDnatEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDnatEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDnatEntry(*DeleteDnatEntryInput) (*DeleteDnatEntryOutput, error)
+	DeleteDnatEntryWithContext(volcengine.Context, *DeleteDnatEntryInput, ...request.Option) (*DeleteDnatEntryOutput, error)
+	DeleteDnatEntryRequest(*DeleteDnatEntryInput) (*request.Request, *DeleteDnatEntryOutput)
+
 	DeleteNatGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNatGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteNatGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +77,22 @@ type NATGATEWAYAPI interface {
 	DeleteSnatEntry(*DeleteSnatEntryInput) (*DeleteSnatEntryOutput, error)
 	DeleteSnatEntryWithContext(volcengine.Context, *DeleteSnatEntryInput, ...request.Option) (*DeleteSnatEntryOutput, error)
 	DeleteSnatEntryRequest(*DeleteSnatEntryInput) (*request.Request, *DeleteSnatEntryOutput)
+
+	DescribeDnatEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDnatEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDnatEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDnatEntries(*DescribeDnatEntriesInput) (*DescribeDnatEntriesOutput, error)
+	DescribeDnatEntriesWithContext(volcengine.Context, *DescribeDnatEntriesInput, ...request.Option) (*DescribeDnatEntriesOutput, error)
+	DescribeDnatEntriesRequest(*DescribeDnatEntriesInput) (*request.Request, *DescribeDnatEntriesOutput)
+
+	DescribeDnatEntryAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDnatEntryAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDnatEntryAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDnatEntryAttributes(*DescribeDnatEntryAttributesInput) (*DescribeDnatEntryAttributesOutput, error)
+	DescribeDnatEntryAttributesWithContext(volcengine.Context, *DescribeDnatEntryAttributesInput, ...request.Option) (*DescribeDnatEntryAttributesOutput, error)
+	DescribeDnatEntryAttributesRequest(*DescribeDnatEntryAttributesInput) (*request.Request, *DescribeDnatEntryAttributesOutput)
 
 	DescribeNatGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNatGatewayAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -93,6 +125,22 @@ type NATGATEWAYAPI interface {
 	DescribeSnatEntryAttributes(*DescribeSnatEntryAttributesInput) (*DescribeSnatEntryAttributesOutput, error)
 	DescribeSnatEntryAttributesWithContext(volcengine.Context, *DescribeSnatEntryAttributesInput, ...request.Option) (*DescribeSnatEntryAttributesOutput, error)
 	DescribeSnatEntryAttributesRequest(*DescribeSnatEntryAttributesInput) (*request.Request, *DescribeSnatEntryAttributesOutput)
+
+	ListNatGatewayAvailableZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListNatGatewayAvailableZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListNatGatewayAvailableZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListNatGatewayAvailableZones(*ListNatGatewayAvailableZonesInput) (*ListNatGatewayAvailableZonesOutput, error)
+	ListNatGatewayAvailableZonesWithContext(volcengine.Context, *ListNatGatewayAvailableZonesInput, ...request.Option) (*ListNatGatewayAvailableZonesOutput, error)
+	ListNatGatewayAvailableZonesRequest(*ListNatGatewayAvailableZonesInput) (*request.Request, *ListNatGatewayAvailableZonesOutput)
+
+	ModifyDnatEntryAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDnatEntryAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDnatEntryAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDnatEntryAttributes(*ModifyDnatEntryAttributesInput) (*ModifyDnatEntryAttributesOutput, error)
+	ModifyDnatEntryAttributesWithContext(volcengine.Context, *ModifyDnatEntryAttributesInput, ...request.Option) (*ModifyDnatEntryAttributesOutput, error)
+	ModifyDnatEntryAttributesRequest(*ModifyDnatEntryAttributesInput) (*request.Request, *ModifyDnatEntryAttributesOutput)
 
 	ModifyNatGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyNatGatewayAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

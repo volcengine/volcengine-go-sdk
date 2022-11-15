@@ -154,6 +154,8 @@ type ModifyVpnConnectionAttributesInput struct {
 
 	NatTraversal *bool `type:"boolean"`
 
+	NegotiateInstantly *bool `type:"boolean"`
+
 	RemoteSubnet []*string `type:"list"`
 
 	// VpnConnectionId is a required field
@@ -230,6 +232,12 @@ func (s *ModifyVpnConnectionAttributesInput) SetLocalSubnet(v []*string) *Modify
 // SetNatTraversal sets the NatTraversal field's value.
 func (s *ModifyVpnConnectionAttributesInput) SetNatTraversal(v bool) *ModifyVpnConnectionAttributesInput {
 	s.NatTraversal = &v
+	return s
+}
+
+// SetNegotiateInstantly sets the NegotiateInstantly field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetNegotiateInstantly(v bool) *ModifyVpnConnectionAttributesInput {
+	s.NegotiateInstantly = &v
 	return s
 }
 
