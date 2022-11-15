@@ -158,6 +158,30 @@ type VKEAPI interface {
 	ListSupportedResourceTypesWithContext(volcengine.Context, *ListSupportedResourceTypesInput, ...request.Option) (*ListSupportedResourceTypesOutput, error)
 	ListSupportedResourceTypesRequest(*ListSupportedResourceTypesInput) (*request.Request, *ListSupportedResourceTypesOutput)
 
+	ListTagsForResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResource(*ListTagsForResourceInput) (*ListTagsForResourceOutput, error)
+	ListTagsForResourceWithContext(volcengine.Context, *ListTagsForResourceInput, ...request.Option) (*ListTagsForResourceOutput, error)
+	ListTagsForResourceRequest(*ListTagsForResourceInput) (*request.Request, *ListTagsForResourceOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
 	UpdateAddonConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateAddonConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateAddonConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

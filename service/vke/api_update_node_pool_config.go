@@ -197,6 +197,44 @@ func (s *AutoScalingForUpdateNodePoolConfigInput) SetPriority(v int32) *AutoScal
 	return s
 }
 
+type DataVolumeForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	MountPoint *string `type:"string"`
+
+	Size *int32 `type:"int32"`
+
+	Type *string `type:"string" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
+}
+
+// String returns the string representation
+func (s DataVolumeForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataVolumeForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetMountPoint sets the MountPoint field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetMountPoint(v string) *DataVolumeForUpdateNodePoolConfigInput {
+	s.MountPoint = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetSize(v int32) *DataVolumeForUpdateNodePoolConfigInput {
+	s.Size = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetType(v string) *DataVolumeForUpdateNodePoolConfigInput {
+	s.Type = &v
+	return s
+}
+
 type KubernetesConfigForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure"`
 
@@ -298,9 +336,29 @@ func (s *LoginForUpdateNodePoolConfigInput) SetSshKeyPairName(v string) *LoginFo
 type NodeConfigForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure"`
 
+	AdditionalContainerStorageEnabled *bool `type:"boolean"`
+
+	AutoRenew *bool `type:"boolean"`
+
+	AutoRenewPeriod *int32 `type:"int32"`
+
+	DataVolumes []*DataVolumeForUpdateNodePoolConfigInput `type:"list"`
+
 	InitializeScript *string `type:"string"`
 
+	InstanceTypeIds []*string `type:"list"`
+
+	NamePrefix *string `type:"string"`
+
+	Period *int32 `type:"int32"`
+
 	Security *SecurityForUpdateNodePoolConfigInput `type:"structure"`
+
+	SubnetIds []*string `type:"list"`
+
+	SystemVolume *SystemVolumeForUpdateNodePoolConfigInput `type:"structure"`
+
+	Tags []*TagForUpdateNodePoolConfigInput `type:"list"`
 }
 
 // String returns the string representation
@@ -313,15 +371,75 @@ func (s NodeConfigForUpdateNodePoolConfigInput) GoString() string {
 	return s.String()
 }
 
+// SetAdditionalContainerStorageEnabled sets the AdditionalContainerStorageEnabled field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetAdditionalContainerStorageEnabled(v bool) *NodeConfigForUpdateNodePoolConfigInput {
+	s.AdditionalContainerStorageEnabled = &v
+	return s
+}
+
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetAutoRenew(v bool) *NodeConfigForUpdateNodePoolConfigInput {
+	s.AutoRenew = &v
+	return s
+}
+
+// SetAutoRenewPeriod sets the AutoRenewPeriod field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetAutoRenewPeriod(v int32) *NodeConfigForUpdateNodePoolConfigInput {
+	s.AutoRenewPeriod = &v
+	return s
+}
+
+// SetDataVolumes sets the DataVolumes field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetDataVolumes(v []*DataVolumeForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
+	s.DataVolumes = v
+	return s
+}
+
 // SetInitializeScript sets the InitializeScript field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetInitializeScript(v string) *NodeConfigForUpdateNodePoolConfigInput {
 	s.InitializeScript = &v
 	return s
 }
 
+// SetInstanceTypeIds sets the InstanceTypeIds field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetInstanceTypeIds(v []*string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.InstanceTypeIds = v
+	return s
+}
+
+// SetNamePrefix sets the NamePrefix field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetNamePrefix(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.NamePrefix = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetPeriod(v int32) *NodeConfigForUpdateNodePoolConfigInput {
+	s.Period = &v
+	return s
+}
+
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetSecurity(v *SecurityForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
 	s.Security = v
+	return s
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetSubnetIds(v []*string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.SubnetIds = v
+	return s
+}
+
+// SetSystemVolume sets the SystemVolume field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetSystemVolume(v *SystemVolumeForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
+	s.SystemVolume = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetTags(v []*TagForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
+	s.Tags = v
 	return s
 }
 
@@ -360,6 +478,66 @@ func (s *SecurityForUpdateNodePoolConfigInput) SetSecurityGroupIds(v []*string) 
 // SetSecurityStrategies sets the SecurityStrategies field's value.
 func (s *SecurityForUpdateNodePoolConfigInput) SetSecurityStrategies(v []*string) *SecurityForUpdateNodePoolConfigInput {
 	s.SecurityStrategies = v
+	return s
+}
+
+type SystemVolumeForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	Size *int32 `type:"int32"`
+
+	Type *string `type:"string" enum:"EnumOfTypeForUpdateNodePoolConfigInput"`
+}
+
+// String returns the string representation
+func (s SystemVolumeForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SystemVolumeForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetSize sets the Size field's value.
+func (s *SystemVolumeForUpdateNodePoolConfigInput) SetSize(v int32) *SystemVolumeForUpdateNodePoolConfigInput {
+	s.Size = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SystemVolumeForUpdateNodePoolConfigInput) SetType(v string) *SystemVolumeForUpdateNodePoolConfigInput {
+	s.Type = &v
+	return s
+}
+
+type TagForUpdateNodePoolConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForUpdateNodePoolConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForUpdateNodePoolConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForUpdateNodePoolConfigInput) SetKey(v string) *TagForUpdateNodePoolConfigInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForUpdateNodePoolConfigInput) SetValue(v string) *TagForUpdateNodePoolConfigInput {
+	s.Value = &v
 	return s
 }
 
@@ -501,4 +679,21 @@ const (
 const (
 	// EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids is a EnumOfSecurityStrategyListForUpdateNodePoolConfigInput enum value
 	EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids = "Hids"
+)
+
+const (
+	// EnumOfTypeForUpdateNodePoolConfigInputEssd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
+	EnumOfTypeForUpdateNodePoolConfigInputEssd = "ESSD"
+
+	// EnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl is a EnumOfTypeForUpdateNodePoolConfigInput enum value
+	EnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl = "ESSD_FlexPL"
+
+	// EnumOfTypeForUpdateNodePoolConfigInputEssdPl0 is a EnumOfTypeForUpdateNodePoolConfigInput enum value
+	EnumOfTypeForUpdateNodePoolConfigInputEssdPl0 = "ESSD_PL0"
+
+	// EnumOfTypeForUpdateNodePoolConfigInputEssdPl1 is a EnumOfTypeForUpdateNodePoolConfigInput enum value
+	EnumOfTypeForUpdateNodePoolConfigInputEssdPl1 = "ESSD_PL1"
+
+	// EnumOfTypeForUpdateNodePoolConfigInputPtssd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
+	EnumOfTypeForUpdateNodePoolConfigInputPtssd = "PTSSD"
 )
