@@ -190,6 +190,14 @@ type ECSAPI interface {
 	DescribeKeyPairsWithContext(volcengine.Context, *DescribeKeyPairsInput, ...request.Option) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsRequest(*DescribeKeyPairsInput) (*request.Request, *DescribeKeyPairsOutput)
 
+	DescribeSystemEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSystemEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSystemEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSystemEvents(*DescribeSystemEventsInput) (*DescribeSystemEventsOutput, error)
+	DescribeSystemEventsWithContext(volcengine.Context, *DescribeSystemEventsInput, ...request.Option) (*DescribeSystemEventsOutput, error)
+	DescribeSystemEventsRequest(*DescribeSystemEventsInput) (*request.Request, *DescribeSystemEventsOutput)
+
 	DescribeTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -381,6 +389,14 @@ type ECSAPI interface {
 	StopInstances(*StopInstancesInput) (*StopInstancesOutput, error)
 	StopInstancesWithContext(volcengine.Context, *StopInstancesInput, ...request.Option) (*StopInstancesOutput, error)
 	StopInstancesRequest(*StopInstancesInput) (*request.Request, *StopInstancesOutput)
+
+	UpdateSystemEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateSystemEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateSystemEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateSystemEvents(*UpdateSystemEventsInput) (*UpdateSystemEventsOutput, error)
+	UpdateSystemEventsWithContext(volcengine.Context, *UpdateSystemEventsInput, ...request.Option) (*UpdateSystemEventsOutput, error)
+	UpdateSystemEventsRequest(*UpdateSystemEventsInput) (*request.Request, *UpdateSystemEventsOutput)
 }
 
 var _ ECSAPI = (*ECS)(nil)
