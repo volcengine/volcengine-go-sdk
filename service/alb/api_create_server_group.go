@@ -150,6 +150,8 @@ type CreateServerGroupInput struct {
 
 	ServerGroupName *string `min:"1" max:"128" type:"string"`
 
+	StickySessionConfig *StickySessionConfigForCreateServerGroupInput `type:"structure"`
+
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 }
@@ -204,6 +206,12 @@ func (s *CreateServerGroupInput) SetScheduler(v string) *CreateServerGroupInput 
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *CreateServerGroupInput) SetServerGroupName(v string) *CreateServerGroupInput {
 	s.ServerGroupName = &v
+	return s
+}
+
+// SetStickySessionConfig sets the StickySessionConfig field's value.
+func (s *CreateServerGroupInput) SetStickySessionConfig(v *StickySessionConfigForCreateServerGroupInput) *CreateServerGroupInput {
+	s.StickySessionConfig = v
 	return s
 }
 
@@ -336,5 +344,51 @@ func (s *HealthCheckForCreateServerGroupInput) SetURI(v string) *HealthCheckForC
 // SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
 func (s *HealthCheckForCreateServerGroupInput) SetUnhealthyThreshold(v string) *HealthCheckForCreateServerGroupInput {
 	s.UnhealthyThreshold = &v
+	return s
+}
+
+type StickySessionConfigForCreateServerGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Cookie *string `type:"string"`
+
+	CookieTimeout *string `type:"string"`
+
+	StickySessionEnabled *string `type:"string"`
+
+	StickySessionType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s StickySessionConfigForCreateServerGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StickySessionConfigForCreateServerGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetCookie sets the Cookie field's value.
+func (s *StickySessionConfigForCreateServerGroupInput) SetCookie(v string) *StickySessionConfigForCreateServerGroupInput {
+	s.Cookie = &v
+	return s
+}
+
+// SetCookieTimeout sets the CookieTimeout field's value.
+func (s *StickySessionConfigForCreateServerGroupInput) SetCookieTimeout(v string) *StickySessionConfigForCreateServerGroupInput {
+	s.CookieTimeout = &v
+	return s
+}
+
+// SetStickySessionEnabled sets the StickySessionEnabled field's value.
+func (s *StickySessionConfigForCreateServerGroupInput) SetStickySessionEnabled(v string) *StickySessionConfigForCreateServerGroupInput {
+	s.StickySessionEnabled = &v
+	return s
+}
+
+// SetStickySessionType sets the StickySessionType field's value.
+func (s *StickySessionConfigForCreateServerGroupInput) SetStickySessionType(v string) *StickySessionConfigForCreateServerGroupInput {
+	s.StickySessionType = &v
 	return s
 }
