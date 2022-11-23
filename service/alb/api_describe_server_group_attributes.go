@@ -198,6 +198,8 @@ type DescribeServerGroupAttributesOutput struct {
 
 	Status *string `type:"string"`
 
+	StickySessionConfig *StickySessionConfigForDescribeServerGroupAttributesOutput `type:"structure"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -262,6 +264,12 @@ func (s *DescribeServerGroupAttributesOutput) SetServers(v []*ServerForDescribeS
 // SetStatus sets the Status field's value.
 func (s *DescribeServerGroupAttributesOutput) SetStatus(v string) *DescribeServerGroupAttributesOutput {
 	s.Status = &v
+	return s
+}
+
+// SetStickySessionConfig sets the StickySessionConfig field's value.
+func (s *DescribeServerGroupAttributesOutput) SetStickySessionConfig(v *StickySessionConfigForDescribeServerGroupAttributesOutput) *DescribeServerGroupAttributesOutput {
+	s.StickySessionConfig = v
 	return s
 }
 
@@ -432,5 +440,51 @@ func (s *ServerForDescribeServerGroupAttributesOutput) SetType(v string) *Server
 // SetWeight sets the Weight field's value.
 func (s *ServerForDescribeServerGroupAttributesOutput) SetWeight(v int64) *ServerForDescribeServerGroupAttributesOutput {
 	s.Weight = &v
+	return s
+}
+
+type StickySessionConfigForDescribeServerGroupAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Cookie *string `type:"string"`
+
+	CookieTimeout *int64 `type:"integer"`
+
+	StickySessionEnabled *string `type:"string"`
+
+	StickySessionType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s StickySessionConfigForDescribeServerGroupAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StickySessionConfigForDescribeServerGroupAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCookie sets the Cookie field's value.
+func (s *StickySessionConfigForDescribeServerGroupAttributesOutput) SetCookie(v string) *StickySessionConfigForDescribeServerGroupAttributesOutput {
+	s.Cookie = &v
+	return s
+}
+
+// SetCookieTimeout sets the CookieTimeout field's value.
+func (s *StickySessionConfigForDescribeServerGroupAttributesOutput) SetCookieTimeout(v int64) *StickySessionConfigForDescribeServerGroupAttributesOutput {
+	s.CookieTimeout = &v
+	return s
+}
+
+// SetStickySessionEnabled sets the StickySessionEnabled field's value.
+func (s *StickySessionConfigForDescribeServerGroupAttributesOutput) SetStickySessionEnabled(v string) *StickySessionConfigForDescribeServerGroupAttributesOutput {
+	s.StickySessionEnabled = &v
+	return s
+}
+
+// SetStickySessionType sets the StickySessionType field's value.
+func (s *StickySessionConfigForDescribeServerGroupAttributesOutput) SetStickySessionType(v string) *StickySessionConfigForDescribeServerGroupAttributesOutput {
+	s.StickySessionType = &v
 	return s
 }

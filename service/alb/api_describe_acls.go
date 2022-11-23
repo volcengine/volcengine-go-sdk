@@ -154,6 +154,8 @@ type AclForDescribeAclsOutput struct {
 
 	Listeners []*string `type:"list"`
 
+	Status *string `type:"string"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -200,6 +202,12 @@ func (s *AclForDescribeAclsOutput) SetDescription(v string) *AclForDescribeAclsO
 // SetListeners sets the Listeners field's value.
 func (s *AclForDescribeAclsOutput) SetListeners(v []*string) *AclForDescribeAclsOutput {
 	s.Listeners = v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *AclForDescribeAclsOutput) SetStatus(v string) *AclForDescribeAclsOutput {
+	s.Status = &v
 	return s
 }
 

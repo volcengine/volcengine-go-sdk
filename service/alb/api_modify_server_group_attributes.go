@@ -246,6 +246,8 @@ type ModifyServerGroupAttributesInput struct {
 	ServerGroupId *string `type:"string" required:"true"`
 
 	ServerGroupName *string `type:"string"`
+
+	StickySessionConfig *StickySessionConfigForModifyServerGroupAttributesInput `type:"structure"`
 }
 
 // String returns the string representation
@@ -301,6 +303,12 @@ func (s *ModifyServerGroupAttributesInput) SetServerGroupName(v string) *ModifyS
 	return s
 }
 
+// SetStickySessionConfig sets the StickySessionConfig field's value.
+func (s *ModifyServerGroupAttributesInput) SetStickySessionConfig(v *StickySessionConfigForModifyServerGroupAttributesInput) *ModifyServerGroupAttributesInput {
+	s.StickySessionConfig = v
+	return s
+}
+
 type ModifyServerGroupAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -322,5 +330,51 @@ func (s ModifyServerGroupAttributesOutput) GoString() string {
 // SetRequestId sets the RequestId field's value.
 func (s *ModifyServerGroupAttributesOutput) SetRequestId(v string) *ModifyServerGroupAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+type StickySessionConfigForModifyServerGroupAttributesInput struct {
+	_ struct{} `type:"structure"`
+
+	Cookie *string `type:"string"`
+
+	CookieTimeout *string `type:"string"`
+
+	StickySessionEnabled *string `type:"string"`
+
+	StickySessionType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s StickySessionConfigForModifyServerGroupAttributesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StickySessionConfigForModifyServerGroupAttributesInput) GoString() string {
+	return s.String()
+}
+
+// SetCookie sets the Cookie field's value.
+func (s *StickySessionConfigForModifyServerGroupAttributesInput) SetCookie(v string) *StickySessionConfigForModifyServerGroupAttributesInput {
+	s.Cookie = &v
+	return s
+}
+
+// SetCookieTimeout sets the CookieTimeout field's value.
+func (s *StickySessionConfigForModifyServerGroupAttributesInput) SetCookieTimeout(v string) *StickySessionConfigForModifyServerGroupAttributesInput {
+	s.CookieTimeout = &v
+	return s
+}
+
+// SetStickySessionEnabled sets the StickySessionEnabled field's value.
+func (s *StickySessionConfigForModifyServerGroupAttributesInput) SetStickySessionEnabled(v string) *StickySessionConfigForModifyServerGroupAttributesInput {
+	s.StickySessionEnabled = &v
+	return s
+}
+
+// SetStickySessionType sets the StickySessionType field's value.
+func (s *StickySessionConfigForModifyServerGroupAttributesInput) SetStickySessionType(v string) *StickySessionConfigForModifyServerGroupAttributesInput {
+	s.StickySessionType = &v
 	return s
 }
