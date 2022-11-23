@@ -28,7 +28,6 @@ var UnmarshalMetaHandler = request.NamedHandler{Name: "volcenginesdk.volcengineq
 func Unmarshal(r *request.Request) {
 	defer r.HTTPResponse.Body.Close()
 	if r.DataFilled() {
-
 		body, err := ioutil.ReadAll(r.HTTPResponse.Body)
 		if err != nil {
 			fmt.Printf("read volcenginebody err, %v\n", err)
@@ -36,14 +35,22 @@ func Unmarshal(r *request.Request) {
 			return
 		}
 
-		decoder := json.NewDecoder(bytes.NewReader(body))
-		decoder.UseNumber()
+		var forceJsonNumberDecoder bool
+
+		if r.Config.ForceJsonNumberDecode != nil {
+			forceJsonNumberDecoder = r.Config.ForceJsonNumberDecode(r.Context(), r.MergeRequestInfo())
+		}
 
 		if reflect.TypeOf(r.Data) == reflect.TypeOf(&map[string]interface{}{}) {
-			if err = decoder.Decode(&r.Data); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
+			if err = json.Unmarshal(body, &r.Data); err != nil || forceJsonNumberDecoder {
+				//try next
+				decoder := json.NewDecoder(bytes.NewReader(body))
+				decoder.UseNumber()
+				if err = decoder.Decode(&r.Data); err != nil {
+					fmt.Printf("Unmarshal err, %v\n", err)
+					r.Error = err
+					return
+				}
 			}
 			var info interface{}
 
@@ -54,14 +61,14 @@ func Unmarshal(r *request.Request) {
 				return
 			}
 			if info != nil {
-				if processBodyError(r, &response.VolcengineResponse{}, body) {
+				if processBodyError(r, &response.VolcengineResponse{}, body, forceJsonNumberDecoder) {
 					return
 				}
 			}
 
 		} else {
 			volcengineResponse := response.VolcengineResponse{}
-			if processBodyError(r, &volcengineResponse, body) {
+			if processBodyError(r, &volcengineResponse, body, forceJsonNumberDecoder) {
 				return
 			}
 
@@ -93,14 +100,14 @@ func Unmarshal(r *request.Request) {
 				r.Error = err
 				return
 			}
-
-			decoder = json.NewDecoder(bytes.NewReader(b))
-			decoder.UseNumber()
-
-			if err = decoder.Decode(&r.Data); err != nil {
-				fmt.Printf("Unmarshal err, %v\n", err)
-				r.Error = err
-				return
+			if err = json.Unmarshal(b, &r.Data); err != nil || forceJsonNumberDecoder {
+				decoder := json.NewDecoder(bytes.NewReader(b))
+				decoder.UseNumber()
+				if err = decoder.Decode(&r.Data); err != nil {
+					fmt.Printf("Unmarshal err, %v\n", err)
+					r.Error = err
+					return
+				}
 			}
 		}
 
@@ -112,13 +119,15 @@ func UnmarshalMeta(r *request.Request) {
 
 }
 
-func processBodyError(r *request.Request, volcengineResponse *response.VolcengineResponse, body []byte) bool {
-	decoder := json.NewDecoder(bytes.NewReader(body))
-	decoder.UseNumber()
-	if err := decoder.Decode(volcengineResponse); err != nil {
-		fmt.Printf("Unmarshal err, %v\n", err)
-		r.Error = err
-		return true
+func processBodyError(r *request.Request, volcengineResponse *response.VolcengineResponse, body []byte, forceJsonNumberDecoder bool) bool {
+	if err := json.Unmarshal(body, &volcengineResponse); err != nil || forceJsonNumberDecoder {
+		decoder := json.NewDecoder(bytes.NewReader(body))
+		decoder.UseNumber()
+		if err = decoder.Decode(&r.Data); err != nil {
+			fmt.Printf("Unmarshal err, %v\n", err)
+			r.Error = err
+			return true
+		}
 	}
 	if volcengineResponse.ResponseMetadata.Error != nil && volcengineResponse.ResponseMetadata.Error.Code != "" {
 		r.Error = volcengineerr.NewRequestFailure(
