@@ -263,6 +263,11 @@ func (c *Credentials) Expire() {
 	c.forceRefresh = true
 }
 
+// GetProvider returns provider instance of the credentials
+func (c *Credentials) GetProvider() Provider {
+	return c.provider
+}
+
 // IsExpired returns if the credentials are no longer valid, and need
 // to be retrieved.
 //

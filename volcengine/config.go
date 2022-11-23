@@ -239,6 +239,8 @@ type Config struct {
 	Interceptors []custom.SdkInterceptor
 
 	SimpleError *bool
+
+	ForceJsonNumberDecode custom.ForceJsonNumberDecode
 }
 
 // NewConfig returns a new Config pointer that can be chained with builder
@@ -355,6 +357,11 @@ func (c *Config) WithCustomerUnmarshalError(f custom.CustomerUnmarshalError) *Co
 
 func (c *Config) WithCustomerUnmarshalData(f custom.CustomerUnmarshalData) *Config {
 	c.CustomerUnmarshalData = f
+	return c
+}
+
+func (c *Config) WithForceJsonNumberDecode(f custom.ForceJsonNumberDecode) *Config {
+	c.ForceJsonNumberDecode = f
 	return c
 }
 
@@ -526,6 +533,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.Retryer != nil {
 		dst.Retryer = other.Retryer
+	}
+
+	if other.ForceJsonNumberDecode != nil {
+		dst.ForceJsonNumberDecode = other.ForceJsonNumberDecode
 	}
 	// Temporary notes by xuyaming@bytedance.com because some validate field is relation.
 	//if other.DisableParamValidation != nil {
