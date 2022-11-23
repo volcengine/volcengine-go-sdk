@@ -134,6 +134,16 @@ func NewSession(cfgs ...*volcengine.Config) (*Session, error) {
 		opts.Config.Endpoint = volcengine.String(volcengineutil.NewEndpoint().GetEndpoint())
 	}
 
+	//merge config region and endpoint info to sts
+	if sts, ok := opts.Config.Credentials.GetProvider().(*credentials.StsProvider); ok {
+		if sts.Region == "" && opts.Config.Region != nil {
+			sts.Region = *(opts.Config.Region)
+		}
+		if sts.Host == "" && opts.Config.Endpoint != nil {
+			sts.Host = *(opts.Config.Endpoint)
+		}
+	}
+
 	return NewSessionWithOptions(opts)
 }
 
