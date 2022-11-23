@@ -150,6 +150,8 @@ type CreateCustomerGatewayInput struct {
 
 	// IpAddress is a required field
 	IpAddress *string `type:"string" required:"true"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -208,6 +210,12 @@ func (s *CreateCustomerGatewayInput) SetDescription(v string) *CreateCustomerGat
 // SetIpAddress sets the IpAddress field's value.
 func (s *CreateCustomerGatewayInput) SetIpAddress(v string) *CreateCustomerGatewayInput {
 	s.IpAddress = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateCustomerGatewayInput) SetProjectName(v string) *CreateCustomerGatewayInput {
+	s.ProjectName = &v
 	return s
 }
 

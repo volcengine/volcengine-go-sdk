@@ -234,8 +234,6 @@ type DescribeDirectConnectGatewayAttributesOutput struct {
 
 	DirectConnectGatewayName *string `type:"string"`
 
-	EnableIpv6 *bool `type:"boolean"`
-
 	LockReason *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
@@ -304,12 +302,6 @@ func (s *DescribeDirectConnectGatewayAttributesOutput) SetDirectConnectGatewayId
 // SetDirectConnectGatewayName sets the DirectConnectGatewayName field's value.
 func (s *DescribeDirectConnectGatewayAttributesOutput) SetDirectConnectGatewayName(v string) *DescribeDirectConnectGatewayAttributesOutput {
 	s.DirectConnectGatewayName = &v
-	return s
-}
-
-// SetEnableIpv6 sets the EnableIpv6 field's value.
-func (s *DescribeDirectConnectGatewayAttributesOutput) SetEnableIpv6(v bool) *DescribeDirectConnectGatewayAttributesOutput {
-	s.EnableIpv6 = &v
 	return s
 }
 

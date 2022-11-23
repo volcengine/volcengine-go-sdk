@@ -146,6 +146,8 @@ type ModifyVpnGatewayAttributesInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
+	NegotiateInstantly *string `type:"string"`
+
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
 
@@ -202,6 +204,12 @@ func (s *ModifyVpnGatewayAttributesInput) SetBandwidth(v int64) *ModifyVpnGatewa
 // SetDescription sets the Description field's value.
 func (s *ModifyVpnGatewayAttributesInput) SetDescription(v string) *ModifyVpnGatewayAttributesInput {
 	s.Description = &v
+	return s
+}
+
+// SetNegotiateInstantly sets the NegotiateInstantly field's value.
+func (s *ModifyVpnGatewayAttributesInput) SetNegotiateInstantly(v string) *ModifyVpnGatewayAttributesInput {
+	s.NegotiateInstantly = &v
 	return s
 }
 

@@ -153,6 +153,8 @@ type CreateDefaultNodePoolInput struct {
 	KubernetesConfig *KubernetesConfigForCreateDefaultNodePoolInput `type:"structure"`
 
 	NodeConfig *NodeConfigForCreateDefaultNodePoolInput `type:"structure"`
+
+	Tags []*TagForCreateDefaultNodePoolInput `type:"list"`
 }
 
 // String returns the string representation
@@ -186,6 +188,12 @@ func (s *CreateDefaultNodePoolInput) SetKubernetesConfig(v *KubernetesConfigForC
 // SetNodeConfig sets the NodeConfig field's value.
 func (s *CreateDefaultNodePoolInput) SetNodeConfig(v *NodeConfigForCreateDefaultNodePoolInput) *CreateDefaultNodePoolInput {
 	s.NodeConfig = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateDefaultNodePoolInput) SetTags(v []*TagForCreateDefaultNodePoolInput) *CreateDefaultNodePoolInput {
+	s.Tags = v
 	return s
 }
 
@@ -316,7 +324,11 @@ type NodeConfigForCreateDefaultNodePoolInput struct {
 
 	InitializeScript *string `type:"string"`
 
+	NamePrefix *string `type:"string"`
+
 	Security *SecurityForCreateDefaultNodePoolInput `type:"structure"`
+
+	Tags []*TagForCreateDefaultNodePoolInput `type:"list"`
 }
 
 // String returns the string representation
@@ -335,9 +347,21 @@ func (s *NodeConfigForCreateDefaultNodePoolInput) SetInitializeScript(v string) 
 	return s
 }
 
+// SetNamePrefix sets the NamePrefix field's value.
+func (s *NodeConfigForCreateDefaultNodePoolInput) SetNamePrefix(v string) *NodeConfigForCreateDefaultNodePoolInput {
+	s.NamePrefix = &v
+	return s
+}
+
 // SetSecurity sets the Security field's value.
 func (s *NodeConfigForCreateDefaultNodePoolInput) SetSecurity(v *SecurityForCreateDefaultNodePoolInput) *NodeConfigForCreateDefaultNodePoolInput {
 	s.Security = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *NodeConfigForCreateDefaultNodePoolInput) SetTags(v []*TagForCreateDefaultNodePoolInput) *NodeConfigForCreateDefaultNodePoolInput {
+	s.Tags = v
 	return s
 }
 
@@ -376,6 +400,36 @@ func (s *SecurityForCreateDefaultNodePoolInput) SetSecurityGroupIds(v []*string)
 // SetSecurityStrategies sets the SecurityStrategies field's value.
 func (s *SecurityForCreateDefaultNodePoolInput) SetSecurityStrategies(v []*string) *SecurityForCreateDefaultNodePoolInput {
 	s.SecurityStrategies = v
+	return s
+}
+
+type TagForCreateDefaultNodePoolInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateDefaultNodePoolInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateDefaultNodePoolInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateDefaultNodePoolInput) SetKey(v string) *TagForCreateDefaultNodePoolInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateDefaultNodePoolInput) SetValue(v string) *TagForCreateDefaultNodePoolInput {
+	s.Value = &v
 	return s
 }
 

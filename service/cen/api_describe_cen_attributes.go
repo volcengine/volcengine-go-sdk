@@ -192,7 +192,11 @@ type DescribeCenAttributesOutput struct {
 
 	Description *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeCenAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -243,14 +247,56 @@ func (s *DescribeCenAttributesOutput) SetDescription(v string) *DescribeCenAttri
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCenAttributesOutput) SetProjectName(v string) *DescribeCenAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DescribeCenAttributesOutput) SetStatus(v string) *DescribeCenAttributesOutput {
 	s.Status = &v
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeCenAttributesOutput) SetTags(v []*TagForDescribeCenAttributesOutput) *DescribeCenAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeCenAttributesOutput) SetUpdateTime(v string) *DescribeCenAttributesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type TagForDescribeCenAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCenAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCenAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCenAttributesOutput) SetKey(v string) *TagForDescribeCenAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeCenAttributesOutput) SetValue(v string) *TagForDescribeCenAttributesOutput {
+	s.Value = &v
 	return s
 }

@@ -196,6 +196,8 @@ type RunInstancesInput struct {
 
 	HostName *string `type:"string"`
 
+	Hostname *string `type:"string"`
+
 	HpcClusterId *string `type:"string"`
 
 	ImageId *string `type:"string"`
@@ -207,6 +209,8 @@ type RunInstancesInput struct {
 	InstanceType *string `type:"string"`
 
 	InstanceTypeId *string `type:"string"`
+
+	KeepImageCredential *bool `type:"boolean"`
 
 	KeyPairName *string `type:"string"`
 
@@ -223,6 +227,8 @@ type RunInstancesInput struct {
 	ProjectName *string `type:"string"`
 
 	SecurityEnhancementStrategy *string `type:"string"`
+
+	SpotStrategy *string `type:"string"`
 
 	SuffixIndex *int32 `type:"int32"`
 
@@ -295,6 +301,12 @@ func (s *RunInstancesInput) SetHostName(v string) *RunInstancesInput {
 	return s
 }
 
+// SetHostname sets the Hostname field's value.
+func (s *RunInstancesInput) SetHostname(v string) *RunInstancesInput {
+	s.Hostname = &v
+	return s
+}
+
 // SetHpcClusterId sets the HpcClusterId field's value.
 func (s *RunInstancesInput) SetHpcClusterId(v string) *RunInstancesInput {
 	s.HpcClusterId = &v
@@ -328,6 +340,12 @@ func (s *RunInstancesInput) SetInstanceType(v string) *RunInstancesInput {
 // SetInstanceTypeId sets the InstanceTypeId field's value.
 func (s *RunInstancesInput) SetInstanceTypeId(v string) *RunInstancesInput {
 	s.InstanceTypeId = &v
+	return s
+}
+
+// SetKeepImageCredential sets the KeepImageCredential field's value.
+func (s *RunInstancesInput) SetKeepImageCredential(v bool) *RunInstancesInput {
+	s.KeepImageCredential = &v
 	return s
 }
 
@@ -376,6 +394,12 @@ func (s *RunInstancesInput) SetProjectName(v string) *RunInstancesInput {
 // SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
 func (s *RunInstancesInput) SetSecurityEnhancementStrategy(v string) *RunInstancesInput {
 	s.SecurityEnhancementStrategy = &v
+	return s
+}
+
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *RunInstancesInput) SetSpotStrategy(v string) *RunInstancesInput {
+	s.SpotStrategy = &v
 	return s
 }
 

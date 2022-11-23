@@ -180,8 +180,6 @@ type DeleteDirectConnectGatewayOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PreOrderNumber *string `type:"string"`
-
 	RequestId *string `type:"string"`
 }
 
@@ -193,12 +191,6 @@ func (s DeleteDirectConnectGatewayOutput) String() string {
 // GoString returns the string representation
 func (s DeleteDirectConnectGatewayOutput) GoString() string {
 	return s.String()
-}
-
-// SetPreOrderNumber sets the PreOrderNumber field's value.
-func (s *DeleteDirectConnectGatewayOutput) SetPreOrderNumber(v string) *DeleteDirectConnectGatewayOutput {
-	s.PreOrderNumber = &v
-	return s
 }
 
 // SetRequestId sets the RequestId field's value.

@@ -169,6 +169,9 @@ type CreateDirectConnectConnectionInput struct {
 	// PeerLocation is a required field
 	PeerLocation *string `type:"string" required:"true"`
 
+	// PortSpec is a required field
+	PortSpec *string `type:"string" required:"true"`
+
 	// PortType is a required field
 	PortType *string `type:"string" required:"true"`
 
@@ -208,6 +211,9 @@ func (s *CreateDirectConnectConnectionInput) Validate() error {
 	}
 	if s.PeerLocation == nil {
 		invalidParams.Add(request.NewErrParamRequired("PeerLocation"))
+	}
+	if s.PortSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("PortSpec"))
 	}
 	if s.PortType == nil {
 		invalidParams.Add(request.NewErrParamRequired("PortType"))
@@ -276,6 +282,12 @@ func (s *CreateDirectConnectConnectionInput) SetLineOperator(v string) *CreateDi
 // SetPeerLocation sets the PeerLocation field's value.
 func (s *CreateDirectConnectConnectionInput) SetPeerLocation(v string) *CreateDirectConnectConnectionInput {
 	s.PeerLocation = &v
+	return s
+}
+
+// SetPortSpec sets the PortSpec field's value.
+func (s *CreateDirectConnectConnectionInput) SetPortSpec(v string) *CreateDirectConnectConnectionInput {
+	s.PortSpec = &v
 	return s
 }
 
