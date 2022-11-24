@@ -143,6 +143,28 @@ func (c *VKE) ListSupportedAddonsWithContext(ctx volcengine.Context, input *List
 	return out, req.Send()
 }
 
+type CompatibilityForListSupportedAddonsOutput struct {
+	_ struct{} `type:"structure"`
+
+	KubernetesVersion *string `type:"string"`
+}
+
+// String returns the string representation
+func (s CompatibilityForListSupportedAddonsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CompatibilityForListSupportedAddonsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKubernetesVersion sets the KubernetesVersion field's value.
+func (s *CompatibilityForListSupportedAddonsOutput) SetKubernetesVersion(v string) *CompatibilityForListSupportedAddonsOutput {
+	s.KubernetesVersion = &v
+	return s
+}
+
 type FilterForListSupportedAddonsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -157,6 +179,8 @@ type FilterForListSupportedAddonsInput struct {
 	Necessaries []*string `type:"list"`
 
 	PodNetworkModes []*string `type:"list"`
+
+	VersionsCompatibilitiesKubernetesVersions []*string `type:"list" json:"Versions.Compatibilities.KubernetesVersions"`
 }
 
 // String returns the string representation
@@ -202,6 +226,12 @@ func (s *FilterForListSupportedAddonsInput) SetNecessaries(v []*string) *FilterF
 // SetPodNetworkModes sets the PodNetworkModes field's value.
 func (s *FilterForListSupportedAddonsInput) SetPodNetworkModes(v []*string) *FilterForListSupportedAddonsInput {
 	s.PodNetworkModes = v
+	return s
+}
+
+// SetVersionsCompatibilitiesKubernetesVersions sets the VersionsCompatibilitiesKubernetesVersions field's value.
+func (s *FilterForListSupportedAddonsInput) SetVersionsCompatibilitiesKubernetesVersions(v []*string) *FilterForListSupportedAddonsInput {
+	s.VersionsCompatibilitiesKubernetesVersions = v
 	return s
 }
 
@@ -332,6 +362,8 @@ func (s *ListSupportedAddonsOutput) SetTotalCount(v int32) *ListSupportedAddonsO
 type VersionForListSupportedAddonsOutput struct {
 	_ struct{} `type:"structure"`
 
+	Compatibilities []*CompatibilityForListSupportedAddonsOutput `type:"list"`
+
 	CompatibleVersions []*string `type:"list"`
 
 	Version *string `type:"string"`
@@ -345,6 +377,12 @@ func (s VersionForListSupportedAddonsOutput) String() string {
 // GoString returns the string representation
 func (s VersionForListSupportedAddonsOutput) GoString() string {
 	return s.String()
+}
+
+// SetCompatibilities sets the Compatibilities field's value.
+func (s *VersionForListSupportedAddonsOutput) SetCompatibilities(v []*CompatibilityForListSupportedAddonsOutput) *VersionForListSupportedAddonsOutput {
+	s.Compatibilities = v
+	return s
 }
 
 // SetCompatibleVersions sets the CompatibleVersions field's value.

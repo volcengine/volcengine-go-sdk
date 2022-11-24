@@ -222,6 +222,8 @@ type CreateClusterInput struct {
 
 	Description *string `type:"string"`
 
+	KubernetesVersion *string `type:"string"`
+
 	Name *string `type:"string"`
 
 	PodsConfig *PodsConfigForCreateClusterInput `type:"structure"`
@@ -262,6 +264,12 @@ func (s *CreateClusterInput) SetDeleteProtectionEnabled(v bool) *CreateClusterIn
 // SetDescription sets the Description field's value.
 func (s *CreateClusterInput) SetDescription(v string) *CreateClusterInput {
 	s.Description = &v
+	return s
+}
+
+// SetKubernetesVersion sets the KubernetesVersion field's value.
+func (s *CreateClusterInput) SetKubernetesVersion(v string) *CreateClusterInput {
+	s.KubernetesVersion = &v
 	return s
 }
 
