@@ -169,6 +169,10 @@ type DescribePitrTimeWindowOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	EndTime *string `type:"string"`
+
+	StartTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -179,4 +183,16 @@ func (s DescribePitrTimeWindowOutput) String() string {
 // GoString returns the string representation
 func (s DescribePitrTimeWindowOutput) GoString() string {
 	return s.String()
+}
+
+// SetEndTime sets the EndTime field's value.
+func (s *DescribePitrTimeWindowOutput) SetEndTime(v string) *DescribePitrTimeWindowOutput {
+	s.EndTime = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *DescribePitrTimeWindowOutput) SetStartTime(v string) *DescribePitrTimeWindowOutput {
+	s.StartTime = &v
+	return s
 }
