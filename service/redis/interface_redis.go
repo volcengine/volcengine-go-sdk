@@ -174,6 +174,14 @@ type REDISAPI interface {
 	DescribeNodeIdsWithContext(volcengine.Context, *DescribeNodeIdsInput, ...request.Option) (*DescribeNodeIdsOutput, error)
 	DescribeNodeIdsRequest(*DescribeNodeIdsInput) (*request.Request, *DescribeNodeIdsOutput)
 
+	DescribePitrTimeWindowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePitrTimeWindowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePitrTimeWindowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePitrTimeWindow(*DescribePitrTimeWindowInput) (*DescribePitrTimeWindowOutput, error)
+	DescribePitrTimeWindowWithContext(volcengine.Context, *DescribePitrTimeWindowInput, ...request.Option) (*DescribePitrTimeWindowOutput, error)
+	DescribePitrTimeWindowRequest(*DescribePitrTimeWindowInput) (*request.Request, *DescribePitrTimeWindowOutput)
+
 	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -262,6 +270,14 @@ type REDISAPI interface {
 	ModifyDBInstanceNameWithContext(volcengine.Context, *ModifyDBInstanceNameInput, ...request.Option) (*ModifyDBInstanceNameOutput, error)
 	ModifyDBInstanceNameRequest(*ModifyDBInstanceNameInput) (*request.Request, *ModifyDBInstanceNameOutput)
 
+	ModifyDBInstanceNodeNumberCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceNodeNumberCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceNodeNumberCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceNodeNumber(*ModifyDBInstanceNodeNumberInput) (*ModifyDBInstanceNodeNumberOutput, error)
+	ModifyDBInstanceNodeNumberWithContext(volcengine.Context, *ModifyDBInstanceNodeNumberInput, ...request.Option) (*ModifyDBInstanceNodeNumberOutput, error)
+	ModifyDBInstanceNodeNumberRequest(*ModifyDBInstanceNodeNumberInput) (*request.Request, *ModifyDBInstanceNodeNumberOutput)
+
 	ModifyDBInstanceParamsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceParamsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceParamsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -269,6 +285,22 @@ type REDISAPI interface {
 	ModifyDBInstanceParams(*ModifyDBInstanceParamsInput) (*ModifyDBInstanceParamsOutput, error)
 	ModifyDBInstanceParamsWithContext(volcengine.Context, *ModifyDBInstanceParamsInput, ...request.Option) (*ModifyDBInstanceParamsOutput, error)
 	ModifyDBInstanceParamsRequest(*ModifyDBInstanceParamsInput) (*request.Request, *ModifyDBInstanceParamsOutput)
+
+	ModifyDBInstanceShardCapacityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceShardCapacityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceShardCapacityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceShardCapacity(*ModifyDBInstanceShardCapacityInput) (*ModifyDBInstanceShardCapacityOutput, error)
+	ModifyDBInstanceShardCapacityWithContext(volcengine.Context, *ModifyDBInstanceShardCapacityInput, ...request.Option) (*ModifyDBInstanceShardCapacityOutput, error)
+	ModifyDBInstanceShardCapacityRequest(*ModifyDBInstanceShardCapacityInput) (*request.Request, *ModifyDBInstanceShardCapacityOutput)
+
+	ModifyDBInstanceShardNumberCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceShardNumberCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceShardNumberCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceShardNumber(*ModifyDBInstanceShardNumberInput) (*ModifyDBInstanceShardNumberOutput, error)
+	ModifyDBInstanceShardNumberWithContext(volcengine.Context, *ModifyDBInstanceShardNumberInput, ...request.Option) (*ModifyDBInstanceShardNumberOutput, error)
+	ModifyDBInstanceShardNumberRequest(*ModifyDBInstanceShardNumberInput) (*request.Request, *ModifyDBInstanceShardNumberOutput)
 
 	ModifyDBInstanceSubnetCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceSubnetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -301,6 +333,22 @@ type REDISAPI interface {
 	RestoreDBInstance(*RestoreDBInstanceInput) (*RestoreDBInstanceOutput, error)
 	RestoreDBInstanceWithContext(volcengine.Context, *RestoreDBInstanceInput, ...request.Option) (*RestoreDBInstanceOutput, error)
 	RestoreDBInstanceRequest(*RestoreDBInstanceInput) (*request.Request, *RestoreDBInstanceOutput)
+
+	StartContinuousBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StartContinuousBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StartContinuousBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StartContinuousBackup(*StartContinuousBackupInput) (*StartContinuousBackupOutput, error)
+	StartContinuousBackupWithContext(volcengine.Context, *StartContinuousBackupInput, ...request.Option) (*StartContinuousBackupOutput, error)
+	StartContinuousBackupRequest(*StartContinuousBackupInput) (*request.Request, *StartContinuousBackupOutput)
+
+	StopContinuousBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	StopContinuousBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	StopContinuousBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	StopContinuousBackup(*StopContinuousBackupInput) (*StopContinuousBackupOutput, error)
+	StopContinuousBackupWithContext(volcengine.Context, *StopContinuousBackupInput, ...request.Option) (*StopContinuousBackupOutput, error)
+	StopContinuousBackupRequest(*StopContinuousBackupInput) (*request.Request, *StopContinuousBackupOutput)
 
 	UpgradeAllowListVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpgradeAllowListVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
