@@ -176,9 +176,11 @@ func (s *CapacityForDescribeDBInstancesOutput) SetUsed(v int64) *CapacityForDesc
 type DescribeDBInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 
 	// RegionId is a required field
 	RegionId *string `type:"string" required:"true"`
@@ -197,6 +199,12 @@ func (s DescribeDBInstancesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeDBInstancesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstancesInput"}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
 	if s.RegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RegionId"))
 	}
