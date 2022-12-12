@@ -153,7 +153,8 @@ type ModifyAllowListInput struct {
 	// AllowListId is a required field
 	AllowListId *string `type:"string" required:"true"`
 
-	AllowListName *string `type:"string"`
+	// AllowListName is a required field
+	AllowListName *string `type:"string" required:"true"`
 
 	ApplyInstanceNum *int32 `type:"int32"`
 
@@ -175,6 +176,9 @@ func (s *ModifyAllowListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyAllowListInput"}
 	if s.AllowListId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AllowListId"))
+	}
+	if s.AllowListName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllowListName"))
 	}
 
 	if invalidParams.Len() > 0 {

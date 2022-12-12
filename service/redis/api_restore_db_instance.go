@@ -146,6 +146,8 @@ func (c *REDIS) RestoreDBInstanceWithContext(ctx volcengine.Context, input *Rest
 type RestoreDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	BackupType *string `type:"string" enum:"EnumOfBackupTypeForRestoreDBInstanceInput"`
+
 	InstanceId *string `type:"string"`
 
 	TimePoint *string `type:"string"`
@@ -159,6 +161,12 @@ func (s RestoreDBInstanceInput) String() string {
 // GoString returns the string representation
 func (s RestoreDBInstanceInput) GoString() string {
 	return s.String()
+}
+
+// SetBackupType sets the BackupType field's value.
+func (s *RestoreDBInstanceInput) SetBackupType(v string) *RestoreDBInstanceInput {
+	s.BackupType = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -188,3 +196,17 @@ func (s RestoreDBInstanceOutput) String() string {
 func (s RestoreDBInstanceOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfBackupTypeForRestoreDBInstanceInputAll is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
+	EnumOfBackupTypeForRestoreDBInstanceInputAll = "All"
+
+	// EnumOfBackupTypeForRestoreDBInstanceInputFull is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
+	EnumOfBackupTypeForRestoreDBInstanceInputFull = "Full"
+
+	// EnumOfBackupTypeForRestoreDBInstanceInputInc is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
+	EnumOfBackupTypeForRestoreDBInstanceInputInc = "Inc"
+
+	// EnumOfBackupTypeForRestoreDBInstanceInputInvalid is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
+	EnumOfBackupTypeForRestoreDBInstanceInputInvalid = "Invalid"
+)
