@@ -344,6 +344,8 @@ type NodeConfigForUpdateNodePoolConfigInput struct {
 
 	DataVolumes []*DataVolumeForUpdateNodePoolConfigInput `type:"list"`
 
+	HpcClusterIds []*string `type:"list"`
+
 	InitializeScript *string `type:"string"`
 
 	InstanceTypeIds []*string `type:"list"`
@@ -392,6 +394,12 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetAutoRenewPeriod(v int32) *No
 // SetDataVolumes sets the DataVolumes field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetDataVolumes(v []*DataVolumeForUpdateNodePoolConfigInput) *NodeConfigForUpdateNodePoolConfigInput {
 	s.DataVolumes = v
+	return s
+}
+
+// SetHpcClusterIds sets the HpcClusterIds field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetHpcClusterIds(v []*string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.HpcClusterIds = v
 	return s
 }
 
