@@ -54,6 +54,14 @@ type VKEAPI interface {
 	CreateDefaultNodePoolWithContext(volcengine.Context, *CreateDefaultNodePoolInput, ...request.Option) (*CreateDefaultNodePoolOutput, error)
 	CreateDefaultNodePoolRequest(*CreateDefaultNodePoolInput) (*request.Request, *CreateDefaultNodePoolOutput)
 
+	CreateKubeconfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateKubeconfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateKubeconfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateKubeconfig(*CreateKubeconfigInput) (*CreateKubeconfigOutput, error)
+	CreateKubeconfigWithContext(volcengine.Context, *CreateKubeconfigInput, ...request.Option) (*CreateKubeconfigOutput, error)
+	CreateKubeconfigRequest(*CreateKubeconfigInput) (*request.Request, *CreateKubeconfigOutput)
+
 	CreateNodePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNodePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateNodePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +93,14 @@ type VKEAPI interface {
 	DeleteCluster(*DeleteClusterInput) (*DeleteClusterOutput, error)
 	DeleteClusterWithContext(volcengine.Context, *DeleteClusterInput, ...request.Option) (*DeleteClusterOutput, error)
 	DeleteClusterRequest(*DeleteClusterInput) (*request.Request, *DeleteClusterOutput)
+
+	DeleteKubeconfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteKubeconfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteKubeconfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteKubeconfigs(*DeleteKubeconfigsInput) (*DeleteKubeconfigsOutput, error)
+	DeleteKubeconfigsWithContext(volcengine.Context, *DeleteKubeconfigsInput, ...request.Option) (*DeleteKubeconfigsOutput, error)
+	DeleteKubeconfigsRequest(*DeleteKubeconfigsInput) (*request.Request, *DeleteKubeconfigsOutput)
 
 	DeleteNodePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNodePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -125,6 +141,14 @@ type VKEAPI interface {
 	ListClusters(*ListClustersInput) (*ListClustersOutput, error)
 	ListClustersWithContext(volcengine.Context, *ListClustersInput, ...request.Option) (*ListClustersOutput, error)
 	ListClustersRequest(*ListClustersInput) (*request.Request, *ListClustersOutput)
+
+	ListKubeconfigsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListKubeconfigsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListKubeconfigsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListKubeconfigs(*ListKubeconfigsInput) (*ListKubeconfigsOutput, error)
+	ListKubeconfigsWithContext(volcengine.Context, *ListKubeconfigsInput, ...request.Option) (*ListKubeconfigsOutput, error)
+	ListKubeconfigsRequest(*ListKubeconfigsInput) (*request.Request, *ListKubeconfigsOutput)
 
 	ListNodePoolsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListNodePoolsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
