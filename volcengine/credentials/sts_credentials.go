@@ -43,9 +43,16 @@ func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, 
 		RoleTrn:         fmt.Sprintf("trn:iam::%s:role/%s", p.AccountId, p.RoleName),
 		RoleSessionName: uuid.New().String(),
 	}
-	output, _, err := ins.AssumeRole(input)
+	output, statusCode, err := ins.AssumeRole(input)
+	var reqId string
+	if output != nil {
+		reqId = output.ResponseMetadata.RequestId
+	}
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, fmt.Errorf("AssumeRole error,httpcode is %v and reqId is %s error is %s", statusCode, reqId, err.Error())
+	}
+	if statusCode >= 300 || statusCode < 200 {
+		return nil, nil, fmt.Errorf("AssumeRole error,httpcode is %v and reqId is %s", statusCode, reqId)
 	}
 	return NewCredentials(&StaticProvider{Value: Value{
 			AccessKeyID:     output.Result.Credentials.AccessKeyId,
