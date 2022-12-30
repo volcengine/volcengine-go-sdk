@@ -151,6 +151,8 @@ type DescribeListenersInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -190,6 +192,12 @@ func (s *DescribeListenersInput) SetPageNumber(v int64) *DescribeListenersInput 
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeListenersInput) SetPageSize(v int64) *DescribeListenersInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeListenersInput) SetProjectName(v string) *DescribeListenersInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -330,6 +338,8 @@ type ListenerForDescribeListenersOutput struct {
 
 	Port *int64 `type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	Protocol *string `type:"string"`
 
 	ServerGroupId *string `type:"string"`
@@ -444,6 +454,12 @@ func (s *ListenerForDescribeListenersOutput) SetLoadBalancerId(v string) *Listen
 // SetPort sets the Port field's value.
 func (s *ListenerForDescribeListenersOutput) SetPort(v int64) *ListenerForDescribeListenersOutput {
 	s.Port = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ListenerForDescribeListenersOutput) SetProjectName(v string) *ListenerForDescribeListenersOutput {
+	s.ProjectName = &v
 	return s
 }
 

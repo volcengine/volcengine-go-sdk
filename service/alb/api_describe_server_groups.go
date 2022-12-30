@@ -146,9 +146,13 @@ type DescribeServerGroupsInput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	ServerGroupIds []*string `type:"list"`
 
 	ServerGroupNames []*string `type:"list"`
+
+	ServerGroupType *string `type:"string"`
 
 	VpcID *string `type:"string"`
 }
@@ -175,6 +179,12 @@ func (s *DescribeServerGroupsInput) SetPageSize(v int64) *DescribeServerGroupsIn
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeServerGroupsInput) SetProjectName(v string) *DescribeServerGroupsInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetServerGroupIds sets the ServerGroupIds field's value.
 func (s *DescribeServerGroupsInput) SetServerGroupIds(v []*string) *DescribeServerGroupsInput {
 	s.ServerGroupIds = v
@@ -184,6 +194,12 @@ func (s *DescribeServerGroupsInput) SetServerGroupIds(v []*string) *DescribeServ
 // SetServerGroupNames sets the ServerGroupNames field's value.
 func (s *DescribeServerGroupsInput) SetServerGroupNames(v []*string) *DescribeServerGroupsInput {
 	s.ServerGroupNames = v
+	return s
+}
+
+// SetServerGroupType sets the ServerGroupType field's value.
+func (s *DescribeServerGroupsInput) SetServerGroupType(v string) *DescribeServerGroupsInput {
+	s.ServerGroupType = &v
 	return s
 }
 
@@ -354,6 +370,8 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 
 	Listeners []*string `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	Scheduler *string `type:"string"`
 
 	ServerCount *int64 `type:"integer"`
@@ -361,6 +379,8 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 	ServerGroupId *string `type:"string"`
 
 	ServerGroupName *string `type:"string"`
+
+	ServerGroupType *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -405,6 +425,12 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetListeners(v []*string) *Se
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetProjectName(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetScheduler sets the Scheduler field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetScheduler(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.Scheduler = &v
@@ -426,6 +452,12 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupId(v string) *S
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupName(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.ServerGroupName = &v
+	return s
+}
+
+// SetServerGroupType sets the ServerGroupType field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupType(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.ServerGroupType = &v
 	return s
 }
 

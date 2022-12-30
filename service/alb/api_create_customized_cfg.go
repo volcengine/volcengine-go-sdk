@@ -149,6 +149,8 @@ type CreateCustomizedCfgInput struct {
 	CustomizedCfgName *string `min:"1" max:"128" type:"string" required:"true"`
 
 	Description *string `min:"1" max:"255" type:"string"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -210,6 +212,12 @@ func (s *CreateCustomizedCfgInput) SetCustomizedCfgName(v string) *CreateCustomi
 // SetDescription sets the Description field's value.
 func (s *CreateCustomizedCfgInput) SetDescription(v string) *CreateCustomizedCfgInput {
 	s.Description = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateCustomizedCfgInput) SetProjectName(v string) *CreateCustomizedCfgInput {
+	s.ProjectName = &v
 	return s
 }
 

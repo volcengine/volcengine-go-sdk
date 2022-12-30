@@ -246,15 +246,21 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	LoadBalancerSpec *string `type:"string"`
 
+	LocalAddresses []*string `type:"list"`
+
 	LockReason *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
+
+	TLSAccessLog *TLSAccessLogForDescribeLoadBalancerAttributesOutput `type:"structure"`
 
 	Type *string `type:"string"`
 
@@ -383,6 +389,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetLoadBalancerSpec(v string) *De
 	return s
 }
 
+// SetLocalAddresses sets the LocalAddresses field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetLocalAddresses(v []*string) *DescribeLoadBalancerAttributesOutput {
+	s.LocalAddresses = v
+	return s
+}
+
 // SetLockReason sets the LockReason field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetLockReason(v string) *DescribeLoadBalancerAttributesOutput {
 	s.LockReason = &v
@@ -392,6 +404,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetLockReason(v string) *Describe
 // SetOverdueTime sets the OverdueTime field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetOverdueTime(v string) *DescribeLoadBalancerAttributesOutput {
 	s.OverdueTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetProjectName(v string) *DescribeLoadBalancerAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -410,6 +428,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetStatus(v string) *DescribeLoad
 // SetSubnetId sets the SubnetId field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetSubnetId(v string) *DescribeLoadBalancerAttributesOutput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTLSAccessLog sets the TLSAccessLog field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetTLSAccessLog(v *TLSAccessLogForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
+	s.TLSAccessLog = v
 	return s
 }
 
@@ -447,6 +471,8 @@ type EipForDescribeLoadBalancerAttributesOutput struct {
 	EipBillingType *int64 `type:"integer"`
 
 	ISP *string `type:"string"`
+
+	SecurityProtectionTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -480,6 +506,12 @@ func (s *EipForDescribeLoadBalancerAttributesOutput) SetEipBillingType(v int64) 
 // SetISP sets the ISP field's value.
 func (s *EipForDescribeLoadBalancerAttributesOutput) SetISP(v string) *EipForDescribeLoadBalancerAttributesOutput {
 	s.ISP = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipForDescribeLoadBalancerAttributesOutput) SetSecurityProtectionTypes(v []*string) *EipForDescribeLoadBalancerAttributesOutput {
+	s.SecurityProtectionTypes = v
 	return s
 }
 
@@ -602,6 +634,44 @@ func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniAddre
 // SetEniId sets the EniId field's value.
 func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniId(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
 	s.EniId = &v
+	return s
+}
+
+type TLSAccessLogForDescribeLoadBalancerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Enabled *bool `type:"boolean"`
+
+	ProjectId *string `type:"string"`
+
+	TopicId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TLSAccessLogForDescribeLoadBalancerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TLSAccessLogForDescribeLoadBalancerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *TLSAccessLogForDescribeLoadBalancerAttributesOutput) SetEnabled(v bool) *TLSAccessLogForDescribeLoadBalancerAttributesOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetProjectId sets the ProjectId field's value.
+func (s *TLSAccessLogForDescribeLoadBalancerAttributesOutput) SetProjectId(v string) *TLSAccessLogForDescribeLoadBalancerAttributesOutput {
+	s.ProjectId = &v
+	return s
+}
+
+// SetTopicId sets the TopicId field's value.
+func (s *TLSAccessLogForDescribeLoadBalancerAttributesOutput) SetTopicId(v string) *TLSAccessLogForDescribeLoadBalancerAttributesOutput {
+	s.TopicId = &v
 	return s
 }
 
