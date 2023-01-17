@@ -181,6 +181,10 @@ type ModifyInstanceSpecOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	InstanceId *string `type:"string"`
+
+	OrderId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -191,4 +195,16 @@ func (s ModifyInstanceSpecOutput) String() string {
 // GoString returns the string representation
 func (s ModifyInstanceSpecOutput) GoString() string {
 	return s.String()
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ModifyInstanceSpecOutput) SetInstanceId(v string) *ModifyInstanceSpecOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetOrderId sets the OrderId field's value.
+func (s *ModifyInstanceSpecOutput) SetOrderId(v string) *ModifyInstanceSpecOutput {
+	s.OrderId = &v
+	return s
 }

@@ -212,6 +212,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	AccessLog *AccessLogForDescribeLoadBalancerAttributesOutput `type:"structure"`
 
+	BusinessStatus *string `type:"string"`
+
 	CreateTime *string `type:"string"`
 
 	DeletedTime *string `type:"string"`
@@ -244,6 +246,10 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	LockReason *string `type:"string"`
 
+	LogTopicId *string `type:"string"`
+
+	MasterZoneId *string `type:"string"`
+
 	ModificationProtectionReason *string `type:"string"`
 
 	ModificationProtectionStatus *string `type:"string"`
@@ -255,6 +261,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 	RequestId *string `type:"string"`
 
 	ServerGroups []*ServerGroupForDescribeLoadBalancerAttributesOutput `type:"list"`
+
+	SlaveZoneId *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -282,6 +290,12 @@ func (s DescribeLoadBalancerAttributesOutput) GoString() string {
 // SetAccessLog sets the AccessLog field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetAccessLog(v *AccessLogForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
 	s.AccessLog = v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetBusinessStatus(v string) *DescribeLoadBalancerAttributesOutput {
+	s.BusinessStatus = &v
 	return s
 }
 
@@ -381,6 +395,18 @@ func (s *DescribeLoadBalancerAttributesOutput) SetLockReason(v string) *Describe
 	return s
 }
 
+// SetLogTopicId sets the LogTopicId field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetLogTopicId(v string) *DescribeLoadBalancerAttributesOutput {
+	s.LogTopicId = &v
+	return s
+}
+
+// SetMasterZoneId sets the MasterZoneId field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetMasterZoneId(v string) *DescribeLoadBalancerAttributesOutput {
+	s.MasterZoneId = &v
+	return s
+}
+
 // SetModificationProtectionReason sets the ModificationProtectionReason field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetModificationProtectionReason(v string) *DescribeLoadBalancerAttributesOutput {
 	s.ModificationProtectionReason = &v
@@ -414,6 +440,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetRequestId(v string) *DescribeL
 // SetServerGroups sets the ServerGroups field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetServerGroups(v []*ServerGroupForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
 	s.ServerGroups = v
+	return s
+}
+
+// SetSlaveZoneId sets the SlaveZoneId field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetSlaveZoneId(v string) *DescribeLoadBalancerAttributesOutput {
+	s.SlaveZoneId = &v
 	return s
 }
 
@@ -458,11 +490,15 @@ type EipForDescribeLoadBalancerAttributesOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	BandwidthPackageId *string `type:"string"`
+
 	EipAddress *string `type:"string"`
 
 	EipBillingType *int64 `type:"integer"`
 
 	ISP *string `type:"string"`
+
+	SecurityProtectionTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -481,6 +517,12 @@ func (s *EipForDescribeLoadBalancerAttributesOutput) SetBandwidth(v int64) *EipF
 	return s
 }
 
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *EipForDescribeLoadBalancerAttributesOutput) SetBandwidthPackageId(v string) *EipForDescribeLoadBalancerAttributesOutput {
+	s.BandwidthPackageId = &v
+	return s
+}
+
 // SetEipAddress sets the EipAddress field's value.
 func (s *EipForDescribeLoadBalancerAttributesOutput) SetEipAddress(v string) *EipForDescribeLoadBalancerAttributesOutput {
 	s.EipAddress = &v
@@ -496,6 +538,12 @@ func (s *EipForDescribeLoadBalancerAttributesOutput) SetEipBillingType(v int64) 
 // SetISP sets the ISP field's value.
 func (s *EipForDescribeLoadBalancerAttributesOutput) SetISP(v string) *EipForDescribeLoadBalancerAttributesOutput {
 	s.ISP = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipForDescribeLoadBalancerAttributesOutput) SetSecurityProtectionTypes(v []*string) *EipForDescribeLoadBalancerAttributesOutput {
+	s.SecurityProtectionTypes = v
 	return s
 }
 

@@ -156,6 +156,8 @@ type ImportImageInput struct {
 
 	PlatformVersion *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Url *string `type:"string"`
 }
 
@@ -208,6 +210,12 @@ func (s *ImportImageInput) SetPlatform(v string) *ImportImageInput {
 // SetPlatformVersion sets the PlatformVersion field's value.
 func (s *ImportImageInput) SetPlatformVersion(v string) *ImportImageInput {
 	s.PlatformVersion = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ImportImageInput) SetProjectName(v string) *ImportImageInput {
+	s.ProjectName = &v
 	return s
 }
 

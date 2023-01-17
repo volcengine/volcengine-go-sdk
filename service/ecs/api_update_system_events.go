@@ -204,6 +204,10 @@ type UpdateSystemEventsInput struct {
 
 	EventIds []*string `type:"list"`
 
+	OperatedEndAt *string `type:"string"`
+
+	OperatedStartAt *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	UpdatedAt *string `type:"string"`
@@ -222,6 +226,18 @@ func (s UpdateSystemEventsInput) GoString() string {
 // SetEventIds sets the EventIds field's value.
 func (s *UpdateSystemEventsInput) SetEventIds(v []*string) *UpdateSystemEventsInput {
 	s.EventIds = v
+	return s
+}
+
+// SetOperatedEndAt sets the OperatedEndAt field's value.
+func (s *UpdateSystemEventsInput) SetOperatedEndAt(v string) *UpdateSystemEventsInput {
+	s.OperatedEndAt = &v
+	return s
+}
+
+// SetOperatedStartAt sets the OperatedStartAt field's value.
+func (s *UpdateSystemEventsInput) SetOperatedStartAt(v string) *UpdateSystemEventsInput {
+	s.OperatedStartAt = &v
 	return s
 }
 

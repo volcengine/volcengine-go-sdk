@@ -288,7 +288,11 @@ func (s *GpuForDescribeInstanceTypesOutput) SetGpuDevices(v []*GpuDeviceForDescr
 type InstanceTypeForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
+	BaselineCredit *int64 `type:"int64"`
+
 	Gpu *GpuForDescribeInstanceTypesOutput `type:"structure"`
+
+	InitialCredit *int64 `type:"int64"`
 
 	InstanceTypeFamily *string `type:"string"`
 
@@ -317,9 +321,21 @@ func (s InstanceTypeForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
 }
 
+// SetBaselineCredit sets the BaselineCredit field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetBaselineCredit(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.BaselineCredit = &v
+	return s
+}
+
 // SetGpu sets the Gpu field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetGpu(v *GpuForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.Gpu = v
+	return s
+}
+
+// SetInitialCredit sets the InitialCredit field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetInitialCredit(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.InitialCredit = &v
 	return s
 }
 
@@ -442,11 +458,15 @@ func (s *MemoryForDescribeInstanceTypesOutput) SetSize(v int32) *MemoryForDescri
 type NetworkForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
+	MaximumBandwidthMbps *int32 `type:"int32"`
+
 	MaximumNetworkInterfaces *int32 `type:"int32"`
 
 	MaximumPrivateIpv4AddressesPerNetworkInterface *int32 `type:"int32"`
 
 	MaximumQueuesPerNetworkInterface *int32 `type:"int32"`
+
+	MaximumThroughputKpps *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -457,6 +477,12 @@ func (s NetworkForDescribeInstanceTypesOutput) String() string {
 // GoString returns the string representation
 func (s NetworkForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
+}
+
+// SetMaximumBandwidthMbps sets the MaximumBandwidthMbps field's value.
+func (s *NetworkForDescribeInstanceTypesOutput) SetMaximumBandwidthMbps(v int32) *NetworkForDescribeInstanceTypesOutput {
+	s.MaximumBandwidthMbps = &v
+	return s
 }
 
 // SetMaximumNetworkInterfaces sets the MaximumNetworkInterfaces field's value.
@@ -477,10 +503,22 @@ func (s *NetworkForDescribeInstanceTypesOutput) SetMaximumQueuesPerNetworkInterf
 	return s
 }
 
+// SetMaximumThroughputKpps sets the MaximumThroughputKpps field's value.
+func (s *NetworkForDescribeInstanceTypesOutput) SetMaximumThroughputKpps(v int32) *NetworkForDescribeInstanceTypesOutput {
+	s.MaximumThroughputKpps = &v
+	return s
+}
+
 type ProcessorForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
+	BaseFrequency *float64 `type:"float"`
+
 	Cpus *int32 `type:"int32"`
+
+	Model *string `type:"string"`
+
+	TurboFrequency *float64 `type:"float"`
 }
 
 // String returns the string representation
@@ -493,9 +531,27 @@ func (s ProcessorForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
 }
 
+// SetBaseFrequency sets the BaseFrequency field's value.
+func (s *ProcessorForDescribeInstanceTypesOutput) SetBaseFrequency(v float64) *ProcessorForDescribeInstanceTypesOutput {
+	s.BaseFrequency = &v
+	return s
+}
+
 // SetCpus sets the Cpus field's value.
 func (s *ProcessorForDescribeInstanceTypesOutput) SetCpus(v int32) *ProcessorForDescribeInstanceTypesOutput {
 	s.Cpus = &v
+	return s
+}
+
+// SetModel sets the Model field's value.
+func (s *ProcessorForDescribeInstanceTypesOutput) SetModel(v string) *ProcessorForDescribeInstanceTypesOutput {
+	s.Model = &v
+	return s
+}
+
+// SetTurboFrequency sets the TurboFrequency field's value.
+func (s *ProcessorForDescribeInstanceTypesOutput) SetTurboFrequency(v float64) *ProcessorForDescribeInstanceTypesOutput {
+	s.TurboFrequency = &v
 	return s
 }
 

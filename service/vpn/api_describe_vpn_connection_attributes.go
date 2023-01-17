@@ -182,6 +182,10 @@ type DescribeVpnConnectionAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
+	AttachStatus *string `type:"string"`
+
+	AttachType *string `type:"string"`
+
 	ConnectStatus *string `type:"string"`
 
 	CreationTime *string `type:"string"`
@@ -232,6 +236,18 @@ func (s DescribeVpnConnectionAttributesOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *DescribeVpnConnectionAttributesOutput) SetAccountId(v string) *DescribeVpnConnectionAttributesOutput {
 	s.AccountId = &v
+	return s
+}
+
+// SetAttachStatus sets the AttachStatus field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetAttachStatus(v string) *DescribeVpnConnectionAttributesOutput {
+	s.AttachStatus = &v
+	return s
+}
+
+// SetAttachType sets the AttachType field's value.
+func (s *DescribeVpnConnectionAttributesOutput) SetAttachType(v string) *DescribeVpnConnectionAttributesOutput {
+	s.AttachType = &v
 	return s
 }
 

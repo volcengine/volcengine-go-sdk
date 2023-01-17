@@ -304,6 +304,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	LockReason *string `type:"string"`
 
+	MasterZoneId *string `type:"string"`
+
 	ModificationProtectionReason *string `type:"string"`
 
 	ModificationProtectionStatus *string `type:"string"`
@@ -311,6 +313,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	SlaveZoneId *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -419,6 +423,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLockReason(v string) *Lo
 	return s
 }
 
+// SetMasterZoneId sets the MasterZoneId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetMasterZoneId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.MasterZoneId = &v
+	return s
+}
+
 // SetModificationProtectionReason sets the ModificationProtectionReason field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetModificationProtectionReason(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.ModificationProtectionReason = &v
@@ -440,6 +450,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetOverdueTime(v string) *L
 // SetProjectName sets the ProjectName field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetProjectName(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSlaveZoneId sets the SlaveZoneId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetSlaveZoneId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.SlaveZoneId = &v
 	return s
 }
 

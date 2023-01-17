@@ -180,6 +180,8 @@ type DescribeServerGroupAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Description *string `type:"string"`
+
 	Listeners []*string `type:"list"`
 
 	LoadBalancerId *string `type:"string"`
@@ -201,6 +203,12 @@ func (s DescribeServerGroupAttributesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeServerGroupAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *DescribeServerGroupAttributesOutput) SetDescription(v string) *DescribeServerGroupAttributesOutput {
+	s.Description = &v
+	return s
 }
 
 // SetListeners sets the Listeners field's value.

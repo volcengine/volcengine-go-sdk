@@ -214,6 +214,14 @@ type CENAPI interface {
 	GrantInstanceToCenWithContext(volcengine.Context, *GrantInstanceToCenInput, ...request.Option) (*GrantInstanceToCenOutput, error)
 	GrantInstanceToCenRequest(*GrantInstanceToCenInput) (*request.Request, *GrantInstanceToCenOutput)
 
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
 	ModifyCenAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyCenAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyCenAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -253,6 +261,14 @@ type CENAPI interface {
 	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
 	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
 	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 }
 
 var _ CENAPI = (*CEN)(nil)

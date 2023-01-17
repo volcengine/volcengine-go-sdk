@@ -222,6 +222,8 @@ type EgressAclEntryForDescribeNetworkAclAttributesOutput struct {
 
 	Port *string `type:"string"`
 
+	Priority *int64 `type:"integer"`
+
 	Protocol *string `type:"string"`
 }
 
@@ -271,6 +273,12 @@ func (s *EgressAclEntryForDescribeNetworkAclAttributesOutput) SetPort(v string) 
 	return s
 }
 
+// SetPriority sets the Priority field's value.
+func (s *EgressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int64) *EgressAclEntryForDescribeNetworkAclAttributesOutput {
+	s.Priority = &v
+	return s
+}
+
 // SetProtocol sets the Protocol field's value.
 func (s *EgressAclEntryForDescribeNetworkAclAttributesOutput) SetProtocol(v string) *EgressAclEntryForDescribeNetworkAclAttributesOutput {
 	s.Protocol = &v
@@ -289,6 +297,8 @@ type IngressAclEntryForDescribeNetworkAclAttributesOutput struct {
 	Policy *string `type:"string"`
 
 	Port *string `type:"string"`
+
+	Priority *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
 
@@ -332,6 +342,12 @@ func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetPolicy(v strin
 // SetPort sets the Port field's value.
 func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetPort(v string) *IngressAclEntryForDescribeNetworkAclAttributesOutput {
 	s.Port = &v
+	return s
+}
+
+// SetPriority sets the Priority field's value.
+func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int64) *IngressAclEntryForDescribeNetworkAclAttributesOutput {
+	s.Priority = &v
 	return s
 }
 

@@ -232,6 +232,8 @@ type DescribeNetworkInterfaceAttributesOutput struct {
 
 	PrivateIpSets *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput `type:"structure"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
@@ -328,6 +330,12 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetPrimaryIpAddress(v string)
 // SetPrivateIpSets sets the PrivateIpSets field's value.
 func (s *DescribeNetworkInterfaceAttributesOutput) SetPrivateIpSets(v *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) *DescribeNetworkInterfaceAttributesOutput {
 	s.PrivateIpSets = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetProjectName(v string) *DescribeNetworkInterfaceAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

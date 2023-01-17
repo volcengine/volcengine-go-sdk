@@ -144,8 +144,6 @@ type DescribeVpnConnectionsInput struct {
 
 	CustomerGatewayId *string `type:"string"`
 
-	NegotiateInstantly *string `type:"string"`
-
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -172,12 +170,6 @@ func (s DescribeVpnConnectionsInput) GoString() string {
 // SetCustomerGatewayId sets the CustomerGatewayId field's value.
 func (s *DescribeVpnConnectionsInput) SetCustomerGatewayId(v string) *DescribeVpnConnectionsInput {
 	s.CustomerGatewayId = &v
-	return s
-}
-
-// SetNegotiateInstantly sets the NegotiateInstantly field's value.
-func (s *DescribeVpnConnectionsInput) SetNegotiateInstantly(v string) *DescribeVpnConnectionsInput {
-	s.NegotiateInstantly = &v
 	return s
 }
 
@@ -410,6 +402,10 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 
 	AccountId *string `type:"string"`
 
+	AttachStatus *string `type:"string"`
+
+	AttachType *string `type:"string"`
+
 	ConnectStatus *string `type:"string"`
 
 	CreationTime *string `type:"string"`
@@ -427,6 +423,8 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 	LocalSubnet []*string `type:"list"`
 
 	NatTraversal *bool `type:"boolean"`
+
+	NegotiateInstantly *bool `type:"boolean"`
 
 	ProjectName *string `type:"string"`
 
@@ -456,6 +454,18 @@ func (s VpnConnectionForDescribeVpnConnectionsOutput) GoString() string {
 // SetAccountId sets the AccountId field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetAccountId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.AccountId = &v
+	return s
+}
+
+// SetAttachStatus sets the AttachStatus field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetAttachStatus(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.AttachStatus = &v
+	return s
+}
+
+// SetAttachType sets the AttachType field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetAttachType(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.AttachType = &v
 	return s
 }
 
@@ -510,6 +520,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetLocalSubnet(v []*strin
 // SetNatTraversal sets the NatTraversal field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetNatTraversal(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.NatTraversal = &v
+	return s
+}
+
+// SetNegotiateInstantly sets the NegotiateInstantly field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetNegotiateInstantly(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.NegotiateInstantly = &v
 	return s
 }
 

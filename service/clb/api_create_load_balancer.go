@@ -142,6 +142,8 @@ func (c *CLB) CreateLoadBalancerWithContext(ctx volcengine.Context, input *Creat
 type CreateLoadBalancerInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	EipBillingConfig *EipBillingConfigForCreateLoadBalancerInput `type:"structure"`
@@ -152,8 +154,9 @@ type CreateLoadBalancerInput struct {
 
 	LoadBalancerName *string `type:"string"`
 
-	// LoadBalancerSpec is a required field
-	LoadBalancerSpec *string `type:"string" required:"true"`
+	LoadBalancerSpec *string `type:"string"`
+
+	MasterZoneId *string `type:"string"`
 
 	ModificationProtectionReason *string `type:"string"`
 
@@ -167,6 +170,8 @@ type CreateLoadBalancerInput struct {
 
 	// RegionId is a required field
 	RegionId *string `type:"string" required:"true"`
+
+	SlaveZoneId *string `type:"string"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -192,9 +197,6 @@ func (s CreateLoadBalancerInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateLoadBalancerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateLoadBalancerInput"}
-	if s.LoadBalancerSpec == nil {
-		invalidParams.Add(request.NewErrParamRequired("LoadBalancerSpec"))
-	}
 	if s.RegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RegionId"))
 	}
@@ -209,6 +211,12 @@ func (s *CreateLoadBalancerInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateLoadBalancerInput) SetClientToken(v string) *CreateLoadBalancerInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -247,6 +255,12 @@ func (s *CreateLoadBalancerInput) SetLoadBalancerSpec(v string) *CreateLoadBalan
 	return s
 }
 
+// SetMasterZoneId sets the MasterZoneId field's value.
+func (s *CreateLoadBalancerInput) SetMasterZoneId(v string) *CreateLoadBalancerInput {
+	s.MasterZoneId = &v
+	return s
+}
+
 // SetModificationProtectionReason sets the ModificationProtectionReason field's value.
 func (s *CreateLoadBalancerInput) SetModificationProtectionReason(v string) *CreateLoadBalancerInput {
 	s.ModificationProtectionReason = &v
@@ -280,6 +294,12 @@ func (s *CreateLoadBalancerInput) SetProjectName(v string) *CreateLoadBalancerIn
 // SetRegionId sets the RegionId field's value.
 func (s *CreateLoadBalancerInput) SetRegionId(v string) *CreateLoadBalancerInput {
 	s.RegionId = &v
+	return s
+}
+
+// SetSlaveZoneId sets the SlaveZoneId field's value.
+func (s *CreateLoadBalancerInput) SetSlaveZoneId(v string) *CreateLoadBalancerInput {
+	s.SlaveZoneId = &v
 	return s
 }
 
@@ -352,9 +372,13 @@ type EipBillingConfigForCreateLoadBalancerInput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	BandwidthPackageId *string `type:"string"`
+
 	EipBillingType *int64 `type:"integer"`
 
 	ISP *string `type:"string"`
+
+	SecurityProtectionTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -373,6 +397,12 @@ func (s *EipBillingConfigForCreateLoadBalancerInput) SetBandwidth(v int64) *EipB
 	return s
 }
 
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *EipBillingConfigForCreateLoadBalancerInput) SetBandwidthPackageId(v string) *EipBillingConfigForCreateLoadBalancerInput {
+	s.BandwidthPackageId = &v
+	return s
+}
+
 // SetEipBillingType sets the EipBillingType field's value.
 func (s *EipBillingConfigForCreateLoadBalancerInput) SetEipBillingType(v int64) *EipBillingConfigForCreateLoadBalancerInput {
 	s.EipBillingType = &v
@@ -382,6 +412,12 @@ func (s *EipBillingConfigForCreateLoadBalancerInput) SetEipBillingType(v int64) 
 // SetISP sets the ISP field's value.
 func (s *EipBillingConfigForCreateLoadBalancerInput) SetISP(v string) *EipBillingConfigForCreateLoadBalancerInput {
 	s.ISP = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipBillingConfigForCreateLoadBalancerInput) SetSecurityProtectionTypes(v []*string) *EipBillingConfigForCreateLoadBalancerInput {
+	s.SecurityProtectionTypes = v
 	return s
 }
 
