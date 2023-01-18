@@ -152,6 +152,12 @@ type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 
 	EnableBfd *bool `type:"boolean"`
 
+	EnableNqa *bool `type:"boolean"`
+
+	NqaDetectInterval *int64 `min:"1000" max:"5000" type:"integer"`
+
+	NqaDetectMultiplier *int64 `min:"3" max:"8" type:"integer"`
+
 	// VirtualInterfaceId is a required field
 	VirtualInterfaceId *string `type:"string" required:"true"`
 
@@ -188,6 +194,18 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) Validate() error {
 	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.NqaDetectInterval != nil && *s.NqaDetectInterval < 1000 {
+		invalidParams.Add(request.NewErrParamMinValue("NqaDetectInterval", 1000))
+	}
+	if s.NqaDetectInterval != nil && *s.NqaDetectInterval > 5000 {
+		invalidParams.Add(request.NewErrParamMaxValue("NqaDetectInterval", 5000))
+	}
+	if s.NqaDetectMultiplier != nil && *s.NqaDetectMultiplier < 3 {
+		invalidParams.Add(request.NewErrParamMinValue("NqaDetectMultiplier", 3))
+	}
+	if s.NqaDetectMultiplier != nil && *s.NqaDetectMultiplier > 8 {
+		invalidParams.Add(request.NewErrParamMaxValue("NqaDetectMultiplier", 8))
 	}
 	if s.VirtualInterfaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VirtualInterfaceId"))
@@ -232,6 +250,24 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetDescription(v st
 // SetEnableBfd sets the EnableBfd field's value.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetEnableBfd(v bool) *ModifyDirectConnectVirtualInterfaceAttributesInput {
 	s.EnableBfd = &v
+	return s
+}
+
+// SetEnableNqa sets the EnableNqa field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetEnableNqa(v bool) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.EnableNqa = &v
+	return s
+}
+
+// SetNqaDetectInterval sets the NqaDetectInterval field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetNqaDetectInterval(v int64) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.NqaDetectInterval = &v
+	return s
+}
+
+// SetNqaDetectMultiplier sets the NqaDetectMultiplier field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetNqaDetectMultiplier(v int64) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.NqaDetectMultiplier = &v
 	return s
 }
 

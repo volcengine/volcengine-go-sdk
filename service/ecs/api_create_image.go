@@ -147,6 +147,8 @@ type CreateImageInput struct {
 	ImageName *string `type:"string"`
 
 	InstanceId *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -174,6 +176,12 @@ func (s *CreateImageInput) SetImageName(v string) *CreateImageInput {
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateImageInput) SetInstanceId(v string) *CreateImageInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateImageInput) SetProjectName(v string) *CreateImageInput {
+	s.ProjectName = &v
 	return s
 }
 

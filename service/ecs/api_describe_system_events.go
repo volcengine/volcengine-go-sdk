@@ -347,6 +347,9 @@ const (
 
 	// StatusForDescribeSystemEventsOutputScheduled is a StatusForDescribeSystemEventsOutput enum value
 	StatusForDescribeSystemEventsOutputScheduled = "Scheduled"
+
+	// StatusForDescribeSystemEventsOutputRejected is a StatusForDescribeSystemEventsOutput enum value
+	StatusForDescribeSystemEventsOutputRejected = "Rejected"
 )
 
 const (
@@ -406,4 +409,10 @@ const (
 
 	// TypeForDescribeSystemEventsOutputFileSystemReadOnlyChange is a TypeForDescribeSystemEventsOutput enum value
 	TypeForDescribeSystemEventsOutputFileSystemReadOnlyChange = "FileSystemReadOnly_Change"
+
+	// TypeForDescribeSystemEventsOutputRebootInstance is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputRebootInstance = "RebootInstance"
+
+	// TypeForDescribeSystemEventsOutputInstanceFailure is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputInstanceFailure = "InstanceFailure"
 )

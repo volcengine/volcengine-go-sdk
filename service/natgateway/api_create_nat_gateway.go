@@ -154,9 +154,13 @@ type CreateNatGatewayInput struct {
 
 	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateNatGatewayInput"`
 
+	ProjectName *string `type:"string"`
+
 	Spec *string `type:"string" enum:"SpecForCreateNatGatewayInput"`
 
 	SubnetId *string `type:"string"`
+
+	Tags []*TagForCreateNatGatewayInput `type:"list"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -239,6 +243,12 @@ func (s *CreateNatGatewayInput) SetPeriodUnit(v string) *CreateNatGatewayInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateNatGatewayInput) SetProjectName(v string) *CreateNatGatewayInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSpec sets the Spec field's value.
 func (s *CreateNatGatewayInput) SetSpec(v string) *CreateNatGatewayInput {
 	s.Spec = &v
@@ -248,6 +258,12 @@ func (s *CreateNatGatewayInput) SetSpec(v string) *CreateNatGatewayInput {
 // SetSubnetId sets the SubnetId field's value.
 func (s *CreateNatGatewayInput) SetSubnetId(v string) *CreateNatGatewayInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateNatGatewayInput) SetTags(v []*TagForCreateNatGatewayInput) *CreateNatGatewayInput {
+	s.Tags = v
 	return s
 }
 
@@ -286,6 +302,36 @@ func (s *CreateNatGatewayOutput) SetNatGatewayId(v string) *CreateNatGatewayOutp
 // SetRequestId sets the RequestId field's value.
 func (s *CreateNatGatewayOutput) SetRequestId(v string) *CreateNatGatewayOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForCreateNatGatewayInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateNatGatewayInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateNatGatewayInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateNatGatewayInput) SetKey(v string) *TagForCreateNatGatewayInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateNatGatewayInput) SetValue(v string) *TagForCreateNatGatewayInput {
+	s.Value = &v
 	return s
 }
 

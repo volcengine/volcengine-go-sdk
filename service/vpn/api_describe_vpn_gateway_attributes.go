@@ -212,6 +212,8 @@ type DescribeVpnGatewayAttributesOutput struct {
 
 	SubnetId *string `type:"string"`
 
+	Tags []*TagForDescribeVpnGatewayAttributesOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -327,6 +329,12 @@ func (s *DescribeVpnGatewayAttributesOutput) SetSubnetId(v string) *DescribeVpnG
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeVpnGatewayAttributesOutput) SetTags(v []*TagForDescribeVpnGatewayAttributesOutput) *DescribeVpnGatewayAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeVpnGatewayAttributesOutput) SetUpdateTime(v string) *DescribeVpnGatewayAttributesOutput {
 	s.UpdateTime = &v
@@ -348,5 +356,35 @@ func (s *DescribeVpnGatewayAttributesOutput) SetVpnGatewayId(v string) *Describe
 // SetVpnGatewayName sets the VpnGatewayName field's value.
 func (s *DescribeVpnGatewayAttributesOutput) SetVpnGatewayName(v string) *DescribeVpnGatewayAttributesOutput {
 	s.VpnGatewayName = &v
+	return s
+}
+
+type TagForDescribeVpnGatewayAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeVpnGatewayAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeVpnGatewayAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeVpnGatewayAttributesOutput) SetKey(v string) *TagForDescribeVpnGatewayAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeVpnGatewayAttributesOutput) SetValue(v string) *TagForDescribeVpnGatewayAttributesOutput {
+	s.Value = &v
 	return s
 }

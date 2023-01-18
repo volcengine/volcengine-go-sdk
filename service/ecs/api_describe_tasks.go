@@ -323,4 +323,7 @@ const (
 
 	// TypeForDescribeTasksOutputCopyImage is a TypeForDescribeTasksOutput enum value
 	TypeForDescribeTasksOutputCopyImage = "CopyImage"
+
+	// TypeForDescribeTasksOutputPreheatImage is a TypeForDescribeTasksOutput enum value
+	TypeForDescribeTasksOutputPreheatImage = "PreheatImage"
 )

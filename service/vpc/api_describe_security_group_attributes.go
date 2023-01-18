@@ -142,10 +142,16 @@ func (c *VPC) DescribeSecurityGroupAttributesWithContext(ctx volcengine.Context,
 type DescribeSecurityGroupAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	CidrIp *string `type:"string"`
+
 	Direction *string `type:"string"`
+
+	Protocol *string `type:"string"`
 
 	// SecurityGroupId is a required field
 	SecurityGroupId *string `type:"string" required:"true"`
+
+	SourceGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -171,15 +177,33 @@ func (s *DescribeSecurityGroupAttributesInput) Validate() error {
 	return nil
 }
 
+// SetCidrIp sets the CidrIp field's value.
+func (s *DescribeSecurityGroupAttributesInput) SetCidrIp(v string) *DescribeSecurityGroupAttributesInput {
+	s.CidrIp = &v
+	return s
+}
+
 // SetDirection sets the Direction field's value.
 func (s *DescribeSecurityGroupAttributesInput) SetDirection(v string) *DescribeSecurityGroupAttributesInput {
 	s.Direction = &v
 	return s
 }
 
+// SetProtocol sets the Protocol field's value.
+func (s *DescribeSecurityGroupAttributesInput) SetProtocol(v string) *DescribeSecurityGroupAttributesInput {
+	s.Protocol = &v
+	return s
+}
+
 // SetSecurityGroupId sets the SecurityGroupId field's value.
 func (s *DescribeSecurityGroupAttributesInput) SetSecurityGroupId(v string) *DescribeSecurityGroupAttributesInput {
 	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSourceGroupId sets the SourceGroupId field's value.
+func (s *DescribeSecurityGroupAttributesInput) SetSourceGroupId(v string) *DescribeSecurityGroupAttributesInput {
+	s.SourceGroupId = &v
 	return s
 }
 
@@ -193,6 +217,8 @@ type DescribeSecurityGroupAttributesOutput struct {
 	Description *string `type:"string"`
 
 	Permissions []*PermissionForDescribeSecurityGroupAttributesOutput `type:"list"`
+
+	ProjectName *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
@@ -234,6 +260,12 @@ func (s *DescribeSecurityGroupAttributesOutput) SetDescription(v string) *Descri
 // SetPermissions sets the Permissions field's value.
 func (s *DescribeSecurityGroupAttributesOutput) SetPermissions(v []*PermissionForDescribeSecurityGroupAttributesOutput) *DescribeSecurityGroupAttributesOutput {
 	s.Permissions = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetProjectName(v string) *DescribeSecurityGroupAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

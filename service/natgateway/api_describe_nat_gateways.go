@@ -152,9 +152,13 @@ type DescribeNatGatewaysInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	Spec *string `type:"string" enum:"SpecForDescribeNatGatewaysInput"`
 
 	SubnetId *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeNatGatewaysInput `type:"list"`
 
 	VpcId *string `type:"string"`
 }
@@ -212,6 +216,12 @@ func (s *DescribeNatGatewaysInput) SetPageSize(v int64) *DescribeNatGatewaysInpu
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeNatGatewaysInput) SetProjectName(v string) *DescribeNatGatewaysInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSpec sets the Spec field's value.
 func (s *DescribeNatGatewaysInput) SetSpec(v string) *DescribeNatGatewaysInput {
 	s.Spec = &v
@@ -221,6 +231,12 @@ func (s *DescribeNatGatewaysInput) SetSpec(v string) *DescribeNatGatewaysInput {
 // SetSubnetId sets the SubnetId field's value.
 func (s *DescribeNatGatewaysInput) SetSubnetId(v string) *DescribeNatGatewaysInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeNatGatewaysInput) SetTagFilters(v []*TagFilterForDescribeNatGatewaysInput) *DescribeNatGatewaysInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -351,11 +367,15 @@ type NatGatewayForDescribeNatGatewaysOutput struct {
 
 	OverdueTime *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Spec *string `type:"string"`
 
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
+
+	Tags []*TagForDescribeNatGatewaysOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
 
@@ -446,6 +466,12 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetOverdueTime(v string) *NatGa
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetProjectName(v string) *NatGatewayForDescribeNatGatewaysOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSpec sets the Spec field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetSpec(v string) *NatGatewayForDescribeNatGatewaysOutput {
 	s.Spec = &v
@@ -464,6 +490,12 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetSubnetId(v string) *NatGatew
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetTags(v []*TagForDescribeNatGatewaysOutput) *NatGatewayForDescribeNatGatewaysOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetUpdatedAt(v string) *NatGatewayForDescribeNatGatewaysOutput {
 	s.UpdatedAt = &v
@@ -479,6 +511,66 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetVpcId(v string) *NatGatewayF
 // SetZoneId sets the ZoneId field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetZoneId(v string) *NatGatewayForDescribeNatGatewaysOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type TagFilterForDescribeNatGatewaysInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeNatGatewaysInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeNatGatewaysInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeNatGatewaysInput) SetKey(v string) *TagFilterForDescribeNatGatewaysInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeNatGatewaysInput) SetValues(v []*string) *TagFilterForDescribeNatGatewaysInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeNatGatewaysOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeNatGatewaysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeNatGatewaysOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeNatGatewaysOutput) SetKey(v string) *TagForDescribeNatGatewaysOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeNatGatewaysOutput) SetValue(v string) *TagForDescribeNatGatewaysOutput {
+	s.Value = &v
 	return s
 }
 

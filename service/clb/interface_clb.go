@@ -278,6 +278,14 @@ type CLBAPI interface {
 	DescribeServerGroupsWithContext(volcengine.Context, *DescribeServerGroupsInput, ...request.Option) (*DescribeServerGroupsOutput, error)
 	DescribeServerGroupsRequest(*DescribeServerGroupsInput) (*request.Request, *DescribeServerGroupsOutput)
 
+	DescribeZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeZones(*DescribeZonesInput) (*DescribeZonesOutput, error)
+	DescribeZonesWithContext(volcengine.Context, *DescribeZonesInput, ...request.Option) (*DescribeZonesOutput, error)
+	DescribeZonesRequest(*DescribeZonesInput) (*request.Request, *DescribeZonesOutput)
+
 	DetachHealthCheckLogTopicCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DetachHealthCheckLogTopicCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DetachHealthCheckLogTopicCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

@@ -162,6 +162,8 @@ type CreateVpnConnectionInput struct {
 
 	NegotiateInstantly *bool `type:"boolean"`
 
+	ProjectName *string `type:"string"`
+
 	// RemoteSubnet is a required field
 	RemoteSubnet []*string `type:"list" required:"true"`
 
@@ -266,6 +268,12 @@ func (s *CreateVpnConnectionInput) SetNatTraversal(v bool) *CreateVpnConnectionI
 // SetNegotiateInstantly sets the NegotiateInstantly field's value.
 func (s *CreateVpnConnectionInput) SetNegotiateInstantly(v bool) *CreateVpnConnectionInput {
 	s.NegotiateInstantly = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateVpnConnectionInput) SetProjectName(v string) *CreateVpnConnectionInput {
+	s.ProjectName = &v
 	return s
 }
 
