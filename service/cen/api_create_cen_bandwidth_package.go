@@ -144,7 +144,7 @@ type CreateCenBandwidthPackageInput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
-	BillingType *int64 `min:"1" max:"1" type:"integer"`
+	BillingType *int64 `min:"1" max:"4" type:"integer"`
 
 	CenBandwidthPackageName *string `min:"1" max:"128" type:"string"`
 
@@ -185,8 +185,8 @@ func (s *CreateCenBandwidthPackageInput) Validate() error {
 	if s.BillingType != nil && *s.BillingType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
 	}
-	if s.BillingType != nil && *s.BillingType > 1 {
-		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 1))
+	if s.BillingType != nil && *s.BillingType > 4 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 4))
 	}
 	if s.CenBandwidthPackageName != nil && len(*s.CenBandwidthPackageName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CenBandwidthPackageName", 1))

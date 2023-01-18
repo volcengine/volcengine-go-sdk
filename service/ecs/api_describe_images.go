@@ -158,6 +158,8 @@ type DescribeImagesInput struct {
 
 	OsType *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Status []*string `type:"list"`
 
 	Visibility *string `type:"string"`
@@ -212,6 +214,12 @@ func (s *DescribeImagesInput) SetNextToken(v string) *DescribeImagesInput {
 // SetOsType sets the OsType field's value.
 func (s *DescribeImagesInput) SetOsType(v string) *DescribeImagesInput {
 	s.OsType = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeImagesInput) SetProjectName(v string) *DescribeImagesInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -291,6 +299,8 @@ type ImageForDescribeImagesOutput struct {
 	Platform *string `type:"string"`
 
 	PlatformVersion *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	ShareStatus *string `type:"string"`
 
@@ -378,6 +388,12 @@ func (s *ImageForDescribeImagesOutput) SetPlatform(v string) *ImageForDescribeIm
 // SetPlatformVersion sets the PlatformVersion field's value.
 func (s *ImageForDescribeImagesOutput) SetPlatformVersion(v string) *ImageForDescribeImagesOutput {
 	s.PlatformVersion = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ImageForDescribeImagesOutput) SetProjectName(v string) *ImageForDescribeImagesOutput {
+	s.ProjectName = &v
 	return s
 }
 

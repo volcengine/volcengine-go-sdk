@@ -266,6 +266,10 @@ type HealthCheckForDescribeListenersOutput struct {
 
 	Timeout *int64 `type:"integer"`
 
+	UdpExpect *string `type:"string"`
+
+	UdpRequest *string `type:"string"`
+
 	Uri *string `type:"string"`
 }
 
@@ -318,6 +322,18 @@ func (s *HealthCheckForDescribeListenersOutput) SetMethod(v string) *HealthCheck
 // SetTimeout sets the Timeout field's value.
 func (s *HealthCheckForDescribeListenersOutput) SetTimeout(v int64) *HealthCheckForDescribeListenersOutput {
 	s.Timeout = &v
+	return s
+}
+
+// SetUdpExpect sets the UdpExpect field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetUdpExpect(v string) *HealthCheckForDescribeListenersOutput {
+	s.UdpExpect = &v
+	return s
+}
+
+// SetUdpRequest sets the UdpRequest field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetUdpRequest(v string) *HealthCheckForDescribeListenersOutput {
+	s.UdpRequest = &v
 	return s
 }
 

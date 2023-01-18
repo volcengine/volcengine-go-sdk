@@ -146,6 +146,8 @@ type DescribeDirectConnectConnectionsInput struct {
 
 	ConnectionType *string `type:"string"`
 
+	DirectConnectAccessPointId *string `type:"string"`
+
 	DirectConnectConnectionIds []*string `type:"list"`
 
 	DirectConnectConnectionName *string `type:"string"`
@@ -182,6 +184,12 @@ func (s *DescribeDirectConnectConnectionsInput) SetAccessPoint(v string) *Descri
 // SetConnectionType sets the ConnectionType field's value.
 func (s *DescribeDirectConnectConnectionsInput) SetConnectionType(v string) *DescribeDirectConnectConnectionsInput {
 	s.ConnectionType = &v
+	return s
+}
+
+// SetDirectConnectAccessPointId sets the DirectConnectAccessPointId field's value.
+func (s *DescribeDirectConnectConnectionsInput) SetDirectConnectAccessPointId(v string) *DescribeDirectConnectConnectionsInput {
+	s.DirectConnectAccessPointId = &v
 	return s
 }
 

@@ -150,6 +150,8 @@ type CreateSnatEntryInput struct {
 
 	SnatEntryName *string `min:"1" max:"128" type:"string"`
 
+	SourceCidr *string `type:"string"`
+
 	SubnetId *string `type:"string"`
 }
 
@@ -200,6 +202,12 @@ func (s *CreateSnatEntryInput) SetNatGatewayId(v string) *CreateSnatEntryInput {
 // SetSnatEntryName sets the SnatEntryName field's value.
 func (s *CreateSnatEntryInput) SetSnatEntryName(v string) *CreateSnatEntryInput {
 	s.SnatEntryName = &v
+	return s
+}
+
+// SetSourceCidr sets the SourceCidr field's value.
+func (s *CreateSnatEntryInput) SetSourceCidr(v string) *CreateSnatEntryInput {
+	s.SourceCidr = &v
 	return s
 }
 

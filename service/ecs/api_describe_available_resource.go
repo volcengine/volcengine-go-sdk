@@ -220,9 +220,13 @@ type DescribeAvailableResourceInput struct {
 
 	DestinationResource *string `type:"string"`
 
+	InstanceChargeType *string `type:"string"`
+
 	InstanceType *string `type:"string"`
 
 	InstanceTypeId *string `type:"string"`
+
+	SpotStrategy *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -243,6 +247,12 @@ func (s *DescribeAvailableResourceInput) SetDestinationResource(v string) *Descr
 	return s
 }
 
+// SetInstanceChargeType sets the InstanceChargeType field's value.
+func (s *DescribeAvailableResourceInput) SetInstanceChargeType(v string) *DescribeAvailableResourceInput {
+	s.InstanceChargeType = &v
+	return s
+}
+
 // SetInstanceType sets the InstanceType field's value.
 func (s *DescribeAvailableResourceInput) SetInstanceType(v string) *DescribeAvailableResourceInput {
 	s.InstanceType = &v
@@ -252,6 +262,12 @@ func (s *DescribeAvailableResourceInput) SetInstanceType(v string) *DescribeAvai
 // SetInstanceTypeId sets the InstanceTypeId field's value.
 func (s *DescribeAvailableResourceInput) SetInstanceTypeId(v string) *DescribeAvailableResourceInput {
 	s.InstanceTypeId = &v
+	return s
+}
+
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *DescribeAvailableResourceInput) SetSpotStrategy(v string) *DescribeAvailableResourceInput {
+	s.SpotStrategy = &v
 	return s
 }
 

@@ -204,6 +204,8 @@ type DescribeNatGatewayAttributesOutput struct {
 
 	OverdueTime *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	Spec *string `type:"string"`
@@ -211,6 +213,8 @@ type DescribeNatGatewayAttributesOutput struct {
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
+
+	Tags []*TagForDescribeNatGatewayAttributesOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
 
@@ -301,6 +305,12 @@ func (s *DescribeNatGatewayAttributesOutput) SetOverdueTime(v string) *DescribeN
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeNatGatewayAttributesOutput) SetProjectName(v string) *DescribeNatGatewayAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeNatGatewayAttributesOutput) SetRequestId(v string) *DescribeNatGatewayAttributesOutput {
 	s.RequestId = &v
@@ -322,6 +332,12 @@ func (s *DescribeNatGatewayAttributesOutput) SetStatus(v string) *DescribeNatGat
 // SetSubnetId sets the SubnetId field's value.
 func (s *DescribeNatGatewayAttributesOutput) SetSubnetId(v string) *DescribeNatGatewayAttributesOutput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeNatGatewayAttributesOutput) SetTags(v []*TagForDescribeNatGatewayAttributesOutput) *DescribeNatGatewayAttributesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -378,5 +394,35 @@ func (s *EipAddressForDescribeNatGatewayAttributesOutput) SetEipAddress(v string
 // SetUsingStatus sets the UsingStatus field's value.
 func (s *EipAddressForDescribeNatGatewayAttributesOutput) SetUsingStatus(v string) *EipAddressForDescribeNatGatewayAttributesOutput {
 	s.UsingStatus = &v
+	return s
+}
+
+type TagForDescribeNatGatewayAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeNatGatewayAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeNatGatewayAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeNatGatewayAttributesOutput) SetKey(v string) *TagForDescribeNatGatewayAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeNatGatewayAttributesOutput) SetValue(v string) *TagForDescribeNatGatewayAttributesOutput {
+	s.Value = &v
 	return s
 }
