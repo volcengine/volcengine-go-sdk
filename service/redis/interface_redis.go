@@ -134,6 +134,14 @@ type REDISAPI interface {
 	DescribeBackupPlanWithContext(volcengine.Context, *DescribeBackupPlanInput, ...request.Option) (*DescribeBackupPlanOutput, error)
 	DescribeBackupPlanRequest(*DescribeBackupPlanInput) (*request.Request, *DescribeBackupPlanOutput)
 
+	DescribeBackupPointDownloadUrlsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBackupPointDownloadUrlsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBackupPointDownloadUrlsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBackupPointDownloadUrls(*DescribeBackupPointDownloadUrlsInput) (*DescribeBackupPointDownloadUrlsOutput, error)
+	DescribeBackupPointDownloadUrlsWithContext(volcengine.Context, *DescribeBackupPointDownloadUrlsInput, ...request.Option) (*DescribeBackupPointDownloadUrlsOutput, error)
+	DescribeBackupPointDownloadUrlsRequest(*DescribeBackupPointDownloadUrlsInput) (*request.Request, *DescribeBackupPointDownloadUrlsOutput)
+
 	DescribeBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeBackupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
