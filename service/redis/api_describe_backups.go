@@ -146,6 +146,8 @@ func (c *REDIS) DescribeBackupsWithContext(ctx volcengine.Context, input *Descri
 type BackupForDescribeBackupsOutput struct {
 	_ struct{} `type:"structure"`
 
+	BackupPointId *string `type:"string"`
+
 	BackupStrategy *string `type:"string"`
 
 	BackupType *string `type:"string"`
@@ -171,6 +173,12 @@ func (s BackupForDescribeBackupsOutput) String() string {
 // GoString returns the string representation
 func (s BackupForDescribeBackupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetBackupPointId sets the BackupPointId field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupPointId(v string) *BackupForDescribeBackupsOutput {
+	s.BackupPointId = &v
+	return s
 }
 
 // SetBackupStrategy sets the BackupStrategy field's value.
