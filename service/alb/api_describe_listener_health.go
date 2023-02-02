@@ -146,6 +146,8 @@ type DescribeListenerHealthInput struct {
 	ListenerIds []*string `type:"list" required:"true"`
 
 	OnlyUnHealthy *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -180,6 +182,12 @@ func (s *DescribeListenerHealthInput) SetListenerIds(v []*string) *DescribeListe
 // SetOnlyUnHealthy sets the OnlyUnHealthy field's value.
 func (s *DescribeListenerHealthInput) SetOnlyUnHealthy(v string) *DescribeListenerHealthInput {
 	s.OnlyUnHealthy = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeListenerHealthInput) SetProjectName(v string) *DescribeListenerHealthInput {
+	s.ProjectName = &v
 	return s
 }
 

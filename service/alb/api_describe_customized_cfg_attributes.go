@@ -192,6 +192,8 @@ type DescribeCustomizedCfgAttributesOutput struct {
 
 	Listeners []*ListenerForDescribeCustomizedCfgAttributesOutput `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -242,6 +244,12 @@ func (s *DescribeCustomizedCfgAttributesOutput) SetDescription(v string) *Descri
 // SetListeners sets the Listeners field's value.
 func (s *DescribeCustomizedCfgAttributesOutput) SetListeners(v []*ListenerForDescribeCustomizedCfgAttributesOutput) *DescribeCustomizedCfgAttributesOutput {
 	s.Listeners = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCustomizedCfgAttributesOutput) SetProjectName(v string) *DescribeCustomizedCfgAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

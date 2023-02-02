@@ -152,6 +152,8 @@ type DescribeLoadBalancersInput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -192,6 +194,12 @@ func (s *DescribeLoadBalancersInput) SetPageNumber(v int64) *DescribeLoadBalance
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeLoadBalancersInput) SetPageSize(v int64) *DescribeLoadBalancersInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeLoadBalancersInput) SetProjectName(v string) *DescribeLoadBalancersInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -267,6 +275,8 @@ type EipForDescribeLoadBalancersOutput struct {
 	EipBillingType *int64 `type:"integer"`
 
 	ISP *string `type:"string"`
+
+	SecurityProtectionTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -300,6 +310,12 @@ func (s *EipForDescribeLoadBalancersOutput) SetEipBillingType(v int64) *EipForDe
 // SetISP sets the ISP field's value.
 func (s *EipForDescribeLoadBalancersOutput) SetISP(v string) *EipForDescribeLoadBalancersOutput {
 	s.ISP = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipForDescribeLoadBalancersOutput) SetSecurityProtectionTypes(v []*string) *EipForDescribeLoadBalancersOutput {
+	s.SecurityProtectionTypes = v
 	return s
 }
 
@@ -386,9 +402,13 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	LoadBalancerSpec *string `type:"string"`
 
+	LocalAddresses []*string `type:"list"`
+
 	LockReason *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -491,6 +511,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLoadBalancerSpec(v strin
 	return s
 }
 
+// SetLocalAddresses sets the LocalAddresses field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLocalAddresses(v []*string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.LocalAddresses = v
+	return s
+}
+
 // SetLockReason sets the LockReason field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLockReason(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.LockReason = &v
@@ -500,6 +526,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetLockReason(v string) *Lo
 // SetOverdueTime sets the OverdueTime field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetOverdueTime(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.OverdueTime = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetProjectName(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ProjectName = &v
 	return s
 }
 

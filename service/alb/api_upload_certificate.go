@@ -152,6 +152,8 @@ type UploadCertificateInput struct {
 	// PrivateKey is a required field
 	PrivateKey *string `type:"string" required:"true"`
 
+	ProjectName *string `type:"string"`
+
 	// PublicKey is a required field
 	PublicKey *string `type:"string" required:"true"`
 }
@@ -212,6 +214,12 @@ func (s *UploadCertificateInput) SetDescription(v string) *UploadCertificateInpu
 // SetPrivateKey sets the PrivateKey field's value.
 func (s *UploadCertificateInput) SetPrivateKey(v string) *UploadCertificateInput {
 	s.PrivateKey = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *UploadCertificateInput) SetProjectName(v string) *UploadCertificateInput {
+	s.ProjectName = &v
 	return s
 }
 

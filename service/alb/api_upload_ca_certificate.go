@@ -148,6 +148,8 @@ type UploadCACertificateInput struct {
 	CACertificateName *string `min:"1" max:"128" type:"string"`
 
 	Description *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -194,6 +196,12 @@ func (s *UploadCACertificateInput) SetCACertificateName(v string) *UploadCACerti
 // SetDescription sets the Description field's value.
 func (s *UploadCACertificateInput) SetDescription(v string) *UploadCACertificateInput {
 	s.Description = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *UploadCACertificateInput) SetProjectName(v string) *UploadCACertificateInput {
+	s.ProjectName = &v
 	return s
 }
 

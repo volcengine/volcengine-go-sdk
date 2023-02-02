@@ -222,6 +222,8 @@ type DescribeAclAttributesOutput struct {
 
 	Listeners []*ListenerForDescribeAclAttributesOutput `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -272,6 +274,12 @@ func (s *DescribeAclAttributesOutput) SetDescription(v string) *DescribeAclAttri
 // SetListeners sets the Listeners field's value.
 func (s *DescribeAclAttributesOutput) SetListeners(v []*ListenerForDescribeAclAttributesOutput) *DescribeAclAttributesOutput {
 	s.Listeners = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeAclAttributesOutput) SetProjectName(v string) *DescribeAclAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

@@ -158,6 +158,8 @@ type CACertificateForDescribeCACertificatesOutput struct {
 
 	Listeners []*string `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 }
 
@@ -219,6 +221,12 @@ func (s *CACertificateForDescribeCACertificatesOutput) SetListeners(v []*string)
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CACertificateForDescribeCACertificatesOutput) SetProjectName(v string) *CACertificateForDescribeCACertificatesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *CACertificateForDescribeCACertificatesOutput) SetStatus(v string) *CACertificateForDescribeCACertificatesOutput {
 	s.Status = &v
@@ -235,6 +243,8 @@ type DescribeCACertificatesInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -268,6 +278,12 @@ func (s *DescribeCACertificatesInput) SetPageNumber(v int64) *DescribeCACertific
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCACertificatesInput) SetPageSize(v int64) *DescribeCACertificatesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCACertificatesInput) SetProjectName(v string) *DescribeCACertificatesInput {
+	s.ProjectName = &v
 	return s
 }
 
