@@ -318,6 +318,14 @@ type ALBAPI interface {
 	DisableHealthLogWithContext(volcengine.Context, *DisableHealthLogInput, ...request.Option) (*DisableHealthLogOutput, error)
 	DisableHealthLogRequest(*DisableHealthLogInput) (*request.Request, *DisableHealthLogOutput)
 
+	DisableTLSAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableTLSAccessLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableTLSAccessLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableTLSAccessLog(*DisableTLSAccessLogInput) (*DisableTLSAccessLogOutput, error)
+	DisableTLSAccessLogWithContext(volcengine.Context, *DisableTLSAccessLogInput, ...request.Option) (*DisableTLSAccessLogOutput, error)
+	DisableTLSAccessLogRequest(*DisableTLSAccessLogInput) (*request.Request, *DisableTLSAccessLogOutput)
+
 	EnableAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableAccessLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	EnableAccessLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -333,6 +341,14 @@ type ALBAPI interface {
 	EnableHealthLog(*EnableHealthLogInput) (*EnableHealthLogOutput, error)
 	EnableHealthLogWithContext(volcengine.Context, *EnableHealthLogInput, ...request.Option) (*EnableHealthLogOutput, error)
 	EnableHealthLogRequest(*EnableHealthLogInput) (*request.Request, *EnableHealthLogOutput)
+
+	EnableTLSAccessLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableTLSAccessLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableTLSAccessLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableTLSAccessLog(*EnableTLSAccessLogInput) (*EnableTLSAccessLogOutput, error)
+	EnableTLSAccessLogWithContext(volcengine.Context, *EnableTLSAccessLogInput, ...request.Option) (*EnableTLSAccessLogOutput, error)
+	EnableTLSAccessLogRequest(*EnableTLSAccessLogInput) (*request.Request, *EnableTLSAccessLogOutput)
 
 	ModifyAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -389,6 +405,14 @@ type ALBAPI interface {
 	ModifyLoadBalancerAttributes(*ModifyLoadBalancerAttributesInput) (*ModifyLoadBalancerAttributesOutput, error)
 	ModifyLoadBalancerAttributesWithContext(volcengine.Context, *ModifyLoadBalancerAttributesInput, ...request.Option) (*ModifyLoadBalancerAttributesOutput, error)
 	ModifyLoadBalancerAttributesRequest(*ModifyLoadBalancerAttributesInput) (*request.Request, *ModifyLoadBalancerAttributesOutput)
+
+	ModifyLoadBalancerTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyLoadBalancerTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyLoadBalancerTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyLoadBalancerType(*ModifyLoadBalancerTypeInput) (*ModifyLoadBalancerTypeOutput, error)
+	ModifyLoadBalancerTypeWithContext(volcengine.Context, *ModifyLoadBalancerTypeInput, ...request.Option) (*ModifyLoadBalancerTypeOutput, error)
+	ModifyLoadBalancerTypeRequest(*ModifyLoadBalancerTypeInput) (*request.Request, *ModifyLoadBalancerTypeOutput)
 
 	ModifyRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

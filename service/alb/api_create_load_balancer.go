@@ -152,6 +152,8 @@ type CreateLoadBalancerInput struct {
 
 	LoadBalancerName *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	// RegionId is a required field
 	RegionId *string `type:"string" required:"true"`
 
@@ -218,6 +220,12 @@ func (s *CreateLoadBalancerInput) SetLoadBalancerBillingType(v int64) *CreateLoa
 // SetLoadBalancerName sets the LoadBalancerName field's value.
 func (s *CreateLoadBalancerInput) SetLoadBalancerName(v string) *CreateLoadBalancerInput {
 	s.LoadBalancerName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateLoadBalancerInput) SetProjectName(v string) *CreateLoadBalancerInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -291,6 +299,8 @@ type EipBillingConfigForCreateLoadBalancerInput struct {
 	EipBillingType *int64 `type:"integer"`
 
 	ISP *string `type:"string"`
+
+	SecurityProtectionTypes *string `type:"string"`
 }
 
 // String returns the string representation
@@ -318,6 +328,12 @@ func (s *EipBillingConfigForCreateLoadBalancerInput) SetEipBillingType(v int64) 
 // SetISP sets the ISP field's value.
 func (s *EipBillingConfigForCreateLoadBalancerInput) SetISP(v string) *EipBillingConfigForCreateLoadBalancerInput {
 	s.ISP = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipBillingConfigForCreateLoadBalancerInput) SetSecurityProtectionTypes(v string) *EipBillingConfigForCreateLoadBalancerInput {
+	s.SecurityProtectionTypes = &v
 	return s
 }
 

@@ -245,6 +245,8 @@ type ServerForAddServerGroupBackendServersInput struct {
 	// Port is a required field
 	Port *int64 `type:"integer" required:"true"`
 
+	RemoteEnabled *string `type:"string"`
+
 	// Type is a required field
 	Type *string `type:"string" required:"true"`
 
@@ -304,6 +306,12 @@ func (s *ServerForAddServerGroupBackendServersInput) SetIp(v string) *ServerForA
 // SetPort sets the Port field's value.
 func (s *ServerForAddServerGroupBackendServersInput) SetPort(v int64) *ServerForAddServerGroupBackendServersInput {
 	s.Port = &v
+	return s
+}
+
+// SetRemoteEnabled sets the RemoteEnabled field's value.
+func (s *ServerForAddServerGroupBackendServersInput) SetRemoteEnabled(v string) *ServerForAddServerGroupBackendServersInput {
+	s.RemoteEnabled = &v
 	return s
 }
 

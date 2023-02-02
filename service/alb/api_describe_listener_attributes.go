@@ -212,6 +212,8 @@ type DescribeListenerAttributesOutput struct {
 
 	Port *int64 `type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	Protocol *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -328,6 +330,12 @@ func (s *DescribeListenerAttributesOutput) SetLoadBalancerId(v string) *Describe
 // SetPort sets the Port field's value.
 func (s *DescribeListenerAttributesOutput) SetPort(v int64) *DescribeListenerAttributesOutput {
 	s.Port = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeListenerAttributesOutput) SetProjectName(v string) *DescribeListenerAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 

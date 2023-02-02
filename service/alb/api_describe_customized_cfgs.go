@@ -154,6 +154,8 @@ type CustomizedCfgForDescribeCustomizedCfgsOutput struct {
 
 	Listeners []*string `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -205,6 +207,12 @@ func (s *CustomizedCfgForDescribeCustomizedCfgsOutput) SetListeners(v []*string)
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CustomizedCfgForDescribeCustomizedCfgsOutput) SetProjectName(v string) *CustomizedCfgForDescribeCustomizedCfgsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *CustomizedCfgForDescribeCustomizedCfgsOutput) SetStatus(v string) *CustomizedCfgForDescribeCustomizedCfgsOutput {
 	s.Status = &v
@@ -229,6 +237,8 @@ type DescribeCustomizedCfgsInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -268,6 +278,12 @@ func (s *DescribeCustomizedCfgsInput) SetPageNumber(v int64) *DescribeCustomized
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCustomizedCfgsInput) SetPageSize(v int64) *DescribeCustomizedCfgsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCustomizedCfgsInput) SetProjectName(v string) *DescribeCustomizedCfgsInput {
+	s.ProjectName = &v
 	return s
 }
 

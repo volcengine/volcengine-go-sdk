@@ -146,9 +146,13 @@ type CreateServerGroupInput struct {
 
 	HealthCheck *HealthCheckForCreateServerGroupInput `type:"structure"`
 
+	ProjectName *string `type:"string"`
+
 	Scheduler *string `type:"string"`
 
 	ServerGroupName *string `min:"1" max:"128" type:"string"`
+
+	ServerGroupType *string `type:"string"`
 
 	StickySessionConfig *StickySessionConfigForCreateServerGroupInput `type:"structure"`
 
@@ -197,6 +201,12 @@ func (s *CreateServerGroupInput) SetHealthCheck(v *HealthCheckForCreateServerGro
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateServerGroupInput) SetProjectName(v string) *CreateServerGroupInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetScheduler sets the Scheduler field's value.
 func (s *CreateServerGroupInput) SetScheduler(v string) *CreateServerGroupInput {
 	s.Scheduler = &v
@@ -206,6 +216,12 @@ func (s *CreateServerGroupInput) SetScheduler(v string) *CreateServerGroupInput 
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *CreateServerGroupInput) SetServerGroupName(v string) *CreateServerGroupInput {
 	s.ServerGroupName = &v
+	return s
+}
+
+// SetServerGroupType sets the ServerGroupType field's value.
+func (s *CreateServerGroupInput) SetServerGroupType(v string) *CreateServerGroupInput {
+	s.ServerGroupType = &v
 	return s
 }
 

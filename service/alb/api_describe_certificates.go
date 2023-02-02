@@ -158,6 +158,8 @@ type CertificateForDescribeCertificatesOutput struct {
 
 	Listeners []*string `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 }
 
@@ -219,6 +221,12 @@ func (s *CertificateForDescribeCertificatesOutput) SetListeners(v []*string) *Ce
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetProjectName(v string) *CertificateForDescribeCertificatesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *CertificateForDescribeCertificatesOutput) SetStatus(v string) *CertificateForDescribeCertificatesOutput {
 	s.Status = &v
@@ -235,6 +243,8 @@ type DescribeCertificatesInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -268,6 +278,12 @@ func (s *DescribeCertificatesInput) SetPageNumber(v int64) *DescribeCertificates
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCertificatesInput) SetPageSize(v int64) *DescribeCertificatesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCertificatesInput) SetProjectName(v string) *DescribeCertificatesInput {
+	s.ProjectName = &v
 	return s
 }
 

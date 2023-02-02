@@ -186,6 +186,8 @@ type DescribeServerGroupAttributesOutput struct {
 
 	Listeners []*string `type:"list"`
 
+	ProjectName *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	Scheduler *string `type:"string"`
@@ -193,6 +195,8 @@ type DescribeServerGroupAttributesOutput struct {
 	ServerGroupId *string `type:"string"`
 
 	ServerGroupName *string `type:"string"`
+
+	ServerGroupType *string `type:"string"`
 
 	Servers []*ServerForDescribeServerGroupAttributesOutput `type:"list"`
 
@@ -231,6 +235,12 @@ func (s *DescribeServerGroupAttributesOutput) SetListeners(v []*string) *Describ
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeServerGroupAttributesOutput) SetProjectName(v string) *DescribeServerGroupAttributesOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeServerGroupAttributesOutput) SetRequestId(v string) *DescribeServerGroupAttributesOutput {
 	s.RequestId = &v
@@ -252,6 +262,12 @@ func (s *DescribeServerGroupAttributesOutput) SetServerGroupId(v string) *Descri
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *DescribeServerGroupAttributesOutput) SetServerGroupName(v string) *DescribeServerGroupAttributesOutput {
 	s.ServerGroupName = &v
+	return s
+}
+
+// SetServerGroupType sets the ServerGroupType field's value.
+func (s *DescribeServerGroupAttributesOutput) SetServerGroupType(v string) *DescribeServerGroupAttributesOutput {
+	s.ServerGroupType = &v
 	return s
 }
 
@@ -384,6 +400,8 @@ type ServerForDescribeServerGroupAttributesOutput struct {
 
 	Port *int64 `type:"integer"`
 
+	RemoteEnabled *string `type:"string"`
+
 	ServerId *string `type:"string"`
 
 	Type *string `type:"string"`
@@ -422,6 +440,12 @@ func (s *ServerForDescribeServerGroupAttributesOutput) SetIp(v string) *ServerFo
 // SetPort sets the Port field's value.
 func (s *ServerForDescribeServerGroupAttributesOutput) SetPort(v int64) *ServerForDescribeServerGroupAttributesOutput {
 	s.Port = &v
+	return s
+}
+
+// SetRemoteEnabled sets the RemoteEnabled field's value.
+func (s *ServerForDescribeServerGroupAttributesOutput) SetRemoteEnabled(v string) *ServerForDescribeServerGroupAttributesOutput {
+	s.RemoteEnabled = &v
 	return s
 }
 
