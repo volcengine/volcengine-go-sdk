@@ -192,6 +192,8 @@ type DescribeSnatEntryAttributesOutput struct {
 
 	SnatEntryName *string `type:"string"`
 
+	SourceCidr *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
@@ -240,6 +242,12 @@ func (s *DescribeSnatEntryAttributesOutput) SetSnatEntryId(v string) *DescribeSn
 // SetSnatEntryName sets the SnatEntryName field's value.
 func (s *DescribeSnatEntryAttributesOutput) SetSnatEntryName(v string) *DescribeSnatEntryAttributesOutput {
 	s.SnatEntryName = &v
+	return s
+}
+
+// SetSourceCidr sets the SourceCidr field's value.
+func (s *DescribeSnatEntryAttributesOutput) SetSourceCidr(v string) *DescribeSnatEntryAttributesOutput {
+	s.SourceCidr = &v
 	return s
 }
 

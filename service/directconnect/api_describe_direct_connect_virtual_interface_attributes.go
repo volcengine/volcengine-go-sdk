@@ -198,7 +198,13 @@ type DescribeDirectConnectVirtualInterfaceAttributesOutput struct {
 
 	EnableBfd *bool `type:"boolean"`
 
+	EnableNqa *bool `type:"boolean"`
+
 	LocalIp *string `type:"string"`
+
+	NqaDetectInterval *int64 `type:"integer"`
+
+	NqaDetectMultiplier *int64 `type:"integer"`
 
 	PeerIp *string `type:"string"`
 
@@ -283,9 +289,27 @@ func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetEnableBfd(v b
 	return s
 }
 
+// SetEnableNqa sets the EnableNqa field's value.
+func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetEnableNqa(v bool) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
+	s.EnableNqa = &v
+	return s
+}
+
 // SetLocalIp sets the LocalIp field's value.
 func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetLocalIp(v string) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
 	s.LocalIp = &v
+	return s
+}
+
+// SetNqaDetectInterval sets the NqaDetectInterval field's value.
+func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetNqaDetectInterval(v int64) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
+	s.NqaDetectInterval = &v
+	return s
+}
+
+// SetNqaDetectMultiplier sets the NqaDetectMultiplier field's value.
+func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetNqaDetectMultiplier(v int64) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
+	s.NqaDetectMultiplier = &v
 	return s
 }
 

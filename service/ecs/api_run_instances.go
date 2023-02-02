@@ -190,6 +190,8 @@ type RunInstancesInput struct {
 
 	CreditSpecification *string `type:"string"`
 
+	DeploymentSetId *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	DryRun *bool `type:"boolean"`
@@ -280,6 +282,12 @@ func (s *RunInstancesInput) SetCount(v int32) *RunInstancesInput {
 // SetCreditSpecification sets the CreditSpecification field's value.
 func (s *RunInstancesInput) SetCreditSpecification(v string) *RunInstancesInput {
 	s.CreditSpecification = &v
+	return s
+}
+
+// SetDeploymentSetId sets the DeploymentSetId field's value.
+func (s *RunInstancesInput) SetDeploymentSetId(v string) *RunInstancesInput {
+	s.DeploymentSetId = &v
 	return s
 }
 

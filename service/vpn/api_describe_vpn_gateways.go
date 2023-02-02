@@ -152,6 +152,8 @@ type DescribeVpnGatewaysInput struct {
 
 	SubnetId *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeVpnGatewaysInput `type:"list"`
+
 	VpcId *string `type:"string"`
 
 	VpnGatewayIds []*string `type:"list"`
@@ -196,6 +198,12 @@ func (s *DescribeVpnGatewaysInput) SetProjectName(v string) *DescribeVpnGateways
 // SetSubnetId sets the SubnetId field's value.
 func (s *DescribeVpnGatewaysInput) SetSubnetId(v string) *DescribeVpnGatewaysInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeVpnGatewaysInput) SetTagFilters(v []*TagFilterForDescribeVpnGatewaysInput) *DescribeVpnGatewaysInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -273,6 +281,58 @@ func (s *DescribeVpnGatewaysOutput) SetVpnGateways(v []*VpnGatewayForDescribeVpn
 	return s
 }
 
+type TagFilterForDescribeVpnGatewaysInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeVpnGatewaysInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeVpnGatewaysInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeVpnGatewaysInput) SetKey(v string) *TagFilterForDescribeVpnGatewaysInput {
+	s.Key = &v
+	return s
+}
+
+type TagForDescribeVpnGatewaysOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeVpnGatewaysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeVpnGatewaysOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeVpnGatewaysOutput) SetKey(v string) *TagForDescribeVpnGatewaysOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeVpnGatewaysOutput) SetValue(v string) *TagForDescribeVpnGatewaysOutput {
+	s.Value = &v
+	return s
+}
+
 type VpnGatewayForDescribeVpnGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -305,6 +365,8 @@ type VpnGatewayForDescribeVpnGatewaysOutput struct {
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
+
+	Tags []*TagForDescribeVpnGatewaysOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 
@@ -412,6 +474,12 @@ func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetStatus(v string) *VpnGateway
 // SetSubnetId sets the SubnetId field's value.
 func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetSubnetId(v string) *VpnGatewayForDescribeVpnGatewaysOutput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *VpnGatewayForDescribeVpnGatewaysOutput) SetTags(v []*TagForDescribeVpnGatewaysOutput) *VpnGatewayForDescribeVpnGatewaysOutput {
+	s.Tags = v
 	return s
 }
 

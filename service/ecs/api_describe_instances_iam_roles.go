@@ -183,6 +183,8 @@ type DescribeInstancesIamRolesOutput struct {
 	Metadata *response.ResponseMetadata
 
 	InstancesIamRoles []*InstancesIamRoleForDescribeInstancesIamRolesOutput `type:"list"`
+
+	NextToken *string `type:"string"`
 }
 
 // String returns the string representation
@@ -198,6 +200,12 @@ func (s DescribeInstancesIamRolesOutput) GoString() string {
 // SetInstancesIamRoles sets the InstancesIamRoles field's value.
 func (s *DescribeInstancesIamRolesOutput) SetInstancesIamRoles(v []*InstancesIamRoleForDescribeInstancesIamRolesOutput) *DescribeInstancesIamRolesOutput {
 	s.InstancesIamRoles = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeInstancesIamRolesOutput) SetNextToken(v string) *DescribeInstancesIamRolesOutput {
+	s.NextToken = &v
 	return s
 }
 

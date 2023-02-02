@@ -172,6 +172,8 @@ func (s *CpuOptionsForDescribeInstancesOutput) SetThreadsPerCore(v int32) *CpuOp
 type DescribeInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	DeploymentSetIds []*string `type:"list"`
+
 	HpcClusterId *string `type:"string"`
 
 	InstanceChargeType *string `type:"string"`
@@ -213,6 +215,12 @@ func (s DescribeInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstancesInput) GoString() string {
 	return s.String()
+}
+
+// SetDeploymentSetIds sets the DeploymentSetIds field's value.
+func (s *DescribeInstancesInput) SetDeploymentSetIds(v []*string) *DescribeInstancesInput {
+	s.DeploymentSetIds = v
+	return s
 }
 
 // SetHpcClusterId sets the HpcClusterId field's value.
@@ -382,6 +390,8 @@ type InstanceForDescribeInstancesOutput struct {
 
 	CreatedAt *string `type:"string"`
 
+	DeploymentSetId *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	EipAddress *EipAddressForDescribeInstancesOutput `type:"structure"`
@@ -462,6 +472,12 @@ func (s *InstanceForDescribeInstancesOutput) SetCpus(v int32) *InstanceForDescri
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *InstanceForDescribeInstancesOutput) SetCreatedAt(v string) *InstanceForDescribeInstancesOutput {
 	s.CreatedAt = &v
+	return s
+}
+
+// SetDeploymentSetId sets the DeploymentSetId field's value.
+func (s *InstanceForDescribeInstancesOutput) SetDeploymentSetId(v string) *InstanceForDescribeInstancesOutput {
+	s.DeploymentSetId = &v
 	return s
 }
 

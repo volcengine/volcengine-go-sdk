@@ -158,8 +158,14 @@ type CreateDirectConnectVirtualInterfaceInput struct {
 
 	EnableBfd *bool `type:"boolean"`
 
+	EnableNqa *bool `type:"boolean"`
+
 	// LocalIp is a required field
 	LocalIp *string `type:"string" required:"true"`
+
+	NqaDetectInterval *int64 `min:"1000" max:"5000" type:"integer"`
+
+	NqaDetectMultiplier *int64 `min:"3" max:"8" type:"integer"`
 
 	// PeerIp is a required field
 	PeerIp *string `type:"string" required:"true"`
@@ -213,6 +219,18 @@ func (s *CreateDirectConnectVirtualInterfaceInput) Validate() error {
 	}
 	if s.LocalIp == nil {
 		invalidParams.Add(request.NewErrParamRequired("LocalIp"))
+	}
+	if s.NqaDetectInterval != nil && *s.NqaDetectInterval < 1000 {
+		invalidParams.Add(request.NewErrParamMinValue("NqaDetectInterval", 1000))
+	}
+	if s.NqaDetectInterval != nil && *s.NqaDetectInterval > 5000 {
+		invalidParams.Add(request.NewErrParamMaxValue("NqaDetectInterval", 5000))
+	}
+	if s.NqaDetectMultiplier != nil && *s.NqaDetectMultiplier < 3 {
+		invalidParams.Add(request.NewErrParamMinValue("NqaDetectMultiplier", 3))
+	}
+	if s.NqaDetectMultiplier != nil && *s.NqaDetectMultiplier > 8 {
+		invalidParams.Add(request.NewErrParamMaxValue("NqaDetectMultiplier", 8))
 	}
 	if s.PeerIp == nil {
 		invalidParams.Add(request.NewErrParamRequired("PeerIp"))
@@ -275,9 +293,27 @@ func (s *CreateDirectConnectVirtualInterfaceInput) SetEnableBfd(v bool) *CreateD
 	return s
 }
 
+// SetEnableNqa sets the EnableNqa field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetEnableNqa(v bool) *CreateDirectConnectVirtualInterfaceInput {
+	s.EnableNqa = &v
+	return s
+}
+
 // SetLocalIp sets the LocalIp field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetLocalIp(v string) *CreateDirectConnectVirtualInterfaceInput {
 	s.LocalIp = &v
+	return s
+}
+
+// SetNqaDetectInterval sets the NqaDetectInterval field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetNqaDetectInterval(v int64) *CreateDirectConnectVirtualInterfaceInput {
+	s.NqaDetectInterval = &v
+	return s
+}
+
+// SetNqaDetectMultiplier sets the NqaDetectMultiplier field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetNqaDetectMultiplier(v int64) *CreateDirectConnectVirtualInterfaceInput {
+	s.NqaDetectMultiplier = &v
 	return s
 }
 

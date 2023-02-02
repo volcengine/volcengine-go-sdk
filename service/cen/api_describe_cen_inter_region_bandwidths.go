@@ -241,6 +241,8 @@ type InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput struct {
 	PeerRegionId *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -292,5 +294,11 @@ func (s *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput) SetPeerR
 // SetStatus sets the Status field's value.
 func (s *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput) SetStatus(v string) *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
 	s.Status = &v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput) SetUpdateTime(v string) *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
+	s.UpdateTime = &v
 	return s
 }
