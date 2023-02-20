@@ -192,9 +192,7 @@ type GetPolicyOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	Policy *PolicyForGetPolicyOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -207,14 +205,78 @@ func (s GetPolicyOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *GetPolicyOutput) SetResponseMetadata(v interface{}) *GetPolicyOutput {
-	s.ResponseMetadata = &v
+// SetPolicy sets the Policy field's value.
+func (s *GetPolicyOutput) SetPolicy(v *PolicyForGetPolicyOutput) *GetPolicyOutput {
+	s.Policy = v
 	return s
 }
 
-// SetResult sets the Result field's value.
-func (s *GetPolicyOutput) SetResult(v interface{}) *GetPolicyOutput {
-	s.Result = &v
+type PolicyForGetPolicyOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	PolicyDocument *string `type:"string"`
+
+	PolicyName *string `type:"string"`
+
+	PolicyTrn *string `type:"string"`
+
+	PolicyType *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PolicyForGetPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PolicyForGetPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *PolicyForGetPolicyOutput) SetCreateDate(v string) *PolicyForGetPolicyOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *PolicyForGetPolicyOutput) SetDescription(v string) *PolicyForGetPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetPolicyDocument sets the PolicyDocument field's value.
+func (s *PolicyForGetPolicyOutput) SetPolicyDocument(v string) *PolicyForGetPolicyOutput {
+	s.PolicyDocument = &v
+	return s
+}
+
+// SetPolicyName sets the PolicyName field's value.
+func (s *PolicyForGetPolicyOutput) SetPolicyName(v string) *PolicyForGetPolicyOutput {
+	s.PolicyName = &v
+	return s
+}
+
+// SetPolicyTrn sets the PolicyTrn field's value.
+func (s *PolicyForGetPolicyOutput) SetPolicyTrn(v string) *PolicyForGetPolicyOutput {
+	s.PolicyTrn = &v
+	return s
+}
+
+// SetPolicyType sets the PolicyType field's value.
+func (s *PolicyForGetPolicyOutput) SetPolicyType(v string) *PolicyForGetPolicyOutput {
+	s.PolicyType = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *PolicyForGetPolicyOutput) SetUpdateDate(v string) *PolicyForGetPolicyOutput {
+	s.UpdateDate = &v
 	return s
 }

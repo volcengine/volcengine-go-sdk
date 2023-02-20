@@ -180,9 +180,7 @@ type ListGroupsForUserOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	UserGroups []*UserGroupForListGroupsForUserOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -195,14 +193,54 @@ func (s ListGroupsForUserOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *ListGroupsForUserOutput) SetResponseMetadata(v interface{}) *ListGroupsForUserOutput {
-	s.ResponseMetadata = &v
+// SetUserGroups sets the UserGroups field's value.
+func (s *ListGroupsForUserOutput) SetUserGroups(v []*UserGroupForListGroupsForUserOutput) *ListGroupsForUserOutput {
+	s.UserGroups = v
 	return s
 }
 
-// SetResult sets the Result field's value.
-func (s *ListGroupsForUserOutput) SetResult(v interface{}) *ListGroupsForUserOutput {
-	s.Result = &v
+type UserGroupForListGroupsForUserOutput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	DisplayName *string `type:"string"`
+
+	JoinDate *string `type:"string"`
+
+	UserGroupName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s UserGroupForListGroupsForUserOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UserGroupForListGroupsForUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *UserGroupForListGroupsForUserOutput) SetDescription(v string) *UserGroupForListGroupsForUserOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *UserGroupForListGroupsForUserOutput) SetDisplayName(v string) *UserGroupForListGroupsForUserOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetJoinDate sets the JoinDate field's value.
+func (s *UserGroupForListGroupsForUserOutput) SetJoinDate(v string) *UserGroupForListGroupsForUserOutput {
+	s.JoinDate = &v
+	return s
+}
+
+// SetUserGroupName sets the UserGroupName field's value.
+func (s *UserGroupForListGroupsForUserOutput) SetUserGroupName(v string) *UserGroupForListGroupsForUserOutput {
+	s.UserGroupName = &v
 	return s
 }

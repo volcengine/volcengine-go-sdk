@@ -215,8 +215,6 @@ type UpdateRoleOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -227,10 +225,4 @@ func (s UpdateRoleOutput) String() string {
 // GoString returns the string representation
 func (s UpdateRoleOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *UpdateRoleOutput) SetResponseMetadata(v interface{}) *UpdateRoleOutput {
-	s.ResponseMetadata = &v
-	return s
 }

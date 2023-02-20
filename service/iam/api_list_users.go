@@ -174,9 +174,7 @@ type ListUsersOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	UserMetadata []*UserMetadataForListUsersOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -189,14 +187,110 @@ func (s ListUsersOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *ListUsersOutput) SetResponseMetadata(v interface{}) *ListUsersOutput {
-	s.ResponseMetadata = &v
+// SetUserMetadata sets the UserMetadata field's value.
+func (s *ListUsersOutput) SetUserMetadata(v []*UserMetadataForListUsersOutput) *ListUsersOutput {
+	s.UserMetadata = v
 	return s
 }
 
-// SetResult sets the Result field's value.
-func (s *ListUsersOutput) SetResult(v interface{}) *ListUsersOutput {
-	s.Result = &v
+type UserMetadataForListUsersOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DisplayName *string `type:"string"`
+
+	Email *string `type:"string"`
+
+	EmailIsVerify *string `type:"string"`
+
+	MobilePhone *string `type:"string"`
+
+	MobilePhoneIsVerify *string `type:"string"`
+
+	Trn *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+
+	UserName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s UserMetadataForListUsersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UserMetadataForListUsersOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *UserMetadataForListUsersOutput) SetAccountId(v string) *UserMetadataForListUsersOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *UserMetadataForListUsersOutput) SetCreateDate(v string) *UserMetadataForListUsersOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *UserMetadataForListUsersOutput) SetDescription(v string) *UserMetadataForListUsersOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *UserMetadataForListUsersOutput) SetDisplayName(v string) *UserMetadataForListUsersOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetEmail sets the Email field's value.
+func (s *UserMetadataForListUsersOutput) SetEmail(v string) *UserMetadataForListUsersOutput {
+	s.Email = &v
+	return s
+}
+
+// SetEmailIsVerify sets the EmailIsVerify field's value.
+func (s *UserMetadataForListUsersOutput) SetEmailIsVerify(v string) *UserMetadataForListUsersOutput {
+	s.EmailIsVerify = &v
+	return s
+}
+
+// SetMobilePhone sets the MobilePhone field's value.
+func (s *UserMetadataForListUsersOutput) SetMobilePhone(v string) *UserMetadataForListUsersOutput {
+	s.MobilePhone = &v
+	return s
+}
+
+// SetMobilePhoneIsVerify sets the MobilePhoneIsVerify field's value.
+func (s *UserMetadataForListUsersOutput) SetMobilePhoneIsVerify(v string) *UserMetadataForListUsersOutput {
+	s.MobilePhoneIsVerify = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *UserMetadataForListUsersOutput) SetTrn(v string) *UserMetadataForListUsersOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *UserMetadataForListUsersOutput) SetUpdateDate(v string) *UserMetadataForListUsersOutput {
+	s.UpdateDate = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *UserMetadataForListUsersOutput) SetUserName(v string) *UserMetadataForListUsersOutput {
+	s.UserName = &v
 	return s
 }

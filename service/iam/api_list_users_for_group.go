@@ -180,9 +180,7 @@ type ListUsersForGroupOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	Users []*UserForListUsersForGroupOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -195,14 +193,54 @@ func (s ListUsersForGroupOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *ListUsersForGroupOutput) SetResponseMetadata(v interface{}) *ListUsersForGroupOutput {
-	s.ResponseMetadata = &v
+// SetUsers sets the Users field's value.
+func (s *ListUsersForGroupOutput) SetUsers(v []*UserForListUsersForGroupOutput) *ListUsersForGroupOutput {
+	s.Users = v
 	return s
 }
 
-// SetResult sets the Result field's value.
-func (s *ListUsersForGroupOutput) SetResult(v interface{}) *ListUsersForGroupOutput {
-	s.Result = &v
+type UserForListUsersForGroupOutput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	DisplayName *string `type:"string"`
+
+	JoinDate *string `type:"string"`
+
+	UserName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s UserForListUsersForGroupOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UserForListUsersForGroupOutput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *UserForListUsersForGroupOutput) SetDescription(v string) *UserForListUsersForGroupOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *UserForListUsersForGroupOutput) SetDisplayName(v string) *UserForListUsersForGroupOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetJoinDate sets the JoinDate field's value.
+func (s *UserForListUsersForGroupOutput) SetJoinDate(v string) *UserForListUsersForGroupOutput {
+	s.JoinDate = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *UserForListUsersForGroupOutput) SetUserName(v string) *UserForListUsersForGroupOutput {
+	s.UserName = &v
 	return s
 }

@@ -139,6 +139,60 @@ func (c *IAM) ListAttachedUserPoliciesWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
+type AttachedPolicyMetadataForListAttachedUserPoliciesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AttachDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	PolicyName *string `type:"string"`
+
+	PolicyTrn *string `type:"string"`
+
+	PolicyType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AttachedPolicyMetadataForListAttachedUserPoliciesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttachedPolicyMetadataForListAttachedUserPoliciesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAttachDate sets the AttachDate field's value.
+func (s *AttachedPolicyMetadataForListAttachedUserPoliciesOutput) SetAttachDate(v string) *AttachedPolicyMetadataForListAttachedUserPoliciesOutput {
+	s.AttachDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *AttachedPolicyMetadataForListAttachedUserPoliciesOutput) SetDescription(v string) *AttachedPolicyMetadataForListAttachedUserPoliciesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetPolicyName sets the PolicyName field's value.
+func (s *AttachedPolicyMetadataForListAttachedUserPoliciesOutput) SetPolicyName(v string) *AttachedPolicyMetadataForListAttachedUserPoliciesOutput {
+	s.PolicyName = &v
+	return s
+}
+
+// SetPolicyTrn sets the PolicyTrn field's value.
+func (s *AttachedPolicyMetadataForListAttachedUserPoliciesOutput) SetPolicyTrn(v string) *AttachedPolicyMetadataForListAttachedUserPoliciesOutput {
+	s.PolicyTrn = &v
+	return s
+}
+
+// SetPolicyType sets the PolicyType field's value.
+func (s *AttachedPolicyMetadataForListAttachedUserPoliciesOutput) SetPolicyType(v string) *AttachedPolicyMetadataForListAttachedUserPoliciesOutput {
+	s.PolicyType = &v
+	return s
+}
+
 type ListAttachedUserPoliciesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -180,9 +234,7 @@ type ListAttachedUserPoliciesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	AttachedPolicyMetadata []*AttachedPolicyMetadataForListAttachedUserPoliciesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -195,14 +247,8 @@ func (s ListAttachedUserPoliciesOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *ListAttachedUserPoliciesOutput) SetResponseMetadata(v interface{}) *ListAttachedUserPoliciesOutput {
-	s.ResponseMetadata = &v
-	return s
-}
-
-// SetResult sets the Result field's value.
-func (s *ListAttachedUserPoliciesOutput) SetResult(v interface{}) *ListAttachedUserPoliciesOutput {
-	s.Result = &v
+// SetAttachedPolicyMetadata sets the AttachedPolicyMetadata field's value.
+func (s *ListAttachedUserPoliciesOutput) SetAttachedPolicyMetadata(v []*AttachedPolicyMetadataForListAttachedUserPoliciesOutput) *ListAttachedUserPoliciesOutput {
+	s.AttachedPolicyMetadata = v
 	return s
 }

@@ -208,9 +208,7 @@ type CreateRoleOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	Role *RoleForCreateRoleOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -223,14 +221,70 @@ func (s CreateRoleOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *CreateRoleOutput) SetResponseMetadata(v interface{}) *CreateRoleOutput {
-	s.ResponseMetadata = &v
+// SetRole sets the Role field's value.
+func (s *CreateRoleOutput) SetRole(v *RoleForCreateRoleOutput) *CreateRoleOutput {
+	s.Role = v
 	return s
 }
 
-// SetResult sets the Result field's value.
-func (s *CreateRoleOutput) SetResult(v interface{}) *CreateRoleOutput {
-	s.Result = &v
+type RoleForCreateRoleOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	RoleId *string `type:"string"`
+
+	RoleName *string `type:"string"`
+
+	Trn *string `type:"string"`
+
+	TrustPolicyDocument *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RoleForCreateRoleOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RoleForCreateRoleOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *RoleForCreateRoleOutput) SetCreateDate(v string) *RoleForCreateRoleOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *RoleForCreateRoleOutput) SetDescription(v string) *RoleForCreateRoleOutput {
+	s.Description = &v
+	return s
+}
+
+// SetRoleId sets the RoleId field's value.
+func (s *RoleForCreateRoleOutput) SetRoleId(v string) *RoleForCreateRoleOutput {
+	s.RoleId = &v
+	return s
+}
+
+// SetRoleName sets the RoleName field's value.
+func (s *RoleForCreateRoleOutput) SetRoleName(v string) *RoleForCreateRoleOutput {
+	s.RoleName = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *RoleForCreateRoleOutput) SetTrn(v string) *RoleForCreateRoleOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetTrustPolicyDocument sets the TrustPolicyDocument field's value.
+func (s *RoleForCreateRoleOutput) SetTrustPolicyDocument(v string) *RoleForCreateRoleOutput {
+	s.TrustPolicyDocument = &v
 	return s
 }

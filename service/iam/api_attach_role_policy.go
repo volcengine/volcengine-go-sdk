@@ -203,8 +203,6 @@ type AttachRolePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -215,10 +213,4 @@ func (s AttachRolePolicyOutput) String() string {
 // GoString returns the string representation
 func (s AttachRolePolicyOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *AttachRolePolicyOutput) SetResponseMetadata(v interface{}) *AttachRolePolicyOutput {
-	s.ResponseMetadata = &v
-	return s
 }

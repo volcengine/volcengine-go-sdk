@@ -191,8 +191,6 @@ type RemoveUserFromGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -203,10 +201,4 @@ func (s RemoveUserFromGroupOutput) String() string {
 // GoString returns the string representation
 func (s RemoveUserFromGroupOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *RemoveUserFromGroupOutput) SetResponseMetadata(v interface{}) *RemoveUserFromGroupOutput {
-	s.ResponseMetadata = &v
-	return s
 }

@@ -157,8 +157,6 @@ type GetLoginProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -169,10 +167,4 @@ func (s GetLoginProfileOutput) String() string {
 // GoString returns the string representation
 func (s GetLoginProfileOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *GetLoginProfileOutput) SetResponseMetadata(v interface{}) *GetLoginProfileOutput {
-	s.ResponseMetadata = &v
-	return s
 }

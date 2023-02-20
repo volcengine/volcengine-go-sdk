@@ -139,6 +139,68 @@ func (c *IAM) CreateAccessKeyWithContext(ctx volcengine.Context, input *CreateAc
 	return out, req.Send()
 }
 
+type AccessKeyForCreateAccessKeyOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccessKeyId *string `type:"string"`
+
+	CreateDate *string `type:"string"`
+
+	SecretAccessKey *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+
+	UserName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AccessKeyForCreateAccessKeyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccessKeyForCreateAccessKeyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccessKeyId sets the AccessKeyId field's value.
+func (s *AccessKeyForCreateAccessKeyOutput) SetAccessKeyId(v string) *AccessKeyForCreateAccessKeyOutput {
+	s.AccessKeyId = &v
+	return s
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *AccessKeyForCreateAccessKeyOutput) SetCreateDate(v string) *AccessKeyForCreateAccessKeyOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetSecretAccessKey sets the SecretAccessKey field's value.
+func (s *AccessKeyForCreateAccessKeyOutput) SetSecretAccessKey(v string) *AccessKeyForCreateAccessKeyOutput {
+	s.SecretAccessKey = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *AccessKeyForCreateAccessKeyOutput) SetStatus(v string) *AccessKeyForCreateAccessKeyOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *AccessKeyForCreateAccessKeyOutput) SetUpdateDate(v string) *AccessKeyForCreateAccessKeyOutput {
+	s.UpdateDate = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *AccessKeyForCreateAccessKeyOutput) SetUserName(v string) *AccessKeyForCreateAccessKeyOutput {
+	s.UserName = &v
+	return s
+}
+
 type CreateAccessKeyInput struct {
 	_ struct{} `type:"structure"`
 
@@ -166,9 +228,7 @@ type CreateAccessKeyOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	AccessKey *AccessKeyForCreateAccessKeyOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -181,14 +241,8 @@ func (s CreateAccessKeyOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *CreateAccessKeyOutput) SetResponseMetadata(v interface{}) *CreateAccessKeyOutput {
-	s.ResponseMetadata = &v
-	return s
-}
-
-// SetResult sets the Result field's value.
-func (s *CreateAccessKeyOutput) SetResult(v interface{}) *CreateAccessKeyOutput {
-	s.Result = &v
+// SetAccessKey sets the AccessKey field's value.
+func (s *CreateAccessKeyOutput) SetAccessKey(v *AccessKeyForCreateAccessKeyOutput) *CreateAccessKeyOutput {
+	s.AccessKey = v
 	return s
 }

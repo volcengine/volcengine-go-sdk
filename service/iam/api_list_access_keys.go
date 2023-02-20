@@ -139,6 +139,20 @@ func (c *IAM) ListAccessKeysWithContext(ctx volcengine.Context, input *ListAcces
 	return out, req.Send()
 }
 
+type AccessKeyMetadataForListAccessKeysOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s AccessKeyMetadataForListAccessKeysOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccessKeyMetadataForListAccessKeysOutput) GoString() string {
+	return s.String()
+}
+
 type ListAccessKeysInput struct {
 	_ struct{} `type:"structure"`
 
@@ -166,9 +180,7 @@ type ListAccessKeysOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	AccessKeyMetadata []*AccessKeyMetadataForListAccessKeysOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -181,14 +193,8 @@ func (s ListAccessKeysOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *ListAccessKeysOutput) SetResponseMetadata(v interface{}) *ListAccessKeysOutput {
-	s.ResponseMetadata = &v
-	return s
-}
-
-// SetResult sets the Result field's value.
-func (s *ListAccessKeysOutput) SetResult(v interface{}) *ListAccessKeysOutput {
-	s.Result = &v
+// SetAccessKeyMetadata sets the AccessKeyMetadata field's value.
+func (s *ListAccessKeysOutput) SetAccessKeyMetadata(v []*AccessKeyMetadataForListAccessKeysOutput) *ListAccessKeysOutput {
+	s.AccessKeyMetadata = v
 	return s
 }

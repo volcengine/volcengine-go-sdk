@@ -179,8 +179,6 @@ type DeletePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -191,10 +189,4 @@ func (s DeletePolicyOutput) String() string {
 // GoString returns the string representation
 func (s DeletePolicyOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *DeletePolicyOutput) SetResponseMetadata(v interface{}) *DeletePolicyOutput {
-	s.ResponseMetadata = &v
-	return s
 }

@@ -157,8 +157,6 @@ type ListEntitiesForPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -169,10 +167,4 @@ func (s ListEntitiesForPolicyOutput) String() string {
 // GoString returns the string representation
 func (s ListEntitiesForPolicyOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *ListEntitiesForPolicyOutput) SetResponseMetadata(v interface{}) *ListEntitiesForPolicyOutput {
-	s.ResponseMetadata = &v
-	return s
 }

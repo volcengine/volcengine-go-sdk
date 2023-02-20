@@ -179,8 +179,6 @@ type DeleteGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -191,10 +189,4 @@ func (s DeleteGroupOutput) String() string {
 // GoString returns the string representation
 func (s DeleteGroupOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *DeleteGroupOutput) SetResponseMetadata(v interface{}) *DeleteGroupOutput {
-	s.ResponseMetadata = &v
-	return s
 }

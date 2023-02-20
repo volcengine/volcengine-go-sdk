@@ -191,8 +191,6 @@ type UpdateAccessKeyOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -203,10 +201,4 @@ func (s UpdateAccessKeyOutput) String() string {
 // GoString returns the string representation
 func (s UpdateAccessKeyOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *UpdateAccessKeyOutput) SetResponseMetadata(v interface{}) *UpdateAccessKeyOutput {
-	s.ResponseMetadata = &v
-	return s
 }

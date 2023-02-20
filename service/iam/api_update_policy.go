@@ -139,6 +139,76 @@ func (c *IAM) UpdatePolicyWithContext(ctx volcengine.Context, input *UpdatePolic
 	return out, req.Send()
 }
 
+type PolicyForUpdatePolicyOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	PolicyDocument *string `type:"string"`
+
+	PolicyName *string `type:"string"`
+
+	PolicyTrn *string `type:"string"`
+
+	PolicyType *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PolicyForUpdatePolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PolicyForUpdatePolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *PolicyForUpdatePolicyOutput) SetCreateDate(v string) *PolicyForUpdatePolicyOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *PolicyForUpdatePolicyOutput) SetDescription(v string) *PolicyForUpdatePolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetPolicyDocument sets the PolicyDocument field's value.
+func (s *PolicyForUpdatePolicyOutput) SetPolicyDocument(v string) *PolicyForUpdatePolicyOutput {
+	s.PolicyDocument = &v
+	return s
+}
+
+// SetPolicyName sets the PolicyName field's value.
+func (s *PolicyForUpdatePolicyOutput) SetPolicyName(v string) *PolicyForUpdatePolicyOutput {
+	s.PolicyName = &v
+	return s
+}
+
+// SetPolicyTrn sets the PolicyTrn field's value.
+func (s *PolicyForUpdatePolicyOutput) SetPolicyTrn(v string) *PolicyForUpdatePolicyOutput {
+	s.PolicyTrn = &v
+	return s
+}
+
+// SetPolicyType sets the PolicyType field's value.
+func (s *PolicyForUpdatePolicyOutput) SetPolicyType(v string) *PolicyForUpdatePolicyOutput {
+	s.PolicyType = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *PolicyForUpdatePolicyOutput) SetUpdateDate(v string) *PolicyForUpdatePolicyOutput {
+	s.UpdateDate = &v
+	return s
+}
+
 type UpdatePolicyInput struct {
 	_ struct{} `type:"structure"`
 
@@ -204,9 +274,7 @@ type UpdatePolicyOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	Policy *PolicyForUpdatePolicyOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -219,14 +287,8 @@ func (s UpdatePolicyOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *UpdatePolicyOutput) SetResponseMetadata(v interface{}) *UpdatePolicyOutput {
-	s.ResponseMetadata = &v
-	return s
-}
-
-// SetResult sets the Result field's value.
-func (s *UpdatePolicyOutput) SetResult(v interface{}) *UpdatePolicyOutput {
-	s.Result = &v
+// SetPolicy sets the Policy field's value.
+func (s *UpdatePolicyOutput) SetPolicy(v *PolicyForUpdatePolicyOutput) *UpdatePolicyOutput {
+	s.Policy = v
 	return s
 }

@@ -191,8 +191,6 @@ type AddUserToGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -203,10 +201,4 @@ func (s AddUserToGroupOutput) String() string {
 // GoString returns the string representation
 func (s AddUserToGroupOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *AddUserToGroupOutput) SetResponseMetadata(v interface{}) *AddUserToGroupOutput {
-	s.ResponseMetadata = &v
-	return s
 }

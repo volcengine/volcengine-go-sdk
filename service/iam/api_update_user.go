@@ -220,9 +220,7 @@ type UpdateUserOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	User *UserForUpdateUserOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -235,14 +233,110 @@ func (s UpdateUserOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *UpdateUserOutput) SetResponseMetadata(v interface{}) *UpdateUserOutput {
-	s.ResponseMetadata = &v
+// SetUser sets the User field's value.
+func (s *UpdateUserOutput) SetUser(v *UserForUpdateUserOutput) *UpdateUserOutput {
+	s.User = v
 	return s
 }
 
-// SetResult sets the Result field's value.
-func (s *UpdateUserOutput) SetResult(v interface{}) *UpdateUserOutput {
-	s.Result = &v
+type UserForUpdateUserOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DisplayName *string `type:"string"`
+
+	Email *string `type:"string"`
+
+	EmailIsVerify *string `type:"string"`
+
+	MobilePhone *string `type:"string"`
+
+	MobilePhoneIsVerify *string `type:"string"`
+
+	Trn *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+
+	UserName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s UserForUpdateUserOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UserForUpdateUserOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *UserForUpdateUserOutput) SetAccountId(v string) *UserForUpdateUserOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *UserForUpdateUserOutput) SetCreateDate(v string) *UserForUpdateUserOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *UserForUpdateUserOutput) SetDescription(v string) *UserForUpdateUserOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *UserForUpdateUserOutput) SetDisplayName(v string) *UserForUpdateUserOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetEmail sets the Email field's value.
+func (s *UserForUpdateUserOutput) SetEmail(v string) *UserForUpdateUserOutput {
+	s.Email = &v
+	return s
+}
+
+// SetEmailIsVerify sets the EmailIsVerify field's value.
+func (s *UserForUpdateUserOutput) SetEmailIsVerify(v string) *UserForUpdateUserOutput {
+	s.EmailIsVerify = &v
+	return s
+}
+
+// SetMobilePhone sets the MobilePhone field's value.
+func (s *UserForUpdateUserOutput) SetMobilePhone(v string) *UserForUpdateUserOutput {
+	s.MobilePhone = &v
+	return s
+}
+
+// SetMobilePhoneIsVerify sets the MobilePhoneIsVerify field's value.
+func (s *UserForUpdateUserOutput) SetMobilePhoneIsVerify(v string) *UserForUpdateUserOutput {
+	s.MobilePhoneIsVerify = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *UserForUpdateUserOutput) SetTrn(v string) *UserForUpdateUserOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *UserForUpdateUserOutput) SetUpdateDate(v string) *UserForUpdateUserOutput {
+	s.UpdateDate = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *UserForUpdateUserOutput) SetUserName(v string) *UserForUpdateUserOutput {
+	s.UserName = &v
 	return s
 }

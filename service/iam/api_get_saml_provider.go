@@ -157,8 +157,6 @@ type GetSAMLProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	ResponseMetadata *interface{} `type:"interface"`
 }
 
 // String returns the string representation
@@ -169,10 +167,4 @@ func (s GetSAMLProviderOutput) String() string {
 // GoString returns the string representation
 func (s GetSAMLProviderOutput) GoString() string {
 	return s.String()
-}
-
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *GetSAMLProviderOutput) SetResponseMetadata(v interface{}) *GetSAMLProviderOutput {
-	s.ResponseMetadata = &v
-	return s
 }

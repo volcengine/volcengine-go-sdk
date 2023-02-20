@@ -158,9 +158,7 @@ type ListRolesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	ResponseMetadata *interface{} `type:"interface"`
-
-	Result *interface{} `type:"interface"`
+	RoleMetadata []*RoleMetadataForListRolesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -173,14 +171,70 @@ func (s ListRolesOutput) GoString() string {
 	return s.String()
 }
 
-// SetResponseMetadata sets the ResponseMetadata field's value.
-func (s *ListRolesOutput) SetResponseMetadata(v interface{}) *ListRolesOutput {
-	s.ResponseMetadata = &v
+// SetRoleMetadata sets the RoleMetadata field's value.
+func (s *ListRolesOutput) SetRoleMetadata(v []*RoleMetadataForListRolesOutput) *ListRolesOutput {
+	s.RoleMetadata = v
 	return s
 }
 
-// SetResult sets the Result field's value.
-func (s *ListRolesOutput) SetResult(v interface{}) *ListRolesOutput {
-	s.Result = &v
+type RoleMetadataForListRolesOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	RoleId *string `type:"string"`
+
+	RoleName *string `type:"string"`
+
+	Trn *string `type:"string"`
+
+	TrustPolicyDocument *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RoleMetadataForListRolesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RoleMetadataForListRolesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *RoleMetadataForListRolesOutput) SetCreateDate(v string) *RoleMetadataForListRolesOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *RoleMetadataForListRolesOutput) SetDescription(v string) *RoleMetadataForListRolesOutput {
+	s.Description = &v
+	return s
+}
+
+// SetRoleId sets the RoleId field's value.
+func (s *RoleMetadataForListRolesOutput) SetRoleId(v string) *RoleMetadataForListRolesOutput {
+	s.RoleId = &v
+	return s
+}
+
+// SetRoleName sets the RoleName field's value.
+func (s *RoleMetadataForListRolesOutput) SetRoleName(v string) *RoleMetadataForListRolesOutput {
+	s.RoleName = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *RoleMetadataForListRolesOutput) SetTrn(v string) *RoleMetadataForListRolesOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetTrustPolicyDocument sets the TrustPolicyDocument field's value.
+func (s *RoleMetadataForListRolesOutput) SetTrustPolicyDocument(v string) *RoleMetadataForListRolesOutput {
+	s.TrustPolicyDocument = &v
 	return s
 }
