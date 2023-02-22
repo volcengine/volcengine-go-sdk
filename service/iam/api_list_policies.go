@@ -166,7 +166,7 @@ type ListPoliciesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PoliciyMetadata []*PoliciyMetadataForListPoliciesOutput `type:"list"`
+	PolicyMetadata []*PolicyMetadataForListPoliciesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -179,13 +179,13 @@ func (s ListPoliciesOutput) GoString() string {
 	return s.String()
 }
 
-// SetPoliciyMetadata sets the PoliciyMetadata field's value.
-func (s *ListPoliciesOutput) SetPoliciyMetadata(v []*PoliciyMetadataForListPoliciesOutput) *ListPoliciesOutput {
-	s.PoliciyMetadata = v
+// SetPolicyMetadata sets the PolicyMetadata field's value.
+func (s *ListPoliciesOutput) SetPolicyMetadata(v []*PolicyMetadataForListPoliciesOutput) *ListPoliciesOutput {
+	s.PolicyMetadata = v
 	return s
 }
 
-type PoliciyMetadataForListPoliciesOutput struct {
+type PolicyMetadataForListPoliciesOutput struct {
 	_ struct{} `type:"structure"`
 
 	CreateDate *string `type:"string"`
@@ -204,53 +204,53 @@ type PoliciyMetadataForListPoliciesOutput struct {
 }
 
 // String returns the string representation
-func (s PoliciyMetadataForListPoliciesOutput) String() string {
+func (s PolicyMetadataForListPoliciesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s PoliciyMetadataForListPoliciesOutput) GoString() string {
+func (s PolicyMetadataForListPoliciesOutput) GoString() string {
 	return s.String()
 }
 
 // SetCreateDate sets the CreateDate field's value.
-func (s *PoliciyMetadataForListPoliciesOutput) SetCreateDate(v string) *PoliciyMetadataForListPoliciesOutput {
+func (s *PolicyMetadataForListPoliciesOutput) SetCreateDate(v string) *PolicyMetadataForListPoliciesOutput {
 	s.CreateDate = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *PoliciyMetadataForListPoliciesOutput) SetDescription(v string) *PoliciyMetadataForListPoliciesOutput {
+func (s *PolicyMetadataForListPoliciesOutput) SetDescription(v string) *PolicyMetadataForListPoliciesOutput {
 	s.Description = &v
 	return s
 }
 
 // SetPolicyDocument sets the PolicyDocument field's value.
-func (s *PoliciyMetadataForListPoliciesOutput) SetPolicyDocument(v string) *PoliciyMetadataForListPoliciesOutput {
+func (s *PolicyMetadataForListPoliciesOutput) SetPolicyDocument(v string) *PolicyMetadataForListPoliciesOutput {
 	s.PolicyDocument = &v
 	return s
 }
 
 // SetPolicyName sets the PolicyName field's value.
-func (s *PoliciyMetadataForListPoliciesOutput) SetPolicyName(v string) *PoliciyMetadataForListPoliciesOutput {
+func (s *PolicyMetadataForListPoliciesOutput) SetPolicyName(v string) *PolicyMetadataForListPoliciesOutput {
 	s.PolicyName = &v
 	return s
 }
 
 // SetPolicyTrn sets the PolicyTrn field's value.
-func (s *PoliciyMetadataForListPoliciesOutput) SetPolicyTrn(v string) *PoliciyMetadataForListPoliciesOutput {
+func (s *PolicyMetadataForListPoliciesOutput) SetPolicyTrn(v string) *PolicyMetadataForListPoliciesOutput {
 	s.PolicyTrn = &v
 	return s
 }
 
 // SetPolicyType sets the PolicyType field's value.
-func (s *PoliciyMetadataForListPoliciesOutput) SetPolicyType(v string) *PoliciyMetadataForListPoliciesOutput {
+func (s *PolicyMetadataForListPoliciesOutput) SetPolicyType(v string) *PolicyMetadataForListPoliciesOutput {
 	s.PolicyType = &v
 	return s
 }
 
 // SetUpdateDate sets the UpdateDate field's value.
-func (s *PoliciyMetadataForListPoliciesOutput) SetUpdateDate(v string) *PoliciyMetadataForListPoliciesOutput {
+func (s *PolicyMetadataForListPoliciesOutput) SetUpdateDate(v string) *PolicyMetadataForListPoliciesOutput {
 	s.UpdateDate = &v
 	return s
 }
