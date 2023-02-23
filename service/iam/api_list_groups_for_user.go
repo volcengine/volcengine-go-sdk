@@ -142,6 +142,12 @@ func (c *IAM) ListGroupsForUserWithContext(ctx volcengine.Context, input *ListGr
 type ListGroupsForUserInput struct {
 	_ struct{} `type:"structure"`
 
+	Limit *int64 `type:"integer"`
+
+	Offset *string `type:"string"`
+
+	Query *string `type:"string"`
+
 	// UserName is a required field
 	UserName *string `type:"string" required:"true"`
 }
@@ -169,6 +175,24 @@ func (s *ListGroupsForUserInput) Validate() error {
 	return nil
 }
 
+// SetLimit sets the Limit field's value.
+func (s *ListGroupsForUserInput) SetLimit(v int64) *ListGroupsForUserInput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListGroupsForUserInput) SetOffset(v string) *ListGroupsForUserInput {
+	s.Offset = &v
+	return s
+}
+
+// SetQuery sets the Query field's value.
+func (s *ListGroupsForUserInput) SetQuery(v string) *ListGroupsForUserInput {
+	s.Query = &v
+	return s
+}
+
 // SetUserName sets the UserName field's value.
 func (s *ListGroupsForUserInput) SetUserName(v string) *ListGroupsForUserInput {
 	s.UserName = &v
@@ -179,6 +203,12 @@ type ListGroupsForUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Limit *int32 `type:"int32"`
+
+	Offset *int32 `type:"int32"`
+
+	Total *int32 `type:"int32"`
 
 	UserGroups []*UserGroupForListGroupsForUserOutput `type:"list"`
 }
@@ -191,6 +221,24 @@ func (s ListGroupsForUserOutput) String() string {
 // GoString returns the string representation
 func (s ListGroupsForUserOutput) GoString() string {
 	return s.String()
+}
+
+// SetLimit sets the Limit field's value.
+func (s *ListGroupsForUserOutput) SetLimit(v int32) *ListGroupsForUserOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListGroupsForUserOutput) SetOffset(v int32) *ListGroupsForUserOutput {
+	s.Offset = &v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListGroupsForUserOutput) SetTotal(v int32) *ListGroupsForUserOutput {
+	s.Total = &v
+	return s
 }
 
 // SetUserGroups sets the UserGroups field's value.

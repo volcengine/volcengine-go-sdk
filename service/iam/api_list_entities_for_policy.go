@@ -141,6 +141,19 @@ func (c *IAM) ListEntitiesForPolicyWithContext(ctx volcengine.Context, input *Li
 
 type ListEntitiesForPolicyInput struct {
 	_ struct{} `type:"structure"`
+
+	// EntityFilter is a required field
+	EntityFilter *string `type:"string" required:"true"`
+
+	Limit *int64 `type:"integer"`
+
+	Offset *int64 `type:"integer"`
+
+	// PolicyName is a required field
+	PolicyName *string `type:"string" required:"true"`
+
+	// PolicyType is a required field
+	PolicyType *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,10 +166,69 @@ func (s ListEntitiesForPolicyInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListEntitiesForPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListEntitiesForPolicyInput"}
+	if s.EntityFilter == nil {
+		invalidParams.Add(request.NewErrParamRequired("EntityFilter"))
+	}
+	if s.PolicyName == nil {
+		invalidParams.Add(request.NewErrParamRequired("PolicyName"))
+	}
+	if s.PolicyType == nil {
+		invalidParams.Add(request.NewErrParamRequired("PolicyType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetEntityFilter sets the EntityFilter field's value.
+func (s *ListEntitiesForPolicyInput) SetEntityFilter(v string) *ListEntitiesForPolicyInput {
+	s.EntityFilter = &v
+	return s
+}
+
+// SetLimit sets the Limit field's value.
+func (s *ListEntitiesForPolicyInput) SetLimit(v int64) *ListEntitiesForPolicyInput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListEntitiesForPolicyInput) SetOffset(v int64) *ListEntitiesForPolicyInput {
+	s.Offset = &v
+	return s
+}
+
+// SetPolicyName sets the PolicyName field's value.
+func (s *ListEntitiesForPolicyInput) SetPolicyName(v string) *ListEntitiesForPolicyInput {
+	s.PolicyName = &v
+	return s
+}
+
+// SetPolicyType sets the PolicyType field's value.
+func (s *ListEntitiesForPolicyInput) SetPolicyType(v string) *ListEntitiesForPolicyInput {
+	s.PolicyType = &v
+	return s
+}
+
 type ListEntitiesForPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Limit *int32 `type:"int32"`
+
+	Offset *int32 `type:"int32"`
+
+	PolicyRoles []*PolicyRoleForListEntitiesForPolicyOutput `type:"list"`
+
+	PolicyUsers []*PolicyUserForListEntitiesForPolicyOutput `type:"list"`
+
+	Total *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -167,4 +239,118 @@ func (s ListEntitiesForPolicyOutput) String() string {
 // GoString returns the string representation
 func (s ListEntitiesForPolicyOutput) GoString() string {
 	return s.String()
+}
+
+// SetLimit sets the Limit field's value.
+func (s *ListEntitiesForPolicyOutput) SetLimit(v int32) *ListEntitiesForPolicyOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListEntitiesForPolicyOutput) SetOffset(v int32) *ListEntitiesForPolicyOutput {
+	s.Offset = &v
+	return s
+}
+
+// SetPolicyRoles sets the PolicyRoles field's value.
+func (s *ListEntitiesForPolicyOutput) SetPolicyRoles(v []*PolicyRoleForListEntitiesForPolicyOutput) *ListEntitiesForPolicyOutput {
+	s.PolicyRoles = v
+	return s
+}
+
+// SetPolicyUsers sets the PolicyUsers field's value.
+func (s *ListEntitiesForPolicyOutput) SetPolicyUsers(v []*PolicyUserForListEntitiesForPolicyOutput) *ListEntitiesForPolicyOutput {
+	s.PolicyUsers = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListEntitiesForPolicyOutput) SetTotal(v int32) *ListEntitiesForPolicyOutput {
+	s.Total = &v
+	return s
+}
+
+type PolicyRoleForListEntitiesForPolicyOutput struct {
+	_ struct{} `type:"structure"`
+
+	AttachDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	RoleName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PolicyRoleForListEntitiesForPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PolicyRoleForListEntitiesForPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAttachDate sets the AttachDate field's value.
+func (s *PolicyRoleForListEntitiesForPolicyOutput) SetAttachDate(v string) *PolicyRoleForListEntitiesForPolicyOutput {
+	s.AttachDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *PolicyRoleForListEntitiesForPolicyOutput) SetDescription(v string) *PolicyRoleForListEntitiesForPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetRoleName sets the RoleName field's value.
+func (s *PolicyRoleForListEntitiesForPolicyOutput) SetRoleName(v string) *PolicyRoleForListEntitiesForPolicyOutput {
+	s.RoleName = &v
+	return s
+}
+
+type PolicyUserForListEntitiesForPolicyOutput struct {
+	_ struct{} `type:"structure"`
+
+	AttachDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DisplayName *string `type:"string"`
+
+	UserName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PolicyUserForListEntitiesForPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PolicyUserForListEntitiesForPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAttachDate sets the AttachDate field's value.
+func (s *PolicyUserForListEntitiesForPolicyOutput) SetAttachDate(v string) *PolicyUserForListEntitiesForPolicyOutput {
+	s.AttachDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *PolicyUserForListEntitiesForPolicyOutput) SetDescription(v string) *PolicyUserForListEntitiesForPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *PolicyUserForListEntitiesForPolicyOutput) SetDisplayName(v string) *PolicyUserForListEntitiesForPolicyOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *PolicyUserForListEntitiesForPolicyOutput) SetUserName(v string) *PolicyUserForListEntitiesForPolicyOutput {
+	s.UserName = &v
+	return s
 }

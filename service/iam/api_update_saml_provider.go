@@ -141,6 +141,17 @@ func (c *IAM) UpdateSAMLProviderWithContext(ctx volcengine.Context, input *Updat
 
 type UpdateSAMLProviderInput struct {
 	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	NewEncodedSAMLMetadataDocument *string `type:"string"`
+
+	// SAMLProviderName is a required field
+	SAMLProviderName *string `type:"string" required:"true"`
+
+	SSOType *int64 `type:"integer"`
+
+	Status *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -153,10 +164,67 @@ func (s UpdateSAMLProviderInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateSAMLProviderInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateSAMLProviderInput"}
+	if s.SAMLProviderName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SAMLProviderName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *UpdateSAMLProviderInput) SetDescription(v string) *UpdateSAMLProviderInput {
+	s.Description = &v
+	return s
+}
+
+// SetNewEncodedSAMLMetadataDocument sets the NewEncodedSAMLMetadataDocument field's value.
+func (s *UpdateSAMLProviderInput) SetNewEncodedSAMLMetadataDocument(v string) *UpdateSAMLProviderInput {
+	s.NewEncodedSAMLMetadataDocument = &v
+	return s
+}
+
+// SetSAMLProviderName sets the SAMLProviderName field's value.
+func (s *UpdateSAMLProviderInput) SetSAMLProviderName(v string) *UpdateSAMLProviderInput {
+	s.SAMLProviderName = &v
+	return s
+}
+
+// SetSSOType sets the SSOType field's value.
+func (s *UpdateSAMLProviderInput) SetSSOType(v int64) *UpdateSAMLProviderInput {
+	s.SSOType = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *UpdateSAMLProviderInput) SetStatus(v int64) *UpdateSAMLProviderInput {
+	s.Status = &v
+	return s
+}
+
 type UpdateSAMLProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	SAMLProviderName *string `type:"string"`
+
+	SSOType *int32 `type:"int32"`
+
+	Status *int32 `type:"int32"`
+
+	Trn *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
 }
 
 // String returns the string representation
@@ -167,4 +235,46 @@ func (s UpdateSAMLProviderOutput) String() string {
 // GoString returns the string representation
 func (s UpdateSAMLProviderOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *UpdateSAMLProviderOutput) SetCreateDate(v string) *UpdateSAMLProviderOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *UpdateSAMLProviderOutput) SetDescription(v string) *UpdateSAMLProviderOutput {
+	s.Description = &v
+	return s
+}
+
+// SetSAMLProviderName sets the SAMLProviderName field's value.
+func (s *UpdateSAMLProviderOutput) SetSAMLProviderName(v string) *UpdateSAMLProviderOutput {
+	s.SAMLProviderName = &v
+	return s
+}
+
+// SetSSOType sets the SSOType field's value.
+func (s *UpdateSAMLProviderOutput) SetSSOType(v int32) *UpdateSAMLProviderOutput {
+	s.SSOType = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *UpdateSAMLProviderOutput) SetStatus(v int32) *UpdateSAMLProviderOutput {
+	s.Status = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *UpdateSAMLProviderOutput) SetTrn(v string) *UpdateSAMLProviderOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *UpdateSAMLProviderOutput) SetUpdateDate(v string) *UpdateSAMLProviderOutput {
+	s.UpdateDate = &v
+	return s
 }

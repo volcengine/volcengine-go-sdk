@@ -141,6 +141,19 @@ func (c *IAM) CreateSAMLProviderWithContext(ctx volcengine.Context, input *Creat
 
 type CreateSAMLProviderInput struct {
 	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	// EncodedSAMLMetadataDocument is a required field
+	EncodedSAMLMetadataDocument *string `type:"string" required:"true"`
+
+	// SAMLProviderName is a required field
+	SAMLProviderName *string `type:"string" required:"true"`
+
+	// SSOType is a required field
+	SSOType *int64 `type:"integer" required:"true"`
+
+	Status *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -153,10 +166,73 @@ func (s CreateSAMLProviderInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateSAMLProviderInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateSAMLProviderInput"}
+	if s.EncodedSAMLMetadataDocument == nil {
+		invalidParams.Add(request.NewErrParamRequired("EncodedSAMLMetadataDocument"))
+	}
+	if s.SAMLProviderName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SAMLProviderName"))
+	}
+	if s.SSOType == nil {
+		invalidParams.Add(request.NewErrParamRequired("SSOType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateSAMLProviderInput) SetDescription(v string) *CreateSAMLProviderInput {
+	s.Description = &v
+	return s
+}
+
+// SetEncodedSAMLMetadataDocument sets the EncodedSAMLMetadataDocument field's value.
+func (s *CreateSAMLProviderInput) SetEncodedSAMLMetadataDocument(v string) *CreateSAMLProviderInput {
+	s.EncodedSAMLMetadataDocument = &v
+	return s
+}
+
+// SetSAMLProviderName sets the SAMLProviderName field's value.
+func (s *CreateSAMLProviderInput) SetSAMLProviderName(v string) *CreateSAMLProviderInput {
+	s.SAMLProviderName = &v
+	return s
+}
+
+// SetSSOType sets the SSOType field's value.
+func (s *CreateSAMLProviderInput) SetSSOType(v int64) *CreateSAMLProviderInput {
+	s.SSOType = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *CreateSAMLProviderInput) SetStatus(v int64) *CreateSAMLProviderInput {
+	s.Status = &v
+	return s
+}
+
 type CreateSAMLProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	SAMLProviderName *string `type:"string"`
+
+	SSOType *int32 `type:"int32"`
+
+	Status *int32 `type:"int32"`
+
+	Trn *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
 }
 
 // String returns the string representation
@@ -167,4 +243,46 @@ func (s CreateSAMLProviderOutput) String() string {
 // GoString returns the string representation
 func (s CreateSAMLProviderOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *CreateSAMLProviderOutput) SetCreateDate(v string) *CreateSAMLProviderOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateSAMLProviderOutput) SetDescription(v string) *CreateSAMLProviderOutput {
+	s.Description = &v
+	return s
+}
+
+// SetSAMLProviderName sets the SAMLProviderName field's value.
+func (s *CreateSAMLProviderOutput) SetSAMLProviderName(v string) *CreateSAMLProviderOutput {
+	s.SAMLProviderName = &v
+	return s
+}
+
+// SetSSOType sets the SSOType field's value.
+func (s *CreateSAMLProviderOutput) SetSSOType(v int32) *CreateSAMLProviderOutput {
+	s.SSOType = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *CreateSAMLProviderOutput) SetStatus(v int32) *CreateSAMLProviderOutput {
+	s.Status = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *CreateSAMLProviderOutput) SetTrn(v string) *CreateSAMLProviderOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *CreateSAMLProviderOutput) SetUpdateDate(v string) *CreateSAMLProviderOutput {
+	s.UpdateDate = &v
+	return s
 }

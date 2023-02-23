@@ -141,6 +141,12 @@ func (c *IAM) ListRolesWithContext(ctx volcengine.Context, input *ListRolesInput
 
 type ListRolesInput struct {
 	_ struct{} `type:"structure"`
+
+	Limit *int64 `type:"integer"`
+
+	Offset *int64 `type:"integer"`
+
+	Query *string `type:"string"`
 }
 
 // String returns the string representation
@@ -153,12 +159,36 @@ func (s ListRolesInput) GoString() string {
 	return s.String()
 }
 
+// SetLimit sets the Limit field's value.
+func (s *ListRolesInput) SetLimit(v int64) *ListRolesInput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListRolesInput) SetOffset(v int64) *ListRolesInput {
+	s.Offset = &v
+	return s
+}
+
+// SetQuery sets the Query field's value.
+func (s *ListRolesInput) SetQuery(v string) *ListRolesInput {
+	s.Query = &v
+	return s
+}
+
 type ListRolesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 
+	Limit *int32 `type:"int32"`
+
+	Offset *int32 `type:"int32"`
+
 	RoleMetadata []*RoleMetadataForListRolesOutput `type:"list"`
+
+	Total *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -171,9 +201,27 @@ func (s ListRolesOutput) GoString() string {
 	return s.String()
 }
 
+// SetLimit sets the Limit field's value.
+func (s *ListRolesOutput) SetLimit(v int32) *ListRolesOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListRolesOutput) SetOffset(v int32) *ListRolesOutput {
+	s.Offset = &v
+	return s
+}
+
 // SetRoleMetadata sets the RoleMetadata field's value.
 func (s *ListRolesOutput) SetRoleMetadata(v []*RoleMetadataForListRolesOutput) *ListRolesOutput {
 	s.RoleMetadata = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListRolesOutput) SetTotal(v int32) *ListRolesOutput {
+	s.Total = &v
 	return s
 }
 

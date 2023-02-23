@@ -142,9 +142,11 @@ func (c *IAM) ListUsersWithContext(ctx volcengine.Context, input *ListUsersInput
 type ListUsersInput struct {
 	_ struct{} `type:"structure"`
 
-	Limit *string `type:"string"`
+	Limit *int64 `type:"integer"`
 
 	Offset *string `type:"string"`
+
+	Query *string `type:"string"`
 }
 
 // String returns the string representation
@@ -158,7 +160,7 @@ func (s ListUsersInput) GoString() string {
 }
 
 // SetLimit sets the Limit field's value.
-func (s *ListUsersInput) SetLimit(v string) *ListUsersInput {
+func (s *ListUsersInput) SetLimit(v int64) *ListUsersInput {
 	s.Limit = &v
 	return s
 }
@@ -169,10 +171,22 @@ func (s *ListUsersInput) SetOffset(v string) *ListUsersInput {
 	return s
 }
 
+// SetQuery sets the Query field's value.
+func (s *ListUsersInput) SetQuery(v string) *ListUsersInput {
+	s.Query = &v
+	return s
+}
+
 type ListUsersOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Limit *int32 `type:"int32"`
+
+	Offset *int32 `type:"int32"`
+
+	Total *int32 `type:"int32"`
 
 	UserMetadata []*UserMetadataForListUsersOutput `type:"list"`
 }
@@ -185,6 +199,24 @@ func (s ListUsersOutput) String() string {
 // GoString returns the string representation
 func (s ListUsersOutput) GoString() string {
 	return s.String()
+}
+
+// SetLimit sets the Limit field's value.
+func (s *ListUsersOutput) SetLimit(v int32) *ListUsersOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListUsersOutput) SetOffset(v int32) *ListUsersOutput {
+	s.Offset = &v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListUsersOutput) SetTotal(v int32) *ListUsersOutput {
+	s.Total = &v
+	return s
 }
 
 // SetUserMetadata sets the UserMetadata field's value.

@@ -142,6 +142,10 @@ func (c *IAM) ListPoliciesWithContext(ctx volcengine.Context, input *ListPolicie
 type ListPoliciesInput struct {
 	_ struct{} `type:"structure"`
 
+	Limit *int64 `type:"integer"`
+
+	Offset *string `type:"string"`
+
 	Scope *string `type:"string"`
 }
 
@@ -155,6 +159,18 @@ func (s ListPoliciesInput) GoString() string {
 	return s.String()
 }
 
+// SetLimit sets the Limit field's value.
+func (s *ListPoliciesInput) SetLimit(v int64) *ListPoliciesInput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListPoliciesInput) SetOffset(v string) *ListPoliciesInput {
+	s.Offset = &v
+	return s
+}
+
 // SetScope sets the Scope field's value.
 func (s *ListPoliciesInput) SetScope(v string) *ListPoliciesInput {
 	s.Scope = &v
@@ -166,7 +182,13 @@ type ListPoliciesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Limit *int32 `type:"int32"`
+
+	Offset *int32 `type:"int32"`
+
 	PolicyMetadata []*PolicyMetadataForListPoliciesOutput `type:"list"`
+
+	Total *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -179,9 +201,27 @@ func (s ListPoliciesOutput) GoString() string {
 	return s.String()
 }
 
+// SetLimit sets the Limit field's value.
+func (s *ListPoliciesOutput) SetLimit(v int32) *ListPoliciesOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListPoliciesOutput) SetOffset(v int32) *ListPoliciesOutput {
+	s.Offset = &v
+	return s
+}
+
 // SetPolicyMetadata sets the PolicyMetadata field's value.
 func (s *ListPoliciesOutput) SetPolicyMetadata(v []*PolicyMetadataForListPoliciesOutput) *ListPoliciesOutput {
 	s.PolicyMetadata = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListPoliciesOutput) SetTotal(v int32) *ListPoliciesOutput {
+	s.Total = &v
 	return s
 }
 

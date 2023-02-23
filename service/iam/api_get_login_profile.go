@@ -141,6 +141,9 @@ func (c *IAM) GetLoginProfileWithContext(ctx volcengine.Context, input *GetLogin
 
 type GetLoginProfileInput struct {
 	_ struct{} `type:"structure"`
+
+	// UserName is a required field
+	UserName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,10 +156,31 @@ func (s GetLoginProfileInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetLoginProfileInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetLoginProfileInput"}
+	if s.UserName == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetUserName sets the UserName field's value.
+func (s *GetLoginProfileInput) SetUserName(v string) *GetLoginProfileInput {
+	s.UserName = &v
+	return s
+}
+
 type GetLoginProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	LoginProfile *LoginProfileForGetLoginProfileOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -167,4 +191,64 @@ func (s GetLoginProfileOutput) String() string {
 // GoString returns the string representation
 func (s GetLoginProfileOutput) GoString() string {
 	return s.String()
+}
+
+// SetLoginProfile sets the LoginProfile field's value.
+func (s *GetLoginProfileOutput) SetLoginProfile(v *LoginProfileForGetLoginProfileOutput) *GetLoginProfileOutput {
+	s.LoginProfile = v
+	return s
+}
+
+type LoginProfileForGetLoginProfileOutput struct {
+	_ struct{} `type:"structure"`
+
+	LastLoginDate *string `type:"string"`
+
+	LastLoginIp *string `type:"string"`
+
+	LoginAllowed *bool `type:"boolean"`
+
+	PasswordResetRequired *bool `type:"boolean"`
+
+	UserName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LoginProfileForGetLoginProfileOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoginProfileForGetLoginProfileOutput) GoString() string {
+	return s.String()
+}
+
+// SetLastLoginDate sets the LastLoginDate field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetLastLoginDate(v string) *LoginProfileForGetLoginProfileOutput {
+	s.LastLoginDate = &v
+	return s
+}
+
+// SetLastLoginIp sets the LastLoginIp field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetLastLoginIp(v string) *LoginProfileForGetLoginProfileOutput {
+	s.LastLoginIp = &v
+	return s
+}
+
+// SetLoginAllowed sets the LoginAllowed field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetLoginAllowed(v bool) *LoginProfileForGetLoginProfileOutput {
+	s.LoginAllowed = &v
+	return s
+}
+
+// SetPasswordResetRequired sets the PasswordResetRequired field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetPasswordResetRequired(v bool) *LoginProfileForGetLoginProfileOutput {
+	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetUserName(v string) *LoginProfileForGetLoginProfileOutput {
+	s.UserName = &v
+	return s
 }

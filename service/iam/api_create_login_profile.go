@@ -141,6 +141,22 @@ func (c *IAM) CreateLoginProfileWithContext(ctx volcengine.Context, input *Creat
 
 type CreateLoginProfileInput struct {
 	_ struct{} `type:"structure"`
+
+	LoginAllowed *bool `type:"boolean"`
+
+	// Password is a required field
+	Password *string `type:"string" required:"true"`
+
+	PasswordResetRequired *bool `type:"boolean"`
+
+	SafeAuthExemptDuration *int64 `type:"integer"`
+
+	SafeAuthFlag *bool `type:"boolean"`
+
+	SafeAuthType *string `type:"string"`
+
+	// UserName is a required field
+	UserName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,10 +169,70 @@ func (s CreateLoginProfileInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateLoginProfileInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateLoginProfileInput"}
+	if s.Password == nil {
+		invalidParams.Add(request.NewErrParamRequired("Password"))
+	}
+	if s.UserName == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLoginAllowed sets the LoginAllowed field's value.
+func (s *CreateLoginProfileInput) SetLoginAllowed(v bool) *CreateLoginProfileInput {
+	s.LoginAllowed = &v
+	return s
+}
+
+// SetPassword sets the Password field's value.
+func (s *CreateLoginProfileInput) SetPassword(v string) *CreateLoginProfileInput {
+	s.Password = &v
+	return s
+}
+
+// SetPasswordResetRequired sets the PasswordResetRequired field's value.
+func (s *CreateLoginProfileInput) SetPasswordResetRequired(v bool) *CreateLoginProfileInput {
+	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
+func (s *CreateLoginProfileInput) SetSafeAuthExemptDuration(v int64) *CreateLoginProfileInput {
+	s.SafeAuthExemptDuration = &v
+	return s
+}
+
+// SetSafeAuthFlag sets the SafeAuthFlag field's value.
+func (s *CreateLoginProfileInput) SetSafeAuthFlag(v bool) *CreateLoginProfileInput {
+	s.SafeAuthFlag = &v
+	return s
+}
+
+// SetSafeAuthType sets the SafeAuthType field's value.
+func (s *CreateLoginProfileInput) SetSafeAuthType(v string) *CreateLoginProfileInput {
+	s.SafeAuthType = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *CreateLoginProfileInput) SetUserName(v string) *CreateLoginProfileInput {
+	s.UserName = &v
+	return s
+}
+
 type CreateLoginProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	LoginProfile *LoginProfileForCreateLoginProfileOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -167,4 +243,64 @@ func (s CreateLoginProfileOutput) String() string {
 // GoString returns the string representation
 func (s CreateLoginProfileOutput) GoString() string {
 	return s.String()
+}
+
+// SetLoginProfile sets the LoginProfile field's value.
+func (s *CreateLoginProfileOutput) SetLoginProfile(v *LoginProfileForCreateLoginProfileOutput) *CreateLoginProfileOutput {
+	s.LoginProfile = v
+	return s
+}
+
+type LoginProfileForCreateLoginProfileOutput struct {
+	_ struct{} `type:"structure"`
+
+	LastLoginDate *string `type:"string"`
+
+	LastLoginIp *string `type:"string"`
+
+	LoginAllowed *bool `type:"boolean"`
+
+	PasswordResetRequired *bool `type:"boolean"`
+
+	UserName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LoginProfileForCreateLoginProfileOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoginProfileForCreateLoginProfileOutput) GoString() string {
+	return s.String()
+}
+
+// SetLastLoginDate sets the LastLoginDate field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetLastLoginDate(v string) *LoginProfileForCreateLoginProfileOutput {
+	s.LastLoginDate = &v
+	return s
+}
+
+// SetLastLoginIp sets the LastLoginIp field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetLastLoginIp(v string) *LoginProfileForCreateLoginProfileOutput {
+	s.LastLoginIp = &v
+	return s
+}
+
+// SetLoginAllowed sets the LoginAllowed field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetLoginAllowed(v bool) *LoginProfileForCreateLoginProfileOutput {
+	s.LoginAllowed = &v
+	return s
+}
+
+// SetPasswordResetRequired sets the PasswordResetRequired field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetPasswordResetRequired(v bool) *LoginProfileForCreateLoginProfileOutput {
+	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetUserName(v string) *LoginProfileForCreateLoginProfileOutput {
+	s.UserName = &v
+	return s
 }

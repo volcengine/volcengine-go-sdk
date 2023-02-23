@@ -141,6 +141,9 @@ func (c *IAM) DeleteLoginProfileWithContext(ctx volcengine.Context, input *Delet
 
 type DeleteLoginProfileInput struct {
 	_ struct{} `type:"structure"`
+
+	// UserName is a required field
+	UserName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -151,6 +154,25 @@ func (s DeleteLoginProfileInput) String() string {
 // GoString returns the string representation
 func (s DeleteLoginProfileInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteLoginProfileInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteLoginProfileInput"}
+	if s.UserName == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetUserName sets the UserName field's value.
+func (s *DeleteLoginProfileInput) SetUserName(v string) *DeleteLoginProfileInput {
+	s.UserName = &v
+	return s
 }
 
 type DeleteLoginProfileOutput struct {

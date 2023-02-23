@@ -141,6 +141,9 @@ func (c *IAM) DeleteSAMLProviderWithContext(ctx volcengine.Context, input *Delet
 
 type DeleteSAMLProviderInput struct {
 	_ struct{} `type:"structure"`
+
+	// SAMLProviderName is a required field
+	SAMLProviderName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -151,6 +154,25 @@ func (s DeleteSAMLProviderInput) String() string {
 // GoString returns the string representation
 func (s DeleteSAMLProviderInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteSAMLProviderInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteSAMLProviderInput"}
+	if s.SAMLProviderName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SAMLProviderName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSAMLProviderName sets the SAMLProviderName field's value.
+func (s *DeleteSAMLProviderInput) SetSAMLProviderName(v string) *DeleteSAMLProviderInput {
+	s.SAMLProviderName = &v
+	return s
 }
 
 type DeleteSAMLProviderOutput struct {

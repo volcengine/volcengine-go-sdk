@@ -141,6 +141,9 @@ func (c *IAM) GetSAMLProviderWithContext(ctx volcengine.Context, input *GetSAMLP
 
 type GetSAMLProviderInput struct {
 	_ struct{} `type:"structure"`
+
+	// SAMLProviderName is a required field
+	SAMLProviderName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,10 +156,43 @@ func (s GetSAMLProviderInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetSAMLProviderInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetSAMLProviderInput"}
+	if s.SAMLProviderName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SAMLProviderName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSAMLProviderName sets the SAMLProviderName field's value.
+func (s *GetSAMLProviderInput) SetSAMLProviderName(v string) *GetSAMLProviderInput {
+	s.SAMLProviderName = &v
+	return s
+}
+
 type GetSAMLProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	SAMLProviderName *string `type:"string"`
+
+	SSOType *int32 `type:"int32"`
+
+	Status *int32 `type:"int32"`
+
+	Trn *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
 }
 
 // String returns the string representation
@@ -167,4 +203,46 @@ func (s GetSAMLProviderOutput) String() string {
 // GoString returns the string representation
 func (s GetSAMLProviderOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *GetSAMLProviderOutput) SetCreateDate(v string) *GetSAMLProviderOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *GetSAMLProviderOutput) SetDescription(v string) *GetSAMLProviderOutput {
+	s.Description = &v
+	return s
+}
+
+// SetSAMLProviderName sets the SAMLProviderName field's value.
+func (s *GetSAMLProviderOutput) SetSAMLProviderName(v string) *GetSAMLProviderOutput {
+	s.SAMLProviderName = &v
+	return s
+}
+
+// SetSSOType sets the SSOType field's value.
+func (s *GetSAMLProviderOutput) SetSSOType(v int32) *GetSAMLProviderOutput {
+	s.SSOType = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *GetSAMLProviderOutput) SetStatus(v int32) *GetSAMLProviderOutput {
+	s.Status = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *GetSAMLProviderOutput) SetTrn(v string) *GetSAMLProviderOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *GetSAMLProviderOutput) SetUpdateDate(v string) *GetSAMLProviderOutput {
+	s.UpdateDate = &v
+	return s
 }

@@ -141,6 +141,10 @@ func (c *IAM) ListSAMLProvidersWithContext(ctx volcengine.Context, input *ListSA
 
 type ListSAMLProvidersInput struct {
 	_ struct{} `type:"structure"`
+
+	Limit *int64 `type:"integer"`
+
+	Offset *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -153,10 +157,30 @@ func (s ListSAMLProvidersInput) GoString() string {
 	return s.String()
 }
 
+// SetLimit sets the Limit field's value.
+func (s *ListSAMLProvidersInput) SetLimit(v int64) *ListSAMLProvidersInput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListSAMLProvidersInput) SetOffset(v int64) *ListSAMLProvidersInput {
+	s.Offset = &v
+	return s
+}
+
 type ListSAMLProvidersOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Limit *int32 `type:"int32"`
+
+	Offset *int32 `type:"int32"`
+
+	SAMLProviders []*SAMLProviderForListSAMLProvidersOutput `type:"list"`
+
+	Total *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -167,4 +191,98 @@ func (s ListSAMLProvidersOutput) String() string {
 // GoString returns the string representation
 func (s ListSAMLProvidersOutput) GoString() string {
 	return s.String()
+}
+
+// SetLimit sets the Limit field's value.
+func (s *ListSAMLProvidersOutput) SetLimit(v int32) *ListSAMLProvidersOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListSAMLProvidersOutput) SetOffset(v int32) *ListSAMLProvidersOutput {
+	s.Offset = &v
+	return s
+}
+
+// SetSAMLProviders sets the SAMLProviders field's value.
+func (s *ListSAMLProvidersOutput) SetSAMLProviders(v []*SAMLProviderForListSAMLProvidersOutput) *ListSAMLProvidersOutput {
+	s.SAMLProviders = v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListSAMLProvidersOutput) SetTotal(v int32) *ListSAMLProvidersOutput {
+	s.Total = &v
+	return s
+}
+
+type SAMLProviderForListSAMLProvidersOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreateDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	SAMLProviderName *string `type:"string"`
+
+	SSOType *int32 `type:"int32"`
+
+	Status *int32 `type:"int32"`
+
+	Trn *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SAMLProviderForListSAMLProvidersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SAMLProviderForListSAMLProvidersOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *SAMLProviderForListSAMLProvidersOutput) SetCreateDate(v string) *SAMLProviderForListSAMLProvidersOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *SAMLProviderForListSAMLProvidersOutput) SetDescription(v string) *SAMLProviderForListSAMLProvidersOutput {
+	s.Description = &v
+	return s
+}
+
+// SetSAMLProviderName sets the SAMLProviderName field's value.
+func (s *SAMLProviderForListSAMLProvidersOutput) SetSAMLProviderName(v string) *SAMLProviderForListSAMLProvidersOutput {
+	s.SAMLProviderName = &v
+	return s
+}
+
+// SetSSOType sets the SSOType field's value.
+func (s *SAMLProviderForListSAMLProvidersOutput) SetSSOType(v int32) *SAMLProviderForListSAMLProvidersOutput {
+	s.SSOType = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *SAMLProviderForListSAMLProvidersOutput) SetStatus(v int32) *SAMLProviderForListSAMLProvidersOutput {
+	s.Status = &v
+	return s
+}
+
+// SetTrn sets the Trn field's value.
+func (s *SAMLProviderForListSAMLProvidersOutput) SetTrn(v string) *SAMLProviderForListSAMLProvidersOutput {
+	s.Trn = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *SAMLProviderForListSAMLProvidersOutput) SetUpdateDate(v string) *SAMLProviderForListSAMLProvidersOutput {
+	s.UpdateDate = &v
+	return s
 }

@@ -142,6 +142,10 @@ func (c *IAM) ListUsersForGroupWithContext(ctx volcengine.Context, input *ListUs
 type ListUsersForGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	Limit *int64 `type:"integer"`
+
+	Offset *string `type:"string"`
+
 	// UserGroupName is a required field
 	UserGroupName *string `type:"string" required:"true"`
 }
@@ -169,6 +173,18 @@ func (s *ListUsersForGroupInput) Validate() error {
 	return nil
 }
 
+// SetLimit sets the Limit field's value.
+func (s *ListUsersForGroupInput) SetLimit(v int64) *ListUsersForGroupInput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListUsersForGroupInput) SetOffset(v string) *ListUsersForGroupInput {
+	s.Offset = &v
+	return s
+}
+
 // SetUserGroupName sets the UserGroupName field's value.
 func (s *ListUsersForGroupInput) SetUserGroupName(v string) *ListUsersForGroupInput {
 	s.UserGroupName = &v
@@ -179,6 +195,12 @@ type ListUsersForGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Limit *int32 `type:"int32"`
+
+	Offset *int32 `type:"int32"`
+
+	Total *int32 `type:"int32"`
 
 	Users []*UserForListUsersForGroupOutput `type:"list"`
 }
@@ -191,6 +213,24 @@ func (s ListUsersForGroupOutput) String() string {
 // GoString returns the string representation
 func (s ListUsersForGroupOutput) GoString() string {
 	return s.String()
+}
+
+// SetLimit sets the Limit field's value.
+func (s *ListUsersForGroupOutput) SetLimit(v int32) *ListUsersForGroupOutput {
+	s.Limit = &v
+	return s
+}
+
+// SetOffset sets the Offset field's value.
+func (s *ListUsersForGroupOutput) SetOffset(v int32) *ListUsersForGroupOutput {
+	s.Offset = &v
+	return s
+}
+
+// SetTotal sets the Total field's value.
+func (s *ListUsersForGroupOutput) SetTotal(v int32) *ListUsersForGroupOutput {
+	s.Total = &v
+	return s
 }
 
 // SetUsers sets the Users field's value.

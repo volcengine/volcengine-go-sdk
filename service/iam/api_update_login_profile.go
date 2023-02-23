@@ -139,8 +139,77 @@ func (c *IAM) UpdateLoginProfileWithContext(ctx volcengine.Context, input *Updat
 	return out, req.Send()
 }
 
+type LoginProfileForUpdateLoginProfileOutput struct {
+	_ struct{} `type:"structure"`
+
+	LastLoginDate *string `type:"string"`
+
+	LastLoginIp *string `type:"string"`
+
+	LoginAllowed *bool `type:"boolean"`
+
+	PasswordResetRequired *bool `type:"boolean"`
+
+	UserName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LoginProfileForUpdateLoginProfileOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoginProfileForUpdateLoginProfileOutput) GoString() string {
+	return s.String()
+}
+
+// SetLastLoginDate sets the LastLoginDate field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetLastLoginDate(v string) *LoginProfileForUpdateLoginProfileOutput {
+	s.LastLoginDate = &v
+	return s
+}
+
+// SetLastLoginIp sets the LastLoginIp field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetLastLoginIp(v string) *LoginProfileForUpdateLoginProfileOutput {
+	s.LastLoginIp = &v
+	return s
+}
+
+// SetLoginAllowed sets the LoginAllowed field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetLoginAllowed(v bool) *LoginProfileForUpdateLoginProfileOutput {
+	s.LoginAllowed = &v
+	return s
+}
+
+// SetPasswordResetRequired sets the PasswordResetRequired field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetPasswordResetRequired(v bool) *LoginProfileForUpdateLoginProfileOutput {
+	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetUserName(v string) *LoginProfileForUpdateLoginProfileOutput {
+	s.UserName = &v
+	return s
+}
+
 type UpdateLoginProfileInput struct {
 	_ struct{} `type:"structure"`
+
+	LoginAllowed *bool `type:"boolean"`
+
+	Password *string `type:"string"`
+
+	PasswordResetRequired *bool `type:"boolean"`
+
+	SafeAuthExemptDuration *int64 `type:"integer"`
+
+	SafeAuthFlag *bool `type:"boolean"`
+
+	SafeAuthType *string `type:"string"`
+
+	// UserName is a required field
+	UserName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,10 +222,67 @@ func (s UpdateLoginProfileInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateLoginProfileInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateLoginProfileInput"}
+	if s.UserName == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLoginAllowed sets the LoginAllowed field's value.
+func (s *UpdateLoginProfileInput) SetLoginAllowed(v bool) *UpdateLoginProfileInput {
+	s.LoginAllowed = &v
+	return s
+}
+
+// SetPassword sets the Password field's value.
+func (s *UpdateLoginProfileInput) SetPassword(v string) *UpdateLoginProfileInput {
+	s.Password = &v
+	return s
+}
+
+// SetPasswordResetRequired sets the PasswordResetRequired field's value.
+func (s *UpdateLoginProfileInput) SetPasswordResetRequired(v bool) *UpdateLoginProfileInput {
+	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
+func (s *UpdateLoginProfileInput) SetSafeAuthExemptDuration(v int64) *UpdateLoginProfileInput {
+	s.SafeAuthExemptDuration = &v
+	return s
+}
+
+// SetSafeAuthFlag sets the SafeAuthFlag field's value.
+func (s *UpdateLoginProfileInput) SetSafeAuthFlag(v bool) *UpdateLoginProfileInput {
+	s.SafeAuthFlag = &v
+	return s
+}
+
+// SetSafeAuthType sets the SafeAuthType field's value.
+func (s *UpdateLoginProfileInput) SetSafeAuthType(v string) *UpdateLoginProfileInput {
+	s.SafeAuthType = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *UpdateLoginProfileInput) SetUserName(v string) *UpdateLoginProfileInput {
+	s.UserName = &v
+	return s
+}
+
 type UpdateLoginProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	LoginProfile *LoginProfileForUpdateLoginProfileOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -167,4 +293,10 @@ func (s UpdateLoginProfileOutput) String() string {
 // GoString returns the string representation
 func (s UpdateLoginProfileOutput) GoString() string {
 	return s.String()
+}
+
+// SetLoginProfile sets the LoginProfile field's value.
+func (s *UpdateLoginProfileOutput) SetLoginProfile(v *LoginProfileForUpdateLoginProfileOutput) *UpdateLoginProfileOutput {
+	s.LoginProfile = v
+	return s
 }
