@@ -24,7 +24,7 @@ func BodyParam(body *url.Values, r *request.Request) {
 	)
 	contentType := r.HTTPRequest.Header.Get("Content-Type")
 	newBody := body
-	if len(contentType) > 0 && strings.Contains(strings.ToLower(contentType), "x-www-form-urlencoded") {
+	if strings.ToUpper(r.HTTPRequest.Method) == "POST" || (len(contentType) > 0 && strings.Contains(strings.ToLower(contentType), "x-www-form-urlencoded")) {
 		isForm = true
 		newBody = &url.Values{}
 	}
