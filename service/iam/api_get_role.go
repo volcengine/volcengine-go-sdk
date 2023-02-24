@@ -206,7 +206,7 @@ type RoleForGetRoleOutput struct {
 
 	Description *string `type:"string"`
 
-	RoleId *string `type:"string"`
+	RoleId *int32 `type:"int32"`
 
 	RoleName *string `type:"string"`
 
@@ -238,7 +238,7 @@ func (s *RoleForGetRoleOutput) SetDescription(v string) *RoleForGetRoleOutput {
 }
 
 // SetRoleId sets the RoleId field's value.
-func (s *RoleForGetRoleOutput) SetRoleId(v string) *RoleForGetRoleOutput {
+func (s *RoleForGetRoleOutput) SetRoleId(v int32) *RoleForGetRoleOutput {
 	s.RoleId = &v
 	return s
 }

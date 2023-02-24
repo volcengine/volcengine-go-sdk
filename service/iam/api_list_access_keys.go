@@ -141,6 +141,16 @@ func (c *IAM) ListAccessKeysWithContext(ctx volcengine.Context, input *ListAcces
 
 type AccessKeyMetadataForListAccessKeysOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccessKeyId *string `type:"string"`
+
+	CreateDate *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+
+	UserName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -151,6 +161,36 @@ func (s AccessKeyMetadataForListAccessKeysOutput) String() string {
 // GoString returns the string representation
 func (s AccessKeyMetadataForListAccessKeysOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccessKeyId sets the AccessKeyId field's value.
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetAccessKeyId(v string) *AccessKeyMetadataForListAccessKeysOutput {
+	s.AccessKeyId = &v
+	return s
+}
+
+// SetCreateDate sets the CreateDate field's value.
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetCreateDate(v string) *AccessKeyMetadataForListAccessKeysOutput {
+	s.CreateDate = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetStatus(v string) *AccessKeyMetadataForListAccessKeysOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetUpdateDate(v string) *AccessKeyMetadataForListAccessKeysOutput {
+	s.UpdateDate = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetUserName(v string) *AccessKeyMetadataForListAccessKeysOutput {
+	s.UserName = &v
+	return s
 }
 
 type ListAccessKeysInput struct {
