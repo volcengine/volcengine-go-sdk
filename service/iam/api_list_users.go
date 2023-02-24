@@ -228,7 +228,7 @@ func (s *ListUsersOutput) SetUserMetadata(v []*UserMetadataForListUsersOutput) *
 type UserMetadataForListUsersOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
+	AccountId *int32 `type:"int32"`
 
 	CreateDate *string `type:"string"`
 
@@ -238,11 +238,13 @@ type UserMetadataForListUsersOutput struct {
 
 	Email *string `type:"string"`
 
-	EmailIsVerify *string `type:"string"`
+	EmailIsVerify *bool `type:"boolean"`
+
+	Id *int32 `type:"int32"`
 
 	MobilePhone *string `type:"string"`
 
-	MobilePhoneIsVerify *string `type:"string"`
+	MobilePhoneIsVerify *bool `type:"boolean"`
 
 	Trn *string `type:"string"`
 
@@ -262,7 +264,7 @@ func (s UserMetadataForListUsersOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *UserMetadataForListUsersOutput) SetAccountId(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadataForListUsersOutput) SetAccountId(v int32) *UserMetadataForListUsersOutput {
 	s.AccountId = &v
 	return s
 }
@@ -292,8 +294,14 @@ func (s *UserMetadataForListUsersOutput) SetEmail(v string) *UserMetadataForList
 }
 
 // SetEmailIsVerify sets the EmailIsVerify field's value.
-func (s *UserMetadataForListUsersOutput) SetEmailIsVerify(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadataForListUsersOutput) SetEmailIsVerify(v bool) *UserMetadataForListUsersOutput {
 	s.EmailIsVerify = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *UserMetadataForListUsersOutput) SetId(v int32) *UserMetadataForListUsersOutput {
+	s.Id = &v
 	return s
 }
 
@@ -304,7 +312,7 @@ func (s *UserMetadataForListUsersOutput) SetMobilePhone(v string) *UserMetadataF
 }
 
 // SetMobilePhoneIsVerify sets the MobilePhoneIsVerify field's value.
-func (s *UserMetadataForListUsersOutput) SetMobilePhoneIsVerify(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadataForListUsersOutput) SetMobilePhoneIsVerify(v bool) *UserMetadataForListUsersOutput {
 	s.MobilePhoneIsVerify = &v
 	return s
 }

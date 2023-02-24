@@ -242,7 +242,7 @@ func (s *UpdateUserOutput) SetUser(v *UserForUpdateUserOutput) *UpdateUserOutput
 type UserForUpdateUserOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
+	AccountId *int32 `type:"int32"`
 
 	CreateDate *string `type:"string"`
 
@@ -252,11 +252,13 @@ type UserForUpdateUserOutput struct {
 
 	Email *string `type:"string"`
 
-	EmailIsVerify *string `type:"string"`
+	EmailIsVerify *bool `type:"boolean"`
+
+	Id *int32 `type:"int32"`
 
 	MobilePhone *string `type:"string"`
 
-	MobilePhoneIsVerify *string `type:"string"`
+	MobilePhoneIsVerify *bool `type:"boolean"`
 
 	Trn *string `type:"string"`
 
@@ -276,7 +278,7 @@ func (s UserForUpdateUserOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *UserForUpdateUserOutput) SetAccountId(v string) *UserForUpdateUserOutput {
+func (s *UserForUpdateUserOutput) SetAccountId(v int32) *UserForUpdateUserOutput {
 	s.AccountId = &v
 	return s
 }
@@ -306,8 +308,14 @@ func (s *UserForUpdateUserOutput) SetEmail(v string) *UserForUpdateUserOutput {
 }
 
 // SetEmailIsVerify sets the EmailIsVerify field's value.
-func (s *UserForUpdateUserOutput) SetEmailIsVerify(v string) *UserForUpdateUserOutput {
+func (s *UserForUpdateUserOutput) SetEmailIsVerify(v bool) *UserForUpdateUserOutput {
 	s.EmailIsVerify = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *UserForUpdateUserOutput) SetId(v int32) *UserForUpdateUserOutput {
+	s.Id = &v
 	return s
 }
 
@@ -318,7 +326,7 @@ func (s *UserForUpdateUserOutput) SetMobilePhone(v string) *UserForUpdateUserOut
 }
 
 // SetMobilePhoneIsVerify sets the MobilePhoneIsVerify field's value.
-func (s *UserForUpdateUserOutput) SetMobilePhoneIsVerify(v string) *UserForUpdateUserOutput {
+func (s *UserForUpdateUserOutput) SetMobilePhoneIsVerify(v bool) *UserForUpdateUserOutput {
 	s.MobilePhoneIsVerify = &v
 	return s
 }

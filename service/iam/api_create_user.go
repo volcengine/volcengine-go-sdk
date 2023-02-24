@@ -234,7 +234,7 @@ func (s *CreateUserOutput) SetUser(v *UserForCreateUserOutput) *CreateUserOutput
 type UserForCreateUserOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
+	AccountId *int32 `type:"int32"`
 
 	CreateDate *string `type:"string"`
 
@@ -244,11 +244,13 @@ type UserForCreateUserOutput struct {
 
 	Email *string `type:"string"`
 
-	EmailIsVerify *string `type:"string"`
+	EmailIsVerify *bool `type:"boolean"`
+
+	Id *int32 `type:"int32"`
 
 	MobilePhone *string `type:"string"`
 
-	MobilePhoneIsVerify *string `type:"string"`
+	MobilePhoneIsVerify *bool `type:"boolean"`
 
 	Trn *string `type:"string"`
 
@@ -268,7 +270,7 @@ func (s UserForCreateUserOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *UserForCreateUserOutput) SetAccountId(v string) *UserForCreateUserOutput {
+func (s *UserForCreateUserOutput) SetAccountId(v int32) *UserForCreateUserOutput {
 	s.AccountId = &v
 	return s
 }
@@ -298,8 +300,14 @@ func (s *UserForCreateUserOutput) SetEmail(v string) *UserForCreateUserOutput {
 }
 
 // SetEmailIsVerify sets the EmailIsVerify field's value.
-func (s *UserForCreateUserOutput) SetEmailIsVerify(v string) *UserForCreateUserOutput {
+func (s *UserForCreateUserOutput) SetEmailIsVerify(v bool) *UserForCreateUserOutput {
 	s.EmailIsVerify = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *UserForCreateUserOutput) SetId(v int32) *UserForCreateUserOutput {
+	s.Id = &v
 	return s
 }
 
@@ -310,7 +318,7 @@ func (s *UserForCreateUserOutput) SetMobilePhone(v string) *UserForCreateUserOut
 }
 
 // SetMobilePhoneIsVerify sets the MobilePhoneIsVerify field's value.
-func (s *UserForCreateUserOutput) SetMobilePhoneIsVerify(v string) *UserForCreateUserOutput {
+func (s *UserForCreateUserOutput) SetMobilePhoneIsVerify(v bool) *UserForCreateUserOutput {
 	s.MobilePhoneIsVerify = &v
 	return s
 }

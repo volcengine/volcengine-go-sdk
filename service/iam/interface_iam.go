@@ -46,6 +46,14 @@ type IAMAPI interface {
 	AttachRolePolicyWithContext(volcengine.Context, *AttachRolePolicyInput, ...request.Option) (*AttachRolePolicyOutput, error)
 	AttachRolePolicyRequest(*AttachRolePolicyInput) (*request.Request, *AttachRolePolicyOutput)
 
+	AttachUserGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AttachUserGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AttachUserGroupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AttachUserGroupPolicy(*AttachUserGroupPolicyInput) (*AttachUserGroupPolicyOutput, error)
+	AttachUserGroupPolicyWithContext(volcengine.Context, *AttachUserGroupPolicyInput, ...request.Option) (*AttachUserGroupPolicyOutput, error)
+	AttachUserGroupPolicyRequest(*AttachUserGroupPolicyInput) (*request.Request, *AttachUserGroupPolicyOutput)
+
 	AttachUserPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachUserPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AttachUserPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -182,6 +190,14 @@ type IAMAPI interface {
 	DetachRolePolicyWithContext(volcengine.Context, *DetachRolePolicyInput, ...request.Option) (*DetachRolePolicyOutput, error)
 	DetachRolePolicyRequest(*DetachRolePolicyInput) (*request.Request, *DetachRolePolicyOutput)
 
+	DetachUserGroupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetachUserGroupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetachUserGroupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetachUserGroupPolicy(*DetachUserGroupPolicyInput) (*DetachUserGroupPolicyOutput, error)
+	DetachUserGroupPolicyWithContext(volcengine.Context, *DetachUserGroupPolicyInput, ...request.Option) (*DetachUserGroupPolicyOutput, error)
+	DetachUserGroupPolicyRequest(*DetachUserGroupPolicyInput) (*request.Request, *DetachUserGroupPolicyOutput)
+
 	DetachUserPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DetachUserPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DetachUserPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -253,6 +269,14 @@ type IAMAPI interface {
 	ListAttachedRolePolicies(*ListAttachedRolePoliciesInput) (*ListAttachedRolePoliciesOutput, error)
 	ListAttachedRolePoliciesWithContext(volcengine.Context, *ListAttachedRolePoliciesInput, ...request.Option) (*ListAttachedRolePoliciesOutput, error)
 	ListAttachedRolePoliciesRequest(*ListAttachedRolePoliciesInput) (*request.Request, *ListAttachedRolePoliciesOutput)
+
+	ListAttachedUserGroupPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAttachedUserGroupPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAttachedUserGroupPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAttachedUserGroupPolicies(*ListAttachedUserGroupPoliciesInput) (*ListAttachedUserGroupPoliciesOutput, error)
+	ListAttachedUserGroupPoliciesWithContext(volcengine.Context, *ListAttachedUserGroupPoliciesInput, ...request.Option) (*ListAttachedUserGroupPoliciesOutput, error)
+	ListAttachedUserGroupPoliciesRequest(*ListAttachedUserGroupPoliciesInput) (*request.Request, *ListAttachedUserGroupPoliciesOutput)
 
 	ListAttachedUserPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAttachedUserPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
