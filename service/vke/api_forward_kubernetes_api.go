@@ -150,7 +150,7 @@ type ForwardKubernetesApiInput struct {
 
 	ClusterId *string `type:"string"`
 
-	Headers map[string][]*string `type:"map"`
+	Headers []*HeaderForForwardKubernetesApiInput `type:"list"`
 
 	Method *string `type:"string"`
 
@@ -180,7 +180,7 @@ func (s *ForwardKubernetesApiInput) SetClusterId(v string) *ForwardKubernetesApi
 }
 
 // SetHeaders sets the Headers field's value.
-func (s *ForwardKubernetesApiInput) SetHeaders(v map[string][]*string) *ForwardKubernetesApiInput {
+func (s *ForwardKubernetesApiInput) SetHeaders(v []*HeaderForForwardKubernetesApiInput) *ForwardKubernetesApiInput {
 	s.Headers = v
 	return s
 }
@@ -226,5 +226,35 @@ func (s *ForwardKubernetesApiOutput) SetBody(v string) *ForwardKubernetesApiOutp
 // SetCode sets the Code field's value.
 func (s *ForwardKubernetesApiOutput) SetCode(v int32) *ForwardKubernetesApiOutput {
 	s.Code = &v
+	return s
+}
+
+type HeaderForForwardKubernetesApiInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s HeaderForForwardKubernetesApiInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HeaderForForwardKubernetesApiInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *HeaderForForwardKubernetesApiInput) SetKey(v string) *HeaderForForwardKubernetesApiInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *HeaderForForwardKubernetesApiInput) SetValue(v string) *HeaderForForwardKubernetesApiInput {
+	s.Value = &v
 	return s
 }
