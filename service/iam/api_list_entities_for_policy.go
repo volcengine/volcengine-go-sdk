@@ -286,6 +286,8 @@ type PolicyRoleForListEntitiesForPolicyOutput struct {
 
 	Description *string `type:"string"`
 
+	PolicyScope []*PolicyScopeForListEntitiesForPolicyOutput `type:"list"`
+
 	RoleName *string `type:"string"`
 }
 
@@ -308,6 +310,12 @@ func (s *PolicyRoleForListEntitiesForPolicyOutput) SetAttachDate(v string) *Poli
 // SetDescription sets the Description field's value.
 func (s *PolicyRoleForListEntitiesForPolicyOutput) SetDescription(v string) *PolicyRoleForListEntitiesForPolicyOutput {
 	s.Description = &v
+	return s
+}
+
+// SetPolicyScope sets the PolicyScope field's value.
+func (s *PolicyRoleForListEntitiesForPolicyOutput) SetPolicyScope(v []*PolicyScopeForListEntitiesForPolicyOutput) *PolicyRoleForListEntitiesForPolicyOutput {
+	s.PolicyScope = v
 	return s
 }
 
@@ -372,6 +380,8 @@ type PolicyUserForListEntitiesForPolicyOutput struct {
 
 	DisplayName *string `type:"string"`
 
+	PolicyScope []*PolicyScopeForListEntitiesForPolicyOutput `type:"list"`
+
 	UserName *string `type:"string"`
 }
 
@@ -400,6 +410,12 @@ func (s *PolicyUserForListEntitiesForPolicyOutput) SetDescription(v string) *Pol
 // SetDisplayName sets the DisplayName field's value.
 func (s *PolicyUserForListEntitiesForPolicyOutput) SetDisplayName(v string) *PolicyUserForListEntitiesForPolicyOutput {
 	s.DisplayName = &v
+	return s
+}
+
+// SetPolicyScope sets the PolicyScope field's value.
+func (s *PolicyUserForListEntitiesForPolicyOutput) SetPolicyScope(v []*PolicyScopeForListEntitiesForPolicyOutput) *PolicyUserForListEntitiesForPolicyOutput {
+	s.PolicyScope = v
 	return s
 }
 
