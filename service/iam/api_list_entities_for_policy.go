@@ -226,6 +226,8 @@ type ListEntitiesForPolicyOutput struct {
 
 	PolicyRoles []*PolicyRoleForListEntitiesForPolicyOutput `type:"list"`
 
+	PolicyUserGroups []*PolicyUserGroupForListEntitiesForPolicyOutput `type:"list"`
+
 	PolicyUsers []*PolicyUserForListEntitiesForPolicyOutput `type:"list"`
 
 	Total *int32 `type:"int32"`
@@ -256,6 +258,12 @@ func (s *ListEntitiesForPolicyOutput) SetOffset(v int32) *ListEntitiesForPolicyO
 // SetPolicyRoles sets the PolicyRoles field's value.
 func (s *ListEntitiesForPolicyOutput) SetPolicyRoles(v []*PolicyRoleForListEntitiesForPolicyOutput) *ListEntitiesForPolicyOutput {
 	s.PolicyRoles = v
+	return s
+}
+
+// SetPolicyUserGroups sets the PolicyUserGroups field's value.
+func (s *ListEntitiesForPolicyOutput) SetPolicyUserGroups(v []*PolicyUserGroupForListEntitiesForPolicyOutput) *ListEntitiesForPolicyOutput {
+	s.PolicyUserGroups = v
 	return s
 }
 
@@ -309,6 +317,52 @@ func (s *PolicyRoleForListEntitiesForPolicyOutput) SetRoleName(v string) *Policy
 	return s
 }
 
+type PolicyScopeForListEntitiesForPolicyOutput struct {
+	_ struct{} `type:"structure"`
+
+	AttachDate *string `type:"string"`
+
+	PolicyScopeType *string `type:"string"`
+
+	ProjectDisplayName *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PolicyScopeForListEntitiesForPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PolicyScopeForListEntitiesForPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAttachDate sets the AttachDate field's value.
+func (s *PolicyScopeForListEntitiesForPolicyOutput) SetAttachDate(v string) *PolicyScopeForListEntitiesForPolicyOutput {
+	s.AttachDate = &v
+	return s
+}
+
+// SetPolicyScopeType sets the PolicyScopeType field's value.
+func (s *PolicyScopeForListEntitiesForPolicyOutput) SetPolicyScopeType(v string) *PolicyScopeForListEntitiesForPolicyOutput {
+	s.PolicyScopeType = &v
+	return s
+}
+
+// SetProjectDisplayName sets the ProjectDisplayName field's value.
+func (s *PolicyScopeForListEntitiesForPolicyOutput) SetProjectDisplayName(v string) *PolicyScopeForListEntitiesForPolicyOutput {
+	s.ProjectDisplayName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *PolicyScopeForListEntitiesForPolicyOutput) SetProjectName(v string) *PolicyScopeForListEntitiesForPolicyOutput {
+	s.ProjectName = &v
+	return s
+}
+
 type PolicyUserForListEntitiesForPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -352,5 +406,59 @@ func (s *PolicyUserForListEntitiesForPolicyOutput) SetDisplayName(v string) *Pol
 // SetUserName sets the UserName field's value.
 func (s *PolicyUserForListEntitiesForPolicyOutput) SetUserName(v string) *PolicyUserForListEntitiesForPolicyOutput {
 	s.UserName = &v
+	return s
+}
+
+type PolicyUserGroupForListEntitiesForPolicyOutput struct {
+	_ struct{} `type:"structure"`
+
+	AttachDate *string `type:"string"`
+
+	Description *string `type:"string"`
+
+	DisplayName *string `type:"string"`
+
+	PolicyScope []*PolicyScopeForListEntitiesForPolicyOutput `type:"list"`
+
+	UserGroupName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PolicyUserGroupForListEntitiesForPolicyOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PolicyUserGroupForListEntitiesForPolicyOutput) GoString() string {
+	return s.String()
+}
+
+// SetAttachDate sets the AttachDate field's value.
+func (s *PolicyUserGroupForListEntitiesForPolicyOutput) SetAttachDate(v string) *PolicyUserGroupForListEntitiesForPolicyOutput {
+	s.AttachDate = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *PolicyUserGroupForListEntitiesForPolicyOutput) SetDescription(v string) *PolicyUserGroupForListEntitiesForPolicyOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *PolicyUserGroupForListEntitiesForPolicyOutput) SetDisplayName(v string) *PolicyUserGroupForListEntitiesForPolicyOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetPolicyScope sets the PolicyScope field's value.
+func (s *PolicyUserGroupForListEntitiesForPolicyOutput) SetPolicyScope(v []*PolicyScopeForListEntitiesForPolicyOutput) *PolicyUserGroupForListEntitiesForPolicyOutput {
+	s.PolicyScope = v
+	return s
+}
+
+// SetUserGroupName sets the UserGroupName field's value.
+func (s *PolicyUserGroupForListEntitiesForPolicyOutput) SetUserGroupName(v string) *PolicyUserGroupForListEntitiesForPolicyOutput {
+	s.UserGroupName = &v
 	return s
 }
