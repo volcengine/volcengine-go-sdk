@@ -188,6 +188,8 @@ type ItemForListRepositoriesOutput struct {
 
 	CreateTime *string `type:"string"`
 
+	Description *string `type:"string"`
+
 	Name *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -212,6 +214,12 @@ func (s *ItemForListRepositoriesOutput) SetAccessLevel(v string) *ItemForListRep
 // SetCreateTime sets the CreateTime field's value.
 func (s *ItemForListRepositoriesOutput) SetCreateTime(v string) *ItemForListRepositoriesOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ItemForListRepositoriesOutput) SetDescription(v string) *ItemForListRepositoriesOutput {
+	s.Description = &v
 	return s
 }
 
