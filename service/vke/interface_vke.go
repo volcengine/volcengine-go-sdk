@@ -182,13 +182,13 @@ type VKEAPI interface {
 	ListSupportedResourceTypesWithContext(volcengine.Context, *ListSupportedResourceTypesInput, ...request.Option) (*ListSupportedResourceTypesOutput, error)
 	ListSupportedResourceTypesRequest(*ListSupportedResourceTypesInput) (*request.Request, *ListSupportedResourceTypesOutput)
 
-	ListTagsForResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListTagsForResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListTagsForResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	ListTagsForResource(*ListTagsForResourceInput) (*ListTagsForResourceOutput, error)
-	ListTagsForResourceWithContext(volcengine.Context, *ListTagsForResourceInput, ...request.Option) (*ListTagsForResourceOutput, error)
-	ListTagsForResourceRequest(*ListTagsForResourceInput) (*request.Request, *ListTagsForResourceOutput)
+	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
+	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
 
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
