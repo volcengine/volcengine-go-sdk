@@ -142,6 +142,8 @@ func (c *ECS) DisassociateInstancesIamRoleWithContext(ctx volcengine.Context, in
 type DisassociateInstancesIamRoleInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	IamRoleName *string `type:"string"`
 
 	InstanceIds []*string `type:"list"`
@@ -155,6 +157,12 @@ func (s DisassociateInstancesIamRoleInput) String() string {
 // GoString returns the string representation
 func (s DisassociateInstancesIamRoleInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DisassociateInstancesIamRoleInput) SetClientToken(v string) *DisassociateInstancesIamRoleInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetIamRoleName sets the IamRoleName field's value.

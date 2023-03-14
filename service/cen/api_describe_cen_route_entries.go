@@ -237,6 +237,10 @@ type DescribeCenRouteEntriesInput struct {
 	InstanceRegionId *string `type:"string"`
 
 	InstanceType *string `type:"string"`
+
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -276,6 +280,18 @@ func (s *DescribeCenRouteEntriesInput) SetInstanceRegionId(v string) *DescribeCe
 // SetInstanceType sets the InstanceType field's value.
 func (s *DescribeCenRouteEntriesInput) SetInstanceType(v string) *DescribeCenRouteEntriesInput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeCenRouteEntriesInput) SetPageNumber(v int64) *DescribeCenRouteEntriesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeCenRouteEntriesInput) SetPageSize(v int64) *DescribeCenRouteEntriesInput {
+	s.PageSize = &v
 	return s
 }
 

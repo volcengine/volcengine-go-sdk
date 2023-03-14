@@ -142,6 +142,8 @@ func (c *ECS) CreateTagsWithContext(ctx volcengine.Context, input *CreateTagsInp
 type CreateTagsInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	ResourceIds []*string `type:"list"`
 
 	ResourceType *string `type:"string"`
@@ -157,6 +159,12 @@ func (s CreateTagsInput) String() string {
 // GoString returns the string representation
 func (s CreateTagsInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateTagsInput) SetClientToken(v string) *CreateTagsInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetResourceIds sets the ResourceIds field's value.

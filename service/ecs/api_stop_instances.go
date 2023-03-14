@@ -202,6 +202,8 @@ func (s *OperationDetailForStopInstancesOutput) SetInstanceId(v string) *Operati
 type StopInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	ForceStop *bool `type:"boolean"`
 
 	InstanceIds []*string `type:"list"`
@@ -217,6 +219,12 @@ func (s StopInstancesInput) String() string {
 // GoString returns the string representation
 func (s StopInstancesInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *StopInstancesInput) SetClientToken(v string) *StopInstancesInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetForceStop sets the ForceStop field's value.
