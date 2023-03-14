@@ -142,6 +142,8 @@ func (c *ECS) DeleteDeploymentSetWithContext(ctx volcengine.Context, input *Dele
 type DeleteDeploymentSetInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	DeploymentSetId *string `type:"string"`
 }
 
@@ -153,6 +155,12 @@ func (s DeleteDeploymentSetInput) String() string {
 // GoString returns the string representation
 func (s DeleteDeploymentSetInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DeleteDeploymentSetInput) SetClientToken(v string) *DeleteDeploymentSetInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDeploymentSetId sets the DeploymentSetId field's value.

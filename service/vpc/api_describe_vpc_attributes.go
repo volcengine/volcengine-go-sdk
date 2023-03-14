@@ -250,6 +250,8 @@ type DescribeVpcAttributesOutput struct {
 
 	UpdateTime *string `type:"string"`
 
+	UserCidrBlocks []*string `type:"list"`
+
 	VpcId *string `type:"string"`
 
 	VpcName *string `type:"string"`
@@ -358,6 +360,12 @@ func (s *DescribeVpcAttributesOutput) SetTags(v []*TagForDescribeVpcAttributesOu
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeVpcAttributesOutput) SetUpdateTime(v string) *DescribeVpcAttributesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetUserCidrBlocks sets the UserCidrBlocks field's value.
+func (s *DescribeVpcAttributesOutput) SetUserCidrBlocks(v []*string) *DescribeVpcAttributesOutput {
+	s.UserCidrBlocks = v
 	return s
 }
 

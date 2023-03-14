@@ -180,6 +180,8 @@ type DeleteVpnConnectionOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	OrderId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -191,6 +193,12 @@ func (s DeleteVpnConnectionOutput) String() string {
 // GoString returns the string representation
 func (s DeleteVpnConnectionOutput) GoString() string {
 	return s.String()
+}
+
+// SetOrderId sets the OrderId field's value.
+func (s *DeleteVpnConnectionOutput) SetOrderId(v string) *DeleteVpnConnectionOutput {
+	s.OrderId = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

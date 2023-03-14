@@ -142,6 +142,8 @@ func (c *ECS) DetachKeyPairWithContext(ctx volcengine.Context, input *DetachKeyP
 type DetachKeyPairInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceIds []*string `type:"list"`
 
 	KeyPairId *string `type:"string"`
@@ -157,6 +159,12 @@ func (s DetachKeyPairInput) String() string {
 // GoString returns the string representation
 func (s DetachKeyPairInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DetachKeyPairInput) SetClientToken(v string) *DetachKeyPairInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceIds sets the InstanceIds field's value.

@@ -85,6 +85,22 @@ type STORAGEEBSAPI interface {
 	ModifyVolumeAttribute(*ModifyVolumeAttributeInput) (*ModifyVolumeAttributeOutput, error)
 	ModifyVolumeAttributeWithContext(volcengine.Context, *ModifyVolumeAttributeInput, ...request.Option) (*ModifyVolumeAttributeOutput, error)
 	ModifyVolumeAttributeRequest(*ModifyVolumeAttributeInput) (*request.Request, *ModifyVolumeAttributeOutput)
+
+	ModifyVolumeChargeTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyVolumeChargeTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyVolumeChargeTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVolumeChargeType(*ModifyVolumeChargeTypeInput) (*ModifyVolumeChargeTypeOutput, error)
+	ModifyVolumeChargeTypeWithContext(volcengine.Context, *ModifyVolumeChargeTypeInput, ...request.Option) (*ModifyVolumeChargeTypeOutput, error)
+	ModifyVolumeChargeTypeRequest(*ModifyVolumeChargeTypeInput) (*request.Request, *ModifyVolumeChargeTypeOutput)
+
+	TerminateVolumesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TerminateVolumesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TerminateVolumesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TerminateVolumes(*TerminateVolumesInput) (*TerminateVolumesOutput, error)
+	TerminateVolumesWithContext(volcengine.Context, *TerminateVolumesInput, ...request.Option) (*TerminateVolumesOutput, error)
+	TerminateVolumesRequest(*TerminateVolumesInput) (*request.Request, *TerminateVolumesOutput)
 }
 
 var _ STORAGEEBSAPI = (*STORAGEEBS)(nil)

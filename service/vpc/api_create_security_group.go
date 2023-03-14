@@ -150,6 +150,8 @@ type CreateSecurityGroupInput struct {
 
 	SecurityGroupName *string `type:"string"`
 
+	ServiceManaged *bool `type:"boolean"`
+
 	Tags []*TagForCreateSecurityGroupInput `type:"list"`
 
 	// VpcId is a required field
@@ -200,6 +202,12 @@ func (s *CreateSecurityGroupInput) SetProjectName(v string) *CreateSecurityGroup
 // SetSecurityGroupName sets the SecurityGroupName field's value.
 func (s *CreateSecurityGroupInput) SetSecurityGroupName(v string) *CreateSecurityGroupInput {
 	s.SecurityGroupName = &v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *CreateSecurityGroupInput) SetServiceManaged(v bool) *CreateSecurityGroupInput {
+	s.ServiceManaged = &v
 	return s
 }
 
