@@ -535,6 +535,9 @@ const (
 )
 
 const (
+	// EnumOfDeployNodeTypeListForListAddonsInputEdgeNode is a EnumOfDeployNodeTypeListForListAddonsInput enum value
+	EnumOfDeployNodeTypeListForListAddonsInputEdgeNode = "EdgeNode"
+
 	// EnumOfDeployNodeTypeListForListAddonsInputNode is a EnumOfDeployNodeTypeListForListAddonsInput enum value
 	EnumOfDeployNodeTypeListForListAddonsInputNode = "Node"
 

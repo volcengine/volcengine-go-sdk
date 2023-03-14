@@ -154,6 +154,8 @@ type CreateAddonInput struct {
 
 	DeployMode *string `type:"string" enum:"EnumOfDeployModeForCreateAddonInput"`
 
+	DeployNodeType *string `type:"string" enum:"EnumOfDeployNodeTypeForCreateAddonInput"`
+
 	Name *string `type:"string"`
 
 	Version *string `type:"string"`
@@ -193,6 +195,12 @@ func (s *CreateAddonInput) SetDeployMode(v string) *CreateAddonInput {
 	return s
 }
 
+// SetDeployNodeType sets the DeployNodeType field's value.
+func (s *CreateAddonInput) SetDeployNodeType(v string) *CreateAddonInput {
+	s.DeployNodeType = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *CreateAddonInput) SetName(v string) *CreateAddonInput {
 	s.Name = &v
@@ -227,4 +235,15 @@ const (
 
 	// EnumOfDeployModeForCreateAddonInputUnmanaged is a EnumOfDeployModeForCreateAddonInput enum value
 	EnumOfDeployModeForCreateAddonInputUnmanaged = "Unmanaged"
+)
+
+const (
+	// EnumOfDeployNodeTypeForCreateAddonInputEdgeNode is a EnumOfDeployNodeTypeForCreateAddonInput enum value
+	EnumOfDeployNodeTypeForCreateAddonInputEdgeNode = "EdgeNode"
+
+	// EnumOfDeployNodeTypeForCreateAddonInputNode is a EnumOfDeployNodeTypeForCreateAddonInput enum value
+	EnumOfDeployNodeTypeForCreateAddonInputNode = "Node"
+
+	// EnumOfDeployNodeTypeForCreateAddonInputVirtualNode is a EnumOfDeployNodeTypeForCreateAddonInput enum value
+	EnumOfDeployNodeTypeForCreateAddonInputVirtualNode = "VirtualNode"
 )
