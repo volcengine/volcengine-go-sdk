@@ -270,9 +270,9 @@ type ParameterChangeLogForDescribeDBInstanceParametersLogOutput struct {
 
 	ParameterName *string `type:"string"`
 
-	ParameterRole *string `type:"string" enum:"EnumOfParameterRoleForDescribeDBInstanceParametersLogOutput"`
+	ParameterRole *string `type:"string"`
 
-	ParameterStatus *string `type:"string" enum:"EnumOfParameterStatusForDescribeDBInstanceParametersLogOutput"`
+	ParameterStatus *string `type:"string"`
 }
 
 // String returns the string representation
@@ -320,31 +320,3 @@ func (s *ParameterChangeLogForDescribeDBInstanceParametersLogOutput) SetParamete
 	s.ParameterStatus = &v
 	return s
 }
-
-const (
-	// EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputConfigServer is a EnumOfParameterRoleForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputConfigServer = "ConfigServer"
-
-	// EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputMongos is a EnumOfParameterRoleForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputMongos = "Mongos"
-
-	// EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputNode is a EnumOfParameterRoleForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputNode = "Node"
-
-	// EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputShard is a EnumOfParameterRoleForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputShard = "Shard"
-
-	// EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputUnknown is a EnumOfParameterRoleForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersLogOutputUnknown = "Unknown"
-)
-
-const (
-	// EnumOfParameterStatusForDescribeDBInstanceParametersLogOutputApplied is a EnumOfParameterStatusForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParameterStatusForDescribeDBInstanceParametersLogOutputApplied = "Applied"
-
-	// EnumOfParameterStatusForDescribeDBInstanceParametersLogOutputInvalid is a EnumOfParameterStatusForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParameterStatusForDescribeDBInstanceParametersLogOutputInvalid = "Invalid"
-
-	// EnumOfParameterStatusForDescribeDBInstanceParametersLogOutputUnknown is a EnumOfParameterStatusForDescribeDBInstanceParametersLogOutput enum value
-	EnumOfParameterStatusForDescribeDBInstanceParametersLogOutputUnknown = "Unknown"
-)

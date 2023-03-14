@@ -148,9 +148,9 @@ type ConfigServerForDescribeDBInstanceDetailOutput struct {
 
 	ConfigServerNodeId *string `type:"string"`
 
-	NodeRole *string `type:"string" enum:"EnumOfNodeRoleForDescribeDBInstanceDetailOutput"`
+	NodeRole *string `type:"string"`
 
-	NodeStatus *string `type:"string" enum:"EnumOfNodeStatusForDescribeDBInstanceDetailOutput"`
+	NodeStatus *string `type:"string"`
 
 	TotalMemoryGB *float64 `type:"double"`
 
@@ -218,9 +218,9 @@ type DBInstanceForDescribeDBInstanceDetailOutput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeDBInstanceDetailOutput"`
+	ChargeStatus *string `type:"string"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
+	ChargeType *string `type:"string"`
 
 	ClosedTime *string `type:"string"`
 
@@ -230,9 +230,9 @@ type DBInstanceForDescribeDBInstanceDetailOutput struct {
 
 	CreateTime *string `type:"string"`
 
-	DBEngine *string `type:"string" enum:"EnumOfDBEngineForDescribeDBInstanceDetailOutput"`
+	DBEngine *string `type:"string"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput"`
+	DBEngineVersion *string `type:"string"`
 
 	DBEngineVersionStr *string `type:"string"`
 
@@ -242,9 +242,9 @@ type DBInstanceForDescribeDBInstanceDetailOutput struct {
 
 	InstanceName *string `type:"string"`
 
-	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstanceDetailOutput"`
+	InstanceStatus *string `type:"string"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeDBInstanceDetailOutput"`
+	InstanceType *string `type:"string"`
 
 	Mongos []*MongoForDescribeDBInstanceDetailOutput `type:"list"`
 
@@ -494,7 +494,7 @@ type MongoForDescribeDBInstanceDetailOutput struct {
 
 	NodeSpec *string `type:"string"`
 
-	NodeStatus *string `type:"string" enum:"EnumOfNodeStatusForDescribeDBInstanceDetailOutput"`
+	NodeStatus *string `type:"string"`
 
 	TotalMemoryGB *float64 `type:"double"`
 
@@ -564,11 +564,11 @@ type NodeForDescribeDBInstanceDetailOutput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeRole *string `type:"string" enum:"EnumOfNodeRoleForDescribeDBInstanceDetailOutput"`
+	NodeRole *string `type:"string"`
 
 	NodeSpec *string `type:"string"`
 
-	NodeStatus *string `type:"string" enum:"EnumOfNodeStatusForDescribeDBInstanceDetailOutput"`
+	NodeStatus *string `type:"string"`
 
 	TotalMemoryGB *float64 `type:"double"`
 
@@ -688,169 +688,3 @@ func (s *ShardForDescribeDBInstanceDetailOutput) SetShardId(v string) *ShardForD
 	s.ShardId = &v
 	return s
 }
-
-const (
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal = "Normal"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue = "Overdue"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputOwing is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputOwing = "Owing"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputRenewing is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputRenewing = "Renewing"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnDeploy is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnDeploy = "UnDeploy"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnsubscribing is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnsubscribing = "Unsubscribing"
-
-	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputWaitingPaid is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeStatusForDescribeDBInstanceDetailOutputWaitingPaid = "WaitingPaid"
-)
-
-const (
-	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputNotEnabled is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeTypeForDescribeDBInstanceDetailOutputNotEnabled = "NotEnabled"
-
-	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputPostPaid is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeTypeForDescribeDBInstanceDetailOutputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputPrepaid is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfChargeTypeForDescribeDBInstanceDetailOutputPrepaid = "Prepaid"
-)
-
-const (
-	// EnumOfDBEngineForDescribeDBInstanceDetailOutputMongoDb is a EnumOfDBEngineForDescribeDBInstanceDetailOutput enum value
-	EnumOfDBEngineForDescribeDBInstanceDetailOutputMongoDb = "MongoDB"
-)
-
-const (
-	// EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMongoDb40 is a EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMongoDb40 = "MongoDB_4_0"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMongoDb50 is a EnumOfDBEngineVersionForDescribeDBInstanceDetailOutput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceDetailOutputMongoDb50 = "MongoDB_5_0"
-)
-
-const (
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAllowListMaintaining = "AllowListMaintaining"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputClosed is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputClosed = "Closed"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputClosing is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputClosing = "Closing"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreateFailed = "CreateFailed"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreating = "Creating"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleted is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleted = "Deleted"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleting is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleting = "Deleting"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDestroyed is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDestroyed = "Destroyed"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDestroying is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDestroying = "Destroying"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputError is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputError = "Error"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputImporting is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputImporting = "Importing"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputMigrating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputMigrating = "Migrating"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputNetCreating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputNetCreating = "NetCreating"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputNetReleasing is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputNetReleasing = "NetReleasing"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputNetworkMaintaining is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputNetworkMaintaining = "NetworkMaintaining"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRebuilding is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRebuilding = "Rebuilding"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputReclaiming is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputReclaiming = "Reclaiming"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRecycled is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRecycled = "Recycled"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputReleased is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputReleased = "Released"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestarting is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestarting = "Restarting"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestoring is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestoring = "Restoring"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputResuming is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputResuming = "Resuming"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRunning is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRunning = "Running"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputSslupdating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputSslupdating = "SSLUpdating"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputScaling is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputScaling = "Scaling"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputTdemaintaining is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputTdemaintaining = "TDEMaintaining"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputTaskFailedAvailable is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputTaskFailedAvailable = "TaskFailed_Available"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUnavailable is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUnavailable = "Unavailable"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUpdating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUpdating = "Updating"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUpgrading is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUpgrading = "Upgrading"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputWaitingPaid = "WaitingPaid"
-)
-
-const (
-	// EnumOfInstanceTypeForDescribeDBInstanceDetailOutputReplicaSet is a EnumOfInstanceTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceDetailOutputReplicaSet = "ReplicaSet"
-
-	// EnumOfInstanceTypeForDescribeDBInstanceDetailOutputShardedCluster is a EnumOfInstanceTypeForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceDetailOutputShardedCluster = "ShardedCluster"
-)
-
-const (
-	// EnumOfNodeRoleForDescribeDBInstanceDetailOutputPrimary is a EnumOfNodeRoleForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeRoleForDescribeDBInstanceDetailOutputPrimary = "Primary"
-
-	// EnumOfNodeRoleForDescribeDBInstanceDetailOutputSecondary is a EnumOfNodeRoleForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeRoleForDescribeDBInstanceDetailOutputSecondary = "Secondary"
-)
-
-const (
-	// EnumOfNodeStatusForDescribeDBInstanceDetailOutputError is a EnumOfNodeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeStatusForDescribeDBInstanceDetailOutputError = "Error"
-
-	// EnumOfNodeStatusForDescribeDBInstanceDetailOutputRunning is a EnumOfNodeStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfNodeStatusForDescribeDBInstanceDetailOutputRunning = "Running"
-)
