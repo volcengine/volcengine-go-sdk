@@ -393,6 +393,8 @@ type PublicAccessNetworkConfigForCreateClusterInput struct {
 	_ struct{} `type:"structure"`
 
 	Bandwidth *int32 `type:"int32"`
+
+	BillingType *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -408,6 +410,12 @@ func (s PublicAccessNetworkConfigForCreateClusterInput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *PublicAccessNetworkConfigForCreateClusterInput) SetBandwidth(v int32) *PublicAccessNetworkConfigForCreateClusterInput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *PublicAccessNetworkConfigForCreateClusterInput) SetBillingType(v int32) *PublicAccessNetworkConfigForCreateClusterInput {
+	s.BillingType = &v
 	return s
 }
 
