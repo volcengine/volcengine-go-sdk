@@ -142,6 +142,8 @@ func (c *ECS) StartInstanceWithContext(ctx volcengine.Context, input *StartInsta
 type StartInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 }
 
@@ -153,6 +155,12 @@ func (s StartInstanceInput) String() string {
 // GoString returns the string representation
 func (s StartInstanceInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *StartInstanceInput) SetClientToken(v string) *StartInstanceInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

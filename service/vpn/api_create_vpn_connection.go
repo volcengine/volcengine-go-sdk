@@ -142,6 +142,8 @@ func (c *VPN) CreateVpnConnectionWithContext(ctx volcengine.Context, input *Crea
 type CreateVpnConnectionInput struct {
 	_ struct{} `type:"structure"`
 
+	AttachType *string `type:"string" enum:"AttachTypeForCreateVpnConnectionInput"`
+
 	ClientToken *string `type:"string"`
 
 	// CustomerGatewayId is a required field
@@ -157,6 +159,8 @@ type CreateVpnConnectionInput struct {
 
 	// LocalSubnet is a required field
 	LocalSubnet []*string `type:"list" required:"true"`
+
+	LogEnabled *bool `type:"boolean"`
 
 	NatTraversal *bool `type:"boolean"`
 
@@ -217,6 +221,12 @@ func (s *CreateVpnConnectionInput) Validate() error {
 	return nil
 }
 
+// SetAttachType sets the AttachType field's value.
+func (s *CreateVpnConnectionInput) SetAttachType(v string) *CreateVpnConnectionInput {
+	s.AttachType = &v
+	return s
+}
+
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateVpnConnectionInput) SetClientToken(v string) *CreateVpnConnectionInput {
 	s.ClientToken = &v
@@ -256,6 +266,12 @@ func (s *CreateVpnConnectionInput) SetIpsecConfig(v string) *CreateVpnConnection
 // SetLocalSubnet sets the LocalSubnet field's value.
 func (s *CreateVpnConnectionInput) SetLocalSubnet(v []*string) *CreateVpnConnectionInput {
 	s.LocalSubnet = v
+	return s
+}
+
+// SetLogEnabled sets the LogEnabled field's value.
+func (s *CreateVpnConnectionInput) SetLogEnabled(v bool) *CreateVpnConnectionInput {
+	s.LogEnabled = &v
 	return s
 }
 
@@ -300,6 +316,8 @@ type CreateVpnConnectionOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	OrderId *string `type:"string"`
+
 	RequestId *string `type:"string"`
 
 	VpnConnectionId *string `type:"string"`
@@ -315,6 +333,12 @@ func (s CreateVpnConnectionOutput) GoString() string {
 	return s.String()
 }
 
+// SetOrderId sets the OrderId field's value.
+func (s *CreateVpnConnectionOutput) SetOrderId(v string) *CreateVpnConnectionOutput {
+	s.OrderId = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *CreateVpnConnectionOutput) SetRequestId(v string) *CreateVpnConnectionOutput {
 	s.RequestId = &v
@@ -326,6 +350,14 @@ func (s *CreateVpnConnectionOutput) SetVpnConnectionId(v string) *CreateVpnConne
 	s.VpnConnectionId = &v
 	return s
 }
+
+const (
+	// AttachTypeForCreateVpnConnectionInputVpnGateway is a AttachTypeForCreateVpnConnectionInput enum value
+	AttachTypeForCreateVpnConnectionInputVpnGateway = "VpnGateway"
+
+	// AttachTypeForCreateVpnConnectionInputTransitRouter is a AttachTypeForCreateVpnConnectionInput enum value
+	AttachTypeForCreateVpnConnectionInputTransitRouter = "TransitRouter"
+)
 
 const (
 	// DpdActionForCreateVpnConnectionInputNone is a DpdActionForCreateVpnConnectionInput enum value

@@ -142,6 +142,8 @@ func (c *ECS) StopInstanceWithContext(ctx volcengine.Context, input *StopInstanc
 type StopInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	ForceStop *bool `type:"boolean"`
 
 	InstanceId *string `type:"string"`
@@ -157,6 +159,12 @@ func (s StopInstanceInput) String() string {
 // GoString returns the string representation
 func (s StopInstanceInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *StopInstanceInput) SetClientToken(v string) *StopInstanceInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetForceStop sets the ForceStop field's value.

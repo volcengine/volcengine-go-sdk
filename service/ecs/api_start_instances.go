@@ -202,6 +202,8 @@ func (s *OperationDetailForStartInstancesOutput) SetInstanceId(v string) *Operat
 type StartInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceIds []*string `type:"list"`
 }
 
@@ -213,6 +215,12 @@ func (s StartInstancesInput) String() string {
 // GoString returns the string representation
 func (s StartInstancesInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *StartInstancesInput) SetClientToken(v string) *StartInstancesInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceIds sets the InstanceIds field's value.

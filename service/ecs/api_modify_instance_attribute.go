@@ -142,6 +142,8 @@ func (c *ECS) ModifyInstanceAttributeWithContext(ctx volcengine.Context, input *
 type ModifyInstanceAttributeInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	InstanceId *string `type:"string"`
@@ -161,6 +163,12 @@ func (s ModifyInstanceAttributeInput) String() string {
 // GoString returns the string representation
 func (s ModifyInstanceAttributeInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyInstanceAttributeInput) SetClientToken(v string) *ModifyInstanceAttributeInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

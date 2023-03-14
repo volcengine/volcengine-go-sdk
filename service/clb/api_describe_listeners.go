@@ -364,9 +364,15 @@ type ListenerForDescribeListenersOutput struct {
 
 	ListenerName *string `type:"string"`
 
+	PersistenceTimeout *int64 `type:"integer"`
+
+	PersistenceType *string `type:"string"`
+
 	Port *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
+
+	ProxyProtocolType *string `type:"string"`
 
 	ServerGroupId *string `type:"string"`
 
@@ -439,6 +445,18 @@ func (s *ListenerForDescribeListenersOutput) SetListenerName(v string) *Listener
 	return s
 }
 
+// SetPersistenceTimeout sets the PersistenceTimeout field's value.
+func (s *ListenerForDescribeListenersOutput) SetPersistenceTimeout(v int64) *ListenerForDescribeListenersOutput {
+	s.PersistenceTimeout = &v
+	return s
+}
+
+// SetPersistenceType sets the PersistenceType field's value.
+func (s *ListenerForDescribeListenersOutput) SetPersistenceType(v string) *ListenerForDescribeListenersOutput {
+	s.PersistenceType = &v
+	return s
+}
+
 // SetPort sets the Port field's value.
 func (s *ListenerForDescribeListenersOutput) SetPort(v int64) *ListenerForDescribeListenersOutput {
 	s.Port = &v
@@ -448,6 +466,12 @@ func (s *ListenerForDescribeListenersOutput) SetPort(v int64) *ListenerForDescri
 // SetProtocol sets the Protocol field's value.
 func (s *ListenerForDescribeListenersOutput) SetProtocol(v string) *ListenerForDescribeListenersOutput {
 	s.Protocol = &v
+	return s
+}
+
+// SetProxyProtocolType sets the ProxyProtocolType field's value.
+func (s *ListenerForDescribeListenersOutput) SetProxyProtocolType(v string) *ListenerForDescribeListenersOutput {
+	s.ProxyProtocolType = &v
 	return s
 }
 
