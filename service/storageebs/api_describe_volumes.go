@@ -154,6 +154,8 @@ type DescribeVolumesInput struct {
 
 	ProjectName *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeVolumesInput `type:"list"`
+
 	VolumeIds []*string `type:"list"`
 
 	VolumeName *string `type:"string"`
@@ -202,6 +204,12 @@ func (s *DescribeVolumesInput) SetPageSize(v int32) *DescribeVolumesInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeVolumesInput) SetProjectName(v string) *DescribeVolumesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeVolumesInput) SetTagFilters(v []*TagFilterForDescribeVolumesInput) *DescribeVolumesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -280,6 +288,36 @@ func (s *DescribeVolumesOutput) SetTotalCount(v int32) *DescribeVolumesOutput {
 // SetVolumes sets the Volumes field's value.
 func (s *DescribeVolumesOutput) SetVolumes(v []*VolumeForDescribeVolumesOutput) *DescribeVolumesOutput {
 	s.Volumes = v
+	return s
+}
+
+type TagFilterForDescribeVolumesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeVolumesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeVolumesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeVolumesInput) SetKey(v string) *TagFilterForDescribeVolumesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeVolumesInput) SetValues(v []*string) *TagFilterForDescribeVolumesInput {
+	s.Values = v
 	return s
 }
 

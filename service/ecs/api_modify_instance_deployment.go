@@ -142,6 +142,8 @@ func (c *ECS) ModifyInstanceDeploymentWithContext(ctx volcengine.Context, input 
 type ModifyInstanceDeploymentInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	DeploymentSetId *string `type:"string"`
 
 	InstanceId *string `type:"string"`
@@ -155,6 +157,12 @@ func (s ModifyInstanceDeploymentInput) String() string {
 // GoString returns the string representation
 func (s ModifyInstanceDeploymentInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyInstanceDeploymentInput) SetClientToken(v string) *ModifyInstanceDeploymentInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDeploymentSetId sets the DeploymentSetId field's value.

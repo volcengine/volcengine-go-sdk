@@ -142,6 +142,8 @@ func (c *ECS) DeleteKeyPairsWithContext(ctx volcengine.Context, input *DeleteKey
 type DeleteKeyPairsInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	KeyPairNames []*string `type:"list"`
 }
 
@@ -153,6 +155,12 @@ func (s DeleteKeyPairsInput) String() string {
 // GoString returns the string representation
 func (s DeleteKeyPairsInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DeleteKeyPairsInput) SetClientToken(v string) *DeleteKeyPairsInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetKeyPairNames sets the KeyPairNames field's value.

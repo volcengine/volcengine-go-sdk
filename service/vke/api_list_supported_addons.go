@@ -461,6 +461,9 @@ const (
 )
 
 const (
+	// EnumOfDeployNodeTypeListForListSupportedAddonsInputEdgeNode is a EnumOfDeployNodeTypeListForListSupportedAddonsInput enum value
+	EnumOfDeployNodeTypeListForListSupportedAddonsInputEdgeNode = "EdgeNode"
+
 	// EnumOfDeployNodeTypeListForListSupportedAddonsInputNode is a EnumOfDeployNodeTypeListForListSupportedAddonsInput enum value
 	EnumOfDeployNodeTypeListForListSupportedAddonsInputNode = "Node"
 
@@ -469,6 +472,9 @@ const (
 )
 
 const (
+	// EnumOfDeployNodeTypeListForListSupportedAddonsOutputEdgeNode is a EnumOfDeployNodeTypeListForListSupportedAddonsOutput enum value
+	EnumOfDeployNodeTypeListForListSupportedAddonsOutputEdgeNode = "EdgeNode"
+
 	// EnumOfDeployNodeTypeListForListSupportedAddonsOutputNode is a EnumOfDeployNodeTypeListForListSupportedAddonsOutput enum value
 	EnumOfDeployNodeTypeListForListSupportedAddonsOutputNode = "Node"
 

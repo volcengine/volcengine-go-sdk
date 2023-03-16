@@ -202,6 +202,8 @@ func (s *OperationDetailForRebootInstancesOutput) SetInstanceId(v string) *Opera
 type RebootInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	ForceStop *bool `type:"boolean"`
 
 	InstanceIds []*string `type:"list"`
@@ -215,6 +217,12 @@ func (s RebootInstancesInput) String() string {
 // GoString returns the string representation
 func (s RebootInstancesInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *RebootInstancesInput) SetClientToken(v string) *RebootInstancesInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetForceStop sets the ForceStop field's value.

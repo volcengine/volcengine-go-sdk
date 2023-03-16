@@ -286,6 +286,22 @@ type ECSAPI interface {
 	ExportImageWithContext(volcengine.Context, *ExportImageInput, ...request.Option) (*ExportImageOutput, error)
 	ExportImageRequest(*ExportImageInput) (*request.Request, *ExportImageOutput)
 
+	GetConsoleOutputCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetConsoleOutputCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetConsoleOutputCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetConsoleOutput(*GetConsoleOutputInput) (*GetConsoleOutputOutput, error)
+	GetConsoleOutputWithContext(volcengine.Context, *GetConsoleOutputInput, ...request.Option) (*GetConsoleOutputOutput, error)
+	GetConsoleOutputRequest(*GetConsoleOutputInput) (*request.Request, *GetConsoleOutputOutput)
+
+	GetConsoleScreenshotCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetConsoleScreenshotCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetConsoleScreenshotCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetConsoleScreenshot(*GetConsoleScreenshotInput) (*GetConsoleScreenshotOutput, error)
+	GetConsoleScreenshotWithContext(volcengine.Context, *GetConsoleScreenshotInput, ...request.Option) (*GetConsoleScreenshotOutput, error)
+	GetConsoleScreenshotRequest(*GetConsoleScreenshotInput) (*request.Request, *GetConsoleScreenshotOutput)
+
 	ImportImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ImportImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ImportImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
