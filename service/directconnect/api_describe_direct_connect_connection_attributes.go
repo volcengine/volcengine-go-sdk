@@ -208,6 +208,8 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 
 	DirectConnectConnectionName *string `type:"string"`
 
+	ExpectBandwidth *int64 `type:"integer"`
+
 	ExpiredTime *string `type:"string"`
 
 	LineOperator *string `type:"string"`
@@ -324,6 +326,12 @@ func (s *DescribeDirectConnectConnectionAttributesOutput) SetDirectConnectConnec
 // SetDirectConnectConnectionName sets the DirectConnectConnectionName field's value.
 func (s *DescribeDirectConnectConnectionAttributesOutput) SetDirectConnectConnectionName(v string) *DescribeDirectConnectConnectionAttributesOutput {
 	s.DirectConnectConnectionName = &v
+	return s
+}
+
+// SetExpectBandwidth sets the ExpectBandwidth field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetExpectBandwidth(v int64) *DescribeDirectConnectConnectionAttributesOutput {
+	s.ExpectBandwidth = &v
 	return s
 }
 

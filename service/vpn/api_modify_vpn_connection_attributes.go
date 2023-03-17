@@ -152,6 +152,8 @@ type ModifyVpnConnectionAttributesInput struct {
 
 	LocalSubnet []*string `type:"list"`
 
+	LogEnabled *bool `type:"boolean"`
+
 	NatTraversal *bool `type:"boolean"`
 
 	NegotiateInstantly *bool `type:"boolean"`
@@ -226,6 +228,12 @@ func (s *ModifyVpnConnectionAttributesInput) SetIpsecConfig(v string) *ModifyVpn
 // SetLocalSubnet sets the LocalSubnet field's value.
 func (s *ModifyVpnConnectionAttributesInput) SetLocalSubnet(v []*string) *ModifyVpnConnectionAttributesInput {
 	s.LocalSubnet = v
+	return s
+}
+
+// SetLogEnabled sets the LogEnabled field's value.
+func (s *ModifyVpnConnectionAttributesInput) SetLogEnabled(v bool) *ModifyVpnConnectionAttributesInput {
+	s.LogEnabled = &v
 	return s
 }
 

@@ -291,6 +291,8 @@ type SecurityGroupForDescribeSecurityGroupsOutput struct {
 
 	SecurityGroupName *string `type:"string"`
 
+	ServiceManaged *bool `type:"boolean"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeSecurityGroupsOutput `type:"list"`
@@ -337,6 +339,12 @@ func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupId(v stri
 // SetSecurityGroupName sets the SecurityGroupName field's value.
 func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupName(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
 	s.SecurityGroupName = &v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetServiceManaged(v bool) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.ServiceManaged = &v
 	return s
 }
 

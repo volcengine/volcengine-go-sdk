@@ -163,11 +163,17 @@ type CreateListenerInput struct {
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
 
+	PersistenceTimeout *int64 `type:"integer"`
+
+	PersistenceType *string `type:"string"`
+
 	// Port is a required field
 	Port *int64 `type:"integer" required:"true"`
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
+
+	ProxyProtocolType *string `type:"string"`
 
 	Scheduler *string `type:"string"`
 
@@ -267,6 +273,18 @@ func (s *CreateListenerInput) SetLoadBalancerId(v string) *CreateListenerInput {
 	return s
 }
 
+// SetPersistenceTimeout sets the PersistenceTimeout field's value.
+func (s *CreateListenerInput) SetPersistenceTimeout(v int64) *CreateListenerInput {
+	s.PersistenceTimeout = &v
+	return s
+}
+
+// SetPersistenceType sets the PersistenceType field's value.
+func (s *CreateListenerInput) SetPersistenceType(v string) *CreateListenerInput {
+	s.PersistenceType = &v
+	return s
+}
+
 // SetPort sets the Port field's value.
 func (s *CreateListenerInput) SetPort(v int64) *CreateListenerInput {
 	s.Port = &v
@@ -276,6 +294,12 @@ func (s *CreateListenerInput) SetPort(v int64) *CreateListenerInput {
 // SetProtocol sets the Protocol field's value.
 func (s *CreateListenerInput) SetProtocol(v string) *CreateListenerInput {
 	s.Protocol = &v
+	return s
+}
+
+// SetProxyProtocolType sets the ProxyProtocolType field's value.
+func (s *CreateListenerInput) SetProxyProtocolType(v string) *CreateListenerInput {
+	s.ProxyProtocolType = &v
 	return s
 }
 

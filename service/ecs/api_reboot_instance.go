@@ -142,6 +142,8 @@ func (c *ECS) RebootInstanceWithContext(ctx volcengine.Context, input *RebootIns
 type RebootInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	ForceStop *bool `type:"boolean"`
 
 	InstanceId *string `type:"string"`
@@ -155,6 +157,12 @@ func (s RebootInstanceInput) String() string {
 // GoString returns the string representation
 func (s RebootInstanceInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *RebootInstanceInput) SetClientToken(v string) *RebootInstanceInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetForceStop sets the ForceStop field's value.

@@ -142,6 +142,8 @@ func (c *ECS) DeleteTagsWithContext(ctx volcengine.Context, input *DeleteTagsInp
 type DeleteTagsInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	ResourceIds []*string `type:"list"`
 
 	ResourceType *string `type:"string"`
@@ -157,6 +159,12 @@ func (s DeleteTagsInput) String() string {
 // GoString returns the string representation
 func (s DeleteTagsInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DeleteTagsInput) SetClientToken(v string) *DeleteTagsInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetResourceIds sets the ResourceIds field's value.
