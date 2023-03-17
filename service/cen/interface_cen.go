@@ -78,6 +78,14 @@ type CENAPI interface {
 	CreateCenServiceRouteEntryWithContext(volcengine.Context, *CreateCenServiceRouteEntryInput, ...request.Option) (*CreateCenServiceRouteEntryOutput, error)
 	CreateCenServiceRouteEntryRequest(*CreateCenServiceRouteEntryInput) (*request.Request, *CreateCenServiceRouteEntryOutput)
 
+	CreateCenSummaryRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateCenSummaryRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateCenSummaryRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateCenSummaryRouteEntry(*CreateCenSummaryRouteEntryInput) (*CreateCenSummaryRouteEntryOutput, error)
+	CreateCenSummaryRouteEntryWithContext(volcengine.Context, *CreateCenSummaryRouteEntryInput, ...request.Option) (*CreateCenSummaryRouteEntryOutput, error)
+	CreateCenSummaryRouteEntryRequest(*CreateCenSummaryRouteEntryInput) (*request.Request, *CreateCenSummaryRouteEntryOutput)
+
 	DeleteCenCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteCenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteCenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +109,14 @@ type CENAPI interface {
 	DeleteCenInterRegionBandwidth(*DeleteCenInterRegionBandwidthInput) (*DeleteCenInterRegionBandwidthOutput, error)
 	DeleteCenInterRegionBandwidthWithContext(volcengine.Context, *DeleteCenInterRegionBandwidthInput, ...request.Option) (*DeleteCenInterRegionBandwidthOutput, error)
 	DeleteCenInterRegionBandwidthRequest(*DeleteCenInterRegionBandwidthInput) (*request.Request, *DeleteCenInterRegionBandwidthOutput)
+
+	DeleteCenSummaryRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteCenSummaryRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteCenSummaryRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteCenSummaryRouteEntry(*DeleteCenSummaryRouteEntryInput) (*DeleteCenSummaryRouteEntryOutput, error)
+	DeleteCenSummaryRouteEntryWithContext(volcengine.Context, *DeleteCenSummaryRouteEntryInput, ...request.Option) (*DeleteCenSummaryRouteEntryOutput, error)
+	DeleteCenSummaryRouteEntryRequest(*DeleteCenSummaryRouteEntryInput) (*request.Request, *DeleteCenSummaryRouteEntryOutput)
 
 	DescribeCenAttachedInstanceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCenAttachedInstanceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -165,6 +181,14 @@ type CENAPI interface {
 	DescribeCenRouteEntries(*DescribeCenRouteEntriesInput) (*DescribeCenRouteEntriesOutput, error)
 	DescribeCenRouteEntriesWithContext(volcengine.Context, *DescribeCenRouteEntriesInput, ...request.Option) (*DescribeCenRouteEntriesOutput, error)
 	DescribeCenRouteEntriesRequest(*DescribeCenRouteEntriesInput) (*request.Request, *DescribeCenRouteEntriesOutput)
+
+	DescribeCenSummaryRouteEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCenSummaryRouteEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCenSummaryRouteEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCenSummaryRouteEntries(*DescribeCenSummaryRouteEntriesInput) (*DescribeCenSummaryRouteEntriesOutput, error)
+	DescribeCenSummaryRouteEntriesWithContext(volcengine.Context, *DescribeCenSummaryRouteEntriesInput, ...request.Option) (*DescribeCenSummaryRouteEntriesOutput, error)
+	DescribeCenSummaryRouteEntriesRequest(*DescribeCenSummaryRouteEntriesInput) (*request.Request, *DescribeCenSummaryRouteEntriesOutput)
 
 	DescribeCensCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCensCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

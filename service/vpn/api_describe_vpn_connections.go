@@ -142,6 +142,10 @@ func (c *VPN) DescribeVpnConnectionsWithContext(ctx volcengine.Context, input *D
 type DescribeVpnConnectionsInput struct {
 	_ struct{} `type:"structure"`
 
+	AttachStatus *string `type:"string" enum:"AttachStatusForDescribeVpnConnectionsInput"`
+
+	AttachType *string `type:"string" enum:"AttachTypeForDescribeVpnConnectionsInput"`
+
 	CustomerGatewayId *string `type:"string"`
 
 	PageNumber *int64 `type:"integer"`
@@ -149,6 +153,8 @@ type DescribeVpnConnectionsInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	TransitRouterId *string `type:"string"`
 
 	VpnConnectionIds []*string `type:"list"`
 
@@ -165,6 +171,18 @@ func (s DescribeVpnConnectionsInput) String() string {
 // GoString returns the string representation
 func (s DescribeVpnConnectionsInput) GoString() string {
 	return s.String()
+}
+
+// SetAttachStatus sets the AttachStatus field's value.
+func (s *DescribeVpnConnectionsInput) SetAttachStatus(v string) *DescribeVpnConnectionsInput {
+	s.AttachStatus = &v
+	return s
+}
+
+// SetAttachType sets the AttachType field's value.
+func (s *DescribeVpnConnectionsInput) SetAttachType(v string) *DescribeVpnConnectionsInput {
+	s.AttachType = &v
+	return s
 }
 
 // SetCustomerGatewayId sets the CustomerGatewayId field's value.
@@ -188,6 +206,12 @@ func (s *DescribeVpnConnectionsInput) SetPageSize(v int64) *DescribeVpnConnectio
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeVpnConnectionsInput) SetProjectName(v string) *DescribeVpnConnectionsInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTransitRouterId sets the TransitRouterId field's value.
+func (s *DescribeVpnConnectionsInput) SetTransitRouterId(v string) *DescribeVpnConnectionsInput {
+	s.TransitRouterId = &v
 	return s
 }
 
@@ -406,11 +430,15 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 
 	AttachType *string `type:"string"`
 
+	BusinessStatus *string `type:"string"`
+
 	ConnectStatus *string `type:"string"`
 
 	CreationTime *string `type:"string"`
 
 	CustomerGatewayId *string `type:"string"`
+
+	DeletedTime *string `type:"string"`
 
 	Description *string `type:"string"`
 
@@ -418,19 +446,27 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 
 	IkeConfig *IkeConfigForDescribeVpnConnectionsOutput `type:"structure"`
 
+	IpAddress *string `type:"string"`
+
 	IpsecConfig *IpsecConfigForDescribeVpnConnectionsOutput `type:"structure"`
 
 	LocalSubnet []*string `type:"list"`
 
+	LogEnabled *bool `type:"boolean"`
+
 	NatTraversal *bool `type:"boolean"`
 
 	NegotiateInstantly *bool `type:"boolean"`
+
+	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
 	RemoteSubnet []*string `type:"list"`
 
 	Status *string `type:"string"`
+
+	TransitRouterId *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
 
@@ -439,6 +475,8 @@ type VpnConnectionForDescribeVpnConnectionsOutput struct {
 	VpnConnectionName *string `type:"string"`
 
 	VpnGatewayId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -469,6 +507,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetAttachType(v string) *
 	return s
 }
 
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetBusinessStatus(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
 // SetConnectStatus sets the ConnectStatus field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetConnectStatus(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.ConnectStatus = &v
@@ -484,6 +528,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetCreationTime(v string)
 // SetCustomerGatewayId sets the CustomerGatewayId field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetCustomerGatewayId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.CustomerGatewayId = &v
+	return s
+}
+
+// SetDeletedTime sets the DeletedTime field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetDeletedTime(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.DeletedTime = &v
 	return s
 }
 
@@ -505,6 +555,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetIkeConfig(v *IkeConfig
 	return s
 }
 
+// SetIpAddress sets the IpAddress field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetIpAddress(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.IpAddress = &v
+	return s
+}
+
 // SetIpsecConfig sets the IpsecConfig field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetIpsecConfig(v *IpsecConfigForDescribeVpnConnectionsOutput) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.IpsecConfig = v
@@ -517,6 +573,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetLocalSubnet(v []*strin
 	return s
 }
 
+// SetLogEnabled sets the LogEnabled field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetLogEnabled(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.LogEnabled = &v
+	return s
+}
+
 // SetNatTraversal sets the NatTraversal field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetNatTraversal(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.NatTraversal = &v
@@ -526,6 +588,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetNatTraversal(v bool) *
 // SetNegotiateInstantly sets the NegotiateInstantly field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetNegotiateInstantly(v bool) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.NegotiateInstantly = &v
+	return s
+}
+
+// SetOverdueTime sets the OverdueTime field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetOverdueTime(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.OverdueTime = &v
 	return s
 }
 
@@ -544,6 +612,12 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetRemoteSubnet(v []*stri
 // SetStatus sets the Status field's value.
 func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetStatus(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTransitRouterId sets the TransitRouterId field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetTransitRouterId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.TransitRouterId = &v
 	return s
 }
 
@@ -570,3 +644,31 @@ func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetVpnGatewayId(v string)
 	s.VpnGatewayId = &v
 	return s
 }
+
+// SetZoneId sets the ZoneId field's value.
+func (s *VpnConnectionForDescribeVpnConnectionsOutput) SetZoneId(v string) *VpnConnectionForDescribeVpnConnectionsOutput {
+	s.ZoneId = &v
+	return s
+}
+
+const (
+	// AttachStatusForDescribeVpnConnectionsInputAttached is a AttachStatusForDescribeVpnConnectionsInput enum value
+	AttachStatusForDescribeVpnConnectionsInputAttached = "Attached"
+
+	// AttachStatusForDescribeVpnConnectionsInputAttaching is a AttachStatusForDescribeVpnConnectionsInput enum value
+	AttachStatusForDescribeVpnConnectionsInputAttaching = "Attaching"
+
+	// AttachStatusForDescribeVpnConnectionsInputDetached is a AttachStatusForDescribeVpnConnectionsInput enum value
+	AttachStatusForDescribeVpnConnectionsInputDetached = "Detached"
+
+	// AttachStatusForDescribeVpnConnectionsInputDetaching is a AttachStatusForDescribeVpnConnectionsInput enum value
+	AttachStatusForDescribeVpnConnectionsInputDetaching = "Detaching"
+)
+
+const (
+	// AttachTypeForDescribeVpnConnectionsInputVpnGateway is a AttachTypeForDescribeVpnConnectionsInput enum value
+	AttachTypeForDescribeVpnConnectionsInputVpnGateway = "VpnGateway"
+
+	// AttachTypeForDescribeVpnConnectionsInputTransitRouter is a AttachTypeForDescribeVpnConnectionsInput enum value
+	AttachTypeForDescribeVpnConnectionsInputTransitRouter = "TransitRouter"
+)

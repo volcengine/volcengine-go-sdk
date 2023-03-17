@@ -110,6 +110,14 @@ type CRAPI interface {
 	GetUserWithContext(volcengine.Context, *GetUserInput, ...request.Option) (*GetUserOutput, error)
 	GetUserRequest(*GetUserInput) (*request.Request, *GetUserOutput)
 
+	GetVpcEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetVpcEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetVpcEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetVpcEndpoint(*GetVpcEndpointInput) (*GetVpcEndpointOutput, error)
+	GetVpcEndpointWithContext(volcengine.Context, *GetVpcEndpointInput, ...request.Option) (*GetVpcEndpointOutput, error)
+	GetVpcEndpointRequest(*GetVpcEndpointInput) (*request.Request, *GetVpcEndpointOutput)
+
 	ListDomainsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDomainsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListDomainsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -181,6 +189,14 @@ type CRAPI interface {
 	UpdateRepository(*UpdateRepositoryInput) (*UpdateRepositoryOutput, error)
 	UpdateRepositoryWithContext(volcengine.Context, *UpdateRepositoryInput, ...request.Option) (*UpdateRepositoryOutput, error)
 	UpdateRepositoryRequest(*UpdateRepositoryInput) (*request.Request, *UpdateRepositoryOutput)
+
+	UpdateVpcEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateVpcEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateVpcEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateVpcEndpoint(*UpdateVpcEndpointInput) (*UpdateVpcEndpointOutput, error)
+	UpdateVpcEndpointWithContext(volcengine.Context, *UpdateVpcEndpointInput, ...request.Option) (*UpdateVpcEndpointOutput, error)
+	UpdateVpcEndpointRequest(*UpdateVpcEndpointInput) (*request.Request, *UpdateVpcEndpointOutput)
 }
 
 var _ CRAPI = (*CR)(nil)

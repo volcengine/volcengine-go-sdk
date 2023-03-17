@@ -142,6 +142,8 @@ func (c *ECS) ImportKeyPairWithContext(ctx volcengine.Context, input *ImportKeyP
 type ImportKeyPairInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	KeyPairName *string `type:"string"`
@@ -157,6 +159,12 @@ func (s ImportKeyPairInput) String() string {
 // GoString returns the string representation
 func (s ImportKeyPairInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ImportKeyPairInput) SetClientToken(v string) *ImportKeyPairInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

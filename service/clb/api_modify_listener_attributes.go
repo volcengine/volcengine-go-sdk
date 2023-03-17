@@ -249,6 +249,12 @@ type ModifyListenerAttributesInput struct {
 
 	ListenerName *string `type:"string"`
 
+	PersistenceTimeout *int64 `type:"integer"`
+
+	PersistenceType *string `type:"string"`
+
+	ProxyProtocolType *string `type:"string"`
+
 	Scheduler *string `type:"string"`
 
 	ServerGroupId *string `type:"string"`
@@ -334,6 +340,24 @@ func (s *ModifyListenerAttributesInput) SetListenerId(v string) *ModifyListenerA
 // SetListenerName sets the ListenerName field's value.
 func (s *ModifyListenerAttributesInput) SetListenerName(v string) *ModifyListenerAttributesInput {
 	s.ListenerName = &v
+	return s
+}
+
+// SetPersistenceTimeout sets the PersistenceTimeout field's value.
+func (s *ModifyListenerAttributesInput) SetPersistenceTimeout(v int64) *ModifyListenerAttributesInput {
+	s.PersistenceTimeout = &v
+	return s
+}
+
+// SetPersistenceType sets the PersistenceType field's value.
+func (s *ModifyListenerAttributesInput) SetPersistenceType(v string) *ModifyListenerAttributesInput {
+	s.PersistenceType = &v
+	return s
+}
+
+// SetProxyProtocolType sets the ProxyProtocolType field's value.
+func (s *ModifyListenerAttributesInput) SetProxyProtocolType(v string) *ModifyListenerAttributesInput {
+	s.ProxyProtocolType = &v
 	return s
 }
 

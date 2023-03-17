@@ -154,6 +154,8 @@ type CreateVolumeInput struct {
 
 	Size *json.Number `type:"json_number"`
 
+	Tags []*TagForCreateVolumeInput `type:"list"`
+
 	VolumeChargeType *string `type:"string"`
 
 	VolumeName *string `type:"string"`
@@ -203,6 +205,12 @@ func (s *CreateVolumeInput) SetSize(v json.Number) *CreateVolumeInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateVolumeInput) SetTags(v []*TagForCreateVolumeInput) *CreateVolumeInput {
+	s.Tags = v
+	return s
+}
+
 // SetVolumeChargeType sets the VolumeChargeType field's value.
 func (s *CreateVolumeInput) SetVolumeChargeType(v string) *CreateVolumeInput {
 	s.VolumeChargeType = &v
@@ -248,5 +256,35 @@ func (s CreateVolumeOutput) GoString() string {
 // SetVolumeId sets the VolumeId field's value.
 func (s *CreateVolumeOutput) SetVolumeId(v string) *CreateVolumeOutput {
 	s.VolumeId = &v
+	return s
+}
+
+type TagForCreateVolumeInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateVolumeInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateVolumeInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateVolumeInput) SetKey(v string) *TagForCreateVolumeInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateVolumeInput) SetValue(v string) *TagForCreateVolumeInput {
+	s.Value = &v
 	return s
 }

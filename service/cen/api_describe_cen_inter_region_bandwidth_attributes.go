@@ -182,6 +182,8 @@ type DescribeCenInterRegionBandwidthAttributesOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	CenBandwidthPackageId *string `type:"string"`
+
 	CenId *string `type:"string"`
 
 	CreationTime *string `type:"string"`
@@ -210,6 +212,12 @@ func (s DescribeCenInterRegionBandwidthAttributesOutput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *DescribeCenInterRegionBandwidthAttributesOutput) SetBandwidth(v int64) *DescribeCenInterRegionBandwidthAttributesOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetCenBandwidthPackageId sets the CenBandwidthPackageId field's value.
+func (s *DescribeCenInterRegionBandwidthAttributesOutput) SetCenBandwidthPackageId(v string) *DescribeCenInterRegionBandwidthAttributesOutput {
+	s.CenBandwidthPackageId = &v
 	return s
 }
 

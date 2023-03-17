@@ -350,6 +350,9 @@ const (
 
 	// StatusForDescribeSystemEventsOutputRejected is a StatusForDescribeSystemEventsOutput enum value
 	StatusForDescribeSystemEventsOutputRejected = "Rejected"
+
+	// StatusForDescribeSystemEventsOutputCanceled is a StatusForDescribeSystemEventsOutput enum value
+	StatusForDescribeSystemEventsOutputCanceled = "Canceled"
 )
 
 const (
@@ -415,4 +418,7 @@ const (
 
 	// TypeForDescribeSystemEventsOutputInstanceFailure is a TypeForDescribeSystemEventsOutput enum value
 	TypeForDescribeSystemEventsOutputInstanceFailure = "InstanceFailure"
+
+	// TypeForDescribeSystemEventsOutputApplicationFailure is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputApplicationFailure = "ApplicationFailure"
 )
