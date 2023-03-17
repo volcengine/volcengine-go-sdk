@@ -152,7 +152,7 @@ type DBAddressForDescribeDBEndpointOutput struct {
 
 	AddressPort *string `type:"string"`
 
-	AddressType *string `type:"string" enum:"EnumOfAddressTypeForDescribeDBEndpointOutput"`
+	AddressType *string `type:"string"`
 
 	EipId *string `type:"string"`
 
@@ -214,9 +214,9 @@ type DBEndpointForDescribeDBEndpointOutput struct {
 
 	EndpointStr *string `type:"string"`
 
-	EndpointType *string `type:"string" enum:"EnumOfEndpointTypeForDescribeDBEndpointOutput"`
+	EndpointType *string `type:"string"`
 
-	NetworkType *string `type:"string" enum:"EnumOfNetworkTypeForDescribeDBEndpointOutput"`
+	NetworkType *string `type:"string"`
 
 	ObjectId *string `type:"string"`
 
@@ -342,39 +342,3 @@ func (s *DescribeDBEndpointOutput) SetDBEndpoints(v []*DBEndpointForDescribeDBEn
 	s.DBEndpoints = v
 	return s
 }
-
-const (
-	// EnumOfAddressTypeForDescribeDBEndpointOutputPrimary is a EnumOfAddressTypeForDescribeDBEndpointOutput enum value
-	EnumOfAddressTypeForDescribeDBEndpointOutputPrimary = "Primary"
-
-	// EnumOfAddressTypeForDescribeDBEndpointOutputSecondary is a EnumOfAddressTypeForDescribeDBEndpointOutput enum value
-	EnumOfAddressTypeForDescribeDBEndpointOutputSecondary = "Secondary"
-)
-
-const (
-	// EnumOfEndpointTypeForDescribeDBEndpointOutputConfigServer is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
-	EnumOfEndpointTypeForDescribeDBEndpointOutputConfigServer = "ConfigServer"
-
-	// EnumOfEndpointTypeForDescribeDBEndpointOutputMongos is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
-	EnumOfEndpointTypeForDescribeDBEndpointOutputMongos = "Mongos"
-
-	// EnumOfEndpointTypeForDescribeDBEndpointOutputReplicaSet is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
-	EnumOfEndpointTypeForDescribeDBEndpointOutputReplicaSet = "ReplicaSet"
-
-	// EnumOfEndpointTypeForDescribeDBEndpointOutputShard is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
-	EnumOfEndpointTypeForDescribeDBEndpointOutputShard = "Shard"
-)
-
-const (
-	// EnumOfNetworkTypeForDescribeDBEndpointOutputInnerPlb is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
-	EnumOfNetworkTypeForDescribeDBEndpointOutputInnerPlb = "InnerPLB"
-
-	// EnumOfNetworkTypeForDescribeDBEndpointOutputPrivate is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
-	EnumOfNetworkTypeForDescribeDBEndpointOutputPrivate = "Private"
-
-	// EnumOfNetworkTypeForDescribeDBEndpointOutputPublic is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
-	EnumOfNetworkTypeForDescribeDBEndpointOutputPublic = "Public"
-
-	// EnumOfNetworkTypeForDescribeDBEndpointOutputStorageInner is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
-	EnumOfNetworkTypeForDescribeDBEndpointOutputStorageInner = "StorageInner"
-)

@@ -264,9 +264,9 @@ type InstanceParameterForDescribeDBInstanceParametersOutput struct {
 
 	ParameterDescription *string `type:"string"`
 
-	ParameterRole *string `type:"string" enum:"EnumOfParameterRoleForDescribeDBInstanceParametersOutput"`
+	ParameterRole *string `type:"string"`
 
-	ParameterType *string `type:"string" enum:"EnumOfParameterTypeForDescribeDBInstanceParametersOutput"`
+	ParameterType *string `type:"string"`
 
 	ParameterValue *string `type:"string"`
 }
@@ -344,41 +344,4 @@ const (
 
 	// EnumOfParameterRoleForDescribeDBInstanceParametersInputUnknown is a EnumOfParameterRoleForDescribeDBInstanceParametersInput enum value
 	EnumOfParameterRoleForDescribeDBInstanceParametersInputUnknown = "Unknown"
-)
-
-const (
-	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputConfigServer is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersOutputConfigServer = "ConfigServer"
-
-	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputMongos is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersOutputMongos = "Mongos"
-
-	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputNode is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersOutputNode = "Node"
-
-	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputShard is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersOutputShard = "Shard"
-
-	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputUnknown is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersOutputUnknown = "Unknown"
-)
-
-const (
-	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputBoolean is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterTypeForDescribeDBInstanceParametersOutputBoolean = "Boolean"
-
-	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputFloat is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterTypeForDescribeDBInstanceParametersOutputFloat = "Float"
-
-	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputInteger is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterTypeForDescribeDBInstanceParametersOutputInteger = "Integer"
-
-	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputList is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterTypeForDescribeDBInstanceParametersOutputList = "List"
-
-	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputString is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterTypeForDescribeDBInstanceParametersOutputString = "String"
-
-	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputUnknown is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
-	EnumOfParameterTypeForDescribeDBInstanceParametersOutputUnknown = "Unknown"
 )

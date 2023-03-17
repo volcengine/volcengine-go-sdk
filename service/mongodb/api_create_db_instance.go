@@ -184,6 +184,8 @@ type CreateDBInstanceInput struct {
 
 	SuperAccountPassword *string `type:"string"`
 
+	Tags []*TagForCreateDBInstanceInput `type:"list"`
+
 	VpcId *string `type:"string"`
 
 	ZoneId *string `type:"string"`
@@ -326,6 +328,12 @@ func (s *CreateDBInstanceInput) SetSuperAccountPassword(v string) *CreateDBInsta
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateDBInstanceInput) SetTags(v []*TagForCreateDBInstanceInput) *CreateDBInstanceInput {
+	s.Tags = v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 	s.VpcId = &v
@@ -367,6 +375,36 @@ func (s *CreateDBInstanceOutput) SetInstanceId(v string) *CreateDBInstanceOutput
 // SetOrderNO sets the OrderNO field's value.
 func (s *CreateDBInstanceOutput) SetOrderNO(v string) *CreateDBInstanceOutput {
 	s.OrderNO = &v
+	return s
+}
+
+type TagForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateDBInstanceInput) SetKey(v string) *TagForCreateDBInstanceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateDBInstanceInput) SetValue(v string) *TagForCreateDBInstanceInput {
+	s.Value = &v
 	return s
 }
 

@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // MONGODB.
 //    func myFunc(svc MONGODBAPI) bool {
-//        // Make svc.AssociateAllowList request
+//        // Make svc.AddTagsToResource request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type MONGODBAPI interface {
+	AddTagsToResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddTagsToResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddTagsToResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddTagsToResource(*AddTagsToResourceInput) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
+
 	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -150,6 +158,14 @@ type MONGODBAPI interface {
 	DescribeDBInstanceParametersLogWithContext(volcengine.Context, *DescribeDBInstanceParametersLogInput, ...request.Option) (*DescribeDBInstanceParametersLogOutput, error)
 	DescribeDBInstanceParametersLogRequest(*DescribeDBInstanceParametersLogInput) (*request.Request, *DescribeDBInstanceParametersLogOutput)
 
+	DescribeDBInstanceSSLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceSSLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceSSLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceSSL(*DescribeDBInstanceSSLInput) (*DescribeDBInstanceSSLOutput, error)
+	DescribeDBInstanceSSLWithContext(volcengine.Context, *DescribeDBInstanceSSLInput, ...request.Option) (*DescribeDBInstanceSSLOutput, error)
+	DescribeDBInstanceSSLRequest(*DescribeDBInstanceSSLInput) (*request.Request, *DescribeDBInstanceSSLOutput)
+
 	DescribeDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -214,6 +230,14 @@ type MONGODBAPI interface {
 	ModifyDBInstanceParametersWithContext(volcengine.Context, *ModifyDBInstanceParametersInput, ...request.Option) (*ModifyDBInstanceParametersOutput, error)
 	ModifyDBInstanceParametersRequest(*ModifyDBInstanceParametersInput) (*request.Request, *ModifyDBInstanceParametersOutput)
 
+	ModifyDBInstanceSSLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceSSLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceSSLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceSSL(*ModifyDBInstanceSSLInput) (*ModifyDBInstanceSSLOutput, error)
+	ModifyDBInstanceSSLWithContext(volcengine.Context, *ModifyDBInstanceSSLInput, ...request.Option) (*ModifyDBInstanceSSLOutput, error)
+	ModifyDBInstanceSSLRequest(*ModifyDBInstanceSSLInput) (*request.Request, *ModifyDBInstanceSSLOutput)
+
 	ModifyDBInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -221,6 +245,14 @@ type MONGODBAPI interface {
 	ModifyDBInstanceSpec(*ModifyDBInstanceSpecInput) (*ModifyDBInstanceSpecOutput, error)
 	ModifyDBInstanceSpecWithContext(volcengine.Context, *ModifyDBInstanceSpecInput, ...request.Option) (*ModifyDBInstanceSpecOutput, error)
 	ModifyDBInstanceSpecRequest(*ModifyDBInstanceSpecInput) (*request.Request, *ModifyDBInstanceSpecOutput)
+
+	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveTagsFromResource(*RemoveTagsFromResourceInput) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceWithContext(volcengine.Context, *RemoveTagsFromResourceInput, ...request.Option) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceRequest(*RemoveTagsFromResourceInput) (*request.Request, *RemoveTagsFromResourceOutput)
 
 	ResetDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ResetDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
