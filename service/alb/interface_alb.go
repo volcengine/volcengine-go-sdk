@@ -190,6 +190,14 @@ type ALBAPI interface {
 	DescribeAclsWithContext(volcengine.Context, *DescribeAclsInput, ...request.Option) (*DescribeAclsOutput, error)
 	DescribeAclsRequest(*DescribeAclsInput) (*request.Request, *DescribeAclsOutput)
 
+	DescribeAllCertificatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllCertificatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllCertificatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllCertificates(*DescribeAllCertificatesInput) (*DescribeAllCertificatesOutput, error)
+	DescribeAllCertificatesWithContext(volcengine.Context, *DescribeAllCertificatesInput, ...request.Option) (*DescribeAllCertificatesOutput, error)
+	DescribeAllCertificatesRequest(*DescribeAllCertificatesInput) (*request.Request, *DescribeAllCertificatesOutput)
+
 	DescribeCACertificatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCACertificatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeCACertificatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -453,6 +461,22 @@ type ALBAPI interface {
 	RemoveServerGroupBackendServers(*RemoveServerGroupBackendServersInput) (*RemoveServerGroupBackendServersOutput, error)
 	RemoveServerGroupBackendServersWithContext(volcengine.Context, *RemoveServerGroupBackendServersInput, ...request.Option) (*RemoveServerGroupBackendServersOutput, error)
 	RemoveServerGroupBackendServersRequest(*RemoveServerGroupBackendServersInput) (*request.Request, *RemoveServerGroupBackendServersOutput)
+
+	ReplaceCACertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReplaceCACertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReplaceCACertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReplaceCACertificate(*ReplaceCACertificateInput) (*ReplaceCACertificateOutput, error)
+	ReplaceCACertificateWithContext(volcengine.Context, *ReplaceCACertificateInput, ...request.Option) (*ReplaceCACertificateOutput, error)
+	ReplaceCACertificateRequest(*ReplaceCACertificateInput) (*request.Request, *ReplaceCACertificateOutput)
+
+	ReplaceCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReplaceCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReplaceCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ReplaceCertificate(*ReplaceCertificateInput) (*ReplaceCertificateOutput, error)
+	ReplaceCertificateWithContext(volcengine.Context, *ReplaceCertificateInput, ...request.Option) (*ReplaceCertificateOutput, error)
+	ReplaceCertificateRequest(*ReplaceCertificateInput) (*request.Request, *ReplaceCertificateOutput)
 
 	UploadCACertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UploadCACertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
