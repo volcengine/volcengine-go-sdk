@@ -1,6 +1,9 @@
 package universal
 
 import (
+	"fmt"
+	"reflect"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine/client"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/client/metadata"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/corehandlers"
@@ -86,4 +89,28 @@ func (u *Universal) DoCall(info RequestUniversal, input *map[string]interface{})
 	}
 	err = req.Send()
 	return output, err
+}
+
+func (u *Universal) DoCallWithType(info RequestUniversal, input interface{}, output interface{}) (err error) {
+	c := u.newClient(info)
+	op := &request.Operation{
+		HTTPMethod: u.getMethod(info.HttpMethod),
+		HTTPPath:   "/",
+		Name:       info.Action,
+	}
+	if input == nil {
+		input = &map[string]interface{}{}
+	} else if reflect.TypeOf(input).Kind() != reflect.Ptr {
+		return fmt.Errorf("input is not pointor ")
+	}
+	if output == nil {
+		output = &map[string]interface{}{}
+	} else if reflect.TypeOf(output).Kind() != reflect.Ptr {
+		return fmt.Errorf("output is not pointor ")
+	}
+	req := c.NewRequest(op, input, output)
+	if getContentType(info.ContentType) != "" {
+		req.HTTPRequest.Header.Set("Content-Type", getContentType(info.ContentType))
+	}
+	return req.Send()
 }
