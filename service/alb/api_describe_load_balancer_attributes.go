@@ -244,8 +244,6 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	LoadBalancerName *string `type:"string"`
 
-	LoadBalancerSpec *string `type:"string"`
-
 	LocalAddresses []*string `type:"list"`
 
 	LockReason *string `type:"string"`
@@ -383,12 +381,6 @@ func (s *DescribeLoadBalancerAttributesOutput) SetLoadBalancerName(v string) *De
 	return s
 }
 
-// SetLoadBalancerSpec sets the LoadBalancerSpec field's value.
-func (s *DescribeLoadBalancerAttributesOutput) SetLoadBalancerSpec(v string) *DescribeLoadBalancerAttributesOutput {
-	s.LoadBalancerSpec = &v
-	return s
-}
-
 // SetLocalAddresses sets the LocalAddresses field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetLocalAddresses(v []*string) *DescribeLoadBalancerAttributesOutput {
 	s.LocalAddresses = v
@@ -464,13 +456,19 @@ func (s *DescribeLoadBalancerAttributesOutput) SetZoneMappings(v []*ZoneMappingF
 type EipForDescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
+	AssociationMode *string `type:"string"`
+
 	Bandwidth *int64 `type:"integer"`
 
 	EipAddress *string `type:"string"`
 
 	EipBillingType *int64 `type:"integer"`
 
+	EipType *string `type:"string"`
+
 	ISP *string `type:"string"`
+
+	PopLocations []*PopLocationForDescribeLoadBalancerAttributesOutput `type:"list"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 }
@@ -483,6 +481,12 @@ func (s EipForDescribeLoadBalancerAttributesOutput) String() string {
 // GoString returns the string representation
 func (s EipForDescribeLoadBalancerAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAssociationMode sets the AssociationMode field's value.
+func (s *EipForDescribeLoadBalancerAttributesOutput) SetAssociationMode(v string) *EipForDescribeLoadBalancerAttributesOutput {
+	s.AssociationMode = &v
+	return s
 }
 
 // SetBandwidth sets the Bandwidth field's value.
@@ -503,9 +507,21 @@ func (s *EipForDescribeLoadBalancerAttributesOutput) SetEipBillingType(v int64) 
 	return s
 }
 
+// SetEipType sets the EipType field's value.
+func (s *EipForDescribeLoadBalancerAttributesOutput) SetEipType(v string) *EipForDescribeLoadBalancerAttributesOutput {
+	s.EipType = &v
+	return s
+}
+
 // SetISP sets the ISP field's value.
 func (s *EipForDescribeLoadBalancerAttributesOutput) SetISP(v string) *EipForDescribeLoadBalancerAttributesOutput {
 	s.ISP = &v
+	return s
+}
+
+// SetPopLocations sets the PopLocations field's value.
+func (s *EipForDescribeLoadBalancerAttributesOutput) SetPopLocations(v []*PopLocationForDescribeLoadBalancerAttributesOutput) *EipForDescribeLoadBalancerAttributesOutput {
+	s.PopLocations = v
 	return s
 }
 
@@ -634,6 +650,36 @@ func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniAddre
 // SetEniId sets the EniId field's value.
 func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniId(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
 	s.EniId = &v
+	return s
+}
+
+type PopLocationForDescribeLoadBalancerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	PopId *string `type:"string"`
+
+	PopName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PopLocationForDescribeLoadBalancerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PopLocationForDescribeLoadBalancerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetPopId sets the PopId field's value.
+func (s *PopLocationForDescribeLoadBalancerAttributesOutput) SetPopId(v string) *PopLocationForDescribeLoadBalancerAttributesOutput {
+	s.PopId = &v
+	return s
+}
+
+// SetPopName sets the PopName field's value.
+func (s *PopLocationForDescribeLoadBalancerAttributesOutput) SetPopName(v string) *PopLocationForDescribeLoadBalancerAttributesOutput {
+	s.PopName = &v
 	return s
 }
 
