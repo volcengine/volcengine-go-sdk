@@ -224,6 +224,10 @@ type ZoneMappingForModifyLoadBalancerTypeInput struct {
 
 	AllocationId *string `type:"string"`
 
+	EipType *string `type:"string"`
+
+	PopLocations *string `type:"string"`
+
 	ZoneId *string `type:"string"`
 }
 
@@ -240,6 +244,18 @@ func (s ZoneMappingForModifyLoadBalancerTypeInput) GoString() string {
 // SetAllocationId sets the AllocationId field's value.
 func (s *ZoneMappingForModifyLoadBalancerTypeInput) SetAllocationId(v string) *ZoneMappingForModifyLoadBalancerTypeInput {
 	s.AllocationId = &v
+	return s
+}
+
+// SetEipType sets the EipType field's value.
+func (s *ZoneMappingForModifyLoadBalancerTypeInput) SetEipType(v string) *ZoneMappingForModifyLoadBalancerTypeInput {
+	s.EipType = &v
+	return s
+}
+
+// SetPopLocations sets the PopLocations field's value.
+func (s *ZoneMappingForModifyLoadBalancerTypeInput) SetPopLocations(v string) *ZoneMappingForModifyLoadBalancerTypeInput {
+	s.PopLocations = &v
 	return s
 }
 
