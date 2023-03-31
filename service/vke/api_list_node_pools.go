@@ -559,6 +559,8 @@ type ListNodePoolsInput struct {
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
+
+	Tags []*TagForListNodePoolsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -586,6 +588,12 @@ func (s *ListNodePoolsInput) SetPageNumber(v int32) *ListNodePoolsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListNodePoolsInput) SetPageSize(v int32) *ListNodePoolsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ListNodePoolsInput) SetTags(v []*TagForListNodePoolsInput) *ListNodePoolsInput {
+	s.Tags = v
 	return s
 }
 
@@ -996,6 +1004,36 @@ func (s *SystemVolumeForListNodePoolsOutput) SetSize(v int32) *SystemVolumeForLi
 // SetType sets the Type field's value.
 func (s *SystemVolumeForListNodePoolsOutput) SetType(v string) *SystemVolumeForListNodePoolsOutput {
 	s.Type = &v
+	return s
+}
+
+type TagForListNodePoolsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForListNodePoolsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListNodePoolsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListNodePoolsInput) SetKey(v string) *TagForListNodePoolsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListNodePoolsInput) SetValue(v string) *TagForListNodePoolsInput {
+	s.Value = &v
 	return s
 }
 

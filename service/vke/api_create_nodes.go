@@ -154,6 +154,8 @@ type CreateNodesInput struct {
 
 	ContainerStoragePath *string `type:"string"`
 
+	ImageId *string `type:"string"`
+
 	InitializeScript *string `type:"string"`
 
 	InstanceIds []*string `type:"list"`
@@ -194,6 +196,12 @@ func (s *CreateNodesInput) SetClusterId(v string) *CreateNodesInput {
 // SetContainerStoragePath sets the ContainerStoragePath field's value.
 func (s *CreateNodesInput) SetContainerStoragePath(v string) *CreateNodesInput {
 	s.ContainerStoragePath = &v
+	return s
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *CreateNodesInput) SetImageId(v string) *CreateNodesInput {
+	s.ImageId = &v
 	return s
 }
 
