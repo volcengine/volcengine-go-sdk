@@ -146,7 +146,8 @@ type CreateKeyPairInput struct {
 
 	Description *string `type:"string"`
 
-	KeyPairName *string `type:"string"`
+	// KeyPairName is a required field
+	KeyPairName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s CreateKeyPairInput) String() string {
 // GoString returns the string representation
 func (s CreateKeyPairInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateKeyPairInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateKeyPairInput"}
+	if s.KeyPairName == nil {
+		invalidParams.Add(request.NewErrParamRequired("KeyPairName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
