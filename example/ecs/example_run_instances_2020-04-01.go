@@ -19,13 +19,13 @@ func RunInstances() {
 		panic(err)
 	}
 	svc := ecs.New(sess)
-	reqNetworkInterfaces0 := &ecs.NetworkInterfaceForRunInstancesInput{
-		SecurityGroupIds: volcengine.StringSlice([]string{"sg-3ti78x9h8t4bw*****"}),
-		SubnetId: volcengine.String("subnet-3tispp1nai4e8i****"),
-	}
 	reqVolumes0 := &ecs.VolumeForRunInstancesInput{
 		Size: volcengine.Int32(40),
 		VolumeType: volcengine.String("ESSD_PL0"),
+	}
+	reqNetworkInterfaces0 := &ecs.NetworkInterfaceForRunInstancesInput{
+		SecurityGroupIds: volcengine.StringSlice([]string{"sg-3ti78x9h8t4bw*****"}),
+		SubnetId: volcengine.String("subnet-3tispp1nai4e8i****"),
 	}
 	runInstancesInput := &ecs.RunInstancesInput{
 		Count: volcengine.Int32(1),
