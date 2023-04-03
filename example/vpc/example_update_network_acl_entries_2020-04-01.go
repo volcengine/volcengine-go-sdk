@@ -19,24 +19,6 @@ func UpdateNetworkAclEntries() {
 		panic(err)
 	}
 	svc := vpc.New(sess)
-	reqIngressAclEntries0 := &vpc.IngressAclEntryForUpdateNetworkAclEntriesInput{
-		Description: volcengine.String("ThisisIngressAclEntries01."),
-		NetworkAclEntryId: volcengine.String("nae-2zepn32de59j8m4****"),
-		NetworkAclEntryName: volcengine.String("acl-3***"),
-		Policy: volcengine.String("accept"),
-		Port: volcengine.String("22/22"),
-		Protocol: volcengine.String("all"),
-		SourceCidrIp: volcengine.String("10.XX.XX.0/24"),
-	}
-	reqIngressAclEntries1 := &vpc.IngressAclEntryForUpdateNetworkAclEntriesInput{
-		Description: volcengine.String("ThisisIngressAclEntries02."),
-		NetworkAclEntryId: volcengine.String("nae-xyz2dmndek90e****"),
-		NetworkAclEntryName: volcengine.String("acl-es***"),
-		Policy: volcengine.String(""),
-		Port: volcengine.String("80/80"),
-		Protocol: volcengine.String("tcp"),
-		SourceCidrIp: volcengine.String("10.XX.XX.0/24"),
-	}
 	reqEgressAclEntries0 := &vpc.EgressAclEntryForUpdateNetworkAclEntriesInput{
 		Description: volcengine.String("ThisisEgressAclEntries01."),
 		DestinationCidrIp: volcengine.String("10.XX.XX.0/24"),
@@ -54,6 +36,24 @@ func UpdateNetworkAclEntries() {
 		Policy: volcengine.String("accept"),
 		Port: volcengine.String("80/80"),
 		Protocol: volcengine.String("icmp"),
+	}
+	reqIngressAclEntries0 := &vpc.IngressAclEntryForUpdateNetworkAclEntriesInput{
+		Description: volcengine.String("ThisisIngressAclEntries01."),
+		NetworkAclEntryId: volcengine.String("nae-2zepn32de59j8m4****"),
+		NetworkAclEntryName: volcengine.String("acl-3***"),
+		Policy: volcengine.String("accept"),
+		Port: volcengine.String("22/22"),
+		Protocol: volcengine.String("all"),
+		SourceCidrIp: volcengine.String("10.XX.XX.0/24"),
+	}
+	reqIngressAclEntries1 := &vpc.IngressAclEntryForUpdateNetworkAclEntriesInput{
+		Description: volcengine.String("ThisisIngressAclEntries02."),
+		NetworkAclEntryId: volcengine.String("nae-xyz2dmndek90e****"),
+		NetworkAclEntryName: volcengine.String("acl-es***"),
+		Policy: volcengine.String(""),
+		Port: volcengine.String("80/80"),
+		Protocol: volcengine.String("tcp"),
+		SourceCidrIp: volcengine.String("10.XX.XX.0/24"),
 	}
 	updateNetworkAclEntriesInput := &vpc.UpdateNetworkAclEntriesInput{
 		EgressAclEntries: []*vpc.EgressAclEntryForUpdateNetworkAclEntriesInput{reqEgressAclEntries0,reqEgressAclEntries1},
