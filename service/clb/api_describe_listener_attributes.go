@@ -204,9 +204,15 @@ type DescribeListenerAttributesOutput struct {
 
 	LoadBalancerId *string `type:"string"`
 
+	PersistenceTimeout *int64 `type:"integer"`
+
+	PersistenceType *string `type:"string"`
+
 	Port *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
+
+	ProxyProtocolType *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
@@ -301,6 +307,18 @@ func (s *DescribeListenerAttributesOutput) SetLoadBalancerId(v string) *Describe
 	return s
 }
 
+// SetPersistenceTimeout sets the PersistenceTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetPersistenceTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.PersistenceTimeout = &v
+	return s
+}
+
+// SetPersistenceType sets the PersistenceType field's value.
+func (s *DescribeListenerAttributesOutput) SetPersistenceType(v string) *DescribeListenerAttributesOutput {
+	s.PersistenceType = &v
+	return s
+}
+
 // SetPort sets the Port field's value.
 func (s *DescribeListenerAttributesOutput) SetPort(v int64) *DescribeListenerAttributesOutput {
 	s.Port = &v
@@ -310,6 +328,12 @@ func (s *DescribeListenerAttributesOutput) SetPort(v int64) *DescribeListenerAtt
 // SetProtocol sets the Protocol field's value.
 func (s *DescribeListenerAttributesOutput) SetProtocol(v string) *DescribeListenerAttributesOutput {
 	s.Protocol = &v
+	return s
+}
+
+// SetProxyProtocolType sets the ProxyProtocolType field's value.
+func (s *DescribeListenerAttributesOutput) SetProxyProtocolType(v string) *DescribeListenerAttributesOutput {
+	s.ProxyProtocolType = &v
 	return s
 }
 
@@ -363,6 +387,8 @@ type HealthCheckForDescribeListenerAttributesOutput struct {
 	UdpExpect *string `type:"string"`
 
 	UdpRequest *string `type:"string"`
+
+	UnHealthyThreshold *int64 `type:"integer"`
 
 	Uri *string `type:"string"`
 }
@@ -428,6 +454,12 @@ func (s *HealthCheckForDescribeListenerAttributesOutput) SetUdpExpect(v string) 
 // SetUdpRequest sets the UdpRequest field's value.
 func (s *HealthCheckForDescribeListenerAttributesOutput) SetUdpRequest(v string) *HealthCheckForDescribeListenerAttributesOutput {
 	s.UdpRequest = &v
+	return s
+}
+
+// SetUnHealthyThreshold sets the UnHealthyThreshold field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetUnHealthyThreshold(v int64) *HealthCheckForDescribeListenerAttributesOutput {
+	s.UnHealthyThreshold = &v
 	return s
 }
 

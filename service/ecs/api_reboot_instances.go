@@ -204,6 +204,8 @@ type RebootInstancesInput struct {
 
 	ClientToken *string `type:"string"`
 
+	DryRun *bool `type:"boolean"`
+
 	ForceStop *bool `type:"boolean"`
 
 	InstanceIds []*string `type:"list"`
@@ -222,6 +224,12 @@ func (s RebootInstancesInput) GoString() string {
 // SetClientToken sets the ClientToken field's value.
 func (s *RebootInstancesInput) SetClientToken(v string) *RebootInstancesInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *RebootInstancesInput) SetDryRun(v bool) *RebootInstancesInput {
+	s.DryRun = &v
 	return s
 }
 

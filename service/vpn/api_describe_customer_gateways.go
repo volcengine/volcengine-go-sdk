@@ -247,6 +247,8 @@ type DescribeCustomerGatewaysInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	Status *string `type:"string"`
 }
 
 // String returns the string representation
@@ -292,6 +294,12 @@ func (s *DescribeCustomerGatewaysInput) SetPageSize(v int64) *DescribeCustomerGa
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeCustomerGatewaysInput) SetProjectName(v string) *DescribeCustomerGatewaysInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeCustomerGatewaysInput) SetStatus(v string) *DescribeCustomerGatewaysInput {
+	s.Status = &v
 	return s
 }
 

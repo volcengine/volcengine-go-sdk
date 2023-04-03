@@ -236,6 +236,8 @@ func (s *CenForDescribeCensOutput) SetUpdateTime(v string) *CenForDescribeCensOu
 type DescribeCensInput struct {
 	_ struct{} `type:"structure"`
 
+	CenIds *string `type:"string"`
+
 	CenName *string `type:"string"`
 
 	PageNumber *int64 `type:"integer"`
@@ -255,6 +257,12 @@ func (s DescribeCensInput) String() string {
 // GoString returns the string representation
 func (s DescribeCensInput) GoString() string {
 	return s.String()
+}
+
+// SetCenIds sets the CenIds field's value.
+func (s *DescribeCensInput) SetCenIds(v string) *DescribeCensInput {
+	s.CenIds = &v
+	return s
 }
 
 // SetCenName sets the CenName field's value.
@@ -339,6 +347,8 @@ type TagFilterForDescribeCensInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -354,6 +364,12 @@ func (s TagFilterForDescribeCensInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeCensInput) SetKey(v string) *TagFilterForDescribeCensInput {
 	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeCensInput) SetValues(v []*string) *TagFilterForDescribeCensInput {
+	s.Values = v
 	return s
 }
 

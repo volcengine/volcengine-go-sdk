@@ -148,6 +148,8 @@ type CreateBgpPeerInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
+	IpVersion *string `type:"string" enum:"IpVersionForCreateBgpPeerInput"`
+
 	// RemoteAsn is a required field
 	RemoteAsn *int64 `type:"integer" required:"true"`
 
@@ -211,6 +213,12 @@ func (s *CreateBgpPeerInput) SetDescription(v string) *CreateBgpPeerInput {
 	return s
 }
 
+// SetIpVersion sets the IpVersion field's value.
+func (s *CreateBgpPeerInput) SetIpVersion(v string) *CreateBgpPeerInput {
+	s.IpVersion = &v
+	return s
+}
+
 // SetRemoteAsn sets the RemoteAsn field's value.
 func (s *CreateBgpPeerInput) SetRemoteAsn(v int64) *CreateBgpPeerInput {
 	s.RemoteAsn = &v
@@ -254,3 +262,11 @@ func (s *CreateBgpPeerOutput) SetRequestId(v string) *CreateBgpPeerOutput {
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// IpVersionForCreateBgpPeerInputIpv4 is a IpVersionForCreateBgpPeerInput enum value
+	IpVersionForCreateBgpPeerInputIpv4 = "IPv4"
+
+	// IpVersionForCreateBgpPeerInputIpv6 is a IpVersionForCreateBgpPeerInput enum value
+	IpVersionForCreateBgpPeerInputIpv6 = "IPv6"
+)

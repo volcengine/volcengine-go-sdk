@@ -270,6 +270,8 @@ type HealthCheckForDescribeListenersOutput struct {
 
 	UdpRequest *string `type:"string"`
 
+	UnHealthyThreshold *int64 `type:"integer"`
+
 	Uri *string `type:"string"`
 }
 
@@ -337,6 +339,12 @@ func (s *HealthCheckForDescribeListenersOutput) SetUdpRequest(v string) *HealthC
 	return s
 }
 
+// SetUnHealthyThreshold sets the UnHealthyThreshold field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetUnHealthyThreshold(v int64) *HealthCheckForDescribeListenersOutput {
+	s.UnHealthyThreshold = &v
+	return s
+}
+
 // SetUri sets the Uri field's value.
 func (s *HealthCheckForDescribeListenersOutput) SetUri(v string) *HealthCheckForDescribeListenersOutput {
 	s.Uri = &v
@@ -355,6 +363,8 @@ type ListenerForDescribeListenersOutput struct {
 	CertificateId *string `type:"string"`
 
 	CreateTime *string `type:"string"`
+
+	Description *string `type:"string"`
 
 	Enabled *string `type:"string"`
 
@@ -418,6 +428,12 @@ func (s *ListenerForDescribeListenersOutput) SetCertificateId(v string) *Listene
 // SetCreateTime sets the CreateTime field's value.
 func (s *ListenerForDescribeListenersOutput) SetCreateTime(v string) *ListenerForDescribeListenersOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ListenerForDescribeListenersOutput) SetDescription(v string) *ListenerForDescribeListenersOutput {
+	s.Description = &v
 	return s
 }
 

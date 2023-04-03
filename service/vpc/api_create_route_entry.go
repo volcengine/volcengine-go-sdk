@@ -152,6 +152,8 @@ type CreateRouteEntryInput struct {
 	// NextHopId is a required field
 	NextHopId *string `type:"string" required:"true"`
 
+	NextHopName *string `type:"string"`
+
 	// NextHopType is a required field
 	NextHopType *string `type:"string" required:"true"`
 
@@ -226,6 +228,12 @@ func (s *CreateRouteEntryInput) SetDestinationCidrBlock(v string) *CreateRouteEn
 // SetNextHopId sets the NextHopId field's value.
 func (s *CreateRouteEntryInput) SetNextHopId(v string) *CreateRouteEntryInput {
 	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopName sets the NextHopName field's value.
+func (s *CreateRouteEntryInput) SetNextHopName(v string) *CreateRouteEntryInput {
+	s.NextHopName = &v
 	return s
 }
 

@@ -142,6 +142,8 @@ func (c *ECS) DescribeInstanceTypesWithContext(ctx volcengine.Context, input *De
 type DescribeInstanceTypesInput struct {
 	_ struct{} `type:"structure"`
 
+	InstanceTypeFamily *string `type:"string"`
+
 	InstanceTypeIds []*string `type:"list"`
 
 	InstanceTypes []*string `type:"list"`
@@ -149,6 +151,12 @@ type DescribeInstanceTypesInput struct {
 	MaxResults *int32 `type:"int32"`
 
 	NextToken *string `type:"string"`
+
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -159,6 +167,12 @@ func (s DescribeInstanceTypesInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstanceTypesInput) GoString() string {
 	return s.String()
+}
+
+// SetInstanceTypeFamily sets the InstanceTypeFamily field's value.
+func (s *DescribeInstanceTypesInput) SetInstanceTypeFamily(v string) *DescribeInstanceTypesInput {
+	s.InstanceTypeFamily = &v
+	return s
 }
 
 // SetInstanceTypeIds sets the InstanceTypeIds field's value.
@@ -185,6 +199,24 @@ func (s *DescribeInstanceTypesInput) SetNextToken(v string) *DescribeInstanceTyp
 	return s
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeInstanceTypesInput) SetPageNumber(v int32) *DescribeInstanceTypesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeInstanceTypesInput) SetPageSize(v int32) *DescribeInstanceTypesInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeInstanceTypesInput) SetZoneId(v string) *DescribeInstanceTypesInput {
+	s.ZoneId = &v
+	return s
+}
+
 type DescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -193,6 +225,10 @@ type DescribeInstanceTypesOutput struct {
 	InstanceTypes []*InstanceTypeForDescribeInstanceTypesOutput `type:"list"`
 
 	NextToken *string `type:"string"`
+
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
 
 	TotalCount *int32 `type:"int32"`
 }
@@ -216,6 +252,18 @@ func (s *DescribeInstanceTypesOutput) SetInstanceTypes(v []*InstanceTypeForDescr
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeInstanceTypesOutput) SetNextToken(v string) *DescribeInstanceTypesOutput {
 	s.NextToken = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeInstanceTypesOutput) SetPageNumber(v int32) *DescribeInstanceTypesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeInstanceTypesOutput) SetPageSize(v int32) *DescribeInstanceTypesOutput {
+	s.PageSize = &v
 	return s
 }
 
@@ -288,9 +336,17 @@ func (s *GpuForDescribeInstanceTypesOutput) SetGpuDevices(v []*GpuDeviceForDescr
 type InstanceTypeForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Architecture *string `type:"string"`
+
 	BaselineCredit *int64 `type:"int64"`
 
+	ComputeFactor *int32 `type:"int32"`
+
+	Cpu *int32 `type:"int32"`
+
 	Gpu *GpuForDescribeInstanceTypesOutput `type:"structure"`
+
+	Id *string `type:"string"`
 
 	InitialCredit *int64 `type:"int64"`
 
@@ -298,17 +354,43 @@ type InstanceTypeForDescribeInstanceTypesOutput struct {
 
 	InstanceTypeId *string `type:"string"`
 
+	IsSupportRiCreate *bool `type:"boolean"`
+
+	IsSupportRiModify *bool `type:"boolean"`
+
+	IsSupportSpot *bool `type:"boolean"`
+
 	LocalVolumes []*LocalVolumeForDescribeInstanceTypesOutput `type:"list"`
+
+	Mem *int32 `type:"int32"`
 
 	Memory *MemoryForDescribeInstanceTypesOutput `type:"structure"`
 
+	NetKppsQuota *int32 `type:"int32"`
+
+	NetMbpsQuota *int32 `type:"int32"`
+
+	NetSessionQuota *int32 `type:"int32"`
+
 	Network *NetworkForDescribeInstanceTypesOutput `type:"structure"`
+
+	NetworkInterfaceNumQuota *int32 `type:"int32"`
+
+	NetworkInterfaceTotalNumQuota *int32 `type:"int32"`
+
+	PrivateIpQuota *int32 `type:"int32"`
 
 	Processor *ProcessorForDescribeInstanceTypesOutput `type:"structure"`
 
 	Rdma *RdmaForDescribeInstanceTypesOutput `type:"structure"`
 
+	TrunkNetworkInterfaceSupported *bool `type:"boolean"`
+
+	Type *string `type:"string"`
+
 	Volume *VolumeForDescribeInstanceTypesOutput `type:"structure"`
+
+	VolumeTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -321,15 +403,39 @@ func (s InstanceTypeForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
 }
 
+// SetArchitecture sets the Architecture field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetArchitecture(v string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Architecture = &v
+	return s
+}
+
 // SetBaselineCredit sets the BaselineCredit field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetBaselineCredit(v int64) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.BaselineCredit = &v
 	return s
 }
 
+// SetComputeFactor sets the ComputeFactor field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetComputeFactor(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.ComputeFactor = &v
+	return s
+}
+
+// SetCpu sets the Cpu field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetCpu(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Cpu = &v
+	return s
+}
+
 // SetGpu sets the Gpu field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetGpu(v *GpuForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.Gpu = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetId(v string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Id = &v
 	return s
 }
 
@@ -351,9 +457,33 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetInstanceTypeId(v string)
 	return s
 }
 
+// SetIsSupportRiCreate sets the IsSupportRiCreate field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetIsSupportRiCreate(v bool) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.IsSupportRiCreate = &v
+	return s
+}
+
+// SetIsSupportRiModify sets the IsSupportRiModify field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetIsSupportRiModify(v bool) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.IsSupportRiModify = &v
+	return s
+}
+
+// SetIsSupportSpot sets the IsSupportSpot field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetIsSupportSpot(v bool) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.IsSupportSpot = &v
+	return s
+}
+
 // SetLocalVolumes sets the LocalVolumes field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetLocalVolumes(v []*LocalVolumeForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.LocalVolumes = v
+	return s
+}
+
+// SetMem sets the Mem field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetMem(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Mem = &v
 	return s
 }
 
@@ -363,9 +493,45 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetMemory(v *MemoryForDescr
 	return s
 }
 
+// SetNetKppsQuota sets the NetKppsQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetKppsQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.NetKppsQuota = &v
+	return s
+}
+
+// SetNetMbpsQuota sets the NetMbpsQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetMbpsQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.NetMbpsQuota = &v
+	return s
+}
+
+// SetNetSessionQuota sets the NetSessionQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetSessionQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.NetSessionQuota = &v
+	return s
+}
+
 // SetNetwork sets the Network field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetwork(v *NetworkForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.Network = v
+	return s
+}
+
+// SetNetworkInterfaceNumQuota sets the NetworkInterfaceNumQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetworkInterfaceNumQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.NetworkInterfaceNumQuota = &v
+	return s
+}
+
+// SetNetworkInterfaceTotalNumQuota sets the NetworkInterfaceTotalNumQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetNetworkInterfaceTotalNumQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.NetworkInterfaceTotalNumQuota = &v
+	return s
+}
+
+// SetPrivateIpQuota sets the PrivateIpQuota field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetPrivateIpQuota(v int32) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.PrivateIpQuota = &v
 	return s
 }
 
@@ -381,9 +547,27 @@ func (s *InstanceTypeForDescribeInstanceTypesOutput) SetRdma(v *RdmaForDescribeI
 	return s
 }
 
+// SetTrunkNetworkInterfaceSupported sets the TrunkNetworkInterfaceSupported field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetTrunkNetworkInterfaceSupported(v bool) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.TrunkNetworkInterfaceSupported = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetType(v string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.Type = &v
+	return s
+}
+
 // SetVolume sets the Volume field's value.
 func (s *InstanceTypeForDescribeInstanceTypesOutput) SetVolume(v *VolumeForDescribeInstanceTypesOutput) *InstanceTypeForDescribeInstanceTypesOutput {
 	s.Volume = v
+	return s
+}
+
+// SetVolumeTypes sets the VolumeTypes field's value.
+func (s *InstanceTypeForDescribeInstanceTypesOutput) SetVolumeTypes(v []*string) *InstanceTypeForDescribeInstanceTypesOutput {
+	s.VolumeTypes = v
 	return s
 }
 

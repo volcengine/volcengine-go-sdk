@@ -142,11 +142,15 @@ func (c *CLB) DescribeLoadBalancersWithContext(ctx volcengine.Context, input *De
 type DescribeLoadBalancersInput struct {
 	_ struct{} `type:"structure"`
 
-	EniAddress *string `type:"string"`
+	AddressIpVersion *string `type:"string"`
+
+	ExclusiveClusterId *string `type:"string"`
 
 	LoadBalancerIds []*string `type:"list"`
 
 	LoadBalancerName *string `type:"string"`
+
+	MasterZoneId *string `type:"string"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -154,7 +158,11 @@ type DescribeLoadBalancersInput struct {
 
 	ProjectName *string `type:"string"`
 
+	Status *string `type:"string"`
+
 	TagFilters []*TagFilterForDescribeLoadBalancersInput `type:"list"`
+
+	Type *string `type:"string"`
 
 	VpcId *string `type:"string"`
 }
@@ -169,9 +177,15 @@ func (s DescribeLoadBalancersInput) GoString() string {
 	return s.String()
 }
 
-// SetEniAddress sets the EniAddress field's value.
-func (s *DescribeLoadBalancersInput) SetEniAddress(v string) *DescribeLoadBalancersInput {
-	s.EniAddress = &v
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *DescribeLoadBalancersInput) SetAddressIpVersion(v string) *DescribeLoadBalancersInput {
+	s.AddressIpVersion = &v
+	return s
+}
+
+// SetExclusiveClusterId sets the ExclusiveClusterId field's value.
+func (s *DescribeLoadBalancersInput) SetExclusiveClusterId(v string) *DescribeLoadBalancersInput {
+	s.ExclusiveClusterId = &v
 	return s
 }
 
@@ -184,6 +198,12 @@ func (s *DescribeLoadBalancersInput) SetLoadBalancerIds(v []*string) *DescribeLo
 // SetLoadBalancerName sets the LoadBalancerName field's value.
 func (s *DescribeLoadBalancersInput) SetLoadBalancerName(v string) *DescribeLoadBalancersInput {
 	s.LoadBalancerName = &v
+	return s
+}
+
+// SetMasterZoneId sets the MasterZoneId field's value.
+func (s *DescribeLoadBalancersInput) SetMasterZoneId(v string) *DescribeLoadBalancersInput {
+	s.MasterZoneId = &v
 	return s
 }
 
@@ -205,9 +225,21 @@ func (s *DescribeLoadBalancersInput) SetProjectName(v string) *DescribeLoadBalan
 	return s
 }
 
+// SetStatus sets the Status field's value.
+func (s *DescribeLoadBalancersInput) SetStatus(v string) *DescribeLoadBalancersInput {
+	s.Status = &v
+	return s
+}
+
 // SetTagFilters sets the TagFilters field's value.
 func (s *DescribeLoadBalancersInput) SetTagFilters(v []*TagFilterForDescribeLoadBalancersInput) *DescribeLoadBalancersInput {
 	s.TagFilters = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeLoadBalancersInput) SetType(v string) *DescribeLoadBalancersInput {
+	s.Type = &v
 	return s
 }
 
@@ -276,6 +308,8 @@ func (s *DescribeLoadBalancersOutput) SetTotalCount(v int64) *DescribeLoadBalanc
 type LoadBalancerForDescribeLoadBalancersOutput struct {
 	_ struct{} `type:"structure"`
 
+	AddressIpVersion *string `type:"string"`
+
 	BusinessStatus *string `type:"string"`
 
 	CreateTime *string `type:"string"`
@@ -292,7 +326,13 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	EniID *string `type:"string"`
 
+	EniIpv6Address *string `type:"string"`
+
+	ExclusiveClusterId *string `type:"string"`
+
 	ExpiredTime *string `type:"string"`
+
+	Ipv6EipId *string `type:"string"`
 
 	LoadBalancerBillingType *int64 `type:"integer"`
 
@@ -309,6 +349,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 	ModificationProtectionReason *string `type:"string"`
 
 	ModificationProtectionStatus *string `type:"string"`
+
+	NewArch *bool `type:"boolean"`
 
 	OverdueTime *string `type:"string"`
 
@@ -337,6 +379,12 @@ func (s LoadBalancerForDescribeLoadBalancersOutput) String() string {
 // GoString returns the string representation
 func (s LoadBalancerForDescribeLoadBalancersOutput) GoString() string {
 	return s.String()
+}
+
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetAddressIpVersion(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.AddressIpVersion = &v
+	return s
 }
 
 // SetBusinessStatus sets the BusinessStatus field's value.
@@ -387,9 +435,27 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniID(v string) *LoadBal
 	return s
 }
 
+// SetEniIpv6Address sets the EniIpv6Address field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniIpv6Address(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.EniIpv6Address = &v
+	return s
+}
+
+// SetExclusiveClusterId sets the ExclusiveClusterId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetExclusiveClusterId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ExclusiveClusterId = &v
+	return s
+}
+
 // SetExpiredTime sets the ExpiredTime field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetExpiredTime(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.ExpiredTime = &v
+	return s
+}
+
+// SetIpv6EipId sets the Ipv6EipId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetIpv6EipId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.Ipv6EipId = &v
 	return s
 }
 
@@ -438,6 +504,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetModificationProtectionRe
 // SetModificationProtectionStatus sets the ModificationProtectionStatus field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetModificationProtectionStatus(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.ModificationProtectionStatus = &v
+	return s
+}
+
+// SetNewArch sets the NewArch field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetNewArch(v bool) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.NewArch = &v
 	return s
 }
 

@@ -21,6 +21,7 @@ func ModifyInstanceSpec() {
 	svc := ecs.New(sess)
 	modifyInstanceSpecInput := &ecs.ModifyInstanceSpecInput{
 		InstanceId: volcengine.String("i-3thhlu8byl4bwbha****"),
+		InstanceTypeId: volcengine.String("ecs.g1.large"),
 	}
 
 	resp, err := svc.ModifyInstanceSpec(modifyInstanceSpecInput)

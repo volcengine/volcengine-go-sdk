@@ -290,6 +290,10 @@ type DescribeBandwidthPackagesInput struct {
 
 	ISP *string `type:"string" enum:"ISPForDescribeBandwidthPackagesInput"`
 
+	PageNumber *int64 `type:"integer"`
+
+	PageSize *int64 `max:"100" type:"integer"`
+
 	ProjectName *string `type:"string"`
 
 	SecurityProtectionEnabled *bool `type:"boolean"`
@@ -307,6 +311,19 @@ func (s DescribeBandwidthPackagesInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeBandwidthPackagesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeBandwidthPackagesInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetBandwidthPackageIds sets the BandwidthPackageIds field's value.
 func (s *DescribeBandwidthPackagesInput) SetBandwidthPackageIds(v []*string) *DescribeBandwidthPackagesInput {
 	s.BandwidthPackageIds = v
@@ -322,6 +339,18 @@ func (s *DescribeBandwidthPackagesInput) SetBandwidthPackageName(v string) *Desc
 // SetISP sets the ISP field's value.
 func (s *DescribeBandwidthPackagesInput) SetISP(v string) *DescribeBandwidthPackagesInput {
 	s.ISP = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeBandwidthPackagesInput) SetPageNumber(v int64) *DescribeBandwidthPackagesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeBandwidthPackagesInput) SetPageSize(v int64) *DescribeBandwidthPackagesInput {
+	s.PageSize = &v
 	return s
 }
 

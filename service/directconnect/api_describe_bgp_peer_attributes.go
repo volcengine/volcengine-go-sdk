@@ -192,6 +192,8 @@ type DescribeBgpPeerAttributesOutput struct {
 
 	Description *string `type:"string"`
 
+	IpVersion *string `type:"string"`
+
 	LocalAsn *int64 `type:"integer"`
 
 	RemoteAsn *int64 `type:"integer"`
@@ -250,6 +252,12 @@ func (s *DescribeBgpPeerAttributesOutput) SetCreationTime(v string) *DescribeBgp
 // SetDescription sets the Description field's value.
 func (s *DescribeBgpPeerAttributesOutput) SetDescription(v string) *DescribeBgpPeerAttributesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *DescribeBgpPeerAttributesOutput) SetIpVersion(v string) *DescribeBgpPeerAttributesOutput {
+	s.IpVersion = &v
 	return s
 }
 

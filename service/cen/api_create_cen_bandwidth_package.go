@@ -166,6 +166,12 @@ type CreateCenBandwidthPackageInput struct {
 
 	ProjectName *string `type:"string"`
 
+	RemainRenewTimes *int64 `type:"integer"`
+
+	RenewPeriod *int64 `type:"integer"`
+
+	RenewType *string `type:"string" enum:"RenewTypeForCreateCenBandwidthPackageInput"`
+
 	Tags []*TagForCreateCenBandwidthPackageInput `type:"list"`
 }
 
@@ -279,6 +285,24 @@ func (s *CreateCenBandwidthPackageInput) SetProjectName(v string) *CreateCenBand
 	return s
 }
 
+// SetRemainRenewTimes sets the RemainRenewTimes field's value.
+func (s *CreateCenBandwidthPackageInput) SetRemainRenewTimes(v int64) *CreateCenBandwidthPackageInput {
+	s.RemainRenewTimes = &v
+	return s
+}
+
+// SetRenewPeriod sets the RenewPeriod field's value.
+func (s *CreateCenBandwidthPackageInput) SetRenewPeriod(v int64) *CreateCenBandwidthPackageInput {
+	s.RenewPeriod = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *CreateCenBandwidthPackageInput) SetRenewType(v string) *CreateCenBandwidthPackageInput {
+	s.RenewType = &v
+	return s
+}
+
 // SetTags sets the Tags field's value.
 func (s *CreateCenBandwidthPackageInput) SetTags(v []*TagForCreateCenBandwidthPackageInput) *CreateCenBandwidthPackageInput {
 	s.Tags = v
@@ -291,6 +315,8 @@ type CreateCenBandwidthPackageOutput struct {
 	Metadata *response.ResponseMetadata
 
 	CenBandwidthPackageId *string `type:"string"`
+
+	PreOrderNumber *string `type:"string"`
 }
 
 // String returns the string representation
@@ -309,10 +335,18 @@ func (s *CreateCenBandwidthPackageOutput) SetCenBandwidthPackageId(v string) *Cr
 	return s
 }
 
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *CreateCenBandwidthPackageOutput) SetPreOrderNumber(v string) *CreateCenBandwidthPackageOutput {
+	s.PreOrderNumber = &v
+	return s
+}
+
 type TagForCreateCenBandwidthPackageInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
+
+	Value *string `type:"string"`
 }
 
 // String returns the string representation
@@ -331,10 +365,27 @@ func (s *TagForCreateCenBandwidthPackageInput) SetKey(v string) *TagForCreateCen
 	return s
 }
 
+// SetValue sets the Value field's value.
+func (s *TagForCreateCenBandwidthPackageInput) SetValue(v string) *TagForCreateCenBandwidthPackageInput {
+	s.Value = &v
+	return s
+}
+
 const (
 	// PeriodUnitForCreateCenBandwidthPackageInputMoth is a PeriodUnitForCreateCenBandwidthPackageInput enum value
 	PeriodUnitForCreateCenBandwidthPackageInputMoth = "Moth"
 
 	// PeriodUnitForCreateCenBandwidthPackageInputYear is a PeriodUnitForCreateCenBandwidthPackageInput enum value
 	PeriodUnitForCreateCenBandwidthPackageInputYear = "Year"
+)
+
+const (
+	// RenewTypeForCreateCenBandwidthPackageInputManual is a RenewTypeForCreateCenBandwidthPackageInput enum value
+	RenewTypeForCreateCenBandwidthPackageInputManual = "Manual"
+
+	// RenewTypeForCreateCenBandwidthPackageInputAuto is a RenewTypeForCreateCenBandwidthPackageInput enum value
+	RenewTypeForCreateCenBandwidthPackageInputAuto = "Auto"
+
+	// RenewTypeForCreateCenBandwidthPackageInputNoRenew is a RenewTypeForCreateCenBandwidthPackageInput enum value
+	RenewTypeForCreateCenBandwidthPackageInputNoRenew = "NoRenew"
 )

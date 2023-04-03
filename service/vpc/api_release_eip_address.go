@@ -144,6 +144,8 @@ type ReleaseEipAddressInput struct {
 
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
+
+	AllocationIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -175,10 +177,18 @@ func (s *ReleaseEipAddressInput) SetAllocationId(v string) *ReleaseEipAddressInp
 	return s
 }
 
+// SetAllocationIds sets the AllocationIds field's value.
+func (s *ReleaseEipAddressInput) SetAllocationIds(v []*string) *ReleaseEipAddressInput {
+	s.AllocationIds = v
+	return s
+}
+
 type ReleaseEipAddressOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	PreOrderNumber *string `type:"string"`
 
 	RequestId *string `type:"string"`
 }
@@ -191,6 +201,12 @@ func (s ReleaseEipAddressOutput) String() string {
 // GoString returns the string representation
 func (s ReleaseEipAddressOutput) GoString() string {
 	return s.String()
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *ReleaseEipAddressOutput) SetPreOrderNumber(v string) *ReleaseEipAddressOutput {
+	s.PreOrderNumber = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

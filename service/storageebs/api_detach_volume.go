@@ -142,6 +142,10 @@ func (c *STORAGEEBS) DetachVolumeWithContext(ctx volcengine.Context, input *Deta
 type DetachVolumeInput struct {
 	_ struct{} `type:"structure"`
 
+	DeleteWithInstance *bool `type:"boolean"`
+
+	Force *bool `type:"boolean"`
+
 	InstanceId *string `type:"string"`
 
 	VolumeId *string `type:"string"`
@@ -155,6 +159,18 @@ func (s DetachVolumeInput) String() string {
 // GoString returns the string representation
 func (s DetachVolumeInput) GoString() string {
 	return s.String()
+}
+
+// SetDeleteWithInstance sets the DeleteWithInstance field's value.
+func (s *DetachVolumeInput) SetDeleteWithInstance(v bool) *DetachVolumeInput {
+	s.DeleteWithInstance = &v
+	return s
+}
+
+// SetForce sets the Force field's value.
+func (s *DetachVolumeInput) SetForce(v bool) *DetachVolumeInput {
+	s.Force = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

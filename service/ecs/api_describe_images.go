@@ -144,9 +144,13 @@ func (c *ECS) DescribeImagesWithContext(ctx volcengine.Context, input *DescribeI
 type DescribeImagesInput struct {
 	_ struct{} `type:"structure"`
 
+	AccountId *string `type:"string"`
+
+	Architecture *string `type:"string"`
+
 	ImageIds []*string `type:"list"`
 
-	ImageStatus *string `type:"string"`
+	ImageName *string `type:"string"`
 
 	InstanceTypeId *string `type:"string"`
 
@@ -157,6 +161,10 @@ type DescribeImagesInput struct {
 	NextToken *string `type:"string"`
 
 	OsType *string `type:"string"`
+
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -175,15 +183,27 @@ func (s DescribeImagesInput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeImagesInput) SetAccountId(v string) *DescribeImagesInput {
+	s.AccountId = &v
+	return s
+}
+
+// SetArchitecture sets the Architecture field's value.
+func (s *DescribeImagesInput) SetArchitecture(v string) *DescribeImagesInput {
+	s.Architecture = &v
+	return s
+}
+
 // SetImageIds sets the ImageIds field's value.
 func (s *DescribeImagesInput) SetImageIds(v []*string) *DescribeImagesInput {
 	s.ImageIds = v
 	return s
 }
 
-// SetImageStatus sets the ImageStatus field's value.
-func (s *DescribeImagesInput) SetImageStatus(v string) *DescribeImagesInput {
-	s.ImageStatus = &v
+// SetImageName sets the ImageName field's value.
+func (s *DescribeImagesInput) SetImageName(v string) *DescribeImagesInput {
+	s.ImageName = &v
 	return s
 }
 
@@ -217,6 +237,18 @@ func (s *DescribeImagesInput) SetOsType(v string) *DescribeImagesInput {
 	return s
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeImagesInput) SetPageNumber(v int32) *DescribeImagesInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeImagesInput) SetPageSize(v int32) *DescribeImagesInput {
+	s.PageSize = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeImagesInput) SetProjectName(v string) *DescribeImagesInput {
 	s.ProjectName = &v
@@ -244,6 +276,10 @@ type DescribeImagesOutput struct {
 
 	NextToken *string `type:"string"`
 
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
 	TotalCount *int32 `type:"int32"`
 }
 
@@ -269,6 +305,18 @@ func (s *DescribeImagesOutput) SetNextToken(v string) *DescribeImagesOutput {
 	return s
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeImagesOutput) SetPageNumber(v int32) *DescribeImagesOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeImagesOutput) SetPageSize(v int32) *DescribeImagesOutput {
+	s.PageSize = &v
+	return s
+}
+
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeImagesOutput) SetTotalCount(v int32) *DescribeImagesOutput {
 	s.TotalCount = &v
@@ -279,6 +327,8 @@ type ImageForDescribeImagesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Architecture *string `type:"string"`
+
+	Checksum *string `type:"string"`
 
 	CreatedAt *string `type:"string"`
 
@@ -302,9 +352,13 @@ type ImageForDescribeImagesOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	ReleaseVersion *string `type:"string"`
+
 	ShareStatus *string `type:"string"`
 
 	Size *int32 `type:"int32"`
+
+	Snapshots []*SnapshotForDescribeImagesOutput `type:"list"`
 
 	Status *string `type:"string"`
 
@@ -328,6 +382,12 @@ func (s ImageForDescribeImagesOutput) GoString() string {
 // SetArchitecture sets the Architecture field's value.
 func (s *ImageForDescribeImagesOutput) SetArchitecture(v string) *ImageForDescribeImagesOutput {
 	s.Architecture = &v
+	return s
+}
+
+// SetChecksum sets the Checksum field's value.
+func (s *ImageForDescribeImagesOutput) SetChecksum(v string) *ImageForDescribeImagesOutput {
+	s.Checksum = &v
 	return s
 }
 
@@ -397,6 +457,12 @@ func (s *ImageForDescribeImagesOutput) SetProjectName(v string) *ImageForDescrib
 	return s
 }
 
+// SetReleaseVersion sets the ReleaseVersion field's value.
+func (s *ImageForDescribeImagesOutput) SetReleaseVersion(v string) *ImageForDescribeImagesOutput {
+	s.ReleaseVersion = &v
+	return s
+}
+
 // SetShareStatus sets the ShareStatus field's value.
 func (s *ImageForDescribeImagesOutput) SetShareStatus(v string) *ImageForDescribeImagesOutput {
 	s.ShareStatus = &v
@@ -406,6 +472,12 @@ func (s *ImageForDescribeImagesOutput) SetShareStatus(v string) *ImageForDescrib
 // SetSize sets the Size field's value.
 func (s *ImageForDescribeImagesOutput) SetSize(v int32) *ImageForDescribeImagesOutput {
 	s.Size = &v
+	return s
+}
+
+// SetSnapshots sets the Snapshots field's value.
+func (s *ImageForDescribeImagesOutput) SetSnapshots(v []*SnapshotForDescribeImagesOutput) *ImageForDescribeImagesOutput {
+	s.Snapshots = v
 	return s
 }
 
@@ -430,5 +502,43 @@ func (s *ImageForDescribeImagesOutput) SetVirtualSize(v json.Number) *ImageForDe
 // SetVisibility sets the Visibility field's value.
 func (s *ImageForDescribeImagesOutput) SetVisibility(v string) *ImageForDescribeImagesOutput {
 	s.Visibility = &v
+	return s
+}
+
+type SnapshotForDescribeImagesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Size *int32 `type:"int32"`
+
+	SnapshotId *string `type:"string"`
+
+	VolumeKind *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SnapshotForDescribeImagesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SnapshotForDescribeImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetSize sets the Size field's value.
+func (s *SnapshotForDescribeImagesOutput) SetSize(v int32) *SnapshotForDescribeImagesOutput {
+	s.Size = &v
+	return s
+}
+
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *SnapshotForDescribeImagesOutput) SetSnapshotId(v string) *SnapshotForDescribeImagesOutput {
+	s.SnapshotId = &v
+	return s
+}
+
+// SetVolumeKind sets the VolumeKind field's value.
+func (s *SnapshotForDescribeImagesOutput) SetVolumeKind(v string) *SnapshotForDescribeImagesOutput {
+	s.VolumeKind = &v
 	return s
 }

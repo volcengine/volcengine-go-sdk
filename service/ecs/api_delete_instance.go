@@ -139,8 +139,78 @@ func (c *ECS) DeleteInstanceWithContext(ctx volcengine.Context, input *DeleteIns
 	return out, req.Send()
 }
 
+type AssociatedEipsForDeleteInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	DeleteAssociatedResource *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociatedEipsForDeleteInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociatedEipsForDeleteInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteAssociatedResource sets the DeleteAssociatedResource field's value.
+func (s *AssociatedEipsForDeleteInstanceInput) SetDeleteAssociatedResource(v string) *AssociatedEipsForDeleteInstanceInput {
+	s.DeleteAssociatedResource = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AssociatedEipsForDeleteInstanceInput) SetInstanceId(v string) *AssociatedEipsForDeleteInstanceInput {
+	s.InstanceId = &v
+	return s
+}
+
+type AssociatedVolumesForDeleteInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	DeleteAssociatedResource *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AssociatedVolumesForDeleteInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociatedVolumesForDeleteInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetDeleteAssociatedResource sets the DeleteAssociatedResource field's value.
+func (s *AssociatedVolumesForDeleteInstanceInput) SetDeleteAssociatedResource(v string) *AssociatedVolumesForDeleteInstanceInput {
+	s.DeleteAssociatedResource = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AssociatedVolumesForDeleteInstanceInput) SetInstanceId(v string) *AssociatedVolumesForDeleteInstanceInput {
+	s.InstanceId = &v
+	return s
+}
+
 type DeleteInstanceInput struct {
 	_ struct{} `type:"structure"`
+
+	AssociatedEips *AssociatedEipsForDeleteInstanceInput `type:"structure"`
+
+	AssociatedVolumes *AssociatedVolumesForDeleteInstanceInput `type:"structure"`
+
+	ClientToken *string `type:"string"`
+
+	DryRun *bool `type:"boolean"`
+
+	Force *bool `type:"boolean"`
 
 	InstanceId *string `type:"string"`
 }
@@ -153,6 +223,36 @@ func (s DeleteInstanceInput) String() string {
 // GoString returns the string representation
 func (s DeleteInstanceInput) GoString() string {
 	return s.String()
+}
+
+// SetAssociatedEips sets the AssociatedEips field's value.
+func (s *DeleteInstanceInput) SetAssociatedEips(v *AssociatedEipsForDeleteInstanceInput) *DeleteInstanceInput {
+	s.AssociatedEips = v
+	return s
+}
+
+// SetAssociatedVolumes sets the AssociatedVolumes field's value.
+func (s *DeleteInstanceInput) SetAssociatedVolumes(v *AssociatedVolumesForDeleteInstanceInput) *DeleteInstanceInput {
+	s.AssociatedVolumes = v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DeleteInstanceInput) SetClientToken(v string) *DeleteInstanceInput {
+	s.ClientToken = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *DeleteInstanceInput) SetDryRun(v bool) *DeleteInstanceInput {
+	s.DryRun = &v
+	return s
+}
+
+// SetForce sets the Force field's value.
+func (s *DeleteInstanceInput) SetForce(v bool) *DeleteInstanceInput {
+	s.Force = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

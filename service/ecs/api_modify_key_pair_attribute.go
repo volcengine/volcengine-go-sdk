@@ -142,6 +142,8 @@ func (c *ECS) ModifyKeyPairAttributeWithContext(ctx volcengine.Context, input *M
 type ModifyKeyPairAttributeInput struct {
 	_ struct{} `type:"structure"`
 
+	AccountId *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -159,6 +161,12 @@ func (s ModifyKeyPairAttributeInput) String() string {
 // GoString returns the string representation
 func (s ModifyKeyPairAttributeInput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *ModifyKeyPairAttributeInput) SetAccountId(v string) *ModifyKeyPairAttributeInput {
+	s.AccountId = &v
+	return s
 }
 
 // SetClientToken sets the ClientToken field's value.

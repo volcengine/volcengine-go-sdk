@@ -206,6 +206,8 @@ type DescribeGrantRulesToCenInput struct {
 
 	CenId *string `type:"string"`
 
+	InstanceId *string `type:"string"`
+
 	InstanceOwnerId *string `type:"string"`
 
 	InstanceRegionId *string `type:"string"`
@@ -230,6 +232,12 @@ func (s DescribeGrantRulesToCenInput) GoString() string {
 // SetCenId sets the CenId field's value.
 func (s *DescribeGrantRulesToCenInput) SetCenId(v string) *DescribeGrantRulesToCenInput {
 	s.CenId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeGrantRulesToCenInput) SetInstanceId(v string) *DescribeGrantRulesToCenInput {
+	s.InstanceId = &v
 	return s
 }
 

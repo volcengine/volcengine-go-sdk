@@ -142,7 +142,8 @@ func (c *CLB) SetLoadBalancerRenewalWithContext(ctx volcengine.Context, input *S
 type SetLoadBalancerRenewalInput struct {
 	_ struct{} `type:"structure"`
 
-	LoadBalancerId *string `type:"string"`
+	// LoadBalancerID is a required field
+	LoadBalancerID *string `type:"string" required:"true"`
 
 	RemainRenewTimes *int64 `type:"integer"`
 
@@ -165,6 +166,9 @@ func (s SetLoadBalancerRenewalInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *SetLoadBalancerRenewalInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "SetLoadBalancerRenewalInput"}
+	if s.LoadBalancerID == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerID"))
+	}
 	if s.RenewType == nil {
 		invalidParams.Add(request.NewErrParamRequired("RenewType"))
 	}
@@ -181,9 +185,9 @@ func (s *SetLoadBalancerRenewalInput) Validate() error {
 	return nil
 }
 
-// SetLoadBalancerId sets the LoadBalancerId field's value.
-func (s *SetLoadBalancerRenewalInput) SetLoadBalancerId(v string) *SetLoadBalancerRenewalInput {
-	s.LoadBalancerId = &v
+// SetLoadBalancerID sets the LoadBalancerID field's value.
+func (s *SetLoadBalancerRenewalInput) SetLoadBalancerID(v string) *SetLoadBalancerRenewalInput {
+	s.LoadBalancerID = &v
 	return s
 }
 

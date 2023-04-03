@@ -179,6 +179,8 @@ type DeleteCenBandwidthPackageOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	PreOrderNumber *string `type:"string"`
 }
 
 // String returns the string representation
@@ -189,4 +191,10 @@ func (s DeleteCenBandwidthPackageOutput) String() string {
 // GoString returns the string representation
 func (s DeleteCenBandwidthPackageOutput) GoString() string {
 	return s.String()
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *DeleteCenBandwidthPackageOutput) SetPreOrderNumber(v string) *DeleteCenBandwidthPackageOutput {
+	s.PreOrderNumber = &v
+	return s
 }

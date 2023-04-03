@@ -146,8 +146,6 @@ type ModifyVpnGatewayAttributesInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
-	NegotiateInstantly *string `type:"string"`
-
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
 
@@ -207,12 +205,6 @@ func (s *ModifyVpnGatewayAttributesInput) SetDescription(v string) *ModifyVpnGat
 	return s
 }
 
-// SetNegotiateInstantly sets the NegotiateInstantly field's value.
-func (s *ModifyVpnGatewayAttributesInput) SetNegotiateInstantly(v string) *ModifyVpnGatewayAttributesInput {
-	s.NegotiateInstantly = &v
-	return s
-}
-
 // SetVpnGatewayId sets the VpnGatewayId field's value.
 func (s *ModifyVpnGatewayAttributesInput) SetVpnGatewayId(v string) *ModifyVpnGatewayAttributesInput {
 	s.VpnGatewayId = &v
@@ -230,6 +222,8 @@ type ModifyVpnGatewayAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	PreOrderNumber *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -241,6 +235,12 @@ func (s ModifyVpnGatewayAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyVpnGatewayAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *ModifyVpnGatewayAttributesOutput) SetPreOrderNumber(v string) *ModifyVpnGatewayAttributesOutput {
+	s.PreOrderNumber = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

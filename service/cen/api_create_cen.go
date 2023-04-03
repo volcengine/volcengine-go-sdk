@@ -221,6 +221,8 @@ type TagForCreateCenInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
+
+	Value *string `type:"string"`
 }
 
 // String returns the string representation
@@ -236,5 +238,11 @@ func (s TagForCreateCenInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagForCreateCenInput) SetKey(v string) *TagForCreateCenInput {
 	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateCenInput) SetValue(v string) *TagForCreateCenInput {
+	s.Value = &v
 	return s
 }

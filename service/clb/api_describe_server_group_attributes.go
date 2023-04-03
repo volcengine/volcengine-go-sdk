@@ -193,6 +193,8 @@ type DescribeServerGroupAttributesOutput struct {
 	ServerGroupName *string `type:"string"`
 
 	Servers []*ServerForDescribeServerGroupAttributesOutput `type:"list"`
+
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -244,6 +246,12 @@ func (s *DescribeServerGroupAttributesOutput) SetServerGroupName(v string) *Desc
 // SetServers sets the Servers field's value.
 func (s *DescribeServerGroupAttributesOutput) SetServers(v []*ServerForDescribeServerGroupAttributesOutput) *DescribeServerGroupAttributesOutput {
 	s.Servers = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeServerGroupAttributesOutput) SetType(v string) *DescribeServerGroupAttributesOutput {
+	s.Type = &v
 	return s
 }
 

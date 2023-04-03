@@ -163,12 +163,16 @@ type CreateDirectConnectVirtualInterfaceInput struct {
 	// LocalIp is a required field
 	LocalIp *string `type:"string" required:"true"`
 
+	LocalIpv6Ip *string `type:"string"`
+
 	NqaDetectInterval *int64 `min:"1000" max:"5000" type:"integer"`
 
 	NqaDetectMultiplier *int64 `min:"3" max:"8" type:"integer"`
 
 	// PeerIp is a required field
 	PeerIp *string `type:"string" required:"true"`
+
+	PeerIpv6Ip *string `type:"string"`
 
 	RouteType *string `type:"string" enum:"RouteTypeForCreateDirectConnectVirtualInterfaceInput"`
 
@@ -305,6 +309,12 @@ func (s *CreateDirectConnectVirtualInterfaceInput) SetLocalIp(v string) *CreateD
 	return s
 }
 
+// SetLocalIpv6Ip sets the LocalIpv6Ip field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetLocalIpv6Ip(v string) *CreateDirectConnectVirtualInterfaceInput {
+	s.LocalIpv6Ip = &v
+	return s
+}
+
 // SetNqaDetectInterval sets the NqaDetectInterval field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetNqaDetectInterval(v int64) *CreateDirectConnectVirtualInterfaceInput {
 	s.NqaDetectInterval = &v
@@ -320,6 +330,12 @@ func (s *CreateDirectConnectVirtualInterfaceInput) SetNqaDetectMultiplier(v int6
 // SetPeerIp sets the PeerIp field's value.
 func (s *CreateDirectConnectVirtualInterfaceInput) SetPeerIp(v string) *CreateDirectConnectVirtualInterfaceInput {
 	s.PeerIp = &v
+	return s
+}
+
+// SetPeerIpv6Ip sets the PeerIpv6Ip field's value.
+func (s *CreateDirectConnectVirtualInterfaceInput) SetPeerIpv6Ip(v string) *CreateDirectConnectVirtualInterfaceInput {
+	s.PeerIpv6Ip = &v
 	return s
 }
 

@@ -169,6 +169,10 @@ type DescribeImageSharePermissionInput struct {
 	MaxResults *int32 `type:"int32"`
 
 	NextToken *string `type:"string"`
+
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -199,6 +203,18 @@ func (s *DescribeImageSharePermissionInput) SetNextToken(v string) *DescribeImag
 	return s
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeImageSharePermissionInput) SetPageNumber(v int32) *DescribeImageSharePermissionInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeImageSharePermissionInput) SetPageSize(v int32) *DescribeImageSharePermissionInput {
+	s.PageSize = &v
+	return s
+}
+
 type DescribeImageSharePermissionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -209,6 +225,10 @@ type DescribeImageSharePermissionOutput struct {
 	ImageId *string `type:"string"`
 
 	NextToken *string `type:"string"`
+
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
 
 	TotalCount *int32 `type:"int32"`
 }
@@ -238,6 +258,18 @@ func (s *DescribeImageSharePermissionOutput) SetImageId(v string) *DescribeImage
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeImageSharePermissionOutput) SetNextToken(v string) *DescribeImageSharePermissionOutput {
 	s.NextToken = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeImageSharePermissionOutput) SetPageNumber(v int32) *DescribeImageSharePermissionOutput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeImageSharePermissionOutput) SetPageSize(v int32) *DescribeImageSharePermissionOutput {
+	s.PageSize = &v
 	return s
 }
 

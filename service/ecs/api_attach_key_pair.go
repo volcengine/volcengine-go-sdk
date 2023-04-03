@@ -142,6 +142,8 @@ func (c *ECS) AttachKeyPairWithContext(ctx volcengine.Context, input *AttachKeyP
 type AttachKeyPairInput struct {
 	_ struct{} `type:"structure"`
 
+	AccountId *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	InstanceIds []*string `type:"list"`
@@ -159,6 +161,12 @@ func (s AttachKeyPairInput) String() string {
 // GoString returns the string representation
 func (s AttachKeyPairInput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *AttachKeyPairInput) SetAccountId(v string) *AttachKeyPairInput {
+	s.AccountId = &v
+	return s
 }
 
 // SetClientToken sets the ClientToken field's value.

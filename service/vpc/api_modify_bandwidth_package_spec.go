@@ -198,6 +198,8 @@ type ModifyBandwidthPackageSpecOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	PreOrderNumber *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -209,6 +211,12 @@ func (s ModifyBandwidthPackageSpecOutput) String() string {
 // GoString returns the string representation
 func (s ModifyBandwidthPackageSpecOutput) GoString() string {
 	return s.String()
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *ModifyBandwidthPackageSpecOutput) SetPreOrderNumber(v string) *ModifyBandwidthPackageSpecOutput {
+	s.PreOrderNumber = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

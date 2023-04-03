@@ -270,6 +270,108 @@ func (s *DescribeRouteTableListOutput) SetTotalCount(v int64) *DescribeRouteTabl
 	return s
 }
 
+type RouteEntryForDescribeRouteTableListOutput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	DestinationCidrBlock *string `type:"string"`
+
+	NextHopId *string `type:"string"`
+
+	NextHopName *string `type:"string"`
+
+	NextHopType *string `type:"string"`
+
+	RouteEntryId *string `type:"string"`
+
+	RouteEntryName *string `type:"string"`
+
+	RouteTableId *string `type:"string"`
+
+	Status *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	VpcId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RouteEntryForDescribeRouteTableListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RouteEntryForDescribeRouteTableListOutput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetDescription(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.Description = &v
+	return s
+}
+
+// SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetDestinationCidrBlock(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetNextHopId sets the NextHopId field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetNextHopId(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.NextHopId = &v
+	return s
+}
+
+// SetNextHopName sets the NextHopName field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetNextHopName(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.NextHopName = &v
+	return s
+}
+
+// SetNextHopType sets the NextHopType field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetNextHopType(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.NextHopType = &v
+	return s
+}
+
+// SetRouteEntryId sets the RouteEntryId field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetRouteEntryId(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.RouteEntryId = &v
+	return s
+}
+
+// SetRouteEntryName sets the RouteEntryName field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetRouteEntryName(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.RouteEntryName = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetRouteTableId(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.RouteTableId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetStatus(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.Status = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetType(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.Type = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *RouteEntryForDescribeRouteTableListOutput) SetVpcId(v string) *RouteEntryForDescribeRouteTableListOutput {
+	s.VpcId = &v
+	return s
+}
+
 type RouterTableListForDescribeRouteTableListOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -280,6 +382,8 @@ type RouterTableListForDescribeRouteTableListOutput struct {
 	Description *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	RouteEntry []*RouteEntryForDescribeRouteTableListOutput `type:"list"`
 
 	RouteTableId *string `type:"string"`
 
@@ -327,6 +431,12 @@ func (s *RouterTableListForDescribeRouteTableListOutput) SetDescription(v string
 // SetProjectName sets the ProjectName field's value.
 func (s *RouterTableListForDescribeRouteTableListOutput) SetProjectName(v string) *RouterTableListForDescribeRouteTableListOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRouteEntry sets the RouteEntry field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetRouteEntry(v []*RouteEntryForDescribeRouteTableListOutput) *RouterTableListForDescribeRouteTableListOutput {
+	s.RouteEntry = v
 	return s
 }
 

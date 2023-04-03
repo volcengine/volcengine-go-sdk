@@ -70,6 +70,14 @@ type CLBAPI interface {
 	CreateAclWithContext(volcengine.Context, *CreateAclInput, ...request.Option) (*CreateAclOutput, error)
 	CreateAclRequest(*CreateAclInput) (*request.Request, *CreateAclOutput)
 
+	CreateExclusiveClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateExclusiveClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateExclusiveClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateExclusiveCluster(*CreateExclusiveClusterInput) (*CreateExclusiveClusterOutput, error)
+	CreateExclusiveClusterWithContext(volcengine.Context, *CreateExclusiveClusterInput, ...request.Option) (*CreateExclusiveClusterOutput, error)
+	CreateExclusiveClusterRequest(*CreateExclusiveClusterInput) (*request.Request, *CreateExclusiveClusterOutput)
+
 	CreateHealthCheckLogProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateHealthCheckLogProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateHealthCheckLogProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +133,14 @@ type CLBAPI interface {
 	DeleteCertificate(*DeleteCertificateInput) (*DeleteCertificateOutput, error)
 	DeleteCertificateWithContext(volcengine.Context, *DeleteCertificateInput, ...request.Option) (*DeleteCertificateOutput, error)
 	DeleteCertificateRequest(*DeleteCertificateInput) (*request.Request, *DeleteCertificateOutput)
+
+	DeleteExclusiveClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteExclusiveClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteExclusiveClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteExclusiveCluster(*DeleteExclusiveClusterInput) (*DeleteExclusiveClusterOutput, error)
+	DeleteExclusiveClusterWithContext(volcengine.Context, *DeleteExclusiveClusterInput, ...request.Option) (*DeleteExclusiveClusterOutput, error)
+	DeleteExclusiveClusterRequest(*DeleteExclusiveClusterInput) (*request.Request, *DeleteExclusiveClusterOutput)
 
 	DeleteHealthCheckLogProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteHealthCheckLogProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -190,6 +206,30 @@ type CLBAPI interface {
 	DescribeCertificatesWithContext(volcengine.Context, *DescribeCertificatesInput, ...request.Option) (*DescribeCertificatesOutput, error)
 	DescribeCertificatesRequest(*DescribeCertificatesInput) (*request.Request, *DescribeCertificatesOutput)
 
+	DescribeExclusiveClusterAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeExclusiveClusterAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeExclusiveClusterAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeExclusiveClusterAttributes(*DescribeExclusiveClusterAttributesInput) (*DescribeExclusiveClusterAttributesOutput, error)
+	DescribeExclusiveClusterAttributesWithContext(volcengine.Context, *DescribeExclusiveClusterAttributesInput, ...request.Option) (*DescribeExclusiveClusterAttributesOutput, error)
+	DescribeExclusiveClusterAttributesRequest(*DescribeExclusiveClusterAttributesInput) (*request.Request, *DescribeExclusiveClusterAttributesOutput)
+
+	DescribeExclusiveClustersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeExclusiveClustersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeExclusiveClustersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeExclusiveClusters(*DescribeExclusiveClustersInput) (*DescribeExclusiveClustersOutput, error)
+	DescribeExclusiveClustersWithContext(volcengine.Context, *DescribeExclusiveClustersInput, ...request.Option) (*DescribeExclusiveClustersOutput, error)
+	DescribeExclusiveClustersRequest(*DescribeExclusiveClustersInput) (*request.Request, *DescribeExclusiveClustersOutput)
+
+	DescribeExclusiveClustersBillingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeExclusiveClustersBillingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeExclusiveClustersBillingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeExclusiveClustersBilling(*DescribeExclusiveClustersBillingInput) (*DescribeExclusiveClustersBillingOutput, error)
+	DescribeExclusiveClustersBillingWithContext(volcengine.Context, *DescribeExclusiveClustersBillingInput, ...request.Option) (*DescribeExclusiveClustersBillingOutput, error)
+	DescribeExclusiveClustersBillingRequest(*DescribeExclusiveClustersBillingInput) (*request.Request, *DescribeExclusiveClustersBillingOutput)
+
 	DescribeHealthCheckLogProjectAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeHealthCheckLogProjectAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeHealthCheckLogProjectAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -238,6 +278,14 @@ type CLBAPI interface {
 	DescribeLoadBalancerAttributesWithContext(volcengine.Context, *DescribeLoadBalancerAttributesInput, ...request.Option) (*DescribeLoadBalancerAttributesOutput, error)
 	DescribeLoadBalancerAttributesRequest(*DescribeLoadBalancerAttributesInput) (*request.Request, *DescribeLoadBalancerAttributesOutput)
 
+	DescribeLoadBalancerSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeLoadBalancerSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeLoadBalancerSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeLoadBalancerSpecs(*DescribeLoadBalancerSpecsInput) (*DescribeLoadBalancerSpecsOutput, error)
+	DescribeLoadBalancerSpecsWithContext(volcengine.Context, *DescribeLoadBalancerSpecsInput, ...request.Option) (*DescribeLoadBalancerSpecsOutput, error)
+	DescribeLoadBalancerSpecsRequest(*DescribeLoadBalancerSpecsInput) (*request.Request, *DescribeLoadBalancerSpecsOutput)
+
 	DescribeLoadBalancersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeLoadBalancersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeLoadBalancersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -253,6 +301,14 @@ type CLBAPI interface {
 	DescribeLoadBalancersBilling(*DescribeLoadBalancersBillingInput) (*DescribeLoadBalancersBillingOutput, error)
 	DescribeLoadBalancersBillingWithContext(volcengine.Context, *DescribeLoadBalancersBillingInput, ...request.Option) (*DescribeLoadBalancersBillingOutput, error)
 	DescribeLoadBalancersBillingRequest(*DescribeLoadBalancersBillingInput) (*request.Request, *DescribeLoadBalancersBillingOutput)
+
+	DescribePurchasableExclusiveClustersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePurchasableExclusiveClustersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePurchasableExclusiveClustersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePurchasableExclusiveClusters(*DescribePurchasableExclusiveClustersInput) (*DescribePurchasableExclusiveClustersOutput, error)
+	DescribePurchasableExclusiveClustersWithContext(volcengine.Context, *DescribePurchasableExclusiveClustersInput, ...request.Option) (*DescribePurchasableExclusiveClustersOutput, error)
+	DescribePurchasableExclusiveClustersRequest(*DescribePurchasableExclusiveClustersInput) (*request.Request, *DescribePurchasableExclusiveClustersOutput)
 
 	DescribeRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -326,6 +382,22 @@ type CLBAPI interface {
 	ModifyAclAttributesWithContext(volcengine.Context, *ModifyAclAttributesInput, ...request.Option) (*ModifyAclAttributesOutput, error)
 	ModifyAclAttributesRequest(*ModifyAclAttributesInput) (*request.Request, *ModifyAclAttributesOutput)
 
+	ModifyCertificateAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyCertificateAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyCertificateAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyCertificateAttributes(*ModifyCertificateAttributesInput) (*ModifyCertificateAttributesOutput, error)
+	ModifyCertificateAttributesWithContext(volcengine.Context, *ModifyCertificateAttributesInput, ...request.Option) (*ModifyCertificateAttributesOutput, error)
+	ModifyCertificateAttributesRequest(*ModifyCertificateAttributesInput) (*request.Request, *ModifyCertificateAttributesOutput)
+
+	ModifyExclusiveClusterAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyExclusiveClusterAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyExclusiveClusterAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyExclusiveClusterAttributes(*ModifyExclusiveClusterAttributesInput) (*ModifyExclusiveClusterAttributesOutput, error)
+	ModifyExclusiveClusterAttributesWithContext(volcengine.Context, *ModifyExclusiveClusterAttributesInput, ...request.Option) (*ModifyExclusiveClusterAttributesOutput, error)
+	ModifyExclusiveClusterAttributesRequest(*ModifyExclusiveClusterAttributesInput) (*request.Request, *ModifyExclusiveClusterAttributesOutput)
+
 	ModifyListenerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyListenerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyListenerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -374,6 +446,14 @@ type CLBAPI interface {
 	RemoveServerGroupBackendServersWithContext(volcengine.Context, *RemoveServerGroupBackendServersInput, ...request.Option) (*RemoveServerGroupBackendServersOutput, error)
 	RemoveServerGroupBackendServersRequest(*RemoveServerGroupBackendServersInput) (*request.Request, *RemoveServerGroupBackendServersOutput)
 
+	RenewExclusiveClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RenewExclusiveClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RenewExclusiveClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RenewExclusiveCluster(*RenewExclusiveClusterInput) (*RenewExclusiveClusterOutput, error)
+	RenewExclusiveClusterWithContext(volcengine.Context, *RenewExclusiveClusterInput, ...request.Option) (*RenewExclusiveClusterOutput, error)
+	RenewExclusiveClusterRequest(*RenewExclusiveClusterInput) (*request.Request, *RenewExclusiveClusterOutput)
+
 	RenewLoadBalancerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RenewLoadBalancerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RenewLoadBalancerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -381,6 +461,14 @@ type CLBAPI interface {
 	RenewLoadBalancer(*RenewLoadBalancerInput) (*RenewLoadBalancerOutput, error)
 	RenewLoadBalancerWithContext(volcengine.Context, *RenewLoadBalancerInput, ...request.Option) (*RenewLoadBalancerOutput, error)
 	RenewLoadBalancerRequest(*RenewLoadBalancerInput) (*request.Request, *RenewLoadBalancerOutput)
+
+	SetExclusiveClusterRenewalCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetExclusiveClusterRenewalCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetExclusiveClusterRenewalCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetExclusiveClusterRenewal(*SetExclusiveClusterRenewalInput) (*SetExclusiveClusterRenewalOutput, error)
+	SetExclusiveClusterRenewalWithContext(volcengine.Context, *SetExclusiveClusterRenewalInput, ...request.Option) (*SetExclusiveClusterRenewalOutput, error)
+	SetExclusiveClusterRenewalRequest(*SetExclusiveClusterRenewalInput) (*request.Request, *SetExclusiveClusterRenewalOutput)
 
 	SetLoadBalancerRenewalCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	SetLoadBalancerRenewalCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

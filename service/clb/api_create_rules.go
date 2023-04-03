@@ -238,6 +238,8 @@ type RuleForCreateRulesInput struct {
 
 	Domain *string `type:"string"`
 
+	RuleId *string `type:"string"`
+
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
 
@@ -276,6 +278,12 @@ func (s *RuleForCreateRulesInput) SetDescription(v string) *RuleForCreateRulesIn
 // SetDomain sets the Domain field's value.
 func (s *RuleForCreateRulesInput) SetDomain(v string) *RuleForCreateRulesInput {
 	s.Domain = &v
+	return s
+}
+
+// SetRuleId sets the RuleId field's value.
+func (s *RuleForCreateRulesInput) SetRuleId(v string) *RuleForCreateRulesInput {
+	s.RuleId = &v
 	return s
 }
 

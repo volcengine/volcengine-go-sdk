@@ -222,6 +222,8 @@ type ModifyEipAddressAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	PreOrderNumber *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -233,6 +235,12 @@ func (s ModifyEipAddressAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyEipAddressAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *ModifyEipAddressAttributesOutput) SetPreOrderNumber(v string) *ModifyEipAddressAttributesOutput {
+	s.PreOrderNumber = &v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

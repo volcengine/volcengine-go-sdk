@@ -146,6 +146,8 @@ type DescribeVpnGatewaysBillingInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	VpnGatewayIds []*string `type:"list"`
 }
 
@@ -181,6 +183,12 @@ func (s *DescribeVpnGatewaysBillingInput) SetPageNumber(v int64) *DescribeVpnGat
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVpnGatewaysBillingInput) SetPageSize(v int64) *DescribeVpnGatewaysBillingInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeVpnGatewaysBillingInput) SetProjectName(v string) *DescribeVpnGatewaysBillingInput {
+	s.ProjectName = &v
 	return s
 }
 

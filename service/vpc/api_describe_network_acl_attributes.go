@@ -382,6 +382,8 @@ type NetworkAclAttributeForDescribeNetworkAclAttributesOutput struct {
 
 	Resources []*ResourceForDescribeNetworkAclAttributesOutput `type:"list"`
 
+	Stateful *bool `type:"boolean"`
+
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -444,6 +446,12 @@ func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetProjectNam
 // SetResources sets the Resources field's value.
 func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetResources(v []*ResourceForDescribeNetworkAclAttributesOutput) *NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
 	s.Resources = v
+	return s
+}
+
+// SetStateful sets the Stateful field's value.
+func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetStateful(v bool) *NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
+	s.Stateful = &v
 	return s
 }
 

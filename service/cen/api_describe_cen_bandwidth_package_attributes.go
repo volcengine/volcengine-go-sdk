@@ -213,6 +213,8 @@ type DescribeCenBandwidthPackageAttributesOutput struct {
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeCenBandwidthPackageAttributesOutput `type:"list"`
+
+	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -324,6 +326,12 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetStatus(v string) *Descr
 // SetTags sets the Tags field's value.
 func (s *DescribeCenBandwidthPackageAttributesOutput) SetTags(v []*TagForDescribeCenBandwidthPackageAttributesOutput) *DescribeCenBandwidthPackageAttributesOutput {
 	s.Tags = v
+	return s
+}
+
+// SetUpdateTime sets the UpdateTime field's value.
+func (s *DescribeCenBandwidthPackageAttributesOutput) SetUpdateTime(v string) *DescribeCenBandwidthPackageAttributesOutput {
+	s.UpdateTime = &v
 	return s
 }
 

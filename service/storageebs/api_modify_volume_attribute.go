@@ -139,12 +139,40 @@ func (c *STORAGEEBS) ModifyVolumeAttributeWithContext(ctx volcengine.Context, in
 	return out, req.Send()
 }
 
+type FieldMaskForModifyVolumeAttributeInput struct {
+	_ struct{} `type:"structure"`
+
+	Paths *string `type:"string"`
+}
+
+// String returns the string representation
+func (s FieldMaskForModifyVolumeAttributeInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FieldMaskForModifyVolumeAttributeInput) GoString() string {
+	return s.String()
+}
+
+// SetPaths sets the Paths field's value.
+func (s *FieldMaskForModifyVolumeAttributeInput) SetPaths(v string) *FieldMaskForModifyVolumeAttributeInput {
+	s.Paths = &v
+	return s
+}
+
 type ModifyVolumeAttributeInput struct {
 	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
 
 	DeleteWithInstance *bool `type:"boolean"`
 
 	Description *string `type:"string"`
+
+	FieldMask *FieldMaskForModifyVolumeAttributeInput `type:"structure"`
+
+	ProjectName *string `type:"string"`
 
 	VolumeId *string `type:"string"`
 
@@ -161,6 +189,12 @@ func (s ModifyVolumeAttributeInput) GoString() string {
 	return s.String()
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *ModifyVolumeAttributeInput) SetAccountId(v string) *ModifyVolumeAttributeInput {
+	s.AccountId = &v
+	return s
+}
+
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
 func (s *ModifyVolumeAttributeInput) SetDeleteWithInstance(v bool) *ModifyVolumeAttributeInput {
 	s.DeleteWithInstance = &v
@@ -170,6 +204,18 @@ func (s *ModifyVolumeAttributeInput) SetDeleteWithInstance(v bool) *ModifyVolume
 // SetDescription sets the Description field's value.
 func (s *ModifyVolumeAttributeInput) SetDescription(v string) *ModifyVolumeAttributeInput {
 	s.Description = &v
+	return s
+}
+
+// SetFieldMask sets the FieldMask field's value.
+func (s *ModifyVolumeAttributeInput) SetFieldMask(v *FieldMaskForModifyVolumeAttributeInput) *ModifyVolumeAttributeInput {
+	s.FieldMask = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ModifyVolumeAttributeInput) SetProjectName(v string) *ModifyVolumeAttributeInput {
+	s.ProjectName = &v
 	return s
 }
 

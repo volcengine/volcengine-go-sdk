@@ -146,6 +146,8 @@ type ReplaceSystemVolumeInput struct {
 
 	ClientToken *string `type:"string"`
 
+	DryRun *bool `type:"boolean"`
+
 	ImageId *string `type:"string"`
 
 	InstanceId *string `type:"string"`
@@ -153,6 +155,8 @@ type ReplaceSystemVolumeInput struct {
 	KeepImageCredential *bool `type:"boolean"`
 
 	KeyPairName *string `type:"string"`
+
+	NeedRdmaTool *bool `type:"boolean"`
 
 	Password *string `type:"string"`
 
@@ -174,6 +178,12 @@ func (s ReplaceSystemVolumeInput) GoString() string {
 // SetClientToken sets the ClientToken field's value.
 func (s *ReplaceSystemVolumeInput) SetClientToken(v string) *ReplaceSystemVolumeInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *ReplaceSystemVolumeInput) SetDryRun(v bool) *ReplaceSystemVolumeInput {
+	s.DryRun = &v
 	return s
 }
 
@@ -201,6 +211,12 @@ func (s *ReplaceSystemVolumeInput) SetKeyPairName(v string) *ReplaceSystemVolume
 	return s
 }
 
+// SetNeedRdmaTool sets the NeedRdmaTool field's value.
+func (s *ReplaceSystemVolumeInput) SetNeedRdmaTool(v bool) *ReplaceSystemVolumeInput {
+	s.NeedRdmaTool = &v
+	return s
+}
+
 // SetPassword sets the Password field's value.
 func (s *ReplaceSystemVolumeInput) SetPassword(v string) *ReplaceSystemVolumeInput {
 	s.Password = &v
@@ -223,6 +239,8 @@ type ReplaceSystemVolumeOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	OrderId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -233,4 +251,10 @@ func (s ReplaceSystemVolumeOutput) String() string {
 // GoString returns the string representation
 func (s ReplaceSystemVolumeOutput) GoString() string {
 	return s.String()
+}
+
+// SetOrderId sets the OrderId field's value.
+func (s *ReplaceSystemVolumeOutput) SetOrderId(v string) *ReplaceSystemVolumeOutput {
+	s.OrderId = &v
+	return s
 }

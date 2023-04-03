@@ -158,6 +158,10 @@ type HealthCheckForModifyListenerAttributesInput struct {
 
 	URI *string `type:"string"`
 
+	UdpExpect *string `type:"string"`
+
+	UdpRequest *string `type:"string"`
+
 	UnhealthyThreshold *int64 `type:"integer"`
 }
 
@@ -219,6 +223,18 @@ func (s *HealthCheckForModifyListenerAttributesInput) SetURI(v string) *HealthCh
 	return s
 }
 
+// SetUdpExpect sets the UdpExpect field's value.
+func (s *HealthCheckForModifyListenerAttributesInput) SetUdpExpect(v string) *HealthCheckForModifyListenerAttributesInput {
+	s.UdpExpect = &v
+	return s
+}
+
+// SetUdpRequest sets the UdpRequest field's value.
+func (s *HealthCheckForModifyListenerAttributesInput) SetUdpRequest(v string) *HealthCheckForModifyListenerAttributesInput {
+	s.UdpRequest = &v
+	return s
+}
+
 // SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
 func (s *HealthCheckForModifyListenerAttributesInput) SetUnhealthyThreshold(v int64) *HealthCheckForModifyListenerAttributesInput {
 	s.UnhealthyThreshold = &v
@@ -256,8 +272,6 @@ type ModifyListenerAttributesInput struct {
 	ProxyProtocolType *string `type:"string"`
 
 	Scheduler *string `type:"string"`
-
-	ServerGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -364,12 +378,6 @@ func (s *ModifyListenerAttributesInput) SetProxyProtocolType(v string) *ModifyLi
 // SetScheduler sets the Scheduler field's value.
 func (s *ModifyListenerAttributesInput) SetScheduler(v string) *ModifyListenerAttributesInput {
 	s.Scheduler = &v
-	return s
-}
-
-// SetServerGroupId sets the ServerGroupId field's value.
-func (s *ModifyListenerAttributesInput) SetServerGroupId(v string) *ModifyListenerAttributesInput {
-	s.ServerGroupId = &v
 	return s
 }
 

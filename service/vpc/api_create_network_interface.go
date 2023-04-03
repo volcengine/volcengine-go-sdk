@@ -165,6 +165,8 @@ type CreateNetworkInterfaceInput struct {
 	SubnetId *string `type:"string" required:"true"`
 
 	Tags []*TagForCreateNetworkInterfaceInput `type:"list"`
+
+	Type *string `type:"string" enum:"TypeForCreateNetworkInterfaceInput"`
 }
 
 // String returns the string representation
@@ -271,6 +273,12 @@ func (s *CreateNetworkInterfaceInput) SetTags(v []*TagForCreateNetworkInterfaceI
 	return s
 }
 
+// SetType sets the Type field's value.
+func (s *CreateNetworkInterfaceInput) SetType(v string) *CreateNetworkInterfaceInput {
+	s.Type = &v
+	return s
+}
+
 type CreateNetworkInterfaceOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -332,3 +340,11 @@ func (s *TagForCreateNetworkInterfaceInput) SetValue(v string) *TagForCreateNetw
 	s.Value = &v
 	return s
 }
+
+const (
+	// TypeForCreateNetworkInterfaceInputTrunk is a TypeForCreateNetworkInterfaceInput enum value
+	TypeForCreateNetworkInterfaceInputTrunk = "trunk"
+
+	// TypeForCreateNetworkInterfaceInputSecondary is a TypeForCreateNetworkInterfaceInput enum value
+	TypeForCreateNetworkInterfaceInputSecondary = "secondary"
+)

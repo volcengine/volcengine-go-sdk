@@ -144,7 +144,11 @@ type ModifyInstanceChargeTypeInput struct {
 
 	AutoPay *bool `type:"boolean"`
 
+	AutoRenew *bool `type:"boolean"`
+
 	ClientToken *string `type:"string"`
+
+	DryRun *bool `type:"boolean"`
 
 	IncludeDataVolumes *bool `type:"boolean"`
 
@@ -173,9 +177,21 @@ func (s *ModifyInstanceChargeTypeInput) SetAutoPay(v bool) *ModifyInstanceCharge
 	return s
 }
 
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *ModifyInstanceChargeTypeInput) SetAutoRenew(v bool) *ModifyInstanceChargeTypeInput {
+	s.AutoRenew = &v
+	return s
+}
+
 // SetClientToken sets the ClientToken field's value.
 func (s *ModifyInstanceChargeTypeInput) SetClientToken(v string) *ModifyInstanceChargeTypeInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *ModifyInstanceChargeTypeInput) SetDryRun(v bool) *ModifyInstanceChargeTypeInput {
+	s.DryRun = &v
 	return s
 }
 
@@ -215,6 +231,8 @@ type ModifyInstanceChargeTypeOutput struct {
 	Metadata *response.ResponseMetadata
 
 	OrderId *string `type:"string"`
+
+	PreorderIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -230,5 +248,11 @@ func (s ModifyInstanceChargeTypeOutput) GoString() string {
 // SetOrderId sets the OrderId field's value.
 func (s *ModifyInstanceChargeTypeOutput) SetOrderId(v string) *ModifyInstanceChargeTypeOutput {
 	s.OrderId = &v
+	return s
+}
+
+// SetPreorderIds sets the PreorderIds field's value.
+func (s *ModifyInstanceChargeTypeOutput) SetPreorderIds(v []*string) *ModifyInstanceChargeTypeOutput {
+	s.PreorderIds = v
 	return s
 }

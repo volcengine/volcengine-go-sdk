@@ -142,6 +142,8 @@ func (c *VPC) AllocateEipAddressWithContext(ctx volcengine.Context, input *Alloc
 type AllocateEipAddressInput struct {
 	_ struct{} `type:"structure"`
 
+	AllocationId *string `type:"string"`
+
 	Bandwidth *int64 `min:"1" max:"500" type:"integer"`
 
 	BandwidthPackageId *string `type:"string"`
@@ -149,6 +151,8 @@ type AllocateEipAddressInput struct {
 	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
 	ClientToken *string `type:"string"`
+
+	Count *int64 `type:"integer"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -161,6 +165,8 @@ type AllocateEipAddressInput struct {
 	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	RenewType *int64 `min:"1" max:"3" type:"integer"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -210,11 +216,23 @@ func (s *AllocateEipAddressInput) Validate() error {
 	if s.PeriodUnit != nil && *s.PeriodUnit > 2 {
 		invalidParams.Add(request.NewErrParamMaxValue("PeriodUnit", 2))
 	}
+	if s.RenewType != nil && *s.RenewType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
+	}
+	if s.RenewType != nil && *s.RenewType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("RenewType", 3))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *AllocateEipAddressInput) SetAllocationId(v string) *AllocateEipAddressInput {
+	s.AllocationId = &v
+	return s
 }
 
 // SetBandwidth sets the Bandwidth field's value.
@@ -238,6 +256,12 @@ func (s *AllocateEipAddressInput) SetBillingType(v int64) *AllocateEipAddressInp
 // SetClientToken sets the ClientToken field's value.
 func (s *AllocateEipAddressInput) SetClientToken(v string) *AllocateEipAddressInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetCount sets the Count field's value.
+func (s *AllocateEipAddressInput) SetCount(v int64) *AllocateEipAddressInput {
+	s.Count = &v
 	return s
 }
 
@@ -277,6 +301,12 @@ func (s *AllocateEipAddressInput) SetProjectName(v string) *AllocateEipAddressIn
 	return s
 }
 
+// SetRenewType sets the RenewType field's value.
+func (s *AllocateEipAddressInput) SetRenewType(v int64) *AllocateEipAddressInput {
+	s.RenewType = &v
+	return s
+}
+
 // SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
 func (s *AllocateEipAddressInput) SetSecurityProtectionTypes(v []*string) *AllocateEipAddressInput {
 	s.SecurityProtectionTypes = v
@@ -296,7 +326,11 @@ type AllocateEipAddressOutput struct {
 
 	AllocationId *string `type:"string"`
 
+	AllocationIds []*string `type:"list"`
+
 	EipAddress *string `type:"string"`
+
+	PreOrderNumber *string `type:"string"`
 
 	RequestId *string `type:"string"`
 }
@@ -317,9 +351,21 @@ func (s *AllocateEipAddressOutput) SetAllocationId(v string) *AllocateEipAddress
 	return s
 }
 
+// SetAllocationIds sets the AllocationIds field's value.
+func (s *AllocateEipAddressOutput) SetAllocationIds(v []*string) *AllocateEipAddressOutput {
+	s.AllocationIds = v
+	return s
+}
+
 // SetEipAddress sets the EipAddress field's value.
 func (s *AllocateEipAddressOutput) SetEipAddress(v string) *AllocateEipAddressOutput {
 	s.EipAddress = &v
+	return s
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *AllocateEipAddressOutput) SetPreOrderNumber(v string) *AllocateEipAddressOutput {
+	s.PreOrderNumber = &v
 	return s
 }
 

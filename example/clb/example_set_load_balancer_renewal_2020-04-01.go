@@ -20,7 +20,6 @@ func SetLoadBalancerRenewal() {
 	}
 	svc := clb.New(sess)
 	setLoadBalancerRenewalInput := &clb.SetLoadBalancerRenewalInput{
-		LoadBalancerId: volcengine.String("clb-bp1b6c719dfa08ex****"),
 	}
 
 	resp, err := svc.SetLoadBalancerRenewal(setLoadBalancerRenewalInput)

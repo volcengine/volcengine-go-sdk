@@ -262,6 +262,8 @@ type CreateBandwidthPackageOutput struct {
 
 	BandwidthPackageId *string `type:"string"`
 
+	PreOrderNumber *string `type:"string"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -278,6 +280,12 @@ func (s CreateBandwidthPackageOutput) GoString() string {
 // SetBandwidthPackageId sets the BandwidthPackageId field's value.
 func (s *CreateBandwidthPackageOutput) SetBandwidthPackageId(v string) *CreateBandwidthPackageOutput {
 	s.BandwidthPackageId = &v
+	return s
+}
+
+// SetPreOrderNumber sets the PreOrderNumber field's value.
+func (s *CreateBandwidthPackageOutput) SetPreOrderNumber(v string) *CreateBandwidthPackageOutput {
+	s.PreOrderNumber = &v
 	return s
 }
 

@@ -110,6 +110,14 @@ type CENAPI interface {
 	DeleteCenInterRegionBandwidthWithContext(volcengine.Context, *DeleteCenInterRegionBandwidthInput, ...request.Option) (*DeleteCenInterRegionBandwidthOutput, error)
 	DeleteCenInterRegionBandwidthRequest(*DeleteCenInterRegionBandwidthInput) (*request.Request, *DeleteCenInterRegionBandwidthOutput)
 
+	DeleteCenServiceRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteCenServiceRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteCenServiceRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteCenServiceRouteEntry(*DeleteCenServiceRouteEntryInput) (*DeleteCenServiceRouteEntryOutput, error)
+	DeleteCenServiceRouteEntryWithContext(volcengine.Context, *DeleteCenServiceRouteEntryInput, ...request.Option) (*DeleteCenServiceRouteEntryOutput, error)
+	DeleteCenServiceRouteEntryRequest(*DeleteCenServiceRouteEntryInput) (*request.Request, *DeleteCenServiceRouteEntryOutput)
+
 	DeleteCenSummaryRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteCenSummaryRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteCenSummaryRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -158,6 +166,14 @@ type CENAPI interface {
 	DescribeCenBandwidthPackagesWithContext(volcengine.Context, *DescribeCenBandwidthPackagesInput, ...request.Option) (*DescribeCenBandwidthPackagesOutput, error)
 	DescribeCenBandwidthPackagesRequest(*DescribeCenBandwidthPackagesInput) (*request.Request, *DescribeCenBandwidthPackagesOutput)
 
+	DescribeCenBandwidthPackagesBillingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCenBandwidthPackagesBillingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCenBandwidthPackagesBillingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCenBandwidthPackagesBilling(*DescribeCenBandwidthPackagesBillingInput) (*DescribeCenBandwidthPackagesBillingOutput, error)
+	DescribeCenBandwidthPackagesBillingWithContext(volcengine.Context, *DescribeCenBandwidthPackagesBillingInput, ...request.Option) (*DescribeCenBandwidthPackagesBillingOutput, error)
+	DescribeCenBandwidthPackagesBillingRequest(*DescribeCenBandwidthPackagesBillingInput) (*request.Request, *DescribeCenBandwidthPackagesBillingOutput)
+
 	DescribeCenInterRegionBandwidthAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCenInterRegionBandwidthAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeCenInterRegionBandwidthAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -181,6 +197,14 @@ type CENAPI interface {
 	DescribeCenRouteEntries(*DescribeCenRouteEntriesInput) (*DescribeCenRouteEntriesOutput, error)
 	DescribeCenRouteEntriesWithContext(volcengine.Context, *DescribeCenRouteEntriesInput, ...request.Option) (*DescribeCenRouteEntriesOutput, error)
 	DescribeCenRouteEntriesRequest(*DescribeCenRouteEntriesInput) (*request.Request, *DescribeCenRouteEntriesOutput)
+
+	DescribeCenServiceRouteEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCenServiceRouteEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCenServiceRouteEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCenServiceRouteEntries(*DescribeCenServiceRouteEntriesInput) (*DescribeCenServiceRouteEntriesOutput, error)
+	DescribeCenServiceRouteEntriesWithContext(volcengine.Context, *DescribeCenServiceRouteEntriesInput, ...request.Option) (*DescribeCenServiceRouteEntriesOutput, error)
+	DescribeCenServiceRouteEntriesRequest(*DescribeCenServiceRouteEntriesInput) (*request.Request, *DescribeCenServiceRouteEntriesOutput)
 
 	DescribeCenSummaryRouteEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCenSummaryRouteEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -270,6 +294,22 @@ type CENAPI interface {
 	ModifyCenInterRegionBandwidthAttributesWithContext(volcengine.Context, *ModifyCenInterRegionBandwidthAttributesInput, ...request.Option) (*ModifyCenInterRegionBandwidthAttributesOutput, error)
 	ModifyCenInterRegionBandwidthAttributesRequest(*ModifyCenInterRegionBandwidthAttributesInput) (*request.Request, *ModifyCenInterRegionBandwidthAttributesOutput)
 
+	PublishCenRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PublishCenRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PublishCenRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PublishCenRouteEntry(*PublishCenRouteEntryInput) (*PublishCenRouteEntryOutput, error)
+	PublishCenRouteEntryWithContext(volcengine.Context, *PublishCenRouteEntryInput, ...request.Option) (*PublishCenRouteEntryOutput, error)
+	PublishCenRouteEntryRequest(*PublishCenRouteEntryInput) (*request.Request, *PublishCenRouteEntryOutput)
+
+	RenewCenBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RenewCenBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RenewCenBandwidthPackageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RenewCenBandwidthPackage(*RenewCenBandwidthPackageInput) (*RenewCenBandwidthPackageOutput, error)
+	RenewCenBandwidthPackageWithContext(volcengine.Context, *RenewCenBandwidthPackageInput, ...request.Option) (*RenewCenBandwidthPackageOutput, error)
+	RenewCenBandwidthPackageRequest(*RenewCenBandwidthPackageInput) (*request.Request, *RenewCenBandwidthPackageOutput)
+
 	RevokeInstanceFromCenCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RevokeInstanceFromCenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RevokeInstanceFromCenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -277,6 +317,14 @@ type CENAPI interface {
 	RevokeInstanceFromCen(*RevokeInstanceFromCenInput) (*RevokeInstanceFromCenOutput, error)
 	RevokeInstanceFromCenWithContext(volcengine.Context, *RevokeInstanceFromCenInput, ...request.Option) (*RevokeInstanceFromCenOutput, error)
 	RevokeInstanceFromCenRequest(*RevokeInstanceFromCenInput) (*request.Request, *RevokeInstanceFromCenOutput)
+
+	SetCenBandwidthPackageRenewalCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetCenBandwidthPackageRenewalCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetCenBandwidthPackageRenewalCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetCenBandwidthPackageRenewal(*SetCenBandwidthPackageRenewalInput) (*SetCenBandwidthPackageRenewalOutput, error)
+	SetCenBandwidthPackageRenewalWithContext(volcengine.Context, *SetCenBandwidthPackageRenewalInput, ...request.Option) (*SetCenBandwidthPackageRenewalOutput, error)
+	SetCenBandwidthPackageRenewalRequest(*SetCenBandwidthPackageRenewalInput) (*request.Request, *SetCenBandwidthPackageRenewalOutput)
 
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -293,6 +341,14 @@ type CENAPI interface {
 	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
 	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
 	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
+	WithdrawCenRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	WithdrawCenRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	WithdrawCenRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	WithdrawCenRouteEntry(*WithdrawCenRouteEntryInput) (*WithdrawCenRouteEntryOutput, error)
+	WithdrawCenRouteEntryWithContext(volcengine.Context, *WithdrawCenRouteEntryInput, ...request.Option) (*WithdrawCenRouteEntryOutput, error)
+	WithdrawCenRouteEntryRequest(*WithdrawCenRouteEntryInput) (*request.Request, *WithdrawCenRouteEntryOutput)
 }
 
 var _ CENAPI = (*CEN)(nil)

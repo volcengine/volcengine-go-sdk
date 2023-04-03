@@ -142,12 +142,16 @@ func (c *ECS) CreateKeyPairWithContext(ctx volcengine.Context, input *CreateKeyP
 type CreateKeyPairInput struct {
 	_ struct{} `type:"structure"`
 
+	AccountId *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	// KeyPairName is a required field
 	KeyPairName *string `type:"string" required:"true"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -173,6 +177,12 @@ func (s *CreateKeyPairInput) Validate() error {
 	return nil
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *CreateKeyPairInput) SetAccountId(v string) *CreateKeyPairInput {
+	s.AccountId = &v
+	return s
+}
+
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateKeyPairInput) SetClientToken(v string) *CreateKeyPairInput {
 	s.ClientToken = &v
@@ -188,6 +198,12 @@ func (s *CreateKeyPairInput) SetDescription(v string) *CreateKeyPairInput {
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *CreateKeyPairInput) SetKeyPairName(v string) *CreateKeyPairInput {
 	s.KeyPairName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateKeyPairInput) SetProjectName(v string) *CreateKeyPairInput {
+	s.ProjectName = &v
 	return s
 }
 

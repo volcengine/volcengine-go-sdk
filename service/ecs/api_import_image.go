@@ -150,6 +150,8 @@ type ImportImageInput struct {
 
 	ImageName *string `type:"string"`
 
+	Name *string `type:"string"`
+
 	OsType *string `type:"string"`
 
 	Platform *string `type:"string"`
@@ -192,6 +194,12 @@ func (s *ImportImageInput) SetDescription(v string) *ImportImageInput {
 // SetImageName sets the ImageName field's value.
 func (s *ImportImageInput) SetImageName(v string) *ImportImageInput {
 	s.ImageName = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ImportImageInput) SetName(v string) *ImportImageInput {
+	s.Name = &v
 	return s
 }
 
