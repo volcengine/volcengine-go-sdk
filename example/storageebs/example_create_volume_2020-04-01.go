@@ -22,7 +22,7 @@ func CreateVolume() {
 	createVolumeInput := &storageebs.CreateVolumeInput{
 		Description: volcengine.String("test"),
 		Kind: volcengine.String("data"),
-		Size: volcengine.String("40"),
+		Size: volcengine.JsonNumber("40"),
 		VolumeName: volcengine.String("test"),
 		VolumeType: volcengine.String("PTSSD"),
 		ZoneId: volcengine.String("cn-beijing-a"),
