@@ -234,6 +234,8 @@ type Config struct {
 
 	CustomerUnmarshalData custom.CustomerUnmarshalData
 
+	ExtendContextWithMeta custom.ExtendContextWithMeta
+
 	ExtraUserAgent *string
 
 	Interceptors []custom.SdkInterceptor
@@ -310,6 +312,11 @@ func (c *Config) WithExtendHttpRequest(extendHttpRequest custom.ExtendHttpReques
 
 func (c *Config) WithExtendHttpRequestWithMeta(extendHttpRequestWithMeta custom.ExtendHttpRequestWithMeta) *Config {
 	c.ExtendHttpRequestWithMeta = extendHttpRequestWithMeta
+	return c
+}
+
+func (c *Config) WithExtendContextWithMeta(extendContextWithMeta custom.ExtendContextWithMeta) *Config {
+	c.ExtendContextWithMeta = extendContextWithMeta
 	return c
 }
 
@@ -537,6 +544,10 @@ func mergeInConfig(dst *Config, other *Config) {
 
 	if other.ForceJsonNumberDecode != nil {
 		dst.ForceJsonNumberDecode = other.ForceJsonNumberDecode
+	}
+
+	if other.ExtendContextWithMeta != nil {
+		dst.ExtendContextWithMeta = other.ExtendContextWithMeta
 	}
 	// Temporary notes by xuyaming@bytedance.com because some validate field is relation.
 	//if other.DisableParamValidation != nil {
