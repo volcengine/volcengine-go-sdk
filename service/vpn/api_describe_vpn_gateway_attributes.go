@@ -142,8 +142,6 @@ func (c *VPN) DescribeVpnGatewayAttributesWithContext(ctx volcengine.Context, in
 type DescribeVpnGatewayAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	TagFilters []*TagFilterForDescribeVpnGatewayAttributesInput `type:"list"`
-
 	// VpnGatewayId is a required field
 	VpnGatewayId *string `type:"string" required:"true"`
 }
@@ -169,12 +167,6 @@ func (s *DescribeVpnGatewayAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetTagFilters sets the TagFilters field's value.
-func (s *DescribeVpnGatewayAttributesInput) SetTagFilters(v []*TagFilterForDescribeVpnGatewayAttributesInput) *DescribeVpnGatewayAttributesInput {
-	s.TagFilters = v
-	return s
 }
 
 // SetVpnGatewayId sets the VpnGatewayId field's value.
@@ -364,36 +356,6 @@ func (s *DescribeVpnGatewayAttributesOutput) SetVpnGatewayId(v string) *Describe
 // SetVpnGatewayName sets the VpnGatewayName field's value.
 func (s *DescribeVpnGatewayAttributesOutput) SetVpnGatewayName(v string) *DescribeVpnGatewayAttributesOutput {
 	s.VpnGatewayName = &v
-	return s
-}
-
-type TagFilterForDescribeVpnGatewayAttributesInput struct {
-	_ struct{} `type:"structure"`
-
-	Key *string `type:"string"`
-
-	Values []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s TagFilterForDescribeVpnGatewayAttributesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagFilterForDescribeVpnGatewayAttributesInput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagFilterForDescribeVpnGatewayAttributesInput) SetKey(v string) *TagFilterForDescribeVpnGatewayAttributesInput {
-	s.Key = &v
-	return s
-}
-
-// SetValues sets the Values field's value.
-func (s *TagFilterForDescribeVpnGatewayAttributesInput) SetValues(v []*string) *TagFilterForDescribeVpnGatewayAttributesInput {
-	s.Values = v
 	return s
 }
 

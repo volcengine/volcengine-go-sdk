@@ -144,8 +144,6 @@ type StartInstanceInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DryRun *bool `type:"boolean"`
-
 	InstanceId *string `type:"string"`
 }
 
@@ -162,12 +160,6 @@ func (s StartInstanceInput) GoString() string {
 // SetClientToken sets the ClientToken field's value.
 func (s *StartInstanceInput) SetClientToken(v string) *StartInstanceInput {
 	s.ClientToken = &v
-	return s
-}
-
-// SetDryRun sets the DryRun field's value.
-func (s *StartInstanceInput) SetDryRun(v bool) *StartInstanceInput {
-	s.DryRun = &v
 	return s
 }
 

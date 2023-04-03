@@ -154,8 +154,6 @@ type DescribeVpnConnectionsInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Status *string `type:"string"`
-
 	TransitRouterId *string `type:"string"`
 
 	VpnConnectionIds []*string `type:"list"`
@@ -208,12 +206,6 @@ func (s *DescribeVpnConnectionsInput) SetPageSize(v int64) *DescribeVpnConnectio
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeVpnConnectionsInput) SetProjectName(v string) *DescribeVpnConnectionsInput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *DescribeVpnConnectionsInput) SetStatus(v string) *DescribeVpnConnectionsInput {
-	s.Status = &v
 	return s
 }
 

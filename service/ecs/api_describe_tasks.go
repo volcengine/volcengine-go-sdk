@@ -148,10 +148,6 @@ type DescribeTasksInput struct {
 
 	NextToken *string `type:"string"`
 
-	PageNumber *json.Number `type:"json_number"`
-
-	PageSize *json.Number `type:"json_number"`
-
 	ResourceId *string `type:"string"`
 
 	TaskIds []*string `type:"list"`
@@ -179,18 +175,6 @@ func (s *DescribeTasksInput) SetNextToken(v string) *DescribeTasksInput {
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeTasksInput) SetPageNumber(v json.Number) *DescribeTasksInput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeTasksInput) SetPageSize(v json.Number) *DescribeTasksInput {
-	s.PageSize = &v
-	return s
-}
-
 // SetResourceId sets the ResourceId field's value.
 func (s *DescribeTasksInput) SetResourceId(v string) *DescribeTasksInput {
 	s.ResourceId = &v
@@ -210,13 +194,7 @@ type DescribeTasksOutput struct {
 
 	NextToken *string `type:"string"`
 
-	PageNumber *json.Number `type:"json_number"`
-
-	PageSize *json.Number `type:"json_number"`
-
 	Tasks []*TaskForDescribeTasksOutput `type:"list"`
-
-	TotalCount *json.Number `type:"json_number"`
 }
 
 // String returns the string representation
@@ -235,27 +213,9 @@ func (s *DescribeTasksOutput) SetNextToken(v string) *DescribeTasksOutput {
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeTasksOutput) SetPageNumber(v json.Number) *DescribeTasksOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeTasksOutput) SetPageSize(v json.Number) *DescribeTasksOutput {
-	s.PageSize = &v
-	return s
-}
-
 // SetTasks sets the Tasks field's value.
 func (s *DescribeTasksOutput) SetTasks(v []*TaskForDescribeTasksOutput) *DescribeTasksOutput {
 	s.Tasks = v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *DescribeTasksOutput) SetTotalCount(v json.Number) *DescribeTasksOutput {
-	s.TotalCount = &v
 	return s
 }
 
@@ -269,8 +229,6 @@ type TaskForDescribeTasksOutput struct {
 	Id *string `type:"string"`
 
 	Process *int64 `type:"int64"`
-
-	RelatedInfo *string `type:"string"`
 
 	ResourceId *string `type:"string"`
 
@@ -312,12 +270,6 @@ func (s *TaskForDescribeTasksOutput) SetId(v string) *TaskForDescribeTasksOutput
 // SetProcess sets the Process field's value.
 func (s *TaskForDescribeTasksOutput) SetProcess(v int64) *TaskForDescribeTasksOutput {
 	s.Process = &v
-	return s
-}
-
-// SetRelatedInfo sets the RelatedInfo field's value.
-func (s *TaskForDescribeTasksOutput) SetRelatedInfo(v string) *TaskForDescribeTasksOutput {
-	s.RelatedInfo = &v
 	return s
 }
 

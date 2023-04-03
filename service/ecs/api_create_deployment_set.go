@@ -142,8 +142,6 @@ func (c *ECS) CreateDeploymentSetWithContext(ctx volcengine.Context, input *Crea
 type CreateDeploymentSetInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
 	ClientToken *string `type:"string"`
 
 	// DeploymentSetName is a required field
@@ -152,8 +150,6 @@ type CreateDeploymentSetInput struct {
 	Description *string `type:"string"`
 
 	Granularity *string `type:"string"`
-
-	GroupCount *int32 `type:"int32"`
 
 	Strategy *string `type:"string"`
 }
@@ -181,12 +177,6 @@ func (s *CreateDeploymentSetInput) Validate() error {
 	return nil
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *CreateDeploymentSetInput) SetAccountId(v string) *CreateDeploymentSetInput {
-	s.AccountId = &v
-	return s
-}
-
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateDeploymentSetInput) SetClientToken(v string) *CreateDeploymentSetInput {
 	s.ClientToken = &v
@@ -208,12 +198,6 @@ func (s *CreateDeploymentSetInput) SetDescription(v string) *CreateDeploymentSet
 // SetGranularity sets the Granularity field's value.
 func (s *CreateDeploymentSetInput) SetGranularity(v string) *CreateDeploymentSetInput {
 	s.Granularity = &v
-	return s
-}
-
-// SetGroupCount sets the GroupCount field's value.
-func (s *CreateDeploymentSetInput) SetGroupCount(v int32) *CreateDeploymentSetInput {
-	s.GroupCount = &v
 	return s
 }
 

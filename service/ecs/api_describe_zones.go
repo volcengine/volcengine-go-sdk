@@ -188,10 +188,6 @@ func (s *DescribeZonesOutput) SetZones(v []*ZoneForDescribeZonesOutput) *Describ
 type ZoneForDescribeZonesOutput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceTypes []*string `type:"list"`
-
-	VolumeTypes []*string `type:"list"`
-
 	ZoneId *string `type:"string"`
 }
 
@@ -203,18 +199,6 @@ func (s ZoneForDescribeZonesOutput) String() string {
 // GoString returns the string representation
 func (s ZoneForDescribeZonesOutput) GoString() string {
 	return s.String()
-}
-
-// SetInstanceTypes sets the InstanceTypes field's value.
-func (s *ZoneForDescribeZonesOutput) SetInstanceTypes(v []*string) *ZoneForDescribeZonesOutput {
-	s.InstanceTypes = v
-	return s
-}
-
-// SetVolumeTypes sets the VolumeTypes field's value.
-func (s *ZoneForDescribeZonesOutput) SetVolumeTypes(v []*string) *ZoneForDescribeZonesOutput {
-	s.VolumeTypes = v
-	return s
 }
 
 // SetZoneId sets the ZoneId field's value.

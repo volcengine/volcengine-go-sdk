@@ -144,17 +144,7 @@ func (c *STORAGEEBS) DescribeVolumesWithContext(ctx volcengine.Context, input *D
 type DescribeVolumesInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
-	AutoSnapshotPolicyId *string `type:"string"`
-
-	Encrypted *bool `type:"boolean"`
-
-	FieldMask *FieldMaskForDescribeVolumesInput `type:"structure"`
-
 	InstanceId *string `type:"string"`
-
-	KMSKeyId *string `type:"string"`
 
 	Kind *string `type:"string"`
 
@@ -163,8 +153,6 @@ type DescribeVolumesInput struct {
 	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
-
-	SysTagVisible *bool `type:"boolean"`
 
 	TagFilters []*TagFilterForDescribeVolumesInput `type:"list"`
 
@@ -189,39 +177,9 @@ func (s DescribeVolumesInput) GoString() string {
 	return s.String()
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *DescribeVolumesInput) SetAccountId(v string) *DescribeVolumesInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetAutoSnapshotPolicyId sets the AutoSnapshotPolicyId field's value.
-func (s *DescribeVolumesInput) SetAutoSnapshotPolicyId(v string) *DescribeVolumesInput {
-	s.AutoSnapshotPolicyId = &v
-	return s
-}
-
-// SetEncrypted sets the Encrypted field's value.
-func (s *DescribeVolumesInput) SetEncrypted(v bool) *DescribeVolumesInput {
-	s.Encrypted = &v
-	return s
-}
-
-// SetFieldMask sets the FieldMask field's value.
-func (s *DescribeVolumesInput) SetFieldMask(v *FieldMaskForDescribeVolumesInput) *DescribeVolumesInput {
-	s.FieldMask = v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeVolumesInput) SetInstanceId(v string) *DescribeVolumesInput {
 	s.InstanceId = &v
-	return s
-}
-
-// SetKMSKeyId sets the KMSKeyId field's value.
-func (s *DescribeVolumesInput) SetKMSKeyId(v string) *DescribeVolumesInput {
-	s.KMSKeyId = &v
 	return s
 }
 
@@ -246,12 +204,6 @@ func (s *DescribeVolumesInput) SetPageSize(v int32) *DescribeVolumesInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeVolumesInput) SetProjectName(v string) *DescribeVolumesInput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetSysTagVisible sets the SysTagVisible field's value.
-func (s *DescribeVolumesInput) SetSysTagVisible(v bool) *DescribeVolumesInput {
-	s.SysTagVisible = &v
 	return s
 }
 
@@ -339,28 +291,6 @@ func (s *DescribeVolumesOutput) SetVolumes(v []*VolumeForDescribeVolumesOutput) 
 	return s
 }
 
-type FieldMaskForDescribeVolumesInput struct {
-	_ struct{} `type:"structure"`
-
-	Paths *string `type:"string"`
-}
-
-// String returns the string representation
-func (s FieldMaskForDescribeVolumesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s FieldMaskForDescribeVolumesInput) GoString() string {
-	return s.String()
-}
-
-// SetPaths sets the Paths field's value.
-func (s *FieldMaskForDescribeVolumesInput) SetPaths(v string) *FieldMaskForDescribeVolumesInput {
-	s.Paths = &v
-	return s
-}
-
 type TagFilterForDescribeVolumesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -391,42 +321,8 @@ func (s *TagFilterForDescribeVolumesInput) SetValues(v []*string) *TagFilterForD
 	return s
 }
 
-type TagForDescribeVolumesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Key *string `type:"string"`
-
-	Value *string `type:"string"`
-}
-
-// String returns the string representation
-func (s TagForDescribeVolumesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForDescribeVolumesOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForDescribeVolumesOutput) SetKey(v string) *TagForDescribeVolumesOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagForDescribeVolumesOutput) SetValue(v string) *TagForDescribeVolumesOutput {
-	s.Value = &v
-	return s
-}
-
 type VolumeForDescribeVolumesOutput struct {
 	_ struct{} `type:"structure"`
-
-	AutoSnapshotPolicyId *string `type:"string"`
-
-	AutoSnapshotPolicyName *string `type:"string"`
 
 	BillingType *int32 `type:"int32"`
 
@@ -438,23 +334,13 @@ type VolumeForDescribeVolumesOutput struct {
 
 	DeviceName *string `type:"string"`
 
-	Encrypted *bool `type:"boolean"`
-
-	ErrorDetail *string `type:"string"`
-
 	ExpiredTime *string `type:"string"`
 
 	ImageId *string `type:"string"`
 
 	InstanceId *string `type:"string"`
 
-	KMSKeyId *string `type:"string"`
-
 	Kind *string `type:"string"`
-
-	OverdueReclaimTime *string `type:"string"`
-
-	OverdueTime *string `type:"string"`
 
 	PayType *string `type:"string"`
 
@@ -464,13 +350,7 @@ type VolumeForDescribeVolumesOutput struct {
 
 	Size *json.Number `type:"json_number"`
 
-	SnapshotCount *int32 `type:"int32"`
-
-	SourceSnapshotId *string `type:"string"`
-
 	Status *string `type:"string"`
-
-	Tags []*TagForDescribeVolumesOutput `type:"list"`
 
 	TradeStatus *int32 `type:"int32"`
 
@@ -493,18 +373,6 @@ func (s VolumeForDescribeVolumesOutput) String() string {
 // GoString returns the string representation
 func (s VolumeForDescribeVolumesOutput) GoString() string {
 	return s.String()
-}
-
-// SetAutoSnapshotPolicyId sets the AutoSnapshotPolicyId field's value.
-func (s *VolumeForDescribeVolumesOutput) SetAutoSnapshotPolicyId(v string) *VolumeForDescribeVolumesOutput {
-	s.AutoSnapshotPolicyId = &v
-	return s
-}
-
-// SetAutoSnapshotPolicyName sets the AutoSnapshotPolicyName field's value.
-func (s *VolumeForDescribeVolumesOutput) SetAutoSnapshotPolicyName(v string) *VolumeForDescribeVolumesOutput {
-	s.AutoSnapshotPolicyName = &v
-	return s
 }
 
 // SetBillingType sets the BillingType field's value.
@@ -537,18 +405,6 @@ func (s *VolumeForDescribeVolumesOutput) SetDeviceName(v string) *VolumeForDescr
 	return s
 }
 
-// SetEncrypted sets the Encrypted field's value.
-func (s *VolumeForDescribeVolumesOutput) SetEncrypted(v bool) *VolumeForDescribeVolumesOutput {
-	s.Encrypted = &v
-	return s
-}
-
-// SetErrorDetail sets the ErrorDetail field's value.
-func (s *VolumeForDescribeVolumesOutput) SetErrorDetail(v string) *VolumeForDescribeVolumesOutput {
-	s.ErrorDetail = &v
-	return s
-}
-
 // SetExpiredTime sets the ExpiredTime field's value.
 func (s *VolumeForDescribeVolumesOutput) SetExpiredTime(v string) *VolumeForDescribeVolumesOutput {
 	s.ExpiredTime = &v
@@ -567,27 +423,9 @@ func (s *VolumeForDescribeVolumesOutput) SetInstanceId(v string) *VolumeForDescr
 	return s
 }
 
-// SetKMSKeyId sets the KMSKeyId field's value.
-func (s *VolumeForDescribeVolumesOutput) SetKMSKeyId(v string) *VolumeForDescribeVolumesOutput {
-	s.KMSKeyId = &v
-	return s
-}
-
 // SetKind sets the Kind field's value.
 func (s *VolumeForDescribeVolumesOutput) SetKind(v string) *VolumeForDescribeVolumesOutput {
 	s.Kind = &v
-	return s
-}
-
-// SetOverdueReclaimTime sets the OverdueReclaimTime field's value.
-func (s *VolumeForDescribeVolumesOutput) SetOverdueReclaimTime(v string) *VolumeForDescribeVolumesOutput {
-	s.OverdueReclaimTime = &v
-	return s
-}
-
-// SetOverdueTime sets the OverdueTime field's value.
-func (s *VolumeForDescribeVolumesOutput) SetOverdueTime(v string) *VolumeForDescribeVolumesOutput {
-	s.OverdueTime = &v
 	return s
 }
 
@@ -615,27 +453,9 @@ func (s *VolumeForDescribeVolumesOutput) SetSize(v json.Number) *VolumeForDescri
 	return s
 }
 
-// SetSnapshotCount sets the SnapshotCount field's value.
-func (s *VolumeForDescribeVolumesOutput) SetSnapshotCount(v int32) *VolumeForDescribeVolumesOutput {
-	s.SnapshotCount = &v
-	return s
-}
-
-// SetSourceSnapshotId sets the SourceSnapshotId field's value.
-func (s *VolumeForDescribeVolumesOutput) SetSourceSnapshotId(v string) *VolumeForDescribeVolumesOutput {
-	s.SourceSnapshotId = &v
-	return s
-}
-
 // SetStatus sets the Status field's value.
 func (s *VolumeForDescribeVolumesOutput) SetStatus(v string) *VolumeForDescribeVolumesOutput {
 	s.Status = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *VolumeForDescribeVolumesOutput) SetTags(v []*TagForDescribeVolumesOutput) *VolumeForDescribeVolumesOutput {
-	s.Tags = v
 	return s
 }
 

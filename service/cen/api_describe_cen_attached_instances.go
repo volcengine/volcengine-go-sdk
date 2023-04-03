@@ -216,8 +216,6 @@ type DescribeCenAttachedInstancesInput struct {
 
 	InstanceId *string `type:"string"`
 
-	InstanceOwnerId *string `type:"string"`
-
 	InstanceRegionId *string `type:"string"`
 
 	InstanceType *string `type:"string"`
@@ -246,12 +244,6 @@ func (s *DescribeCenAttachedInstancesInput) SetCenId(v string) *DescribeCenAttac
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeCenAttachedInstancesInput) SetInstanceId(v string) *DescribeCenAttachedInstancesInput {
 	s.InstanceId = &v
-	return s
-}
-
-// SetInstanceOwnerId sets the InstanceOwnerId field's value.
-func (s *DescribeCenAttachedInstancesInput) SetInstanceOwnerId(v string) *DescribeCenAttachedInstancesInput {
-	s.InstanceOwnerId = &v
 	return s
 }
 

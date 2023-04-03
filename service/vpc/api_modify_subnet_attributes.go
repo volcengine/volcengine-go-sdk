@@ -144,10 +144,6 @@ type ModifySubnetAttributesInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
-	EnableIpv6 *bool `type:"boolean"`
-
-	Ipv6CidrBlock *int64 `max:"255" type:"integer"`
-
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
 
@@ -173,9 +169,6 @@ func (s *ModifySubnetAttributesInput) Validate() error {
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
-	if s.Ipv6CidrBlock != nil && *s.Ipv6CidrBlock > 255 {
-		invalidParams.Add(request.NewErrParamMaxValue("Ipv6CidrBlock", 255))
-	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
 	}
@@ -195,18 +188,6 @@ func (s *ModifySubnetAttributesInput) Validate() error {
 // SetDescription sets the Description field's value.
 func (s *ModifySubnetAttributesInput) SetDescription(v string) *ModifySubnetAttributesInput {
 	s.Description = &v
-	return s
-}
-
-// SetEnableIpv6 sets the EnableIpv6 field's value.
-func (s *ModifySubnetAttributesInput) SetEnableIpv6(v bool) *ModifySubnetAttributesInput {
-	s.EnableIpv6 = &v
-	return s
-}
-
-// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *ModifySubnetAttributesInput) SetIpv6CidrBlock(v int64) *ModifySubnetAttributesInput {
-	s.Ipv6CidrBlock = &v
 	return s
 }
 

@@ -148,8 +148,6 @@ type DescribeEipAddressesInput struct {
 
 	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
 
-	BandwidthPackageId *string `type:"string"`
-
 	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
 	EipAddresses []*string `type:"list"`
@@ -215,12 +213,6 @@ func (s *DescribeEipAddressesInput) SetAssociatedInstanceId(v string) *DescribeE
 // SetAssociatedInstanceType sets the AssociatedInstanceType field's value.
 func (s *DescribeEipAddressesInput) SetAssociatedInstanceType(v string) *DescribeEipAddressesInput {
 	s.AssociatedInstanceType = &v
-	return s
-}
-
-// SetBandwidthPackageId sets the BandwidthPackageId field's value.
-func (s *DescribeEipAddressesInput) SetBandwidthPackageId(v string) *DescribeEipAddressesInput {
-	s.BandwidthPackageId = &v
 	return s
 }
 

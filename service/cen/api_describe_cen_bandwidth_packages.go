@@ -148,8 +148,6 @@ type CenBandwidthPackageForDescribeCenBandwidthPackagesOutput struct {
 
 	BillingType *int64 `type:"integer"`
 
-	BusinessStatus *string `type:"string"`
-
 	CenBandwidthPackageId *string `type:"string"`
 
 	CenBandwidthPackageName *string `type:"string"`
@@ -175,8 +173,6 @@ type CenBandwidthPackageForDescribeCenBandwidthPackagesOutput struct {
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeCenBandwidthPackagesOutput `type:"list"`
-
-	UpdateTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -204,12 +200,6 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetBandwidth(
 // SetBillingType sets the BillingType field's value.
 func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetBillingType(v int64) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 	s.BillingType = &v
-	return s
-}
-
-// SetBusinessStatus sets the BusinessStatus field's value.
-func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetBusinessStatus(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
-	s.BusinessStatus = &v
 	return s
 }
 
@@ -288,12 +278,6 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetStatus(v s
 // SetTags sets the Tags field's value.
 func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetTags(v []*TagForDescribeCenBandwidthPackagesOutput) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 	s.Tags = v
-	return s
-}
-
-// SetUpdateTime sets the UpdateTime field's value.
-func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetUpdateTime(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
-	s.UpdateTime = &v
 	return s
 }
 

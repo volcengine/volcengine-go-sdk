@@ -142,11 +142,7 @@ func (c *STORAGEEBS) DeleteVolumeWithContext(ctx volcengine.Context, input *Dele
 type DeleteVolumeInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
 	ClientToken *string `type:"string"`
-
-	ProjectName *string `type:"string"`
 
 	VolumeId *string `type:"string"`
 }
@@ -161,21 +157,9 @@ func (s DeleteVolumeInput) GoString() string {
 	return s.String()
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *DeleteVolumeInput) SetAccountId(v string) *DeleteVolumeInput {
-	s.AccountId = &v
-	return s
-}
-
 // SetClientToken sets the ClientToken field's value.
 func (s *DeleteVolumeInput) SetClientToken(v string) *DeleteVolumeInput {
 	s.ClientToken = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DeleteVolumeInput) SetProjectName(v string) *DeleteVolumeInput {
-	s.ProjectName = &v
 	return s
 }
 

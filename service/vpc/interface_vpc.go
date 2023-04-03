@@ -46,22 +46,6 @@ type VPCAPI interface {
 	AllocateEipAddressWithContext(volcengine.Context, *AllocateEipAddressInput, ...request.Option) (*AllocateEipAddressOutput, error)
 	AllocateEipAddressRequest(*AllocateEipAddressInput) (*request.Request, *AllocateEipAddressOutput)
 
-	AllocateIpv6AddressBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AllocateIpv6AddressBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AllocateIpv6AddressBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AllocateIpv6AddressBandwidth(*AllocateIpv6AddressBandwidthInput) (*AllocateIpv6AddressBandwidthOutput, error)
-	AllocateIpv6AddressBandwidthWithContext(volcengine.Context, *AllocateIpv6AddressBandwidthInput, ...request.Option) (*AllocateIpv6AddressBandwidthOutput, error)
-	AllocateIpv6AddressBandwidthRequest(*AllocateIpv6AddressBandwidthInput) (*request.Request, *AllocateIpv6AddressBandwidthOutput)
-
-	AssignIpv6AddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AssignIpv6AddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AssignIpv6AddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AssignIpv6Addresses(*AssignIpv6AddressesInput) (*AssignIpv6AddressesOutput, error)
-	AssignIpv6AddressesWithContext(volcengine.Context, *AssignIpv6AddressesInput, ...request.Option) (*AssignIpv6AddressesOutput, error)
-	AssignIpv6AddressesRequest(*AssignIpv6AddressesInput) (*request.Request, *AssignIpv6AddressesOutput)
-
 	AssignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssignPrivateIpAddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssignPrivateIpAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -102,30 +86,6 @@ type VPCAPI interface {
 	AssociateRouteTableWithContext(volcengine.Context, *AssociateRouteTableInput, ...request.Option) (*AssociateRouteTableOutput, error)
 	AssociateRouteTableRequest(*AssociateRouteTableInput) (*request.Request, *AssociateRouteTableOutput)
 
-	AssociateTrunkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AssociateTrunkInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AssociateTrunkInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AssociateTrunkInterface(*AssociateTrunkInterfaceInput) (*AssociateTrunkInterfaceOutput, error)
-	AssociateTrunkInterfaceWithContext(volcengine.Context, *AssociateTrunkInterfaceInput, ...request.Option) (*AssociateTrunkInterfaceOutput, error)
-	AssociateTrunkInterfaceRequest(*AssociateTrunkInterfaceInput) (*request.Request, *AssociateTrunkInterfaceOutput)
-
-	AssociateVpcCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AssociateVpcCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AssociateVpcCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AssociateVpcCidrBlock(*AssociateVpcCidrBlockInput) (*AssociateVpcCidrBlockOutput, error)
-	AssociateVpcCidrBlockWithContext(volcengine.Context, *AssociateVpcCidrBlockInput, ...request.Option) (*AssociateVpcCidrBlockOutput, error)
-	AssociateVpcCidrBlockRequest(*AssociateVpcCidrBlockInput) (*request.Request, *AssociateVpcCidrBlockOutput)
-
-	AssociateVpcUserCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AssociateVpcUserCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AssociateVpcUserCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AssociateVpcUserCidrBlock(*AssociateVpcUserCidrBlockInput) (*AssociateVpcUserCidrBlockOutput, error)
-	AssociateVpcUserCidrBlockWithContext(volcengine.Context, *AssociateVpcUserCidrBlockInput, ...request.Option) (*AssociateVpcUserCidrBlockOutput, error)
-	AssociateVpcUserCidrBlockRequest(*AssociateVpcUserCidrBlockInput) (*request.Request, *AssociateVpcUserCidrBlockOutput)
-
 	AttachNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachNetworkInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AttachNetworkInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -150,22 +110,6 @@ type VPCAPI interface {
 	AuthorizeSecurityGroupIngressWithContext(volcengine.Context, *AuthorizeSecurityGroupIngressInput, ...request.Option) (*AuthorizeSecurityGroupIngressOutput, error)
 	AuthorizeSecurityGroupIngressRequest(*AuthorizeSecurityGroupIngressInput) (*request.Request, *AuthorizeSecurityGroupIngressOutput)
 
-	ConvertBandwidthPackageBillingTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ConvertBandwidthPackageBillingTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ConvertBandwidthPackageBillingTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ConvertBandwidthPackageBillingType(*ConvertBandwidthPackageBillingTypeInput) (*ConvertBandwidthPackageBillingTypeOutput, error)
-	ConvertBandwidthPackageBillingTypeWithContext(volcengine.Context, *ConvertBandwidthPackageBillingTypeInput, ...request.Option) (*ConvertBandwidthPackageBillingTypeOutput, error)
-	ConvertBandwidthPackageBillingTypeRequest(*ConvertBandwidthPackageBillingTypeInput) (*request.Request, *ConvertBandwidthPackageBillingTypeOutput)
-
-	ConvertEipAddressBillingTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ConvertEipAddressBillingTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ConvertEipAddressBillingTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ConvertEipAddressBillingType(*ConvertEipAddressBillingTypeInput) (*ConvertEipAddressBillingTypeOutput, error)
-	ConvertEipAddressBillingTypeWithContext(volcengine.Context, *ConvertEipAddressBillingTypeInput, ...request.Option) (*ConvertEipAddressBillingTypeOutput, error)
-	ConvertEipAddressBillingTypeRequest(*ConvertEipAddressBillingTypeInput) (*request.Request, *ConvertEipAddressBillingTypeOutput)
-
 	CreateBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateBandwidthPackageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -182,22 +126,6 @@ type VPCAPI interface {
 	CreateHaVipWithContext(volcengine.Context, *CreateHaVipInput, ...request.Option) (*CreateHaVipOutput, error)
 	CreateHaVipRequest(*CreateHaVipInput) (*request.Request, *CreateHaVipOutput)
 
-	CreateIpv6EgressOnlyRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateIpv6EgressOnlyRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateIpv6EgressOnlyRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateIpv6EgressOnlyRule(*CreateIpv6EgressOnlyRuleInput) (*CreateIpv6EgressOnlyRuleOutput, error)
-	CreateIpv6EgressOnlyRuleWithContext(volcengine.Context, *CreateIpv6EgressOnlyRuleInput, ...request.Option) (*CreateIpv6EgressOnlyRuleOutput, error)
-	CreateIpv6EgressOnlyRuleRequest(*CreateIpv6EgressOnlyRuleInput) (*request.Request, *CreateIpv6EgressOnlyRuleOutput)
-
-	CreateIpv6GatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateIpv6GatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateIpv6GatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateIpv6Gateway(*CreateIpv6GatewayInput) (*CreateIpv6GatewayOutput, error)
-	CreateIpv6GatewayWithContext(volcengine.Context, *CreateIpv6GatewayInput, ...request.Option) (*CreateIpv6GatewayOutput, error)
-	CreateIpv6GatewayRequest(*CreateIpv6GatewayInput) (*request.Request, *CreateIpv6GatewayOutput)
-
 	CreateNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateNetworkAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -213,14 +141,6 @@ type VPCAPI interface {
 	CreateNetworkInterface(*CreateNetworkInterfaceInput) (*CreateNetworkInterfaceOutput, error)
 	CreateNetworkInterfaceWithContext(volcengine.Context, *CreateNetworkInterfaceInput, ...request.Option) (*CreateNetworkInterfaceOutput, error)
 	CreateNetworkInterfaceRequest(*CreateNetworkInterfaceInput) (*request.Request, *CreateNetworkInterfaceOutput)
-
-	CreateNetworkInterfacePermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateNetworkInterfacePermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateNetworkInterfacePermissionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateNetworkInterfacePermission(*CreateNetworkInterfacePermissionInput) (*CreateNetworkInterfacePermissionOutput, error)
-	CreateNetworkInterfacePermissionWithContext(volcengine.Context, *CreateNetworkInterfacePermissionInput, ...request.Option) (*CreateNetworkInterfacePermissionOutput, error)
-	CreateNetworkInterfacePermissionRequest(*CreateNetworkInterfacePermissionInput) (*request.Request, *CreateNetworkInterfacePermissionOutput)
 
 	CreateRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -278,22 +198,6 @@ type VPCAPI interface {
 	DeleteHaVipWithContext(volcengine.Context, *DeleteHaVipInput, ...request.Option) (*DeleteHaVipOutput, error)
 	DeleteHaVipRequest(*DeleteHaVipInput) (*request.Request, *DeleteHaVipOutput)
 
-	DeleteIpv6EgressOnlyRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteIpv6EgressOnlyRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteIpv6EgressOnlyRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteIpv6EgressOnlyRule(*DeleteIpv6EgressOnlyRuleInput) (*DeleteIpv6EgressOnlyRuleOutput, error)
-	DeleteIpv6EgressOnlyRuleWithContext(volcengine.Context, *DeleteIpv6EgressOnlyRuleInput, ...request.Option) (*DeleteIpv6EgressOnlyRuleOutput, error)
-	DeleteIpv6EgressOnlyRuleRequest(*DeleteIpv6EgressOnlyRuleInput) (*request.Request, *DeleteIpv6EgressOnlyRuleOutput)
-
-	DeleteIpv6GatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteIpv6GatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteIpv6GatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteIpv6Gateway(*DeleteIpv6GatewayInput) (*DeleteIpv6GatewayOutput, error)
-	DeleteIpv6GatewayWithContext(volcengine.Context, *DeleteIpv6GatewayInput, ...request.Option) (*DeleteIpv6GatewayOutput, error)
-	DeleteIpv6GatewayRequest(*DeleteIpv6GatewayInput) (*request.Request, *DeleteIpv6GatewayOutput)
-
 	DeleteNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteNetworkAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -309,14 +213,6 @@ type VPCAPI interface {
 	DeleteNetworkInterface(*DeleteNetworkInterfaceInput) (*DeleteNetworkInterfaceOutput, error)
 	DeleteNetworkInterfaceWithContext(volcengine.Context, *DeleteNetworkInterfaceInput, ...request.Option) (*DeleteNetworkInterfaceOutput, error)
 	DeleteNetworkInterfaceRequest(*DeleteNetworkInterfaceInput) (*request.Request, *DeleteNetworkInterfaceOutput)
-
-	DeleteNetworkInterfacePermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteNetworkInterfacePermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteNetworkInterfacePermissionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteNetworkInterfacePermission(*DeleteNetworkInterfacePermissionInput) (*DeleteNetworkInterfacePermissionOutput, error)
-	DeleteNetworkInterfacePermissionWithContext(volcengine.Context, *DeleteNetworkInterfacePermissionInput, ...request.Option) (*DeleteNetworkInterfacePermissionOutput, error)
-	DeleteNetworkInterfacePermissionRequest(*DeleteNetworkInterfacePermissionInput) (*request.Request, *DeleteNetworkInterfacePermissionOutput)
 
 	DeleteRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -382,14 +278,6 @@ type VPCAPI interface {
 	DescribeEipAddressesWithContext(volcengine.Context, *DescribeEipAddressesInput, ...request.Option) (*DescribeEipAddressesOutput, error)
 	DescribeEipAddressesRequest(*DescribeEipAddressesInput) (*request.Request, *DescribeEipAddressesOutput)
 
-	DescribeEipAddressesBillingCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeEipAddressesBillingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeEipAddressesBillingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeEipAddressesBilling(*DescribeEipAddressesBillingInput) (*DescribeEipAddressesBillingOutput, error)
-	DescribeEipAddressesBillingWithContext(volcengine.Context, *DescribeEipAddressesBillingInput, ...request.Option) (*DescribeEipAddressesBillingOutput, error)
-	DescribeEipAddressesBillingRequest(*DescribeEipAddressesBillingInput) (*request.Request, *DescribeEipAddressesBillingOutput)
-
 	DescribeHaVipsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeHaVipsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeHaVipsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -397,46 +285,6 @@ type VPCAPI interface {
 	DescribeHaVips(*DescribeHaVipsInput) (*DescribeHaVipsOutput, error)
 	DescribeHaVipsWithContext(volcengine.Context, *DescribeHaVipsInput, ...request.Option) (*DescribeHaVipsOutput, error)
 	DescribeHaVipsRequest(*DescribeHaVipsInput) (*request.Request, *DescribeHaVipsOutput)
-
-	DescribeIpv6AddressBandwidthAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeIpv6AddressBandwidthAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeIpv6AddressBandwidthAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeIpv6AddressBandwidthAttributes(*DescribeIpv6AddressBandwidthAttributesInput) (*DescribeIpv6AddressBandwidthAttributesOutput, error)
-	DescribeIpv6AddressBandwidthAttributesWithContext(volcengine.Context, *DescribeIpv6AddressBandwidthAttributesInput, ...request.Option) (*DescribeIpv6AddressBandwidthAttributesOutput, error)
-	DescribeIpv6AddressBandwidthAttributesRequest(*DescribeIpv6AddressBandwidthAttributesInput) (*request.Request, *DescribeIpv6AddressBandwidthAttributesOutput)
-
-	DescribeIpv6AddressBandwidthsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeIpv6AddressBandwidthsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeIpv6AddressBandwidthsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeIpv6AddressBandwidths(*DescribeIpv6AddressBandwidthsInput) (*DescribeIpv6AddressBandwidthsOutput, error)
-	DescribeIpv6AddressBandwidthsWithContext(volcengine.Context, *DescribeIpv6AddressBandwidthsInput, ...request.Option) (*DescribeIpv6AddressBandwidthsOutput, error)
-	DescribeIpv6AddressBandwidthsRequest(*DescribeIpv6AddressBandwidthsInput) (*request.Request, *DescribeIpv6AddressBandwidthsOutput)
-
-	DescribeIpv6EgressOnlyRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeIpv6EgressOnlyRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeIpv6EgressOnlyRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeIpv6EgressOnlyRules(*DescribeIpv6EgressOnlyRulesInput) (*DescribeIpv6EgressOnlyRulesOutput, error)
-	DescribeIpv6EgressOnlyRulesWithContext(volcengine.Context, *DescribeIpv6EgressOnlyRulesInput, ...request.Option) (*DescribeIpv6EgressOnlyRulesOutput, error)
-	DescribeIpv6EgressOnlyRulesRequest(*DescribeIpv6EgressOnlyRulesInput) (*request.Request, *DescribeIpv6EgressOnlyRulesOutput)
-
-	DescribeIpv6GatewayAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeIpv6GatewayAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeIpv6GatewayAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeIpv6GatewayAttribute(*DescribeIpv6GatewayAttributeInput) (*DescribeIpv6GatewayAttributeOutput, error)
-	DescribeIpv6GatewayAttributeWithContext(volcengine.Context, *DescribeIpv6GatewayAttributeInput, ...request.Option) (*DescribeIpv6GatewayAttributeOutput, error)
-	DescribeIpv6GatewayAttributeRequest(*DescribeIpv6GatewayAttributeInput) (*request.Request, *DescribeIpv6GatewayAttributeOutput)
-
-	DescribeIpv6GatewaysCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeIpv6GatewaysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeIpv6GatewaysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeIpv6Gateways(*DescribeIpv6GatewaysInput) (*DescribeIpv6GatewaysOutput, error)
-	DescribeIpv6GatewaysWithContext(volcengine.Context, *DescribeIpv6GatewaysInput, ...request.Option) (*DescribeIpv6GatewaysOutput, error)
-	DescribeIpv6GatewaysRequest(*DescribeIpv6GatewaysInput) (*request.Request, *DescribeIpv6GatewaysOutput)
 
 	DescribeNetworkAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNetworkAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -461,14 +309,6 @@ type VPCAPI interface {
 	DescribeNetworkInterfaceAttributes(*DescribeNetworkInterfaceAttributesInput) (*DescribeNetworkInterfaceAttributesOutput, error)
 	DescribeNetworkInterfaceAttributesWithContext(volcengine.Context, *DescribeNetworkInterfaceAttributesInput, ...request.Option) (*DescribeNetworkInterfaceAttributesOutput, error)
 	DescribeNetworkInterfaceAttributesRequest(*DescribeNetworkInterfaceAttributesInput) (*request.Request, *DescribeNetworkInterfaceAttributesOutput)
-
-	DescribeNetworkInterfacePermissionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeNetworkInterfacePermissionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeNetworkInterfacePermissionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeNetworkInterfacePermissions(*DescribeNetworkInterfacePermissionsInput) (*DescribeNetworkInterfacePermissionsOutput, error)
-	DescribeNetworkInterfacePermissionsWithContext(volcengine.Context, *DescribeNetworkInterfacePermissionsInput, ...request.Option) (*DescribeNetworkInterfacePermissionsOutput, error)
-	DescribeNetworkInterfacePermissionsRequest(*DescribeNetworkInterfacePermissionsInput) (*request.Request, *DescribeNetworkInterfacePermissionsOutput)
 
 	DescribeNetworkInterfacesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNetworkInterfacesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -526,14 +366,6 @@ type VPCAPI interface {
 	DescribeSubnetsWithContext(volcengine.Context, *DescribeSubnetsInput, ...request.Option) (*DescribeSubnetsOutput, error)
 	DescribeSubnetsRequest(*DescribeSubnetsInput) (*request.Request, *DescribeSubnetsOutput)
 
-	DescribeTrunkAssociationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeTrunkAssociationsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeTrunkAssociationsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeTrunkAssociations(*DescribeTrunkAssociationsInput) (*DescribeTrunkAssociationsOutput, error)
-	DescribeTrunkAssociationsWithContext(volcengine.Context, *DescribeTrunkAssociationsInput, ...request.Option) (*DescribeTrunkAssociationsOutput, error)
-	DescribeTrunkAssociationsRequest(*DescribeTrunkAssociationsInput) (*request.Request, *DescribeTrunkAssociationsOutput)
-
 	DescribeVpcAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpcAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeVpcAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -590,30 +422,6 @@ type VPCAPI interface {
 	DisassociateRouteTableWithContext(volcengine.Context, *DisassociateRouteTableInput, ...request.Option) (*DisassociateRouteTableOutput, error)
 	DisassociateRouteTableRequest(*DisassociateRouteTableInput) (*request.Request, *DisassociateRouteTableOutput)
 
-	DisassociateTrunkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DisassociateTrunkInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DisassociateTrunkInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DisassociateTrunkInterface(*DisassociateTrunkInterfaceInput) (*DisassociateTrunkInterfaceOutput, error)
-	DisassociateTrunkInterfaceWithContext(volcengine.Context, *DisassociateTrunkInterfaceInput, ...request.Option) (*DisassociateTrunkInterfaceOutput, error)
-	DisassociateTrunkInterfaceRequest(*DisassociateTrunkInterfaceInput) (*request.Request, *DisassociateTrunkInterfaceOutput)
-
-	DisassociateVpcCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DisassociateVpcCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DisassociateVpcCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DisassociateVpcCidrBlock(*DisassociateVpcCidrBlockInput) (*DisassociateVpcCidrBlockOutput, error)
-	DisassociateVpcCidrBlockWithContext(volcengine.Context, *DisassociateVpcCidrBlockInput, ...request.Option) (*DisassociateVpcCidrBlockOutput, error)
-	DisassociateVpcCidrBlockRequest(*DisassociateVpcCidrBlockInput) (*request.Request, *DisassociateVpcCidrBlockOutput)
-
-	DisassociateVpcUserCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DisassociateVpcUserCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DisassociateVpcUserCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DisassociateVpcUserCidrBlock(*DisassociateVpcUserCidrBlockInput) (*DisassociateVpcUserCidrBlockOutput, error)
-	DisassociateVpcUserCidrBlockWithContext(volcengine.Context, *DisassociateVpcUserCidrBlockInput, ...request.Option) (*DisassociateVpcUserCidrBlockOutput, error)
-	DisassociateVpcUserCidrBlockRequest(*DisassociateVpcUserCidrBlockInput) (*request.Request, *DisassociateVpcUserCidrBlockOutput)
-
 	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -653,30 +461,6 @@ type VPCAPI interface {
 	ModifyHaVipAttributes(*ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error)
 	ModifyHaVipAttributesWithContext(volcengine.Context, *ModifyHaVipAttributesInput, ...request.Option) (*ModifyHaVipAttributesOutput, error)
 	ModifyHaVipAttributesRequest(*ModifyHaVipAttributesInput) (*request.Request, *ModifyHaVipAttributesOutput)
-
-	ModifyIpv6AddressBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyIpv6AddressBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyIpv6AddressBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyIpv6AddressBandwidth(*ModifyIpv6AddressBandwidthInput) (*ModifyIpv6AddressBandwidthOutput, error)
-	ModifyIpv6AddressBandwidthWithContext(volcengine.Context, *ModifyIpv6AddressBandwidthInput, ...request.Option) (*ModifyIpv6AddressBandwidthOutput, error)
-	ModifyIpv6AddressBandwidthRequest(*ModifyIpv6AddressBandwidthInput) (*request.Request, *ModifyIpv6AddressBandwidthOutput)
-
-	ModifyIpv6EgressOnlyRuleAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyIpv6EgressOnlyRuleAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyIpv6EgressOnlyRuleAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyIpv6EgressOnlyRuleAttribute(*ModifyIpv6EgressOnlyRuleAttributeInput) (*ModifyIpv6EgressOnlyRuleAttributeOutput, error)
-	ModifyIpv6EgressOnlyRuleAttributeWithContext(volcengine.Context, *ModifyIpv6EgressOnlyRuleAttributeInput, ...request.Option) (*ModifyIpv6EgressOnlyRuleAttributeOutput, error)
-	ModifyIpv6EgressOnlyRuleAttributeRequest(*ModifyIpv6EgressOnlyRuleAttributeInput) (*request.Request, *ModifyIpv6EgressOnlyRuleAttributeOutput)
-
-	ModifyIpv6GatewayAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyIpv6GatewayAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyIpv6GatewayAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyIpv6GatewayAttribute(*ModifyIpv6GatewayAttributeInput) (*ModifyIpv6GatewayAttributeOutput, error)
-	ModifyIpv6GatewayAttributeWithContext(volcengine.Context, *ModifyIpv6GatewayAttributeInput, ...request.Option) (*ModifyIpv6GatewayAttributeOutput, error)
-	ModifyIpv6GatewayAttributeRequest(*ModifyIpv6GatewayAttributeInput) (*request.Request, *ModifyIpv6GatewayAttributeOutput)
 
 	ModifyNetworkAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyNetworkAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -758,14 +542,6 @@ type VPCAPI interface {
 	ReleaseEipAddressWithContext(volcengine.Context, *ReleaseEipAddressInput, ...request.Option) (*ReleaseEipAddressOutput, error)
 	ReleaseEipAddressRequest(*ReleaseEipAddressInput) (*request.Request, *ReleaseEipAddressOutput)
 
-	ReleaseIpv6AddressBandwidthCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ReleaseIpv6AddressBandwidthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ReleaseIpv6AddressBandwidthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ReleaseIpv6AddressBandwidth(*ReleaseIpv6AddressBandwidthInput) (*ReleaseIpv6AddressBandwidthOutput, error)
-	ReleaseIpv6AddressBandwidthWithContext(volcengine.Context, *ReleaseIpv6AddressBandwidthInput, ...request.Option) (*ReleaseIpv6AddressBandwidthOutput, error)
-	ReleaseIpv6AddressBandwidthRequest(*ReleaseIpv6AddressBandwidthInput) (*request.Request, *ReleaseIpv6AddressBandwidthOutput)
-
 	RemoveBandwidthPackageIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveBandwidthPackageIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RemoveBandwidthPackageIpCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -773,14 +549,6 @@ type VPCAPI interface {
 	RemoveBandwidthPackageIp(*RemoveBandwidthPackageIpInput) (*RemoveBandwidthPackageIpOutput, error)
 	RemoveBandwidthPackageIpWithContext(volcengine.Context, *RemoveBandwidthPackageIpInput, ...request.Option) (*RemoveBandwidthPackageIpOutput, error)
 	RemoveBandwidthPackageIpRequest(*RemoveBandwidthPackageIpInput) (*request.Request, *RemoveBandwidthPackageIpOutput)
-
-	RenewEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RenewEipAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RenewEipAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RenewEipAddress(*RenewEipAddressInput) (*RenewEipAddressOutput, error)
-	RenewEipAddressWithContext(volcengine.Context, *RenewEipAddressInput, ...request.Option) (*RenewEipAddressOutput, error)
-	RenewEipAddressRequest(*RenewEipAddressInput) (*request.Request, *RenewEipAddressOutput)
 
 	RevokeSecurityGroupEgressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RevokeSecurityGroupEgressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -798,14 +566,6 @@ type VPCAPI interface {
 	RevokeSecurityGroupIngressWithContext(volcengine.Context, *RevokeSecurityGroupIngressInput, ...request.Option) (*RevokeSecurityGroupIngressOutput, error)
 	RevokeSecurityGroupIngressRequest(*RevokeSecurityGroupIngressInput) (*request.Request, *RevokeSecurityGroupIngressOutput)
 
-	SetEipAddressRenewalCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	SetEipAddressRenewalCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	SetEipAddressRenewalCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	SetEipAddressRenewal(*SetEipAddressRenewalInput) (*SetEipAddressRenewalOutput, error)
-	SetEipAddressRenewalWithContext(volcengine.Context, *SetEipAddressRenewalInput, ...request.Option) (*SetEipAddressRenewalOutput, error)
-	SetEipAddressRenewalRequest(*SetEipAddressRenewalInput) (*request.Request, *SetEipAddressRenewalOutput)
-
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -813,14 +573,6 @@ type VPCAPI interface {
 	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
 	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
 	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
-
-	UnassignIpv6AddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UnassignIpv6AddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UnassignIpv6AddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UnassignIpv6Addresses(*UnassignIpv6AddressesInput) (*UnassignIpv6AddressesOutput, error)
-	UnassignIpv6AddressesWithContext(volcengine.Context, *UnassignIpv6AddressesInput, ...request.Option) (*UnassignIpv6AddressesOutput, error)
-	UnassignIpv6AddressesRequest(*UnassignIpv6AddressesInput) (*request.Request, *UnassignIpv6AddressesOutput)
 
 	UnassignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UnassignPrivateIpAddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

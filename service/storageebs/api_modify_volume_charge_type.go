@@ -139,38 +139,12 @@ func (c *STORAGEEBS) ModifyVolumeChargeTypeWithContext(ctx volcengine.Context, i
 	return out, req.Send()
 }
 
-type FieldMaskForModifyVolumeChargeTypeInput struct {
-	_ struct{} `type:"structure"`
-
-	Paths *string `type:"string"`
-}
-
-// String returns the string representation
-func (s FieldMaskForModifyVolumeChargeTypeInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s FieldMaskForModifyVolumeChargeTypeInput) GoString() string {
-	return s.String()
-}
-
-// SetPaths sets the Paths field's value.
-func (s *FieldMaskForModifyVolumeChargeTypeInput) SetPaths(v string) *FieldMaskForModifyVolumeChargeTypeInput {
-	s.Paths = &v
-	return s
-}
-
 type ModifyVolumeChargeTypeInput struct {
 	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
 
 	AutoPay *bool `type:"boolean"`
 
 	DiskChargeType *string `type:"string"`
-
-	FieldMask *FieldMaskForModifyVolumeChargeTypeInput `type:"structure"`
 
 	InstanceId *string `type:"string"`
 
@@ -187,12 +161,6 @@ func (s ModifyVolumeChargeTypeInput) GoString() string {
 	return s.String()
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *ModifyVolumeChargeTypeInput) SetAccountId(v string) *ModifyVolumeChargeTypeInput {
-	s.AccountId = &v
-	return s
-}
-
 // SetAutoPay sets the AutoPay field's value.
 func (s *ModifyVolumeChargeTypeInput) SetAutoPay(v bool) *ModifyVolumeChargeTypeInput {
 	s.AutoPay = &v
@@ -202,12 +170,6 @@ func (s *ModifyVolumeChargeTypeInput) SetAutoPay(v bool) *ModifyVolumeChargeType
 // SetDiskChargeType sets the DiskChargeType field's value.
 func (s *ModifyVolumeChargeTypeInput) SetDiskChargeType(v string) *ModifyVolumeChargeTypeInput {
 	s.DiskChargeType = &v
-	return s
-}
-
-// SetFieldMask sets the FieldMask field's value.
-func (s *ModifyVolumeChargeTypeInput) SetFieldMask(v *FieldMaskForModifyVolumeChargeTypeInput) *ModifyVolumeChargeTypeInput {
-	s.FieldMask = v
 	return s
 }
 

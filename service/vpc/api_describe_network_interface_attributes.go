@@ -220,8 +220,6 @@ type DescribeNetworkInterfaceAttributesOutput struct {
 
 	DeviceId *string `type:"string"`
 
-	IPv6Sets []*string `type:"list"`
-
 	MacAddress *string `type:"string"`
 
 	NetworkInterfaceId *string `type:"string"`
@@ -231,8 +229,6 @@ type DescribeNetworkInterfaceAttributesOutput struct {
 	PortSecurityEnabled *bool `type:"boolean"`
 
 	PrimaryIpAddress *string `type:"string"`
-
-	PrivateIpAddresses []*string `type:"list"`
 
 	PrivateIpSets *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput `type:"structure"`
 
@@ -301,12 +297,6 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetDeviceId(v string) *Descri
 	return s
 }
 
-// SetIPv6Sets sets the IPv6Sets field's value.
-func (s *DescribeNetworkInterfaceAttributesOutput) SetIPv6Sets(v []*string) *DescribeNetworkInterfaceAttributesOutput {
-	s.IPv6Sets = v
-	return s
-}
-
 // SetMacAddress sets the MacAddress field's value.
 func (s *DescribeNetworkInterfaceAttributesOutput) SetMacAddress(v string) *DescribeNetworkInterfaceAttributesOutput {
 	s.MacAddress = &v
@@ -334,12 +324,6 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetPortSecurityEnabled(v bool
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
 func (s *DescribeNetworkInterfaceAttributesOutput) SetPrimaryIpAddress(v string) *DescribeNetworkInterfaceAttributesOutput {
 	s.PrimaryIpAddress = &v
-	return s
-}
-
-// SetPrivateIpAddresses sets the PrivateIpAddresses field's value.
-func (s *DescribeNetworkInterfaceAttributesOutput) SetPrivateIpAddresses(v []*string) *DescribeNetworkInterfaceAttributesOutput {
-	s.PrivateIpAddresses = v
 	return s
 }
 

@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // DIRECTCONNECT.
 //    func myFunc(svc DIRECTCONNECTAPI) bool {
-//        // Make svc.ConfirmDirectConnectConnection request
+//        // Make svc.CreateBgpPeer request
 //    }
 //
 //    func main() {
@@ -30,14 +30,6 @@ import (
 //    }
 //
 type DIRECTCONNECTAPI interface {
-	ConfirmDirectConnectConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ConfirmDirectConnectConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ConfirmDirectConnectConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ConfirmDirectConnectConnection(*ConfirmDirectConnectConnectionInput) (*ConfirmDirectConnectConnectionOutput, error)
-	ConfirmDirectConnectConnectionWithContext(volcengine.Context, *ConfirmDirectConnectConnectionInput, ...request.Option) (*ConfirmDirectConnectConnectionOutput, error)
-	ConfirmDirectConnectConnectionRequest(*ConfirmDirectConnectConnectionInput) (*request.Request, *ConfirmDirectConnectConnectionOutput)
-
 	CreateBgpPeerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBgpPeerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateBgpPeerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,14 +77,6 @@ type DIRECTCONNECTAPI interface {
 	CreateDirectConnectVirtualInterface(*CreateDirectConnectVirtualInterfaceInput) (*CreateDirectConnectVirtualInterfaceOutput, error)
 	CreateDirectConnectVirtualInterfaceWithContext(volcengine.Context, *CreateDirectConnectVirtualInterfaceInput, ...request.Option) (*CreateDirectConnectVirtualInterfaceOutput, error)
 	CreateDirectConnectVirtualInterfaceRequest(*CreateDirectConnectVirtualInterfaceInput) (*request.Request, *CreateDirectConnectVirtualInterfaceOutput)
-
-	CreateSharedDirectConnectConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateSharedDirectConnectConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateSharedDirectConnectConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateSharedDirectConnectConnection(*CreateSharedDirectConnectConnectionInput) (*CreateSharedDirectConnectConnectionOutput, error)
-	CreateSharedDirectConnectConnectionWithContext(volcengine.Context, *CreateSharedDirectConnectConnectionInput, ...request.Option) (*CreateSharedDirectConnectConnectionOutput, error)
-	CreateSharedDirectConnectConnectionRequest(*CreateSharedDirectConnectConnectionInput) (*request.Request, *CreateSharedDirectConnectConnectionOutput)
 
 	DeleteBgpPeerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteBgpPeerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -166,14 +150,6 @@ type DIRECTCONNECTAPI interface {
 	DescribeDirectConnectConnectionAttributesWithContext(volcengine.Context, *DescribeDirectConnectConnectionAttributesInput, ...request.Option) (*DescribeDirectConnectConnectionAttributesOutput, error)
 	DescribeDirectConnectConnectionAttributesRequest(*DescribeDirectConnectConnectionAttributesInput) (*request.Request, *DescribeDirectConnectConnectionAttributesOutput)
 
-	DescribeDirectConnectConnectionBillingCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeDirectConnectConnectionBillingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeDirectConnectConnectionBillingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeDirectConnectConnectionBilling(*DescribeDirectConnectConnectionBillingInput) (*DescribeDirectConnectConnectionBillingOutput, error)
-	DescribeDirectConnectConnectionBillingWithContext(volcengine.Context, *DescribeDirectConnectConnectionBillingInput, ...request.Option) (*DescribeDirectConnectConnectionBillingOutput, error)
-	DescribeDirectConnectConnectionBillingRequest(*DescribeDirectConnectConnectionBillingInput) (*request.Request, *DescribeDirectConnectConnectionBillingOutput)
-
 	DescribeDirectConnectConnectionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDirectConnectConnectionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDirectConnectConnectionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -230,14 +206,6 @@ type DIRECTCONNECTAPI interface {
 	DescribeDirectConnectVirtualInterfacesWithContext(volcengine.Context, *DescribeDirectConnectVirtualInterfacesInput, ...request.Option) (*DescribeDirectConnectVirtualInterfacesOutput, error)
 	DescribeDirectConnectVirtualInterfacesRequest(*DescribeDirectConnectVirtualInterfacesInput) (*request.Request, *DescribeDirectConnectVirtualInterfacesOutput)
 
-	DescribeSharedDirectConnectConnectionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeSharedDirectConnectConnectionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeSharedDirectConnectConnectionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeSharedDirectConnectConnections(*DescribeSharedDirectConnectConnectionsInput) (*DescribeSharedDirectConnectConnectionsOutput, error)
-	DescribeSharedDirectConnectConnectionsWithContext(volcengine.Context, *DescribeSharedDirectConnectConnectionsInput, ...request.Option) (*DescribeSharedDirectConnectConnectionsOutput, error)
-	DescribeSharedDirectConnectConnectionsRequest(*DescribeSharedDirectConnectConnectionsInput) (*request.Request, *DescribeSharedDirectConnectConnectionsOutput)
-
 	ModifyBgpPeerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyBgpPeerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyBgpPeerAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -269,30 +237,6 @@ type DIRECTCONNECTAPI interface {
 	ModifyDirectConnectVirtualInterfaceAttributes(*ModifyDirectConnectVirtualInterfaceAttributesInput) (*ModifyDirectConnectVirtualInterfaceAttributesOutput, error)
 	ModifyDirectConnectVirtualInterfaceAttributesWithContext(volcengine.Context, *ModifyDirectConnectVirtualInterfaceAttributesInput, ...request.Option) (*ModifyDirectConnectVirtualInterfaceAttributesOutput, error)
 	ModifyDirectConnectVirtualInterfaceAttributesRequest(*ModifyDirectConnectVirtualInterfaceAttributesInput) (*request.Request, *ModifyDirectConnectVirtualInterfaceAttributesOutput)
-
-	ModifySharedDirectConnectConnectionAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifySharedDirectConnectConnectionAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifySharedDirectConnectConnectionAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifySharedDirectConnectConnectionAttributes(*ModifySharedDirectConnectConnectionAttributesInput) (*ModifySharedDirectConnectConnectionAttributesOutput, error)
-	ModifySharedDirectConnectConnectionAttributesWithContext(volcengine.Context, *ModifySharedDirectConnectConnectionAttributesInput, ...request.Option) (*ModifySharedDirectConnectConnectionAttributesOutput, error)
-	ModifySharedDirectConnectConnectionAttributesRequest(*ModifySharedDirectConnectConnectionAttributesInput) (*request.Request, *ModifySharedDirectConnectConnectionAttributesOutput)
-
-	RenewDirectConnectConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	RenewDirectConnectConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	RenewDirectConnectConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	RenewDirectConnectConnection(*RenewDirectConnectConnectionInput) (*RenewDirectConnectConnectionOutput, error)
-	RenewDirectConnectConnectionWithContext(volcengine.Context, *RenewDirectConnectConnectionInput, ...request.Option) (*RenewDirectConnectConnectionOutput, error)
-	RenewDirectConnectConnectionRequest(*RenewDirectConnectConnectionInput) (*request.Request, *RenewDirectConnectConnectionOutput)
-
-	SetDirectConnectConnectionRenewalCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	SetDirectConnectConnectionRenewalCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	SetDirectConnectConnectionRenewalCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	SetDirectConnectConnectionRenewal(*SetDirectConnectConnectionRenewalInput) (*SetDirectConnectConnectionRenewalOutput, error)
-	SetDirectConnectConnectionRenewalWithContext(volcengine.Context, *SetDirectConnectConnectionRenewalInput, ...request.Option) (*SetDirectConnectConnectionRenewalOutput, error)
-	SetDirectConnectConnectionRenewalRequest(*SetDirectConnectConnectionRenewalInput) (*request.Request, *SetDirectConnectConnectionRenewalOutput)
 }
 
 var _ DIRECTCONNECTAPI = (*DIRECTCONNECT)(nil)

@@ -144,8 +144,6 @@ type ModifyInstanceDeploymentInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DeploymentSetGroupNumber *int32 `type:"int32"`
-
 	DeploymentSetId *string `type:"string"`
 
 	InstanceId *string `type:"string"`
@@ -164,12 +162,6 @@ func (s ModifyInstanceDeploymentInput) GoString() string {
 // SetClientToken sets the ClientToken field's value.
 func (s *ModifyInstanceDeploymentInput) SetClientToken(v string) *ModifyInstanceDeploymentInput {
 	s.ClientToken = &v
-	return s
-}
-
-// SetDeploymentSetGroupNumber sets the DeploymentSetGroupNumber field's value.
-func (s *ModifyInstanceDeploymentInput) SetDeploymentSetGroupNumber(v int32) *ModifyInstanceDeploymentInput {
-	s.DeploymentSetGroupNumber = &v
 	return s
 }
 

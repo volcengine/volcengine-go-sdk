@@ -153,10 +153,9 @@ type CreateVpnConnectionInput struct {
 
 	DpdAction *string `type:"string" enum:"DpdActionForCreateVpnConnectionInput"`
 
-	// IkeConfig is a required field
-	IkeConfig *IkeConfigForCreateVpnConnectionInput `type:"structure" required:"true"`
+	IkeConfig *string `type:"string"`
 
-	IpsecConfig *IpsecConfigForCreateVpnConnectionInput `type:"structure"`
+	IpsecConfig *string `type:"string"`
 
 	// LocalSubnet is a required field
 	LocalSubnet []*string `type:"list" required:"true"`
@@ -200,9 +199,6 @@ func (s *CreateVpnConnectionInput) Validate() error {
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
-	if s.IkeConfig == nil {
-		invalidParams.Add(request.NewErrParamRequired("IkeConfig"))
-	}
 	if s.LocalSubnet == nil {
 		invalidParams.Add(request.NewErrParamRequired("LocalSubnet"))
 	}
@@ -217,11 +213,6 @@ func (s *CreateVpnConnectionInput) Validate() error {
 	}
 	if s.VpnGatewayId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpnGatewayId"))
-	}
-	if s.IkeConfig != nil {
-		if err := s.IkeConfig.Validate(); err != nil {
-			invalidParams.AddNested("IkeConfig", err.(request.ErrInvalidParams))
-		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -261,14 +252,14 @@ func (s *CreateVpnConnectionInput) SetDpdAction(v string) *CreateVpnConnectionIn
 }
 
 // SetIkeConfig sets the IkeConfig field's value.
-func (s *CreateVpnConnectionInput) SetIkeConfig(v *IkeConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
-	s.IkeConfig = v
+func (s *CreateVpnConnectionInput) SetIkeConfig(v string) *CreateVpnConnectionInput {
+	s.IkeConfig = &v
 	return s
 }
 
 // SetIpsecConfig sets the IpsecConfig field's value.
-func (s *CreateVpnConnectionInput) SetIpsecConfig(v *IpsecConfigForCreateVpnConnectionInput) *CreateVpnConnectionInput {
-	s.IpsecConfig = v
+func (s *CreateVpnConnectionInput) SetIpsecConfig(v string) *CreateVpnConnectionInput {
+	s.IpsecConfig = &v
 	return s
 }
 
@@ -360,152 +351,6 @@ func (s *CreateVpnConnectionOutput) SetVpnConnectionId(v string) *CreateVpnConne
 	return s
 }
 
-type IkeConfigForCreateVpnConnectionInput struct {
-	_ struct{} `type:"structure"`
-
-	AuthAlg *string `type:"string" enum:"IkeConfigAuthAlgForCreateVpnConnectionInput"`
-
-	DhGroup *string `type:"string" enum:"IkeConfigDhGroupForCreateVpnConnectionInput"`
-
-	EncAlg *string `type:"string" enum:"IkeConfigEncAlgForCreateVpnConnectionInput"`
-
-	Lifetime *string `type:"string"`
-
-	LocalId *string `type:"string"`
-
-	Mode *string `type:"string" enum:"IkeConfigModeForCreateVpnConnectionInput"`
-
-	// Psk is a required field
-	Psk *string `type:"string" required:"true"`
-
-	RemoteId *string `type:"string"`
-
-	Version *string `type:"string" enum:"IkeConfigVersionForCreateVpnConnectionInput"`
-}
-
-// String returns the string representation
-func (s IkeConfigForCreateVpnConnectionInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s IkeConfigForCreateVpnConnectionInput) GoString() string {
-	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *IkeConfigForCreateVpnConnectionInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "IkeConfigForCreateVpnConnectionInput"}
-	if s.Psk == nil {
-		invalidParams.Add(request.NewErrParamRequired("Psk"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetAuthAlg sets the AuthAlg field's value.
-func (s *IkeConfigForCreateVpnConnectionInput) SetAuthAlg(v string) *IkeConfigForCreateVpnConnectionInput {
-	s.AuthAlg = &v
-	return s
-}
-
-// SetDhGroup sets the DhGroup field's value.
-func (s *IkeConfigForCreateVpnConnectionInput) SetDhGroup(v string) *IkeConfigForCreateVpnConnectionInput {
-	s.DhGroup = &v
-	return s
-}
-
-// SetEncAlg sets the EncAlg field's value.
-func (s *IkeConfigForCreateVpnConnectionInput) SetEncAlg(v string) *IkeConfigForCreateVpnConnectionInput {
-	s.EncAlg = &v
-	return s
-}
-
-// SetLifetime sets the Lifetime field's value.
-func (s *IkeConfigForCreateVpnConnectionInput) SetLifetime(v string) *IkeConfigForCreateVpnConnectionInput {
-	s.Lifetime = &v
-	return s
-}
-
-// SetLocalId sets the LocalId field's value.
-func (s *IkeConfigForCreateVpnConnectionInput) SetLocalId(v string) *IkeConfigForCreateVpnConnectionInput {
-	s.LocalId = &v
-	return s
-}
-
-// SetMode sets the Mode field's value.
-func (s *IkeConfigForCreateVpnConnectionInput) SetMode(v string) *IkeConfigForCreateVpnConnectionInput {
-	s.Mode = &v
-	return s
-}
-
-// SetPsk sets the Psk field's value.
-func (s *IkeConfigForCreateVpnConnectionInput) SetPsk(v string) *IkeConfigForCreateVpnConnectionInput {
-	s.Psk = &v
-	return s
-}
-
-// SetRemoteId sets the RemoteId field's value.
-func (s *IkeConfigForCreateVpnConnectionInput) SetRemoteId(v string) *IkeConfigForCreateVpnConnectionInput {
-	s.RemoteId = &v
-	return s
-}
-
-// SetVersion sets the Version field's value.
-func (s *IkeConfigForCreateVpnConnectionInput) SetVersion(v string) *IkeConfigForCreateVpnConnectionInput {
-	s.Version = &v
-	return s
-}
-
-type IpsecConfigForCreateVpnConnectionInput struct {
-	_ struct{} `type:"structure"`
-
-	AuthAlg *string `type:"string" enum:"IpsecConfigAuthAlgForCreateVpnConnectionInput"`
-
-	DhGroup *string `type:"string" enum:"IpsecConfigDhGroupForCreateVpnConnectionInput"`
-
-	EncAlg *string `type:"string" enum:"IpsecConfigEncAlgForCreateVpnConnectionInput"`
-
-	Lifetime *string `type:"string"`
-}
-
-// String returns the string representation
-func (s IpsecConfigForCreateVpnConnectionInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s IpsecConfigForCreateVpnConnectionInput) GoString() string {
-	return s.String()
-}
-
-// SetAuthAlg sets the AuthAlg field's value.
-func (s *IpsecConfigForCreateVpnConnectionInput) SetAuthAlg(v string) *IpsecConfigForCreateVpnConnectionInput {
-	s.AuthAlg = &v
-	return s
-}
-
-// SetDhGroup sets the DhGroup field's value.
-func (s *IpsecConfigForCreateVpnConnectionInput) SetDhGroup(v string) *IpsecConfigForCreateVpnConnectionInput {
-	s.DhGroup = &v
-	return s
-}
-
-// SetEncAlg sets the EncAlg field's value.
-func (s *IpsecConfigForCreateVpnConnectionInput) SetEncAlg(v string) *IpsecConfigForCreateVpnConnectionInput {
-	s.EncAlg = &v
-	return s
-}
-
-// SetLifetime sets the Lifetime field's value.
-func (s *IpsecConfigForCreateVpnConnectionInput) SetLifetime(v string) *IpsecConfigForCreateVpnConnectionInput {
-	s.Lifetime = &v
-	return s
-}
-
 const (
 	// AttachTypeForCreateVpnConnectionInputVpnGateway is a AttachTypeForCreateVpnConnectionInput enum value
 	AttachTypeForCreateVpnConnectionInputVpnGateway = "VpnGateway"
@@ -526,128 +371,4 @@ const (
 
 	// DpdActionForCreateVpnConnectionInputRestart is a DpdActionForCreateVpnConnectionInput enum value
 	DpdActionForCreateVpnConnectionInputRestart = "restart"
-)
-
-const (
-	// IkeConfigAuthAlgForCreateVpnConnectionInputSha1 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
-	IkeConfigAuthAlgForCreateVpnConnectionInputSha1 = "sha1"
-
-	// IkeConfigAuthAlgForCreateVpnConnectionInputMd5 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
-	IkeConfigAuthAlgForCreateVpnConnectionInputMd5 = "md5"
-
-	// IkeConfigAuthAlgForCreateVpnConnectionInputSha256 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
-	IkeConfigAuthAlgForCreateVpnConnectionInputSha256 = "sha256"
-
-	// IkeConfigAuthAlgForCreateVpnConnectionInputSha384 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
-	IkeConfigAuthAlgForCreateVpnConnectionInputSha384 = "sha384"
-
-	// IkeConfigAuthAlgForCreateVpnConnectionInputSha512 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
-	IkeConfigAuthAlgForCreateVpnConnectionInputSha512 = "sha512"
-
-	// IkeConfigAuthAlgForCreateVpnConnectionInputSm3 is a IkeConfigAuthAlgForCreateVpnConnectionInput enum value
-	IkeConfigAuthAlgForCreateVpnConnectionInputSm3 = "sm3"
-)
-
-const (
-	// IkeConfigDhGroupForCreateVpnConnectionInputGroup1 is a IkeConfigDhGroupForCreateVpnConnectionInput enum value
-	IkeConfigDhGroupForCreateVpnConnectionInputGroup1 = "group1"
-
-	// IkeConfigDhGroupForCreateVpnConnectionInputGroup2 is a IkeConfigDhGroupForCreateVpnConnectionInput enum value
-	IkeConfigDhGroupForCreateVpnConnectionInputGroup2 = "group2"
-
-	// IkeConfigDhGroupForCreateVpnConnectionInputGroup5 is a IkeConfigDhGroupForCreateVpnConnectionInput enum value
-	IkeConfigDhGroupForCreateVpnConnectionInputGroup5 = "group5"
-
-	// IkeConfigDhGroupForCreateVpnConnectionInputGroup14 is a IkeConfigDhGroupForCreateVpnConnectionInput enum value
-	IkeConfigDhGroupForCreateVpnConnectionInputGroup14 = "group14"
-)
-
-const (
-	// IkeConfigEncAlgForCreateVpnConnectionInputAes is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
-	IkeConfigEncAlgForCreateVpnConnectionInputAes = "aes"
-
-	// IkeConfigEncAlgForCreateVpnConnectionInputAes192 is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
-	IkeConfigEncAlgForCreateVpnConnectionInputAes192 = "aes192"
-
-	// IkeConfigEncAlgForCreateVpnConnectionInputAes256 is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
-	IkeConfigEncAlgForCreateVpnConnectionInputAes256 = "aes256"
-
-	// IkeConfigEncAlgForCreateVpnConnectionInputDes is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
-	IkeConfigEncAlgForCreateVpnConnectionInputDes = "des"
-
-	// IkeConfigEncAlgForCreateVpnConnectionInput3des is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
-	IkeConfigEncAlgForCreateVpnConnectionInput3des = "3des"
-
-	// IkeConfigEncAlgForCreateVpnConnectionInputSm4 is a IkeConfigEncAlgForCreateVpnConnectionInput enum value
-	IkeConfigEncAlgForCreateVpnConnectionInputSm4 = "sm4"
-)
-
-const (
-	// IkeConfigModeForCreateVpnConnectionInputMain is a IkeConfigModeForCreateVpnConnectionInput enum value
-	IkeConfigModeForCreateVpnConnectionInputMain = "main"
-
-	// IkeConfigModeForCreateVpnConnectionInputAggressive is a IkeConfigModeForCreateVpnConnectionInput enum value
-	IkeConfigModeForCreateVpnConnectionInputAggressive = "aggressive"
-)
-
-const (
-	// IkeConfigVersionForCreateVpnConnectionInputIkev1 is a IkeConfigVersionForCreateVpnConnectionInput enum value
-	IkeConfigVersionForCreateVpnConnectionInputIkev1 = "ikev1"
-
-	// IkeConfigVersionForCreateVpnConnectionInputIkev2 is a IkeConfigVersionForCreateVpnConnectionInput enum value
-	IkeConfigVersionForCreateVpnConnectionInputIkev2 = "ikev2"
-)
-
-const (
-	// IpsecConfigAuthAlgForCreateVpnConnectionInputSha1 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
-	IpsecConfigAuthAlgForCreateVpnConnectionInputSha1 = "sha1"
-
-	// IpsecConfigAuthAlgForCreateVpnConnectionInputMd5 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
-	IpsecConfigAuthAlgForCreateVpnConnectionInputMd5 = "md5"
-
-	// IpsecConfigAuthAlgForCreateVpnConnectionInputSha256 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
-	IpsecConfigAuthAlgForCreateVpnConnectionInputSha256 = "sha256"
-
-	// IpsecConfigAuthAlgForCreateVpnConnectionInputSha384 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
-	IpsecConfigAuthAlgForCreateVpnConnectionInputSha384 = "sha384"
-
-	// IpsecConfigAuthAlgForCreateVpnConnectionInputSha512 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
-	IpsecConfigAuthAlgForCreateVpnConnectionInputSha512 = "sha512"
-
-	// IpsecConfigAuthAlgForCreateVpnConnectionInputSm3 is a IpsecConfigAuthAlgForCreateVpnConnectionInput enum value
-	IpsecConfigAuthAlgForCreateVpnConnectionInputSm3 = "sm3"
-)
-
-const (
-	// IpsecConfigDhGroupForCreateVpnConnectionInputGroup1 is a IpsecConfigDhGroupForCreateVpnConnectionInput enum value
-	IpsecConfigDhGroupForCreateVpnConnectionInputGroup1 = "group1"
-
-	// IpsecConfigDhGroupForCreateVpnConnectionInputGroup2 is a IpsecConfigDhGroupForCreateVpnConnectionInput enum value
-	IpsecConfigDhGroupForCreateVpnConnectionInputGroup2 = "group2"
-
-	// IpsecConfigDhGroupForCreateVpnConnectionInputGroup5 is a IpsecConfigDhGroupForCreateVpnConnectionInput enum value
-	IpsecConfigDhGroupForCreateVpnConnectionInputGroup5 = "group5"
-
-	// IpsecConfigDhGroupForCreateVpnConnectionInputGroup14 is a IpsecConfigDhGroupForCreateVpnConnectionInput enum value
-	IpsecConfigDhGroupForCreateVpnConnectionInputGroup14 = "group14"
-)
-
-const (
-	// IpsecConfigEncAlgForCreateVpnConnectionInputAes is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
-	IpsecConfigEncAlgForCreateVpnConnectionInputAes = "aes"
-
-	// IpsecConfigEncAlgForCreateVpnConnectionInputAes192 is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
-	IpsecConfigEncAlgForCreateVpnConnectionInputAes192 = "aes192"
-
-	// IpsecConfigEncAlgForCreateVpnConnectionInputAes256 is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
-	IpsecConfigEncAlgForCreateVpnConnectionInputAes256 = "aes256"
-
-	// IpsecConfigEncAlgForCreateVpnConnectionInputDes is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
-	IpsecConfigEncAlgForCreateVpnConnectionInputDes = "des"
-
-	// IpsecConfigEncAlgForCreateVpnConnectionInput3des is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
-	IpsecConfigEncAlgForCreateVpnConnectionInput3des = "3des"
-
-	// IpsecConfigEncAlgForCreateVpnConnectionInputSm4 is a IpsecConfigEncAlgForCreateVpnConnectionInput enum value
-	IpsecConfigEncAlgForCreateVpnConnectionInputSm4 = "sm4"
 )

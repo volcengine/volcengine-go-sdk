@@ -144,15 +144,9 @@ type ModifyInstanceSpecInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DryRun *bool `type:"boolean"`
-
 	InstanceId *string `type:"string"`
 
 	InstanceType *string `type:"string"`
-
-	InstanceTypeId *string `type:"string"`
-
-	NeedPreorders *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -171,12 +165,6 @@ func (s *ModifyInstanceSpecInput) SetClientToken(v string) *ModifyInstanceSpecIn
 	return s
 }
 
-// SetDryRun sets the DryRun field's value.
-func (s *ModifyInstanceSpecInput) SetDryRun(v bool) *ModifyInstanceSpecInput {
-	s.DryRun = &v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyInstanceSpecInput) SetInstanceId(v string) *ModifyInstanceSpecInput {
 	s.InstanceId = &v
@@ -189,18 +177,6 @@ func (s *ModifyInstanceSpecInput) SetInstanceType(v string) *ModifyInstanceSpecI
 	return s
 }
 
-// SetInstanceTypeId sets the InstanceTypeId field's value.
-func (s *ModifyInstanceSpecInput) SetInstanceTypeId(v string) *ModifyInstanceSpecInput {
-	s.InstanceTypeId = &v
-	return s
-}
-
-// SetNeedPreorders sets the NeedPreorders field's value.
-func (s *ModifyInstanceSpecInput) SetNeedPreorders(v bool) *ModifyInstanceSpecInput {
-	s.NeedPreorders = &v
-	return s
-}
-
 type ModifyInstanceSpecOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -209,8 +185,6 @@ type ModifyInstanceSpecOutput struct {
 	InstanceId *string `type:"string"`
 
 	OrderId *string `type:"string"`
-
-	PreorderIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -232,11 +206,5 @@ func (s *ModifyInstanceSpecOutput) SetInstanceId(v string) *ModifyInstanceSpecOu
 // SetOrderId sets the OrderId field's value.
 func (s *ModifyInstanceSpecOutput) SetOrderId(v string) *ModifyInstanceSpecOutput {
 	s.OrderId = &v
-	return s
-}
-
-// SetPreorderIds sets the PreorderIds field's value.
-func (s *ModifyInstanceSpecOutput) SetPreorderIds(v []*string) *ModifyInstanceSpecOutput {
-	s.PreorderIds = v
 	return s
 }

@@ -155,12 +155,6 @@ type CreateVpnGatewayInput struct {
 
 	ProjectName *string `type:"string"`
 
-	RemainRenewTimes *int64 `type:"integer"`
-
-	RenewPeriod *int64 `type:"integer"`
-
-	RenewType *int64 `min:"1" max:"3" type:"integer"`
-
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
 
@@ -205,12 +199,6 @@ func (s *CreateVpnGatewayInput) Validate() error {
 	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.RenewType != nil && *s.RenewType < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
-	}
-	if s.RenewType != nil && *s.RenewType > 3 {
-		invalidParams.Add(request.NewErrParamMaxValue("RenewType", 3))
 	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
@@ -267,24 +255,6 @@ func (s *CreateVpnGatewayInput) SetProjectName(v string) *CreateVpnGatewayInput 
 	return s
 }
 
-// SetRemainRenewTimes sets the RemainRenewTimes field's value.
-func (s *CreateVpnGatewayInput) SetRemainRenewTimes(v int64) *CreateVpnGatewayInput {
-	s.RemainRenewTimes = &v
-	return s
-}
-
-// SetRenewPeriod sets the RenewPeriod field's value.
-func (s *CreateVpnGatewayInput) SetRenewPeriod(v int64) *CreateVpnGatewayInput {
-	s.RenewPeriod = &v
-	return s
-}
-
-// SetRenewType sets the RenewType field's value.
-func (s *CreateVpnGatewayInput) SetRenewType(v int64) *CreateVpnGatewayInput {
-	s.RenewType = &v
-	return s
-}
-
 // SetSubnetId sets the SubnetId field's value.
 func (s *CreateVpnGatewayInput) SetSubnetId(v string) *CreateVpnGatewayInput {
 	s.SubnetId = &v
@@ -316,8 +286,6 @@ type CreateVpnGatewayOutput struct {
 
 	OrderId *string `type:"string"`
 
-	PreOrderNumber *string `type:"string"`
-
 	RequestId *string `type:"string"`
 
 	VpnGatewayId *string `type:"string"`
@@ -336,12 +304,6 @@ func (s CreateVpnGatewayOutput) GoString() string {
 // SetOrderId sets the OrderId field's value.
 func (s *CreateVpnGatewayOutput) SetOrderId(v string) *CreateVpnGatewayOutput {
 	s.OrderId = &v
-	return s
-}
-
-// SetPreOrderNumber sets the PreOrderNumber field's value.
-func (s *CreateVpnGatewayOutput) SetPreOrderNumber(v string) *CreateVpnGatewayOutput {
-	s.PreOrderNumber = &v
 	return s
 }
 

@@ -142,11 +142,7 @@ func (c *ECS) DescribeKeyPairsWithContext(ctx volcengine.Context, input *Describ
 type DescribeKeyPairsInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
 	FingerPrint *string `type:"string"`
-
-	KeyPairId *string `type:"string"`
 
 	KeyPairIds []*string `type:"list"`
 
@@ -157,12 +153,6 @@ type DescribeKeyPairsInput struct {
 	MaxResults *int32 `type:"int32"`
 
 	NextToken *string `type:"string"`
-
-	PageNumber *int32 `type:"int32"`
-
-	PageSize *int32 `type:"int32"`
-
-	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -175,21 +165,9 @@ func (s DescribeKeyPairsInput) GoString() string {
 	return s.String()
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *DescribeKeyPairsInput) SetAccountId(v string) *DescribeKeyPairsInput {
-	s.AccountId = &v
-	return s
-}
-
 // SetFingerPrint sets the FingerPrint field's value.
 func (s *DescribeKeyPairsInput) SetFingerPrint(v string) *DescribeKeyPairsInput {
 	s.FingerPrint = &v
-	return s
-}
-
-// SetKeyPairId sets the KeyPairId field's value.
-func (s *DescribeKeyPairsInput) SetKeyPairId(v string) *DescribeKeyPairsInput {
-	s.KeyPairId = &v
 	return s
 }
 
@@ -223,24 +201,6 @@ func (s *DescribeKeyPairsInput) SetNextToken(v string) *DescribeKeyPairsInput {
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeKeyPairsInput) SetPageNumber(v int32) *DescribeKeyPairsInput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeKeyPairsInput) SetPageSize(v int32) *DescribeKeyPairsInput {
-	s.PageSize = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DescribeKeyPairsInput) SetProjectName(v string) *DescribeKeyPairsInput {
-	s.ProjectName = &v
-	return s
-}
-
 type DescribeKeyPairsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -249,12 +209,6 @@ type DescribeKeyPairsOutput struct {
 	KeyPairs []*KeyPairForDescribeKeyPairsOutput `type:"list"`
 
 	NextToken *string `type:"string"`
-
-	PageNumber *int32 `type:"int32"`
-
-	PageSize *int32 `type:"int32"`
-
-	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -276,24 +230,6 @@ func (s *DescribeKeyPairsOutput) SetKeyPairs(v []*KeyPairForDescribeKeyPairsOutp
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeKeyPairsOutput) SetNextToken(v string) *DescribeKeyPairsOutput {
 	s.NextToken = &v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeKeyPairsOutput) SetPageNumber(v int32) *DescribeKeyPairsOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeKeyPairsOutput) SetPageSize(v int32) *DescribeKeyPairsOutput {
-	s.PageSize = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *DescribeKeyPairsOutput) SetTotalCount(v int32) *DescribeKeyPairsOutput {
-	s.TotalCount = &v
 	return s
 }
 

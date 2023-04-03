@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // ECS.
 //    func myFunc(svc ECSAPI) bool {
-//        // Make svc.AcceptHpcPeeringConnection request
+//        // Make svc.AssociateInstancesIamRole request
 //    }
 //
 //    func main() {
@@ -30,14 +30,6 @@ import (
 //    }
 //
 type ECSAPI interface {
-	AcceptHpcPeeringConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	AcceptHpcPeeringConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	AcceptHpcPeeringConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	AcceptHpcPeeringConnection(*AcceptHpcPeeringConnectionInput) (*AcceptHpcPeeringConnectionOutput, error)
-	AcceptHpcPeeringConnectionWithContext(volcengine.Context, *AcceptHpcPeeringConnectionInput, ...request.Option) (*AcceptHpcPeeringConnectionOutput, error)
-	AcceptHpcPeeringConnectionRequest(*AcceptHpcPeeringConnectionInput) (*request.Request, *AcceptHpcPeeringConnectionOutput)
-
 	AssociateInstancesIamRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateInstancesIamRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateInstancesIamRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -54,30 +46,6 @@ type ECSAPI interface {
 	AttachKeyPairWithContext(volcengine.Context, *AttachKeyPairInput, ...request.Option) (*AttachKeyPairOutput, error)
 	AttachKeyPairRequest(*AttachKeyPairInput) (*request.Request, *AttachKeyPairOutput)
 
-	BindAssumeRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	BindAssumeRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	BindAssumeRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	BindAssumeRole(*BindAssumeRoleInput) (*BindAssumeRoleOutput, error)
-	BindAssumeRoleWithContext(volcengine.Context, *BindAssumeRoleInput, ...request.Option) (*BindAssumeRoleOutput, error)
-	BindAssumeRoleRequest(*BindAssumeRoleInput) (*request.Request, *BindAssumeRoleOutput)
-
-	CancelPreheatImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CancelPreheatImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CancelPreheatImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CancelPreheatImage(*CancelPreheatImageInput) (*CancelPreheatImageOutput, error)
-	CancelPreheatImageWithContext(volcengine.Context, *CancelPreheatImageInput, ...request.Option) (*CancelPreheatImageOutput, error)
-	CancelPreheatImageRequest(*CancelPreheatImageInput) (*request.Request, *CancelPreheatImageOutput)
-
-	CopyImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CopyImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CopyImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CopyImage(*CopyImageInput) (*CopyImageOutput, error)
-	CopyImageWithContext(volcengine.Context, *CopyImageInput, ...request.Option) (*CopyImageOutput, error)
-	CopyImageRequest(*CopyImageInput) (*request.Request, *CopyImageOutput)
-
 	CreateDeploymentSetCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDeploymentSetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDeploymentSetCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,22 +53,6 @@ type ECSAPI interface {
 	CreateDeploymentSet(*CreateDeploymentSetInput) (*CreateDeploymentSetOutput, error)
 	CreateDeploymentSetWithContext(volcengine.Context, *CreateDeploymentSetInput, ...request.Option) (*CreateDeploymentSetOutput, error)
 	CreateDeploymentSetRequest(*CreateDeploymentSetInput) (*request.Request, *CreateDeploymentSetOutput)
-
-	CreateHpcClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateHpcClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateHpcClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateHpcCluster(*CreateHpcClusterInput) (*CreateHpcClusterOutput, error)
-	CreateHpcClusterWithContext(volcengine.Context, *CreateHpcClusterInput, ...request.Option) (*CreateHpcClusterOutput, error)
-	CreateHpcClusterRequest(*CreateHpcClusterInput) (*request.Request, *CreateHpcClusterOutput)
-
-	CreateHpcPeeringConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateHpcPeeringConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateHpcPeeringConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateHpcPeeringConnection(*CreateHpcPeeringConnectionInput) (*CreateHpcPeeringConnectionOutput, error)
-	CreateHpcPeeringConnectionWithContext(volcengine.Context, *CreateHpcPeeringConnectionInput, ...request.Option) (*CreateHpcPeeringConnectionOutput, error)
-	CreateHpcPeeringConnectionRequest(*CreateHpcPeeringConnectionInput) (*request.Request, *CreateHpcPeeringConnectionOutput)
 
 	CreateImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -110,22 +62,6 @@ type ECSAPI interface {
 	CreateImageWithContext(volcengine.Context, *CreateImageInput, ...request.Option) (*CreateImageOutput, error)
 	CreateImageRequest(*CreateImageInput) (*request.Request, *CreateImageOutput)
 
-	CreateInstanceWithSnapshotGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateInstanceWithSnapshotGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateInstanceWithSnapshotGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateInstanceWithSnapshotGroup(*CreateInstanceWithSnapshotGroupInput) (*CreateInstanceWithSnapshotGroupOutput, error)
-	CreateInstanceWithSnapshotGroupWithContext(volcengine.Context, *CreateInstanceWithSnapshotGroupInput, ...request.Option) (*CreateInstanceWithSnapshotGroupOutput, error)
-	CreateInstanceWithSnapshotGroupRequest(*CreateInstanceWithSnapshotGroupInput) (*request.Request, *CreateInstanceWithSnapshotGroupOutput)
-
-	CreateInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateInstances(*CreateInstancesInput) (*CreateInstancesOutput, error)
-	CreateInstancesWithContext(volcengine.Context, *CreateInstancesInput, ...request.Option) (*CreateInstancesOutput, error)
-	CreateInstancesRequest(*CreateInstancesInput) (*request.Request, *CreateInstancesOutput)
-
 	CreateKeyPairCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateKeyPairCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateKeyPairCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,46 +69,6 @@ type ECSAPI interface {
 	CreateKeyPair(*CreateKeyPairInput) (*CreateKeyPairOutput, error)
 	CreateKeyPairWithContext(volcengine.Context, *CreateKeyPairInput, ...request.Option) (*CreateKeyPairOutput, error)
 	CreateKeyPairRequest(*CreateKeyPairInput) (*request.Request, *CreateKeyPairOutput)
-
-	CreateLaunchTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateLaunchTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateLaunchTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateLaunchTemplate(*CreateLaunchTemplateInput) (*CreateLaunchTemplateOutput, error)
-	CreateLaunchTemplateWithContext(volcengine.Context, *CreateLaunchTemplateInput, ...request.Option) (*CreateLaunchTemplateOutput, error)
-	CreateLaunchTemplateRequest(*CreateLaunchTemplateInput) (*request.Request, *CreateLaunchTemplateOutput)
-
-	CreateLaunchTemplateVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateLaunchTemplateVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateLaunchTemplateVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateLaunchTemplateVersion(*CreateLaunchTemplateVersionInput) (*CreateLaunchTemplateVersionOutput, error)
-	CreateLaunchTemplateVersionWithContext(volcengine.Context, *CreateLaunchTemplateVersionInput, ...request.Option) (*CreateLaunchTemplateVersionOutput, error)
-	CreateLaunchTemplateVersionRequest(*CreateLaunchTemplateVersionInput) (*request.Request, *CreateLaunchTemplateVersionOutput)
-
-	CreateLongTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateLongTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateLongTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateLongTask(*CreateLongTaskInput) (*CreateLongTaskOutput, error)
-	CreateLongTaskWithContext(volcengine.Context, *CreateLongTaskInput, ...request.Option) (*CreateLongTaskOutput, error)
-	CreateLongTaskRequest(*CreateLongTaskInput) (*request.Request, *CreateLongTaskOutput)
-
-	CreateSystemEventCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateSystemEventCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateSystemEventCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateSystemEvent(*CreateSystemEventInput) (*CreateSystemEventOutput, error)
-	CreateSystemEventWithContext(volcengine.Context, *CreateSystemEventInput, ...request.Option) (*CreateSystemEventOutput, error)
-	CreateSystemEventRequest(*CreateSystemEventInput) (*request.Request, *CreateSystemEventOutput)
-
-	CreateSystemEventFromInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateSystemEventFromInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateSystemEventFromInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateSystemEventFromInstance(*CreateSystemEventFromInstanceInput) (*CreateSystemEventFromInstanceOutput, error)
-	CreateSystemEventFromInstanceWithContext(volcengine.Context, *CreateSystemEventFromInstanceInput, ...request.Option) (*CreateSystemEventFromInstanceOutput, error)
-	CreateSystemEventFromInstanceRequest(*CreateSystemEventFromInstanceInput) (*request.Request, *CreateSystemEventFromInstanceOutput)
 
 	CreateTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -189,22 +85,6 @@ type ECSAPI interface {
 	DeleteDeploymentSet(*DeleteDeploymentSetInput) (*DeleteDeploymentSetOutput, error)
 	DeleteDeploymentSetWithContext(volcengine.Context, *DeleteDeploymentSetInput, ...request.Option) (*DeleteDeploymentSetOutput, error)
 	DeleteDeploymentSetRequest(*DeleteDeploymentSetInput) (*request.Request, *DeleteDeploymentSetOutput)
-
-	DeleteHpcClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteHpcClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteHpcClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteHpcCluster(*DeleteHpcClusterInput) (*DeleteHpcClusterOutput, error)
-	DeleteHpcClusterWithContext(volcengine.Context, *DeleteHpcClusterInput, ...request.Option) (*DeleteHpcClusterOutput, error)
-	DeleteHpcClusterRequest(*DeleteHpcClusterInput) (*request.Request, *DeleteHpcClusterOutput)
-
-	DeleteHpcPeeringConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteHpcPeeringConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteHpcPeeringConnectionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteHpcPeeringConnection(*DeleteHpcPeeringConnectionInput) (*DeleteHpcPeeringConnectionOutput, error)
-	DeleteHpcPeeringConnectionWithContext(volcengine.Context, *DeleteHpcPeeringConnectionInput, ...request.Option) (*DeleteHpcPeeringConnectionOutput, error)
-	DeleteHpcPeeringConnectionRequest(*DeleteHpcPeeringConnectionInput) (*request.Request, *DeleteHpcPeeringConnectionOutput)
 
 	DeleteImagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteImagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -230,14 +110,6 @@ type ECSAPI interface {
 	DeleteInstancesWithContext(volcengine.Context, *DeleteInstancesInput, ...request.Option) (*DeleteInstancesOutput, error)
 	DeleteInstancesRequest(*DeleteInstancesInput) (*request.Request, *DeleteInstancesOutput)
 
-	DeleteKeyPairCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteKeyPairCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteKeyPairCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteKeyPair(*DeleteKeyPairInput) (*DeleteKeyPairOutput, error)
-	DeleteKeyPairWithContext(volcengine.Context, *DeleteKeyPairInput, ...request.Option) (*DeleteKeyPairOutput, error)
-	DeleteKeyPairRequest(*DeleteKeyPairInput) (*request.Request, *DeleteKeyPairOutput)
-
 	DeleteKeyPairsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteKeyPairsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteKeyPairsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -245,22 +117,6 @@ type ECSAPI interface {
 	DeleteKeyPairs(*DeleteKeyPairsInput) (*DeleteKeyPairsOutput, error)
 	DeleteKeyPairsWithContext(volcengine.Context, *DeleteKeyPairsInput, ...request.Option) (*DeleteKeyPairsOutput, error)
 	DeleteKeyPairsRequest(*DeleteKeyPairsInput) (*request.Request, *DeleteKeyPairsOutput)
-
-	DeleteLaunchTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteLaunchTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteLaunchTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteLaunchTemplate(*DeleteLaunchTemplateInput) (*DeleteLaunchTemplateOutput, error)
-	DeleteLaunchTemplateWithContext(volcengine.Context, *DeleteLaunchTemplateInput, ...request.Option) (*DeleteLaunchTemplateOutput, error)
-	DeleteLaunchTemplateRequest(*DeleteLaunchTemplateInput) (*request.Request, *DeleteLaunchTemplateOutput)
-
-	DeleteLaunchTemplateVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteLaunchTemplateVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteLaunchTemplateVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DeleteLaunchTemplateVersion(*DeleteLaunchTemplateVersionInput) (*DeleteLaunchTemplateVersionOutput, error)
-	DeleteLaunchTemplateVersionWithContext(volcengine.Context, *DeleteLaunchTemplateVersionInput, ...request.Option) (*DeleteLaunchTemplateVersionOutput, error)
-	DeleteLaunchTemplateVersionRequest(*DeleteLaunchTemplateVersionInput) (*request.Request, *DeleteLaunchTemplateVersionOutput)
 
 	DeleteTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -294,30 +150,6 @@ type ECSAPI interface {
 	DescribeDeploymentSetsWithContext(volcengine.Context, *DescribeDeploymentSetsInput, ...request.Option) (*DescribeDeploymentSetsOutput, error)
 	DescribeDeploymentSetsRequest(*DescribeDeploymentSetsInput) (*request.Request, *DescribeDeploymentSetsOutput)
 
-	DescribeHpcClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeHpcClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeHpcClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeHpcCluster(*DescribeHpcClusterInput) (*DescribeHpcClusterOutput, error)
-	DescribeHpcClusterWithContext(volcengine.Context, *DescribeHpcClusterInput, ...request.Option) (*DescribeHpcClusterOutput, error)
-	DescribeHpcClusterRequest(*DescribeHpcClusterInput) (*request.Request, *DescribeHpcClusterOutput)
-
-	DescribeHpcClustersCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeHpcClustersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeHpcClustersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeHpcClusters(*DescribeHpcClustersInput) (*DescribeHpcClustersOutput, error)
-	DescribeHpcClustersWithContext(volcengine.Context, *DescribeHpcClustersInput, ...request.Option) (*DescribeHpcClustersOutput, error)
-	DescribeHpcClustersRequest(*DescribeHpcClustersInput) (*request.Request, *DescribeHpcClustersOutput)
-
-	DescribeHpcPeeringConnectionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeHpcPeeringConnectionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeHpcPeeringConnectionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeHpcPeeringConnections(*DescribeHpcPeeringConnectionsInput) (*DescribeHpcPeeringConnectionsOutput, error)
-	DescribeHpcPeeringConnectionsWithContext(volcengine.Context, *DescribeHpcPeeringConnectionsInput, ...request.Option) (*DescribeHpcPeeringConnectionsOutput, error)
-	DescribeHpcPeeringConnectionsRequest(*DescribeHpcPeeringConnectionsInput) (*request.Request, *DescribeHpcPeeringConnectionsOutput)
-
 	DescribeImageSharePermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeImageSharePermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeImageSharePermissionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -334,22 +166,6 @@ type ECSAPI interface {
 	DescribeImagesWithContext(volcengine.Context, *DescribeImagesInput, ...request.Option) (*DescribeImagesOutput, error)
 	DescribeImagesRequest(*DescribeImagesInput) (*request.Request, *DescribeImagesOutput)
 
-	DescribeInstanceAutoRenewAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeInstanceAutoRenewAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeInstanceAutoRenewAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeInstanceAutoRenewAttributes(*DescribeInstanceAutoRenewAttributesInput) (*DescribeInstanceAutoRenewAttributesOutput, error)
-	DescribeInstanceAutoRenewAttributesWithContext(volcengine.Context, *DescribeInstanceAutoRenewAttributesInput, ...request.Option) (*DescribeInstanceAutoRenewAttributesOutput, error)
-	DescribeInstanceAutoRenewAttributesRequest(*DescribeInstanceAutoRenewAttributesInput) (*request.Request, *DescribeInstanceAutoRenewAttributesOutput)
-
-	DescribeInstanceCreditSpecificationCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeInstanceCreditSpecificationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeInstanceCreditSpecificationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeInstanceCreditSpecification(*DescribeInstanceCreditSpecificationInput) (*DescribeInstanceCreditSpecificationOutput, error)
-	DescribeInstanceCreditSpecificationWithContext(volcengine.Context, *DescribeInstanceCreditSpecificationInput, ...request.Option) (*DescribeInstanceCreditSpecificationOutput, error)
-	DescribeInstanceCreditSpecificationRequest(*DescribeInstanceCreditSpecificationInput) (*request.Request, *DescribeInstanceCreditSpecificationOutput)
-
 	DescribeInstanceECSTerminalUrlCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeInstanceECSTerminalUrlCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeInstanceECSTerminalUrlCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -357,22 +173,6 @@ type ECSAPI interface {
 	DescribeInstanceECSTerminalUrl(*DescribeInstanceECSTerminalUrlInput) (*DescribeInstanceECSTerminalUrlOutput, error)
 	DescribeInstanceECSTerminalUrlWithContext(volcengine.Context, *DescribeInstanceECSTerminalUrlInput, ...request.Option) (*DescribeInstanceECSTerminalUrlOutput, error)
 	DescribeInstanceECSTerminalUrlRequest(*DescribeInstanceECSTerminalUrlInput) (*request.Request, *DescribeInstanceECSTerminalUrlOutput)
-
-	DescribeInstanceEnhancedMonitoringCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeInstanceEnhancedMonitoringCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeInstanceEnhancedMonitoringCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeInstanceEnhancedMonitoring(*DescribeInstanceEnhancedMonitoringInput) (*DescribeInstanceEnhancedMonitoringOutput, error)
-	DescribeInstanceEnhancedMonitoringWithContext(volcengine.Context, *DescribeInstanceEnhancedMonitoringInput, ...request.Option) (*DescribeInstanceEnhancedMonitoringOutput, error)
-	DescribeInstanceEnhancedMonitoringRequest(*DescribeInstanceEnhancedMonitoringInput) (*request.Request, *DescribeInstanceEnhancedMonitoringOutput)
-
-	DescribeInstancePositionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeInstancePositionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeInstancePositionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeInstancePosition(*DescribeInstancePositionInput) (*DescribeInstancePositionOutput, error)
-	DescribeInstancePositionWithContext(volcengine.Context, *DescribeInstancePositionInput, ...request.Option) (*DescribeInstancePositionOutput, error)
-	DescribeInstancePositionRequest(*DescribeInstancePositionInput) (*request.Request, *DescribeInstancePositionOutput)
 
 	DescribeInstanceTypeFamiliesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeInstanceTypeFamiliesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -414,22 +214,6 @@ type ECSAPI interface {
 	DescribeInstancesIamRolesWithContext(volcengine.Context, *DescribeInstancesIamRolesInput, ...request.Option) (*DescribeInstancesIamRolesOutput, error)
 	DescribeInstancesIamRolesRequest(*DescribeInstancesIamRolesInput) (*request.Request, *DescribeInstancesIamRolesOutput)
 
-	DescribeInstancesMaintenanceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeInstancesMaintenanceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeInstancesMaintenanceAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeInstancesMaintenanceAttributes(*DescribeInstancesMaintenanceAttributesInput) (*DescribeInstancesMaintenanceAttributesOutput, error)
-	DescribeInstancesMaintenanceAttributesWithContext(volcengine.Context, *DescribeInstancesMaintenanceAttributesInput, ...request.Option) (*DescribeInstancesMaintenanceAttributesOutput, error)
-	DescribeInstancesMaintenanceAttributesRequest(*DescribeInstancesMaintenanceAttributesInput) (*request.Request, *DescribeInstancesMaintenanceAttributesOutput)
-
-	DescribeKeyPairCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeKeyPairCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeKeyPairCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeKeyPair(*DescribeKeyPairInput) (*DescribeKeyPairOutput, error)
-	DescribeKeyPairWithContext(volcengine.Context, *DescribeKeyPairInput, ...request.Option) (*DescribeKeyPairOutput, error)
-	DescribeKeyPairRequest(*DescribeKeyPairInput) (*request.Request, *DescribeKeyPairOutput)
-
 	DescribeKeyPairsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeKeyPairsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeKeyPairsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -437,38 +221,6 @@ type ECSAPI interface {
 	DescribeKeyPairs(*DescribeKeyPairsInput) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsWithContext(volcengine.Context, *DescribeKeyPairsInput, ...request.Option) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsRequest(*DescribeKeyPairsInput) (*request.Request, *DescribeKeyPairsOutput)
-
-	DescribeLaunchTemplateVersionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeLaunchTemplateVersionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeLaunchTemplateVersionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeLaunchTemplateVersions(*DescribeLaunchTemplateVersionsInput) (*DescribeLaunchTemplateVersionsOutput, error)
-	DescribeLaunchTemplateVersionsWithContext(volcengine.Context, *DescribeLaunchTemplateVersionsInput, ...request.Option) (*DescribeLaunchTemplateVersionsOutput, error)
-	DescribeLaunchTemplateVersionsRequest(*DescribeLaunchTemplateVersionsInput) (*request.Request, *DescribeLaunchTemplateVersionsOutput)
-
-	DescribeLaunchTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeLaunchTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeLaunchTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeLaunchTemplates(*DescribeLaunchTemplatesInput) (*DescribeLaunchTemplatesOutput, error)
-	DescribeLaunchTemplatesWithContext(volcengine.Context, *DescribeLaunchTemplatesInput, ...request.Option) (*DescribeLaunchTemplatesOutput, error)
-	DescribeLaunchTemplatesRequest(*DescribeLaunchTemplatesInput) (*request.Request, *DescribeLaunchTemplatesOutput)
-
-	DescribeReservedInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeReservedInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeReservedInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeReservedInstances(*DescribeReservedInstancesInput) (*DescribeReservedInstancesOutput, error)
-	DescribeReservedInstancesWithContext(volcengine.Context, *DescribeReservedInstancesInput, ...request.Option) (*DescribeReservedInstancesOutput, error)
-	DescribeReservedInstancesRequest(*DescribeReservedInstancesInput) (*request.Request, *DescribeReservedInstancesOutput)
-
-	DescribeSpotAdviceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeSpotAdviceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeSpotAdviceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeSpotAdvice(*DescribeSpotAdviceInput) (*DescribeSpotAdviceOutput, error)
-	DescribeSpotAdviceWithContext(volcengine.Context, *DescribeSpotAdviceInput, ...request.Option) (*DescribeSpotAdviceOutput, error)
-	DescribeSpotAdviceRequest(*DescribeSpotAdviceInput) (*request.Request, *DescribeSpotAdviceOutput)
 
 	DescribeSystemEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSystemEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -550,14 +302,6 @@ type ECSAPI interface {
 	GetConsoleScreenshotWithContext(volcengine.Context, *GetConsoleScreenshotInput, ...request.Option) (*GetConsoleScreenshotOutput, error)
 	GetConsoleScreenshotRequest(*GetConsoleScreenshotInput) (*request.Request, *GetConsoleScreenshotOutput)
 
-	GetInstanceConsoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	GetInstanceConsoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	GetInstanceConsoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	GetInstanceConsole(*GetInstanceConsoleInput) (*GetInstanceConsoleOutput, error)
-	GetInstanceConsoleWithContext(volcengine.Context, *GetInstanceConsoleInput, ...request.Option) (*GetInstanceConsoleOutput, error)
-	GetInstanceConsoleRequest(*GetInstanceConsoleInput) (*request.Request, *GetInstanceConsoleOutput)
-
 	ImportImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ImportImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ImportImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -574,30 +318,6 @@ type ECSAPI interface {
 	ImportKeyPairWithContext(volcengine.Context, *ImportKeyPairInput, ...request.Option) (*ImportKeyPairOutput, error)
 	ImportKeyPairRequest(*ImportKeyPairInput) (*request.Request, *ImportKeyPairOutput)
 
-	InnerReplaceSystemVolumeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerReplaceSystemVolumeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerReplaceSystemVolumeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerReplaceSystemVolume(*InnerReplaceSystemVolumeInput) (*InnerReplaceSystemVolumeOutput, error)
-	InnerReplaceSystemVolumeWithContext(volcengine.Context, *InnerReplaceSystemVolumeInput, ...request.Option) (*InnerReplaceSystemVolumeOutput, error)
-	InnerReplaceSystemVolumeRequest(*InnerReplaceSystemVolumeInput) (*request.Request, *InnerReplaceSystemVolumeOutput)
-
-	InnerReplaceSystemVolumesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	InnerReplaceSystemVolumesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	InnerReplaceSystemVolumesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	InnerReplaceSystemVolumes(*InnerReplaceSystemVolumesInput) (*InnerReplaceSystemVolumesOutput, error)
-	InnerReplaceSystemVolumesWithContext(volcengine.Context, *InnerReplaceSystemVolumesInput, ...request.Option) (*InnerReplaceSystemVolumesOutput, error)
-	InnerReplaceSystemVolumesRequest(*InnerReplaceSystemVolumesInput) (*request.Request, *InnerReplaceSystemVolumesOutput)
-
-	ListAssumeRolesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListAssumeRolesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListAssumeRolesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListAssumeRoles(*ListAssumeRolesInput) (*ListAssumeRolesOutput, error)
-	ListAssumeRolesWithContext(volcengine.Context, *ListAssumeRolesInput, ...request.Option) (*ListAssumeRolesOutput, error)
-	ListAssumeRolesRequest(*ListAssumeRolesInput) (*request.Request, *ListAssumeRolesOutput)
-
 	ModifyDeploymentSetAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDeploymentSetAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDeploymentSetAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -606,14 +326,6 @@ type ECSAPI interface {
 	ModifyDeploymentSetAttributeWithContext(volcengine.Context, *ModifyDeploymentSetAttributeInput, ...request.Option) (*ModifyDeploymentSetAttributeOutput, error)
 	ModifyDeploymentSetAttributeRequest(*ModifyDeploymentSetAttributeInput) (*request.Request, *ModifyDeploymentSetAttributeOutput)
 
-	ModifyHpcClusterAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyHpcClusterAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyHpcClusterAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyHpcClusterAttribute(*ModifyHpcClusterAttributeInput) (*ModifyHpcClusterAttributeOutput, error)
-	ModifyHpcClusterAttributeWithContext(volcengine.Context, *ModifyHpcClusterAttributeInput, ...request.Option) (*ModifyHpcClusterAttributeOutput, error)
-	ModifyHpcClusterAttributeRequest(*ModifyHpcClusterAttributeInput) (*request.Request, *ModifyHpcClusterAttributeOutput)
-
 	ModifyImageAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyImageAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyImageAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -621,14 +333,6 @@ type ECSAPI interface {
 	ModifyImageAttribute(*ModifyImageAttributeInput) (*ModifyImageAttributeOutput, error)
 	ModifyImageAttributeWithContext(volcengine.Context, *ModifyImageAttributeInput, ...request.Option) (*ModifyImageAttributeOutput, error)
 	ModifyImageAttributeRequest(*ModifyImageAttributeInput) (*request.Request, *ModifyImageAttributeOutput)
-
-	ModifyImageAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyImageAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyImageAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyImageAttributes(*ModifyImageAttributesInput) (*ModifyImageAttributesOutput, error)
-	ModifyImageAttributesWithContext(volcengine.Context, *ModifyImageAttributesInput, ...request.Option) (*ModifyImageAttributesOutput, error)
-	ModifyImageAttributesRequest(*ModifyImageAttributesInput) (*request.Request, *ModifyImageAttributesOutput)
 
 	ModifyImageSharePermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyImageSharePermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -654,14 +358,6 @@ type ECSAPI interface {
 	ModifyInstanceChargeTypeWithContext(volcengine.Context, *ModifyInstanceChargeTypeInput, ...request.Option) (*ModifyInstanceChargeTypeOutput, error)
 	ModifyInstanceChargeTypeRequest(*ModifyInstanceChargeTypeInput) (*request.Request, *ModifyInstanceChargeTypeOutput)
 
-	ModifyInstanceCreditSpecificationCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyInstanceCreditSpecificationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyInstanceCreditSpecificationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyInstanceCreditSpecification(*ModifyInstanceCreditSpecificationInput) (*ModifyInstanceCreditSpecificationOutput, error)
-	ModifyInstanceCreditSpecificationWithContext(volcengine.Context, *ModifyInstanceCreditSpecificationInput, ...request.Option) (*ModifyInstanceCreditSpecificationOutput, error)
-	ModifyInstanceCreditSpecificationRequest(*ModifyInstanceCreditSpecificationInput) (*request.Request, *ModifyInstanceCreditSpecificationOutput)
-
 	ModifyInstanceDeploymentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceDeploymentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyInstanceDeploymentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -669,22 +365,6 @@ type ECSAPI interface {
 	ModifyInstanceDeployment(*ModifyInstanceDeploymentInput) (*ModifyInstanceDeploymentOutput, error)
 	ModifyInstanceDeploymentWithContext(volcengine.Context, *ModifyInstanceDeploymentInput, ...request.Option) (*ModifyInstanceDeploymentOutput, error)
 	ModifyInstanceDeploymentRequest(*ModifyInstanceDeploymentInput) (*request.Request, *ModifyInstanceDeploymentOutput)
-
-	ModifyInstanceEnhancedMonitoringCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyInstanceEnhancedMonitoringCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyInstanceEnhancedMonitoringCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyInstanceEnhancedMonitoring(*ModifyInstanceEnhancedMonitoringInput) (*ModifyInstanceEnhancedMonitoringOutput, error)
-	ModifyInstanceEnhancedMonitoringWithContext(volcengine.Context, *ModifyInstanceEnhancedMonitoringInput, ...request.Option) (*ModifyInstanceEnhancedMonitoringOutput, error)
-	ModifyInstanceEnhancedMonitoringRequest(*ModifyInstanceEnhancedMonitoringInput) (*request.Request, *ModifyInstanceEnhancedMonitoringOutput)
-
-	ModifyInstanceMaintenanceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyInstanceMaintenanceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyInstanceMaintenanceAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyInstanceMaintenanceAttributes(*ModifyInstanceMaintenanceAttributesInput) (*ModifyInstanceMaintenanceAttributesOutput, error)
-	ModifyInstanceMaintenanceAttributesWithContext(volcengine.Context, *ModifyInstanceMaintenanceAttributesInput, ...request.Option) (*ModifyInstanceMaintenanceAttributesOutput, error)
-	ModifyInstanceMaintenanceAttributesRequest(*ModifyInstanceMaintenanceAttributesInput) (*request.Request, *ModifyInstanceMaintenanceAttributesOutput)
 
 	ModifyInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -694,22 +374,6 @@ type ECSAPI interface {
 	ModifyInstanceSpecWithContext(volcengine.Context, *ModifyInstanceSpecInput, ...request.Option) (*ModifyInstanceSpecOutput, error)
 	ModifyInstanceSpecRequest(*ModifyInstanceSpecInput) (*request.Request, *ModifyInstanceSpecOutput)
 
-	ModifyInstanceVpcAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyInstanceVpcAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyInstanceVpcAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyInstanceVpcAttribute(*ModifyInstanceVpcAttributeInput) (*ModifyInstanceVpcAttributeOutput, error)
-	ModifyInstanceVpcAttributeWithContext(volcengine.Context, *ModifyInstanceVpcAttributeInput, ...request.Option) (*ModifyInstanceVpcAttributeOutput, error)
-	ModifyInstanceVpcAttributeRequest(*ModifyInstanceVpcAttributeInput) (*request.Request, *ModifyInstanceVpcAttributeOutput)
-
-	ModifyInstancesSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyInstancesSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyInstancesSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyInstancesSpec(*ModifyInstancesSpecInput) (*ModifyInstancesSpecOutput, error)
-	ModifyInstancesSpecWithContext(volcengine.Context, *ModifyInstancesSpecInput, ...request.Option) (*ModifyInstancesSpecOutput, error)
-	ModifyInstancesSpecRequest(*ModifyInstancesSpecInput) (*request.Request, *ModifyInstancesSpecOutput)
-
 	ModifyKeyPairAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyKeyPairAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyKeyPairAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -717,38 +381,6 @@ type ECSAPI interface {
 	ModifyKeyPairAttribute(*ModifyKeyPairAttributeInput) (*ModifyKeyPairAttributeOutput, error)
 	ModifyKeyPairAttributeWithContext(volcengine.Context, *ModifyKeyPairAttributeInput, ...request.Option) (*ModifyKeyPairAttributeOutput, error)
 	ModifyKeyPairAttributeRequest(*ModifyKeyPairAttributeInput) (*request.Request, *ModifyKeyPairAttributeOutput)
-
-	ModifyReservedInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyReservedInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyReservedInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyReservedInstances(*ModifyReservedInstancesInput) (*ModifyReservedInstancesOutput, error)
-	ModifyReservedInstancesWithContext(volcengine.Context, *ModifyReservedInstancesInput, ...request.Option) (*ModifyReservedInstancesOutput, error)
-	ModifyReservedInstancesRequest(*ModifyReservedInstancesInput) (*request.Request, *ModifyReservedInstancesOutput)
-
-	ModifyTemplateDefaultVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyTemplateDefaultVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyTemplateDefaultVersionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyTemplateDefaultVersion(*ModifyTemplateDefaultVersionInput) (*ModifyTemplateDefaultVersionOutput, error)
-	ModifyTemplateDefaultVersionWithContext(volcengine.Context, *ModifyTemplateDefaultVersionInput, ...request.Option) (*ModifyTemplateDefaultVersionOutput, error)
-	ModifyTemplateDefaultVersionRequest(*ModifyTemplateDefaultVersionInput) (*request.Request, *ModifyTemplateDefaultVersionOutput)
-
-	PreheatImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	PreheatImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	PreheatImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	PreheatImage(*PreheatImageInput) (*PreheatImageOutput, error)
-	PreheatImageWithContext(volcengine.Context, *PreheatImageInput, ...request.Option) (*PreheatImageOutput, error)
-	PreheatImageRequest(*PreheatImageInput) (*request.Request, *PreheatImageOutput)
-
-	PurchaseReservedInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	PurchaseReservedInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	PurchaseReservedInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	PurchaseReservedInstances(*PurchaseReservedInstancesInput) (*PurchaseReservedInstancesOutput, error)
-	PurchaseReservedInstancesWithContext(volcengine.Context, *PurchaseReservedInstancesInput, ...request.Option) (*PurchaseReservedInstancesOutput, error)
-	PurchaseReservedInstancesRequest(*PurchaseReservedInstancesInput) (*request.Request, *PurchaseReservedInstancesOutput)
 
 	RebootInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RebootInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -781,46 +413,6 @@ type ECSAPI interface {
 	ReplaceSystemVolume(*ReplaceSystemVolumeInput) (*ReplaceSystemVolumeOutput, error)
 	ReplaceSystemVolumeWithContext(volcengine.Context, *ReplaceSystemVolumeInput, ...request.Option) (*ReplaceSystemVolumeOutput, error)
 	ReplaceSystemVolumeRequest(*ReplaceSystemVolumeInput) (*request.Request, *ReplaceSystemVolumeOutput)
-
-	ReplaceSystemsVolumeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ReplaceSystemsVolumeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ReplaceSystemsVolumeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ReplaceSystemsVolume(*ReplaceSystemsVolumeInput) (*ReplaceSystemsVolumeOutput, error)
-	ReplaceSystemsVolumeWithContext(volcengine.Context, *ReplaceSystemsVolumeInput, ...request.Option) (*ReplaceSystemsVolumeOutput, error)
-	ReplaceSystemsVolumeRequest(*ReplaceSystemsVolumeInput) (*request.Request, *ReplaceSystemsVolumeOutput)
-
-	ResetAuthenticationCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ResetAuthenticationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ResetAuthenticationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ResetAuthentication(*ResetAuthenticationInput) (*ResetAuthenticationOutput, error)
-	ResetAuthenticationWithContext(volcengine.Context, *ResetAuthenticationInput, ...request.Option) (*ResetAuthenticationOutput, error)
-	ResetAuthenticationRequest(*ResetAuthenticationInput) (*request.Request, *ResetAuthenticationOutput)
-
-	ResetSystemVolumeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ResetSystemVolumeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ResetSystemVolumeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ResetSystemVolume(*ResetSystemVolumeInput) (*ResetSystemVolumeOutput, error)
-	ResetSystemVolumeWithContext(volcengine.Context, *ResetSystemVolumeInput, ...request.Option) (*ResetSystemVolumeOutput, error)
-	ResetSystemVolumeRequest(*ResetSystemVolumeInput) (*request.Request, *ResetSystemVolumeOutput)
-
-	ResizeInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ResizeInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ResizeInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ResizeInstance(*ResizeInstanceInput) (*ResizeInstanceOutput, error)
-	ResizeInstanceWithContext(volcengine.Context, *ResizeInstanceInput, ...request.Option) (*ResizeInstanceOutput, error)
-	ResizeInstanceRequest(*ResizeInstanceInput) (*request.Request, *ResizeInstanceOutput)
-
-	ResizeInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ResizeInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ResizeInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ResizeInstances(*ResizeInstancesInput) (*ResizeInstancesOutput, error)
-	ResizeInstancesWithContext(volcengine.Context, *ResizeInstancesInput, ...request.Option) (*ResizeInstancesOutput, error)
-	ResizeInstancesRequest(*ResizeInstancesInput) (*request.Request, *ResizeInstancesOutput)
 
 	RunInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RunInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -862,38 +454,6 @@ type ECSAPI interface {
 	StopInstancesWithContext(volcengine.Context, *StopInstancesInput, ...request.Option) (*StopInstancesOutput, error)
 	StopInstancesRequest(*StopInstancesInput) (*request.Request, *StopInstancesOutput)
 
-	TerminateInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	TerminateInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	TerminateInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	TerminateInstances(*TerminateInstancesInput) (*TerminateInstancesOutput, error)
-	TerminateInstancesWithContext(volcengine.Context, *TerminateInstancesInput, ...request.Option) (*TerminateInstancesOutput, error)
-	TerminateInstancesRequest(*TerminateInstancesInput) (*request.Request, *TerminateInstancesOutput)
-
-	UnbindAssumeRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UnbindAssumeRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UnbindAssumeRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UnbindAssumeRole(*UnbindAssumeRoleInput) (*UnbindAssumeRoleOutput, error)
-	UnbindAssumeRoleWithContext(volcengine.Context, *UnbindAssumeRoleInput, ...request.Option) (*UnbindAssumeRoleOutput, error)
-	UnbindAssumeRoleRequest(*UnbindAssumeRoleInput) (*request.Request, *UnbindAssumeRoleOutput)
-
-	UpdateLongTaskCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateLongTaskCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateLongTaskCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UpdateLongTask(*UpdateLongTaskInput) (*UpdateLongTaskOutput, error)
-	UpdateLongTaskWithContext(volcengine.Context, *UpdateLongTaskInput, ...request.Option) (*UpdateLongTaskOutput, error)
-	UpdateLongTaskRequest(*UpdateLongTaskInput) (*request.Request, *UpdateLongTaskOutput)
-
-	UpdateStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UpdateStatus(*UpdateStatusInput) (*UpdateStatusOutput, error)
-	UpdateStatusWithContext(volcengine.Context, *UpdateStatusInput, ...request.Option) (*UpdateStatusOutput, error)
-	UpdateStatusRequest(*UpdateStatusInput) (*request.Request, *UpdateStatusOutput)
-
 	UpdateSystemEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSystemEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateSystemEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -901,14 +461,6 @@ type ECSAPI interface {
 	UpdateSystemEvents(*UpdateSystemEventsInput) (*UpdateSystemEventsOutput, error)
 	UpdateSystemEventsWithContext(volcengine.Context, *UpdateSystemEventsInput, ...request.Option) (*UpdateSystemEventsOutput, error)
 	UpdateSystemEventsRequest(*UpdateSystemEventsInput) (*request.Request, *UpdateSystemEventsOutput)
-
-	VerifyKeyPairNameExistCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	VerifyKeyPairNameExistCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	VerifyKeyPairNameExistCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	VerifyKeyPairNameExist(*VerifyKeyPairNameExistInput) (*VerifyKeyPairNameExistOutput, error)
-	VerifyKeyPairNameExistWithContext(volcengine.Context, *VerifyKeyPairNameExistInput, ...request.Option) (*VerifyKeyPairNameExistOutput, error)
-	VerifyKeyPairNameExistRequest(*VerifyKeyPairNameExistInput) (*request.Request, *VerifyKeyPairNameExistOutput)
 }
 
 var _ ECSAPI = (*ECS)(nil)

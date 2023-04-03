@@ -144,35 +144,17 @@ func (c *STORAGEEBS) CreateVolumeWithContext(ctx volcengine.Context, input *Crea
 type CreateVolumeInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
-	AutoRenew *bool `type:"boolean"`
-
 	ClientToken *string `type:"string"`
 
 	Description *string `type:"string"`
 
-	InstanceId *string `type:"string"`
-
 	Kind *string `type:"string"`
-
-	Period *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
-	RenewCycle *int32 `type:"int32"`
-
-	RenewTimes *int32 `type:"int32"`
-
 	Size *json.Number `type:"json_number"`
 
-	SnapshotId *string `type:"string"`
-
-	StoragePoolId *string `type:"string"`
-
 	Tags []*TagForCreateVolumeInput `type:"list"`
-
-	Times *int32 `type:"int32"`
 
 	VolumeChargeType *string `type:"string"`
 
@@ -193,18 +175,6 @@ func (s CreateVolumeInput) GoString() string {
 	return s.String()
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *CreateVolumeInput) SetAccountId(v string) *CreateVolumeInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetAutoRenew sets the AutoRenew field's value.
-func (s *CreateVolumeInput) SetAutoRenew(v bool) *CreateVolumeInput {
-	s.AutoRenew = &v
-	return s
-}
-
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateVolumeInput) SetClientToken(v string) *CreateVolumeInput {
 	s.ClientToken = &v
@@ -217,21 +187,9 @@ func (s *CreateVolumeInput) SetDescription(v string) *CreateVolumeInput {
 	return s
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *CreateVolumeInput) SetInstanceId(v string) *CreateVolumeInput {
-	s.InstanceId = &v
-	return s
-}
-
 // SetKind sets the Kind field's value.
 func (s *CreateVolumeInput) SetKind(v string) *CreateVolumeInput {
 	s.Kind = &v
-	return s
-}
-
-// SetPeriod sets the Period field's value.
-func (s *CreateVolumeInput) SetPeriod(v string) *CreateVolumeInput {
-	s.Period = &v
 	return s
 }
 
@@ -241,45 +199,15 @@ func (s *CreateVolumeInput) SetProjectName(v string) *CreateVolumeInput {
 	return s
 }
 
-// SetRenewCycle sets the RenewCycle field's value.
-func (s *CreateVolumeInput) SetRenewCycle(v int32) *CreateVolumeInput {
-	s.RenewCycle = &v
-	return s
-}
-
-// SetRenewTimes sets the RenewTimes field's value.
-func (s *CreateVolumeInput) SetRenewTimes(v int32) *CreateVolumeInput {
-	s.RenewTimes = &v
-	return s
-}
-
 // SetSize sets the Size field's value.
 func (s *CreateVolumeInput) SetSize(v json.Number) *CreateVolumeInput {
 	s.Size = &v
 	return s
 }
 
-// SetSnapshotId sets the SnapshotId field's value.
-func (s *CreateVolumeInput) SetSnapshotId(v string) *CreateVolumeInput {
-	s.SnapshotId = &v
-	return s
-}
-
-// SetStoragePoolId sets the StoragePoolId field's value.
-func (s *CreateVolumeInput) SetStoragePoolId(v string) *CreateVolumeInput {
-	s.StoragePoolId = &v
-	return s
-}
-
 // SetTags sets the Tags field's value.
 func (s *CreateVolumeInput) SetTags(v []*TagForCreateVolumeInput) *CreateVolumeInput {
 	s.Tags = v
-	return s
-}
-
-// SetTimes sets the Times field's value.
-func (s *CreateVolumeInput) SetTimes(v int32) *CreateVolumeInput {
-	s.Times = &v
 	return s
 }
 

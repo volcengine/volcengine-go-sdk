@@ -142,8 +142,6 @@ func (c *ECS) DeleteDeploymentSetWithContext(ctx volcengine.Context, input *Dele
 type DeleteDeploymentSetInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
-
 	ClientToken *string `type:"string"`
 
 	// DeploymentSetId is a required field
@@ -171,12 +169,6 @@ func (s *DeleteDeploymentSetInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *DeleteDeploymentSetInput) SetAccountId(v string) *DeleteDeploymentSetInput {
-	s.AccountId = &v
-	return s
 }
 
 // SetClientToken sets the ClientToken field's value.

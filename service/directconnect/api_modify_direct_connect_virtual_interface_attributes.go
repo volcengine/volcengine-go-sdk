@@ -154,13 +154,9 @@ type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 
 	EnableNqa *bool `type:"boolean"`
 
-	LocalIpv6Ip *string `type:"string"`
-
 	NqaDetectInterval *int64 `min:"1000" max:"5000" type:"integer"`
 
 	NqaDetectMultiplier *int64 `min:"3" max:"8" type:"integer"`
-
-	PeerIpv6Ip *string `type:"string"`
 
 	// VirtualInterfaceId is a required field
 	VirtualInterfaceId *string `type:"string" required:"true"`
@@ -263,12 +259,6 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetEnableNqa(v bool
 	return s
 }
 
-// SetLocalIpv6Ip sets the LocalIpv6Ip field's value.
-func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetLocalIpv6Ip(v string) *ModifyDirectConnectVirtualInterfaceAttributesInput {
-	s.LocalIpv6Ip = &v
-	return s
-}
-
 // SetNqaDetectInterval sets the NqaDetectInterval field's value.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetNqaDetectInterval(v int64) *ModifyDirectConnectVirtualInterfaceAttributesInput {
 	s.NqaDetectInterval = &v
@@ -278,12 +268,6 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetNqaDetectInterva
 // SetNqaDetectMultiplier sets the NqaDetectMultiplier field's value.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetNqaDetectMultiplier(v int64) *ModifyDirectConnectVirtualInterfaceAttributesInput {
 	s.NqaDetectMultiplier = &v
-	return s
-}
-
-// SetPeerIpv6Ip sets the PeerIpv6Ip field's value.
-func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetPeerIpv6Ip(v string) *ModifyDirectConnectVirtualInterfaceAttributesInput {
-	s.PeerIpv6Ip = &v
 	return s
 }
 

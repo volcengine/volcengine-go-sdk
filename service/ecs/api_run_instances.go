@@ -141,125 +141,15 @@ func (c *ECS) RunInstancesWithContext(ctx volcengine.Context, input *RunInstance
 	return out, req.Send()
 }
 
-type CpuOptionsForRunInstancesInput struct {
-	_ struct{} `type:"structure"`
-
-	CoreCount *int32 `type:"int32"`
-
-	Numa *int32 `type:"int32"`
-
-	ThreadsPerCore *int32 `type:"int32"`
-}
-
-// String returns the string representation
-func (s CpuOptionsForRunInstancesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s CpuOptionsForRunInstancesInput) GoString() string {
-	return s.String()
-}
-
-// SetCoreCount sets the CoreCount field's value.
-func (s *CpuOptionsForRunInstancesInput) SetCoreCount(v int32) *CpuOptionsForRunInstancesInput {
-	s.CoreCount = &v
-	return s
-}
-
-// SetNuma sets the Numa field's value.
-func (s *CpuOptionsForRunInstancesInput) SetNuma(v int32) *CpuOptionsForRunInstancesInput {
-	s.Numa = &v
-	return s
-}
-
-// SetThreadsPerCore sets the ThreadsPerCore field's value.
-func (s *CpuOptionsForRunInstancesInput) SetThreadsPerCore(v int32) *CpuOptionsForRunInstancesInput {
-	s.ThreadsPerCore = &v
-	return s
-}
-
-type EipForRunInstancesInput struct {
-	_ struct{} `type:"structure"`
-
-	Bandwidth *int32 `type:"int32"`
-
-	BandwidthPackageId *string `type:"string"`
-
-	BillingType *int32 `type:"int32"`
-
-	ISP *string `type:"string"`
-
-	Id *string `type:"string"`
-
-	SecurityProtectionTypes []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s EipForRunInstancesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s EipForRunInstancesInput) GoString() string {
-	return s.String()
-}
-
-// SetBandwidth sets the Bandwidth field's value.
-func (s *EipForRunInstancesInput) SetBandwidth(v int32) *EipForRunInstancesInput {
-	s.Bandwidth = &v
-	return s
-}
-
-// SetBandwidthPackageId sets the BandwidthPackageId field's value.
-func (s *EipForRunInstancesInput) SetBandwidthPackageId(v string) *EipForRunInstancesInput {
-	s.BandwidthPackageId = &v
-	return s
-}
-
-// SetBillingType sets the BillingType field's value.
-func (s *EipForRunInstancesInput) SetBillingType(v int32) *EipForRunInstancesInput {
-	s.BillingType = &v
-	return s
-}
-
-// SetISP sets the ISP field's value.
-func (s *EipForRunInstancesInput) SetISP(v string) *EipForRunInstancesInput {
-	s.ISP = &v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *EipForRunInstancesInput) SetId(v string) *EipForRunInstancesInput {
-	s.Id = &v
-	return s
-}
-
-// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
-func (s *EipForRunInstancesInput) SetSecurityProtectionTypes(v []*string) *EipForRunInstancesInput {
-	s.SecurityProtectionTypes = v
-	return s
-}
-
 type NetworkInterfaceForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
-
-	Ipv6AddressCount *int32 `type:"int32"`
-
-	NetworkInterfaceName *string `type:"string"`
-
 	PrimaryIpAddress *string `type:"string"`
-
-	PrivateIpAddresses []*string `type:"list"`
 
 	SecurityGroupIds []*string `type:"list"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
-
-	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -285,33 +175,9 @@ func (s *NetworkInterfaceForRunInstancesInput) Validate() error {
 	return nil
 }
 
-// SetDescription sets the Description field's value.
-func (s *NetworkInterfaceForRunInstancesInput) SetDescription(v string) *NetworkInterfaceForRunInstancesInput {
-	s.Description = &v
-	return s
-}
-
-// SetIpv6AddressCount sets the Ipv6AddressCount field's value.
-func (s *NetworkInterfaceForRunInstancesInput) SetIpv6AddressCount(v int32) *NetworkInterfaceForRunInstancesInput {
-	s.Ipv6AddressCount = &v
-	return s
-}
-
-// SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
-func (s *NetworkInterfaceForRunInstancesInput) SetNetworkInterfaceName(v string) *NetworkInterfaceForRunInstancesInput {
-	s.NetworkInterfaceName = &v
-	return s
-}
-
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
 func (s *NetworkInterfaceForRunInstancesInput) SetPrimaryIpAddress(v string) *NetworkInterfaceForRunInstancesInput {
 	s.PrimaryIpAddress = &v
-	return s
-}
-
-// SetPrivateIpAddresses sets the PrivateIpAddresses field's value.
-func (s *NetworkInterfaceForRunInstancesInput) SetPrivateIpAddresses(v []*string) *NetworkInterfaceForRunInstancesInput {
-	s.PrivateIpAddresses = v
 	return s
 }
 
@@ -327,18 +193,8 @@ func (s *NetworkInterfaceForRunInstancesInput) SetSubnetId(v string) *NetworkInt
 	return s
 }
 
-// SetVpcId sets the VpcId field's value.
-func (s *NetworkInterfaceForRunInstancesInput) SetVpcId(v string) *NetworkInterfaceForRunInstancesInput {
-	s.VpcId = &v
-	return s
-}
-
 type RunInstancesInput struct {
 	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
-
-	AntiAffinityRuleId *string `type:"string"`
 
 	AutoRenew *bool `type:"boolean"`
 
@@ -348,21 +204,13 @@ type RunInstancesInput struct {
 
 	Count *int32 `type:"int32"`
 
-	CpuOptions *CpuOptionsForRunInstancesInput `type:"structure"`
-
 	CreditSpecification *string `type:"string"`
-
-	DeploymentSetGroupNumber *int32 `type:"int32"`
 
 	DeploymentSetId *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	DryRun *bool `type:"boolean"`
-
-	Eip *EipForRunInstancesInput `type:"structure"`
-
-	HostId *string `type:"string"`
 
 	HostName *string `type:"string"`
 
@@ -382,25 +230,11 @@ type RunInstancesInput struct {
 
 	InstanceTypeId *string `type:"string"`
 
-	Ipv6Address []*string `type:"list"`
-
-	Ipv6AddressCount *int32 `type:"int32"`
-
-	IsAtomizedPreOrder *bool `type:"boolean"`
-
 	KeepImageCredential *bool `type:"boolean"`
-
-	Kerberos *bool `type:"boolean"`
 
 	KeyPairName *string `type:"string"`
 
-	LaunchTemplateId *string `type:"string"`
-
-	LaunchTemplateVersion *int32 `type:"int32"`
-
 	MinCount *int32 `type:"int32"`
-
-	NeedRdmaTool *bool `type:"boolean"`
 
 	// NetworkInterfaces is a required field
 	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list" required:"true"`
@@ -410,8 +244,6 @@ type RunInstancesInput struct {
 	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
-
-	PreOrder *bool `type:"boolean"`
 
 	ProjectName *string `type:"string"`
 
@@ -426,8 +258,6 @@ type RunInstancesInput struct {
 	UniqueSuffix *bool `type:"boolean"`
 
 	UserData *string `type:"string"`
-
-	VolumeIdGroups []*VolumeIdGroupForRunInstancesInput `type:"list"`
 
 	// Volumes is a required field
 	Volumes []*VolumeForRunInstancesInput `type:"list" required:"true"`
@@ -491,18 +321,6 @@ func (s *RunInstancesInput) Validate() error {
 	return nil
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *RunInstancesInput) SetAccountId(v string) *RunInstancesInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetAntiAffinityRuleId sets the AntiAffinityRuleId field's value.
-func (s *RunInstancesInput) SetAntiAffinityRuleId(v string) *RunInstancesInput {
-	s.AntiAffinityRuleId = &v
-	return s
-}
-
 // SetAutoRenew sets the AutoRenew field's value.
 func (s *RunInstancesInput) SetAutoRenew(v bool) *RunInstancesInput {
 	s.AutoRenew = &v
@@ -527,21 +345,9 @@ func (s *RunInstancesInput) SetCount(v int32) *RunInstancesInput {
 	return s
 }
 
-// SetCpuOptions sets the CpuOptions field's value.
-func (s *RunInstancesInput) SetCpuOptions(v *CpuOptionsForRunInstancesInput) *RunInstancesInput {
-	s.CpuOptions = v
-	return s
-}
-
 // SetCreditSpecification sets the CreditSpecification field's value.
 func (s *RunInstancesInput) SetCreditSpecification(v string) *RunInstancesInput {
 	s.CreditSpecification = &v
-	return s
-}
-
-// SetDeploymentSetGroupNumber sets the DeploymentSetGroupNumber field's value.
-func (s *RunInstancesInput) SetDeploymentSetGroupNumber(v int32) *RunInstancesInput {
-	s.DeploymentSetGroupNumber = &v
 	return s
 }
 
@@ -560,18 +366,6 @@ func (s *RunInstancesInput) SetDescription(v string) *RunInstancesInput {
 // SetDryRun sets the DryRun field's value.
 func (s *RunInstancesInput) SetDryRun(v bool) *RunInstancesInput {
 	s.DryRun = &v
-	return s
-}
-
-// SetEip sets the Eip field's value.
-func (s *RunInstancesInput) SetEip(v *EipForRunInstancesInput) *RunInstancesInput {
-	s.Eip = v
-	return s
-}
-
-// SetHostId sets the HostId field's value.
-func (s *RunInstancesInput) SetHostId(v string) *RunInstancesInput {
-	s.HostId = &v
 	return s
 }
 
@@ -623,33 +417,9 @@ func (s *RunInstancesInput) SetInstanceTypeId(v string) *RunInstancesInput {
 	return s
 }
 
-// SetIpv6Address sets the Ipv6Address field's value.
-func (s *RunInstancesInput) SetIpv6Address(v []*string) *RunInstancesInput {
-	s.Ipv6Address = v
-	return s
-}
-
-// SetIpv6AddressCount sets the Ipv6AddressCount field's value.
-func (s *RunInstancesInput) SetIpv6AddressCount(v int32) *RunInstancesInput {
-	s.Ipv6AddressCount = &v
-	return s
-}
-
-// SetIsAtomizedPreOrder sets the IsAtomizedPreOrder field's value.
-func (s *RunInstancesInput) SetIsAtomizedPreOrder(v bool) *RunInstancesInput {
-	s.IsAtomizedPreOrder = &v
-	return s
-}
-
 // SetKeepImageCredential sets the KeepImageCredential field's value.
 func (s *RunInstancesInput) SetKeepImageCredential(v bool) *RunInstancesInput {
 	s.KeepImageCredential = &v
-	return s
-}
-
-// SetKerberos sets the Kerberos field's value.
-func (s *RunInstancesInput) SetKerberos(v bool) *RunInstancesInput {
-	s.Kerberos = &v
 	return s
 }
 
@@ -659,27 +429,9 @@ func (s *RunInstancesInput) SetKeyPairName(v string) *RunInstancesInput {
 	return s
 }
 
-// SetLaunchTemplateId sets the LaunchTemplateId field's value.
-func (s *RunInstancesInput) SetLaunchTemplateId(v string) *RunInstancesInput {
-	s.LaunchTemplateId = &v
-	return s
-}
-
-// SetLaunchTemplateVersion sets the LaunchTemplateVersion field's value.
-func (s *RunInstancesInput) SetLaunchTemplateVersion(v int32) *RunInstancesInput {
-	s.LaunchTemplateVersion = &v
-	return s
-}
-
 // SetMinCount sets the MinCount field's value.
 func (s *RunInstancesInput) SetMinCount(v int32) *RunInstancesInput {
 	s.MinCount = &v
-	return s
-}
-
-// SetNeedRdmaTool sets the NeedRdmaTool field's value.
-func (s *RunInstancesInput) SetNeedRdmaTool(v bool) *RunInstancesInput {
-	s.NeedRdmaTool = &v
 	return s
 }
 
@@ -704,12 +456,6 @@ func (s *RunInstancesInput) SetPeriod(v int32) *RunInstancesInput {
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *RunInstancesInput) SetPeriodUnit(v string) *RunInstancesInput {
 	s.PeriodUnit = &v
-	return s
-}
-
-// SetPreOrder sets the PreOrder field's value.
-func (s *RunInstancesInput) SetPreOrder(v bool) *RunInstancesInput {
-	s.PreOrder = &v
 	return s
 }
 
@@ -755,12 +501,6 @@ func (s *RunInstancesInput) SetUserData(v string) *RunInstancesInput {
 	return s
 }
 
-// SetVolumeIdGroups sets the VolumeIdGroups field's value.
-func (s *RunInstancesInput) SetVolumeIdGroups(v []*VolumeIdGroupForRunInstancesInput) *RunInstancesInput {
-	s.VolumeIdGroups = v
-	return s
-}
-
 // SetVolumes sets the Volumes field's value.
 func (s *RunInstancesInput) SetVolumes(v []*VolumeForRunInstancesInput) *RunInstancesInput {
 	s.Volumes = v
@@ -779,8 +519,6 @@ type RunInstancesOutput struct {
 	Metadata *response.ResponseMetadata
 
 	InstanceIds []*string `type:"list"`
-
-	PreorderIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -796,12 +534,6 @@ func (s RunInstancesOutput) GoString() string {
 // SetInstanceIds sets the InstanceIds field's value.
 func (s *RunInstancesOutput) SetInstanceIds(v []*string) *RunInstancesOutput {
 	s.InstanceIds = v
-	return s
-}
-
-// SetPreorderIds sets the PreorderIds field's value.
-func (s *RunInstancesOutput) SetPreorderIds(v []*string) *RunInstancesOutput {
-	s.PreorderIds = v
 	return s
 }
 
@@ -840,18 +572,8 @@ type VolumeForRunInstancesInput struct {
 
 	DeleteWithInstance *string `type:"string"`
 
-	Description *string `type:"string"`
-
-	Encrypted *bool `type:"boolean"`
-
-	KmsKeyId *string `type:"string"`
-
 	// Size is a required field
 	Size *int32 `type:"int32" required:"true"`
-
-	SnapshotId *string `type:"string"`
-
-	VolumeName *string `type:"string"`
 
 	// VolumeType is a required field
 	VolumeType *string `type:"string" required:"true"`
@@ -889,66 +611,14 @@ func (s *VolumeForRunInstancesInput) SetDeleteWithInstance(v string) *VolumeForR
 	return s
 }
 
-// SetDescription sets the Description field's value.
-func (s *VolumeForRunInstancesInput) SetDescription(v string) *VolumeForRunInstancesInput {
-	s.Description = &v
-	return s
-}
-
-// SetEncrypted sets the Encrypted field's value.
-func (s *VolumeForRunInstancesInput) SetEncrypted(v bool) *VolumeForRunInstancesInput {
-	s.Encrypted = &v
-	return s
-}
-
-// SetKmsKeyId sets the KmsKeyId field's value.
-func (s *VolumeForRunInstancesInput) SetKmsKeyId(v string) *VolumeForRunInstancesInput {
-	s.KmsKeyId = &v
-	return s
-}
-
 // SetSize sets the Size field's value.
 func (s *VolumeForRunInstancesInput) SetSize(v int32) *VolumeForRunInstancesInput {
 	s.Size = &v
 	return s
 }
 
-// SetSnapshotId sets the SnapshotId field's value.
-func (s *VolumeForRunInstancesInput) SetSnapshotId(v string) *VolumeForRunInstancesInput {
-	s.SnapshotId = &v
-	return s
-}
-
-// SetVolumeName sets the VolumeName field's value.
-func (s *VolumeForRunInstancesInput) SetVolumeName(v string) *VolumeForRunInstancesInput {
-	s.VolumeName = &v
-	return s
-}
-
 // SetVolumeType sets the VolumeType field's value.
 func (s *VolumeForRunInstancesInput) SetVolumeType(v string) *VolumeForRunInstancesInput {
 	s.VolumeType = &v
-	return s
-}
-
-type VolumeIdGroupForRunInstancesInput struct {
-	_ struct{} `type:"structure"`
-
-	VolumeIds []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s VolumeIdGroupForRunInstancesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s VolumeIdGroupForRunInstancesInput) GoString() string {
-	return s.String()
-}
-
-// SetVolumeIds sets the VolumeIds field's value.
-func (s *VolumeIdGroupForRunInstancesInput) SetVolumeIds(v []*string) *VolumeIdGroupForRunInstancesInput {
-	s.VolumeIds = v
 	return s
 }

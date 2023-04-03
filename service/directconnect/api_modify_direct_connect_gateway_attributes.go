@@ -148,8 +148,6 @@ type ModifyDirectConnectGatewayAttributesInput struct {
 	DirectConnectGatewayId *string `type:"string" required:"true"`
 
 	DirectConnectGatewayName *string `type:"string"`
-
-	EnableIpv6 *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -190,12 +188,6 @@ func (s *ModifyDirectConnectGatewayAttributesInput) SetDirectConnectGatewayId(v 
 // SetDirectConnectGatewayName sets the DirectConnectGatewayName field's value.
 func (s *ModifyDirectConnectGatewayAttributesInput) SetDirectConnectGatewayName(v string) *ModifyDirectConnectGatewayAttributesInput {
 	s.DirectConnectGatewayName = &v
-	return s
-}
-
-// SetEnableIpv6 sets the EnableIpv6 field's value.
-func (s *ModifyDirectConnectGatewayAttributesInput) SetEnableIpv6(v bool) *ModifyDirectConnectGatewayAttributesInput {
-	s.EnableIpv6 = &v
 	return s
 }
 

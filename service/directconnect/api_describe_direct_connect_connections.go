@@ -146,6 +146,8 @@ type DescribeDirectConnectConnectionsInput struct {
 
 	ConnectionType *string `type:"string"`
 
+	DirectConnectAccessPointId *string `type:"string"`
+
 	DirectConnectConnectionIds []*string `type:"list"`
 
 	DirectConnectConnectionName *string `type:"string"`
@@ -182,6 +184,12 @@ func (s *DescribeDirectConnectConnectionsInput) SetAccessPoint(v string) *Descri
 // SetConnectionType sets the ConnectionType field's value.
 func (s *DescribeDirectConnectConnectionsInput) SetConnectionType(v string) *DescribeDirectConnectConnectionsInput {
 	s.ConnectionType = &v
+	return s
+}
+
+// SetDirectConnectAccessPointId sets the DirectConnectAccessPointId field's value.
+func (s *DescribeDirectConnectConnectionsInput) SetDirectConnectAccessPointId(v string) *DescribeDirectConnectConnectionsInput {
+	s.DirectConnectAccessPointId = &v
 	return s
 }
 
@@ -515,8 +523,6 @@ type TagFilterForDescribeDirectConnectConnectionsInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
-
-	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -532,12 +538,6 @@ func (s TagFilterForDescribeDirectConnectConnectionsInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeDirectConnectConnectionsInput) SetKey(v string) *TagFilterForDescribeDirectConnectConnectionsInput {
 	s.Key = &v
-	return s
-}
-
-// SetValues sets the Values field's value.
-func (s *TagFilterForDescribeDirectConnectConnectionsInput) SetValues(v []*string) *TagFilterForDescribeDirectConnectConnectionsInput {
-	s.Values = v
 	return s
 }
 

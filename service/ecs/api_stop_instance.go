@@ -144,8 +144,6 @@ type StopInstanceInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DryRun *bool `type:"boolean"`
-
 	ForceStop *bool `type:"boolean"`
 
 	InstanceId *string `type:"string"`
@@ -166,12 +164,6 @@ func (s StopInstanceInput) GoString() string {
 // SetClientToken sets the ClientToken field's value.
 func (s *StopInstanceInput) SetClientToken(v string) *StopInstanceInput {
 	s.ClientToken = &v
-	return s
-}
-
-// SetDryRun sets the DryRun field's value.
-func (s *StopInstanceInput) SetDryRun(v bool) *StopInstanceInput {
-	s.DryRun = &v
 	return s
 }
 

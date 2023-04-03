@@ -281,8 +281,6 @@ func (s *DescribeSecurityGroupsOutput) SetTotalCount(v int64) *DescribeSecurityG
 type SecurityGroupForDescribeSecurityGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
-	AvailableNetworkInterfaceCount *int64 `type:"integer"`
-
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -312,12 +310,6 @@ func (s SecurityGroupForDescribeSecurityGroupsOutput) String() string {
 // GoString returns the string representation
 func (s SecurityGroupForDescribeSecurityGroupsOutput) GoString() string {
 	return s.String()
-}
-
-// SetAvailableNetworkInterfaceCount sets the AvailableNetworkInterfaceCount field's value.
-func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetAvailableNetworkInterfaceCount(v int64) *SecurityGroupForDescribeSecurityGroupsOutput {
-	s.AvailableNetworkInterfaceCount = &v
-	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.

@@ -180,8 +180,6 @@ type DeleteBandwidthPackageOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PreOrderNumber *string `type:"string"`
-
 	RequestId *string `type:"string"`
 }
 
@@ -193,12 +191,6 @@ func (s DeleteBandwidthPackageOutput) String() string {
 // GoString returns the string representation
 func (s DeleteBandwidthPackageOutput) GoString() string {
 	return s.String()
-}
-
-// SetPreOrderNumber sets the PreOrderNumber field's value.
-func (s *DeleteBandwidthPackageOutput) SetPreOrderNumber(v string) *DeleteBandwidthPackageOutput {
-	s.PreOrderNumber = &v
-	return s
 }
 
 // SetRequestId sets the RequestId field's value.

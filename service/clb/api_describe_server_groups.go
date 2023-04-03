@@ -151,8 +151,6 @@ type DescribeServerGroupsInput struct {
 	ServerGroupIds []*string `type:"list"`
 
 	ServerGroupName *string `type:"string"`
-
-	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -192,12 +190,6 @@ func (s *DescribeServerGroupsInput) SetServerGroupIds(v []*string) *DescribeServ
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *DescribeServerGroupsInput) SetServerGroupName(v string) *DescribeServerGroupsInput {
 	s.ServerGroupName = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *DescribeServerGroupsInput) SetType(v string) *DescribeServerGroupsInput {
-	s.Type = &v
 	return s
 }
 
@@ -268,8 +260,6 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 
 	ServerGroupName *string `type:"string"`
 
-	Type *string `type:"string"`
-
 	UpdateTime *string `type:"string"`
 }
 
@@ -304,12 +294,6 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupId(v string) *S
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupName(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.ServerGroupName = &v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *ServerGroupForDescribeServerGroupsOutput) SetType(v string) *ServerGroupForDescribeServerGroupsOutput {
-	s.Type = &v
 	return s
 }
 

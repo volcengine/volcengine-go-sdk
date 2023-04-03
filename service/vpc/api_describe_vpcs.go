@@ -383,8 +383,6 @@ type VpcForDescribeVpcsOutput struct {
 
 	DnsServers []*string `type:"list"`
 
-	Ipv6CidrBlock *string `type:"string"`
-
 	NatGatewayIds []*string `type:"list"`
 
 	NetworkAclNum *string `type:"string"`
@@ -392,8 +390,6 @@ type VpcForDescribeVpcsOutput struct {
 	ProjectName *string `type:"string"`
 
 	RouteTableIds []*string `type:"list"`
-
-	SecondaryCidrBlocks []*string `type:"list"`
 
 	SecurityGroupIds []*string `type:"list"`
 
@@ -458,12 +454,6 @@ func (s *VpcForDescribeVpcsOutput) SetDnsServers(v []*string) *VpcForDescribeVpc
 	return s
 }
 
-// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *VpcForDescribeVpcsOutput) SetIpv6CidrBlock(v string) *VpcForDescribeVpcsOutput {
-	s.Ipv6CidrBlock = &v
-	return s
-}
-
 // SetNatGatewayIds sets the NatGatewayIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetNatGatewayIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.NatGatewayIds = v
@@ -485,12 +475,6 @@ func (s *VpcForDescribeVpcsOutput) SetProjectName(v string) *VpcForDescribeVpcsO
 // SetRouteTableIds sets the RouteTableIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetRouteTableIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.RouteTableIds = v
-	return s
-}
-
-// SetSecondaryCidrBlocks sets the SecondaryCidrBlocks field's value.
-func (s *VpcForDescribeVpcsOutput) SetSecondaryCidrBlocks(v []*string) *VpcForDescribeVpcsOutput {
-	s.SecondaryCidrBlocks = v
 	return s
 }
 

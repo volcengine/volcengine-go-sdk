@@ -94,14 +94,6 @@ type STORAGEEBSAPI interface {
 	ModifyVolumeChargeTypeWithContext(volcengine.Context, *ModifyVolumeChargeTypeInput, ...request.Option) (*ModifyVolumeChargeTypeOutput, error)
 	ModifyVolumeChargeTypeRequest(*ModifyVolumeChargeTypeInput) (*request.Request, *ModifyVolumeChargeTypeOutput)
 
-	ModifyVolumeKindCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyVolumeKindCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyVolumeKindCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyVolumeKind(*ModifyVolumeKindInput) (*ModifyVolumeKindOutput, error)
-	ModifyVolumeKindWithContext(volcengine.Context, *ModifyVolumeKindInput, ...request.Option) (*ModifyVolumeKindOutput, error)
-	ModifyVolumeKindRequest(*ModifyVolumeKindInput) (*request.Request, *ModifyVolumeKindOutput)
-
 	TerminateVolumesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TerminateVolumesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	TerminateVolumesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

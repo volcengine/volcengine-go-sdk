@@ -268,8 +268,6 @@ type DescribeCenSummaryRouteEntriesOutput struct {
 
 	CenSummaryRouteEntries []*CenSummaryRouteEntryForDescribeCenSummaryRouteEntriesOutput `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
-
 	PageSize *int64 `type:"integer"`
 
 	TotalCount *int64 `type:"integer"`
@@ -288,12 +286,6 @@ func (s DescribeCenSummaryRouteEntriesOutput) GoString() string {
 // SetCenSummaryRouteEntries sets the CenSummaryRouteEntries field's value.
 func (s *DescribeCenSummaryRouteEntriesOutput) SetCenSummaryRouteEntries(v []*CenSummaryRouteEntryForDescribeCenSummaryRouteEntriesOutput) *DescribeCenSummaryRouteEntriesOutput {
 	s.CenSummaryRouteEntries = v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeCenSummaryRouteEntriesOutput) SetPageNumber(v int64) *DescribeCenSummaryRouteEntriesOutput {
-	s.PageNumber = &v
 	return s
 }
 

@@ -202,15 +202,11 @@ type DescribeDirectConnectVirtualInterfaceAttributesOutput struct {
 
 	LocalIp *string `type:"string"`
 
-	LocalIpv6Ip *string `type:"string"`
-
 	NqaDetectInterval *int64 `type:"integer"`
 
 	NqaDetectMultiplier *int64 `type:"integer"`
 
 	PeerIp *string `type:"string"`
-
-	PeerIpv6Ip *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
@@ -305,12 +301,6 @@ func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetLocalIp(v str
 	return s
 }
 
-// SetLocalIpv6Ip sets the LocalIpv6Ip field's value.
-func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetLocalIpv6Ip(v string) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
-	s.LocalIpv6Ip = &v
-	return s
-}
-
 // SetNqaDetectInterval sets the NqaDetectInterval field's value.
 func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetNqaDetectInterval(v int64) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
 	s.NqaDetectInterval = &v
@@ -326,12 +316,6 @@ func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetNqaDetectMult
 // SetPeerIp sets the PeerIp field's value.
 func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetPeerIp(v string) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
 	s.PeerIp = &v
-	return s
-}
-
-// SetPeerIpv6Ip sets the PeerIpv6Ip field's value.
-func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetPeerIpv6Ip(v string) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
-	s.PeerIpv6Ip = &v
 	return s
 }
 

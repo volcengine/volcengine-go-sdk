@@ -153,8 +153,6 @@ type CreateServerGroupInput struct {
 
 	// Servers is a required field
 	Servers []*ServerForCreateServerGroupInput `type:"list" required:"true"`
-
-	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -214,12 +212,6 @@ func (s *CreateServerGroupInput) SetServerGroupName(v string) *CreateServerGroup
 // SetServers sets the Servers field's value.
 func (s *CreateServerGroupInput) SetServers(v []*ServerForCreateServerGroupInput) *CreateServerGroupInput {
 	s.Servers = v
-	return s
-}
-
-// SetType sets the Type field's value.
-func (s *CreateServerGroupInput) SetType(v string) *CreateServerGroupInput {
-	s.Type = &v
 	return s
 }
 

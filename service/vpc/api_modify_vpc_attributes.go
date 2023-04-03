@@ -146,10 +146,6 @@ type ModifyVpcAttributesInput struct {
 
 	DnsServers []*string `type:"list"`
 
-	EnableIpv6 *string `type:"string"`
-
-	Ipv6CidrBlock *string `type:"string"`
-
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
@@ -200,18 +196,6 @@ func (s *ModifyVpcAttributesInput) SetDescription(v string) *ModifyVpcAttributes
 // SetDnsServers sets the DnsServers field's value.
 func (s *ModifyVpcAttributesInput) SetDnsServers(v []*string) *ModifyVpcAttributesInput {
 	s.DnsServers = v
-	return s
-}
-
-// SetEnableIpv6 sets the EnableIpv6 field's value.
-func (s *ModifyVpcAttributesInput) SetEnableIpv6(v string) *ModifyVpcAttributesInput {
-	s.EnableIpv6 = &v
-	return s
-}
-
-// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *ModifyVpcAttributesInput) SetIpv6CidrBlock(v string) *ModifyVpcAttributesInput {
-	s.Ipv6CidrBlock = &v
 	return s
 }
 

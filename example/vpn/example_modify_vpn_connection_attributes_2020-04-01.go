@@ -19,11 +19,7 @@ func ModifyVpnConnectionAttributes() {
 		panic(err)
 	}
 	svc := vpn.New(sess)
-	reqIpsecConfig := &vpn.IpsecConfigForModifyVpnConnectionAttributesInput{
-		EncAlg: volcengine.String("aes256"),
-	}
 	modifyVpnConnectionAttributesInput := &vpn.ModifyVpnConnectionAttributesInput{
-		IpsecConfig: reqIpsecConfig,
 		VpnConnectionId: volcengine.String("vgc-2bzvqi8kerd342dx0eg2f****"),
 	}
 

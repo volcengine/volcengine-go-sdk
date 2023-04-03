@@ -180,8 +180,6 @@ type DeleteVpnGatewayOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PreOrderNumber *string `type:"string"`
-
 	RequestId *string `type:"string"`
 }
 
@@ -193,12 +191,6 @@ func (s DeleteVpnGatewayOutput) String() string {
 // GoString returns the string representation
 func (s DeleteVpnGatewayOutput) GoString() string {
 	return s.String()
-}
-
-// SetPreOrderNumber sets the PreOrderNumber field's value.
-func (s *DeleteVpnGatewayOutput) SetPreOrderNumber(v string) *DeleteVpnGatewayOutput {
-	s.PreOrderNumber = &v
-	return s
 }
 
 // SetRequestId sets the RequestId field's value.

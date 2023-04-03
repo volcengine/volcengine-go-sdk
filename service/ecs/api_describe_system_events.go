@@ -154,12 +154,6 @@ type DescribeSystemEventsInput struct {
 
 	NextToken *string `type:"string"`
 
-	PageNumber *json.Number `type:"json_number"`
-
-	PageSize *json.Number `type:"json_number"`
-
-	ProjectName *string `type:"string"`
-
 	ResourceIds []*string `type:"list"`
 
 	Status []*string `type:"list"`
@@ -207,24 +201,6 @@ func (s *DescribeSystemEventsInput) SetNextToken(v string) *DescribeSystemEvents
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSystemEventsInput) SetPageNumber(v json.Number) *DescribeSystemEventsInput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeSystemEventsInput) SetPageSize(v json.Number) *DescribeSystemEventsInput {
-	s.PageSize = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DescribeSystemEventsInput) SetProjectName(v string) *DescribeSystemEventsInput {
-	s.ProjectName = &v
-	return s
-}
-
 // SetResourceIds sets the ResourceIds field's value.
 func (s *DescribeSystemEventsInput) SetResourceIds(v []*string) *DescribeSystemEventsInput {
 	s.ResourceIds = v
@@ -250,13 +226,7 @@ type DescribeSystemEventsOutput struct {
 
 	NextToken *string `type:"string"`
 
-	PageNumber *json.Number `type:"json_number"`
-
-	PageSize *json.Number `type:"json_number"`
-
 	SystemEvents []*SystemEventForDescribeSystemEventsOutput `type:"list"`
-
-	TotalCount *json.Number `type:"json_number"`
 }
 
 // String returns the string representation
@@ -275,57 +245,9 @@ func (s *DescribeSystemEventsOutput) SetNextToken(v string) *DescribeSystemEvent
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSystemEventsOutput) SetPageNumber(v json.Number) *DescribeSystemEventsOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeSystemEventsOutput) SetPageSize(v json.Number) *DescribeSystemEventsOutput {
-	s.PageSize = &v
-	return s
-}
-
 // SetSystemEvents sets the SystemEvents field's value.
 func (s *DescribeSystemEventsOutput) SetSystemEvents(v []*SystemEventForDescribeSystemEventsOutput) *DescribeSystemEventsOutput {
 	s.SystemEvents = v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *DescribeSystemEventsOutput) SetTotalCount(v json.Number) *DescribeSystemEventsOutput {
-	s.TotalCount = &v
-	return s
-}
-
-type ExtraInfoForDescribeSystemEventsOutput struct {
-	_ struct{} `type:"structure"`
-
-	DeviceName *string `type:"string"`
-
-	VolumeId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ExtraInfoForDescribeSystemEventsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ExtraInfoForDescribeSystemEventsOutput) GoString() string {
-	return s.String()
-}
-
-// SetDeviceName sets the DeviceName field's value.
-func (s *ExtraInfoForDescribeSystemEventsOutput) SetDeviceName(v string) *ExtraInfoForDescribeSystemEventsOutput {
-	s.DeviceName = &v
-	return s
-}
-
-// SetVolumeId sets the VolumeId field's value.
-func (s *ExtraInfoForDescribeSystemEventsOutput) SetVolumeId(v string) *ExtraInfoForDescribeSystemEventsOutput {
-	s.VolumeId = &v
 	return s
 }
 
@@ -333,8 +255,6 @@ type SystemEventForDescribeSystemEventsOutput struct {
 	_ struct{} `type:"structure"`
 
 	CreatedAt *string `type:"string"`
-
-	ExtraInfo *ExtraInfoForDescribeSystemEventsOutput `type:"structure"`
 
 	Id *string `type:"string"`
 
@@ -364,12 +284,6 @@ func (s SystemEventForDescribeSystemEventsOutput) GoString() string {
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *SystemEventForDescribeSystemEventsOutput) SetCreatedAt(v string) *SystemEventForDescribeSystemEventsOutput {
 	s.CreatedAt = &v
-	return s
-}
-
-// SetExtraInfo sets the ExtraInfo field's value.
-func (s *SystemEventForDescribeSystemEventsOutput) SetExtraInfo(v *ExtraInfoForDescribeSystemEventsOutput) *SystemEventForDescribeSystemEventsOutput {
-	s.ExtraInfo = v
 	return s
 }
 

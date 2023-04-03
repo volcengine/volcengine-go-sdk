@@ -314,8 +314,6 @@ type DirectConnectGatewayForDescribeDirectConnectGatewaysOutput struct {
 
 	DirectConnectGatewayName *string `type:"string"`
 
-	EnableIpv6 *bool `type:"boolean"`
-
 	LockReason *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
@@ -385,12 +383,6 @@ func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetDirectCo
 	return s
 }
 
-// SetEnableIpv6 sets the EnableIpv6 field's value.
-func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetEnableIpv6(v bool) *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
-	s.EnableIpv6 = &v
-	return s
-}
-
 // SetLockReason sets the LockReason field's value.
 func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetLockReason(v string) *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
 	s.LockReason = &v
@@ -425,8 +417,6 @@ type TagFilterForDescribeDirectConnectGatewaysInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
-
-	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -442,12 +432,6 @@ func (s TagFilterForDescribeDirectConnectGatewaysInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeDirectConnectGatewaysInput) SetKey(v string) *TagFilterForDescribeDirectConnectGatewaysInput {
 	s.Key = &v
-	return s
-}
-
-// SetValues sets the Values field's value.
-func (s *TagFilterForDescribeDirectConnectGatewaysInput) SetValues(v []*string) *TagFilterForDescribeDirectConnectGatewaysInput {
-	s.Values = v
 	return s
 }
 

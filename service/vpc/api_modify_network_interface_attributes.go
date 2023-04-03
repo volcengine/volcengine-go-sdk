@@ -149,8 +149,6 @@ type ModifyNetworkInterfaceAttributesInput struct {
 
 	NetworkInterfaceName *string `min:"1" max:"128" type:"string"`
 
-	PortSecurityEnabled *bool `type:"boolean"`
-
 	SecurityGroupIds []*string `type:"list"`
 }
 
@@ -204,12 +202,6 @@ func (s *ModifyNetworkInterfaceAttributesInput) SetNetworkInterfaceId(v string) 
 // SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
 func (s *ModifyNetworkInterfaceAttributesInput) SetNetworkInterfaceName(v string) *ModifyNetworkInterfaceAttributesInput {
 	s.NetworkInterfaceName = &v
-	return s
-}
-
-// SetPortSecurityEnabled sets the PortSecurityEnabled field's value.
-func (s *ModifyNetworkInterfaceAttributesInput) SetPortSecurityEnabled(v bool) *ModifyNetworkInterfaceAttributesInput {
-	s.PortSecurityEnabled = &v
 	return s
 }
 

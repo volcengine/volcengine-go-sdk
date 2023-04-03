@@ -192,15 +192,9 @@ type DeploymentSetForDescribeDeploymentSetsOutput struct {
 
 	Granularity *string `type:"string"`
 
-	GroupCount *int32 `type:"int32"`
-
 	InstanceAmount *int32 `type:"int32"`
 
 	InstanceIds []*string `type:"list"`
-
-	Quota *int32 `type:"int32"`
-
-	QuotaUsed []*QuotaUsedForDescribeDeploymentSetsOutput `type:"list"`
 
 	Strategy *string `type:"string"`
 }
@@ -251,12 +245,6 @@ func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetGranularity(v string) 
 	return s
 }
 
-// SetGroupCount sets the GroupCount field's value.
-func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetGroupCount(v int32) *DeploymentSetForDescribeDeploymentSetsOutput {
-	s.GroupCount = &v
-	return s
-}
-
 // SetInstanceAmount sets the InstanceAmount field's value.
 func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetInstanceAmount(v int32) *DeploymentSetForDescribeDeploymentSetsOutput {
 	s.InstanceAmount = &v
@@ -269,18 +257,6 @@ func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetInstanceIds(v []*strin
 	return s
 }
 
-// SetQuota sets the Quota field's value.
-func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuota(v int32) *DeploymentSetForDescribeDeploymentSetsOutput {
-	s.Quota = &v
-	return s
-}
-
-// SetQuotaUsed sets the QuotaUsed field's value.
-func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetQuotaUsed(v []*QuotaUsedForDescribeDeploymentSetsOutput) *DeploymentSetForDescribeDeploymentSetsOutput {
-	s.QuotaUsed = v
-	return s
-}
-
 // SetStrategy sets the Strategy field's value.
 func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetStrategy(v string) *DeploymentSetForDescribeDeploymentSetsOutput {
 	s.Strategy = &v
@@ -289,8 +265,6 @@ func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetStrategy(v string) *De
 
 type DescribeDeploymentSetsInput struct {
 	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
 
 	DeploymentSetIds []*string `type:"list"`
 
@@ -301,10 +275,6 @@ type DescribeDeploymentSetsInput struct {
 	MaxResults *int32 `type:"int32"`
 
 	NextToken *string `type:"string"`
-
-	PageNumber *int32 `type:"int32"`
-
-	PageSize *int32 `type:"int32"`
 
 	Strategy *string `type:"string"`
 }
@@ -317,12 +287,6 @@ func (s DescribeDeploymentSetsInput) String() string {
 // GoString returns the string representation
 func (s DescribeDeploymentSetsInput) GoString() string {
 	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *DescribeDeploymentSetsInput) SetAccountId(v string) *DescribeDeploymentSetsInput {
-	s.AccountId = &v
-	return s
 }
 
 // SetDeploymentSetIds sets the DeploymentSetIds field's value.
@@ -355,18 +319,6 @@ func (s *DescribeDeploymentSetsInput) SetNextToken(v string) *DescribeDeployment
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeDeploymentSetsInput) SetPageNumber(v int32) *DescribeDeploymentSetsInput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeDeploymentSetsInput) SetPageSize(v int32) *DescribeDeploymentSetsInput {
-	s.PageSize = &v
-	return s
-}
-
 // SetStrategy sets the Strategy field's value.
 func (s *DescribeDeploymentSetsInput) SetStrategy(v string) *DescribeDeploymentSetsInput {
 	s.Strategy = &v
@@ -381,12 +333,6 @@ type DescribeDeploymentSetsOutput struct {
 	DeploymentSets []*DeploymentSetForDescribeDeploymentSetsOutput `type:"list"`
 
 	NextToken *string `type:"string"`
-
-	PageNumber *int32 `type:"int32"`
-
-	PageSize *int32 `type:"int32"`
-
-	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -408,53 +354,5 @@ func (s *DescribeDeploymentSetsOutput) SetDeploymentSets(v []*DeploymentSetForDe
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeDeploymentSetsOutput) SetNextToken(v string) *DescribeDeploymentSetsOutput {
 	s.NextToken = &v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeDeploymentSetsOutput) SetPageNumber(v int32) *DescribeDeploymentSetsOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeDeploymentSetsOutput) SetPageSize(v int32) *DescribeDeploymentSetsOutput {
-	s.PageSize = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *DescribeDeploymentSetsOutput) SetTotalCount(v int32) *DescribeDeploymentSetsOutput {
-	s.TotalCount = &v
-	return s
-}
-
-type QuotaUsedForDescribeDeploymentSetsOutput struct {
-	_ struct{} `type:"structure"`
-
-	Count *int32 `type:"int32"`
-
-	ZoneId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s QuotaUsedForDescribeDeploymentSetsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s QuotaUsedForDescribeDeploymentSetsOutput) GoString() string {
-	return s.String()
-}
-
-// SetCount sets the Count field's value.
-func (s *QuotaUsedForDescribeDeploymentSetsOutput) SetCount(v int32) *QuotaUsedForDescribeDeploymentSetsOutput {
-	s.Count = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *QuotaUsedForDescribeDeploymentSetsOutput) SetZoneId(v string) *QuotaUsedForDescribeDeploymentSetsOutput {
-	s.ZoneId = &v
 	return s
 }

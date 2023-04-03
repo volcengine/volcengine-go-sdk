@@ -142,8 +142,6 @@ func (c *ECS) CreateImageWithContext(ctx volcengine.Context, input *CreateImageI
 type CreateImageInput struct {
 	_ struct{} `type:"structure"`
 
-	CreateWholeImage *bool `type:"boolean"`
-
 	Description *string `type:"string"`
 
 	ImageName *string `type:"string"`
@@ -151,8 +149,6 @@ type CreateImageInput struct {
 	InstanceId *string `type:"string"`
 
 	ProjectName *string `type:"string"`
-
-	SnapshotGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -163,12 +159,6 @@ func (s CreateImageInput) String() string {
 // GoString returns the string representation
 func (s CreateImageInput) GoString() string {
 	return s.String()
-}
-
-// SetCreateWholeImage sets the CreateWholeImage field's value.
-func (s *CreateImageInput) SetCreateWholeImage(v bool) *CreateImageInput {
-	s.CreateWholeImage = &v
-	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -192,12 +182,6 @@ func (s *CreateImageInput) SetInstanceId(v string) *CreateImageInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateImageInput) SetProjectName(v string) *CreateImageInput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetSnapshotGroupId sets the SnapshotGroupId field's value.
-func (s *CreateImageInput) SetSnapshotGroupId(v string) *CreateImageInput {
-	s.SnapshotGroupId = &v
 	return s
 }
 

@@ -142,8 +142,6 @@ func (c *CEN) DescribeCenInterRegionBandwidthsWithContext(ctx volcengine.Context
 type DescribeCenInterRegionBandwidthsInput struct {
 	_ struct{} `type:"structure"`
 
-	CenId *string `type:"string"`
-
 	InterRegionBandwidthIds []*string `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
@@ -159,12 +157,6 @@ func (s DescribeCenInterRegionBandwidthsInput) String() string {
 // GoString returns the string representation
 func (s DescribeCenInterRegionBandwidthsInput) GoString() string {
 	return s.String()
-}
-
-// SetCenId sets the CenId field's value.
-func (s *DescribeCenInterRegionBandwidthsInput) SetCenId(v string) *DescribeCenInterRegionBandwidthsInput {
-	s.CenId = &v
-	return s
 }
 
 // SetInterRegionBandwidthIds sets the InterRegionBandwidthIds field's value.
@@ -238,8 +230,6 @@ type InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
-	CenBandwidthPackageId *string `type:"string"`
-
 	CenId *string `type:"string"`
 
 	CreationTime *string `type:"string"`
@@ -268,12 +258,6 @@ func (s InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput) GoString(
 // SetBandwidth sets the Bandwidth field's value.
 func (s *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput) SetBandwidth(v int64) *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
 	s.Bandwidth = &v
-	return s
-}
-
-// SetCenBandwidthPackageId sets the CenBandwidthPackageId field's value.
-func (s *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput) SetCenBandwidthPackageId(v string) *InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
-	s.CenBandwidthPackageId = &v
 	return s
 }
 

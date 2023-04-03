@@ -150,8 +150,6 @@ type DescribeVpnGatewayRoutesInput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	Status *string `type:"string"`
-
 	VpnGatewayId *string `type:"string"`
 
 	VpnGatewayRouteIds []*string `type:"list"`
@@ -188,12 +186,6 @@ func (s *DescribeVpnGatewayRoutesInput) SetPageNumber(v int64) *DescribeVpnGatew
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeVpnGatewayRoutesInput) SetPageSize(v int64) *DescribeVpnGatewayRoutesInput {
 	s.PageSize = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *DescribeVpnGatewayRoutesInput) SetStatus(v string) *DescribeVpnGatewayRoutesInput {
-	s.Status = &v
 	return s
 }
 

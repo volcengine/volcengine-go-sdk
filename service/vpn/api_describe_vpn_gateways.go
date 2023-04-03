@@ -150,8 +150,6 @@ type DescribeVpnGatewaysInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Status *string `type:"string"`
-
 	SubnetId *string `type:"string"`
 
 	TagFilters []*TagFilterForDescribeVpnGatewaysInput `type:"list"`
@@ -194,12 +192,6 @@ func (s *DescribeVpnGatewaysInput) SetPageSize(v int64) *DescribeVpnGatewaysInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeVpnGatewaysInput) SetProjectName(v string) *DescribeVpnGatewaysInput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *DescribeVpnGatewaysInput) SetStatus(v string) *DescribeVpnGatewaysInput {
-	s.Status = &v
 	return s
 }
 
@@ -293,8 +285,6 @@ type TagFilterForDescribeVpnGatewaysInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
-
-	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -310,12 +300,6 @@ func (s TagFilterForDescribeVpnGatewaysInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeVpnGatewaysInput) SetKey(v string) *TagFilterForDescribeVpnGatewaysInput {
 	s.Key = &v
-	return s
-}
-
-// SetValues sets the Values field's value.
-func (s *TagFilterForDescribeVpnGatewaysInput) SetValues(v []*string) *TagFilterForDescribeVpnGatewaysInput {
-	s.Values = v
 	return s
 }
 
