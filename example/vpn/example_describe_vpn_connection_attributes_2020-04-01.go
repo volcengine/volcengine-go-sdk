@@ -1,4 +1,4 @@
-package main
+package vpn_example
 
 import (
 	"fmt"
