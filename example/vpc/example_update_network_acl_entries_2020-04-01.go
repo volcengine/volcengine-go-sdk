@@ -5,7 +5,7 @@ import (
 
 	"github.com/volcengine/volcengine-go-sdk/service/vpc"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
-    "github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 )
 func UpdateNetworkAclEntries() {
