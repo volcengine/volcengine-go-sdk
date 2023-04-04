@@ -1,4 +1,4 @@
-package ecs_example
+package ecsexample
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package vpc_example
+package vpcexample
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package clb_example
+package clbexample
 
 import (
 	"fmt"

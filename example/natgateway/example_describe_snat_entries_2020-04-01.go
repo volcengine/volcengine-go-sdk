@@ -1,4 +1,4 @@
-package natgateway_example
+package natgatewayexample
 
 import (
 	"fmt"

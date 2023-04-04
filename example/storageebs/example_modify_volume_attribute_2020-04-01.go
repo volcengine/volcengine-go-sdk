@@ -1,4 +1,4 @@
-package storageebs_example
+package storageebsexample
 
 import (
 	"fmt"

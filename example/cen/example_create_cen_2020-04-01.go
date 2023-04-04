@@ -1,4 +1,4 @@
-package cen_example
+package cenexample
 
 import (
 	"fmt"
