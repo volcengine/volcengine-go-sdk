@@ -13,8 +13,7 @@ func CreateListener() {
 	ak, sk, region := "Your AK", "Your SK", "Region"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-		WithDisableSSL(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
@@ -25,8 +24,10 @@ func CreateListener() {
 		AclStatus: volcengine.String("on"),
 		AclType: volcengine.String("black"),
 		Enabled: volcengine.String("on"),
+		EstablishedTimeout: volcengine.Int64(122),
 		ListenerName: volcengine.String("mylistener"),
 		LoadBalancerId: volcengine.String("clb-bp1o94dp5i6ea****"),
+		Port: volcengine.Int64(12),
 		Protocol: volcengine.String("TCP"),
 		Scheduler: volcengine.String("wrr"),
 		ServerGroupId: volcengine.String("rsp-bp1o94dp5i6ea****"),

@@ -13,14 +13,15 @@ func DescribeNetworkInterfaces() {
 	ak, sk, region := "Your AK", "Your SK", "Region"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-		WithDisableSSL(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
 	}
 	svc := vpc.New(sess)
 	describeNetworkInterfacesInput := &vpc.DescribeNetworkInterfacesInput{
+		PageNumber: volcengine.Int64(1),
+		PageSize: volcengine.Int64(100),
 		VpcId: volcengine.String("vpc-bp15zckdt37pq72zv****"),
 	}
 

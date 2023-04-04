@@ -13,8 +13,7 @@ func DescribeListenerHealth() {
 	ak, sk, region := "Your AK", "Your SK", "Region"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-		WithDisableSSL(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
@@ -23,6 +22,8 @@ func DescribeListenerHealth() {
 	describeListenerHealthInput := &clb.DescribeListenerHealthInput{
 		ListenerId: volcengine.String("lsn-2fek3rgsxhrsw5oxruwec****"),
 		OnlyUnHealthy: volcengine.String("true"),
+		PageNumber: volcengine.Int64(1),
+		PageSize: volcengine.Int64(20),
 	}
 
 	resp, err := svc.DescribeListenerHealth(describeListenerHealthInput)

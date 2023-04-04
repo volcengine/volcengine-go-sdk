@@ -13,8 +13,7 @@ func AddServerGroupBackendServers() {
 	ak, sk, region := "Your AK", "Your SK", "Region"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-		WithDisableSSL(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
@@ -24,7 +23,9 @@ func AddServerGroupBackendServers() {
 		Description: volcengine.String("ecs1"),
 		InstanceId: volcengine.String("i-3tkuehz8oa3vj0wz****"),
 		Ip: volcengine.String("192.XX.XX.2"),
+		Port: volcengine.Int64(1),
 		Type: volcengine.String("ecs"),
+		Weight: volcengine.Int64(100),
 	}
 	addServerGroupBackendServersInput := &clb.AddServerGroupBackendServersInput{
 		ServerGroupId: volcengine.String("rsp-bp1o94dp5i6ea****"),

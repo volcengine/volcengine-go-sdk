@@ -13,14 +13,14 @@ func ModifyCenBandwidthPackageAttributes() {
 	ak, sk, region := "Your AK", "Your SK", "Region"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-		WithDisableSSL(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
 	}
 	svc := cen.New(sess)
 	modifyCenBandwidthPackageAttributesInput := &cen.ModifyCenBandwidthPackageAttributesInput{
+		Bandwidth: volcengine.Int64(100),
 		CenBandwidthPackageId: volcengine.String("cbp-4c2zaavbvh5fx****"),
 	}
 

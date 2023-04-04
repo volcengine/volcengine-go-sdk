@@ -13,14 +13,14 @@ func CreateLoadBalancer() {
 	ak, sk, region := "Your AK", "Your SK", "Region"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-		WithDisableSSL(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
 	}
 	svc := clb.New(sess)
 	createLoadBalancerInput := &clb.CreateLoadBalancerInput{
+		LoadBalancerBillingType: volcengine.Int64(2),
 		LoadBalancerName: volcengine.String("clb-test"),
 		LoadBalancerSpec: volcengine.String("small_1"),
 		Type: volcengine.String("private"),

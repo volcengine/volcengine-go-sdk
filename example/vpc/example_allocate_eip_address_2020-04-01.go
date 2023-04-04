@@ -13,14 +13,15 @@ func AllocateEipAddress() {
 	ak, sk, region := "Your AK", "Your SK", "Region"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-		WithDisableSSL(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
 	}
 	svc := vpc.New(sess)
 	allocateEipAddressInput := &vpc.AllocateEipAddressInput{
+		Bandwidth: volcengine.Int64(10),
+		BillingType: volcengine.Int64(2),
 		ISP: volcengine.String("BGP"),
 	}
 

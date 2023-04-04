@@ -13,8 +13,7 @@ func ModifyEipAddressAttributes() {
 	ak, sk, region := "Your AK", "Your SK", "Region"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-		WithDisableSSL(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
@@ -22,6 +21,7 @@ func ModifyEipAddressAttributes() {
 	svc := vpc.New(sess)
 	modifyEipAddressAttributesInput := &vpc.ModifyEipAddressAttributesInput{
 		AllocationId: volcengine.String("eip-2zb7uj8xscd****"),
+		Bandwidth: volcengine.Int64(10),
 	}
 
 	resp, err := svc.ModifyEipAddressAttributes(modifyEipAddressAttributesInput)

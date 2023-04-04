@@ -13,15 +13,16 @@ func ModifyServerGroupAttributes() {
 	ak, sk, region := "Your AK", "Your SK", "Region"
 	config := volcengine.NewConfig().
 		WithRegion(region).
-		WithCredentials(credentials.NewStaticCredentials(ak, sk, "")).
-		WithDisableSSL(true)
+		WithCredentials(credentials.NewStaticCredentials(ak, sk, ""))
 	sess, err := session.NewSession(config)
 	if err != nil {
 		panic(err)
 	}
 	svc := clb.New(sess)
 	reqServers0 := &clb.ServerForModifyServerGroupAttributesInput{
+		Port: volcengine.Int64(88),
 		ServerId: volcengine.String("rs-mjc9b2p0v6rk5smt1b27****"),
+		Weight: volcengine.Int64(100),
 	}
 	modifyServerGroupAttributesInput := &clb.ModifyServerGroupAttributesInput{
 		ServerGroupId: volcengine.String("rsp-bp1o94dp5i6ea****"),
