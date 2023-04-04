@@ -20,7 +20,7 @@ func EnableAccessLog() {
 	}
 	svc := clb.New(sess)
 	enableAccessLogInput := &clb.EnableAccessLogInput{
-		BucketName: volcengine.String("clb-tos1"),
+		BucketName:     volcengine.String("clb-tos1"),
 		LoadBalancerId: volcengine.String("clb-bp1b6c719dfa08ex****"),
 	}
 

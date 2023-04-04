@@ -20,17 +20,17 @@ func CreateListener() {
 	}
 	svc := clb.New(sess)
 	createListenerInput := &clb.CreateListenerInput{
-		AclIds: volcengine.StringSlice([]string{"acl-3cj44nv0jhhxc6c6rrtet****"}),
-		AclStatus: volcengine.String("on"),
-		AclType: volcengine.String("black"),
-		Enabled: volcengine.String("on"),
+		AclIds:             volcengine.StringSlice([]string{"acl-3cj44nv0jhhxc6c6rrtet****"}),
+		AclStatus:          volcengine.String("on"),
+		AclType:            volcengine.String("black"),
+		Enabled:            volcengine.String("on"),
 		EstablishedTimeout: volcengine.Int64(122),
-		ListenerName: volcengine.String("mylistener"),
-		LoadBalancerId: volcengine.String("clb-bp1o94dp5i6ea****"),
-		Port: volcengine.Int64(12),
-		Protocol: volcengine.String("TCP"),
-		Scheduler: volcengine.String("wrr"),
-		ServerGroupId: volcengine.String("rsp-bp1o94dp5i6ea****"),
+		ListenerName:       volcengine.String("mylistener"),
+		LoadBalancerId:     volcengine.String("clb-bp1o94dp5i6ea****"),
+		Port:               volcengine.Int64(12),
+		Protocol:           volcengine.String("TCP"),
+		Scheduler:          volcengine.String("wrr"),
+		ServerGroupId:      volcengine.String("rsp-bp1o94dp5i6ea****"),
 	}
 
 	resp, err := svc.CreateListener(createListenerInput)

@@ -21,7 +21,7 @@ func AttachVolume() {
 	svc := storageebs.New(sess)
 	attachVolumeInput := &storageebs.AttachVolumeInput{
 		InstanceId: volcengine.String("i-3tir90q84q3vj0x1****"),
-		VolumeId: volcengine.String("vol-3tir92lne23vj0x1****"),
+		VolumeId:   volcengine.String("vol-3tir92lne23vj0x1****"),
 	}
 
 	resp, err := svc.AttachVolume(attachVolumeInput)

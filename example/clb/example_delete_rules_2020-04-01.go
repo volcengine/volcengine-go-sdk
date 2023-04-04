@@ -21,7 +21,7 @@ func DeleteRules() {
 	svc := clb.New(sess)
 	deleteRulesInput := &clb.DeleteRulesInput{
 		ListenerId: volcengine.String("lsn-2fek3rgsxhrsw5oxruwec****"),
-		RuleIds: volcengine.StringSlice([]string{"rule-2fegss1cplxxc5oxruvvq****"}),
+		RuleIds:    volcengine.StringSlice([]string{"rule-2fegss1cplxxc5oxruvvq****"}),
 	}
 
 	resp, err := svc.DeleteRules(deleteRulesInput)

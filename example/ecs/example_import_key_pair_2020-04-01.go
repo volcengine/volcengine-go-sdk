@@ -21,7 +21,7 @@ func ImportKeyPair() {
 	svc := ecs.New(sess)
 	importKeyPairInput := &ecs.ImportKeyPairInput{
 		KeyPairName: volcengine.String("ssh_key_pair"),
-		PublicKey: volcengine.String("ssh-rsa AaaAAB3NzaC1yc2EAAAADAQ******"),
+		PublicKey:   volcengine.String("ssh-rsa AaaAAB3NzaC1yc2EAAAADAQ******"),
 	}
 
 	resp, err := svc.ImportKeyPair(importKeyPairInput)

@@ -21,15 +21,15 @@ func CreateServerGroup() {
 	svc := clb.New(sess)
 	reqServers0 := &clb.ServerForCreateServerGroupInput{
 		InstanceId: volcengine.String("i-3tkuehz8oa3vj0wz****"),
-		Ip: volcengine.String("192.XX.XX.2"),
-		Port: volcengine.Int64(88),
-		Type: volcengine.String("ecs"),
-		Weight: volcengine.Int64(100),
+		Ip:         volcengine.String("192.XX.XX.2"),
+		Port:       volcengine.Int64(88),
+		Type:       volcengine.String("ecs"),
+		Weight:     volcengine.Int64(100),
 	}
 	createServerGroupInput := &clb.CreateServerGroupInput{
-		LoadBalancerId: volcengine.String("clb-bp1b6c719dfa08ex****"),
+		LoadBalancerId:  volcengine.String("clb-bp1b6c719dfa08ex****"),
 		ServerGroupName: volcengine.String("myservergroup"),
-		Servers: []*clb.ServerForCreateServerGroupInput{reqServers0},
+		Servers:         []*clb.ServerForCreateServerGroupInput{reqServers0},
 	}
 
 	resp, err := svc.CreateServerGroup(createServerGroupInput)

@@ -20,7 +20,7 @@ func ModifyCenBandwidthPackageAttributes() {
 	}
 	svc := cen.New(sess)
 	modifyCenBandwidthPackageAttributesInput := &cen.ModifyCenBandwidthPackageAttributesInput{
-		Bandwidth: volcengine.Int64(100),
+		Bandwidth:             volcengine.Int64(100),
 		CenBandwidthPackageId: volcengine.String("cbp-4c2zaavbvh5fx****"),
 	}
 

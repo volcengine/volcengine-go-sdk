@@ -20,10 +20,10 @@ func CreateVpc() {
 	}
 	svc := vpc.New(sess)
 	createVpcInput := &vpc.CreateVpcInput{
-		CidrBlock: volcengine.String("172.XX.XX.0/12"),
+		CidrBlock:   volcengine.String("172.XX.XX.0/12"),
 		Description: volcengine.String("test"),
-		DnsServers: volcengine.StringSlice([]string{"1.XX.XX.1"}),
-		VpcName: volcengine.String("test"),
+		DnsServers:  volcengine.StringSlice([]string{"1.XX.XX.1"}),
+		VpcName:     volcengine.String("test"),
 	}
 
 	resp, err := svc.CreateVpc(createVpcInput)

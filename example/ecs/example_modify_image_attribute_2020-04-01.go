@@ -21,8 +21,8 @@ func ModifyImageAttribute() {
 	svc := ecs.New(sess)
 	modifyImageAttributeInput := &ecs.ModifyImageAttributeInput{
 		Description: volcengine.String("abc"),
-		ImageId: volcengine.String("image-ebgy1og99tfct0gw****"),
-		ImageName: volcengine.String("image1"),
+		ImageId:     volcengine.String("image-ebgy1og99tfct0gw****"),
+		ImageName:   volcengine.String("image1"),
 	}
 
 	resp, err := svc.ModifyImageAttribute(modifyImageAttributeInput)

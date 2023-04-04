@@ -20,7 +20,7 @@ func RebootInstances() {
 	}
 	svc := ecs.New(sess)
 	rebootInstancesInput := &ecs.RebootInstancesInput{
-		InstanceIds: volcengine.StringSlice([]string{"i-ybo349sxoncm9t******","i-ybo349sxolcm9t******"}),
+		InstanceIds: volcengine.StringSlice([]string{"i-ybo349sxoncm9t******", "i-ybo349sxolcm9t******"}),
 	}
 
 	resp, err := svc.RebootInstances(rebootInstancesInput)

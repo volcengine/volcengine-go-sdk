@@ -20,9 +20,9 @@ func DescribeCenAttachedInstances() {
 	}
 	svc := cen.New(sess)
 	describeCenAttachedInstancesInput := &cen.DescribeCenAttachedInstancesInput{
-		CenId: volcengine.String("cen-7qthudw0ll6jmc****"),
+		CenId:      volcengine.String("cen-7qthudw0ll6jmc****"),
 		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(20),
+		PageSize:   volcengine.Int64(20),
 	}
 
 	resp, err := svc.DescribeCenAttachedInstances(describeCenAttachedInstancesInput)

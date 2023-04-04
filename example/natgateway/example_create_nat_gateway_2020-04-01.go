@@ -20,9 +20,9 @@ func CreateNatGateway() {
 	}
 	svc := natgateway.New(sess)
 	createNatGatewayInput := &natgateway.CreateNatGatewayInput{
-		Spec: volcengine.String("Small"),
+		Spec:     volcengine.String("Small"),
 		SubnetId: volcengine.String("subnet-2feypga30rgg059gp67ag****"),
-		VpcId: volcengine.String("vpc-2feypfmenesqo59gp67yz****"),
+		VpcId:    volcengine.String("vpc-2feypfmenesqo59gp67yz****"),
 	}
 
 	resp, err := svc.CreateNatGateway(createNatGatewayInput)

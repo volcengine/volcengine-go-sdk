@@ -20,9 +20,9 @@ func ReplaceSystemVolume() {
 	}
 	svc := ecs.New(sess)
 	replaceSystemVolumeInput := &ecs.ReplaceSystemVolumeInput{
-		ImageId: volcengine.String("image-38dfk6rfisf6kir6****"),
+		ImageId:    volcengine.String("image-38dfk6rfisf6kir6****"),
 		InstanceId: volcengine.String("i-a8j6n1i4hojfqpa0****"),
-		Password: volcengine.String("Password@123"),
+		Password:   volcengine.String("Password@123"),
 	}
 
 	resp, err := svc.ReplaceSystemVolume(replaceSystemVolumeInput)

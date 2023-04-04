@@ -21,9 +21,9 @@ func CreateRouteEntry() {
 	svc := vpc.New(sess)
 	createRouteEntryInput := &vpc.CreateRouteEntryInput{
 		DestinationCidrBlock: volcengine.String("8.XX.XX.8/16"),
-		NextHopId: volcengine.String("NetworkInterface"),
-		NextHopType: volcengine.String("eni-2fdzbqxfwrt345oxru******"),
-		RouteTableId: volcengine.String("vtb-2fdzao4h726f45oxruw******"),
+		NextHopId:            volcengine.String("NetworkInterface"),
+		NextHopType:          volcengine.String("eni-2fdzbqxfwrt345oxru******"),
+		RouteTableId:         volcengine.String("vtb-2fdzao4h726f45oxruw******"),
 	}
 
 	resp, err := svc.CreateRouteEntry(createRouteEntryInput)

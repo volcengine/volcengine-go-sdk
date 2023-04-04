@@ -20,11 +20,11 @@ func CreateCenBandwidthPackage() {
 	}
 	svc := cen.New(sess)
 	createCenBandwidthPackageInput := &cen.CreateCenBandwidthPackageInput{
-		CenBandwidthPackageName: volcengine.String("cbp-test"),
-		CenId: volcengine.String("cen-7qthudw0ll6jmc****"),
-		Description: volcengine.String("namedesc"),
+		CenBandwidthPackageName:    volcengine.String("cbp-test"),
+		CenId:                      volcengine.String("cen-7qthudw0ll6jmc****"),
+		Description:                volcengine.String("namedesc"),
 		LocalGeographicRegionSetId: volcengine.String("China"),
-		PeerGeographicRegionSetId: volcengine.String("China"),
+		PeerGeographicRegionSetId:  volcengine.String("China"),
 	}
 
 	resp, err := svc.CreateCenBandwidthPackage(createCenBandwidthPackageInput)

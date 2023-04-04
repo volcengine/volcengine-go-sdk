@@ -21,8 +21,8 @@ func CreateSubnet() {
 	svc := vpc.New(sess)
 	createSubnetInput := &vpc.CreateSubnetInput{
 		CidrBlock: volcengine.String("172.XX.XX.0/24"),
-		VpcId: volcengine.String("vpc-257gqcdfvx6n****"),
-		ZoneId: volcengine.String("cn-beijing-a"),
+		VpcId:     volcengine.String("vpc-257gqcdfvx6n****"),
+		ZoneId:    volcengine.String("cn-beijing-a"),
 	}
 
 	resp, err := svc.CreateSubnet(createSubnetInput)

@@ -20,13 +20,13 @@ func CreateTags() {
 	}
 	svc := ecs.New(sess)
 	reqTags0 := &ecs.TagForCreateTagsInput{
-		Key: volcengine.String("k1"),
+		Key:   volcengine.String("k1"),
 		Value: volcengine.String("v1"),
 	}
 	createTagsInput := &ecs.CreateTagsInput{
-		ResourceIds: volcengine.StringSlice([]string{"i-l8u0p77yseabkpak****","i-l8u0p7xyseabkbak****"}),
+		ResourceIds:  volcengine.StringSlice([]string{"i-l8u0p77yseabkpak****", "i-l8u0p7xyseabkbak****"}),
 		ResourceType: volcengine.String("instance"),
-		Tags: []*ecs.TagForCreateTagsInput{reqTags0},
+		Tags:         []*ecs.TagForCreateTagsInput{reqTags0},
 	}
 
 	resp, err := svc.CreateTags(createTagsInput)

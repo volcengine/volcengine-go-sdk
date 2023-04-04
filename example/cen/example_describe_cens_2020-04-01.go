@@ -21,7 +21,7 @@ func DescribeCens() {
 	svc := cen.New(sess)
 	describeCensInput := &cen.DescribeCensInput{
 		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(20),
+		PageSize:   volcengine.Int64(20),
 	}
 
 	resp, err := svc.DescribeCens(describeCensInput)

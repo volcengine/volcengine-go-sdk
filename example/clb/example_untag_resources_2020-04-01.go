@@ -20,9 +20,9 @@ func UntagResources() {
 	}
 	svc := clb.New(sess)
 	untagResourcesInput := &clb.UntagResourcesInput{
-		ResourceIds: volcengine.StringSlice([]string{"clb-273sdsdsxxxxxp8u2j****","clb-2fe6fszjgeznk5oxruv0u****"}),
+		ResourceIds:  volcengine.StringSlice([]string{"clb-273sdsdsxxxxxp8u2j****", "clb-2fe6fszjgeznk5oxruv0u****"}),
 		ResourceType: volcengine.String("CLB"),
-		TagKeys: volcengine.StringSlice([]string{"k1","k2"}),
+		TagKeys:      volcengine.StringSlice([]string{"k1", "k2"}),
 	}
 
 	resp, err := svc.UntagResources(untagResourcesInput)

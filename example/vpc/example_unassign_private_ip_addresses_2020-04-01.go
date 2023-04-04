@@ -21,7 +21,7 @@ func UnassignPrivateIpAddresses() {
 	svc := vpc.New(sess)
 	unassignPrivateIpAddressesInput := &vpc.UnassignPrivateIpAddressesInput{
 		NetworkInterfaceId: volcengine.String("eni-bp67acfmxazb4ph****"),
-		PrivateIpAddress: volcengine.StringSlice([]string{"192.168.XX.10"}),
+		PrivateIpAddress:   volcengine.StringSlice([]string{"192.168.XX.10"}),
 	}
 
 	resp, err := svc.UnassignPrivateIpAddresses(unassignPrivateIpAddressesInput)

@@ -21,7 +21,7 @@ func DisassociateRouteTable() {
 	svc := vpc.New(sess)
 	disassociateRouteTableInput := &vpc.DisassociateRouteTableInput{
 		RouteTableId: volcengine.String("vpc-2fdz8g5nruzuo5oxr******"),
-		SubnetId: volcengine.String("ubnet-2fdzaou4liw3k5o******"),
+		SubnetId:     volcengine.String("ubnet-2fdzaou4liw3k5o******"),
 	}
 
 	resp, err := svc.DisassociateRouteTable(disassociateRouteTableInput)

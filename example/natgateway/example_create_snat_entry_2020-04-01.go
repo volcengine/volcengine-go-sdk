@@ -20,10 +20,10 @@ func CreateSnatEntry() {
 	}
 	svc := natgateway.New(sess)
 	createSnatEntryInput := &natgateway.CreateSnatEntryInput{
-		EipId: volcengine.String("eip-2feaac9wtccn459gp67****"),
-		NatGatewayId: volcengine.String("ngw-2fedgzyvtzaio59gp675****"),
+		EipId:         volcengine.String("eip-2feaac9wtccn459gp67****"),
+		NatGatewayId:  volcengine.String("ngw-2fedgzyvtzaio59gp675****"),
 		SnatEntryName: volcengine.String("snat-01"),
-		SubnetId: volcengine.String("subnet-2fe1vklp295a859gp6766****"),
+		SubnetId:      volcengine.String("subnet-2fe1vklp295a859gp6766****"),
 	}
 
 	resp, err := svc.CreateSnatEntry(createSnatEntryInput)

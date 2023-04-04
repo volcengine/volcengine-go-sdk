@@ -20,9 +20,9 @@ func AllocateEipAddress() {
 	}
 	svc := vpc.New(sess)
 	allocateEipAddressInput := &vpc.AllocateEipAddressInput{
-		Bandwidth: volcengine.Int64(10),
+		Bandwidth:   volcengine.Int64(10),
 		BillingType: volcengine.Int64(2),
-		ISP: volcengine.String("BGP"),
+		ISP:         volcengine.String("BGP"),
 	}
 
 	resp, err := svc.AllocateEipAddress(allocateEipAddressInput)

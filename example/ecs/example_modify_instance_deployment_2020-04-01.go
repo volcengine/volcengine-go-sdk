@@ -21,7 +21,7 @@ func ModifyInstanceDeployment() {
 	svc := ecs.New(sess)
 	modifyInstanceDeploymentInput := &ecs.ModifyInstanceDeploymentInput{
 		DeploymentSetId: volcengine.String("dps-yc1o9aahks5m57nk****"),
-		InstanceId: volcengine.String("i-3tigy72q3u3vj0x2****"),
+		InstanceId:      volcengine.String("i-3tigy72q3u3vj0x2****"),
 	}
 
 	resp, err := svc.ModifyInstanceDeployment(modifyInstanceDeploymentInput)

@@ -20,10 +20,10 @@ func ModifyLoadBalancerAttributes() {
 	}
 	svc := clb.New(sess)
 	modifyLoadBalancerAttributesInput := &clb.ModifyLoadBalancerAttributesInput{
-		Description: volcengine.String("test"),
-		LoadBalancerId: volcengine.String("clb-bp1b6c719dfa08ex****"),
-		LoadBalancerName: volcengine.String("clb-test1"),
-		LoadBalancerSpec: volcengine.String("small_1"),
+		Description:                  volcengine.String("test"),
+		LoadBalancerId:               volcengine.String("clb-bp1b6c719dfa08ex****"),
+		LoadBalancerName:             volcengine.String("clb-test1"),
+		LoadBalancerSpec:             volcengine.String("small_1"),
 		ModificationProtectionReason: volcengine.String("实例托管"),
 		ModificationProtectionStatus: volcengine.String("ConsoleProtection"),
 	}

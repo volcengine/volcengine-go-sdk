@@ -21,7 +21,7 @@ func UpdateSystemEvents() {
 	svc := ecs.New(sess)
 	updateSystemEventsInput := &ecs.UpdateSystemEventsInput{
 		EventIds: volcengine.StringSlice([]string{"t-3ti9101aju3vj0******"}),
-		Status: volcengine.String("Executing"),
+		Status:   volcengine.String("Executing"),
 	}
 
 	resp, err := svc.UpdateSystemEvents(updateSystemEventsInput)

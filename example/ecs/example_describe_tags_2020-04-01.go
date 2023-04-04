@@ -20,13 +20,13 @@ func DescribeTags() {
 	}
 	svc := ecs.New(sess)
 	reqTagFilters0 := &ecs.TagFilterForDescribeTagsInput{
-		Key: volcengine.String("k1"),
-		Values: volcengine.StringSlice([]string{"v1","v2"}),
+		Key:    volcengine.String("k1"),
+		Values: volcengine.StringSlice([]string{"v1", "v2"}),
 	}
 	describeTagsInput := &ecs.DescribeTagsInput{
-		ResourceIds: volcengine.StringSlice([]string{"i-l8u0p77yseabkpak****","i-l8u0p7xyseabkbak****"}),
+		ResourceIds:  volcengine.StringSlice([]string{"i-l8u0p77yseabkpak****", "i-l8u0p7xyseabkbak****"}),
 		ResourceType: volcengine.String("instance"),
-		TagFilters: []*ecs.TagFilterForDescribeTagsInput{reqTagFilters0},
+		TagFilters:   []*ecs.TagFilterForDescribeTagsInput{reqTagFilters0},
 	}
 
 	resp, err := svc.DescribeTags(describeTagsInput)

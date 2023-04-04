@@ -20,7 +20,7 @@ func StopInstances() {
 	}
 	svc := ecs.New(sess)
 	stopInstancesInput := &ecs.StopInstancesInput{
-		InstanceIds: volcengine.StringSlice([]string{"i-ybo349sxoncm9t******","i-ybo349sxolcm9t******"}),
+		InstanceIds: volcengine.StringSlice([]string{"i-ybo349sxoncm9t******", "i-ybo349sxolcm9t******"}),
 	}
 
 	resp, err := svc.StopInstances(stopInstancesInput)

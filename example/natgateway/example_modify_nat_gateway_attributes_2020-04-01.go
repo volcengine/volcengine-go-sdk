@@ -21,7 +21,7 @@ func ModifyNatGatewayAttributes() {
 	svc := natgateway.New(sess)
 	modifyNatGatewayAttributesInput := &natgateway.ModifyNatGatewayAttributesInput{
 		NatGatewayId: volcengine.String("ngw-2fedgzyvtzaio59gp675l****"),
-		Spec: volcengine.String("Small"),
+		Spec:         volcengine.String("Small"),
 	}
 
 	resp, err := svc.ModifyNatGatewayAttributes(modifyNatGatewayAttributesInput)

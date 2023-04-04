@@ -20,9 +20,9 @@ func ModifyVpnGatewayAttributes() {
 	}
 	svc := vpn.New(sess)
 	modifyVpnGatewayAttributesInput := &vpn.ModifyVpnGatewayAttributesInput{
-		Bandwidth: volcengine.Int64(10),
-		Description: volcengine.String("test"),
-		VpnGatewayId: volcengine.String("vgw-12bfa2du7fojk17q7y1rk****"),
+		Bandwidth:      volcengine.Int64(10),
+		Description:    volcengine.String("test"),
+		VpnGatewayId:   volcengine.String("vgw-12bfa2du7fojk17q7y1rk****"),
 		VpnGatewayName: volcengine.String("test"),
 	}
 

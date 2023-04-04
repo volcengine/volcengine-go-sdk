@@ -20,7 +20,7 @@ func ListTagsForResources() {
 	}
 	svc := clb.New(sess)
 	listTagsForResourcesInput := &clb.ListTagsForResourcesInput{
-		ResourceIds: volcengine.StringSlice([]string{"clb-273sdsdsxxxxxp8u2j****","clb-2fe6fszjgeznk5oxruv0u****"}),
+		ResourceIds:  volcengine.StringSlice([]string{"clb-273sdsdsxxxxxp8u2j****", "clb-2fe6fszjgeznk5oxruv0u****"}),
 		ResourceType: volcengine.String("CLB"),
 	}
 

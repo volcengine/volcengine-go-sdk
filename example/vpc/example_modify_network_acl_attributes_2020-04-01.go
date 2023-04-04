@@ -20,8 +20,8 @@ func ModifyNetworkAclAttributes() {
 	}
 	svc := vpc.New(sess)
 	modifyNetworkAclAttributesInput := &vpc.ModifyNetworkAclAttributesInput{
-		Description: volcengine.String("testDescription"),
-		NetworkAclId: volcengine.String("acl-bp1fg655nh68xyz9****"),
+		Description:    volcengine.String("testDescription"),
+		NetworkAclId:   volcengine.String("acl-bp1fg655nh68xyz9****"),
 		NetworkAclName: volcengine.String("test-acl"),
 	}
 

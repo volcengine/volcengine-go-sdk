@@ -21,7 +21,7 @@ func ConvertLoadBalancerBillingType() {
 	svc := clb.New(sess)
 	convertLoadBalancerBillingTypeInput := &clb.ConvertLoadBalancerBillingTypeInput{
 		LoadBalancerBillingType: volcengine.Int64(1),
-		LoadBalancerId: volcengine.String("clb-bp1b6c719dfa08ex****"),
+		LoadBalancerId:          volcengine.String("clb-bp1b6c719dfa08ex****"),
 	}
 
 	resp, err := svc.ConvertLoadBalancerBillingType(convertLoadBalancerBillingTypeInput)

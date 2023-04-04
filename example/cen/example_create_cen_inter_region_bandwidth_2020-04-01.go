@@ -20,10 +20,10 @@ func CreateCenInterRegionBandwidth() {
 	}
 	svc := cen.New(sess)
 	createCenInterRegionBandwidthInput := &cen.CreateCenInterRegionBandwidthInput{
-		Bandwidth: volcengine.Int64(1000),
-		CenId: volcengine.String("cen-7qthudw0ll6jmc****"),
+		Bandwidth:     volcengine.Int64(1000),
+		CenId:         volcengine.String("cen-7qthudw0ll6jmc****"),
 		LocalRegionId: volcengine.String("cn-beijing"),
-		PeerRegionId: volcengine.String("cn-nantong"),
+		PeerRegionId:  volcengine.String("cn-nantong"),
 	}
 
 	resp, err := svc.CreateCenInterRegionBandwidth(createCenInterRegionBandwidthInput)

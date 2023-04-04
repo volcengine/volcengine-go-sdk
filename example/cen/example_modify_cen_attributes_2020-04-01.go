@@ -20,8 +20,8 @@ func ModifyCenAttributes() {
 	}
 	svc := cen.New(sess)
 	modifyCenAttributesInput := &cen.ModifyCenAttributesInput{
-		CenId: volcengine.String("cen-7qthudw0ll6jmc****"),
-		CenName: volcengine.String("cen-test"),
+		CenId:       volcengine.String("cen-7qthudw0ll6jmc****"),
+		CenName:     volcengine.String("cen-test"),
 		Description: volcengine.String("test"),
 	}
 

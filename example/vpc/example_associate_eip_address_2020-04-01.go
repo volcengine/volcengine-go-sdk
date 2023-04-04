@@ -21,7 +21,7 @@ func AssociateEipAddress() {
 	svc := vpc.New(sess)
 	associateEipAddressInput := &vpc.AssociateEipAddressInput{
 		AllocationId: volcengine.String("eip-2zeewb7ujxscd****"),
-		InstanceId: volcengine.String("i-2zebbhyczzaweeval****"),
+		InstanceId:   volcengine.String("i-2zebbhyczzaweeval****"),
 		InstanceType: volcengine.String("EcsInstance"),
 	}
 

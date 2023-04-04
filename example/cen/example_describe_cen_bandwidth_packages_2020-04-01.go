@@ -21,8 +21,8 @@ func DescribeCenBandwidthPackages() {
 	svc := cen.New(sess)
 	describeCenBandwidthPackagesInput := &cen.DescribeCenBandwidthPackagesInput{
 		CenBandwidthPackageIds: volcengine.StringSlice([]string{"cbp-bp1o94dp5****"}),
-		CenId: volcengine.String("cen-7qthudw0ll6jmc****"),
-		PageSize: volcengine.Int64(10),
+		CenId:                  volcengine.String("cen-7qthudw0ll6jmc****"),
+		PageSize:               volcengine.Int64(10),
 	}
 
 	resp, err := svc.DescribeCenBandwidthPackages(describeCenBandwidthPackagesInput)

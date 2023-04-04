@@ -21,7 +21,7 @@ func ModifyDnatEntryAttributes() {
 	svc := natgateway.New(sess)
 	modifyDnatEntryAttributesInput := &natgateway.ModifyDnatEntryAttributesInput{
 		DnatEntryId: volcengine.String("dnat-342abc3bc3****"),
-		InternalIp: volcengine.String("192.XX.XX.88"),
+		InternalIp:  volcengine.String("192.XX.XX.88"),
 	}
 
 	resp, err := svc.ModifyDnatEntryAttributes(modifyDnatEntryAttributesInput)

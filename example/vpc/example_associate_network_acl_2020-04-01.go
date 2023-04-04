@@ -27,7 +27,7 @@ func AssociateNetworkAcl() {
 	}
 	associateNetworkAclInput := &vpc.AssociateNetworkAclInput{
 		NetworkAclId: volcengine.String("nacl-bp1fg655nh68xyz9****"),
-		Resource: []*vpc.ResourceForAssociateNetworkAclInput{reqResource0,reqResource1},
+		Resource:     []*vpc.ResourceForAssociateNetworkAclInput{reqResource0, reqResource1},
 	}
 
 	resp, err := svc.AssociateNetworkAcl(associateNetworkAclInput)

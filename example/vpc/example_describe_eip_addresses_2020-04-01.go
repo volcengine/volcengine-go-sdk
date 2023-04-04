@@ -21,7 +21,7 @@ func DescribeEipAddresses() {
 	svc := vpc.New(sess)
 	describeEipAddressesInput := &vpc.DescribeEipAddressesInput{
 		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(20),
+		PageSize:   volcengine.Int64(20),
 	}
 
 	resp, err := svc.DescribeEipAddresses(describeEipAddressesInput)

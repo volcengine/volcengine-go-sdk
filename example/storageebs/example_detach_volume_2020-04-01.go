@@ -21,7 +21,7 @@ func DetachVolume() {
 	svc := storageebs.New(sess)
 	detachVolumeInput := &storageebs.DetachVolumeInput{
 		InstanceId: volcengine.String("i-3tir90q84q3vj0x1****"),
-		VolumeId: volcengine.String("vol-3tir92lne23vj0x1****"),
+		VolumeId:   volcengine.String("vol-3tir92lne23vj0x1****"),
 	}
 
 	resp, err := svc.DetachVolume(detachVolumeInput)

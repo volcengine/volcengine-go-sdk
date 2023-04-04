@@ -20,13 +20,13 @@ func CreateVpnGateway() {
 	}
 	svc := vpn.New(sess)
 	createVpnGatewayInput := &vpn.CreateVpnGatewayInput{
-		Bandwidth: volcengine.Int64(5),
-		BillingType: volcengine.Int64(1),
-		Description: volcengine.String("test"),
-		Period: volcengine.Int64(1),
-		PeriodUnit: volcengine.String("Month"),
-		SubnetId: volcengine.String("subnet-2fewbgn7jbk0059gp67ap****"),
-		VpcId: volcengine.String("vpc-12bhs1ivo6p6o17q7y2x3****"),
+		Bandwidth:      volcengine.Int64(5),
+		BillingType:    volcengine.Int64(1),
+		Description:    volcengine.String("test"),
+		Period:         volcengine.Int64(1),
+		PeriodUnit:     volcengine.String("Month"),
+		SubnetId:       volcengine.String("subnet-2fewbgn7jbk0059gp67ap****"),
+		VpcId:          volcengine.String("vpc-12bhs1ivo6p6o17q7y2x3****"),
 		VpnGatewayName: volcengine.String("test"),
 	}
 

@@ -20,13 +20,13 @@ func ModifyRules() {
 	}
 	svc := clb.New(sess)
 	reqRules0 := &clb.RuleForModifyRulesInput{
-		Description: volcengine.String("test"),
-		RuleId: volcengine.String("rule-2fegss1cplxxc5oxruvvq****"),
+		Description:   volcengine.String("test"),
+		RuleId:        volcengine.String("rule-2fegss1cplxxc5oxruvvq****"),
 		ServerGroupId: volcengine.String("rsp-bp1o94dp5i6ea****"),
 	}
 	modifyRulesInput := &clb.ModifyRulesInput{
 		ListenerId: volcengine.String("lsn-2fek3rgsxhrsw5oxruwec****"),
-		Rules: []*clb.RuleForModifyRulesInput{reqRules0},
+		Rules:      []*clb.RuleForModifyRulesInput{reqRules0},
 	}
 
 	resp, err := svc.ModifyRules(modifyRulesInput)

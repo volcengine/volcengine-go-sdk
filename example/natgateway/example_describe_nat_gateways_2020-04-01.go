@@ -21,8 +21,8 @@ func DescribeNatGateways() {
 	svc := natgateway.New(sess)
 	describeNatGatewaysInput := &natgateway.DescribeNatGatewaysInput{
 		NatGatewayIds: volcengine.StringSlice([]string{"ngw-2fesmko5zhdz459gp67sc****"}),
-		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(5),
+		PageNumber:    volcengine.Int64(1),
+		PageSize:      volcengine.Int64(5),
 	}
 
 	resp, err := svc.DescribeNatGateways(describeNatGatewaysInput)

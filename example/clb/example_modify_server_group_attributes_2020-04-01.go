@@ -20,14 +20,14 @@ func ModifyServerGroupAttributes() {
 	}
 	svc := clb.New(sess)
 	reqServers0 := &clb.ServerForModifyServerGroupAttributesInput{
-		Port: volcengine.Int64(88),
+		Port:     volcengine.Int64(88),
 		ServerId: volcengine.String("rs-mjc9b2p0v6rk5smt1b27****"),
-		Weight: volcengine.Int64(100),
+		Weight:   volcengine.Int64(100),
 	}
 	modifyServerGroupAttributesInput := &clb.ModifyServerGroupAttributesInput{
-		ServerGroupId: volcengine.String("rsp-bp1o94dp5i6ea****"),
+		ServerGroupId:   volcengine.String("rsp-bp1o94dp5i6ea****"),
 		ServerGroupName: volcengine.String("myservergroup"),
-		Servers: []*clb.ServerForModifyServerGroupAttributesInput{reqServers0},
+		Servers:         []*clb.ServerForModifyServerGroupAttributesInput{reqServers0},
 	}
 
 	resp, err := svc.ModifyServerGroupAttributes(modifyServerGroupAttributesInput)

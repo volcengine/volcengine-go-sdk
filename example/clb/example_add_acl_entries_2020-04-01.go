@@ -26,8 +26,8 @@ func AddAclEntries() {
 		Entry: volcengine.String("192.XX.XX.0/16"),
 	}
 	addAclEntriesInput := &clb.AddAclEntriesInput{
-		AclEntries: []*clb.AclEntryForAddAclEntriesInput{reqAclEntries0,reqAclEntries1},
-		AclId: volcengine.String("acl-3cj44nv0jhhxc6c6rrtet****"),
+		AclEntries: []*clb.AclEntryForAddAclEntriesInput{reqAclEntries0, reqAclEntries1},
+		AclId:      volcengine.String("acl-3cj44nv0jhhxc6c6rrtet****"),
 	}
 
 	resp, err := svc.AddAclEntries(addAclEntriesInput)

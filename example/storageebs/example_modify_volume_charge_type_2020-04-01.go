@@ -21,8 +21,8 @@ func ModifyVolumeChargeType() {
 	svc := storageebs.New(sess)
 	modifyVolumeChargeTypeInput := &storageebs.ModifyVolumeChargeTypeInput{
 		DiskChargeType: volcengine.String("PrePaid"),
-		InstanceId: volcengine.String("i-l2soxrgan390t1dk****"),
-		VolumeIds: volcengine.StringSlice([]string{"vol-3tiz8tg97u3vj0x0****","vol-3tj20xxpd63vj0wy****"}),
+		InstanceId:     volcengine.String("i-l2soxrgan390t1dk****"),
+		VolumeIds:      volcengine.StringSlice([]string{"vol-3tiz8tg97u3vj0x0****", "vol-3tj20xxpd63vj0wy****"}),
 	}
 
 	resp, err := svc.ModifyVolumeChargeType(modifyVolumeChargeTypeInput)

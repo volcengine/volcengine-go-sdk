@@ -20,9 +20,9 @@ func ModifyCustomerGatewayAttributes() {
 	}
 	svc := vpn.New(sess)
 	modifyCustomerGatewayAttributesInput := &vpn.ModifyCustomerGatewayAttributesInput{
-		CustomerGatewayId: volcengine.String("cgw-2d670j2o9lc0058ozfddg****"),
+		CustomerGatewayId:   volcengine.String("cgw-2d670j2o9lc0058ozfddg****"),
 		CustomerGatewayName: volcengine.String("test"),
-		Description: volcengine.String("test"),
+		Description:         volcengine.String("test"),
 	}
 
 	resp, err := svc.ModifyCustomerGatewayAttributes(modifyCustomerGatewayAttributesInput)

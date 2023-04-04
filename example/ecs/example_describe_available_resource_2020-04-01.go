@@ -21,8 +21,8 @@ func DescribeAvailableResource() {
 	svc := ecs.New(sess)
 	describeAvailableResourceInput := &ecs.DescribeAvailableResourceInput{
 		DestinationResource: volcengine.String("InstanceType"),
-		InstanceTypeId: volcengine.String("ecs.g1.large"),
-		ZoneId: volcengine.String("cn-*****"),
+		InstanceTypeId:      volcengine.String("ecs.g1.large"),
+		ZoneId:              volcengine.String("cn-*****"),
 	}
 
 	resp, err := svc.DescribeAvailableResource(describeAvailableResourceInput)

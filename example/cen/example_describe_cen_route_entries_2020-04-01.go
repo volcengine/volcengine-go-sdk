@@ -21,7 +21,7 @@ func DescribeCenRouteEntries() {
 	svc := cen.New(sess)
 	describeCenRouteEntriesInput := &cen.DescribeCenRouteEntriesInput{
 		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(20),
+		PageSize:   volcengine.Int64(20),
 	}
 
 	resp, err := svc.DescribeCenRouteEntries(describeCenRouteEntriesInput)

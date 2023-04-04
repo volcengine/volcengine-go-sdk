@@ -21,7 +21,7 @@ func DescribeCenInterRegionBandwidths() {
 	svc := cen.New(sess)
 	describeCenInterRegionBandwidthsInput := &cen.DescribeCenInterRegionBandwidthsInput{
 		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.String("20"),
+		PageSize:   volcengine.String("20"),
 	}
 
 	resp, err := svc.DescribeCenInterRegionBandwidths(describeCenInterRegionBandwidthsInput)

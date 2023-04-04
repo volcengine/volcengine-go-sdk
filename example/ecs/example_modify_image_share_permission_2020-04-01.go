@@ -21,7 +21,7 @@ func ModifyImageSharePermission() {
 	svc := ecs.New(sess)
 	modifyImageSharePermissionInput := &ecs.ModifyImageSharePermissionInput{
 		AddAccounts: volcengine.StringSlice([]string{"210005****"}),
-		ImageId: volcengine.String("image-ebgy1og99tfct0gw****"),
+		ImageId:     volcengine.String("image-ebgy1og99tfct0gw****"),
 	}
 
 	resp, err := svc.ModifyImageSharePermission(modifyImageSharePermissionInput)

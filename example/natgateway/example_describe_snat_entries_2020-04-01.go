@@ -21,7 +21,7 @@ func DescribeSnatEntries() {
 	svc := natgateway.New(sess)
 	describeSnatEntriesInput := &natgateway.DescribeSnatEntriesInput{
 		NatGatewayId: volcengine.String("ngw-2fedgzyvtzaio59gp675l****"),
-		SnatEntryIds: volcengine.StringSlice([]string{"snat-2fedi22b12iv459gp68****","snat-2fedhzdlyknb459gp676o****"}),
+		SnatEntryIds: volcengine.StringSlice([]string{"snat-2fedi22b12iv459gp68****", "snat-2fedhzdlyknb459gp676o****"}),
 	}
 
 	resp, err := svc.DescribeSnatEntries(describeSnatEntriesInput)

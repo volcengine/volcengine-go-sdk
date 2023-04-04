@@ -20,11 +20,11 @@ func GrantInstanceToCen() {
 	}
 	svc := cen.New(sess)
 	grantInstanceToCenInput := &cen.GrantInstanceToCenInput{
-		CenId: volcengine.String("cen-7qthudw0ll6jmc****"),
-		CenOwnerId: volcengine.String("210000****"),
-		InstanceId: volcengine.String("vpc-uf6o8d1dj8sjwxi6o****"),
+		CenId:            volcengine.String("cen-7qthudw0ll6jmc****"),
+		CenOwnerId:       volcengine.String("210000****"),
+		InstanceId:       volcengine.String("vpc-uf6o8d1dj8sjwxi6o****"),
 		InstanceRegionId: volcengine.String("cn-beijing"),
-		InstanceType: volcengine.String("VPC"),
+		InstanceType:     volcengine.String("VPC"),
 	}
 
 	resp, err := svc.GrantInstanceToCen(grantInstanceToCenInput)

@@ -20,10 +20,10 @@ func DescribeListenerHealth() {
 	}
 	svc := clb.New(sess)
 	describeListenerHealthInput := &clb.DescribeListenerHealthInput{
-		ListenerId: volcengine.String("lsn-2fek3rgsxhrsw5oxruwec****"),
+		ListenerId:    volcengine.String("lsn-2fek3rgsxhrsw5oxruwec****"),
 		OnlyUnHealthy: volcengine.String("true"),
-		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(20),
+		PageNumber:    volcengine.Int64(1),
+		PageSize:      volcengine.Int64(20),
 	}
 
 	resp, err := svc.DescribeListenerHealth(describeListenerHealthInput)

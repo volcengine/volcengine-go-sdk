@@ -20,17 +20,17 @@ func TagResources() {
 	}
 	svc := clb.New(sess)
 	reqTags0 := &clb.TagForTagResourcesInput{
-		Key: volcengine.String("k1"),
+		Key:   volcengine.String("k1"),
 		Value: volcengine.String("v1"),
 	}
 	reqTags1 := &clb.TagForTagResourcesInput{
-		Key: volcengine.String("k2"),
+		Key:   volcengine.String("k2"),
 		Value: volcengine.String("v2"),
 	}
 	tagResourcesInput := &clb.TagResourcesInput{
-		ResourceIds: volcengine.StringSlice([]string{"clb-273sdsdsxxxxxp8u2j****","clb-2fe6fszjgeznk5oxruv0u****"}),
+		ResourceIds:  volcengine.StringSlice([]string{"clb-273sdsdsxxxxxp8u2j****", "clb-2fe6fszjgeznk5oxruv0u****"}),
 		ResourceType: volcengine.String("CLB"),
-		Tags: []*clb.TagForTagResourcesInput{reqTags0,reqTags1},
+		Tags:         []*clb.TagForTagResourcesInput{reqTags0, reqTags1},
 	}
 
 	resp, err := svc.TagResources(tagResourcesInput)

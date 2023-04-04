@@ -20,12 +20,12 @@ func ImportImage() {
 	}
 	svc := ecs.New(sess)
 	importImageInput := &ecs.ImportImageInput{
-		Architecture: volcengine.String("amd64"),
-		ImageName: volcengine.String("image-1"),
-		OsType: volcengine.String("Linux"),
-		Platform: volcengine.String("CentOS"),
+		Architecture:    volcengine.String("amd64"),
+		ImageName:       volcengine.String("image-1"),
+		OsType:          volcengine.String("Linux"),
+		Platform:        volcengine.String("CentOS"),
 		PlatformVersion: volcengine.String("7.6"),
-		Url: volcengine.String("xxx"),
+		Url:             volcengine.String("xxx"),
 	}
 
 	resp, err := svc.ImportImage(importImageInput)

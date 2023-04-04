@@ -20,12 +20,12 @@ func DescribeNetworkAcls() {
 	}
 	svc := vpc.New(sess)
 	describeNetworkAclsInput := &vpc.DescribeNetworkAclsInput{
-		NetworkAclIds: volcengine.StringSlice([]string{"acl-bp1fg655nh68xyz9****"}),
+		NetworkAclIds:  volcengine.StringSlice([]string{"acl-bp1fg655nh68xyz9****"}),
 		NetworkAclName: volcengine.String("test-acl"),
-		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(20),
-		SubnetId: volcengine.String("subnet-087k1y0owv0x57ku****"),
-		VpcId: volcengine.String("vpc-bp1opxu1zkhn00gzv****"),
+		PageNumber:     volcengine.Int64(1),
+		PageSize:       volcengine.Int64(20),
+		SubnetId:       volcengine.String("subnet-087k1y0owv0x57ku****"),
+		VpcId:          volcengine.String("vpc-bp1opxu1zkhn00gzv****"),
 	}
 
 	resp, err := svc.DescribeNetworkAcls(describeNetworkAclsInput)

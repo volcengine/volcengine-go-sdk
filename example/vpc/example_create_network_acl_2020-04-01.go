@@ -20,9 +20,9 @@ func CreateNetworkAcl() {
 	}
 	svc := vpc.New(sess)
 	createNetworkAclInput := &vpc.CreateNetworkAclInput{
-		Description: volcengine.String("testDescription"),
+		Description:    volcengine.String("testDescription"),
 		NetworkAclName: volcengine.String("test-acl"),
-		VpcId: volcengine.String("vpc-bp1opxu1zkhn00gzv****"),
+		VpcId:          volcengine.String("vpc-bp1opxu1zkhn00gzv****"),
 	}
 
 	resp, err := svc.CreateNetworkAcl(createNetworkAclInput)

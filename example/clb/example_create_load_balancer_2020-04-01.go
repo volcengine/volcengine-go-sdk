@@ -21,10 +21,10 @@ func CreateLoadBalancer() {
 	svc := clb.New(sess)
 	createLoadBalancerInput := &clb.CreateLoadBalancerInput{
 		LoadBalancerBillingType: volcengine.Int64(2),
-		LoadBalancerName: volcengine.String("clb-test"),
-		LoadBalancerSpec: volcengine.String("small_1"),
-		Type: volcengine.String("private"),
-		VpcId: volcengine.String("vpc-bp1aevy8sofi8mh1****"),
+		LoadBalancerName:        volcengine.String("clb-test"),
+		LoadBalancerSpec:        volcengine.String("small_1"),
+		Type:                    volcengine.String("private"),
+		VpcId:                   volcengine.String("vpc-bp1aevy8sofi8mh1****"),
 	}
 
 	resp, err := svc.CreateLoadBalancer(createLoadBalancerInput)

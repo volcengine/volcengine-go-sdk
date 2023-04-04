@@ -27,7 +27,7 @@ func DisassociateNetworkAcl() {
 	}
 	disassociateNetworkAclInput := &vpc.DisassociateNetworkAclInput{
 		NetworkAclId: volcengine.String("nacl-bp1fg655nh68xyz9****"),
-		Resource: []*vpc.ResourceForDisassociateNetworkAclInput{reqResource0,reqResource1},
+		Resource:     []*vpc.ResourceForDisassociateNetworkAclInput{reqResource0, reqResource1},
 	}
 
 	resp, err := svc.DisassociateNetworkAcl(disassociateNetworkAclInput)

@@ -20,7 +20,7 @@ func ListTagsForResources() {
 	}
 	svc := vpc.New(sess)
 	listTagsForResourcesInput := &vpc.ListTagsForResourcesInput{
-		ResourceIds: volcengine.StringSlice([]string{"vpc-273w3e33y2y9s7fap8u2j****","vpc-bp15zckdt37pq72zv****"}),
+		ResourceIds:  volcengine.StringSlice([]string{"vpc-273w3e33y2y9s7fap8u2j****", "vpc-bp15zckdt37pq72zv****"}),
 		ResourceType: volcengine.String("vpc"),
 	}
 

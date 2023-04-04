@@ -20,7 +20,7 @@ func AttachNetworkInterface() {
 	}
 	svc := vpc.New(sess)
 	attachNetworkInterfaceInput := &vpc.AttachNetworkInterfaceInput{
-		InstanceId: volcengine.String("i-wijfn35c****"),
+		InstanceId:         volcengine.String("i-wijfn35c****"),
 		NetworkInterfaceId: volcengine.String("eni-bp1fg655nh68xyz9****"),
 	}
 

@@ -21,8 +21,8 @@ func CreateDeploymentSet() {
 	svc := ecs.New(sess)
 	createDeploymentSetInput := &ecs.CreateDeploymentSetInput{
 		DeploymentSetName: volcengine.String("testDeploymentSetName"),
-		Granularity: volcengine.String("host"),
-		Strategy: volcengine.String("Availability"),
+		Granularity:       volcengine.String("host"),
+		Strategy:          volcengine.String("Availability"),
 	}
 
 	resp, err := svc.CreateDeploymentSet(createDeploymentSetInput)

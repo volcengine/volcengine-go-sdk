@@ -20,7 +20,7 @@ func ModifyAclAttributes() {
 	}
 	svc := clb.New(sess)
 	modifyAclAttributesInput := &clb.ModifyAclAttributesInput{
-		AclId: volcengine.String("acl-3cj44nv0jhhxc6c6rrtet****"),
+		AclId:   volcengine.String("acl-3cj44nv0jhhxc6c6rrtet****"),
 		AclName: volcengine.String("baaa"),
 	}
 

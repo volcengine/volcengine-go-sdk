@@ -20,7 +20,7 @@ func ExportImage() {
 	}
 	svc := ecs.New(sess)
 	exportImageInput := &ecs.ExportImageInput{
-		ImageId: volcengine.String("image-4431h3l7hl31a0******"),
+		ImageId:   volcengine.String("image-4431h3l7hl31a0******"),
 		TOSBucket: volcengine.String("bucket-1"),
 		TOSPrefix: volcengine.String("test123"),
 	}

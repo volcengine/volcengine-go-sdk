@@ -20,7 +20,7 @@ func ModifySnatEntryAttributes() {
 	}
 	svc := natgateway.New(sess)
 	modifySnatEntryAttributesInput := &natgateway.ModifySnatEntryAttributesInput{
-		EipId: volcengine.String("eip-2feaac9wtccn459gp67qe****"),
+		EipId:       volcengine.String("eip-2feaac9wtccn459gp67qe****"),
 		SnatEntryId: volcengine.String("snat-2fedi096gdiww59gp680r****"),
 	}
 

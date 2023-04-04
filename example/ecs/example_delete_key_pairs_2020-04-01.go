@@ -20,7 +20,7 @@ func DeleteKeyPairs() {
 	}
 	svc := ecs.New(sess)
 	deleteKeyPairsInput := &ecs.DeleteKeyPairsInput{
-		KeyPairNames: volcengine.StringSlice([]string{"ssh_key_pair1","ssh_key_pair2"}),
+		KeyPairNames: volcengine.StringSlice([]string{"ssh_key_pair1", "ssh_key_pair2"}),
 	}
 
 	resp, err := svc.DeleteKeyPairs(deleteKeyPairsInput)

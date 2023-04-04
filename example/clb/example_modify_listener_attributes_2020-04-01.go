@@ -20,9 +20,9 @@ func ModifyListenerAttributes() {
 	}
 	svc := clb.New(sess)
 	modifyListenerAttributesInput := &clb.ModifyListenerAttributesInput{
-		ListenerId: volcengine.String("lsn-2fek3rgsxhrsw5oxruwec****"),
+		ListenerId:   volcengine.String("lsn-2fek3rgsxhrsw5oxruwec****"),
 		ListenerName: volcengine.String("test"),
-		Scheduler: volcengine.String("wlc"),
+		Scheduler:    volcengine.String("wlc"),
 	}
 
 	resp, err := svc.ModifyListenerAttributes(modifyListenerAttributesInput)

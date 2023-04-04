@@ -21,8 +21,8 @@ func UploadCertificate() {
 	svc := clb.New(sess)
 	uploadCertificateInput := &clb.UploadCertificateInput{
 		CertificateName: volcengine.String("mycert1"),
-		PrivateKey: volcengine.String("***"),
-		PublicKey: volcengine.String("***"),
+		PrivateKey:      volcengine.String("***"),
+		PublicKey:       volcengine.String("***"),
 	}
 
 	resp, err := svc.UploadCertificate(uploadCertificateInput)

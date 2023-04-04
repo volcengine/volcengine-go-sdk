@@ -20,7 +20,7 @@ func ModifyCenInterRegionBandwidthAttributes() {
 	}
 	svc := cen.New(sess)
 	modifyCenInterRegionBandwidthAttributesInput := &cen.ModifyCenInterRegionBandwidthAttributesInput{
-		Bandwidth: volcengine.Int64(1000),
+		Bandwidth:              volcengine.Int64(1000),
 		InterRegionBandwidthId: volcengine.String("cirb-3tex2x1cwd4c6c0v****"),
 	}
 

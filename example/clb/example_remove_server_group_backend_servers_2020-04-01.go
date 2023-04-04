@@ -21,7 +21,7 @@ func RemoveServerGroupBackendServers() {
 	svc := clb.New(sess)
 	removeServerGroupBackendServersInput := &clb.RemoveServerGroupBackendServersInput{
 		ServerGroupId: volcengine.String("rsp-bp1o94dp5i6ea****"),
-		ServerIds: volcengine.StringSlice([]string{"rs-3cig8e5o0kxs06c6rrsqn****"}),
+		ServerIds:     volcengine.StringSlice([]string{"rs-3cig8e5o0kxs06c6rrsqn****"}),
 	}
 
 	resp, err := svc.RemoveServerGroupBackendServers(removeServerGroupBackendServersInput)

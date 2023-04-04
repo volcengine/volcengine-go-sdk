@@ -19,8 +19,7 @@ func DescribeVpcAttributes() {
 		panic(err)
 	}
 	svc := vpc.New(sess)
-	describeVpcAttributesInput := &vpc.DescribeVpcAttributesInput{
-	}
+	describeVpcAttributesInput := &vpc.DescribeVpcAttributesInput{}
 
 	resp, err := svc.DescribeVpcAttributes(describeVpcAttributesInput)
 	if err != nil {

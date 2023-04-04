@@ -21,9 +21,9 @@ func CreateNetworkInterface() {
 	svc := vpc.New(sess)
 	createNetworkInterfaceInput := &vpc.CreateNetworkInterfaceInput{
 		NetworkInterfaceName: volcengine.String("test"),
-		PrimaryIpAddress: volcengine.String("192.XX.XX.10"),
-		SecurityGroupIds: volcengine.StringSlice([]string{"sg-123edfgt8hhvj****"}),
-		SubnetId: volcengine.String("subnet-xxxxxx"),
+		PrimaryIpAddress:     volcengine.String("192.XX.XX.10"),
+		SecurityGroupIds:     volcengine.StringSlice([]string{"sg-123edfgt8hhvj****"}),
+		SubnetId:             volcengine.String("subnet-xxxxxx"),
 	}
 
 	resp, err := svc.CreateNetworkInterface(createNetworkInterfaceInput)

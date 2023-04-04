@@ -21,8 +21,8 @@ func DescribeLoadBalancers() {
 	svc := clb.New(sess)
 	describeLoadBalancersInput := &clb.DescribeLoadBalancersInput{
 		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(10),
-		VpcId: volcengine.String("vpc-13fd2oy7dsiyo3n6nu4ye****"),
+		PageSize:   volcengine.Int64(10),
+		VpcId:      volcengine.String("vpc-13fd2oy7dsiyo3n6nu4ye****"),
 	}
 
 	resp, err := svc.DescribeLoadBalancers(describeLoadBalancersInput)

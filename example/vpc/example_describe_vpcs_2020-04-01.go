@@ -21,9 +21,9 @@ func DescribeVpcs() {
 	svc := vpc.New(sess)
 	describeVpcsInput := &vpc.DescribeVpcsInput{
 		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(20),
-		VpcIds: volcengine.StringSlice([]string{"vpc-2ff3****zwc1s5oxru"}),
-		VpcName: volcengine.String("test"),
+		PageSize:   volcengine.Int64(20),
+		VpcIds:     volcengine.StringSlice([]string{"vpc-2ff3****zwc1s5oxru"}),
+		VpcName:    volcengine.String("test"),
 	}
 
 	resp, err := svc.DescribeVpcs(describeVpcsInput)

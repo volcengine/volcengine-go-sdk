@@ -20,7 +20,7 @@ func StartInstances() {
 	}
 	svc := ecs.New(sess)
 	startInstancesInput := &ecs.StartInstancesInput{
-		InstanceIds: volcengine.StringSlice([]string{"i-ybo349sxoncm9t****","i-ybo349sxolcm9t****"}),
+		InstanceIds: volcengine.StringSlice([]string{"i-ybo349sxoncm9t****", "i-ybo349sxolcm9t****"}),
 	}
 
 	resp, err := svc.StartInstances(startInstancesInput)

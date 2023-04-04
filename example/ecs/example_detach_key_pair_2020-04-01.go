@@ -20,7 +20,7 @@ func DetachKeyPair() {
 	}
 	svc := ecs.New(sess)
 	detachKeyPairInput := &ecs.DetachKeyPairInput{
-		InstanceIds: volcengine.StringSlice([]string{"i-ahipakt2gcg95jpv****","i-ahipakt2gdg95lbe****"}),
+		InstanceIds: volcengine.StringSlice([]string{"i-ahipakt2gcg95jpv****", "i-ahipakt2gdg95lbe****"}),
 		KeyPairName: volcengine.String("ssh_key_pair1"),
 	}
 

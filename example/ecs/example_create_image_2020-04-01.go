@@ -20,7 +20,7 @@ func CreateImage() {
 	}
 	svc := ecs.New(sess)
 	createImageInput := &ecs.CreateImageInput{
-		ImageName: volcengine.String("image-1"),
+		ImageName:  volcengine.String("image-1"),
 		InstanceId: volcengine.String("i-3teco18f1w5a71******"),
 	}
 

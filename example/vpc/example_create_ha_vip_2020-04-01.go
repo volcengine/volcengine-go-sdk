@@ -22,7 +22,7 @@ func CreateHaVip() {
 	createHaVipInput := &vpc.CreateHaVipInput{
 		HaVipName: volcengine.String("HaVip-test"),
 		IpAddress: volcengine.String("192.XX.XX.10"),
-		SubnetId: volcengine.String("subnet-ina9r9xnfpc08gbs****"),
+		SubnetId:  volcengine.String("subnet-ina9r9xnfpc08gbs****"),
 	}
 
 	resp, err := svc.CreateHaVip(createHaVipInput)

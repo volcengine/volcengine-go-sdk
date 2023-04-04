@@ -20,7 +20,7 @@ func ModifySecurityGroupAttributes() {
 	}
 	svc := vpc.New(sess)
 	modifySecurityGroupAttributesInput := &vpc.ModifySecurityGroupAttributesInput{
-		SecurityGroupId: volcengine.String("sg-bp67acfmxazb4p****"),
+		SecurityGroupId:   volcengine.String("sg-bp67acfmxazb4p****"),
 		SecurityGroupName: volcengine.String("test"),
 	}
 

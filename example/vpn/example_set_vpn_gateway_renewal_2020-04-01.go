@@ -20,7 +20,7 @@ func SetVpnGatewayRenewal() {
 	}
 	svc := vpn.New(sess)
 	setVpnGatewayRenewalInput := &vpn.SetVpnGatewayRenewalInput{
-		RenewType: volcengine.Int64(3),
+		RenewType:    volcengine.Int64(3),
 		VpnGatewayId: volcengine.String("vgw-2fe7zjsz13ksg5oxruwed****"),
 	}
 

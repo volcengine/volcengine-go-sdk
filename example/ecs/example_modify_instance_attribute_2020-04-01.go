@@ -21,7 +21,7 @@ func ModifyInstanceAttribute() {
 	svc := ecs.New(sess)
 	modifyInstanceAttributeInput := &ecs.ModifyInstanceAttributeInput{
 		InstanceId: volcengine.String("i-l8u10sauiu9qj0h*****"),
-		Password: volcengine.String("password@123"),
+		Password:   volcengine.String("password@123"),
 	}
 
 	resp, err := svc.ModifyInstanceAttribute(modifyInstanceAttributeInput)

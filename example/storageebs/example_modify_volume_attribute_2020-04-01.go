@@ -21,8 +21,8 @@ func ModifyVolumeAttribute() {
 	svc := storageebs.New(sess)
 	modifyVolumeAttributeInput := &storageebs.ModifyVolumeAttributeInput{
 		DeleteWithInstance: volcengine.Bool(true),
-		VolumeId: volcengine.String("vol-3tir92lne23vj0x1****"),
-		VolumeName: volcengine.String("dtest3-volume-1"),
+		VolumeId:           volcengine.String("vol-3tir92lne23vj0x1****"),
+		VolumeName:         volcengine.String("dtest3-volume-1"),
 	}
 
 	resp, err := svc.ModifyVolumeAttribute(modifyVolumeAttributeInput)

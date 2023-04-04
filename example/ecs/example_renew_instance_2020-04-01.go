@@ -21,7 +21,7 @@ func RenewInstance() {
 	svc := ecs.New(sess)
 	renewInstanceInput := &ecs.RenewInstanceInput{
 		InstanceId: volcengine.String("i-3thhlu8byl4bwbha****"),
-		Period: volcengine.Int32(1),
+		Period:     volcengine.Int32(1),
 		PeriodUnit: volcengine.String("Month"),
 	}
 

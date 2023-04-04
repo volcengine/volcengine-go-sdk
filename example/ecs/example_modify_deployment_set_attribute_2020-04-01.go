@@ -20,7 +20,7 @@ func ModifyDeploymentSetAttribute() {
 	}
 	svc := ecs.New(sess)
 	modifyDeploymentSetAttributeInput := &ecs.ModifyDeploymentSetAttributeInput{
-		DeploymentSetId: volcengine.String("dps-yc1o9aahks5m57nk****"),
+		DeploymentSetId:   volcengine.String("dps-yc1o9aahks5m57nk****"),
 		DeploymentSetName: volcengine.String("testDeploymentSet"),
 	}
 

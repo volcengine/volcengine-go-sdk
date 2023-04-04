@@ -20,7 +20,7 @@ func DetachNetworkInterface() {
 	}
 	svc := vpc.New(sess)
 	detachNetworkInterfaceInput := &vpc.DetachNetworkInterfaceInput{
-		InstanceId: volcengine.String("i-wijfn35c****"),
+		InstanceId:         volcengine.String("i-wijfn35c****"),
 		NetworkInterfaceId: volcengine.String("eni-bp1fgn8xyz9****"),
 	}
 

@@ -20,9 +20,9 @@ func DeleteTags() {
 	}
 	svc := ecs.New(sess)
 	deleteTagsInput := &ecs.DeleteTagsInput{
-		ResourceIds: volcengine.StringSlice([]string{"i-l8u0p77yseabkpak****","i-l8u0p7xyseabkbak****"}),
+		ResourceIds:  volcengine.StringSlice([]string{"i-l8u0p77yseabkpak****", "i-l8u0p7xyseabkbak****"}),
 		ResourceType: volcengine.String("instance"),
-		TagKeys: volcengine.StringSlice([]string{"k1"}),
+		TagKeys:      volcengine.StringSlice([]string{"k1"}),
 	}
 
 	resp, err := svc.DeleteTags(deleteTagsInput)

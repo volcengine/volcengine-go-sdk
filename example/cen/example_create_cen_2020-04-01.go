@@ -20,7 +20,7 @@ func CreateCen() {
 	}
 	svc := cen.New(sess)
 	createCenInput := &cen.CreateCenInput{
-		CenName: volcengine.String("cen-test"),
+		CenName:     volcengine.String("cen-test"),
 		Description: volcengine.String("test"),
 	}
 

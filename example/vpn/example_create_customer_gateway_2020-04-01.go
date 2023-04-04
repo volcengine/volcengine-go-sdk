@@ -21,8 +21,8 @@ func CreateCustomerGateway() {
 	svc := vpn.New(sess)
 	createCustomerGatewayInput := &vpn.CreateCustomerGatewayInput{
 		CustomerGatewayName: volcengine.String("test"),
-		Description: volcengine.String("test"),
-		IpAddress: volcengine.String("1.1.1.1"),
+		Description:         volcengine.String("test"),
+		IpAddress:           volcengine.String("1.1.1.1"),
 	}
 
 	resp, err := svc.CreateCustomerGateway(createCustomerGatewayInput)

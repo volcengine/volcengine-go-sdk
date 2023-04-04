@@ -20,7 +20,7 @@ func DescribeInstanceGrantedRules() {
 	}
 	svc := cen.New(sess)
 	describeInstanceGrantedRulesInput := &cen.DescribeInstanceGrantedRulesInput{
-		InstanceId: volcengine.String("vpc-3rlkeggyn6tc010e****"),
+		InstanceId:   volcengine.String("vpc-3rlkeggyn6tc010e****"),
 		InstanceType: volcengine.String("VPC"),
 	}
 

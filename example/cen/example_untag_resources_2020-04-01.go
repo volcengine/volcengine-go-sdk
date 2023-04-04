@@ -20,7 +20,7 @@ func UntagResources() {
 	}
 	svc := cen.New(sess)
 	untagResourcesInput := &cen.UntagResourcesInput{
-		ResourceIds: volcengine.StringSlice([]string{"cen-273w3e33y2y9s7fap8u2j****","cen-7qthudw0ll6jmc****"}),
+		ResourceIds:  volcengine.StringSlice([]string{"cen-273w3e33y2y9s7fap8u2j****", "cen-7qthudw0ll6jmc****"}),
 		ResourceType: volcengine.String("cen"),
 	}
 

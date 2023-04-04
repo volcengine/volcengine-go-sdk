@@ -20,13 +20,13 @@ func CreateRules() {
 	}
 	svc := clb.New(sess)
 	reqRules0 := &clb.RuleForCreateRulesInput{
-		Domain: volcengine.String("test.com"),
+		Domain:        volcengine.String("test.com"),
 		ServerGroupId: volcengine.String("rsp-bp1o94dp5i6ea****"),
-		Url: volcengine.String("/test"),
+		Url:           volcengine.String("/test"),
 	}
 	createRulesInput := &clb.CreateRulesInput{
 		ListenerId: volcengine.String("lsn-2fea4ayvu2g3k5oxruuz****"),
-		Rules: []*clb.RuleForCreateRulesInput{reqRules0},
+		Rules:      []*clb.RuleForCreateRulesInput{reqRules0},
 	}
 
 	resp, err := svc.CreateRules(createRulesInput)

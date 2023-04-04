@@ -21,7 +21,7 @@ func AssociateCenBandwidthPackage() {
 	svc := cen.New(sess)
 	associateCenBandwidthPackageInput := &cen.AssociateCenBandwidthPackageInput{
 		CenBandwidthPackageId: volcengine.String("cbp-4c2zaavbvh5fx****"),
-		CenId: volcengine.String("cen-7qthudw0ll6jmc****"),
+		CenId:                 volcengine.String("cen-7qthudw0ll6jmc****"),
 	}
 
 	resp, err := svc.AssociateCenBandwidthPackage(associateCenBandwidthPackageInput)

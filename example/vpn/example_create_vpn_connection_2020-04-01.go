@@ -21,9 +21,9 @@ func CreateVpnConnection() {
 	svc := vpn.New(sess)
 	createVpnConnectionInput := &vpn.CreateVpnConnectionInput{
 		CustomerGatewayId: volcengine.String("cgw-274mm8eodvu9s7fap8skw****"),
-		Description: volcengine.String("test"),
+		Description:       volcengine.String("test"),
 		VpnConnectionName: volcengine.String("test"),
-		VpnGatewayId: volcengine.String("vgw-2752abxsju1vk7fap8sgk****"),
+		VpnGatewayId:      volcengine.String("vgw-2752abxsju1vk7fap8sgk****"),
 	}
 
 	resp, err := svc.CreateVpnConnection(createVpnConnectionInput)

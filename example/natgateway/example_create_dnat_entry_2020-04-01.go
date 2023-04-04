@@ -20,12 +20,12 @@ func CreateDnatEntry() {
 	}
 	svc := natgateway.New(sess)
 	createDnatEntryInput := &natgateway.CreateDnatEntryInput{
-		ExternalIp: volcengine.String("12.XX.XX.34"),
+		ExternalIp:   volcengine.String("12.XX.XX.34"),
 		ExternalPort: volcengine.String("34"),
-		InternalIp: volcengine.String("192.XX.XX.88"),
+		InternalIp:   volcengine.String("192.XX.XX.88"),
 		InternalPort: volcengine.String("12"),
 		NatGatewayId: volcengine.String("ngw-2feq5xhimd88w59gp686****"),
-		Protocol: volcengine.String("tcp"),
+		Protocol:     volcengine.String("tcp"),
 	}
 
 	resp, err := svc.CreateDnatEntry(createDnatEntryInput)

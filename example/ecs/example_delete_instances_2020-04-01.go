@@ -20,7 +20,7 @@ func DeleteInstances() {
 	}
 	svc := ecs.New(sess)
 	deleteInstancesInput := &ecs.DeleteInstancesInput{
-		InstanceIds: volcengine.StringSlice([]string{"i-ybo349sxoncm9t******","i-ybo349sxolcm9t******"}),
+		InstanceIds: volcengine.StringSlice([]string{"i-ybo349sxoncm9t******", "i-ybo349sxolcm9t******"}),
 	}
 
 	resp, err := svc.DeleteInstances(deleteInstancesInput)

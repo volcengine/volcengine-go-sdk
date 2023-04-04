@@ -20,7 +20,7 @@ func CreateAcl() {
 	}
 	svc := clb.New(sess)
 	createAclInput := &clb.CreateAclInput{
-		AclName: volcengine.String("test"),
+		AclName:     volcengine.String("test"),
 		Description: volcengine.String("default"),
 	}
 

@@ -21,9 +21,9 @@ func ModifyVpcAttributes() {
 	svc := vpc.New(sess)
 	modifyVpcAttributesInput := &vpc.ModifyVpcAttributesInput{
 		Description: volcengine.String("test"),
-		DnsServers: volcengine.StringSlice([]string{"1.XX.XX.1"}),
-		VpcId: volcengine.String("vpc-bp15zct37pq72zv****"),
-		VpcName: volcengine.String("test"),
+		DnsServers:  volcengine.StringSlice([]string{"1.XX.XX.1"}),
+		VpcId:       volcengine.String("vpc-bp15zct37pq72zv****"),
+		VpcName:     volcengine.String("test"),
 	}
 
 	resp, err := svc.ModifyVpcAttributes(modifyVpcAttributesInput)

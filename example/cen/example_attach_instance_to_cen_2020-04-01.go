@@ -20,10 +20,10 @@ func AttachInstanceToCen() {
 	}
 	svc := cen.New(sess)
 	attachInstanceToCenInput := &cen.AttachInstanceToCenInput{
-		CenId: volcengine.String("cen-7qthudw0ll6jmc****"),
-		InstanceId: volcengine.String("vpc-2fexiqjlgjif45oxruvso****"),
+		CenId:            volcengine.String("cen-7qthudw0ll6jmc****"),
+		InstanceId:       volcengine.String("vpc-2fexiqjlgjif45oxruvso****"),
 		InstanceRegionId: volcengine.String("cn-beijing"),
-		InstanceType: volcengine.String("vpc"),
+		InstanceType:     volcengine.String("vpc"),
 	}
 
 	resp, err := svc.AttachInstanceToCen(attachInstanceToCenInput)

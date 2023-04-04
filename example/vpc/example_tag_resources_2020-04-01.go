@@ -20,17 +20,17 @@ func TagResources() {
 	}
 	svc := vpc.New(sess)
 	reqTags0 := &vpc.TagForTagResourcesInput{
-		Key: volcengine.String("k1"),
+		Key:   volcengine.String("k1"),
 		Value: volcengine.String("v1"),
 	}
 	reqTags1 := &vpc.TagForTagResourcesInput{
-		Key: volcengine.String("k2"),
+		Key:   volcengine.String("k2"),
 		Value: volcengine.String("v2"),
 	}
 	tagResourcesInput := &vpc.TagResourcesInput{
-		ResourceIds: volcengine.StringSlice([]string{"vpc-273w3e33y2y9s7fap8u2j****","vpc-bp15zckdt37pq72zv****"}),
+		ResourceIds:  volcengine.StringSlice([]string{"vpc-273w3e33y2y9s7fap8u2j****", "vpc-bp15zckdt37pq72zv****"}),
 		ResourceType: volcengine.String("vpc"),
-		Tags: []*vpc.TagForTagResourcesInput{reqTags0,reqTags1},
+		Tags:         []*vpc.TagForTagResourcesInput{reqTags0, reqTags1},
 	}
 
 	resp, err := svc.TagResources(tagResourcesInput)

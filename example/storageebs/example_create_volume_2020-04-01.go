@@ -21,11 +21,11 @@ func CreateVolume() {
 	svc := storageebs.New(sess)
 	createVolumeInput := &storageebs.CreateVolumeInput{
 		Description: volcengine.String("test"),
-		Kind: volcengine.String("data"),
-		Size: volcengine.JsonNumber("40"),
-		VolumeName: volcengine.String("test"),
-		VolumeType: volcengine.String("PTSSD"),
-		ZoneId: volcengine.String("cn-beijing-a"),
+		Kind:        volcengine.String("data"),
+		Size:        volcengine.JsonNumber("40"),
+		VolumeName:  volcengine.String("test"),
+		VolumeType:  volcengine.String("PTSSD"),
+		ZoneId:      volcengine.String("cn-beijing-a"),
 	}
 
 	resp, err := svc.CreateVolume(createVolumeInput)

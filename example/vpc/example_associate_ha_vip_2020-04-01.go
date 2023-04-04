@@ -20,8 +20,8 @@ func AssociateHaVip() {
 	}
 	svc := vpc.New(sess)
 	associateHaVipInput := &vpc.AssociateHaVipInput{
-		HaVipId: volcengine.String("havip-2zeo05qre24nhrqpy****"),
-		InstanceId: volcengine.String("i-faf344422ffsfad****"),
+		HaVipId:      volcengine.String("havip-2zeo05qre24nhrqpy****"),
+		InstanceId:   volcengine.String("i-faf344422ffsfad****"),
 		InstanceType: volcengine.String("EcsInstance"),
 	}
 

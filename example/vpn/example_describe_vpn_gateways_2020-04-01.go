@@ -20,8 +20,8 @@ func DescribeVpnGateways() {
 	}
 	svc := vpn.New(sess)
 	describeVpnGatewaysInput := &vpn.DescribeVpnGatewaysInput{
-		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(20),
+		PageNumber:    volcengine.Int64(1),
+		PageSize:      volcengine.Int64(20),
 		VpnGatewayIds: volcengine.StringSlice([]string{"vgw-12bfa2du7fojk17q7y1rk****"}),
 	}
 

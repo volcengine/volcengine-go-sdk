@@ -21,21 +21,21 @@ func RunInstances() {
 	svc := ecs.New(sess)
 	reqNetworkInterfaces0 := &ecs.NetworkInterfaceForRunInstancesInput{
 		SecurityGroupIds: volcengine.StringSlice([]string{"sg-3ti78x9h8t4bw*****"}),
-		SubnetId: volcengine.String("subnet-3tispp1nai4e8i****"),
+		SubnetId:         volcengine.String("subnet-3tispp1nai4e8i****"),
 	}
 	reqVolumes0 := &ecs.VolumeForRunInstancesInput{
-		Size: volcengine.Int32(40),
+		Size:       volcengine.Int32(40),
 		VolumeType: volcengine.String("ESSD_PL0"),
 	}
 	runInstancesInput := &ecs.RunInstancesInput{
-		Count: volcengine.Int32(1),
-		ImageId: volcengine.String("image-3tefr6wgx63vj0******"),
-		InstanceName: volcengine.String("instance-test"),
-		InstanceTypeId: volcengine.String("ecs.g1ie.xlarge"),
+		Count:             volcengine.Int32(1),
+		ImageId:           volcengine.String("image-3tefr6wgx63vj0******"),
+		InstanceName:      volcengine.String("instance-test"),
+		InstanceTypeId:    volcengine.String("ecs.g1ie.xlarge"),
 		NetworkInterfaces: []*ecs.NetworkInterfaceForRunInstancesInput{reqNetworkInterfaces0},
-		Password: volcengine.String("password@123"),
-		Volumes: []*ecs.VolumeForRunInstancesInput{reqVolumes0},
-		ZoneId: volcengine.String("cn-beijing-a"),
+		Password:          volcengine.String("password@123"),
+		Volumes:           []*ecs.VolumeForRunInstancesInput{reqVolumes0},
+		ZoneId:            volcengine.String("cn-beijing-a"),
 	}
 
 	resp, err := svc.RunInstances(runInstancesInput)

@@ -20,7 +20,7 @@ func ExtendVolume() {
 	}
 	svc := storageebs.New(sess)
 	extendVolumeInput := &storageebs.ExtendVolumeInput{
-		NewSize: volcengine.JsonNumber("80"),
+		NewSize:  volcengine.JsonNumber("80"),
 		VolumeId: volcengine.String("vol-3thhlu8byl4bwbha****"),
 	}
 

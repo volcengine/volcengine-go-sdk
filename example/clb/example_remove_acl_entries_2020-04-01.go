@@ -20,8 +20,8 @@ func RemoveAclEntries() {
 	}
 	svc := clb.New(sess)
 	removeAclEntriesInput := &clb.RemoveAclEntriesInput{
-		AclId: volcengine.String("acl-3cj44nv0jhhxc6c6rrtet****"),
-		Entries: volcengine.StringSlice([]string{"192.XX.XX.7/16","172.XX.XX.0/24"}),
+		AclId:   volcengine.String("acl-3cj44nv0jhhxc6c6rrtet****"),
+		Entries: volcengine.StringSlice([]string{"192.XX.XX.7/16", "172.XX.XX.0/24"}),
 	}
 
 	resp, err := svc.RemoveAclEntries(removeAclEntriesInput)

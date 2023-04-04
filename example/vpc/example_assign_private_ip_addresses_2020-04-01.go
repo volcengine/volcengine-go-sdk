@@ -21,7 +21,7 @@ func AssignPrivateIpAddresses() {
 	svc := vpc.New(sess)
 	assignPrivateIpAddressesInput := &vpc.AssignPrivateIpAddressesInput{
 		NetworkInterfaceId: volcengine.String("eni-bp67acfmxazb4p****"),
-		PrivateIpAddress: volcengine.StringSlice([]string{"192.168.XX.10","192.168.XX.12"}),
+		PrivateIpAddress:   volcengine.StringSlice([]string{"192.168.XX.10", "192.168.XX.12"}),
 	}
 
 	resp, err := svc.AssignPrivateIpAddresses(assignPrivateIpAddressesInput)

@@ -20,12 +20,12 @@ func ModifyInstanceChargeType() {
 	}
 	svc := ecs.New(sess)
 	modifyInstanceChargeTypeInput := &ecs.ModifyInstanceChargeTypeInput{
-		AutoPay: volcengine.Bool(true),
+		AutoPay:            volcengine.Bool(true),
 		IncludeDataVolumes: volcengine.Bool(false),
 		InstanceChargeType: volcengine.String("PrePaid"),
-		InstanceIds: volcengine.StringSlice([]string{"i-4ay51iinvo8w4nho****"}),
-		Period: volcengine.Int32(2),
-		PeriodUnit: volcengine.String("Month"),
+		InstanceIds:        volcengine.StringSlice([]string{"i-4ay51iinvo8w4nho****"}),
+		Period:             volcengine.Int32(2),
+		PeriodUnit:         volcengine.String("Month"),
 	}
 
 	resp, err := svc.ModifyInstanceChargeType(modifyInstanceChargeTypeInput)

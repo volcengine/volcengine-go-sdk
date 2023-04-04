@@ -21,8 +21,8 @@ func ModifyHaVipAttributes() {
 	svc := vpc.New(sess)
 	modifyHaVipAttributesInput := &vpc.ModifyHaVipAttributesInput{
 		Description: volcengine.String("This is my HaVip."),
-		HaVipId: volcengine.String("havip-2zeo05qre24nhrqp****"),
-		HaVipName: volcengine.String("test"),
+		HaVipId:     volcengine.String("havip-2zeo05qre24nhrqp****"),
+		HaVipName:   volcengine.String("test"),
 	}
 
 	resp, err := svc.ModifyHaVipAttributes(modifyHaVipAttributesInput)

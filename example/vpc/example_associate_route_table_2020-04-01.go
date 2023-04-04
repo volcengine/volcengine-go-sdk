@@ -21,7 +21,7 @@ func AssociateRouteTable() {
 	svc := vpc.New(sess)
 	associateRouteTableInput := &vpc.AssociateRouteTableInput{
 		RouteTableId: volcengine.String("vtb-2fdzao4h726f45****"),
-		SubnetId: volcengine.String("subnet-2fdzaou4liw3k5oxruv****"),
+		SubnetId:     volcengine.String("subnet-2fdzaou4liw3k5oxruv****"),
 	}
 
 	resp, err := svc.AssociateRouteTable(associateRouteTableInput)

@@ -20,7 +20,7 @@ func ModifyRouteEntry() {
 	}
 	svc := vpc.New(sess)
 	modifyRouteEntryInput := &vpc.ModifyRouteEntryInput{
-		RouteEntryId: volcengine.String("rte-3tj9gw2pwq3vj******"),
+		RouteEntryId:   volcengine.String("rte-3tj9gw2pwq3vj******"),
 		RouteEntryName: volcengine.String("test"),
 	}
 

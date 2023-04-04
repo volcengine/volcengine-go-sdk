@@ -21,7 +21,7 @@ func ModifyEipAddressAttributes() {
 	svc := vpc.New(sess)
 	modifyEipAddressAttributesInput := &vpc.ModifyEipAddressAttributesInput{
 		AllocationId: volcengine.String("eip-2zb7uj8xscd****"),
-		Bandwidth: volcengine.Int64(10),
+		Bandwidth:    volcengine.Int64(10),
 	}
 
 	resp, err := svc.ModifyEipAddressAttributes(modifyEipAddressAttributesInput)

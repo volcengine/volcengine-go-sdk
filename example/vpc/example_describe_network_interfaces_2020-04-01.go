@@ -21,8 +21,8 @@ func DescribeNetworkInterfaces() {
 	svc := vpc.New(sess)
 	describeNetworkInterfacesInput := &vpc.DescribeNetworkInterfacesInput{
 		PageNumber: volcengine.Int64(1),
-		PageSize: volcengine.Int64(100),
-		VpcId: volcengine.String("vpc-bp15zckdt37pq72zv****"),
+		PageSize:   volcengine.Int64(100),
+		VpcId:      volcengine.String("vpc-bp15zckdt37pq72zv****"),
 	}
 
 	resp, err := svc.DescribeNetworkInterfaces(describeNetworkInterfacesInput)

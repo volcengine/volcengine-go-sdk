@@ -20,11 +20,11 @@ func ModifySecurityGroupRuleDescriptionsEgress() {
 	}
 	svc := vpc.New(sess)
 	modifySecurityGroupRuleDescriptionsEgressInput := &vpc.ModifySecurityGroupRuleDescriptionsEgressInput{
-		CidrIp: volcengine.String("10.XX.XX.0/8"),
-		PortEnd: volcengine.Int64(22),
+		CidrIp:    volcengine.String("10.XX.XX.0/8"),
+		PortEnd:   volcengine.Int64(22),
 		PortStart: volcengine.Int64(22),
-		Priority: volcengine.Int64(1),
-		Protocol: volcengine.String("tcp"),
+		Priority:  volcengine.Int64(1),
+		Protocol:  volcengine.String("tcp"),
 	}
 
 	resp, err := svc.ModifySecurityGroupRuleDescriptionsEgress(modifySecurityGroupRuleDescriptionsEgressInput)

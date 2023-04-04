@@ -21,8 +21,8 @@ func CreateVpnGatewayRoute() {
 	svc := vpn.New(sess)
 	createVpnGatewayRouteInput := &vpn.CreateVpnGatewayRouteInput{
 		DestinationCidrBlock: volcengine.String("172.XX.XX.0/24"),
-		NextHopId: volcengine.String("vgc-7qthudw0ll6jmc****"),
-		VpnGatewayId: volcengine.String("vgw-12bfa2du7fojk17q7y1rk****"),
+		NextHopId:            volcengine.String("vgc-7qthudw0ll6jmc****"),
+		VpnGatewayId:         volcengine.String("vgw-12bfa2du7fojk17q7y1rk****"),
 	}
 
 	resp, err := svc.CreateVpnGatewayRoute(createVpnGatewayRouteInput)
