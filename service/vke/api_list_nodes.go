@@ -250,6 +250,8 @@ type ItemForListNodesOutput struct {
 
 	Id *string `type:"string"`
 
+	ImageId *string `type:"string"`
+
 	InitializeScript *string `type:"string"`
 
 	InstanceId *string `type:"string"`
@@ -314,6 +316,12 @@ func (s *ItemForListNodesOutput) SetCreateTime(v string) *ItemForListNodesOutput
 // SetId sets the Id field's value.
 func (s *ItemForListNodesOutput) SetId(v string) *ItemForListNodesOutput {
 	s.Id = &v
+	return s
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *ItemForListNodesOutput) SetImageId(v string) *ItemForListNodesOutput {
+	s.ImageId = &v
 	return s
 }
 
