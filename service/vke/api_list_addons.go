@@ -240,8 +240,6 @@ type ItemForListAddonsOutput struct {
 
 	ClusterId *string `type:"string"`
 
-	ClusterType *string `type:"string"`
-
 	Config *string `type:"string"`
 
 	CreateClientToken *string `type:"string"`
@@ -276,12 +274,6 @@ func (s ItemForListAddonsOutput) GoString() string {
 // SetClusterId sets the ClusterId field's value.
 func (s *ItemForListAddonsOutput) SetClusterId(v string) *ItemForListAddonsOutput {
 	s.ClusterId = &v
-	return s
-}
-
-// SetClusterType sets the ClusterType field's value.
-func (s *ItemForListAddonsOutput) SetClusterType(v string) *ItemForListAddonsOutput {
-	s.ClusterType = &v
 	return s
 }
 
