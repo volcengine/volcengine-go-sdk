@@ -312,6 +312,10 @@ type RuleForModifyRulesInput struct {
 	RuleId *string `type:"string" required:"true"`
 
 	ServerGroupId *string `type:"string"`
+
+	TrafficLimitEnabled *string `type:"string"`
+
+	TrafficLimitQPS *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -369,5 +373,17 @@ func (s *RuleForModifyRulesInput) SetRuleId(v string) *RuleForModifyRulesInput {
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *RuleForModifyRulesInput) SetServerGroupId(v string) *RuleForModifyRulesInput {
 	s.ServerGroupId = &v
+	return s
+}
+
+// SetTrafficLimitEnabled sets the TrafficLimitEnabled field's value.
+func (s *RuleForModifyRulesInput) SetTrafficLimitEnabled(v string) *RuleForModifyRulesInput {
+	s.TrafficLimitEnabled = &v
+	return s
+}
+
+// SetTrafficLimitQPS sets the TrafficLimitQPS field's value.
+func (s *RuleForModifyRulesInput) SetTrafficLimitQPS(v int64) *RuleForModifyRulesInput {
+	s.TrafficLimitQPS = &v
 	return s
 }

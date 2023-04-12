@@ -276,6 +276,10 @@ type RuleForDescribeRulesOutput struct {
 
 	ServerGroupId *string `type:"string"`
 
+	TrafficLimitEnabled *string `type:"string"`
+
+	TrafficLimitQPS *int64 `type:"integer"`
+
 	Url *string `type:"string"`
 }
 
@@ -322,6 +326,18 @@ func (s *RuleForDescribeRulesOutput) SetRuleId(v string) *RuleForDescribeRulesOu
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *RuleForDescribeRulesOutput) SetServerGroupId(v string) *RuleForDescribeRulesOutput {
 	s.ServerGroupId = &v
+	return s
+}
+
+// SetTrafficLimitEnabled sets the TrafficLimitEnabled field's value.
+func (s *RuleForDescribeRulesOutput) SetTrafficLimitEnabled(v string) *RuleForDescribeRulesOutput {
+	s.TrafficLimitEnabled = &v
+	return s
+}
+
+// SetTrafficLimitQPS sets the TrafficLimitQPS field's value.
+func (s *RuleForDescribeRulesOutput) SetTrafficLimitQPS(v int64) *RuleForDescribeRulesOutput {
+	s.TrafficLimitQPS = &v
 	return s
 }
 
