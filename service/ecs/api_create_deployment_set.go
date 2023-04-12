@@ -144,7 +144,8 @@ type CreateDeploymentSetInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DeploymentSetName *string `type:"string"`
+	// DeploymentSetName is a required field
+	DeploymentSetName *string `type:"string" required:"true"`
 
 	Description *string `type:"string"`
 
@@ -161,6 +162,19 @@ func (s CreateDeploymentSetInput) String() string {
 // GoString returns the string representation
 func (s CreateDeploymentSetInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDeploymentSetInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDeploymentSetInput"}
+	if s.DeploymentSetName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DeploymentSetName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
