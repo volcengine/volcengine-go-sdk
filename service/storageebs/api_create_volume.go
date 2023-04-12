@@ -148,6 +148,8 @@ type CreateVolumeInput struct {
 
 	Description *string `type:"string"`
 
+	InstanceId *string `type:"string"`
+
 	Kind *string `type:"string"`
 
 	ProjectName *string `type:"string"`
@@ -184,6 +186,12 @@ func (s *CreateVolumeInput) SetClientToken(v string) *CreateVolumeInput {
 // SetDescription sets the Description field's value.
 func (s *CreateVolumeInput) SetDescription(v string) *CreateVolumeInput {
 	s.Description = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateVolumeInput) SetInstanceId(v string) *CreateVolumeInput {
+	s.InstanceId = &v
 	return s
 }
 

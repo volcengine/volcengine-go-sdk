@@ -19,6 +19,8 @@ type RequestMetadata struct {
 	RawQuery    *url.Values
 }
 
+type ExtendContextWithMeta func(ctx context.Context, meta RequestMetadata) context.Context
+
 type ExtendHttpRequest func(ctx context.Context, request *http.Request)
 
 type ExtendHttpRequestWithMeta func(ctx context.Context, request *http.Request, meta RequestMetadata)

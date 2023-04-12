@@ -70,6 +70,14 @@ type ECSAPI interface {
 	CreateKeyPairWithContext(volcengine.Context, *CreateKeyPairInput, ...request.Option) (*CreateKeyPairOutput, error)
 	CreateKeyPairRequest(*CreateKeyPairInput) (*request.Request, *CreateKeyPairOutput)
 
+	CreateSubscriptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSubscriptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSubscriptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSubscription(*CreateSubscriptionInput) (*CreateSubscriptionOutput, error)
+	CreateSubscriptionWithContext(volcengine.Context, *CreateSubscriptionInput, ...request.Option) (*CreateSubscriptionOutput, error)
+	CreateSubscriptionRequest(*CreateSubscriptionInput) (*request.Request, *CreateSubscriptionOutput)
+
 	CreateTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -221,6 +229,14 @@ type ECSAPI interface {
 	DescribeKeyPairs(*DescribeKeyPairsInput) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsWithContext(volcengine.Context, *DescribeKeyPairsInput, ...request.Option) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsRequest(*DescribeKeyPairsInput) (*request.Request, *DescribeKeyPairsOutput)
+
+	DescribeSubscriptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSubscriptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSubscriptionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSubscriptions(*DescribeSubscriptionsInput) (*DescribeSubscriptionsOutput, error)
+	DescribeSubscriptionsWithContext(volcengine.Context, *DescribeSubscriptionsInput, ...request.Option) (*DescribeSubscriptionsOutput, error)
+	DescribeSubscriptionsRequest(*DescribeSubscriptionsInput) (*request.Request, *DescribeSubscriptionsOutput)
 
 	DescribeSystemEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSystemEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -381,6 +397,14 @@ type ECSAPI interface {
 	ModifyKeyPairAttribute(*ModifyKeyPairAttributeInput) (*ModifyKeyPairAttributeOutput, error)
 	ModifyKeyPairAttributeWithContext(volcengine.Context, *ModifyKeyPairAttributeInput, ...request.Option) (*ModifyKeyPairAttributeOutput, error)
 	ModifyKeyPairAttributeRequest(*ModifyKeyPairAttributeInput) (*request.Request, *ModifyKeyPairAttributeOutput)
+
+	ModifySubscriptionEventTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifySubscriptionEventTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifySubscriptionEventTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifySubscriptionEventTypes(*ModifySubscriptionEventTypesInput) (*ModifySubscriptionEventTypesOutput, error)
+	ModifySubscriptionEventTypesWithContext(volcengine.Context, *ModifySubscriptionEventTypesInput, ...request.Option) (*ModifySubscriptionEventTypesOutput, error)
+	ModifySubscriptionEventTypesRequest(*ModifySubscriptionEventTypesInput) (*request.Request, *ModifySubscriptionEventTypesOutput)
 
 	RebootInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RebootInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
