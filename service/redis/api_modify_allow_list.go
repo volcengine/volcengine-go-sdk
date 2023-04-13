@@ -158,6 +158,8 @@ type ModifyAllowListInput struct {
 
 	ApplyInstanceNum *int32 `type:"int32"`
 
+	ClientToken *string `type:"string"`
+
 	ModifyMode *string `type:"string"`
 }
 
@@ -214,6 +216,12 @@ func (s *ModifyAllowListInput) SetAllowListName(v string) *ModifyAllowListInput 
 // SetApplyInstanceNum sets the ApplyInstanceNum field's value.
 func (s *ModifyAllowListInput) SetApplyInstanceNum(v int32) *ModifyAllowListInput {
 	s.ApplyInstanceNum = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyAllowListInput) SetClientToken(v string) *ModifyAllowListInput {
+	s.ClientToken = &v
 	return s
 }
 

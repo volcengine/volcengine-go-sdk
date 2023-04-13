@@ -149,6 +149,8 @@ type CreateDBAccountInput struct {
 	// AccountName is a required field
 	AccountName *string `type:"string" required:"true"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	// InstanceId is a required field
@@ -196,6 +198,12 @@ func (s *CreateDBAccountInput) Validate() error {
 // SetAccountName sets the AccountName field's value.
 func (s *CreateDBAccountInput) SetAccountName(v string) *CreateDBAccountInput {
 	s.AccountName = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateDBAccountInput) SetClientToken(v string) *CreateDBAccountInput {
+	s.ClientToken = &v
 	return s
 }
 

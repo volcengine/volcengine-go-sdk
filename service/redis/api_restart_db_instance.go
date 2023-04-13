@@ -146,6 +146,8 @@ func (c *REDIS) RestartDBInstanceWithContext(ctx volcengine.Context, input *Rest
 type RestartDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 }
@@ -171,6 +173,12 @@ func (s *RestartDBInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *RestartDBInstanceInput) SetClientToken(v string) *RestartDBInstanceInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

@@ -155,6 +155,8 @@ type CreateAllowListInput struct {
 	AllowListName *string `type:"string" required:"true"`
 
 	AllowListType *string `type:"string"`
+
+	ClientToken *string `type:"string"`
 }
 
 // String returns the string representation
@@ -204,6 +206,12 @@ func (s *CreateAllowListInput) SetAllowListName(v string) *CreateAllowListInput 
 // SetAllowListType sets the AllowListType field's value.
 func (s *CreateAllowListInput) SetAllowListType(v string) *CreateAllowListInput {
 	s.AllowListType = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateAllowListInput) SetClientToken(v string) *CreateAllowListInput {
+	s.ClientToken = &v
 	return s
 }
 

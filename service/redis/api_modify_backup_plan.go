@@ -150,6 +150,8 @@ type ModifyBackupPlanInput struct {
 
 	BackupHour *int8 `type:"int8"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	Period []*int64 `type:"list"`
@@ -174,6 +176,12 @@ func (s *ModifyBackupPlanInput) SetActive(v bool) *ModifyBackupPlanInput {
 // SetBackupHour sets the BackupHour field's value.
 func (s *ModifyBackupPlanInput) SetBackupHour(v int8) *ModifyBackupPlanInput {
 	s.BackupHour = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyBackupPlanInput) SetClientToken(v string) *ModifyBackupPlanInput {
+	s.ClientToken = &v
 	return s
 }
 

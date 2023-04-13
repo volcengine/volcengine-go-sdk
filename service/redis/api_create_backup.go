@@ -146,6 +146,8 @@ func (c *REDIS) CreateBackupWithContext(ctx volcengine.Context, input *CreateBac
 type CreateBackupInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 }
 
@@ -157,6 +159,12 @@ func (s CreateBackupInput) String() string {
 // GoString returns the string representation
 func (s CreateBackupInput) GoString() string {
 	return s.String()
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateBackupInput) SetClientToken(v string) *CreateBackupInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

@@ -146,6 +146,8 @@ func (c *REDIS) CreateDBEndpointPublicAddressWithContext(ctx volcengine.Context,
 type CreateDBEndpointPublicAddressInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// EipId is a required field
 	EipId *string `type:"string" required:"true"`
 
@@ -177,6 +179,12 @@ func (s *CreateDBEndpointPublicAddressInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateDBEndpointPublicAddressInput) SetClientToken(v string) *CreateDBEndpointPublicAddressInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetEipId sets the EipId field's value.

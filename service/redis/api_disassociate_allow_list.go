@@ -148,6 +148,8 @@ type DisassociateAllowListInput struct {
 
 	AllowListIds []*string `type:"list"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceIds []*string `type:"list"`
 }
 
@@ -164,6 +166,12 @@ func (s DisassociateAllowListInput) GoString() string {
 // SetAllowListIds sets the AllowListIds field's value.
 func (s *DisassociateAllowListInput) SetAllowListIds(v []*string) *DisassociateAllowListInput {
 	s.AllowListIds = v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DisassociateAllowListInput) SetClientToken(v string) *DisassociateAllowListInput {
+	s.ClientToken = &v
 	return s
 }
 

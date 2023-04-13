@@ -150,6 +150,8 @@ type CreateDBInstanceInput struct {
 
 	ChargeType *string `type:"string"`
 
+	ClientToken *string `type:"string"`
+
 	DeletionProtection *string `type:"string"`
 
 	// EngineVersion is a required field
@@ -222,6 +224,12 @@ func (s *CreateDBInstanceInput) SetAutoRenew(v bool) *CreateDBInstanceInput {
 // SetChargeType sets the ChargeType field's value.
 func (s *CreateDBInstanceInput) SetChargeType(v string) *CreateDBInstanceInput {
 	s.ChargeType = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateDBInstanceInput) SetClientToken(v string) *CreateDBInstanceInput {
+	s.ClientToken = &v
 	return s
 }
 
