@@ -150,6 +150,14 @@ type REDISAPI interface {
 	DescribeBackupsWithContext(volcengine.Context, *DescribeBackupsInput, ...request.Option) (*DescribeBackupsOutput, error)
 	DescribeBackupsRequest(*DescribeBackupsInput) (*request.Request, *DescribeBackupsOutput)
 
+	DescribeBigKeysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBigKeysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBigKeysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBigKeys(*DescribeBigKeysInput) (*DescribeBigKeysOutput, error)
+	DescribeBigKeysWithContext(volcengine.Context, *DescribeBigKeysInput, ...request.Option) (*DescribeBigKeysOutput, error)
+	DescribeBigKeysRequest(*DescribeBigKeysInput) (*request.Request, *DescribeBigKeysOutput)
+
 	DescribeDBInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

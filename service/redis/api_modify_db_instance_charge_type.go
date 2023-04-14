@@ -151,6 +151,8 @@ type ModifyDBInstanceChargeTypeInput struct {
 	// ChargeType is a required field
 	ChargeType *string `type:"string" required:"true"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceIds []*string `type:"list"`
 
 	PurchaseMonths *int32 `type:"int32"`
@@ -188,6 +190,12 @@ func (s *ModifyDBInstanceChargeTypeInput) SetAutoRenew(v bool) *ModifyDBInstance
 // SetChargeType sets the ChargeType field's value.
 func (s *ModifyDBInstanceChargeTypeInput) SetChargeType(v string) *ModifyDBInstanceChargeTypeInput {
 	s.ChargeType = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyDBInstanceChargeTypeInput) SetClientToken(v string) *ModifyDBInstanceChargeTypeInput {
+	s.ClientToken = &v
 	return s
 }
 

@@ -176,14 +176,34 @@ func (s *CapacityForDescribeDBInstancesOutput) SetUsed(v int64) *CapacityForDesc
 type DescribeDBInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	ChargeType *string `type:"string"`
+
+	EngineVersion *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceName *string `type:"string"`
+
 	// PageNumber is a required field
 	PageNumber *int32 `type:"int32" required:"true"`
 
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" required:"true"`
 
+	ProjectName *string `type:"string"`
+
 	// RegionId is a required field
 	RegionId *string `type:"string" required:"true"`
+
+	ShardedCluster *int32 `type:"int32"`
+
+	Status *string `type:"string"`
+
+	Tags []*TagForDescribeDBInstancesInput `type:"list"`
+
+	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -215,6 +235,30 @@ func (s *DescribeDBInstancesInput) Validate() error {
 	return nil
 }
 
+// SetChargeType sets the ChargeType field's value.
+func (s *DescribeDBInstancesInput) SetChargeType(v string) *DescribeDBInstancesInput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetEngineVersion sets the EngineVersion field's value.
+func (s *DescribeDBInstancesInput) SetEngineVersion(v string) *DescribeDBInstancesInput {
+	s.EngineVersion = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeDBInstancesInput) SetInstanceId(v string) *DescribeDBInstancesInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *DescribeDBInstancesInput) SetInstanceName(v string) *DescribeDBInstancesInput {
+	s.InstanceName = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeDBInstancesInput) SetPageNumber(v int32) *DescribeDBInstancesInput {
 	s.PageNumber = &v
@@ -227,9 +271,45 @@ func (s *DescribeDBInstancesInput) SetPageSize(v int32) *DescribeDBInstancesInpu
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeDBInstancesInput) SetProjectName(v string) *DescribeDBInstancesInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRegionId sets the RegionId field's value.
 func (s *DescribeDBInstancesInput) SetRegionId(v string) *DescribeDBInstancesInput {
 	s.RegionId = &v
+	return s
+}
+
+// SetShardedCluster sets the ShardedCluster field's value.
+func (s *DescribeDBInstancesInput) SetShardedCluster(v int32) *DescribeDBInstancesInput {
+	s.ShardedCluster = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeDBInstancesInput) SetStatus(v string) *DescribeDBInstancesInput {
+	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeDBInstancesInput) SetTags(v []*TagForDescribeDBInstancesInput) *DescribeDBInstancesInput {
+	s.Tags = v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *DescribeDBInstancesInput) SetVpcId(v string) *DescribeDBInstancesInput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeDBInstancesInput) SetZoneId(v string) *DescribeDBInstancesInput {
+	s.ZoneId = &v
 	return s
 }
 
@@ -295,6 +375,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 	ShardedCluster *int32 `type:"int32"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -395,6 +477,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetStatus(v string) *InstanceForD
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetTags(v []*TagForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetVpcId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.VpcId = &v
@@ -404,5 +492,65 @@ func (s *InstanceForDescribeDBInstancesOutput) SetVpcId(v string) *InstanceForDe
 // SetZoneIds sets the ZoneIds field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetZoneIds(v []*string) *InstanceForDescribeDBInstancesOutput {
 	s.ZoneIds = v
+	return s
+}
+
+type TagForDescribeDBInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeDBInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeDBInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeDBInstancesInput) SetKey(v string) *TagForDescribeDBInstancesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeDBInstancesInput) SetValue(v string) *TagForDescribeDBInstancesInput {
+	s.Value = &v
+	return s
+}
+
+type TagForDescribeDBInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeDBInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeDBInstancesOutput) SetKey(v string) *TagForDescribeDBInstancesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBInstancesOutput {
+	s.Value = &v
 	return s
 }

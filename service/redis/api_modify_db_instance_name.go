@@ -146,6 +146,8 @@ func (c *REDIS) ModifyDBInstanceNameWithContext(ctx volcengine.Context, input *M
 type ModifyDBInstanceNameInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -177,6 +179,12 @@ func (s *ModifyDBInstanceNameInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyDBInstanceNameInput) SetClientToken(v string) *ModifyDBInstanceNameInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

@@ -148,6 +148,8 @@ type DeleteAllowListInput struct {
 
 	// AllowListId is a required field
 	AllowListId *string `type:"string" required:"true"`
+
+	ClientToken *string `type:"string"`
 }
 
 // String returns the string representation
@@ -176,6 +178,12 @@ func (s *DeleteAllowListInput) Validate() error {
 // SetAllowListId sets the AllowListId field's value.
 func (s *DeleteAllowListInput) SetAllowListId(v string) *DeleteAllowListInput {
 	s.AllowListId = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DeleteAllowListInput) SetClientToken(v string) *DeleteAllowListInput {
+	s.ClientToken = &v
 	return s
 }
 
