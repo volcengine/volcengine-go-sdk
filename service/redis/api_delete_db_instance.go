@@ -146,6 +146,8 @@ func (c *REDIS) DeleteDBInstanceWithContext(ctx volcengine.Context, input *Delet
 type DeleteDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	CreateBackup *bool `type:"boolean"`
 
 	// InstanceId is a required field
@@ -173,6 +175,12 @@ func (s *DeleteDBInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DeleteDBInstanceInput) SetClientToken(v string) *DeleteDBInstanceInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetCreateBackup sets the CreateBackup field's value.

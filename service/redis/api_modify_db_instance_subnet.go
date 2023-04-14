@@ -146,6 +146,8 @@ func (c *REDIS) ModifyDBInstanceSubnetWithContext(ctx volcengine.Context, input 
 type ModifyDBInstanceSubnetInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -183,6 +185,12 @@ func (s *ModifyDBInstanceSubnetInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyDBInstanceSubnetInput) SetClientToken(v string) *ModifyDBInstanceSubnetInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

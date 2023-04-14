@@ -146,6 +146,8 @@ func (c *REDIS) ModifyDBInstanceVpcAuthModeWithContext(ctx volcengine.Context, i
 type ModifyDBInstanceVpcAuthModeInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *ModifyDBInstanceVpcAuthModeInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyDBInstanceVpcAuthModeInput) SetClientToken(v string) *ModifyDBInstanceVpcAuthModeInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

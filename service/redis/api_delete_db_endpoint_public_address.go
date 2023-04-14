@@ -146,6 +146,8 @@ func (c *REDIS) DeleteDBEndpointPublicAddressWithContext(ctx volcengine.Context,
 type DeleteDBEndpointPublicAddressInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// EipId is a required field
 	EipId *string `type:"string" required:"true"`
 
@@ -177,6 +179,12 @@ func (s *DeleteDBEndpointPublicAddressInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DeleteDBEndpointPublicAddressInput) SetClientToken(v string) *DeleteDBEndpointPublicAddressInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetEipId sets the EipId field's value.

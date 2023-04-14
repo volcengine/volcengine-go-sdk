@@ -146,6 +146,8 @@ func (c *REDIS) ModifyDBInstanceDeletionProtectionPolicyWithContext(ctx volcengi
 type ModifyDBInstanceDeletionProtectionPolicyInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// DeletionProtection is a required field
 	DeletionProtection *string `type:"string" required:"true"`
 
@@ -177,6 +179,12 @@ func (s *ModifyDBInstanceDeletionProtectionPolicyInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ModifyDBInstanceDeletionProtectionPolicyInput) SetClientToken(v string) *ModifyDBInstanceDeletionProtectionPolicyInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDeletionProtection sets the DeletionProtection field's value.

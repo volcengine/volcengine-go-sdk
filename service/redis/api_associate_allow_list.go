@@ -148,6 +148,8 @@ type AssociateAllowListInput struct {
 
 	AllowListIds []*string `type:"list"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceIds []*string `type:"list"`
 }
 
@@ -164,6 +166,12 @@ func (s AssociateAllowListInput) GoString() string {
 // SetAllowListIds sets the AllowListIds field's value.
 func (s *AssociateAllowListInput) SetAllowListIds(v []*string) *AssociateAllowListInput {
 	s.AllowListIds = v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *AssociateAllowListInput) SetClientToken(v string) *AssociateAllowListInput {
+	s.ClientToken = &v
 	return s
 }
 
