@@ -38,6 +38,14 @@ type STORAGEEBSAPI interface {
 	AttachVolumeWithContext(volcengine.Context, *AttachVolumeInput, ...request.Option) (*AttachVolumeOutput, error)
 	AttachVolumeRequest(*AttachVolumeInput) (*request.Request, *AttachVolumeOutput)
 
+	CreateTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTags(*CreateTagsInput) (*CreateTagsOutput, error)
+	CreateTagsWithContext(volcengine.Context, *CreateTagsInput, ...request.Option) (*CreateTagsOutput, error)
+	CreateTagsRequest(*CreateTagsInput) (*request.Request, *CreateTagsOutput)
+
 	CreateVolumeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateVolumeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateVolumeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -46,6 +54,14 @@ type STORAGEEBSAPI interface {
 	CreateVolumeWithContext(volcengine.Context, *CreateVolumeInput, ...request.Option) (*CreateVolumeOutput, error)
 	CreateVolumeRequest(*CreateVolumeInput) (*request.Request, *CreateVolumeOutput)
 
+	DeleteTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTags(*DeleteTagsInput) (*DeleteTagsOutput, error)
+	DeleteTagsWithContext(volcengine.Context, *DeleteTagsInput, ...request.Option) (*DeleteTagsOutput, error)
+	DeleteTagsRequest(*DeleteTagsInput) (*request.Request, *DeleteTagsOutput)
+
 	DeleteVolumeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVolumeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteVolumeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +69,14 @@ type STORAGEEBSAPI interface {
 	DeleteVolume(*DeleteVolumeInput) (*DeleteVolumeOutput, error)
 	DeleteVolumeWithContext(volcengine.Context, *DeleteVolumeInput, ...request.Option) (*DeleteVolumeOutput, error)
 	DeleteVolumeRequest(*DeleteVolumeInput) (*request.Request, *DeleteVolumeOutput)
+
+	DescribeTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTagsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTags(*DescribeTagsInput) (*DescribeTagsOutput, error)
+	DescribeTagsWithContext(volcengine.Context, *DescribeTagsInput, ...request.Option) (*DescribeTagsOutput, error)
+	DescribeTagsRequest(*DescribeTagsInput) (*request.Request, *DescribeTagsOutput)
 
 	DescribeVolumesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVolumesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
