@@ -148,6 +148,8 @@ type CreateListenerInput struct {
 
 	AclType *string `type:"string"`
 
+	Bandwidth *int64 `type:"integer"`
+
 	CertificateId *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -228,6 +230,12 @@ func (s *CreateListenerInput) SetAclStatus(v string) *CreateListenerInput {
 // SetAclType sets the AclType field's value.
 func (s *CreateListenerInput) SetAclType(v string) *CreateListenerInput {
 	s.AclType = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *CreateListenerInput) SetBandwidth(v int64) *CreateListenerInput {
+	s.Bandwidth = &v
 	return s
 }
 

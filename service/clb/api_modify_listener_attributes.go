@@ -234,6 +234,8 @@ type ModifyListenerAttributesInput struct {
 
 	AclType *string `type:"string"`
 
+	Bandwidth *int64 `type:"integer"`
+
 	CertificateId *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -298,6 +300,12 @@ func (s *ModifyListenerAttributesInput) SetAclStatus(v string) *ModifyListenerAt
 // SetAclType sets the AclType field's value.
 func (s *ModifyListenerAttributesInput) SetAclType(v string) *ModifyListenerAttributesInput {
 	s.AclType = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *ModifyListenerAttributesInput) SetBandwidth(v int64) *ModifyListenerAttributesInput {
+	s.Bandwidth = &v
 	return s
 }
 

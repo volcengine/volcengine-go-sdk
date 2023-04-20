@@ -352,6 +352,8 @@ type ListenerForDescribeListenersOutput struct {
 
 	AclType *string `type:"string"`
 
+	Bandwidth *int64 `type:"integer"`
+
 	CertificateId *string `type:"string"`
 
 	CreateTime *string `type:"string"`
@@ -406,6 +408,12 @@ func (s *ListenerForDescribeListenersOutput) SetAclStatus(v string) *ListenerFor
 // SetAclType sets the AclType field's value.
 func (s *ListenerForDescribeListenersOutput) SetAclType(v string) *ListenerForDescribeListenersOutput {
 	s.AclType = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *ListenerForDescribeListenersOutput) SetBandwidth(v int64) *ListenerForDescribeListenersOutput {
+	s.Bandwidth = &v
 	return s
 }
 
