@@ -142,6 +142,8 @@ func (c *CLB) DescribeLoadBalancersWithContext(ctx volcengine.Context, input *De
 type DescribeLoadBalancersInput struct {
 	_ struct{} `type:"structure"`
 
+	AddressIpVersion *string `type:"string"`
+
 	EniAddress *string `type:"string"`
 
 	LoadBalancerIds []*string `type:"list"`
@@ -167,6 +169,12 @@ func (s DescribeLoadBalancersInput) String() string {
 // GoString returns the string representation
 func (s DescribeLoadBalancersInput) GoString() string {
 	return s.String()
+}
+
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *DescribeLoadBalancersInput) SetAddressIpVersion(v string) *DescribeLoadBalancersInput {
+	s.AddressIpVersion = &v
+	return s
 }
 
 // SetEniAddress sets the EniAddress field's value.
