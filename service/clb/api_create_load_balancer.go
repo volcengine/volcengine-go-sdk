@@ -142,6 +142,8 @@ func (c *CLB) CreateLoadBalancerWithContext(ctx volcengine.Context, input *Creat
 type CreateLoadBalancerInput struct {
 	_ struct{} `type:"structure"`
 
+	AddressIpVersion *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -149,6 +151,8 @@ type CreateLoadBalancerInput struct {
 	EipBillingConfig *EipBillingConfigForCreateLoadBalancerInput `type:"structure"`
 
 	EniAddress *string `type:"string"`
+
+	EniIpv6Address *string `type:"string"`
 
 	LoadBalancerBillingType *int64 `type:"integer"`
 
@@ -213,6 +217,12 @@ func (s *CreateLoadBalancerInput) Validate() error {
 	return nil
 }
 
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *CreateLoadBalancerInput) SetAddressIpVersion(v string) *CreateLoadBalancerInput {
+	s.AddressIpVersion = &v
+	return s
+}
+
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateLoadBalancerInput) SetClientToken(v string) *CreateLoadBalancerInput {
 	s.ClientToken = &v
@@ -234,6 +244,12 @@ func (s *CreateLoadBalancerInput) SetEipBillingConfig(v *EipBillingConfigForCrea
 // SetEniAddress sets the EniAddress field's value.
 func (s *CreateLoadBalancerInput) SetEniAddress(v string) *CreateLoadBalancerInput {
 	s.EniAddress = &v
+	return s
+}
+
+// SetEniIpv6Address sets the EniIpv6Address field's value.
+func (s *CreateLoadBalancerInput) SetEniIpv6Address(v string) *CreateLoadBalancerInput {
+	s.EniIpv6Address = &v
 	return s
 }
 

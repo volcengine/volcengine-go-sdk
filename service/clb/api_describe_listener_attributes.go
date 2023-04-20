@@ -186,6 +186,8 @@ type DescribeListenerAttributesOutput struct {
 
 	AclType *string `type:"string"`
 
+	Bandwidth *int64 `type:"integer"`
+
 	CertificateId *string `type:"string"`
 
 	CreateTime *string `type:"string"`
@@ -244,6 +246,12 @@ func (s *DescribeListenerAttributesOutput) SetAclStatus(v string) *DescribeListe
 // SetAclType sets the AclType field's value.
 func (s *DescribeListenerAttributesOutput) SetAclType(v string) *DescribeListenerAttributesOutput {
 	s.AclType = &v
+	return s
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *DescribeListenerAttributesOutput) SetBandwidth(v int64) *DescribeListenerAttributesOutput {
+	s.Bandwidth = &v
 	return s
 }
 
@@ -364,6 +372,8 @@ type HealthCheckForDescribeListenerAttributesOutput struct {
 
 	UdpRequest *string `type:"string"`
 
+	UnHealthyThreshold *int64 `type:"integer"`
+
 	Uri *string `type:"string"`
 }
 
@@ -428,6 +438,12 @@ func (s *HealthCheckForDescribeListenerAttributesOutput) SetUdpExpect(v string) 
 // SetUdpRequest sets the UdpRequest field's value.
 func (s *HealthCheckForDescribeListenerAttributesOutput) SetUdpRequest(v string) *HealthCheckForDescribeListenerAttributesOutput {
 	s.UdpRequest = &v
+	return s
+}
+
+// SetUnHealthyThreshold sets the UnHealthyThreshold field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetUnHealthyThreshold(v int64) *HealthCheckForDescribeListenerAttributesOutput {
+	s.UnHealthyThreshold = &v
 	return s
 }
 
