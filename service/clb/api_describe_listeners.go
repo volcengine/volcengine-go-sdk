@@ -270,6 +270,8 @@ type HealthCheckForDescribeListenersOutput struct {
 
 	UdpRequest *string `type:"string"`
 
+	UnHealthyThreshold *int64 `type:"integer"`
+
 	Uri *string `type:"string"`
 }
 
@@ -334,6 +336,12 @@ func (s *HealthCheckForDescribeListenersOutput) SetUdpExpect(v string) *HealthCh
 // SetUdpRequest sets the UdpRequest field's value.
 func (s *HealthCheckForDescribeListenersOutput) SetUdpRequest(v string) *HealthCheckForDescribeListenersOutput {
 	s.UdpRequest = &v
+	return s
+}
+
+// SetUnHealthyThreshold sets the UnHealthyThreshold field's value.
+func (s *HealthCheckForDescribeListenersOutput) SetUnHealthyThreshold(v int64) *HealthCheckForDescribeListenersOutput {
+	s.UnHealthyThreshold = &v
 	return s
 }
 

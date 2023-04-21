@@ -86,6 +86,14 @@ type VPCAPI interface {
 	AssociateRouteTableWithContext(volcengine.Context, *AssociateRouteTableInput, ...request.Option) (*AssociateRouteTableOutput, error)
 	AssociateRouteTableRequest(*AssociateRouteTableInput) (*request.Request, *AssociateRouteTableOutput)
 
+	AssociateVpcCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateVpcCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateVpcCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateVpcCidrBlock(*AssociateVpcCidrBlockInput) (*AssociateVpcCidrBlockOutput, error)
+	AssociateVpcCidrBlockWithContext(volcengine.Context, *AssociateVpcCidrBlockInput, ...request.Option) (*AssociateVpcCidrBlockOutput, error)
+	AssociateVpcCidrBlockRequest(*AssociateVpcCidrBlockInput) (*request.Request, *AssociateVpcCidrBlockOutput)
+
 	AttachNetworkInterfaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachNetworkInterfaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AttachNetworkInterfaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -421,6 +429,14 @@ type VPCAPI interface {
 	DisassociateRouteTable(*DisassociateRouteTableInput) (*DisassociateRouteTableOutput, error)
 	DisassociateRouteTableWithContext(volcengine.Context, *DisassociateRouteTableInput, ...request.Option) (*DisassociateRouteTableOutput, error)
 	DisassociateRouteTableRequest(*DisassociateRouteTableInput) (*request.Request, *DisassociateRouteTableOutput)
+
+	DisassociateVpcCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateVpcCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateVpcCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateVpcCidrBlock(*DisassociateVpcCidrBlockInput) (*DisassociateVpcCidrBlockOutput, error)
+	DisassociateVpcCidrBlockWithContext(volcengine.Context, *DisassociateVpcCidrBlockInput, ...request.Option) (*DisassociateVpcCidrBlockOutput, error)
+	DisassociateVpcCidrBlockRequest(*DisassociateVpcCidrBlockInput) (*request.Request, *DisassociateVpcCidrBlockOutput)
 
 	ListTagsForResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListTagsForResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
