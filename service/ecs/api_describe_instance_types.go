@@ -458,6 +458,8 @@ func (s *MemoryForDescribeInstanceTypesOutput) SetSize(v int32) *MemoryForDescri
 type NetworkForDescribeInstanceTypesOutput struct {
 	_ struct{} `type:"structure"`
 
+	BaselineBandwidthMbps *int32 `type:"int32"`
+
 	MaximumBandwidthMbps *int32 `type:"int32"`
 
 	MaximumNetworkInterfaces *int32 `type:"int32"`
@@ -477,6 +479,12 @@ func (s NetworkForDescribeInstanceTypesOutput) String() string {
 // GoString returns the string representation
 func (s NetworkForDescribeInstanceTypesOutput) GoString() string {
 	return s.String()
+}
+
+// SetBaselineBandwidthMbps sets the BaselineBandwidthMbps field's value.
+func (s *NetworkForDescribeInstanceTypesOutput) SetBaselineBandwidthMbps(v int32) *NetworkForDescribeInstanceTypesOutput {
+	s.BaselineBandwidthMbps = &v
+	return s
 }
 
 // SetMaximumBandwidthMbps sets the MaximumBandwidthMbps field's value.

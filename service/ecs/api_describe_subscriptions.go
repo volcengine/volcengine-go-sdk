@@ -144,13 +144,13 @@ func (c *ECS) DescribeSubscriptionsWithContext(ctx volcengine.Context, input *De
 type DescribeSubscriptionsInput struct {
 	_ struct{} `type:"structure"`
 
-	CreatedAtEnd *string `type:"string"`
-
-	CreatedAtStart *string `type:"string"`
-
 	MaxResults *json.Number `type:"json_number"`
 
 	NextToken *string `type:"string"`
+
+	SubscriptionIds []*string `type:"list"`
+
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -161,18 +161,6 @@ func (s DescribeSubscriptionsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSubscriptionsInput) GoString() string {
 	return s.String()
-}
-
-// SetCreatedAtEnd sets the CreatedAtEnd field's value.
-func (s *DescribeSubscriptionsInput) SetCreatedAtEnd(v string) *DescribeSubscriptionsInput {
-	s.CreatedAtEnd = &v
-	return s
-}
-
-// SetCreatedAtStart sets the CreatedAtStart field's value.
-func (s *DescribeSubscriptionsInput) SetCreatedAtStart(v string) *DescribeSubscriptionsInput {
-	s.CreatedAtStart = &v
-	return s
 }
 
 // SetMaxResults sets the MaxResults field's value.
@@ -187,12 +175,26 @@ func (s *DescribeSubscriptionsInput) SetNextToken(v string) *DescribeSubscriptio
 	return s
 }
 
+// SetSubscriptionIds sets the SubscriptionIds field's value.
+func (s *DescribeSubscriptionsInput) SetSubscriptionIds(v []*string) *DescribeSubscriptionsInput {
+	s.SubscriptionIds = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeSubscriptionsInput) SetType(v string) *DescribeSubscriptionsInput {
+	s.Type = &v
+	return s
+}
+
 type DescribeSubscriptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
 
 	NextToken *string `type:"string"`
+
+	Subscriptions []*SubscriptionForDescribeSubscriptionsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -208,5 +210,65 @@ func (s DescribeSubscriptionsOutput) GoString() string {
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeSubscriptionsOutput) SetNextToken(v string) *DescribeSubscriptionsOutput {
 	s.NextToken = &v
+	return s
+}
+
+// SetSubscriptions sets the Subscriptions field's value.
+func (s *DescribeSubscriptionsOutput) SetSubscriptions(v []*SubscriptionForDescribeSubscriptionsOutput) *DescribeSubscriptionsOutput {
+	s.Subscriptions = v
+	return s
+}
+
+type SubscriptionForDescribeSubscriptionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CreatedAt *string `type:"string"`
+
+	EventTypes []*string `type:"list"`
+
+	Id *string `type:"string"`
+
+	Type *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SubscriptionForDescribeSubscriptionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SubscriptionForDescribeSubscriptionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCreatedAt sets the CreatedAt field's value.
+func (s *SubscriptionForDescribeSubscriptionsOutput) SetCreatedAt(v string) *SubscriptionForDescribeSubscriptionsOutput {
+	s.CreatedAt = &v
+	return s
+}
+
+// SetEventTypes sets the EventTypes field's value.
+func (s *SubscriptionForDescribeSubscriptionsOutput) SetEventTypes(v []*string) *SubscriptionForDescribeSubscriptionsOutput {
+	s.EventTypes = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *SubscriptionForDescribeSubscriptionsOutput) SetId(v string) *SubscriptionForDescribeSubscriptionsOutput {
+	s.Id = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *SubscriptionForDescribeSubscriptionsOutput) SetType(v string) *SubscriptionForDescribeSubscriptionsOutput {
+	s.Type = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *SubscriptionForDescribeSubscriptionsOutput) SetUpdatedAt(v string) *SubscriptionForDescribeSubscriptionsOutput {
+	s.UpdatedAt = &v
 	return s
 }

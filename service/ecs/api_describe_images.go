@@ -280,6 +280,8 @@ type ImageForDescribeImagesOutput struct {
 
 	Architecture *string `type:"string"`
 
+	BootMode *string `type:"string"`
+
 	CreatedAt *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -328,6 +330,12 @@ func (s ImageForDescribeImagesOutput) GoString() string {
 // SetArchitecture sets the Architecture field's value.
 func (s *ImageForDescribeImagesOutput) SetArchitecture(v string) *ImageForDescribeImagesOutput {
 	s.Architecture = &v
+	return s
+}
+
+// SetBootMode sets the BootMode field's value.
+func (s *ImageForDescribeImagesOutput) SetBootMode(v string) *ImageForDescribeImagesOutput {
+	s.BootMode = &v
 	return s
 }
 
