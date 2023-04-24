@@ -155,6 +155,8 @@ type AutoScalingForCreateNodePoolInput struct {
 	MinReplicas *int32 `type:"int32"`
 
 	Priority *int32 `type:"int32"`
+
+	SubnetPolicy *string `type:"string" enum:"EnumOfSubnetPolicyForCreateNodePoolInput"`
 }
 
 // String returns the string representation
@@ -194,6 +196,12 @@ func (s *AutoScalingForCreateNodePoolInput) SetMinReplicas(v int32) *AutoScaling
 // SetPriority sets the Priority field's value.
 func (s *AutoScalingForCreateNodePoolInput) SetPriority(v int32) *AutoScalingForCreateNodePoolInput {
 	s.Priority = &v
+	return s
+}
+
+// SetSubnetPolicy sets the SubnetPolicy field's value.
+func (s *AutoScalingForCreateNodePoolInput) SetSubnetPolicy(v string) *AutoScalingForCreateNodePoolInput {
+	s.SubnetPolicy = &v
 	return s
 }
 
@@ -719,6 +727,14 @@ const (
 const (
 	// EnumOfSecurityStrategyListForCreateNodePoolInputHids is a EnumOfSecurityStrategyListForCreateNodePoolInput enum value
 	EnumOfSecurityStrategyListForCreateNodePoolInputHids = "Hids"
+)
+
+const (
+	// EnumOfSubnetPolicyForCreateNodePoolInputPriority is a EnumOfSubnetPolicyForCreateNodePoolInput enum value
+	EnumOfSubnetPolicyForCreateNodePoolInputPriority = "Priority"
+
+	// EnumOfSubnetPolicyForCreateNodePoolInputZoneBalance is a EnumOfSubnetPolicyForCreateNodePoolInput enum value
+	EnumOfSubnetPolicyForCreateNodePoolInputZoneBalance = "ZoneBalance"
 )
 
 const (

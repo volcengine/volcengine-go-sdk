@@ -155,6 +155,8 @@ type AutoScalingForListNodePoolsOutput struct {
 	MinReplicas *int32 `type:"int32"`
 
 	Priority *int32 `type:"int32"`
+
+	SubnetPolicy *string `type:"string"`
 }
 
 // String returns the string representation
@@ -194,6 +196,12 @@ func (s *AutoScalingForListNodePoolsOutput) SetMinReplicas(v int32) *AutoScaling
 // SetPriority sets the Priority field's value.
 func (s *AutoScalingForListNodePoolsOutput) SetPriority(v int32) *AutoScalingForListNodePoolsOutput {
 	s.Priority = &v
+	return s
+}
+
+// SetSubnetPolicy sets the SubnetPolicy field's value.
+func (s *AutoScalingForListNodePoolsOutput) SetSubnetPolicy(v string) *AutoScalingForListNodePoolsOutput {
+	s.SubnetPolicy = &v
 	return s
 }
 

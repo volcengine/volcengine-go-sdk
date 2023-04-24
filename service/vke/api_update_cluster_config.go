@@ -195,6 +195,96 @@ func (s *ClusterConfigForUpdateClusterConfigInput) SetApiServerPublicAccessEnabl
 	return s
 }
 
+type LogSetupForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	Enabled *bool `type:"boolean"`
+
+	LogTtl *int32 `type:"int32"`
+
+	LogType *string `type:"string" enum:"EnumOfLogTypeForUpdateClusterConfigInput"`
+}
+
+// String returns the string representation
+func (s LogSetupForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LogSetupForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *LogSetupForUpdateClusterConfigInput) SetEnabled(v bool) *LogSetupForUpdateClusterConfigInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetLogTtl sets the LogTtl field's value.
+func (s *LogSetupForUpdateClusterConfigInput) SetLogTtl(v int32) *LogSetupForUpdateClusterConfigInput {
+	s.LogTtl = &v
+	return s
+}
+
+// SetLogType sets the LogType field's value.
+func (s *LogSetupForUpdateClusterConfigInput) SetLogType(v string) *LogSetupForUpdateClusterConfigInput {
+	s.LogType = &v
+	return s
+}
+
+type LoggingConfigForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	LogProjectId *string `type:"string"`
+
+	LogSetups []*LogSetupForUpdateClusterConfigInput `type:"list"`
+}
+
+// String returns the string representation
+func (s LoggingConfigForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoggingConfigForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetLogProjectId sets the LogProjectId field's value.
+func (s *LoggingConfigForUpdateClusterConfigInput) SetLogProjectId(v string) *LoggingConfigForUpdateClusterConfigInput {
+	s.LogProjectId = &v
+	return s
+}
+
+// SetLogSetups sets the LogSetups field's value.
+func (s *LoggingConfigForUpdateClusterConfigInput) SetLogSetups(v []*LogSetupForUpdateClusterConfigInput) *LoggingConfigForUpdateClusterConfigInput {
+	s.LogSetups = v
+	return s
+}
+
+type PodsConfigForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	VpcCniConfig *VpcCniConfigForUpdateClusterConfigInput `type:"structure"`
+}
+
+// String returns the string representation
+func (s PodsConfigForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PodsConfigForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetVpcCniConfig sets the VpcCniConfig field's value.
+func (s *PodsConfigForUpdateClusterConfigInput) SetVpcCniConfig(v *VpcCniConfigForUpdateClusterConfigInput) *PodsConfigForUpdateClusterConfigInput {
+	s.VpcCniConfig = v
+	return s
+}
+
 type PublicAccessNetworkConfigForUpdateClusterConfigInput struct {
 	_ struct{} `type:"structure"`
 
@@ -246,7 +336,11 @@ type UpdateClusterConfigInput struct {
 
 	Id *string `type:"string"`
 
+	LoggingConfig *LoggingConfigForUpdateClusterConfigInput `type:"structure"`
+
 	Name *string `type:"string"`
+
+	PodsConfig *PodsConfigForUpdateClusterConfigInput `type:"structure"`
 }
 
 // String returns the string representation
@@ -289,9 +383,21 @@ func (s *UpdateClusterConfigInput) SetId(v string) *UpdateClusterConfigInput {
 	return s
 }
 
+// SetLoggingConfig sets the LoggingConfig field's value.
+func (s *UpdateClusterConfigInput) SetLoggingConfig(v *LoggingConfigForUpdateClusterConfigInput) *UpdateClusterConfigInput {
+	s.LoggingConfig = v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *UpdateClusterConfigInput) SetName(v string) *UpdateClusterConfigInput {
 	s.Name = &v
+	return s
+}
+
+// SetPodsConfig sets the PodsConfig field's value.
+func (s *UpdateClusterConfigInput) SetPodsConfig(v *PodsConfigForUpdateClusterConfigInput) *UpdateClusterConfigInput {
+	s.PodsConfig = v
 	return s
 }
 
@@ -311,6 +417,28 @@ func (s UpdateClusterConfigOutput) GoString() string {
 	return s.String()
 }
 
+type VpcCniConfigForUpdateClusterConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	SubnetIds []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s VpcCniConfigForUpdateClusterConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s VpcCniConfigForUpdateClusterConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetSubnetIds sets the SubnetIds field's value.
+func (s *VpcCniConfigForUpdateClusterConfigInput) SetSubnetIds(v []*string) *VpcCniConfigForUpdateClusterConfigInput {
+	s.SubnetIds = v
+	return s
+}
+
 const (
 	// EnumOfIspForUpdateClusterConfigInputBgp is a EnumOfIspForUpdateClusterConfigInput enum value
 	EnumOfIspForUpdateClusterConfigInputBgp = "BGP"
@@ -323,4 +451,9 @@ const (
 
 	// EnumOfIspForUpdateClusterConfigInputChinaUnicom is a EnumOfIspForUpdateClusterConfigInput enum value
 	EnumOfIspForUpdateClusterConfigInputChinaUnicom = "ChinaUnicom"
+)
+
+const (
+	// EnumOfLogTypeForUpdateClusterConfigInputAudit is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputAudit = "Audit"
 )

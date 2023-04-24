@@ -155,6 +155,8 @@ type AutoScalingForUpdateNodePoolConfigInput struct {
 	MinReplicas *int32 `type:"int32"`
 
 	Priority *int32 `type:"int32"`
+
+	SubnetPolicy *string `type:"string" enum:"EnumOfSubnetPolicyForUpdateNodePoolConfigInput"`
 }
 
 // String returns the string representation
@@ -194,6 +196,12 @@ func (s *AutoScalingForUpdateNodePoolConfigInput) SetMinReplicas(v int32) *AutoS
 // SetPriority sets the Priority field's value.
 func (s *AutoScalingForUpdateNodePoolConfigInput) SetPriority(v int32) *AutoScalingForUpdateNodePoolConfigInput {
 	s.Priority = &v
+	return s
+}
+
+// SetSubnetPolicy sets the SubnetPolicy field's value.
+func (s *AutoScalingForUpdateNodePoolConfigInput) SetSubnetPolicy(v string) *AutoScalingForUpdateNodePoolConfigInput {
+	s.SubnetPolicy = &v
 	return s
 }
 
@@ -687,6 +695,14 @@ const (
 const (
 	// EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids is a EnumOfSecurityStrategyListForUpdateNodePoolConfigInput enum value
 	EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids = "Hids"
+)
+
+const (
+	// EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority is a EnumOfSubnetPolicyForUpdateNodePoolConfigInput enum value
+	EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority = "Priority"
+
+	// EnumOfSubnetPolicyForUpdateNodePoolConfigInputZoneBalance is a EnumOfSubnetPolicyForUpdateNodePoolConfigInput enum value
+	EnumOfSubnetPolicyForUpdateNodePoolConfigInputZoneBalance = "ZoneBalance"
 )
 
 const (
