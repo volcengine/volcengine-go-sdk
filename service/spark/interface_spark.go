@@ -46,21 +46,13 @@ type SPARKAPI interface {
 	CreateProjectWithContext(volcengine.Context, *CreateProjectInput, ...request.Option) (*CreateProjectOutput, error)
 	CreateProjectRequest(*CreateProjectInput) (*request.Request, *CreateProjectOutput)
 
-	CreateResourcePoolOneStepCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateResourcePoolOneStepCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateResourcePoolOneStepCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	CreateResourcePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateResourcePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateResourcePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	CreateResourcePoolOneStep(*CreateResourcePoolOneStepInput) (*CreateResourcePoolOneStepOutput, error)
-	CreateResourcePoolOneStepWithContext(volcengine.Context, *CreateResourcePoolOneStepInput, ...request.Option) (*CreateResourcePoolOneStepOutput, error)
-	CreateResourcePoolOneStepRequest(*CreateResourcePoolOneStepInput) (*request.Request, *CreateResourcePoolOneStepOutput)
-
-	DeleteCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DeleteCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DeleteCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	Delete(*DeleteInput) (*DeleteOutput, error)
-	DeleteWithContext(volcengine.Context, *DeleteInput, ...request.Option) (*DeleteOutput, error)
-	DeleteRequest(*DeleteInput) (*request.Request, *DeleteOutput)
+	CreateResourcePool(*CreateResourcePoolInput) (*CreateResourcePoolOutput, error)
+	CreateResourcePoolWithContext(volcengine.Context, *CreateResourcePoolInput, ...request.Option) (*CreateResourcePoolOutput, error)
+	CreateResourcePoolRequest(*CreateResourcePoolInput) (*request.Request, *CreateResourcePoolOutput)
 
 	DeleteApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -77,6 +69,14 @@ type SPARKAPI interface {
 	DeleteProject(*DeleteProjectInput) (*DeleteProjectOutput, error)
 	DeleteProjectWithContext(volcengine.Context, *DeleteProjectInput, ...request.Option) (*DeleteProjectOutput, error)
 	DeleteProjectRequest(*DeleteProjectInput) (*request.Request, *DeleteProjectOutput)
+
+	DeleteResourcePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteResourcePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteResourcePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteResourcePool(*DeleteResourcePoolInput) (*DeleteResourcePoolOutput, error)
+	DeleteResourcePoolWithContext(volcengine.Context, *DeleteResourcePoolInput, ...request.Option) (*DeleteResourcePoolOutput, error)
+	DeleteResourcePoolRequest(*DeleteResourcePoolInput) (*request.Request, *DeleteResourcePoolOutput)
 
 	DescribeApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -102,37 +102,37 @@ type SPARKAPI interface {
 	DescribeProjectWithContext(volcengine.Context, *DescribeProjectInput, ...request.Option) (*DescribeProjectOutput, error)
 	DescribeProjectRequest(*DescribeProjectInput) (*request.Request, *DescribeProjectOutput)
 
-	DetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DescribeResourcePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeResourcePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeResourcePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	Detail(*DetailInput) (*DetailOutput, error)
-	DetailWithContext(volcengine.Context, *DetailInput, ...request.Option) (*DetailOutput, error)
-	DetailRequest(*DetailInput) (*request.Request, *DetailOutput)
+	DescribeResourcePool(*DescribeResourcePoolInput) (*DescribeResourcePoolOutput, error)
+	DescribeResourcePoolWithContext(volcengine.Context, *DescribeResourcePoolInput, ...request.Option) (*DescribeResourcePoolOutput, error)
+	DescribeResourcePoolRequest(*DescribeResourcePoolInput) (*request.Request, *DescribeResourcePoolOutput)
 
-	ExitResourcePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ExitResourcePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ExitResourcePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ExistResourcePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ExistResourcePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ExistResourcePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	ExitResourcePool(*ExitResourcePoolInput) (*ExitResourcePoolOutput, error)
-	ExitResourcePoolWithContext(volcengine.Context, *ExitResourcePoolInput, ...request.Option) (*ExitResourcePoolOutput, error)
-	ExitResourcePoolRequest(*ExitResourcePoolInput) (*request.Request, *ExitResourcePoolOutput)
+	ExistResourcePool(*ExistResourcePoolInput) (*ExistResourcePoolOutput, error)
+	ExistResourcePoolWithContext(volcengine.Context, *ExistResourcePoolInput, ...request.Option) (*ExistResourcePoolOutput, error)
+	ExistResourcePoolRequest(*ExistResourcePoolInput) (*request.Request, *ExistResourcePoolOutput)
 
-	GetApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	GetApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	GetApplicationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ListAppInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAppInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAppInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	GetApplication(*GetApplicationInput) (*GetApplicationOutput, error)
-	GetApplicationWithContext(volcengine.Context, *GetApplicationInput, ...request.Option) (*GetApplicationOutput, error)
-	GetApplicationRequest(*GetApplicationInput) (*request.Request, *GetApplicationOutput)
+	ListAppInstance(*ListAppInstanceInput) (*ListAppInstanceOutput, error)
+	ListAppInstanceWithContext(volcengine.Context, *ListAppInstanceInput, ...request.Option) (*ListAppInstanceOutput, error)
+	ListAppInstanceRequest(*ListAppInstanceInput) (*request.Request, *ListAppInstanceOutput)
 
-	ListCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	ListApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListApplicationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	List(*ListInput) (*ListOutput, error)
-	ListWithContext(volcengine.Context, *ListInput, ...request.Option) (*ListOutput, error)
-	ListRequest(*ListInput) (*request.Request, *ListOutput)
+	ListApplication(*ListApplicationInput) (*ListApplicationOutput, error)
+	ListApplicationWithContext(volcengine.Context, *ListApplicationInput, ...request.Option) (*ListApplicationOutput, error)
+	ListApplicationRequest(*ListApplicationInput) (*request.Request, *ListApplicationOutput)
 
 	ListApplicationHistoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListApplicationHistoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -142,14 +142,6 @@ type SPARKAPI interface {
 	ListApplicationHistoryWithContext(volcengine.Context, *ListApplicationHistoryInput, ...request.Option) (*ListApplicationHistoryOutput, error)
 	ListApplicationHistoryRequest(*ListApplicationHistoryInput) (*request.Request, *ListApplicationHistoryOutput)
 
-	ListApplicationInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListApplicationInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListApplicationInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListApplicationInstance(*ListApplicationInstanceInput) (*ListApplicationInstanceOutput, error)
-	ListApplicationInstanceWithContext(volcengine.Context, *ListApplicationInstanceInput, ...request.Option) (*ListApplicationInstanceOutput, error)
-	ListApplicationInstanceRequest(*ListApplicationInstanceInput) (*request.Request, *ListApplicationInstanceOutput)
-
 	ListProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListProjectCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -158,6 +150,14 @@ type SPARKAPI interface {
 	ListProjectWithContext(volcengine.Context, *ListProjectInput, ...request.Option) (*ListProjectOutput, error)
 	ListProjectRequest(*ListProjectInput) (*request.Request, *ListProjectOutput)
 
+	ListResourcePoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListResourcePoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListResourcePoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListResourcePool(*ListResourcePoolInput) (*ListResourcePoolOutput, error)
+	ListResourcePoolWithContext(volcengine.Context, *ListResourcePoolInput, ...request.Option) (*ListResourcePoolOutput, error)
+	ListResourcePoolRequest(*ListResourcePoolInput) (*request.Request, *ListResourcePoolOutput)
+
 	ListZoneCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListZoneCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListZoneCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -165,6 +165,14 @@ type SPARKAPI interface {
 	ListZone(*volcengineCommonQuery) (*volcengineCommonQuery, error)
 	ListZoneWithContext(volcengine.Context, *volcengineCommonQuery, ...request.Option) (*volcengineCommonQuery, error)
 	ListZoneRequest(*volcengineCommonQuery) (*request.Request, *volcengineCommonQuery)
+
+	ModifyApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyApplicationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyApplication(*ModifyApplicationInput) (*ModifyApplicationOutput, error)
+	ModifyApplicationWithContext(volcengine.Context, *ModifyApplicationInput, ...request.Option) (*ModifyApplicationOutput, error)
+	ModifyApplicationRequest(*ModifyApplicationInput) (*request.Request, *ModifyApplicationOutput)
 
 	StartApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	StartApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -181,14 +189,6 @@ type SPARKAPI interface {
 	StopApplication(*StopApplicationInput) (*StopApplicationOutput, error)
 	StopApplicationWithContext(volcengine.Context, *StopApplicationInput, ...request.Option) (*StopApplicationOutput, error)
 	StopApplicationRequest(*StopApplicationInput) (*request.Request, *StopApplicationOutput)
-
-	UpdateApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateApplicationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UpdateApplication(*UpdateApplicationInput) (*UpdateApplicationOutput, error)
-	UpdateApplicationWithContext(volcengine.Context, *UpdateApplicationInput, ...request.Option) (*UpdateApplicationOutput, error)
-	UpdateApplicationRequest(*UpdateApplicationInput) (*request.Request, *UpdateApplicationOutput)
 
 	UpdateProjectCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateProjectCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
