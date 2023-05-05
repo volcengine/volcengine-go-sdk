@@ -21,6 +21,7 @@ func UnsubscribeInstance() {
 	svc := billing.New(sess)
 	unsubscribeInstanceInput := &billing.UnsubscribeInstanceInput{
 		ClientToken:                volcengine.String("uuid-xxxxxxxxxxxx"),
+		InstanceID:                 volcengine.String("vol-924610xxxxx"),
 		Product:                    volcengine.String("volume"),
 		UnsubscribeRelatedInstance: volcengine.Bool(true),
 	}

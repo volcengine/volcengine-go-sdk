@@ -178,7 +178,7 @@ type UnsubscribeInstanceInput struct {
 
 	ClientToken *string `type:"string"`
 
-	InstanceIdD *string `type:"string"`
+	InstanceID *string `type:"string"`
 
 	Product *string `type:"string"`
 
@@ -201,9 +201,9 @@ func (s *UnsubscribeInstanceInput) SetClientToken(v string) *UnsubscribeInstance
 	return s
 }
 
-// SetInstanceIdD sets the InstanceIdD field's value.
-func (s *UnsubscribeInstanceInput) SetInstanceIdD(v string) *UnsubscribeInstanceInput {
-	s.InstanceIdD = &v
+// SetInstanceID sets the InstanceID field's value.
+func (s *UnsubscribeInstanceInput) SetInstanceID(v string) *UnsubscribeInstanceInput {
+	s.InstanceID = &v
 	return s
 }
 
