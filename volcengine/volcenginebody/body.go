@@ -10,6 +10,7 @@ import (
 	"reflect"
 	"strings"
 
+	"github.com/volcengine/volcengine-go-sdk/private/protocol"
 	"github.com/volcengine/volcengine-go-sdk/private/protocol/query/queryutil"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/custom"
@@ -98,7 +99,28 @@ func BodyJson(body *url.Values, r *request.Request) {
 	}
 
 	input := make(map[string]interface{})
+
+	pt := reflect.ValueOf(r.Params)
+
+	if pt.Kind() == reflect.Ptr {
+		value := pt.Elem()
+		if value.Kind() == reflect.Struct {
+			t := value.Type()
+			for i := 0; i < value.NumField(); i++ {
+				elemValue := queryutil.ElemOf(value.Field(i))
+				field := t.Field(i)
+				if field.Name == "ClientToken" && field.Type.Elem().Kind() == reflect.String {
+					if !elemValue.IsValid() {
+						token := protocol.GetIdempotencyToken()
+						value.Field(i).Set(reflect.ValueOf(&token))
+					}
+				}
+			}
+		}
+	}
+
 	b, _ := json.Marshal(r.Params)
+
 	_ = json.Unmarshal(b, &input)
 	if r.Config.ExtraHttpJsonBody != nil {
 		r.Config.ExtraHttpJsonBody(r.Context(), &input, custom.RequestMetadata{
