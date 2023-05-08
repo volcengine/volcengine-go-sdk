@@ -116,10 +116,10 @@ func buildStruct(value reflect.Value, buf *bytes.Buffer, tag reflect.StructTag) 
 			continue
 		}
 
-		if protocol.CanSetIdempotencyToken(member, field) {
-			token := protocol.GetIdempotencyToken()
-			member = reflect.ValueOf(&token)
-		}
+		//if protocol.CanSetIdempotencyToken(member, field) {
+		//	token := protocol.GetIdempotencyToken()
+		//	member = reflect.ValueOf(&token)
+		//}
 
 		if (member.Kind() == reflect.Ptr || member.Kind() == reflect.Slice || member.Kind() == reflect.Map) && member.IsNil() {
 			continue // ignore unset fields
