@@ -142,11 +142,17 @@ func (c *ALB) CreateLoadBalancerWithContext(ctx volcengine.Context, input *Creat
 type CreateLoadBalancerInput struct {
 	_ struct{} `type:"structure"`
 
+	AddressIpVersion *string `type:"string"`
+
 	BandwidthPackageId *string `type:"string"`
+
+	DeleteProtection *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	EipBillingConfig *EipBillingConfigForCreateLoadBalancerInput `type:"structure"`
+
+	Ipv6EipBillingConfig *Ipv6EipBillingConfigForCreateLoadBalancerInput `type:"structure"`
 
 	LoadBalancerBillingType *int64 `type:"integer"`
 
@@ -193,9 +199,21 @@ func (s *CreateLoadBalancerInput) Validate() error {
 	return nil
 }
 
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *CreateLoadBalancerInput) SetAddressIpVersion(v string) *CreateLoadBalancerInput {
+	s.AddressIpVersion = &v
+	return s
+}
+
 // SetBandwidthPackageId sets the BandwidthPackageId field's value.
 func (s *CreateLoadBalancerInput) SetBandwidthPackageId(v string) *CreateLoadBalancerInput {
 	s.BandwidthPackageId = &v
+	return s
+}
+
+// SetDeleteProtection sets the DeleteProtection field's value.
+func (s *CreateLoadBalancerInput) SetDeleteProtection(v string) *CreateLoadBalancerInput {
+	s.DeleteProtection = &v
 	return s
 }
 
@@ -208,6 +226,12 @@ func (s *CreateLoadBalancerInput) SetDescription(v string) *CreateLoadBalancerIn
 // SetEipBillingConfig sets the EipBillingConfig field's value.
 func (s *CreateLoadBalancerInput) SetEipBillingConfig(v *EipBillingConfigForCreateLoadBalancerInput) *CreateLoadBalancerInput {
 	s.EipBillingConfig = v
+	return s
+}
+
+// SetIpv6EipBillingConfig sets the Ipv6EipBillingConfig field's value.
+func (s *CreateLoadBalancerInput) SetIpv6EipBillingConfig(v *Ipv6EipBillingConfigForCreateLoadBalancerInput) *CreateLoadBalancerInput {
+	s.Ipv6EipBillingConfig = v
 	return s
 }
 
@@ -334,6 +358,44 @@ func (s *EipBillingConfigForCreateLoadBalancerInput) SetISP(v string) *EipBillin
 // SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
 func (s *EipBillingConfigForCreateLoadBalancerInput) SetSecurityProtectionTypes(v string) *EipBillingConfigForCreateLoadBalancerInput {
 	s.SecurityProtectionTypes = &v
+	return s
+}
+
+type Ipv6EipBillingConfigForCreateLoadBalancerInput struct {
+	_ struct{} `type:"structure"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	ISP *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Ipv6EipBillingConfigForCreateLoadBalancerInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Ipv6EipBillingConfigForCreateLoadBalancerInput) GoString() string {
+	return s.String()
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *Ipv6EipBillingConfigForCreateLoadBalancerInput) SetBandwidth(v int64) *Ipv6EipBillingConfigForCreateLoadBalancerInput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *Ipv6EipBillingConfigForCreateLoadBalancerInput) SetBillingType(v int64) *Ipv6EipBillingConfigForCreateLoadBalancerInput {
+	s.BillingType = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *Ipv6EipBillingConfigForCreateLoadBalancerInput) SetISP(v string) *Ipv6EipBillingConfigForCreateLoadBalancerInput {
+	s.ISP = &v
 	return s
 }
 

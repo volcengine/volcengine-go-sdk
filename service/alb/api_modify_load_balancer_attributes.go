@@ -142,6 +142,8 @@ func (c *ALB) ModifyLoadBalancerAttributesWithContext(ctx volcengine.Context, in
 type ModifyLoadBalancerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	DeleteProtection *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	// LoadBalancerId is a required field
@@ -171,6 +173,12 @@ func (s *ModifyLoadBalancerAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDeleteProtection sets the DeleteProtection field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetDeleteProtection(v string) *ModifyLoadBalancerAttributesInput {
+	s.DeleteProtection = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

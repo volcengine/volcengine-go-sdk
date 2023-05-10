@@ -212,11 +212,15 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	AccessLog *AccessLogForDescribeLoadBalancerAttributesOutput `type:"structure"`
 
+	AddressIpVersion *string `type:"string"`
+
 	BusinessStatus *string `type:"string"`
 
 	CreateTime *string `type:"string"`
 
 	DNSName *string `type:"string"`
+
+	DeleteProtection *string `type:"string"`
 
 	DeletedTime *string `type:"string"`
 
@@ -285,6 +289,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetAccessLog(v *AccessLogForDescr
 	return s
 }
 
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetAddressIpVersion(v string) *DescribeLoadBalancerAttributesOutput {
+	s.AddressIpVersion = &v
+	return s
+}
+
 // SetBusinessStatus sets the BusinessStatus field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetBusinessStatus(v string) *DescribeLoadBalancerAttributesOutput {
 	s.BusinessStatus = &v
@@ -300,6 +310,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetCreateTime(v string) *Describe
 // SetDNSName sets the DNSName field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetDNSName(v string) *DescribeLoadBalancerAttributesOutput {
 	s.DNSName = &v
+	return s
+}
+
+// SetDeleteProtection sets the DeleteProtection field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetDeleteProtection(v string) *DescribeLoadBalancerAttributesOutput {
+	s.DeleteProtection = &v
 	return s
 }
 
@@ -569,6 +585,44 @@ func (s *HealthLogForDescribeLoadBalancerAttributesOutput) SetTopicId(v string) 
 	return s
 }
 
+type Ipv6EipForDescribeLoadBalancerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	ISP *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Ipv6EipForDescribeLoadBalancerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Ipv6EipForDescribeLoadBalancerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *Ipv6EipForDescribeLoadBalancerAttributesOutput) SetBandwidth(v int64) *Ipv6EipForDescribeLoadBalancerAttributesOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *Ipv6EipForDescribeLoadBalancerAttributesOutput) SetBillingType(v int64) *Ipv6EipForDescribeLoadBalancerAttributesOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *Ipv6EipForDescribeLoadBalancerAttributesOutput) SetISP(v string) *Ipv6EipForDescribeLoadBalancerAttributesOutput {
+	s.ISP = &v
+	return s
+}
+
 type ListenerForDescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -611,6 +665,12 @@ type LoadBalancerAddressForDescribeLoadBalancerAttributesOutput struct {
 	EniAddress *string `type:"string"`
 
 	EniId *string `type:"string"`
+
+	EniIpv6Address *string `type:"string"`
+
+	Ipv6Eip *Ipv6EipForDescribeLoadBalancerAttributesOutput `type:"structure"`
+
+	Ipv6EipId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -650,6 +710,24 @@ func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniAddre
 // SetEniId sets the EniId field's value.
 func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniId(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
 	s.EniId = &v
+	return s
+}
+
+// SetEniIpv6Address sets the EniIpv6Address field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetEniIpv6Address(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.EniIpv6Address = &v
+	return s
+}
+
+// SetIpv6Eip sets the Ipv6Eip field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetIpv6Eip(v *Ipv6EipForDescribeLoadBalancerAttributesOutput) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.Ipv6Eip = v
+	return s
+}
+
+// SetIpv6EipId sets the Ipv6EipId field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) SetIpv6EipId(v string) *LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+	s.Ipv6EipId = &v
 	return s
 }
 
