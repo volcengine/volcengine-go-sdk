@@ -192,6 +192,8 @@ type ItemForListRepositoriesOutput struct {
 
 	Name *string `type:"string"`
 
+	Namespace *string `type:"string"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -226,6 +228,12 @@ func (s *ItemForListRepositoriesOutput) SetDescription(v string) *ItemForListRep
 // SetName sets the Name field's value.
 func (s *ItemForListRepositoriesOutput) SetName(v string) *ItemForListRepositoriesOutput {
 	s.Name = &v
+	return s
+}
+
+// SetNamespace sets the Namespace field's value.
+func (s *ItemForListRepositoriesOutput) SetNamespace(v string) *ItemForListRepositoriesOutput {
+	s.Namespace = &v
 	return s
 }
 
