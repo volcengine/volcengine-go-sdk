@@ -52,7 +52,7 @@ func newClient(cfg volcengine.Config, handlers request.Handlers, endpoint, signi
 				SigningName:   signingName,
 				SigningRegion: signingRegion,
 				Endpoint:      endpoint,
-				APIVersion:    "022-05-12",
+				APIVersion:    "2022-05-12",
 			},
 			handlers,
 		),
