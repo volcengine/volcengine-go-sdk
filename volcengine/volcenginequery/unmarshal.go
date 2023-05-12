@@ -42,6 +42,7 @@ func Unmarshal(r *request.Request) {
 		}
 
 		if reflect.TypeOf(r.Data) == reflect.TypeOf(&map[string]interface{}{}) {
+			//如果使用map返回 发现精度丢失了 请设置强制JsonNumber 注意返回的整型会动float64->int64
 			if err = json.Unmarshal(body, &r.Data); err != nil || forceJsonNumberDecoder {
 				//try next
 				decoder := json.NewDecoder(bytes.NewReader(body))
@@ -120,15 +121,15 @@ func UnmarshalMeta(r *request.Request) {
 }
 
 func processBodyError(r *request.Request, volcengineResponse *response.VolcengineResponse, body []byte, forceJsonNumberDecoder bool) bool {
-	if err := json.Unmarshal(body, &volcengineResponse); err != nil || forceJsonNumberDecoder {
-		decoder := json.NewDecoder(bytes.NewReader(body))
-		decoder.UseNumber()
-		if err = decoder.Decode(&r.Data); err != nil {
-			fmt.Printf("Unmarshal err, %v\n", err)
-			r.Error = err
-			return true
-		}
+	//防止精度问题 第一次转换 无视 保持原body内容不会失去精度
+	decoder := json.NewDecoder(bytes.NewReader(body))
+	decoder.UseNumber()
+	if err := decoder.Decode(&volcengineResponse); err != nil {
+		fmt.Printf("Unmarshal err, %v\n", err)
+		r.Error = err
+		return true
 	}
+
 	if volcengineResponse.ResponseMetadata.Error != nil && volcengineResponse.ResponseMetadata.Error.Code != "" {
 		r.Error = volcengineerr.NewRequestFailure(
 			volcengineerr.New(volcengineResponse.ResponseMetadata.Error.Code, volcengineResponse.ResponseMetadata.Error.Message, nil),
