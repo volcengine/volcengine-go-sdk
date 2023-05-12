@@ -22,13 +22,13 @@ const opCreateNodesCommon = "CreateNodes"
 // See CreateNodesCommon for more information on using the CreateNodesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNodesCommonRequest method.
-//    req, resp := client.CreateNodesCommonRequest(params)
+//	// Example sending a request using the CreateNodesCommonRequest method.
+//	req, resp := client.CreateNodesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateNodesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNodesCommon,
@@ -89,13 +89,13 @@ const opCreateNodes = "CreateNodes"
 // See CreateNodes for more information on using the CreateNodes
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNodesRequest method.
-//    req, resp := client.CreateNodesRequest(params)
+//	// Example sending a request using the CreateNodesRequest method.
+//	req, resp := client.CreateNodesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateNodesRequest(input *CreateNodesInput) (req *request.Request, output *CreateNodesOutput) {
 	op := &request.Operation{
 		Name:       opCreateNodes,

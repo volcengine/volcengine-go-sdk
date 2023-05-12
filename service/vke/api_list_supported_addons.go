@@ -22,13 +22,13 @@ const opListSupportedAddonsCommon = "ListSupportedAddons"
 // See ListSupportedAddonsCommon for more information on using the ListSupportedAddonsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListSupportedAddonsCommonRequest method.
-//    req, resp := client.ListSupportedAddonsCommonRequest(params)
+//	// Example sending a request using the ListSupportedAddonsCommonRequest method.
+//	req, resp := client.ListSupportedAddonsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListSupportedAddonsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListSupportedAddonsCommon,
@@ -89,13 +89,13 @@ const opListSupportedAddons = "ListSupportedAddons"
 // See ListSupportedAddons for more information on using the ListSupportedAddons
 // API call, and error handling.
 //
-//    // Example sending a request using the ListSupportedAddonsRequest method.
-//    req, resp := client.ListSupportedAddonsRequest(params)
+//	// Example sending a request using the ListSupportedAddonsRequest method.
+//	req, resp := client.ListSupportedAddonsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListSupportedAddonsRequest(input *ListSupportedAddonsInput) (req *request.Request, output *ListSupportedAddonsOutput) {
 	op := &request.Operation{
 		Name:       opListSupportedAddons,

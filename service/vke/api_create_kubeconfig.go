@@ -22,13 +22,13 @@ const opCreateKubeconfigCommon = "CreateKubeconfig"
 // See CreateKubeconfigCommon for more information on using the CreateKubeconfigCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateKubeconfigCommonRequest method.
-//    req, resp := client.CreateKubeconfigCommonRequest(params)
+//	// Example sending a request using the CreateKubeconfigCommonRequest method.
+//	req, resp := client.CreateKubeconfigCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateKubeconfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateKubeconfigCommon,
@@ -89,13 +89,13 @@ const opCreateKubeconfig = "CreateKubeconfig"
 // See CreateKubeconfig for more information on using the CreateKubeconfig
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateKubeconfigRequest method.
-//    req, resp := client.CreateKubeconfigRequest(params)
+//	// Example sending a request using the CreateKubeconfigRequest method.
+//	req, resp := client.CreateKubeconfigRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateKubeconfigRequest(input *CreateKubeconfigInput) (req *request.Request, output *CreateKubeconfigOutput) {
 	op := &request.Operation{
 		Name:       opCreateKubeconfig,

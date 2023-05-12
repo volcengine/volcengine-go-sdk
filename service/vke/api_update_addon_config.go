@@ -22,13 +22,13 @@ const opUpdateAddonConfigCommon = "UpdateAddonConfig"
 // See UpdateAddonConfigCommon for more information on using the UpdateAddonConfigCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateAddonConfigCommonRequest method.
-//    req, resp := client.UpdateAddonConfigCommonRequest(params)
+//	// Example sending a request using the UpdateAddonConfigCommonRequest method.
+//	req, resp := client.UpdateAddonConfigCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) UpdateAddonConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateAddonConfigCommon,
@@ -89,13 +89,13 @@ const opUpdateAddonConfig = "UpdateAddonConfig"
 // See UpdateAddonConfig for more information on using the UpdateAddonConfig
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateAddonConfigRequest method.
-//    req, resp := client.UpdateAddonConfigRequest(params)
+//	// Example sending a request using the UpdateAddonConfigRequest method.
+//	req, resp := client.UpdateAddonConfigRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) UpdateAddonConfigRequest(input *UpdateAddonConfigInput) (req *request.Request, output *UpdateAddonConfigOutput) {
 	op := &request.Operation{
 		Name:       opUpdateAddonConfig,

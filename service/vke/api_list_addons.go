@@ -22,13 +22,13 @@ const opListAddonsCommon = "ListAddons"
 // See ListAddonsCommon for more information on using the ListAddonsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListAddonsCommonRequest method.
-//    req, resp := client.ListAddonsCommonRequest(params)
+//	// Example sending a request using the ListAddonsCommonRequest method.
+//	req, resp := client.ListAddonsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListAddonsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListAddonsCommon,
@@ -89,13 +89,13 @@ const opListAddons = "ListAddons"
 // See ListAddons for more information on using the ListAddons
 // API call, and error handling.
 //
-//    // Example sending a request using the ListAddonsRequest method.
-//    req, resp := client.ListAddonsRequest(params)
+//	// Example sending a request using the ListAddonsRequest method.
+//	req, resp := client.ListAddonsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListAddonsRequest(input *ListAddonsInput) (req *request.Request, output *ListAddonsOutput) {
 	op := &request.Operation{
 		Name:       opListAddons,

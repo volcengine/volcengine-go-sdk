@@ -22,13 +22,13 @@ const opListClustersCommon = "ListClusters"
 // See ListClustersCommon for more information on using the ListClustersCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListClustersCommonRequest method.
-//    req, resp := client.ListClustersCommonRequest(params)
+//	// Example sending a request using the ListClustersCommonRequest method.
+//	req, resp := client.ListClustersCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListClustersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListClustersCommon,
@@ -89,13 +89,13 @@ const opListClusters = "ListClusters"
 // See ListClusters for more information on using the ListClusters
 // API call, and error handling.
 //
-//    // Example sending a request using the ListClustersRequest method.
-//    req, resp := client.ListClustersRequest(params)
+//	// Example sending a request using the ListClustersRequest method.
+//	req, resp := client.ListClustersRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListClustersRequest(input *ListClustersInput) (req *request.Request, output *ListClustersOutput) {
 	op := &request.Operation{
 		Name:       opListClusters,
@@ -414,6 +414,8 @@ type ItemForListClustersOutput struct {
 
 	KubernetesVersion *string `type:"string"`
 
+	LoggingConfig *LoggingConfigForListClustersOutput `type:"structure"`
+
 	Name *string `type:"string"`
 
 	NodeStatistics *NodeStatisticsForListClustersOutput `type:"structure"`
@@ -486,6 +488,12 @@ func (s *ItemForListClustersOutput) SetId(v string) *ItemForListClustersOutput {
 // SetKubernetesVersion sets the KubernetesVersion field's value.
 func (s *ItemForListClustersOutput) SetKubernetesVersion(v string) *ItemForListClustersOutput {
 	s.KubernetesVersion = &v
+	return s
+}
+
+// SetLoggingConfig sets the LoggingConfig field's value.
+func (s *ItemForListClustersOutput) SetLoggingConfig(v *LoggingConfigForListClustersOutput) *ItemForListClustersOutput {
+	s.LoggingConfig = v
 	return s
 }
 
@@ -628,6 +636,82 @@ func (s *ListClustersOutput) SetPageSize(v int32) *ListClustersOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *ListClustersOutput) SetTotalCount(v int32) *ListClustersOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type LogSetupForListClustersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Enabled *bool `type:"boolean"`
+
+	LogTopicId *string `type:"string"`
+
+	LogTtl *int32 `type:"int32"`
+
+	LogType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LogSetupForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LogSetupForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *LogSetupForListClustersOutput) SetEnabled(v bool) *LogSetupForListClustersOutput {
+	s.Enabled = &v
+	return s
+}
+
+// SetLogTopicId sets the LogTopicId field's value.
+func (s *LogSetupForListClustersOutput) SetLogTopicId(v string) *LogSetupForListClustersOutput {
+	s.LogTopicId = &v
+	return s
+}
+
+// SetLogTtl sets the LogTtl field's value.
+func (s *LogSetupForListClustersOutput) SetLogTtl(v int32) *LogSetupForListClustersOutput {
+	s.LogTtl = &v
+	return s
+}
+
+// SetLogType sets the LogType field's value.
+func (s *LogSetupForListClustersOutput) SetLogType(v string) *LogSetupForListClustersOutput {
+	s.LogType = &v
+	return s
+}
+
+type LoggingConfigForListClustersOutput struct {
+	_ struct{} `type:"structure"`
+
+	LogProjectId *string `type:"string"`
+
+	LogSetups []*LogSetupForListClustersOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s LoggingConfigForListClustersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoggingConfigForListClustersOutput) GoString() string {
+	return s.String()
+}
+
+// SetLogProjectId sets the LogProjectId field's value.
+func (s *LoggingConfigForListClustersOutput) SetLogProjectId(v string) *LoggingConfigForListClustersOutput {
+	s.LogProjectId = &v
+	return s
+}
+
+// SetLogSetups sets the LogSetups field's value.
+func (s *LoggingConfigForListClustersOutput) SetLogSetups(v []*LogSetupForListClustersOutput) *LoggingConfigForListClustersOutput {
+	s.LogSetups = v
 	return s
 }
 

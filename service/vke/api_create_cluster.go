@@ -22,13 +22,13 @@ const opCreateClusterCommon = "CreateCluster"
 // See CreateClusterCommon for more information on using the CreateClusterCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateClusterCommonRequest method.
-//    req, resp := client.CreateClusterCommonRequest(params)
+//	// Example sending a request using the CreateClusterCommonRequest method.
+//	req, resp := client.CreateClusterCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateClusterCommon,
@@ -89,13 +89,13 @@ const opCreateCluster = "CreateCluster"
 // See CreateCluster for more information on using the CreateCluster
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateClusterRequest method.
-//    req, resp := client.CreateClusterRequest(params)
+//	// Example sending a request using the CreateClusterRequest method.
+//	req, resp := client.CreateClusterRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateClusterRequest(input *CreateClusterInput) (req *request.Request, output *CreateClusterOutput) {
 	op := &request.Operation{
 		Name:       opCreateCluster,
@@ -224,6 +224,8 @@ type CreateClusterInput struct {
 
 	KubernetesVersion *string `type:"string"`
 
+	LoggingConfig *LoggingConfigForCreateClusterInput `type:"structure"`
+
 	Name *string `type:"string"`
 
 	PodsConfig *PodsConfigForCreateClusterInput `type:"structure"`
@@ -270,6 +272,12 @@ func (s *CreateClusterInput) SetDescription(v string) *CreateClusterInput {
 // SetKubernetesVersion sets the KubernetesVersion field's value.
 func (s *CreateClusterInput) SetKubernetesVersion(v string) *CreateClusterInput {
 	s.KubernetesVersion = &v
+	return s
+}
+
+// SetLoggingConfig sets the LoggingConfig field's value.
+func (s *CreateClusterInput) SetLoggingConfig(v *LoggingConfigForCreateClusterInput) *CreateClusterInput {
+	s.LoggingConfig = v
 	return s
 }
 
@@ -348,6 +356,74 @@ func (s *FlannelConfigForCreateClusterInput) SetMaxPodsPerNode(v int32) *Flannel
 // SetPodCidrs sets the PodCidrs field's value.
 func (s *FlannelConfigForCreateClusterInput) SetPodCidrs(v []*string) *FlannelConfigForCreateClusterInput {
 	s.PodCidrs = v
+	return s
+}
+
+type LogSetupForCreateClusterInput struct {
+	_ struct{} `type:"structure"`
+
+	Enabled *bool `type:"boolean"`
+
+	LogTtl *int32 `type:"int32"`
+
+	LogType *string `type:"string" enum:"EnumOfLogTypeForCreateClusterInput"`
+}
+
+// String returns the string representation
+func (s LogSetupForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LogSetupForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetEnabled sets the Enabled field's value.
+func (s *LogSetupForCreateClusterInput) SetEnabled(v bool) *LogSetupForCreateClusterInput {
+	s.Enabled = &v
+	return s
+}
+
+// SetLogTtl sets the LogTtl field's value.
+func (s *LogSetupForCreateClusterInput) SetLogTtl(v int32) *LogSetupForCreateClusterInput {
+	s.LogTtl = &v
+	return s
+}
+
+// SetLogType sets the LogType field's value.
+func (s *LogSetupForCreateClusterInput) SetLogType(v string) *LogSetupForCreateClusterInput {
+	s.LogType = &v
+	return s
+}
+
+type LoggingConfigForCreateClusterInput struct {
+	_ struct{} `type:"structure"`
+
+	LogProjectId *string `type:"string"`
+
+	LogSetups []*LogSetupForCreateClusterInput `type:"list"`
+}
+
+// String returns the string representation
+func (s LoggingConfigForCreateClusterInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LoggingConfigForCreateClusterInput) GoString() string {
+	return s.String()
+}
+
+// SetLogProjectId sets the LogProjectId field's value.
+func (s *LoggingConfigForCreateClusterInput) SetLogProjectId(v string) *LoggingConfigForCreateClusterInput {
+	s.LogProjectId = &v
+	return s
+}
+
+// SetLogSetups sets the LogSetups field's value.
+func (s *LoggingConfigForCreateClusterInput) SetLogSetups(v []*LogSetupForCreateClusterInput) *LoggingConfigForCreateClusterInput {
+	s.LogSetups = v
 	return s
 }
 
@@ -492,6 +568,11 @@ func (s *VpcCniConfigForCreateClusterInput) SetSubnetIds(v []*string) *VpcCniCon
 	s.SubnetIds = v
 	return s
 }
+
+const (
+	// EnumOfLogTypeForCreateClusterInputAudit is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputAudit = "Audit"
+)
 
 const (
 	// EnumOfPodNetworkModeForCreateClusterInputCalicoBgp is a EnumOfPodNetworkModeForCreateClusterInput enum value
