@@ -21,7 +21,7 @@ func Parse(body url.Values, i interface{}, isEC2 bool) error {
 	return q.parseValue(body, reflect.ValueOf(i), "", "")
 }
 
-func elemOf(value reflect.Value) reflect.Value {
+func ElemOf(value reflect.Value) reflect.Value {
 	for value.Kind() == reflect.Ptr {
 		value = value.Elem()
 	}
@@ -33,7 +33,7 @@ type queryParser struct {
 }
 
 func (q *queryParser) parseValue(v url.Values, value reflect.Value, prefix string, tag reflect.StructTag) error {
-	value = elemOf(value)
+	value = ElemOf(value)
 
 	// no need to handle zero values
 	if !value.IsValid() {
@@ -71,7 +71,7 @@ func (q *queryParser) parseStruct(v url.Values, value reflect.Value, prefix stri
 
 	t := value.Type()
 	for i := 0; i < value.NumField(); i++ {
-		elemValue := elemOf(value.Field(i))
+		elemValue := ElemOf(value.Field(i))
 		field := t.Field(i)
 
 		if field.PkgPath != "" {
@@ -81,9 +81,16 @@ func (q *queryParser) parseStruct(v url.Values, value reflect.Value, prefix stri
 			continue
 		}
 
-		if protocol.CanSetIdempotencyToken(value.Field(i), field) {
-			token := protocol.GetIdempotencyToken()
-			elemValue = reflect.ValueOf(token)
+		//if protocol.CanSetIdempotencyToken(value.Field(i), field) {
+		//	token := protocol.GetIdempotencyToken()
+		//	elemValue = reflect.ValueOf(token)
+		//}
+
+		if prefix == "" && field.Name == "ClientToken" && field.Type.Elem().Kind() == reflect.String {
+			if !elemValue.IsValid() {
+				token := protocol.GetIdempotencyToken()
+				elemValue = reflect.ValueOf(token)
+			}
 		}
 
 		var name string

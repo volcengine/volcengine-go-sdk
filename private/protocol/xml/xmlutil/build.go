@@ -145,10 +145,10 @@ func (b *xmlBuilder) buildStruct(value reflect.Value, current *XMLNode, tag refl
 		}
 		payloadFields++
 
-		if protocol.CanSetIdempotencyToken(value.Field(i), field) {
-			token := protocol.GetIdempotencyToken()
-			member = reflect.ValueOf(token)
-		}
+		//if protocol.CanSetIdempotencyToken(value.Field(i), field) {
+		//	token := protocol.GetIdempotencyToken()
+		//	member = reflect.ValueOf(token)
+		//}
 
 		memberName := mTag.Get("locationName")
 		if memberName == "" {
