@@ -22,13 +22,13 @@ const opCreateNodePoolCommon = "CreateNodePool"
 // See CreateNodePoolCommon for more information on using the CreateNodePoolCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNodePoolCommonRequest method.
-//    req, resp := client.CreateNodePoolCommonRequest(params)
+//	// Example sending a request using the CreateNodePoolCommonRequest method.
+//	req, resp := client.CreateNodePoolCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateNodePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNodePoolCommon,
@@ -89,13 +89,13 @@ const opCreateNodePool = "CreateNodePool"
 // See CreateNodePool for more information on using the CreateNodePool
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNodePoolRequest method.
-//    req, resp := client.CreateNodePoolRequest(params)
+//	// Example sending a request using the CreateNodePoolRequest method.
+//	req, resp := client.CreateNodePoolRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateNodePoolRequest(input *CreateNodePoolInput) (req *request.Request, output *CreateNodePoolOutput) {
 	op := &request.Operation{
 		Name:       opCreateNodePool,
@@ -155,6 +155,8 @@ type AutoScalingForCreateNodePoolInput struct {
 	MinReplicas *int32 `type:"int32"`
 
 	Priority *int32 `type:"int32"`
+
+	SubnetPolicy *string `type:"string" enum:"EnumOfSubnetPolicyForCreateNodePoolInput"`
 }
 
 // String returns the string representation
@@ -194,6 +196,12 @@ func (s *AutoScalingForCreateNodePoolInput) SetMinReplicas(v int32) *AutoScaling
 // SetPriority sets the Priority field's value.
 func (s *AutoScalingForCreateNodePoolInput) SetPriority(v int32) *AutoScalingForCreateNodePoolInput {
 	s.Priority = &v
+	return s
+}
+
+// SetSubnetPolicy sets the SubnetPolicy field's value.
+func (s *AutoScalingForCreateNodePoolInput) SetSubnetPolicy(v string) *AutoScalingForCreateNodePoolInput {
+	s.SubnetPolicy = &v
 	return s
 }
 
@@ -719,6 +727,14 @@ const (
 const (
 	// EnumOfSecurityStrategyListForCreateNodePoolInputHids is a EnumOfSecurityStrategyListForCreateNodePoolInput enum value
 	EnumOfSecurityStrategyListForCreateNodePoolInputHids = "Hids"
+)
+
+const (
+	// EnumOfSubnetPolicyForCreateNodePoolInputPriority is a EnumOfSubnetPolicyForCreateNodePoolInput enum value
+	EnumOfSubnetPolicyForCreateNodePoolInputPriority = "Priority"
+
+	// EnumOfSubnetPolicyForCreateNodePoolInputZoneBalance is a EnumOfSubnetPolicyForCreateNodePoolInput enum value
+	EnumOfSubnetPolicyForCreateNodePoolInputZoneBalance = "ZoneBalance"
 )
 
 const (

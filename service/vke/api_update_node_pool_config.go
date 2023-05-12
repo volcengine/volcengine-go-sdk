@@ -22,13 +22,13 @@ const opUpdateNodePoolConfigCommon = "UpdateNodePoolConfig"
 // See UpdateNodePoolConfigCommon for more information on using the UpdateNodePoolConfigCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateNodePoolConfigCommonRequest method.
-//    req, resp := client.UpdateNodePoolConfigCommonRequest(params)
+//	// Example sending a request using the UpdateNodePoolConfigCommonRequest method.
+//	req, resp := client.UpdateNodePoolConfigCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) UpdateNodePoolConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateNodePoolConfigCommon,
@@ -89,13 +89,13 @@ const opUpdateNodePoolConfig = "UpdateNodePoolConfig"
 // See UpdateNodePoolConfig for more information on using the UpdateNodePoolConfig
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateNodePoolConfigRequest method.
-//    req, resp := client.UpdateNodePoolConfigRequest(params)
+//	// Example sending a request using the UpdateNodePoolConfigRequest method.
+//	req, resp := client.UpdateNodePoolConfigRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) UpdateNodePoolConfigRequest(input *UpdateNodePoolConfigInput) (req *request.Request, output *UpdateNodePoolConfigOutput) {
 	op := &request.Operation{
 		Name:       opUpdateNodePoolConfig,
@@ -155,6 +155,8 @@ type AutoScalingForUpdateNodePoolConfigInput struct {
 	MinReplicas *int32 `type:"int32"`
 
 	Priority *int32 `type:"int32"`
+
+	SubnetPolicy *string `type:"string" enum:"EnumOfSubnetPolicyForUpdateNodePoolConfigInput"`
 }
 
 // String returns the string representation
@@ -194,6 +196,12 @@ func (s *AutoScalingForUpdateNodePoolConfigInput) SetMinReplicas(v int32) *AutoS
 // SetPriority sets the Priority field's value.
 func (s *AutoScalingForUpdateNodePoolConfigInput) SetPriority(v int32) *AutoScalingForUpdateNodePoolConfigInput {
 	s.Priority = &v
+	return s
+}
+
+// SetSubnetPolicy sets the SubnetPolicy field's value.
+func (s *AutoScalingForUpdateNodePoolConfigInput) SetSubnetPolicy(v string) *AutoScalingForUpdateNodePoolConfigInput {
+	s.SubnetPolicy = &v
 	return s
 }
 
@@ -687,6 +695,14 @@ const (
 const (
 	// EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids is a EnumOfSecurityStrategyListForUpdateNodePoolConfigInput enum value
 	EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids = "Hids"
+)
+
+const (
+	// EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority is a EnumOfSubnetPolicyForUpdateNodePoolConfigInput enum value
+	EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority = "Priority"
+
+	// EnumOfSubnetPolicyForUpdateNodePoolConfigInputZoneBalance is a EnumOfSubnetPolicyForUpdateNodePoolConfigInput enum value
+	EnumOfSubnetPolicyForUpdateNodePoolConfigInputZoneBalance = "ZoneBalance"
 )
 
 const (

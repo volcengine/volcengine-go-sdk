@@ -22,13 +22,13 @@ const opListKubeconfigsCommon = "ListKubeconfigs"
 // See ListKubeconfigsCommon for more information on using the ListKubeconfigsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListKubeconfigsCommonRequest method.
-//    req, resp := client.ListKubeconfigsCommonRequest(params)
+//	// Example sending a request using the ListKubeconfigsCommonRequest method.
+//	req, resp := client.ListKubeconfigsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListKubeconfigsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListKubeconfigsCommon,
@@ -89,13 +89,13 @@ const opListKubeconfigs = "ListKubeconfigs"
 // See ListKubeconfigs for more information on using the ListKubeconfigs
 // API call, and error handling.
 //
-//    // Example sending a request using the ListKubeconfigsRequest method.
-//    req, resp := client.ListKubeconfigsRequest(params)
+//	// Example sending a request using the ListKubeconfigsRequest method.
+//	req, resp := client.ListKubeconfigsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListKubeconfigsRequest(input *ListKubeconfigsInput) (req *request.Request, output *ListKubeconfigsOutput) {
 	op := &request.Operation{
 		Name:       opListKubeconfigs,

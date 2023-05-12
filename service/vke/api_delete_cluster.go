@@ -22,13 +22,13 @@ const opDeleteClusterCommon = "DeleteCluster"
 // See DeleteClusterCommon for more information on using the DeleteClusterCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteClusterCommonRequest method.
-//    req, resp := client.DeleteClusterCommonRequest(params)
+//	// Example sending a request using the DeleteClusterCommonRequest method.
+//	req, resp := client.DeleteClusterCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) DeleteClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteClusterCommon,
@@ -89,13 +89,13 @@ const opDeleteCluster = "DeleteCluster"
 // See DeleteCluster for more information on using the DeleteCluster
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteClusterRequest method.
-//    req, resp := client.DeleteClusterRequest(params)
+//	// Example sending a request using the DeleteClusterRequest method.
+//	req, resp := client.DeleteClusterRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) DeleteClusterRequest(input *DeleteClusterInput) (req *request.Request, output *DeleteClusterOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCluster,
