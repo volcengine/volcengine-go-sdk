@@ -22,13 +22,13 @@ const opCreateClusterCommon = "CreateCluster"
 // See CreateClusterCommon for more information on using the CreateClusterCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateClusterCommonRequest method.
-//    req, resp := client.CreateClusterCommonRequest(params)
+//	// Example sending a request using the CreateClusterCommonRequest method.
+//	req, resp := client.CreateClusterCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateClusterCommon,
@@ -89,13 +89,13 @@ const opCreateCluster = "CreateCluster"
 // See CreateCluster for more information on using the CreateCluster
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateClusterRequest method.
-//    req, resp := client.CreateClusterRequest(params)
+//	// Example sending a request using the CreateClusterRequest method.
+//	req, resp := client.CreateClusterRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateClusterRequest(input *CreateClusterInput) (req *request.Request, output *CreateClusterOutput) {
 	op := &request.Operation{
 		Name:       opCreateCluster,

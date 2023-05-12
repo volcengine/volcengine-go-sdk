@@ -22,13 +22,13 @@ const opDeleteNodePoolCommon = "DeleteNodePool"
 // See DeleteNodePoolCommon for more information on using the DeleteNodePoolCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteNodePoolCommonRequest method.
-//    req, resp := client.DeleteNodePoolCommonRequest(params)
+//	// Example sending a request using the DeleteNodePoolCommonRequest method.
+//	req, resp := client.DeleteNodePoolCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) DeleteNodePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteNodePoolCommon,
@@ -89,13 +89,13 @@ const opDeleteNodePool = "DeleteNodePool"
 // See DeleteNodePool for more information on using the DeleteNodePool
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteNodePoolRequest method.
-//    req, resp := client.DeleteNodePoolRequest(params)
+//	// Example sending a request using the DeleteNodePoolRequest method.
+//	req, resp := client.DeleteNodePoolRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) DeleteNodePoolRequest(input *DeleteNodePoolInput) (req *request.Request, output *DeleteNodePoolOutput) {
 	op := &request.Operation{
 		Name:       opDeleteNodePool,

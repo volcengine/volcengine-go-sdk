@@ -22,13 +22,13 @@ const opCreateAddonCommon = "CreateAddon"
 // See CreateAddonCommon for more information on using the CreateAddonCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateAddonCommonRequest method.
-//    req, resp := client.CreateAddonCommonRequest(params)
+//	// Example sending a request using the CreateAddonCommonRequest method.
+//	req, resp := client.CreateAddonCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateAddonCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateAddonCommon,
@@ -89,13 +89,13 @@ const opCreateAddon = "CreateAddon"
 // See CreateAddon for more information on using the CreateAddon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateAddonRequest method.
-//    req, resp := client.CreateAddonRequest(params)
+//	// Example sending a request using the CreateAddonRequest method.
+//	req, resp := client.CreateAddonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateAddonRequest(input *CreateAddonInput) (req *request.Request, output *CreateAddonOutput) {
 	op := &request.Operation{
 		Name:       opCreateAddon,

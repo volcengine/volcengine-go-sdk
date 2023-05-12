@@ -22,13 +22,13 @@ const opListNodesCommon = "ListNodes"
 // See ListNodesCommon for more information on using the ListNodesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListNodesCommonRequest method.
-//    req, resp := client.ListNodesCommonRequest(params)
+//	// Example sending a request using the ListNodesCommonRequest method.
+//	req, resp := client.ListNodesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListNodesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListNodesCommon,
@@ -89,13 +89,13 @@ const opListNodes = "ListNodes"
 // See ListNodes for more information on using the ListNodes
 // API call, and error handling.
 //
-//    // Example sending a request using the ListNodesRequest method.
-//    req, resp := client.ListNodesRequest(params)
+//	// Example sending a request using the ListNodesRequest method.
+//	req, resp := client.ListNodesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListNodesRequest(input *ListNodesInput) (req *request.Request, output *ListNodesOutput) {
 	op := &request.Operation{
 		Name:       opListNodes,

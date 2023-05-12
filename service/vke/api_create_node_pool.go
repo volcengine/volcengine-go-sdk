@@ -22,13 +22,13 @@ const opCreateNodePoolCommon = "CreateNodePool"
 // See CreateNodePoolCommon for more information on using the CreateNodePoolCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNodePoolCommonRequest method.
-//    req, resp := client.CreateNodePoolCommonRequest(params)
+//	// Example sending a request using the CreateNodePoolCommonRequest method.
+//	req, resp := client.CreateNodePoolCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateNodePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNodePoolCommon,
@@ -89,13 +89,13 @@ const opCreateNodePool = "CreateNodePool"
 // See CreateNodePool for more information on using the CreateNodePool
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNodePoolRequest method.
-//    req, resp := client.CreateNodePoolRequest(params)
+//	// Example sending a request using the CreateNodePoolRequest method.
+//	req, resp := client.CreateNodePoolRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) CreateNodePoolRequest(input *CreateNodePoolInput) (req *request.Request, output *CreateNodePoolOutput) {
 	op := &request.Operation{
 		Name:       opCreateNodePool,

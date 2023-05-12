@@ -22,13 +22,13 @@ const opListClustersCommon = "ListClusters"
 // See ListClustersCommon for more information on using the ListClustersCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListClustersCommonRequest method.
-//    req, resp := client.ListClustersCommonRequest(params)
+//	// Example sending a request using the ListClustersCommonRequest method.
+//	req, resp := client.ListClustersCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListClustersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListClustersCommon,
@@ -89,13 +89,13 @@ const opListClusters = "ListClusters"
 // See ListClusters for more information on using the ListClusters
 // API call, and error handling.
 //
-//    // Example sending a request using the ListClustersRequest method.
-//    req, resp := client.ListClustersRequest(params)
+//	// Example sending a request using the ListClustersRequest method.
+//	req, resp := client.ListClustersRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListClustersRequest(input *ListClustersInput) (req *request.Request, output *ListClustersOutput) {
 	op := &request.Operation{
 		Name:       opListClusters,

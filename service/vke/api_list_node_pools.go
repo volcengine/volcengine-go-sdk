@@ -22,13 +22,13 @@ const opListNodePoolsCommon = "ListNodePools"
 // See ListNodePoolsCommon for more information on using the ListNodePoolsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListNodePoolsCommonRequest method.
-//    req, resp := client.ListNodePoolsCommonRequest(params)
+//	// Example sending a request using the ListNodePoolsCommonRequest method.
+//	req, resp := client.ListNodePoolsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListNodePoolsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListNodePoolsCommon,
@@ -89,13 +89,13 @@ const opListNodePools = "ListNodePools"
 // See ListNodePools for more information on using the ListNodePools
 // API call, and error handling.
 //
-//    // Example sending a request using the ListNodePoolsRequest method.
-//    req, resp := client.ListNodePoolsRequest(params)
+//	// Example sending a request using the ListNodePoolsRequest method.
+//	req, resp := client.ListNodePoolsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListNodePoolsRequest(input *ListNodePoolsInput) (req *request.Request, output *ListNodePoolsOutput) {
 	op := &request.Operation{
 		Name:       opListNodePools,
