@@ -24,13 +24,13 @@ const opModifyRulesCommon = "ModifyRules"
 // See ModifyRulesCommon for more information on using the ModifyRulesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyRulesCommonRequest method.
-//    req, resp := client.ModifyRulesCommonRequest(params)
+//	// Example sending a request using the ModifyRulesCommonRequest method.
+//	req, resp := client.ModifyRulesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) ModifyRulesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyRulesCommon,
@@ -89,13 +89,13 @@ const opModifyRules = "ModifyRules"
 // See ModifyRules for more information on using the ModifyRules
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyRulesRequest method.
-//    req, resp := client.ModifyRulesRequest(params)
+//	// Example sending a request using the ModifyRulesRequest method.
+//	req, resp := client.ModifyRulesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) ModifyRulesRequest(input *ModifyRulesInput) (req *request.Request, output *ModifyRulesOutput) {
 	op := &request.Operation{
 		Name:       opModifyRules,

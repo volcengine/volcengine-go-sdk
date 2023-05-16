@@ -22,13 +22,13 @@ const opDetachHealthCheckLogTopicCommon = "DetachHealthCheckLogTopic"
 // See DetachHealthCheckLogTopicCommon for more information on using the DetachHealthCheckLogTopicCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachHealthCheckLogTopicCommonRequest method.
-//    req, resp := client.DetachHealthCheckLogTopicCommonRequest(params)
+//	// Example sending a request using the DetachHealthCheckLogTopicCommonRequest method.
+//	req, resp := client.DetachHealthCheckLogTopicCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DetachHealthCheckLogTopicCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachHealthCheckLogTopicCommon,
@@ -87,13 +87,13 @@ const opDetachHealthCheckLogTopic = "DetachHealthCheckLogTopic"
 // See DetachHealthCheckLogTopic for more information on using the DetachHealthCheckLogTopic
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachHealthCheckLogTopicRequest method.
-//    req, resp := client.DetachHealthCheckLogTopicRequest(params)
+//	// Example sending a request using the DetachHealthCheckLogTopicRequest method.
+//	req, resp := client.DetachHealthCheckLogTopicRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DetachHealthCheckLogTopicRequest(input *DetachHealthCheckLogTopicInput) (req *request.Request, output *DetachHealthCheckLogTopicOutput) {
 	op := &request.Operation{
 		Name:       opDetachHealthCheckLogTopic,

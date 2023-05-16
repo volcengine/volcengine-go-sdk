@@ -22,13 +22,13 @@ const opStopInstanceCommon = "StopInstance"
 // See StopInstanceCommon for more information on using the StopInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the StopInstanceCommonRequest method.
-//    req, resp := client.StopInstanceCommonRequest(params)
+//	// Example sending a request using the StopInstanceCommonRequest method.
+//	req, resp := client.StopInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) StopInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStopInstanceCommon,
@@ -87,13 +87,13 @@ const opStopInstance = "StopInstance"
 // See StopInstance for more information on using the StopInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the StopInstanceRequest method.
-//    req, resp := client.StopInstanceRequest(params)
+//	// Example sending a request using the StopInstanceRequest method.
+//	req, resp := client.StopInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) StopInstanceRequest(input *StopInstanceInput) (req *request.Request, output *StopInstanceOutput) {
 	op := &request.Operation{
 		Name:       opStopInstance,
@@ -144,6 +144,8 @@ type StopInstanceInput struct {
 
 	ClientToken *string `type:"string"`
 
+	DryRun *bool `type:"boolean"`
+
 	ForceStop *bool `type:"boolean"`
 
 	InstanceId *string `type:"string"`
@@ -164,6 +166,12 @@ func (s StopInstanceInput) GoString() string {
 // SetClientToken sets the ClientToken field's value.
 func (s *StopInstanceInput) SetClientToken(v string) *StopInstanceInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *StopInstanceInput) SetDryRun(v bool) *StopInstanceInput {
+	s.DryRun = &v
 	return s
 }
 

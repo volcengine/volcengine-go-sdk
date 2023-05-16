@@ -22,13 +22,13 @@ const opCreateAclCommon = "CreateAcl"
 // See CreateAclCommon for more information on using the CreateAclCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateAclCommonRequest method.
-//    req, resp := client.CreateAclCommonRequest(params)
+//	// Example sending a request using the CreateAclCommonRequest method.
+//	req, resp := client.CreateAclCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) CreateAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateAclCommon,
@@ -87,13 +87,13 @@ const opCreateAcl = "CreateAcl"
 // See CreateAcl for more information on using the CreateAcl
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateAclRequest method.
-//    req, resp := client.CreateAclRequest(params)
+//	// Example sending a request using the CreateAclRequest method.
+//	req, resp := client.CreateAclRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) CreateAclRequest(input *CreateAclInput) (req *request.Request, output *CreateAclOutput) {
 	op := &request.Operation{
 		Name:       opCreateAcl,
@@ -147,6 +147,8 @@ type CreateAclInput struct {
 	Description *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateAclInput `type:"list"`
 }
 
 // String returns the string representation
@@ -193,6 +195,12 @@ func (s *CreateAclInput) SetProjectName(v string) *CreateAclInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateAclInput) SetTags(v []*TagForCreateAclInput) *CreateAclInput {
+	s.Tags = v
+	return s
+}
+
 type CreateAclOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -222,5 +230,35 @@ func (s *CreateAclOutput) SetAclId(v string) *CreateAclOutput {
 // SetRequestId sets the RequestId field's value.
 func (s *CreateAclOutput) SetRequestId(v string) *CreateAclOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForCreateAclInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateAclInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateAclInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateAclInput) SetKey(v string) *TagForCreateAclInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateAclInput) SetValue(v string) *TagForCreateAclInput {
+	s.Value = &v
 	return s
 }

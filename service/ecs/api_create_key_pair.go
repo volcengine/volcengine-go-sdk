@@ -22,13 +22,13 @@ const opCreateKeyPairCommon = "CreateKeyPair"
 // See CreateKeyPairCommon for more information on using the CreateKeyPairCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateKeyPairCommonRequest method.
-//    req, resp := client.CreateKeyPairCommonRequest(params)
+//	// Example sending a request using the CreateKeyPairCommonRequest method.
+//	req, resp := client.CreateKeyPairCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateKeyPairCommon,
@@ -87,13 +87,13 @@ const opCreateKeyPair = "CreateKeyPair"
 // See CreateKeyPair for more information on using the CreateKeyPair
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateKeyPairRequest method.
-//    req, resp := client.CreateKeyPairRequest(params)
+//	// Example sending a request using the CreateKeyPairRequest method.
+//	req, resp := client.CreateKeyPairRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateKeyPairRequest(input *CreateKeyPairInput) (req *request.Request, output *CreateKeyPairOutput) {
 	op := &request.Operation{
 		Name:       opCreateKeyPair,
@@ -147,6 +147,8 @@ type CreateKeyPairInput struct {
 	Description *string `type:"string"`
 
 	KeyPairName *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -174,6 +176,12 @@ func (s *CreateKeyPairInput) SetDescription(v string) *CreateKeyPairInput {
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *CreateKeyPairInput) SetKeyPairName(v string) *CreateKeyPairInput {
 	s.KeyPairName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateKeyPairInput) SetProjectName(v string) *CreateKeyPairInput {
+	s.ProjectName = &v
 	return s
 }
 

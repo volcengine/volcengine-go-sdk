@@ -22,13 +22,13 @@ const opAssociateNetworkAclCommon = "AssociateNetworkAcl"
 // See AssociateNetworkAclCommon for more information on using the AssociateNetworkAclCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateNetworkAclCommonRequest method.
-//    req, resp := client.AssociateNetworkAclCommonRequest(params)
+//	// Example sending a request using the AssociateNetworkAclCommonRequest method.
+//	req, resp := client.AssociateNetworkAclCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) AssociateNetworkAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateNetworkAclCommon,
@@ -87,13 +87,13 @@ const opAssociateNetworkAcl = "AssociateNetworkAcl"
 // See AssociateNetworkAcl for more information on using the AssociateNetworkAcl
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateNetworkAclRequest method.
-//    req, resp := client.AssociateNetworkAclRequest(params)
+//	// Example sending a request using the AssociateNetworkAclRequest method.
+//	req, resp := client.AssociateNetworkAclRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) AssociateNetworkAclRequest(input *AssociateNetworkAclInput) (req *request.Request, output *AssociateNetworkAclOutput) {
 	op := &request.Operation{
 		Name:       opAssociateNetworkAcl,

@@ -22,13 +22,13 @@ const opCreateLoadBalancerCommon = "CreateLoadBalancer"
 // See CreateLoadBalancerCommon for more information on using the CreateLoadBalancerCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateLoadBalancerCommonRequest method.
-//    req, resp := client.CreateLoadBalancerCommonRequest(params)
+//	// Example sending a request using the CreateLoadBalancerCommonRequest method.
+//	req, resp := client.CreateLoadBalancerCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) CreateLoadBalancerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateLoadBalancerCommon,
@@ -87,13 +87,13 @@ const opCreateLoadBalancer = "CreateLoadBalancer"
 // See CreateLoadBalancer for more information on using the CreateLoadBalancer
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateLoadBalancerRequest method.
-//    req, resp := client.CreateLoadBalancerRequest(params)
+//	// Example sending a request using the CreateLoadBalancerRequest method.
+//	req, resp := client.CreateLoadBalancerRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) CreateLoadBalancerRequest(input *CreateLoadBalancerInput) (req *request.Request, output *CreateLoadBalancerOutput) {
 	op := &request.Operation{
 		Name:       opCreateLoadBalancer,

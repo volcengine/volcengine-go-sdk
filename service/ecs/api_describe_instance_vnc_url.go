@@ -22,13 +22,13 @@ const opDescribeInstanceVncUrlCommon = "DescribeInstanceVncUrl"
 // See DescribeInstanceVncUrlCommon for more information on using the DescribeInstanceVncUrlCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeInstanceVncUrlCommonRequest method.
-//    req, resp := client.DescribeInstanceVncUrlCommonRequest(params)
+//	// Example sending a request using the DescribeInstanceVncUrlCommonRequest method.
+//	req, resp := client.DescribeInstanceVncUrlCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeInstanceVncUrlCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceVncUrlCommon,
@@ -87,13 +87,13 @@ const opDescribeInstanceVncUrl = "DescribeInstanceVncUrl"
 // See DescribeInstanceVncUrl for more information on using the DescribeInstanceVncUrl
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeInstanceVncUrlRequest method.
-//    req, resp := client.DescribeInstanceVncUrlRequest(params)
+//	// Example sending a request using the DescribeInstanceVncUrlRequest method.
+//	req, resp := client.DescribeInstanceVncUrlRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeInstanceVncUrlRequest(input *DescribeInstanceVncUrlInput) (req *request.Request, output *DescribeInstanceVncUrlOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceVncUrl,

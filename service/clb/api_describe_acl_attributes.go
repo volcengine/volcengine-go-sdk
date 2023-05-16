@@ -22,13 +22,13 @@ const opDescribeAclAttributesCommon = "DescribeAclAttributes"
 // See DescribeAclAttributesCommon for more information on using the DescribeAclAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeAclAttributesCommonRequest method.
-//    req, resp := client.DescribeAclAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeAclAttributesCommonRequest method.
+//	req, resp := client.DescribeAclAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeAclAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAclAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeAclAttributes = "DescribeAclAttributes"
 // See DescribeAclAttributes for more information on using the DescribeAclAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeAclAttributesRequest method.
-//    req, resp := client.DescribeAclAttributesRequest(params)
+//	// Example sending a request using the DescribeAclAttributesRequest method.
+//	req, resp := client.DescribeAclAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeAclAttributesRequest(input *DescribeAclAttributesInput) (req *request.Request, output *DescribeAclAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAclAttributes,
@@ -226,7 +226,11 @@ type DescribeAclAttributesOutput struct {
 
 	RequestId *string `type:"string"`
 
+	ServiceManaged *bool `type:"boolean"`
+
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeAclAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -289,9 +293,21 @@ func (s *DescribeAclAttributesOutput) SetRequestId(v string) *DescribeAclAttribu
 	return s
 }
 
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *DescribeAclAttributesOutput) SetServiceManaged(v bool) *DescribeAclAttributesOutput {
+	s.ServiceManaged = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DescribeAclAttributesOutput) SetStatus(v string) *DescribeAclAttributesOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeAclAttributesOutput) SetTags(v []*TagForDescribeAclAttributesOutput) *DescribeAclAttributesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -352,5 +368,35 @@ func (s *ListenerForDescribeAclAttributesOutput) SetPort(v int64) *ListenerForDe
 // SetProtocol sets the Protocol field's value.
 func (s *ListenerForDescribeAclAttributesOutput) SetProtocol(v string) *ListenerForDescribeAclAttributesOutput {
 	s.Protocol = &v
+	return s
+}
+
+type TagForDescribeAclAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeAclAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeAclAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeAclAttributesOutput) SetKey(v string) *TagForDescribeAclAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeAclAttributesOutput) SetValue(v string) *TagForDescribeAclAttributesOutput {
+	s.Value = &v
 	return s
 }

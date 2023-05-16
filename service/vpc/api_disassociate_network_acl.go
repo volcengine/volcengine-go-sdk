@@ -22,13 +22,13 @@ const opDisassociateNetworkAclCommon = "DisassociateNetworkAcl"
 // See DisassociateNetworkAclCommon for more information on using the DisassociateNetworkAclCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateNetworkAclCommonRequest method.
-//    req, resp := client.DisassociateNetworkAclCommonRequest(params)
+//	// Example sending a request using the DisassociateNetworkAclCommonRequest method.
+//	req, resp := client.DisassociateNetworkAclCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DisassociateNetworkAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateNetworkAclCommon,
@@ -87,13 +87,13 @@ const opDisassociateNetworkAcl = "DisassociateNetworkAcl"
 // See DisassociateNetworkAcl for more information on using the DisassociateNetworkAcl
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateNetworkAclRequest method.
-//    req, resp := client.DisassociateNetworkAclRequest(params)
+//	// Example sending a request using the DisassociateNetworkAclRequest method.
+//	req, resp := client.DisassociateNetworkAclRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DisassociateNetworkAclRequest(input *DisassociateNetworkAclInput) (req *request.Request, output *DisassociateNetworkAclOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateNetworkAcl,

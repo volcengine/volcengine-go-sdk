@@ -22,13 +22,13 @@ const opDescribeUserDataCommon = "DescribeUserData"
 // See DescribeUserDataCommon for more information on using the DescribeUserDataCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeUserDataCommonRequest method.
-//    req, resp := client.DescribeUserDataCommonRequest(params)
+//	// Example sending a request using the DescribeUserDataCommonRequest method.
+//	req, resp := client.DescribeUserDataCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeUserDataCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeUserDataCommon,
@@ -87,13 +87,13 @@ const opDescribeUserData = "DescribeUserData"
 // See DescribeUserData for more information on using the DescribeUserData
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeUserDataRequest method.
-//    req, resp := client.DescribeUserDataRequest(params)
+//	// Example sending a request using the DescribeUserDataRequest method.
+//	req, resp := client.DescribeUserDataRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeUserDataRequest(input *DescribeUserDataInput) (req *request.Request, output *DescribeUserDataOutput) {
 	op := &request.Operation{
 		Name:       opDescribeUserData,

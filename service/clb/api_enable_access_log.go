@@ -22,13 +22,13 @@ const opEnableAccessLogCommon = "EnableAccessLog"
 // See EnableAccessLogCommon for more information on using the EnableAccessLogCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the EnableAccessLogCommonRequest method.
-//    req, resp := client.EnableAccessLogCommonRequest(params)
+//	// Example sending a request using the EnableAccessLogCommonRequest method.
+//	req, resp := client.EnableAccessLogCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) EnableAccessLogCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opEnableAccessLogCommon,
@@ -87,13 +87,13 @@ const opEnableAccessLog = "EnableAccessLog"
 // See EnableAccessLog for more information on using the EnableAccessLog
 // API call, and error handling.
 //
-//    // Example sending a request using the EnableAccessLogRequest method.
-//    req, resp := client.EnableAccessLogRequest(params)
+//	// Example sending a request using the EnableAccessLogRequest method.
+//	req, resp := client.EnableAccessLogRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) EnableAccessLogRequest(input *EnableAccessLogInput) (req *request.Request, output *EnableAccessLogOutput) {
 	op := &request.Operation{
 		Name:       opEnableAccessLog,

@@ -24,13 +24,13 @@ const opReplaceSystemVolumeCommon = "ReplaceSystemVolume"
 // See ReplaceSystemVolumeCommon for more information on using the ReplaceSystemVolumeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ReplaceSystemVolumeCommonRequest method.
-//    req, resp := client.ReplaceSystemVolumeCommonRequest(params)
+//	// Example sending a request using the ReplaceSystemVolumeCommonRequest method.
+//	req, resp := client.ReplaceSystemVolumeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ReplaceSystemVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opReplaceSystemVolumeCommon,
@@ -89,13 +89,13 @@ const opReplaceSystemVolume = "ReplaceSystemVolume"
 // See ReplaceSystemVolume for more information on using the ReplaceSystemVolume
 // API call, and error handling.
 //
-//    // Example sending a request using the ReplaceSystemVolumeRequest method.
-//    req, resp := client.ReplaceSystemVolumeRequest(params)
+//	// Example sending a request using the ReplaceSystemVolumeRequest method.
+//	req, resp := client.ReplaceSystemVolumeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ReplaceSystemVolumeRequest(input *ReplaceSystemVolumeInput) (req *request.Request, output *ReplaceSystemVolumeOutput) {
 	op := &request.Operation{
 		Name:       opReplaceSystemVolume,
@@ -146,6 +146,8 @@ type ReplaceSystemVolumeInput struct {
 
 	ClientToken *string `type:"string"`
 
+	DryRun *bool `type:"boolean"`
+
 	ImageId *string `type:"string"`
 
 	InstanceId *string `type:"string"`
@@ -174,6 +176,12 @@ func (s ReplaceSystemVolumeInput) GoString() string {
 // SetClientToken sets the ClientToken field's value.
 func (s *ReplaceSystemVolumeInput) SetClientToken(v string) *ReplaceSystemVolumeInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *ReplaceSystemVolumeInput) SetDryRun(v bool) *ReplaceSystemVolumeInput {
+	s.DryRun = &v
 	return s
 }
 

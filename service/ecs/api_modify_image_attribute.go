@@ -22,13 +22,13 @@ const opModifyImageAttributeCommon = "ModifyImageAttribute"
 // See ModifyImageAttributeCommon for more information on using the ModifyImageAttributeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyImageAttributeCommonRequest method.
-//    req, resp := client.ModifyImageAttributeCommonRequest(params)
+//	// Example sending a request using the ModifyImageAttributeCommonRequest method.
+//	req, resp := client.ModifyImageAttributeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyImageAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyImageAttributeCommon,
@@ -87,13 +87,13 @@ const opModifyImageAttribute = "ModifyImageAttribute"
 // See ModifyImageAttribute for more information on using the ModifyImageAttribute
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyImageAttributeRequest method.
-//    req, resp := client.ModifyImageAttributeRequest(params)
+//	// Example sending a request using the ModifyImageAttributeRequest method.
+//	req, resp := client.ModifyImageAttributeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyImageAttributeRequest(input *ModifyImageAttributeInput) (req *request.Request, output *ModifyImageAttributeOutput) {
 	op := &request.Operation{
 		Name:       opModifyImageAttribute,

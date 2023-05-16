@@ -22,13 +22,13 @@ const opAssociateEipAddressCommon = "AssociateEipAddress"
 // See AssociateEipAddressCommon for more information on using the AssociateEipAddressCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateEipAddressCommonRequest method.
-//    req, resp := client.AssociateEipAddressCommonRequest(params)
+//	// Example sending a request using the AssociateEipAddressCommonRequest method.
+//	req, resp := client.AssociateEipAddressCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) AssociateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateEipAddressCommon,
@@ -87,13 +87,13 @@ const opAssociateEipAddress = "AssociateEipAddress"
 // See AssociateEipAddress for more information on using the AssociateEipAddress
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateEipAddressRequest method.
-//    req, resp := client.AssociateEipAddressRequest(params)
+//	// Example sending a request using the AssociateEipAddressRequest method.
+//	req, resp := client.AssociateEipAddressRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) AssociateEipAddressRequest(input *AssociateEipAddressInput) (req *request.Request, output *AssociateEipAddressOutput) {
 	op := &request.Operation{
 		Name:       opAssociateEipAddress,

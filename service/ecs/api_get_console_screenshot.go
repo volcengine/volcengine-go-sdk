@@ -22,13 +22,13 @@ const opGetConsoleScreenshotCommon = "GetConsoleScreenshot"
 // See GetConsoleScreenshotCommon for more information on using the GetConsoleScreenshotCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the GetConsoleScreenshotCommonRequest method.
-//    req, resp := client.GetConsoleScreenshotCommonRequest(params)
+//	// Example sending a request using the GetConsoleScreenshotCommonRequest method.
+//	req, resp := client.GetConsoleScreenshotCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) GetConsoleScreenshotCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetConsoleScreenshotCommon,
@@ -87,13 +87,13 @@ const opGetConsoleScreenshot = "GetConsoleScreenshot"
 // See GetConsoleScreenshot for more information on using the GetConsoleScreenshot
 // API call, and error handling.
 //
-//    // Example sending a request using the GetConsoleScreenshotRequest method.
-//    req, resp := client.GetConsoleScreenshotRequest(params)
+//	// Example sending a request using the GetConsoleScreenshotRequest method.
+//	req, resp := client.GetConsoleScreenshotRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) GetConsoleScreenshotRequest(input *GetConsoleScreenshotInput) (req *request.Request, output *GetConsoleScreenshotOutput) {
 	op := &request.Operation{
 		Name:       opGetConsoleScreenshot,

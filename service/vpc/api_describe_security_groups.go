@@ -22,13 +22,13 @@ const opDescribeSecurityGroupsCommon = "DescribeSecurityGroups"
 // See DescribeSecurityGroupsCommon for more information on using the DescribeSecurityGroupsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSecurityGroupsCommonRequest method.
-//    req, resp := client.DescribeSecurityGroupsCommonRequest(params)
+//	// Example sending a request using the DescribeSecurityGroupsCommonRequest method.
+//	req, resp := client.DescribeSecurityGroupsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeSecurityGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroupsCommon,
@@ -87,13 +87,13 @@ const opDescribeSecurityGroups = "DescribeSecurityGroups"
 // See DescribeSecurityGroups for more information on using the DescribeSecurityGroups
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSecurityGroupsRequest method.
-//    req, resp := client.DescribeSecurityGroupsRequest(params)
+//	// Example sending a request using the DescribeSecurityGroupsRequest method.
+//	req, resp := client.DescribeSecurityGroupsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeSecurityGroupsRequest(input *DescribeSecurityGroupsInput) (req *request.Request, output *DescribeSecurityGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroups,

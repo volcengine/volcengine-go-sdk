@@ -22,13 +22,13 @@ const opDescribeNetworkAclAttributesCommon = "DescribeNetworkAclAttributes"
 // See DescribeNetworkAclAttributesCommon for more information on using the DescribeNetworkAclAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeNetworkAclAttributesCommonRequest method.
-//    req, resp := client.DescribeNetworkAclAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeNetworkAclAttributesCommonRequest method.
+//	req, resp := client.DescribeNetworkAclAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeNetworkAclAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkAclAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeNetworkAclAttributes = "DescribeNetworkAclAttributes"
 // See DescribeNetworkAclAttributes for more information on using the DescribeNetworkAclAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeNetworkAclAttributesRequest method.
-//    req, resp := client.DescribeNetworkAclAttributesRequest(params)
+//	// Example sending a request using the DescribeNetworkAclAttributesRequest method.
+//	req, resp := client.DescribeNetworkAclAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeNetworkAclAttributesRequest(input *DescribeNetworkAclAttributesInput) (req *request.Request, output *DescribeNetworkAclAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkAclAttributes,

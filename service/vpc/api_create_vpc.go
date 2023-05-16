@@ -22,13 +22,13 @@ const opCreateVpcCommon = "CreateVpc"
 // See CreateVpcCommon for more information on using the CreateVpcCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateVpcCommonRequest method.
-//    req, resp := client.CreateVpcCommonRequest(params)
+//	// Example sending a request using the CreateVpcCommonRequest method.
+//	req, resp := client.CreateVpcCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateVpcCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateVpcCommon,
@@ -87,13 +87,13 @@ const opCreateVpc = "CreateVpc"
 // See CreateVpc for more information on using the CreateVpc
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateVpcRequest method.
-//    req, resp := client.CreateVpcRequest(params)
+//	// Example sending a request using the CreateVpcRequest method.
+//	req, resp := client.CreateVpcRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateVpcRequest(input *CreateVpcInput) (req *request.Request, output *CreateVpcOutput) {
 	op := &request.Operation{
 		Name:       opCreateVpc,

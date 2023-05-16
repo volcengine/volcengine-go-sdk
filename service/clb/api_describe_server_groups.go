@@ -22,13 +22,13 @@ const opDescribeServerGroupsCommon = "DescribeServerGroups"
 // See DescribeServerGroupsCommon for more information on using the DescribeServerGroupsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeServerGroupsCommonRequest method.
-//    req, resp := client.DescribeServerGroupsCommonRequest(params)
+//	// Example sending a request using the DescribeServerGroupsCommonRequest method.
+//	req, resp := client.DescribeServerGroupsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeServerGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeServerGroupsCommon,
@@ -87,13 +87,13 @@ const opDescribeServerGroups = "DescribeServerGroups"
 // See DescribeServerGroups for more information on using the DescribeServerGroups
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeServerGroupsRequest method.
-//    req, resp := client.DescribeServerGroupsRequest(params)
+//	// Example sending a request using the DescribeServerGroupsRequest method.
+//	req, resp := client.DescribeServerGroupsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeServerGroupsRequest(input *DescribeServerGroupsInput) (req *request.Request, output *DescribeServerGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeServerGroups,

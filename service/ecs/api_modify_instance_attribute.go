@@ -22,13 +22,13 @@ const opModifyInstanceAttributeCommon = "ModifyInstanceAttribute"
 // See ModifyInstanceAttributeCommon for more information on using the ModifyInstanceAttributeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyInstanceAttributeCommonRequest method.
-//    req, resp := client.ModifyInstanceAttributeCommonRequest(params)
+//	// Example sending a request using the ModifyInstanceAttributeCommonRequest method.
+//	req, resp := client.ModifyInstanceAttributeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyInstanceAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceAttributeCommon,
@@ -87,13 +87,13 @@ const opModifyInstanceAttribute = "ModifyInstanceAttribute"
 // See ModifyInstanceAttribute for more information on using the ModifyInstanceAttribute
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyInstanceAttributeRequest method.
-//    req, resp := client.ModifyInstanceAttributeRequest(params)
+//	// Example sending a request using the ModifyInstanceAttributeRequest method.
+//	req, resp := client.ModifyInstanceAttributeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyInstanceAttributeRequest(input *ModifyInstanceAttributeInput) (req *request.Request, output *ModifyInstanceAttributeOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceAttribute,
