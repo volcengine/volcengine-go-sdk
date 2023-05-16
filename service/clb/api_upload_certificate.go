@@ -139,6 +139,36 @@ func (c *CLB) UploadCertificateWithContext(ctx volcengine.Context, input *Upload
 	return out, req.Send()
 }
 
+type TagForUploadCertificateInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForUploadCertificateInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForUploadCertificateInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForUploadCertificateInput) SetKey(v string) *TagForUploadCertificateInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForUploadCertificateInput) SetValue(v string) *TagForUploadCertificateInput {
+	s.Value = &v
+	return s
+}
+
 type UploadCertificateInput struct {
 	_ struct{} `type:"structure"`
 
@@ -154,7 +184,7 @@ type UploadCertificateInput struct {
 	// PublicKey is a required field
 	PublicKey *string `type:"string" required:"true"`
 
-	TagFilters *string `type:"string"`
+	Tags []*TagForUploadCertificateInput `type:"list"`
 }
 
 // String returns the string representation
@@ -213,9 +243,9 @@ func (s *UploadCertificateInput) SetPublicKey(v string) *UploadCertificateInput 
 	return s
 }
 
-// SetTagFilters sets the TagFilters field's value.
-func (s *UploadCertificateInput) SetTagFilters(v string) *UploadCertificateInput {
-	s.TagFilters = &v
+// SetTags sets the Tags field's value.
+func (s *UploadCertificateInput) SetTags(v []*TagForUploadCertificateInput) *UploadCertificateInput {
+	s.Tags = v
 	return s
 }
 
