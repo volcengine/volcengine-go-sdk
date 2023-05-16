@@ -22,13 +22,13 @@ const opCreateHealthCheckLogProjectCommon = "CreateHealthCheckLogProject"
 // See CreateHealthCheckLogProjectCommon for more information on using the CreateHealthCheckLogProjectCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateHealthCheckLogProjectCommonRequest method.
-//    req, resp := client.CreateHealthCheckLogProjectCommonRequest(params)
+//	// Example sending a request using the CreateHealthCheckLogProjectCommonRequest method.
+//	req, resp := client.CreateHealthCheckLogProjectCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) CreateHealthCheckLogProjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateHealthCheckLogProjectCommon,
@@ -87,13 +87,13 @@ const opCreateHealthCheckLogProject = "CreateHealthCheckLogProject"
 // See CreateHealthCheckLogProject for more information on using the CreateHealthCheckLogProject
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateHealthCheckLogProjectRequest method.
-//    req, resp := client.CreateHealthCheckLogProjectRequest(params)
+//	// Example sending a request using the CreateHealthCheckLogProjectRequest method.
+//	req, resp := client.CreateHealthCheckLogProjectRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) CreateHealthCheckLogProjectRequest(input *CreateHealthCheckLogProjectInput) (req *request.Request, output *CreateHealthCheckLogProjectOutput) {
 	op := &request.Operation{
 		Name:       opCreateHealthCheckLogProject,

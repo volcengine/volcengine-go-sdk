@@ -22,13 +22,13 @@ const opDeleteListenerCommon = "DeleteListener"
 // See DeleteListenerCommon for more information on using the DeleteListenerCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteListenerCommonRequest method.
-//    req, resp := client.DeleteListenerCommonRequest(params)
+//	// Example sending a request using the DeleteListenerCommonRequest method.
+//	req, resp := client.DeleteListenerCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DeleteListenerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteListenerCommon,
@@ -87,13 +87,13 @@ const opDeleteListener = "DeleteListener"
 // See DeleteListener for more information on using the DeleteListener
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteListenerRequest method.
-//    req, resp := client.DeleteListenerRequest(params)
+//	// Example sending a request using the DeleteListenerRequest method.
+//	req, resp := client.DeleteListenerRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DeleteListenerRequest(input *DeleteListenerInput) (req *request.Request, output *DeleteListenerOutput) {
 	op := &request.Operation{
 		Name:       opDeleteListener,

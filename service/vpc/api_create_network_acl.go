@@ -22,13 +22,13 @@ const opCreateNetworkAclCommon = "CreateNetworkAcl"
 // See CreateNetworkAclCommon for more information on using the CreateNetworkAclCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNetworkAclCommonRequest method.
-//    req, resp := client.CreateNetworkAclCommonRequest(params)
+//	// Example sending a request using the CreateNetworkAclCommonRequest method.
+//	req, resp := client.CreateNetworkAclCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateNetworkAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNetworkAclCommon,
@@ -87,13 +87,13 @@ const opCreateNetworkAcl = "CreateNetworkAcl"
 // See CreateNetworkAcl for more information on using the CreateNetworkAcl
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNetworkAclRequest method.
-//    req, resp := client.CreateNetworkAclRequest(params)
+//	// Example sending a request using the CreateNetworkAclRequest method.
+//	req, resp := client.CreateNetworkAclRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateNetworkAclRequest(input *CreateNetworkAclInput) (req *request.Request, output *CreateNetworkAclOutput) {
 	op := &request.Operation{
 		Name:       opCreateNetworkAcl,

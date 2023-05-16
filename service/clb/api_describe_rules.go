@@ -22,13 +22,13 @@ const opDescribeRulesCommon = "DescribeRules"
 // See DescribeRulesCommon for more information on using the DescribeRulesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeRulesCommonRequest method.
-//    req, resp := client.DescribeRulesCommonRequest(params)
+//	// Example sending a request using the DescribeRulesCommonRequest method.
+//	req, resp := client.DescribeRulesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeRulesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeRulesCommon,
@@ -87,13 +87,13 @@ const opDescribeRules = "DescribeRules"
 // See DescribeRules for more information on using the DescribeRules
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeRulesRequest method.
-//    req, resp := client.DescribeRulesRequest(params)
+//	// Example sending a request using the DescribeRulesRequest method.
+//	req, resp := client.DescribeRulesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeRulesRequest(input *DescribeRulesInput) (req *request.Request, output *DescribeRulesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeRules,

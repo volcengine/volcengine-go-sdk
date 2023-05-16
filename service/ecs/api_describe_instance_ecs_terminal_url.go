@@ -22,13 +22,13 @@ const opDescribeInstanceECSTerminalUrlCommon = "DescribeInstanceECSTerminalUrl"
 // See DescribeInstanceECSTerminalUrlCommon for more information on using the DescribeInstanceECSTerminalUrlCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeInstanceECSTerminalUrlCommonRequest method.
-//    req, resp := client.DescribeInstanceECSTerminalUrlCommonRequest(params)
+//	// Example sending a request using the DescribeInstanceECSTerminalUrlCommonRequest method.
+//	req, resp := client.DescribeInstanceECSTerminalUrlCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeInstanceECSTerminalUrlCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceECSTerminalUrlCommon,
@@ -87,13 +87,13 @@ const opDescribeInstanceECSTerminalUrl = "DescribeInstanceECSTerminalUrl"
 // See DescribeInstanceECSTerminalUrl for more information on using the DescribeInstanceECSTerminalUrl
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeInstanceECSTerminalUrlRequest method.
-//    req, resp := client.DescribeInstanceECSTerminalUrlRequest(params)
+//	// Example sending a request using the DescribeInstanceECSTerminalUrlRequest method.
+//	req, resp := client.DescribeInstanceECSTerminalUrlRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeInstanceECSTerminalUrlRequest(input *DescribeInstanceECSTerminalUrlInput) (req *request.Request, output *DescribeInstanceECSTerminalUrlOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceECSTerminalUrl,

@@ -22,13 +22,13 @@ const opDeleteImagesCommon = "DeleteImages"
 // See DeleteImagesCommon for more information on using the DeleteImagesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteImagesCommonRequest method.
-//    req, resp := client.DeleteImagesCommonRequest(params)
+//	// Example sending a request using the DeleteImagesCommonRequest method.
+//	req, resp := client.DeleteImagesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DeleteImagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteImagesCommon,
@@ -87,13 +87,13 @@ const opDeleteImages = "DeleteImages"
 // See DeleteImages for more information on using the DeleteImages
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteImagesRequest method.
-//    req, resp := client.DeleteImagesRequest(params)
+//	// Example sending a request using the DeleteImagesRequest method.
+//	req, resp := client.DeleteImagesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DeleteImagesRequest(input *DeleteImagesInput) (req *request.Request, output *DeleteImagesOutput) {
 	op := &request.Operation{
 		Name:       opDeleteImages,

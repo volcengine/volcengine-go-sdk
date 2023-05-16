@@ -22,13 +22,13 @@ const opDisassociateRouteTableCommon = "DisassociateRouteTable"
 // See DisassociateRouteTableCommon for more information on using the DisassociateRouteTableCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateRouteTableCommonRequest method.
-//    req, resp := client.DisassociateRouteTableCommonRequest(params)
+//	// Example sending a request using the DisassociateRouteTableCommonRequest method.
+//	req, resp := client.DisassociateRouteTableCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DisassociateRouteTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateRouteTableCommon,
@@ -87,13 +87,13 @@ const opDisassociateRouteTable = "DisassociateRouteTable"
 // See DisassociateRouteTable for more information on using the DisassociateRouteTable
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateRouteTableRequest method.
-//    req, resp := client.DisassociateRouteTableRequest(params)
+//	// Example sending a request using the DisassociateRouteTableRequest method.
+//	req, resp := client.DisassociateRouteTableRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DisassociateRouteTableRequest(input *DisassociateRouteTableInput) (req *request.Request, output *DisassociateRouteTableOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateRouteTable,

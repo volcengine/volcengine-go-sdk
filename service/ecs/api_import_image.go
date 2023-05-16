@@ -22,13 +22,13 @@ const opImportImageCommon = "ImportImage"
 // See ImportImageCommon for more information on using the ImportImageCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ImportImageCommonRequest method.
-//    req, resp := client.ImportImageCommonRequest(params)
+//	// Example sending a request using the ImportImageCommonRequest method.
+//	req, resp := client.ImportImageCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ImportImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opImportImageCommon,
@@ -87,13 +87,13 @@ const opImportImage = "ImportImage"
 // See ImportImage for more information on using the ImportImage
 // API call, and error handling.
 //
-//    // Example sending a request using the ImportImageRequest method.
-//    req, resp := client.ImportImageRequest(params)
+//	// Example sending a request using the ImportImageRequest method.
+//	req, resp := client.ImportImageRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ImportImageRequest(input *ImportImageInput) (req *request.Request, output *ImportImageOutput) {
 	op := &request.Operation{
 		Name:       opImportImage,
@@ -158,6 +158,8 @@ type ImportImageInput struct {
 
 	ProjectName *string `type:"string"`
 
+	Tags []*TagForImportImageInput `type:"list"`
+
 	Url *string `type:"string"`
 }
 
@@ -219,6 +221,12 @@ func (s *ImportImageInput) SetProjectName(v string) *ImportImageInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ImportImageInput) SetTags(v []*TagForImportImageInput) *ImportImageInput {
+	s.Tags = v
+	return s
+}
+
 // SetUrl sets the Url field's value.
 func (s *ImportImageInput) SetUrl(v string) *ImportImageInput {
 	s.Url = &v
@@ -246,5 +254,35 @@ func (s ImportImageOutput) GoString() string {
 // SetImageId sets the ImageId field's value.
 func (s *ImportImageOutput) SetImageId(v string) *ImportImageOutput {
 	s.ImageId = &v
+	return s
+}
+
+type TagForImportImageInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForImportImageInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForImportImageInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForImportImageInput) SetKey(v string) *TagForImportImageInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForImportImageInput) SetValue(v string) *TagForImportImageInput {
+	s.Value = &v
 	return s
 }

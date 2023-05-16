@@ -22,13 +22,13 @@ const opDeleteSubnetCommon = "DeleteSubnet"
 // See DeleteSubnetCommon for more information on using the DeleteSubnetCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteSubnetCommonRequest method.
-//    req, resp := client.DeleteSubnetCommonRequest(params)
+//	// Example sending a request using the DeleteSubnetCommonRequest method.
+//	req, resp := client.DeleteSubnetCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DeleteSubnetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteSubnetCommon,
@@ -87,13 +87,13 @@ const opDeleteSubnet = "DeleteSubnet"
 // See DeleteSubnet for more information on using the DeleteSubnet
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteSubnetRequest method.
-//    req, resp := client.DeleteSubnetRequest(params)
+//	// Example sending a request using the DeleteSubnetRequest method.
+//	req, resp := client.DeleteSubnetRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DeleteSubnetRequest(input *DeleteSubnetInput) (req *request.Request, output *DeleteSubnetOutput) {
 	op := &request.Operation{
 		Name:       opDeleteSubnet,

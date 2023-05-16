@@ -22,13 +22,13 @@ const opModifyImageSharePermissionCommon = "ModifyImageSharePermission"
 // See ModifyImageSharePermissionCommon for more information on using the ModifyImageSharePermissionCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyImageSharePermissionCommonRequest method.
-//    req, resp := client.ModifyImageSharePermissionCommonRequest(params)
+//	// Example sending a request using the ModifyImageSharePermissionCommonRequest method.
+//	req, resp := client.ModifyImageSharePermissionCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyImageSharePermissionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyImageSharePermissionCommon,
@@ -87,13 +87,13 @@ const opModifyImageSharePermission = "ModifyImageSharePermission"
 // See ModifyImageSharePermission for more information on using the ModifyImageSharePermission
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyImageSharePermissionRequest method.
-//    req, resp := client.ModifyImageSharePermissionRequest(params)
+//	// Example sending a request using the ModifyImageSharePermissionRequest method.
+//	req, resp := client.ModifyImageSharePermissionRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyImageSharePermissionRequest(input *ModifyImageSharePermissionInput) (req *request.Request, output *ModifyImageSharePermissionOutput) {
 	op := &request.Operation{
 		Name:       opModifyImageSharePermission,

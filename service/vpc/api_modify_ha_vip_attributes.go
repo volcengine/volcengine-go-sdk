@@ -22,13 +22,13 @@ const opModifyHaVipAttributesCommon = "ModifyHaVipAttributes"
 // See ModifyHaVipAttributesCommon for more information on using the ModifyHaVipAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyHaVipAttributesCommonRequest method.
-//    req, resp := client.ModifyHaVipAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyHaVipAttributesCommonRequest method.
+//	req, resp := client.ModifyHaVipAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyHaVipAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyHaVipAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyHaVipAttributes = "ModifyHaVipAttributes"
 // See ModifyHaVipAttributes for more information on using the ModifyHaVipAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyHaVipAttributesRequest method.
-//    req, resp := client.ModifyHaVipAttributesRequest(params)
+//	// Example sending a request using the ModifyHaVipAttributesRequest method.
+//	req, resp := client.ModifyHaVipAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyHaVipAttributesRequest(input *ModifyHaVipAttributesInput) (req *request.Request, output *ModifyHaVipAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyHaVipAttributes,

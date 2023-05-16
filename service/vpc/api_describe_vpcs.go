@@ -22,13 +22,13 @@ const opDescribeVpcsCommon = "DescribeVpcs"
 // See DescribeVpcsCommon for more information on using the DescribeVpcsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpcsCommonRequest method.
-//    req, resp := client.DescribeVpcsCommonRequest(params)
+//	// Example sending a request using the DescribeVpcsCommonRequest method.
+//	req, resp := client.DescribeVpcsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeVpcsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcsCommon,
@@ -87,13 +87,13 @@ const opDescribeVpcs = "DescribeVpcs"
 // See DescribeVpcs for more information on using the DescribeVpcs
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpcsRequest method.
-//    req, resp := client.DescribeVpcsRequest(params)
+//	// Example sending a request using the DescribeVpcsRequest method.
+//	req, resp := client.DescribeVpcsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeVpcsRequest(input *DescribeVpcsInput) (req *request.Request, output *DescribeVpcsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpcs,
@@ -180,6 +180,8 @@ func (s *AssociateCenForDescribeVpcsOutput) SetCenStatus(v string) *AssociateCen
 type DescribeVpcsInput struct {
 	_ struct{} `type:"structure"`
 
+	IsDefault *bool `type:"boolean"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
@@ -214,6 +216,12 @@ func (s *DescribeVpcsInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *DescribeVpcsInput) SetIsDefault(v bool) *DescribeVpcsInput {
+	s.IsDefault = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -383,6 +391,8 @@ type VpcForDescribeVpcsOutput struct {
 
 	DnsServers []*string `type:"list"`
 
+	IsDefault *bool `type:"boolean"`
+
 	NatGatewayIds []*string `type:"list"`
 
 	NetworkAclNum *string `type:"string"`
@@ -451,6 +461,12 @@ func (s *VpcForDescribeVpcsOutput) SetDescription(v string) *VpcForDescribeVpcsO
 // SetDnsServers sets the DnsServers field's value.
 func (s *VpcForDescribeVpcsOutput) SetDnsServers(v []*string) *VpcForDescribeVpcsOutput {
 	s.DnsServers = v
+	return s
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *VpcForDescribeVpcsOutput) SetIsDefault(v bool) *VpcForDescribeVpcsOutput {
+	s.IsDefault = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opImportKeyPairCommon = "ImportKeyPair"
 // See ImportKeyPairCommon for more information on using the ImportKeyPairCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ImportKeyPairCommonRequest method.
-//    req, resp := client.ImportKeyPairCommonRequest(params)
+//	// Example sending a request using the ImportKeyPairCommonRequest method.
+//	req, resp := client.ImportKeyPairCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ImportKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opImportKeyPairCommon,
@@ -87,13 +87,13 @@ const opImportKeyPair = "ImportKeyPair"
 // See ImportKeyPair for more information on using the ImportKeyPair
 // API call, and error handling.
 //
-//    // Example sending a request using the ImportKeyPairRequest method.
-//    req, resp := client.ImportKeyPairRequest(params)
+//	// Example sending a request using the ImportKeyPairRequest method.
+//	req, resp := client.ImportKeyPairRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ImportKeyPairRequest(input *ImportKeyPairInput) (req *request.Request, output *ImportKeyPairOutput) {
 	op := &request.Operation{
 		Name:       opImportKeyPair,
@@ -148,6 +148,8 @@ type ImportKeyPairInput struct {
 
 	KeyPairName *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	PublicKey *string `type:"string"`
 }
 
@@ -176,6 +178,12 @@ func (s *ImportKeyPairInput) SetDescription(v string) *ImportKeyPairInput {
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *ImportKeyPairInput) SetKeyPairName(v string) *ImportKeyPairInput {
 	s.KeyPairName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ImportKeyPairInput) SetProjectName(v string) *ImportKeyPairInput {
+	s.ProjectName = &v
 	return s
 }
 

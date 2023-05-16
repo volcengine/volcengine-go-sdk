@@ -22,13 +22,13 @@ const opCreateImageCommon = "CreateImage"
 // See CreateImageCommon for more information on using the CreateImageCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateImageCommonRequest method.
-//    req, resp := client.CreateImageCommonRequest(params)
+//	// Example sending a request using the CreateImageCommonRequest method.
+//	req, resp := client.CreateImageCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateImageCommon,
@@ -87,13 +87,13 @@ const opCreateImage = "CreateImage"
 // See CreateImage for more information on using the CreateImage
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateImageRequest method.
-//    req, resp := client.CreateImageRequest(params)
+//	// Example sending a request using the CreateImageRequest method.
+//	req, resp := client.CreateImageRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateImageRequest(input *CreateImageInput) (req *request.Request, output *CreateImageOutput) {
 	op := &request.Operation{
 		Name:       opCreateImage,
@@ -149,6 +149,8 @@ type CreateImageInput struct {
 	InstanceId *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateImageInput `type:"list"`
 }
 
 // String returns the string representation
@@ -185,6 +187,12 @@ func (s *CreateImageInput) SetProjectName(v string) *CreateImageInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateImageInput) SetTags(v []*TagForCreateImageInput) *CreateImageInput {
+	s.Tags = v
+	return s
+}
+
 type CreateImageOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -206,5 +214,35 @@ func (s CreateImageOutput) GoString() string {
 // SetImageId sets the ImageId field's value.
 func (s *CreateImageOutput) SetImageId(v string) *CreateImageOutput {
 	s.ImageId = &v
+	return s
+}
+
+type TagForCreateImageInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateImageInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateImageInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateImageInput) SetKey(v string) *TagForCreateImageInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateImageInput) SetValue(v string) *TagForCreateImageInput {
+	s.Value = &v
 	return s
 }

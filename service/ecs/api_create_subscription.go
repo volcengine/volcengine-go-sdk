@@ -22,13 +22,13 @@ const opCreateSubscriptionCommon = "CreateSubscription"
 // See CreateSubscriptionCommon for more information on using the CreateSubscriptionCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateSubscriptionCommonRequest method.
-//    req, resp := client.CreateSubscriptionCommonRequest(params)
+//	// Example sending a request using the CreateSubscriptionCommonRequest method.
+//	req, resp := client.CreateSubscriptionCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateSubscriptionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateSubscriptionCommon,
@@ -87,13 +87,13 @@ const opCreateSubscription = "CreateSubscription"
 // See CreateSubscription for more information on using the CreateSubscription
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateSubscriptionRequest method.
-//    req, resp := client.CreateSubscriptionRequest(params)
+//	// Example sending a request using the CreateSubscriptionRequest method.
+//	req, resp := client.CreateSubscriptionRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateSubscriptionRequest(input *CreateSubscriptionInput) (req *request.Request, output *CreateSubscriptionOutput) {
 	op := &request.Operation{
 		Name:       opCreateSubscription,

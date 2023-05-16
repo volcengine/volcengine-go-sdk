@@ -22,13 +22,13 @@ const opAssociateInstancesIamRoleCommon = "AssociateInstancesIamRole"
 // See AssociateInstancesIamRoleCommon for more information on using the AssociateInstancesIamRoleCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateInstancesIamRoleCommonRequest method.
-//    req, resp := client.AssociateInstancesIamRoleCommonRequest(params)
+//	// Example sending a request using the AssociateInstancesIamRoleCommonRequest method.
+//	req, resp := client.AssociateInstancesIamRoleCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) AssociateInstancesIamRoleCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateInstancesIamRoleCommon,
@@ -87,13 +87,13 @@ const opAssociateInstancesIamRole = "AssociateInstancesIamRole"
 // See AssociateInstancesIamRole for more information on using the AssociateInstancesIamRole
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateInstancesIamRoleRequest method.
-//    req, resp := client.AssociateInstancesIamRoleRequest(params)
+//	// Example sending a request using the AssociateInstancesIamRoleRequest method.
+//	req, resp := client.AssociateInstancesIamRoleRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) AssociateInstancesIamRoleRequest(input *AssociateInstancesIamRoleInput) (req *request.Request, output *AssociateInstancesIamRoleOutput) {
 	op := &request.Operation{
 		Name:       opAssociateInstancesIamRole,

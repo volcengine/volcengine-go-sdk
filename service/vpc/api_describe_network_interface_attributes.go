@@ -22,13 +22,13 @@ const opDescribeNetworkInterfaceAttributesCommon = "DescribeNetworkInterfaceAttr
 // See DescribeNetworkInterfaceAttributesCommon for more information on using the DescribeNetworkInterfaceAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeNetworkInterfaceAttributesCommonRequest method.
-//    req, resp := client.DescribeNetworkInterfaceAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeNetworkInterfaceAttributesCommonRequest method.
+//	req, resp := client.DescribeNetworkInterfaceAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeNetworkInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkInterfaceAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeNetworkInterfaceAttributes = "DescribeNetworkInterfaceAttributes
 // See DescribeNetworkInterfaceAttributes for more information on using the DescribeNetworkInterfaceAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeNetworkInterfaceAttributesRequest method.
-//    req, resp := client.DescribeNetworkInterfaceAttributesRequest(params)
+//	// Example sending a request using the DescribeNetworkInterfaceAttributesRequest method.
+//	req, resp := client.DescribeNetworkInterfaceAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeNetworkInterfaceAttributesRequest(input *DescribeNetworkInterfaceAttributesInput) (req *request.Request, output *DescribeNetworkInterfaceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkInterfaceAttributes,

@@ -22,13 +22,13 @@ const opModifyNetworkInterfaceAttributesCommon = "ModifyNetworkInterfaceAttribut
 // See ModifyNetworkInterfaceAttributesCommon for more information on using the ModifyNetworkInterfaceAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyNetworkInterfaceAttributesCommonRequest method.
-//    req, resp := client.ModifyNetworkInterfaceAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyNetworkInterfaceAttributesCommonRequest method.
+//	req, resp := client.ModifyNetworkInterfaceAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyNetworkInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyNetworkInterfaceAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyNetworkInterfaceAttributes = "ModifyNetworkInterfaceAttributes"
 // See ModifyNetworkInterfaceAttributes for more information on using the ModifyNetworkInterfaceAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyNetworkInterfaceAttributesRequest method.
-//    req, resp := client.ModifyNetworkInterfaceAttributesRequest(params)
+//	// Example sending a request using the ModifyNetworkInterfaceAttributesRequest method.
+//	req, resp := client.ModifyNetworkInterfaceAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyNetworkInterfaceAttributesRequest(input *ModifyNetworkInterfaceAttributesInput) (req *request.Request, output *ModifyNetworkInterfaceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyNetworkInterfaceAttributes,

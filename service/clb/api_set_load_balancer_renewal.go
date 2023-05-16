@@ -22,13 +22,13 @@ const opSetLoadBalancerRenewalCommon = "SetLoadBalancerRenewal"
 // See SetLoadBalancerRenewalCommon for more information on using the SetLoadBalancerRenewalCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the SetLoadBalancerRenewalCommonRequest method.
-//    req, resp := client.SetLoadBalancerRenewalCommonRequest(params)
+//	// Example sending a request using the SetLoadBalancerRenewalCommonRequest method.
+//	req, resp := client.SetLoadBalancerRenewalCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) SetLoadBalancerRenewalCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opSetLoadBalancerRenewalCommon,
@@ -87,13 +87,13 @@ const opSetLoadBalancerRenewal = "SetLoadBalancerRenewal"
 // See SetLoadBalancerRenewal for more information on using the SetLoadBalancerRenewal
 // API call, and error handling.
 //
-//    // Example sending a request using the SetLoadBalancerRenewalRequest method.
-//    req, resp := client.SetLoadBalancerRenewalRequest(params)
+//	// Example sending a request using the SetLoadBalancerRenewalRequest method.
+//	req, resp := client.SetLoadBalancerRenewalRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) SetLoadBalancerRenewalRequest(input *SetLoadBalancerRenewalInput) (req *request.Request, output *SetLoadBalancerRenewalOutput) {
 	op := &request.Operation{
 		Name:       opSetLoadBalancerRenewal,

@@ -22,13 +22,13 @@ const opDescribeImageSharePermissionCommon = "DescribeImageSharePermission"
 // See DescribeImageSharePermissionCommon for more information on using the DescribeImageSharePermissionCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeImageSharePermissionCommonRequest method.
-//    req, resp := client.DescribeImageSharePermissionCommonRequest(params)
+//	// Example sending a request using the DescribeImageSharePermissionCommonRequest method.
+//	req, resp := client.DescribeImageSharePermissionCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeImageSharePermissionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeImageSharePermissionCommon,
@@ -87,13 +87,13 @@ const opDescribeImageSharePermission = "DescribeImageSharePermission"
 // See DescribeImageSharePermission for more information on using the DescribeImageSharePermission
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeImageSharePermissionRequest method.
-//    req, resp := client.DescribeImageSharePermissionRequest(params)
+//	// Example sending a request using the DescribeImageSharePermissionRequest method.
+//	req, resp := client.DescribeImageSharePermissionRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeImageSharePermissionRequest(input *DescribeImageSharePermissionInput) (req *request.Request, output *DescribeImageSharePermissionOutput) {
 	op := &request.Operation{
 		Name:       opDescribeImageSharePermission,

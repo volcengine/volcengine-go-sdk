@@ -22,13 +22,13 @@ const opExportImageCommon = "ExportImage"
 // See ExportImageCommon for more information on using the ExportImageCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ExportImageCommonRequest method.
-//    req, resp := client.ExportImageCommonRequest(params)
+//	// Example sending a request using the ExportImageCommonRequest method.
+//	req, resp := client.ExportImageCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ExportImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opExportImageCommon,
@@ -87,13 +87,13 @@ const opExportImage = "ExportImage"
 // See ExportImage for more information on using the ExportImage
 // API call, and error handling.
 //
-//    // Example sending a request using the ExportImageRequest method.
-//    req, resp := client.ExportImageRequest(params)
+//	// Example sending a request using the ExportImageRequest method.
+//	req, resp := client.ExportImageRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ExportImageRequest(input *ExportImageInput) (req *request.Request, output *ExportImageOutput) {
 	op := &request.Operation{
 		Name:       opExportImage,

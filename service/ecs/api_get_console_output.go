@@ -22,13 +22,13 @@ const opGetConsoleOutputCommon = "GetConsoleOutput"
 // See GetConsoleOutputCommon for more information on using the GetConsoleOutputCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the GetConsoleOutputCommonRequest method.
-//    req, resp := client.GetConsoleOutputCommonRequest(params)
+//	// Example sending a request using the GetConsoleOutputCommonRequest method.
+//	req, resp := client.GetConsoleOutputCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) GetConsoleOutputCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetConsoleOutputCommon,
@@ -87,13 +87,13 @@ const opGetConsoleOutput = "GetConsoleOutput"
 // See GetConsoleOutput for more information on using the GetConsoleOutput
 // API call, and error handling.
 //
-//    // Example sending a request using the GetConsoleOutputRequest method.
-//    req, resp := client.GetConsoleOutputRequest(params)
+//	// Example sending a request using the GetConsoleOutputRequest method.
+//	req, resp := client.GetConsoleOutputRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) GetConsoleOutputRequest(input *GetConsoleOutputInput) (req *request.Request, output *GetConsoleOutputOutput) {
 	op := &request.Operation{
 		Name:       opGetConsoleOutput,

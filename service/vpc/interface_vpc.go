@@ -16,19 +16,18 @@ import (
 // VPCAPI provides an interface to enable mocking the
 // vpc.VPC service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // VPC.
-//    func myFunc(svc VPCAPI) bool {
-//        // Make svc.AddBandwidthPackageIp request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// VPC.
+//	func myFunc(svc VPCAPI) bool {
+//	    // Make svc.AddBandwidthPackageIp request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := vpc.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := vpc.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type VPCAPI interface {
 	AddBandwidthPackageIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddBandwidthPackageIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -22,13 +22,13 @@ const opCreateBandwidthPackageCommon = "CreateBandwidthPackage"
 // See CreateBandwidthPackageCommon for more information on using the CreateBandwidthPackageCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateBandwidthPackageCommonRequest method.
-//    req, resp := client.CreateBandwidthPackageCommonRequest(params)
+//	// Example sending a request using the CreateBandwidthPackageCommonRequest method.
+//	req, resp := client.CreateBandwidthPackageCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateBandwidthPackageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateBandwidthPackageCommon,
@@ -87,13 +87,13 @@ const opCreateBandwidthPackage = "CreateBandwidthPackage"
 // See CreateBandwidthPackage for more information on using the CreateBandwidthPackage
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateBandwidthPackageRequest method.
-//    req, resp := client.CreateBandwidthPackageRequest(params)
+//	// Example sending a request using the CreateBandwidthPackageRequest method.
+//	req, resp := client.CreateBandwidthPackageRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateBandwidthPackageRequest(input *CreateBandwidthPackageInput) (req *request.Request, output *CreateBandwidthPackageOutput) {
 	op := &request.Operation{
 		Name:       opCreateBandwidthPackage,

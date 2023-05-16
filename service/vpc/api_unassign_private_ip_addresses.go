@@ -22,13 +22,13 @@ const opUnassignPrivateIpAddressesCommon = "UnassignPrivateIpAddresses"
 // See UnassignPrivateIpAddressesCommon for more information on using the UnassignPrivateIpAddressesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UnassignPrivateIpAddressesCommonRequest method.
-//    req, resp := client.UnassignPrivateIpAddressesCommonRequest(params)
+//	// Example sending a request using the UnassignPrivateIpAddressesCommonRequest method.
+//	req, resp := client.UnassignPrivateIpAddressesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) UnassignPrivateIpAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUnassignPrivateIpAddressesCommon,
@@ -87,13 +87,13 @@ const opUnassignPrivateIpAddresses = "UnassignPrivateIpAddresses"
 // See UnassignPrivateIpAddresses for more information on using the UnassignPrivateIpAddresses
 // API call, and error handling.
 //
-//    // Example sending a request using the UnassignPrivateIpAddressesRequest method.
-//    req, resp := client.UnassignPrivateIpAddressesRequest(params)
+//	// Example sending a request using the UnassignPrivateIpAddressesRequest method.
+//	req, resp := client.UnassignPrivateIpAddressesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) UnassignPrivateIpAddressesRequest(input *UnassignPrivateIpAddressesInput) (req *request.Request, output *UnassignPrivateIpAddressesOutput) {
 	op := &request.Operation{
 		Name:       opUnassignPrivateIpAddresses,

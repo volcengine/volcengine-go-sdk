@@ -22,13 +22,13 @@ const opCreateNetworkInterfaceCommon = "CreateNetworkInterface"
 // See CreateNetworkInterfaceCommon for more information on using the CreateNetworkInterfaceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNetworkInterfaceCommonRequest method.
-//    req, resp := client.CreateNetworkInterfaceCommonRequest(params)
+//	// Example sending a request using the CreateNetworkInterfaceCommonRequest method.
+//	req, resp := client.CreateNetworkInterfaceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateNetworkInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNetworkInterfaceCommon,
@@ -87,13 +87,13 @@ const opCreateNetworkInterface = "CreateNetworkInterface"
 // See CreateNetworkInterface for more information on using the CreateNetworkInterface
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNetworkInterfaceRequest method.
-//    req, resp := client.CreateNetworkInterfaceRequest(params)
+//	// Example sending a request using the CreateNetworkInterfaceRequest method.
+//	req, resp := client.CreateNetworkInterfaceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateNetworkInterfaceRequest(input *CreateNetworkInterfaceInput) (req *request.Request, output *CreateNetworkInterfaceOutput) {
 	op := &request.Operation{
 		Name:       opCreateNetworkInterface,

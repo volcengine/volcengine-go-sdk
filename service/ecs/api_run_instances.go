@@ -22,13 +22,13 @@ const opRunInstancesCommon = "RunInstances"
 // See RunInstancesCommon for more information on using the RunInstancesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RunInstancesCommonRequest method.
-//    req, resp := client.RunInstancesCommonRequest(params)
+//	// Example sending a request using the RunInstancesCommonRequest method.
+//	req, resp := client.RunInstancesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) RunInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRunInstancesCommon,
@@ -87,13 +87,13 @@ const opRunInstances = "RunInstances"
 // See RunInstances for more information on using the RunInstances
 // API call, and error handling.
 //
-//    // Example sending a request using the RunInstancesRequest method.
-//    req, resp := client.RunInstancesRequest(params)
+//	// Example sending a request using the RunInstancesRequest method.
+//	req, resp := client.RunInstancesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) RunInstancesRequest(input *RunInstancesInput) (req *request.Request, output *RunInstancesOutput) {
 	op := &request.Operation{
 		Name:       opRunInstances,

@@ -22,13 +22,13 @@ const opModifyInstanceDeploymentCommon = "ModifyInstanceDeployment"
 // See ModifyInstanceDeploymentCommon for more information on using the ModifyInstanceDeploymentCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyInstanceDeploymentCommonRequest method.
-//    req, resp := client.ModifyInstanceDeploymentCommonRequest(params)
+//	// Example sending a request using the ModifyInstanceDeploymentCommonRequest method.
+//	req, resp := client.ModifyInstanceDeploymentCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyInstanceDeploymentCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceDeploymentCommon,
@@ -87,13 +87,13 @@ const opModifyInstanceDeployment = "ModifyInstanceDeployment"
 // See ModifyInstanceDeployment for more information on using the ModifyInstanceDeployment
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyInstanceDeploymentRequest method.
-//    req, resp := client.ModifyInstanceDeploymentRequest(params)
+//	// Example sending a request using the ModifyInstanceDeploymentRequest method.
+//	req, resp := client.ModifyInstanceDeploymentRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyInstanceDeploymentRequest(input *ModifyInstanceDeploymentInput) (req *request.Request, output *ModifyInstanceDeploymentOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceDeployment,

@@ -22,13 +22,13 @@ const opModifyEipAddressAttributesCommon = "ModifyEipAddressAttributes"
 // See ModifyEipAddressAttributesCommon for more information on using the ModifyEipAddressAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyEipAddressAttributesCommonRequest method.
-//    req, resp := client.ModifyEipAddressAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyEipAddressAttributesCommonRequest method.
+//	req, resp := client.ModifyEipAddressAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyEipAddressAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyEipAddressAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyEipAddressAttributes = "ModifyEipAddressAttributes"
 // See ModifyEipAddressAttributes for more information on using the ModifyEipAddressAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyEipAddressAttributesRequest method.
-//    req, resp := client.ModifyEipAddressAttributesRequest(params)
+//	// Example sending a request using the ModifyEipAddressAttributesRequest method.
+//	req, resp := client.ModifyEipAddressAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyEipAddressAttributesRequest(input *ModifyEipAddressAttributesInput) (req *request.Request, output *ModifyEipAddressAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyEipAddressAttributes,
