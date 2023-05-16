@@ -22,13 +22,13 @@ const opDescribeCertificatesCommon = "DescribeCertificates"
 // See DescribeCertificatesCommon for more information on using the DescribeCertificatesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCertificatesCommonRequest method.
-//    req, resp := client.DescribeCertificatesCommonRequest(params)
+//	// Example sending a request using the DescribeCertificatesCommonRequest method.
+//	req, resp := client.DescribeCertificatesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeCertificatesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCertificatesCommon,
@@ -87,13 +87,13 @@ const opDescribeCertificates = "DescribeCertificates"
 // See DescribeCertificates for more information on using the DescribeCertificates
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCertificatesRequest method.
-//    req, resp := client.DescribeCertificatesRequest(params)
+//	// Example sending a request using the DescribeCertificatesRequest method.
+//	req, resp := client.DescribeCertificatesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeCertificatesRequest(input *DescribeCertificatesInput) (req *request.Request, output *DescribeCertificatesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCertificates,
@@ -229,6 +229,8 @@ type DescribeCertificatesInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeCertificatesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -268,6 +270,12 @@ func (s *DescribeCertificatesInput) SetPageSize(v int64) *DescribeCertificatesIn
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeCertificatesInput) SetProjectName(v string) *DescribeCertificatesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeCertificatesInput) SetTagFilters(v []*TagFilterForDescribeCertificatesInput) *DescribeCertificatesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -324,5 +332,35 @@ func (s *DescribeCertificatesOutput) SetRequestId(v string) *DescribeCertificate
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeCertificatesOutput) SetTotalCount(v int64) *DescribeCertificatesOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagFilterForDescribeCertificatesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeCertificatesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeCertificatesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeCertificatesInput) SetKey(v string) *TagFilterForDescribeCertificatesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeCertificatesInput) SetValues(v []*string) *TagFilterForDescribeCertificatesInput {
+	s.Values = v
 	return s
 }

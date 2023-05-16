@@ -22,13 +22,13 @@ const opDeleteDeploymentSetCommon = "DeleteDeploymentSet"
 // See DeleteDeploymentSetCommon for more information on using the DeleteDeploymentSetCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDeploymentSetCommonRequest method.
-//    req, resp := client.DeleteDeploymentSetCommonRequest(params)
+//	// Example sending a request using the DeleteDeploymentSetCommonRequest method.
+//	req, resp := client.DeleteDeploymentSetCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DeleteDeploymentSetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDeploymentSetCommon,
@@ -87,13 +87,13 @@ const opDeleteDeploymentSet = "DeleteDeploymentSet"
 // See DeleteDeploymentSet for more information on using the DeleteDeploymentSet
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDeploymentSetRequest method.
-//    req, resp := client.DeleteDeploymentSetRequest(params)
+//	// Example sending a request using the DeleteDeploymentSetRequest method.
+//	req, resp := client.DeleteDeploymentSetRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DeleteDeploymentSetRequest(input *DeleteDeploymentSetInput) (req *request.Request, output *DeleteDeploymentSetOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDeploymentSet,

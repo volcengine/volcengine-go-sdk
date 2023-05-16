@@ -22,13 +22,13 @@ const opRevokeSecurityGroupIngressCommon = "RevokeSecurityGroupIngress"
 // See RevokeSecurityGroupIngressCommon for more information on using the RevokeSecurityGroupIngressCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RevokeSecurityGroupIngressCommonRequest method.
-//    req, resp := client.RevokeSecurityGroupIngressCommonRequest(params)
+//	// Example sending a request using the RevokeSecurityGroupIngressCommonRequest method.
+//	req, resp := client.RevokeSecurityGroupIngressCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) RevokeSecurityGroupIngressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRevokeSecurityGroupIngressCommon,
@@ -87,13 +87,13 @@ const opRevokeSecurityGroupIngress = "RevokeSecurityGroupIngress"
 // See RevokeSecurityGroupIngress for more information on using the RevokeSecurityGroupIngress
 // API call, and error handling.
 //
-//    // Example sending a request using the RevokeSecurityGroupIngressRequest method.
-//    req, resp := client.RevokeSecurityGroupIngressRequest(params)
+//	// Example sending a request using the RevokeSecurityGroupIngressRequest method.
+//	req, resp := client.RevokeSecurityGroupIngressRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) RevokeSecurityGroupIngressRequest(input *RevokeSecurityGroupIngressInput) (req *request.Request, output *RevokeSecurityGroupIngressOutput) {
 	op := &request.Operation{
 		Name:       opRevokeSecurityGroupIngress,

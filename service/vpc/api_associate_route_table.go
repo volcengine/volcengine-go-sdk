@@ -22,13 +22,13 @@ const opAssociateRouteTableCommon = "AssociateRouteTable"
 // See AssociateRouteTableCommon for more information on using the AssociateRouteTableCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateRouteTableCommonRequest method.
-//    req, resp := client.AssociateRouteTableCommonRequest(params)
+//	// Example sending a request using the AssociateRouteTableCommonRequest method.
+//	req, resp := client.AssociateRouteTableCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) AssociateRouteTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateRouteTableCommon,
@@ -87,13 +87,13 @@ const opAssociateRouteTable = "AssociateRouteTable"
 // See AssociateRouteTable for more information on using the AssociateRouteTable
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateRouteTableRequest method.
-//    req, resp := client.AssociateRouteTableRequest(params)
+//	// Example sending a request using the AssociateRouteTableRequest method.
+//	req, resp := client.AssociateRouteTableRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) AssociateRouteTableRequest(input *AssociateRouteTableInput) (req *request.Request, output *AssociateRouteTableOutput) {
 	op := &request.Operation{
 		Name:       opAssociateRouteTable,

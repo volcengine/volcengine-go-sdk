@@ -22,13 +22,13 @@ const opDescribeSubnetsCommon = "DescribeSubnets"
 // See DescribeSubnetsCommon for more information on using the DescribeSubnetsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSubnetsCommonRequest method.
-//    req, resp := client.DescribeSubnetsCommonRequest(params)
+//	// Example sending a request using the DescribeSubnetsCommonRequest method.
+//	req, resp := client.DescribeSubnetsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeSubnetsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSubnetsCommon,
@@ -87,13 +87,13 @@ const opDescribeSubnets = "DescribeSubnets"
 // See DescribeSubnets for more information on using the DescribeSubnets
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSubnetsRequest method.
-//    req, resp := client.DescribeSubnetsRequest(params)
+//	// Example sending a request using the DescribeSubnetsRequest method.
+//	req, resp := client.DescribeSubnetsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeSubnetsRequest(input *DescribeSubnetsInput) (req *request.Request, output *DescribeSubnetsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSubnets,
@@ -142,6 +142,8 @@ func (c *VPC) DescribeSubnetsWithContext(ctx volcengine.Context, input *Describe
 type DescribeSubnetsInput struct {
 	_ struct{} `type:"structure"`
 
+	IsDefault *bool `type:"boolean"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
@@ -184,6 +186,12 @@ func (s *DescribeSubnetsInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *DescribeSubnetsInput) SetIsDefault(v bool) *DescribeSubnetsInput {
+	s.IsDefault = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -333,6 +341,8 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	Description *string `type:"string"`
 
+	IsDefault *bool `type:"boolean"`
+
 	NetworkAclId *string `type:"string"`
 
 	ProjectName *string `type:"string"`
@@ -391,6 +401,12 @@ func (s *SubnetForDescribeSubnetsOutput) SetCreationTime(v string) *SubnetForDes
 // SetDescription sets the Description field's value.
 func (s *SubnetForDescribeSubnetsOutput) SetDescription(v string) *SubnetForDescribeSubnetsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetIsDefault(v bool) *SubnetForDescribeSubnetsOutput {
+	s.IsDefault = &v
 	return s
 }
 

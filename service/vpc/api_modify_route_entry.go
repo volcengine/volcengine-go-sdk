@@ -22,13 +22,13 @@ const opModifyRouteEntryCommon = "ModifyRouteEntry"
 // See ModifyRouteEntryCommon for more information on using the ModifyRouteEntryCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyRouteEntryCommonRequest method.
-//    req, resp := client.ModifyRouteEntryCommonRequest(params)
+//	// Example sending a request using the ModifyRouteEntryCommonRequest method.
+//	req, resp := client.ModifyRouteEntryCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyRouteEntryCommon,
@@ -87,13 +87,13 @@ const opModifyRouteEntry = "ModifyRouteEntry"
 // See ModifyRouteEntry for more information on using the ModifyRouteEntry
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyRouteEntryRequest method.
-//    req, resp := client.ModifyRouteEntryRequest(params)
+//	// Example sending a request using the ModifyRouteEntryRequest method.
+//	req, resp := client.ModifyRouteEntryRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyRouteEntryRequest(input *ModifyRouteEntryInput) (req *request.Request, output *ModifyRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opModifyRouteEntry,

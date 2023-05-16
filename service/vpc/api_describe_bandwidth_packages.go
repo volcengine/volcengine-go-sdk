@@ -22,13 +22,13 @@ const opDescribeBandwidthPackagesCommon = "DescribeBandwidthPackages"
 // See DescribeBandwidthPackagesCommon for more information on using the DescribeBandwidthPackagesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeBandwidthPackagesCommonRequest method.
-//    req, resp := client.DescribeBandwidthPackagesCommonRequest(params)
+//	// Example sending a request using the DescribeBandwidthPackagesCommonRequest method.
+//	req, resp := client.DescribeBandwidthPackagesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeBandwidthPackagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeBandwidthPackagesCommon,
@@ -87,13 +87,13 @@ const opDescribeBandwidthPackages = "DescribeBandwidthPackages"
 // See DescribeBandwidthPackages for more information on using the DescribeBandwidthPackages
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeBandwidthPackagesRequest method.
-//    req, resp := client.DescribeBandwidthPackagesRequest(params)
+//	// Example sending a request using the DescribeBandwidthPackagesRequest method.
+//	req, resp := client.DescribeBandwidthPackagesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeBandwidthPackagesRequest(input *DescribeBandwidthPackagesInput) (req *request.Request, output *DescribeBandwidthPackagesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeBandwidthPackages,

@@ -22,13 +22,13 @@ const opCreateTagsCommon = "CreateTags"
 // See CreateTagsCommon for more information on using the CreateTagsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateTagsCommonRequest method.
-//    req, resp := client.CreateTagsCommonRequest(params)
+//	// Example sending a request using the CreateTagsCommonRequest method.
+//	req, resp := client.CreateTagsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateTagsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateTagsCommon,
@@ -87,13 +87,13 @@ const opCreateTags = "CreateTags"
 // See CreateTags for more information on using the CreateTags
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateTagsRequest method.
-//    req, resp := client.CreateTagsRequest(params)
+//	// Example sending a request using the CreateTagsRequest method.
+//	req, resp := client.CreateTagsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateTagsRequest(input *CreateTagsInput) (req *request.Request, output *CreateTagsOutput) {
 	op := &request.Operation{
 		Name:       opCreateTags,

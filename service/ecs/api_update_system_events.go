@@ -22,13 +22,13 @@ const opUpdateSystemEventsCommon = "UpdateSystemEvents"
 // See UpdateSystemEventsCommon for more information on using the UpdateSystemEventsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateSystemEventsCommonRequest method.
-//    req, resp := client.UpdateSystemEventsCommonRequest(params)
+//	// Example sending a request using the UpdateSystemEventsCommonRequest method.
+//	req, resp := client.UpdateSystemEventsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) UpdateSystemEventsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateSystemEventsCommon,
@@ -87,13 +87,13 @@ const opUpdateSystemEvents = "UpdateSystemEvents"
 // See UpdateSystemEvents for more information on using the UpdateSystemEvents
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateSystemEventsRequest method.
-//    req, resp := client.UpdateSystemEventsRequest(params)
+//	// Example sending a request using the UpdateSystemEventsRequest method.
+//	req, resp := client.UpdateSystemEventsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) UpdateSystemEventsRequest(input *UpdateSystemEventsInput) (req *request.Request, output *UpdateSystemEventsOutput) {
 	op := &request.Operation{
 		Name:       opUpdateSystemEvents,

@@ -22,13 +22,13 @@ const opDeleteInstanceCommon = "DeleteInstance"
 // See DeleteInstanceCommon for more information on using the DeleteInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteInstanceCommonRequest method.
-//    req, resp := client.DeleteInstanceCommonRequest(params)
+//	// Example sending a request using the DeleteInstanceCommonRequest method.
+//	req, resp := client.DeleteInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DeleteInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteInstanceCommon,
@@ -87,13 +87,13 @@ const opDeleteInstance = "DeleteInstance"
 // See DeleteInstance for more information on using the DeleteInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteInstanceRequest method.
-//    req, resp := client.DeleteInstanceRequest(params)
+//	// Example sending a request using the DeleteInstanceRequest method.
+//	req, resp := client.DeleteInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DeleteInstanceRequest(input *DeleteInstanceInput) (req *request.Request, output *DeleteInstanceOutput) {
 	op := &request.Operation{
 		Name:       opDeleteInstance,
@@ -142,6 +142,8 @@ func (c *ECS) DeleteInstanceWithContext(ctx volcengine.Context, input *DeleteIns
 type DeleteInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	DryRun *bool `type:"boolean"`
+
 	InstanceId *string `type:"string"`
 }
 
@@ -153,6 +155,12 @@ func (s DeleteInstanceInput) String() string {
 // GoString returns the string representation
 func (s DeleteInstanceInput) GoString() string {
 	return s.String()
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *DeleteInstanceInput) SetDryRun(v bool) *DeleteInstanceInput {
+	s.DryRun = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

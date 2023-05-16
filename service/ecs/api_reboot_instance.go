@@ -22,13 +22,13 @@ const opRebootInstanceCommon = "RebootInstance"
 // See RebootInstanceCommon for more information on using the RebootInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RebootInstanceCommonRequest method.
-//    req, resp := client.RebootInstanceCommonRequest(params)
+//	// Example sending a request using the RebootInstanceCommonRequest method.
+//	req, resp := client.RebootInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) RebootInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRebootInstanceCommon,
@@ -87,13 +87,13 @@ const opRebootInstance = "RebootInstance"
 // See RebootInstance for more information on using the RebootInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the RebootInstanceRequest method.
-//    req, resp := client.RebootInstanceRequest(params)
+//	// Example sending a request using the RebootInstanceRequest method.
+//	req, resp := client.RebootInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) RebootInstanceRequest(input *RebootInstanceInput) (req *request.Request, output *RebootInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRebootInstance,
@@ -144,6 +144,8 @@ type RebootInstanceInput struct {
 
 	ClientToken *string `type:"string"`
 
+	DryRun *bool `type:"boolean"`
+
 	ForceStop *bool `type:"boolean"`
 
 	InstanceId *string `type:"string"`
@@ -162,6 +164,12 @@ func (s RebootInstanceInput) GoString() string {
 // SetClientToken sets the ClientToken field's value.
 func (s *RebootInstanceInput) SetClientToken(v string) *RebootInstanceInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *RebootInstanceInput) SetDryRun(v bool) *RebootInstanceInput {
+	s.DryRun = &v
 	return s
 }
 

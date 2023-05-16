@@ -16,19 +16,18 @@ import (
 // ECSAPI provides an interface to enable mocking the
 // ecs.ECS service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // ECS.
-//    func myFunc(svc ECSAPI) bool {
-//        // Make svc.AssociateInstancesIamRole request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// ECS.
+//	func myFunc(svc ECSAPI) bool {
+//	    // Make svc.AssociateInstancesIamRole request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := ecs.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := ecs.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type ECSAPI interface {
 	AssociateInstancesIamRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateInstancesIamRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -45,6 +44,14 @@ type ECSAPI interface {
 	AttachKeyPair(*AttachKeyPairInput) (*AttachKeyPairOutput, error)
 	AttachKeyPairWithContext(volcengine.Context, *AttachKeyPairInput, ...request.Option) (*AttachKeyPairOutput, error)
 	AttachKeyPairRequest(*AttachKeyPairInput) (*request.Request, *AttachKeyPairOutput)
+
+	CopyImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CopyImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CopyImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CopyImage(*CopyImageInput) (*CopyImageOutput, error)
+	CopyImageWithContext(volcengine.Context, *CopyImageInput, ...request.Option) (*CopyImageOutput, error)
+	CopyImageRequest(*CopyImageInput) (*request.Request, *CopyImageOutput)
 
 	CreateDeploymentSetCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDeploymentSetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -158,6 +165,14 @@ type ECSAPI interface {
 	DescribeDeploymentSetsWithContext(volcengine.Context, *DescribeDeploymentSetsInput, ...request.Option) (*DescribeDeploymentSetsOutput, error)
 	DescribeDeploymentSetsRequest(*DescribeDeploymentSetsInput) (*request.Request, *DescribeDeploymentSetsOutput)
 
+	DescribeEventTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEventTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEventTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEventTypes(*DescribeEventTypesInput) (*DescribeEventTypesOutput, error)
+	DescribeEventTypesWithContext(volcengine.Context, *DescribeEventTypesInput, ...request.Option) (*DescribeEventTypesOutput, error)
+	DescribeEventTypesRequest(*DescribeEventTypesInput) (*request.Request, *DescribeEventTypesOutput)
+
 	DescribeImageSharePermissionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeImageSharePermissionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeImageSharePermissionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -229,6 +244,14 @@ type ECSAPI interface {
 	DescribeKeyPairs(*DescribeKeyPairsInput) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsWithContext(volcengine.Context, *DescribeKeyPairsInput, ...request.Option) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsRequest(*DescribeKeyPairsInput) (*request.Request, *DescribeKeyPairsOutput)
+
+	DescribeSpotAdviceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSpotAdviceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSpotAdviceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSpotAdvice(*DescribeSpotAdviceInput) (*DescribeSpotAdviceOutput, error)
+	DescribeSpotAdviceWithContext(volcengine.Context, *DescribeSpotAdviceInput, ...request.Option) (*DescribeSpotAdviceOutput, error)
+	DescribeSpotAdviceRequest(*DescribeSpotAdviceInput) (*request.Request, *DescribeSpotAdviceOutput)
 
 	DescribeSubscriptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSubscriptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

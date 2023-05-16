@@ -22,13 +22,13 @@ const opRemoveBandwidthPackageIpCommon = "RemoveBandwidthPackageIp"
 // See RemoveBandwidthPackageIpCommon for more information on using the RemoveBandwidthPackageIpCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RemoveBandwidthPackageIpCommonRequest method.
-//    req, resp := client.RemoveBandwidthPackageIpCommonRequest(params)
+//	// Example sending a request using the RemoveBandwidthPackageIpCommonRequest method.
+//	req, resp := client.RemoveBandwidthPackageIpCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) RemoveBandwidthPackageIpCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRemoveBandwidthPackageIpCommon,
@@ -87,13 +87,13 @@ const opRemoveBandwidthPackageIp = "RemoveBandwidthPackageIp"
 // See RemoveBandwidthPackageIp for more information on using the RemoveBandwidthPackageIp
 // API call, and error handling.
 //
-//    // Example sending a request using the RemoveBandwidthPackageIpRequest method.
-//    req, resp := client.RemoveBandwidthPackageIpRequest(params)
+//	// Example sending a request using the RemoveBandwidthPackageIpRequest method.
+//	req, resp := client.RemoveBandwidthPackageIpRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) RemoveBandwidthPackageIpRequest(input *RemoveBandwidthPackageIpInput) (req *request.Request, output *RemoveBandwidthPackageIpOutput) {
 	op := &request.Operation{
 		Name:       opRemoveBandwidthPackageIp,

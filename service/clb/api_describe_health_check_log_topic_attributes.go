@@ -22,13 +22,13 @@ const opDescribeHealthCheckLogTopicAttributesCommon = "DescribeHealthCheckLogTop
 // See DescribeHealthCheckLogTopicAttributesCommon for more information on using the DescribeHealthCheckLogTopicAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeHealthCheckLogTopicAttributesCommonRequest method.
-//    req, resp := client.DescribeHealthCheckLogTopicAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeHealthCheckLogTopicAttributesCommonRequest method.
+//	req, resp := client.DescribeHealthCheckLogTopicAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeHealthCheckLogTopicAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeHealthCheckLogTopicAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeHealthCheckLogTopicAttributes = "DescribeHealthCheckLogTopicAttr
 // See DescribeHealthCheckLogTopicAttributes for more information on using the DescribeHealthCheckLogTopicAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeHealthCheckLogTopicAttributesRequest method.
-//    req, resp := client.DescribeHealthCheckLogTopicAttributesRequest(params)
+//	// Example sending a request using the DescribeHealthCheckLogTopicAttributesRequest method.
+//	req, resp := client.DescribeHealthCheckLogTopicAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeHealthCheckLogTopicAttributesRequest(input *DescribeHealthCheckLogTopicAttributesInput) (req *request.Request, output *DescribeHealthCheckLogTopicAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeHealthCheckLogTopicAttributes,

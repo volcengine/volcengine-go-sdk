@@ -22,13 +22,13 @@ const opModifyDeploymentSetAttributeCommon = "ModifyDeploymentSetAttribute"
 // See ModifyDeploymentSetAttributeCommon for more information on using the ModifyDeploymentSetAttributeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDeploymentSetAttributeCommonRequest method.
-//    req, resp := client.ModifyDeploymentSetAttributeCommonRequest(params)
+//	// Example sending a request using the ModifyDeploymentSetAttributeCommonRequest method.
+//	req, resp := client.ModifyDeploymentSetAttributeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyDeploymentSetAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDeploymentSetAttributeCommon,
@@ -87,13 +87,13 @@ const opModifyDeploymentSetAttribute = "ModifyDeploymentSetAttribute"
 // See ModifyDeploymentSetAttribute for more information on using the ModifyDeploymentSetAttribute
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDeploymentSetAttributeRequest method.
-//    req, resp := client.ModifyDeploymentSetAttributeRequest(params)
+//	// Example sending a request using the ModifyDeploymentSetAttributeRequest method.
+//	req, resp := client.ModifyDeploymentSetAttributeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyDeploymentSetAttributeRequest(input *ModifyDeploymentSetAttributeInput) (req *request.Request, output *ModifyDeploymentSetAttributeOutput) {
 	op := &request.Operation{
 		Name:       opModifyDeploymentSetAttribute,

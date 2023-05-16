@@ -22,13 +22,13 @@ const opDescribeTagsCommon = "DescribeTags"
 // See DescribeTagsCommon for more information on using the DescribeTagsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeTagsCommonRequest method.
-//    req, resp := client.DescribeTagsCommonRequest(params)
+//	// Example sending a request using the DescribeTagsCommonRequest method.
+//	req, resp := client.DescribeTagsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeTagsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTagsCommon,
@@ -87,13 +87,13 @@ const opDescribeTags = "DescribeTags"
 // See DescribeTags for more information on using the DescribeTags
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeTagsRequest method.
-//    req, resp := client.DescribeTagsRequest(params)
+//	// Example sending a request using the DescribeTagsRequest method.
+//	req, resp := client.DescribeTagsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeTagsRequest(input *DescribeTagsInput) (req *request.Request, output *DescribeTagsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTags,

@@ -22,13 +22,13 @@ const opDescribeVpcAttributesCommon = "DescribeVpcAttributes"
 // See DescribeVpcAttributesCommon for more information on using the DescribeVpcAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpcAttributesCommonRequest method.
-//    req, resp := client.DescribeVpcAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeVpcAttributesCommonRequest method.
+//	req, resp := client.DescribeVpcAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeVpcAttributes = "DescribeVpcAttributes"
 // See DescribeVpcAttributes for more information on using the DescribeVpcAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpcAttributesRequest method.
-//    req, resp := client.DescribeVpcAttributesRequest(params)
+//	// Example sending a request using the DescribeVpcAttributesRequest method.
+//	req, resp := client.DescribeVpcAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DescribeVpcAttributesRequest(input *DescribeVpcAttributesInput) (req *request.Request, output *DescribeVpcAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpcAttributes,
@@ -230,6 +230,8 @@ type DescribeVpcAttributesOutput struct {
 
 	DnsServers []*string `type:"list"`
 
+	IsDefault *bool `type:"boolean"`
+
 	NatGatewayIds []*string `type:"list"`
 
 	NetworkAclNum *string `type:"string"`
@@ -300,6 +302,12 @@ func (s *DescribeVpcAttributesOutput) SetDescription(v string) *DescribeVpcAttri
 // SetDnsServers sets the DnsServers field's value.
 func (s *DescribeVpcAttributesOutput) SetDnsServers(v []*string) *DescribeVpcAttributesOutput {
 	s.DnsServers = v
+	return s
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *DescribeVpcAttributesOutput) SetIsDefault(v bool) *DescribeVpcAttributesOutput {
+	s.IsDefault = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opDeleteRouteEntryCommon = "DeleteRouteEntry"
 // See DeleteRouteEntryCommon for more information on using the DeleteRouteEntryCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteRouteEntryCommonRequest method.
-//    req, resp := client.DeleteRouteEntryCommonRequest(params)
+//	// Example sending a request using the DeleteRouteEntryCommonRequest method.
+//	req, resp := client.DeleteRouteEntryCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DeleteRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteRouteEntryCommon,
@@ -87,13 +87,13 @@ const opDeleteRouteEntry = "DeleteRouteEntry"
 // See DeleteRouteEntry for more information on using the DeleteRouteEntry
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteRouteEntryRequest method.
-//    req, resp := client.DeleteRouteEntryRequest(params)
+//	// Example sending a request using the DeleteRouteEntryRequest method.
+//	req, resp := client.DeleteRouteEntryRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DeleteRouteEntryRequest(input *DeleteRouteEntryInput) (req *request.Request, output *DeleteRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opDeleteRouteEntry,

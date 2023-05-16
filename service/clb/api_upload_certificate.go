@@ -22,13 +22,13 @@ const opUploadCertificateCommon = "UploadCertificate"
 // See UploadCertificateCommon for more information on using the UploadCertificateCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UploadCertificateCommonRequest method.
-//    req, resp := client.UploadCertificateCommonRequest(params)
+//	// Example sending a request using the UploadCertificateCommonRequest method.
+//	req, resp := client.UploadCertificateCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) UploadCertificateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUploadCertificateCommon,
@@ -87,13 +87,13 @@ const opUploadCertificate = "UploadCertificate"
 // See UploadCertificate for more information on using the UploadCertificate
 // API call, and error handling.
 //
-//    // Example sending a request using the UploadCertificateRequest method.
-//    req, resp := client.UploadCertificateRequest(params)
+//	// Example sending a request using the UploadCertificateRequest method.
+//	req, resp := client.UploadCertificateRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) UploadCertificateRequest(input *UploadCertificateInput) (req *request.Request, output *UploadCertificateOutput) {
 	op := &request.Operation{
 		Name:       opUploadCertificate,
@@ -153,6 +153,8 @@ type UploadCertificateInput struct {
 
 	// PublicKey is a required field
 	PublicKey *string `type:"string" required:"true"`
+
+	TagFilters *string `type:"string"`
 }
 
 // String returns the string representation
@@ -208,6 +210,12 @@ func (s *UploadCertificateInput) SetProjectName(v string) *UploadCertificateInpu
 // SetPublicKey sets the PublicKey field's value.
 func (s *UploadCertificateInput) SetPublicKey(v string) *UploadCertificateInput {
 	s.PublicKey = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *UploadCertificateInput) SetTagFilters(v string) *UploadCertificateInput {
+	s.TagFilters = &v
 	return s
 }
 

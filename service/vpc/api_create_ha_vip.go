@@ -22,13 +22,13 @@ const opCreateHaVipCommon = "CreateHaVip"
 // See CreateHaVipCommon for more information on using the CreateHaVipCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateHaVipCommonRequest method.
-//    req, resp := client.CreateHaVipCommonRequest(params)
+//	// Example sending a request using the CreateHaVipCommonRequest method.
+//	req, resp := client.CreateHaVipCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateHaVipCommon,
@@ -87,13 +87,13 @@ const opCreateHaVip = "CreateHaVip"
 // See CreateHaVip for more information on using the CreateHaVip
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateHaVipRequest method.
-//    req, resp := client.CreateHaVipRequest(params)
+//	// Example sending a request using the CreateHaVipRequest method.
+//	req, resp := client.CreateHaVipRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateHaVipRequest(input *CreateHaVipInput) (req *request.Request, output *CreateHaVipOutput) {
 	op := &request.Operation{
 		Name:       opCreateHaVip,

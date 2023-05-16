@@ -22,13 +22,13 @@ const opListTagsForResourcesCommon = "ListTagsForResources"
 // See ListTagsForResourcesCommon for more information on using the ListTagsForResourcesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListTagsForResourcesCommonRequest method.
-//    req, resp := client.ListTagsForResourcesCommonRequest(params)
+//	// Example sending a request using the ListTagsForResourcesCommonRequest method.
+//	req, resp := client.ListTagsForResourcesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ListTagsForResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListTagsForResourcesCommon,
@@ -87,13 +87,13 @@ const opListTagsForResources = "ListTagsForResources"
 // See ListTagsForResources for more information on using the ListTagsForResources
 // API call, and error handling.
 //
-//    // Example sending a request using the ListTagsForResourcesRequest method.
-//    req, resp := client.ListTagsForResourcesRequest(params)
+//	// Example sending a request using the ListTagsForResourcesRequest method.
+//	req, resp := client.ListTagsForResourcesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ListTagsForResourcesRequest(input *ListTagsForResourcesInput) (req *request.Request, output *ListTagsForResourcesOutput) {
 	op := &request.Operation{
 		Name:       opListTagsForResources,

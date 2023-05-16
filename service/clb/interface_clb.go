@@ -16,19 +16,18 @@ import (
 // CLBAPI provides an interface to enable mocking the
 // clb.CLB service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // CLB.
-//    func myFunc(svc CLBAPI) bool {
-//        // Make svc.AddAclEntries request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// CLB.
+//	func myFunc(svc CLBAPI) bool {
+//	    // Make svc.AddAclEntries request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := clb.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := clb.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type CLBAPI interface {
 	AddAclEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddAclEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -325,6 +324,14 @@ type CLBAPI interface {
 	ModifyAclAttributes(*ModifyAclAttributesInput) (*ModifyAclAttributesOutput, error)
 	ModifyAclAttributesWithContext(volcengine.Context, *ModifyAclAttributesInput, ...request.Option) (*ModifyAclAttributesOutput, error)
 	ModifyAclAttributesRequest(*ModifyAclAttributesInput) (*request.Request, *ModifyAclAttributesOutput)
+
+	ModifyCertificateAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyCertificateAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyCertificateAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyCertificateAttributes(*ModifyCertificateAttributesInput) (*ModifyCertificateAttributesOutput, error)
+	ModifyCertificateAttributesWithContext(volcengine.Context, *ModifyCertificateAttributesInput, ...request.Option) (*ModifyCertificateAttributesOutput, error)
+	ModifyCertificateAttributesRequest(*ModifyCertificateAttributesInput) (*request.Request, *ModifyCertificateAttributesOutput)
 
 	ModifyListenerAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyListenerAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
