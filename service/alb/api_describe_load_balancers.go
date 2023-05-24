@@ -22,13 +22,13 @@ const opDescribeLoadBalancersCommon = "DescribeLoadBalancers"
 // See DescribeLoadBalancersCommon for more information on using the DescribeLoadBalancersCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLoadBalancersCommonRequest method.
-//    req, resp := client.DescribeLoadBalancersCommonRequest(params)
+//	// Example sending a request using the DescribeLoadBalancersCommonRequest method.
+//	req, resp := client.DescribeLoadBalancersCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeLoadBalancersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancersCommon,
@@ -87,13 +87,13 @@ const opDescribeLoadBalancers = "DescribeLoadBalancers"
 // See DescribeLoadBalancers for more information on using the DescribeLoadBalancers
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLoadBalancersRequest method.
-//    req, resp := client.DescribeLoadBalancersRequest(params)
+//	// Example sending a request using the DescribeLoadBalancersRequest method.
+//	req, resp := client.DescribeLoadBalancersRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeLoadBalancersRequest(input *DescribeLoadBalancersInput) (req *request.Request, output *DescribeLoadBalancersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancers,
@@ -343,6 +343,44 @@ func (s *EipForDescribeLoadBalancersOutput) SetSecurityProtectionTypes(v []*stri
 	return s
 }
 
+type Ipv6EipForDescribeLoadBalancersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Bandwidth *int64 `type:"integer"`
+
+	BillingType *int64 `type:"integer"`
+
+	ISP *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Ipv6EipForDescribeLoadBalancersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Ipv6EipForDescribeLoadBalancersOutput) GoString() string {
+	return s.String()
+}
+
+// SetBandwidth sets the Bandwidth field's value.
+func (s *Ipv6EipForDescribeLoadBalancersOutput) SetBandwidth(v int64) *Ipv6EipForDescribeLoadBalancersOutput {
+	s.Bandwidth = &v
+	return s
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *Ipv6EipForDescribeLoadBalancersOutput) SetBillingType(v int64) *Ipv6EipForDescribeLoadBalancersOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *Ipv6EipForDescribeLoadBalancersOutput) SetISP(v string) *Ipv6EipForDescribeLoadBalancersOutput {
+	s.ISP = &v
+	return s
+}
+
 type LoadBalancerAddressForDescribeLoadBalancersOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -355,6 +393,12 @@ type LoadBalancerAddressForDescribeLoadBalancersOutput struct {
 	EniAddress *string `type:"string"`
 
 	EniId *string `type:"string"`
+
+	EniIpv6Address *string `type:"string"`
+
+	Ipv6Eip *Ipv6EipForDescribeLoadBalancersOutput `type:"structure"`
+
+	Ipv6EipId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -397,14 +441,36 @@ func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetEniId(v string) *
 	return s
 }
 
+// SetEniIpv6Address sets the EniIpv6Address field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetEniIpv6Address(v string) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.EniIpv6Address = &v
+	return s
+}
+
+// SetIpv6Eip sets the Ipv6Eip field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetIpv6Eip(v *Ipv6EipForDescribeLoadBalancersOutput) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.Ipv6Eip = v
+	return s
+}
+
+// SetIpv6EipId sets the Ipv6EipId field's value.
+func (s *LoadBalancerAddressForDescribeLoadBalancersOutput) SetIpv6EipId(v string) *LoadBalancerAddressForDescribeLoadBalancersOutput {
+	s.Ipv6EipId = &v
+	return s
+}
+
 type LoadBalancerForDescribeLoadBalancersOutput struct {
 	_ struct{} `type:"structure"`
+
+	AddressIpVersion *string `type:"string"`
 
 	BusinessStatus *string `type:"string"`
 
 	CreateTime *string `type:"string"`
 
 	DNSName *string `type:"string"`
+
+	DeleteProtection *string `type:"string"`
 
 	DeletedTime *string `type:"string"`
 
@@ -455,6 +521,12 @@ func (s LoadBalancerForDescribeLoadBalancersOutput) GoString() string {
 	return s.String()
 }
 
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetAddressIpVersion(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.AddressIpVersion = &v
+	return s
+}
+
 // SetBusinessStatus sets the BusinessStatus field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetBusinessStatus(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.BusinessStatus = &v
@@ -470,6 +542,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetCreateTime(v string) *Lo
 // SetDNSName sets the DNSName field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetDNSName(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.DNSName = &v
+	return s
+}
+
+// SetDeleteProtection sets the DeleteProtection field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetDeleteProtection(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.DeleteProtection = &v
 	return s
 }
 

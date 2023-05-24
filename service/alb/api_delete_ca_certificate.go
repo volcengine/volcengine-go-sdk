@@ -22,13 +22,13 @@ const opDeleteCACertificateCommon = "DeleteCACertificate"
 // See DeleteCACertificateCommon for more information on using the DeleteCACertificateCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCACertificateCommonRequest method.
-//    req, resp := client.DeleteCACertificateCommonRequest(params)
+//	// Example sending a request using the DeleteCACertificateCommonRequest method.
+//	req, resp := client.DeleteCACertificateCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DeleteCACertificateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCACertificateCommon,
@@ -87,13 +87,13 @@ const opDeleteCACertificate = "DeleteCACertificate"
 // See DeleteCACertificate for more information on using the DeleteCACertificate
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCACertificateRequest method.
-//    req, resp := client.DeleteCACertificateRequest(params)
+//	// Example sending a request using the DeleteCACertificateRequest method.
+//	req, resp := client.DeleteCACertificateRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DeleteCACertificateRequest(input *DeleteCACertificateInput) (req *request.Request, output *DeleteCACertificateOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCACertificate,

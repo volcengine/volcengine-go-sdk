@@ -22,13 +22,13 @@ const opDescribeHealthCheckTemplatesCommon = "DescribeHealthCheckTemplates"
 // See DescribeHealthCheckTemplatesCommon for more information on using the DescribeHealthCheckTemplatesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeHealthCheckTemplatesCommonRequest method.
-//    req, resp := client.DescribeHealthCheckTemplatesCommonRequest(params)
+//	// Example sending a request using the DescribeHealthCheckTemplatesCommonRequest method.
+//	req, resp := client.DescribeHealthCheckTemplatesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeHealthCheckTemplatesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeHealthCheckTemplatesCommon,
@@ -87,13 +87,13 @@ const opDescribeHealthCheckTemplates = "DescribeHealthCheckTemplates"
 // See DescribeHealthCheckTemplates for more information on using the DescribeHealthCheckTemplates
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeHealthCheckTemplatesRequest method.
-//    req, resp := client.DescribeHealthCheckTemplatesRequest(params)
+//	// Example sending a request using the DescribeHealthCheckTemplatesRequest method.
+//	req, resp := client.DescribeHealthCheckTemplatesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeHealthCheckTemplatesRequest(input *DescribeHealthCheckTemplatesInput) (req *request.Request, output *DescribeHealthCheckTemplatesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeHealthCheckTemplates,

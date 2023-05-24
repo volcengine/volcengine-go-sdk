@@ -22,13 +22,13 @@ const opDescribeCustomizedCfgAttributesCommon = "DescribeCustomizedCfgAttributes
 // See DescribeCustomizedCfgAttributesCommon for more information on using the DescribeCustomizedCfgAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCustomizedCfgAttributesCommonRequest method.
-//    req, resp := client.DescribeCustomizedCfgAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeCustomizedCfgAttributesCommonRequest method.
+//	req, resp := client.DescribeCustomizedCfgAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeCustomizedCfgAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCustomizedCfgAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeCustomizedCfgAttributes = "DescribeCustomizedCfgAttributes"
 // See DescribeCustomizedCfgAttributes for more information on using the DescribeCustomizedCfgAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCustomizedCfgAttributesRequest method.
-//    req, resp := client.DescribeCustomizedCfgAttributesRequest(params)
+//	// Example sending a request using the DescribeCustomizedCfgAttributesRequest method.
+//	req, resp := client.DescribeCustomizedCfgAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeCustomizedCfgAttributesRequest(input *DescribeCustomizedCfgAttributesInput) (req *request.Request, output *DescribeCustomizedCfgAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCustomizedCfgAttributes,

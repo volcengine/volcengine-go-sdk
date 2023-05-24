@@ -22,13 +22,13 @@ const opDeleteHealthCheckTemplatesCommon = "DeleteHealthCheckTemplates"
 // See DeleteHealthCheckTemplatesCommon for more information on using the DeleteHealthCheckTemplatesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteHealthCheckTemplatesCommonRequest method.
-//    req, resp := client.DeleteHealthCheckTemplatesCommonRequest(params)
+//	// Example sending a request using the DeleteHealthCheckTemplatesCommonRequest method.
+//	req, resp := client.DeleteHealthCheckTemplatesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DeleteHealthCheckTemplatesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteHealthCheckTemplatesCommon,
@@ -87,13 +87,13 @@ const opDeleteHealthCheckTemplates = "DeleteHealthCheckTemplates"
 // See DeleteHealthCheckTemplates for more information on using the DeleteHealthCheckTemplates
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteHealthCheckTemplatesRequest method.
-//    req, resp := client.DeleteHealthCheckTemplatesRequest(params)
+//	// Example sending a request using the DeleteHealthCheckTemplatesRequest method.
+//	req, resp := client.DeleteHealthCheckTemplatesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DeleteHealthCheckTemplatesRequest(input *DeleteHealthCheckTemplatesInput) (req *request.Request, output *DeleteHealthCheckTemplatesOutput) {
 	op := &request.Operation{
 		Name:       opDeleteHealthCheckTemplates,

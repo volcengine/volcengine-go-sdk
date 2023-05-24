@@ -22,13 +22,13 @@ const opCreateCustomizedCfgCommon = "CreateCustomizedCfg"
 // See CreateCustomizedCfgCommon for more information on using the CreateCustomizedCfgCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCustomizedCfgCommonRequest method.
-//    req, resp := client.CreateCustomizedCfgCommonRequest(params)
+//	// Example sending a request using the CreateCustomizedCfgCommonRequest method.
+//	req, resp := client.CreateCustomizedCfgCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) CreateCustomizedCfgCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCustomizedCfgCommon,
@@ -87,13 +87,13 @@ const opCreateCustomizedCfg = "CreateCustomizedCfg"
 // See CreateCustomizedCfg for more information on using the CreateCustomizedCfg
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCustomizedCfgRequest method.
-//    req, resp := client.CreateCustomizedCfgRequest(params)
+//	// Example sending a request using the CreateCustomizedCfgRequest method.
+//	req, resp := client.CreateCustomizedCfgRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) CreateCustomizedCfgRequest(input *CreateCustomizedCfgInput) (req *request.Request, output *CreateCustomizedCfgOutput) {
 	op := &request.Operation{
 		Name:       opCreateCustomizedCfg,
