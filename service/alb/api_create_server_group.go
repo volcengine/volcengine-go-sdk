@@ -22,13 +22,13 @@ const opCreateServerGroupCommon = "CreateServerGroup"
 // See CreateServerGroupCommon for more information on using the CreateServerGroupCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateServerGroupCommonRequest method.
-//    req, resp := client.CreateServerGroupCommonRequest(params)
+//	// Example sending a request using the CreateServerGroupCommonRequest method.
+//	req, resp := client.CreateServerGroupCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) CreateServerGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateServerGroupCommon,
@@ -87,13 +87,13 @@ const opCreateServerGroup = "CreateServerGroup"
 // See CreateServerGroup for more information on using the CreateServerGroup
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateServerGroupRequest method.
-//    req, resp := client.CreateServerGroupRequest(params)
+//	// Example sending a request using the CreateServerGroupRequest method.
+//	req, resp := client.CreateServerGroupRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) CreateServerGroupRequest(input *CreateServerGroupInput) (req *request.Request, output *CreateServerGroupOutput) {
 	op := &request.Operation{
 		Name:       opCreateServerGroup,

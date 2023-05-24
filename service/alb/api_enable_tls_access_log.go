@@ -22,13 +22,13 @@ const opEnableTLSAccessLogCommon = "EnableTLSAccessLog"
 // See EnableTLSAccessLogCommon for more information on using the EnableTLSAccessLogCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the EnableTLSAccessLogCommonRequest method.
-//    req, resp := client.EnableTLSAccessLogCommonRequest(params)
+//	// Example sending a request using the EnableTLSAccessLogCommonRequest method.
+//	req, resp := client.EnableTLSAccessLogCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) EnableTLSAccessLogCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opEnableTLSAccessLogCommon,
@@ -87,13 +87,13 @@ const opEnableTLSAccessLog = "EnableTLSAccessLog"
 // See EnableTLSAccessLog for more information on using the EnableTLSAccessLog
 // API call, and error handling.
 //
-//    // Example sending a request using the EnableTLSAccessLogRequest method.
-//    req, resp := client.EnableTLSAccessLogRequest(params)
+//	// Example sending a request using the EnableTLSAccessLogRequest method.
+//	req, resp := client.EnableTLSAccessLogRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) EnableTLSAccessLogRequest(input *EnableTLSAccessLogInput) (req *request.Request, output *EnableTLSAccessLogOutput) {
 	op := &request.Operation{
 		Name:       opEnableTLSAccessLog,

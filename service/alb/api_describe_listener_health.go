@@ -22,13 +22,13 @@ const opDescribeListenerHealthCommon = "DescribeListenerHealth"
 // See DescribeListenerHealthCommon for more information on using the DescribeListenerHealthCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeListenerHealthCommonRequest method.
-//    req, resp := client.DescribeListenerHealthCommonRequest(params)
+//	// Example sending a request using the DescribeListenerHealthCommonRequest method.
+//	req, resp := client.DescribeListenerHealthCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeListenerHealthCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeListenerHealthCommon,
@@ -87,13 +87,13 @@ const opDescribeListenerHealth = "DescribeListenerHealth"
 // See DescribeListenerHealth for more information on using the DescribeListenerHealth
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeListenerHealthRequest method.
-//    req, resp := client.DescribeListenerHealthRequest(params)
+//	// Example sending a request using the DescribeListenerHealthRequest method.
+//	req, resp := client.DescribeListenerHealthRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeListenerHealthRequest(input *DescribeListenerHealthInput) (req *request.Request, output *DescribeListenerHealthOutput) {
 	op := &request.Operation{
 		Name:       opDescribeListenerHealth,

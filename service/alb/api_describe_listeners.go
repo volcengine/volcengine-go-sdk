@@ -22,13 +22,13 @@ const opDescribeListenersCommon = "DescribeListeners"
 // See DescribeListenersCommon for more information on using the DescribeListenersCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeListenersCommonRequest method.
-//    req, resp := client.DescribeListenersCommonRequest(params)
+//	// Example sending a request using the DescribeListenersCommonRequest method.
+//	req, resp := client.DescribeListenersCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeListenersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeListenersCommon,
@@ -87,13 +87,13 @@ const opDescribeListeners = "DescribeListeners"
 // See DescribeListeners for more information on using the DescribeListeners
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeListenersRequest method.
-//    req, resp := client.DescribeListenersRequest(params)
+//	// Example sending a request using the DescribeListenersRequest method.
+//	req, resp := client.DescribeListenersRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeListenersRequest(input *DescribeListenersInput) (req *request.Request, output *DescribeListenersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeListeners,

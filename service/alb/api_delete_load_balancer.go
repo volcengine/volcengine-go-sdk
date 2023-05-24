@@ -22,13 +22,13 @@ const opDeleteLoadBalancerCommon = "DeleteLoadBalancer"
 // See DeleteLoadBalancerCommon for more information on using the DeleteLoadBalancerCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteLoadBalancerCommonRequest method.
-//    req, resp := client.DeleteLoadBalancerCommonRequest(params)
+//	// Example sending a request using the DeleteLoadBalancerCommonRequest method.
+//	req, resp := client.DeleteLoadBalancerCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DeleteLoadBalancerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteLoadBalancerCommon,
@@ -87,13 +87,13 @@ const opDeleteLoadBalancer = "DeleteLoadBalancer"
 // See DeleteLoadBalancer for more information on using the DeleteLoadBalancer
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteLoadBalancerRequest method.
-//    req, resp := client.DeleteLoadBalancerRequest(params)
+//	// Example sending a request using the DeleteLoadBalancerRequest method.
+//	req, resp := client.DeleteLoadBalancerRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DeleteLoadBalancerRequest(input *DeleteLoadBalancerInput) (req *request.Request, output *DeleteLoadBalancerOutput) {
 	op := &request.Operation{
 		Name:       opDeleteLoadBalancer,
