@@ -22,13 +22,13 @@ const opDescribeLoadBalancerAttributesCommon = "DescribeLoadBalancerAttributes"
 // See DescribeLoadBalancerAttributesCommon for more information on using the DescribeLoadBalancerAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLoadBalancerAttributesCommonRequest method.
-//    req, resp := client.DescribeLoadBalancerAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeLoadBalancerAttributesCommonRequest method.
+//	req, resp := client.DescribeLoadBalancerAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeLoadBalancerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancerAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeLoadBalancerAttributes = "DescribeLoadBalancerAttributes"
 // See DescribeLoadBalancerAttributes for more information on using the DescribeLoadBalancerAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLoadBalancerAttributesRequest method.
-//    req, resp := client.DescribeLoadBalancerAttributesRequest(params)
+//	// Example sending a request using the DescribeLoadBalancerAttributesRequest method.
+//	req, resp := client.DescribeLoadBalancerAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeLoadBalancerAttributesRequest(input *DescribeLoadBalancerAttributesInput) (req *request.Request, output *DescribeLoadBalancerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancerAttributes,

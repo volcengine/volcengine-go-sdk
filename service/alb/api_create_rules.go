@@ -24,13 +24,13 @@ const opCreateRulesCommon = "CreateRules"
 // See CreateRulesCommon for more information on using the CreateRulesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateRulesCommonRequest method.
-//    req, resp := client.CreateRulesCommonRequest(params)
+//	// Example sending a request using the CreateRulesCommonRequest method.
+//	req, resp := client.CreateRulesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) CreateRulesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateRulesCommon,
@@ -89,13 +89,13 @@ const opCreateRules = "CreateRules"
 // See CreateRules for more information on using the CreateRules
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateRulesRequest method.
-//    req, resp := client.CreateRulesRequest(params)
+//	// Example sending a request using the CreateRulesRequest method.
+//	req, resp := client.CreateRulesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) CreateRulesRequest(input *CreateRulesInput) (req *request.Request, output *CreateRulesOutput) {
 	op := &request.Operation{
 		Name:       opCreateRules,

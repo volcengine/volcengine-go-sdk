@@ -16,19 +16,18 @@ import (
 // ALBAPI provides an interface to enable mocking the
 // alb.ALB service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // ALB.
-//    func myFunc(svc ALBAPI) bool {
-//        // Make svc.AddAclEntries request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// ALB.
+//	func myFunc(svc ALBAPI) bool {
+//	    // Make svc.AddAclEntries request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := alb.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := alb.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type ALBAPI interface {
 	AddAclEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddAclEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

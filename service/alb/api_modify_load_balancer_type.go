@@ -22,13 +22,13 @@ const opModifyLoadBalancerTypeCommon = "ModifyLoadBalancerType"
 // See ModifyLoadBalancerTypeCommon for more information on using the ModifyLoadBalancerTypeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyLoadBalancerTypeCommonRequest method.
-//    req, resp := client.ModifyLoadBalancerTypeCommonRequest(params)
+//	// Example sending a request using the ModifyLoadBalancerTypeCommonRequest method.
+//	req, resp := client.ModifyLoadBalancerTypeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) ModifyLoadBalancerTypeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyLoadBalancerTypeCommon,
@@ -87,13 +87,13 @@ const opModifyLoadBalancerType = "ModifyLoadBalancerType"
 // See ModifyLoadBalancerType for more information on using the ModifyLoadBalancerType
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyLoadBalancerTypeRequest method.
-//    req, resp := client.ModifyLoadBalancerTypeRequest(params)
+//	// Example sending a request using the ModifyLoadBalancerTypeRequest method.
+//	req, resp := client.ModifyLoadBalancerTypeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) ModifyLoadBalancerTypeRequest(input *ModifyLoadBalancerTypeInput) (req *request.Request, output *ModifyLoadBalancerTypeOutput) {
 	op := &request.Operation{
 		Name:       opModifyLoadBalancerType,

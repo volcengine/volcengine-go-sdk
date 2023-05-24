@@ -22,13 +22,13 @@ const opDescribeLoadBalancersCommon = "DescribeLoadBalancers"
 // See DescribeLoadBalancersCommon for more information on using the DescribeLoadBalancersCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLoadBalancersCommonRequest method.
-//    req, resp := client.DescribeLoadBalancersCommonRequest(params)
+//	// Example sending a request using the DescribeLoadBalancersCommonRequest method.
+//	req, resp := client.DescribeLoadBalancersCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeLoadBalancersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancersCommon,
@@ -87,13 +87,13 @@ const opDescribeLoadBalancers = "DescribeLoadBalancers"
 // See DescribeLoadBalancers for more information on using the DescribeLoadBalancers
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLoadBalancersRequest method.
-//    req, resp := client.DescribeLoadBalancersRequest(params)
+//	// Example sending a request using the DescribeLoadBalancersRequest method.
+//	req, resp := client.DescribeLoadBalancersRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) DescribeLoadBalancersRequest(input *DescribeLoadBalancersInput) (req *request.Request, output *DescribeLoadBalancersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancers,

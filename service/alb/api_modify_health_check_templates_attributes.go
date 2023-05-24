@@ -24,13 +24,13 @@ const opModifyHealthCheckTemplatesAttributesCommon = "ModifyHealthCheckTemplates
 // See ModifyHealthCheckTemplatesAttributesCommon for more information on using the ModifyHealthCheckTemplatesAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyHealthCheckTemplatesAttributesCommonRequest method.
-//    req, resp := client.ModifyHealthCheckTemplatesAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyHealthCheckTemplatesAttributesCommonRequest method.
+//	req, resp := client.ModifyHealthCheckTemplatesAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) ModifyHealthCheckTemplatesAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyHealthCheckTemplatesAttributesCommon,
@@ -89,13 +89,13 @@ const opModifyHealthCheckTemplatesAttributes = "ModifyHealthCheckTemplatesAttrib
 // See ModifyHealthCheckTemplatesAttributes for more information on using the ModifyHealthCheckTemplatesAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyHealthCheckTemplatesAttributesRequest method.
-//    req, resp := client.ModifyHealthCheckTemplatesAttributesRequest(params)
+//	// Example sending a request using the ModifyHealthCheckTemplatesAttributesRequest method.
+//	req, resp := client.ModifyHealthCheckTemplatesAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ALB) ModifyHealthCheckTemplatesAttributesRequest(input *ModifyHealthCheckTemplatesAttributesInput) (req *request.Request, output *ModifyHealthCheckTemplatesAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyHealthCheckTemplatesAttributes,
