@@ -24,13 +24,13 @@ const opAddServerGroupBackendServersCommon = "AddServerGroupBackendServers"
 // See AddServerGroupBackendServersCommon for more information on using the AddServerGroupBackendServersCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AddServerGroupBackendServersCommonRequest method.
-//    req, resp := client.AddServerGroupBackendServersCommonRequest(params)
+//	// Example sending a request using the AddServerGroupBackendServersCommonRequest method.
+//	req, resp := client.AddServerGroupBackendServersCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) AddServerGroupBackendServersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAddServerGroupBackendServersCommon,
@@ -89,13 +89,13 @@ const opAddServerGroupBackendServers = "AddServerGroupBackendServers"
 // See AddServerGroupBackendServers for more information on using the AddServerGroupBackendServers
 // API call, and error handling.
 //
-//    // Example sending a request using the AddServerGroupBackendServersRequest method.
-//    req, resp := client.AddServerGroupBackendServersRequest(params)
+//	// Example sending a request using the AddServerGroupBackendServersRequest method.
+//	req, resp := client.AddServerGroupBackendServersRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) AddServerGroupBackendServersRequest(input *AddServerGroupBackendServersInput) (req *request.Request, output *AddServerGroupBackendServersOutput) {
 	op := &request.Operation{
 		Name:       opAddServerGroupBackendServers,

@@ -22,13 +22,13 @@ const opUpdateNetworkAclEntriesCommon = "UpdateNetworkAclEntries"
 // See UpdateNetworkAclEntriesCommon for more information on using the UpdateNetworkAclEntriesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateNetworkAclEntriesCommonRequest method.
-//    req, resp := client.UpdateNetworkAclEntriesCommonRequest(params)
+//	// Example sending a request using the UpdateNetworkAclEntriesCommonRequest method.
+//	req, resp := client.UpdateNetworkAclEntriesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) UpdateNetworkAclEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateNetworkAclEntriesCommon,
@@ -87,13 +87,13 @@ const opUpdateNetworkAclEntries = "UpdateNetworkAclEntries"
 // See UpdateNetworkAclEntries for more information on using the UpdateNetworkAclEntries
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateNetworkAclEntriesRequest method.
-//    req, resp := client.UpdateNetworkAclEntriesRequest(params)
+//	// Example sending a request using the UpdateNetworkAclEntriesRequest method.
+//	req, resp := client.UpdateNetworkAclEntriesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) UpdateNetworkAclEntriesRequest(input *UpdateNetworkAclEntriesInput) (req *request.Request, output *UpdateNetworkAclEntriesOutput) {
 	op := &request.Operation{
 		Name:       opUpdateNetworkAclEntries,

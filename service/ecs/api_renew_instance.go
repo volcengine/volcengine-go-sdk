@@ -22,13 +22,13 @@ const opRenewInstanceCommon = "RenewInstance"
 // See RenewInstanceCommon for more information on using the RenewInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RenewInstanceCommonRequest method.
-//    req, resp := client.RenewInstanceCommonRequest(params)
+//	// Example sending a request using the RenewInstanceCommonRequest method.
+//	req, resp := client.RenewInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) RenewInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRenewInstanceCommon,
@@ -87,13 +87,13 @@ const opRenewInstance = "RenewInstance"
 // See RenewInstance for more information on using the RenewInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the RenewInstanceRequest method.
-//    req, resp := client.RenewInstanceRequest(params)
+//	// Example sending a request using the RenewInstanceRequest method.
+//	req, resp := client.RenewInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) RenewInstanceRequest(input *RenewInstanceInput) (req *request.Request, output *RenewInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRenewInstance,

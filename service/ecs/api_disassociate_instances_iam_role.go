@@ -22,13 +22,13 @@ const opDisassociateInstancesIamRoleCommon = "DisassociateInstancesIamRole"
 // See DisassociateInstancesIamRoleCommon for more information on using the DisassociateInstancesIamRoleCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateInstancesIamRoleCommonRequest method.
-//    req, resp := client.DisassociateInstancesIamRoleCommonRequest(params)
+//	// Example sending a request using the DisassociateInstancesIamRoleCommonRequest method.
+//	req, resp := client.DisassociateInstancesIamRoleCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DisassociateInstancesIamRoleCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateInstancesIamRoleCommon,
@@ -87,13 +87,13 @@ const opDisassociateInstancesIamRole = "DisassociateInstancesIamRole"
 // See DisassociateInstancesIamRole for more information on using the DisassociateInstancesIamRole
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateInstancesIamRoleRequest method.
-//    req, resp := client.DisassociateInstancesIamRoleRequest(params)
+//	// Example sending a request using the DisassociateInstancesIamRoleRequest method.
+//	req, resp := client.DisassociateInstancesIamRoleRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DisassociateInstancesIamRoleRequest(input *DisassociateInstancesIamRoleInput) (req *request.Request, output *DisassociateInstancesIamRoleOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateInstancesIamRole,

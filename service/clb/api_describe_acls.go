@@ -22,13 +22,13 @@ const opDescribeAclsCommon = "DescribeAcls"
 // See DescribeAclsCommon for more information on using the DescribeAclsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeAclsCommonRequest method.
-//    req, resp := client.DescribeAclsCommonRequest(params)
+//	// Example sending a request using the DescribeAclsCommonRequest method.
+//	req, resp := client.DescribeAclsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeAclsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAclsCommon,
@@ -87,13 +87,13 @@ const opDescribeAcls = "DescribeAcls"
 // See DescribeAcls for more information on using the DescribeAcls
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeAclsRequest method.
-//    req, resp := client.DescribeAclsRequest(params)
+//	// Example sending a request using the DescribeAclsRequest method.
+//	req, resp := client.DescribeAclsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeAclsRequest(input *DescribeAclsInput) (req *request.Request, output *DescribeAclsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAcls,
@@ -237,6 +237,8 @@ type DescribeAclsInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeAclsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -276,6 +278,12 @@ func (s *DescribeAclsInput) SetPageSize(v int64) *DescribeAclsInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeAclsInput) SetProjectName(v string) *DescribeAclsInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeAclsInput) SetTagFilters(v []*TagFilterForDescribeAclsInput) *DescribeAclsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -332,5 +340,35 @@ func (s *DescribeAclsOutput) SetRequestId(v string) *DescribeAclsOutput {
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeAclsOutput) SetTotalCount(v int64) *DescribeAclsOutput {
 	s.TotalCount = &v
+	return s
+}
+
+type TagFilterForDescribeAclsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeAclsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeAclsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeAclsInput) SetKey(v string) *TagFilterForDescribeAclsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeAclsInput) SetValues(v []*string) *TagFilterForDescribeAclsInput {
+	s.Values = v
 	return s
 }

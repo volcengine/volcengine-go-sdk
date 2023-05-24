@@ -22,13 +22,13 @@ const opUpdateAddonVersionCommon = "UpdateAddonVersion"
 // See UpdateAddonVersionCommon for more information on using the UpdateAddonVersionCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateAddonVersionCommonRequest method.
-//    req, resp := client.UpdateAddonVersionCommonRequest(params)
+//	// Example sending a request using the UpdateAddonVersionCommonRequest method.
+//	req, resp := client.UpdateAddonVersionCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) UpdateAddonVersionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateAddonVersionCommon,
@@ -89,13 +89,13 @@ const opUpdateAddonVersion = "UpdateAddonVersion"
 // See UpdateAddonVersion for more information on using the UpdateAddonVersion
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateAddonVersionRequest method.
-//    req, resp := client.UpdateAddonVersionRequest(params)
+//	// Example sending a request using the UpdateAddonVersionRequest method.
+//	req, resp := client.UpdateAddonVersionRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) UpdateAddonVersionRequest(input *UpdateAddonVersionInput) (req *request.Request, output *UpdateAddonVersionOutput) {
 	op := &request.Operation{
 		Name:       opUpdateAddonVersion,

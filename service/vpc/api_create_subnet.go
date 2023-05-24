@@ -22,13 +22,13 @@ const opCreateSubnetCommon = "CreateSubnet"
 // See CreateSubnetCommon for more information on using the CreateSubnetCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateSubnetCommonRequest method.
-//    req, resp := client.CreateSubnetCommonRequest(params)
+//	// Example sending a request using the CreateSubnetCommonRequest method.
+//	req, resp := client.CreateSubnetCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateSubnetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateSubnetCommon,
@@ -87,13 +87,13 @@ const opCreateSubnet = "CreateSubnet"
 // See CreateSubnet for more information on using the CreateSubnet
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateSubnetRequest method.
-//    req, resp := client.CreateSubnetRequest(params)
+//	// Example sending a request using the CreateSubnetRequest method.
+//	req, resp := client.CreateSubnetRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) CreateSubnetRequest(input *CreateSubnetInput) (req *request.Request, output *CreateSubnetOutput) {
 	op := &request.Operation{
 		Name:       opCreateSubnet,

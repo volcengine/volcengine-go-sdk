@@ -22,13 +22,13 @@ const opRemoveAclEntriesCommon = "RemoveAclEntries"
 // See RemoveAclEntriesCommon for more information on using the RemoveAclEntriesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RemoveAclEntriesCommonRequest method.
-//    req, resp := client.RemoveAclEntriesCommonRequest(params)
+//	// Example sending a request using the RemoveAclEntriesCommonRequest method.
+//	req, resp := client.RemoveAclEntriesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) RemoveAclEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRemoveAclEntriesCommon,
@@ -87,13 +87,13 @@ const opRemoveAclEntries = "RemoveAclEntries"
 // See RemoveAclEntries for more information on using the RemoveAclEntries
 // API call, and error handling.
 //
-//    // Example sending a request using the RemoveAclEntriesRequest method.
-//    req, resp := client.RemoveAclEntriesRequest(params)
+//	// Example sending a request using the RemoveAclEntriesRequest method.
+//	req, resp := client.RemoveAclEntriesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) RemoveAclEntriesRequest(input *RemoveAclEntriesInput) (req *request.Request, output *RemoveAclEntriesOutput) {
 	op := &request.Operation{
 		Name:       opRemoveAclEntries,

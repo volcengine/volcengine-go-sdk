@@ -22,13 +22,13 @@ const opModifyNetworkAclAttributesCommon = "ModifyNetworkAclAttributes"
 // See ModifyNetworkAclAttributesCommon for more information on using the ModifyNetworkAclAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyNetworkAclAttributesCommonRequest method.
-//    req, resp := client.ModifyNetworkAclAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyNetworkAclAttributesCommonRequest method.
+//	req, resp := client.ModifyNetworkAclAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyNetworkAclAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyNetworkAclAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyNetworkAclAttributes = "ModifyNetworkAclAttributes"
 // See ModifyNetworkAclAttributes for more information on using the ModifyNetworkAclAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyNetworkAclAttributesRequest method.
-//    req, resp := client.ModifyNetworkAclAttributesRequest(params)
+//	// Example sending a request using the ModifyNetworkAclAttributesRequest method.
+//	req, resp := client.ModifyNetworkAclAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyNetworkAclAttributesRequest(input *ModifyNetworkAclAttributesInput) (req *request.Request, output *ModifyNetworkAclAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyNetworkAclAttributes,

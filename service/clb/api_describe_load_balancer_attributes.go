@@ -22,13 +22,13 @@ const opDescribeLoadBalancerAttributesCommon = "DescribeLoadBalancerAttributes"
 // See DescribeLoadBalancerAttributesCommon for more information on using the DescribeLoadBalancerAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLoadBalancerAttributesCommonRequest method.
-//    req, resp := client.DescribeLoadBalancerAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeLoadBalancerAttributesCommonRequest method.
+//	req, resp := client.DescribeLoadBalancerAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeLoadBalancerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancerAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeLoadBalancerAttributes = "DescribeLoadBalancerAttributes"
 // See DescribeLoadBalancerAttributes for more information on using the DescribeLoadBalancerAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLoadBalancerAttributesRequest method.
-//    req, resp := client.DescribeLoadBalancerAttributesRequest(params)
+//	// Example sending a request using the DescribeLoadBalancerAttributesRequest method.
+//	req, resp := client.DescribeLoadBalancerAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CLB) DescribeLoadBalancerAttributesRequest(input *DescribeLoadBalancerAttributesInput) (req *request.Request, output *DescribeLoadBalancerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancerAttributes,
@@ -269,6 +269,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 	RequestId *string `type:"string"`
 
 	ServerGroups []*ServerGroupForDescribeLoadBalancerAttributesOutput `type:"list"`
+
+	ServiceManaged *bool `type:"boolean"`
 
 	SlaveZoneId *string `type:"string"`
 
@@ -472,6 +474,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetRequestId(v string) *DescribeL
 // SetServerGroups sets the ServerGroups field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetServerGroups(v []*ServerGroupForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
 	s.ServerGroups = v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetServiceManaged(v bool) *DescribeLoadBalancerAttributesOutput {
+	s.ServiceManaged = &v
 	return s
 }
 

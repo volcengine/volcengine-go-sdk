@@ -22,13 +22,13 @@ const opDeleteKubeconfigsCommon = "DeleteKubeconfigs"
 // See DeleteKubeconfigsCommon for more information on using the DeleteKubeconfigsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteKubeconfigsCommonRequest method.
-//    req, resp := client.DeleteKubeconfigsCommonRequest(params)
+//	// Example sending a request using the DeleteKubeconfigsCommonRequest method.
+//	req, resp := client.DeleteKubeconfigsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) DeleteKubeconfigsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteKubeconfigsCommon,
@@ -89,13 +89,13 @@ const opDeleteKubeconfigs = "DeleteKubeconfigs"
 // See DeleteKubeconfigs for more information on using the DeleteKubeconfigs
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteKubeconfigsRequest method.
-//    req, resp := client.DeleteKubeconfigsRequest(params)
+//	// Example sending a request using the DeleteKubeconfigsRequest method.
+//	req, resp := client.DeleteKubeconfigsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) DeleteKubeconfigsRequest(input *DeleteKubeconfigsInput) (req *request.Request, output *DeleteKubeconfigsOutput) {
 	op := &request.Operation{
 		Name:       opDeleteKubeconfigs,

@@ -24,13 +24,13 @@ const opDescribeImagesCommon = "DescribeImages"
 // See DescribeImagesCommon for more information on using the DescribeImagesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeImagesCommonRequest method.
-//    req, resp := client.DescribeImagesCommonRequest(params)
+//	// Example sending a request using the DescribeImagesCommonRequest method.
+//	req, resp := client.DescribeImagesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeImagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeImagesCommon,
@@ -89,13 +89,13 @@ const opDescribeImages = "DescribeImages"
 // See DescribeImages for more information on using the DescribeImages
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeImagesRequest method.
-//    req, resp := client.DescribeImagesRequest(params)
+//	// Example sending a request using the DescribeImagesRequest method.
+//	req, resp := client.DescribeImagesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeImagesRequest(input *DescribeImagesInput) (req *request.Request, output *DescribeImagesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeImages,
@@ -162,6 +162,8 @@ type DescribeImagesInput struct {
 
 	Status []*string `type:"list"`
 
+	TagFilters []*TagFilterForDescribeImagesInput `type:"list"`
+
 	Visibility *string `type:"string"`
 }
 
@@ -226,6 +228,12 @@ func (s *DescribeImagesInput) SetProjectName(v string) *DescribeImagesInput {
 // SetStatus sets the Status field's value.
 func (s *DescribeImagesInput) SetStatus(v []*string) *DescribeImagesInput {
 	s.Status = v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeImagesInput) SetTagFilters(v []*TagFilterForDescribeImagesInput) *DescribeImagesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -309,6 +317,8 @@ type ImageForDescribeImagesOutput struct {
 	Size *int32 `type:"int32"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeImagesOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
 
@@ -423,6 +433,12 @@ func (s *ImageForDescribeImagesOutput) SetStatus(v string) *ImageForDescribeImag
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ImageForDescribeImagesOutput) SetTags(v []*TagForDescribeImagesOutput) *ImageForDescribeImagesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *ImageForDescribeImagesOutput) SetUpdatedAt(v string) *ImageForDescribeImagesOutput {
 	s.UpdatedAt = &v
@@ -438,5 +454,65 @@ func (s *ImageForDescribeImagesOutput) SetVirtualSize(v json.Number) *ImageForDe
 // SetVisibility sets the Visibility field's value.
 func (s *ImageForDescribeImagesOutput) SetVisibility(v string) *ImageForDescribeImagesOutput {
 	s.Visibility = &v
+	return s
+}
+
+type TagFilterForDescribeImagesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeImagesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeImagesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeImagesInput) SetKey(v string) *TagFilterForDescribeImagesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeImagesInput) SetValues(v []*string) *TagFilterForDescribeImagesInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeImagesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeImagesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeImagesOutput) SetKey(v string) *TagForDescribeImagesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeImagesOutput) SetValue(v string) *TagForDescribeImagesOutput {
+	s.Value = &v
 	return s
 }

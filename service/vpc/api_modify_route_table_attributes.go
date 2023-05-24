@@ -22,13 +22,13 @@ const opModifyRouteTableAttributesCommon = "ModifyRouteTableAttributes"
 // See ModifyRouteTableAttributesCommon for more information on using the ModifyRouteTableAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyRouteTableAttributesCommonRequest method.
-//    req, resp := client.ModifyRouteTableAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyRouteTableAttributesCommonRequest method.
+//	req, resp := client.ModifyRouteTableAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyRouteTableAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyRouteTableAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyRouteTableAttributes = "ModifyRouteTableAttributes"
 // See ModifyRouteTableAttributes for more information on using the ModifyRouteTableAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyRouteTableAttributesRequest method.
-//    req, resp := client.ModifyRouteTableAttributesRequest(params)
+//	// Example sending a request using the ModifyRouteTableAttributesRequest method.
+//	req, resp := client.ModifyRouteTableAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyRouteTableAttributesRequest(input *ModifyRouteTableAttributesInput) (req *request.Request, output *ModifyRouteTableAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyRouteTableAttributes,

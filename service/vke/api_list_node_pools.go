@@ -22,13 +22,13 @@ const opListNodePoolsCommon = "ListNodePools"
 // See ListNodePoolsCommon for more information on using the ListNodePoolsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListNodePoolsCommonRequest method.
-//    req, resp := client.ListNodePoolsCommonRequest(params)
+//	// Example sending a request using the ListNodePoolsCommonRequest method.
+//	req, resp := client.ListNodePoolsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListNodePoolsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListNodePoolsCommon,
@@ -89,13 +89,13 @@ const opListNodePools = "ListNodePools"
 // See ListNodePools for more information on using the ListNodePools
 // API call, and error handling.
 //
-//    // Example sending a request using the ListNodePoolsRequest method.
-//    req, resp := client.ListNodePoolsRequest(params)
+//	// Example sending a request using the ListNodePoolsRequest method.
+//	req, resp := client.ListNodePoolsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ListNodePoolsRequest(input *ListNodePoolsInput) (req *request.Request, output *ListNodePoolsOutput) {
 	op := &request.Operation{
 		Name:       opListNodePools,
@@ -155,6 +155,8 @@ type AutoScalingForListNodePoolsOutput struct {
 	MinReplicas *int32 `type:"int32"`
 
 	Priority *int32 `type:"int32"`
+
+	SubnetPolicy *string `type:"string"`
 }
 
 // String returns the string representation
@@ -194,6 +196,12 @@ func (s *AutoScalingForListNodePoolsOutput) SetMinReplicas(v int32) *AutoScaling
 // SetPriority sets the Priority field's value.
 func (s *AutoScalingForListNodePoolsOutput) SetPriority(v int32) *AutoScalingForListNodePoolsOutput {
 	s.Priority = &v
+	return s
+}
+
+// SetSubnetPolicy sets the SubnetPolicy field's value.
+func (s *AutoScalingForListNodePoolsOutput) SetSubnetPolicy(v string) *AutoScalingForListNodePoolsOutput {
+	s.SubnetPolicy = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opDescribeAvailableResourceCommon = "DescribeAvailableResource"
 // See DescribeAvailableResourceCommon for more information on using the DescribeAvailableResourceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeAvailableResourceCommonRequest method.
-//    req, resp := client.DescribeAvailableResourceCommonRequest(params)
+//	// Example sending a request using the DescribeAvailableResourceCommonRequest method.
+//	req, resp := client.DescribeAvailableResourceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeAvailableResourceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAvailableResourceCommon,
@@ -87,13 +87,13 @@ const opDescribeAvailableResource = "DescribeAvailableResource"
 // See DescribeAvailableResource for more information on using the DescribeAvailableResource
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeAvailableResourceRequest method.
-//    req, resp := client.DescribeAvailableResourceRequest(params)
+//	// Example sending a request using the DescribeAvailableResourceRequest method.
+//	req, resp := client.DescribeAvailableResourceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) DescribeAvailableResourceRequest(input *DescribeAvailableResourceInput) (req *request.Request, output *DescribeAvailableResourceOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAvailableResource,

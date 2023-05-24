@@ -22,13 +22,13 @@ const opCreateDeploymentSetCommon = "CreateDeploymentSet"
 // See CreateDeploymentSetCommon for more information on using the CreateDeploymentSetCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDeploymentSetCommonRequest method.
-//    req, resp := client.CreateDeploymentSetCommonRequest(params)
+//	// Example sending a request using the CreateDeploymentSetCommonRequest method.
+//	req, resp := client.CreateDeploymentSetCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateDeploymentSetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDeploymentSetCommon,
@@ -87,13 +87,13 @@ const opCreateDeploymentSet = "CreateDeploymentSet"
 // See CreateDeploymentSet for more information on using the CreateDeploymentSet
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDeploymentSetRequest method.
-//    req, resp := client.CreateDeploymentSetRequest(params)
+//	// Example sending a request using the CreateDeploymentSetRequest method.
+//	req, resp := client.CreateDeploymentSetRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) CreateDeploymentSetRequest(input *CreateDeploymentSetInput) (req *request.Request, output *CreateDeploymentSetOutput) {
 	op := &request.Operation{
 		Name:       opCreateDeploymentSet,

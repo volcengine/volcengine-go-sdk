@@ -22,13 +22,13 @@ const opModifyVpcAttributesCommon = "ModifyVpcAttributes"
 // See ModifyVpcAttributesCommon for more information on using the ModifyVpcAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyVpcAttributesCommonRequest method.
-//    req, resp := client.ModifyVpcAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyVpcAttributesCommonRequest method.
+//	req, resp := client.ModifyVpcAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVpcAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyVpcAttributes = "ModifyVpcAttributes"
 // See ModifyVpcAttributes for more information on using the ModifyVpcAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyVpcAttributesRequest method.
-//    req, resp := client.ModifyVpcAttributesRequest(params)
+//	// Example sending a request using the ModifyVpcAttributesRequest method.
+//	req, resp := client.ModifyVpcAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) ModifyVpcAttributesRequest(input *ModifyVpcAttributesInput) (req *request.Request, output *ModifyVpcAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyVpcAttributes,

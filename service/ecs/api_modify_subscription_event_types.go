@@ -22,13 +22,13 @@ const opModifySubscriptionEventTypesCommon = "ModifySubscriptionEventTypes"
 // See ModifySubscriptionEventTypesCommon for more information on using the ModifySubscriptionEventTypesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifySubscriptionEventTypesCommonRequest method.
-//    req, resp := client.ModifySubscriptionEventTypesCommonRequest(params)
+//	// Example sending a request using the ModifySubscriptionEventTypesCommonRequest method.
+//	req, resp := client.ModifySubscriptionEventTypesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifySubscriptionEventTypesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifySubscriptionEventTypesCommon,
@@ -87,13 +87,13 @@ const opModifySubscriptionEventTypes = "ModifySubscriptionEventTypes"
 // See ModifySubscriptionEventTypes for more information on using the ModifySubscriptionEventTypes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifySubscriptionEventTypesRequest method.
-//    req, resp := client.ModifySubscriptionEventTypesRequest(params)
+//	// Example sending a request using the ModifySubscriptionEventTypesRequest method.
+//	req, resp := client.ModifySubscriptionEventTypesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifySubscriptionEventTypesRequest(input *ModifySubscriptionEventTypesInput) (req *request.Request, output *ModifySubscriptionEventTypesOutput) {
 	op := &request.Operation{
 		Name:       opModifySubscriptionEventTypes,

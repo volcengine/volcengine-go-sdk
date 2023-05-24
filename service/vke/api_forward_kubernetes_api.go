@@ -22,13 +22,13 @@ const opForwardKubernetesApiCommon = "ForwardKubernetesApi"
 // See ForwardKubernetesApiCommon for more information on using the ForwardKubernetesApiCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ForwardKubernetesApiCommonRequest method.
-//    req, resp := client.ForwardKubernetesApiCommonRequest(params)
+//	// Example sending a request using the ForwardKubernetesApiCommonRequest method.
+//	req, resp := client.ForwardKubernetesApiCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ForwardKubernetesApiCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opForwardKubernetesApiCommon,
@@ -89,13 +89,13 @@ const opForwardKubernetesApi = "ForwardKubernetesApi"
 // See ForwardKubernetesApi for more information on using the ForwardKubernetesApi
 // API call, and error handling.
 //
-//    // Example sending a request using the ForwardKubernetesApiRequest method.
-//    req, resp := client.ForwardKubernetesApiRequest(params)
+//	// Example sending a request using the ForwardKubernetesApiRequest method.
+//	req, resp := client.ForwardKubernetesApiRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VKE) ForwardKubernetesApiRequest(input *ForwardKubernetesApiInput) (req *request.Request, output *ForwardKubernetesApiOutput) {
 	op := &request.Operation{
 		Name:       opForwardKubernetesApi,

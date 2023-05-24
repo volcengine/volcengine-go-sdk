@@ -22,13 +22,13 @@ const opModifyInstanceSpecCommon = "ModifyInstanceSpec"
 // See ModifyInstanceSpecCommon for more information on using the ModifyInstanceSpecCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyInstanceSpecCommonRequest method.
-//    req, resp := client.ModifyInstanceSpecCommonRequest(params)
+//	// Example sending a request using the ModifyInstanceSpecCommonRequest method.
+//	req, resp := client.ModifyInstanceSpecCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyInstanceSpecCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceSpecCommon,
@@ -87,13 +87,13 @@ const opModifyInstanceSpec = "ModifyInstanceSpec"
 // See ModifyInstanceSpec for more information on using the ModifyInstanceSpec
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyInstanceSpecRequest method.
-//    req, resp := client.ModifyInstanceSpecRequest(params)
+//	// Example sending a request using the ModifyInstanceSpecRequest method.
+//	req, resp := client.ModifyInstanceSpecRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *ECS) ModifyInstanceSpecRequest(input *ModifyInstanceSpecInput) (req *request.Request, output *ModifyInstanceSpecOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceSpec,
@@ -144,6 +144,8 @@ type ModifyInstanceSpecInput struct {
 
 	ClientToken *string `type:"string"`
 
+	DryRun *bool `type:"boolean"`
+
 	InstanceId *string `type:"string"`
 
 	InstanceType *string `type:"string"`
@@ -162,6 +164,12 @@ func (s ModifyInstanceSpecInput) GoString() string {
 // SetClientToken sets the ClientToken field's value.
 func (s *ModifyInstanceSpecInput) SetClientToken(v string) *ModifyInstanceSpecInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *ModifyInstanceSpecInput) SetDryRun(v bool) *ModifyInstanceSpecInput {
+	s.DryRun = &v
 	return s
 }
 

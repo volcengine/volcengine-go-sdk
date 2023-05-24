@@ -22,13 +22,13 @@ const opDeleteSecurityGroupCommon = "DeleteSecurityGroup"
 // See DeleteSecurityGroupCommon for more information on using the DeleteSecurityGroupCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteSecurityGroupCommonRequest method.
-//    req, resp := client.DeleteSecurityGroupCommonRequest(params)
+//	// Example sending a request using the DeleteSecurityGroupCommonRequest method.
+//	req, resp := client.DeleteSecurityGroupCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DeleteSecurityGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteSecurityGroupCommon,
@@ -87,13 +87,13 @@ const opDeleteSecurityGroup = "DeleteSecurityGroup"
 // See DeleteSecurityGroup for more information on using the DeleteSecurityGroup
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteSecurityGroupRequest method.
-//    req, resp := client.DeleteSecurityGroupRequest(params)
+//	// Example sending a request using the DeleteSecurityGroupRequest method.
+//	req, resp := client.DeleteSecurityGroupRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPC) DeleteSecurityGroupRequest(input *DeleteSecurityGroupInput) (req *request.Request, output *DeleteSecurityGroupOutput) {
 	op := &request.Operation{
 		Name:       opDeleteSecurityGroup,
