@@ -198,6 +198,9 @@ func (s UntagResourcesOutput) GoString() string {
 }
 
 const (
+	// EnumOfResourceTypeForUntagResourcesInputBareMachine is a EnumOfResourceTypeForUntagResourcesInput enum value
+	EnumOfResourceTypeForUntagResourcesInputBareMachine = "BareMachine"
+
 	// EnumOfResourceTypeForUntagResourcesInputCluster is a EnumOfResourceTypeForUntagResourcesInput enum value
 	EnumOfResourceTypeForUntagResourcesInputCluster = "Cluster"
 
