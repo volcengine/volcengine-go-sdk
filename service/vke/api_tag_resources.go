@@ -228,6 +228,9 @@ func (s TagResourcesOutput) GoString() string {
 }
 
 const (
+	// EnumOfResourceTypeForTagResourcesInputBareMachine is a EnumOfResourceTypeForTagResourcesInput enum value
+	EnumOfResourceTypeForTagResourcesInputBareMachine = "BareMachine"
+
 	// EnumOfResourceTypeForTagResourcesInputCluster is a EnumOfResourceTypeForTagResourcesInput enum value
 	EnumOfResourceTypeForTagResourcesInputCluster = "Cluster"
 

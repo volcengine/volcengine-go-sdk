@@ -456,4 +456,19 @@ const (
 const (
 	// EnumOfLogTypeForUpdateClusterConfigInputAudit is a EnumOfLogTypeForUpdateClusterConfigInput enum value
 	EnumOfLogTypeForUpdateClusterConfigInputAudit = "Audit"
+
+	// EnumOfLogTypeForUpdateClusterConfigInputCloudControllerManager is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputCloudControllerManager = "CloudControllerManager"
+
+	// EnumOfLogTypeForUpdateClusterConfigInputEtcd is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputEtcd = "Etcd"
+
+	// EnumOfLogTypeForUpdateClusterConfigInputKubeApiServer is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputKubeApiServer = "KubeApiServer"
+
+	// EnumOfLogTypeForUpdateClusterConfigInputKubeControllerManager is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputKubeControllerManager = "KubeControllerManager"
+
+	// EnumOfLogTypeForUpdateClusterConfigInputKubeScheduler is a EnumOfLogTypeForUpdateClusterConfigInput enum value
+	EnumOfLogTypeForUpdateClusterConfigInputKubeScheduler = "KubeScheduler"
 )
