@@ -572,6 +572,21 @@ func (s *VpcCniConfigForCreateClusterInput) SetSubnetIds(v []*string) *VpcCniCon
 const (
 	// EnumOfLogTypeForCreateClusterInputAudit is a EnumOfLogTypeForCreateClusterInput enum value
 	EnumOfLogTypeForCreateClusterInputAudit = "Audit"
+
+	// EnumOfLogTypeForCreateClusterInputCloudControllerManager is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputCloudControllerManager = "CloudControllerManager"
+
+	// EnumOfLogTypeForCreateClusterInputEtcd is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputEtcd = "Etcd"
+
+	// EnumOfLogTypeForCreateClusterInputKubeApiServer is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputKubeApiServer = "KubeApiServer"
+
+	// EnumOfLogTypeForCreateClusterInputKubeControllerManager is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputKubeControllerManager = "KubeControllerManager"
+
+	// EnumOfLogTypeForCreateClusterInputKubeScheduler is a EnumOfLogTypeForCreateClusterInput enum value
+	EnumOfLogTypeForCreateClusterInputKubeScheduler = "KubeScheduler"
 )
 
 const (

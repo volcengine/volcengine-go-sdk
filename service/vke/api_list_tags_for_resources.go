@@ -322,6 +322,9 @@ func (s *TagFilterForListTagsForResourcesInput) SetValues(v []*string) *TagFilte
 }
 
 const (
+	// EnumOfResourceTypeForListTagsForResourcesInputBareMachine is a EnumOfResourceTypeForListTagsForResourcesInput enum value
+	EnumOfResourceTypeForListTagsForResourcesInputBareMachine = "BareMachine"
+
 	// EnumOfResourceTypeForListTagsForResourcesInputCluster is a EnumOfResourceTypeForListTagsForResourcesInput enum value
 	EnumOfResourceTypeForListTagsForResourcesInputCluster = "Cluster"
 
