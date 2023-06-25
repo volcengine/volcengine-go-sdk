@@ -220,6 +220,8 @@ type DescribeNetworkInterfaceAttributesOutput struct {
 
 	DeviceId *string `type:"string"`
 
+	IPv6Sets []*string `type:"list"`
+
 	MacAddress *string `type:"string"`
 
 	NetworkInterfaceId *string `type:"string"`
@@ -294,6 +296,12 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetDescription(v string) *Des
 // SetDeviceId sets the DeviceId field's value.
 func (s *DescribeNetworkInterfaceAttributesOutput) SetDeviceId(v string) *DescribeNetworkInterfaceAttributesOutput {
 	s.DeviceId = &v
+	return s
+}
+
+// SetIPv6Sets sets the IPv6Sets field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetIPv6Sets(v []*string) *DescribeNetworkInterfaceAttributesOutput {
+	s.IPv6Sets = v
 	return s
 }
 

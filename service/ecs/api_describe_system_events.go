@@ -256,6 +256,8 @@ type SystemEventForDescribeSystemEventsOutput struct {
 
 	CreatedAt *string `type:"string"`
 
+	ExtraInfo map[string]*string `type:"map"`
+
 	Id *string `type:"string"`
 
 	OperatedEndAt *string `type:"string"`
@@ -284,6 +286,12 @@ func (s SystemEventForDescribeSystemEventsOutput) GoString() string {
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *SystemEventForDescribeSystemEventsOutput) SetCreatedAt(v string) *SystemEventForDescribeSystemEventsOutput {
 	s.CreatedAt = &v
+	return s
+}
+
+// SetExtraInfo sets the ExtraInfo field's value.
+func (s *SystemEventForDescribeSystemEventsOutput) SetExtraInfo(v map[string]*string) *SystemEventForDescribeSystemEventsOutput {
+	s.ExtraInfo = v
 	return s
 }
 
