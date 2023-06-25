@@ -22,13 +22,13 @@ const opCreateDirectConnectVirtualInterfaceCommon = "CreateDirectConnectVirtualI
 // See CreateDirectConnectVirtualInterfaceCommon for more information on using the CreateDirectConnectVirtualInterfaceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDirectConnectVirtualInterfaceCommonRequest method.
-//    req, resp := client.CreateDirectConnectVirtualInterfaceCommonRequest(params)
+//	// Example sending a request using the CreateDirectConnectVirtualInterfaceCommonRequest method.
+//	req, resp := client.CreateDirectConnectVirtualInterfaceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectVirtualInterfaceCommon,
@@ -87,13 +87,13 @@ const opCreateDirectConnectVirtualInterface = "CreateDirectConnectVirtualInterfa
 // See CreateDirectConnectVirtualInterface for more information on using the CreateDirectConnectVirtualInterface
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDirectConnectVirtualInterfaceRequest method.
-//    req, resp := client.CreateDirectConnectVirtualInterfaceRequest(params)
+//	// Example sending a request using the CreateDirectConnectVirtualInterfaceRequest method.
+//	req, resp := client.CreateDirectConnectVirtualInterfaceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateDirectConnectVirtualInterfaceRequest(input *CreateDirectConnectVirtualInterfaceInput) (req *request.Request, output *CreateDirectConnectVirtualInterfaceOutput) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectVirtualInterface,

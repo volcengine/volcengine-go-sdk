@@ -22,13 +22,13 @@ const opDescribeDirectConnectVirtualInterfacesCommon = "DescribeDirectConnectVir
 // See DescribeDirectConnectVirtualInterfacesCommon for more information on using the DescribeDirectConnectVirtualInterfacesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectVirtualInterfacesCommonRequest method.
-//    req, resp := client.DescribeDirectConnectVirtualInterfacesCommonRequest(params)
+//	// Example sending a request using the DescribeDirectConnectVirtualInterfacesCommonRequest method.
+//	req, resp := client.DescribeDirectConnectVirtualInterfacesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectVirtualInterfacesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectVirtualInterfacesCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectVirtualInterfaces = "DescribeDirectConnectVirtualIn
 // See DescribeDirectConnectVirtualInterfaces for more information on using the DescribeDirectConnectVirtualInterfaces
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectVirtualInterfacesRequest method.
-//    req, resp := client.DescribeDirectConnectVirtualInterfacesRequest(params)
+//	// Example sending a request using the DescribeDirectConnectVirtualInterfacesRequest method.
+//	req, resp := client.DescribeDirectConnectVirtualInterfacesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectVirtualInterfacesRequest(input *DescribeDirectConnectVirtualInterfacesInput) (req *request.Request, output *DescribeDirectConnectVirtualInterfacesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectVirtualInterfaces,

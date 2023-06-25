@@ -22,13 +22,13 @@ const opDescribeBgpPeersCommon = "DescribeBgpPeers"
 // See DescribeBgpPeersCommon for more information on using the DescribeBgpPeersCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeBgpPeersCommonRequest method.
-//    req, resp := client.DescribeBgpPeersCommonRequest(params)
+//	// Example sending a request using the DescribeBgpPeersCommonRequest method.
+//	req, resp := client.DescribeBgpPeersCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeBgpPeersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeBgpPeersCommon,
@@ -87,13 +87,13 @@ const opDescribeBgpPeers = "DescribeBgpPeers"
 // See DescribeBgpPeers for more information on using the DescribeBgpPeers
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeBgpPeersRequest method.
-//    req, resp := client.DescribeBgpPeersRequest(params)
+//	// Example sending a request using the DescribeBgpPeersRequest method.
+//	req, resp := client.DescribeBgpPeersRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeBgpPeersRequest(input *DescribeBgpPeersInput) (req *request.Request, output *DescribeBgpPeersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeBgpPeers,

@@ -22,13 +22,13 @@ const opModifyBgpPeerAttributesCommon = "ModifyBgpPeerAttributes"
 // See ModifyBgpPeerAttributesCommon for more information on using the ModifyBgpPeerAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyBgpPeerAttributesCommonRequest method.
-//    req, resp := client.ModifyBgpPeerAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyBgpPeerAttributesCommonRequest method.
+//	req, resp := client.ModifyBgpPeerAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) ModifyBgpPeerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyBgpPeerAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyBgpPeerAttributes = "ModifyBgpPeerAttributes"
 // See ModifyBgpPeerAttributes for more information on using the ModifyBgpPeerAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyBgpPeerAttributesRequest method.
-//    req, resp := client.ModifyBgpPeerAttributesRequest(params)
+//	// Example sending a request using the ModifyBgpPeerAttributesRequest method.
+//	req, resp := client.ModifyBgpPeerAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) ModifyBgpPeerAttributesRequest(input *ModifyBgpPeerAttributesInput) (req *request.Request, output *ModifyBgpPeerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyBgpPeerAttributes,
