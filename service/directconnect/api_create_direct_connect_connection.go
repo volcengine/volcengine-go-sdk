@@ -22,13 +22,13 @@ const opCreateDirectConnectConnectionCommon = "CreateDirectConnectConnection"
 // See CreateDirectConnectConnectionCommon for more information on using the CreateDirectConnectConnectionCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDirectConnectConnectionCommonRequest method.
-//    req, resp := client.CreateDirectConnectConnectionCommonRequest(params)
+//	// Example sending a request using the CreateDirectConnectConnectionCommonRequest method.
+//	req, resp := client.CreateDirectConnectConnectionCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateDirectConnectConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectConnectionCommon,
@@ -87,13 +87,13 @@ const opCreateDirectConnectConnection = "CreateDirectConnectConnection"
 // See CreateDirectConnectConnection for more information on using the CreateDirectConnectConnection
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDirectConnectConnectionRequest method.
-//    req, resp := client.CreateDirectConnectConnectionRequest(params)
+//	// Example sending a request using the CreateDirectConnectConnectionRequest method.
+//	req, resp := client.CreateDirectConnectConnectionRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateDirectConnectConnectionRequest(input *CreateDirectConnectConnectionInput) (req *request.Request, output *CreateDirectConnectConnectionOutput) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectConnection,

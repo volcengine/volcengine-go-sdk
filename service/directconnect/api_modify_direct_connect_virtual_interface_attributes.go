@@ -22,13 +22,13 @@ const opModifyDirectConnectVirtualInterfaceAttributesCommon = "ModifyDirectConne
 // See ModifyDirectConnectVirtualInterfaceAttributesCommon for more information on using the ModifyDirectConnectVirtualInterfaceAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDirectConnectVirtualInterfaceAttributesCommonRequest method.
-//    req, resp := client.ModifyDirectConnectVirtualInterfaceAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyDirectConnectVirtualInterfaceAttributesCommonRequest method.
+//	req, resp := client.ModifyDirectConnectVirtualInterfaceAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) ModifyDirectConnectVirtualInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDirectConnectVirtualInterfaceAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyDirectConnectVirtualInterfaceAttributes = "ModifyDirectConnectVirt
 // See ModifyDirectConnectVirtualInterfaceAttributes for more information on using the ModifyDirectConnectVirtualInterfaceAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDirectConnectVirtualInterfaceAttributesRequest method.
-//    req, resp := client.ModifyDirectConnectVirtualInterfaceAttributesRequest(params)
+//	// Example sending a request using the ModifyDirectConnectVirtualInterfaceAttributesRequest method.
+//	req, resp := client.ModifyDirectConnectVirtualInterfaceAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) ModifyDirectConnectVirtualInterfaceAttributesRequest(input *ModifyDirectConnectVirtualInterfaceAttributesInput) (req *request.Request, output *ModifyDirectConnectVirtualInterfaceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyDirectConnectVirtualInterfaceAttributes,

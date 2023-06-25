@@ -22,13 +22,13 @@ const opModifyDirectConnectGatewayAttributesCommon = "ModifyDirectConnectGateway
 // See ModifyDirectConnectGatewayAttributesCommon for more information on using the ModifyDirectConnectGatewayAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDirectConnectGatewayAttributesCommonRequest method.
-//    req, resp := client.ModifyDirectConnectGatewayAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyDirectConnectGatewayAttributesCommonRequest method.
+//	req, resp := client.ModifyDirectConnectGatewayAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) ModifyDirectConnectGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDirectConnectGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyDirectConnectGatewayAttributes = "ModifyDirectConnectGatewayAttrib
 // See ModifyDirectConnectGatewayAttributes for more information on using the ModifyDirectConnectGatewayAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDirectConnectGatewayAttributesRequest method.
-//    req, resp := client.ModifyDirectConnectGatewayAttributesRequest(params)
+//	// Example sending a request using the ModifyDirectConnectGatewayAttributesRequest method.
+//	req, resp := client.ModifyDirectConnectGatewayAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) ModifyDirectConnectGatewayAttributesRequest(input *ModifyDirectConnectGatewayAttributesInput) (req *request.Request, output *ModifyDirectConnectGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyDirectConnectGatewayAttributes,

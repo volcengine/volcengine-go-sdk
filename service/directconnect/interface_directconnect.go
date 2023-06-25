@@ -16,19 +16,18 @@ import (
 // DIRECTCONNECTAPI provides an interface to enable mocking the
 // directconnect.DIRECTCONNECT service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // DIRECTCONNECT.
-//    func myFunc(svc DIRECTCONNECTAPI) bool {
-//        // Make svc.CreateBgpPeer request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// DIRECTCONNECT.
+//	func myFunc(svc DIRECTCONNECTAPI) bool {
+//	    // Make svc.CreateBgpPeer request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := directconnect.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := directconnect.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type DIRECTCONNECTAPI interface {
 	CreateBgpPeerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBgpPeerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
