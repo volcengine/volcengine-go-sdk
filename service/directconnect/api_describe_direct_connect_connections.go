@@ -22,13 +22,13 @@ const opDescribeDirectConnectConnectionsCommon = "DescribeDirectConnectConnectio
 // See DescribeDirectConnectConnectionsCommon for more information on using the DescribeDirectConnectConnectionsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectConnectionsCommonRequest method.
-//    req, resp := client.DescribeDirectConnectConnectionsCommonRequest(params)
+//	// Example sending a request using the DescribeDirectConnectConnectionsCommonRequest method.
+//	req, resp := client.DescribeDirectConnectConnectionsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectConnectionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectConnectionsCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectConnections = "DescribeDirectConnectConnections"
 // See DescribeDirectConnectConnections for more information on using the DescribeDirectConnectConnections
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectConnectionsRequest method.
-//    req, resp := client.DescribeDirectConnectConnectionsRequest(params)
+//	// Example sending a request using the DescribeDirectConnectConnectionsRequest method.
+//	req, resp := client.DescribeDirectConnectConnectionsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectConnectionsRequest(input *DescribeDirectConnectConnectionsInput) (req *request.Request, output *DescribeDirectConnectConnectionsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectConnections,

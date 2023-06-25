@@ -22,13 +22,13 @@ const opCreateDirectConnectConnectionOrderCommon = "CreateDirectConnectConnectio
 // See CreateDirectConnectConnectionOrderCommon for more information on using the CreateDirectConnectConnectionOrderCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDirectConnectConnectionOrderCommonRequest method.
-//    req, resp := client.CreateDirectConnectConnectionOrderCommonRequest(params)
+//	// Example sending a request using the CreateDirectConnectConnectionOrderCommonRequest method.
+//	req, resp := client.CreateDirectConnectConnectionOrderCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateDirectConnectConnectionOrderCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectConnectionOrderCommon,
@@ -87,13 +87,13 @@ const opCreateDirectConnectConnectionOrder = "CreateDirectConnectConnectionOrder
 // See CreateDirectConnectConnectionOrder for more information on using the CreateDirectConnectConnectionOrder
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDirectConnectConnectionOrderRequest method.
-//    req, resp := client.CreateDirectConnectConnectionOrderRequest(params)
+//	// Example sending a request using the CreateDirectConnectConnectionOrderRequest method.
+//	req, resp := client.CreateDirectConnectConnectionOrderRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateDirectConnectConnectionOrderRequest(input *CreateDirectConnectConnectionOrderInput) (req *request.Request, output *CreateDirectConnectConnectionOrderOutput) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectConnectionOrder,

@@ -22,13 +22,13 @@ const opDescribeDirectConnectGatewaysCommon = "DescribeDirectConnectGateways"
 // See DescribeDirectConnectGatewaysCommon for more information on using the DescribeDirectConnectGatewaysCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectGatewaysCommonRequest method.
-//    req, resp := client.DescribeDirectConnectGatewaysCommonRequest(params)
+//	// Example sending a request using the DescribeDirectConnectGatewaysCommonRequest method.
+//	req, resp := client.DescribeDirectConnectGatewaysCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewaysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectGatewaysCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectGateways = "DescribeDirectConnectGateways"
 // See DescribeDirectConnectGateways for more information on using the DescribeDirectConnectGateways
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectGatewaysRequest method.
-//    req, resp := client.DescribeDirectConnectGatewaysRequest(params)
+//	// Example sending a request using the DescribeDirectConnectGatewaysRequest method.
+//	req, resp := client.DescribeDirectConnectGatewaysRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewaysRequest(input *DescribeDirectConnectGatewaysInput) (req *request.Request, output *DescribeDirectConnectGatewaysOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectGateways,

@@ -150,6 +150,8 @@ type DescribeTasksInput struct {
 
 	ResourceId *string `type:"string"`
 
+	ResourceIds []*string `type:"list"`
+
 	TaskIds []*string `type:"list"`
 }
 
@@ -178,6 +180,12 @@ func (s *DescribeTasksInput) SetNextToken(v string) *DescribeTasksInput {
 // SetResourceId sets the ResourceId field's value.
 func (s *DescribeTasksInput) SetResourceId(v string) *DescribeTasksInput {
 	s.ResourceId = &v
+	return s
+}
+
+// SetResourceIds sets the ResourceIds field's value.
+func (s *DescribeTasksInput) SetResourceIds(v []*string) *DescribeTasksInput {
+	s.ResourceIds = v
 	return s
 }
 

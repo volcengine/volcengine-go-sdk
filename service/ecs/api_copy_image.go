@@ -207,8 +207,6 @@ type CopyImageOutput struct {
 	Metadata *response.ResponseMetadata
 
 	ImageId *string `type:"string"`
-
-	TaskId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -224,11 +222,5 @@ func (s CopyImageOutput) GoString() string {
 // SetImageId sets the ImageId field's value.
 func (s *CopyImageOutput) SetImageId(v string) *CopyImageOutput {
 	s.ImageId = &v
-	return s
-}
-
-// SetTaskId sets the TaskId field's value.
-func (s *CopyImageOutput) SetTaskId(v string) *CopyImageOutput {
-	s.TaskId = &v
 	return s
 }
