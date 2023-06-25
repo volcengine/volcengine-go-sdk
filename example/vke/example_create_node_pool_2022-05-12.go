@@ -73,7 +73,7 @@ func CreateNodePool() {
 		SystemVolume:                      reqSystemVolume,
 		Tags:                              []*vke.TagForCreateNodePoolInput{reqTags0},
 	}
-	reqTags0 := &vke.TagForCreateNodePoolInput{
+	reqTags1 := &vke.TagForCreateNodePoolInput{
 		Key:   volcengine.String("key"),
 		Value: volcengine.String("value"),
 	}
@@ -84,7 +84,7 @@ func CreateNodePool() {
 		KubernetesConfig: reqKubernetesConfig,
 		Name:             volcengine.String("test-nodepool"),
 		NodeConfig:       reqNodeConfig,
-		Tags:             []*vke.TagForCreateNodePoolInput{reqTags0},
+		Tags:             []*vke.TagForCreateNodePoolInput{reqTags1},
 	}
 
 	resp, err := svc.CreateNodePool(createNodePoolInput)
