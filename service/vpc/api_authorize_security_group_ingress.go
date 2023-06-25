@@ -142,8 +142,7 @@ func (c *VPC) AuthorizeSecurityGroupIngressWithContext(ctx volcengine.Context, i
 type AuthorizeSecurityGroupIngressInput struct {
 	_ struct{} `type:"structure"`
 
-	// CidrIp is a required field
-	CidrIp *string `type:"string" required:"true"`
+	CidrIp *string `type:"string"`
 
 	ClientToken *string `type:"string"`
 
@@ -181,9 +180,6 @@ func (s AuthorizeSecurityGroupIngressInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AuthorizeSecurityGroupIngressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AuthorizeSecurityGroupIngressInput"}
-	if s.CidrIp == nil {
-		invalidParams.Add(request.NewErrParamRequired("CidrIp"))
-	}
 	if s.PortEnd == nil {
 		invalidParams.Add(request.NewErrParamRequired("PortEnd"))
 	}
