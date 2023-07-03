@@ -354,6 +354,8 @@ type NodeConfigForUpdateNodePoolConfigInput struct {
 
 	HpcClusterIds []*string `type:"list"`
 
+	ImageId *string `type:"string"`
+
 	InitializeScript *string `type:"string"`
 
 	InstanceTypeIds []*string `type:"list"`
@@ -408,6 +410,12 @@ func (s *NodeConfigForUpdateNodePoolConfigInput) SetDataVolumes(v []*DataVolumeF
 // SetHpcClusterIds sets the HpcClusterIds field's value.
 func (s *NodeConfigForUpdateNodePoolConfigInput) SetHpcClusterIds(v []*string) *NodeConfigForUpdateNodePoolConfigInput {
 	s.HpcClusterIds = v
+	return s
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *NodeConfigForUpdateNodePoolConfigInput) SetImageId(v string) *NodeConfigForUpdateNodePoolConfigInput {
+	s.ImageId = &v
 	return s
 }
 
