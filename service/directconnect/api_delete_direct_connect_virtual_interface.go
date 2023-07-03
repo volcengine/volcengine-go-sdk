@@ -22,13 +22,13 @@ const opDeleteDirectConnectVirtualInterfaceCommon = "DeleteDirectConnectVirtualI
 // See DeleteDirectConnectVirtualInterfaceCommon for more information on using the DeleteDirectConnectVirtualInterfaceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDirectConnectVirtualInterfaceCommonRequest method.
-//    req, resp := client.DeleteDirectConnectVirtualInterfaceCommonRequest(params)
+//	// Example sending a request using the DeleteDirectConnectVirtualInterfaceCommonRequest method.
+//	req, resp := client.DeleteDirectConnectVirtualInterfaceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DeleteDirectConnectVirtualInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDirectConnectVirtualInterfaceCommon,
@@ -87,13 +87,13 @@ const opDeleteDirectConnectVirtualInterface = "DeleteDirectConnectVirtualInterfa
 // See DeleteDirectConnectVirtualInterface for more information on using the DeleteDirectConnectVirtualInterface
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDirectConnectVirtualInterfaceRequest method.
-//    req, resp := client.DeleteDirectConnectVirtualInterfaceRequest(params)
+//	// Example sending a request using the DeleteDirectConnectVirtualInterfaceRequest method.
+//	req, resp := client.DeleteDirectConnectVirtualInterfaceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DeleteDirectConnectVirtualInterfaceRequest(input *DeleteDirectConnectVirtualInterfaceInput) (req *request.Request, output *DeleteDirectConnectVirtualInterfaceOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDirectConnectVirtualInterface,

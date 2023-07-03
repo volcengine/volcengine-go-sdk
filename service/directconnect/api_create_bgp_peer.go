@@ -22,13 +22,13 @@ const opCreateBgpPeerCommon = "CreateBgpPeer"
 // See CreateBgpPeerCommon for more information on using the CreateBgpPeerCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateBgpPeerCommonRequest method.
-//    req, resp := client.CreateBgpPeerCommonRequest(params)
+//	// Example sending a request using the CreateBgpPeerCommonRequest method.
+//	req, resp := client.CreateBgpPeerCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateBgpPeerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateBgpPeerCommon,
@@ -87,13 +87,13 @@ const opCreateBgpPeer = "CreateBgpPeer"
 // See CreateBgpPeer for more information on using the CreateBgpPeer
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateBgpPeerRequest method.
-//    req, resp := client.CreateBgpPeerRequest(params)
+//	// Example sending a request using the CreateBgpPeerRequest method.
+//	req, resp := client.CreateBgpPeerRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateBgpPeerRequest(input *CreateBgpPeerInput) (req *request.Request, output *CreateBgpPeerOutput) {
 	op := &request.Operation{
 		Name:       opCreateBgpPeer,

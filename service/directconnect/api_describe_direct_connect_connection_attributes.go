@@ -22,13 +22,13 @@ const opDescribeDirectConnectConnectionAttributesCommon = "DescribeDirectConnect
 // See DescribeDirectConnectConnectionAttributesCommon for more information on using the DescribeDirectConnectConnectionAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectConnectionAttributesCommonRequest method.
-//    req, resp := client.DescribeDirectConnectConnectionAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeDirectConnectConnectionAttributesCommonRequest method.
+//	req, resp := client.DescribeDirectConnectConnectionAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectConnectionAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectConnectionAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectConnectionAttributes = "DescribeDirectConnectConnec
 // See DescribeDirectConnectConnectionAttributes for more information on using the DescribeDirectConnectConnectionAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectConnectionAttributesRequest method.
-//    req, resp := client.DescribeDirectConnectConnectionAttributesRequest(params)
+//	// Example sending a request using the DescribeDirectConnectConnectionAttributesRequest method.
+//	req, resp := client.DescribeDirectConnectConnectionAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectConnectionAttributesRequest(input *DescribeDirectConnectConnectionAttributesInput) (req *request.Request, output *DescribeDirectConnectConnectionAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectConnectionAttributes,

@@ -22,13 +22,13 @@ const opDescribeDirectConnectVirtualInterfaceAttributesCommon = "DescribeDirectC
 // See DescribeDirectConnectVirtualInterfaceAttributesCommon for more information on using the DescribeDirectConnectVirtualInterfaceAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectVirtualInterfaceAttributesCommonRequest method.
-//    req, resp := client.DescribeDirectConnectVirtualInterfaceAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeDirectConnectVirtualInterfaceAttributesCommonRequest method.
+//	req, resp := client.DescribeDirectConnectVirtualInterfaceAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectVirtualInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectVirtualInterfaceAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectVirtualInterfaceAttributes = "DescribeDirectConnect
 // See DescribeDirectConnectVirtualInterfaceAttributes for more information on using the DescribeDirectConnectVirtualInterfaceAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectVirtualInterfaceAttributesRequest method.
-//    req, resp := client.DescribeDirectConnectVirtualInterfaceAttributesRequest(params)
+//	// Example sending a request using the DescribeDirectConnectVirtualInterfaceAttributesRequest method.
+//	req, resp := client.DescribeDirectConnectVirtualInterfaceAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectVirtualInterfaceAttributesRequest(input *DescribeDirectConnectVirtualInterfaceAttributesInput) (req *request.Request, output *DescribeDirectConnectVirtualInterfaceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectVirtualInterfaceAttributes,

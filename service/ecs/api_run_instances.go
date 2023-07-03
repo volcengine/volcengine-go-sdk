@@ -196,7 +196,7 @@ type RunInstancesInput struct {
 
 	DryRun *bool `type:"boolean"`
 
-	HostName *string `type:"string"`
+	HostName *string `deprecated:"true" type:"string"`
 
 	Hostname *string `type:"string"`
 

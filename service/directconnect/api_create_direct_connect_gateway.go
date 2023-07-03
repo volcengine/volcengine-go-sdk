@@ -22,13 +22,13 @@ const opCreateDirectConnectGatewayCommon = "CreateDirectConnectGateway"
 // See CreateDirectConnectGatewayCommon for more information on using the CreateDirectConnectGatewayCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDirectConnectGatewayCommonRequest method.
-//    req, resp := client.CreateDirectConnectGatewayCommonRequest(params)
+//	// Example sending a request using the CreateDirectConnectGatewayCommonRequest method.
+//	req, resp := client.CreateDirectConnectGatewayCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateDirectConnectGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectGatewayCommon,
@@ -87,13 +87,13 @@ const opCreateDirectConnectGateway = "CreateDirectConnectGateway"
 // See CreateDirectConnectGateway for more information on using the CreateDirectConnectGateway
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDirectConnectGatewayRequest method.
-//    req, resp := client.CreateDirectConnectGatewayRequest(params)
+//	// Example sending a request using the CreateDirectConnectGatewayRequest method.
+//	req, resp := client.CreateDirectConnectGatewayRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) CreateDirectConnectGatewayRequest(input *CreateDirectConnectGatewayInput) (req *request.Request, output *CreateDirectConnectGatewayOutput) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectGateway,

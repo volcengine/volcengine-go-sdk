@@ -22,13 +22,13 @@ const opDescribeDirectConnectGatewayAttributesCommon = "DescribeDirectConnectGat
 // See DescribeDirectConnectGatewayAttributesCommon for more information on using the DescribeDirectConnectGatewayAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectGatewayAttributesCommonRequest method.
-//    req, resp := client.DescribeDirectConnectGatewayAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeDirectConnectGatewayAttributesCommonRequest method.
+//	req, resp := client.DescribeDirectConnectGatewayAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectGatewayAttributes = "DescribeDirectConnectGatewayAt
 // See DescribeDirectConnectGatewayAttributes for more information on using the DescribeDirectConnectGatewayAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDirectConnectGatewayAttributesRequest method.
-//    req, resp := client.DescribeDirectConnectGatewayAttributesRequest(params)
+//	// Example sending a request using the DescribeDirectConnectGatewayAttributesRequest method.
+//	req, resp := client.DescribeDirectConnectGatewayAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewayAttributesRequest(input *DescribeDirectConnectGatewayAttributesInput) (req *request.Request, output *DescribeDirectConnectGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectGatewayAttributes,
