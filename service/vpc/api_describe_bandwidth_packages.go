@@ -306,7 +306,7 @@ type DescribeBandwidthPackagesInput struct {
 
 	ISP *string `type:"string" enum:"ISPForDescribeBandwidthPackagesInput"`
 
-	PageNumbe *string `type:"string"`
+	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
 
@@ -360,9 +360,9 @@ func (s *DescribeBandwidthPackagesInput) SetISP(v string) *DescribeBandwidthPack
 	return s
 }
 
-// SetPageNumbe sets the PageNumbe field's value.
-func (s *DescribeBandwidthPackagesInput) SetPageNumbe(v string) *DescribeBandwidthPackagesInput {
-	s.PageNumbe = &v
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeBandwidthPackagesInput) SetPageNumber(v int64) *DescribeBandwidthPackagesInput {
+	s.PageNumber = &v
 	return s
 }
 
