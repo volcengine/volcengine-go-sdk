@@ -158,8 +158,7 @@ type CreateNetworkInterfaceInput struct {
 
 	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
 
-	// SecurityGroupIds is a required field
-	SecurityGroupIds []*string `type:"list" required:"true"`
+	SecurityGroupIds []*string `type:"list"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -191,9 +190,6 @@ func (s *CreateNetworkInterfaceInput) Validate() error {
 	}
 	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("NetworkInterfaceName", 128, *s.NetworkInterfaceName))
-	}
-	if s.SecurityGroupIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
 	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))

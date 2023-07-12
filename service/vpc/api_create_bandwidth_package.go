@@ -147,13 +147,19 @@ type CreateBandwidthPackageInput struct {
 
 	BandwidthPackageName *string `min:"1" max:"128" type:"string"`
 
-	BillingType *int64 `min:"2" max:"4" type:"integer"`
+	BillingType *int64 `min:"1" max:"4" type:"integer"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
 	ISP *string `type:"string" enum:"ISPForCreateBandwidthPackageInput"`
 
+	Period *int64 `type:"integer"`
+
+	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
+
 	ProjectName *string `type:"string"`
+
+	Protocol *string `type:"string" enum:"ProtocolForCreateBandwidthPackageInput"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -188,8 +194,8 @@ func (s *CreateBandwidthPackageInput) Validate() error {
 	if s.BandwidthPackageName != nil && len(*s.BandwidthPackageName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("BandwidthPackageName", 128, *s.BandwidthPackageName))
 	}
-	if s.BillingType != nil && *s.BillingType < 2 {
-		invalidParams.Add(request.NewErrParamMinValue("BillingType", 2))
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
 	}
 	if s.BillingType != nil && *s.BillingType > 4 {
 		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 4))
@@ -199,6 +205,12 @@ func (s *CreateBandwidthPackageInput) Validate() error {
 	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit > 2 {
+		invalidParams.Add(request.NewErrParamMaxValue("PeriodUnit", 2))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -237,9 +249,27 @@ func (s *CreateBandwidthPackageInput) SetISP(v string) *CreateBandwidthPackageIn
 	return s
 }
 
+// SetPeriod sets the Period field's value.
+func (s *CreateBandwidthPackageInput) SetPeriod(v int64) *CreateBandwidthPackageInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *CreateBandwidthPackageInput) SetPeriodUnit(v int64) *CreateBandwidthPackageInput {
+	s.PeriodUnit = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateBandwidthPackageInput) SetProjectName(v string) *CreateBandwidthPackageInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *CreateBandwidthPackageInput) SetProtocol(v string) *CreateBandwidthPackageInput {
+	s.Protocol = &v
 	return s
 }
 
@@ -329,4 +359,12 @@ const (
 
 	// ISPForCreateBandwidthPackageInputChinaTelecom is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputChinaTelecom = "ChinaTelecom"
+)
+
+const (
+	// ProtocolForCreateBandwidthPackageInputIpv4 is a ProtocolForCreateBandwidthPackageInput enum value
+	ProtocolForCreateBandwidthPackageInputIpv4 = "IPv4"
+
+	// ProtocolForCreateBandwidthPackageInputIpv6 is a ProtocolForCreateBandwidthPackageInput enum value
+	ProtocolForCreateBandwidthPackageInputIpv6 = "IPv6"
 )
