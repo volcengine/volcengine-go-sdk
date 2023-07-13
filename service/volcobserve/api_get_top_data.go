@@ -143,6 +143,44 @@ func (c *VOLCOBSERVE) GetTopDataWithContext(ctx volcengine.Context, input *GetTo
 	return out, req.Send()
 }
 
+type DataForGetTopDataOutput struct {
+	_ struct{} `type:"structure"`
+
+	Asc *bool `type:"boolean"`
+
+	OrderByMetricName *string `type:"string"`
+
+	TopDataResults []*TopDataResultForGetTopDataOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DataForGetTopDataOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataForGetTopDataOutput) GoString() string {
+	return s.String()
+}
+
+// SetAsc sets the Asc field's value.
+func (s *DataForGetTopDataOutput) SetAsc(v bool) *DataForGetTopDataOutput {
+	s.Asc = &v
+	return s
+}
+
+// SetOrderByMetricName sets the OrderByMetricName field's value.
+func (s *DataForGetTopDataOutput) SetOrderByMetricName(v string) *DataForGetTopDataOutput {
+	s.OrderByMetricName = &v
+	return s
+}
+
+// SetTopDataResults sets the TopDataResults field's value.
+func (s *DataForGetTopDataOutput) SetTopDataResults(v []*TopDataResultForGetTopDataOutput) *DataForGetTopDataOutput {
+	s.TopDataResults = v
+	return s
+}
+
 type DimensionForGetTopDataInput struct {
 	_ struct{} `type:"structure"`
 
@@ -271,6 +309,8 @@ type GetTopDataOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Data *DataForGetTopDataOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -281,6 +321,12 @@ func (s GetTopDataOutput) String() string {
 // GoString returns the string representation
 func (s GetTopDataOutput) GoString() string {
 	return s.String()
+}
+
+// SetData sets the Data field's value.
+func (s *GetTopDataOutput) SetData(v *DataForGetTopDataOutput) *GetTopDataOutput {
+	s.Data = v
+	return s
 }
 
 type InstanceForGetTopDataInput struct {
@@ -302,5 +348,35 @@ func (s InstanceForGetTopDataInput) GoString() string {
 // SetDimensions sets the Dimensions field's value.
 func (s *InstanceForGetTopDataInput) SetDimensions(v []*DimensionForGetTopDataInput) *InstanceForGetTopDataInput {
 	s.Dimensions = v
+	return s
+}
+
+type TopDataResultForGetTopDataOutput struct {
+	_ struct{} `type:"structure"`
+
+	GroupKeys map[string]*string `type:"map"`
+
+	MetricData map[string]*string `type:"map"`
+}
+
+// String returns the string representation
+func (s TopDataResultForGetTopDataOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TopDataResultForGetTopDataOutput) GoString() string {
+	return s.String()
+}
+
+// SetGroupKeys sets the GroupKeys field's value.
+func (s *TopDataResultForGetTopDataOutput) SetGroupKeys(v map[string]*string) *TopDataResultForGetTopDataOutput {
+	s.GroupKeys = v
+	return s
+}
+
+// SetMetricData sets the MetricData field's value.
+func (s *TopDataResultForGetTopDataOutput) SetMetricData(v map[string]*string) *TopDataResultForGetTopDataOutput {
+	s.MetricData = v
 	return s
 }
