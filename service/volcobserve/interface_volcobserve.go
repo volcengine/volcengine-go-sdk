@@ -36,6 +36,14 @@ type VOLCOBSERVEAPI interface {
 	GetMetricData(*GetMetricDataInput) (*GetMetricDataOutput, error)
 	GetMetricDataWithContext(volcengine.Context, *GetMetricDataInput, ...request.Option) (*GetMetricDataOutput, error)
 	GetMetricDataRequest(*GetMetricDataInput) (*request.Request, *GetMetricDataOutput)
+
+	GetTopDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetTopDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetTopDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetTopData(*GetTopDataInput) (*GetTopDataOutput, error)
+	GetTopDataWithContext(volcengine.Context, *GetTopDataInput, ...request.Option) (*GetTopDataOutput, error)
+	GetTopDataRequest(*GetTopDataInput) (*request.Request, *GetTopDataOutput)
 }
 
 var _ VOLCOBSERVEAPI = (*VOLCOBSERVE)(nil)

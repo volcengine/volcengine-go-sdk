@@ -32,7 +32,7 @@ const opGetMetricDataCommon = "GetMetricData"
 func (c *VOLCOBSERVE) GetMetricDataCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetMetricDataCommon,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -42,8 +42,6 @@ func (c *VOLCOBSERVE) GetMetricDataCommonRequest(input *map[string]interface{}) 
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -99,7 +97,7 @@ const opGetMetricData = "GetMetricData"
 func (c *VOLCOBSERVE) GetMetricDataRequest(input *GetMetricDataInput) (req *request.Request, output *GetMetricDataOutput) {
 	op := &request.Operation{
 		Name:       opGetMetricData,
-		HTTPMethod: "POST",
+		HTTPMethod: "GET",
 		HTTPPath:   "/",
 	}
 
@@ -109,8 +107,6 @@ func (c *VOLCOBSERVE) GetMetricDataRequest(input *GetMetricDataInput) (req *requ
 
 	output = &GetMetricDataOutput{}
 	req = c.newRequest(op, input, output)
-
-	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
