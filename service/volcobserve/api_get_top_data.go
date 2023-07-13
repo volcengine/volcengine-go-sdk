@@ -32,7 +32,7 @@ const opGetTopDataCommon = "GetTopData"
 func (c *VOLCOBSERVE) GetTopDataCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetTopDataCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -42,6 +42,8 @@ func (c *VOLCOBSERVE) GetTopDataCommonRequest(input *map[string]interface{}) (re
 
 	output = &map[string]interface{}{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
@@ -97,7 +99,7 @@ const opGetTopData = "GetTopData"
 func (c *VOLCOBSERVE) GetTopDataRequest(input *GetTopDataInput) (req *request.Request, output *GetTopDataOutput) {
 	op := &request.Operation{
 		Name:       opGetTopData,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -107,6 +109,8 @@ func (c *VOLCOBSERVE) GetTopDataRequest(input *GetTopDataInput) (req *request.Re
 
 	output = &GetTopDataOutput{}
 	req = c.newRequest(op, input, output)
+
+	req.HTTPRequest.Header.Set("Content-Type", "application/json; charset=utf-8")
 
 	return
 }
