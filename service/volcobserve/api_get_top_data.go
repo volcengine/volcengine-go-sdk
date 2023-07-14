@@ -214,7 +214,7 @@ func (s *DimensionForGetTopDataInput) SetValue(v string) *DimensionForGetTopData
 type GetTopDataInput struct {
 	_ struct{} `type:"structure"`
 
-	Asc *string `type:"string"`
+	Asc *bool `type:"boolean"`
 
 	EndTime *int64 `type:"integer"`
 
@@ -232,7 +232,7 @@ type GetTopDataInput struct {
 
 	SubNamespace *string `type:"string"`
 
-	TopN *string `type:"string"`
+	TopN *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -246,7 +246,7 @@ func (s GetTopDataInput) GoString() string {
 }
 
 // SetAsc sets the Asc field's value.
-func (s *GetTopDataInput) SetAsc(v string) *GetTopDataInput {
+func (s *GetTopDataInput) SetAsc(v bool) *GetTopDataInput {
 	s.Asc = &v
 	return s
 }
@@ -300,7 +300,7 @@ func (s *GetTopDataInput) SetSubNamespace(v string) *GetTopDataInput {
 }
 
 // SetTopN sets the TopN field's value.
-func (s *GetTopDataInput) SetTopN(v string) *GetTopDataInput {
+func (s *GetTopDataInput) SetTopN(v int64) *GetTopDataInput {
 	s.TopN = &v
 	return s
 }
