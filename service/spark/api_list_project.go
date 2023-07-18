@@ -22,13 +22,13 @@ const opListProjectCommon = "listProject"
 // See ListProjectCommon for more information on using the ListProjectCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListProjectCommonRequest method.
-//    req, resp := client.ListProjectCommonRequest(params)
+//	// Example sending a request using the ListProjectCommonRequest method.
+//	req, resp := client.ListProjectCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ListProjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListProjectCommon,
@@ -89,13 +89,13 @@ const opListProject = "listProject"
 // See ListProject for more information on using the ListProject
 // API call, and error handling.
 //
-//    // Example sending a request using the ListProjectRequest method.
-//    req, resp := client.ListProjectRequest(params)
+//	// Example sending a request using the ListProjectRequest method.
+//	req, resp := client.ListProjectRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ListProjectRequest(input *ListProjectInput) (req *request.Request, output *ListProjectOutput) {
 	op := &request.Operation{
 		Name:       opListProject,

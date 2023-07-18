@@ -22,13 +22,13 @@ const opCreateProjectCommon = "createProject"
 // See CreateProjectCommon for more information on using the CreateProjectCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateProjectCommonRequest method.
-//    req, resp := client.CreateProjectCommonRequest(params)
+//	// Example sending a request using the CreateProjectCommonRequest method.
+//	req, resp := client.CreateProjectCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) CreateProjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateProjectCommon,
@@ -89,13 +89,13 @@ const opCreateProject = "createProject"
 // See CreateProject for more information on using the CreateProject
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateProjectRequest method.
-//    req, resp := client.CreateProjectRequest(params)
+//	// Example sending a request using the CreateProjectRequest method.
+//	req, resp := client.CreateProjectRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) CreateProjectRequest(input *CreateProjectInput) (req *request.Request, output *CreateProjectOutput) {
 	op := &request.Operation{
 		Name:       opCreateProject,

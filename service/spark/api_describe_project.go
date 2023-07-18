@@ -22,13 +22,13 @@ const opDescribeProjectCommon = "describeProject"
 // See DescribeProjectCommon for more information on using the DescribeProjectCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeProjectCommonRequest method.
-//    req, resp := client.DescribeProjectCommonRequest(params)
+//	// Example sending a request using the DescribeProjectCommonRequest method.
+//	req, resp := client.DescribeProjectCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DescribeProjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeProjectCommon,
@@ -89,13 +89,13 @@ const opDescribeProject = "describeProject"
 // See DescribeProject for more information on using the DescribeProject
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeProjectRequest method.
-//    req, resp := client.DescribeProjectRequest(params)
+//	// Example sending a request using the DescribeProjectRequest method.
+//	req, resp := client.DescribeProjectRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DescribeProjectRequest(input *DescribeProjectInput) (req *request.Request, output *DescribeProjectOutput) {
 	op := &request.Operation{
 		Name:       opDescribeProject,

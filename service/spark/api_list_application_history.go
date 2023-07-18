@@ -22,13 +22,13 @@ const opListApplicationHistoryCommon = "listApplicationHistory"
 // See ListApplicationHistoryCommon for more information on using the ListApplicationHistoryCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListApplicationHistoryCommonRequest method.
-//    req, resp := client.ListApplicationHistoryCommonRequest(params)
+//	// Example sending a request using the ListApplicationHistoryCommonRequest method.
+//	req, resp := client.ListApplicationHistoryCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ListApplicationHistoryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListApplicationHistoryCommon,
@@ -89,13 +89,13 @@ const opListApplicationHistory = "listApplicationHistory"
 // See ListApplicationHistory for more information on using the ListApplicationHistory
 // API call, and error handling.
 //
-//    // Example sending a request using the ListApplicationHistoryRequest method.
-//    req, resp := client.ListApplicationHistoryRequest(params)
+//	// Example sending a request using the ListApplicationHistoryRequest method.
+//	req, resp := client.ListApplicationHistoryRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ListApplicationHistoryRequest(input *ListApplicationHistoryInput) (req *request.Request, output *ListApplicationHistoryOutput) {
 	op := &request.Operation{
 		Name:       opListApplicationHistory,
@@ -294,9 +294,9 @@ func (s *ListApplicationHistoryOutput) SetNextToken(v string) *ListApplicationHi
 type ResourceMeterageForlistApplicationHistoryOutput struct {
 	_ struct{} `type:"structure"`
 
-	Cpu *string `locationName:"cpu" type:"string"`
+	Cpu *string `type:"string" json:"cpu"`
 
-	Memory *string `locationName:"memory" type:"string"`
+	Memory *string `type:"string" json:"memory"`
 }
 
 // String returns the string representation

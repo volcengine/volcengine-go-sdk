@@ -22,13 +22,13 @@ const opModifyApplicationCommon = "modifyApplication"
 // See ModifyApplicationCommon for more information on using the ModifyApplicationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyApplicationCommonRequest method.
-//    req, resp := client.ModifyApplicationCommonRequest(params)
+//	// Example sending a request using the ModifyApplicationCommonRequest method.
+//	req, resp := client.ModifyApplicationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ModifyApplicationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyApplicationCommon,
@@ -89,13 +89,13 @@ const opModifyApplication = "modifyApplication"
 // See ModifyApplication for more information on using the ModifyApplication
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyApplicationRequest method.
-//    req, resp := client.ModifyApplicationRequest(params)
+//	// Example sending a request using the ModifyApplicationRequest method.
+//	req, resp := client.ModifyApplicationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ModifyApplicationRequest(input *ModifyApplicationInput) (req *request.Request, output *ModifyApplicationOutput) {
 	op := &request.Operation{
 		Name:       opModifyApplication,

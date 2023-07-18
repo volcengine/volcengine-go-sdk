@@ -22,13 +22,13 @@ const opDeleteResourcePoolCommon = "deleteResourcePool"
 // See DeleteResourcePoolCommon for more information on using the DeleteResourcePoolCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteResourcePoolCommonRequest method.
-//    req, resp := client.DeleteResourcePoolCommonRequest(params)
+//	// Example sending a request using the DeleteResourcePoolCommonRequest method.
+//	req, resp := client.DeleteResourcePoolCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DeleteResourcePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteResourcePoolCommon,
@@ -89,13 +89,13 @@ const opDeleteResourcePool = "deleteResourcePool"
 // See DeleteResourcePool for more information on using the DeleteResourcePool
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteResourcePoolRequest method.
-//    req, resp := client.DeleteResourcePoolRequest(params)
+//	// Example sending a request using the DeleteResourcePoolRequest method.
+//	req, resp := client.DeleteResourcePoolRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DeleteResourcePoolRequest(input *DeleteResourcePoolInput) (req *request.Request, output *DeleteResourcePoolOutput) {
 	op := &request.Operation{
 		Name:       opDeleteResourcePool,
