@@ -22,13 +22,13 @@ const opDetachServerGroupsCommon = "DetachServerGroups"
 // See DetachServerGroupsCommon for more information on using the DetachServerGroupsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachServerGroupsCommonRequest method.
-//    req, resp := client.DetachServerGroupsCommonRequest(params)
+//	// Example sending a request using the DetachServerGroupsCommonRequest method.
+//	req, resp := client.DetachServerGroupsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DetachServerGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachServerGroupsCommon,
@@ -87,13 +87,13 @@ const opDetachServerGroups = "DetachServerGroups"
 // See DetachServerGroups for more information on using the DetachServerGroups
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachServerGroupsRequest method.
-//    req, resp := client.DetachServerGroupsRequest(params)
+//	// Example sending a request using the DetachServerGroupsRequest method.
+//	req, resp := client.DetachServerGroupsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DetachServerGroupsRequest(input *DetachServerGroupsInput) (req *request.Request, output *DetachServerGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDetachServerGroups,
@@ -142,7 +142,8 @@ func (c *AUTOSCALING) DetachServerGroupsWithContext(ctx volcengine.Context, inpu
 type DetachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
 	ServerGroupAttributes []*ServerGroupAttributeForDetachServerGroupsInput `type:"list"`
 }
@@ -155,6 +156,19 @@ func (s DetachServerGroupsInput) String() string {
 // GoString returns the string representation
 func (s DetachServerGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DetachServerGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DetachServerGroupsInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.

@@ -22,13 +22,13 @@ const opDescribeCustomerGatewayAttributesCommon = "DescribeCustomerGatewayAttrib
 // See DescribeCustomerGatewayAttributesCommon for more information on using the DescribeCustomerGatewayAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCustomerGatewayAttributesCommonRequest method.
-//    req, resp := client.DescribeCustomerGatewayAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeCustomerGatewayAttributesCommonRequest method.
+//	req, resp := client.DescribeCustomerGatewayAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeCustomerGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCustomerGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeCustomerGatewayAttributes = "DescribeCustomerGatewayAttributes"
 // See DescribeCustomerGatewayAttributes for more information on using the DescribeCustomerGatewayAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCustomerGatewayAttributesRequest method.
-//    req, resp := client.DescribeCustomerGatewayAttributesRequest(params)
+//	// Example sending a request using the DescribeCustomerGatewayAttributesRequest method.
+//	req, resp := client.DescribeCustomerGatewayAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeCustomerGatewayAttributesRequest(input *DescribeCustomerGatewayAttributesInput) (req *request.Request, output *DescribeCustomerGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCustomerGatewayAttributes,

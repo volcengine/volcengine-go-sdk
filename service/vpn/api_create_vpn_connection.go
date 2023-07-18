@@ -22,13 +22,13 @@ const opCreateVpnConnectionCommon = "CreateVpnConnection"
 // See CreateVpnConnectionCommon for more information on using the CreateVpnConnectionCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateVpnConnectionCommonRequest method.
-//    req, resp := client.CreateVpnConnectionCommonRequest(params)
+//	// Example sending a request using the CreateVpnConnectionCommonRequest method.
+//	req, resp := client.CreateVpnConnectionCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) CreateVpnConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateVpnConnectionCommon,
@@ -87,13 +87,13 @@ const opCreateVpnConnection = "CreateVpnConnection"
 // See CreateVpnConnection for more information on using the CreateVpnConnection
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateVpnConnectionRequest method.
-//    req, resp := client.CreateVpnConnectionRequest(params)
+//	// Example sending a request using the CreateVpnConnectionRequest method.
+//	req, resp := client.CreateVpnConnectionRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) CreateVpnConnectionRequest(input *CreateVpnConnectionInput) (req *request.Request, output *CreateVpnConnectionOutput) {
 	op := &request.Operation{
 		Name:       opCreateVpnConnection,

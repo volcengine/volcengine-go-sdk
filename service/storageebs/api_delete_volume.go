@@ -22,13 +22,13 @@ const opDeleteVolumeCommon = "DeleteVolume"
 // See DeleteVolumeCommon for more information on using the DeleteVolumeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteVolumeCommonRequest method.
-//    req, resp := client.DeleteVolumeCommonRequest(params)
+//	// Example sending a request using the DeleteVolumeCommonRequest method.
+//	req, resp := client.DeleteVolumeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) DeleteVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteVolumeCommon,
@@ -87,13 +87,13 @@ const opDeleteVolume = "DeleteVolume"
 // See DeleteVolume for more information on using the DeleteVolume
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteVolumeRequest method.
-//    req, resp := client.DeleteVolumeRequest(params)
+//	// Example sending a request using the DeleteVolumeRequest method.
+//	req, resp := client.DeleteVolumeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) DeleteVolumeRequest(input *DeleteVolumeInput) (req *request.Request, output *DeleteVolumeOutput) {
 	op := &request.Operation{
 		Name:       opDeleteVolume,

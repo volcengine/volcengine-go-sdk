@@ -22,13 +22,13 @@ const opCreateLifecycleHookCommon = "CreateLifecycleHook"
 // See CreateLifecycleHookCommon for more information on using the CreateLifecycleHookCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateLifecycleHookCommonRequest method.
-//    req, resp := client.CreateLifecycleHookCommonRequest(params)
+//	// Example sending a request using the CreateLifecycleHookCommonRequest method.
+//	req, resp := client.CreateLifecycleHookCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CreateLifecycleHookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateLifecycleHookCommon,
@@ -87,13 +87,13 @@ const opCreateLifecycleHook = "CreateLifecycleHook"
 // See CreateLifecycleHook for more information on using the CreateLifecycleHook
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateLifecycleHookRequest method.
-//    req, resp := client.CreateLifecycleHookRequest(params)
+//	// Example sending a request using the CreateLifecycleHookRequest method.
+//	req, resp := client.CreateLifecycleHookRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CreateLifecycleHookRequest(input *CreateLifecycleHookInput) (req *request.Request, output *CreateLifecycleHookOutput) {
 	op := &request.Operation{
 		Name:       opCreateLifecycleHook,
@@ -142,15 +142,20 @@ func (c *AUTOSCALING) CreateLifecycleHookWithContext(ctx volcengine.Context, inp
 type CreateLifecycleHookInput struct {
 	_ struct{} `type:"structure"`
 
-	LifecycleHookName *string `type:"string"`
+	// LifecycleHookName is a required field
+	LifecycleHookName *string `type:"string" required:"true"`
 
-	LifecycleHookPolicy *string `type:"string"`
+	// LifecycleHookPolicy is a required field
+	LifecycleHookPolicy *string `type:"string" required:"true"`
 
-	LifecycleHookTimeout *int32 `type:"int32"`
+	// LifecycleHookTimeout is a required field
+	LifecycleHookTimeout *int32 `type:"int32" required:"true"`
 
-	LifecycleHookType *string `type:"string"`
+	// LifecycleHookType is a required field
+	LifecycleHookType *string `type:"string" required:"true"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +166,31 @@ func (s CreateLifecycleHookInput) String() string {
 // GoString returns the string representation
 func (s CreateLifecycleHookInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateLifecycleHookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateLifecycleHookInput"}
+	if s.LifecycleHookName == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookName"))
+	}
+	if s.LifecycleHookPolicy == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookPolicy"))
+	}
+	if s.LifecycleHookTimeout == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookTimeout"))
+	}
+	if s.LifecycleHookType == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookType"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetLifecycleHookName sets the LifecycleHookName field's value.

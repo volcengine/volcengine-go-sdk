@@ -22,13 +22,13 @@ const opDescribeVpnGatewayRouteAttributesCommon = "DescribeVpnGatewayRouteAttrib
 // See DescribeVpnGatewayRouteAttributesCommon for more information on using the DescribeVpnGatewayRouteAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnGatewayRouteAttributesCommonRequest method.
-//    req, resp := client.DescribeVpnGatewayRouteAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeVpnGatewayRouteAttributesCommonRequest method.
+//	req, resp := client.DescribeVpnGatewayRouteAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnGatewayRouteAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayRouteAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnGatewayRouteAttributes = "DescribeVpnGatewayRouteAttributes"
 // See DescribeVpnGatewayRouteAttributes for more information on using the DescribeVpnGatewayRouteAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnGatewayRouteAttributesRequest method.
-//    req, resp := client.DescribeVpnGatewayRouteAttributesRequest(params)
+//	// Example sending a request using the DescribeVpnGatewayRouteAttributesRequest method.
+//	req, resp := client.DescribeVpnGatewayRouteAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnGatewayRouteAttributesRequest(input *DescribeVpnGatewayRouteAttributesInput) (req *request.Request, output *DescribeVpnGatewayRouteAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayRouteAttributes,

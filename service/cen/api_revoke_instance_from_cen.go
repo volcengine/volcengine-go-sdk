@@ -22,13 +22,13 @@ const opRevokeInstanceFromCenCommon = "RevokeInstanceFromCen"
 // See RevokeInstanceFromCenCommon for more information on using the RevokeInstanceFromCenCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RevokeInstanceFromCenCommonRequest method.
-//    req, resp := client.RevokeInstanceFromCenCommonRequest(params)
+//	// Example sending a request using the RevokeInstanceFromCenCommonRequest method.
+//	req, resp := client.RevokeInstanceFromCenCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) RevokeInstanceFromCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRevokeInstanceFromCenCommon,
@@ -87,13 +87,13 @@ const opRevokeInstanceFromCen = "RevokeInstanceFromCen"
 // See RevokeInstanceFromCen for more information on using the RevokeInstanceFromCen
 // API call, and error handling.
 //
-//    // Example sending a request using the RevokeInstanceFromCenRequest method.
-//    req, resp := client.RevokeInstanceFromCenRequest(params)
+//	// Example sending a request using the RevokeInstanceFromCenRequest method.
+//	req, resp := client.RevokeInstanceFromCenRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) RevokeInstanceFromCenRequest(input *RevokeInstanceFromCenInput) (req *request.Request, output *RevokeInstanceFromCenOutput) {
 	op := &request.Operation{
 		Name:       opRevokeInstanceFromCen,

@@ -22,13 +22,13 @@ const opCreateCenSummaryRouteEntryCommon = "CreateCenSummaryRouteEntry"
 // See CreateCenSummaryRouteEntryCommon for more information on using the CreateCenSummaryRouteEntryCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCenSummaryRouteEntryCommonRequest method.
-//    req, resp := client.CreateCenSummaryRouteEntryCommonRequest(params)
+//	// Example sending a request using the CreateCenSummaryRouteEntryCommonRequest method.
+//	req, resp := client.CreateCenSummaryRouteEntryCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) CreateCenSummaryRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCenSummaryRouteEntryCommon,
@@ -87,13 +87,13 @@ const opCreateCenSummaryRouteEntry = "CreateCenSummaryRouteEntry"
 // See CreateCenSummaryRouteEntry for more information on using the CreateCenSummaryRouteEntry
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCenSummaryRouteEntryRequest method.
-//    req, resp := client.CreateCenSummaryRouteEntryRequest(params)
+//	// Example sending a request using the CreateCenSummaryRouteEntryRequest method.
+//	req, resp := client.CreateCenSummaryRouteEntryRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) CreateCenSummaryRouteEntryRequest(input *CreateCenSummaryRouteEntryInput) (req *request.Request, output *CreateCenSummaryRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opCreateCenSummaryRouteEntry,

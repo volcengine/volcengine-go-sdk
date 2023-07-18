@@ -22,13 +22,13 @@ const opDeleteCenBandwidthPackageCommon = "DeleteCenBandwidthPackage"
 // See DeleteCenBandwidthPackageCommon for more information on using the DeleteCenBandwidthPackageCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCenBandwidthPackageCommonRequest method.
-//    req, resp := client.DeleteCenBandwidthPackageCommonRequest(params)
+//	// Example sending a request using the DeleteCenBandwidthPackageCommonRequest method.
+//	req, resp := client.DeleteCenBandwidthPackageCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DeleteCenBandwidthPackageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCenBandwidthPackageCommon,
@@ -87,13 +87,13 @@ const opDeleteCenBandwidthPackage = "DeleteCenBandwidthPackage"
 // See DeleteCenBandwidthPackage for more information on using the DeleteCenBandwidthPackage
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCenBandwidthPackageRequest method.
-//    req, resp := client.DeleteCenBandwidthPackageRequest(params)
+//	// Example sending a request using the DeleteCenBandwidthPackageRequest method.
+//	req, resp := client.DeleteCenBandwidthPackageRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DeleteCenBandwidthPackageRequest(input *DeleteCenBandwidthPackageInput) (req *request.Request, output *DeleteCenBandwidthPackageOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCenBandwidthPackage,

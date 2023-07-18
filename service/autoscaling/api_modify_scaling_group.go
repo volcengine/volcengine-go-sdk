@@ -22,13 +22,13 @@ const opModifyScalingGroupCommon = "ModifyScalingGroup"
 // See ModifyScalingGroupCommon for more information on using the ModifyScalingGroupCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyScalingGroupCommonRequest method.
-//    req, resp := client.ModifyScalingGroupCommonRequest(params)
+//	// Example sending a request using the ModifyScalingGroupCommonRequest method.
+//	req, resp := client.ModifyScalingGroupCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) ModifyScalingGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyScalingGroupCommon,
@@ -87,13 +87,13 @@ const opModifyScalingGroup = "ModifyScalingGroup"
 // See ModifyScalingGroup for more information on using the ModifyScalingGroup
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyScalingGroupRequest method.
-//    req, resp := client.ModifyScalingGroupRequest(params)
+//	// Example sending a request using the ModifyScalingGroupRequest method.
+//	req, resp := client.ModifyScalingGroupRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) ModifyScalingGroupRequest(input *ModifyScalingGroupInput) (req *request.Request, output *ModifyScalingGroupOutput) {
 	op := &request.Operation{
 		Name:       opModifyScalingGroup,
@@ -154,7 +154,8 @@ type ModifyScalingGroupInput struct {
 
 	MinInstanceNumber *int32 `type:"int32"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
 	ScalingGroupName *string `type:"string"`
 
@@ -169,6 +170,19 @@ func (s ModifyScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s ModifyScalingGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyScalingGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyScalingGroupInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetActiveScalingConfigurationId sets the ActiveScalingConfigurationId field's value.

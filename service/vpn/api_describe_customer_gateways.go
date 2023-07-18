@@ -22,13 +22,13 @@ const opDescribeCustomerGatewaysCommon = "DescribeCustomerGateways"
 // See DescribeCustomerGatewaysCommon for more information on using the DescribeCustomerGatewaysCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCustomerGatewaysCommonRequest method.
-//    req, resp := client.DescribeCustomerGatewaysCommonRequest(params)
+//	// Example sending a request using the DescribeCustomerGatewaysCommonRequest method.
+//	req, resp := client.DescribeCustomerGatewaysCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeCustomerGatewaysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCustomerGatewaysCommon,
@@ -87,13 +87,13 @@ const opDescribeCustomerGateways = "DescribeCustomerGateways"
 // See DescribeCustomerGateways for more information on using the DescribeCustomerGateways
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCustomerGatewaysRequest method.
-//    req, resp := client.DescribeCustomerGatewaysRequest(params)
+//	// Example sending a request using the DescribeCustomerGatewaysRequest method.
+//	req, resp := client.DescribeCustomerGatewaysRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeCustomerGatewaysRequest(input *DescribeCustomerGatewaysInput) (req *request.Request, output *DescribeCustomerGatewaysOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCustomerGateways,

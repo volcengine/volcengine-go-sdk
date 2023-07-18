@@ -22,13 +22,13 @@ const opDescribeVpnGatewayRoutesCommon = "DescribeVpnGatewayRoutes"
 // See DescribeVpnGatewayRoutesCommon for more information on using the DescribeVpnGatewayRoutesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnGatewayRoutesCommonRequest method.
-//    req, resp := client.DescribeVpnGatewayRoutesCommonRequest(params)
+//	// Example sending a request using the DescribeVpnGatewayRoutesCommonRequest method.
+//	req, resp := client.DescribeVpnGatewayRoutesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnGatewayRoutesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayRoutesCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnGatewayRoutes = "DescribeVpnGatewayRoutes"
 // See DescribeVpnGatewayRoutes for more information on using the DescribeVpnGatewayRoutes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnGatewayRoutesRequest method.
-//    req, resp := client.DescribeVpnGatewayRoutesRequest(params)
+//	// Example sending a request using the DescribeVpnGatewayRoutesRequest method.
+//	req, resp := client.DescribeVpnGatewayRoutesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnGatewayRoutesRequest(input *DescribeVpnGatewayRoutesInput) (req *request.Request, output *DescribeVpnGatewayRoutesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewayRoutes,

@@ -22,13 +22,13 @@ const opModifyLifecycleHookCommon = "ModifyLifecycleHook"
 // See ModifyLifecycleHookCommon for more information on using the ModifyLifecycleHookCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyLifecycleHookCommonRequest method.
-//    req, resp := client.ModifyLifecycleHookCommonRequest(params)
+//	// Example sending a request using the ModifyLifecycleHookCommonRequest method.
+//	req, resp := client.ModifyLifecycleHookCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) ModifyLifecycleHookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyLifecycleHookCommon,
@@ -87,13 +87,13 @@ const opModifyLifecycleHook = "ModifyLifecycleHook"
 // See ModifyLifecycleHook for more information on using the ModifyLifecycleHook
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyLifecycleHookRequest method.
-//    req, resp := client.ModifyLifecycleHookRequest(params)
+//	// Example sending a request using the ModifyLifecycleHookRequest method.
+//	req, resp := client.ModifyLifecycleHookRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) ModifyLifecycleHookRequest(input *ModifyLifecycleHookInput) (req *request.Request, output *ModifyLifecycleHookOutput) {
 	op := &request.Operation{
 		Name:       opModifyLifecycleHook,
@@ -142,7 +142,8 @@ func (c *AUTOSCALING) ModifyLifecycleHookWithContext(ctx volcengine.Context, inp
 type ModifyLifecycleHookInput struct {
 	_ struct{} `type:"structure"`
 
-	LifecycleHookId *string `type:"string"`
+	// LifecycleHookId is a required field
+	LifecycleHookId *string `type:"string" required:"true"`
 
 	LifecycleHookPolicy *string `type:"string"`
 
@@ -159,6 +160,19 @@ func (s ModifyLifecycleHookInput) String() string {
 // GoString returns the string representation
 func (s ModifyLifecycleHookInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyLifecycleHookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyLifecycleHookInput"}
+	if s.LifecycleHookId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetLifecycleHookId sets the LifecycleHookId field's value.

@@ -22,13 +22,13 @@ const opCreateVpnGatewayCommon = "CreateVpnGateway"
 // See CreateVpnGatewayCommon for more information on using the CreateVpnGatewayCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateVpnGatewayCommonRequest method.
-//    req, resp := client.CreateVpnGatewayCommonRequest(params)
+//	// Example sending a request using the CreateVpnGatewayCommonRequest method.
+//	req, resp := client.CreateVpnGatewayCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) CreateVpnGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateVpnGatewayCommon,
@@ -87,13 +87,13 @@ const opCreateVpnGateway = "CreateVpnGateway"
 // See CreateVpnGateway for more information on using the CreateVpnGateway
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateVpnGatewayRequest method.
-//    req, resp := client.CreateVpnGatewayRequest(params)
+//	// Example sending a request using the CreateVpnGatewayRequest method.
+//	req, resp := client.CreateVpnGatewayRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) CreateVpnGatewayRequest(input *CreateVpnGatewayInput) (req *request.Request, output *CreateVpnGatewayOutput) {
 	op := &request.Operation{
 		Name:       opCreateVpnGateway,

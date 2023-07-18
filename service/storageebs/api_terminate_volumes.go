@@ -22,13 +22,13 @@ const opTerminateVolumesCommon = "TerminateVolumes"
 // See TerminateVolumesCommon for more information on using the TerminateVolumesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the TerminateVolumesCommonRequest method.
-//    req, resp := client.TerminateVolumesCommonRequest(params)
+//	// Example sending a request using the TerminateVolumesCommonRequest method.
+//	req, resp := client.TerminateVolumesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) TerminateVolumesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opTerminateVolumesCommon,
@@ -87,13 +87,13 @@ const opTerminateVolumes = "TerminateVolumes"
 // See TerminateVolumes for more information on using the TerminateVolumes
 // API call, and error handling.
 //
-//    // Example sending a request using the TerminateVolumesRequest method.
-//    req, resp := client.TerminateVolumesRequest(params)
+//	// Example sending a request using the TerminateVolumesRequest method.
+//	req, resp := client.TerminateVolumesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) TerminateVolumesRequest(input *TerminateVolumesInput) (req *request.Request, output *TerminateVolumesOutput) {
 	op := &request.Operation{
 		Name:       opTerminateVolumes,

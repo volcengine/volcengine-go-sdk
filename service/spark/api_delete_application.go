@@ -22,13 +22,13 @@ const opDeleteApplicationCommon = "deleteApplication"
 // See DeleteApplicationCommon for more information on using the DeleteApplicationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteApplicationCommonRequest method.
-//    req, resp := client.DeleteApplicationCommonRequest(params)
+//	// Example sending a request using the DeleteApplicationCommonRequest method.
+//	req, resp := client.DeleteApplicationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DeleteApplicationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteApplicationCommon,
@@ -89,13 +89,13 @@ const opDeleteApplication = "deleteApplication"
 // See DeleteApplication for more information on using the DeleteApplication
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteApplicationRequest method.
-//    req, resp := client.DeleteApplicationRequest(params)
+//	// Example sending a request using the DeleteApplicationRequest method.
+//	req, resp := client.DeleteApplicationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DeleteApplicationRequest(input *DeleteApplicationInput) (req *request.Request, output *DeleteApplicationOutput) {
 	op := &request.Operation{
 		Name:       opDeleteApplication,

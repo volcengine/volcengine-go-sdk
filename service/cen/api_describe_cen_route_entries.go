@@ -22,13 +22,13 @@ const opDescribeCenRouteEntriesCommon = "DescribeCenRouteEntries"
 // See DescribeCenRouteEntriesCommon for more information on using the DescribeCenRouteEntriesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenRouteEntriesCommonRequest method.
-//    req, resp := client.DescribeCenRouteEntriesCommonRequest(params)
+//	// Example sending a request using the DescribeCenRouteEntriesCommonRequest method.
+//	req, resp := client.DescribeCenRouteEntriesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenRouteEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenRouteEntriesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenRouteEntries = "DescribeCenRouteEntries"
 // See DescribeCenRouteEntries for more information on using the DescribeCenRouteEntries
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenRouteEntriesRequest method.
-//    req, resp := client.DescribeCenRouteEntriesRequest(params)
+//	// Example sending a request using the DescribeCenRouteEntriesRequest method.
+//	req, resp := client.DescribeCenRouteEntriesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenRouteEntriesRequest(input *DescribeCenRouteEntriesInput) (req *request.Request, output *DescribeCenRouteEntriesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenRouteEntries,

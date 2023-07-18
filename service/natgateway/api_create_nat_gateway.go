@@ -22,13 +22,13 @@ const opCreateNatGatewayCommon = "CreateNatGateway"
 // See CreateNatGatewayCommon for more information on using the CreateNatGatewayCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNatGatewayCommonRequest method.
-//    req, resp := client.CreateNatGatewayCommonRequest(params)
+//	// Example sending a request using the CreateNatGatewayCommonRequest method.
+//	req, resp := client.CreateNatGatewayCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) CreateNatGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNatGatewayCommon,
@@ -87,13 +87,13 @@ const opCreateNatGateway = "CreateNatGateway"
 // See CreateNatGateway for more information on using the CreateNatGateway
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateNatGatewayRequest method.
-//    req, resp := client.CreateNatGatewayRequest(params)
+//	// Example sending a request using the CreateNatGatewayRequest method.
+//	req, resp := client.CreateNatGatewayRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) CreateNatGatewayRequest(input *CreateNatGatewayInput) (req *request.Request, output *CreateNatGatewayOutput) {
 	op := &request.Operation{
 		Name:       opCreateNatGateway,

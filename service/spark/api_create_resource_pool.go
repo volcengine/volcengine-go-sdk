@@ -22,13 +22,13 @@ const opCreateResourcePoolCommon = "createResourcePool"
 // See CreateResourcePoolCommon for more information on using the CreateResourcePoolCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateResourcePoolCommonRequest method.
-//    req, resp := client.CreateResourcePoolCommonRequest(params)
+//	// Example sending a request using the CreateResourcePoolCommonRequest method.
+//	req, resp := client.CreateResourcePoolCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) CreateResourcePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateResourcePoolCommon,
@@ -89,13 +89,13 @@ const opCreateResourcePool = "createResourcePool"
 // See CreateResourcePool for more information on using the CreateResourcePool
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateResourcePoolRequest method.
-//    req, resp := client.CreateResourcePoolRequest(params)
+//	// Example sending a request using the CreateResourcePoolRequest method.
+//	req, resp := client.CreateResourcePoolRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) CreateResourcePoolRequest(input *CreateResourcePoolInput) (req *request.Request, output *CreateResourcePoolOutput) {
 	op := &request.Operation{
 		Name:       opCreateResourcePool,

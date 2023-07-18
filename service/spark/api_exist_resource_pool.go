@@ -22,13 +22,13 @@ const opExistResourcePoolCommon = "existResourcePool"
 // See ExistResourcePoolCommon for more information on using the ExistResourcePoolCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ExistResourcePoolCommonRequest method.
-//    req, resp := client.ExistResourcePoolCommonRequest(params)
+//	// Example sending a request using the ExistResourcePoolCommonRequest method.
+//	req, resp := client.ExistResourcePoolCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ExistResourcePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opExistResourcePoolCommon,
@@ -89,13 +89,13 @@ const opExistResourcePool = "existResourcePool"
 // See ExistResourcePool for more information on using the ExistResourcePool
 // API call, and error handling.
 //
-//    // Example sending a request using the ExistResourcePoolRequest method.
-//    req, resp := client.ExistResourcePoolRequest(params)
+//	// Example sending a request using the ExistResourcePoolRequest method.
+//	req, resp := client.ExistResourcePoolRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ExistResourcePoolRequest(input *ExistResourcePoolInput) (req *request.Request, output *ExistResourcePoolOutput) {
 	op := &request.Operation{
 		Name:       opExistResourcePool,

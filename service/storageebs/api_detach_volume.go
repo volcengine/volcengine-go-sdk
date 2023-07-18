@@ -22,13 +22,13 @@ const opDetachVolumeCommon = "DetachVolume"
 // See DetachVolumeCommon for more information on using the DetachVolumeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachVolumeCommonRequest method.
-//    req, resp := client.DetachVolumeCommonRequest(params)
+//	// Example sending a request using the DetachVolumeCommonRequest method.
+//	req, resp := client.DetachVolumeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) DetachVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachVolumeCommon,
@@ -87,13 +87,13 @@ const opDetachVolume = "DetachVolume"
 // See DetachVolume for more information on using the DetachVolume
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachVolumeRequest method.
-//    req, resp := client.DetachVolumeRequest(params)
+//	// Example sending a request using the DetachVolumeRequest method.
+//	req, resp := client.DetachVolumeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) DetachVolumeRequest(input *DetachVolumeInput) (req *request.Request, output *DetachVolumeOutput) {
 	op := &request.Operation{
 		Name:       opDetachVolume,

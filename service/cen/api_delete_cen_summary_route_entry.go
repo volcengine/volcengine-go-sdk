@@ -22,13 +22,13 @@ const opDeleteCenSummaryRouteEntryCommon = "DeleteCenSummaryRouteEntry"
 // See DeleteCenSummaryRouteEntryCommon for more information on using the DeleteCenSummaryRouteEntryCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCenSummaryRouteEntryCommonRequest method.
-//    req, resp := client.DeleteCenSummaryRouteEntryCommonRequest(params)
+//	// Example sending a request using the DeleteCenSummaryRouteEntryCommonRequest method.
+//	req, resp := client.DeleteCenSummaryRouteEntryCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DeleteCenSummaryRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCenSummaryRouteEntryCommon,
@@ -87,13 +87,13 @@ const opDeleteCenSummaryRouteEntry = "DeleteCenSummaryRouteEntry"
 // See DeleteCenSummaryRouteEntry for more information on using the DeleteCenSummaryRouteEntry
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCenSummaryRouteEntryRequest method.
-//    req, resp := client.DeleteCenSummaryRouteEntryRequest(params)
+//	// Example sending a request using the DeleteCenSummaryRouteEntryRequest method.
+//	req, resp := client.DeleteCenSummaryRouteEntryRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DeleteCenSummaryRouteEntryRequest(input *DeleteCenSummaryRouteEntryInput) (req *request.Request, output *DeleteCenSummaryRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCenSummaryRouteEntry,

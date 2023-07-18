@@ -16,19 +16,18 @@ import (
 // AUTOSCALINGAPI provides an interface to enable mocking the
 // autoscaling.AUTOSCALING service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // AUTO_SCALING.
-//    func myFunc(svc AUTOSCALINGAPI) bool {
-//        // Make svc.AttachDBInstances request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// AUTO_SCALING.
+//	func myFunc(svc AUTOSCALINGAPI) bool {
+//	    // Make svc.AttachDBInstances request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := autoscaling.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := autoscaling.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type AUTOSCALINGAPI interface {
 	AttachDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

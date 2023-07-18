@@ -22,13 +22,13 @@ const opCreateSnatEntryCommon = "CreateSnatEntry"
 // See CreateSnatEntryCommon for more information on using the CreateSnatEntryCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateSnatEntryCommonRequest method.
-//    req, resp := client.CreateSnatEntryCommonRequest(params)
+//	// Example sending a request using the CreateSnatEntryCommonRequest method.
+//	req, resp := client.CreateSnatEntryCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) CreateSnatEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateSnatEntryCommon,
@@ -87,13 +87,13 @@ const opCreateSnatEntry = "CreateSnatEntry"
 // See CreateSnatEntry for more information on using the CreateSnatEntry
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateSnatEntryRequest method.
-//    req, resp := client.CreateSnatEntryRequest(params)
+//	// Example sending a request using the CreateSnatEntryRequest method.
+//	req, resp := client.CreateSnatEntryRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) CreateSnatEntryRequest(input *CreateSnatEntryInput) (req *request.Request, output *CreateSnatEntryOutput) {
 	op := &request.Operation{
 		Name:       opCreateSnatEntry,

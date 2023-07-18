@@ -22,13 +22,13 @@ const opModifyVolumeChargeTypeCommon = "ModifyVolumeChargeType"
 // See ModifyVolumeChargeTypeCommon for more information on using the ModifyVolumeChargeTypeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyVolumeChargeTypeCommonRequest method.
-//    req, resp := client.ModifyVolumeChargeTypeCommonRequest(params)
+//	// Example sending a request using the ModifyVolumeChargeTypeCommonRequest method.
+//	req, resp := client.ModifyVolumeChargeTypeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) ModifyVolumeChargeTypeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVolumeChargeTypeCommon,
@@ -87,13 +87,13 @@ const opModifyVolumeChargeType = "ModifyVolumeChargeType"
 // See ModifyVolumeChargeType for more information on using the ModifyVolumeChargeType
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyVolumeChargeTypeRequest method.
-//    req, resp := client.ModifyVolumeChargeTypeRequest(params)
+//	// Example sending a request using the ModifyVolumeChargeTypeRequest method.
+//	req, resp := client.ModifyVolumeChargeTypeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) ModifyVolumeChargeTypeRequest(input *ModifyVolumeChargeTypeInput) (req *request.Request, output *ModifyVolumeChargeTypeOutput) {
 	op := &request.Operation{
 		Name:       opModifyVolumeChargeType,

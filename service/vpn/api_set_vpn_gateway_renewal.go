@@ -22,13 +22,13 @@ const opSetVpnGatewayRenewalCommon = "SetVpnGatewayRenewal"
 // See SetVpnGatewayRenewalCommon for more information on using the SetVpnGatewayRenewalCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the SetVpnGatewayRenewalCommonRequest method.
-//    req, resp := client.SetVpnGatewayRenewalCommonRequest(params)
+//	// Example sending a request using the SetVpnGatewayRenewalCommonRequest method.
+//	req, resp := client.SetVpnGatewayRenewalCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) SetVpnGatewayRenewalCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opSetVpnGatewayRenewalCommon,
@@ -87,13 +87,13 @@ const opSetVpnGatewayRenewal = "SetVpnGatewayRenewal"
 // See SetVpnGatewayRenewal for more information on using the SetVpnGatewayRenewal
 // API call, and error handling.
 //
-//    // Example sending a request using the SetVpnGatewayRenewalRequest method.
-//    req, resp := client.SetVpnGatewayRenewalRequest(params)
+//	// Example sending a request using the SetVpnGatewayRenewalRequest method.
+//	req, resp := client.SetVpnGatewayRenewalRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) SetVpnGatewayRenewalRequest(input *SetVpnGatewayRenewalInput) (req *request.Request, output *SetVpnGatewayRenewalOutput) {
 	op := &request.Operation{
 		Name:       opSetVpnGatewayRenewal,

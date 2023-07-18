@@ -22,13 +22,13 @@ const opListApplicationCommon = "listApplication"
 // See ListApplicationCommon for more information on using the ListApplicationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListApplicationCommonRequest method.
-//    req, resp := client.ListApplicationCommonRequest(params)
+//	// Example sending a request using the ListApplicationCommonRequest method.
+//	req, resp := client.ListApplicationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ListApplicationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListApplicationCommon,
@@ -89,13 +89,13 @@ const opListApplication = "listApplication"
 // See ListApplication for more information on using the ListApplication
 // API call, and error handling.
 //
-//    // Example sending a request using the ListApplicationRequest method.
-//    req, resp := client.ListApplicationRequest(params)
+//	// Example sending a request using the ListApplicationRequest method.
+//	req, resp := client.ListApplicationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ListApplicationRequest(input *ListApplicationInput) (req *request.Request, output *ListApplicationOutput) {
 	op := &request.Operation{
 		Name:       opListApplication,

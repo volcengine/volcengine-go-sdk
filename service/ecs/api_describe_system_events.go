@@ -429,4 +429,7 @@ const (
 
 	// TypeForDescribeSystemEventsOutputApplicationFailure is a TypeForDescribeSystemEventsOutput enum value
 	TypeForDescribeSystemEventsOutputApplicationFailure = "ApplicationFailure"
+
+	// TypeForDescribeSystemEventsOutputGpuRiskDetected is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputGpuRiskDetected = "GpuRiskDetected"
 )

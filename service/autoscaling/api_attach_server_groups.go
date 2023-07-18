@@ -22,13 +22,13 @@ const opAttachServerGroupsCommon = "AttachServerGroups"
 // See AttachServerGroupsCommon for more information on using the AttachServerGroupsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachServerGroupsCommonRequest method.
-//    req, resp := client.AttachServerGroupsCommonRequest(params)
+//	// Example sending a request using the AttachServerGroupsCommonRequest method.
+//	req, resp := client.AttachServerGroupsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) AttachServerGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachServerGroupsCommon,
@@ -87,13 +87,13 @@ const opAttachServerGroups = "AttachServerGroups"
 // See AttachServerGroups for more information on using the AttachServerGroups
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachServerGroupsRequest method.
-//    req, resp := client.AttachServerGroupsRequest(params)
+//	// Example sending a request using the AttachServerGroupsRequest method.
+//	req, resp := client.AttachServerGroupsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) AttachServerGroupsRequest(input *AttachServerGroupsInput) (req *request.Request, output *AttachServerGroupsOutput) {
 	op := &request.Operation{
 		Name:       opAttachServerGroups,
@@ -142,7 +142,8 @@ func (c *AUTOSCALING) AttachServerGroupsWithContext(ctx volcengine.Context, inpu
 type AttachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
 	ServerGroupAttributes []*ServerGroupAttributeForAttachServerGroupsInput `type:"list"`
 }
@@ -155,6 +156,19 @@ func (s AttachServerGroupsInput) String() string {
 // GoString returns the string representation
 func (s AttachServerGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AttachServerGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AttachServerGroupsInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.

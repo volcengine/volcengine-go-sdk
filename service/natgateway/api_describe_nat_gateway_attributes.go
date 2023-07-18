@@ -22,13 +22,13 @@ const opDescribeNatGatewayAttributesCommon = "DescribeNatGatewayAttributes"
 // See DescribeNatGatewayAttributesCommon for more information on using the DescribeNatGatewayAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeNatGatewayAttributesCommonRequest method.
-//    req, resp := client.DescribeNatGatewayAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeNatGatewayAttributesCommonRequest method.
+//	req, resp := client.DescribeNatGatewayAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) DescribeNatGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeNatGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeNatGatewayAttributes = "DescribeNatGatewayAttributes"
 // See DescribeNatGatewayAttributes for more information on using the DescribeNatGatewayAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeNatGatewayAttributesRequest method.
-//    req, resp := client.DescribeNatGatewayAttributesRequest(params)
+//	// Example sending a request using the DescribeNatGatewayAttributesRequest method.
+//	req, resp := client.DescribeNatGatewayAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) DescribeNatGatewayAttributesRequest(input *DescribeNatGatewayAttributesInput) (req *request.Request, output *DescribeNatGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeNatGatewayAttributes,

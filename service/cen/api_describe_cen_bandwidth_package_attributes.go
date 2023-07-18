@@ -22,13 +22,13 @@ const opDescribeCenBandwidthPackageAttributesCommon = "DescribeCenBandwidthPacka
 // See DescribeCenBandwidthPackageAttributesCommon for more information on using the DescribeCenBandwidthPackageAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenBandwidthPackageAttributesCommonRequest method.
-//    req, resp := client.DescribeCenBandwidthPackageAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeCenBandwidthPackageAttributesCommonRequest method.
+//	req, resp := client.DescribeCenBandwidthPackageAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenBandwidthPackageAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenBandwidthPackageAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenBandwidthPackageAttributes = "DescribeCenBandwidthPackageAttr
 // See DescribeCenBandwidthPackageAttributes for more information on using the DescribeCenBandwidthPackageAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenBandwidthPackageAttributesRequest method.
-//    req, resp := client.DescribeCenBandwidthPackageAttributesRequest(params)
+//	// Example sending a request using the DescribeCenBandwidthPackageAttributesRequest method.
+//	req, resp := client.DescribeCenBandwidthPackageAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenBandwidthPackageAttributesRequest(input *DescribeCenBandwidthPackageAttributesInput) (req *request.Request, output *DescribeCenBandwidthPackageAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenBandwidthPackageAttributes,

@@ -22,13 +22,13 @@ const opListZoneCommon = "listZone"
 // See ListZoneCommon for more information on using the ListZoneCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListZoneCommonRequest method.
-//    req, resp := client.ListZoneCommonRequest(params)
+//	// Example sending a request using the ListZoneCommonRequest method.
+//	req, resp := client.ListZoneCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ListZoneCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListZoneCommon,
@@ -87,14 +87,14 @@ const opListZone = "listZone"
 // See ListZone for more information on using the ListZone
 // API call, and error handling.
 //
-//    // Example sending a request using the ListZoneRequest method.
-//    req, resp := client.ListZoneRequest(params)
+//	// Example sending a request using the ListZoneRequest method.
+//	req, resp := client.ListZoneRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
-func (c *SPARK) ListZoneRequest(input *volcengineCommonQuery) (req *request.Request, output *volcengineCommonQuery) {
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
+func (c *SPARK) ListZoneRequest(input *ListZoneInput) (req *request.Request, output *ListZoneOutput) {
 	op := &request.Operation{
 		Name:       opListZone,
 		HTTPMethod: "POST",
@@ -102,10 +102,10 @@ func (c *SPARK) ListZoneRequest(input *volcengineCommonQuery) (req *request.Requ
 	}
 
 	if input == nil {
-		input = &volcengineCommonQuery{}
+		input = &ListZoneInput{}
 	}
 
-	output = &volcengineCommonQuery{}
+	output = &ListZoneOutput{}
 	req = c.newRequest(op, input, output)
 
 	return
@@ -119,7 +119,7 @@ func (c *SPARK) ListZoneRequest(input *volcengineCommonQuery) (req *request.Requ
 //
 // See the VOLCENGINE API reference guide for SPARK's
 // API operation ListZone for usage and error information.
-func (c *SPARK) ListZone(input *volcengineCommonQuery) (*volcengineCommonQuery, error) {
+func (c *SPARK) ListZone(input *ListZoneInput) (*ListZoneOutput, error) {
 	req, out := c.ListZoneRequest(input)
 	return out, req.Send()
 }
@@ -132,9 +132,93 @@ func (c *SPARK) ListZone(input *volcengineCommonQuery) (*volcengineCommonQuery, 
 // The context must be non-nil and will be used for request cancellation. Ifthe context is nil a panic will occur.
 // In the future the SDK may create sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *SPARK) ListZoneWithContext(ctx volcengine.Context, input *volcengineCommonQuery, opts ...request.Option) (*volcengineCommonQuery, error) {
+func (c *SPARK) ListZoneWithContext(ctx volcengine.Context, input *ListZoneInput, opts ...request.Option) (*ListZoneOutput, error) {
 	req, out := c.ListZoneRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
+}
+
+type DataListForlistZoneOutput struct {
+	_ struct{} `type:"structure"`
+
+	RegionId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+
+	ZoneName *string `type:"string"`
+
+	ZoneStatus *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DataListForlistZoneOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DataListForlistZoneOutput) GoString() string {
+	return s.String()
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *DataListForlistZoneOutput) SetRegionId(v string) *DataListForlistZoneOutput {
+	s.RegionId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DataListForlistZoneOutput) SetZoneId(v string) *DataListForlistZoneOutput {
+	s.ZoneId = &v
+	return s
+}
+
+// SetZoneName sets the ZoneName field's value.
+func (s *DataListForlistZoneOutput) SetZoneName(v string) *DataListForlistZoneOutput {
+	s.ZoneName = &v
+	return s
+}
+
+// SetZoneStatus sets the ZoneStatus field's value.
+func (s *DataListForlistZoneOutput) SetZoneStatus(v string) *DataListForlistZoneOutput {
+	s.ZoneStatus = &v
+	return s
+}
+
+type ListZoneInput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s ListZoneInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListZoneInput) GoString() string {
+	return s.String()
+}
+
+type ListZoneOutput struct {
+	_ struct{} `type:"structure"`
+
+	Metadata *response.ResponseMetadata
+
+	DataList []*DataListForlistZoneOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s ListZoneOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListZoneOutput) GoString() string {
+	return s.String()
+}
+
+// SetDataList sets the DataList field's value.
+func (s *ListZoneOutput) SetDataList(v []*DataListForlistZoneOutput) *ListZoneOutput {
+	s.DataList = v
+	return s
 }
