@@ -22,13 +22,13 @@ const opStopApplicationCommon = "stopApplication"
 // See StopApplicationCommon for more information on using the StopApplicationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the StopApplicationCommonRequest method.
-//    req, resp := client.StopApplicationCommonRequest(params)
+//	// Example sending a request using the StopApplicationCommonRequest method.
+//	req, resp := client.StopApplicationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) StopApplicationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStopApplicationCommon,
@@ -89,13 +89,13 @@ const opStopApplication = "stopApplication"
 // See StopApplication for more information on using the StopApplication
 // API call, and error handling.
 //
-//    // Example sending a request using the StopApplicationRequest method.
-//    req, resp := client.StopApplicationRequest(params)
+//	// Example sending a request using the StopApplicationRequest method.
+//	req, resp := client.StopApplicationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) StopApplicationRequest(input *StopApplicationInput) (req *request.Request, output *StopApplicationOutput) {
 	op := &request.Operation{
 		Name:       opStopApplication,

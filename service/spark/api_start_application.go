@@ -22,13 +22,13 @@ const opStartApplicationCommon = "startApplication"
 // See StartApplicationCommon for more information on using the StartApplicationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the StartApplicationCommonRequest method.
-//    req, resp := client.StartApplicationCommonRequest(params)
+//	// Example sending a request using the StartApplicationCommonRequest method.
+//	req, resp := client.StartApplicationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) StartApplicationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStartApplicationCommon,
@@ -89,13 +89,13 @@ const opStartApplication = "startApplication"
 // See StartApplication for more information on using the StartApplication
 // API call, and error handling.
 //
-//    // Example sending a request using the StartApplicationRequest method.
-//    req, resp := client.StartApplicationRequest(params)
+//	// Example sending a request using the StartApplicationRequest method.
+//	req, resp := client.StartApplicationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) StartApplicationRequest(input *StartApplicationInput) (req *request.Request, output *StartApplicationOutput) {
 	op := &request.Operation{
 		Name:       opStartApplication,

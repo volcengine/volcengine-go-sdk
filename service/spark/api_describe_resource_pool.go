@@ -22,13 +22,13 @@ const opDescribeResourcePoolCommon = "describeResourcePool"
 // See DescribeResourcePoolCommon for more information on using the DescribeResourcePoolCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeResourcePoolCommonRequest method.
-//    req, resp := client.DescribeResourcePoolCommonRequest(params)
+//	// Example sending a request using the DescribeResourcePoolCommonRequest method.
+//	req, resp := client.DescribeResourcePoolCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DescribeResourcePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeResourcePoolCommon,
@@ -89,13 +89,13 @@ const opDescribeResourcePool = "describeResourcePool"
 // See DescribeResourcePool for more information on using the DescribeResourcePool
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeResourcePoolRequest method.
-//    req, resp := client.DescribeResourcePoolRequest(params)
+//	// Example sending a request using the DescribeResourcePoolRequest method.
+//	req, resp := client.DescribeResourcePoolRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DescribeResourcePoolRequest(input *DescribeResourcePoolInput) (req *request.Request, output *DescribeResourcePoolOutput) {
 	op := &request.Operation{
 		Name:       opDescribeResourcePool,

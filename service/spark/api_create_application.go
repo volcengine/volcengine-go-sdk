@@ -22,13 +22,13 @@ const opCreateApplicationCommon = "createApplication"
 // See CreateApplicationCommon for more information on using the CreateApplicationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateApplicationCommonRequest method.
-//    req, resp := client.CreateApplicationCommonRequest(params)
+//	// Example sending a request using the CreateApplicationCommonRequest method.
+//	req, resp := client.CreateApplicationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) CreateApplicationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateApplicationCommon,
@@ -89,13 +89,13 @@ const opCreateApplication = "createApplication"
 // See CreateApplication for more information on using the CreateApplication
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateApplicationRequest method.
-//    req, resp := client.CreateApplicationRequest(params)
+//	// Example sending a request using the CreateApplicationRequest method.
+//	req, resp := client.CreateApplicationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) CreateApplicationRequest(input *CreateApplicationInput) (req *request.Request, output *CreateApplicationOutput) {
 	op := &request.Operation{
 		Name:       opCreateApplication,

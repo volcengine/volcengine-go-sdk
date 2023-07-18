@@ -22,13 +22,13 @@ const opUpdateProjectCommon = "updateProject"
 // See UpdateProjectCommon for more information on using the UpdateProjectCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateProjectCommonRequest method.
-//    req, resp := client.UpdateProjectCommonRequest(params)
+//	// Example sending a request using the UpdateProjectCommonRequest method.
+//	req, resp := client.UpdateProjectCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) UpdateProjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateProjectCommon,
@@ -89,13 +89,13 @@ const opUpdateProject = "updateProject"
 // See UpdateProject for more information on using the UpdateProject
 // API call, and error handling.
 //
-//    // Example sending a request using the UpdateProjectRequest method.
-//    req, resp := client.UpdateProjectRequest(params)
+//	// Example sending a request using the UpdateProjectRequest method.
+//	req, resp := client.UpdateProjectRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) UpdateProjectRequest(input *UpdateProjectInput) (req *request.Request, output *UpdateProjectOutput) {
 	op := &request.Operation{
 		Name:       opUpdateProject,

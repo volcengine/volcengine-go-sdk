@@ -16,19 +16,18 @@ import (
 // SPARKAPI provides an interface to enable mocking the
 // spark.SPARK service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // SPARK.
-//    func myFunc(svc SPARKAPI) bool {
-//        // Make svc.CreateApplication request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// SPARK.
+//	func myFunc(svc SPARKAPI) bool {
+//	    // Make svc.CreateApplication request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := spark.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := spark.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type SPARKAPI interface {
 	CreateApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -162,9 +161,9 @@ type SPARKAPI interface {
 	ListZoneCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListZoneCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	ListZone(*volcengineCommonQuery) (*volcengineCommonQuery, error)
-	ListZoneWithContext(volcengine.Context, *volcengineCommonQuery, ...request.Option) (*volcengineCommonQuery, error)
-	ListZoneRequest(*volcengineCommonQuery) (*request.Request, *volcengineCommonQuery)
+	ListZone(*ListZoneInput) (*ListZoneOutput, error)
+	ListZoneWithContext(volcengine.Context, *ListZoneInput, ...request.Option) (*ListZoneOutput, error)
+	ListZoneRequest(*ListZoneInput) (*request.Request, *ListZoneOutput)
 
 	ModifyApplicationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyApplicationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

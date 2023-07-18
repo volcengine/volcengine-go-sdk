@@ -22,13 +22,13 @@ const opDescribeApplicationInstanceCommon = "describeApplicationInstance"
 // See DescribeApplicationInstanceCommon for more information on using the DescribeApplicationInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeApplicationInstanceCommonRequest method.
-//    req, resp := client.DescribeApplicationInstanceCommonRequest(params)
+//	// Example sending a request using the DescribeApplicationInstanceCommonRequest method.
+//	req, resp := client.DescribeApplicationInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DescribeApplicationInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeApplicationInstanceCommon,
@@ -89,13 +89,13 @@ const opDescribeApplicationInstance = "describeApplicationInstance"
 // See DescribeApplicationInstance for more information on using the DescribeApplicationInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeApplicationInstanceRequest method.
-//    req, resp := client.DescribeApplicationInstanceRequest(params)
+//	// Example sending a request using the DescribeApplicationInstanceRequest method.
+//	req, resp := client.DescribeApplicationInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) DescribeApplicationInstanceRequest(input *DescribeApplicationInstanceInput) (req *request.Request, output *DescribeApplicationInstanceOutput) {
 	op := &request.Operation{
 		Name:       opDescribeApplicationInstance,

@@ -22,13 +22,13 @@ const opListResourcePoolCommon = "listResourcePool"
 // See ListResourcePoolCommon for more information on using the ListResourcePoolCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListResourcePoolCommonRequest method.
-//    req, resp := client.ListResourcePoolCommonRequest(params)
+//	// Example sending a request using the ListResourcePoolCommonRequest method.
+//	req, resp := client.ListResourcePoolCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ListResourcePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListResourcePoolCommon,
@@ -89,13 +89,13 @@ const opListResourcePool = "listResourcePool"
 // See ListResourcePool for more information on using the ListResourcePool
 // API call, and error handling.
 //
-//    // Example sending a request using the ListResourcePoolRequest method.
-//    req, resp := client.ListResourcePoolRequest(params)
+//	// Example sending a request using the ListResourcePoolRequest method.
+//	req, resp := client.ListResourcePoolRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *SPARK) ListResourcePoolRequest(input *ListResourcePoolInput) (req *request.Request, output *ListResourcePoolOutput) {
 	op := &request.Operation{
 		Name:       opListResourcePool,
