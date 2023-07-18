@@ -22,13 +22,13 @@ const opAttachInstanceToCenCommon = "AttachInstanceToCen"
 // See AttachInstanceToCenCommon for more information on using the AttachInstanceToCenCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachInstanceToCenCommonRequest method.
-//    req, resp := client.AttachInstanceToCenCommonRequest(params)
+//	// Example sending a request using the AttachInstanceToCenCommonRequest method.
+//	req, resp := client.AttachInstanceToCenCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) AttachInstanceToCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachInstanceToCenCommon,
@@ -87,13 +87,13 @@ const opAttachInstanceToCen = "AttachInstanceToCen"
 // See AttachInstanceToCen for more information on using the AttachInstanceToCen
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachInstanceToCenRequest method.
-//    req, resp := client.AttachInstanceToCenRequest(params)
+//	// Example sending a request using the AttachInstanceToCenRequest method.
+//	req, resp := client.AttachInstanceToCenRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) AttachInstanceToCenRequest(input *AttachInstanceToCenInput) (req *request.Request, output *AttachInstanceToCenOutput) {
 	op := &request.Operation{
 		Name:       opAttachInstanceToCen,

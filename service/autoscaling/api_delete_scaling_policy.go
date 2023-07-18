@@ -22,13 +22,13 @@ const opDeleteScalingPolicyCommon = "DeleteScalingPolicy"
 // See DeleteScalingPolicyCommon for more information on using the DeleteScalingPolicyCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteScalingPolicyCommonRequest method.
-//    req, resp := client.DeleteScalingPolicyCommonRequest(params)
+//	// Example sending a request using the DeleteScalingPolicyCommonRequest method.
+//	req, resp := client.DeleteScalingPolicyCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DeleteScalingPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteScalingPolicyCommon,
@@ -87,13 +87,13 @@ const opDeleteScalingPolicy = "DeleteScalingPolicy"
 // See DeleteScalingPolicy for more information on using the DeleteScalingPolicy
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteScalingPolicyRequest method.
-//    req, resp := client.DeleteScalingPolicyRequest(params)
+//	// Example sending a request using the DeleteScalingPolicyRequest method.
+//	req, resp := client.DeleteScalingPolicyRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DeleteScalingPolicyRequest(input *DeleteScalingPolicyInput) (req *request.Request, output *DeleteScalingPolicyOutput) {
 	op := &request.Operation{
 		Name:       opDeleteScalingPolicy,
@@ -142,7 +142,8 @@ func (c *AUTOSCALING) DeleteScalingPolicyWithContext(ctx volcengine.Context, inp
 type DeleteScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingPolicyId *string `type:"string"`
+	// ScalingPolicyId is a required field
+	ScalingPolicyId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DeleteScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s DeleteScalingPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteScalingPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteScalingPolicyInput"}
+	if s.ScalingPolicyId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetScalingPolicyId sets the ScalingPolicyId field's value.

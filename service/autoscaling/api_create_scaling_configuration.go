@@ -3,6 +3,8 @@
 package autoscaling
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -22,13 +24,13 @@ const opCreateScalingConfigurationCommon = "CreateScalingConfiguration"
 // See CreateScalingConfigurationCommon for more information on using the CreateScalingConfigurationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateScalingConfigurationCommonRequest method.
-//    req, resp := client.CreateScalingConfigurationCommonRequest(params)
+//	// Example sending a request using the CreateScalingConfigurationCommonRequest method.
+//	req, resp := client.CreateScalingConfigurationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CreateScalingConfigurationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateScalingConfigurationCommon,
@@ -87,13 +89,13 @@ const opCreateScalingConfiguration = "CreateScalingConfiguration"
 // See CreateScalingConfiguration for more information on using the CreateScalingConfiguration
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateScalingConfigurationRequest method.
-//    req, resp := client.CreateScalingConfigurationRequest(params)
+//	// Example sending a request using the CreateScalingConfigurationRequest method.
+//	req, resp := client.CreateScalingConfigurationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CreateScalingConfigurationRequest(input *CreateScalingConfigurationInput) (req *request.Request, output *CreateScalingConfigurationOutput) {
 	op := &request.Operation{
 		Name:       opCreateScalingConfiguration,
@@ -146,31 +148,39 @@ type CreateScalingConfigurationInput struct {
 
 	HostName *string `type:"string"`
 
-	ImageId *string `type:"string"`
+	// ImageId is a required field
+	ImageId *string `type:"string" required:"true"`
 
 	InstanceDescription *string `type:"string"`
 
-	InstanceName *string `type:"string"`
+	// InstanceName is a required field
+	InstanceName *string `type:"string" required:"true"`
 
-	InstanceTypes []*string `type:"list"`
+	// InstanceTypes is a required field
+	InstanceTypes []*string `type:"list" required:"true"`
 
 	KeyPairName *string `type:"string"`
 
 	Password *string `type:"string"`
 
-	ScalingConfigurationName *string `type:"string"`
+	// ScalingConfigurationName is a required field
+	ScalingConfigurationName *string `type:"string" required:"true"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
 	SecurityEnhancementStrategy *string `type:"string"`
 
-	SecurityGroupIds []*string `type:"list"`
+	// SecurityGroupIds is a required field
+	SecurityGroupIds []*string `type:"list" required:"true"`
 
 	UserData *string `type:"string"`
 
-	Volumes []*VolumeForCreateScalingConfigurationInput `type:"list"`
+	// Volumes is a required field
+	Volumes []*VolumeForCreateScalingConfigurationInput `type:"list" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -181,6 +191,50 @@ func (s CreateScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s CreateScalingConfigurationInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateScalingConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateScalingConfigurationInput"}
+	if s.ImageId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageId"))
+	}
+	if s.InstanceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceName"))
+	}
+	if s.InstanceTypes == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceTypes"))
+	}
+	if s.ScalingConfigurationName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingConfigurationName"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+	if s.SecurityGroupIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
+	}
+	if s.Volumes == nil {
+		invalidParams.Add(request.NewErrParamRequired("Volumes"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+	if s.Volumes != nil {
+		for i, v := range s.Volumes {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Volumes", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEip sets the Eip field's value.
@@ -340,9 +394,11 @@ type VolumeForCreateScalingConfigurationInput struct {
 
 	DeleteWithInstance *bool `type:"boolean"`
 
-	Size *int32 `type:"int32"`
+	// Size is a required field
+	Size *int32 `type:"int32" required:"true"`
 
-	VolumeType *string `type:"string"`
+	// VolumeType is a required field
+	VolumeType *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -353,6 +409,22 @@ func (s VolumeForCreateScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s VolumeForCreateScalingConfigurationInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VolumeForCreateScalingConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VolumeForCreateScalingConfigurationInput"}
+	if s.Size == nil {
+		invalidParams.Add(request.NewErrParamRequired("Size"))
+	}
+	if s.VolumeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.

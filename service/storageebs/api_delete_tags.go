@@ -22,13 +22,13 @@ const opDeleteTagsCommon = "DeleteTags"
 // See DeleteTagsCommon for more information on using the DeleteTagsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteTagsCommonRequest method.
-//    req, resp := client.DeleteTagsCommonRequest(params)
+//	// Example sending a request using the DeleteTagsCommonRequest method.
+//	req, resp := client.DeleteTagsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) DeleteTagsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteTagsCommon,
@@ -87,13 +87,13 @@ const opDeleteTags = "DeleteTags"
 // See DeleteTags for more information on using the DeleteTags
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteTagsRequest method.
-//    req, resp := client.DeleteTagsRequest(params)
+//	// Example sending a request using the DeleteTagsRequest method.
+//	req, resp := client.DeleteTagsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) DeleteTagsRequest(input *DeleteTagsInput) (req *request.Request, output *DeleteTagsOutput) {
 	op := &request.Operation{
 		Name:       opDeleteTags,

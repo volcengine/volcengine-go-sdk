@@ -22,13 +22,13 @@ const opDescribeVpnConnectionAttributesCommon = "DescribeVpnConnectionAttributes
 // See DescribeVpnConnectionAttributesCommon for more information on using the DescribeVpnConnectionAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnConnectionAttributesCommonRequest method.
-//    req, resp := client.DescribeVpnConnectionAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeVpnConnectionAttributesCommonRequest method.
+//	req, resp := client.DescribeVpnConnectionAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnConnectionAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnConnectionAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnConnectionAttributes = "DescribeVpnConnectionAttributes"
 // See DescribeVpnConnectionAttributes for more information on using the DescribeVpnConnectionAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnConnectionAttributesRequest method.
-//    req, resp := client.DescribeVpnConnectionAttributesRequest(params)
+//	// Example sending a request using the DescribeVpnConnectionAttributesRequest method.
+//	req, resp := client.DescribeVpnConnectionAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnConnectionAttributesRequest(input *DescribeVpnConnectionAttributesInput) (req *request.Request, output *DescribeVpnConnectionAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnConnectionAttributes,

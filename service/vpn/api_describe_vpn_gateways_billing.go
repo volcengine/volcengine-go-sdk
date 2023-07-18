@@ -22,13 +22,13 @@ const opDescribeVpnGatewaysBillingCommon = "DescribeVpnGatewaysBilling"
 // See DescribeVpnGatewaysBillingCommon for more information on using the DescribeVpnGatewaysBillingCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnGatewaysBillingCommonRequest method.
-//    req, resp := client.DescribeVpnGatewaysBillingCommonRequest(params)
+//	// Example sending a request using the DescribeVpnGatewaysBillingCommonRequest method.
+//	req, resp := client.DescribeVpnGatewaysBillingCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnGatewaysBillingCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewaysBillingCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnGatewaysBilling = "DescribeVpnGatewaysBilling"
 // See DescribeVpnGatewaysBilling for more information on using the DescribeVpnGatewaysBilling
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnGatewaysBillingRequest method.
-//    req, resp := client.DescribeVpnGatewaysBillingRequest(params)
+//	// Example sending a request using the DescribeVpnGatewaysBillingRequest method.
+//	req, resp := client.DescribeVpnGatewaysBillingRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnGatewaysBillingRequest(input *DescribeVpnGatewaysBillingInput) (req *request.Request, output *DescribeVpnGatewaysBillingOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnGatewaysBilling,

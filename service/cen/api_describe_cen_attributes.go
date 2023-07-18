@@ -22,13 +22,13 @@ const opDescribeCenAttributesCommon = "DescribeCenAttributes"
 // See DescribeCenAttributesCommon for more information on using the DescribeCenAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenAttributesCommonRequest method.
-//    req, resp := client.DescribeCenAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeCenAttributesCommonRequest method.
+//	req, resp := client.DescribeCenAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenAttributes = "DescribeCenAttributes"
 // See DescribeCenAttributes for more information on using the DescribeCenAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenAttributesRequest method.
-//    req, resp := client.DescribeCenAttributesRequest(params)
+//	// Example sending a request using the DescribeCenAttributesRequest method.
+//	req, resp := client.DescribeCenAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenAttributesRequest(input *DescribeCenAttributesInput) (req *request.Request, output *DescribeCenAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenAttributes,

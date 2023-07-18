@@ -22,13 +22,13 @@ const opDeleteScalingConfigurationCommon = "DeleteScalingConfiguration"
 // See DeleteScalingConfigurationCommon for more information on using the DeleteScalingConfigurationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteScalingConfigurationCommonRequest method.
-//    req, resp := client.DeleteScalingConfigurationCommonRequest(params)
+//	// Example sending a request using the DeleteScalingConfigurationCommonRequest method.
+//	req, resp := client.DeleteScalingConfigurationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DeleteScalingConfigurationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteScalingConfigurationCommon,
@@ -87,13 +87,13 @@ const opDeleteScalingConfiguration = "DeleteScalingConfiguration"
 // See DeleteScalingConfiguration for more information on using the DeleteScalingConfiguration
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteScalingConfigurationRequest method.
-//    req, resp := client.DeleteScalingConfigurationRequest(params)
+//	// Example sending a request using the DeleteScalingConfigurationRequest method.
+//	req, resp := client.DeleteScalingConfigurationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DeleteScalingConfigurationRequest(input *DeleteScalingConfigurationInput) (req *request.Request, output *DeleteScalingConfigurationOutput) {
 	op := &request.Operation{
 		Name:       opDeleteScalingConfiguration,
@@ -142,7 +142,8 @@ func (c *AUTOSCALING) DeleteScalingConfigurationWithContext(ctx volcengine.Conte
 type DeleteScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingConfigurationId *string `type:"string"`
+	// ScalingConfigurationId is a required field
+	ScalingConfigurationId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DeleteScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s DeleteScalingConfigurationInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteScalingConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteScalingConfigurationInput"}
+	if s.ScalingConfigurationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingConfigurationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetScalingConfigurationId sets the ScalingConfigurationId field's value.

@@ -22,13 +22,13 @@ const opDetachInstanceFromCenCommon = "DetachInstanceFromCen"
 // See DetachInstanceFromCenCommon for more information on using the DetachInstanceFromCenCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachInstanceFromCenCommonRequest method.
-//    req, resp := client.DetachInstanceFromCenCommonRequest(params)
+//	// Example sending a request using the DetachInstanceFromCenCommonRequest method.
+//	req, resp := client.DetachInstanceFromCenCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DetachInstanceFromCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachInstanceFromCenCommon,
@@ -87,13 +87,13 @@ const opDetachInstanceFromCen = "DetachInstanceFromCen"
 // See DetachInstanceFromCen for more information on using the DetachInstanceFromCen
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachInstanceFromCenRequest method.
-//    req, resp := client.DetachInstanceFromCenRequest(params)
+//	// Example sending a request using the DetachInstanceFromCenRequest method.
+//	req, resp := client.DetachInstanceFromCenRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DetachInstanceFromCenRequest(input *DetachInstanceFromCenInput) (req *request.Request, output *DetachInstanceFromCenOutput) {
 	op := &request.Operation{
 		Name:       opDetachInstanceFromCen,

@@ -22,13 +22,13 @@ const opModifySnatEntryAttributesCommon = "ModifySnatEntryAttributes"
 // See ModifySnatEntryAttributesCommon for more information on using the ModifySnatEntryAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifySnatEntryAttributesCommonRequest method.
-//    req, resp := client.ModifySnatEntryAttributesCommonRequest(params)
+//	// Example sending a request using the ModifySnatEntryAttributesCommonRequest method.
+//	req, resp := client.ModifySnatEntryAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) ModifySnatEntryAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifySnatEntryAttributesCommon,
@@ -87,13 +87,13 @@ const opModifySnatEntryAttributes = "ModifySnatEntryAttributes"
 // See ModifySnatEntryAttributes for more information on using the ModifySnatEntryAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifySnatEntryAttributesRequest method.
-//    req, resp := client.ModifySnatEntryAttributesRequest(params)
+//	// Example sending a request using the ModifySnatEntryAttributesRequest method.
+//	req, resp := client.ModifySnatEntryAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) ModifySnatEntryAttributesRequest(input *ModifySnatEntryAttributesInput) (req *request.Request, output *ModifySnatEntryAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifySnatEntryAttributes,

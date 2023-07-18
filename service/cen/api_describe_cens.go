@@ -22,13 +22,13 @@ const opDescribeCensCommon = "DescribeCens"
 // See DescribeCensCommon for more information on using the DescribeCensCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCensCommonRequest method.
-//    req, resp := client.DescribeCensCommonRequest(params)
+//	// Example sending a request using the DescribeCensCommonRequest method.
+//	req, resp := client.DescribeCensCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCensCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCensCommon,
@@ -87,13 +87,13 @@ const opDescribeCens = "DescribeCens"
 // See DescribeCens for more information on using the DescribeCens
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCensRequest method.
-//    req, resp := client.DescribeCensRequest(params)
+//	// Example sending a request using the DescribeCensRequest method.
+//	req, resp := client.DescribeCensRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCensRequest(input *DescribeCensInput) (req *request.Request, output *DescribeCensOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCens,

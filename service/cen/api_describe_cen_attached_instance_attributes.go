@@ -22,13 +22,13 @@ const opDescribeCenAttachedInstanceAttributesCommon = "DescribeCenAttachedInstan
 // See DescribeCenAttachedInstanceAttributesCommon for more information on using the DescribeCenAttachedInstanceAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenAttachedInstanceAttributesCommonRequest method.
-//    req, resp := client.DescribeCenAttachedInstanceAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeCenAttachedInstanceAttributesCommonRequest method.
+//	req, resp := client.DescribeCenAttachedInstanceAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenAttachedInstanceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenAttachedInstanceAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenAttachedInstanceAttributes = "DescribeCenAttachedInstanceAttr
 // See DescribeCenAttachedInstanceAttributes for more information on using the DescribeCenAttachedInstanceAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenAttachedInstanceAttributesRequest method.
-//    req, resp := client.DescribeCenAttachedInstanceAttributesRequest(params)
+//	// Example sending a request using the DescribeCenAttachedInstanceAttributesRequest method.
+//	req, resp := client.DescribeCenAttachedInstanceAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenAttachedInstanceAttributesRequest(input *DescribeCenAttachedInstanceAttributesInput) (req *request.Request, output *DescribeCenAttachedInstanceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenAttachedInstanceAttributes,

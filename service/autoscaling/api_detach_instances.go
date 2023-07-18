@@ -22,13 +22,13 @@ const opDetachInstancesCommon = "DetachInstances"
 // See DetachInstancesCommon for more information on using the DetachInstancesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachInstancesCommonRequest method.
-//    req, resp := client.DetachInstancesCommonRequest(params)
+//	// Example sending a request using the DetachInstancesCommonRequest method.
+//	req, resp := client.DetachInstancesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DetachInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachInstancesCommon,
@@ -87,13 +87,13 @@ const opDetachInstances = "DetachInstances"
 // See DetachInstances for more information on using the DetachInstances
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachInstancesRequest method.
-//    req, resp := client.DetachInstancesRequest(params)
+//	// Example sending a request using the DetachInstancesRequest method.
+//	req, resp := client.DetachInstancesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DetachInstancesRequest(input *DetachInstancesInput) (req *request.Request, output *DetachInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDetachInstances,
@@ -146,9 +146,11 @@ type DetachInstancesInput struct {
 
 	DetachOption *string `type:"string"`
 
-	InstanceIds []*string `type:"list"`
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s DetachInstancesInput) String() string {
 // GoString returns the string representation
 func (s DetachInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DetachInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DetachInstancesInput"}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDecreaseDesiredCapacity sets the DecreaseDesiredCapacity field's value.

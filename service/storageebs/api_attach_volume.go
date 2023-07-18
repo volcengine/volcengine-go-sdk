@@ -22,13 +22,13 @@ const opAttachVolumeCommon = "AttachVolume"
 // See AttachVolumeCommon for more information on using the AttachVolumeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachVolumeCommonRequest method.
-//    req, resp := client.AttachVolumeCommonRequest(params)
+//	// Example sending a request using the AttachVolumeCommonRequest method.
+//	req, resp := client.AttachVolumeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) AttachVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachVolumeCommon,
@@ -87,13 +87,13 @@ const opAttachVolume = "AttachVolume"
 // See AttachVolume for more information on using the AttachVolume
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachVolumeRequest method.
-//    req, resp := client.AttachVolumeRequest(params)
+//	// Example sending a request using the AttachVolumeRequest method.
+//	req, resp := client.AttachVolumeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) AttachVolumeRequest(input *AttachVolumeInput) (req *request.Request, output *AttachVolumeOutput) {
 	op := &request.Operation{
 		Name:       opAttachVolume,

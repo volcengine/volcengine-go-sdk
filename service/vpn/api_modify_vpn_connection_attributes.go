@@ -22,13 +22,13 @@ const opModifyVpnConnectionAttributesCommon = "ModifyVpnConnectionAttributes"
 // See ModifyVpnConnectionAttributesCommon for more information on using the ModifyVpnConnectionAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyVpnConnectionAttributesCommonRequest method.
-//    req, resp := client.ModifyVpnConnectionAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyVpnConnectionAttributesCommonRequest method.
+//	req, resp := client.ModifyVpnConnectionAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) ModifyVpnConnectionAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVpnConnectionAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyVpnConnectionAttributes = "ModifyVpnConnectionAttributes"
 // See ModifyVpnConnectionAttributes for more information on using the ModifyVpnConnectionAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyVpnConnectionAttributesRequest method.
-//    req, resp := client.ModifyVpnConnectionAttributesRequest(params)
+//	// Example sending a request using the ModifyVpnConnectionAttributesRequest method.
+//	req, resp := client.ModifyVpnConnectionAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) ModifyVpnConnectionAttributesRequest(input *ModifyVpnConnectionAttributesInput) (req *request.Request, output *ModifyVpnConnectionAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyVpnConnectionAttributes,

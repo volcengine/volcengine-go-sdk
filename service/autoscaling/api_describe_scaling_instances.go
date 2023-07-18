@@ -22,13 +22,13 @@ const opDescribeScalingInstancesCommon = "DescribeScalingInstances"
 // See DescribeScalingInstancesCommon for more information on using the DescribeScalingInstancesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeScalingInstancesCommonRequest method.
-//    req, resp := client.DescribeScalingInstancesCommonRequest(params)
+//	// Example sending a request using the DescribeScalingInstancesCommonRequest method.
+//	req, resp := client.DescribeScalingInstancesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeScalingInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeScalingInstancesCommon,
@@ -87,13 +87,13 @@ const opDescribeScalingInstances = "DescribeScalingInstances"
 // See DescribeScalingInstances for more information on using the DescribeScalingInstances
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeScalingInstancesRequest method.
-//    req, resp := client.DescribeScalingInstancesRequest(params)
+//	// Example sending a request using the DescribeScalingInstancesRequest method.
+//	req, resp := client.DescribeScalingInstancesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeScalingInstancesRequest(input *DescribeScalingInstancesInput) (req *request.Request, output *DescribeScalingInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeScalingInstances,
@@ -152,7 +152,8 @@ type DescribeScalingInstancesInput struct {
 
 	ScalingConfigurationId *string `type:"string"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
 	Status *string `type:"string"`
 }
@@ -165,6 +166,19 @@ func (s DescribeScalingInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeScalingInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingInstancesInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCreationType sets the CreationType field's value.

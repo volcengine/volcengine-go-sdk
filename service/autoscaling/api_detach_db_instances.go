@@ -22,13 +22,13 @@ const opDetachDBInstancesCommon = "DetachDBInstances"
 // See DetachDBInstancesCommon for more information on using the DetachDBInstancesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachDBInstancesCommonRequest method.
-//    req, resp := client.DetachDBInstancesCommonRequest(params)
+//	// Example sending a request using the DetachDBInstancesCommonRequest method.
+//	req, resp := client.DetachDBInstancesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DetachDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachDBInstancesCommon,
@@ -87,13 +87,13 @@ const opDetachDBInstances = "DetachDBInstances"
 // See DetachDBInstances for more information on using the DetachDBInstances
 // API call, and error handling.
 //
-//    // Example sending a request using the DetachDBInstancesRequest method.
-//    req, resp := client.DetachDBInstancesRequest(params)
+//	// Example sending a request using the DetachDBInstancesRequest method.
+//	req, resp := client.DetachDBInstancesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DetachDBInstancesRequest(input *DetachDBInstancesInput) (req *request.Request, output *DetachDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDetachDBInstances,

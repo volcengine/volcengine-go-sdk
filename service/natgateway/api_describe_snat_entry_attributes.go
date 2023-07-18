@@ -22,13 +22,13 @@ const opDescribeSnatEntryAttributesCommon = "DescribeSnatEntryAttributes"
 // See DescribeSnatEntryAttributesCommon for more information on using the DescribeSnatEntryAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSnatEntryAttributesCommonRequest method.
-//    req, resp := client.DescribeSnatEntryAttributesCommonRequest(params)
+//	// Example sending a request using the DescribeSnatEntryAttributesCommonRequest method.
+//	req, resp := client.DescribeSnatEntryAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) DescribeSnatEntryAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSnatEntryAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeSnatEntryAttributes = "DescribeSnatEntryAttributes"
 // See DescribeSnatEntryAttributes for more information on using the DescribeSnatEntryAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSnatEntryAttributesRequest method.
-//    req, resp := client.DescribeSnatEntryAttributesRequest(params)
+//	// Example sending a request using the DescribeSnatEntryAttributesRequest method.
+//	req, resp := client.DescribeSnatEntryAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) DescribeSnatEntryAttributesRequest(input *DescribeSnatEntryAttributesInput) (req *request.Request, output *DescribeSnatEntryAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSnatEntryAttributes,

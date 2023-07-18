@@ -22,13 +22,13 @@ const opDescribeCenAttachedInstancesCommon = "DescribeCenAttachedInstances"
 // See DescribeCenAttachedInstancesCommon for more information on using the DescribeCenAttachedInstancesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenAttachedInstancesCommonRequest method.
-//    req, resp := client.DescribeCenAttachedInstancesCommonRequest(params)
+//	// Example sending a request using the DescribeCenAttachedInstancesCommonRequest method.
+//	req, resp := client.DescribeCenAttachedInstancesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenAttachedInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenAttachedInstancesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenAttachedInstances = "DescribeCenAttachedInstances"
 // See DescribeCenAttachedInstances for more information on using the DescribeCenAttachedInstances
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenAttachedInstancesRequest method.
-//    req, resp := client.DescribeCenAttachedInstancesRequest(params)
+//	// Example sending a request using the DescribeCenAttachedInstancesRequest method.
+//	req, resp := client.DescribeCenAttachedInstancesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenAttachedInstancesRequest(input *DescribeCenAttachedInstancesInput) (req *request.Request, output *DescribeCenAttachedInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenAttachedInstances,

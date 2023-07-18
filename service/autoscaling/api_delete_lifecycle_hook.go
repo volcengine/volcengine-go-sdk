@@ -22,13 +22,13 @@ const opDeleteLifecycleHookCommon = "DeleteLifecycleHook"
 // See DeleteLifecycleHookCommon for more information on using the DeleteLifecycleHookCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteLifecycleHookCommonRequest method.
-//    req, resp := client.DeleteLifecycleHookCommonRequest(params)
+//	// Example sending a request using the DeleteLifecycleHookCommonRequest method.
+//	req, resp := client.DeleteLifecycleHookCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DeleteLifecycleHookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteLifecycleHookCommon,
@@ -87,13 +87,13 @@ const opDeleteLifecycleHook = "DeleteLifecycleHook"
 // See DeleteLifecycleHook for more information on using the DeleteLifecycleHook
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteLifecycleHookRequest method.
-//    req, resp := client.DeleteLifecycleHookRequest(params)
+//	// Example sending a request using the DeleteLifecycleHookRequest method.
+//	req, resp := client.DeleteLifecycleHookRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DeleteLifecycleHookRequest(input *DeleteLifecycleHookInput) (req *request.Request, output *DeleteLifecycleHookOutput) {
 	op := &request.Operation{
 		Name:       opDeleteLifecycleHook,

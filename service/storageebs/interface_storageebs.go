@@ -16,19 +16,18 @@ import (
 // STORAGEEBSAPI provides an interface to enable mocking the
 // storageebs.STORAGEEBS service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // STORAGE_EBS.
-//    func myFunc(svc STORAGEEBSAPI) bool {
-//        // Make svc.AttachVolume request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// STORAGE_EBS.
+//	func myFunc(svc STORAGEEBSAPI) bool {
+//	    // Make svc.AttachVolume request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := storageebs.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := storageebs.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type STORAGEEBSAPI interface {
 	AttachVolumeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachVolumeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

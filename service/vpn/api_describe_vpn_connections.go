@@ -22,13 +22,13 @@ const opDescribeVpnConnectionsCommon = "DescribeVpnConnections"
 // See DescribeVpnConnectionsCommon for more information on using the DescribeVpnConnectionsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnConnectionsCommonRequest method.
-//    req, resp := client.DescribeVpnConnectionsCommonRequest(params)
+//	// Example sending a request using the DescribeVpnConnectionsCommonRequest method.
+//	req, resp := client.DescribeVpnConnectionsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnConnectionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpnConnectionsCommon,
@@ -87,13 +87,13 @@ const opDescribeVpnConnections = "DescribeVpnConnections"
 // See DescribeVpnConnections for more information on using the DescribeVpnConnections
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpnConnectionsRequest method.
-//    req, resp := client.DescribeVpnConnectionsRequest(params)
+//	// Example sending a request using the DescribeVpnConnectionsRequest method.
+//	req, resp := client.DescribeVpnConnectionsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DescribeVpnConnectionsRequest(input *DescribeVpnConnectionsInput) (req *request.Request, output *DescribeVpnConnectionsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpnConnections,

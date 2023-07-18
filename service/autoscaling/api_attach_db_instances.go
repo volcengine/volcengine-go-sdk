@@ -22,13 +22,13 @@ const opAttachDBInstancesCommon = "AttachDBInstances"
 // See AttachDBInstancesCommon for more information on using the AttachDBInstancesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachDBInstancesCommonRequest method.
-//    req, resp := client.AttachDBInstancesCommonRequest(params)
+//	// Example sending a request using the AttachDBInstancesCommonRequest method.
+//	req, resp := client.AttachDBInstancesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) AttachDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachDBInstancesCommon,
@@ -87,13 +87,13 @@ const opAttachDBInstances = "AttachDBInstances"
 // See AttachDBInstances for more information on using the AttachDBInstances
 // API call, and error handling.
 //
-//    // Example sending a request using the AttachDBInstancesRequest method.
-//    req, resp := client.AttachDBInstancesRequest(params)
+//	// Example sending a request using the AttachDBInstancesRequest method.
+//	req, resp := client.AttachDBInstancesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) AttachDBInstancesRequest(input *AttachDBInstancesInput) (req *request.Request, output *AttachDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opAttachDBInstances,

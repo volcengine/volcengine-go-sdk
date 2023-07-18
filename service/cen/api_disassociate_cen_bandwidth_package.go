@@ -22,13 +22,13 @@ const opDisassociateCenBandwidthPackageCommon = "DisassociateCenBandwidthPackage
 // See DisassociateCenBandwidthPackageCommon for more information on using the DisassociateCenBandwidthPackageCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateCenBandwidthPackageCommonRequest method.
-//    req, resp := client.DisassociateCenBandwidthPackageCommonRequest(params)
+//	// Example sending a request using the DisassociateCenBandwidthPackageCommonRequest method.
+//	req, resp := client.DisassociateCenBandwidthPackageCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DisassociateCenBandwidthPackageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateCenBandwidthPackageCommon,
@@ -87,13 +87,13 @@ const opDisassociateCenBandwidthPackage = "DisassociateCenBandwidthPackage"
 // See DisassociateCenBandwidthPackage for more information on using the DisassociateCenBandwidthPackage
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateCenBandwidthPackageRequest method.
-//    req, resp := client.DisassociateCenBandwidthPackageRequest(params)
+//	// Example sending a request using the DisassociateCenBandwidthPackageRequest method.
+//	req, resp := client.DisassociateCenBandwidthPackageRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DisassociateCenBandwidthPackageRequest(input *DisassociateCenBandwidthPackageInput) (req *request.Request, output *DisassociateCenBandwidthPackageOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateCenBandwidthPackage,
