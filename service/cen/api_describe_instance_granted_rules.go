@@ -22,13 +22,13 @@ const opDescribeInstanceGrantedRulesCommon = "DescribeInstanceGrantedRules"
 // See DescribeInstanceGrantedRulesCommon for more information on using the DescribeInstanceGrantedRulesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeInstanceGrantedRulesCommonRequest method.
-//    req, resp := client.DescribeInstanceGrantedRulesCommonRequest(params)
+//	// Example sending a request using the DescribeInstanceGrantedRulesCommonRequest method.
+//	req, resp := client.DescribeInstanceGrantedRulesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeInstanceGrantedRulesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceGrantedRulesCommon,
@@ -87,13 +87,13 @@ const opDescribeInstanceGrantedRules = "DescribeInstanceGrantedRules"
 // See DescribeInstanceGrantedRules for more information on using the DescribeInstanceGrantedRules
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeInstanceGrantedRulesRequest method.
-//    req, resp := client.DescribeInstanceGrantedRulesRequest(params)
+//	// Example sending a request using the DescribeInstanceGrantedRulesRequest method.
+//	req, resp := client.DescribeInstanceGrantedRulesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeInstanceGrantedRulesRequest(input *DescribeInstanceGrantedRulesInput) (req *request.Request, output *DescribeInstanceGrantedRulesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceGrantedRules,

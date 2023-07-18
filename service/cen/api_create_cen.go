@@ -22,13 +22,13 @@ const opCreateCenCommon = "CreateCen"
 // See CreateCenCommon for more information on using the CreateCenCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCenCommonRequest method.
-//    req, resp := client.CreateCenCommonRequest(params)
+//	// Example sending a request using the CreateCenCommonRequest method.
+//	req, resp := client.CreateCenCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) CreateCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCenCommon,
@@ -87,13 +87,13 @@ const opCreateCen = "CreateCen"
 // See CreateCen for more information on using the CreateCen
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCenRequest method.
-//    req, resp := client.CreateCenRequest(params)
+//	// Example sending a request using the CreateCenRequest method.
+//	req, resp := client.CreateCenRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) CreateCenRequest(input *CreateCenInput) (req *request.Request, output *CreateCenOutput) {
 	op := &request.Operation{
 		Name:       opCreateCen,

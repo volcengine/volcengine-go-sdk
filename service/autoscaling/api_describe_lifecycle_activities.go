@@ -22,13 +22,13 @@ const opDescribeLifecycleActivitiesCommon = "DescribeLifecycleActivities"
 // See DescribeLifecycleActivitiesCommon for more information on using the DescribeLifecycleActivitiesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLifecycleActivitiesCommonRequest method.
-//    req, resp := client.DescribeLifecycleActivitiesCommonRequest(params)
+//	// Example sending a request using the DescribeLifecycleActivitiesCommonRequest method.
+//	req, resp := client.DescribeLifecycleActivitiesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeLifecycleActivitiesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeLifecycleActivitiesCommon,
@@ -87,13 +87,13 @@ const opDescribeLifecycleActivities = "DescribeLifecycleActivities"
 // See DescribeLifecycleActivities for more information on using the DescribeLifecycleActivities
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeLifecycleActivitiesRequest method.
-//    req, resp := client.DescribeLifecycleActivitiesRequest(params)
+//	// Example sending a request using the DescribeLifecycleActivitiesRequest method.
+//	req, resp := client.DescribeLifecycleActivitiesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeLifecycleActivitiesRequest(input *DescribeLifecycleActivitiesInput) (req *request.Request, output *DescribeLifecycleActivitiesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeLifecycleActivities,

@@ -22,13 +22,13 @@ const opDeleteCustomerGatewayCommon = "DeleteCustomerGateway"
 // See DeleteCustomerGatewayCommon for more information on using the DeleteCustomerGatewayCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCustomerGatewayCommonRequest method.
-//    req, resp := client.DeleteCustomerGatewayCommonRequest(params)
+//	// Example sending a request using the DeleteCustomerGatewayCommonRequest method.
+//	req, resp := client.DeleteCustomerGatewayCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DeleteCustomerGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCustomerGatewayCommon,
@@ -87,13 +87,13 @@ const opDeleteCustomerGateway = "DeleteCustomerGateway"
 // See DeleteCustomerGateway for more information on using the DeleteCustomerGateway
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCustomerGatewayRequest method.
-//    req, resp := client.DeleteCustomerGatewayRequest(params)
+//	// Example sending a request using the DeleteCustomerGatewayRequest method.
+//	req, resp := client.DeleteCustomerGatewayRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DeleteCustomerGatewayRequest(input *DeleteCustomerGatewayInput) (req *request.Request, output *DeleteCustomerGatewayOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCustomerGateway,

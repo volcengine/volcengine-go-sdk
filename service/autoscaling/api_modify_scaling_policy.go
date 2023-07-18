@@ -22,13 +22,13 @@ const opModifyScalingPolicyCommon = "ModifyScalingPolicy"
 // See ModifyScalingPolicyCommon for more information on using the ModifyScalingPolicyCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyScalingPolicyCommonRequest method.
-//    req, resp := client.ModifyScalingPolicyCommonRequest(params)
+//	// Example sending a request using the ModifyScalingPolicyCommonRequest method.
+//	req, resp := client.ModifyScalingPolicyCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) ModifyScalingPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyScalingPolicyCommon,
@@ -87,13 +87,13 @@ const opModifyScalingPolicy = "ModifyScalingPolicy"
 // See ModifyScalingPolicy for more information on using the ModifyScalingPolicy
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyScalingPolicyRequest method.
-//    req, resp := client.ModifyScalingPolicyRequest(params)
+//	// Example sending a request using the ModifyScalingPolicyRequest method.
+//	req, resp := client.ModifyScalingPolicyRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) ModifyScalingPolicyRequest(input *ModifyScalingPolicyInput) (req *request.Request, output *ModifyScalingPolicyOutput) {
 	op := &request.Operation{
 		Name:       opModifyScalingPolicy,
@@ -234,7 +234,8 @@ type ModifyScalingPolicyInput struct {
 
 	Cooldown *int32 `type:"int32"`
 
-	ScalingPolicyId *string `type:"string"`
+	// ScalingPolicyId is a required field
+	ScalingPolicyId *string `type:"string" required:"true"`
 
 	ScalingPolicyName *string `type:"string"`
 
@@ -249,6 +250,19 @@ func (s ModifyScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s ModifyScalingPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyScalingPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyScalingPolicyInput"}
+	if s.ScalingPolicyId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAdjustmentType sets the AdjustmentType field's value.

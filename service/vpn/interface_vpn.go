@@ -16,19 +16,18 @@ import (
 // VPNAPI provides an interface to enable mocking the
 // vpn.VPN service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // VPN.
-//    func myFunc(svc VPNAPI) bool {
-//        // Make svc.CreateCustomerGateway request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// VPN.
+//	func myFunc(svc VPNAPI) bool {
+//	    // Make svc.CreateCustomerGateway request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := vpn.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := vpn.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type VPNAPI interface {
 	CreateCustomerGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateCustomerGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -22,13 +22,13 @@ const opDescribeScalingActivitiesCommon = "DescribeScalingActivities"
 // See DescribeScalingActivitiesCommon for more information on using the DescribeScalingActivitiesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeScalingActivitiesCommonRequest method.
-//    req, resp := client.DescribeScalingActivitiesCommonRequest(params)
+//	// Example sending a request using the DescribeScalingActivitiesCommonRequest method.
+//	req, resp := client.DescribeScalingActivitiesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeScalingActivitiesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeScalingActivitiesCommon,
@@ -87,13 +87,13 @@ const opDescribeScalingActivities = "DescribeScalingActivities"
 // See DescribeScalingActivities for more information on using the DescribeScalingActivities
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeScalingActivitiesRequest method.
-//    req, resp := client.DescribeScalingActivitiesRequest(params)
+//	// Example sending a request using the DescribeScalingActivitiesRequest method.
+//	req, resp := client.DescribeScalingActivitiesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeScalingActivitiesRequest(input *DescribeScalingActivitiesInput) (req *request.Request, output *DescribeScalingActivitiesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeScalingActivities,
@@ -150,7 +150,8 @@ type DescribeScalingActivitiesInput struct {
 
 	ScalingActivityIds []*string `type:"list"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
 	StartTime *string `type:"string"`
 
@@ -165,6 +166,19 @@ func (s DescribeScalingActivitiesInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingActivitiesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeScalingActivitiesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingActivitiesInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEndTime sets the EndTime field's value.

@@ -22,13 +22,13 @@ const opDeleteNatGatewayCommon = "DeleteNatGateway"
 // See DeleteNatGatewayCommon for more information on using the DeleteNatGatewayCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteNatGatewayCommonRequest method.
-//    req, resp := client.DeleteNatGatewayCommonRequest(params)
+//	// Example sending a request using the DeleteNatGatewayCommonRequest method.
+//	req, resp := client.DeleteNatGatewayCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) DeleteNatGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteNatGatewayCommon,
@@ -87,13 +87,13 @@ const opDeleteNatGateway = "DeleteNatGateway"
 // See DeleteNatGateway for more information on using the DeleteNatGateway
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteNatGatewayRequest method.
-//    req, resp := client.DeleteNatGatewayRequest(params)
+//	// Example sending a request using the DeleteNatGatewayRequest method.
+//	req, resp := client.DeleteNatGatewayRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) DeleteNatGatewayRequest(input *DeleteNatGatewayInput) (req *request.Request, output *DeleteNatGatewayOutput) {
 	op := &request.Operation{
 		Name:       opDeleteNatGateway,

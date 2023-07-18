@@ -22,13 +22,13 @@ const opCreateScalingGroupCommon = "CreateScalingGroup"
 // See CreateScalingGroupCommon for more information on using the CreateScalingGroupCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateScalingGroupCommonRequest method.
-//    req, resp := client.CreateScalingGroupCommonRequest(params)
+//	// Example sending a request using the CreateScalingGroupCommonRequest method.
+//	req, resp := client.CreateScalingGroupCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CreateScalingGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateScalingGroupCommon,
@@ -87,13 +87,13 @@ const opCreateScalingGroup = "CreateScalingGroup"
 // See CreateScalingGroup for more information on using the CreateScalingGroup
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateScalingGroupRequest method.
-//    req, resp := client.CreateScalingGroupRequest(params)
+//	// Example sending a request using the CreateScalingGroupRequest method.
+//	req, resp := client.CreateScalingGroupRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CreateScalingGroupRequest(input *CreateScalingGroupInput) (req *request.Request, output *CreateScalingGroupOutput) {
 	op := &request.Operation{
 		Name:       opCreateScalingGroup,
@@ -156,11 +156,13 @@ type CreateScalingGroupInput struct {
 
 	MultiAZPolicy *string `type:"string"`
 
-	ScalingGroupName *string `type:"string"`
+	// ScalingGroupName is a required field
+	ScalingGroupName *string `type:"string" required:"true"`
 
 	ServerGroupAttributes []*ServerGroupAttributeForCreateScalingGroupInput `type:"list"`
 
-	SubnetIds []*string `type:"list"`
+	// SubnetIds is a required field
+	SubnetIds []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -171,6 +173,22 @@ func (s CreateScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s CreateScalingGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateScalingGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateScalingGroupInput"}
+	if s.ScalingGroupName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupName"))
+	}
+	if s.SubnetIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBInstanceIds sets the DBInstanceIds field's value.

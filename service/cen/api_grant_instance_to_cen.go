@@ -22,13 +22,13 @@ const opGrantInstanceToCenCommon = "GrantInstanceToCen"
 // See GrantInstanceToCenCommon for more information on using the GrantInstanceToCenCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the GrantInstanceToCenCommonRequest method.
-//    req, resp := client.GrantInstanceToCenCommonRequest(params)
+//	// Example sending a request using the GrantInstanceToCenCommonRequest method.
+//	req, resp := client.GrantInstanceToCenCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) GrantInstanceToCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGrantInstanceToCenCommon,
@@ -87,13 +87,13 @@ const opGrantInstanceToCen = "GrantInstanceToCen"
 // See GrantInstanceToCen for more information on using the GrantInstanceToCen
 // API call, and error handling.
 //
-//    // Example sending a request using the GrantInstanceToCenRequest method.
-//    req, resp := client.GrantInstanceToCenRequest(params)
+//	// Example sending a request using the GrantInstanceToCenRequest method.
+//	req, resp := client.GrantInstanceToCenRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) GrantInstanceToCenRequest(input *GrantInstanceToCenInput) (req *request.Request, output *GrantInstanceToCenOutput) {
 	op := &request.Operation{
 		Name:       opGrantInstanceToCen,

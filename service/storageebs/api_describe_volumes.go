@@ -24,13 +24,13 @@ const opDescribeVolumesCommon = "DescribeVolumes"
 // See DescribeVolumesCommon for more information on using the DescribeVolumesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVolumesCommonRequest method.
-//    req, resp := client.DescribeVolumesCommonRequest(params)
+//	// Example sending a request using the DescribeVolumesCommonRequest method.
+//	req, resp := client.DescribeVolumesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) DescribeVolumesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVolumesCommon,
@@ -89,13 +89,13 @@ const opDescribeVolumes = "DescribeVolumes"
 // See DescribeVolumes for more information on using the DescribeVolumes
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVolumesRequest method.
-//    req, resp := client.DescribeVolumesRequest(params)
+//	// Example sending a request using the DescribeVolumesRequest method.
+//	req, resp := client.DescribeVolumesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) DescribeVolumesRequest(input *DescribeVolumesInput) (req *request.Request, output *DescribeVolumesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVolumes,

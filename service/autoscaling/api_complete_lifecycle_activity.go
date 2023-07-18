@@ -22,13 +22,13 @@ const opCompleteLifecycleActivityCommon = "CompleteLifecycleActivity"
 // See CompleteLifecycleActivityCommon for more information on using the CompleteLifecycleActivityCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CompleteLifecycleActivityCommonRequest method.
-//    req, resp := client.CompleteLifecycleActivityCommonRequest(params)
+//	// Example sending a request using the CompleteLifecycleActivityCommonRequest method.
+//	req, resp := client.CompleteLifecycleActivityCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CompleteLifecycleActivityCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCompleteLifecycleActivityCommon,
@@ -87,13 +87,13 @@ const opCompleteLifecycleActivity = "CompleteLifecycleActivity"
 // See CompleteLifecycleActivity for more information on using the CompleteLifecycleActivity
 // API call, and error handling.
 //
-//    // Example sending a request using the CompleteLifecycleActivityRequest method.
-//    req, resp := client.CompleteLifecycleActivityRequest(params)
+//	// Example sending a request using the CompleteLifecycleActivityRequest method.
+//	req, resp := client.CompleteLifecycleActivityRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CompleteLifecycleActivityRequest(input *CompleteLifecycleActivityInput) (req *request.Request, output *CompleteLifecycleActivityOutput) {
 	op := &request.Operation{
 		Name:       opCompleteLifecycleActivity,

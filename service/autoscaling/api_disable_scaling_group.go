@@ -22,13 +22,13 @@ const opDisableScalingGroupCommon = "DisableScalingGroup"
 // See DisableScalingGroupCommon for more information on using the DisableScalingGroupCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DisableScalingGroupCommonRequest method.
-//    req, resp := client.DisableScalingGroupCommonRequest(params)
+//	// Example sending a request using the DisableScalingGroupCommonRequest method.
+//	req, resp := client.DisableScalingGroupCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DisableScalingGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisableScalingGroupCommon,
@@ -87,13 +87,13 @@ const opDisableScalingGroup = "DisableScalingGroup"
 // See DisableScalingGroup for more information on using the DisableScalingGroup
 // API call, and error handling.
 //
-//    // Example sending a request using the DisableScalingGroupRequest method.
-//    req, resp := client.DisableScalingGroupRequest(params)
+//	// Example sending a request using the DisableScalingGroupRequest method.
+//	req, resp := client.DisableScalingGroupRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DisableScalingGroupRequest(input *DisableScalingGroupInput) (req *request.Request, output *DisableScalingGroupOutput) {
 	op := &request.Operation{
 		Name:       opDisableScalingGroup,
@@ -142,7 +142,8 @@ func (c *AUTOSCALING) DisableScalingGroupWithContext(ctx volcengine.Context, inp
 type DisableScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DisableScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s DisableScalingGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisableScalingGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisableScalingGroupInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.

@@ -22,13 +22,13 @@ const opRemoveInstancesCommon = "RemoveInstances"
 // See RemoveInstancesCommon for more information on using the RemoveInstancesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RemoveInstancesCommonRequest method.
-//    req, resp := client.RemoveInstancesCommonRequest(params)
+//	// Example sending a request using the RemoveInstancesCommonRequest method.
+//	req, resp := client.RemoveInstancesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) RemoveInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRemoveInstancesCommon,
@@ -87,13 +87,13 @@ const opRemoveInstances = "RemoveInstances"
 // See RemoveInstances for more information on using the RemoveInstances
 // API call, and error handling.
 //
-//    // Example sending a request using the RemoveInstancesRequest method.
-//    req, resp := client.RemoveInstancesRequest(params)
+//	// Example sending a request using the RemoveInstancesRequest method.
+//	req, resp := client.RemoveInstancesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) RemoveInstancesRequest(input *RemoveInstancesInput) (req *request.Request, output *RemoveInstancesOutput) {
 	op := &request.Operation{
 		Name:       opRemoveInstances,
@@ -144,9 +144,11 @@ type RemoveInstancesInput struct {
 
 	DecreaseDesiredCapacity *bool `type:"boolean"`
 
-	InstanceIds []*string `type:"list"`
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +159,22 @@ func (s RemoveInstancesInput) String() string {
 // GoString returns the string representation
 func (s RemoveInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RemoveInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RemoveInstancesInput"}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDecreaseDesiredCapacity sets the DecreaseDesiredCapacity field's value.

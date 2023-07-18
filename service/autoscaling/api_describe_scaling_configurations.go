@@ -22,13 +22,13 @@ const opDescribeScalingConfigurationsCommon = "DescribeScalingConfigurations"
 // See DescribeScalingConfigurationsCommon for more information on using the DescribeScalingConfigurationsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeScalingConfigurationsCommonRequest method.
-//    req, resp := client.DescribeScalingConfigurationsCommonRequest(params)
+//	// Example sending a request using the DescribeScalingConfigurationsCommonRequest method.
+//	req, resp := client.DescribeScalingConfigurationsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeScalingConfigurationsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeScalingConfigurationsCommon,
@@ -87,13 +87,13 @@ const opDescribeScalingConfigurations = "DescribeScalingConfigurations"
 // See DescribeScalingConfigurations for more information on using the DescribeScalingConfigurations
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeScalingConfigurationsRequest method.
-//    req, resp := client.DescribeScalingConfigurationsRequest(params)
+//	// Example sending a request using the DescribeScalingConfigurationsRequest method.
+//	req, resp := client.DescribeScalingConfigurationsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeScalingConfigurationsRequest(input *DescribeScalingConfigurationsInput) (req *request.Request, output *DescribeScalingConfigurationsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeScalingConfigurations,

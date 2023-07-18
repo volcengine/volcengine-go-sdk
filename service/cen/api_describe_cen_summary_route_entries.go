@@ -22,13 +22,13 @@ const opDescribeCenSummaryRouteEntriesCommon = "DescribeCenSummaryRouteEntries"
 // See DescribeCenSummaryRouteEntriesCommon for more information on using the DescribeCenSummaryRouteEntriesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenSummaryRouteEntriesCommonRequest method.
-//    req, resp := client.DescribeCenSummaryRouteEntriesCommonRequest(params)
+//	// Example sending a request using the DescribeCenSummaryRouteEntriesCommonRequest method.
+//	req, resp := client.DescribeCenSummaryRouteEntriesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenSummaryRouteEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenSummaryRouteEntriesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenSummaryRouteEntries = "DescribeCenSummaryRouteEntries"
 // See DescribeCenSummaryRouteEntries for more information on using the DescribeCenSummaryRouteEntries
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenSummaryRouteEntriesRequest method.
-//    req, resp := client.DescribeCenSummaryRouteEntriesRequest(params)
+//	// Example sending a request using the DescribeCenSummaryRouteEntriesRequest method.
+//	req, resp := client.DescribeCenSummaryRouteEntriesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenSummaryRouteEntriesRequest(input *DescribeCenSummaryRouteEntriesInput) (req *request.Request, output *DescribeCenSummaryRouteEntriesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenSummaryRouteEntries,

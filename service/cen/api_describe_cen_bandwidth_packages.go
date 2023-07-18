@@ -22,13 +22,13 @@ const opDescribeCenBandwidthPackagesCommon = "DescribeCenBandwidthPackages"
 // See DescribeCenBandwidthPackagesCommon for more information on using the DescribeCenBandwidthPackagesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenBandwidthPackagesCommonRequest method.
-//    req, resp := client.DescribeCenBandwidthPackagesCommonRequest(params)
+//	// Example sending a request using the DescribeCenBandwidthPackagesCommonRequest method.
+//	req, resp := client.DescribeCenBandwidthPackagesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenBandwidthPackagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenBandwidthPackagesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenBandwidthPackages = "DescribeCenBandwidthPackages"
 // See DescribeCenBandwidthPackages for more information on using the DescribeCenBandwidthPackages
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenBandwidthPackagesRequest method.
-//    req, resp := client.DescribeCenBandwidthPackagesRequest(params)
+//	// Example sending a request using the DescribeCenBandwidthPackagesRequest method.
+//	req, resp := client.DescribeCenBandwidthPackagesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenBandwidthPackagesRequest(input *DescribeCenBandwidthPackagesInput) (req *request.Request, output *DescribeCenBandwidthPackagesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenBandwidthPackages,

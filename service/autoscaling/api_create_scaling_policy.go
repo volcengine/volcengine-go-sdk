@@ -22,13 +22,13 @@ const opCreateScalingPolicyCommon = "CreateScalingPolicy"
 // See CreateScalingPolicyCommon for more information on using the CreateScalingPolicyCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateScalingPolicyCommonRequest method.
-//    req, resp := client.CreateScalingPolicyCommonRequest(params)
+//	// Example sending a request using the CreateScalingPolicyCommonRequest method.
+//	req, resp := client.CreateScalingPolicyCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CreateScalingPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateScalingPolicyCommon,
@@ -87,13 +87,13 @@ const opCreateScalingPolicy = "CreateScalingPolicy"
 // See CreateScalingPolicy for more information on using the CreateScalingPolicy
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateScalingPolicyRequest method.
-//    req, resp := client.CreateScalingPolicyRequest(params)
+//	// Example sending a request using the CreateScalingPolicyRequest method.
+//	req, resp := client.CreateScalingPolicyRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) CreateScalingPolicyRequest(input *CreateScalingPolicyInput) (req *request.Request, output *CreateScalingPolicyOutput) {
 	op := &request.Operation{
 		Name:       opCreateScalingPolicy,
@@ -226,19 +226,24 @@ func (s *AlarmPolicyForCreateScalingPolicyInput) SetRuleType(v string) *AlarmPol
 type CreateScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	AdjustmentType *string `type:"string"`
+	// AdjustmentType is a required field
+	AdjustmentType *string `type:"string" required:"true"`
 
-	AdjustmentValue *int32 `type:"int32"`
+	// AdjustmentValue is a required field
+	AdjustmentValue *int32 `type:"int32" required:"true"`
 
 	AlarmPolicy *AlarmPolicyForCreateScalingPolicyInput `type:"structure"`
 
 	Cooldown *int32 `type:"int32"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
-	ScalingPolicyName *string `type:"string"`
+	// ScalingPolicyName is a required field
+	ScalingPolicyName *string `type:"string" required:"true"`
 
-	ScalingPolicyType *string `type:"string"`
+	// ScalingPolicyType is a required field
+	ScalingPolicyType *string `type:"string" required:"true"`
 
 	ScheduledPolicy *ScheduledPolicyForCreateScalingPolicyInput `type:"structure"`
 }
@@ -251,6 +256,31 @@ func (s CreateScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s CreateScalingPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateScalingPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateScalingPolicyInput"}
+	if s.AdjustmentType == nil {
+		invalidParams.Add(request.NewErrParamRequired("AdjustmentType"))
+	}
+	if s.AdjustmentValue == nil {
+		invalidParams.Add(request.NewErrParamRequired("AdjustmentValue"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+	if s.ScalingPolicyName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyName"))
+	}
+	if s.ScalingPolicyType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAdjustmentType sets the AdjustmentType field's value.

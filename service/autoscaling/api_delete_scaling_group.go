@@ -22,13 +22,13 @@ const opDeleteScalingGroupCommon = "DeleteScalingGroup"
 // See DeleteScalingGroupCommon for more information on using the DeleteScalingGroupCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteScalingGroupCommonRequest method.
-//    req, resp := client.DeleteScalingGroupCommonRequest(params)
+//	// Example sending a request using the DeleteScalingGroupCommonRequest method.
+//	req, resp := client.DeleteScalingGroupCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DeleteScalingGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteScalingGroupCommon,
@@ -87,13 +87,13 @@ const opDeleteScalingGroup = "DeleteScalingGroup"
 // See DeleteScalingGroup for more information on using the DeleteScalingGroup
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteScalingGroupRequest method.
-//    req, resp := client.DeleteScalingGroupRequest(params)
+//	// Example sending a request using the DeleteScalingGroupRequest method.
+//	req, resp := client.DeleteScalingGroupRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DeleteScalingGroupRequest(input *DeleteScalingGroupInput) (req *request.Request, output *DeleteScalingGroupOutput) {
 	op := &request.Operation{
 		Name:       opDeleteScalingGroup,
@@ -142,7 +142,8 @@ func (c *AUTOSCALING) DeleteScalingGroupWithContext(ctx volcengine.Context, inpu
 type DeleteScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DeleteScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s DeleteScalingGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteScalingGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteScalingGroupInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.

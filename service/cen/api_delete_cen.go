@@ -22,13 +22,13 @@ const opDeleteCenCommon = "DeleteCen"
 // See DeleteCenCommon for more information on using the DeleteCenCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCenCommonRequest method.
-//    req, resp := client.DeleteCenCommonRequest(params)
+//	// Example sending a request using the DeleteCenCommonRequest method.
+//	req, resp := client.DeleteCenCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DeleteCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCenCommon,
@@ -87,13 +87,13 @@ const opDeleteCen = "DeleteCen"
 // See DeleteCen for more information on using the DeleteCen
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteCenRequest method.
-//    req, resp := client.DeleteCenRequest(params)
+//	// Example sending a request using the DeleteCenRequest method.
+//	req, resp := client.DeleteCenRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DeleteCenRequest(input *DeleteCenInput) (req *request.Request, output *DeleteCenOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCen,

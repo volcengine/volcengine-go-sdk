@@ -22,13 +22,13 @@ const opEnableScalingConfigurationCommon = "EnableScalingConfiguration"
 // See EnableScalingConfigurationCommon for more information on using the EnableScalingConfigurationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the EnableScalingConfigurationCommonRequest method.
-//    req, resp := client.EnableScalingConfigurationCommonRequest(params)
+//	// Example sending a request using the EnableScalingConfigurationCommonRequest method.
+//	req, resp := client.EnableScalingConfigurationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) EnableScalingConfigurationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opEnableScalingConfigurationCommon,
@@ -87,13 +87,13 @@ const opEnableScalingConfiguration = "EnableScalingConfiguration"
 // See EnableScalingConfiguration for more information on using the EnableScalingConfiguration
 // API call, and error handling.
 //
-//    // Example sending a request using the EnableScalingConfigurationRequest method.
-//    req, resp := client.EnableScalingConfigurationRequest(params)
+//	// Example sending a request using the EnableScalingConfigurationRequest method.
+//	req, resp := client.EnableScalingConfigurationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) EnableScalingConfigurationRequest(input *EnableScalingConfigurationInput) (req *request.Request, output *EnableScalingConfigurationOutput) {
 	op := &request.Operation{
 		Name:       opEnableScalingConfiguration,
@@ -142,9 +142,11 @@ func (c *AUTOSCALING) EnableScalingConfigurationWithContext(ctx volcengine.Conte
 type EnableScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingConfigurationId *string `type:"string"`
+	// ScalingConfigurationId is a required field
+	ScalingConfigurationId *string `type:"string" required:"true"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -155,6 +157,22 @@ func (s EnableScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s EnableScalingConfigurationInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *EnableScalingConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "EnableScalingConfigurationInput"}
+	if s.ScalingConfigurationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingConfigurationId"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetScalingConfigurationId sets the ScalingConfigurationId field's value.

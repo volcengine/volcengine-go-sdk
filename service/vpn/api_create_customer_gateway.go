@@ -22,13 +22,13 @@ const opCreateCustomerGatewayCommon = "CreateCustomerGateway"
 // See CreateCustomerGatewayCommon for more information on using the CreateCustomerGatewayCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCustomerGatewayCommonRequest method.
-//    req, resp := client.CreateCustomerGatewayCommonRequest(params)
+//	// Example sending a request using the CreateCustomerGatewayCommonRequest method.
+//	req, resp := client.CreateCustomerGatewayCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) CreateCustomerGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCustomerGatewayCommon,
@@ -87,13 +87,13 @@ const opCreateCustomerGateway = "CreateCustomerGateway"
 // See CreateCustomerGateway for more information on using the CreateCustomerGateway
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCustomerGatewayRequest method.
-//    req, resp := client.CreateCustomerGatewayRequest(params)
+//	// Example sending a request using the CreateCustomerGatewayRequest method.
+//	req, resp := client.CreateCustomerGatewayRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) CreateCustomerGatewayRequest(input *CreateCustomerGatewayInput) (req *request.Request, output *CreateCustomerGatewayOutput) {
 	op := &request.Operation{
 		Name:       opCreateCustomerGateway,

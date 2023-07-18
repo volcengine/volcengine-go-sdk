@@ -24,13 +24,13 @@ const opCreateVolumeCommon = "CreateVolume"
 // See CreateVolumeCommon for more information on using the CreateVolumeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateVolumeCommonRequest method.
-//    req, resp := client.CreateVolumeCommonRequest(params)
+//	// Example sending a request using the CreateVolumeCommonRequest method.
+//	req, resp := client.CreateVolumeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) CreateVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateVolumeCommon,
@@ -89,13 +89,13 @@ const opCreateVolume = "CreateVolume"
 // See CreateVolume for more information on using the CreateVolume
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateVolumeRequest method.
-//    req, resp := client.CreateVolumeRequest(params)
+//	// Example sending a request using the CreateVolumeRequest method.
+//	req, resp := client.CreateVolumeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) CreateVolumeRequest(input *CreateVolumeInput) (req *request.Request, output *CreateVolumeOutput) {
 	op := &request.Operation{
 		Name:       opCreateVolume,

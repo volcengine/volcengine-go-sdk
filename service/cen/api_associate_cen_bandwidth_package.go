@@ -22,13 +22,13 @@ const opAssociateCenBandwidthPackageCommon = "AssociateCenBandwidthPackage"
 // See AssociateCenBandwidthPackageCommon for more information on using the AssociateCenBandwidthPackageCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateCenBandwidthPackageCommonRequest method.
-//    req, resp := client.AssociateCenBandwidthPackageCommonRequest(params)
+//	// Example sending a request using the AssociateCenBandwidthPackageCommonRequest method.
+//	req, resp := client.AssociateCenBandwidthPackageCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) AssociateCenBandwidthPackageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateCenBandwidthPackageCommon,
@@ -87,13 +87,13 @@ const opAssociateCenBandwidthPackage = "AssociateCenBandwidthPackage"
 // See AssociateCenBandwidthPackage for more information on using the AssociateCenBandwidthPackage
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateCenBandwidthPackageRequest method.
-//    req, resp := client.AssociateCenBandwidthPackageRequest(params)
+//	// Example sending a request using the AssociateCenBandwidthPackageRequest method.
+//	req, resp := client.AssociateCenBandwidthPackageRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) AssociateCenBandwidthPackageRequest(input *AssociateCenBandwidthPackageInput) (req *request.Request, output *AssociateCenBandwidthPackageOutput) {
 	op := &request.Operation{
 		Name:       opAssociateCenBandwidthPackage,

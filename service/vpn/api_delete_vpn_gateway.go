@@ -22,13 +22,13 @@ const opDeleteVpnGatewayCommon = "DeleteVpnGateway"
 // See DeleteVpnGatewayCommon for more information on using the DeleteVpnGatewayCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteVpnGatewayCommonRequest method.
-//    req, resp := client.DeleteVpnGatewayCommonRequest(params)
+//	// Example sending a request using the DeleteVpnGatewayCommonRequest method.
+//	req, resp := client.DeleteVpnGatewayCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DeleteVpnGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteVpnGatewayCommon,
@@ -87,13 +87,13 @@ const opDeleteVpnGateway = "DeleteVpnGateway"
 // See DeleteVpnGateway for more information on using the DeleteVpnGateway
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteVpnGatewayRequest method.
-//    req, resp := client.DeleteVpnGatewayRequest(params)
+//	// Example sending a request using the DeleteVpnGatewayRequest method.
+//	req, resp := client.DeleteVpnGatewayRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) DeleteVpnGatewayRequest(input *DeleteVpnGatewayInput) (req *request.Request, output *DeleteVpnGatewayOutput) {
 	op := &request.Operation{
 		Name:       opDeleteVpnGateway,

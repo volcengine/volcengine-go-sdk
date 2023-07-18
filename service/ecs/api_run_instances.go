@@ -3,6 +3,8 @@
 package ecs
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -146,7 +148,8 @@ type NetworkInterfaceForRunInstancesInput struct {
 
 	SecurityGroupIds []*string `type:"list"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +160,19 @@ func (s NetworkInterfaceForRunInstancesInput) String() string {
 // GoString returns the string representation
 func (s NetworkInterfaceForRunInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NetworkInterfaceForRunInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NetworkInterfaceForRunInstancesInput"}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
@@ -202,13 +218,15 @@ type RunInstancesInput struct {
 
 	HpcClusterId *string `type:"string"`
 
-	ImageId *string `type:"string"`
+	// ImageId is a required field
+	ImageId *string `type:"string" required:"true"`
 
 	InstanceChargeType *string `type:"string"`
 
 	InstanceName *string `type:"string"`
 
-	InstanceType *string `type:"string"`
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true"`
 
 	InstanceTypeId *string `type:"string"`
 
@@ -218,7 +236,8 @@ type RunInstancesInput struct {
 
 	MinCount *int32 `type:"int32"`
 
-	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list"`
+	// NetworkInterfaces is a required field
+	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list" required:"true"`
 
 	Password *string `type:"string"`
 
@@ -240,9 +259,11 @@ type RunInstancesInput struct {
 
 	UserData *string `type:"string"`
 
-	Volumes []*VolumeForRunInstancesInput `type:"list"`
+	// Volumes is a required field
+	Volumes []*VolumeForRunInstancesInput `type:"list" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -253,6 +274,51 @@ func (s RunInstancesInput) String() string {
 // GoString returns the string representation
 func (s RunInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RunInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RunInstancesInput"}
+	if s.ImageId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageId"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
+	}
+	if s.NetworkInterfaces == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaces"))
+	}
+	if s.Volumes == nil {
+		invalidParams.Add(request.NewErrParamRequired("Volumes"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+	if s.NetworkInterfaces != nil {
+		for i, v := range s.NetworkInterfaces {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "NetworkInterfaces", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Volumes != nil {
+		for i, v := range s.Volumes {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Volumes", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -506,9 +572,11 @@ type VolumeForRunInstancesInput struct {
 
 	DeleteWithInstance *string `type:"string"`
 
-	Size *int32 `type:"int32"`
+	// Size is a required field
+	Size *int32 `type:"int32" required:"true"`
 
-	VolumeType *string `type:"string"`
+	// VolumeType is a required field
+	VolumeType *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -519,6 +587,22 @@ func (s VolumeForRunInstancesInput) String() string {
 // GoString returns the string representation
 func (s VolumeForRunInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VolumeForRunInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VolumeForRunInstancesInput"}
+	if s.Size == nil {
+		invalidParams.Add(request.NewErrParamRequired("Size"))
+	}
+	if s.VolumeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.

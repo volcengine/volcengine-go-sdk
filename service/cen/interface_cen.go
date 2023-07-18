@@ -16,19 +16,18 @@ import (
 // CENAPI provides an interface to enable mocking the
 // cen.CEN service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // CEN.
-//    func myFunc(svc CENAPI) bool {
-//        // Make svc.AssociateCenBandwidthPackage request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// CEN.
+//	func myFunc(svc CENAPI) bool {
+//	    // Make svc.AssociateCenBandwidthPackage request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := cen.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := cen.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type CENAPI interface {
 	AssociateCenBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateCenBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -22,13 +22,13 @@ const opModifyCustomerGatewayAttributesCommon = "ModifyCustomerGatewayAttributes
 // See ModifyCustomerGatewayAttributesCommon for more information on using the ModifyCustomerGatewayAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyCustomerGatewayAttributesCommonRequest method.
-//    req, resp := client.ModifyCustomerGatewayAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyCustomerGatewayAttributesCommonRequest method.
+//	req, resp := client.ModifyCustomerGatewayAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) ModifyCustomerGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCustomerGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyCustomerGatewayAttributes = "ModifyCustomerGatewayAttributes"
 // See ModifyCustomerGatewayAttributes for more information on using the ModifyCustomerGatewayAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyCustomerGatewayAttributesRequest method.
-//    req, resp := client.ModifyCustomerGatewayAttributesRequest(params)
+//	// Example sending a request using the ModifyCustomerGatewayAttributesRequest method.
+//	req, resp := client.ModifyCustomerGatewayAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *VPN) ModifyCustomerGatewayAttributesRequest(input *ModifyCustomerGatewayAttributesInput) (req *request.Request, output *ModifyCustomerGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyCustomerGatewayAttributes,

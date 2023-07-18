@@ -22,13 +22,13 @@ const opModifyDnatEntryAttributesCommon = "ModifyDnatEntryAttributes"
 // See ModifyDnatEntryAttributesCommon for more information on using the ModifyDnatEntryAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDnatEntryAttributesCommonRequest method.
-//    req, resp := client.ModifyDnatEntryAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyDnatEntryAttributesCommonRequest method.
+//	req, resp := client.ModifyDnatEntryAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) ModifyDnatEntryAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDnatEntryAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyDnatEntryAttributes = "ModifyDnatEntryAttributes"
 // See ModifyDnatEntryAttributes for more information on using the ModifyDnatEntryAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDnatEntryAttributesRequest method.
-//    req, resp := client.ModifyDnatEntryAttributesRequest(params)
+//	// Example sending a request using the ModifyDnatEntryAttributesRequest method.
+//	req, resp := client.ModifyDnatEntryAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) ModifyDnatEntryAttributesRequest(input *ModifyDnatEntryAttributesInput) (req *request.Request, output *ModifyDnatEntryAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyDnatEntryAttributes,

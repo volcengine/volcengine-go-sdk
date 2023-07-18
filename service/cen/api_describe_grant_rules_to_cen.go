@@ -22,13 +22,13 @@ const opDescribeGrantRulesToCenCommon = "DescribeGrantRulesToCen"
 // See DescribeGrantRulesToCenCommon for more information on using the DescribeGrantRulesToCenCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeGrantRulesToCenCommonRequest method.
-//    req, resp := client.DescribeGrantRulesToCenCommonRequest(params)
+//	// Example sending a request using the DescribeGrantRulesToCenCommonRequest method.
+//	req, resp := client.DescribeGrantRulesToCenCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeGrantRulesToCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeGrantRulesToCenCommon,
@@ -87,13 +87,13 @@ const opDescribeGrantRulesToCen = "DescribeGrantRulesToCen"
 // See DescribeGrantRulesToCen for more information on using the DescribeGrantRulesToCen
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeGrantRulesToCenRequest method.
-//    req, resp := client.DescribeGrantRulesToCenRequest(params)
+//	// Example sending a request using the DescribeGrantRulesToCenRequest method.
+//	req, resp := client.DescribeGrantRulesToCenRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeGrantRulesToCenRequest(input *DescribeGrantRulesToCenInput) (req *request.Request, output *DescribeGrantRulesToCenOutput) {
 	op := &request.Operation{
 		Name:       opDescribeGrantRulesToCen,

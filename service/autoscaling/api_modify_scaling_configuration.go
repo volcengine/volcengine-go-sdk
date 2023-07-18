@@ -22,13 +22,13 @@ const opModifyScalingConfigurationCommon = "ModifyScalingConfiguration"
 // See ModifyScalingConfigurationCommon for more information on using the ModifyScalingConfigurationCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyScalingConfigurationCommonRequest method.
-//    req, resp := client.ModifyScalingConfigurationCommonRequest(params)
+//	// Example sending a request using the ModifyScalingConfigurationCommonRequest method.
+//	req, resp := client.ModifyScalingConfigurationCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) ModifyScalingConfigurationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyScalingConfigurationCommon,
@@ -87,13 +87,13 @@ const opModifyScalingConfiguration = "ModifyScalingConfiguration"
 // See ModifyScalingConfiguration for more information on using the ModifyScalingConfiguration
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyScalingConfigurationRequest method.
-//    req, resp := client.ModifyScalingConfigurationRequest(params)
+//	// Example sending a request using the ModifyScalingConfigurationRequest method.
+//	req, resp := client.ModifyScalingConfigurationRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) ModifyScalingConfigurationRequest(input *ModifyScalingConfigurationInput) (req *request.Request, output *ModifyScalingConfigurationOutput) {
 	op := &request.Operation{
 		Name:       opModifyScalingConfiguration,
@@ -196,7 +196,8 @@ type ModifyScalingConfigurationInput struct {
 
 	Password *string `type:"string"`
 
-	ScalingConfigurationId *string `type:"string"`
+	// ScalingConfigurationId is a required field
+	ScalingConfigurationId *string `type:"string" required:"true"`
 
 	ScalingConfigurationName *string `type:"string"`
 
@@ -219,6 +220,19 @@ func (s ModifyScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s ModifyScalingConfigurationInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyScalingConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyScalingConfigurationInput"}
+	if s.ScalingConfigurationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingConfigurationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEip sets the Eip field's value.

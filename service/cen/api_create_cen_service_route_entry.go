@@ -22,13 +22,13 @@ const opCreateCenServiceRouteEntryCommon = "CreateCenServiceRouteEntry"
 // See CreateCenServiceRouteEntryCommon for more information on using the CreateCenServiceRouteEntryCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCenServiceRouteEntryCommonRequest method.
-//    req, resp := client.CreateCenServiceRouteEntryCommonRequest(params)
+//	// Example sending a request using the CreateCenServiceRouteEntryCommonRequest method.
+//	req, resp := client.CreateCenServiceRouteEntryCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) CreateCenServiceRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCenServiceRouteEntryCommon,
@@ -87,13 +87,13 @@ const opCreateCenServiceRouteEntry = "CreateCenServiceRouteEntry"
 // See CreateCenServiceRouteEntry for more information on using the CreateCenServiceRouteEntry
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateCenServiceRouteEntryRequest method.
-//    req, resp := client.CreateCenServiceRouteEntryRequest(params)
+//	// Example sending a request using the CreateCenServiceRouteEntryRequest method.
+//	req, resp := client.CreateCenServiceRouteEntryRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) CreateCenServiceRouteEntryRequest(input *CreateCenServiceRouteEntryInput) (req *request.Request, output *CreateCenServiceRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opCreateCenServiceRouteEntry,

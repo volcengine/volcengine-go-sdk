@@ -22,13 +22,13 @@ const opListNatGatewayAvailableZonesCommon = "ListNatGatewayAvailableZones"
 // See ListNatGatewayAvailableZonesCommon for more information on using the ListNatGatewayAvailableZonesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ListNatGatewayAvailableZonesCommonRequest method.
-//    req, resp := client.ListNatGatewayAvailableZonesCommonRequest(params)
+//	// Example sending a request using the ListNatGatewayAvailableZonesCommonRequest method.
+//	req, resp := client.ListNatGatewayAvailableZonesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) ListNatGatewayAvailableZonesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListNatGatewayAvailableZonesCommon,
@@ -87,13 +87,13 @@ const opListNatGatewayAvailableZones = "ListNatGatewayAvailableZones"
 // See ListNatGatewayAvailableZones for more information on using the ListNatGatewayAvailableZones
 // API call, and error handling.
 //
-//    // Example sending a request using the ListNatGatewayAvailableZonesRequest method.
-//    req, resp := client.ListNatGatewayAvailableZonesRequest(params)
+//	// Example sending a request using the ListNatGatewayAvailableZonesRequest method.
+//	req, resp := client.ListNatGatewayAvailableZonesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *NATGATEWAY) ListNatGatewayAvailableZonesRequest(input *ListNatGatewayAvailableZonesInput) (req *request.Request, output *ListNatGatewayAvailableZonesOutput) {
 	op := &request.Operation{
 		Name:       opListNatGatewayAvailableZones,

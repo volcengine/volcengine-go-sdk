@@ -22,13 +22,13 @@ const opDescribeScalingGroupsCommon = "DescribeScalingGroups"
 // See DescribeScalingGroupsCommon for more information on using the DescribeScalingGroupsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeScalingGroupsCommonRequest method.
-//    req, resp := client.DescribeScalingGroupsCommonRequest(params)
+//	// Example sending a request using the DescribeScalingGroupsCommonRequest method.
+//	req, resp := client.DescribeScalingGroupsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeScalingGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeScalingGroupsCommon,
@@ -87,13 +87,13 @@ const opDescribeScalingGroups = "DescribeScalingGroups"
 // See DescribeScalingGroups for more information on using the DescribeScalingGroups
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeScalingGroupsRequest method.
-//    req, resp := client.DescribeScalingGroupsRequest(params)
+//	// Example sending a request using the DescribeScalingGroupsRequest method.
+//	req, resp := client.DescribeScalingGroupsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *AUTOSCALING) DescribeScalingGroupsRequest(input *DescribeScalingGroupsInput) (req *request.Request, output *DescribeScalingGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeScalingGroups,

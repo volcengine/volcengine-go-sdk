@@ -24,13 +24,13 @@ const opExtendVolumeCommon = "ExtendVolume"
 // See ExtendVolumeCommon for more information on using the ExtendVolumeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ExtendVolumeCommonRequest method.
-//    req, resp := client.ExtendVolumeCommonRequest(params)
+//	// Example sending a request using the ExtendVolumeCommonRequest method.
+//	req, resp := client.ExtendVolumeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) ExtendVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opExtendVolumeCommon,
@@ -89,13 +89,13 @@ const opExtendVolume = "ExtendVolume"
 // See ExtendVolume for more information on using the ExtendVolume
 // API call, and error handling.
 //
-//    // Example sending a request using the ExtendVolumeRequest method.
-//    req, resp := client.ExtendVolumeRequest(params)
+//	// Example sending a request using the ExtendVolumeRequest method.
+//	req, resp := client.ExtendVolumeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *STORAGEEBS) ExtendVolumeRequest(input *ExtendVolumeInput) (req *request.Request, output *ExtendVolumeOutput) {
 	op := &request.Operation{
 		Name:       opExtendVolume,

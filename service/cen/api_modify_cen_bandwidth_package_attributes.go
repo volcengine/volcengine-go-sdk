@@ -22,13 +22,13 @@ const opModifyCenBandwidthPackageAttributesCommon = "ModifyCenBandwidthPackageAt
 // See ModifyCenBandwidthPackageAttributesCommon for more information on using the ModifyCenBandwidthPackageAttributesCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyCenBandwidthPackageAttributesCommonRequest method.
-//    req, resp := client.ModifyCenBandwidthPackageAttributesCommonRequest(params)
+//	// Example sending a request using the ModifyCenBandwidthPackageAttributesCommonRequest method.
+//	req, resp := client.ModifyCenBandwidthPackageAttributesCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) ModifyCenBandwidthPackageAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCenBandwidthPackageAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyCenBandwidthPackageAttributes = "ModifyCenBandwidthPackageAttribut
 // See ModifyCenBandwidthPackageAttributes for more information on using the ModifyCenBandwidthPackageAttributes
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyCenBandwidthPackageAttributesRequest method.
-//    req, resp := client.ModifyCenBandwidthPackageAttributesRequest(params)
+//	// Example sending a request using the ModifyCenBandwidthPackageAttributesRequest method.
+//	req, resp := client.ModifyCenBandwidthPackageAttributesRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) ModifyCenBandwidthPackageAttributesRequest(input *ModifyCenBandwidthPackageAttributesInput) (req *request.Request, output *ModifyCenBandwidthPackageAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyCenBandwidthPackageAttributes,

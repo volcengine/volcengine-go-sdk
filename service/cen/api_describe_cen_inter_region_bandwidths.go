@@ -22,13 +22,13 @@ const opDescribeCenInterRegionBandwidthsCommon = "DescribeCenInterRegionBandwidt
 // See DescribeCenInterRegionBandwidthsCommon for more information on using the DescribeCenInterRegionBandwidthsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenInterRegionBandwidthsCommonRequest method.
-//    req, resp := client.DescribeCenInterRegionBandwidthsCommonRequest(params)
+//	// Example sending a request using the DescribeCenInterRegionBandwidthsCommonRequest method.
+//	req, resp := client.DescribeCenInterRegionBandwidthsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenInterRegionBandwidthsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenInterRegionBandwidthsCommon,
@@ -87,13 +87,13 @@ const opDescribeCenInterRegionBandwidths = "DescribeCenInterRegionBandwidths"
 // See DescribeCenInterRegionBandwidths for more information on using the DescribeCenInterRegionBandwidths
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeCenInterRegionBandwidthsRequest method.
-//    req, resp := client.DescribeCenInterRegionBandwidthsRequest(params)
+//	// Example sending a request using the DescribeCenInterRegionBandwidthsRequest method.
+//	req, resp := client.DescribeCenInterRegionBandwidthsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *CEN) DescribeCenInterRegionBandwidthsRequest(input *DescribeCenInterRegionBandwidthsInput) (req *request.Request, output *DescribeCenInterRegionBandwidthsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenInterRegionBandwidths,
