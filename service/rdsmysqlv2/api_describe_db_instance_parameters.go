@@ -22,13 +22,13 @@ const opDescribeDBInstanceParametersCommon = "DescribeDBInstanceParameters"
 // See DescribeDBInstanceParametersCommon for more information on using the DescribeDBInstanceParametersCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBInstanceParametersCommonRequest method.
-//    req, resp := client.DescribeDBInstanceParametersCommonRequest(params)
+//	// Example sending a request using the DescribeDBInstanceParametersCommonRequest method.
+//	req, resp := client.DescribeDBInstanceParametersCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DescribeDBInstanceParametersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceParametersCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstanceParameters = "DescribeDBInstanceParameters"
 // See DescribeDBInstanceParameters for more information on using the DescribeDBInstanceParameters
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBInstanceParametersRequest method.
-//    req, resp := client.DescribeDBInstanceParametersRequest(params)
+//	// Example sending a request using the DescribeDBInstanceParametersRequest method.
+//	req, resp := client.DescribeDBInstanceParametersRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DescribeDBInstanceParametersRequest(input *DescribeDBInstanceParametersInput) (req *request.Request, output *DescribeDBInstanceParametersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceParameters,
@@ -198,6 +198,8 @@ type DescribeDBInstanceParametersOutput struct {
 
 	InstanceId *string `type:"string"`
 
+	InstanceParameters []*InstanceParameterForDescribeDBInstanceParametersOutput `type:"list"`
+
 	ParameterCount *int32 `type:"int32"`
 
 	Parameters []*ParameterForDescribeDBInstanceParametersOutput `type:"list"`
@@ -231,6 +233,12 @@ func (s *DescribeDBInstanceParametersOutput) SetInstanceId(v string) *DescribeDB
 	return s
 }
 
+// SetInstanceParameters sets the InstanceParameters field's value.
+func (s *DescribeDBInstanceParametersOutput) SetInstanceParameters(v []*InstanceParameterForDescribeDBInstanceParametersOutput) *DescribeDBInstanceParametersOutput {
+	s.InstanceParameters = v
+	return s
+}
+
 // SetParameterCount sets the ParameterCount field's value.
 func (s *DescribeDBInstanceParametersOutput) SetParameterCount(v int32) *DescribeDBInstanceParametersOutput {
 	s.ParameterCount = &v
@@ -240,6 +248,68 @@ func (s *DescribeDBInstanceParametersOutput) SetParameterCount(v int32) *Describ
 // SetParameters sets the Parameters field's value.
 func (s *DescribeDBInstanceParametersOutput) SetParameters(v []*ParameterForDescribeDBInstanceParametersOutput) *DescribeDBInstanceParametersOutput {
 	s.Parameters = v
+	return s
+}
+
+type InstanceParameterForDescribeDBInstanceParametersOutput struct {
+	_ struct{} `type:"structure"`
+
+	CheckingCode *string `type:"string"`
+
+	ForceRestart *bool `type:"boolean"`
+
+	ParameterDefaultValue *string `type:"string"`
+
+	ParameterDescription *string `type:"string"`
+
+	ParameterName *string `type:"string"`
+
+	ParameterValue *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceParameterForDescribeDBInstanceParametersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceParameterForDescribeDBInstanceParametersOutput) GoString() string {
+	return s.String()
+}
+
+// SetCheckingCode sets the CheckingCode field's value.
+func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetCheckingCode(v string) *InstanceParameterForDescribeDBInstanceParametersOutput {
+	s.CheckingCode = &v
+	return s
+}
+
+// SetForceRestart sets the ForceRestart field's value.
+func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetForceRestart(v bool) *InstanceParameterForDescribeDBInstanceParametersOutput {
+	s.ForceRestart = &v
+	return s
+}
+
+// SetParameterDefaultValue sets the ParameterDefaultValue field's value.
+func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetParameterDefaultValue(v string) *InstanceParameterForDescribeDBInstanceParametersOutput {
+	s.ParameterDefaultValue = &v
+	return s
+}
+
+// SetParameterDescription sets the ParameterDescription field's value.
+func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetParameterDescription(v string) *InstanceParameterForDescribeDBInstanceParametersOutput {
+	s.ParameterDescription = &v
+	return s
+}
+
+// SetParameterName sets the ParameterName field's value.
+func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetParameterName(v string) *InstanceParameterForDescribeDBInstanceParametersOutput {
+	s.ParameterName = &v
+	return s
+}
+
+// SetParameterValue sets the ParameterValue field's value.
+func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetParameterValue(v string) *InstanceParameterForDescribeDBInstanceParametersOutput {
+	s.ParameterValue = &v
 	return s
 }
 

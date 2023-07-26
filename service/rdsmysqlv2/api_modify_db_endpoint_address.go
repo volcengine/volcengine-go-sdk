@@ -22,13 +22,13 @@ const opModifyDBEndpointAddressCommon = "ModifyDBEndpointAddress"
 // See ModifyDBEndpointAddressCommon for more information on using the ModifyDBEndpointAddressCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBEndpointAddressCommonRequest method.
-//    req, resp := client.ModifyDBEndpointAddressCommonRequest(params)
+//	// Example sending a request using the ModifyDBEndpointAddressCommonRequest method.
+//	req, resp := client.ModifyDBEndpointAddressCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBEndpointAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpointAddressCommon,
@@ -89,13 +89,13 @@ const opModifyDBEndpointAddress = "ModifyDBEndpointAddress"
 // See ModifyDBEndpointAddress for more information on using the ModifyDBEndpointAddress
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBEndpointAddressRequest method.
-//    req, resp := client.ModifyDBEndpointAddressRequest(params)
+//	// Example sending a request using the ModifyDBEndpointAddressRequest method.
+//	req, resp := client.ModifyDBEndpointAddressRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBEndpointAddressRequest(input *ModifyDBEndpointAddressInput) (req *request.Request, output *ModifyDBEndpointAddressOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpointAddress,
@@ -146,6 +146,10 @@ func (c *RDSMYSQLV2) ModifyDBEndpointAddressWithContext(ctx volcengine.Context, 
 type ModifyDBEndpointAddressInput struct {
 	_ struct{} `type:"structure"`
 
+	DomainPrefix *string `type:"string"`
+
+	EipId *string `type:"string"`
+
 	EndpointId *string `type:"string"`
 
 	// InstanceId is a required field
@@ -154,6 +158,10 @@ type ModifyDBEndpointAddressInput struct {
 	NetworkType *string `type:"string" enum:"EnumOfNetworkTypeForModifyDBEndpointAddressInput"`
 
 	Port *int32 `type:"int32"`
+
+	SubnetId *string `type:"string"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -179,6 +187,18 @@ func (s *ModifyDBEndpointAddressInput) Validate() error {
 	return nil
 }
 
+// SetDomainPrefix sets the DomainPrefix field's value.
+func (s *ModifyDBEndpointAddressInput) SetDomainPrefix(v string) *ModifyDBEndpointAddressInput {
+	s.DomainPrefix = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *ModifyDBEndpointAddressInput) SetEipId(v string) *ModifyDBEndpointAddressInput {
+	s.EipId = &v
+	return s
+}
+
 // SetEndpointId sets the EndpointId field's value.
 func (s *ModifyDBEndpointAddressInput) SetEndpointId(v string) *ModifyDBEndpointAddressInput {
 	s.EndpointId = &v
@@ -200,6 +220,18 @@ func (s *ModifyDBEndpointAddressInput) SetNetworkType(v string) *ModifyDBEndpoin
 // SetPort sets the Port field's value.
 func (s *ModifyDBEndpointAddressInput) SetPort(v int32) *ModifyDBEndpointAddressInput {
 	s.Port = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *ModifyDBEndpointAddressInput) SetSubnetId(v string) *ModifyDBEndpointAddressInput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *ModifyDBEndpointAddressInput) SetVpcId(v string) *ModifyDBEndpointAddressInput {
+	s.VpcId = &v
 	return s
 }
 

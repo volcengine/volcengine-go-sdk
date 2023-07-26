@@ -22,13 +22,13 @@ const opDescribeDBInstanceParametersLogCommon = "DescribeDBInstanceParametersLog
 // See DescribeDBInstanceParametersLogCommon for more information on using the DescribeDBInstanceParametersLogCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBInstanceParametersLogCommonRequest method.
-//    req, resp := client.DescribeDBInstanceParametersLogCommonRequest(params)
+//	// Example sending a request using the DescribeDBInstanceParametersLogCommonRequest method.
+//	req, resp := client.DescribeDBInstanceParametersLogCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DescribeDBInstanceParametersLogCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceParametersLogCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstanceParametersLog = "DescribeDBInstanceParametersLog"
 // See DescribeDBInstanceParametersLog for more information on using the DescribeDBInstanceParametersLog
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBInstanceParametersLogRequest method.
-//    req, resp := client.DescribeDBInstanceParametersLogRequest(params)
+//	// Example sending a request using the DescribeDBInstanceParametersLogRequest method.
+//	req, resp := client.DescribeDBInstanceParametersLogRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DescribeDBInstanceParametersLogRequest(input *DescribeDBInstanceParametersLogInput) (req *request.Request, output *DescribeDBInstanceParametersLogOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceParametersLog,
@@ -152,6 +152,10 @@ type DescribeDBInstanceParametersLogInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
+	PageNumber *int32 `type:"int32"`
+
+	PageSize *int32 `type:"int32"`
+
 	// StartTime is a required field
 	StartTime *string `type:"string" required:"true"`
 }
@@ -194,6 +198,18 @@ func (s *DescribeDBInstanceParametersLogInput) SetEndTime(v string) *DescribeDBI
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeDBInstanceParametersLogInput) SetInstanceId(v string) *DescribeDBInstanceParametersLogInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeDBInstanceParametersLogInput) SetPageNumber(v int32) *DescribeDBInstanceParametersLogInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeDBInstanceParametersLogInput) SetPageSize(v int32) *DescribeDBInstanceParametersLogInput {
+	s.PageSize = &v
 	return s
 }
 

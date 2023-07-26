@@ -22,13 +22,13 @@ const opRestartDBInstanceCommon = "RestartDBInstance"
 // See RestartDBInstanceCommon for more information on using the RestartDBInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RestartDBInstanceCommonRequest method.
-//    req, resp := client.RestartDBInstanceCommonRequest(params)
+//	// Example sending a request using the RestartDBInstanceCommonRequest method.
+//	req, resp := client.RestartDBInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) RestartDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestartDBInstanceCommon,
@@ -89,13 +89,13 @@ const opRestartDBInstance = "RestartDBInstance"
 // See RestartDBInstance for more information on using the RestartDBInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the RestartDBInstanceRequest method.
-//    req, resp := client.RestartDBInstanceRequest(params)
+//	// Example sending a request using the RestartDBInstanceRequest method.
+//	req, resp := client.RestartDBInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) RestartDBInstanceRequest(input *RestartDBInstanceInput) (req *request.Request, output *RestartDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRestartDBInstance,

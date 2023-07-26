@@ -22,13 +22,13 @@ const opDeleteDatabaseCommon = "DeleteDatabase"
 // See DeleteDatabaseCommon for more information on using the DeleteDatabaseCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDatabaseCommonRequest method.
-//    req, resp := client.DeleteDatabaseCommonRequest(params)
+//	// Example sending a request using the DeleteDatabaseCommonRequest method.
+//	req, resp := client.DeleteDatabaseCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DeleteDatabaseCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDatabaseCommon,
@@ -89,13 +89,13 @@ const opDeleteDatabase = "DeleteDatabase"
 // See DeleteDatabase for more information on using the DeleteDatabase
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDatabaseRequest method.
-//    req, resp := client.DeleteDatabaseRequest(params)
+//	// Example sending a request using the DeleteDatabaseRequest method.
+//	req, resp := client.DeleteDatabaseRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DeleteDatabaseRequest(input *DeleteDatabaseInput) (req *request.Request, output *DeleteDatabaseOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDatabase,

@@ -22,13 +22,13 @@ const opModifyDBEndpointDNSCommon = "ModifyDBEndpointDNS"
 // See ModifyDBEndpointDNSCommon for more information on using the ModifyDBEndpointDNSCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBEndpointDNSCommonRequest method.
-//    req, resp := client.ModifyDBEndpointDNSCommonRequest(params)
+//	// Example sending a request using the ModifyDBEndpointDNSCommonRequest method.
+//	req, resp := client.ModifyDBEndpointDNSCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBEndpointDNSCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpointDNSCommon,
@@ -89,13 +89,13 @@ const opModifyDBEndpointDNS = "ModifyDBEndpointDNS"
 // See ModifyDBEndpointDNS for more information on using the ModifyDBEndpointDNS
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBEndpointDNSRequest method.
-//    req, resp := client.ModifyDBEndpointDNSRequest(params)
+//	// Example sending a request using the ModifyDBEndpointDNSRequest method.
+//	req, resp := client.ModifyDBEndpointDNSRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBEndpointDNSRequest(input *ModifyDBEndpointDNSInput) (req *request.Request, output *ModifyDBEndpointDNSOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpointDNS,

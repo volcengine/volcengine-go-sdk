@@ -22,13 +22,13 @@ const opCreateDBInstanceCommon = "CreateDBInstance"
 // See CreateDBInstanceCommon for more information on using the CreateDBInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDBInstanceCommonRequest method.
-//    req, resp := client.CreateDBInstanceCommonRequest(params)
+//	// Example sending a request using the CreateDBInstanceCommonRequest method.
+//	req, resp := client.CreateDBInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBInstanceCommon,
@@ -89,13 +89,13 @@ const opCreateDBInstance = "CreateDBInstance"
 // See CreateDBInstance for more information on using the CreateDBInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDBInstanceRequest method.
-//    req, resp := client.CreateDBInstanceRequest(params)
+//	// Example sending a request using the CreateDBInstanceRequest method.
+//	req, resp := client.CreateDBInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateDBInstanceRequest(input *CreateDBInstanceInput) (req *request.Request, output *CreateDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBInstance,
@@ -200,6 +200,10 @@ func (s *ChargeInfoForCreateDBInstanceInput) SetPeriodUnit(v string) *ChargeInfo
 type CreateDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	AllowListIds []*string `type:"list"`
+
+	BillingRuleCode *string `type:"string"`
+
 	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure"`
 
 	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
@@ -212,13 +216,23 @@ type CreateDBInstanceInput struct {
 
 	InstanceTags []*InstanceTagForCreateDBInstanceInput `type:"list"`
 
+	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForCreateDBInstanceInput"`
+
 	LowerCaseTableNames *string `type:"string"`
 
 	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list"`
 
+	NodeNumber *int32 `type:"int32"`
+
+	NodeSpec *string `type:"string"`
+
 	Number *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
+
+	ServerCollation *string `type:"string"`
+
+	ShardNumber *int32 `type:"int32"`
 
 	StorageSpace *int32 `type:"int32"`
 
@@ -231,6 +245,8 @@ type CreateDBInstanceInput struct {
 	SuperAccountPassword *string `min:"8" max:"32" type:"string"`
 
 	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -263,6 +279,18 @@ func (s *CreateDBInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *CreateDBInstanceInput) SetAllowListIds(v []*string) *CreateDBInstanceInput {
+	s.AllowListIds = v
+	return s
+}
+
+// SetBillingRuleCode sets the BillingRuleCode field's value.
+func (s *CreateDBInstanceInput) SetBillingRuleCode(v string) *CreateDBInstanceInput {
+	s.BillingRuleCode = &v
+	return s
 }
 
 // SetChargeInfo sets the ChargeInfo field's value.
@@ -301,6 +329,12 @@ func (s *CreateDBInstanceInput) SetInstanceTags(v []*InstanceTagForCreateDBInsta
 	return s
 }
 
+// SetInstanceType sets the InstanceType field's value.
+func (s *CreateDBInstanceInput) SetInstanceType(v string) *CreateDBInstanceInput {
+	s.InstanceType = &v
+	return s
+}
+
 // SetLowerCaseTableNames sets the LowerCaseTableNames field's value.
 func (s *CreateDBInstanceInput) SetLowerCaseTableNames(v string) *CreateDBInstanceInput {
 	s.LowerCaseTableNames = &v
@@ -313,6 +347,18 @@ func (s *CreateDBInstanceInput) SetNodeInfo(v []*NodeInfoForCreateDBInstanceInpu
 	return s
 }
 
+// SetNodeNumber sets the NodeNumber field's value.
+func (s *CreateDBInstanceInput) SetNodeNumber(v int32) *CreateDBInstanceInput {
+	s.NodeNumber = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *CreateDBInstanceInput) SetNodeSpec(v string) *CreateDBInstanceInput {
+	s.NodeSpec = &v
+	return s
+}
+
 // SetNumber sets the Number field's value.
 func (s *CreateDBInstanceInput) SetNumber(v int32) *CreateDBInstanceInput {
 	s.Number = &v
@@ -322,6 +368,18 @@ func (s *CreateDBInstanceInput) SetNumber(v int32) *CreateDBInstanceInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetServerCollation sets the ServerCollation field's value.
+func (s *CreateDBInstanceInput) SetServerCollation(v string) *CreateDBInstanceInput {
+	s.ServerCollation = &v
+	return s
+}
+
+// SetShardNumber sets the ShardNumber field's value.
+func (s *CreateDBInstanceInput) SetShardNumber(v int32) *CreateDBInstanceInput {
+	s.ShardNumber = &v
 	return s
 }
 
@@ -358,6 +416,12 @@ func (s *CreateDBInstanceInput) SetSuperAccountPassword(v string) *CreateDBInsta
 // SetVpcId sets the VpcId field's value.
 func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *CreateDBInstanceInput) SetZoneId(v string) *CreateDBInstanceInput {
+	s.ZoneId = &v
 	return s
 }
 
@@ -514,6 +578,23 @@ const (
 
 	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Web is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Web = "SQLServer_2019_Web"
+)
+
+const (
+	// EnumOfInstanceTypeForCreateDBInstanceInputBasic is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
+	EnumOfInstanceTypeForCreateDBInstanceInputBasic = "Basic"
+
+	// EnumOfInstanceTypeForCreateDBInstanceInputCluster is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
+	EnumOfInstanceTypeForCreateDBInstanceInputCluster = "Cluster"
+
+	// EnumOfInstanceTypeForCreateDBInstanceInputDoubleNode is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
+	EnumOfInstanceTypeForCreateDBInstanceInputDoubleNode = "DoubleNode"
+
+	// EnumOfInstanceTypeForCreateDBInstanceInputHa is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
+	EnumOfInstanceTypeForCreateDBInstanceInputHa = "HA"
+
+	// EnumOfInstanceTypeForCreateDBInstanceInputMultiNode is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
+	EnumOfInstanceTypeForCreateDBInstanceInputMultiNode = "MultiNode"
 )
 
 const (

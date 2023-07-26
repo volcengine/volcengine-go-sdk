@@ -22,13 +22,13 @@ const opGrantDBAccountPrivilegeCommon = "GrantDBAccountPrivilege"
 // See GrantDBAccountPrivilegeCommon for more information on using the GrantDBAccountPrivilegeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the GrantDBAccountPrivilegeCommonRequest method.
-//    req, resp := client.GrantDBAccountPrivilegeCommonRequest(params)
+//	// Example sending a request using the GrantDBAccountPrivilegeCommonRequest method.
+//	req, resp := client.GrantDBAccountPrivilegeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) GrantDBAccountPrivilegeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGrantDBAccountPrivilegeCommon,
@@ -89,13 +89,13 @@ const opGrantDBAccountPrivilege = "GrantDBAccountPrivilege"
 // See GrantDBAccountPrivilege for more information on using the GrantDBAccountPrivilege
 // API call, and error handling.
 //
-//    // Example sending a request using the GrantDBAccountPrivilegeRequest method.
-//    req, resp := client.GrantDBAccountPrivilegeRequest(params)
+//	// Example sending a request using the GrantDBAccountPrivilegeRequest method.
+//	req, resp := client.GrantDBAccountPrivilegeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) GrantDBAccountPrivilegeRequest(input *GrantDBAccountPrivilegeInput) (req *request.Request, output *GrantDBAccountPrivilegeOutput) {
 	op := &request.Operation{
 		Name:       opGrantDBAccountPrivilege,

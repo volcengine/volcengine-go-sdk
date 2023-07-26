@@ -16,20 +16,27 @@ import (
 // RDSMYSQLV2API provides an interface to enable mocking the
 // rdsmysqlv2.RDSMYSQLV2 service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // RDS_MYSQL_V2.
-//    func myFunc(svc RDSMYSQLV2API) bool {
-//        // Make svc.AssociateAllowList request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// RDS_MYSQL_V2.
+//	func myFunc(svc RDSMYSQLV2API) bool {
+//	    // Make svc.AddTagsToResource request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := rdsmysqlv2.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := rdsmysqlv2.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type RDSMYSQLV2API interface {
+	AddTagsToResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddTagsToResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddTagsToResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddTagsToResource(*AddTagsToResourceInput) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
+
 	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +44,14 @@ type RDSMYSQLV2API interface {
 	AssociateAllowList(*AssociateAllowListInput) (*AssociateAllowListOutput, error)
 	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
 	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
+
+	CopyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CopyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CopyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CopyParameterTemplate(*CopyParameterTemplateInput) (*CopyParameterTemplateOutput, error)
+	CopyParameterTemplateWithContext(volcengine.Context, *CopyParameterTemplateInput, ...request.Option) (*CopyParameterTemplateOutput, error)
+	CopyParameterTemplateRequest(*CopyParameterTemplateInput) (*request.Request, *CopyParameterTemplateOutput)
 
 	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -53,6 +68,14 @@ type RDSMYSQLV2API interface {
 	CreateBackup(*CreateBackupInput) (*CreateBackupOutput, error)
 	CreateBackupWithContext(volcengine.Context, *CreateBackupInput, ...request.Option) (*CreateBackupOutput, error)
 	CreateBackupRequest(*CreateBackupInput) (*request.Request, *CreateBackupOutput)
+
+	CreateBinlogBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateBinlogBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateBinlogBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateBinlogBackup(*CreateBinlogBackupInput) (*CreateBinlogBackupOutput, error)
+	CreateBinlogBackupWithContext(volcengine.Context, *CreateBinlogBackupInput, ...request.Option) (*CreateBinlogBackupOutput, error)
+	CreateBinlogBackupRequest(*CreateBinlogBackupInput) (*request.Request, *CreateBinlogBackupOutput)
 
 	CreateDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -93,6 +116,14 @@ type RDSMYSQLV2API interface {
 	CreateDatabase(*CreateDatabaseInput) (*CreateDatabaseOutput, error)
 	CreateDatabaseWithContext(volcengine.Context, *CreateDatabaseInput, ...request.Option) (*CreateDatabaseOutput, error)
 	CreateDatabaseRequest(*CreateDatabaseInput) (*request.Request, *CreateDatabaseOutput)
+
+	CreateParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateParameterTemplate(*CreateParameterTemplateInput) (*CreateParameterTemplateOutput, error)
+	CreateParameterTemplateWithContext(volcengine.Context, *CreateParameterTemplateInput, ...request.Option) (*CreateParameterTemplateOutput, error)
+	CreateParameterTemplateRequest(*CreateParameterTemplateInput) (*request.Request, *CreateParameterTemplateOutput)
 
 	DeleteAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -142,6 +173,14 @@ type RDSMYSQLV2API interface {
 	DeleteDatabaseWithContext(volcengine.Context, *DeleteDatabaseInput, ...request.Option) (*DeleteDatabaseOutput, error)
 	DeleteDatabaseRequest(*DeleteDatabaseInput) (*request.Request, *DeleteDatabaseOutput)
 
+	DeleteParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteParameterTemplate(*DeleteParameterTemplateInput) (*DeleteParameterTemplateOutput, error)
+	DeleteParameterTemplateWithContext(volcengine.Context, *DeleteParameterTemplateInput, ...request.Option) (*DeleteParameterTemplateOutput, error)
+	DeleteParameterTemplateRequest(*DeleteParameterTemplateInput) (*request.Request, *DeleteParameterTemplateOutput)
+
 	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAllowListDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -158,6 +197,14 @@ type RDSMYSQLV2API interface {
 	DescribeAllowListsWithContext(volcengine.Context, *DescribeAllowListsInput, ...request.Option) (*DescribeAllowListsOutput, error)
 	DescribeAllowListsRequest(*DescribeAllowListsInput) (*request.Request, *DescribeAllowListsOutput)
 
+	DescribeApplyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeApplyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeApplyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeApplyParameterTemplate(*DescribeApplyParameterTemplateInput) (*DescribeApplyParameterTemplateOutput, error)
+	DescribeApplyParameterTemplateWithContext(volcengine.Context, *DescribeApplyParameterTemplateInput, ...request.Option) (*DescribeApplyParameterTemplateOutput, error)
+	DescribeApplyParameterTemplateRequest(*DescribeApplyParameterTemplateInput) (*request.Request, *DescribeApplyParameterTemplateOutput)
+
 	DescribeAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -166,6 +213,22 @@ type RDSMYSQLV2API interface {
 	DescribeAvailabilityZonesWithContext(volcengine.Context, *DescribeAvailabilityZonesInput, ...request.Option) (*DescribeAvailabilityZonesOutput, error)
 	DescribeAvailabilityZonesRequest(*DescribeAvailabilityZonesInput) (*request.Request, *DescribeAvailabilityZonesOutput)
 
+	DescribeAvailableCrossRegionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAvailableCrossRegionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAvailableCrossRegionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAvailableCrossRegion(*DescribeAvailableCrossRegionInput) (*DescribeAvailableCrossRegionOutput, error)
+	DescribeAvailableCrossRegionWithContext(volcengine.Context, *DescribeAvailableCrossRegionInput, ...request.Option) (*DescribeAvailableCrossRegionOutput, error)
+	DescribeAvailableCrossRegionRequest(*DescribeAvailableCrossRegionInput) (*request.Request, *DescribeAvailableCrossRegionOutput)
+
+	DescribeBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBackupPolicy(*DescribeBackupPolicyInput) (*DescribeBackupPolicyOutput, error)
+	DescribeBackupPolicyWithContext(volcengine.Context, *DescribeBackupPolicyInput, ...request.Option) (*DescribeBackupPolicyOutput, error)
+	DescribeBackupPolicyRequest(*DescribeBackupPolicyInput) (*request.Request, *DescribeBackupPolicyOutput)
+
 	DescribeBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeBackupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -173,6 +236,22 @@ type RDSMYSQLV2API interface {
 	DescribeBackups(*DescribeBackupsInput) (*DescribeBackupsOutput, error)
 	DescribeBackupsWithContext(volcengine.Context, *DescribeBackupsInput, ...request.Option) (*DescribeBackupsOutput, error)
 	DescribeBackupsRequest(*DescribeBackupsInput) (*request.Request, *DescribeBackupsOutput)
+
+	DescribeBinlogFilesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBinlogFilesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBinlogFilesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBinlogFiles(*DescribeBinlogFilesInput) (*DescribeBinlogFilesOutput, error)
+	DescribeBinlogFilesWithContext(volcengine.Context, *DescribeBinlogFilesInput, ...request.Option) (*DescribeBinlogFilesOutput, error)
+	DescribeBinlogFilesRequest(*DescribeBinlogFilesInput) (*request.Request, *DescribeBinlogFilesOutput)
+
+	DescribeCrossBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCrossBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCrossBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCrossBackupPolicy(*DescribeCrossBackupPolicyInput) (*DescribeCrossBackupPolicyOutput, error)
+	DescribeCrossBackupPolicyWithContext(volcengine.Context, *DescribeCrossBackupPolicyInput, ...request.Option) (*DescribeCrossBackupPolicyOutput, error)
+	DescribeCrossBackupPolicyRequest(*DescribeCrossBackupPolicyInput) (*request.Request, *DescribeCrossBackupPolicyOutput)
 
 	DescribeDBAccountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBAccountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -206,6 +285,54 @@ type RDSMYSQLV2API interface {
 	DescribeDBInstanceParametersLogWithContext(volcengine.Context, *DescribeDBInstanceParametersLogInput, ...request.Option) (*DescribeDBInstanceParametersLogOutput, error)
 	DescribeDBInstanceParametersLogRequest(*DescribeDBInstanceParametersLogInput) (*request.Request, *DescribeDBInstanceParametersLogOutput)
 
+	DescribeDBInstancePriceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstancePriceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstancePriceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstancePriceDetail(*DescribeDBInstancePriceDetailInput) (*DescribeDBInstancePriceDetailOutput, error)
+	DescribeDBInstancePriceDetailWithContext(volcengine.Context, *DescribeDBInstancePriceDetailInput, ...request.Option) (*DescribeDBInstancePriceDetailOutput, error)
+	DescribeDBInstancePriceDetailRequest(*DescribeDBInstancePriceDetailInput) (*request.Request, *DescribeDBInstancePriceDetailOutput)
+
+	DescribeDBInstancePriceDifferenceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstancePriceDifferenceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstancePriceDifferenceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstancePriceDifference(*DescribeDBInstancePriceDifferenceInput) (*DescribeDBInstancePriceDifferenceOutput, error)
+	DescribeDBInstancePriceDifferenceWithContext(volcengine.Context, *DescribeDBInstancePriceDifferenceInput, ...request.Option) (*DescribeDBInstancePriceDifferenceOutput, error)
+	DescribeDBInstancePriceDifferenceRequest(*DescribeDBInstancePriceDifferenceInput) (*request.Request, *DescribeDBInstancePriceDifferenceOutput)
+
+	DescribeDBInstanceSSLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceSSLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceSSLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceSSL(*DescribeDBInstanceSSLInput) (*DescribeDBInstanceSSLOutput, error)
+	DescribeDBInstanceSSLWithContext(volcengine.Context, *DescribeDBInstanceSSLInput, ...request.Option) (*DescribeDBInstanceSSLOutput, error)
+	DescribeDBInstanceSSLRequest(*DescribeDBInstanceSSLInput) (*request.Request, *DescribeDBInstanceSSLOutput)
+
+	DescribeDBInstanceShardsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceShardsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceShardsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceShards(*DescribeDBInstanceShardsInput) (*DescribeDBInstanceShardsOutput, error)
+	DescribeDBInstanceShardsWithContext(volcengine.Context, *DescribeDBInstanceShardsInput, ...request.Option) (*DescribeDBInstanceShardsOutput, error)
+	DescribeDBInstanceShardsRequest(*DescribeDBInstanceShardsInput) (*request.Request, *DescribeDBInstanceShardsOutput)
+
+	DescribeDBInstanceSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceSpecs(*DescribeDBInstanceSpecsInput) (*DescribeDBInstanceSpecsOutput, error)
+	DescribeDBInstanceSpecsWithContext(volcengine.Context, *DescribeDBInstanceSpecsInput, ...request.Option) (*DescribeDBInstanceSpecsOutput, error)
+	DescribeDBInstanceSpecsRequest(*DescribeDBInstanceSpecsInput) (*request.Request, *DescribeDBInstanceSpecsOutput)
+
+	DescribeDBInstanceTDECommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceTDECommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceTDECommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceTDE(*DescribeDBInstanceTDEInput) (*DescribeDBInstanceTDEOutput, error)
+	DescribeDBInstanceTDEWithContext(volcengine.Context, *DescribeDBInstanceTDEInput, ...request.Option) (*DescribeDBInstanceTDEOutput, error)
+	DescribeDBInstanceTDERequest(*DescribeDBInstanceTDEInput) (*request.Request, *DescribeDBInstanceTDEOutput)
+
 	DescribeDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -214,6 +341,14 @@ type RDSMYSQLV2API interface {
 	DescribeDBInstancesWithContext(volcengine.Context, *DescribeDBInstancesInput, ...request.Option) (*DescribeDBInstancesOutput, error)
 	DescribeDBInstancesRequest(*DescribeDBInstancesInput) (*request.Request, *DescribeDBInstancesOutput)
 
+	DescribeDBProxyConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBProxyConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBProxyConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBProxyConfig(*DescribeDBProxyConfigInput) (*DescribeDBProxyConfigOutput, error)
+	DescribeDBProxyConfigWithContext(volcengine.Context, *DescribeDBProxyConfigInput, ...request.Option) (*DescribeDBProxyConfigOutput, error)
+	DescribeDBProxyConfigRequest(*DescribeDBProxyConfigInput) (*request.Request, *DescribeDBProxyConfigOutput)
+
 	DescribeDatabasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDatabasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDatabasesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -221,6 +356,38 @@ type RDSMYSQLV2API interface {
 	DescribeDatabases(*DescribeDatabasesInput) (*DescribeDatabasesOutput, error)
 	DescribeDatabasesWithContext(volcengine.Context, *DescribeDatabasesInput, ...request.Option) (*DescribeDatabasesOutput, error)
 	DescribeDatabasesRequest(*DescribeDatabasesInput) (*request.Request, *DescribeDatabasesOutput)
+
+	DescribeEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEvents(*DescribeEventsInput) (*DescribeEventsOutput, error)
+	DescribeEventsWithContext(volcengine.Context, *DescribeEventsInput, ...request.Option) (*DescribeEventsOutput, error)
+	DescribeEventsRequest(*DescribeEventsInput) (*request.Request, *DescribeEventsOutput)
+
+	DescribeFailoverLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeFailoverLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeFailoverLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeFailoverLogs(*DescribeFailoverLogsInput) (*DescribeFailoverLogsOutput, error)
+	DescribeFailoverLogsWithContext(volcengine.Context, *DescribeFailoverLogsInput, ...request.Option) (*DescribeFailoverLogsOutput, error)
+	DescribeFailoverLogsRequest(*DescribeFailoverLogsInput) (*request.Request, *DescribeFailoverLogsOutput)
+
+	DescribeParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeParameterTemplate(*DescribeParameterTemplateInput) (*DescribeParameterTemplateOutput, error)
+	DescribeParameterTemplateWithContext(volcengine.Context, *DescribeParameterTemplateInput, ...request.Option) (*DescribeParameterTemplateOutput, error)
+	DescribeParameterTemplateRequest(*DescribeParameterTemplateInput) (*request.Request, *DescribeParameterTemplateOutput)
+
+	DescribeProxySQLConcurrencyControlConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeProxySQLConcurrencyControlConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeProxySQLConcurrencyControlConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeProxySQLConcurrencyControlConfig(*DescribeProxySQLConcurrencyControlConfigInput) (*DescribeProxySQLConcurrencyControlConfigOutput, error)
+	DescribeProxySQLConcurrencyControlConfigWithContext(volcengine.Context, *DescribeProxySQLConcurrencyControlConfigInput, ...request.Option) (*DescribeProxySQLConcurrencyControlConfigOutput, error)
+	DescribeProxySQLConcurrencyControlConfigRequest(*DescribeProxySQLConcurrencyControlConfigInput) (*request.Request, *DescribeProxySQLConcurrencyControlConfigOutput)
 
 	DescribeRecoverableTimeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRecoverableTimeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -238,6 +405,14 @@ type RDSMYSQLV2API interface {
 	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
 	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
 
+	DescribeTagsByResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTagsByResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTagsByResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTagsByResource(*DescribeTagsByResourceInput) (*DescribeTagsByResourceOutput, error)
+	DescribeTagsByResourceWithContext(volcengine.Context, *DescribeTagsByResourceInput, ...request.Option) (*DescribeTagsByResourceOutput, error)
+	DescribeTagsByResourceRequest(*DescribeTagsByResourceInput) (*request.Request, *DescribeTagsByResourceOutput)
+
 	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisassociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -253,6 +428,14 @@ type RDSMYSQLV2API interface {
 	DownloadBackup(*DownloadBackupInput) (*DownloadBackupOutput, error)
 	DownloadBackupWithContext(volcengine.Context, *DownloadBackupInput, ...request.Option) (*DownloadBackupOutput, error)
 	DownloadBackupRequest(*DownloadBackupInput) (*request.Request, *DownloadBackupOutput)
+
+	DownloadSSLCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DownloadSSLCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DownloadSSLCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DownloadSSLCertificate(*DownloadSSLCertificateInput) (*DownloadSSLCertificateOutput, error)
+	DownloadSSLCertificateWithContext(volcengine.Context, *DownloadSSLCertificateInput, ...request.Option) (*DownloadSSLCertificateOutput, error)
+	DownloadSSLCertificateRequest(*DownloadSSLCertificateInput) (*request.Request, *DownloadSSLCertificateOutput)
 
 	GetBackupDownloadLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetBackupDownloadLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -278,6 +461,14 @@ type RDSMYSQLV2API interface {
 	GrantDatabasePrivilegeWithContext(volcengine.Context, *GrantDatabasePrivilegeInput, ...request.Option) (*GrantDatabasePrivilegeOutput, error)
 	GrantDatabasePrivilegeRequest(*GrantDatabasePrivilegeInput) (*request.Request, *GrantDatabasePrivilegeOutput)
 
+	ListParameterTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListParameterTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListParameterTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListParameterTemplates(*ListParameterTemplatesInput) (*ListParameterTemplatesOutput, error)
+	ListParameterTemplatesWithContext(volcengine.Context, *ListParameterTemplatesInput, ...request.Option) (*ListParameterTemplatesOutput, error)
+	ListParameterTemplatesRequest(*ListParameterTemplatesInput) (*request.Request, *ListParameterTemplatesOutput)
+
 	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -285,6 +476,30 @@ type RDSMYSQLV2API interface {
 	ModifyAllowList(*ModifyAllowListInput) (*ModifyAllowListOutput, error)
 	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
 	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
+
+	ModifyBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyBackupPolicy(*ModifyBackupPolicyInput) (*ModifyBackupPolicyOutput, error)
+	ModifyBackupPolicyWithContext(volcengine.Context, *ModifyBackupPolicyInput, ...request.Option) (*ModifyBackupPolicyOutput, error)
+	ModifyBackupPolicyRequest(*ModifyBackupPolicyInput) (*request.Request, *ModifyBackupPolicyOutput)
+
+	ModifyCrossBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyCrossBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyCrossBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyCrossBackupPolicy(*ModifyCrossBackupPolicyInput) (*ModifyCrossBackupPolicyOutput, error)
+	ModifyCrossBackupPolicyWithContext(volcengine.Context, *ModifyCrossBackupPolicyInput, ...request.Option) (*ModifyCrossBackupPolicyOutput, error)
+	ModifyCrossBackupPolicyRequest(*ModifyCrossBackupPolicyInput) (*request.Request, *ModifyCrossBackupPolicyOutput)
+
+	ModifyDBAccountDescriptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBAccountDescriptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBAccountDescriptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBAccountDescription(*ModifyDBAccountDescriptionInput) (*ModifyDBAccountDescriptionOutput, error)
+	ModifyDBAccountDescriptionWithContext(volcengine.Context, *ModifyDBAccountDescriptionInput, ...request.Option) (*ModifyDBAccountDescriptionOutput, error)
+	ModifyDBAccountDescriptionRequest(*ModifyDBAccountDescriptionInput) (*request.Request, *ModifyDBAccountDescriptionOutput)
 
 	ModifyDBEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -310,6 +525,30 @@ type RDSMYSQLV2API interface {
 	ModifyDBEndpointDNSWithContext(volcengine.Context, *ModifyDBEndpointDNSInput, ...request.Option) (*ModifyDBEndpointDNSOutput, error)
 	ModifyDBEndpointDNSRequest(*ModifyDBEndpointDNSInput) (*request.Request, *ModifyDBEndpointDNSOutput)
 
+	ModifyDBInstanceChargeTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceChargeTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceChargeTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceChargeType(*ModifyDBInstanceChargeTypeInput) (*ModifyDBInstanceChargeTypeOutput, error)
+	ModifyDBInstanceChargeTypeWithContext(volcengine.Context, *ModifyDBInstanceChargeTypeInput, ...request.Option) (*ModifyDBInstanceChargeTypeOutput, error)
+	ModifyDBInstanceChargeTypeRequest(*ModifyDBInstanceChargeTypeInput) (*request.Request, *ModifyDBInstanceChargeTypeOutput)
+
+	ModifyDBInstanceMaintenanceWindowCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceMaintenanceWindowCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceMaintenanceWindowCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceMaintenanceWindow(*ModifyDBInstanceMaintenanceWindowInput) (*ModifyDBInstanceMaintenanceWindowOutput, error)
+	ModifyDBInstanceMaintenanceWindowWithContext(volcengine.Context, *ModifyDBInstanceMaintenanceWindowInput, ...request.Option) (*ModifyDBInstanceMaintenanceWindowOutput, error)
+	ModifyDBInstanceMaintenanceWindowRequest(*ModifyDBInstanceMaintenanceWindowInput) (*request.Request, *ModifyDBInstanceMaintenanceWindowOutput)
+
+	ModifyDBInstanceNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceNameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceName(*ModifyDBInstanceNameInput) (*ModifyDBInstanceNameOutput, error)
+	ModifyDBInstanceNameWithContext(volcengine.Context, *ModifyDBInstanceNameInput, ...request.Option) (*ModifyDBInstanceNameOutput, error)
+	ModifyDBInstanceNameRequest(*ModifyDBInstanceNameInput) (*request.Request, *ModifyDBInstanceNameOutput)
+
 	ModifyDBInstanceParametersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceParametersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceParametersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -318,6 +557,14 @@ type RDSMYSQLV2API interface {
 	ModifyDBInstanceParametersWithContext(volcengine.Context, *ModifyDBInstanceParametersInput, ...request.Option) (*ModifyDBInstanceParametersOutput, error)
 	ModifyDBInstanceParametersRequest(*ModifyDBInstanceParametersInput) (*request.Request, *ModifyDBInstanceParametersOutput)
 
+	ModifyDBInstanceSSLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceSSLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceSSLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceSSL(*ModifyDBInstanceSSLInput) (*ModifyDBInstanceSSLOutput, error)
+	ModifyDBInstanceSSLWithContext(volcengine.Context, *ModifyDBInstanceSSLInput, ...request.Option) (*ModifyDBInstanceSSLOutput, error)
+	ModifyDBInstanceSSLRequest(*ModifyDBInstanceSSLInput) (*request.Request, *ModifyDBInstanceSSLOutput)
+
 	ModifyDBInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -325,6 +572,94 @@ type RDSMYSQLV2API interface {
 	ModifyDBInstanceSpec(*ModifyDBInstanceSpecInput) (*ModifyDBInstanceSpecOutput, error)
 	ModifyDBInstanceSpecWithContext(volcengine.Context, *ModifyDBInstanceSpecInput, ...request.Option) (*ModifyDBInstanceSpecOutput, error)
 	ModifyDBInstanceSpecRequest(*ModifyDBInstanceSpecInput) (*request.Request, *ModifyDBInstanceSpecOutput)
+
+	ModifyDBInstanceSyncModeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceSyncModeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceSyncModeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceSyncMode(*ModifyDBInstanceSyncModeInput) (*ModifyDBInstanceSyncModeOutput, error)
+	ModifyDBInstanceSyncModeWithContext(volcengine.Context, *ModifyDBInstanceSyncModeInput, ...request.Option) (*ModifyDBInstanceSyncModeOutput, error)
+	ModifyDBInstanceSyncModeRequest(*ModifyDBInstanceSyncModeInput) (*request.Request, *ModifyDBInstanceSyncModeOutput)
+
+	ModifyDBInstanceTDECommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceTDECommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceTDECommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceTDE(*ModifyDBInstanceTDEInput) (*ModifyDBInstanceTDEOutput, error)
+	ModifyDBInstanceTDEWithContext(volcengine.Context, *ModifyDBInstanceTDEInput, ...request.Option) (*ModifyDBInstanceTDEOutput, error)
+	ModifyDBInstanceTDERequest(*ModifyDBInstanceTDEInput) (*request.Request, *ModifyDBInstanceTDEOutput)
+
+	ModifyDBInstanceTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceType(*ModifyDBInstanceTypeInput) (*ModifyDBInstanceTypeOutput, error)
+	ModifyDBInstanceTypeWithContext(volcengine.Context, *ModifyDBInstanceTypeInput, ...request.Option) (*ModifyDBInstanceTypeOutput, error)
+	ModifyDBInstanceTypeRequest(*ModifyDBInstanceTypeInput) (*request.Request, *ModifyDBInstanceTypeOutput)
+
+	ModifyDBProxyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBProxyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBProxyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBProxy(*ModifyDBProxyInput) (*ModifyDBProxyOutput, error)
+	ModifyDBProxyWithContext(volcengine.Context, *ModifyDBProxyInput, ...request.Option) (*ModifyDBProxyOutput, error)
+	ModifyDBProxyRequest(*ModifyDBProxyInput) (*request.Request, *ModifyDBProxyOutput)
+
+	ModifyDBProxyConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBProxyConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBProxyConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBProxyConfig(*ModifyDBProxyConfigInput) (*ModifyDBProxyConfigOutput, error)
+	ModifyDBProxyConfigWithContext(volcengine.Context, *ModifyDBProxyConfigInput, ...request.Option) (*ModifyDBProxyConfigOutput, error)
+	ModifyDBProxyConfigRequest(*ModifyDBProxyConfigInput) (*request.Request, *ModifyDBProxyConfigOutput)
+
+	ModifyDatabaseDescriptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDatabaseDescriptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDatabaseDescriptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDatabaseDescription(*ModifyDatabaseDescriptionInput) (*ModifyDatabaseDescriptionOutput, error)
+	ModifyDatabaseDescriptionWithContext(volcengine.Context, *ModifyDatabaseDescriptionInput, ...request.Option) (*ModifyDatabaseDescriptionOutput, error)
+	ModifyDatabaseDescriptionRequest(*ModifyDatabaseDescriptionInput) (*request.Request, *ModifyDatabaseDescriptionOutput)
+
+	ModifyDatabasePrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDatabasePrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDatabasePrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDatabasePrivilege(*ModifyDatabasePrivilegeInput) (*ModifyDatabasePrivilegeOutput, error)
+	ModifyDatabasePrivilegeWithContext(volcengine.Context, *ModifyDatabasePrivilegeInput, ...request.Option) (*ModifyDatabasePrivilegeOutput, error)
+	ModifyDatabasePrivilegeRequest(*ModifyDatabasePrivilegeInput) (*request.Request, *ModifyDatabasePrivilegeOutput)
+
+	ModifyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyParameterTemplate(*ModifyParameterTemplateInput) (*ModifyParameterTemplateOutput, error)
+	ModifyParameterTemplateWithContext(volcengine.Context, *ModifyParameterTemplateInput, ...request.Option) (*ModifyParameterTemplateOutput, error)
+	ModifyParameterTemplateRequest(*ModifyParameterTemplateInput) (*request.Request, *ModifyParameterTemplateOutput)
+
+	ModifyProxySQLConcurrencyControlConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyProxySQLConcurrencyControlConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyProxySQLConcurrencyControlConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyProxySQLConcurrencyControlConfig(*ModifyProxySQLConcurrencyControlConfigInput) (*ModifyProxySQLConcurrencyControlConfigOutput, error)
+	ModifyProxySQLConcurrencyControlConfigWithContext(volcengine.Context, *ModifyProxySQLConcurrencyControlConfigInput, ...request.Option) (*ModifyProxySQLConcurrencyControlConfigOutput, error)
+	ModifyProxySQLConcurrencyControlConfigRequest(*ModifyProxySQLConcurrencyControlConfigInput) (*request.Request, *ModifyProxySQLConcurrencyControlConfigOutput)
+
+	RebuildDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RebuildDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RebuildDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RebuildDBInstance(*RebuildDBInstanceInput) (*RebuildDBInstanceOutput, error)
+	RebuildDBInstanceWithContext(volcengine.Context, *RebuildDBInstanceInput, ...request.Option) (*RebuildDBInstanceOutput, error)
+	RebuildDBInstanceRequest(*RebuildDBInstanceInput) (*request.Request, *RebuildDBInstanceOutput)
+
+	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveTagsFromResource(*RemoveTagsFromResourceInput) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceWithContext(volcengine.Context, *RemoveTagsFromResourceInput, ...request.Option) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceRequest(*RemoveTagsFromResourceInput) (*request.Request, *RemoveTagsFromResourceOutput)
 
 	ResetDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ResetDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -341,6 +676,22 @@ type RDSMYSQLV2API interface {
 	RestartDBInstance(*RestartDBInstanceInput) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
+
+	RestoreToCrossRegionInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestoreToCrossRegionInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestoreToCrossRegionInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestoreToCrossRegionInstance(*RestoreToCrossRegionInstanceInput) (*RestoreToCrossRegionInstanceOutput, error)
+	RestoreToCrossRegionInstanceWithContext(volcengine.Context, *RestoreToCrossRegionInstanceInput, ...request.Option) (*RestoreToCrossRegionInstanceOutput, error)
+	RestoreToCrossRegionInstanceRequest(*RestoreToCrossRegionInstanceInput) (*request.Request, *RestoreToCrossRegionInstanceOutput)
+
+	RestoreToExistedInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestoreToExistedInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestoreToExistedInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestoreToExistedInstance(*RestoreToExistedInstanceInput) (*RestoreToExistedInstanceOutput, error)
+	RestoreToExistedInstanceWithContext(volcengine.Context, *RestoreToExistedInstanceInput, ...request.Option) (*RestoreToExistedInstanceOutput, error)
+	RestoreToExistedInstanceRequest(*RestoreToExistedInstanceInput) (*request.Request, *RestoreToExistedInstanceOutput)
 
 	RestoreToNewInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreToNewInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -365,6 +716,22 @@ type RDSMYSQLV2API interface {
 	RevokeDatabasePrivilege(*RevokeDatabasePrivilegeInput) (*RevokeDatabasePrivilegeOutput, error)
 	RevokeDatabasePrivilegeWithContext(volcengine.Context, *RevokeDatabasePrivilegeInput, ...request.Option) (*RevokeDatabasePrivilegeOutput, error)
 	RevokeDatabasePrivilegeRequest(*RevokeDatabasePrivilegeInput) (*request.Request, *RevokeDatabasePrivilegeOutput)
+
+	SaveAsParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SaveAsParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SaveAsParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SaveAsParameterTemplate(*SaveAsParameterTemplateInput) (*SaveAsParameterTemplateOutput, error)
+	SaveAsParameterTemplateWithContext(volcengine.Context, *SaveAsParameterTemplateInput, ...request.Option) (*SaveAsParameterTemplateOutput, error)
+	SaveAsParameterTemplateRequest(*SaveAsParameterTemplateInput) (*request.Request, *SaveAsParameterTemplateOutput)
+
+	SwitchDBInstanceHACommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SwitchDBInstanceHACommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SwitchDBInstanceHACommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SwitchDBInstanceHA(*SwitchDBInstanceHAInput) (*SwitchDBInstanceHAOutput, error)
+	SwitchDBInstanceHAWithContext(volcengine.Context, *SwitchDBInstanceHAInput, ...request.Option) (*SwitchDBInstanceHAOutput, error)
+	SwitchDBInstanceHARequest(*SwitchDBInstanceHAInput) (*request.Request, *SwitchDBInstanceHAOutput)
 
 	UpgradeAllowListVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpgradeAllowListVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

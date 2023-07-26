@@ -22,13 +22,13 @@ const opDeleteDBEndpointPublicAddressCommon = "DeleteDBEndpointPublicAddress"
 // See DeleteDBEndpointPublicAddressCommon for more information on using the DeleteDBEndpointPublicAddressCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDBEndpointPublicAddressCommonRequest method.
-//    req, resp := client.DeleteDBEndpointPublicAddressCommonRequest(params)
+//	// Example sending a request using the DeleteDBEndpointPublicAddressCommonRequest method.
+//	req, resp := client.DeleteDBEndpointPublicAddressCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DeleteDBEndpointPublicAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDBEndpointPublicAddressCommon,
@@ -89,13 +89,13 @@ const opDeleteDBEndpointPublicAddress = "DeleteDBEndpointPublicAddress"
 // See DeleteDBEndpointPublicAddress for more information on using the DeleteDBEndpointPublicAddress
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDBEndpointPublicAddressRequest method.
-//    req, resp := client.DeleteDBEndpointPublicAddressRequest(params)
+//	// Example sending a request using the DeleteDBEndpointPublicAddressRequest method.
+//	req, resp := client.DeleteDBEndpointPublicAddressRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DeleteDBEndpointPublicAddressRequest(input *DeleteDBEndpointPublicAddressInput) (req *request.Request, output *DeleteDBEndpointPublicAddressOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDBEndpointPublicAddress,

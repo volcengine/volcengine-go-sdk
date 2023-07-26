@@ -22,13 +22,13 @@ const opGetBackupDownloadLinkCommon = "GetBackupDownloadLink"
 // See GetBackupDownloadLinkCommon for more information on using the GetBackupDownloadLinkCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the GetBackupDownloadLinkCommonRequest method.
-//    req, resp := client.GetBackupDownloadLinkCommonRequest(params)
+//	// Example sending a request using the GetBackupDownloadLinkCommonRequest method.
+//	req, resp := client.GetBackupDownloadLinkCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) GetBackupDownloadLinkCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetBackupDownloadLinkCommon,
@@ -89,13 +89,13 @@ const opGetBackupDownloadLink = "GetBackupDownloadLink"
 // See GetBackupDownloadLink for more information on using the GetBackupDownloadLink
 // API call, and error handling.
 //
-//    // Example sending a request using the GetBackupDownloadLinkRequest method.
-//    req, resp := client.GetBackupDownloadLinkRequest(params)
+//	// Example sending a request using the GetBackupDownloadLinkRequest method.
+//	req, resp := client.GetBackupDownloadLinkRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) GetBackupDownloadLinkRequest(input *GetBackupDownloadLinkInput) (req *request.Request, output *GetBackupDownloadLinkOutput) {
 	op := &request.Operation{
 		Name:       opGetBackupDownloadLink,
@@ -150,6 +150,8 @@ type GetBackupDownloadLinkInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
+
+	NodeId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -187,6 +189,12 @@ func (s *GetBackupDownloadLinkInput) SetInstanceId(v string) *GetBackupDownloadL
 	return s
 }
 
+// SetNodeId sets the NodeId field's value.
+func (s *GetBackupDownloadLinkInput) SetNodeId(v string) *GetBackupDownloadLinkInput {
+	s.NodeId = &v
+	return s
+}
+
 type GetBackupDownloadLinkOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -207,6 +215,8 @@ type GetBackupDownloadLinkOutput struct {
 	InstanceId *string `type:"string"`
 
 	LinkExpiredTime *string `type:"string"`
+
+	NodeId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -264,5 +274,11 @@ func (s *GetBackupDownloadLinkOutput) SetInstanceId(v string) *GetBackupDownload
 // SetLinkExpiredTime sets the LinkExpiredTime field's value.
 func (s *GetBackupDownloadLinkOutput) SetLinkExpiredTime(v string) *GetBackupDownloadLinkOutput {
 	s.LinkExpiredTime = &v
+	return s
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *GetBackupDownloadLinkOutput) SetNodeId(v string) *GetBackupDownloadLinkOutput {
+	s.NodeId = &v
 	return s
 }
