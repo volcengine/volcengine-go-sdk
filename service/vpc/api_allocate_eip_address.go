@@ -162,6 +162,10 @@ type AllocateEipAddressInput struct {
 
 	ProjectName *string `type:"string"`
 
+	RenewPeriodTimes *int64 `type:"integer"`
+
+	RenewType *int64 `min:"1" max:"3" type:"integer"`
+
 	SecurityProtectionTypes []*string `type:"list"`
 
 	Tags []*TagForAllocateEipAddressInput `type:"list"`
@@ -209,6 +213,12 @@ func (s *AllocateEipAddressInput) Validate() error {
 	}
 	if s.PeriodUnit != nil && *s.PeriodUnit > 2 {
 		invalidParams.Add(request.NewErrParamMaxValue("PeriodUnit", 2))
+	}
+	if s.RenewType != nil && *s.RenewType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
+	}
+	if s.RenewType != nil && *s.RenewType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("RenewType", 3))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -274,6 +284,18 @@ func (s *AllocateEipAddressInput) SetPeriodUnit(v int64) *AllocateEipAddressInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *AllocateEipAddressInput) SetProjectName(v string) *AllocateEipAddressInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRenewPeriodTimes sets the RenewPeriodTimes field's value.
+func (s *AllocateEipAddressInput) SetRenewPeriodTimes(v int64) *AllocateEipAddressInput {
+	s.RenewPeriodTimes = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *AllocateEipAddressInput) SetRenewType(v int64) *AllocateEipAddressInput {
+	s.RenewType = &v
 	return s
 }
 
