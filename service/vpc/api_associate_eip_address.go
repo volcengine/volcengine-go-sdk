@@ -152,6 +152,10 @@ type AssociateEipAddressInput struct {
 	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForAssociateEipAddressInput"`
 
 	PrivateIpAddress *string `type:"string"`
+
+	RenewPeriodTimes *string `type:"string"`
+
+	RenewType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -204,6 +208,18 @@ func (s *AssociateEipAddressInput) SetInstanceType(v string) *AssociateEipAddres
 // SetPrivateIpAddress sets the PrivateIpAddress field's value.
 func (s *AssociateEipAddressInput) SetPrivateIpAddress(v string) *AssociateEipAddressInput {
 	s.PrivateIpAddress = &v
+	return s
+}
+
+// SetRenewPeriodTimes sets the RenewPeriodTimes field's value.
+func (s *AssociateEipAddressInput) SetRenewPeriodTimes(v string) *AssociateEipAddressInput {
+	s.RenewPeriodTimes = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *AssociateEipAddressInput) SetRenewType(v string) *AssociateEipAddressInput {
+	s.RenewType = &v
 	return s
 }
 
