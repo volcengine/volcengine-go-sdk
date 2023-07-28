@@ -22,13 +22,13 @@ const opDisassociateAllowListCommon = "DisassociateAllowList"
 // See DisassociateAllowListCommon for more information on using the DisassociateAllowListCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateAllowListCommonRequest method.
-//    req, resp := client.DisassociateAllowListCommonRequest(params)
+//	// Example sending a request using the DisassociateAllowListCommonRequest method.
+//	req, resp := client.DisassociateAllowListCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DisassociateAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateAllowListCommon,
@@ -89,13 +89,13 @@ const opDisassociateAllowList = "DisassociateAllowList"
 // See DisassociateAllowList for more information on using the DisassociateAllowList
 // API call, and error handling.
 //
-//    // Example sending a request using the DisassociateAllowListRequest method.
-//    req, resp := client.DisassociateAllowListRequest(params)
+//	// Example sending a request using the DisassociateAllowListRequest method.
+//	req, resp := client.DisassociateAllowListRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DisassociateAllowListRequest(input *DisassociateAllowListInput) (req *request.Request, output *DisassociateAllowListOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateAllowList,

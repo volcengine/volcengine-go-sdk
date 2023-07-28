@@ -22,13 +22,13 @@ const opDeleteDBAccountCommon = "DeleteDBAccount"
 // See DeleteDBAccountCommon for more information on using the DeleteDBAccountCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDBAccountCommonRequest method.
-//    req, resp := client.DeleteDBAccountCommonRequest(params)
+//	// Example sending a request using the DeleteDBAccountCommonRequest method.
+//	req, resp := client.DeleteDBAccountCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DeleteDBAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDBAccountCommon,
@@ -89,13 +89,13 @@ const opDeleteDBAccount = "DeleteDBAccount"
 // See DeleteDBAccount for more information on using the DeleteDBAccount
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteDBAccountRequest method.
-//    req, resp := client.DeleteDBAccountRequest(params)
+//	// Example sending a request using the DeleteDBAccountRequest method.
+//	req, resp := client.DeleteDBAccountRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DeleteDBAccountRequest(input *DeleteDBAccountInput) (req *request.Request, output *DeleteDBAccountOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDBAccount,

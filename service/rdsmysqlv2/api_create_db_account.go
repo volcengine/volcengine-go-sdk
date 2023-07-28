@@ -22,13 +22,13 @@ const opCreateDBAccountCommon = "CreateDBAccount"
 // See CreateDBAccountCommon for more information on using the CreateDBAccountCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDBAccountCommonRequest method.
-//    req, resp := client.CreateDBAccountCommonRequest(params)
+//	// Example sending a request using the CreateDBAccountCommonRequest method.
+//	req, resp := client.CreateDBAccountCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateDBAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBAccountCommon,
@@ -89,13 +89,13 @@ const opCreateDBAccount = "CreateDBAccount"
 // See CreateDBAccount for more information on using the CreateDBAccount
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDBAccountRequest method.
-//    req, resp := client.CreateDBAccountRequest(params)
+//	// Example sending a request using the CreateDBAccountRequest method.
+//	req, resp := client.CreateDBAccountRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateDBAccountRequest(input *CreateDBAccountInput) (req *request.Request, output *CreateDBAccountOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBAccount,
@@ -181,14 +181,56 @@ func (s *AccountPrivilegeForCreateDBAccountInput) SetDBName(v string) *AccountPr
 	return s
 }
 
+type AccountPrivilegesInfoForCreateDBAccountInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForCreateDBAccountInput"`
+
+	AccountPrivilegeCustom *string `type:"string"`
+
+	DBName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AccountPrivilegesInfoForCreateDBAccountInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccountPrivilegesInfoForCreateDBAccountInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountPrivilege sets the AccountPrivilege field's value.
+func (s *AccountPrivilegesInfoForCreateDBAccountInput) SetAccountPrivilege(v string) *AccountPrivilegesInfoForCreateDBAccountInput {
+	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
+func (s *AccountPrivilegesInfoForCreateDBAccountInput) SetAccountPrivilegeCustom(v string) *AccountPrivilegesInfoForCreateDBAccountInput {
+	s.AccountPrivilegeCustom = &v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *AccountPrivilegesInfoForCreateDBAccountInput) SetDBName(v string) *AccountPrivilegesInfoForCreateDBAccountInput {
+	s.DBName = &v
+	return s
+}
+
 type CreateDBAccountInput struct {
 	_ struct{} `type:"structure"`
+
+	AccountDesc *string `type:"string"`
 
 	AccountName *string `min:"2" max:"32" type:"string"`
 
 	AccountPassword *string `min:"8" max:"32" type:"string"`
 
 	AccountPrivileges []*AccountPrivilegeForCreateDBAccountInput `type:"list"`
+
+	AccountPrivilegesInfo []*AccountPrivilegesInfoForCreateDBAccountInput `type:"list"`
 
 	AccountType *string `type:"string" enum:"EnumOfAccountTypeForCreateDBAccountInput"`
 
@@ -231,6 +273,12 @@ func (s *CreateDBAccountInput) Validate() error {
 	return nil
 }
 
+// SetAccountDesc sets the AccountDesc field's value.
+func (s *CreateDBAccountInput) SetAccountDesc(v string) *CreateDBAccountInput {
+	s.AccountDesc = &v
+	return s
+}
+
 // SetAccountName sets the AccountName field's value.
 func (s *CreateDBAccountInput) SetAccountName(v string) *CreateDBAccountInput {
 	s.AccountName = &v
@@ -246,6 +294,12 @@ func (s *CreateDBAccountInput) SetAccountPassword(v string) *CreateDBAccountInpu
 // SetAccountPrivileges sets the AccountPrivileges field's value.
 func (s *CreateDBAccountInput) SetAccountPrivileges(v []*AccountPrivilegeForCreateDBAccountInput) *CreateDBAccountInput {
 	s.AccountPrivileges = v
+	return s
+}
+
+// SetAccountPrivilegesInfo sets the AccountPrivilegesInfo field's value.
+func (s *CreateDBAccountInput) SetAccountPrivilegesInfo(v []*AccountPrivilegesInfoForCreateDBAccountInput) *CreateDBAccountInput {
+	s.AccountPrivilegesInfo = v
 	return s
 }
 

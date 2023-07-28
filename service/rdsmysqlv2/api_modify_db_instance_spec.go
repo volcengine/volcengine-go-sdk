@@ -22,13 +22,13 @@ const opModifyDBInstanceSpecCommon = "ModifyDBInstanceSpec"
 // See ModifyDBInstanceSpecCommon for more information on using the ModifyDBInstanceSpecCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBInstanceSpecCommonRequest method.
-//    req, resp := client.ModifyDBInstanceSpecCommonRequest(params)
+//	// Example sending a request using the ModifyDBInstanceSpecCommonRequest method.
+//	req, resp := client.ModifyDBInstanceSpecCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBInstanceSpecCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceSpecCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceSpec = "ModifyDBInstanceSpec"
 // See ModifyDBInstanceSpec for more information on using the ModifyDBInstanceSpec
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBInstanceSpecRequest method.
-//    req, resp := client.ModifyDBInstanceSpecRequest(params)
+//	// Example sending a request using the ModifyDBInstanceSpecRequest method.
+//	req, resp := client.ModifyDBInstanceSpecRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBInstanceSpecRequest(input *ModifyDBInstanceSpecInput) (req *request.Request, output *ModifyDBInstanceSpecOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceSpec,
@@ -146,14 +146,28 @@ func (c *RDSMYSQLV2) ModifyDBInstanceSpecWithContext(ctx volcengine.Context, inp
 type ModifyDBInstanceSpecInput struct {
 	_ struct{} `type:"structure"`
 
+	DryRun *bool `type:"boolean"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
+	ModifyType *string `type:"string" enum:"EnumOfModifyTypeForModifyDBInstanceSpecInput"`
+
 	NodeInfo []*NodeInfoForModifyDBInstanceSpecInput `type:"list"`
+
+	NodeSpec *string `type:"string"`
+
+	RequestSource *string `type:"string" enum:"EnumOfRequestSourceForModifyDBInstanceSpecInput"`
+
+	RollbackTime *string `type:"string"`
+
+	ShardNumber *int32 `type:"int32"`
 
 	StorageSpace *int32 `type:"int32"`
 
 	StorageType *string `type:"string" enum:"EnumOfStorageTypeForModifyDBInstanceSpecInput"`
+
+	SwitchType *string `type:"string" enum:"EnumOfSwitchTypeForModifyDBInstanceSpecInput"`
 }
 
 // String returns the string representation
@@ -179,15 +193,51 @@ func (s *ModifyDBInstanceSpecInput) Validate() error {
 	return nil
 }
 
+// SetDryRun sets the DryRun field's value.
+func (s *ModifyDBInstanceSpecInput) SetDryRun(v bool) *ModifyDBInstanceSpecInput {
+	s.DryRun = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBInstanceSpecInput) SetInstanceId(v string) *ModifyDBInstanceSpecInput {
 	s.InstanceId = &v
 	return s
 }
 
+// SetModifyType sets the ModifyType field's value.
+func (s *ModifyDBInstanceSpecInput) SetModifyType(v string) *ModifyDBInstanceSpecInput {
+	s.ModifyType = &v
+	return s
+}
+
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *ModifyDBInstanceSpecInput) SetNodeInfo(v []*NodeInfoForModifyDBInstanceSpecInput) *ModifyDBInstanceSpecInput {
 	s.NodeInfo = v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *ModifyDBInstanceSpecInput) SetNodeSpec(v string) *ModifyDBInstanceSpecInput {
+	s.NodeSpec = &v
+	return s
+}
+
+// SetRequestSource sets the RequestSource field's value.
+func (s *ModifyDBInstanceSpecInput) SetRequestSource(v string) *ModifyDBInstanceSpecInput {
+	s.RequestSource = &v
+	return s
+}
+
+// SetRollbackTime sets the RollbackTime field's value.
+func (s *ModifyDBInstanceSpecInput) SetRollbackTime(v string) *ModifyDBInstanceSpecInput {
+	s.RollbackTime = &v
+	return s
+}
+
+// SetShardNumber sets the ShardNumber field's value.
+func (s *ModifyDBInstanceSpecInput) SetShardNumber(v int32) *ModifyDBInstanceSpecInput {
+	s.ShardNumber = &v
 	return s
 }
 
@@ -203,6 +253,12 @@ func (s *ModifyDBInstanceSpecInput) SetStorageType(v string) *ModifyDBInstanceSp
 	return s
 }
 
+// SetSwitchType sets the SwitchType field's value.
+func (s *ModifyDBInstanceSpecInput) SetSwitchType(v string) *ModifyDBInstanceSpecInput {
+	s.SwitchType = &v
+	return s
+}
+
 type ModifyDBInstanceSpecOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -211,6 +267,8 @@ type ModifyDBInstanceSpecOutput struct {
 	InstanceId *string `type:"string"`
 
 	OrderId *string `type:"string"`
+
+	PreSchedulePlan *PreSchedulePlanForModifyDBInstanceSpecOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -235,12 +293,20 @@ func (s *ModifyDBInstanceSpecOutput) SetOrderId(v string) *ModifyDBInstanceSpecO
 	return s
 }
 
+// SetPreSchedulePlan sets the PreSchedulePlan field's value.
+func (s *ModifyDBInstanceSpecOutput) SetPreSchedulePlan(v *PreSchedulePlanForModifyDBInstanceSpecOutput) *ModifyDBInstanceSpecOutput {
+	s.PreSchedulePlan = v
+	return s
+}
+
 type NodeInfoForModifyDBInstanceSpecInput struct {
 	_ struct{} `type:"structure"`
 
 	NodeId *string `type:"string"`
 
 	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForModifyDBInstanceSpecInput"`
+
+	NodePool *string `type:"string"`
 
 	NodeSpec *string `type:"string"`
 
@@ -271,6 +337,12 @@ func (s *NodeInfoForModifyDBInstanceSpecInput) SetNodeOperateType(v string) *Nod
 	return s
 }
 
+// SetNodePool sets the NodePool field's value.
+func (s *NodeInfoForModifyDBInstanceSpecInput) SetNodePool(v string) *NodeInfoForModifyDBInstanceSpecInput {
+	s.NodePool = &v
+	return s
+}
+
 // SetNodeSpec sets the NodeSpec field's value.
 func (s *NodeInfoForModifyDBInstanceSpecInput) SetNodeSpec(v string) *NodeInfoForModifyDBInstanceSpecInput {
 	s.NodeSpec = &v
@@ -288,6 +360,116 @@ func (s *NodeInfoForModifyDBInstanceSpecInput) SetZoneId(v string) *NodeInfoForM
 	s.ZoneId = &v
 	return s
 }
+
+type PreSchedulePlanForModifyDBInstanceSpecOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountSupportMigration *bool `type:"boolean"`
+
+	ChooseMigrationCondition *string `type:"string"`
+
+	ChooseMigrationFinally *bool `type:"boolean"`
+
+	InstanceSupportMigration *bool `type:"boolean"`
+
+	RebuildMasterCount *int32 `type:"int32"`
+
+	RebuildReadOnlyCount *int32 `type:"int32"`
+
+	RebuildSlaveCount *int32 `type:"int32"`
+
+	ResourceSupportMigration *bool `type:"boolean"`
+
+	SwitchType *string `type:"string"`
+
+	TryChooseMigrationBySwitchTypeAndCondition *bool `type:"boolean"`
+
+	TryChooseMigrationError *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PreSchedulePlanForModifyDBInstanceSpecOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PreSchedulePlanForModifyDBInstanceSpecOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountSupportMigration sets the AccountSupportMigration field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetAccountSupportMigration(v bool) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.AccountSupportMigration = &v
+	return s
+}
+
+// SetChooseMigrationCondition sets the ChooseMigrationCondition field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetChooseMigrationCondition(v string) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.ChooseMigrationCondition = &v
+	return s
+}
+
+// SetChooseMigrationFinally sets the ChooseMigrationFinally field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetChooseMigrationFinally(v bool) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.ChooseMigrationFinally = &v
+	return s
+}
+
+// SetInstanceSupportMigration sets the InstanceSupportMigration field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetInstanceSupportMigration(v bool) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.InstanceSupportMigration = &v
+	return s
+}
+
+// SetRebuildMasterCount sets the RebuildMasterCount field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetRebuildMasterCount(v int32) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.RebuildMasterCount = &v
+	return s
+}
+
+// SetRebuildReadOnlyCount sets the RebuildReadOnlyCount field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetRebuildReadOnlyCount(v int32) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.RebuildReadOnlyCount = &v
+	return s
+}
+
+// SetRebuildSlaveCount sets the RebuildSlaveCount field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetRebuildSlaveCount(v int32) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.RebuildSlaveCount = &v
+	return s
+}
+
+// SetResourceSupportMigration sets the ResourceSupportMigration field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetResourceSupportMigration(v bool) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.ResourceSupportMigration = &v
+	return s
+}
+
+// SetSwitchType sets the SwitchType field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetSwitchType(v string) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.SwitchType = &v
+	return s
+}
+
+// SetTryChooseMigrationBySwitchTypeAndCondition sets the TryChooseMigrationBySwitchTypeAndCondition field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetTryChooseMigrationBySwitchTypeAndCondition(v bool) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.TryChooseMigrationBySwitchTypeAndCondition = &v
+	return s
+}
+
+// SetTryChooseMigrationError sets the TryChooseMigrationError field's value.
+func (s *PreSchedulePlanForModifyDBInstanceSpecOutput) SetTryChooseMigrationError(v string) *PreSchedulePlanForModifyDBInstanceSpecOutput {
+	s.TryChooseMigrationError = &v
+	return s
+}
+
+const (
+	// EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
+	EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary = "Temporary"
+
+	// EnumOfModifyTypeForModifyDBInstanceSpecInputUsually is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
+	EnumOfModifyTypeForModifyDBInstanceSpecInputUsually = "Usually"
+)
 
 const (
 	// EnumOfNodeOperateTypeForModifyDBInstanceSpecInputCreate is a EnumOfNodeOperateTypeForModifyDBInstanceSpecInput enum value
@@ -312,6 +494,17 @@ const (
 )
 
 const (
+	// EnumOfRequestSourceForModifyDBInstanceSpecInputOpenApi is a EnumOfRequestSourceForModifyDBInstanceSpecInput enum value
+	EnumOfRequestSourceForModifyDBInstanceSpecInputOpenApi = "OpenAPI"
+
+	// EnumOfRequestSourceForModifyDBInstanceSpecInputSdk is a EnumOfRequestSourceForModifyDBInstanceSpecInput enum value
+	EnumOfRequestSourceForModifyDBInstanceSpecInputSdk = "SDK"
+
+	// EnumOfRequestSourceForModifyDBInstanceSpecInputWeb is a EnumOfRequestSourceForModifyDBInstanceSpecInput enum value
+	EnumOfRequestSourceForModifyDBInstanceSpecInputWeb = "Web"
+)
+
+const (
 	// EnumOfStorageTypeForModifyDBInstanceSpecInputCloudStorage is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
 	EnumOfStorageTypeForModifyDBInstanceSpecInputCloudStorage = "CloudStorage"
 
@@ -323,4 +516,12 @@ const (
 
 	// EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
 	EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd = "LocalSSD"
+)
+
+const (
+	// EnumOfSwitchTypeForModifyDBInstanceSpecInputImmediate is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
+	EnumOfSwitchTypeForModifyDBInstanceSpecInputImmediate = "Immediate"
+
+	// EnumOfSwitchTypeForModifyDBInstanceSpecInputMaintainTime is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
+	EnumOfSwitchTypeForModifyDBInstanceSpecInputMaintainTime = "MaintainTime"
 )

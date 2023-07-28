@@ -22,13 +22,13 @@ const opDescribeRecoverableTimeCommon = "DescribeRecoverableTime"
 // See DescribeRecoverableTimeCommon for more information on using the DescribeRecoverableTimeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeRecoverableTimeCommonRequest method.
-//    req, resp := client.DescribeRecoverableTimeCommonRequest(params)
+//	// Example sending a request using the DescribeRecoverableTimeCommonRequest method.
+//	req, resp := client.DescribeRecoverableTimeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DescribeRecoverableTimeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeRecoverableTimeCommon,
@@ -89,13 +89,13 @@ const opDescribeRecoverableTime = "DescribeRecoverableTime"
 // See DescribeRecoverableTime for more information on using the DescribeRecoverableTime
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeRecoverableTimeRequest method.
-//    req, resp := client.DescribeRecoverableTimeRequest(params)
+//	// Example sending a request using the DescribeRecoverableTimeRequest method.
+//	req, resp := client.DescribeRecoverableTimeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DescribeRecoverableTimeRequest(input *DescribeRecoverableTimeInput) (req *request.Request, output *DescribeRecoverableTimeOutput) {
 	op := &request.Operation{
 		Name:       opDescribeRecoverableTime,
@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) DescribeRecoverableTimeWithContext(ctx volcengine.Context, 
 type DescribeRecoverableTimeInput struct {
 	_ struct{} `type:"structure"`
 
+	BackupRegion *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *DescribeRecoverableTimeInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBackupRegion sets the BackupRegion field's value.
+func (s *DescribeRecoverableTimeInput) SetBackupRegion(v string) *DescribeRecoverableTimeInput {
+	s.BackupRegion = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

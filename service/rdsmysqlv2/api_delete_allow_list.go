@@ -22,13 +22,13 @@ const opDeleteAllowListCommon = "DeleteAllowList"
 // See DeleteAllowListCommon for more information on using the DeleteAllowListCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteAllowListCommonRequest method.
-//    req, resp := client.DeleteAllowListCommonRequest(params)
+//	// Example sending a request using the DeleteAllowListCommonRequest method.
+//	req, resp := client.DeleteAllowListCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DeleteAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteAllowListCommon,
@@ -89,13 +89,13 @@ const opDeleteAllowList = "DeleteAllowList"
 // See DeleteAllowList for more information on using the DeleteAllowList
 // API call, and error handling.
 //
-//    // Example sending a request using the DeleteAllowListRequest method.
-//    req, resp := client.DeleteAllowListRequest(params)
+//	// Example sending a request using the DeleteAllowListRequest method.
+//	req, resp := client.DeleteAllowListRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DeleteAllowListRequest(input *DeleteAllowListInput) (req *request.Request, output *DeleteAllowListOutput) {
 	op := &request.Operation{
 		Name:       opDeleteAllowList,

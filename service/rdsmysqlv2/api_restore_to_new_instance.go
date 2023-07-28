@@ -22,13 +22,13 @@ const opRestoreToNewInstanceCommon = "RestoreToNewInstance"
 // See RestoreToNewInstanceCommon for more information on using the RestoreToNewInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RestoreToNewInstanceCommonRequest method.
-//    req, resp := client.RestoreToNewInstanceCommonRequest(params)
+//	// Example sending a request using the RestoreToNewInstanceCommonRequest method.
+//	req, resp := client.RestoreToNewInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) RestoreToNewInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestoreToNewInstanceCommon,
@@ -89,13 +89,13 @@ const opRestoreToNewInstance = "RestoreToNewInstance"
 // See RestoreToNewInstance for more information on using the RestoreToNewInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the RestoreToNewInstanceRequest method.
-//    req, resp := client.RestoreToNewInstanceRequest(params)
+//	// Example sending a request using the RestoreToNewInstanceRequest method.
+//	req, resp := client.RestoreToNewInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) RestoreToNewInstanceRequest(input *RestoreToNewInstanceInput) (req *request.Request, output *RestoreToNewInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRestoreToNewInstance,
@@ -197,12 +197,44 @@ func (s *ChargeInfoForRestoreToNewInstanceInput) SetPeriodUnit(v string) *Charge
 	return s
 }
 
+type InstanceTagForRestoreToNewInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceTagForRestoreToNewInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTagForRestoreToNewInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *InstanceTagForRestoreToNewInstanceInput) SetKey(v string) *InstanceTagForRestoreToNewInstanceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *InstanceTagForRestoreToNewInstanceInput) SetValue(v string) *InstanceTagForRestoreToNewInstanceInput {
+	s.Value = &v
+	return s
+}
+
 type NodeInfoForRestoreToNewInstanceInput struct {
 	_ struct{} `type:"structure"`
 
 	NodeId *string `type:"string"`
 
 	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForRestoreToNewInstanceInput"`
+
+	NodePool *string `type:"string"`
 
 	NodeSpec *string `type:"string"`
 
@@ -233,6 +265,12 @@ func (s *NodeInfoForRestoreToNewInstanceInput) SetNodeOperateType(v string) *Nod
 	return s
 }
 
+// SetNodePool sets the NodePool field's value.
+func (s *NodeInfoForRestoreToNewInstanceInput) SetNodePool(v string) *NodeInfoForRestoreToNewInstanceInput {
+	s.NodePool = &v
+	return s
+}
+
 // SetNodeSpec sets the NodeSpec field's value.
 func (s *NodeInfoForRestoreToNewInstanceInput) SetNodeSpec(v string) *NodeInfoForRestoreToNewInstanceInput {
 	s.NodeSpec = &v
@@ -254,17 +292,29 @@ func (s *NodeInfoForRestoreToNewInstanceInput) SetZoneId(v string) *NodeInfoForR
 type RestoreToNewInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	AllowListIds []*string `type:"list"`
+
 	BackupId *string `type:"string"`
 
 	ChargeInfo *ChargeInfoForRestoreToNewInstanceInput `type:"structure"`
 
+	DBParamGroupId *string `type:"string"`
+
 	InstanceName *string `type:"string"`
 
+	InstanceTags []*InstanceTagForRestoreToNewInstanceInput `type:"list"`
+
 	NodeInfo []*NodeInfoForRestoreToNewInstanceInput `type:"list"`
+
+	NodeNumber *int32 `type:"int32"`
+
+	NodeSpec *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
 	RestoreTime *string `type:"string"`
+
+	ShardNumber *int32 `type:"int32"`
 
 	SrcInstanceId *string `type:"string" json:"SrcInstanceId"`
 
@@ -273,6 +323,10 @@ type RestoreToNewInstanceInput struct {
 	StorageType *string `type:"string" enum:"EnumOfStorageTypeForRestoreToNewInstanceInput"`
 
 	SubnetId *string `type:"string"`
+
+	SuperAccountPassword *string `type:"string"`
+
+	TableMeta []*TableMetaForRestoreToNewInstanceInput `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -289,6 +343,12 @@ func (s RestoreToNewInstanceInput) GoString() string {
 	return s.String()
 }
 
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *RestoreToNewInstanceInput) SetAllowListIds(v []*string) *RestoreToNewInstanceInput {
+	s.AllowListIds = v
+	return s
+}
+
 // SetBackupId sets the BackupId field's value.
 func (s *RestoreToNewInstanceInput) SetBackupId(v string) *RestoreToNewInstanceInput {
 	s.BackupId = &v
@@ -301,15 +361,39 @@ func (s *RestoreToNewInstanceInput) SetChargeInfo(v *ChargeInfoForRestoreToNewIn
 	return s
 }
 
+// SetDBParamGroupId sets the DBParamGroupId field's value.
+func (s *RestoreToNewInstanceInput) SetDBParamGroupId(v string) *RestoreToNewInstanceInput {
+	s.DBParamGroupId = &v
+	return s
+}
+
 // SetInstanceName sets the InstanceName field's value.
 func (s *RestoreToNewInstanceInput) SetInstanceName(v string) *RestoreToNewInstanceInput {
 	s.InstanceName = &v
 	return s
 }
 
+// SetInstanceTags sets the InstanceTags field's value.
+func (s *RestoreToNewInstanceInput) SetInstanceTags(v []*InstanceTagForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
+	s.InstanceTags = v
+	return s
+}
+
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *RestoreToNewInstanceInput) SetNodeInfo(v []*NodeInfoForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
 	s.NodeInfo = v
+	return s
+}
+
+// SetNodeNumber sets the NodeNumber field's value.
+func (s *RestoreToNewInstanceInput) SetNodeNumber(v int32) *RestoreToNewInstanceInput {
+	s.NodeNumber = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *RestoreToNewInstanceInput) SetNodeSpec(v string) *RestoreToNewInstanceInput {
+	s.NodeSpec = &v
 	return s
 }
 
@@ -322,6 +406,12 @@ func (s *RestoreToNewInstanceInput) SetProjectName(v string) *RestoreToNewInstan
 // SetRestoreTime sets the RestoreTime field's value.
 func (s *RestoreToNewInstanceInput) SetRestoreTime(v string) *RestoreToNewInstanceInput {
 	s.RestoreTime = &v
+	return s
+}
+
+// SetShardNumber sets the ShardNumber field's value.
+func (s *RestoreToNewInstanceInput) SetShardNumber(v int32) *RestoreToNewInstanceInput {
+	s.ShardNumber = &v
 	return s
 }
 
@@ -346,6 +436,18 @@ func (s *RestoreToNewInstanceInput) SetStorageType(v string) *RestoreToNewInstan
 // SetSubnetId sets the SubnetId field's value.
 func (s *RestoreToNewInstanceInput) SetSubnetId(v string) *RestoreToNewInstanceInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetSuperAccountPassword sets the SuperAccountPassword field's value.
+func (s *RestoreToNewInstanceInput) SetSuperAccountPassword(v string) *RestoreToNewInstanceInput {
+	s.SuperAccountPassword = &v
+	return s
+}
+
+// SetTableMeta sets the TableMeta field's value.
+func (s *RestoreToNewInstanceInput) SetTableMeta(v []*TableMetaForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
+	s.TableMeta = v
 	return s
 }
 
@@ -390,6 +492,74 @@ func (s *RestoreToNewInstanceOutput) SetInstanceId(v string) *RestoreToNewInstan
 // SetOrderId sets the OrderId field's value.
 func (s *RestoreToNewInstanceOutput) SetOrderId(v string) *RestoreToNewInstanceOutput {
 	s.OrderId = &v
+	return s
+}
+
+type TableForRestoreToNewInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	NewTableName *string `type:"string"`
+
+	TableName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TableForRestoreToNewInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableForRestoreToNewInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetNewTableName sets the NewTableName field's value.
+func (s *TableForRestoreToNewInstanceInput) SetNewTableName(v string) *TableForRestoreToNewInstanceInput {
+	s.NewTableName = &v
+	return s
+}
+
+// SetTableName sets the TableName field's value.
+func (s *TableForRestoreToNewInstanceInput) SetTableName(v string) *TableForRestoreToNewInstanceInput {
+	s.TableName = &v
+	return s
+}
+
+type TableMetaForRestoreToNewInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	DBName *string `type:"string"`
+
+	NewDBName *string `type:"string"`
+
+	Table []*TableForRestoreToNewInstanceInput `type:"list"`
+}
+
+// String returns the string representation
+func (s TableMetaForRestoreToNewInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TableMetaForRestoreToNewInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetDBName sets the DBName field's value.
+func (s *TableMetaForRestoreToNewInstanceInput) SetDBName(v string) *TableMetaForRestoreToNewInstanceInput {
+	s.DBName = &v
+	return s
+}
+
+// SetNewDBName sets the NewDBName field's value.
+func (s *TableMetaForRestoreToNewInstanceInput) SetNewDBName(v string) *TableMetaForRestoreToNewInstanceInput {
+	s.NewDBName = &v
+	return s
+}
+
+// SetTable sets the Table field's value.
+func (s *TableMetaForRestoreToNewInstanceInput) SetTable(v []*TableForRestoreToNewInstanceInput) *TableMetaForRestoreToNewInstanceInput {
+	s.Table = v
 	return s
 }
 

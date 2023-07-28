@@ -22,13 +22,13 @@ const opCreateAllowListCommon = "CreateAllowList"
 // See CreateAllowListCommon for more information on using the CreateAllowListCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateAllowListCommonRequest method.
-//    req, resp := client.CreateAllowListCommonRequest(params)
+//	// Example sending a request using the CreateAllowListCommonRequest method.
+//	req, resp := client.CreateAllowListCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateAllowListCommon,
@@ -89,13 +89,13 @@ const opCreateAllowList = "CreateAllowList"
 // See CreateAllowList for more information on using the CreateAllowList
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateAllowListRequest method.
-//    req, resp := client.CreateAllowListRequest(params)
+//	// Example sending a request using the CreateAllowListRequest method.
+//	req, resp := client.CreateAllowListRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateAllowListRequest(input *CreateAllowListInput) (req *request.Request, output *CreateAllowListOutput) {
 	op := &request.Operation{
 		Name:       opCreateAllowList,

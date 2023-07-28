@@ -22,13 +22,13 @@ const opModifyDBEndpointCommon = "ModifyDBEndpoint"
 // See ModifyDBEndpointCommon for more information on using the ModifyDBEndpointCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBEndpointCommonRequest method.
-//    req, resp := client.ModifyDBEndpointCommonRequest(params)
+//	// Example sending a request using the ModifyDBEndpointCommonRequest method.
+//	req, resp := client.ModifyDBEndpointCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBEndpointCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpointCommon,
@@ -89,13 +89,13 @@ const opModifyDBEndpoint = "ModifyDBEndpoint"
 // See ModifyDBEndpoint for more information on using the ModifyDBEndpoint
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBEndpointRequest method.
-//    req, resp := client.ModifyDBEndpointRequest(params)
+//	// Example sending a request using the ModifyDBEndpointRequest method.
+//	req, resp := client.ModifyDBEndpointRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBEndpointRequest(input *ModifyDBEndpointInput) (req *request.Request, output *ModifyDBEndpointOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpoint,
@@ -154,6 +154,8 @@ type ModifyDBEndpointInput struct {
 	EndpointId *string `type:"string" required:"true"`
 
 	EndpointName *string `type:"string"`
+
+	GlobalReadOnly *bool `type:"boolean"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -218,6 +220,12 @@ func (s *ModifyDBEndpointInput) SetEndpointId(v string) *ModifyDBEndpointInput {
 // SetEndpointName sets the EndpointName field's value.
 func (s *ModifyDBEndpointInput) SetEndpointName(v string) *ModifyDBEndpointInput {
 	s.EndpointName = &v
+	return s
+}
+
+// SetGlobalReadOnly sets the GlobalReadOnly field's value.
+func (s *ModifyDBEndpointInput) SetGlobalReadOnly(v bool) *ModifyDBEndpointInput {
+	s.GlobalReadOnly = &v
 	return s
 }
 

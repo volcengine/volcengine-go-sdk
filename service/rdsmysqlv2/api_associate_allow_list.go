@@ -22,13 +22,13 @@ const opAssociateAllowListCommon = "AssociateAllowList"
 // See AssociateAllowListCommon for more information on using the AssociateAllowListCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateAllowListCommonRequest method.
-//    req, resp := client.AssociateAllowListCommonRequest(params)
+//	// Example sending a request using the AssociateAllowListCommonRequest method.
+//	req, resp := client.AssociateAllowListCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) AssociateAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateAllowListCommon,
@@ -89,13 +89,13 @@ const opAssociateAllowList = "AssociateAllowList"
 // See AssociateAllowList for more information on using the AssociateAllowList
 // API call, and error handling.
 //
-//    // Example sending a request using the AssociateAllowListRequest method.
-//    req, resp := client.AssociateAllowListRequest(params)
+//	// Example sending a request using the AssociateAllowListRequest method.
+//	req, resp := client.AssociateAllowListRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) AssociateAllowListRequest(input *AssociateAllowListInput) (req *request.Request, output *AssociateAllowListOutput) {
 	op := &request.Operation{
 		Name:       opAssociateAllowList,

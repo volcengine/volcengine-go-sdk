@@ -22,13 +22,13 @@ const opRevokeDBAccountPrivilegeCommon = "RevokeDBAccountPrivilege"
 // See RevokeDBAccountPrivilegeCommon for more information on using the RevokeDBAccountPrivilegeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RevokeDBAccountPrivilegeCommonRequest method.
-//    req, resp := client.RevokeDBAccountPrivilegeCommonRequest(params)
+//	// Example sending a request using the RevokeDBAccountPrivilegeCommonRequest method.
+//	req, resp := client.RevokeDBAccountPrivilegeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) RevokeDBAccountPrivilegeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRevokeDBAccountPrivilegeCommon,
@@ -89,13 +89,13 @@ const opRevokeDBAccountPrivilege = "RevokeDBAccountPrivilege"
 // See RevokeDBAccountPrivilege for more information on using the RevokeDBAccountPrivilege
 // API call, and error handling.
 //
-//    // Example sending a request using the RevokeDBAccountPrivilegeRequest method.
-//    req, resp := client.RevokeDBAccountPrivilegeRequest(params)
+//	// Example sending a request using the RevokeDBAccountPrivilegeRequest method.
+//	req, resp := client.RevokeDBAccountPrivilegeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) RevokeDBAccountPrivilegeRequest(input *RevokeDBAccountPrivilegeInput) (req *request.Request, output *RevokeDBAccountPrivilegeOutput) {
 	op := &request.Operation{
 		Name:       opRevokeDBAccountPrivilege,
