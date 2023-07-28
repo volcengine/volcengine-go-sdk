@@ -146,6 +146,8 @@ type DescribeImagesInput struct {
 
 	ImageIds []*string `type:"list"`
 
+	ImageName *string `type:"string"`
+
 	ImageStatus *string `type:"string"`
 
 	InstanceTypeId *string `type:"string"`
@@ -180,6 +182,12 @@ func (s DescribeImagesInput) GoString() string {
 // SetImageIds sets the ImageIds field's value.
 func (s *DescribeImagesInput) SetImageIds(v []*string) *DescribeImagesInput {
 	s.ImageIds = v
+	return s
+}
+
+// SetImageName sets the ImageName field's value.
+func (s *DescribeImagesInput) SetImageName(v string) *DescribeImagesInput {
+	s.ImageName = &v
 	return s
 }
 
