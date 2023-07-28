@@ -22,13 +22,13 @@ const opResetDBAccountCommon = "ResetDBAccount"
 // See ResetDBAccountCommon for more information on using the ResetDBAccountCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ResetDBAccountCommonRequest method.
-//    req, resp := client.ResetDBAccountCommonRequest(params)
+//	// Example sending a request using the ResetDBAccountCommonRequest method.
+//	req, resp := client.ResetDBAccountCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ResetDBAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opResetDBAccountCommon,
@@ -89,13 +89,13 @@ const opResetDBAccount = "ResetDBAccount"
 // See ResetDBAccount for more information on using the ResetDBAccount
 // API call, and error handling.
 //
-//    // Example sending a request using the ResetDBAccountRequest method.
-//    req, resp := client.ResetDBAccountRequest(params)
+//	// Example sending a request using the ResetDBAccountRequest method.
+//	req, resp := client.ResetDBAccountRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ResetDBAccountRequest(input *ResetDBAccountInput) (req *request.Request, output *ResetDBAccountOutput) {
 	op := &request.Operation{
 		Name:       opResetDBAccount,

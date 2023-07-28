@@ -22,13 +22,13 @@ const opCreateDBEndpointCommon = "CreateDBEndpoint"
 // See CreateDBEndpointCommon for more information on using the CreateDBEndpointCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDBEndpointCommonRequest method.
-//    req, resp := client.CreateDBEndpointCommonRequest(params)
+//	// Example sending a request using the CreateDBEndpointCommonRequest method.
+//	req, resp := client.CreateDBEndpointCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateDBEndpointCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBEndpointCommon,
@@ -89,13 +89,13 @@ const opCreateDBEndpoint = "CreateDBEndpoint"
 // See CreateDBEndpoint for more information on using the CreateDBEndpoint
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDBEndpointRequest method.
-//    req, resp := client.CreateDBEndpointRequest(params)
+//	// Example sending a request using the CreateDBEndpointRequest method.
+//	req, resp := client.CreateDBEndpointRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateDBEndpointRequest(input *CreateDBEndpointInput) (req *request.Request, output *CreateDBEndpointOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBEndpoint,
@@ -231,6 +231,10 @@ type CreateDBEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	EndpointId *string `type:"string"`
+
+	InstanceId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -241,6 +245,18 @@ func (s CreateDBEndpointOutput) String() string {
 // GoString returns the string representation
 func (s CreateDBEndpointOutput) GoString() string {
 	return s.String()
+}
+
+// SetEndpointId sets the EndpointId field's value.
+func (s *CreateDBEndpointOutput) SetEndpointId(v string) *CreateDBEndpointOutput {
+	s.EndpointId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CreateDBEndpointOutput) SetInstanceId(v string) *CreateDBEndpointOutput {
+	s.InstanceId = &v
+	return s
 }
 
 const (

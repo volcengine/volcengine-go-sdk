@@ -22,13 +22,13 @@ const opGrantDatabasePrivilegeCommon = "GrantDatabasePrivilege"
 // See GrantDatabasePrivilegeCommon for more information on using the GrantDatabasePrivilegeCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the GrantDatabasePrivilegeCommonRequest method.
-//    req, resp := client.GrantDatabasePrivilegeCommonRequest(params)
+//	// Example sending a request using the GrantDatabasePrivilegeCommonRequest method.
+//	req, resp := client.GrantDatabasePrivilegeCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) GrantDatabasePrivilegeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGrantDatabasePrivilegeCommon,
@@ -89,13 +89,13 @@ const opGrantDatabasePrivilege = "GrantDatabasePrivilege"
 // See GrantDatabasePrivilege for more information on using the GrantDatabasePrivilege
 // API call, and error handling.
 //
-//    // Example sending a request using the GrantDatabasePrivilegeRequest method.
-//    req, resp := client.GrantDatabasePrivilegeRequest(params)
+//	// Example sending a request using the GrantDatabasePrivilegeRequest method.
+//	req, resp := client.GrantDatabasePrivilegeRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) GrantDatabasePrivilegeRequest(input *GrantDatabasePrivilegeInput) (req *request.Request, output *GrantDatabasePrivilegeOutput) {
 	op := &request.Operation{
 		Name:       opGrantDatabasePrivilege,

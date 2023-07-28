@@ -22,13 +22,13 @@ const opDescribeDBAccountsCommon = "DescribeDBAccounts"
 // See DescribeDBAccountsCommon for more information on using the DescribeDBAccountsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBAccountsCommonRequest method.
-//    req, resp := client.DescribeDBAccountsCommonRequest(params)
+//	// Example sending a request using the DescribeDBAccountsCommonRequest method.
+//	req, resp := client.DescribeDBAccountsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DescribeDBAccountsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBAccountsCommon,
@@ -89,13 +89,13 @@ const opDescribeDBAccounts = "DescribeDBAccounts"
 // See DescribeDBAccounts for more information on using the DescribeDBAccounts
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeDBAccountsRequest method.
-//    req, resp := client.DescribeDBAccountsRequest(params)
+//	// Example sending a request using the DescribeDBAccountsRequest method.
+//	req, resp := client.DescribeDBAccountsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) DescribeDBAccountsRequest(input *DescribeDBAccountsInput) (req *request.Request, output *DescribeDBAccountsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBAccounts,
@@ -146,9 +146,15 @@ func (c *RDSMYSQLV2) DescribeDBAccountsWithContext(ctx volcengine.Context, input
 type AccountForDescribeDBAccountsOutput struct {
 	_ struct{} `type:"structure"`
 
+	AccountDesc *string `type:"string"`
+
 	AccountName *string `type:"string"`
 
 	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list"`
+
+	AccountPrivilegesInfo []*AccountPrivilegesInfoForDescribeDBAccountsOutput `type:"list"`
+
+	AccountStatus *string `type:"string"`
 
 	AccountType *string `type:"string"`
 }
@@ -163,6 +169,12 @@ func (s AccountForDescribeDBAccountsOutput) GoString() string {
 	return s.String()
 }
 
+// SetAccountDesc sets the AccountDesc field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetAccountDesc(v string) *AccountForDescribeDBAccountsOutput {
+	s.AccountDesc = &v
+	return s
+}
+
 // SetAccountName sets the AccountName field's value.
 func (s *AccountForDescribeDBAccountsOutput) SetAccountName(v string) *AccountForDescribeDBAccountsOutput {
 	s.AccountName = &v
@@ -172,6 +184,18 @@ func (s *AccountForDescribeDBAccountsOutput) SetAccountName(v string) *AccountFo
 // SetAccountPrivileges sets the AccountPrivileges field's value.
 func (s *AccountForDescribeDBAccountsOutput) SetAccountPrivileges(v []*AccountPrivilegeForDescribeDBAccountsOutput) *AccountForDescribeDBAccountsOutput {
 	s.AccountPrivileges = v
+	return s
+}
+
+// SetAccountPrivilegesInfo sets the AccountPrivilegesInfo field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetAccountPrivilegesInfo(v []*AccountPrivilegesInfoForDescribeDBAccountsOutput) *AccountForDescribeDBAccountsOutput {
+	s.AccountPrivilegesInfo = v
+	return s
+}
+
+// SetAccountStatus sets the AccountStatus field's value.
+func (s *AccountForDescribeDBAccountsOutput) SetAccountStatus(v string) *AccountForDescribeDBAccountsOutput {
+	s.AccountStatus = &v
 	return s
 }
 
@@ -216,6 +240,106 @@ func (s *AccountPrivilegeForDescribeDBAccountsOutput) SetAccountPrivilegeDetail(
 // SetDBName sets the DBName field's value.
 func (s *AccountPrivilegeForDescribeDBAccountsOutput) SetDBName(v string) *AccountPrivilegeForDescribeDBAccountsOutput {
 	s.DBName = &v
+	return s
+}
+
+type AccountPrivilegesInfoForDescribeDBAccountsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountPrivilege *string `type:"string"`
+
+	AccountPrivilegeCustom *string `type:"string"`
+
+	DBName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AccountPrivilegesInfoForDescribeDBAccountsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccountPrivilegesInfoForDescribeDBAccountsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountPrivilege sets the AccountPrivilege field's value.
+func (s *AccountPrivilegesInfoForDescribeDBAccountsOutput) SetAccountPrivilege(v string) *AccountPrivilegesInfoForDescribeDBAccountsOutput {
+	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
+func (s *AccountPrivilegesInfoForDescribeDBAccountsOutput) SetAccountPrivilegeCustom(v string) *AccountPrivilegesInfoForDescribeDBAccountsOutput {
+	s.AccountPrivilegeCustom = &v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *AccountPrivilegesInfoForDescribeDBAccountsOutput) SetDBName(v string) *AccountPrivilegesInfoForDescribeDBAccountsOutput {
+	s.DBName = &v
+	return s
+}
+
+type AccountsInfoForDescribeDBAccountsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountDesc *string `type:"string"`
+
+	AccountName *string `type:"string"`
+
+	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list"`
+
+	AccountPrivilegesInfo []*AccountPrivilegesInfoForDescribeDBAccountsOutput `type:"list"`
+
+	AccountStatus *string `type:"string"`
+
+	AccountType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AccountsInfoForDescribeDBAccountsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AccountsInfoForDescribeDBAccountsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountDesc sets the AccountDesc field's value.
+func (s *AccountsInfoForDescribeDBAccountsOutput) SetAccountDesc(v string) *AccountsInfoForDescribeDBAccountsOutput {
+	s.AccountDesc = &v
+	return s
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *AccountsInfoForDescribeDBAccountsOutput) SetAccountName(v string) *AccountsInfoForDescribeDBAccountsOutput {
+	s.AccountName = &v
+	return s
+}
+
+// SetAccountPrivileges sets the AccountPrivileges field's value.
+func (s *AccountsInfoForDescribeDBAccountsOutput) SetAccountPrivileges(v []*AccountPrivilegeForDescribeDBAccountsOutput) *AccountsInfoForDescribeDBAccountsOutput {
+	s.AccountPrivileges = v
+	return s
+}
+
+// SetAccountPrivilegesInfo sets the AccountPrivilegesInfo field's value.
+func (s *AccountsInfoForDescribeDBAccountsOutput) SetAccountPrivilegesInfo(v []*AccountPrivilegesInfoForDescribeDBAccountsOutput) *AccountsInfoForDescribeDBAccountsOutput {
+	s.AccountPrivilegesInfo = v
+	return s
+}
+
+// SetAccountStatus sets the AccountStatus field's value.
+func (s *AccountsInfoForDescribeDBAccountsOutput) SetAccountStatus(v string) *AccountsInfoForDescribeDBAccountsOutput {
+	s.AccountStatus = &v
+	return s
+}
+
+// SetAccountType sets the AccountType field's value.
+func (s *AccountsInfoForDescribeDBAccountsOutput) SetAccountType(v string) *AccountsInfoForDescribeDBAccountsOutput {
+	s.AccountType = &v
 	return s
 }
 
@@ -292,6 +416,8 @@ type DescribeDBAccountsOutput struct {
 
 	Accounts []*AccountForDescribeDBAccountsOutput `type:"list"`
 
+	AccountsInfo []*AccountsInfoForDescribeDBAccountsOutput `type:"list"`
+
 	Total *int32 `type:"int32"`
 }
 
@@ -308,6 +434,12 @@ func (s DescribeDBAccountsOutput) GoString() string {
 // SetAccounts sets the Accounts field's value.
 func (s *DescribeDBAccountsOutput) SetAccounts(v []*AccountForDescribeDBAccountsOutput) *DescribeDBAccountsOutput {
 	s.Accounts = v
+	return s
+}
+
+// SetAccountsInfo sets the AccountsInfo field's value.
+func (s *DescribeDBAccountsOutput) SetAccountsInfo(v []*AccountsInfoForDescribeDBAccountsOutput) *DescribeDBAccountsOutput {
+	s.AccountsInfo = v
 	return s
 }
 

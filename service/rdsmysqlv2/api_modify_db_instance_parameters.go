@@ -22,13 +22,13 @@ const opModifyDBInstanceParametersCommon = "ModifyDBInstanceParameters"
 // See ModifyDBInstanceParametersCommon for more information on using the ModifyDBInstanceParametersCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBInstanceParametersCommonRequest method.
-//    req, resp := client.ModifyDBInstanceParametersCommonRequest(params)
+//	// Example sending a request using the ModifyDBInstanceParametersCommonRequest method.
+//	req, resp := client.ModifyDBInstanceParametersCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBInstanceParametersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceParametersCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceParameters = "ModifyDBInstanceParameters"
 // See ModifyDBInstanceParameters for more information on using the ModifyDBInstanceParameters
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBInstanceParametersRequest method.
-//    req, resp := client.ModifyDBInstanceParametersRequest(params)
+//	// Example sending a request using the ModifyDBInstanceParametersRequest method.
+//	req, resp := client.ModifyDBInstanceParametersRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) ModifyDBInstanceParametersRequest(input *ModifyDBInstanceParametersInput) (req *request.Request, output *ModifyDBInstanceParametersOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceParameters,
@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) ModifyDBInstanceParametersWithContext(ctx volcengine.Contex
 type ModifyDBInstanceParametersInput struct {
 	_ struct{} `type:"structure"`
 
+	Forcerestart *bool `type:"boolean"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *ModifyDBInstanceParametersInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetForcerestart sets the Forcerestart field's value.
+func (s *ModifyDBInstanceParametersInput) SetForcerestart(v bool) *ModifyDBInstanceParametersInput {
+	s.Forcerestart = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

@@ -22,13 +22,13 @@ const opCreateDatabaseCommon = "CreateDatabase"
 // See CreateDatabaseCommon for more information on using the CreateDatabaseCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDatabaseCommonRequest method.
-//    req, resp := client.CreateDatabaseCommonRequest(params)
+//	// Example sending a request using the CreateDatabaseCommonRequest method.
+//	req, resp := client.CreateDatabaseCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateDatabaseCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDatabaseCommon,
@@ -89,13 +89,13 @@ const opCreateDatabase = "CreateDatabase"
 // See CreateDatabase for more information on using the CreateDatabase
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateDatabaseRequest method.
-//    req, resp := client.CreateDatabaseRequest(params)
+//	// Example sending a request using the CreateDatabaseRequest method.
+//	req, resp := client.CreateDatabaseRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *RDSMYSQLV2) CreateDatabaseRequest(input *CreateDatabaseInput) (req *request.Request, output *CreateDatabaseOutput) {
 	op := &request.Operation{
 		Name:       opCreateDatabase,
@@ -148,9 +148,15 @@ type CreateDatabaseInput struct {
 
 	CharacterSetName *string `type:"string"`
 
+	DBDesc *string `type:"string"`
+
 	DBName *string `min:"2" max:"64" type:"string"`
 
+	DBPartition *int32 `type:"int32"`
+
 	DatabasePrivileges []*DatabasePrivilegeForCreateDatabaseInput `type:"list"`
+
+	DatabasePrivilegesInfo []*DatabasePrivilegesInfoForCreateDatabaseInput `type:"list"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -191,15 +197,33 @@ func (s *CreateDatabaseInput) SetCharacterSetName(v string) *CreateDatabaseInput
 	return s
 }
 
+// SetDBDesc sets the DBDesc field's value.
+func (s *CreateDatabaseInput) SetDBDesc(v string) *CreateDatabaseInput {
+	s.DBDesc = &v
+	return s
+}
+
 // SetDBName sets the DBName field's value.
 func (s *CreateDatabaseInput) SetDBName(v string) *CreateDatabaseInput {
 	s.DBName = &v
 	return s
 }
 
+// SetDBPartition sets the DBPartition field's value.
+func (s *CreateDatabaseInput) SetDBPartition(v int32) *CreateDatabaseInput {
+	s.DBPartition = &v
+	return s
+}
+
 // SetDatabasePrivileges sets the DatabasePrivileges field's value.
 func (s *CreateDatabaseInput) SetDatabasePrivileges(v []*DatabasePrivilegeForCreateDatabaseInput) *CreateDatabaseInput {
 	s.DatabasePrivileges = v
+	return s
+}
+
+// SetDatabasePrivilegesInfo sets the DatabasePrivilegesInfo field's value.
+func (s *CreateDatabaseInput) SetDatabasePrivilegesInfo(v []*DatabasePrivilegesInfoForCreateDatabaseInput) *CreateDatabaseInput {
+	s.DatabasePrivilegesInfo = v
 	return s
 }
 
@@ -260,6 +284,44 @@ func (s *DatabasePrivilegeForCreateDatabaseInput) SetAccountPrivilege(v string) 
 // SetAccountPrivilegeDetail sets the AccountPrivilegeDetail field's value.
 func (s *DatabasePrivilegeForCreateDatabaseInput) SetAccountPrivilegeDetail(v string) *DatabasePrivilegeForCreateDatabaseInput {
 	s.AccountPrivilegeDetail = &v
+	return s
+}
+
+type DatabasePrivilegesInfoForCreateDatabaseInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountName *string `type:"string"`
+
+	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForCreateDatabaseInput"`
+
+	AccountPrivilegeCustom *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DatabasePrivilegesInfoForCreateDatabaseInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DatabasePrivilegesInfoForCreateDatabaseInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *DatabasePrivilegesInfoForCreateDatabaseInput) SetAccountName(v string) *DatabasePrivilegesInfoForCreateDatabaseInput {
+	s.AccountName = &v
+	return s
+}
+
+// SetAccountPrivilege sets the AccountPrivilege field's value.
+func (s *DatabasePrivilegesInfoForCreateDatabaseInput) SetAccountPrivilege(v string) *DatabasePrivilegesInfoForCreateDatabaseInput {
+	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
+func (s *DatabasePrivilegesInfoForCreateDatabaseInput) SetAccountPrivilegeCustom(v string) *DatabasePrivilegesInfoForCreateDatabaseInput {
+	s.AccountPrivilegeCustom = &v
 	return s
 }
 
