@@ -109,6 +109,14 @@ type CENAPI interface {
 	DeleteCenInterRegionBandwidthWithContext(volcengine.Context, *DeleteCenInterRegionBandwidthInput, ...request.Option) (*DeleteCenInterRegionBandwidthOutput, error)
 	DeleteCenInterRegionBandwidthRequest(*DeleteCenInterRegionBandwidthInput) (*request.Request, *DeleteCenInterRegionBandwidthOutput)
 
+	DeleteCenServiceRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteCenServiceRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteCenServiceRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteCenServiceRouteEntry(*DeleteCenServiceRouteEntryInput) (*DeleteCenServiceRouteEntryOutput, error)
+	DeleteCenServiceRouteEntryWithContext(volcengine.Context, *DeleteCenServiceRouteEntryInput, ...request.Option) (*DeleteCenServiceRouteEntryOutput, error)
+	DeleteCenServiceRouteEntryRequest(*DeleteCenServiceRouteEntryInput) (*request.Request, *DeleteCenServiceRouteEntryOutput)
+
 	DeleteCenSummaryRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteCenSummaryRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteCenSummaryRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -180,6 +188,14 @@ type CENAPI interface {
 	DescribeCenRouteEntries(*DescribeCenRouteEntriesInput) (*DescribeCenRouteEntriesOutput, error)
 	DescribeCenRouteEntriesWithContext(volcengine.Context, *DescribeCenRouteEntriesInput, ...request.Option) (*DescribeCenRouteEntriesOutput, error)
 	DescribeCenRouteEntriesRequest(*DescribeCenRouteEntriesInput) (*request.Request, *DescribeCenRouteEntriesOutput)
+
+	DescribeCenServiceRouteEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCenServiceRouteEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCenServiceRouteEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCenServiceRouteEntries(*DescribeCenServiceRouteEntriesInput) (*DescribeCenServiceRouteEntriesOutput, error)
+	DescribeCenServiceRouteEntriesWithContext(volcengine.Context, *DescribeCenServiceRouteEntriesInput, ...request.Option) (*DescribeCenServiceRouteEntriesOutput, error)
+	DescribeCenServiceRouteEntriesRequest(*DescribeCenServiceRouteEntriesInput) (*request.Request, *DescribeCenServiceRouteEntriesOutput)
 
 	DescribeCenSummaryRouteEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCenSummaryRouteEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -269,6 +285,22 @@ type CENAPI interface {
 	ModifyCenInterRegionBandwidthAttributesWithContext(volcengine.Context, *ModifyCenInterRegionBandwidthAttributesInput, ...request.Option) (*ModifyCenInterRegionBandwidthAttributesOutput, error)
 	ModifyCenInterRegionBandwidthAttributesRequest(*ModifyCenInterRegionBandwidthAttributesInput) (*request.Request, *ModifyCenInterRegionBandwidthAttributesOutput)
 
+	ModifyCenServiceRouteEntryAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyCenServiceRouteEntryAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyCenServiceRouteEntryAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyCenServiceRouteEntryAttributes(*ModifyCenServiceRouteEntryAttributesInput) (*ModifyCenServiceRouteEntryAttributesOutput, error)
+	ModifyCenServiceRouteEntryAttributesWithContext(volcengine.Context, *ModifyCenServiceRouteEntryAttributesInput, ...request.Option) (*ModifyCenServiceRouteEntryAttributesOutput, error)
+	ModifyCenServiceRouteEntryAttributesRequest(*ModifyCenServiceRouteEntryAttributesInput) (*request.Request, *ModifyCenServiceRouteEntryAttributesOutput)
+
+	PublishCenRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PublishCenRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PublishCenRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PublishCenRouteEntry(*PublishCenRouteEntryInput) (*PublishCenRouteEntryOutput, error)
+	PublishCenRouteEntryWithContext(volcengine.Context, *PublishCenRouteEntryInput, ...request.Option) (*PublishCenRouteEntryOutput, error)
+	PublishCenRouteEntryRequest(*PublishCenRouteEntryInput) (*request.Request, *PublishCenRouteEntryOutput)
+
 	RevokeInstanceFromCenCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RevokeInstanceFromCenCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RevokeInstanceFromCenCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -292,6 +324,14 @@ type CENAPI interface {
 	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
 	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
 	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
+
+	WithdrawCenRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	WithdrawCenRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	WithdrawCenRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	WithdrawCenRouteEntry(*WithdrawCenRouteEntryInput) (*WithdrawCenRouteEntryOutput, error)
+	WithdrawCenRouteEntryWithContext(volcengine.Context, *WithdrawCenRouteEntryInput, ...request.Option) (*WithdrawCenRouteEntryOutput, error)
+	WithdrawCenRouteEntryRequest(*WithdrawCenRouteEntryInput) (*request.Request, *WithdrawCenRouteEntryOutput)
 }
 
 var _ CENAPI = (*CEN)(nil)
