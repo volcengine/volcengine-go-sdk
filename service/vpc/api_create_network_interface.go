@@ -146,6 +146,10 @@ type CreateNetworkInterfaceInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
+	Ipv6Address []*string `type:"list"`
+
+	Ipv6AddressCount *int64 `type:"integer"`
+
 	NetworkInterfaceName *string `min:"1" max:"128" type:"string"`
 
 	PortSecurityEnabled *bool `type:"boolean"`
@@ -210,6 +214,18 @@ func (s *CreateNetworkInterfaceInput) SetClientToken(v string) *CreateNetworkInt
 // SetDescription sets the Description field's value.
 func (s *CreateNetworkInterfaceInput) SetDescription(v string) *CreateNetworkInterfaceInput {
 	s.Description = &v
+	return s
+}
+
+// SetIpv6Address sets the Ipv6Address field's value.
+func (s *CreateNetworkInterfaceInput) SetIpv6Address(v []*string) *CreateNetworkInterfaceInput {
+	s.Ipv6Address = v
+	return s
+}
+
+// SetIpv6AddressCount sets the Ipv6AddressCount field's value.
+func (s *CreateNetworkInterfaceInput) SetIpv6AddressCount(v int64) *CreateNetworkInterfaceInput {
+	s.Ipv6AddressCount = &v
 	return s
 }
 

@@ -554,6 +554,15 @@ const (
 
 	// ISPForDescribeBandwidthPackagesInputChinaTelecom is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaTelecom = "ChinaTelecom"
+
+	// ISPForDescribeBandwidthPackagesInputChinaMobileValue is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputChinaMobileValue = "ChinaMobile_Value"
+
+	// ISPForDescribeBandwidthPackagesInputChinaUnicomValue is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// ISPForDescribeBandwidthPackagesInputChinaTelecomValue is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputChinaTelecomValue = "ChinaTelecom_Value"
 )
 
 const (

@@ -603,6 +603,15 @@ const (
 
 	// ISPForDescribeEipAddressesInputChinaTelecom is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputChinaTelecom = "ChinaTelecom"
+
+	// ISPForDescribeEipAddressesInputChinaMobileValue is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaMobileValue = "ChinaMobile_Value"
+
+	// ISPForDescribeEipAddressesInputChinaUnicomValue is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// ISPForDescribeEipAddressesInputChinaTelecomValue is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaTelecomValue = "ChinaTelecom_Value"
 )
 
 const (
