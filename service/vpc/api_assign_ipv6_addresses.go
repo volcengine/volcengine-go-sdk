@@ -142,9 +142,9 @@ func (c *VPC) AssignIpv6AddressesWithContext(ctx volcengine.Context, input *Assi
 type AssignIpv6AddressesInput struct {
 	_ struct{} `type:"structure"`
 
-	IPv6Address *string `type:"string"`
+	Ipv6Address []*string `type:"list"`
 
-	IPv6AddressCount *string `type:"string"`
+	Ipv6AddressCount *int64 `type:"integer"`
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
@@ -173,15 +173,15 @@ func (s *AssignIpv6AddressesInput) Validate() error {
 	return nil
 }
 
-// SetIPv6Address sets the IPv6Address field's value.
-func (s *AssignIpv6AddressesInput) SetIPv6Address(v string) *AssignIpv6AddressesInput {
-	s.IPv6Address = &v
+// SetIpv6Address sets the Ipv6Address field's value.
+func (s *AssignIpv6AddressesInput) SetIpv6Address(v []*string) *AssignIpv6AddressesInput {
+	s.Ipv6Address = v
 	return s
 }
 
-// SetIPv6AddressCount sets the IPv6AddressCount field's value.
-func (s *AssignIpv6AddressesInput) SetIPv6AddressCount(v string) *AssignIpv6AddressesInput {
-	s.IPv6AddressCount = &v
+// SetIpv6AddressCount sets the Ipv6AddressCount field's value.
+func (s *AssignIpv6AddressesInput) SetIpv6AddressCount(v int64) *AssignIpv6AddressesInput {
+	s.Ipv6AddressCount = &v
 	return s
 }
 
@@ -196,6 +196,8 @@ type AssignIpv6AddressesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Ipv6Set []*string `type:"list"`
+
 	NetworkInterfaceId *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -209,6 +211,12 @@ func (s AssignIpv6AddressesOutput) String() string {
 // GoString returns the string representation
 func (s AssignIpv6AddressesOutput) GoString() string {
 	return s.String()
+}
+
+// SetIpv6Set sets the Ipv6Set field's value.
+func (s *AssignIpv6AddressesOutput) SetIpv6Set(v []*string) *AssignIpv6AddressesOutput {
+	s.Ipv6Set = v
+	return s
 }
 
 // SetNetworkInterfaceId sets the NetworkInterfaceId field's value.

@@ -142,7 +142,8 @@ func (c *VPC) UnassignIpv6AddressesWithContext(ctx volcengine.Context, input *Un
 type UnassignIpv6AddressesInput struct {
 	_ struct{} `type:"structure"`
 
-	IPv6Address *string `type:"string"`
+	// Ipv6Address is a required field
+	Ipv6Address []*string `type:"list" required:"true"`
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
@@ -161,6 +162,9 @@ func (s UnassignIpv6AddressesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UnassignIpv6AddressesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UnassignIpv6AddressesInput"}
+	if s.Ipv6Address == nil {
+		invalidParams.Add(request.NewErrParamRequired("Ipv6Address"))
+	}
 	if s.NetworkInterfaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
 	}
@@ -171,9 +175,9 @@ func (s *UnassignIpv6AddressesInput) Validate() error {
 	return nil
 }
 
-// SetIPv6Address sets the IPv6Address field's value.
-func (s *UnassignIpv6AddressesInput) SetIPv6Address(v string) *UnassignIpv6AddressesInput {
-	s.IPv6Address = &v
+// SetIpv6Address sets the Ipv6Address field's value.
+func (s *UnassignIpv6AddressesInput) SetIpv6Address(v []*string) *UnassignIpv6AddressesInput {
+	s.Ipv6Address = v
 	return s
 }
 
