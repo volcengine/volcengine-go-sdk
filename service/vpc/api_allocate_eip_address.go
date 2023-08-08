@@ -393,4 +393,13 @@ const (
 
 	// ISPForAllocateEipAddressInputChinaTelecom is a ISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputChinaTelecom = "ChinaTelecom"
+
+	// ISPForAllocateEipAddressInputChinaMobileValue is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaMobileValue = "ChinaMobile_Value"
+
+	// ISPForAllocateEipAddressInputChinaUnicomValue is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// ISPForAllocateEipAddressInputChinaTelecomValue is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaTelecomValue = "ChinaTelecom_Value"
 )
