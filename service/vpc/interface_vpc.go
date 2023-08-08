@@ -45,6 +45,14 @@ type VPCAPI interface {
 	AllocateEipAddressWithContext(volcengine.Context, *AllocateEipAddressInput, ...request.Option) (*AllocateEipAddressOutput, error)
 	AllocateEipAddressRequest(*AllocateEipAddressInput) (*request.Request, *AllocateEipAddressOutput)
 
+	AssignIpv6AddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssignIpv6AddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssignIpv6AddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssignIpv6Addresses(*AssignIpv6AddressesInput) (*AssignIpv6AddressesOutput, error)
+	AssignIpv6AddressesWithContext(volcengine.Context, *AssignIpv6AddressesInput, ...request.Option) (*AssignIpv6AddressesOutput, error)
+	AssignIpv6AddressesRequest(*AssignIpv6AddressesInput) (*request.Request, *AssignIpv6AddressesOutput)
+
 	AssignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssignPrivateIpAddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssignPrivateIpAddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -588,6 +596,14 @@ type VPCAPI interface {
 	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
 	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
 	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UnassignIpv6AddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnassignIpv6AddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnassignIpv6AddressesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnassignIpv6Addresses(*UnassignIpv6AddressesInput) (*UnassignIpv6AddressesOutput, error)
+	UnassignIpv6AddressesWithContext(volcengine.Context, *UnassignIpv6AddressesInput, ...request.Option) (*UnassignIpv6AddressesOutput, error)
+	UnassignIpv6AddressesRequest(*UnassignIpv6AddressesInput) (*request.Request, *UnassignIpv6AddressesOutput)
 
 	UnassignPrivateIpAddressesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UnassignPrivateIpAddressesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

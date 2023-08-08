@@ -684,6 +684,8 @@ func (s *LocalVolumeForDescribeInstancesOutput) SetVolumeType(v string) *LocalVo
 type NetworkInterfaceForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Ipv6Addresses []*string `type:"list"`
+
 	MacAddress *string `type:"string"`
 
 	NetworkInterfaceId *string `type:"string"`
@@ -705,6 +707,12 @@ func (s NetworkInterfaceForDescribeInstancesOutput) String() string {
 // GoString returns the string representation
 func (s NetworkInterfaceForDescribeInstancesOutput) GoString() string {
 	return s.String()
+}
+
+// SetIpv6Addresses sets the Ipv6Addresses field's value.
+func (s *NetworkInterfaceForDescribeInstancesOutput) SetIpv6Addresses(v []*string) *NetworkInterfaceForDescribeInstancesOutput {
+	s.Ipv6Addresses = v
+	return s
 }
 
 // SetMacAddress sets the MacAddress field's value.

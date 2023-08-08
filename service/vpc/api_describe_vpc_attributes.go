@@ -230,6 +230,8 @@ type DescribeVpcAttributesOutput struct {
 
 	DnsServers []*string `type:"list"`
 
+	Ipv6CidrBlock *string `type:"string"`
+
 	IsDefault *bool `type:"boolean"`
 
 	NatGatewayIds []*string `type:"list"`
@@ -302,6 +304,12 @@ func (s *DescribeVpcAttributesOutput) SetDescription(v string) *DescribeVpcAttri
 // SetDnsServers sets the DnsServers field's value.
 func (s *DescribeVpcAttributesOutput) SetDnsServers(v []*string) *DescribeVpcAttributesOutput {
 	s.DnsServers = v
+	return s
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *DescribeVpcAttributesOutput) SetIpv6CidrBlock(v string) *DescribeVpcAttributesOutput {
+	s.Ipv6CidrBlock = &v
 	return s
 }
 
