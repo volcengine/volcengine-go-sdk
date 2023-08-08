@@ -341,6 +341,8 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	Description *string `type:"string"`
 
+	Ipv6CidrBlock *string `type:"string"`
+
 	IsDefault *bool `type:"boolean"`
 
 	NetworkAclId *string `type:"string"`
@@ -401,6 +403,12 @@ func (s *SubnetForDescribeSubnetsOutput) SetCreationTime(v string) *SubnetForDes
 // SetDescription sets the Description field's value.
 func (s *SubnetForDescribeSubnetsOutput) SetDescription(v string) *SubnetForDescribeSubnetsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetIpv6CidrBlock(v string) *SubnetForDescribeSubnetsOutput {
+	s.Ipv6CidrBlock = &v
 	return s
 }
 
