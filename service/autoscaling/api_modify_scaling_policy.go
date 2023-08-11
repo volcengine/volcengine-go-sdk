@@ -234,8 +234,7 @@ type ModifyScalingPolicyInput struct {
 
 	Cooldown *int32 `type:"int32"`
 
-	// ScalingPolicyId is a required field
-	ScalingPolicyId *string `type:"string" required:"true"`
+	ScalingPolicyId *string `type:"string"`
 
 	ScalingPolicyName *string `type:"string"`
 
@@ -250,19 +249,6 @@ func (s ModifyScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s ModifyScalingPolicyInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ModifyScalingPolicyInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ModifyScalingPolicyInput"}
-	if s.ScalingPolicyId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAdjustmentType sets the AdjustmentType field's value.

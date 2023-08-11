@@ -146,11 +146,11 @@ type DetachInstancesInput struct {
 
 	DetachOption *string `type:"string"`
 
-	// InstanceIds is a required field
-	InstanceIds []*string `type:"list" required:"true"`
+	InstanceIds []*string `type:"list"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	LifecycleHook *bool `type:"boolean"`
+
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -161,22 +161,6 @@ func (s DetachInstancesInput) String() string {
 // GoString returns the string representation
 func (s DetachInstancesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DetachInstancesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DetachInstancesInput"}
-	if s.InstanceIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
-	}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetDecreaseDesiredCapacity sets the DecreaseDesiredCapacity field's value.
@@ -194,6 +178,12 @@ func (s *DetachInstancesInput) SetDetachOption(v string) *DetachInstancesInput {
 // SetInstanceIds sets the InstanceIds field's value.
 func (s *DetachInstancesInput) SetInstanceIds(v []*string) *DetachInstancesInput {
 	s.InstanceIds = v
+	return s
+}
+
+// SetLifecycleHook sets the LifecycleHook field's value.
+func (s *DetachInstancesInput) SetLifecycleHook(v bool) *DetachInstancesInput {
+	s.LifecycleHook = &v
 	return s
 }
 

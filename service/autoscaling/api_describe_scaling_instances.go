@@ -152,8 +152,7 @@ type DescribeScalingInstancesInput struct {
 
 	ScalingConfigurationId *string `type:"string"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingGroupId *string `type:"string"`
 
 	Status *string `type:"string"`
 }
@@ -166,19 +165,6 @@ func (s DescribeScalingInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingInstancesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeScalingInstancesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingInstancesInput"}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetCreationType sets the CreationType field's value.
@@ -282,6 +268,10 @@ type ScalingInstanceForDescribeScalingInstancesOutput struct {
 
 	InstanceId *string `type:"string"`
 
+	LaunchTemplateId *string `type:"string"`
+
+	LaunchTemplateVersion *string `type:"string"`
+
 	ScalingConfigurationId *string `type:"string"`
 
 	ScalingGroupId *string `type:"string"`
@@ -324,6 +314,18 @@ func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetEntrusted(v bool) 
 // SetInstanceId sets the InstanceId field's value.
 func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetInstanceId(v string) *ScalingInstanceForDescribeScalingInstancesOutput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetLaunchTemplateId sets the LaunchTemplateId field's value.
+func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetLaunchTemplateId(v string) *ScalingInstanceForDescribeScalingInstancesOutput {
+	s.LaunchTemplateId = &v
+	return s
+}
+
+// SetLaunchTemplateVersion sets the LaunchTemplateVersion field's value.
+func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetLaunchTemplateVersion(v string) *ScalingInstanceForDescribeScalingInstancesOutput {
+	s.LaunchTemplateVersion = &v
 	return s
 }
 

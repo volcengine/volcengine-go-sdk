@@ -188,14 +188,11 @@ func (s *InstanceProtectionResultForSetInstancesProtectionOutput) SetResult(v st
 type SetInstancesProtectionInput struct {
 	_ struct{} `type:"structure"`
 
-	// InstanceIds is a required field
-	InstanceIds []*string `type:"list" required:"true"`
+	InstanceIds []*string `type:"list"`
 
-	// ProtectedFromScaleIn is a required field
-	ProtectedFromScaleIn *bool `type:"boolean" required:"true"`
+	ProtectedFromScaleIn *bool `type:"boolean"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -206,25 +203,6 @@ func (s SetInstancesProtectionInput) String() string {
 // GoString returns the string representation
 func (s SetInstancesProtectionInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *SetInstancesProtectionInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "SetInstancesProtectionInput"}
-	if s.InstanceIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
-	}
-	if s.ProtectedFromScaleIn == nil {
-		invalidParams.Add(request.NewErrParamRequired("ProtectedFromScaleIn"))
-	}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetInstanceIds sets the InstanceIds field's value.

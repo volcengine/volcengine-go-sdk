@@ -142,8 +142,7 @@ func (c *AUTOSCALING) ModifyLifecycleHookWithContext(ctx volcengine.Context, inp
 type ModifyLifecycleHookInput struct {
 	_ struct{} `type:"structure"`
 
-	// LifecycleHookId is a required field
-	LifecycleHookId *string `type:"string" required:"true"`
+	LifecycleHookId *string `type:"string"`
 
 	LifecycleHookPolicy *string `type:"string"`
 
@@ -160,19 +159,6 @@ func (s ModifyLifecycleHookInput) String() string {
 // GoString returns the string representation
 func (s ModifyLifecycleHookInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ModifyLifecycleHookInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ModifyLifecycleHookInput"}
-	if s.LifecycleHookId == nil {
-		invalidParams.Add(request.NewErrParamRequired("LifecycleHookId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetLifecycleHookId sets the LifecycleHookId field's value.

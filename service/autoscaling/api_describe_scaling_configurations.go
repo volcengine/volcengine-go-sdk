@@ -288,7 +288,11 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 
 	HostName *string `type:"string"`
 
+	HpcClusterId *string `type:"string"`
+
 	ImageId *string `type:"string"`
+
+	InstanceChargeType *string `type:"string"`
 
 	InstanceDescription *string `type:"string"`
 
@@ -296,9 +300,13 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 
 	InstanceTypes []*string `type:"list"`
 
+	Ipv6AddressCount *int32 `type:"int32"`
+
 	KeyPairName *string `type:"string"`
 
 	LifecycleState *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	ScalingConfigurationId *string `type:"string"`
 
@@ -309,6 +317,10 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 	SecurityEnhancementStrategy *string `type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
+
+	SpotStrategy *string `type:"string"`
+
+	Tags []*TagForDescribeScalingConfigurationsOutput `type:"list"`
 
 	UpdatedAt *string `type:"string"`
 
@@ -347,9 +359,21 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetHostName
 	return s
 }
 
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetHpcClusterId(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
+	s.HpcClusterId = &v
+	return s
+}
+
 // SetImageId sets the ImageId field's value.
 func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetImageId(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.ImageId = &v
+	return s
+}
+
+// SetInstanceChargeType sets the InstanceChargeType field's value.
+func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetInstanceChargeType(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
+	s.InstanceChargeType = &v
 	return s
 }
 
@@ -371,6 +395,12 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetInstance
 	return s
 }
 
+// SetIpv6AddressCount sets the Ipv6AddressCount field's value.
+func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetIpv6AddressCount(v int32) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
+	s.Ipv6AddressCount = &v
+	return s
+}
+
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetKeyPairName(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.KeyPairName = &v
@@ -380,6 +410,12 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetKeyPairN
 // SetLifecycleState sets the LifecycleState field's value.
 func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetLifecycleState(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.LifecycleState = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetProjectName(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -413,6 +449,18 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetSecurity
 	return s
 }
 
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetSpotStrategy(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
+	s.SpotStrategy = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetTags(v []*TagForDescribeScalingConfigurationsOutput) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetUpdatedAt(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.UpdatedAt = &v
@@ -434,6 +482,36 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetVolumes(
 // SetZoneId sets the ZoneId field's value.
 func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetZoneId(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type TagForDescribeScalingConfigurationsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeScalingConfigurationsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeScalingConfigurationsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeScalingConfigurationsOutput) SetKey(v string) *TagForDescribeScalingConfigurationsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeScalingConfigurationsOutput) SetValue(v string) *TagForDescribeScalingConfigurationsOutput {
+	s.Value = &v
 	return s
 }
 

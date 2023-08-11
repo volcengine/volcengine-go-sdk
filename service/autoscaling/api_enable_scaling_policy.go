@@ -142,8 +142,7 @@ func (c *AUTOSCALING) EnableScalingPolicyWithContext(ctx volcengine.Context, inp
 type EnableScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	// ScalingPolicyId is a required field
-	ScalingPolicyId *string `type:"string" required:"true"`
+	ScalingPolicyId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s EnableScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s EnableScalingPolicyInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *EnableScalingPolicyInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "EnableScalingPolicyInput"}
-	if s.ScalingPolicyId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetScalingPolicyId sets the ScalingPolicyId field's value.
