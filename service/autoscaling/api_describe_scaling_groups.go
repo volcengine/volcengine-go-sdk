@@ -288,7 +288,11 @@ type ScalingGroupForDescribeScalingGroupsOutput struct {
 
 	InstanceTerminatePolicy *string `type:"string"`
 
+	LaunchTemplateId *string `type:"string"`
+
 	LaunchTemplateOverrides []*LaunchTemplateOverrideForDescribeScalingGroupsOutput `type:"list"`
+
+	LaunchTemplateVersion *string `type:"string"`
 
 	LifecycleState *string `type:"string"`
 
@@ -373,9 +377,21 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetInstanceTerminatePolicy(
 	return s
 }
 
+// SetLaunchTemplateId sets the LaunchTemplateId field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLaunchTemplateId(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.LaunchTemplateId = &v
+	return s
+}
+
 // SetLaunchTemplateOverrides sets the LaunchTemplateOverrides field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLaunchTemplateOverrides(v []*LaunchTemplateOverrideForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.LaunchTemplateOverrides = v
+	return s
+}
+
+// SetLaunchTemplateVersion sets the LaunchTemplateVersion field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLaunchTemplateVersion(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.LaunchTemplateVersion = &v
 	return s
 }
 
