@@ -144,11 +144,13 @@ type RemoveInstancesInput struct {
 
 	DecreaseDesiredCapacity *bool `type:"boolean"`
 
-	// InstanceIds is a required field
-	InstanceIds []*string `type:"list" required:"true"`
+	InstanceIds []*string `type:"list"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	LifecycleHook *bool `type:"boolean"`
+
+	RemoveMode *string `type:"string"`
+
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -161,22 +163,6 @@ func (s RemoveInstancesInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *RemoveInstancesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "RemoveInstancesInput"}
-	if s.InstanceIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
-	}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetDecreaseDesiredCapacity sets the DecreaseDesiredCapacity field's value.
 func (s *RemoveInstancesInput) SetDecreaseDesiredCapacity(v bool) *RemoveInstancesInput {
 	s.DecreaseDesiredCapacity = &v
@@ -186,6 +172,18 @@ func (s *RemoveInstancesInput) SetDecreaseDesiredCapacity(v bool) *RemoveInstanc
 // SetInstanceIds sets the InstanceIds field's value.
 func (s *RemoveInstancesInput) SetInstanceIds(v []*string) *RemoveInstancesInput {
 	s.InstanceIds = v
+	return s
+}
+
+// SetLifecycleHook sets the LifecycleHook field's value.
+func (s *RemoveInstancesInput) SetLifecycleHook(v bool) *RemoveInstancesInput {
+	s.LifecycleHook = &v
+	return s
+}
+
+// SetRemoveMode sets the RemoveMode field's value.
+func (s *RemoveInstancesInput) SetRemoveMode(v string) *RemoveInstancesInput {
+	s.RemoveMode = &v
 	return s
 }
 

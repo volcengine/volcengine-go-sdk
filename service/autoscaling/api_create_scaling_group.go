@@ -142,13 +142,23 @@ func (c *AUTOSCALING) CreateScalingGroupWithContext(ctx volcengine.Context, inpu
 type CreateScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	DBInstanceIds []*string `type:"list"`
 
 	DefaultCooldown *int32 `type:"int32"`
 
 	DesireInstanceNumber *int32 `type:"int32"`
 
+	HealthCheckType *string `type:"string"`
+
 	InstanceTerminatePolicy *string `type:"string"`
+
+	LaunchTemplateId *string `type:"string"`
+
+	LaunchTemplateOverrides []*LaunchTemplateOverrideForCreateScalingGroupInput `type:"list"`
+
+	LaunchTemplateVersion *string `type:"string"`
 
 	MaxInstanceNumber *int32 `type:"int32"`
 
@@ -156,13 +166,17 @@ type CreateScalingGroupInput struct {
 
 	MultiAZPolicy *string `type:"string"`
 
-	// ScalingGroupName is a required field
-	ScalingGroupName *string `type:"string" required:"true"`
+	ProjectName *string `type:"string"`
+
+	ScalingGroupName *string `type:"string"`
+
+	ScalingMode *string `type:"string"`
 
 	ServerGroupAttributes []*ServerGroupAttributeForCreateScalingGroupInput `type:"list"`
 
-	// SubnetIds is a required field
-	SubnetIds []*string `type:"list" required:"true"`
+	SubnetIds []*string `type:"list"`
+
+	Tags []*TagForCreateScalingGroupInput `type:"list"`
 }
 
 // String returns the string representation
@@ -175,20 +189,10 @@ func (s CreateScalingGroupInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *CreateScalingGroupInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "CreateScalingGroupInput"}
-	if s.ScalingGroupName == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupName"))
-	}
-	if s.SubnetIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("SubnetIds"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateScalingGroupInput) SetClientToken(v string) *CreateScalingGroupInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDBInstanceIds sets the DBInstanceIds field's value.
@@ -209,9 +213,33 @@ func (s *CreateScalingGroupInput) SetDesireInstanceNumber(v int32) *CreateScalin
 	return s
 }
 
+// SetHealthCheckType sets the HealthCheckType field's value.
+func (s *CreateScalingGroupInput) SetHealthCheckType(v string) *CreateScalingGroupInput {
+	s.HealthCheckType = &v
+	return s
+}
+
 // SetInstanceTerminatePolicy sets the InstanceTerminatePolicy field's value.
 func (s *CreateScalingGroupInput) SetInstanceTerminatePolicy(v string) *CreateScalingGroupInput {
 	s.InstanceTerminatePolicy = &v
+	return s
+}
+
+// SetLaunchTemplateId sets the LaunchTemplateId field's value.
+func (s *CreateScalingGroupInput) SetLaunchTemplateId(v string) *CreateScalingGroupInput {
+	s.LaunchTemplateId = &v
+	return s
+}
+
+// SetLaunchTemplateOverrides sets the LaunchTemplateOverrides field's value.
+func (s *CreateScalingGroupInput) SetLaunchTemplateOverrides(v []*LaunchTemplateOverrideForCreateScalingGroupInput) *CreateScalingGroupInput {
+	s.LaunchTemplateOverrides = v
+	return s
+}
+
+// SetLaunchTemplateVersion sets the LaunchTemplateVersion field's value.
+func (s *CreateScalingGroupInput) SetLaunchTemplateVersion(v string) *CreateScalingGroupInput {
+	s.LaunchTemplateVersion = &v
 	return s
 }
 
@@ -233,9 +261,21 @@ func (s *CreateScalingGroupInput) SetMultiAZPolicy(v string) *CreateScalingGroup
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateScalingGroupInput) SetProjectName(v string) *CreateScalingGroupInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetScalingGroupName sets the ScalingGroupName field's value.
 func (s *CreateScalingGroupInput) SetScalingGroupName(v string) *CreateScalingGroupInput {
 	s.ScalingGroupName = &v
+	return s
+}
+
+// SetScalingMode sets the ScalingMode field's value.
+func (s *CreateScalingGroupInput) SetScalingMode(v string) *CreateScalingGroupInput {
+	s.ScalingMode = &v
 	return s
 }
 
@@ -248,6 +288,12 @@ func (s *CreateScalingGroupInput) SetServerGroupAttributes(v []*ServerGroupAttri
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *CreateScalingGroupInput) SetSubnetIds(v []*string) *CreateScalingGroupInput {
 	s.SubnetIds = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateScalingGroupInput) SetTags(v []*TagForCreateScalingGroupInput) *CreateScalingGroupInput {
+	s.Tags = v
 	return s
 }
 
@@ -272,6 +318,28 @@ func (s CreateScalingGroupOutput) GoString() string {
 // SetScalingGroupId sets the ScalingGroupId field's value.
 func (s *CreateScalingGroupOutput) SetScalingGroupId(v string) *CreateScalingGroupOutput {
 	s.ScalingGroupId = &v
+	return s
+}
+
+type LaunchTemplateOverrideForCreateScalingGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LaunchTemplateOverrideForCreateScalingGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LaunchTemplateOverrideForCreateScalingGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *LaunchTemplateOverrideForCreateScalingGroupInput) SetInstanceType(v string) *LaunchTemplateOverrideForCreateScalingGroupInput {
+	s.InstanceType = &v
 	return s
 }
 
@@ -310,5 +378,35 @@ func (s *ServerGroupAttributeForCreateScalingGroupInput) SetServerGroupId(v stri
 // SetWeight sets the Weight field's value.
 func (s *ServerGroupAttributeForCreateScalingGroupInput) SetWeight(v int32) *ServerGroupAttributeForCreateScalingGroupInput {
 	s.Weight = &v
+	return s
+}
+
+type TagForCreateScalingGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateScalingGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateScalingGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateScalingGroupInput) SetKey(v string) *TagForCreateScalingGroupInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateScalingGroupInput) SetValue(v string) *TagForCreateScalingGroupInput {
+	s.Value = &v
 	return s
 }

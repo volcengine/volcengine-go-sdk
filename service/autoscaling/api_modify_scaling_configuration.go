@@ -184,6 +184,8 @@ type ModifyScalingConfigurationInput struct {
 
 	HostName *string `type:"string"`
 
+	HpcClusterId *string `type:"string"`
+
 	ImageId *string `type:"string"`
 
 	InstanceDescription *string `type:"string"`
@@ -192,18 +194,25 @@ type ModifyScalingConfigurationInput struct {
 
 	InstanceTypes []*string `type:"list"`
 
+	Ipv6AddressCount *int32 `type:"int32"`
+
 	KeyPairName *string `type:"string"`
 
 	Password *string `type:"string"`
 
-	// ScalingConfigurationId is a required field
-	ScalingConfigurationId *string `type:"string" required:"true"`
+	ProjectName *string `type:"string"`
+
+	ScalingConfigurationId *string `type:"string"`
 
 	ScalingConfigurationName *string `type:"string"`
 
 	SecurityEnhancementStrategy *string `type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
+
+	SpotStrategy *string `type:"string"`
+
+	Tags *string `type:"string"`
 
 	UserData *string `type:"string"`
 
@@ -222,19 +231,6 @@ func (s ModifyScalingConfigurationInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ModifyScalingConfigurationInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ModifyScalingConfigurationInput"}
-	if s.ScalingConfigurationId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingConfigurationId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetEip sets the Eip field's value.
 func (s *ModifyScalingConfigurationInput) SetEip(v *EipForModifyScalingConfigurationInput) *ModifyScalingConfigurationInput {
 	s.Eip = v
@@ -244,6 +240,12 @@ func (s *ModifyScalingConfigurationInput) SetEip(v *EipForModifyScalingConfigura
 // SetHostName sets the HostName field's value.
 func (s *ModifyScalingConfigurationInput) SetHostName(v string) *ModifyScalingConfigurationInput {
 	s.HostName = &v
+	return s
+}
+
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *ModifyScalingConfigurationInput) SetHpcClusterId(v string) *ModifyScalingConfigurationInput {
+	s.HpcClusterId = &v
 	return s
 }
 
@@ -271,6 +273,12 @@ func (s *ModifyScalingConfigurationInput) SetInstanceTypes(v []*string) *ModifyS
 	return s
 }
 
+// SetIpv6AddressCount sets the Ipv6AddressCount field's value.
+func (s *ModifyScalingConfigurationInput) SetIpv6AddressCount(v int32) *ModifyScalingConfigurationInput {
+	s.Ipv6AddressCount = &v
+	return s
+}
+
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *ModifyScalingConfigurationInput) SetKeyPairName(v string) *ModifyScalingConfigurationInput {
 	s.KeyPairName = &v
@@ -280,6 +288,12 @@ func (s *ModifyScalingConfigurationInput) SetKeyPairName(v string) *ModifyScalin
 // SetPassword sets the Password field's value.
 func (s *ModifyScalingConfigurationInput) SetPassword(v string) *ModifyScalingConfigurationInput {
 	s.Password = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ModifyScalingConfigurationInput) SetProjectName(v string) *ModifyScalingConfigurationInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -304,6 +318,18 @@ func (s *ModifyScalingConfigurationInput) SetSecurityEnhancementStrategy(v strin
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *ModifyScalingConfigurationInput) SetSecurityGroupIds(v []*string) *ModifyScalingConfigurationInput {
 	s.SecurityGroupIds = v
+	return s
+}
+
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *ModifyScalingConfigurationInput) SetSpotStrategy(v string) *ModifyScalingConfigurationInput {
+	s.SpotStrategy = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ModifyScalingConfigurationInput) SetTags(v string) *ModifyScalingConfigurationInput {
+	s.Tags = &v
 	return s
 }
 

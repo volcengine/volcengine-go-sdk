@@ -146,8 +146,9 @@ type AttachInstancesInput struct {
 
 	InstanceIds []*string `type:"list"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	LifecycleHook *bool `type:"boolean"`
+
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -160,19 +161,6 @@ func (s AttachInstancesInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *AttachInstancesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "AttachInstancesInput"}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetEntrusted sets the Entrusted field's value.
 func (s *AttachInstancesInput) SetEntrusted(v bool) *AttachInstancesInput {
 	s.Entrusted = &v
@@ -182,6 +170,12 @@ func (s *AttachInstancesInput) SetEntrusted(v bool) *AttachInstancesInput {
 // SetInstanceIds sets the InstanceIds field's value.
 func (s *AttachInstancesInput) SetInstanceIds(v []*string) *AttachInstancesInput {
 	s.InstanceIds = v
+	return s
+}
+
+// SetLifecycleHook sets the LifecycleHook field's value.
+func (s *AttachInstancesInput) SetLifecycleHook(v bool) *AttachInstancesInput {
+	s.LifecycleHook = &v
 	return s
 }
 

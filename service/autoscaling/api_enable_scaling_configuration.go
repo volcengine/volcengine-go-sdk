@@ -142,11 +142,9 @@ func (c *AUTOSCALING) EnableScalingConfigurationWithContext(ctx volcengine.Conte
 type EnableScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
-	// ScalingConfigurationId is a required field
-	ScalingConfigurationId *string `type:"string" required:"true"`
+	ScalingConfigurationId *string `type:"string"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -157,22 +155,6 @@ func (s EnableScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s EnableScalingConfigurationInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *EnableScalingConfigurationInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "EnableScalingConfigurationInput"}
-	if s.ScalingConfigurationId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingConfigurationId"))
-	}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetScalingConfigurationId sets the ScalingConfigurationId field's value.

@@ -230,8 +230,7 @@ type DescribeScalingPoliciesInput struct {
 
 	PageSize *int32 `type:"int32"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingGroupId *string `type:"string"`
 
 	ScalingPolicyIds []*string `type:"list"`
 
@@ -248,19 +247,6 @@ func (s DescribeScalingPoliciesInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingPoliciesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeScalingPoliciesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingPoliciesInput"}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.

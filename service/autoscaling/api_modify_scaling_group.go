@@ -139,6 +139,28 @@ func (c *AUTOSCALING) ModifyScalingGroupWithContext(ctx volcengine.Context, inpu
 	return out, req.Send()
 }
 
+type LaunchTemplateOverrideForModifyScalingGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LaunchTemplateOverrideForModifyScalingGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LaunchTemplateOverrideForModifyScalingGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *LaunchTemplateOverrideForModifyScalingGroupInput) SetInstanceType(v string) *LaunchTemplateOverrideForModifyScalingGroupInput {
+	s.InstanceType = &v
+	return s
+}
+
 type ModifyScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
@@ -148,14 +170,23 @@ type ModifyScalingGroupInput struct {
 
 	DesireInstanceNumber *int32 `type:"int32"`
 
+	HealthCheckType *string `type:"string"`
+
 	InstanceTerminatePolicy *string `type:"string"`
+
+	LaunchTemplateId *string `type:"string"`
+
+	LaunchTemplateOverrides []*LaunchTemplateOverrideForModifyScalingGroupInput `type:"list"`
+
+	LaunchTemplateVersion *string `type:"string"`
 
 	MaxInstanceNumber *int32 `type:"int32"`
 
 	MinInstanceNumber *int32 `type:"int32"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	MultiAZPolicy *string `type:"string"`
+
+	ScalingGroupId *string `type:"string"`
 
 	ScalingGroupName *string `type:"string"`
 
@@ -170,19 +201,6 @@ func (s ModifyScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s ModifyScalingGroupInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ModifyScalingGroupInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ModifyScalingGroupInput"}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetActiveScalingConfigurationId sets the ActiveScalingConfigurationId field's value.
@@ -203,9 +221,33 @@ func (s *ModifyScalingGroupInput) SetDesireInstanceNumber(v int32) *ModifyScalin
 	return s
 }
 
+// SetHealthCheckType sets the HealthCheckType field's value.
+func (s *ModifyScalingGroupInput) SetHealthCheckType(v string) *ModifyScalingGroupInput {
+	s.HealthCheckType = &v
+	return s
+}
+
 // SetInstanceTerminatePolicy sets the InstanceTerminatePolicy field's value.
 func (s *ModifyScalingGroupInput) SetInstanceTerminatePolicy(v string) *ModifyScalingGroupInput {
 	s.InstanceTerminatePolicy = &v
+	return s
+}
+
+// SetLaunchTemplateId sets the LaunchTemplateId field's value.
+func (s *ModifyScalingGroupInput) SetLaunchTemplateId(v string) *ModifyScalingGroupInput {
+	s.LaunchTemplateId = &v
+	return s
+}
+
+// SetLaunchTemplateOverrides sets the LaunchTemplateOverrides field's value.
+func (s *ModifyScalingGroupInput) SetLaunchTemplateOverrides(v []*LaunchTemplateOverrideForModifyScalingGroupInput) *ModifyScalingGroupInput {
+	s.LaunchTemplateOverrides = v
+	return s
+}
+
+// SetLaunchTemplateVersion sets the LaunchTemplateVersion field's value.
+func (s *ModifyScalingGroupInput) SetLaunchTemplateVersion(v string) *ModifyScalingGroupInput {
+	s.LaunchTemplateVersion = &v
 	return s
 }
 
@@ -218,6 +260,12 @@ func (s *ModifyScalingGroupInput) SetMaxInstanceNumber(v int32) *ModifyScalingGr
 // SetMinInstanceNumber sets the MinInstanceNumber field's value.
 func (s *ModifyScalingGroupInput) SetMinInstanceNumber(v int32) *ModifyScalingGroupInput {
 	s.MinInstanceNumber = &v
+	return s
+}
+
+// SetMultiAZPolicy sets the MultiAZPolicy field's value.
+func (s *ModifyScalingGroupInput) SetMultiAZPolicy(v string) *ModifyScalingGroupInput {
+	s.MultiAZPolicy = &v
 	return s
 }
 

@@ -146,9 +146,13 @@ type DescribeScalingGroupsInput struct {
 
 	PageSize *int32 `type:"int32"`
 
+	ProjectName *string `type:"string"`
+
 	ScalingGroupIds []*string `type:"list"`
 
 	ScalingGroupNames []*string `type:"list"`
+
+	TagFilters []*TagFilterForDescribeScalingGroupsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -173,6 +177,12 @@ func (s *DescribeScalingGroupsInput) SetPageSize(v int32) *DescribeScalingGroups
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeScalingGroupsInput) SetProjectName(v string) *DescribeScalingGroupsInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetScalingGroupIds sets the ScalingGroupIds field's value.
 func (s *DescribeScalingGroupsInput) SetScalingGroupIds(v []*string) *DescribeScalingGroupsInput {
 	s.ScalingGroupIds = v
@@ -182,6 +192,12 @@ func (s *DescribeScalingGroupsInput) SetScalingGroupIds(v []*string) *DescribeSc
 // SetScalingGroupNames sets the ScalingGroupNames field's value.
 func (s *DescribeScalingGroupsInput) SetScalingGroupNames(v []*string) *DescribeScalingGroupsInput {
 	s.ScalingGroupNames = v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeScalingGroupsInput) SetTagFilters(v []*TagFilterForDescribeScalingGroupsInput) *DescribeScalingGroupsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -233,6 +249,28 @@ func (s *DescribeScalingGroupsOutput) SetTotalCount(v int32) *DescribeScalingGro
 	return s
 }
 
+type LaunchTemplateOverrideForDescribeScalingGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LaunchTemplateOverrideForDescribeScalingGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LaunchTemplateOverrideForDescribeScalingGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *LaunchTemplateOverrideForDescribeScalingGroupsOutput) SetInstanceType(v string) *LaunchTemplateOverrideForDescribeScalingGroupsOutput {
+	s.InstanceType = &v
+	return s
+}
+
 type ScalingGroupForDescribeScalingGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -246,7 +284,15 @@ type ScalingGroupForDescribeScalingGroupsOutput struct {
 
 	DesireInstanceNumber *int32 `type:"int32"`
 
+	HealthCheckType *string `type:"string"`
+
 	InstanceTerminatePolicy *string `type:"string"`
+
+	LaunchTemplateId *string `type:"string"`
+
+	LaunchTemplateOverrides []*LaunchTemplateOverrideForDescribeScalingGroupsOutput `type:"list"`
+
+	LaunchTemplateVersion *string `type:"string"`
 
 	LifecycleState *string `type:"string"`
 
@@ -256,13 +302,21 @@ type ScalingGroupForDescribeScalingGroupsOutput struct {
 
 	MultiAZPolicy *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	ScalingGroupId *string `type:"string"`
 
 	ScalingGroupName *string `type:"string"`
 
+	ScalingMode *string `type:"string"`
+
 	ServerGroupAttributes []*ServerGroupAttributeForDescribeScalingGroupsOutput `type:"list"`
 
+	StoppedInstanceCount *int32 `type:"int32"`
+
 	SubnetIds []*string `type:"list"`
+
+	Tags []*TagForDescribeScalingGroupsOutput `type:"list"`
 
 	TotalInstanceCount *int32 `type:"int32"`
 
@@ -311,9 +365,33 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetDesireInstanceNumber(v i
 	return s
 }
 
+// SetHealthCheckType sets the HealthCheckType field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetHealthCheckType(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.HealthCheckType = &v
+	return s
+}
+
 // SetInstanceTerminatePolicy sets the InstanceTerminatePolicy field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetInstanceTerminatePolicy(v string) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.InstanceTerminatePolicy = &v
+	return s
+}
+
+// SetLaunchTemplateId sets the LaunchTemplateId field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLaunchTemplateId(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.LaunchTemplateId = &v
+	return s
+}
+
+// SetLaunchTemplateOverrides sets the LaunchTemplateOverrides field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLaunchTemplateOverrides(v []*LaunchTemplateOverrideForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.LaunchTemplateOverrides = v
+	return s
+}
+
+// SetLaunchTemplateVersion sets the LaunchTemplateVersion field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLaunchTemplateVersion(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.LaunchTemplateVersion = &v
 	return s
 }
 
@@ -341,6 +419,12 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetMultiAZPolicy(v string) 
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetProjectName(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetScalingGroupId sets the ScalingGroupId field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetScalingGroupId(v string) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.ScalingGroupId = &v
@@ -353,15 +437,33 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetScalingGroupName(v strin
 	return s
 }
 
+// SetScalingMode sets the ScalingMode field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetScalingMode(v string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.ScalingMode = &v
+	return s
+}
+
 // SetServerGroupAttributes sets the ServerGroupAttributes field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetServerGroupAttributes(v []*ServerGroupAttributeForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.ServerGroupAttributes = v
 	return s
 }
 
+// SetStoppedInstanceCount sets the StoppedInstanceCount field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetStoppedInstanceCount(v int32) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.StoppedInstanceCount = &v
+	return s
+}
+
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetSubnetIds(v []*string) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.SubnetIds = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetTags(v []*TagForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.Tags = v
 	return s
 }
 
@@ -426,5 +528,65 @@ func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetServerGroupId(v 
 // SetWeight sets the Weight field's value.
 func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetWeight(v int32) *ServerGroupAttributeForDescribeScalingGroupsOutput {
 	s.Weight = &v
+	return s
+}
+
+type TagFilterForDescribeScalingGroupsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeScalingGroupsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeScalingGroupsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeScalingGroupsInput) SetKey(v string) *TagFilterForDescribeScalingGroupsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagFilterForDescribeScalingGroupsInput) SetValue(v string) *TagFilterForDescribeScalingGroupsInput {
+	s.Value = &v
+	return s
+}
+
+type TagForDescribeScalingGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeScalingGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeScalingGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeScalingGroupsOutput) SetKey(v string) *TagForDescribeScalingGroupsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeScalingGroupsOutput) SetValue(v string) *TagForDescribeScalingGroupsOutput {
+	s.Value = &v
 	return s
 }

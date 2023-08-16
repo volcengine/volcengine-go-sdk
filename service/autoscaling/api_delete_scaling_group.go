@@ -142,8 +142,7 @@ func (c *AUTOSCALING) DeleteScalingGroupWithContext(ctx volcengine.Context, inpu
 type DeleteScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DeleteScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s DeleteScalingGroupInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DeleteScalingGroupInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DeleteScalingGroupInput"}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.
