@@ -3,8 +3,6 @@
 package autoscaling
 
 import (
-	"fmt"
-
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -144,43 +142,47 @@ func (c *AUTOSCALING) CreateScalingConfigurationWithContext(ctx volcengine.Conte
 type CreateScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Eip *EipForCreateScalingConfigurationInput `type:"structure"`
 
 	HostName *string `type:"string"`
 
-	// ImageId is a required field
-	ImageId *string `type:"string" required:"true"`
+	HpcClusterId *string `type:"string"`
+
+	ImageId *string `type:"string"`
 
 	InstanceDescription *string `type:"string"`
 
-	// InstanceName is a required field
-	InstanceName *string `type:"string" required:"true"`
+	InstanceName *string `type:"string"`
 
-	// InstanceTypes is a required field
-	InstanceTypes []*string `type:"list" required:"true"`
+	InstanceTypes []*string `type:"list"`
+
+	Ipv6AddressCount *int32 `type:"int32"`
 
 	KeyPairName *string `type:"string"`
 
 	Password *string `type:"string"`
 
-	// ScalingConfigurationName is a required field
-	ScalingConfigurationName *string `type:"string" required:"true"`
+	ProjectName *string `type:"string"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingConfigurationName *string `type:"string"`
+
+	ScalingGroupId *string `type:"string"`
 
 	SecurityEnhancementStrategy *string `type:"string"`
 
-	// SecurityGroupIds is a required field
-	SecurityGroupIds []*string `type:"list" required:"true"`
+	SecurityGroupIds []*string `type:"list"`
+
+	SpotStrategy *string `type:"string"`
+
+	Tags *string `type:"string"`
 
 	UserData *string `type:"string"`
 
-	// Volumes is a required field
-	Volumes []*VolumeForCreateScalingConfigurationInput `type:"list" required:"true"`
+	Volumes []*VolumeForCreateScalingConfigurationInput `type:"list"`
 
-	// ZoneId is a required field
-	ZoneId *string `type:"string" required:"true"`
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -193,48 +195,10 @@ func (s CreateScalingConfigurationInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *CreateScalingConfigurationInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "CreateScalingConfigurationInput"}
-	if s.ImageId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ImageId"))
-	}
-	if s.InstanceName == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceName"))
-	}
-	if s.InstanceTypes == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceTypes"))
-	}
-	if s.ScalingConfigurationName == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingConfigurationName"))
-	}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-	if s.SecurityGroupIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
-	}
-	if s.Volumes == nil {
-		invalidParams.Add(request.NewErrParamRequired("Volumes"))
-	}
-	if s.ZoneId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
-	}
-	if s.Volumes != nil {
-		for i, v := range s.Volumes {
-			if v == nil {
-				continue
-			}
-			if err := v.Validate(); err != nil {
-				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Volumes", i), err.(request.ErrInvalidParams))
-			}
-		}
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateScalingConfigurationInput) SetClientToken(v string) *CreateScalingConfigurationInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetEip sets the Eip field's value.
@@ -246,6 +210,12 @@ func (s *CreateScalingConfigurationInput) SetEip(v *EipForCreateScalingConfigura
 // SetHostName sets the HostName field's value.
 func (s *CreateScalingConfigurationInput) SetHostName(v string) *CreateScalingConfigurationInput {
 	s.HostName = &v
+	return s
+}
+
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *CreateScalingConfigurationInput) SetHpcClusterId(v string) *CreateScalingConfigurationInput {
+	s.HpcClusterId = &v
 	return s
 }
 
@@ -273,6 +243,12 @@ func (s *CreateScalingConfigurationInput) SetInstanceTypes(v []*string) *CreateS
 	return s
 }
 
+// SetIpv6AddressCount sets the Ipv6AddressCount field's value.
+func (s *CreateScalingConfigurationInput) SetIpv6AddressCount(v int32) *CreateScalingConfigurationInput {
+	s.Ipv6AddressCount = &v
+	return s
+}
+
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *CreateScalingConfigurationInput) SetKeyPairName(v string) *CreateScalingConfigurationInput {
 	s.KeyPairName = &v
@@ -282,6 +258,12 @@ func (s *CreateScalingConfigurationInput) SetKeyPairName(v string) *CreateScalin
 // SetPassword sets the Password field's value.
 func (s *CreateScalingConfigurationInput) SetPassword(v string) *CreateScalingConfigurationInput {
 	s.Password = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateScalingConfigurationInput) SetProjectName(v string) *CreateScalingConfigurationInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -306,6 +288,18 @@ func (s *CreateScalingConfigurationInput) SetSecurityEnhancementStrategy(v strin
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *CreateScalingConfigurationInput) SetSecurityGroupIds(v []*string) *CreateScalingConfigurationInput {
 	s.SecurityGroupIds = v
+	return s
+}
+
+// SetSpotStrategy sets the SpotStrategy field's value.
+func (s *CreateScalingConfigurationInput) SetSpotStrategy(v string) *CreateScalingConfigurationInput {
+	s.SpotStrategy = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateScalingConfigurationInput) SetTags(v string) *CreateScalingConfigurationInput {
+	s.Tags = &v
 	return s
 }
 
@@ -394,11 +388,9 @@ type VolumeForCreateScalingConfigurationInput struct {
 
 	DeleteWithInstance *bool `type:"boolean"`
 
-	// Size is a required field
-	Size *int32 `type:"int32" required:"true"`
+	Size *int32 `type:"int32"`
 
-	// VolumeType is a required field
-	VolumeType *string `type:"string" required:"true"`
+	VolumeType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -409,22 +401,6 @@ func (s VolumeForCreateScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s VolumeForCreateScalingConfigurationInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *VolumeForCreateScalingConfigurationInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "VolumeForCreateScalingConfigurationInput"}
-	if s.Size == nil {
-		invalidParams.Add(request.NewErrParamRequired("Size"))
-	}
-	if s.VolumeType == nil {
-		invalidParams.Add(request.NewErrParamRequired("VolumeType"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.

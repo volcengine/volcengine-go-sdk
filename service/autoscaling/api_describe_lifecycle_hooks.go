@@ -150,8 +150,7 @@ type DescribeLifecycleHooksInput struct {
 
 	PageSize *int32 `type:"int32"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -162,19 +161,6 @@ func (s DescribeLifecycleHooksInput) String() string {
 // GoString returns the string representation
 func (s DescribeLifecycleHooksInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeLifecycleHooksInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeLifecycleHooksInput"}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetLifecycleHookIds sets the LifecycleHookIds field's value.

@@ -142,8 +142,7 @@ func (c *AUTOSCALING) DisableScalingGroupWithContext(ctx volcengine.Context, inp
 type DisableScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingGroupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -154,19 +153,6 @@ func (s DisableScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s DisableScalingGroupInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DisableScalingGroupInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DisableScalingGroupInput"}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.

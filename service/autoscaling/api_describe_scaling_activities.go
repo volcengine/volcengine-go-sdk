@@ -150,8 +150,7 @@ type DescribeScalingActivitiesInput struct {
 
 	ScalingActivityIds []*string `type:"list"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingGroupId *string `type:"string"`
 
 	StartTime *string `type:"string"`
 
@@ -166,19 +165,6 @@ func (s DescribeScalingActivitiesInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingActivitiesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeScalingActivitiesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingActivitiesInput"}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetEndTime sets the EndTime field's value.

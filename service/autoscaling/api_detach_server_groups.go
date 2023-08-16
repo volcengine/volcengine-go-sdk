@@ -142,8 +142,9 @@ func (c *AUTOSCALING) DetachServerGroupsWithContext(ctx volcengine.Context, inpu
 type DetachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ClientToken *string `type:"string"`
+
+	ScalingGroupId *string `type:"string"`
 
 	ServerGroupAttributes []*ServerGroupAttributeForDetachServerGroupsInput `type:"list"`
 }
@@ -158,17 +159,10 @@ func (s DetachServerGroupsInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DetachServerGroupsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DetachServerGroupsInput"}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetClientToken sets the ClientToken field's value.
+func (s *DetachServerGroupsInput) SetClientToken(v string) *DetachServerGroupsInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.

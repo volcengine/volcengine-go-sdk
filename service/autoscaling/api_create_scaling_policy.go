@@ -226,24 +226,19 @@ func (s *AlarmPolicyForCreateScalingPolicyInput) SetRuleType(v string) *AlarmPol
 type CreateScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	// AdjustmentType is a required field
-	AdjustmentType *string `type:"string" required:"true"`
+	AdjustmentType *string `type:"string"`
 
-	// AdjustmentValue is a required field
-	AdjustmentValue *int32 `type:"int32" required:"true"`
+	AdjustmentValue *int32 `type:"int32"`
 
 	AlarmPolicy *AlarmPolicyForCreateScalingPolicyInput `type:"structure"`
 
 	Cooldown *int32 `type:"int32"`
 
-	// ScalingGroupId is a required field
-	ScalingGroupId *string `type:"string" required:"true"`
+	ScalingGroupId *string `type:"string"`
 
-	// ScalingPolicyName is a required field
-	ScalingPolicyName *string `type:"string" required:"true"`
+	ScalingPolicyName *string `type:"string"`
 
-	// ScalingPolicyType is a required field
-	ScalingPolicyType *string `type:"string" required:"true"`
+	ScalingPolicyType *string `type:"string"`
 
 	ScheduledPolicy *ScheduledPolicyForCreateScalingPolicyInput `type:"structure"`
 }
@@ -256,31 +251,6 @@ func (s CreateScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s CreateScalingPolicyInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *CreateScalingPolicyInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "CreateScalingPolicyInput"}
-	if s.AdjustmentType == nil {
-		invalidParams.Add(request.NewErrParamRequired("AdjustmentType"))
-	}
-	if s.AdjustmentValue == nil {
-		invalidParams.Add(request.NewErrParamRequired("AdjustmentValue"))
-	}
-	if s.ScalingGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
-	}
-	if s.ScalingPolicyName == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyName"))
-	}
-	if s.ScalingPolicyType == nil {
-		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyType"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAdjustmentType sets the AdjustmentType field's value.

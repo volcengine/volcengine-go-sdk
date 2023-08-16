@@ -245,6 +245,14 @@ type AUTOSCALINGAPI interface {
 	EnableScalingPolicyWithContext(volcengine.Context, *EnableScalingPolicyInput, ...request.Option) (*EnableScalingPolicyOutput, error)
 	EnableScalingPolicyRequest(*EnableScalingPolicyInput) (*request.Request, *EnableScalingPolicyOutput)
 
+	ListTagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTagResources(*ListTagResourcesInput) (*ListTagResourcesOutput, error)
+	ListTagResourcesWithContext(volcengine.Context, *ListTagResourcesInput, ...request.Option) (*ListTagResourcesOutput, error)
+	ListTagResourcesRequest(*ListTagResourcesInput) (*request.Request, *ListTagResourcesOutput)
+
 	ModifyLifecycleHookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyLifecycleHookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyLifecycleHookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -292,6 +300,22 @@ type AUTOSCALINGAPI interface {
 	SetInstancesProtection(*SetInstancesProtectionInput) (*SetInstancesProtectionOutput, error)
 	SetInstancesProtectionWithContext(volcengine.Context, *SetInstancesProtectionInput, ...request.Option) (*SetInstancesProtectionOutput, error)
 	SetInstancesProtectionRequest(*SetInstancesProtectionInput) (*request.Request, *SetInstancesProtectionOutput)
+
+	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	TagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
+	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
+	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UntagResourcesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UntagResources(*UntagResourcesInput) (*UntagResourcesOutput, error)
+	UntagResourcesWithContext(volcengine.Context, *UntagResourcesInput, ...request.Option) (*UntagResourcesOutput, error)
+	UntagResourcesRequest(*UntagResourcesInput) (*request.Request, *UntagResourcesOutput)
 }
 
 var _ AUTOSCALINGAPI = (*AUTOSCALING)(nil)
