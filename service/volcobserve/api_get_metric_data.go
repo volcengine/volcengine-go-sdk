@@ -324,6 +324,8 @@ type GetMetricDataInput struct {
 
 	EndTime *int64 `type:"integer"`
 
+	GroupBy []*string `type:"list"`
+
 	Instances []*InstanceForGetMetricDataInput `type:"list"`
 
 	MetricName *string `type:"string"`
@@ -350,6 +352,12 @@ func (s GetMetricDataInput) GoString() string {
 // SetEndTime sets the EndTime field's value.
 func (s *GetMetricDataInput) SetEndTime(v int64) *GetMetricDataInput {
 	s.EndTime = &v
+	return s
+}
+
+// SetGroupBy sets the GroupBy field's value.
+func (s *GetMetricDataInput) SetGroupBy(v []*string) *GetMetricDataInput {
+	s.GroupBy = v
 	return s
 }
 
