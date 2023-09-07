@@ -165,6 +165,8 @@ type CreateLoadBalancerInput struct {
 
 	SubnetId *string `type:"string"`
 
+	Tags []*TagForCreateLoadBalancerInput `type:"list"`
+
 	// Type is a required field
 	Type *string `type:"string" required:"true"`
 
@@ -262,6 +264,12 @@ func (s *CreateLoadBalancerInput) SetRegionId(v string) *CreateLoadBalancerInput
 // SetSubnetId sets the SubnetId field's value.
 func (s *CreateLoadBalancerInput) SetSubnetId(v string) *CreateLoadBalancerInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateLoadBalancerInput) SetTags(v []*TagForCreateLoadBalancerInput) *CreateLoadBalancerInput {
+	s.Tags = v
 	return s
 }
 
@@ -396,6 +404,36 @@ func (s *Ipv6EipBillingConfigForCreateLoadBalancerInput) SetBillingType(v int64)
 // SetISP sets the ISP field's value.
 func (s *Ipv6EipBillingConfigForCreateLoadBalancerInput) SetISP(v string) *Ipv6EipBillingConfigForCreateLoadBalancerInput {
 	s.ISP = &v
+	return s
+}
+
+type TagForCreateLoadBalancerInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateLoadBalancerInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateLoadBalancerInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateLoadBalancerInput) SetKey(v string) *TagForCreateLoadBalancerInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateLoadBalancerInput) SetValue(v string) *TagForCreateLoadBalancerInput {
+	s.Value = &v
 	return s
 }
 

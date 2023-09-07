@@ -264,6 +264,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	TLSAccessLog *TLSAccessLogForDescribeLoadBalancerAttributesOutput `type:"structure"`
 
+	Tags []*TagForDescribeLoadBalancerAttributesOutput `type:"list"`
+
 	Type *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -442,6 +444,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetSubnetId(v string) *DescribeLo
 // SetTLSAccessLog sets the TLSAccessLog field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetTLSAccessLog(v *TLSAccessLogForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
 	s.TLSAccessLog = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetTags(v []*TagForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -796,6 +804,36 @@ func (s *TLSAccessLogForDescribeLoadBalancerAttributesOutput) SetProjectId(v str
 // SetTopicId sets the TopicId field's value.
 func (s *TLSAccessLogForDescribeLoadBalancerAttributesOutput) SetTopicId(v string) *TLSAccessLogForDescribeLoadBalancerAttributesOutput {
 	s.TopicId = &v
+	return s
+}
+
+type TagForDescribeLoadBalancerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeLoadBalancerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeLoadBalancerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeLoadBalancerAttributesOutput) SetKey(v string) *TagForDescribeLoadBalancerAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeLoadBalancerAttributesOutput) SetValue(v string) *TagForDescribeLoadBalancerAttributesOutput {
+	s.Value = &v
 	return s
 }
 
