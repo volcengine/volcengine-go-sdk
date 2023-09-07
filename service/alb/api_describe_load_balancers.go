@@ -154,6 +154,8 @@ type DescribeLoadBalancersInput struct {
 
 	ProjectName *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeLoadBalancersInput `type:"list"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -200,6 +202,12 @@ func (s *DescribeLoadBalancersInput) SetPageSize(v int64) *DescribeLoadBalancers
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeLoadBalancersInput) SetProjectName(v string) *DescribeLoadBalancersInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeLoadBalancersInput) SetTagFilters(v []*TagFilterForDescribeLoadBalancersInput) *DescribeLoadBalancersInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -502,6 +510,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	SubnetId *string `type:"string"`
 
+	Tags []*TagForDescribeLoadBalancersOutput `type:"list"`
+
 	Type *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -641,6 +651,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetSubnetId(v string) *Load
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetTags(v []*TagForDescribeLoadBalancersOutput) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.Tags = v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetType(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.Type = &v
@@ -692,6 +708,66 @@ func (s *PopLocationForDescribeLoadBalancersOutput) SetPopId(v string) *PopLocat
 // SetPopName sets the PopName field's value.
 func (s *PopLocationForDescribeLoadBalancersOutput) SetPopName(v string) *PopLocationForDescribeLoadBalancersOutput {
 	s.PopName = &v
+	return s
+}
+
+type TagFilterForDescribeLoadBalancersInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeLoadBalancersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeLoadBalancersInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeLoadBalancersInput) SetKey(v string) *TagFilterForDescribeLoadBalancersInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeLoadBalancersInput) SetValues(v []*string) *TagFilterForDescribeLoadBalancersInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeLoadBalancersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeLoadBalancersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeLoadBalancersOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeLoadBalancersOutput) SetKey(v string) *TagForDescribeLoadBalancersOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeLoadBalancersOutput) SetValue(v string) *TagForDescribeLoadBalancersOutput {
+	s.Value = &v
 	return s
 }
 
