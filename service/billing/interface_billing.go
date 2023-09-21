@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // BILLING.
 //    func myFunc(svc BILLINGAPI) bool {
-//        // Make svc.UnsubscribeInstance request
+//        // Make svc.QueryBalanceAcct request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type BILLINGAPI interface {
+	QueryBalanceAcctCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	QueryBalanceAcctCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	QueryBalanceAcctCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	QueryBalanceAcct(*QueryBalanceAcctInput) (*QueryBalanceAcctOutput, error)
+	QueryBalanceAcctWithContext(volcengine.Context, *QueryBalanceAcctInput, ...request.Option) (*QueryBalanceAcctOutput, error)
+	QueryBalanceAcctRequest(*QueryBalanceAcctInput) (*request.Request, *QueryBalanceAcctOutput)
+
 	UnsubscribeInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UnsubscribeInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UnsubscribeInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
