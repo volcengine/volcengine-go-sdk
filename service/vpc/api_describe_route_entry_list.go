@@ -144,6 +144,8 @@ type DescribeRouteEntryListInput struct {
 
 	DestinationCidrBlock *string `type:"string"`
 
+	DestinationPrefixListId *string `type:"string"`
+
 	NextHopId *string `type:"string"`
 
 	NextHopType *string `type:"string"`
@@ -191,6 +193,12 @@ func (s *DescribeRouteEntryListInput) Validate() error {
 // SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
 func (s *DescribeRouteEntryListInput) SetDestinationCidrBlock(v string) *DescribeRouteEntryListInput {
 	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetDestinationPrefixListId sets the DestinationPrefixListId field's value.
+func (s *DescribeRouteEntryListInput) SetDestinationPrefixListId(v string) *DescribeRouteEntryListInput {
+	s.DestinationPrefixListId = &v
 	return s
 }
 
@@ -311,6 +319,8 @@ type RouteEntryForDescribeRouteEntryListOutput struct {
 
 	NextHopType *string `type:"string"`
 
+	PrefixListCidrBlocks []*string `type:"list"`
+
 	RouteEntryId *string `type:"string"`
 
 	RouteEntryName *string `type:"string"`
@@ -361,6 +371,12 @@ func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopName(v string) *Ro
 // SetNextHopType sets the NextHopType field's value.
 func (s *RouteEntryForDescribeRouteEntryListOutput) SetNextHopType(v string) *RouteEntryForDescribeRouteEntryListOutput {
 	s.NextHopType = &v
+	return s
+}
+
+// SetPrefixListCidrBlocks sets the PrefixListCidrBlocks field's value.
+func (s *RouteEntryForDescribeRouteEntryListOutput) SetPrefixListCidrBlocks(v []*string) *RouteEntryForDescribeRouteEntryListOutput {
+	s.PrefixListCidrBlocks = v
 	return s
 }
 

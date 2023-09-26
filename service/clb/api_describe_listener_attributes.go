@@ -190,6 +190,10 @@ type DescribeListenerAttributesOutput struct {
 
 	CertificateId *string `type:"string"`
 
+	ConnectionDrainEnabled *string `type:"string"`
+
+	ConnectionDrainTimeout *int64 `type:"integer"`
+
 	CreateTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -258,6 +262,18 @@ func (s *DescribeListenerAttributesOutput) SetBandwidth(v int64) *DescribeListen
 // SetCertificateId sets the CertificateId field's value.
 func (s *DescribeListenerAttributesOutput) SetCertificateId(v string) *DescribeListenerAttributesOutput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetConnectionDrainEnabled sets the ConnectionDrainEnabled field's value.
+func (s *DescribeListenerAttributesOutput) SetConnectionDrainEnabled(v string) *DescribeListenerAttributesOutput {
+	s.ConnectionDrainEnabled = &v
+	return s
+}
+
+// SetConnectionDrainTimeout sets the ConnectionDrainTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetConnectionDrainTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.ConnectionDrainTimeout = &v
 	return s
 }
 

@@ -289,6 +289,8 @@ type ResultForDescribeListenerHealthOutput struct {
 	Status *string `type:"string"`
 
 	Type *string `type:"string"`
+
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
@@ -346,5 +348,11 @@ func (s *ResultForDescribeListenerHealthOutput) SetStatus(v string) *ResultForDe
 // SetType sets the Type field's value.
 func (s *ResultForDescribeListenerHealthOutput) SetType(v string) *ResultForDescribeListenerHealthOutput {
 	s.Type = &v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *ResultForDescribeListenerHealthOutput) SetUpdatedAt(v string) *ResultForDescribeListenerHealthOutput {
+	s.UpdatedAt = &v
 	return s
 }

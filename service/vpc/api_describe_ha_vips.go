@@ -152,6 +152,8 @@ type DescribeHaVipsInput struct {
 
 	PageSize *int64 `max:"100" type:"integer"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
@@ -209,6 +211,12 @@ func (s *DescribeHaVipsInput) SetPageNumber(v int64) *DescribeHaVipsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeHaVipsInput) SetPageSize(v int64) *DescribeHaVipsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeHaVipsInput) SetProjectName(v string) *DescribeHaVipsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -311,6 +319,8 @@ type HaVipForDescribeHaVipsOutput struct {
 
 	MasterInstanceId *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
@@ -393,6 +403,12 @@ func (s *HaVipForDescribeHaVipsOutput) SetIpAddress(v string) *HaVipForDescribeH
 // SetMasterInstanceId sets the MasterInstanceId field's value.
 func (s *HaVipForDescribeHaVipsOutput) SetMasterInstanceId(v string) *HaVipForDescribeHaVipsOutput {
 	s.MasterInstanceId = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetProjectName(v string) *HaVipForDescribeHaVipsOutput {
+	s.ProjectName = &v
 	return s
 }
 

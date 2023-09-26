@@ -145,6 +145,8 @@ type DisassociateEipAddressInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateEipAddressInput"`
@@ -176,6 +178,12 @@ func (s *DisassociateEipAddressInput) Validate() error {
 // SetAllocationId sets the AllocationId field's value.
 func (s *DisassociateEipAddressInput) SetAllocationId(v string) *DisassociateEipAddressInput {
 	s.AllocationId = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DisassociateEipAddressInput) SetClientToken(v string) *DisassociateEipAddressInput {
+	s.ClientToken = &v
 	return s
 }
 

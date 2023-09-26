@@ -154,6 +154,8 @@ type ModifyLoadBalancerAttributesInput struct {
 	ModificationProtectionReason *string `type:"string"`
 
 	ModificationProtectionStatus *string `type:"string"`
+
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -212,6 +214,12 @@ func (s *ModifyLoadBalancerAttributesInput) SetModificationProtectionReason(v st
 // SetModificationProtectionStatus sets the ModificationProtectionStatus field's value.
 func (s *ModifyLoadBalancerAttributesInput) SetModificationProtectionStatus(v string) *ModifyLoadBalancerAttributesInput {
 	s.ModificationProtectionStatus = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetType(v string) *ModifyLoadBalancerAttributesInput {
+	s.Type = &v
 	return s
 }
 

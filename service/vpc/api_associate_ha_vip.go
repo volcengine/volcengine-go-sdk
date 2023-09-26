@@ -142,6 +142,8 @@ func (c *VPC) AssociateHaVipWithContext(ctx volcengine.Context, input *Associate
 type AssociateHaVipInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// HaVipId is a required field
 	HaVipId *string `type:"string" required:"true"`
 
@@ -175,6 +177,12 @@ func (s *AssociateHaVipInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *AssociateHaVipInput) SetClientToken(v string) *AssociateHaVipInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetHaVipId sets the HaVipId field's value.
