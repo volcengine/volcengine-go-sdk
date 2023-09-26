@@ -157,6 +157,14 @@ type VPCAPI interface {
 	CreateNetworkInterfaceWithContext(volcengine.Context, *CreateNetworkInterfaceInput, ...request.Option) (*CreateNetworkInterfaceOutput, error)
 	CreateNetworkInterfaceRequest(*CreateNetworkInterfaceInput) (*request.Request, *CreateNetworkInterfaceOutput)
 
+	CreatePrefixListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePrefixListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePrefixListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePrefixList(*CreatePrefixListInput) (*CreatePrefixListOutput, error)
+	CreatePrefixListWithContext(volcengine.Context, *CreatePrefixListInput, ...request.Option) (*CreatePrefixListOutput, error)
+	CreatePrefixListRequest(*CreatePrefixListInput) (*request.Request, *CreatePrefixListOutput)
+
 	CreateRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateRouteEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -228,6 +236,14 @@ type VPCAPI interface {
 	DeleteNetworkInterface(*DeleteNetworkInterfaceInput) (*DeleteNetworkInterfaceOutput, error)
 	DeleteNetworkInterfaceWithContext(volcengine.Context, *DeleteNetworkInterfaceInput, ...request.Option) (*DeleteNetworkInterfaceOutput, error)
 	DeleteNetworkInterfaceRequest(*DeleteNetworkInterfaceInput) (*request.Request, *DeleteNetworkInterfaceOutput)
+
+	DeletePrefixListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePrefixListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePrefixListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePrefixList(*DeletePrefixListInput) (*DeletePrefixListOutput, error)
+	DeletePrefixListWithContext(volcengine.Context, *DeletePrefixListInput, ...request.Option) (*DeletePrefixListOutput, error)
+	DeletePrefixListRequest(*DeletePrefixListInput) (*request.Request, *DeletePrefixListOutput)
 
 	DeleteRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -332,6 +348,22 @@ type VPCAPI interface {
 	DescribeNetworkInterfaces(*DescribeNetworkInterfacesInput) (*DescribeNetworkInterfacesOutput, error)
 	DescribeNetworkInterfacesWithContext(volcengine.Context, *DescribeNetworkInterfacesInput, ...request.Option) (*DescribeNetworkInterfacesOutput, error)
 	DescribeNetworkInterfacesRequest(*DescribeNetworkInterfacesInput) (*request.Request, *DescribeNetworkInterfacesOutput)
+
+	DescribePrefixListAssociationsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrefixListAssociationsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrefixListAssociationsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrefixListAssociations(*DescribePrefixListAssociationsInput) (*DescribePrefixListAssociationsOutput, error)
+	DescribePrefixListAssociationsWithContext(volcengine.Context, *DescribePrefixListAssociationsInput, ...request.Option) (*DescribePrefixListAssociationsOutput, error)
+	DescribePrefixListAssociationsRequest(*DescribePrefixListAssociationsInput) (*request.Request, *DescribePrefixListAssociationsOutput)
+
+	DescribePrefixListEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrefixListEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrefixListEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrefixListEntries(*DescribePrefixListEntriesInput) (*DescribePrefixListEntriesOutput, error)
+	DescribePrefixListEntriesWithContext(volcengine.Context, *DescribePrefixListEntriesInput, ...request.Option) (*DescribePrefixListEntriesOutput, error)
+	DescribePrefixListEntriesRequest(*DescribePrefixListEntriesInput) (*request.Request, *DescribePrefixListEntriesOutput)
 
 	DescribeRouteEntryListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRouteEntryListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -500,6 +532,14 @@ type VPCAPI interface {
 	ModifyNetworkInterfaceAttributes(*ModifyNetworkInterfaceAttributesInput) (*ModifyNetworkInterfaceAttributesOutput, error)
 	ModifyNetworkInterfaceAttributesWithContext(volcengine.Context, *ModifyNetworkInterfaceAttributesInput, ...request.Option) (*ModifyNetworkInterfaceAttributesOutput, error)
 	ModifyNetworkInterfaceAttributesRequest(*ModifyNetworkInterfaceAttributesInput) (*request.Request, *ModifyNetworkInterfaceAttributesOutput)
+
+	ModifyPrefixListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPrefixListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPrefixListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPrefixList(*ModifyPrefixListInput) (*ModifyPrefixListOutput, error)
+	ModifyPrefixListWithContext(volcengine.Context, *ModifyPrefixListInput, ...request.Option) (*ModifyPrefixListOutput, error)
+	ModifyPrefixListRequest(*ModifyPrefixListInput) (*request.Request, *ModifyPrefixListOutput)
 
 	ModifyRouteEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyRouteEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -152,6 +152,10 @@ type CreateListenerInput struct {
 
 	CertificateId *string `type:"string"`
 
+	ConnectionDrainEnabled *string `type:"string"`
+
+	ConnectionDrainTimeout *int64 `type:"integer"`
+
 	Description *string `type:"string"`
 
 	Enabled *string `type:"string"`
@@ -242,6 +246,18 @@ func (s *CreateListenerInput) SetBandwidth(v int64) *CreateListenerInput {
 // SetCertificateId sets the CertificateId field's value.
 func (s *CreateListenerInput) SetCertificateId(v string) *CreateListenerInput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetConnectionDrainEnabled sets the ConnectionDrainEnabled field's value.
+func (s *CreateListenerInput) SetConnectionDrainEnabled(v string) *CreateListenerInput {
+	s.ConnectionDrainEnabled = &v
+	return s
+}
+
+// SetConnectionDrainTimeout sets the ConnectionDrainTimeout field's value.
+func (s *CreateListenerInput) SetConnectionDrainTimeout(v int64) *CreateListenerInput {
+	s.ConnectionDrainTimeout = &v
 	return s
 }
 

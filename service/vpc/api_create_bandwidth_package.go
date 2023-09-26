@@ -351,6 +351,12 @@ const (
 	// ISPForCreateBandwidthPackageInputBgp is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputBgp = "BGP"
 
+	// ISPForCreateBandwidthPackageInputSingleLineBgp is a ISPForCreateBandwidthPackageInput enum value
+	ISPForCreateBandwidthPackageInputSingleLineBgp = "SingleLine_BGP"
+
+	// ISPForCreateBandwidthPackageInputFusionBgp is a ISPForCreateBandwidthPackageInput enum value
+	ISPForCreateBandwidthPackageInputFusionBgp = "Fusion_BGP"
+
 	// ISPForCreateBandwidthPackageInputChinaMobile is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputChinaMobile = "ChinaMobile"
 

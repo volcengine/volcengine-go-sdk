@@ -145,6 +145,8 @@ type AssociateEipAddressInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
+	ClientToken *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -186,6 +188,12 @@ func (s *AssociateEipAddressInput) Validate() error {
 // SetAllocationId sets the AllocationId field's value.
 func (s *AssociateEipAddressInput) SetAllocationId(v string) *AssociateEipAddressInput {
 	s.AllocationId = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *AssociateEipAddressInput) SetClientToken(v string) *AssociateEipAddressInput {
+	s.ClientToken = &v
 	return s
 }
 

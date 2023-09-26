@@ -142,6 +142,8 @@ func (c *VPC) AssociateRouteTableWithContext(ctx volcengine.Context, input *Asso
 type AssociateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *AssociateRouteTableInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *AssociateRouteTableInput) SetClientToken(v string) *AssociateRouteTableInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetRouteTableId sets the RouteTableId field's value.

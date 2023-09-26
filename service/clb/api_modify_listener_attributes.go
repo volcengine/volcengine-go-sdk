@@ -238,6 +238,10 @@ type ModifyListenerAttributesInput struct {
 
 	CertificateId *string `type:"string"`
 
+	ConnectionDrainEnabled *string `type:"string"`
+
+	ConnectionDrainTimeout *int64 `type:"integer"`
+
 	Description *string `type:"string"`
 
 	Enabled *string `type:"string"`
@@ -312,6 +316,18 @@ func (s *ModifyListenerAttributesInput) SetBandwidth(v int64) *ModifyListenerAtt
 // SetCertificateId sets the CertificateId field's value.
 func (s *ModifyListenerAttributesInput) SetCertificateId(v string) *ModifyListenerAttributesInput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetConnectionDrainEnabled sets the ConnectionDrainEnabled field's value.
+func (s *ModifyListenerAttributesInput) SetConnectionDrainEnabled(v string) *ModifyListenerAttributesInput {
+	s.ConnectionDrainEnabled = &v
+	return s
+}
+
+// SetConnectionDrainTimeout sets the ConnectionDrainTimeout field's value.
+func (s *ModifyListenerAttributesInput) SetConnectionDrainTimeout(v int64) *ModifyListenerAttributesInput {
+	s.ConnectionDrainTimeout = &v
 	return s
 }
 

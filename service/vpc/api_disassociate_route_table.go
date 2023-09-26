@@ -142,6 +142,8 @@ func (c *VPC) DisassociateRouteTableWithContext(ctx volcengine.Context, input *D
 type DisassociateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
 
@@ -173,6 +175,12 @@ func (s *DisassociateRouteTableInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DisassociateRouteTableInput) SetClientToken(v string) *DisassociateRouteTableInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetRouteTableId sets the RouteTableId field's value.

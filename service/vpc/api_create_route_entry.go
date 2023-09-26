@@ -146,8 +146,9 @@ type CreateRouteEntryInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
-	// DestinationCidrBlock is a required field
-	DestinationCidrBlock *string `type:"string" required:"true"`
+	DestinationCidrBlock *string `type:"string"`
+
+	DestinationPrefixListId *string `type:"string"`
 
 	// NextHopId is a required field
 	NextHopId *string `type:"string" required:"true"`
@@ -179,9 +180,6 @@ func (s *CreateRouteEntryInput) Validate() error {
 	}
 	if s.Description != nil && len(*s.Description) > 255 {
 		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.DestinationCidrBlock == nil {
-		invalidParams.Add(request.NewErrParamRequired("DestinationCidrBlock"))
 	}
 	if s.NextHopId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NextHopId"))
@@ -220,6 +218,12 @@ func (s *CreateRouteEntryInput) SetDescription(v string) *CreateRouteEntryInput 
 // SetDestinationCidrBlock sets the DestinationCidrBlock field's value.
 func (s *CreateRouteEntryInput) SetDestinationCidrBlock(v string) *CreateRouteEntryInput {
 	s.DestinationCidrBlock = &v
+	return s
+}
+
+// SetDestinationPrefixListId sets the DestinationPrefixListId field's value.
+func (s *CreateRouteEntryInput) SetDestinationPrefixListId(v string) *CreateRouteEntryInput {
+	s.DestinationPrefixListId = &v
 	return s
 }
 
