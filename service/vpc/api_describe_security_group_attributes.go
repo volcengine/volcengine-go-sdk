@@ -146,6 +146,8 @@ type DescribeSecurityGroupAttributesInput struct {
 
 	Direction *string `type:"string"`
 
+	PrefixListId *string `type:"string"`
+
 	Protocol *string `type:"string"`
 
 	// SecurityGroupId is a required field
@@ -186,6 +188,12 @@ func (s *DescribeSecurityGroupAttributesInput) SetCidrIp(v string) *DescribeSecu
 // SetDirection sets the Direction field's value.
 func (s *DescribeSecurityGroupAttributesInput) SetDirection(v string) *DescribeSecurityGroupAttributesInput {
 	s.Direction = &v
+	return s
+}
+
+// SetPrefixListId sets the PrefixListId field's value.
+func (s *DescribeSecurityGroupAttributesInput) SetPrefixListId(v string) *DescribeSecurityGroupAttributesInput {
+	s.PrefixListId = &v
 	return s
 }
 
@@ -344,6 +352,10 @@ type PermissionForDescribeSecurityGroupAttributesOutput struct {
 
 	PortStart *int64 `type:"integer"`
 
+	PrefixListCidrs []*string `type:"list"`
+
+	PrefixListId *string `type:"string"`
+
 	Priority *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
@@ -402,6 +414,18 @@ func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortEnd(v int64)
 // SetPortStart sets the PortStart field's value.
 func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortStart(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
 	s.PortStart = &v
+	return s
+}
+
+// SetPrefixListCidrs sets the PrefixListCidrs field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPrefixListCidrs(v []*string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.PrefixListCidrs = v
+	return s
+}
+
+// SetPrefixListId sets the PrefixListId field's value.
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPrefixListId(v string) *PermissionForDescribeSecurityGroupAttributesOutput {
+	s.PrefixListId = &v
 	return s
 }
 

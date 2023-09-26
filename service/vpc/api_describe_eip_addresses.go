@@ -595,6 +595,12 @@ const (
 	// ISPForDescribeEipAddressesInputBgp is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputBgp = "BGP"
 
+	// ISPForDescribeEipAddressesInputSingleLineBgp is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputSingleLineBgp = "SingleLine_BGP"
+
+	// ISPForDescribeEipAddressesInputFusionBgp is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputFusionBgp = "Fusion_BGP"
+
 	// ISPForDescribeEipAddressesInputChinaMobile is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputChinaMobile = "ChinaMobile"
 

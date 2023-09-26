@@ -174,6 +174,8 @@ type DescribeNetworkInterfacesInput struct {
 
 	InstanceId *string `type:"string"`
 
+	Ipv6Addresses []*string `type:"list"`
+
 	NetworkInterfaceIds []*string `type:"list"`
 
 	NetworkInterfaceName *string `type:"string"`
@@ -229,6 +231,12 @@ func (s *DescribeNetworkInterfacesInput) Validate() error {
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeNetworkInterfacesInput) SetInstanceId(v string) *DescribeNetworkInterfacesInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetIpv6Addresses sets the Ipv6Addresses field's value.
+func (s *DescribeNetworkInterfacesInput) SetIpv6Addresses(v []*string) *DescribeNetworkInterfacesInput {
+	s.Ipv6Addresses = v
 	return s
 }
 

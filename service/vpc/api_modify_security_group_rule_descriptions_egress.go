@@ -154,6 +154,8 @@ type ModifySecurityGroupRuleDescriptionsEgressInput struct {
 	// PortStart is a required field
 	PortStart *int64 `type:"integer" required:"true"`
 
+	PrefixListId *string `type:"string"`
+
 	Priority *int64 `type:"integer"`
 
 	// Protocol is a required field
@@ -224,6 +226,12 @@ func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPortEnd(v int64) *Mo
 // SetPortStart sets the PortStart field's value.
 func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPortStart(v int64) *ModifySecurityGroupRuleDescriptionsEgressInput {
 	s.PortStart = &v
+	return s
+}
+
+// SetPrefixListId sets the PrefixListId field's value.
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPrefixListId(v string) *ModifySecurityGroupRuleDescriptionsEgressInput {
+	s.PrefixListId = &v
 	return s
 }
 

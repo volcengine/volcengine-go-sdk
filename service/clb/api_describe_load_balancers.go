@@ -144,6 +144,8 @@ type DescribeLoadBalancersInput struct {
 
 	AddressIpVersion *string `type:"string"`
 
+	EipAddress *string `type:"string"`
+
 	EniAddress *string `type:"string"`
 
 	LoadBalancerIds []*string `type:"list"`
@@ -174,6 +176,12 @@ func (s DescribeLoadBalancersInput) GoString() string {
 // SetAddressIpVersion sets the AddressIpVersion field's value.
 func (s *DescribeLoadBalancersInput) SetAddressIpVersion(v string) *DescribeLoadBalancersInput {
 	s.AddressIpVersion = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *DescribeLoadBalancersInput) SetEipAddress(v string) *DescribeLoadBalancersInput {
+	s.EipAddress = &v
 	return s
 }
 

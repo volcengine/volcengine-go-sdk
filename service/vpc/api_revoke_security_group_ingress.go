@@ -154,6 +154,8 @@ type RevokeSecurityGroupIngressInput struct {
 	// PortStart is a required field
 	PortStart *int64 `type:"integer" required:"true"`
 
+	PrefixListId *string `type:"string"`
+
 	Priority *int64 `type:"integer"`
 
 	// Protocol is a required field
@@ -224,6 +226,12 @@ func (s *RevokeSecurityGroupIngressInput) SetPortEnd(v int64) *RevokeSecurityGro
 // SetPortStart sets the PortStart field's value.
 func (s *RevokeSecurityGroupIngressInput) SetPortStart(v int64) *RevokeSecurityGroupIngressInput {
 	s.PortStart = &v
+	return s
+}
+
+// SetPrefixListId sets the PrefixListId field's value.
+func (s *RevokeSecurityGroupIngressInput) SetPrefixListId(v string) *RevokeSecurityGroupIngressInput {
+	s.PrefixListId = &v
 	return s
 }
 

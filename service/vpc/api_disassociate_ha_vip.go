@@ -142,6 +142,8 @@ func (c *VPC) DisassociateHaVipWithContext(ctx volcengine.Context, input *Disass
 type DisassociateHaVipInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	// HaVipId is a required field
 	HaVipId *string `type:"string" required:"true"`
 
@@ -175,6 +177,12 @@ func (s *DisassociateHaVipInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DisassociateHaVipInput) SetClientToken(v string) *DisassociateHaVipInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetHaVipId sets the HaVipId field's value.

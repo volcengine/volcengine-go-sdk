@@ -142,6 +142,8 @@ func (c *VPC) CreateHaVipWithContext(ctx volcengine.Context, input *CreateHaVipI
 type CreateHaVipInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	HaVipName *string `min:"1" max:"128" type:"string"`
@@ -185,6 +187,12 @@ func (s *CreateHaVipInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateHaVipInput) SetClientToken(v string) *CreateHaVipInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
