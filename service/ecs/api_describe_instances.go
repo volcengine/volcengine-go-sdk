@@ -172,6 +172,10 @@ func (s *CpuOptionsForDescribeInstancesOutput) SetThreadsPerCore(v int32) *CpuOp
 type DescribeInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	DedicatedHostClusterId *string `type:"string"`
+
+	DedicatedHostId *string `type:"string"`
+
 	DeploymentSetIds []*string `type:"list"`
 
 	HpcClusterId *string `type:"string"`
@@ -215,6 +219,18 @@ func (s DescribeInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstancesInput) GoString() string {
 	return s.String()
+}
+
+// SetDedicatedHostClusterId sets the DedicatedHostClusterId field's value.
+func (s *DescribeInstancesInput) SetDedicatedHostClusterId(v string) *DescribeInstancesInput {
+	s.DedicatedHostClusterId = &v
+	return s
+}
+
+// SetDedicatedHostId sets the DedicatedHostId field's value.
+func (s *DescribeInstancesInput) SetDedicatedHostId(v string) *DescribeInstancesInput {
+	s.DedicatedHostId = &v
+	return s
 }
 
 // SetDeploymentSetIds sets the DeploymentSetIds field's value.
@@ -426,9 +442,13 @@ type InstanceForDescribeInstancesOutput struct {
 
 	OsType *string `type:"string"`
 
+	Placement *PlacementForDescribeInstancesOutput `type:"structure"`
+
 	ProjectName *string `type:"string"`
 
 	RdmaIpAddresses []*string `type:"list"`
+
+	SpotPriceLimit *float64 `type:"float"`
 
 	SpotStrategy *string `type:"string"`
 
@@ -583,6 +603,12 @@ func (s *InstanceForDescribeInstancesOutput) SetOsType(v string) *InstanceForDes
 	return s
 }
 
+// SetPlacement sets the Placement field's value.
+func (s *InstanceForDescribeInstancesOutput) SetPlacement(v *PlacementForDescribeInstancesOutput) *InstanceForDescribeInstancesOutput {
+	s.Placement = v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *InstanceForDescribeInstancesOutput) SetProjectName(v string) *InstanceForDescribeInstancesOutput {
 	s.ProjectName = &v
@@ -592,6 +618,12 @@ func (s *InstanceForDescribeInstancesOutput) SetProjectName(v string) *InstanceF
 // SetRdmaIpAddresses sets the RdmaIpAddresses field's value.
 func (s *InstanceForDescribeInstancesOutput) SetRdmaIpAddresses(v []*string) *InstanceForDescribeInstancesOutput {
 	s.RdmaIpAddresses = v
+	return s
+}
+
+// SetSpotPriceLimit sets the SpotPriceLimit field's value.
+func (s *InstanceForDescribeInstancesOutput) SetSpotPriceLimit(v float64) *InstanceForDescribeInstancesOutput {
+	s.SpotPriceLimit = &v
 	return s
 }
 
@@ -748,6 +780,52 @@ func (s *NetworkInterfaceForDescribeInstancesOutput) SetType(v string) *NetworkI
 // SetVpcId sets the VpcId field's value.
 func (s *NetworkInterfaceForDescribeInstancesOutput) SetVpcId(v string) *NetworkInterfaceForDescribeInstancesOutput {
 	s.VpcId = &v
+	return s
+}
+
+type PlacementForDescribeInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Affinity *string `type:"string"`
+
+	DedicatedHostClusterId *string `type:"string"`
+
+	DedicatedHostId *string `type:"string"`
+
+	Tenancy *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PlacementForDescribeInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PlacementForDescribeInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAffinity sets the Affinity field's value.
+func (s *PlacementForDescribeInstancesOutput) SetAffinity(v string) *PlacementForDescribeInstancesOutput {
+	s.Affinity = &v
+	return s
+}
+
+// SetDedicatedHostClusterId sets the DedicatedHostClusterId field's value.
+func (s *PlacementForDescribeInstancesOutput) SetDedicatedHostClusterId(v string) *PlacementForDescribeInstancesOutput {
+	s.DedicatedHostClusterId = &v
+	return s
+}
+
+// SetDedicatedHostId sets the DedicatedHostId field's value.
+func (s *PlacementForDescribeInstancesOutput) SetDedicatedHostId(v string) *PlacementForDescribeInstancesOutput {
+	s.DedicatedHostId = &v
+	return s
+}
+
+// SetTenancy sets the Tenancy field's value.
+func (s *PlacementForDescribeInstancesOutput) SetTenancy(v string) *PlacementForDescribeInstancesOutput {
+	s.Tenancy = &v
 	return s
 }
 
