@@ -177,6 +177,52 @@ func (s *NetworkInterfaceForRunInstancesInput) SetSubnetId(v string) *NetworkInt
 	return s
 }
 
+type PlacementForRunInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	Affinity *string `type:"string"`
+
+	DedicatedHostClusterId *string `type:"string"`
+
+	DedicatedHostId *string `type:"string"`
+
+	Tenancy *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PlacementForRunInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PlacementForRunInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetAffinity sets the Affinity field's value.
+func (s *PlacementForRunInstancesInput) SetAffinity(v string) *PlacementForRunInstancesInput {
+	s.Affinity = &v
+	return s
+}
+
+// SetDedicatedHostClusterId sets the DedicatedHostClusterId field's value.
+func (s *PlacementForRunInstancesInput) SetDedicatedHostClusterId(v string) *PlacementForRunInstancesInput {
+	s.DedicatedHostClusterId = &v
+	return s
+}
+
+// SetDedicatedHostId sets the DedicatedHostId field's value.
+func (s *PlacementForRunInstancesInput) SetDedicatedHostId(v string) *PlacementForRunInstancesInput {
+	s.DedicatedHostId = &v
+	return s
+}
+
+// SetTenancy sets the Tenancy field's value.
+func (s *PlacementForRunInstancesInput) SetTenancy(v string) *PlacementForRunInstancesInput {
+	s.Tenancy = &v
+	return s
+}
+
 type RunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -204,6 +250,8 @@ type RunInstancesInput struct {
 
 	ImageId *string `type:"string"`
 
+	InstallRunCommandAgent *bool `type:"boolean"`
+
 	InstanceChargeType *string `type:"string"`
 
 	InstanceName *string `type:"string"`
@@ -226,9 +274,13 @@ type RunInstancesInput struct {
 
 	PeriodUnit *string `type:"string"`
 
+	Placement *PlacementForRunInstancesInput `type:"structure"`
+
 	ProjectName *string `type:"string"`
 
 	SecurityEnhancementStrategy *string `type:"string"`
+
+	SpotPriceLimit *float64 `type:"double"`
 
 	SpotStrategy *string `type:"string"`
 
@@ -327,6 +379,12 @@ func (s *RunInstancesInput) SetImageId(v string) *RunInstancesInput {
 	return s
 }
 
+// SetInstallRunCommandAgent sets the InstallRunCommandAgent field's value.
+func (s *RunInstancesInput) SetInstallRunCommandAgent(v bool) *RunInstancesInput {
+	s.InstallRunCommandAgent = &v
+	return s
+}
+
 // SetInstanceChargeType sets the InstanceChargeType field's value.
 func (s *RunInstancesInput) SetInstanceChargeType(v string) *RunInstancesInput {
 	s.InstanceChargeType = &v
@@ -393,6 +451,12 @@ func (s *RunInstancesInput) SetPeriodUnit(v string) *RunInstancesInput {
 	return s
 }
 
+// SetPlacement sets the Placement field's value.
+func (s *RunInstancesInput) SetPlacement(v *PlacementForRunInstancesInput) *RunInstancesInput {
+	s.Placement = v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *RunInstancesInput) SetProjectName(v string) *RunInstancesInput {
 	s.ProjectName = &v
@@ -402,6 +466,12 @@ func (s *RunInstancesInput) SetProjectName(v string) *RunInstancesInput {
 // SetSecurityEnhancementStrategy sets the SecurityEnhancementStrategy field's value.
 func (s *RunInstancesInput) SetSecurityEnhancementStrategy(v string) *RunInstancesInput {
 	s.SecurityEnhancementStrategy = &v
+	return s
+}
+
+// SetSpotPriceLimit sets the SpotPriceLimit field's value.
+func (s *RunInstancesInput) SetSpotPriceLimit(v float64) *RunInstancesInput {
+	s.SpotPriceLimit = &v
 	return s
 }
 

@@ -144,6 +144,8 @@ func (c *ECS) DescribeSystemEventsWithContext(ctx volcengine.Context, input *Des
 type DescribeSystemEventsInput struct {
 	_ struct{} `type:"structure"`
 
+	Category *string `type:"string"`
+
 	CreatedAtEnd *string `type:"string"`
 
 	CreatedAtStart *string `type:"string"`
@@ -169,6 +171,12 @@ func (s DescribeSystemEventsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSystemEventsInput) GoString() string {
 	return s.String()
+}
+
+// SetCategory sets the Category field's value.
+func (s *DescribeSystemEventsInput) SetCategory(v string) *DescribeSystemEventsInput {
+	s.Category = &v
+	return s
 }
 
 // SetCreatedAtEnd sets the CreatedAtEnd field's value.
@@ -361,6 +369,12 @@ const (
 
 	// StatusForDescribeSystemEventsOutputCanceled is a StatusForDescribeSystemEventsOutput enum value
 	StatusForDescribeSystemEventsOutputCanceled = "Canceled"
+
+	// StatusForDescribeSystemEventsOutputPending is a StatusForDescribeSystemEventsOutput enum value
+	StatusForDescribeSystemEventsOutputPending = "Pending"
+
+	// StatusForDescribeSystemEventsOutputRecovered is a StatusForDescribeSystemEventsOutput enum value
+	StatusForDescribeSystemEventsOutputRecovered = "Recovered"
 )
 
 const (
@@ -430,6 +444,39 @@ const (
 	// TypeForDescribeSystemEventsOutputApplicationFailure is a TypeForDescribeSystemEventsOutput enum value
 	TypeForDescribeSystemEventsOutputApplicationFailure = "ApplicationFailure"
 
+	// TypeForDescribeSystemEventsOutputDeploymentSetModify is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputDeploymentSetModify = "DeploymentSet_Modify"
+
+	// TypeForDescribeSystemEventsOutputServerMigrationTask is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputServerMigrationTask = "ServerMigrationTask"
+
+	// TypeForDescribeSystemEventsOutputServerMigrationFirstSync is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputServerMigrationFirstSync = "ServerMigration_FirstSync"
+
+	// TypeForDescribeSystemEventsOutputServerMigrationAdditionalSync is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputServerMigrationAdditionalSync = "ServerMigration_AdditionalSync"
+
 	// TypeForDescribeSystemEventsOutputGpuRiskDetected is a TypeForDescribeSystemEventsOutput enum value
 	TypeForDescribeSystemEventsOutputGpuRiskDetected = "GpuRiskDetected"
+
+	// TypeForDescribeSystemEventsOutputElasticScheduledInstanceCreate is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputElasticScheduledInstanceCreate = "ElasticScheduledInstance_Create"
+
+	// TypeForDescribeSystemEventsOutputElasticScheduledInstanceCancel is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputElasticScheduledInstanceCancel = "ElasticScheduledInstance_Cancel"
+
+	// TypeForDescribeSystemEventsOutputElasticScheduledInstanceDeliver is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputElasticScheduledInstanceDeliver = "ElasticScheduledInstance_Deliver"
+
+	// TypeForDescribeSystemEventsOutputInfrastructureUpgradeRedeploy is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputInfrastructureUpgradeRedeploy = "InfrastructureUpgrade_Redeploy"
+
+	// TypeForDescribeSystemEventsOutputDiskErrorDetected is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputDiskErrorDetected = "DiskErrorDetected"
+
+	// TypeForDescribeSystemEventsOutputDiskErrorReplaceDisk is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputDiskErrorReplaceDisk = "DiskError_ReplaceDisk"
+
+	// TypeForDescribeSystemEventsOutputMemoryRiskDetected is a TypeForDescribeSystemEventsOutput enum value
+	TypeForDescribeSystemEventsOutputMemoryRiskDetected = "MemoryRiskDetected"
 )

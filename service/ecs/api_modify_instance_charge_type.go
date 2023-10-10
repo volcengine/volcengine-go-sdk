@@ -144,6 +144,10 @@ type ModifyInstanceChargeTypeInput struct {
 
 	AutoPay *bool `type:"boolean"`
 
+	AutoRenew *bool `type:"boolean"`
+
+	AutoRenewPeriod *int32 `type:"int32"`
+
 	ClientToken *string `type:"string"`
 
 	IncludeDataVolumes *bool `type:"boolean"`
@@ -170,6 +174,18 @@ func (s ModifyInstanceChargeTypeInput) GoString() string {
 // SetAutoPay sets the AutoPay field's value.
 func (s *ModifyInstanceChargeTypeInput) SetAutoPay(v bool) *ModifyInstanceChargeTypeInput {
 	s.AutoPay = &v
+	return s
+}
+
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *ModifyInstanceChargeTypeInput) SetAutoRenew(v bool) *ModifyInstanceChargeTypeInput {
+	s.AutoRenew = &v
+	return s
+}
+
+// SetAutoRenewPeriod sets the AutoRenewPeriod field's value.
+func (s *ModifyInstanceChargeTypeInput) SetAutoRenewPeriod(v int32) *ModifyInstanceChargeTypeInput {
+	s.AutoRenewPeriod = &v
 	return s
 }
 
