@@ -19,7 +19,7 @@ import (
 //	// volcengine sdk func uses an SDK service client to make a request to
 //	// ECS.
 //	func myFunc(svc ECSAPI) bool {
-//	    // Make svc.AssociateInstancesIamRole request
+//	    // Make svc.AllocateDedicatedHosts request
 //	}
 //
 //	func main() {
@@ -29,6 +29,14 @@ import (
 //	    myFunc(svc)
 //	}
 type ECSAPI interface {
+	AllocateDedicatedHostsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AllocateDedicatedHostsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AllocateDedicatedHostsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AllocateDedicatedHosts(*AllocateDedicatedHostsInput) (*AllocateDedicatedHostsOutput, error)
+	AllocateDedicatedHostsWithContext(volcengine.Context, *AllocateDedicatedHostsInput, ...request.Option) (*AllocateDedicatedHostsOutput, error)
+	AllocateDedicatedHostsRequest(*AllocateDedicatedHostsInput) (*request.Request, *AllocateDedicatedHostsOutput)
+
 	AssociateInstancesIamRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateInstancesIamRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateInstancesIamRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -60,6 +68,14 @@ type ECSAPI interface {
 	CreateCommand(*CreateCommandInput) (*CreateCommandOutput, error)
 	CreateCommandWithContext(volcengine.Context, *CreateCommandInput, ...request.Option) (*CreateCommandOutput, error)
 	CreateCommandRequest(*CreateCommandInput) (*request.Request, *CreateCommandOutput)
+
+	CreateDedicatedHostClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDedicatedHostClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDedicatedHostClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDedicatedHostCluster(*CreateDedicatedHostClusterInput) (*CreateDedicatedHostClusterOutput, error)
+	CreateDedicatedHostClusterWithContext(volcengine.Context, *CreateDedicatedHostClusterInput, ...request.Option) (*CreateDedicatedHostClusterOutput, error)
+	CreateDedicatedHostClusterRequest(*CreateDedicatedHostClusterInput) (*request.Request, *CreateDedicatedHostClusterOutput)
 
 	CreateDeploymentSetCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDeploymentSetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -108,6 +124,14 @@ type ECSAPI interface {
 	DeleteCommand(*DeleteCommandInput) (*DeleteCommandOutput, error)
 	DeleteCommandWithContext(volcengine.Context, *DeleteCommandInput, ...request.Option) (*DeleteCommandOutput, error)
 	DeleteCommandRequest(*DeleteCommandInput) (*request.Request, *DeleteCommandOutput)
+
+	DeleteDedicatedHostClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDedicatedHostClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDedicatedHostClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDedicatedHostCluster(*DeleteDedicatedHostClusterInput) (*DeleteDedicatedHostClusterOutput, error)
+	DeleteDedicatedHostClusterWithContext(volcengine.Context, *DeleteDedicatedHostClusterInput, ...request.Option) (*DeleteDedicatedHostClusterOutput, error)
+	DeleteDedicatedHostClusterRequest(*DeleteDedicatedHostClusterInput) (*request.Request, *DeleteDedicatedHostClusterOutput)
 
 	DeleteDeploymentSetCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDeploymentSetCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -180,6 +204,30 @@ type ECSAPI interface {
 	DescribeCommands(*DescribeCommandsInput) (*DescribeCommandsOutput, error)
 	DescribeCommandsWithContext(volcengine.Context, *DescribeCommandsInput, ...request.Option) (*DescribeCommandsOutput, error)
 	DescribeCommandsRequest(*DescribeCommandsInput) (*request.Request, *DescribeCommandsOutput)
+
+	DescribeDedicatedHostClustersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDedicatedHostClustersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDedicatedHostClustersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDedicatedHostClusters(*DescribeDedicatedHostClustersInput) (*DescribeDedicatedHostClustersOutput, error)
+	DescribeDedicatedHostClustersWithContext(volcengine.Context, *DescribeDedicatedHostClustersInput, ...request.Option) (*DescribeDedicatedHostClustersOutput, error)
+	DescribeDedicatedHostClustersRequest(*DescribeDedicatedHostClustersInput) (*request.Request, *DescribeDedicatedHostClustersOutput)
+
+	DescribeDedicatedHostTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDedicatedHostTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDedicatedHostTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDedicatedHostTypes(*DescribeDedicatedHostTypesInput) (*DescribeDedicatedHostTypesOutput, error)
+	DescribeDedicatedHostTypesWithContext(volcengine.Context, *DescribeDedicatedHostTypesInput, ...request.Option) (*DescribeDedicatedHostTypesOutput, error)
+	DescribeDedicatedHostTypesRequest(*DescribeDedicatedHostTypesInput) (*request.Request, *DescribeDedicatedHostTypesOutput)
+
+	DescribeDedicatedHostsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDedicatedHostsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDedicatedHostsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDedicatedHosts(*DescribeDedicatedHostsInput) (*DescribeDedicatedHostsOutput, error)
+	DescribeDedicatedHostsWithContext(volcengine.Context, *DescribeDedicatedHostsInput, ...request.Option) (*DescribeDedicatedHostsOutput, error)
+	DescribeDedicatedHostsRequest(*DescribeDedicatedHostsInput) (*request.Request, *DescribeDedicatedHostsOutput)
 
 	DescribeDeploymentSetSupportedInstanceTypeFamilyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDeploymentSetSupportedInstanceTypeFamilyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -301,6 +349,14 @@ type ECSAPI interface {
 	DescribeKeyPairsWithContext(volcengine.Context, *DescribeKeyPairsInput, ...request.Option) (*DescribeKeyPairsOutput, error)
 	DescribeKeyPairsRequest(*DescribeKeyPairsInput) (*request.Request, *DescribeKeyPairsOutput)
 
+	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRegions(*DescribeRegionsInput) (*DescribeRegionsOutput, error)
+	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
+	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
+
 	DescribeSpotAdviceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSpotAdviceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSpotAdviceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -308,6 +364,14 @@ type ECSAPI interface {
 	DescribeSpotAdvice(*DescribeSpotAdviceInput) (*DescribeSpotAdviceOutput, error)
 	DescribeSpotAdviceWithContext(volcengine.Context, *DescribeSpotAdviceInput, ...request.Option) (*DescribeSpotAdviceOutput, error)
 	DescribeSpotAdviceRequest(*DescribeSpotAdviceInput) (*request.Request, *DescribeSpotAdviceOutput)
+
+	DescribeSpotPriceHistoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSpotPriceHistoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSpotPriceHistoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSpotPriceHistory(*DescribeSpotPriceHistoryInput) (*DescribeSpotPriceHistoryOutput, error)
+	DescribeSpotPriceHistoryWithContext(volcengine.Context, *DescribeSpotPriceHistoryInput, ...request.Option) (*DescribeSpotPriceHistoryOutput, error)
+	DescribeSpotPriceHistoryRequest(*DescribeSpotPriceHistoryInput) (*request.Request, *DescribeSpotPriceHistoryOutput)
 
 	DescribeSubscriptionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSubscriptionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -437,6 +501,22 @@ type ECSAPI interface {
 	ModifyCommandWithContext(volcengine.Context, *ModifyCommandInput, ...request.Option) (*ModifyCommandOutput, error)
 	ModifyCommandRequest(*ModifyCommandInput) (*request.Request, *ModifyCommandOutput)
 
+	ModifyDedicatedHostAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDedicatedHostAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDedicatedHostAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDedicatedHostAttribute(*ModifyDedicatedHostAttributeInput) (*ModifyDedicatedHostAttributeOutput, error)
+	ModifyDedicatedHostAttributeWithContext(volcengine.Context, *ModifyDedicatedHostAttributeInput, ...request.Option) (*ModifyDedicatedHostAttributeOutput, error)
+	ModifyDedicatedHostAttributeRequest(*ModifyDedicatedHostAttributeInput) (*request.Request, *ModifyDedicatedHostAttributeOutput)
+
+	ModifyDedicatedHostClusterAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDedicatedHostClusterAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDedicatedHostClusterAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDedicatedHostClusterAttribute(*ModifyDedicatedHostClusterAttributeInput) (*ModifyDedicatedHostClusterAttributeOutput, error)
+	ModifyDedicatedHostClusterAttributeWithContext(volcengine.Context, *ModifyDedicatedHostClusterAttributeInput, ...request.Option) (*ModifyDedicatedHostClusterAttributeOutput, error)
+	ModifyDedicatedHostClusterAttributeRequest(*ModifyDedicatedHostClusterAttributeInput) (*request.Request, *ModifyDedicatedHostClusterAttributeOutput)
+
 	ModifyDeploymentSetAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDeploymentSetAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDeploymentSetAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -485,6 +565,14 @@ type ECSAPI interface {
 	ModifyInstanceDeploymentWithContext(volcengine.Context, *ModifyInstanceDeploymentInput, ...request.Option) (*ModifyInstanceDeploymentOutput, error)
 	ModifyInstanceDeploymentRequest(*ModifyInstanceDeploymentInput) (*request.Request, *ModifyInstanceDeploymentOutput)
 
+	ModifyInstancePlacementCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyInstancePlacementCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyInstancePlacementCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyInstancePlacement(*ModifyInstancePlacementInput) (*ModifyInstancePlacementOutput, error)
+	ModifyInstancePlacementWithContext(volcengine.Context, *ModifyInstancePlacementInput, ...request.Option) (*ModifyInstancePlacementOutput, error)
+	ModifyInstancePlacementRequest(*ModifyInstancePlacementInput) (*request.Request, *ModifyInstancePlacementOutput)
+
 	ModifyInstanceSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyInstanceSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -492,6 +580,14 @@ type ECSAPI interface {
 	ModifyInstanceSpec(*ModifyInstanceSpecInput) (*ModifyInstanceSpecOutput, error)
 	ModifyInstanceSpecWithContext(volcengine.Context, *ModifyInstanceSpecInput, ...request.Option) (*ModifyInstanceSpecOutput, error)
 	ModifyInstanceSpecRequest(*ModifyInstanceSpecInput) (*request.Request, *ModifyInstanceSpecOutput)
+
+	ModifyInstanceVpcAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyInstanceVpcAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyInstanceVpcAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyInstanceVpcAttribute(*ModifyInstanceVpcAttributeInput) (*ModifyInstanceVpcAttributeOutput, error)
+	ModifyInstanceVpcAttributeWithContext(volcengine.Context, *ModifyInstanceVpcAttributeInput, ...request.Option) (*ModifyInstanceVpcAttributeOutput, error)
+	ModifyInstanceVpcAttributeRequest(*ModifyInstanceVpcAttributeInput) (*request.Request, *ModifyInstanceVpcAttributeOutput)
 
 	ModifyKeyPairAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyKeyPairAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -524,6 +620,22 @@ type ECSAPI interface {
 	RebootInstances(*RebootInstancesInput) (*RebootInstancesOutput, error)
 	RebootInstancesWithContext(volcengine.Context, *RebootInstancesInput, ...request.Option) (*RebootInstancesOutput, error)
 	RebootInstancesRequest(*RebootInstancesInput) (*request.Request, *RebootInstancesOutput)
+
+	RedeployDedicatedHostCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RedeployDedicatedHostCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RedeployDedicatedHostCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RedeployDedicatedHost(*RedeployDedicatedHostInput) (*RedeployDedicatedHostOutput, error)
+	RedeployDedicatedHostWithContext(volcengine.Context, *RedeployDedicatedHostInput, ...request.Option) (*RedeployDedicatedHostOutput, error)
+	RedeployDedicatedHostRequest(*RedeployDedicatedHostInput) (*request.Request, *RedeployDedicatedHostOutput)
+
+	RenewDedicatedHostCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RenewDedicatedHostCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RenewDedicatedHostCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RenewDedicatedHost(*RenewDedicatedHostInput) (*RenewDedicatedHostOutput, error)
+	RenewDedicatedHostWithContext(volcengine.Context, *RenewDedicatedHostInput, ...request.Option) (*RenewDedicatedHostOutput, error)
+	RenewDedicatedHostRequest(*RenewDedicatedHostInput) (*request.Request, *RenewDedicatedHostOutput)
 
 	RenewInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RenewInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
