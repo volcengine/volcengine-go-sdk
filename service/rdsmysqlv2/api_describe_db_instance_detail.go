@@ -601,10 +601,6 @@ type ChargeDetailForDescribeDBInstanceDetailOutput struct {
 	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
-
-	TempModifyEndTime *string `type:"string"`
-
-	TempModifyStartTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -677,152 +673,6 @@ func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetPeriodUnit(v string) 
 	return s
 }
 
-// SetTempModifyEndTime sets the TempModifyEndTime field's value.
-func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetTempModifyEndTime(v string) *ChargeDetailForDescribeDBInstanceDetailOutput {
-	s.TempModifyEndTime = &v
-	return s
-}
-
-// SetTempModifyStartTime sets the TempModifyStartTime field's value.
-func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetTempModifyStartTime(v string) *ChargeDetailForDescribeDBInstanceDetailOutput {
-	s.TempModifyStartTime = &v
-	return s
-}
-
-type ConnectionInfoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
-
-	Address []*AddressForDescribeDBInstanceDetailOutput `type:"list"`
-
-	Addresses []*AddressForDescribeDBInstanceDetailOutput `type:"list"`
-
-	AutoAddNewNodes *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	EipId *string `type:"string"`
-
-	EnableReadOnly *string `type:"string"`
-
-	EnableReadWriteSplitting *string `type:"string"`
-
-	EndpointId *string `type:"string"`
-
-	EndpointName *string `type:"string"`
-
-	EndpointType *string `type:"string"`
-
-	PublicIPAddress *string `type:"string"`
-
-	ReadOnlyNodeDistributionType *string `type:"string"`
-
-	ReadOnlyNodeMaxDelayTime *int32 `type:"int32"`
-
-	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput `type:"list"`
-
-	ReadWriteMode *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ConnectionInfoForDescribeDBInstanceDetailOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ConnectionInfoForDescribeDBInstanceDetailOutput) GoString() string {
-	return s.String()
-}
-
-// SetAddress sets the Address field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetAddress(v []*AddressForDescribeDBInstanceDetailOutput) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.Address = v
-	return s
-}
-
-// SetAddresses sets the Addresses field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetAddresses(v []*AddressForDescribeDBInstanceDetailOutput) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.Addresses = v
-	return s
-}
-
-// SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetAutoAddNewNodes(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.AutoAddNewNodes = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetDescription(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.Description = &v
-	return s
-}
-
-// SetEipId sets the EipId field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetEipId(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.EipId = &v
-	return s
-}
-
-// SetEnableReadOnly sets the EnableReadOnly field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetEnableReadOnly(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.EnableReadOnly = &v
-	return s
-}
-
-// SetEnableReadWriteSplitting sets the EnableReadWriteSplitting field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetEnableReadWriteSplitting(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.EnableReadWriteSplitting = &v
-	return s
-}
-
-// SetEndpointId sets the EndpointId field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetEndpointId(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.EndpointId = &v
-	return s
-}
-
-// SetEndpointName sets the EndpointName field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetEndpointName(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.EndpointName = &v
-	return s
-}
-
-// SetEndpointType sets the EndpointType field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetEndpointType(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.EndpointType = &v
-	return s
-}
-
-// SetPublicIPAddress sets the PublicIPAddress field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetPublicIPAddress(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.PublicIPAddress = &v
-	return s
-}
-
-// SetReadOnlyNodeDistributionType sets the ReadOnlyNodeDistributionType field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetReadOnlyNodeDistributionType(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.ReadOnlyNodeDistributionType = &v
-	return s
-}
-
-// SetReadOnlyNodeMaxDelayTime sets the ReadOnlyNodeMaxDelayTime field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetReadOnlyNodeMaxDelayTime(v int32) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.ReadOnlyNodeMaxDelayTime = &v
-	return s
-}
-
-// SetReadOnlyNodeWeight sets the ReadOnlyNodeWeight field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetReadOnlyNodeWeight(v []*ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.ReadOnlyNodeWeight = v
-	return s
-}
-
-// SetReadWriteMode sets the ReadWriteMode field's value.
-func (s *ConnectionInfoForDescribeDBInstanceDetailOutput) SetReadWriteMode(v string) *ConnectionInfoForDescribeDBInstanceDetailOutput {
-	s.ReadWriteMode = &v
-	return s
-}
-
 type DescribeDBInstanceDetailInput struct {
 	_ struct{} `type:"structure"`
 
@@ -868,15 +718,9 @@ type DescribeDBInstanceDetailOutput struct {
 
 	ChargeDetail *ChargeDetailForDescribeDBInstanceDetailOutput `type:"structure"`
 
-	ConnectionInfo []*ConnectionInfoForDescribeDBInstanceDetailOutput `type:"list"`
-
 	Endpoints []*EndpointForDescribeDBInstanceDetailOutput `type:"list"`
 
-	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstanceDetailOutput `type:"list"`
-
 	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list"`
-
-	ShardInfo []*ShardInfoForDescribeDBInstanceDetailOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -901,33 +745,15 @@ func (s *DescribeDBInstanceDetailOutput) SetChargeDetail(v *ChargeDetailForDescr
 	return s
 }
 
-// SetConnectionInfo sets the ConnectionInfo field's value.
-func (s *DescribeDBInstanceDetailOutput) SetConnectionInfo(v []*ConnectionInfoForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
-	s.ConnectionInfo = v
-	return s
-}
-
 // SetEndpoints sets the Endpoints field's value.
 func (s *DescribeDBInstanceDetailOutput) SetEndpoints(v []*EndpointForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
 	s.Endpoints = v
 	return s
 }
 
-// SetNodeDetailInfo sets the NodeDetailInfo field's value.
-func (s *DescribeDBInstanceDetailOutput) SetNodeDetailInfo(v []*NodeDetailInfoForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
-	s.NodeDetailInfo = v
-	return s
-}
-
 // SetNodes sets the Nodes field's value.
 func (s *DescribeDBInstanceDetailOutput) SetNodes(v []*NodeForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
 	s.Nodes = v
-	return s
-}
-
-// SetShardInfo sets the ShardInfo field's value.
-func (s *DescribeDBInstanceDetailOutput) SetShardInfo(v []*ShardInfoForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
-	s.ShardInfo = v
 	return s
 }
 
@@ -1111,124 +937,6 @@ func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetMaintenanceTime(
 	return s
 }
 
-type NodeDetailInfoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
-
-	CreateTime *string `type:"string"`
-
-	InstanceId *string `type:"string"`
-
-	Memory *int32 `type:"int32"`
-
-	NodeId *string `type:"string"`
-
-	NodeSpec *string `type:"string"`
-
-	NodeStatus *string `type:"string"`
-
-	NodeType *string `type:"string"`
-
-	RegionId *string `type:"string"`
-
-	ShardId *string `type:"string"`
-
-	SyncDelay *int64 `type:"int64"`
-
-	UpdateTime *string `type:"string"`
-
-	VCPU *int32 `type:"int32"`
-
-	ZoneId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s NodeDetailInfoForDescribeDBInstanceDetailOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s NodeDetailInfoForDescribeDBInstanceDetailOutput) GoString() string {
-	return s.String()
-}
-
-// SetCreateTime sets the CreateTime field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetCreateTime(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.CreateTime = &v
-	return s
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetInstanceId(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetMemory sets the Memory field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetMemory(v int32) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.Memory = &v
-	return s
-}
-
-// SetNodeId sets the NodeId field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetNodeId(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.NodeId = &v
-	return s
-}
-
-// SetNodeSpec sets the NodeSpec field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetNodeSpec(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.NodeSpec = &v
-	return s
-}
-
-// SetNodeStatus sets the NodeStatus field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetNodeStatus(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.NodeStatus = &v
-	return s
-}
-
-// SetNodeType sets the NodeType field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetNodeType(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.NodeType = &v
-	return s
-}
-
-// SetRegionId sets the RegionId field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetRegionId(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.RegionId = &v
-	return s
-}
-
-// SetShardId sets the ShardId field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetShardId(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.ShardId = &v
-	return s
-}
-
-// SetSyncDelay sets the SyncDelay field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetSyncDelay(v int64) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.SyncDelay = &v
-	return s
-}
-
-// SetUpdateTime sets the UpdateTime field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetUpdateTime(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.UpdateTime = &v
-	return s
-}
-
-// SetVCPU sets the VCPU field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetVCPU(v int32) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.VCPU = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *NodeDetailInfoForDescribeDBInstanceDetailOutput) SetZoneId(v string) *NodeDetailInfoForDescribeDBInstanceDetailOutput {
-	s.ZoneId = &v
-	return s
-}
-
 type NodeForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -1382,52 +1090,6 @@ func (s *ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput) SetNodeType(v stri
 // SetWeight sets the Weight field's value.
 func (s *ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput) SetWeight(v int32) *ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput {
 	s.Weight = &v
-	return s
-}
-
-type ShardInfoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
-
-	InstanceId *string `type:"string"`
-
-	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstanceDetailOutput `type:"list"`
-
-	ShardId *string `type:"string"`
-
-	ShardStatus *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ShardInfoForDescribeDBInstanceDetailOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ShardInfoForDescribeDBInstanceDetailOutput) GoString() string {
-	return s.String()
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *ShardInfoForDescribeDBInstanceDetailOutput) SetInstanceId(v string) *ShardInfoForDescribeDBInstanceDetailOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetNodeDetailInfo sets the NodeDetailInfo field's value.
-func (s *ShardInfoForDescribeDBInstanceDetailOutput) SetNodeDetailInfo(v []*NodeDetailInfoForDescribeDBInstanceDetailOutput) *ShardInfoForDescribeDBInstanceDetailOutput {
-	s.NodeDetailInfo = v
-	return s
-}
-
-// SetShardId sets the ShardId field's value.
-func (s *ShardInfoForDescribeDBInstanceDetailOutput) SetShardId(v string) *ShardInfoForDescribeDBInstanceDetailOutput {
-	s.ShardId = &v
-	return s
-}
-
-// SetShardStatus sets the ShardStatus field's value.
-func (s *ShardInfoForDescribeDBInstanceDetailOutput) SetShardStatus(v string) *ShardInfoForDescribeDBInstanceDetailOutput {
-	s.ShardStatus = &v
 	return s
 }
 

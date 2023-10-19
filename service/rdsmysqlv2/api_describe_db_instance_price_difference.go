@@ -157,8 +157,6 @@ type ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput struct {
 	OriginalPrice *float64 `type:"double"`
 
 	PayablePrice *float64 `type:"double"`
-
-	UnitPrice *float64 `type:"double"`
 }
 
 // String returns the string representation
@@ -204,12 +202,6 @@ func (s *ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput) SetOriginalP
 // SetPayablePrice sets the PayablePrice field's value.
 func (s *ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput) SetPayablePrice(v float64) *ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput {
 	s.PayablePrice = &v
-	return s
-}
-
-// SetUnitPrice sets the UnitPrice field's value.
-func (s *ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput) SetUnitPrice(v float64) *ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput {
-	s.UnitPrice = &v
 	return s
 }
 
@@ -406,13 +398,9 @@ type DescribeDBInstancePriceDifferenceOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	BillingMethod *string `type:"string"`
-
 	ChargeItemPrices []*ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput `type:"list"`
 
 	ConfigItemPrices []*ConfigItemPriceForDescribeDBInstancePriceDifferenceOutput `type:"list"`
-
-	CouponAmount *float64 `type:"double"`
 
 	Currency *string `type:"string"`
 
@@ -421,8 +409,6 @@ type DescribeDBInstancePriceDifferenceOutput struct {
 	OriginalPrice *float64 `type:"double"`
 
 	PayablePrice *float64 `type:"double"`
-
-	RefundAmount *float64 `type:"double"`
 }
 
 // String returns the string representation
@@ -435,12 +421,6 @@ func (s DescribeDBInstancePriceDifferenceOutput) GoString() string {
 	return s.String()
 }
 
-// SetBillingMethod sets the BillingMethod field's value.
-func (s *DescribeDBInstancePriceDifferenceOutput) SetBillingMethod(v string) *DescribeDBInstancePriceDifferenceOutput {
-	s.BillingMethod = &v
-	return s
-}
-
 // SetChargeItemPrices sets the ChargeItemPrices field's value.
 func (s *DescribeDBInstancePriceDifferenceOutput) SetChargeItemPrices(v []*ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput) *DescribeDBInstancePriceDifferenceOutput {
 	s.ChargeItemPrices = v
@@ -450,12 +430,6 @@ func (s *DescribeDBInstancePriceDifferenceOutput) SetChargeItemPrices(v []*Charg
 // SetConfigItemPrices sets the ConfigItemPrices field's value.
 func (s *DescribeDBInstancePriceDifferenceOutput) SetConfigItemPrices(v []*ConfigItemPriceForDescribeDBInstancePriceDifferenceOutput) *DescribeDBInstancePriceDifferenceOutput {
 	s.ConfigItemPrices = v
-	return s
-}
-
-// SetCouponAmount sets the CouponAmount field's value.
-func (s *DescribeDBInstancePriceDifferenceOutput) SetCouponAmount(v float64) *DescribeDBInstancePriceDifferenceOutput {
-	s.CouponAmount = &v
 	return s
 }
 
@@ -480,12 +454,6 @@ func (s *DescribeDBInstancePriceDifferenceOutput) SetOriginalPrice(v float64) *D
 // SetPayablePrice sets the PayablePrice field's value.
 func (s *DescribeDBInstancePriceDifferenceOutput) SetPayablePrice(v float64) *DescribeDBInstancePriceDifferenceOutput {
 	s.PayablePrice = &v
-	return s
-}
-
-// SetRefundAmount sets the RefundAmount field's value.
-func (s *DescribeDBInstancePriceDifferenceOutput) SetRefundAmount(v float64) *DescribeDBInstancePriceDifferenceOutput {
-	s.RefundAmount = &v
 	return s
 }
 

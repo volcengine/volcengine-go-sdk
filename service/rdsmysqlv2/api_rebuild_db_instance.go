@@ -150,8 +150,6 @@ type RebuildDBInstanceInput struct {
 	InstanceId *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
-
-	RequestSource *string `type:"string" enum:"EnumOfRequestSourceForRebuildDBInstanceInput"`
 }
 
 // String returns the string representation
@@ -189,16 +187,14 @@ func (s *RebuildDBInstanceInput) SetProjectName(v string) *RebuildDBInstanceInpu
 	return s
 }
 
-// SetRequestSource sets the RequestSource field's value.
-func (s *RebuildDBInstanceInput) SetRequestSource(v string) *RebuildDBInstanceInput {
-	s.RequestSource = &v
-	return s
-}
-
 type RebuildDBInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	InstanceId *string `type:"string"`
+
+	OrderId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -211,13 +207,14 @@ func (s RebuildDBInstanceOutput) GoString() string {
 	return s.String()
 }
 
-const (
-	// EnumOfRequestSourceForRebuildDBInstanceInputOpenApi is a EnumOfRequestSourceForRebuildDBInstanceInput enum value
-	EnumOfRequestSourceForRebuildDBInstanceInputOpenApi = "OpenAPI"
+// SetInstanceId sets the InstanceId field's value.
+func (s *RebuildDBInstanceOutput) SetInstanceId(v string) *RebuildDBInstanceOutput {
+	s.InstanceId = &v
+	return s
+}
 
-	// EnumOfRequestSourceForRebuildDBInstanceInputSdk is a EnumOfRequestSourceForRebuildDBInstanceInput enum value
-	EnumOfRequestSourceForRebuildDBInstanceInputSdk = "SDK"
-
-	// EnumOfRequestSourceForRebuildDBInstanceInputWeb is a EnumOfRequestSourceForRebuildDBInstanceInput enum value
-	EnumOfRequestSourceForRebuildDBInstanceInputWeb = "Web"
-)
+// SetOrderId sets the OrderId field's value.
+func (s *RebuildDBInstanceOutput) SetOrderId(v string) *RebuildDBInstanceOutput {
+	s.OrderId = &v
+	return s
+}

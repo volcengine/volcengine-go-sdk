@@ -150,8 +150,6 @@ type DownloadBackupInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
-
-	NodeId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -189,22 +187,10 @@ func (s *DownloadBackupInput) SetInstanceId(v string) *DownloadBackupInput {
 	return s
 }
 
-// SetNodeId sets the NodeId field's value.
-func (s *DownloadBackupInput) SetNodeId(v string) *DownloadBackupInput {
-	s.NodeId = &v
-	return s
-}
-
 type DownloadBackupOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	BackupId *string `type:"string"`
-
-	InstanceId *string `type:"string"`
-
-	NodeId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -215,22 +201,4 @@ func (s DownloadBackupOutput) String() string {
 // GoString returns the string representation
 func (s DownloadBackupOutput) GoString() string {
 	return s.String()
-}
-
-// SetBackupId sets the BackupId field's value.
-func (s *DownloadBackupOutput) SetBackupId(v string) *DownloadBackupOutput {
-	s.BackupId = &v
-	return s
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *DownloadBackupOutput) SetInstanceId(v string) *DownloadBackupOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetNodeId sets the NodeId field's value.
-func (s *DownloadBackupOutput) SetNodeId(v string) *DownloadBackupOutput {
-	s.NodeId = &v
-	return s
 }

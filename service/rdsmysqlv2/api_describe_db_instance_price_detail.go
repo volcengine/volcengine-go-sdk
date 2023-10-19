@@ -157,8 +157,6 @@ type ChargeItemPriceForDescribeDBInstancePriceDetailOutput struct {
 	OriginalPrice *float64 `type:"double"`
 
 	PayablePrice *float64 `type:"double"`
-
-	UnitPrice *float64 `type:"double"`
 }
 
 // String returns the string representation
@@ -207,12 +205,6 @@ func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetPayablePrice(
 	return s
 }
 
-// SetUnitPrice sets the UnitPrice field's value.
-func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetUnitPrice(v float64) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
-	s.UnitPrice = &v
-	return s
-}
-
 type DescribeDBInstancePriceDetailInput struct {
 	_ struct{} `type:"structure"`
 
@@ -225,8 +217,6 @@ type DescribeDBInstancePriceDetailInput struct {
 	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForDescribeDBInstancePriceDetailInput"`
-
-	ShardNumber *int32 `type:"int32"`
 
 	StorageSpace *int32 `type:"int32"`
 
@@ -270,12 +260,6 @@ func (s *DescribeDBInstancePriceDetailInput) SetPeriod(v int32) *DescribeDBInsta
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *DescribeDBInstancePriceDetailInput) SetPeriodUnit(v string) *DescribeDBInstancePriceDetailInput {
 	s.PeriodUnit = &v
-	return s
-}
-
-// SetShardNumber sets the ShardNumber field's value.
-func (s *DescribeDBInstancePriceDetailInput) SetShardNumber(v int32) *DescribeDBInstancePriceDetailInput {
-	s.ShardNumber = &v
 	return s
 }
 
@@ -386,8 +370,6 @@ type NodeInfoForDescribeDBInstancePriceDetailInput struct {
 
 	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInput"`
 
-	NodePool *string `type:"string"`
-
 	NodeSpec *string `type:"string"`
 
 	NodeType *string `type:"string" enum:"EnumOfNodeTypeForDescribeDBInstancePriceDetailInput"`
@@ -414,12 +396,6 @@ func (s *NodeInfoForDescribeDBInstancePriceDetailInput) SetNodeId(v string) *Nod
 // SetNodeOperateType sets the NodeOperateType field's value.
 func (s *NodeInfoForDescribeDBInstancePriceDetailInput) SetNodeOperateType(v string) *NodeInfoForDescribeDBInstancePriceDetailInput {
 	s.NodeOperateType = &v
-	return s
-}
-
-// SetNodePool sets the NodePool field's value.
-func (s *NodeInfoForDescribeDBInstancePriceDetailInput) SetNodePool(v string) *NodeInfoForDescribeDBInstancePriceDetailInput {
-	s.NodePool = &v
 	return s
 }
 
