@@ -143,80 +143,8 @@ func (c *RDSMYSQLV2) ModifyParameterTemplateWithContext(ctx volcengine.Context, 
 	return out, req.Send()
 }
 
-type CustomParamForModifyParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
-
-	DefaultValue *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	ExpectValue *string `type:"string"`
-
-	Name *string `type:"string"`
-
-	Restart *bool `type:"boolean"`
-
-	RunningValue *string `type:"string"`
-
-	ValueRange *string `type:"string"`
-}
-
-// String returns the string representation
-func (s CustomParamForModifyParameterTemplateInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s CustomParamForModifyParameterTemplateInput) GoString() string {
-	return s.String()
-}
-
-// SetDefaultValue sets the DefaultValue field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetDefaultValue(v string) *CustomParamForModifyParameterTemplateInput {
-	s.DefaultValue = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetDescription(v string) *CustomParamForModifyParameterTemplateInput {
-	s.Description = &v
-	return s
-}
-
-// SetExpectValue sets the ExpectValue field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetExpectValue(v string) *CustomParamForModifyParameterTemplateInput {
-	s.ExpectValue = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetName(v string) *CustomParamForModifyParameterTemplateInput {
-	s.Name = &v
-	return s
-}
-
-// SetRestart sets the Restart field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetRestart(v bool) *CustomParamForModifyParameterTemplateInput {
-	s.Restart = &v
-	return s
-}
-
-// SetRunningValue sets the RunningValue field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetRunningValue(v string) *CustomParamForModifyParameterTemplateInput {
-	s.RunningValue = &v
-	return s
-}
-
-// SetValueRange sets the ValueRange field's value.
-func (s *CustomParamForModifyParameterTemplateInput) SetValueRange(v string) *CustomParamForModifyParameterTemplateInput {
-	s.ValueRange = &v
-	return s
-}
-
 type ModifyParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
-
-	CustomParams []*CustomParamForModifyParameterTemplateInput `type:"list"`
 
 	TemplateDesc *string `max:"200" type:"string"`
 
@@ -258,12 +186,6 @@ func (s *ModifyParameterTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetCustomParams sets the CustomParams field's value.
-func (s *ModifyParameterTemplateInput) SetCustomParams(v []*CustomParamForModifyParameterTemplateInput) *ModifyParameterTemplateInput {
-	s.CustomParams = v
-	return s
 }
 
 // SetTemplateDesc sets the TemplateDesc field's value.
@@ -309,19 +231,11 @@ func (s ModifyParameterTemplateOutput) GoString() string {
 type TemplateParamForModifyParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
-	DefaultValue *string `type:"string"`
-
 	Description *string `type:"string"`
-
-	ExpectValue *string `type:"string"`
 
 	Name *string `type:"string"`
 
-	Restart *bool `type:"boolean"`
-
 	RunningValue *string `type:"string"`
-
-	ValueRange *string `type:"string"`
 }
 
 // String returns the string representation
@@ -334,21 +248,9 @@ func (s TemplateParamForModifyParameterTemplateInput) GoString() string {
 	return s.String()
 }
 
-// SetDefaultValue sets the DefaultValue field's value.
-func (s *TemplateParamForModifyParameterTemplateInput) SetDefaultValue(v string) *TemplateParamForModifyParameterTemplateInput {
-	s.DefaultValue = &v
-	return s
-}
-
 // SetDescription sets the Description field's value.
 func (s *TemplateParamForModifyParameterTemplateInput) SetDescription(v string) *TemplateParamForModifyParameterTemplateInput {
 	s.Description = &v
-	return s
-}
-
-// SetExpectValue sets the ExpectValue field's value.
-func (s *TemplateParamForModifyParameterTemplateInput) SetExpectValue(v string) *TemplateParamForModifyParameterTemplateInput {
-	s.ExpectValue = &v
 	return s
 }
 
@@ -358,20 +260,8 @@ func (s *TemplateParamForModifyParameterTemplateInput) SetName(v string) *Templa
 	return s
 }
 
-// SetRestart sets the Restart field's value.
-func (s *TemplateParamForModifyParameterTemplateInput) SetRestart(v bool) *TemplateParamForModifyParameterTemplateInput {
-	s.Restart = &v
-	return s
-}
-
 // SetRunningValue sets the RunningValue field's value.
 func (s *TemplateParamForModifyParameterTemplateInput) SetRunningValue(v string) *TemplateParamForModifyParameterTemplateInput {
 	s.RunningValue = &v
-	return s
-}
-
-// SetValueRange sets the ValueRange field's value.
-func (s *TemplateParamForModifyParameterTemplateInput) SetValueRange(v string) *TemplateParamForModifyParameterTemplateInput {
-	s.ValueRange = &v
 	return s
 }

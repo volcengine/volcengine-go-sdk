@@ -235,10 +235,6 @@ type ChargeDetailForDescribeDBInstancesOutput struct {
 	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
-
-	TempModifyEndTime *string `type:"string"`
-
-	TempModifyStartTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -311,22 +307,8 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetPeriodUnit(v string) *Char
 	return s
 }
 
-// SetTempModifyEndTime sets the TempModifyEndTime field's value.
-func (s *ChargeDetailForDescribeDBInstancesOutput) SetTempModifyEndTime(v string) *ChargeDetailForDescribeDBInstancesOutput {
-	s.TempModifyEndTime = &v
-	return s
-}
-
-// SetTempModifyStartTime sets the TempModifyStartTime field's value.
-func (s *ChargeDetailForDescribeDBInstancesOutput) SetTempModifyStartTime(v string) *ChargeDetailForDescribeDBInstancesOutput {
-	s.TempModifyStartTime = &v
-	return s
-}
-
 type DescribeDBInstancesInput struct {
 	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
 
 	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesInput"`
 
@@ -336,8 +318,6 @@ type DescribeDBInstancesInput struct {
 
 	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstancesInput"`
 
-	Filters []*FilterForDescribeDBInstancesInput `type:"list"`
-
 	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
@@ -346,15 +326,9 @@ type DescribeDBInstancesInput struct {
 
 	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeDBInstancesInput"`
 
-	NodeSpec *string `type:"string"`
-
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
-
-	ProjectName *string `type:"string"`
-
-	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
 
 	ZoneId *string `type:"string"`
 }
@@ -367,12 +341,6 @@ func (s DescribeDBInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstancesInput) GoString() string {
 	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *DescribeDBInstancesInput) SetAccountId(v string) *DescribeDBInstancesInput {
-	s.AccountId = &v
-	return s
 }
 
 // SetChargeType sets the ChargeType field's value.
@@ -396,12 +364,6 @@ func (s *DescribeDBInstancesInput) SetCreateTimeStart(v string) *DescribeDBInsta
 // SetDBEngineVersion sets the DBEngineVersion field's value.
 func (s *DescribeDBInstancesInput) SetDBEngineVersion(v string) *DescribeDBInstancesInput {
 	s.DBEngineVersion = &v
-	return s
-}
-
-// SetFilters sets the Filters field's value.
-func (s *DescribeDBInstancesInput) SetFilters(v []*FilterForDescribeDBInstancesInput) *DescribeDBInstancesInput {
-	s.Filters = v
 	return s
 }
 
@@ -429,12 +391,6 @@ func (s *DescribeDBInstancesInput) SetInstanceType(v string) *DescribeDBInstance
 	return s
 }
 
-// SetNodeSpec sets the NodeSpec field's value.
-func (s *DescribeDBInstancesInput) SetNodeSpec(v string) *DescribeDBInstancesInput {
-	s.NodeSpec = &v
-	return s
-}
-
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeDBInstancesInput) SetPageNumber(v int32) *DescribeDBInstancesInput {
 	s.PageNumber = &v
@@ -444,18 +400,6 @@ func (s *DescribeDBInstancesInput) SetPageNumber(v int32) *DescribeDBInstancesIn
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeDBInstancesInput) SetPageSize(v int32) *DescribeDBInstancesInput {
 	s.PageSize = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *DescribeDBInstancesInput) SetProjectName(v string) *DescribeDBInstancesInput {
-	s.ProjectName = &v
-	return s
-}
-
-// SetTagFilters sets the TagFilters field's value.
-func (s *DescribeDBInstancesInput) SetTagFilters(v []*TagFilterForDescribeDBInstancesInput) *DescribeDBInstancesInput {
-	s.TagFilters = v
 	return s
 }
 
@@ -471,8 +415,6 @@ type DescribeDBInstancesOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Instances []*InstanceForDescribeDBInstancesOutput `type:"list"`
-
-	InstancesInfo []*InstancesInfoForDescribeDBInstancesOutput `type:"list"`
 
 	Total *int32 `type:"int32"`
 }
@@ -493,45 +435,9 @@ func (s *DescribeDBInstancesOutput) SetInstances(v []*InstanceForDescribeDBInsta
 	return s
 }
 
-// SetInstancesInfo sets the InstancesInfo field's value.
-func (s *DescribeDBInstancesOutput) SetInstancesInfo(v []*InstancesInfoForDescribeDBInstancesOutput) *DescribeDBInstancesOutput {
-	s.InstancesInfo = v
-	return s
-}
-
 // SetTotal sets the Total field's value.
 func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput {
 	s.Total = &v
-	return s
-}
-
-type FilterForDescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
-
-	Name *string `type:"string"`
-
-	Values []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s FilterForDescribeDBInstancesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s FilterForDescribeDBInstancesInput) GoString() string {
-	return s.String()
-}
-
-// SetName sets the Name field's value.
-func (s *FilterForDescribeDBInstancesInput) SetName(v string) *FilterForDescribeDBInstancesInput {
-	s.Name = &v
-	return s
-}
-
-// SetValues sets the Values field's value.
-func (s *FilterForDescribeDBInstancesInput) SetValues(v []*string) *FilterForDescribeDBInstancesInput {
-	s.Values = v
 	return s
 }
 
@@ -560,8 +466,6 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	LowerCaseTableNames *string `type:"string"`
 
-	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure"`
-
 	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstancesOutput `type:"list"`
 
 	NodeNumber *int32 `type:"int32"`
@@ -582,19 +486,15 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	StorageType *string `type:"string"`
 
-	SubnetId *string `type:"string"`
+	StorageUse *int32 `type:"int32"`
 
-	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
+	SubnetId *string `type:"string"`
 
 	TimeZone *string `type:"string"`
 
 	VpcId *string `type:"string"`
 
 	ZoneId *string `type:"string"`
-
-	ZoneIds []*string `type:"list"`
-
-	ZoneNodePools []*ZoneNodePoolForDescribeDBInstancesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -673,12 +573,6 @@ func (s *InstanceForDescribeDBInstancesOutput) SetLowerCaseTableNames(v string) 
 	return s
 }
 
-// SetMaintenanceWindow sets the MaintenanceWindow field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetMaintenanceWindow(v *MaintenanceWindowForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
-	s.MaintenanceWindow = v
-	return s
-}
-
 // SetNodeDetailInfo sets the NodeDetailInfo field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetNodeDetailInfo(v []*NodeDetailInfoForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
 	s.NodeDetailInfo = v
@@ -739,15 +633,15 @@ func (s *InstanceForDescribeDBInstancesOutput) SetStorageType(v string) *Instanc
 	return s
 }
 
-// SetSubnetId sets the SubnetId field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetSubnetId(v string) *InstanceForDescribeDBInstancesOutput {
-	s.SubnetId = &v
+// SetStorageUse sets the StorageUse field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetStorageUse(v int32) *InstanceForDescribeDBInstancesOutput {
+	s.StorageUse = &v
 	return s
 }
 
-// SetTags sets the Tags field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetTags(v []*TagForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
-	s.Tags = v
+// SetSubnetId sets the SubnetId field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetSubnetId(v string) *InstanceForDescribeDBInstancesOutput {
+	s.SubnetId = &v
 	return s
 }
 
@@ -766,310 +660,6 @@ func (s *InstanceForDescribeDBInstancesOutput) SetVpcId(v string) *InstanceForDe
 // SetZoneId sets the ZoneId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetZoneId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.ZoneId = &v
-	return s
-}
-
-// SetZoneIds sets the ZoneIds field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetZoneIds(v []*string) *InstanceForDescribeDBInstancesOutput {
-	s.ZoneIds = v
-	return s
-}
-
-// SetZoneNodePools sets the ZoneNodePools field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetZoneNodePools(v []*ZoneNodePoolForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
-	s.ZoneNodePools = v
-	return s
-}
-
-type InstancesInfoForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
-
-	AddressObject []*AddressObjectForDescribeDBInstancesOutput `type:"list"`
-
-	AllowListVersion *string `type:"string"`
-
-	ChargeDetail *ChargeDetailForDescribeDBInstancesOutput `type:"structure"`
-
-	CreateTime *string `type:"string"`
-
-	DBEngineVersion *string `type:"string"`
-
-	InstanceId *string `type:"string"`
-
-	InstanceName *string `type:"string"`
-
-	InstanceStatus *string `type:"string"`
-
-	InstanceType *string `type:"string"`
-
-	LowerCaseTableNames *string `type:"string"`
-
-	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure"`
-
-	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstancesOutput `type:"list"`
-
-	NodeNumber *int32 `type:"int32"`
-
-	NodeSpec *string `type:"string"`
-
-	Port *string `type:"string"`
-
-	ProjectName *string `type:"string"`
-
-	RegionId *string `type:"string"`
-
-	ServerCollation *string `type:"string"`
-
-	ShardNumber *int32 `type:"int32"`
-
-	StorageSpace *int32 `type:"int32"`
-
-	StorageType *string `type:"string"`
-
-	SubnetId *string `type:"string"`
-
-	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
-
-	TimeZone *string `type:"string"`
-
-	VpcId *string `type:"string"`
-
-	ZoneId *string `type:"string"`
-
-	ZoneIds []*string `type:"list"`
-
-	ZoneNodePools []*ZoneNodePoolForDescribeDBInstancesOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s InstancesInfoForDescribeDBInstancesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InstancesInfoForDescribeDBInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetAccountId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.AccountId = &v
-	return s
-}
-
-// SetAddressObject sets the AddressObject field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetAddressObject(v []*AddressObjectForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
-	s.AddressObject = v
-	return s
-}
-
-// SetAllowListVersion sets the AllowListVersion field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetAllowListVersion(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.AllowListVersion = &v
-	return s
-}
-
-// SetChargeDetail sets the ChargeDetail field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetChargeDetail(v *ChargeDetailForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ChargeDetail = v
-	return s
-}
-
-// SetCreateTime sets the CreateTime field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetCreateTime(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.CreateTime = &v
-	return s
-}
-
-// SetDBEngineVersion sets the DBEngineVersion field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetDBEngineVersion(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.DBEngineVersion = &v
-	return s
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetInstanceName sets the InstanceName field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceName(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.InstanceName = &v
-	return s
-}
-
-// SetInstanceStatus sets the InstanceStatus field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceStatus(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.InstanceStatus = &v
-	return s
-}
-
-// SetInstanceType sets the InstanceType field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceType(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.InstanceType = &v
-	return s
-}
-
-// SetLowerCaseTableNames sets the LowerCaseTableNames field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetLowerCaseTableNames(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.LowerCaseTableNames = &v
-	return s
-}
-
-// SetMaintenanceWindow sets the MaintenanceWindow field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetMaintenanceWindow(v *MaintenanceWindowForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
-	s.MaintenanceWindow = v
-	return s
-}
-
-// SetNodeDetailInfo sets the NodeDetailInfo field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetNodeDetailInfo(v []*NodeDetailInfoForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
-	s.NodeDetailInfo = v
-	return s
-}
-
-// SetNodeNumber sets the NodeNumber field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetNodeNumber(v int32) *InstancesInfoForDescribeDBInstancesOutput {
-	s.NodeNumber = &v
-	return s
-}
-
-// SetNodeSpec sets the NodeSpec field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetNodeSpec(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.NodeSpec = &v
-	return s
-}
-
-// SetPort sets the Port field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetPort(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.Port = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetProjectName(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ProjectName = &v
-	return s
-}
-
-// SetRegionId sets the RegionId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetRegionId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.RegionId = &v
-	return s
-}
-
-// SetServerCollation sets the ServerCollation field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetServerCollation(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ServerCollation = &v
-	return s
-}
-
-// SetShardNumber sets the ShardNumber field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetShardNumber(v int32) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ShardNumber = &v
-	return s
-}
-
-// SetStorageSpace sets the StorageSpace field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetStorageSpace(v int32) *InstancesInfoForDescribeDBInstancesOutput {
-	s.StorageSpace = &v
-	return s
-}
-
-// SetStorageType sets the StorageType field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetStorageType(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.StorageType = &v
-	return s
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetSubnetId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.SubnetId = &v
-	return s
-}
-
-// SetTags sets the Tags field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetTags(v []*TagForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
-	s.Tags = v
-	return s
-}
-
-// SetTimeZone sets the TimeZone field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetTimeZone(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.TimeZone = &v
-	return s
-}
-
-// SetVpcId sets the VpcId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetVpcId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.VpcId = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetZoneId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ZoneId = &v
-	return s
-}
-
-// SetZoneIds sets the ZoneIds field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetZoneIds(v []*string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ZoneIds = v
-	return s
-}
-
-// SetZoneNodePools sets the ZoneNodePools field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetZoneNodePools(v []*ZoneNodePoolForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ZoneNodePools = v
-	return s
-}
-
-type MaintenanceWindowForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	DayKind *string `type:"string"`
-
-	DayOfMonth []*int64 `type:"list"`
-
-	DayOfWeek []*string `type:"list"`
-
-	MaintenanceTime *string `type:"string"`
-}
-
-// String returns the string representation
-func (s MaintenanceWindowForDescribeDBInstancesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s MaintenanceWindowForDescribeDBInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetDayKind sets the DayKind field's value.
-func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayKind(v string) *MaintenanceWindowForDescribeDBInstancesOutput {
-	s.DayKind = &v
-	return s
-}
-
-// SetDayOfMonth sets the DayOfMonth field's value.
-func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayOfMonth(v []*int64) *MaintenanceWindowForDescribeDBInstancesOutput {
-	s.DayOfMonth = v
-	return s
-}
-
-// SetDayOfWeek sets the DayOfWeek field's value.
-func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayOfWeek(v []*string) *MaintenanceWindowForDescribeDBInstancesOutput {
-	s.DayOfWeek = v
-	return s
-}
-
-// SetMaintenanceTime sets the MaintenanceTime field's value.
-func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetMaintenanceTime(v string) *MaintenanceWindowForDescribeDBInstancesOutput {
-	s.MaintenanceTime = &v
 	return s
 }
 
@@ -1187,96 +777,6 @@ func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetVCPU(v int32) *NodeDetai
 
 // SetZoneId sets the ZoneId field's value.
 func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetZoneId(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.ZoneId = &v
-	return s
-}
-
-type TagFilterForDescribeDBInstancesInput struct {
-	_ struct{} `type:"structure"`
-
-	Key *string `type:"string"`
-
-	Value *string `type:"string"`
-}
-
-// String returns the string representation
-func (s TagFilterForDescribeDBInstancesInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagFilterForDescribeDBInstancesInput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagFilterForDescribeDBInstancesInput) SetKey(v string) *TagFilterForDescribeDBInstancesInput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForDescribeDBInstancesInput {
-	s.Value = &v
-	return s
-}
-
-type TagForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	Key *string `type:"string"`
-
-	Value *string `type:"string"`
-}
-
-// String returns the string representation
-func (s TagForDescribeDBInstancesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TagForDescribeDBInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetKey sets the Key field's value.
-func (s *TagForDescribeDBInstancesOutput) SetKey(v string) *TagForDescribeDBInstancesOutput {
-	s.Key = &v
-	return s
-}
-
-// SetValue sets the Value field's value.
-func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBInstancesOutput {
-	s.Value = &v
-	return s
-}
-
-type ZoneNodePoolForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	NodePool *string `type:"string"`
-
-	ZoneId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ZoneNodePoolForDescribeDBInstancesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ZoneNodePoolForDescribeDBInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetNodePool sets the NodePool field's value.
-func (s *ZoneNodePoolForDescribeDBInstancesOutput) SetNodePool(v string) *ZoneNodePoolForDescribeDBInstancesOutput {
-	s.NodePool = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *ZoneNodePoolForDescribeDBInstancesOutput) SetZoneId(v string) *ZoneNodePoolForDescribeDBInstancesOutput {
 	s.ZoneId = &v
 	return s
 }

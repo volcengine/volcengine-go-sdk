@@ -146,8 +146,6 @@ func (c *RDSMYSQLV2) RemoveTagsFromResourceWithContext(ctx volcengine.Context, i
 type RemoveTagsFromResourceInput struct {
 	_ struct{} `type:"structure"`
 
-	All *bool `type:"boolean"`
-
 	InstanceIds []*string `type:"list"`
 
 	TagKeys []*string `type:"list"`
@@ -161,12 +159,6 @@ func (s RemoveTagsFromResourceInput) String() string {
 // GoString returns the string representation
 func (s RemoveTagsFromResourceInput) GoString() string {
 	return s.String()
-}
-
-// SetAll sets the All field's value.
-func (s *RemoveTagsFromResourceInput) SetAll(v bool) *RemoveTagsFromResourceInput {
-	s.All = &v
-	return s
 }
 
 // SetInstanceIds sets the InstanceIds field's value.

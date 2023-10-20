@@ -146,8 +146,6 @@ func (c *RDSMYSQLV2) SwitchDBInstanceHAWithContext(ctx volcengine.Context, input
 type SwitchDBInstanceHAInput struct {
 	_ struct{} `type:"structure"`
 
-	Force *bool `type:"boolean"`
-
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -177,12 +175,6 @@ func (s *SwitchDBInstanceHAInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetForce sets the Force field's value.
-func (s *SwitchDBInstanceHAInput) SetForce(v bool) *SwitchDBInstanceHAInput {
-	s.Force = &v
-	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

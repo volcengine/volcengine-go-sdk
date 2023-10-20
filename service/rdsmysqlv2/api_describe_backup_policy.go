@@ -200,8 +200,6 @@ type DescribeBackupPolicyOutput struct {
 
 	DataFullBackupTime *string `type:"string"`
 
-	DataIncrBackupPeriods []*string `type:"list"`
-
 	InstanceId *string `type:"string"`
 
 	LogBackupRetentionDay *int32 `type:"int32"`
@@ -262,12 +260,6 @@ func (s *DescribeBackupPolicyOutput) SetDataFullBackupPeriods(v []*string) *Desc
 // SetDataFullBackupTime sets the DataFullBackupTime field's value.
 func (s *DescribeBackupPolicyOutput) SetDataFullBackupTime(v string) *DescribeBackupPolicyOutput {
 	s.DataFullBackupTime = &v
-	return s
-}
-
-// SetDataIncrBackupPeriods sets the DataIncrBackupPeriods field's value.
-func (s *DescribeBackupPolicyOutput) SetDataIncrBackupPeriods(v []*string) *DescribeBackupPolicyOutput {
-	s.DataIncrBackupPeriods = v
 	return s
 }
 

@@ -146,12 +146,8 @@ func (c *RDSMYSQLV2) ModifyDBInstanceTDEWithContext(ctx volcengine.Context, inpu
 type ModifyDBInstanceTDEInput struct {
 	_ struct{} `type:"structure"`
 
-	EncryptionKey *string `type:"string"`
-
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
-
-	RoleArn *string `type:"string"`
 
 	TDEStatus *string `type:"string" enum:"EnumOfTDEStatusForModifyDBInstanceTDEInput"`
 }
@@ -179,21 +175,9 @@ func (s *ModifyDBInstanceTDEInput) Validate() error {
 	return nil
 }
 
-// SetEncryptionKey sets the EncryptionKey field's value.
-func (s *ModifyDBInstanceTDEInput) SetEncryptionKey(v string) *ModifyDBInstanceTDEInput {
-	s.EncryptionKey = &v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBInstanceTDEInput) SetInstanceId(v string) *ModifyDBInstanceTDEInput {
 	s.InstanceId = &v
-	return s
-}
-
-// SetRoleArn sets the RoleArn field's value.
-func (s *ModifyDBInstanceTDEInput) SetRoleArn(v string) *ModifyDBInstanceTDEInput {
-	s.RoleArn = &v
 	return s
 }
 

@@ -146,8 +146,6 @@ func (c *RDSMYSQLV2) ModifyDBInstanceParametersWithContext(ctx volcengine.Contex
 type ModifyDBInstanceParametersInput struct {
 	_ struct{} `type:"structure"`
 
-	Forcerestart *bool `type:"boolean"`
-
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -175,12 +173,6 @@ func (s *ModifyDBInstanceParametersInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetForcerestart sets the Forcerestart field's value.
-func (s *ModifyDBInstanceParametersInput) SetForcerestart(v bool) *ModifyDBInstanceParametersInput {
-	s.Forcerestart = &v
-	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

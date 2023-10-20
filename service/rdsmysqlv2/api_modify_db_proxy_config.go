@@ -148,30 +148,8 @@ type ModifyDBProxyConfigInput struct {
 
 	ConnectionPoolType *string `type:"string" enum:"EnumOfConnectionPoolTypeForModifyDBProxyConfigInput"`
 
-	DialTimeout *string `type:"string"`
-
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
-
-	MaxConnections *int64 `type:"int64"`
-
-	MaxFrontConnections *int64 `type:"int64"`
-
-	MaxIdleConnections *int64 `type:"int64"`
-
-	MaxQPS *int64 `type:"int64"`
-
-	MinIdleConnections *int64 `type:"int64"`
-
-	PingIntervalSeconds *int64 `type:"int64"`
-
-	ReadOnly *bool `type:"boolean"`
-
-	ReadTimeout *string `type:"string"`
-
-	SQLRules []*string `type:"list"`
-
-	WriteTimeout *string `type:"string"`
 }
 
 // String returns the string representation
@@ -203,75 +181,9 @@ func (s *ModifyDBProxyConfigInput) SetConnectionPoolType(v string) *ModifyDBProx
 	return s
 }
 
-// SetDialTimeout sets the DialTimeout field's value.
-func (s *ModifyDBProxyConfigInput) SetDialTimeout(v string) *ModifyDBProxyConfigInput {
-	s.DialTimeout = &v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBProxyConfigInput) SetInstanceId(v string) *ModifyDBProxyConfigInput {
 	s.InstanceId = &v
-	return s
-}
-
-// SetMaxConnections sets the MaxConnections field's value.
-func (s *ModifyDBProxyConfigInput) SetMaxConnections(v int64) *ModifyDBProxyConfigInput {
-	s.MaxConnections = &v
-	return s
-}
-
-// SetMaxFrontConnections sets the MaxFrontConnections field's value.
-func (s *ModifyDBProxyConfigInput) SetMaxFrontConnections(v int64) *ModifyDBProxyConfigInput {
-	s.MaxFrontConnections = &v
-	return s
-}
-
-// SetMaxIdleConnections sets the MaxIdleConnections field's value.
-func (s *ModifyDBProxyConfigInput) SetMaxIdleConnections(v int64) *ModifyDBProxyConfigInput {
-	s.MaxIdleConnections = &v
-	return s
-}
-
-// SetMaxQPS sets the MaxQPS field's value.
-func (s *ModifyDBProxyConfigInput) SetMaxQPS(v int64) *ModifyDBProxyConfigInput {
-	s.MaxQPS = &v
-	return s
-}
-
-// SetMinIdleConnections sets the MinIdleConnections field's value.
-func (s *ModifyDBProxyConfigInput) SetMinIdleConnections(v int64) *ModifyDBProxyConfigInput {
-	s.MinIdleConnections = &v
-	return s
-}
-
-// SetPingIntervalSeconds sets the PingIntervalSeconds field's value.
-func (s *ModifyDBProxyConfigInput) SetPingIntervalSeconds(v int64) *ModifyDBProxyConfigInput {
-	s.PingIntervalSeconds = &v
-	return s
-}
-
-// SetReadOnly sets the ReadOnly field's value.
-func (s *ModifyDBProxyConfigInput) SetReadOnly(v bool) *ModifyDBProxyConfigInput {
-	s.ReadOnly = &v
-	return s
-}
-
-// SetReadTimeout sets the ReadTimeout field's value.
-func (s *ModifyDBProxyConfigInput) SetReadTimeout(v string) *ModifyDBProxyConfigInput {
-	s.ReadTimeout = &v
-	return s
-}
-
-// SetSQLRules sets the SQLRules field's value.
-func (s *ModifyDBProxyConfigInput) SetSQLRules(v []*string) *ModifyDBProxyConfigInput {
-	s.SQLRules = v
-	return s
-}
-
-// SetWriteTimeout sets the WriteTimeout field's value.
-func (s *ModifyDBProxyConfigInput) SetWriteTimeout(v string) *ModifyDBProxyConfigInput {
-	s.WriteTimeout = &v
 	return s
 }
 

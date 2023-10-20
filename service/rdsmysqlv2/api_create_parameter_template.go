@@ -146,12 +146,6 @@ func (c *RDSMYSQLV2) CreateParameterTemplateWithContext(ctx volcengine.Context, 
 type CreateParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
-	CustomParams []*CustomParamForCreateParameterTemplateInput `type:"list"`
-
-	ProjectName *string `type:"string"`
-
-	TemplateCategory *string `type:"string" enum:"EnumOfTemplateCategoryForCreateParameterTemplateInput"`
-
 	TemplateDesc *string `max:"200" type:"string"`
 
 	TemplateName *string `min:"2" max:"64" type:"string"`
@@ -190,24 +184,6 @@ func (s *CreateParameterTemplateInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetCustomParams sets the CustomParams field's value.
-func (s *CreateParameterTemplateInput) SetCustomParams(v []*CustomParamForCreateParameterTemplateInput) *CreateParameterTemplateInput {
-	s.CustomParams = v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *CreateParameterTemplateInput) SetProjectName(v string) *CreateParameterTemplateInput {
-	s.ProjectName = &v
-	return s
-}
-
-// SetTemplateCategory sets the TemplateCategory field's value.
-func (s *CreateParameterTemplateInput) SetTemplateCategory(v string) *CreateParameterTemplateInput {
-	s.TemplateCategory = &v
-	return s
 }
 
 // SetTemplateDesc sets the TemplateDesc field's value.
@@ -256,92 +232,14 @@ func (s CreateParameterTemplateOutput) GoString() string {
 	return s.String()
 }
 
-type CustomParamForCreateParameterTemplateInput struct {
-	_ struct{} `type:"structure"`
-
-	DefaultValue *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	ExpectValue *string `type:"string"`
-
-	Name *string `type:"string"`
-
-	Restart *bool `type:"boolean"`
-
-	RunningValue *string `type:"string"`
-
-	ValueRange *string `type:"string"`
-}
-
-// String returns the string representation
-func (s CustomParamForCreateParameterTemplateInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s CustomParamForCreateParameterTemplateInput) GoString() string {
-	return s.String()
-}
-
-// SetDefaultValue sets the DefaultValue field's value.
-func (s *CustomParamForCreateParameterTemplateInput) SetDefaultValue(v string) *CustomParamForCreateParameterTemplateInput {
-	s.DefaultValue = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *CustomParamForCreateParameterTemplateInput) SetDescription(v string) *CustomParamForCreateParameterTemplateInput {
-	s.Description = &v
-	return s
-}
-
-// SetExpectValue sets the ExpectValue field's value.
-func (s *CustomParamForCreateParameterTemplateInput) SetExpectValue(v string) *CustomParamForCreateParameterTemplateInput {
-	s.ExpectValue = &v
-	return s
-}
-
-// SetName sets the Name field's value.
-func (s *CustomParamForCreateParameterTemplateInput) SetName(v string) *CustomParamForCreateParameterTemplateInput {
-	s.Name = &v
-	return s
-}
-
-// SetRestart sets the Restart field's value.
-func (s *CustomParamForCreateParameterTemplateInput) SetRestart(v bool) *CustomParamForCreateParameterTemplateInput {
-	s.Restart = &v
-	return s
-}
-
-// SetRunningValue sets the RunningValue field's value.
-func (s *CustomParamForCreateParameterTemplateInput) SetRunningValue(v string) *CustomParamForCreateParameterTemplateInput {
-	s.RunningValue = &v
-	return s
-}
-
-// SetValueRange sets the ValueRange field's value.
-func (s *CustomParamForCreateParameterTemplateInput) SetValueRange(v string) *CustomParamForCreateParameterTemplateInput {
-	s.ValueRange = &v
-	return s
-}
-
 type TemplateParamForCreateParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
-	DefaultValue *string `type:"string"`
-
 	Description *string `type:"string"`
-
-	ExpectValue *string `type:"string"`
 
 	Name *string `type:"string"`
 
-	Restart *bool `type:"boolean"`
-
 	RunningValue *string `type:"string"`
-
-	ValueRange *string `type:"string"`
 }
 
 // String returns the string representation
@@ -354,21 +252,9 @@ func (s TemplateParamForCreateParameterTemplateInput) GoString() string {
 	return s.String()
 }
 
-// SetDefaultValue sets the DefaultValue field's value.
-func (s *TemplateParamForCreateParameterTemplateInput) SetDefaultValue(v string) *TemplateParamForCreateParameterTemplateInput {
-	s.DefaultValue = &v
-	return s
-}
-
 // SetDescription sets the Description field's value.
 func (s *TemplateParamForCreateParameterTemplateInput) SetDescription(v string) *TemplateParamForCreateParameterTemplateInput {
 	s.Description = &v
-	return s
-}
-
-// SetExpectValue sets the ExpectValue field's value.
-func (s *TemplateParamForCreateParameterTemplateInput) SetExpectValue(v string) *TemplateParamForCreateParameterTemplateInput {
-	s.ExpectValue = &v
 	return s
 }
 
@@ -378,31 +264,11 @@ func (s *TemplateParamForCreateParameterTemplateInput) SetName(v string) *Templa
 	return s
 }
 
-// SetRestart sets the Restart field's value.
-func (s *TemplateParamForCreateParameterTemplateInput) SetRestart(v bool) *TemplateParamForCreateParameterTemplateInput {
-	s.Restart = &v
-	return s
-}
-
 // SetRunningValue sets the RunningValue field's value.
 func (s *TemplateParamForCreateParameterTemplateInput) SetRunningValue(v string) *TemplateParamForCreateParameterTemplateInput {
 	s.RunningValue = &v
 	return s
 }
-
-// SetValueRange sets the ValueRange field's value.
-func (s *TemplateParamForCreateParameterTemplateInput) SetValueRange(v string) *TemplateParamForCreateParameterTemplateInput {
-	s.ValueRange = &v
-	return s
-}
-
-const (
-	// EnumOfTemplateCategoryForCreateParameterTemplateInputDbengine is a EnumOfTemplateCategoryForCreateParameterTemplateInput enum value
-	EnumOfTemplateCategoryForCreateParameterTemplateInputDbengine = "DBEngine"
-
-	// EnumOfTemplateCategoryForCreateParameterTemplateInputProxy is a EnumOfTemplateCategoryForCreateParameterTemplateInput enum value
-	EnumOfTemplateCategoryForCreateParameterTemplateInputProxy = "Proxy"
-)
 
 const (
 	// EnumOfTemplateTypeForCreateParameterTemplateInputMysql is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
