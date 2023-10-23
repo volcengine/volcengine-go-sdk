@@ -22,13 +22,13 @@ const opAssociateVpcCidrBlockCommon = "AssociateVpcCidrBlock"
 // See AssociateVpcCidrBlockCommon for more information on using the AssociateVpcCidrBlockCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateVpcCidrBlockCommonRequest method.
-//	req, resp := client.AssociateVpcCidrBlockCommonRequest(params)
+//    // Example sending a request using the AssociateVpcCidrBlockCommonRequest method.
+//    req, resp := client.AssociateVpcCidrBlockCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateVpcCidrBlockCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateVpcCidrBlockCommon,
@@ -87,13 +87,13 @@ const opAssociateVpcCidrBlock = "AssociateVpcCidrBlock"
 // See AssociateVpcCidrBlock for more information on using the AssociateVpcCidrBlock
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateVpcCidrBlockRequest method.
-//	req, resp := client.AssociateVpcCidrBlockRequest(params)
+//    // Example sending a request using the AssociateVpcCidrBlockRequest method.
+//    req, resp := client.AssociateVpcCidrBlockRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateVpcCidrBlockRequest(input *AssociateVpcCidrBlockInput) (req *request.Request, output *AssociateVpcCidrBlockOutput) {
 	op := &request.Operation{
 		Name:       opAssociateVpcCidrBlock,
@@ -142,7 +142,8 @@ func (c *VPC) AssociateVpcCidrBlockWithContext(ctx volcengine.Context, input *As
 type AssociateVpcCidrBlockInput struct {
 	_ struct{} `type:"structure"`
 
-	SecondaryCidrBlock *string `type:"string"`
+	// UserCidrBlock is a required field
+	UserCidrBlock *string `type:"string" required:"true"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -161,6 +162,9 @@ func (s AssociateVpcCidrBlockInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AssociateVpcCidrBlockInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AssociateVpcCidrBlockInput"}
+	if s.UserCidrBlock == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserCidrBlock"))
+	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
@@ -171,9 +175,9 @@ func (s *AssociateVpcCidrBlockInput) Validate() error {
 	return nil
 }
 
-// SetSecondaryCidrBlock sets the SecondaryCidrBlock field's value.
-func (s *AssociateVpcCidrBlockInput) SetSecondaryCidrBlock(v string) *AssociateVpcCidrBlockInput {
-	s.SecondaryCidrBlock = &v
+// SetUserCidrBlock sets the UserCidrBlock field's value.
+func (s *AssociateVpcCidrBlockInput) SetUserCidrBlock(v string) *AssociateVpcCidrBlockInput {
+	s.UserCidrBlock = &v
 	return s
 }
 
@@ -189,10 +193,6 @@ type AssociateVpcCidrBlockOutput struct {
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
-
-	SecondaryCidrBlocks []*string `type:"list"`
-
-	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -208,17 +208,5 @@ func (s AssociateVpcCidrBlockOutput) GoString() string {
 // SetRequestId sets the RequestId field's value.
 func (s *AssociateVpcCidrBlockOutput) SetRequestId(v string) *AssociateVpcCidrBlockOutput {
 	s.RequestId = &v
-	return s
-}
-
-// SetSecondaryCidrBlocks sets the SecondaryCidrBlocks field's value.
-func (s *AssociateVpcCidrBlockOutput) SetSecondaryCidrBlocks(v []*string) *AssociateVpcCidrBlockOutput {
-	s.SecondaryCidrBlocks = v
-	return s
-}
-
-// SetVpcId sets the VpcId field's value.
-func (s *AssociateVpcCidrBlockOutput) SetVpcId(v string) *AssociateVpcCidrBlockOutput {
-	s.VpcId = &v
 	return s
 }

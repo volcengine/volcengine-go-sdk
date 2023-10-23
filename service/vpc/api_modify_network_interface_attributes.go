@@ -22,13 +22,13 @@ const opModifyNetworkInterfaceAttributesCommon = "ModifyNetworkInterfaceAttribut
 // See ModifyNetworkInterfaceAttributesCommon for more information on using the ModifyNetworkInterfaceAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyNetworkInterfaceAttributesCommonRequest method.
-//	req, resp := client.ModifyNetworkInterfaceAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyNetworkInterfaceAttributesCommonRequest method.
+//    req, resp := client.ModifyNetworkInterfaceAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyNetworkInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyNetworkInterfaceAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyNetworkInterfaceAttributes = "ModifyNetworkInterfaceAttributes"
 // See ModifyNetworkInterfaceAttributes for more information on using the ModifyNetworkInterfaceAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyNetworkInterfaceAttributesRequest method.
-//	req, resp := client.ModifyNetworkInterfaceAttributesRequest(params)
+//    // Example sending a request using the ModifyNetworkInterfaceAttributesRequest method.
+//    req, resp := client.ModifyNetworkInterfaceAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyNetworkInterfaceAttributesRequest(input *ModifyNetworkInterfaceAttributesInput) (req *request.Request, output *ModifyNetworkInterfaceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyNetworkInterfaceAttributes,
@@ -142,12 +142,12 @@ func (c *VPC) ModifyNetworkInterfaceAttributesWithContext(ctx volcengine.Context
 type ModifyNetworkInterfaceAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
 
-	NetworkInterfaceName *string `min:"1" max:"128" type:"string"`
+	NetworkInterfaceName *string `type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
 }
@@ -165,20 +165,8 @@ func (s ModifyNetworkInterfaceAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyNetworkInterfaceAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyNetworkInterfaceAttributesInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.NetworkInterfaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
-	}
-	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("NetworkInterfaceName", 1))
-	}
-	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("NetworkInterfaceName", 128, *s.NetworkInterfaceName))
 	}
 
 	if invalidParams.Len() > 0 {

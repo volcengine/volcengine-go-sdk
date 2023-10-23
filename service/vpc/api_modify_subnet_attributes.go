@@ -22,13 +22,13 @@ const opModifySubnetAttributesCommon = "ModifySubnetAttributes"
 // See ModifySubnetAttributesCommon for more information on using the ModifySubnetAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySubnetAttributesCommonRequest method.
-//	req, resp := client.ModifySubnetAttributesCommonRequest(params)
+//    // Example sending a request using the ModifySubnetAttributesCommonRequest method.
+//    req, resp := client.ModifySubnetAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySubnetAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifySubnetAttributesCommon,
@@ -87,13 +87,13 @@ const opModifySubnetAttributes = "ModifySubnetAttributes"
 // See ModifySubnetAttributes for more information on using the ModifySubnetAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySubnetAttributesRequest method.
-//	req, resp := client.ModifySubnetAttributesRequest(params)
+//    // Example sending a request using the ModifySubnetAttributesRequest method.
+//    req, resp := client.ModifySubnetAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySubnetAttributesRequest(input *ModifySubnetAttributesInput) (req *request.Request, output *ModifySubnetAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifySubnetAttributes,
@@ -142,16 +142,12 @@ func (c *VPC) ModifySubnetAttributesWithContext(ctx volcengine.Context, input *M
 type ModifySubnetAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `min:"1" max:"255" type:"string"`
-
-	EnableIpv6 *bool `type:"boolean"`
-
-	Ipv6CidrBlock *int64 `max:"255" type:"integer"`
+	Description *string `type:"string"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
 
-	SubnetName *string `min:"1" max:"128" type:"string"`
+	SubnetName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -167,23 +163,8 @@ func (s ModifySubnetAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifySubnetAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifySubnetAttributesInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.Ipv6CidrBlock != nil && *s.Ipv6CidrBlock > 255 {
-		invalidParams.Add(request.NewErrParamMaxValue("Ipv6CidrBlock", 255))
-	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
-	}
-	if s.SubnetName != nil && len(*s.SubnetName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("SubnetName", 1))
-	}
-	if s.SubnetName != nil && len(*s.SubnetName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("SubnetName", 128, *s.SubnetName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -195,18 +176,6 @@ func (s *ModifySubnetAttributesInput) Validate() error {
 // SetDescription sets the Description field's value.
 func (s *ModifySubnetAttributesInput) SetDescription(v string) *ModifySubnetAttributesInput {
 	s.Description = &v
-	return s
-}
-
-// SetEnableIpv6 sets the EnableIpv6 field's value.
-func (s *ModifySubnetAttributesInput) SetEnableIpv6(v bool) *ModifySubnetAttributesInput {
-	s.EnableIpv6 = &v
-	return s
-}
-
-// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *ModifySubnetAttributesInput) SetIpv6CidrBlock(v int64) *ModifySubnetAttributesInput {
-	s.Ipv6CidrBlock = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opDescribeSecurityGroupsCommon = "DescribeSecurityGroups"
 // See DescribeSecurityGroupsCommon for more information on using the DescribeSecurityGroupsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSecurityGroupsCommonRequest method.
-//	req, resp := client.DescribeSecurityGroupsCommonRequest(params)
+//    // Example sending a request using the DescribeSecurityGroupsCommonRequest method.
+//    req, resp := client.DescribeSecurityGroupsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSecurityGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroupsCommon,
@@ -87,13 +87,13 @@ const opDescribeSecurityGroups = "DescribeSecurityGroups"
 // See DescribeSecurityGroups for more information on using the DescribeSecurityGroups
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSecurityGroupsRequest method.
-//	req, resp := client.DescribeSecurityGroupsRequest(params)
+//    // Example sending a request using the DescribeSecurityGroupsRequest method.
+//    req, resp := client.DescribeSecurityGroupsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSecurityGroupsRequest(input *DescribeSecurityGroupsInput) (req *request.Request, output *DescribeSecurityGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroups,
@@ -142,9 +142,9 @@ func (c *VPC) DescribeSecurityGroupsWithContext(ctx volcengine.Context, input *D
 type DescribeSecurityGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -167,27 +167,14 @@ func (s DescribeSecurityGroupsInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeSecurityGroupsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeSecurityGroupsInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSecurityGroupsInput) SetPageNumber(v int64) *DescribeSecurityGroupsInput {
+func (s *DescribeSecurityGroupsInput) SetPageNumber(v int32) *DescribeSecurityGroupsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeSecurityGroupsInput) SetPageSize(v int64) *DescribeSecurityGroupsInput {
+func (s *DescribeSecurityGroupsInput) SetPageSize(v int32) *DescribeSecurityGroupsInput {
 	s.PageSize = &v
 	return s
 }
@@ -227,15 +214,15 @@ type DescribeSecurityGroupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	RequestId *string `type:"string"`
 
 	SecurityGroups []*SecurityGroupForDescribeSecurityGroupsOutput `type:"list"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -249,13 +236,13 @@ func (s DescribeSecurityGroupsOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSecurityGroupsOutput) SetPageNumber(v int64) *DescribeSecurityGroupsOutput {
+func (s *DescribeSecurityGroupsOutput) SetPageNumber(v int32) *DescribeSecurityGroupsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeSecurityGroupsOutput) SetPageSize(v int64) *DescribeSecurityGroupsOutput {
+func (s *DescribeSecurityGroupsOutput) SetPageSize(v int32) *DescribeSecurityGroupsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -273,7 +260,7 @@ func (s *DescribeSecurityGroupsOutput) SetSecurityGroups(v []*SecurityGroupForDe
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeSecurityGroupsOutput) SetTotalCount(v int64) *DescribeSecurityGroupsOutput {
+func (s *DescribeSecurityGroupsOutput) SetTotalCount(v int32) *DescribeSecurityGroupsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -290,8 +277,6 @@ type SecurityGroupForDescribeSecurityGroupsOutput struct {
 	SecurityGroupId *string `type:"string"`
 
 	SecurityGroupName *string `type:"string"`
-
-	ServiceManaged *bool `type:"boolean"`
 
 	Status *string `type:"string"`
 
@@ -339,12 +324,6 @@ func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupId(v stri
 // SetSecurityGroupName sets the SecurityGroupName field's value.
 func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupName(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
 	s.SecurityGroupName = &v
-	return s
-}
-
-// SetServiceManaged sets the ServiceManaged field's value.
-func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetServiceManaged(v bool) *SecurityGroupForDescribeSecurityGroupsOutput {
-	s.ServiceManaged = &v
 	return s
 }
 

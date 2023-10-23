@@ -22,13 +22,13 @@ const opDescribePrefixListAssociationsCommon = "DescribePrefixListAssociations"
 // See DescribePrefixListAssociationsCommon for more information on using the DescribePrefixListAssociationsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribePrefixListAssociationsCommonRequest method.
-//	req, resp := client.DescribePrefixListAssociationsCommonRequest(params)
+//    // Example sending a request using the DescribePrefixListAssociationsCommonRequest method.
+//    req, resp := client.DescribePrefixListAssociationsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribePrefixListAssociationsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribePrefixListAssociationsCommon,
@@ -87,13 +87,13 @@ const opDescribePrefixListAssociations = "DescribePrefixListAssociations"
 // See DescribePrefixListAssociations for more information on using the DescribePrefixListAssociations
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribePrefixListAssociationsRequest method.
-//	req, resp := client.DescribePrefixListAssociationsRequest(params)
+//    // Example sending a request using the DescribePrefixListAssociationsRequest method.
+//    req, resp := client.DescribePrefixListAssociationsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribePrefixListAssociationsRequest(input *DescribePrefixListAssociationsInput) (req *request.Request, output *DescribePrefixListAssociationsOutput) {
 	op := &request.Operation{
 		Name:       opDescribePrefixListAssociations,
@@ -142,9 +142,9 @@ func (c *VPC) DescribePrefixListAssociationsWithContext(ctx volcengine.Context, 
 type DescribePrefixListAssociationsInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	// PrefixListId is a required field
 	PrefixListId *string `type:"string" required:"true"`
@@ -165,9 +165,6 @@ func (s DescribePrefixListAssociationsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribePrefixListAssociationsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribePrefixListAssociationsInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
 	if s.PrefixListId == nil {
 		invalidParams.Add(request.NewErrParamRequired("PrefixListId"))
 	}
@@ -179,13 +176,13 @@ func (s *DescribePrefixListAssociationsInput) Validate() error {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribePrefixListAssociationsInput) SetPageNumber(v int64) *DescribePrefixListAssociationsInput {
+func (s *DescribePrefixListAssociationsInput) SetPageNumber(v int32) *DescribePrefixListAssociationsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribePrefixListAssociationsInput) SetPageSize(v int64) *DescribePrefixListAssociationsInput {
+func (s *DescribePrefixListAssociationsInput) SetPageSize(v int32) *DescribePrefixListAssociationsInput {
 	s.PageSize = &v
 	return s
 }
@@ -207,15 +204,15 @@ type DescribePrefixListAssociationsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	PrefixListAssociations []*PrefixListAssociationForDescribePrefixListAssociationsOutput `type:"list"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -229,13 +226,13 @@ func (s DescribePrefixListAssociationsOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribePrefixListAssociationsOutput) SetPageNumber(v int64) *DescribePrefixListAssociationsOutput {
+func (s *DescribePrefixListAssociationsOutput) SetPageNumber(v int32) *DescribePrefixListAssociationsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribePrefixListAssociationsOutput) SetPageSize(v int64) *DescribePrefixListAssociationsOutput {
+func (s *DescribePrefixListAssociationsOutput) SetPageSize(v int32) *DescribePrefixListAssociationsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -253,7 +250,7 @@ func (s *DescribePrefixListAssociationsOutput) SetRequestId(v string) *DescribeP
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribePrefixListAssociationsOutput) SetTotalCount(v int64) *DescribePrefixListAssociationsOutput {
+func (s *DescribePrefixListAssociationsOutput) SetTotalCount(v int32) *DescribePrefixListAssociationsOutput {
 	s.TotalCount = &v
 	return s
 }

@@ -22,13 +22,13 @@ const opModifyRouteTableAttributesCommon = "ModifyRouteTableAttributes"
 // See ModifyRouteTableAttributesCommon for more information on using the ModifyRouteTableAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyRouteTableAttributesCommonRequest method.
-//	req, resp := client.ModifyRouteTableAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyRouteTableAttributesCommonRequest method.
+//    req, resp := client.ModifyRouteTableAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyRouteTableAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyRouteTableAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyRouteTableAttributes = "ModifyRouteTableAttributes"
 // See ModifyRouteTableAttributes for more information on using the ModifyRouteTableAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyRouteTableAttributesRequest method.
-//	req, resp := client.ModifyRouteTableAttributesRequest(params)
+//    // Example sending a request using the ModifyRouteTableAttributesRequest method.
+//    req, resp := client.ModifyRouteTableAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyRouteTableAttributesRequest(input *ModifyRouteTableAttributesInput) (req *request.Request, output *ModifyRouteTableAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyRouteTableAttributes,
@@ -142,12 +142,12 @@ func (c *VPC) ModifyRouteTableAttributesWithContext(ctx volcengine.Context, inpu
 type ModifyRouteTableAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
 
-	RouteTableName *string `min:"1" max:"128" type:"string"`
+	RouteTableName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -163,20 +163,8 @@ func (s ModifyRouteTableAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyRouteTableAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyRouteTableAttributesInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.RouteTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
-	}
-	if s.RouteTableName != nil && len(*s.RouteTableName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("RouteTableName", 1))
-	}
-	if s.RouteTableName != nil && len(*s.RouteTableName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("RouteTableName", 128, *s.RouteTableName))
 	}
 
 	if invalidParams.Len() > 0 {

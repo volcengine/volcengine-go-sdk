@@ -22,13 +22,13 @@ const opAssociateHaVipCommon = "AssociateHaVip"
 // See AssociateHaVipCommon for more information on using the AssociateHaVipCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateHaVipCommonRequest method.
-//	req, resp := client.AssociateHaVipCommonRequest(params)
+//    // Example sending a request using the AssociateHaVipCommonRequest method.
+//    req, resp := client.AssociateHaVipCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateHaVipCommon,
@@ -87,13 +87,13 @@ const opAssociateHaVip = "AssociateHaVip"
 // See AssociateHaVip for more information on using the AssociateHaVip
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateHaVipRequest method.
-//	req, resp := client.AssociateHaVipRequest(params)
+//    // Example sending a request using the AssociateHaVipRequest method.
+//    req, resp := client.AssociateHaVipRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateHaVipRequest(input *AssociateHaVipInput) (req *request.Request, output *AssociateHaVipOutput) {
 	op := &request.Operation{
 		Name:       opAssociateHaVip,
@@ -150,7 +150,7 @@ type AssociateHaVipInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	InstanceType *string `type:"string" enum:"InstanceTypeForAssociateHaVipInput"`
+	InstanceType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -226,11 +226,3 @@ func (s *AssociateHaVipOutput) SetRequestId(v string) *AssociateHaVipOutput {
 	s.RequestId = &v
 	return s
 }
-
-const (
-	// InstanceTypeForAssociateHaVipInputNetworkInterface is a InstanceTypeForAssociateHaVipInput enum value
-	InstanceTypeForAssociateHaVipInputNetworkInterface = "NetworkInterface"
-
-	// InstanceTypeForAssociateHaVipInputEcsInstance is a InstanceTypeForAssociateHaVipInput enum value
-	InstanceTypeForAssociateHaVipInputEcsInstance = "EcsInstance"
-)

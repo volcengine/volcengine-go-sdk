@@ -22,13 +22,13 @@ const opCreateSubnetCommon = "CreateSubnet"
 // See CreateSubnetCommon for more information on using the CreateSubnetCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSubnetCommonRequest method.
-//	req, resp := client.CreateSubnetCommonRequest(params)
+//    // Example sending a request using the CreateSubnetCommonRequest method.
+//    req, resp := client.CreateSubnetCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateSubnetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateSubnetCommon,
@@ -87,13 +87,13 @@ const opCreateSubnet = "CreateSubnet"
 // See CreateSubnet for more information on using the CreateSubnet
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSubnetRequest method.
-//	req, resp := client.CreateSubnetRequest(params)
+//    // Example sending a request using the CreateSubnetRequest method.
+//    req, resp := client.CreateSubnetRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateSubnetRequest(input *CreateSubnetInput) (req *request.Request, output *CreateSubnetOutput) {
 	op := &request.Operation{
 		Name:       opCreateSubnet,
@@ -147,11 +147,9 @@ type CreateSubnetInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
-	Ipv6CidrBlock *int64 `max:"255" type:"integer"`
-
-	SubnetName *string `min:"1" max:"128" type:"string"`
+	SubnetName *string `type:"string"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -175,21 +173,6 @@ func (s *CreateSubnetInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateSubnetInput"}
 	if s.CidrBlock == nil {
 		invalidParams.Add(request.NewErrParamRequired("CidrBlock"))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.Ipv6CidrBlock != nil && *s.Ipv6CidrBlock > 255 {
-		invalidParams.Add(request.NewErrParamMaxValue("Ipv6CidrBlock", 255))
-	}
-	if s.SubnetName != nil && len(*s.SubnetName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("SubnetName", 1))
-	}
-	if s.SubnetName != nil && len(*s.SubnetName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("SubnetName", 128, *s.SubnetName))
 	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
@@ -219,12 +202,6 @@ func (s *CreateSubnetInput) SetClientToken(v string) *CreateSubnetInput {
 // SetDescription sets the Description field's value.
 func (s *CreateSubnetInput) SetDescription(v string) *CreateSubnetInput {
 	s.Description = &v
-	return s
-}
-
-// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *CreateSubnetInput) SetIpv6CidrBlock(v int64) *CreateSubnetInput {
-	s.Ipv6CidrBlock = &v
 	return s
 }
 

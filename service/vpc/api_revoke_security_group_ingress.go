@@ -22,13 +22,13 @@ const opRevokeSecurityGroupIngressCommon = "RevokeSecurityGroupIngress"
 // See RevokeSecurityGroupIngressCommon for more information on using the RevokeSecurityGroupIngressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RevokeSecurityGroupIngressCommonRequest method.
-//	req, resp := client.RevokeSecurityGroupIngressCommonRequest(params)
+//    // Example sending a request using the RevokeSecurityGroupIngressCommonRequest method.
+//    req, resp := client.RevokeSecurityGroupIngressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) RevokeSecurityGroupIngressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRevokeSecurityGroupIngressCommon,
@@ -87,13 +87,13 @@ const opRevokeSecurityGroupIngress = "RevokeSecurityGroupIngress"
 // See RevokeSecurityGroupIngress for more information on using the RevokeSecurityGroupIngress
 // API call, and error handling.
 //
-//	// Example sending a request using the RevokeSecurityGroupIngressRequest method.
-//	req, resp := client.RevokeSecurityGroupIngressRequest(params)
+//    // Example sending a request using the RevokeSecurityGroupIngressRequest method.
+//    req, resp := client.RevokeSecurityGroupIngressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) RevokeSecurityGroupIngressRequest(input *RevokeSecurityGroupIngressInput) (req *request.Request, output *RevokeSecurityGroupIngressOutput) {
 	op := &request.Operation{
 		Name:       opRevokeSecurityGroupIngress,
@@ -149,14 +149,14 @@ type RevokeSecurityGroupIngressInput struct {
 	Policy *string `type:"string"`
 
 	// PortEnd is a required field
-	PortEnd *int64 `type:"integer" required:"true"`
+	PortEnd *int32 `type:"int32" required:"true"`
 
 	// PortStart is a required field
-	PortStart *int64 `type:"integer" required:"true"`
+	PortStart *int32 `type:"int32" required:"true"`
 
 	PrefixListId *string `type:"string"`
 
-	Priority *int64 `type:"integer"`
+	Priority *int32 `type:"int32"`
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
@@ -218,13 +218,13 @@ func (s *RevokeSecurityGroupIngressInput) SetPolicy(v string) *RevokeSecurityGro
 }
 
 // SetPortEnd sets the PortEnd field's value.
-func (s *RevokeSecurityGroupIngressInput) SetPortEnd(v int64) *RevokeSecurityGroupIngressInput {
+func (s *RevokeSecurityGroupIngressInput) SetPortEnd(v int32) *RevokeSecurityGroupIngressInput {
 	s.PortEnd = &v
 	return s
 }
 
 // SetPortStart sets the PortStart field's value.
-func (s *RevokeSecurityGroupIngressInput) SetPortStart(v int64) *RevokeSecurityGroupIngressInput {
+func (s *RevokeSecurityGroupIngressInput) SetPortStart(v int32) *RevokeSecurityGroupIngressInput {
 	s.PortStart = &v
 	return s
 }
@@ -236,7 +236,7 @@ func (s *RevokeSecurityGroupIngressInput) SetPrefixListId(v string) *RevokeSecur
 }
 
 // SetPriority sets the Priority field's value.
-func (s *RevokeSecurityGroupIngressInput) SetPriority(v int64) *RevokeSecurityGroupIngressInput {
+func (s *RevokeSecurityGroupIngressInput) SetPriority(v int32) *RevokeSecurityGroupIngressInput {
 	s.Priority = &v
 	return s
 }

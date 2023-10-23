@@ -22,13 +22,13 @@ const opDeleteRouteTableCommon = "DeleteRouteTable"
 // See DeleteRouteTableCommon for more information on using the DeleteRouteTableCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteRouteTableCommonRequest method.
-//	req, resp := client.DeleteRouteTableCommonRequest(params)
+//    // Example sending a request using the DeleteRouteTableCommonRequest method.
+//    req, resp := client.DeleteRouteTableCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteRouteTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteRouteTableCommon,
@@ -87,13 +87,13 @@ const opDeleteRouteTable = "DeleteRouteTable"
 // See DeleteRouteTable for more information on using the DeleteRouteTable
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteRouteTableRequest method.
-//	req, resp := client.DeleteRouteTableRequest(params)
+//    // Example sending a request using the DeleteRouteTableRequest method.
+//    req, resp := client.DeleteRouteTableRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteRouteTableRequest(input *DeleteRouteTableInput) (req *request.Request, output *DeleteRouteTableOutput) {
 	op := &request.Operation{
 		Name:       opDeleteRouteTable,

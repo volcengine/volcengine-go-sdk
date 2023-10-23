@@ -22,13 +22,13 @@ const opDescribeEipAddressesCommon = "DescribeEipAddresses"
 // See DescribeEipAddressesCommon for more information on using the DescribeEipAddressesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeEipAddressesCommonRequest method.
-//	req, resp := client.DescribeEipAddressesCommonRequest(params)
+//    // Example sending a request using the DescribeEipAddressesCommonRequest method.
+//    req, resp := client.DescribeEipAddressesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeEipAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeEipAddressesCommon,
@@ -87,13 +87,13 @@ const opDescribeEipAddresses = "DescribeEipAddresses"
 // See DescribeEipAddresses for more information on using the DescribeEipAddresses
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeEipAddressesRequest method.
-//	req, resp := client.DescribeEipAddressesRequest(params)
+//    // Example sending a request using the DescribeEipAddressesRequest method.
+//    req, resp := client.DescribeEipAddressesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeEipAddressesRequest(input *DescribeEipAddressesInput) (req *request.Request, output *DescribeEipAddressesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeEipAddresses,
@@ -146,25 +146,25 @@ type DescribeEipAddressesInput struct {
 
 	AssociatedInstanceId *string `type:"string"`
 
-	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
+	AssociatedInstanceType *string `type:"string"`
 
-	BillingType *int64 `min:"1" max:"3" type:"integer"`
+	BillingType *int32 `type:"int32"`
 
 	EipAddresses []*string `type:"list"`
 
-	ISP *string `type:"string" enum:"ISPForDescribeEipAddressesInput"`
+	ISP *string `type:"string"`
 
 	Name *string `type:"string"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
 	SecurityProtectionEnabled *bool `type:"boolean"`
 
-	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
+	Status *string `type:"string"`
 
 	TagFilters []*TagFilterForDescribeEipAddressesInput `type:"list"`
 }
@@ -177,25 +177,6 @@ func (s DescribeEipAddressesInput) String() string {
 // GoString returns the string representation
 func (s DescribeEipAddressesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeEipAddressesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeEipAddressesInput"}
-	if s.BillingType != nil && *s.BillingType < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
-	}
-	if s.BillingType != nil && *s.BillingType > 3 {
-		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
-	}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetAllocationIds sets the AllocationIds field's value.
@@ -217,7 +198,7 @@ func (s *DescribeEipAddressesInput) SetAssociatedInstanceType(v string) *Describ
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *DescribeEipAddressesInput) SetBillingType(v int64) *DescribeEipAddressesInput {
+func (s *DescribeEipAddressesInput) SetBillingType(v int32) *DescribeEipAddressesInput {
 	s.BillingType = &v
 	return s
 }
@@ -241,13 +222,13 @@ func (s *DescribeEipAddressesInput) SetName(v string) *DescribeEipAddressesInput
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeEipAddressesInput) SetPageNumber(v int64) *DescribeEipAddressesInput {
+func (s *DescribeEipAddressesInput) SetPageNumber(v int32) *DescribeEipAddressesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeEipAddressesInput) SetPageSize(v int64) *DescribeEipAddressesInput {
+func (s *DescribeEipAddressesInput) SetPageSize(v int32) *DescribeEipAddressesInput {
 	s.PageSize = &v
 	return s
 }
@@ -283,13 +264,13 @@ type DescribeEipAddressesOutput struct {
 
 	EipAddresses []*EipAddressForDescribeEipAddressesOutput `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -309,13 +290,13 @@ func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddressForDescribeE
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeEipAddressesOutput) SetPageNumber(v int64) *DescribeEipAddressesOutput {
+func (s *DescribeEipAddressesOutput) SetPageNumber(v int32) *DescribeEipAddressesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeEipAddressesOutput) SetPageSize(v int64) *DescribeEipAddressesOutput {
+func (s *DescribeEipAddressesOutput) SetPageSize(v int32) *DescribeEipAddressesOutput {
 	s.PageSize = &v
 	return s
 }
@@ -327,7 +308,7 @@ func (s *DescribeEipAddressesOutput) SetRequestId(v string) *DescribeEipAddresse
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeEipAddressesOutput) SetTotalCount(v int64) *DescribeEipAddressesOutput {
+func (s *DescribeEipAddressesOutput) SetTotalCount(v int32) *DescribeEipAddressesOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -339,11 +320,11 @@ type EipAddressForDescribeEipAddressesOutput struct {
 
 	AllocationTime *string `type:"string"`
 
-	Bandwidth *int64 `type:"integer"`
+	Bandwidth *int32 `type:"int32"`
 
 	BandwidthPackageId *string `type:"string"`
 
-	BillingType *int64 `type:"integer"`
+	BillingType *int32 `type:"int32"`
 
 	BusinessStatus *string `type:"string"`
 
@@ -401,7 +382,7 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetAllocationTime(v string) *E
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidth(v int64) *EipAddressForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidth(v int32) *EipAddressForDescribeEipAddressesOutput {
 	s.Bandwidth = &v
 	return s
 }
@@ -413,7 +394,7 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidthPackageId(v string
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *EipAddressForDescribeEipAddressesOutput) SetBillingType(v int64) *EipAddressForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetBillingType(v int32) *EipAddressForDescribeEipAddressesOutput {
 	s.BillingType = &v
 	return s
 }
@@ -573,63 +554,3 @@ func (s *TagForDescribeEipAddressesOutput) SetValue(v string) *TagForDescribeEip
 	s.Value = &v
 	return s
 }
-
-const (
-	// AssociatedInstanceTypeForDescribeEipAddressesInputNat is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
-	AssociatedInstanceTypeForDescribeEipAddressesInputNat = "Nat"
-
-	// AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
-	AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance = "EcsInstance"
-
-	// AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
-	AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface = "NetworkInterface"
-
-	// AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
-	AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance = "ClbInstance"
-
-	// AssociatedInstanceTypeForDescribeEipAddressesInputAlbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
-	AssociatedInstanceTypeForDescribeEipAddressesInputAlbInstance = "AlbInstance"
-)
-
-const (
-	// ISPForDescribeEipAddressesInputBgp is a ISPForDescribeEipAddressesInput enum value
-	ISPForDescribeEipAddressesInputBgp = "BGP"
-
-	// ISPForDescribeEipAddressesInputSingleLineBgp is a ISPForDescribeEipAddressesInput enum value
-	ISPForDescribeEipAddressesInputSingleLineBgp = "SingleLine_BGP"
-
-	// ISPForDescribeEipAddressesInputFusionBgp is a ISPForDescribeEipAddressesInput enum value
-	ISPForDescribeEipAddressesInputFusionBgp = "Fusion_BGP"
-
-	// ISPForDescribeEipAddressesInputChinaMobile is a ISPForDescribeEipAddressesInput enum value
-	ISPForDescribeEipAddressesInputChinaMobile = "ChinaMobile"
-
-	// ISPForDescribeEipAddressesInputChinaUnicom is a ISPForDescribeEipAddressesInput enum value
-	ISPForDescribeEipAddressesInputChinaUnicom = "ChinaUnicom"
-
-	// ISPForDescribeEipAddressesInputChinaTelecom is a ISPForDescribeEipAddressesInput enum value
-	ISPForDescribeEipAddressesInputChinaTelecom = "ChinaTelecom"
-
-	// ISPForDescribeEipAddressesInputChinaMobileValue is a ISPForDescribeEipAddressesInput enum value
-	ISPForDescribeEipAddressesInputChinaMobileValue = "ChinaMobile_Value"
-
-	// ISPForDescribeEipAddressesInputChinaUnicomValue is a ISPForDescribeEipAddressesInput enum value
-	ISPForDescribeEipAddressesInputChinaUnicomValue = "ChinaUnicom_Value"
-
-	// ISPForDescribeEipAddressesInputChinaTelecomValue is a ISPForDescribeEipAddressesInput enum value
-	ISPForDescribeEipAddressesInputChinaTelecomValue = "ChinaTelecom_Value"
-)
-
-const (
-	// StatusForDescribeEipAddressesInputAttaching is a StatusForDescribeEipAddressesInput enum value
-	StatusForDescribeEipAddressesInputAttaching = "Attaching"
-
-	// StatusForDescribeEipAddressesInputDetaching is a StatusForDescribeEipAddressesInput enum value
-	StatusForDescribeEipAddressesInputDetaching = "Detaching"
-
-	// StatusForDescribeEipAddressesInputAttached is a StatusForDescribeEipAddressesInput enum value
-	StatusForDescribeEipAddressesInputAttached = "Attached"
-
-	// StatusForDescribeEipAddressesInputAvailable is a StatusForDescribeEipAddressesInput enum value
-	StatusForDescribeEipAddressesInputAvailable = "Available"
-)

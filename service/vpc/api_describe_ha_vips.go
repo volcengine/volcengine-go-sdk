@@ -22,13 +22,13 @@ const opDescribeHaVipsCommon = "DescribeHaVips"
 // See DescribeHaVipsCommon for more information on using the DescribeHaVipsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeHaVipsCommonRequest method.
-//	req, resp := client.DescribeHaVipsCommonRequest(params)
+//    // Example sending a request using the DescribeHaVipsCommonRequest method.
+//    req, resp := client.DescribeHaVipsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeHaVipsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeHaVipsCommon,
@@ -87,13 +87,13 @@ const opDescribeHaVips = "DescribeHaVips"
 // See DescribeHaVips for more information on using the DescribeHaVips
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeHaVipsRequest method.
-//	req, resp := client.DescribeHaVipsRequest(params)
+//    // Example sending a request using the DescribeHaVipsRequest method.
+//    req, resp := client.DescribeHaVipsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeHaVipsRequest(input *DescribeHaVipsInput) (req *request.Request, output *DescribeHaVipsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeHaVips,
@@ -148,9 +148,9 @@ type DescribeHaVipsInput struct {
 
 	IpAddress *string `type:"string"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -169,19 +169,6 @@ func (s DescribeHaVipsInput) String() string {
 // GoString returns the string representation
 func (s DescribeHaVipsInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeHaVipsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeHaVipsInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetHaVipIds sets the HaVipIds field's value.
@@ -203,13 +190,13 @@ func (s *DescribeHaVipsInput) SetIpAddress(v string) *DescribeHaVipsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeHaVipsInput) SetPageNumber(v int64) *DescribeHaVipsInput {
+func (s *DescribeHaVipsInput) SetPageNumber(v int32) *DescribeHaVipsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeHaVipsInput) SetPageSize(v int64) *DescribeHaVipsInput {
+func (s *DescribeHaVipsInput) SetPageSize(v int32) *DescribeHaVipsInput {
 	s.PageSize = &v
 	return s
 }
@@ -243,60 +230,6 @@ type DescribeHaVipsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	HaVips []*HaVipForDescribeHaVipsOutput `type:"list"`
-
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `type:"integer"`
-
-	RequestId *string `type:"string"`
-
-	TotalCount *int64 `type:"integer"`
-}
-
-// String returns the string representation
-func (s DescribeHaVipsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DescribeHaVipsOutput) GoString() string {
-	return s.String()
-}
-
-// SetHaVips sets the HaVips field's value.
-func (s *DescribeHaVipsOutput) SetHaVips(v []*HaVipForDescribeHaVipsOutput) *DescribeHaVipsOutput {
-	s.HaVips = v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeHaVipsOutput) SetPageNumber(v int64) *DescribeHaVipsOutput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeHaVipsOutput) SetPageSize(v int64) *DescribeHaVipsOutput {
-	s.PageSize = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeHaVipsOutput) SetRequestId(v string) *DescribeHaVipsOutput {
-	s.RequestId = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *DescribeHaVipsOutput) SetTotalCount(v int64) *DescribeHaVipsOutput {
-	s.TotalCount = &v
-	return s
-}
-
-type HaVipForDescribeHaVipsOutput struct {
-	_ struct{} `type:"structure"`
-
 	AccountId *string `type:"string"`
 
 	AssociatedEipAddress *string `type:"string"`
@@ -315,7 +248,7 @@ type HaVipForDescribeHaVipsOutput struct {
 
 	HaVipName *string `type:"string"`
 
-	IpAddress *string `type:"string"`
+	IPAddress *string `type:"string"`
 
 	MasterInstanceId *string `type:"string"`
 
@@ -331,107 +264,107 @@ type HaVipForDescribeHaVipsOutput struct {
 }
 
 // String returns the string representation
-func (s HaVipForDescribeHaVipsOutput) String() string {
+func (s DescribeHaVipsOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s HaVipForDescribeHaVipsOutput) GoString() string {
+func (s DescribeHaVipsOutput) GoString() string {
 	return s.String()
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetAccountId(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetAccountId(v string) *DescribeHaVipsOutput {
 	s.AccountId = &v
 	return s
 }
 
 // SetAssociatedEipAddress sets the AssociatedEipAddress field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetAssociatedEipAddress(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetAssociatedEipAddress(v string) *DescribeHaVipsOutput {
 	s.AssociatedEipAddress = &v
 	return s
 }
 
 // SetAssociatedEipId sets the AssociatedEipId field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetAssociatedEipId(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetAssociatedEipId(v string) *DescribeHaVipsOutput {
 	s.AssociatedEipId = &v
 	return s
 }
 
 // SetAssociatedInstanceIds sets the AssociatedInstanceIds field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetAssociatedInstanceIds(v []*string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetAssociatedInstanceIds(v []*string) *DescribeHaVipsOutput {
 	s.AssociatedInstanceIds = v
 	return s
 }
 
 // SetAssociatedInstanceType sets the AssociatedInstanceType field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetAssociatedInstanceType(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetAssociatedInstanceType(v string) *DescribeHaVipsOutput {
 	s.AssociatedInstanceType = &v
 	return s
 }
 
 // SetCreatedAt sets the CreatedAt field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetCreatedAt(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetCreatedAt(v string) *DescribeHaVipsOutput {
 	s.CreatedAt = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetDescription(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetDescription(v string) *DescribeHaVipsOutput {
 	s.Description = &v
 	return s
 }
 
 // SetHaVipId sets the HaVipId field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetHaVipId(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetHaVipId(v string) *DescribeHaVipsOutput {
 	s.HaVipId = &v
 	return s
 }
 
 // SetHaVipName sets the HaVipName field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetHaVipName(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetHaVipName(v string) *DescribeHaVipsOutput {
 	s.HaVipName = &v
 	return s
 }
 
-// SetIpAddress sets the IpAddress field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetIpAddress(v string) *HaVipForDescribeHaVipsOutput {
-	s.IpAddress = &v
+// SetIPAddress sets the IPAddress field's value.
+func (s *DescribeHaVipsOutput) SetIPAddress(v string) *DescribeHaVipsOutput {
+	s.IPAddress = &v
 	return s
 }
 
 // SetMasterInstanceId sets the MasterInstanceId field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetMasterInstanceId(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetMasterInstanceId(v string) *DescribeHaVipsOutput {
 	s.MasterInstanceId = &v
 	return s
 }
 
 // SetProjectName sets the ProjectName field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetProjectName(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetProjectName(v string) *DescribeHaVipsOutput {
 	s.ProjectName = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetStatus(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetStatus(v string) *DescribeHaVipsOutput {
 	s.Status = &v
 	return s
 }
 
 // SetSubnetId sets the SubnetId field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetSubnetId(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetSubnetId(v string) *DescribeHaVipsOutput {
 	s.SubnetId = &v
 	return s
 }
 
 // SetUpdatedAt sets the UpdatedAt field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetUpdatedAt(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetUpdatedAt(v string) *DescribeHaVipsOutput {
 	s.UpdatedAt = &v
 	return s
 }
 
 // SetVpcId sets the VpcId field's value.
-func (s *HaVipForDescribeHaVipsOutput) SetVpcId(v string) *HaVipForDescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetVpcId(v string) *DescribeHaVipsOutput {
 	s.VpcId = &v
 	return s
 }

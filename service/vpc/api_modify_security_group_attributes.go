@@ -22,13 +22,13 @@ const opModifySecurityGroupAttributesCommon = "ModifySecurityGroupAttributes"
 // See ModifySecurityGroupAttributesCommon for more information on using the ModifySecurityGroupAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupAttributesCommonRequest method.
-//	req, resp := client.ModifySecurityGroupAttributesCommonRequest(params)
+//    // Example sending a request using the ModifySecurityGroupAttributesCommonRequest method.
+//    req, resp := client.ModifySecurityGroupAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupAttributesCommon,
@@ -87,13 +87,13 @@ const opModifySecurityGroupAttributes = "ModifySecurityGroupAttributes"
 // See ModifySecurityGroupAttributes for more information on using the ModifySecurityGroupAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupAttributesRequest method.
-//	req, resp := client.ModifySecurityGroupAttributesRequest(params)
+//    // Example sending a request using the ModifySecurityGroupAttributesRequest method.
+//    req, resp := client.ModifySecurityGroupAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupAttributesRequest(input *ModifySecurityGroupAttributesInput) (req *request.Request, output *ModifySecurityGroupAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupAttributes,

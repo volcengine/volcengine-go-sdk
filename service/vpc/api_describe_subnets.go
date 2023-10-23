@@ -22,13 +22,13 @@ const opDescribeSubnetsCommon = "DescribeSubnets"
 // See DescribeSubnetsCommon for more information on using the DescribeSubnetsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubnetsCommonRequest method.
-//	req, resp := client.DescribeSubnetsCommonRequest(params)
+//    // Example sending a request using the DescribeSubnetsCommonRequest method.
+//    req, resp := client.DescribeSubnetsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSubnetsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSubnetsCommon,
@@ -87,13 +87,13 @@ const opDescribeSubnets = "DescribeSubnets"
 // See DescribeSubnets for more information on using the DescribeSubnets
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubnetsRequest method.
-//	req, resp := client.DescribeSubnetsRequest(params)
+//    // Example sending a request using the DescribeSubnetsRequest method.
+//    req, resp := client.DescribeSubnetsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSubnetsRequest(input *DescribeSubnetsInput) (req *request.Request, output *DescribeSubnetsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSubnets,
@@ -142,11 +142,9 @@ func (c *VPC) DescribeSubnetsWithContext(ctx volcengine.Context, input *Describe
 type DescribeSubnetsInput struct {
 	_ struct{} `type:"structure"`
 
-	IsDefault *bool `type:"boolean"`
+	PageNumber *int32 `type:"int32"`
 
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -156,8 +154,7 @@ type DescribeSubnetsInput struct {
 
 	SubnetName *string `type:"string"`
 
-	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -172,36 +169,14 @@ func (s DescribeSubnetsInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeSubnetsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeSubnetsInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-	if s.VpcId == nil {
-		invalidParams.Add(request.NewErrParamRequired("VpcId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetIsDefault sets the IsDefault field's value.
-func (s *DescribeSubnetsInput) SetIsDefault(v bool) *DescribeSubnetsInput {
-	s.IsDefault = &v
-	return s
-}
-
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSubnetsInput) SetPageNumber(v int64) *DescribeSubnetsInput {
+func (s *DescribeSubnetsInput) SetPageNumber(v int32) *DescribeSubnetsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeSubnetsInput) SetPageSize(v int64) *DescribeSubnetsInput {
+func (s *DescribeSubnetsInput) SetPageSize(v int32) *DescribeSubnetsInput {
 	s.PageSize = &v
 	return s
 }
@@ -247,15 +222,15 @@ type DescribeSubnetsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	RequestId *string `type:"string"`
 
 	Subnets []*SubnetForDescribeSubnetsOutput `type:"list"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -269,13 +244,13 @@ func (s DescribeSubnetsOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSubnetsOutput) SetPageNumber(v int64) *DescribeSubnetsOutput {
+func (s *DescribeSubnetsOutput) SetPageNumber(v int32) *DescribeSubnetsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeSubnetsOutput) SetPageSize(v int64) *DescribeSubnetsOutput {
+func (s *DescribeSubnetsOutput) SetPageSize(v int32) *DescribeSubnetsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -293,7 +268,7 @@ func (s *DescribeSubnetsOutput) SetSubnets(v []*SubnetForDescribeSubnetsOutput) 
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeSubnetsOutput) SetTotalCount(v int64) *DescribeSubnetsOutput {
+func (s *DescribeSubnetsOutput) SetTotalCount(v int32) *DescribeSubnetsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -333,17 +308,13 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	AccountId *string `type:"string"`
 
-	AvailableIpAddressCount *int64 `type:"integer"`
+	AvailableIpAddressCount *int32 `type:"int32"`
 
 	CidrBlock *string `type:"string"`
 
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
-
-	Ipv6CidrBlock *string `type:"string"`
-
-	IsDefault *bool `type:"boolean"`
 
 	NetworkAclId *string `type:"string"`
 
@@ -357,7 +328,7 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	SubnetName *string `type:"string"`
 
-	TotalIpv4Count *int64 `type:"integer"`
+	TotalIpv4Count *int32 `type:"int32"`
 
 	UpdateTime *string `type:"string"`
 
@@ -383,7 +354,7 @@ func (s *SubnetForDescribeSubnetsOutput) SetAccountId(v string) *SubnetForDescri
 }
 
 // SetAvailableIpAddressCount sets the AvailableIpAddressCount field's value.
-func (s *SubnetForDescribeSubnetsOutput) SetAvailableIpAddressCount(v int64) *SubnetForDescribeSubnetsOutput {
+func (s *SubnetForDescribeSubnetsOutput) SetAvailableIpAddressCount(v int32) *SubnetForDescribeSubnetsOutput {
 	s.AvailableIpAddressCount = &v
 	return s
 }
@@ -403,18 +374,6 @@ func (s *SubnetForDescribeSubnetsOutput) SetCreationTime(v string) *SubnetForDes
 // SetDescription sets the Description field's value.
 func (s *SubnetForDescribeSubnetsOutput) SetDescription(v string) *SubnetForDescribeSubnetsOutput {
 	s.Description = &v
-	return s
-}
-
-// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *SubnetForDescribeSubnetsOutput) SetIpv6CidrBlock(v string) *SubnetForDescribeSubnetsOutput {
-	s.Ipv6CidrBlock = &v
-	return s
-}
-
-// SetIsDefault sets the IsDefault field's value.
-func (s *SubnetForDescribeSubnetsOutput) SetIsDefault(v bool) *SubnetForDescribeSubnetsOutput {
-	s.IsDefault = &v
 	return s
 }
 
@@ -455,7 +414,7 @@ func (s *SubnetForDescribeSubnetsOutput) SetSubnetName(v string) *SubnetForDescr
 }
 
 // SetTotalIpv4Count sets the TotalIpv4Count field's value.
-func (s *SubnetForDescribeSubnetsOutput) SetTotalIpv4Count(v int64) *SubnetForDescribeSubnetsOutput {
+func (s *SubnetForDescribeSubnetsOutput) SetTotalIpv4Count(v int32) *SubnetForDescribeSubnetsOutput {
 	s.TotalIpv4Count = &v
 	return s
 }

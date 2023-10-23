@@ -22,13 +22,13 @@ const opAssociateEipAddressCommon = "AssociateEipAddress"
 // See AssociateEipAddressCommon for more information on using the AssociateEipAddressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateEipAddressCommonRequest method.
-//	req, resp := client.AssociateEipAddressCommonRequest(params)
+//    // Example sending a request using the AssociateEipAddressCommonRequest method.
+//    req, resp := client.AssociateEipAddressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateEipAddressCommon,
@@ -87,13 +87,13 @@ const opAssociateEipAddress = "AssociateEipAddress"
 // See AssociateEipAddress for more information on using the AssociateEipAddress
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateEipAddressRequest method.
-//	req, resp := client.AssociateEipAddressRequest(params)
+//    // Example sending a request using the AssociateEipAddressRequest method.
+//    req, resp := client.AssociateEipAddressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateEipAddressRequest(input *AssociateEipAddressInput) (req *request.Request, output *AssociateEipAddressOutput) {
 	op := &request.Operation{
 		Name:       opAssociateEipAddress,
@@ -145,13 +145,11 @@ type AssociateEipAddressInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
-	ClientToken *string `type:"string"`
-
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
 	// InstanceType is a required field
-	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForAssociateEipAddressInput"`
+	InstanceType *string `type:"string" required:"true"`
 
 	PrivateIpAddress *string `type:"string"`
 }
@@ -188,12 +186,6 @@ func (s *AssociateEipAddressInput) Validate() error {
 // SetAllocationId sets the AllocationId field's value.
 func (s *AssociateEipAddressInput) SetAllocationId(v string) *AssociateEipAddressInput {
 	s.AllocationId = &v
-	return s
-}
-
-// SetClientToken sets the ClientToken field's value.
-func (s *AssociateEipAddressInput) SetClientToken(v string) *AssociateEipAddressInput {
-	s.ClientToken = &v
 	return s
 }
 
@@ -238,20 +230,3 @@ func (s *AssociateEipAddressOutput) SetRequestId(v string) *AssociateEipAddressO
 	s.RequestId = &v
 	return s
 }
-
-const (
-	// InstanceTypeForAssociateEipAddressInputNat is a InstanceTypeForAssociateEipAddressInput enum value
-	InstanceTypeForAssociateEipAddressInputNat = "Nat"
-
-	// InstanceTypeForAssociateEipAddressInputNetworkInterface is a InstanceTypeForAssociateEipAddressInput enum value
-	InstanceTypeForAssociateEipAddressInputNetworkInterface = "NetworkInterface"
-
-	// InstanceTypeForAssociateEipAddressInputClbInstance is a InstanceTypeForAssociateEipAddressInput enum value
-	InstanceTypeForAssociateEipAddressInputClbInstance = "ClbInstance"
-
-	// InstanceTypeForAssociateEipAddressInputEcsInstance is a InstanceTypeForAssociateEipAddressInput enum value
-	InstanceTypeForAssociateEipAddressInputEcsInstance = "EcsInstance"
-
-	// InstanceTypeForAssociateEipAddressInputHaVip is a InstanceTypeForAssociateEipAddressInput enum value
-	InstanceTypeForAssociateEipAddressInputHaVip = "HaVip"
-)

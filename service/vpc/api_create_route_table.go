@@ -22,13 +22,13 @@ const opCreateRouteTableCommon = "CreateRouteTable"
 // See CreateRouteTableCommon for more information on using the CreateRouteTableCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateRouteTableCommonRequest method.
-//	req, resp := client.CreateRouteTableCommonRequest(params)
+//    // Example sending a request using the CreateRouteTableCommonRequest method.
+//    req, resp := client.CreateRouteTableCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateRouteTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateRouteTableCommon,
@@ -87,13 +87,13 @@ const opCreateRouteTable = "CreateRouteTable"
 // See CreateRouteTable for more information on using the CreateRouteTable
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateRouteTableRequest method.
-//	req, resp := client.CreateRouteTableRequest(params)
+//    // Example sending a request using the CreateRouteTableRequest method.
+//    req, resp := client.CreateRouteTableRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateRouteTableRequest(input *CreateRouteTableInput) (req *request.Request, output *CreateRouteTableOutput) {
 	op := &request.Operation{
 		Name:       opCreateRouteTable,
@@ -144,11 +144,11 @@ type CreateRouteTableInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
-	RouteTableName *string `min:"1" max:"128" type:"string"`
+	RouteTableName *string `type:"string"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -167,18 +167,6 @@ func (s CreateRouteTableInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateRouteTableInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateRouteTableInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.RouteTableName != nil && len(*s.RouteTableName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("RouteTableName", 1))
-	}
-	if s.RouteTableName != nil && len(*s.RouteTableName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("RouteTableName", 128, *s.RouteTableName))
-	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}

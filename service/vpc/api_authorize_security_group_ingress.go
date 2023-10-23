@@ -22,13 +22,13 @@ const opAuthorizeSecurityGroupIngressCommon = "AuthorizeSecurityGroupIngress"
 // See AuthorizeSecurityGroupIngressCommon for more information on using the AuthorizeSecurityGroupIngressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AuthorizeSecurityGroupIngressCommonRequest method.
-//	req, resp := client.AuthorizeSecurityGroupIngressCommonRequest(params)
+//    // Example sending a request using the AuthorizeSecurityGroupIngressCommonRequest method.
+//    req, resp := client.AuthorizeSecurityGroupIngressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AuthorizeSecurityGroupIngressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAuthorizeSecurityGroupIngressCommon,
@@ -87,13 +87,13 @@ const opAuthorizeSecurityGroupIngress = "AuthorizeSecurityGroupIngress"
 // See AuthorizeSecurityGroupIngress for more information on using the AuthorizeSecurityGroupIngress
 // API call, and error handling.
 //
-//	// Example sending a request using the AuthorizeSecurityGroupIngressRequest method.
-//	req, resp := client.AuthorizeSecurityGroupIngressRequest(params)
+//    // Example sending a request using the AuthorizeSecurityGroupIngressRequest method.
+//    req, resp := client.AuthorizeSecurityGroupIngressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AuthorizeSecurityGroupIngressRequest(input *AuthorizeSecurityGroupIngressInput) (req *request.Request, output *AuthorizeSecurityGroupIngressOutput) {
 	op := &request.Operation{
 		Name:       opAuthorizeSecurityGroupIngress,
@@ -151,14 +151,14 @@ type AuthorizeSecurityGroupIngressInput struct {
 	Policy *string `type:"string"`
 
 	// PortEnd is a required field
-	PortEnd *int64 `type:"integer" required:"true"`
+	PortEnd *int32 `type:"int32" required:"true"`
 
 	// PortStart is a required field
-	PortStart *int64 `type:"integer" required:"true"`
+	PortStart *int32 `type:"int32" required:"true"`
 
 	PrefixListId *string `type:"string"`
 
-	Priority *int64 `type:"integer"`
+	Priority *int32 `type:"int32"`
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
@@ -226,13 +226,13 @@ func (s *AuthorizeSecurityGroupIngressInput) SetPolicy(v string) *AuthorizeSecur
 }
 
 // SetPortEnd sets the PortEnd field's value.
-func (s *AuthorizeSecurityGroupIngressInput) SetPortEnd(v int64) *AuthorizeSecurityGroupIngressInput {
+func (s *AuthorizeSecurityGroupIngressInput) SetPortEnd(v int32) *AuthorizeSecurityGroupIngressInput {
 	s.PortEnd = &v
 	return s
 }
 
 // SetPortStart sets the PortStart field's value.
-func (s *AuthorizeSecurityGroupIngressInput) SetPortStart(v int64) *AuthorizeSecurityGroupIngressInput {
+func (s *AuthorizeSecurityGroupIngressInput) SetPortStart(v int32) *AuthorizeSecurityGroupIngressInput {
 	s.PortStart = &v
 	return s
 }
@@ -244,7 +244,7 @@ func (s *AuthorizeSecurityGroupIngressInput) SetPrefixListId(v string) *Authoriz
 }
 
 // SetPriority sets the Priority field's value.
-func (s *AuthorizeSecurityGroupIngressInput) SetPriority(v int64) *AuthorizeSecurityGroupIngressInput {
+func (s *AuthorizeSecurityGroupIngressInput) SetPriority(v int32) *AuthorizeSecurityGroupIngressInput {
 	s.Priority = &v
 	return s
 }

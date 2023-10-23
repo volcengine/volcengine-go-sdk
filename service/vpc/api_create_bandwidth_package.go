@@ -22,13 +22,13 @@ const opCreateBandwidthPackageCommon = "CreateBandwidthPackage"
 // See CreateBandwidthPackageCommon for more information on using the CreateBandwidthPackageCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateBandwidthPackageCommonRequest method.
-//	req, resp := client.CreateBandwidthPackageCommonRequest(params)
+//    // Example sending a request using the CreateBandwidthPackageCommonRequest method.
+//    req, resp := client.CreateBandwidthPackageCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateBandwidthPackageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateBandwidthPackageCommon,
@@ -87,13 +87,13 @@ const opCreateBandwidthPackage = "CreateBandwidthPackage"
 // See CreateBandwidthPackage for more information on using the CreateBandwidthPackage
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateBandwidthPackageRequest method.
-//	req, resp := client.CreateBandwidthPackageRequest(params)
+//    // Example sending a request using the CreateBandwidthPackageRequest method.
+//    req, resp := client.CreateBandwidthPackageRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateBandwidthPackageRequest(input *CreateBandwidthPackageInput) (req *request.Request, output *CreateBandwidthPackageOutput) {
 	op := &request.Operation{
 		Name:       opCreateBandwidthPackage,
@@ -143,23 +143,17 @@ type CreateBandwidthPackageInput struct {
 	_ struct{} `type:"structure"`
 
 	// Bandwidth is a required field
-	Bandwidth *int64 `min:"2" max:"5000" type:"integer" required:"true"`
+	Bandwidth *int32 `type:"int32" required:"true"`
 
-	BandwidthPackageName *string `min:"1" max:"128" type:"string"`
+	BandwidthPackageName *string `type:"string"`
 
-	BillingType *int64 `min:"1" max:"4" type:"integer"`
+	BillingType *int32 `type:"int32"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
-	ISP *string `type:"string" enum:"ISPForCreateBandwidthPackageInput"`
-
-	Period *int64 `type:"integer"`
-
-	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
+	ISP *string `type:"string"`
 
 	ProjectName *string `type:"string"`
-
-	Protocol *string `type:"string" enum:"ProtocolForCreateBandwidthPackageInput"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -182,36 +176,6 @@ func (s *CreateBandwidthPackageInput) Validate() error {
 	if s.Bandwidth == nil {
 		invalidParams.Add(request.NewErrParamRequired("Bandwidth"))
 	}
-	if s.Bandwidth != nil && *s.Bandwidth < 2 {
-		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 2))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 5000 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 5000))
-	}
-	if s.BandwidthPackageName != nil && len(*s.BandwidthPackageName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("BandwidthPackageName", 1))
-	}
-	if s.BandwidthPackageName != nil && len(*s.BandwidthPackageName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("BandwidthPackageName", 128, *s.BandwidthPackageName))
-	}
-	if s.BillingType != nil && *s.BillingType < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
-	}
-	if s.BillingType != nil && *s.BillingType > 4 {
-		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 4))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
-	}
-	if s.PeriodUnit != nil && *s.PeriodUnit > 2 {
-		invalidParams.Add(request.NewErrParamMaxValue("PeriodUnit", 2))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -220,7 +184,7 @@ func (s *CreateBandwidthPackageInput) Validate() error {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *CreateBandwidthPackageInput) SetBandwidth(v int64) *CreateBandwidthPackageInput {
+func (s *CreateBandwidthPackageInput) SetBandwidth(v int32) *CreateBandwidthPackageInput {
 	s.Bandwidth = &v
 	return s
 }
@@ -232,7 +196,7 @@ func (s *CreateBandwidthPackageInput) SetBandwidthPackageName(v string) *CreateB
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *CreateBandwidthPackageInput) SetBillingType(v int64) *CreateBandwidthPackageInput {
+func (s *CreateBandwidthPackageInput) SetBillingType(v int32) *CreateBandwidthPackageInput {
 	s.BillingType = &v
 	return s
 }
@@ -249,27 +213,9 @@ func (s *CreateBandwidthPackageInput) SetISP(v string) *CreateBandwidthPackageIn
 	return s
 }
 
-// SetPeriod sets the Period field's value.
-func (s *CreateBandwidthPackageInput) SetPeriod(v int64) *CreateBandwidthPackageInput {
-	s.Period = &v
-	return s
-}
-
-// SetPeriodUnit sets the PeriodUnit field's value.
-func (s *CreateBandwidthPackageInput) SetPeriodUnit(v int64) *CreateBandwidthPackageInput {
-	s.PeriodUnit = &v
-	return s
-}
-
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateBandwidthPackageInput) SetProjectName(v string) *CreateBandwidthPackageInput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetProtocol sets the Protocol field's value.
-func (s *CreateBandwidthPackageInput) SetProtocol(v string) *CreateBandwidthPackageInput {
-	s.Protocol = &v
 	return s
 }
 
@@ -346,40 +292,3 @@ func (s *TagForCreateBandwidthPackageInput) SetValue(v string) *TagForCreateBand
 	s.Value = &v
 	return s
 }
-
-const (
-	// ISPForCreateBandwidthPackageInputBgp is a ISPForCreateBandwidthPackageInput enum value
-	ISPForCreateBandwidthPackageInputBgp = "BGP"
-
-	// ISPForCreateBandwidthPackageInputSingleLineBgp is a ISPForCreateBandwidthPackageInput enum value
-	ISPForCreateBandwidthPackageInputSingleLineBgp = "SingleLine_BGP"
-
-	// ISPForCreateBandwidthPackageInputFusionBgp is a ISPForCreateBandwidthPackageInput enum value
-	ISPForCreateBandwidthPackageInputFusionBgp = "Fusion_BGP"
-
-	// ISPForCreateBandwidthPackageInputChinaMobile is a ISPForCreateBandwidthPackageInput enum value
-	ISPForCreateBandwidthPackageInputChinaMobile = "ChinaMobile"
-
-	// ISPForCreateBandwidthPackageInputChinaUnicom is a ISPForCreateBandwidthPackageInput enum value
-	ISPForCreateBandwidthPackageInputChinaUnicom = "ChinaUnicom"
-
-	// ISPForCreateBandwidthPackageInputChinaTelecom is a ISPForCreateBandwidthPackageInput enum value
-	ISPForCreateBandwidthPackageInputChinaTelecom = "ChinaTelecom"
-
-	// ISPForCreateBandwidthPackageInputChinaMobileValue is a ISPForCreateBandwidthPackageInput enum value
-	ISPForCreateBandwidthPackageInputChinaMobileValue = "ChinaMobile_Value"
-
-	// ISPForCreateBandwidthPackageInputChinaUnicomValue is a ISPForCreateBandwidthPackageInput enum value
-	ISPForCreateBandwidthPackageInputChinaUnicomValue = "ChinaUnicom_Value"
-
-	// ISPForCreateBandwidthPackageInputChinaTelecomValue is a ISPForCreateBandwidthPackageInput enum value
-	ISPForCreateBandwidthPackageInputChinaTelecomValue = "ChinaTelecom_Value"
-)
-
-const (
-	// ProtocolForCreateBandwidthPackageInputIpv4 is a ProtocolForCreateBandwidthPackageInput enum value
-	ProtocolForCreateBandwidthPackageInputIpv4 = "IPv4"
-
-	// ProtocolForCreateBandwidthPackageInputIpv6 is a ProtocolForCreateBandwidthPackageInput enum value
-	ProtocolForCreateBandwidthPackageInputIpv6 = "IPv6"
-)

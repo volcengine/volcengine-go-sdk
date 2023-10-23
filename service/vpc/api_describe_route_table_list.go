@@ -22,13 +22,13 @@ const opDescribeRouteTableListCommon = "DescribeRouteTableList"
 // See DescribeRouteTableListCommon for more information on using the DescribeRouteTableListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRouteTableListCommonRequest method.
-//	req, resp := client.DescribeRouteTableListCommonRequest(params)
+//    // Example sending a request using the DescribeRouteTableListCommonRequest method.
+//    req, resp := client.DescribeRouteTableListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeRouteTableListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeRouteTableListCommon,
@@ -87,13 +87,13 @@ const opDescribeRouteTableList = "DescribeRouteTableList"
 // See DescribeRouteTableList for more information on using the DescribeRouteTableList
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRouteTableListRequest method.
-//	req, resp := client.DescribeRouteTableListRequest(params)
+//    // Example sending a request using the DescribeRouteTableListRequest method.
+//    req, resp := client.DescribeRouteTableListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeRouteTableListRequest(input *DescribeRouteTableListInput) (req *request.Request, output *DescribeRouteTableListOutput) {
 	op := &request.Operation{
 		Name:       opDescribeRouteTableList,
@@ -142,9 +142,9 @@ func (c *VPC) DescribeRouteTableListWithContext(ctx volcengine.Context, input *D
 type DescribeRouteTableListInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -165,27 +165,14 @@ func (s DescribeRouteTableListInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeRouteTableListInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeRouteTableListInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeRouteTableListInput) SetPageNumber(v int64) *DescribeRouteTableListInput {
+func (s *DescribeRouteTableListInput) SetPageNumber(v int32) *DescribeRouteTableListInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeRouteTableListInput) SetPageSize(v int64) *DescribeRouteTableListInput {
+func (s *DescribeRouteTableListInput) SetPageSize(v int32) *DescribeRouteTableListInput {
 	s.PageSize = &v
 	return s
 }
@@ -219,15 +206,15 @@ type DescribeRouteTableListOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	RequestId *string `type:"string"`
 
 	RouterTableList []*RouterTableListForDescribeRouteTableListOutput `type:"list"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -241,13 +228,13 @@ func (s DescribeRouteTableListOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeRouteTableListOutput) SetPageNumber(v int64) *DescribeRouteTableListOutput {
+func (s *DescribeRouteTableListOutput) SetPageNumber(v int32) *DescribeRouteTableListOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeRouteTableListOutput) SetPageSize(v int64) *DescribeRouteTableListOutput {
+func (s *DescribeRouteTableListOutput) SetPageSize(v int32) *DescribeRouteTableListOutput {
 	s.PageSize = &v
 	return s
 }
@@ -265,7 +252,7 @@ func (s *DescribeRouteTableListOutput) SetRouterTableList(v []*RouterTableListFo
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeRouteTableListOutput) SetTotalCount(v int64) *DescribeRouteTableListOutput {
+func (s *DescribeRouteTableListOutput) SetTotalCount(v int32) *DescribeRouteTableListOutput {
 	s.TotalCount = &v
 	return s
 }

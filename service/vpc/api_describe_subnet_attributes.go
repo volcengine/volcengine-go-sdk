@@ -22,13 +22,13 @@ const opDescribeSubnetAttributesCommon = "DescribeSubnetAttributes"
 // See DescribeSubnetAttributesCommon for more information on using the DescribeSubnetAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubnetAttributesCommonRequest method.
-//	req, resp := client.DescribeSubnetAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeSubnetAttributesCommonRequest method.
+//    req, resp := client.DescribeSubnetAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSubnetAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSubnetAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeSubnetAttributes = "DescribeSubnetAttributes"
 // See DescribeSubnetAttributes for more information on using the DescribeSubnetAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubnetAttributesRequest method.
-//	req, resp := client.DescribeSubnetAttributesRequest(params)
+//    // Example sending a request using the DescribeSubnetAttributesRequest method.
+//    req, resp := client.DescribeSubnetAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSubnetAttributesRequest(input *DescribeSubnetAttributesInput) (req *request.Request, output *DescribeSubnetAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSubnetAttributes,
@@ -182,17 +182,13 @@ type DescribeSubnetAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
-	AvailableIpAddressCount *int64 `type:"integer"`
+	AvailableIpAddressCount *int32 `type:"int32"`
 
 	CidrBlock *string `type:"string"`
 
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
-
-	Ipv6CidrBlock *string `type:"string"`
-
-	IsDefault *bool `type:"boolean"`
 
 	NetworkAclId *string `type:"string"`
 
@@ -208,7 +204,7 @@ type DescribeSubnetAttributesOutput struct {
 
 	SubnetName *string `type:"string"`
 
-	TotalIpv4Count *int64 `type:"integer"`
+	TotalIpv4Count *int32 `type:"int32"`
 
 	UpdateTime *string `type:"string"`
 
@@ -234,7 +230,7 @@ func (s *DescribeSubnetAttributesOutput) SetAccountId(v string) *DescribeSubnetA
 }
 
 // SetAvailableIpAddressCount sets the AvailableIpAddressCount field's value.
-func (s *DescribeSubnetAttributesOutput) SetAvailableIpAddressCount(v int64) *DescribeSubnetAttributesOutput {
+func (s *DescribeSubnetAttributesOutput) SetAvailableIpAddressCount(v int32) *DescribeSubnetAttributesOutput {
 	s.AvailableIpAddressCount = &v
 	return s
 }
@@ -254,18 +250,6 @@ func (s *DescribeSubnetAttributesOutput) SetCreationTime(v string) *DescribeSubn
 // SetDescription sets the Description field's value.
 func (s *DescribeSubnetAttributesOutput) SetDescription(v string) *DescribeSubnetAttributesOutput {
 	s.Description = &v
-	return s
-}
-
-// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *DescribeSubnetAttributesOutput) SetIpv6CidrBlock(v string) *DescribeSubnetAttributesOutput {
-	s.Ipv6CidrBlock = &v
-	return s
-}
-
-// SetIsDefault sets the IsDefault field's value.
-func (s *DescribeSubnetAttributesOutput) SetIsDefault(v bool) *DescribeSubnetAttributesOutput {
-	s.IsDefault = &v
 	return s
 }
 
@@ -312,7 +296,7 @@ func (s *DescribeSubnetAttributesOutput) SetSubnetName(v string) *DescribeSubnet
 }
 
 // SetTotalIpv4Count sets the TotalIpv4Count field's value.
-func (s *DescribeSubnetAttributesOutput) SetTotalIpv4Count(v int64) *DescribeSubnetAttributesOutput {
+func (s *DescribeSubnetAttributesOutput) SetTotalIpv4Count(v int32) *DescribeSubnetAttributesOutput {
 	s.TotalIpv4Count = &v
 	return s
 }

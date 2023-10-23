@@ -22,13 +22,13 @@ const opCreateSecurityGroupCommon = "CreateSecurityGroup"
 // See CreateSecurityGroupCommon for more information on using the CreateSecurityGroupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSecurityGroupCommonRequest method.
-//	req, resp := client.CreateSecurityGroupCommonRequest(params)
+//    // Example sending a request using the CreateSecurityGroupCommonRequest method.
+//    req, resp := client.CreateSecurityGroupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateSecurityGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateSecurityGroupCommon,
@@ -87,13 +87,13 @@ const opCreateSecurityGroup = "CreateSecurityGroup"
 // See CreateSecurityGroup for more information on using the CreateSecurityGroup
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSecurityGroupRequest method.
-//	req, resp := client.CreateSecurityGroupRequest(params)
+//    // Example sending a request using the CreateSecurityGroupRequest method.
+//    req, resp := client.CreateSecurityGroupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateSecurityGroupRequest(input *CreateSecurityGroupInput) (req *request.Request, output *CreateSecurityGroupOutput) {
 	op := &request.Operation{
 		Name:       opCreateSecurityGroup,

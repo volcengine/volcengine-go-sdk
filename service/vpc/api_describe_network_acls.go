@@ -22,13 +22,13 @@ const opDescribeNetworkAclsCommon = "DescribeNetworkAcls"
 // See DescribeNetworkAclsCommon for more information on using the DescribeNetworkAclsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNetworkAclsCommonRequest method.
-//	req, resp := client.DescribeNetworkAclsCommonRequest(params)
+//    // Example sending a request using the DescribeNetworkAclsCommonRequest method.
+//    req, resp := client.DescribeNetworkAclsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeNetworkAclsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkAclsCommon,
@@ -87,13 +87,13 @@ const opDescribeNetworkAcls = "DescribeNetworkAcls"
 // See DescribeNetworkAcls for more information on using the DescribeNetworkAcls
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNetworkAclsRequest method.
-//	req, resp := client.DescribeNetworkAclsRequest(params)
+//    // Example sending a request using the DescribeNetworkAclsRequest method.
+//    req, resp := client.DescribeNetworkAclsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeNetworkAclsRequest(input *DescribeNetworkAclsInput) (req *request.Request, output *DescribeNetworkAclsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkAcls,
@@ -146,9 +146,9 @@ type DescribeNetworkAclsInput struct {
 
 	NetworkAclName *string `type:"string"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -167,19 +167,6 @@ func (s DescribeNetworkAclsInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeNetworkAclsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeNetworkAclsInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
 // SetNetworkAclIds sets the NetworkAclIds field's value.
 func (s *DescribeNetworkAclsInput) SetNetworkAclIds(v []*string) *DescribeNetworkAclsInput {
 	s.NetworkAclIds = v
@@ -193,13 +180,13 @@ func (s *DescribeNetworkAclsInput) SetNetworkAclName(v string) *DescribeNetworkA
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeNetworkAclsInput) SetPageNumber(v int64) *DescribeNetworkAclsInput {
+func (s *DescribeNetworkAclsInput) SetPageNumber(v int32) *DescribeNetworkAclsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeNetworkAclsInput) SetPageSize(v int64) *DescribeNetworkAclsInput {
+func (s *DescribeNetworkAclsInput) SetPageSize(v int32) *DescribeNetworkAclsInput {
 	s.PageSize = &v
 	return s
 }
@@ -229,13 +216,13 @@ type DescribeNetworkAclsOutput struct {
 
 	NetworkAcls []*NetworkAclForDescribeNetworkAclsOutput `type:"list"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -255,13 +242,13 @@ func (s *DescribeNetworkAclsOutput) SetNetworkAcls(v []*NetworkAclForDescribeNet
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeNetworkAclsOutput) SetPageNumber(v int64) *DescribeNetworkAclsOutput {
+func (s *DescribeNetworkAclsOutput) SetPageNumber(v int32) *DescribeNetworkAclsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeNetworkAclsOutput) SetPageSize(v int64) *DescribeNetworkAclsOutput {
+func (s *DescribeNetworkAclsOutput) SetPageSize(v int32) *DescribeNetworkAclsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -273,7 +260,7 @@ func (s *DescribeNetworkAclsOutput) SetRequestId(v string) *DescribeNetworkAclsO
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeNetworkAclsOutput) SetTotalCount(v int64) *DescribeNetworkAclsOutput {
+func (s *DescribeNetworkAclsOutput) SetTotalCount(v int32) *DescribeNetworkAclsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -293,7 +280,7 @@ type EgressAclEntryForDescribeNetworkAclsOutput struct {
 
 	Port *string `type:"string"`
 
-	Priority *int64 `type:"integer"`
+	Priority *int32 `type:"int32"`
 
 	Protocol *string `type:"string"`
 }
@@ -345,7 +332,7 @@ func (s *EgressAclEntryForDescribeNetworkAclsOutput) SetPort(v string) *EgressAc
 }
 
 // SetPriority sets the Priority field's value.
-func (s *EgressAclEntryForDescribeNetworkAclsOutput) SetPriority(v int64) *EgressAclEntryForDescribeNetworkAclsOutput {
+func (s *EgressAclEntryForDescribeNetworkAclsOutput) SetPriority(v int32) *EgressAclEntryForDescribeNetworkAclsOutput {
 	s.Priority = &v
 	return s
 }
@@ -369,7 +356,7 @@ type IngressAclEntryForDescribeNetworkAclsOutput struct {
 
 	Port *string `type:"string"`
 
-	Priority *int64 `type:"integer"`
+	Priority *int32 `type:"int32"`
 
 	Protocol *string `type:"string"`
 
@@ -417,7 +404,7 @@ func (s *IngressAclEntryForDescribeNetworkAclsOutput) SetPort(v string) *Ingress
 }
 
 // SetPriority sets the Priority field's value.
-func (s *IngressAclEntryForDescribeNetworkAclsOutput) SetPriority(v int64) *IngressAclEntryForDescribeNetworkAclsOutput {
+func (s *IngressAclEntryForDescribeNetworkAclsOutput) SetPriority(v int32) *IngressAclEntryForDescribeNetworkAclsOutput {
 	s.Priority = &v
 	return s
 }

@@ -22,13 +22,13 @@ const opListTagsForResourcesCommon = "ListTagsForResources"
 // See ListTagsForResourcesCommon for more information on using the ListTagsForResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListTagsForResourcesCommonRequest method.
-//	req, resp := client.ListTagsForResourcesCommonRequest(params)
+//    // Example sending a request using the ListTagsForResourcesCommonRequest method.
+//    req, resp := client.ListTagsForResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ListTagsForResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListTagsForResourcesCommon,
@@ -87,13 +87,13 @@ const opListTagsForResources = "ListTagsForResources"
 // See ListTagsForResources for more information on using the ListTagsForResources
 // API call, and error handling.
 //
-//	// Example sending a request using the ListTagsForResourcesRequest method.
-//	req, resp := client.ListTagsForResourcesRequest(params)
+//    // Example sending a request using the ListTagsForResourcesRequest method.
+//    req, resp := client.ListTagsForResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ListTagsForResourcesRequest(input *ListTagsForResourcesInput) (req *request.Request, output *ListTagsForResourcesOutput) {
 	op := &request.Operation{
 		Name:       opListTagsForResources,
@@ -142,14 +142,14 @@ func (c *VPC) ListTagsForResourcesWithContext(ctx volcengine.Context, input *Lis
 type ListTagsForResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	MaxResults *int64 `max:"100" type:"integer"`
+	MaxResults *int32 `type:"int32"`
 
 	NextToken *string `type:"string"`
 
 	ResourceIds []*string `type:"list"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForListTagsForResourcesInput"`
+	ResourceType *string `type:"string" required:"true"`
 
 	TagFilters []*TagFilterForListTagsForResourcesInput `type:"list"`
 
@@ -169,9 +169,6 @@ func (s ListTagsForResourcesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListTagsForResourcesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListTagsForResourcesInput"}
-	if s.MaxResults != nil && *s.MaxResults > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
-	}
 	if s.ResourceType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
 	}
@@ -183,7 +180,7 @@ func (s *ListTagsForResourcesInput) Validate() error {
 }
 
 // SetMaxResults sets the MaxResults field's value.
-func (s *ListTagsForResourcesInput) SetMaxResults(v int64) *ListTagsForResourcesInput {
+func (s *ListTagsForResourcesInput) SetMaxResults(v int32) *ListTagsForResourcesInput {
 	s.MaxResults = &v
 	return s
 }
@@ -333,35 +330,3 @@ func (s *TagFilterForListTagsForResourcesInput) SetValues(v []*string) *TagFilte
 	s.Values = v
 	return s
 }
-
-const (
-	// ResourceTypeForListTagsForResourcesInputVpc is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputVpc = "vpc"
-
-	// ResourceTypeForListTagsForResourcesInputEni is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputEni = "eni"
-
-	// ResourceTypeForListTagsForResourcesInputSecuritygroup is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputSecuritygroup = "securitygroup"
-
-	// ResourceTypeForListTagsForResourcesInputEip is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputEip = "eip"
-
-	// ResourceTypeForListTagsForResourcesInputBandwidthpackage is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputBandwidthpackage = "bandwidthpackage"
-
-	// ResourceTypeForListTagsForResourcesInputVpngateway is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputVpngateway = "vpngateway"
-
-	// ResourceTypeForListTagsForResourcesInputNgw is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputNgw = "ngw"
-
-	// ResourceTypeForListTagsForResourcesInputDirectconnectconnection is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputDirectconnectconnection = "directconnectconnection"
-
-	// ResourceTypeForListTagsForResourcesInputDirectconnectgateway is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputDirectconnectgateway = "directconnectgateway"
-
-	// ResourceTypeForListTagsForResourcesInputDirectconnectvirtualinterface is a ResourceTypeForListTagsForResourcesInput enum value
-	ResourceTypeForListTagsForResourcesInputDirectconnectvirtualinterface = "directconnectvirtualinterface"
-)

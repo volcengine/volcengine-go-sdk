@@ -22,13 +22,13 @@ const opDisassociateVpcCidrBlockCommon = "DisassociateVpcCidrBlock"
 // See DisassociateVpcCidrBlockCommon for more information on using the DisassociateVpcCidrBlockCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateVpcCidrBlockCommonRequest method.
-//	req, resp := client.DisassociateVpcCidrBlockCommonRequest(params)
+//    // Example sending a request using the DisassociateVpcCidrBlockCommonRequest method.
+//    req, resp := client.DisassociateVpcCidrBlockCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateVpcCidrBlockCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateVpcCidrBlockCommon,
@@ -87,13 +87,13 @@ const opDisassociateVpcCidrBlock = "DisassociateVpcCidrBlock"
 // See DisassociateVpcCidrBlock for more information on using the DisassociateVpcCidrBlock
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateVpcCidrBlockRequest method.
-//	req, resp := client.DisassociateVpcCidrBlockRequest(params)
+//    // Example sending a request using the DisassociateVpcCidrBlockRequest method.
+//    req, resp := client.DisassociateVpcCidrBlockRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateVpcCidrBlockRequest(input *DisassociateVpcCidrBlockInput) (req *request.Request, output *DisassociateVpcCidrBlockOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateVpcCidrBlock,
@@ -142,7 +142,8 @@ func (c *VPC) DisassociateVpcCidrBlockWithContext(ctx volcengine.Context, input 
 type DisassociateVpcCidrBlockInput struct {
 	_ struct{} `type:"structure"`
 
-	SecondaryCidrBlock *string `type:"string"`
+	// UserCidrBlock is a required field
+	UserCidrBlock *string `type:"string" required:"true"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -161,6 +162,9 @@ func (s DisassociateVpcCidrBlockInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DisassociateVpcCidrBlockInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DisassociateVpcCidrBlockInput"}
+	if s.UserCidrBlock == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserCidrBlock"))
+	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
@@ -171,9 +175,9 @@ func (s *DisassociateVpcCidrBlockInput) Validate() error {
 	return nil
 }
 
-// SetSecondaryCidrBlock sets the SecondaryCidrBlock field's value.
-func (s *DisassociateVpcCidrBlockInput) SetSecondaryCidrBlock(v string) *DisassociateVpcCidrBlockInput {
-	s.SecondaryCidrBlock = &v
+// SetUserCidrBlock sets the UserCidrBlock field's value.
+func (s *DisassociateVpcCidrBlockInput) SetUserCidrBlock(v string) *DisassociateVpcCidrBlockInput {
+	s.UserCidrBlock = &v
 	return s
 }
 

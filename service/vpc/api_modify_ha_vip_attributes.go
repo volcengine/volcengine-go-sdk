@@ -22,13 +22,13 @@ const opModifyHaVipAttributesCommon = "ModifyHaVipAttributes"
 // See ModifyHaVipAttributesCommon for more information on using the ModifyHaVipAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyHaVipAttributesCommonRequest method.
-//	req, resp := client.ModifyHaVipAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyHaVipAttributesCommonRequest method.
+//    req, resp := client.ModifyHaVipAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyHaVipAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyHaVipAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyHaVipAttributes = "ModifyHaVipAttributes"
 // See ModifyHaVipAttributes for more information on using the ModifyHaVipAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyHaVipAttributesRequest method.
-//	req, resp := client.ModifyHaVipAttributesRequest(params)
+//    // Example sending a request using the ModifyHaVipAttributesRequest method.
+//    req, resp := client.ModifyHaVipAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyHaVipAttributesRequest(input *ModifyHaVipAttributesInput) (req *request.Request, output *ModifyHaVipAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyHaVipAttributes,
@@ -142,12 +142,12 @@ func (c *VPC) ModifyHaVipAttributesWithContext(ctx volcengine.Context, input *Mo
 type ModifyHaVipAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
 	// HaVipId is a required field
 	HaVipId *string `type:"string" required:"true"`
 
-	HaVipName *string `min:"1" max:"128" type:"string"`
+	HaVipName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -163,20 +163,8 @@ func (s ModifyHaVipAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyHaVipAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyHaVipAttributesInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.HaVipId == nil {
 		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
-	}
-	if s.HaVipName != nil && len(*s.HaVipName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("HaVipName", 1))
-	}
-	if s.HaVipName != nil && len(*s.HaVipName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("HaVipName", 128, *s.HaVipName))
 	}
 
 	if invalidParams.Len() > 0 {

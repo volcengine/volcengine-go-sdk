@@ -22,13 +22,13 @@ const opModifyEipAddressAttributesCommon = "ModifyEipAddressAttributes"
 // See ModifyEipAddressAttributesCommon for more information on using the ModifyEipAddressAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyEipAddressAttributesCommonRequest method.
-//	req, resp := client.ModifyEipAddressAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyEipAddressAttributesCommonRequest method.
+//    req, resp := client.ModifyEipAddressAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyEipAddressAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyEipAddressAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyEipAddressAttributes = "ModifyEipAddressAttributes"
 // See ModifyEipAddressAttributes for more information on using the ModifyEipAddressAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyEipAddressAttributesRequest method.
-//	req, resp := client.ModifyEipAddressAttributesRequest(params)
+//    // Example sending a request using the ModifyEipAddressAttributesRequest method.
+//    req, resp := client.ModifyEipAddressAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyEipAddressAttributesRequest(input *ModifyEipAddressAttributesInput) (req *request.Request, output *ModifyEipAddressAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyEipAddressAttributes,
@@ -145,11 +145,11 @@ type ModifyEipAddressAttributesInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
-	Bandwidth *int64 `min:"1" max:"1000" type:"integer"`
+	Bandwidth *int32 `type:"int32"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
-	Name *string `min:"1" max:"128" type:"string"`
+	Name *string `type:"string"`
 }
 
 // String returns the string representation
@@ -168,24 +168,6 @@ func (s *ModifyEipAddressAttributesInput) Validate() error {
 	if s.AllocationId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
 	}
-	if s.Bandwidth != nil && *s.Bandwidth < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.Name != nil && len(*s.Name) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
-	}
-	if s.Name != nil && len(*s.Name) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("Name", 128, *s.Name))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -200,7 +182,7 @@ func (s *ModifyEipAddressAttributesInput) SetAllocationId(v string) *ModifyEipAd
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *ModifyEipAddressAttributesInput) SetBandwidth(v int64) *ModifyEipAddressAttributesInput {
+func (s *ModifyEipAddressAttributesInput) SetBandwidth(v int32) *ModifyEipAddressAttributesInput {
 	s.Bandwidth = &v
 	return s
 }

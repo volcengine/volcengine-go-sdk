@@ -22,13 +22,13 @@ const opAssignPrivateIpAddressesCommon = "AssignPrivateIpAddresses"
 // See AssignPrivateIpAddressesCommon for more information on using the AssignPrivateIpAddressesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssignPrivateIpAddressesCommonRequest method.
-//	req, resp := client.AssignPrivateIpAddressesCommonRequest(params)
+//    // Example sending a request using the AssignPrivateIpAddressesCommonRequest method.
+//    req, resp := client.AssignPrivateIpAddressesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssignPrivateIpAddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssignPrivateIpAddressesCommon,
@@ -87,13 +87,13 @@ const opAssignPrivateIpAddresses = "AssignPrivateIpAddresses"
 // See AssignPrivateIpAddresses for more information on using the AssignPrivateIpAddresses
 // API call, and error handling.
 //
-//	// Example sending a request using the AssignPrivateIpAddressesRequest method.
-//	req, resp := client.AssignPrivateIpAddressesRequest(params)
+//    // Example sending a request using the AssignPrivateIpAddressesRequest method.
+//    req, resp := client.AssignPrivateIpAddressesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssignPrivateIpAddressesRequest(input *AssignPrivateIpAddressesInput) (req *request.Request, output *AssignPrivateIpAddressesOutput) {
 	op := &request.Operation{
 		Name:       opAssignPrivateIpAddresses,
@@ -147,7 +147,7 @@ type AssignPrivateIpAddressesInput struct {
 
 	PrivateIpAddress []*string `type:"list"`
 
-	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
+	SecondaryPrivateIpAddressCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -186,7 +186,7 @@ func (s *AssignPrivateIpAddressesInput) SetPrivateIpAddress(v []*string) *Assign
 }
 
 // SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
-func (s *AssignPrivateIpAddressesInput) SetSecondaryPrivateIpAddressCount(v int64) *AssignPrivateIpAddressesInput {
+func (s *AssignPrivateIpAddressesInput) SetSecondaryPrivateIpAddressCount(v int32) *AssignPrivateIpAddressesInput {
 	s.SecondaryPrivateIpAddressCount = &v
 	return s
 }

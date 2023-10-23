@@ -22,13 +22,13 @@ const opModifyBandwidthPackageAttributesCommon = "ModifyBandwidthPackageAttribut
 // See ModifyBandwidthPackageAttributesCommon for more information on using the ModifyBandwidthPackageAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBandwidthPackageAttributesCommonRequest method.
-//	req, resp := client.ModifyBandwidthPackageAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyBandwidthPackageAttributesCommonRequest method.
+//    req, resp := client.ModifyBandwidthPackageAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyBandwidthPackageAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyBandwidthPackageAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyBandwidthPackageAttributes = "ModifyBandwidthPackageAttributes"
 // See ModifyBandwidthPackageAttributes for more information on using the ModifyBandwidthPackageAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBandwidthPackageAttributesRequest method.
-//	req, resp := client.ModifyBandwidthPackageAttributesRequest(params)
+//    // Example sending a request using the ModifyBandwidthPackageAttributesRequest method.
+//    req, resp := client.ModifyBandwidthPackageAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyBandwidthPackageAttributesRequest(input *ModifyBandwidthPackageAttributesInput) (req *request.Request, output *ModifyBandwidthPackageAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyBandwidthPackageAttributes,
@@ -145,9 +145,9 @@ type ModifyBandwidthPackageAttributesInput struct {
 	// BandwidthPackageId is a required field
 	BandwidthPackageId *string `type:"string" required:"true"`
 
-	BandwidthPackageName *string `min:"1" max:"128" type:"string"`
+	BandwidthPackageName *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 }
 
 // String returns the string representation
@@ -165,18 +165,6 @@ func (s *ModifyBandwidthPackageAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyBandwidthPackageAttributesInput"}
 	if s.BandwidthPackageId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BandwidthPackageId"))
-	}
-	if s.BandwidthPackageName != nil && len(*s.BandwidthPackageName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("BandwidthPackageName", 1))
-	}
-	if s.BandwidthPackageName != nil && len(*s.BandwidthPackageName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("BandwidthPackageName", 128, *s.BandwidthPackageName))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 
 	if invalidParams.Len() > 0 {

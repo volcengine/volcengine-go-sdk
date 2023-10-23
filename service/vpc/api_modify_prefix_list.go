@@ -22,13 +22,13 @@ const opModifyPrefixListCommon = "ModifyPrefixList"
 // See ModifyPrefixListCommon for more information on using the ModifyPrefixListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyPrefixListCommonRequest method.
-//	req, resp := client.ModifyPrefixListCommonRequest(params)
+//    // Example sending a request using the ModifyPrefixListCommonRequest method.
+//    req, resp := client.ModifyPrefixListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyPrefixListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyPrefixListCommon,
@@ -87,13 +87,13 @@ const opModifyPrefixList = "ModifyPrefixList"
 // See ModifyPrefixList for more information on using the ModifyPrefixList
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyPrefixListRequest method.
-//	req, resp := client.ModifyPrefixListRequest(params)
+//    // Example sending a request using the ModifyPrefixListRequest method.
+//    req, resp := client.ModifyPrefixListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyPrefixListRequest(input *ModifyPrefixListInput) (req *request.Request, output *ModifyPrefixListOutput) {
 	op := &request.Operation{
 		Name:       opModifyPrefixList,
@@ -176,16 +176,16 @@ type ModifyPrefixListInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
 	DryRun *string `type:"string"`
 
-	MaxEntries *int64 `type:"integer"`
+	MaxEntries *int32 `type:"int32"`
 
 	// PrefixListId is a required field
 	PrefixListId *string `type:"string" required:"true"`
 
-	PrefixListName *string `min:"1" max:"128" type:"string"`
+	PrefixListName *string `type:"string"`
 
 	RemovePrefixListEntries []*RemovePrefixListEntryForModifyPrefixListInput `type:"list"`
 }
@@ -203,20 +203,8 @@ func (s ModifyPrefixListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyPrefixListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyPrefixListInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.PrefixListId == nil {
 		invalidParams.Add(request.NewErrParamRequired("PrefixListId"))
-	}
-	if s.PrefixListName != nil && len(*s.PrefixListName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("PrefixListName", 1))
-	}
-	if s.PrefixListName != nil && len(*s.PrefixListName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("PrefixListName", 128, *s.PrefixListName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -250,7 +238,7 @@ func (s *ModifyPrefixListInput) SetDryRun(v string) *ModifyPrefixListInput {
 }
 
 // SetMaxEntries sets the MaxEntries field's value.
-func (s *ModifyPrefixListInput) SetMaxEntries(v int64) *ModifyPrefixListInput {
+func (s *ModifyPrefixListInput) SetMaxEntries(v int32) *ModifyPrefixListInput {
 	s.MaxEntries = &v
 	return s
 }

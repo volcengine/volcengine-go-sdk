@@ -22,13 +22,13 @@ const opDescribeSecurityGroupAttributesCommon = "DescribeSecurityGroupAttributes
 // See DescribeSecurityGroupAttributesCommon for more information on using the DescribeSecurityGroupAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSecurityGroupAttributesCommonRequest method.
-//	req, resp := client.DescribeSecurityGroupAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeSecurityGroupAttributesCommonRequest method.
+//    req, resp := client.DescribeSecurityGroupAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSecurityGroupAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroupAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeSecurityGroupAttributes = "DescribeSecurityGroupAttributes"
 // See DescribeSecurityGroupAttributes for more information on using the DescribeSecurityGroupAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSecurityGroupAttributesRequest method.
-//	req, resp := client.DescribeSecurityGroupAttributesRequest(params)
+//    // Example sending a request using the DescribeSecurityGroupAttributesRequest method.
+//    req, resp := client.DescribeSecurityGroupAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSecurityGroupAttributesRequest(input *DescribeSecurityGroupAttributesInput) (req *request.Request, output *DescribeSecurityGroupAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSecurityGroupAttributes,
@@ -234,10 +234,6 @@ type DescribeSecurityGroupAttributesOutput struct {
 
 	SecurityGroupName *string `type:"string"`
 
-	ServiceManaged *bool `type:"boolean"`
-
-	Status *string `type:"string"`
-
 	Tags []*TagForDescribeSecurityGroupAttributesOutput `type:"list"`
 
 	Type *string `type:"string"`
@@ -299,18 +295,6 @@ func (s *DescribeSecurityGroupAttributesOutput) SetSecurityGroupName(v string) *
 	return s
 }
 
-// SetServiceManaged sets the ServiceManaged field's value.
-func (s *DescribeSecurityGroupAttributesOutput) SetServiceManaged(v bool) *DescribeSecurityGroupAttributesOutput {
-	s.ServiceManaged = &v
-	return s
-}
-
-// SetStatus sets the Status field's value.
-func (s *DescribeSecurityGroupAttributesOutput) SetStatus(v string) *DescribeSecurityGroupAttributesOutput {
-	s.Status = &v
-	return s
-}
-
 // SetTags sets the Tags field's value.
 func (s *DescribeSecurityGroupAttributesOutput) SetTags(v []*TagForDescribeSecurityGroupAttributesOutput) *DescribeSecurityGroupAttributesOutput {
 	s.Tags = v
@@ -348,15 +332,15 @@ type PermissionForDescribeSecurityGroupAttributesOutput struct {
 
 	Policy *string `type:"string"`
 
-	PortEnd *int64 `type:"integer"`
+	PortEnd *int32 `type:"int32"`
 
-	PortStart *int64 `type:"integer"`
+	PortStart *int32 `type:"int32"`
 
 	PrefixListCidrs []*string `type:"list"`
 
 	PrefixListId *string `type:"string"`
 
-	Priority *int64 `type:"integer"`
+	Priority *int32 `type:"int32"`
 
 	Protocol *string `type:"string"`
 
@@ -406,13 +390,13 @@ func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPolicy(v string)
 }
 
 // SetPortEnd sets the PortEnd field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortEnd(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortEnd(v int32) *PermissionForDescribeSecurityGroupAttributesOutput {
 	s.PortEnd = &v
 	return s
 }
 
 // SetPortStart sets the PortStart field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortStart(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortStart(v int32) *PermissionForDescribeSecurityGroupAttributesOutput {
 	s.PortStart = &v
 	return s
 }
@@ -430,7 +414,7 @@ func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPrefixListId(v s
 }
 
 // SetPriority sets the Priority field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPriority(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPriority(v int32) *PermissionForDescribeSecurityGroupAttributesOutput {
 	s.Priority = &v
 	return s
 }

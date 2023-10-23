@@ -22,13 +22,13 @@ const opDisassociateRouteTableCommon = "DisassociateRouteTable"
 // See DisassociateRouteTableCommon for more information on using the DisassociateRouteTableCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateRouteTableCommonRequest method.
-//	req, resp := client.DisassociateRouteTableCommonRequest(params)
+//    // Example sending a request using the DisassociateRouteTableCommonRequest method.
+//    req, resp := client.DisassociateRouteTableCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateRouteTableCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateRouteTableCommon,
@@ -87,13 +87,13 @@ const opDisassociateRouteTable = "DisassociateRouteTable"
 // See DisassociateRouteTable for more information on using the DisassociateRouteTable
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateRouteTableRequest method.
-//	req, resp := client.DisassociateRouteTableRequest(params)
+//    // Example sending a request using the DisassociateRouteTableRequest method.
+//    req, resp := client.DisassociateRouteTableRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateRouteTableRequest(input *DisassociateRouteTableInput) (req *request.Request, output *DisassociateRouteTableOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateRouteTable,
@@ -142,8 +142,6 @@ func (c *VPC) DisassociateRouteTableWithContext(ctx volcengine.Context, input *D
 type DisassociateRouteTableInput struct {
 	_ struct{} `type:"structure"`
 
-	ClientToken *string `type:"string"`
-
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
 
@@ -175,12 +173,6 @@ func (s *DisassociateRouteTableInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetClientToken sets the ClientToken field's value.
-func (s *DisassociateRouteTableInput) SetClientToken(v string) *DisassociateRouteTableInput {
-	s.ClientToken = &v
-	return s
 }
 
 // SetRouteTableId sets the RouteTableId field's value.

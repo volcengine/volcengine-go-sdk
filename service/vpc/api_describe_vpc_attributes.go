@@ -22,13 +22,13 @@ const opDescribeVpcAttributesCommon = "DescribeVpcAttributes"
 // See DescribeVpcAttributesCommon for more information on using the DescribeVpcAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcAttributesCommonRequest method.
-//	req, resp := client.DescribeVpcAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeVpcAttributesCommonRequest method.
+//    req, resp := client.DescribeVpcAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeVpcAttributes = "DescribeVpcAttributes"
 // See DescribeVpcAttributes for more information on using the DescribeVpcAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcAttributesRequest method.
-//	req, resp := client.DescribeVpcAttributesRequest(params)
+//    // Example sending a request using the DescribeVpcAttributesRequest method.
+//    req, resp := client.DescribeVpcAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeVpcAttributesRequest(input *DescribeVpcAttributesInput) (req *request.Request, output *DescribeVpcAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpcAttributes,
@@ -230,19 +230,17 @@ type DescribeVpcAttributesOutput struct {
 
 	DnsServers []*string `type:"list"`
 
-	Ipv6CidrBlock *string `type:"string"`
-
-	IsDefault *bool `type:"boolean"`
-
 	NatGatewayIds []*string `type:"list"`
 
-	NetworkAclNum *string `type:"string"`
+	NetworkAclNum *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
 	RouteTableIds []*string `type:"list"`
+
+	SecondaryCidrBlocks []*string `type:"list"`
 
 	SecurityGroupIds []*string `type:"list"`
 
@@ -253,8 +251,6 @@ type DescribeVpcAttributesOutput struct {
 	Tags []*TagForDescribeVpcAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
-
-	UserCidrBlocks []*string `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -307,18 +303,6 @@ func (s *DescribeVpcAttributesOutput) SetDnsServers(v []*string) *DescribeVpcAtt
 	return s
 }
 
-// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *DescribeVpcAttributesOutput) SetIpv6CidrBlock(v string) *DescribeVpcAttributesOutput {
-	s.Ipv6CidrBlock = &v
-	return s
-}
-
-// SetIsDefault sets the IsDefault field's value.
-func (s *DescribeVpcAttributesOutput) SetIsDefault(v bool) *DescribeVpcAttributesOutput {
-	s.IsDefault = &v
-	return s
-}
-
 // SetNatGatewayIds sets the NatGatewayIds field's value.
 func (s *DescribeVpcAttributesOutput) SetNatGatewayIds(v []*string) *DescribeVpcAttributesOutput {
 	s.NatGatewayIds = v
@@ -326,7 +310,7 @@ func (s *DescribeVpcAttributesOutput) SetNatGatewayIds(v []*string) *DescribeVpc
 }
 
 // SetNetworkAclNum sets the NetworkAclNum field's value.
-func (s *DescribeVpcAttributesOutput) SetNetworkAclNum(v string) *DescribeVpcAttributesOutput {
+func (s *DescribeVpcAttributesOutput) SetNetworkAclNum(v int32) *DescribeVpcAttributesOutput {
 	s.NetworkAclNum = &v
 	return s
 }
@@ -346,6 +330,12 @@ func (s *DescribeVpcAttributesOutput) SetRequestId(v string) *DescribeVpcAttribu
 // SetRouteTableIds sets the RouteTableIds field's value.
 func (s *DescribeVpcAttributesOutput) SetRouteTableIds(v []*string) *DescribeVpcAttributesOutput {
 	s.RouteTableIds = v
+	return s
+}
+
+// SetSecondaryCidrBlocks sets the SecondaryCidrBlocks field's value.
+func (s *DescribeVpcAttributesOutput) SetSecondaryCidrBlocks(v []*string) *DescribeVpcAttributesOutput {
+	s.SecondaryCidrBlocks = v
 	return s
 }
 
@@ -376,12 +366,6 @@ func (s *DescribeVpcAttributesOutput) SetTags(v []*TagForDescribeVpcAttributesOu
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeVpcAttributesOutput) SetUpdateTime(v string) *DescribeVpcAttributesOutput {
 	s.UpdateTime = &v
-	return s
-}
-
-// SetUserCidrBlocks sets the UserCidrBlocks field's value.
-func (s *DescribeVpcAttributesOutput) SetUserCidrBlocks(v []*string) *DescribeVpcAttributesOutput {
-	s.UserCidrBlocks = v
 	return s
 }
 

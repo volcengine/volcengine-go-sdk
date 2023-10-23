@@ -22,13 +22,13 @@ const opDeleteBandwidthPackageCommon = "DeleteBandwidthPackage"
 // See DeleteBandwidthPackageCommon for more information on using the DeleteBandwidthPackageCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteBandwidthPackageCommonRequest method.
-//	req, resp := client.DeleteBandwidthPackageCommonRequest(params)
+//    // Example sending a request using the DeleteBandwidthPackageCommonRequest method.
+//    req, resp := client.DeleteBandwidthPackageCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteBandwidthPackageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteBandwidthPackageCommon,
@@ -87,13 +87,13 @@ const opDeleteBandwidthPackage = "DeleteBandwidthPackage"
 // See DeleteBandwidthPackage for more information on using the DeleteBandwidthPackage
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteBandwidthPackageRequest method.
-//	req, resp := client.DeleteBandwidthPackageRequest(params)
+//    // Example sending a request using the DeleteBandwidthPackageRequest method.
+//    req, resp := client.DeleteBandwidthPackageRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteBandwidthPackageRequest(input *DeleteBandwidthPackageInput) (req *request.Request, output *DeleteBandwidthPackageOutput) {
 	op := &request.Operation{
 		Name:       opDeleteBandwidthPackage,

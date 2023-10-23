@@ -22,13 +22,13 @@ const opModifyVpcAttributesCommon = "ModifyVpcAttributes"
 // See ModifyVpcAttributesCommon for more information on using the ModifyVpcAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpcAttributesCommonRequest method.
-//	req, resp := client.ModifyVpcAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyVpcAttributesCommonRequest method.
+//    req, resp := client.ModifyVpcAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVpcAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyVpcAttributes = "ModifyVpcAttributes"
 // See ModifyVpcAttributes for more information on using the ModifyVpcAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpcAttributesRequest method.
-//	req, resp := client.ModifyVpcAttributesRequest(params)
+//    // Example sending a request using the ModifyVpcAttributesRequest method.
+//    req, resp := client.ModifyVpcAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyVpcAttributesRequest(input *ModifyVpcAttributesInput) (req *request.Request, output *ModifyVpcAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyVpcAttributes,
@@ -142,18 +142,14 @@ func (c *VPC) ModifyVpcAttributesWithContext(ctx volcengine.Context, input *Modi
 type ModifyVpcAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
 	DnsServers []*string `type:"list"`
-
-	EnableIpv6 *bool `type:"boolean"`
-
-	Ipv6CidrBlock *string `type:"string"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
-	VpcName *string `min:"2" max:"128" type:"string"`
+	VpcName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -169,20 +165,8 @@ func (s ModifyVpcAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyVpcAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyVpcAttributesInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
-	}
-	if s.VpcName != nil && len(*s.VpcName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("VpcName", 2))
-	}
-	if s.VpcName != nil && len(*s.VpcName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("VpcName", 128, *s.VpcName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -200,18 +184,6 @@ func (s *ModifyVpcAttributesInput) SetDescription(v string) *ModifyVpcAttributes
 // SetDnsServers sets the DnsServers field's value.
 func (s *ModifyVpcAttributesInput) SetDnsServers(v []*string) *ModifyVpcAttributesInput {
 	s.DnsServers = v
-	return s
-}
-
-// SetEnableIpv6 sets the EnableIpv6 field's value.
-func (s *ModifyVpcAttributesInput) SetEnableIpv6(v bool) *ModifyVpcAttributesInput {
-	s.EnableIpv6 = &v
-	return s
-}
-
-// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *ModifyVpcAttributesInput) SetIpv6CidrBlock(v string) *ModifyVpcAttributesInput {
-	s.Ipv6CidrBlock = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opDisassociateHaVipCommon = "DisassociateHaVip"
 // See DisassociateHaVipCommon for more information on using the DisassociateHaVipCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateHaVipCommonRequest method.
-//	req, resp := client.DisassociateHaVipCommonRequest(params)
+//    // Example sending a request using the DisassociateHaVipCommonRequest method.
+//    req, resp := client.DisassociateHaVipCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateHaVipCommon,
@@ -87,13 +87,13 @@ const opDisassociateHaVip = "DisassociateHaVip"
 // See DisassociateHaVip for more information on using the DisassociateHaVip
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateHaVipRequest method.
-//	req, resp := client.DisassociateHaVipRequest(params)
+//    // Example sending a request using the DisassociateHaVipRequest method.
+//    req, resp := client.DisassociateHaVipRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateHaVipRequest(input *DisassociateHaVipInput) (req *request.Request, output *DisassociateHaVipOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateHaVip,
@@ -150,7 +150,7 @@ type DisassociateHaVipInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateHaVipInput"`
+	InstanceType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -226,11 +226,3 @@ func (s *DisassociateHaVipOutput) SetRequestId(v string) *DisassociateHaVipOutpu
 	s.RequestId = &v
 	return s
 }
-
-const (
-	// InstanceTypeForDisassociateHaVipInputNetworkInterface is a InstanceTypeForDisassociateHaVipInput enum value
-	InstanceTypeForDisassociateHaVipInputNetworkInterface = "NetworkInterface"
-
-	// InstanceTypeForDisassociateHaVipInputEcsInstance is a InstanceTypeForDisassociateHaVipInput enum value
-	InstanceTypeForDisassociateHaVipInputEcsInstance = "EcsInstance"
-)

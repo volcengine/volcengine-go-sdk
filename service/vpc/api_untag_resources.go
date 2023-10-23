@@ -22,13 +22,13 @@ const opUntagResourcesCommon = "UntagResources"
 // See UntagResourcesCommon for more information on using the UntagResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UntagResourcesCommonRequest method.
-//	req, resp := client.UntagResourcesCommonRequest(params)
+//    // Example sending a request using the UntagResourcesCommonRequest method.
+//    req, resp := client.UntagResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) UntagResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUntagResourcesCommon,
@@ -87,13 +87,13 @@ const opUntagResources = "UntagResources"
 // See UntagResources for more information on using the UntagResources
 // API call, and error handling.
 //
-//	// Example sending a request using the UntagResourcesRequest method.
-//	req, resp := client.UntagResourcesRequest(params)
+//    // Example sending a request using the UntagResourcesRequest method.
+//    req, resp := client.UntagResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) UntagResourcesRequest(input *UntagResourcesInput) (req *request.Request, output *UntagResourcesOutput) {
 	op := &request.Operation{
 		Name:       opUntagResources,
@@ -146,7 +146,7 @@ type UntagResourcesInput struct {
 	ResourceIds []*string `type:"list" required:"true"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForUntagResourcesInput"`
+	ResourceType *string `type:"string" required:"true"`
 
 	// TagKeys is a required field
 	TagKeys []*string `type:"list" required:"true"`
@@ -222,35 +222,3 @@ func (s *UntagResourcesOutput) SetRequestId(v string) *UntagResourcesOutput {
 	s.RequestId = &v
 	return s
 }
-
-const (
-	// ResourceTypeForUntagResourcesInputVpc is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputVpc = "vpc"
-
-	// ResourceTypeForUntagResourcesInputEni is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputEni = "eni"
-
-	// ResourceTypeForUntagResourcesInputSecuritygroup is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputSecuritygroup = "securitygroup"
-
-	// ResourceTypeForUntagResourcesInputEip is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputEip = "eip"
-
-	// ResourceTypeForUntagResourcesInputBandwidthpackage is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputBandwidthpackage = "bandwidthpackage"
-
-	// ResourceTypeForUntagResourcesInputVpngateway is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputVpngateway = "vpngateway"
-
-	// ResourceTypeForUntagResourcesInputNgw is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputNgw = "ngw"
-
-	// ResourceTypeForUntagResourcesInputDirectconnectconnection is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputDirectconnectconnection = "directconnectconnection"
-
-	// ResourceTypeForUntagResourcesInputDirectconnectgateway is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputDirectconnectgateway = "directconnectgateway"
-
-	// ResourceTypeForUntagResourcesInputDirectconnectvirtualinterface is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputDirectconnectvirtualinterface = "directconnectvirtualinterface"
-)

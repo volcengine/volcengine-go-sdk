@@ -22,13 +22,13 @@ const opDescribeVpcsCommon = "DescribeVpcs"
 // See DescribeVpcsCommon for more information on using the DescribeVpcsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcsCommonRequest method.
-//	req, resp := client.DescribeVpcsCommonRequest(params)
+//    // Example sending a request using the DescribeVpcsCommonRequest method.
+//    req, resp := client.DescribeVpcsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeVpcsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcsCommon,
@@ -87,13 +87,13 @@ const opDescribeVpcs = "DescribeVpcs"
 // See DescribeVpcs for more information on using the DescribeVpcs
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcsRequest method.
-//	req, resp := client.DescribeVpcsRequest(params)
+//    // Example sending a request using the DescribeVpcsRequest method.
+//    req, resp := client.DescribeVpcsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeVpcsRequest(input *DescribeVpcsInput) (req *request.Request, output *DescribeVpcsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpcs,
@@ -180,11 +180,9 @@ func (s *AssociateCenForDescribeVpcsOutput) SetCenStatus(v string) *AssociateCen
 type DescribeVpcsInput struct {
 	_ struct{} `type:"structure"`
 
-	IsDefault *bool `type:"boolean"`
+	PageNumber *int32 `type:"int32"`
 
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -205,33 +203,14 @@ func (s DescribeVpcsInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeVpcsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeVpcsInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
-}
-
-// SetIsDefault sets the IsDefault field's value.
-func (s *DescribeVpcsInput) SetIsDefault(v bool) *DescribeVpcsInput {
-	s.IsDefault = &v
-	return s
-}
-
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeVpcsInput) SetPageNumber(v int64) *DescribeVpcsInput {
+func (s *DescribeVpcsInput) SetPageNumber(v int32) *DescribeVpcsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeVpcsInput) SetPageSize(v int64) *DescribeVpcsInput {
+func (s *DescribeVpcsInput) SetPageSize(v int32) *DescribeVpcsInput {
 	s.PageSize = &v
 	return s
 }
@@ -265,13 +244,13 @@ type DescribeVpcsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 
 	Vpcs []*VpcForDescribeVpcsOutput `type:"list"`
 }
@@ -287,13 +266,13 @@ func (s DescribeVpcsOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeVpcsOutput) SetPageNumber(v int64) *DescribeVpcsOutput {
+func (s *DescribeVpcsOutput) SetPageNumber(v int32) *DescribeVpcsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeVpcsOutput) SetPageSize(v int64) *DescribeVpcsOutput {
+func (s *DescribeVpcsOutput) SetPageSize(v int32) *DescribeVpcsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -305,7 +284,7 @@ func (s *DescribeVpcsOutput) SetRequestId(v string) *DescribeVpcsOutput {
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeVpcsOutput) SetTotalCount(v int64) *DescribeVpcsOutput {
+func (s *DescribeVpcsOutput) SetTotalCount(v int32) *DescribeVpcsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -391,15 +370,15 @@ type VpcForDescribeVpcsOutput struct {
 
 	DnsServers []*string `type:"list"`
 
-	IsDefault *bool `type:"boolean"`
-
 	NatGatewayIds []*string `type:"list"`
 
-	NetworkAclNum *string `type:"string"`
+	NetworkAclNum *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
 	RouteTableIds []*string `type:"list"`
+
+	SecondaryCidrBlocks []*string `type:"list"`
 
 	SecurityGroupIds []*string `type:"list"`
 
@@ -410,8 +389,6 @@ type VpcForDescribeVpcsOutput struct {
 	Tags []*TagForDescribeVpcsOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
-
-	UserCidrBlocks []*string `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -464,12 +441,6 @@ func (s *VpcForDescribeVpcsOutput) SetDnsServers(v []*string) *VpcForDescribeVpc
 	return s
 }
 
-// SetIsDefault sets the IsDefault field's value.
-func (s *VpcForDescribeVpcsOutput) SetIsDefault(v bool) *VpcForDescribeVpcsOutput {
-	s.IsDefault = &v
-	return s
-}
-
 // SetNatGatewayIds sets the NatGatewayIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetNatGatewayIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.NatGatewayIds = v
@@ -477,7 +448,7 @@ func (s *VpcForDescribeVpcsOutput) SetNatGatewayIds(v []*string) *VpcForDescribe
 }
 
 // SetNetworkAclNum sets the NetworkAclNum field's value.
-func (s *VpcForDescribeVpcsOutput) SetNetworkAclNum(v string) *VpcForDescribeVpcsOutput {
+func (s *VpcForDescribeVpcsOutput) SetNetworkAclNum(v int32) *VpcForDescribeVpcsOutput {
 	s.NetworkAclNum = &v
 	return s
 }
@@ -491,6 +462,12 @@ func (s *VpcForDescribeVpcsOutput) SetProjectName(v string) *VpcForDescribeVpcsO
 // SetRouteTableIds sets the RouteTableIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetRouteTableIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.RouteTableIds = v
+	return s
+}
+
+// SetSecondaryCidrBlocks sets the SecondaryCidrBlocks field's value.
+func (s *VpcForDescribeVpcsOutput) SetSecondaryCidrBlocks(v []*string) *VpcForDescribeVpcsOutput {
+	s.SecondaryCidrBlocks = v
 	return s
 }
 
@@ -521,12 +498,6 @@ func (s *VpcForDescribeVpcsOutput) SetTags(v []*TagForDescribeVpcsOutput) *VpcFo
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *VpcForDescribeVpcsOutput) SetUpdateTime(v string) *VpcForDescribeVpcsOutput {
 	s.UpdateTime = &v
-	return s
-}
-
-// SetUserCidrBlocks sets the UserCidrBlocks field's value.
-func (s *VpcForDescribeVpcsOutput) SetUserCidrBlocks(v []*string) *VpcForDescribeVpcsOutput {
-	s.UserCidrBlocks = v
 	return s
 }
 

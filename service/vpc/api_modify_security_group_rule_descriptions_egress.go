@@ -22,13 +22,13 @@ const opModifySecurityGroupRuleDescriptionsEgressCommon = "ModifySecurityGroupRu
 // See ModifySecurityGroupRuleDescriptionsEgressCommon for more information on using the ModifySecurityGroupRuleDescriptionsEgressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressCommonRequest method.
-//	req, resp := client.ModifySecurityGroupRuleDescriptionsEgressCommonRequest(params)
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressCommonRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsEgressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupRuleDescriptionsEgressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupRuleDescriptionsEgressCommon,
@@ -87,13 +87,13 @@ const opModifySecurityGroupRuleDescriptionsEgress = "ModifySecurityGroupRuleDesc
 // See ModifySecurityGroupRuleDescriptionsEgress for more information on using the ModifySecurityGroupRuleDescriptionsEgress
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressRequest method.
-//	req, resp := client.ModifySecurityGroupRuleDescriptionsEgressRequest(params)
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsEgressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupRuleDescriptionsEgressRequest(input *ModifySecurityGroupRuleDescriptionsEgressInput) (req *request.Request, output *ModifySecurityGroupRuleDescriptionsEgressOutput) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupRuleDescriptionsEgress,
@@ -149,14 +149,14 @@ type ModifySecurityGroupRuleDescriptionsEgressInput struct {
 	Policy *string `type:"string"`
 
 	// PortEnd is a required field
-	PortEnd *int64 `type:"integer" required:"true"`
+	PortEnd *int32 `type:"int32" required:"true"`
 
 	// PortStart is a required field
-	PortStart *int64 `type:"integer" required:"true"`
+	PortStart *int32 `type:"int32" required:"true"`
 
 	PrefixListId *string `type:"string"`
 
-	Priority *int64 `type:"integer"`
+	Priority *int32 `type:"int32"`
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
@@ -218,13 +218,13 @@ func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPolicy(v string) *Mo
 }
 
 // SetPortEnd sets the PortEnd field's value.
-func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPortEnd(v int64) *ModifySecurityGroupRuleDescriptionsEgressInput {
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPortEnd(v int32) *ModifySecurityGroupRuleDescriptionsEgressInput {
 	s.PortEnd = &v
 	return s
 }
 
 // SetPortStart sets the PortStart field's value.
-func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPortStart(v int64) *ModifySecurityGroupRuleDescriptionsEgressInput {
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPortStart(v int32) *ModifySecurityGroupRuleDescriptionsEgressInput {
 	s.PortStart = &v
 	return s
 }
@@ -236,7 +236,7 @@ func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPrefixListId(v strin
 }
 
 // SetPriority sets the Priority field's value.
-func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPriority(v int64) *ModifySecurityGroupRuleDescriptionsEgressInput {
+func (s *ModifySecurityGroupRuleDescriptionsEgressInput) SetPriority(v int32) *ModifySecurityGroupRuleDescriptionsEgressInput {
 	s.Priority = &v
 	return s
 }

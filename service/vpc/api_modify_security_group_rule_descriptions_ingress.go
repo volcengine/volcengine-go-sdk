@@ -22,13 +22,13 @@ const opModifySecurityGroupRuleDescriptionsIngressCommon = "ModifySecurityGroupR
 // See ModifySecurityGroupRuleDescriptionsIngressCommon for more information on using the ModifySecurityGroupRuleDescriptionsIngressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressCommonRequest method.
-//	req, resp := client.ModifySecurityGroupRuleDescriptionsIngressCommonRequest(params)
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressCommonRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsIngressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupRuleDescriptionsIngressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupRuleDescriptionsIngressCommon,
@@ -87,13 +87,13 @@ const opModifySecurityGroupRuleDescriptionsIngress = "ModifySecurityGroupRuleDes
 // See ModifySecurityGroupRuleDescriptionsIngress for more information on using the ModifySecurityGroupRuleDescriptionsIngress
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressRequest method.
-//	req, resp := client.ModifySecurityGroupRuleDescriptionsIngressRequest(params)
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsIngressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupRuleDescriptionsIngressRequest(input *ModifySecurityGroupRuleDescriptionsIngressInput) (req *request.Request, output *ModifySecurityGroupRuleDescriptionsIngressOutput) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupRuleDescriptionsIngress,
@@ -149,14 +149,14 @@ type ModifySecurityGroupRuleDescriptionsIngressInput struct {
 	Policy *string `type:"string"`
 
 	// PortEnd is a required field
-	PortEnd *int64 `type:"integer" required:"true"`
+	PortEnd *int32 `type:"int32" required:"true"`
 
 	// PortStart is a required field
-	PortStart *int64 `type:"integer" required:"true"`
+	PortStart *int32 `type:"int32" required:"true"`
 
 	PrefixListId *string `type:"string"`
 
-	Priority *int64 `type:"integer"`
+	Priority *int32 `type:"int32"`
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
@@ -218,13 +218,13 @@ func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPolicy(v string) *M
 }
 
 // SetPortEnd sets the PortEnd field's value.
-func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortEnd(v int64) *ModifySecurityGroupRuleDescriptionsIngressInput {
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortEnd(v int32) *ModifySecurityGroupRuleDescriptionsIngressInput {
 	s.PortEnd = &v
 	return s
 }
 
 // SetPortStart sets the PortStart field's value.
-func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortStart(v int64) *ModifySecurityGroupRuleDescriptionsIngressInput {
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortStart(v int32) *ModifySecurityGroupRuleDescriptionsIngressInput {
 	s.PortStart = &v
 	return s
 }
@@ -236,7 +236,7 @@ func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPrefixListId(v stri
 }
 
 // SetPriority sets the Priority field's value.
-func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPriority(v int64) *ModifySecurityGroupRuleDescriptionsIngressInput {
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPriority(v int32) *ModifySecurityGroupRuleDescriptionsIngressInput {
 	s.Priority = &v
 	return s
 }

@@ -22,13 +22,13 @@ const opDescribeNetworkAclAttributesCommon = "DescribeNetworkAclAttributes"
 // See DescribeNetworkAclAttributesCommon for more information on using the DescribeNetworkAclAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNetworkAclAttributesCommonRequest method.
-//	req, resp := client.DescribeNetworkAclAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeNetworkAclAttributesCommonRequest method.
+//    req, resp := client.DescribeNetworkAclAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeNetworkAclAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkAclAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeNetworkAclAttributes = "DescribeNetworkAclAttributes"
 // See DescribeNetworkAclAttributes for more information on using the DescribeNetworkAclAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNetworkAclAttributesRequest method.
-//	req, resp := client.DescribeNetworkAclAttributesRequest(params)
+//    // Example sending a request using the DescribeNetworkAclAttributesRequest method.
+//    req, resp := client.DescribeNetworkAclAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeNetworkAclAttributesRequest(input *DescribeNetworkAclAttributesInput) (req *request.Request, output *DescribeNetworkAclAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkAclAttributes,
@@ -180,7 +180,7 @@ type DescribeNetworkAclAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	NetworkAclAttribute *NetworkAclAttributeForDescribeNetworkAclAttributesOutput `type:"structure"`
+	NetworkAclAttribute []*NetworkAclAttributeForDescribeNetworkAclAttributesOutput `type:"list"`
 
 	RequestId *string `type:"string"`
 }
@@ -196,7 +196,7 @@ func (s DescribeNetworkAclAttributesOutput) GoString() string {
 }
 
 // SetNetworkAclAttribute sets the NetworkAclAttribute field's value.
-func (s *DescribeNetworkAclAttributesOutput) SetNetworkAclAttribute(v *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) *DescribeNetworkAclAttributesOutput {
+func (s *DescribeNetworkAclAttributesOutput) SetNetworkAclAttribute(v []*NetworkAclAttributeForDescribeNetworkAclAttributesOutput) *DescribeNetworkAclAttributesOutput {
 	s.NetworkAclAttribute = v
 	return s
 }
@@ -222,7 +222,7 @@ type EgressAclEntryForDescribeNetworkAclAttributesOutput struct {
 
 	Port *string `type:"string"`
 
-	Priority *int64 `type:"integer"`
+	Priority *int32 `type:"int32"`
 
 	Protocol *string `type:"string"`
 }
@@ -274,7 +274,7 @@ func (s *EgressAclEntryForDescribeNetworkAclAttributesOutput) SetPort(v string) 
 }
 
 // SetPriority sets the Priority field's value.
-func (s *EgressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int64) *EgressAclEntryForDescribeNetworkAclAttributesOutput {
+func (s *EgressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int32) *EgressAclEntryForDescribeNetworkAclAttributesOutput {
 	s.Priority = &v
 	return s
 }
@@ -298,7 +298,7 @@ type IngressAclEntryForDescribeNetworkAclAttributesOutput struct {
 
 	Port *string `type:"string"`
 
-	Priority *int64 `type:"integer"`
+	Priority *int32 `type:"int32"`
 
 	Protocol *string `type:"string"`
 
@@ -346,7 +346,7 @@ func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetPort(v string)
 }
 
 // SetPriority sets the Priority field's value.
-func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int64) *IngressAclEntryForDescribeNetworkAclAttributesOutput {
+func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int32) *IngressAclEntryForDescribeNetworkAclAttributesOutput {
 	s.Priority = &v
 	return s
 }

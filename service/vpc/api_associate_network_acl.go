@@ -3,6 +3,8 @@
 package vpc
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -22,13 +24,13 @@ const opAssociateNetworkAclCommon = "AssociateNetworkAcl"
 // See AssociateNetworkAclCommon for more information on using the AssociateNetworkAclCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateNetworkAclCommonRequest method.
-//	req, resp := client.AssociateNetworkAclCommonRequest(params)
+//    // Example sending a request using the AssociateNetworkAclCommonRequest method.
+//    req, resp := client.AssociateNetworkAclCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateNetworkAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateNetworkAclCommon,
@@ -87,13 +89,13 @@ const opAssociateNetworkAcl = "AssociateNetworkAcl"
 // See AssociateNetworkAcl for more information on using the AssociateNetworkAcl
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateNetworkAclRequest method.
-//	req, resp := client.AssociateNetworkAclRequest(params)
+//    // Example sending a request using the AssociateNetworkAclRequest method.
+//    req, resp := client.AssociateNetworkAclRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateNetworkAclRequest(input *AssociateNetworkAclInput) (req *request.Request, output *AssociateNetworkAclOutput) {
 	op := &request.Operation{
 		Name:       opAssociateNetworkAcl,
@@ -145,7 +147,8 @@ type AssociateNetworkAclInput struct {
 	// NetworkAclId is a required field
 	NetworkAclId *string `type:"string" required:"true"`
 
-	Resource []*ResourceForAssociateNetworkAclInput `type:"list"`
+	// Resource is a required field
+	Resource []*ResourceForAssociateNetworkAclInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -163,6 +166,19 @@ func (s *AssociateNetworkAclInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AssociateNetworkAclInput"}
 	if s.NetworkAclId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkAclId"))
+	}
+	if s.Resource == nil {
+		invalidParams.Add(request.NewErrParamRequired("Resource"))
+	}
+	if s.Resource != nil {
+		for i, v := range s.Resource {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Resource", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -210,7 +226,8 @@ func (s *AssociateNetworkAclOutput) SetRequestId(v string) *AssociateNetworkAclO
 type ResourceForAssociateNetworkAclInput struct {
 	_ struct{} `type:"structure"`
 
-	ResourceId *string `type:"string"`
+	// ResourceId is a required field
+	ResourceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -221,6 +238,19 @@ func (s ResourceForAssociateNetworkAclInput) String() string {
 // GoString returns the string representation
 func (s ResourceForAssociateNetworkAclInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ResourceForAssociateNetworkAclInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ResourceForAssociateNetworkAclInput"}
+	if s.ResourceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetResourceId sets the ResourceId field's value.

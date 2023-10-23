@@ -22,13 +22,13 @@ const opCreateNetworkAclCommon = "CreateNetworkAcl"
 // See CreateNetworkAclCommon for more information on using the CreateNetworkAclCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateNetworkAclCommonRequest method.
-//	req, resp := client.CreateNetworkAclCommonRequest(params)
+//    // Example sending a request using the CreateNetworkAclCommonRequest method.
+//    req, resp := client.CreateNetworkAclCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateNetworkAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNetworkAclCommon,
@@ -87,13 +87,13 @@ const opCreateNetworkAcl = "CreateNetworkAcl"
 // See CreateNetworkAcl for more information on using the CreateNetworkAcl
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateNetworkAclRequest method.
-//	req, resp := client.CreateNetworkAclRequest(params)
+//    // Example sending a request using the CreateNetworkAclRequest method.
+//    req, resp := client.CreateNetworkAclRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateNetworkAclRequest(input *CreateNetworkAclInput) (req *request.Request, output *CreateNetworkAclOutput) {
 	op := &request.Operation{
 		Name:       opCreateNetworkAcl,
@@ -144,9 +144,9 @@ type CreateNetworkAclInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
-	NetworkAclName *string `min:"1" max:"128" type:"string"`
+	NetworkAclName *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -167,18 +167,6 @@ func (s CreateNetworkAclInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateNetworkAclInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateNetworkAclInput"}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.NetworkAclName != nil && len(*s.NetworkAclName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("NetworkAclName", 1))
-	}
-	if s.NetworkAclName != nil && len(*s.NetworkAclName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("NetworkAclName", 128, *s.NetworkAclName))
-	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}

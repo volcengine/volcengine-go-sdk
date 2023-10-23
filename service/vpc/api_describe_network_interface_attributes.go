@@ -22,13 +22,13 @@ const opDescribeNetworkInterfaceAttributesCommon = "DescribeNetworkInterfaceAttr
 // See DescribeNetworkInterfaceAttributesCommon for more information on using the DescribeNetworkInterfaceAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNetworkInterfaceAttributesCommonRequest method.
-//	req, resp := client.DescribeNetworkInterfaceAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeNetworkInterfaceAttributesCommonRequest method.
+//    req, resp := client.DescribeNetworkInterfaceAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeNetworkInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkInterfaceAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeNetworkInterfaceAttributes = "DescribeNetworkInterfaceAttributes
 // See DescribeNetworkInterfaceAttributes for more information on using the DescribeNetworkInterfaceAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNetworkInterfaceAttributesRequest method.
-//	req, resp := client.DescribeNetworkInterfaceAttributesRequest(params)
+//    // Example sending a request using the DescribeNetworkInterfaceAttributesRequest method.
+//    req, resp := client.DescribeNetworkInterfaceAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeNetworkInterfaceAttributesRequest(input *DescribeNetworkInterfaceAttributesInput) (req *request.Request, output *DescribeNetworkInterfaceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkInterfaceAttributes,
@@ -220,8 +220,6 @@ type DescribeNetworkInterfaceAttributesOutput struct {
 
 	DeviceId *string `type:"string"`
 
-	IPv6Sets []*string `type:"list"`
-
 	MacAddress *string `type:"string"`
 
 	NetworkInterfaceId *string `type:"string"`
@@ -296,12 +294,6 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetDescription(v string) *Des
 // SetDeviceId sets the DeviceId field's value.
 func (s *DescribeNetworkInterfaceAttributesOutput) SetDeviceId(v string) *DescribeNetworkInterfaceAttributesOutput {
 	s.DeviceId = &v
-	return s
-}
-
-// SetIPv6Sets sets the IPv6Sets field's value.
-func (s *DescribeNetworkInterfaceAttributesOutput) SetIPv6Sets(v []*string) *DescribeNetworkInterfaceAttributesOutput {
-	s.IPv6Sets = v
 	return s
 }
 
@@ -413,7 +405,7 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetZoneId(v string) *Describe
 	return s
 }
 
-type PrivateIpSetForDescribeNetworkInterfaceAttributesOutput struct {
+type PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput `type:"structure"`
@@ -421,40 +413,6 @@ type PrivateIpSetForDescribeNetworkInterfaceAttributesOutput struct {
 	Primary *bool `type:"boolean"`
 
 	PrivateIpAddress *string `type:"string"`
-}
-
-// String returns the string representation
-func (s PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) GoString() string {
-	return s.String()
-}
-
-// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
-func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
-	s.AssociatedElasticIp = v
-	return s
-}
-
-// SetPrimary sets the Primary field's value.
-func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetPrimary(v bool) *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
-	s.Primary = &v
-	return s
-}
-
-// SetPrivateIpAddress sets the PrivateIpAddress field's value.
-func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpAddress(v string) *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
-	s.PrivateIpAddress = &v
-	return s
-}
-
-type PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput struct {
-	_ struct{} `type:"structure"`
-
-	PrivateIpSet []*PrivateIpSetForDescribeNetworkInterfaceAttributesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -467,9 +425,21 @@ func (s PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) GoString() str
 	return s.String()
 }
 
-// SetPrivateIpSet sets the PrivateIpSet field's value.
-func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpSet(v []*PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
-	s.PrivateIpSet = v
+// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
+func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
+	s.AssociatedElasticIp = v
+	return s
+}
+
+// SetPrimary sets the Primary field's value.
+func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetPrimary(v bool) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
+	s.Primary = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpAddress(v string) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
+	s.PrivateIpAddress = &v
 	return s
 }
 

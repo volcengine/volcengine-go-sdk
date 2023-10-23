@@ -22,13 +22,13 @@ const opDescribeEipAddressAttributesCommon = "DescribeEipAddressAttributes"
 // See DescribeEipAddressAttributesCommon for more information on using the DescribeEipAddressAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeEipAddressAttributesCommonRequest method.
-//	req, resp := client.DescribeEipAddressAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeEipAddressAttributesCommonRequest method.
+//    req, resp := client.DescribeEipAddressAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeEipAddressAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeEipAddressAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeEipAddressAttributes = "DescribeEipAddressAttributes"
 // See DescribeEipAddressAttributes for more information on using the DescribeEipAddressAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeEipAddressAttributesRequest method.
-//	req, resp := client.DescribeEipAddressAttributesRequest(params)
+//    // Example sending a request using the DescribeEipAddressAttributesRequest method.
+//    req, resp := client.DescribeEipAddressAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeEipAddressAttributesRequest(input *DescribeEipAddressAttributesInput) (req *request.Request, output *DescribeEipAddressAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeEipAddressAttributes,
@@ -184,11 +184,11 @@ type DescribeEipAddressAttributesOutput struct {
 
 	AllocationTime *string `type:"string"`
 
-	Bandwidth *int64 `type:"integer"`
+	Bandwidth *int32 `type:"int32"`
 
 	BandwidthPackageId *string `type:"string"`
 
-	BillingType *int64 `type:"integer"`
+	BillingType *int32 `type:"int32"`
 
 	BusinessStatus *string `type:"string"`
 
@@ -248,7 +248,7 @@ func (s *DescribeEipAddressAttributesOutput) SetAllocationTime(v string) *Descri
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *DescribeEipAddressAttributesOutput) SetBandwidth(v int64) *DescribeEipAddressAttributesOutput {
+func (s *DescribeEipAddressAttributesOutput) SetBandwidth(v int32) *DescribeEipAddressAttributesOutput {
 	s.Bandwidth = &v
 	return s
 }
@@ -260,7 +260,7 @@ func (s *DescribeEipAddressAttributesOutput) SetBandwidthPackageId(v string) *De
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *DescribeEipAddressAttributesOutput) SetBillingType(v int64) *DescribeEipAddressAttributesOutput {
+func (s *DescribeEipAddressAttributesOutput) SetBillingType(v int32) *DescribeEipAddressAttributesOutput {
 	s.BillingType = &v
 	return s
 }

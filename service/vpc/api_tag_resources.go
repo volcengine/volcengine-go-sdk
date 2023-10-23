@@ -3,8 +3,6 @@
 package vpc
 
 import (
-	"fmt"
-
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -24,13 +22,13 @@ const opTagResourcesCommon = "TagResources"
 // See TagResourcesCommon for more information on using the TagResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the TagResourcesCommonRequest method.
-//	req, resp := client.TagResourcesCommonRequest(params)
+//    // Example sending a request using the TagResourcesCommonRequest method.
+//    req, resp := client.TagResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) TagResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opTagResourcesCommon,
@@ -89,13 +87,13 @@ const opTagResources = "TagResources"
 // See TagResources for more information on using the TagResources
 // API call, and error handling.
 //
-//	// Example sending a request using the TagResourcesRequest method.
-//	req, resp := client.TagResourcesRequest(params)
+//    // Example sending a request using the TagResourcesRequest method.
+//    req, resp := client.TagResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) TagResourcesRequest(input *TagResourcesInput) (req *request.Request, output *TagResourcesOutput) {
 	op := &request.Operation{
 		Name:       opTagResources,
@@ -144,8 +142,7 @@ func (c *VPC) TagResourcesWithContext(ctx volcengine.Context, input *TagResource
 type TagForTagResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `type:"string"`
 
 	Value *string `type:"string"`
 }
@@ -158,19 +155,6 @@ func (s TagForTagResourcesInput) String() string {
 // GoString returns the string representation
 func (s TagForTagResourcesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *TagForTagResourcesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "TagForTagResourcesInput"}
-	if s.Key == nil {
-		invalidParams.Add(request.NewErrParamRequired("Key"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetKey sets the Key field's value.
@@ -192,10 +176,9 @@ type TagResourcesInput struct {
 	ResourceIds []*string `type:"list" required:"true"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForTagResourcesInput"`
+	ResourceType *string `type:"string" required:"true"`
 
-	// Tags is a required field
-	Tags []*TagForTagResourcesInput `type:"list" required:"true"`
+	Tags []*TagForTagResourcesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -216,19 +199,6 @@ func (s *TagResourcesInput) Validate() error {
 	}
 	if s.ResourceType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
-	}
-	if s.Tags == nil {
-		invalidParams.Add(request.NewErrParamRequired("Tags"))
-	}
-	if s.Tags != nil {
-		for i, v := range s.Tags {
-			if v == nil {
-				continue
-			}
-			if err := v.Validate(); err != nil {
-				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
-			}
-		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -278,35 +248,3 @@ func (s *TagResourcesOutput) SetRequestId(v string) *TagResourcesOutput {
 	s.RequestId = &v
 	return s
 }
-
-const (
-	// ResourceTypeForTagResourcesInputVpc is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputVpc = "vpc"
-
-	// ResourceTypeForTagResourcesInputEni is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputEni = "eni"
-
-	// ResourceTypeForTagResourcesInputSecuritygroup is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputSecuritygroup = "securitygroup"
-
-	// ResourceTypeForTagResourcesInputEip is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputEip = "eip"
-
-	// ResourceTypeForTagResourcesInputBandwidthpackage is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputBandwidthpackage = "bandwidthpackage"
-
-	// ResourceTypeForTagResourcesInputVpngateway is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputVpngateway = "vpngateway"
-
-	// ResourceTypeForTagResourcesInputNgw is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputNgw = "ngw"
-
-	// ResourceTypeForTagResourcesInputDirectconnectconnection is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputDirectconnectconnection = "directconnectconnection"
-
-	// ResourceTypeForTagResourcesInputDirectconnectgateway is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputDirectconnectgateway = "directconnectgateway"
-
-	// ResourceTypeForTagResourcesInputDirectconnectvirtualinterface is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputDirectconnectvirtualinterface = "directconnectvirtualinterface"
-)

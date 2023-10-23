@@ -22,13 +22,13 @@ const opAddBandwidthPackageIpCommon = "AddBandwidthPackageIp"
 // See AddBandwidthPackageIpCommon for more information on using the AddBandwidthPackageIpCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AddBandwidthPackageIpCommonRequest method.
-//	req, resp := client.AddBandwidthPackageIpCommonRequest(params)
+//    // Example sending a request using the AddBandwidthPackageIpCommonRequest method.
+//    req, resp := client.AddBandwidthPackageIpCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AddBandwidthPackageIpCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAddBandwidthPackageIpCommon,
@@ -87,13 +87,13 @@ const opAddBandwidthPackageIp = "AddBandwidthPackageIp"
 // See AddBandwidthPackageIp for more information on using the AddBandwidthPackageIp
 // API call, and error handling.
 //
-//	// Example sending a request using the AddBandwidthPackageIpRequest method.
-//	req, resp := client.AddBandwidthPackageIpRequest(params)
+//    // Example sending a request using the AddBandwidthPackageIpRequest method.
+//    req, resp := client.AddBandwidthPackageIpRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AddBandwidthPackageIpRequest(input *AddBandwidthPackageIpInput) (req *request.Request, output *AddBandwidthPackageIpOutput) {
 	op := &request.Operation{
 		Name:       opAddBandwidthPackageIp,

@@ -22,13 +22,13 @@ const opAllocateEipAddressCommon = "AllocateEipAddress"
 // See AllocateEipAddressCommon for more information on using the AllocateEipAddressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AllocateEipAddressCommonRequest method.
-//	req, resp := client.AllocateEipAddressCommonRequest(params)
+//    // Example sending a request using the AllocateEipAddressCommonRequest method.
+//    req, resp := client.AllocateEipAddressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AllocateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAllocateEipAddressCommon,
@@ -87,13 +87,13 @@ const opAllocateEipAddress = "AllocateEipAddress"
 // See AllocateEipAddress for more information on using the AllocateEipAddress
 // API call, and error handling.
 //
-//	// Example sending a request using the AllocateEipAddressRequest method.
-//	req, resp := client.AllocateEipAddressRequest(params)
+//    // Example sending a request using the AllocateEipAddressRequest method.
+//    req, resp := client.AllocateEipAddressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AllocateEipAddressRequest(input *AllocateEipAddressInput) (req *request.Request, output *AllocateEipAddressOutput) {
 	op := &request.Operation{
 		Name:       opAllocateEipAddress,
@@ -142,29 +142,26 @@ func (c *VPC) AllocateEipAddressWithContext(ctx volcengine.Context, input *Alloc
 type AllocateEipAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `min:"1" max:"500" type:"integer"`
+	Bandwidth *int32 `type:"int32"`
 
 	BandwidthPackageId *string `type:"string"`
 
-	BillingType *int64 `min:"1" max:"3" type:"integer"`
+	// BillingType is a required field
+	BillingType *int32 `type:"int32" required:"true"`
 
 	ClientToken *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
-	ISP *string `type:"string" enum:"ISPForAllocateEipAddressInput"`
+	ISP *string `type:"string"`
 
-	Name *string `min:"1" max:"128" type:"string"`
+	Name *string `type:"string"`
 
-	Period *int64 `type:"integer"`
+	Period *int32 `type:"int32"`
 
-	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
+	PeriodUnit *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
-
-	RenewPeriodTimes *int64 `type:"integer"`
-
-	RenewType *int64 `min:"1" max:"3" type:"integer"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -184,41 +181,8 @@ func (s AllocateEipAddressInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AllocateEipAddressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AllocateEipAddressInput"}
-	if s.Bandwidth != nil && *s.Bandwidth < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 500 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 500))
-	}
-	if s.BillingType != nil && *s.BillingType < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
-	}
-	if s.BillingType != nil && *s.BillingType > 3 {
-		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.Name != nil && len(*s.Name) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
-	}
-	if s.Name != nil && len(*s.Name) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("Name", 128, *s.Name))
-	}
-	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
-	}
-	if s.PeriodUnit != nil && *s.PeriodUnit > 2 {
-		invalidParams.Add(request.NewErrParamMaxValue("PeriodUnit", 2))
-	}
-	if s.RenewType != nil && *s.RenewType < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
-	}
-	if s.RenewType != nil && *s.RenewType > 3 {
-		invalidParams.Add(request.NewErrParamMaxValue("RenewType", 3))
+	if s.BillingType == nil {
+		invalidParams.Add(request.NewErrParamRequired("BillingType"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -228,7 +192,7 @@ func (s *AllocateEipAddressInput) Validate() error {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *AllocateEipAddressInput) SetBandwidth(v int64) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetBandwidth(v int32) *AllocateEipAddressInput {
 	s.Bandwidth = &v
 	return s
 }
@@ -240,7 +204,7 @@ func (s *AllocateEipAddressInput) SetBandwidthPackageId(v string) *AllocateEipAd
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *AllocateEipAddressInput) SetBillingType(v int64) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetBillingType(v int32) *AllocateEipAddressInput {
 	s.BillingType = &v
 	return s
 }
@@ -270,13 +234,13 @@ func (s *AllocateEipAddressInput) SetName(v string) *AllocateEipAddressInput {
 }
 
 // SetPeriod sets the Period field's value.
-func (s *AllocateEipAddressInput) SetPeriod(v int64) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetPeriod(v int32) *AllocateEipAddressInput {
 	s.Period = &v
 	return s
 }
 
 // SetPeriodUnit sets the PeriodUnit field's value.
-func (s *AllocateEipAddressInput) SetPeriodUnit(v int64) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetPeriodUnit(v int32) *AllocateEipAddressInput {
 	s.PeriodUnit = &v
 	return s
 }
@@ -284,18 +248,6 @@ func (s *AllocateEipAddressInput) SetPeriodUnit(v int64) *AllocateEipAddressInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *AllocateEipAddressInput) SetProjectName(v string) *AllocateEipAddressInput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetRenewPeriodTimes sets the RenewPeriodTimes field's value.
-func (s *AllocateEipAddressInput) SetRenewPeriodTimes(v int64) *AllocateEipAddressInput {
-	s.RenewPeriodTimes = &v
-	return s
-}
-
-// SetRenewType sets the RenewType field's value.
-func (s *AllocateEipAddressInput) SetRenewType(v int64) *AllocateEipAddressInput {
-	s.RenewType = &v
 	return s
 }
 
@@ -380,32 +332,3 @@ func (s *TagForAllocateEipAddressInput) SetValue(v string) *TagForAllocateEipAdd
 	s.Value = &v
 	return s
 }
-
-const (
-	// ISPForAllocateEipAddressInputBgp is a ISPForAllocateEipAddressInput enum value
-	ISPForAllocateEipAddressInputBgp = "BGP"
-
-	// ISPForAllocateEipAddressInputSingleLineBgp is a ISPForAllocateEipAddressInput enum value
-	ISPForAllocateEipAddressInputSingleLineBgp = "SingleLine_BGP"
-
-	// ISPForAllocateEipAddressInputFusionBgp is a ISPForAllocateEipAddressInput enum value
-	ISPForAllocateEipAddressInputFusionBgp = "Fusion_BGP"
-
-	// ISPForAllocateEipAddressInputChinaMobile is a ISPForAllocateEipAddressInput enum value
-	ISPForAllocateEipAddressInputChinaMobile = "ChinaMobile"
-
-	// ISPForAllocateEipAddressInputChinaUnicom is a ISPForAllocateEipAddressInput enum value
-	ISPForAllocateEipAddressInputChinaUnicom = "ChinaUnicom"
-
-	// ISPForAllocateEipAddressInputChinaTelecom is a ISPForAllocateEipAddressInput enum value
-	ISPForAllocateEipAddressInputChinaTelecom = "ChinaTelecom"
-
-	// ISPForAllocateEipAddressInputChinaMobileValue is a ISPForAllocateEipAddressInput enum value
-	ISPForAllocateEipAddressInputChinaMobileValue = "ChinaMobile_Value"
-
-	// ISPForAllocateEipAddressInputChinaUnicomValue is a ISPForAllocateEipAddressInput enum value
-	ISPForAllocateEipAddressInputChinaUnicomValue = "ChinaUnicom_Value"
-
-	// ISPForAllocateEipAddressInputChinaTelecomValue is a ISPForAllocateEipAddressInput enum value
-	ISPForAllocateEipAddressInputChinaTelecomValue = "ChinaTelecom_Value"
-)

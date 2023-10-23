@@ -22,13 +22,13 @@ const opDescribePrefixListEntriesCommon = "DescribePrefixListEntries"
 // See DescribePrefixListEntriesCommon for more information on using the DescribePrefixListEntriesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribePrefixListEntriesCommonRequest method.
-//	req, resp := client.DescribePrefixListEntriesCommonRequest(params)
+//    // Example sending a request using the DescribePrefixListEntriesCommonRequest method.
+//    req, resp := client.DescribePrefixListEntriesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribePrefixListEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribePrefixListEntriesCommon,
@@ -87,13 +87,13 @@ const opDescribePrefixListEntries = "DescribePrefixListEntries"
 // See DescribePrefixListEntries for more information on using the DescribePrefixListEntries
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribePrefixListEntriesRequest method.
-//	req, resp := client.DescribePrefixListEntriesRequest(params)
+//    // Example sending a request using the DescribePrefixListEntriesRequest method.
+//    req, resp := client.DescribePrefixListEntriesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribePrefixListEntriesRequest(input *DescribePrefixListEntriesInput) (req *request.Request, output *DescribePrefixListEntriesOutput) {
 	op := &request.Operation{
 		Name:       opDescribePrefixListEntries,
@@ -142,9 +142,9 @@ func (c *VPC) DescribePrefixListEntriesWithContext(ctx volcengine.Context, input
 type DescribePrefixListEntriesInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `max:"100" type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	// PrefixListId is a required field
 	PrefixListId *string `type:"string" required:"true"`
@@ -163,9 +163,6 @@ func (s DescribePrefixListEntriesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribePrefixListEntriesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribePrefixListEntriesInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
 	if s.PrefixListId == nil {
 		invalidParams.Add(request.NewErrParamRequired("PrefixListId"))
 	}
@@ -177,13 +174,13 @@ func (s *DescribePrefixListEntriesInput) Validate() error {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribePrefixListEntriesInput) SetPageNumber(v int64) *DescribePrefixListEntriesInput {
+func (s *DescribePrefixListEntriesInput) SetPageNumber(v int32) *DescribePrefixListEntriesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribePrefixListEntriesInput) SetPageSize(v int64) *DescribePrefixListEntriesInput {
+func (s *DescribePrefixListEntriesInput) SetPageSize(v int32) *DescribePrefixListEntriesInput {
 	s.PageSize = &v
 	return s
 }
@@ -199,15 +196,15 @@ type DescribePrefixListEntriesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int64 `type:"integer"`
+	PageNumber *int32 `type:"int32"`
 
-	PageSize *int64 `type:"integer"`
+	PageSize *int32 `type:"int32"`
 
 	PrefixListEntries []*PrefixListEntryForDescribePrefixListEntriesOutput `type:"list"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -221,13 +218,13 @@ func (s DescribePrefixListEntriesOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribePrefixListEntriesOutput) SetPageNumber(v int64) *DescribePrefixListEntriesOutput {
+func (s *DescribePrefixListEntriesOutput) SetPageNumber(v int32) *DescribePrefixListEntriesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribePrefixListEntriesOutput) SetPageSize(v int64) *DescribePrefixListEntriesOutput {
+func (s *DescribePrefixListEntriesOutput) SetPageSize(v int32) *DescribePrefixListEntriesOutput {
 	s.PageSize = &v
 	return s
 }
@@ -245,7 +242,7 @@ func (s *DescribePrefixListEntriesOutput) SetRequestId(v string) *DescribePrefix
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribePrefixListEntriesOutput) SetTotalCount(v int64) *DescribePrefixListEntriesOutput {
+func (s *DescribePrefixListEntriesOutput) SetTotalCount(v int32) *DescribePrefixListEntriesOutput {
 	s.TotalCount = &v
 	return s
 }
