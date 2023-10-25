@@ -176,7 +176,7 @@ type ModifyPrefixListInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	DryRun *string `type:"string"`
 
@@ -185,7 +185,7 @@ type ModifyPrefixListInput struct {
 	// PrefixListId is a required field
 	PrefixListId *string `type:"string" required:"true"`
 
-	PrefixListName *string `type:"string"`
+	PrefixListName *string `min:"1" max:"128" type:"string"`
 
 	RemovePrefixListEntries []*RemovePrefixListEntryForModifyPrefixListInput `type:"list"`
 }
@@ -203,8 +203,20 @@ func (s ModifyPrefixListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyPrefixListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyPrefixListInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.PrefixListId == nil {
 		invalidParams.Add(request.NewErrParamRequired("PrefixListId"))
+	}
+	if s.PrefixListName != nil && len(*s.PrefixListName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PrefixListName", 1))
+	}
+	if s.PrefixListName != nil && len(*s.PrefixListName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("PrefixListName", 128, *s.PrefixListName))
 	}
 
 	if invalidParams.Len() > 0 {

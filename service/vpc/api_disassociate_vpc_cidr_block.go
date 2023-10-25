@@ -142,8 +142,7 @@ func (c *VPC) DisassociateVpcCidrBlockWithContext(ctx volcengine.Context, input 
 type DisassociateVpcCidrBlockInput struct {
 	_ struct{} `type:"structure"`
 
-	// UserCidrBlock is a required field
-	UserCidrBlock *string `type:"string" required:"true"`
+	SecondaryCidrBlock *string `type:"string"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -162,9 +161,6 @@ func (s DisassociateVpcCidrBlockInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DisassociateVpcCidrBlockInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DisassociateVpcCidrBlockInput"}
-	if s.UserCidrBlock == nil {
-		invalidParams.Add(request.NewErrParamRequired("UserCidrBlock"))
-	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
@@ -175,9 +171,9 @@ func (s *DisassociateVpcCidrBlockInput) Validate() error {
 	return nil
 }
 
-// SetUserCidrBlock sets the UserCidrBlock field's value.
-func (s *DisassociateVpcCidrBlockInput) SetUserCidrBlock(v string) *DisassociateVpcCidrBlockInput {
-	s.UserCidrBlock = &v
+// SetSecondaryCidrBlock sets the SecondaryCidrBlock field's value.
+func (s *DisassociateVpcCidrBlockInput) SetSecondaryCidrBlock(v string) *DisassociateVpcCidrBlockInput {
+	s.SecondaryCidrBlock = &v
 	return s
 }
 

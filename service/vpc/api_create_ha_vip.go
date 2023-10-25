@@ -144,9 +144,9 @@ type CreateHaVipInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	HaVipName *string `type:"string"`
+	HaVipName *string `min:"1" max:"128" type:"string"`
 
 	IpAddress *string `type:"string"`
 
@@ -167,6 +167,18 @@ func (s CreateHaVipInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateHaVipInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateHaVipInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.HaVipName != nil && len(*s.HaVipName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("HaVipName", 1))
+	}
+	if s.HaVipName != nil && len(*s.HaVipName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("HaVipName", 128, *s.HaVipName))
+	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
 	}

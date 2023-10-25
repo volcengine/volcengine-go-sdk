@@ -144,9 +144,9 @@ type CreateNetworkAclInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	NetworkAclName *string `type:"string"`
+	NetworkAclName *string `min:"1" max:"128" type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -167,6 +167,18 @@ func (s CreateNetworkAclInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateNetworkAclInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateNetworkAclInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.NetworkAclName != nil && len(*s.NetworkAclName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NetworkAclName", 1))
+	}
+	if s.NetworkAclName != nil && len(*s.NetworkAclName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("NetworkAclName", 128, *s.NetworkAclName))
+	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}

@@ -230,9 +230,13 @@ type DescribeVpcAttributesOutput struct {
 
 	DnsServers []*string `type:"list"`
 
+	Ipv6CidrBlock *string `type:"string"`
+
+	IsDefault *bool `type:"boolean"`
+
 	NatGatewayIds []*string `type:"list"`
 
-	NetworkAclNum *int32 `type:"int32"`
+	NetworkAclNum *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -251,6 +255,8 @@ type DescribeVpcAttributesOutput struct {
 	Tags []*TagForDescribeVpcAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
+
+	UserCidrBlocks []*string `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -303,6 +309,18 @@ func (s *DescribeVpcAttributesOutput) SetDnsServers(v []*string) *DescribeVpcAtt
 	return s
 }
 
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *DescribeVpcAttributesOutput) SetIpv6CidrBlock(v string) *DescribeVpcAttributesOutput {
+	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *DescribeVpcAttributesOutput) SetIsDefault(v bool) *DescribeVpcAttributesOutput {
+	s.IsDefault = &v
+	return s
+}
+
 // SetNatGatewayIds sets the NatGatewayIds field's value.
 func (s *DescribeVpcAttributesOutput) SetNatGatewayIds(v []*string) *DescribeVpcAttributesOutput {
 	s.NatGatewayIds = v
@@ -310,7 +328,7 @@ func (s *DescribeVpcAttributesOutput) SetNatGatewayIds(v []*string) *DescribeVpc
 }
 
 // SetNetworkAclNum sets the NetworkAclNum field's value.
-func (s *DescribeVpcAttributesOutput) SetNetworkAclNum(v int32) *DescribeVpcAttributesOutput {
+func (s *DescribeVpcAttributesOutput) SetNetworkAclNum(v string) *DescribeVpcAttributesOutput {
 	s.NetworkAclNum = &v
 	return s
 }
@@ -366,6 +384,12 @@ func (s *DescribeVpcAttributesOutput) SetTags(v []*TagForDescribeVpcAttributesOu
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeVpcAttributesOutput) SetUpdateTime(v string) *DescribeVpcAttributesOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetUserCidrBlocks sets the UserCidrBlocks field's value.
+func (s *DescribeVpcAttributesOutput) SetUserCidrBlocks(v []*string) *DescribeVpcAttributesOutput {
+	s.UserCidrBlocks = v
 	return s
 }
 

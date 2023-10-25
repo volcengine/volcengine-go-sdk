@@ -146,25 +146,25 @@ type DescribeEipAddressesInput struct {
 
 	AssociatedInstanceId *string `type:"string"`
 
-	AssociatedInstanceType *string `type:"string"`
+	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
 
-	BillingType *int32 `type:"int32"`
+	BillingType *int32 `min:"1" max:"3" type:"int32"`
 
 	EipAddresses []*string `type:"list"`
 
-	ISP *string `type:"string"`
+	ISP *string `type:"string" enum:"ISPForDescribeEipAddressesInput"`
 
 	Name *string `type:"string"`
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
 	SecurityProtectionEnabled *bool `type:"boolean"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
 
 	TagFilters []*TagFilterForDescribeEipAddressesInput `type:"list"`
 }
@@ -177,6 +177,25 @@ func (s DescribeEipAddressesInput) String() string {
 // GoString returns the string representation
 func (s DescribeEipAddressesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeEipAddressesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeEipAddressesInput"}
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
+	}
+	if s.BillingType != nil && *s.BillingType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAllocationIds sets the AllocationIds field's value.
@@ -554,3 +573,63 @@ func (s *TagForDescribeEipAddressesOutput) SetValue(v string) *TagForDescribeEip
 	s.Value = &v
 	return s
 }
+
+const (
+	// AssociatedInstanceTypeForDescribeEipAddressesInputNat is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputNat = "Nat"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance = "EcsInstance"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface = "NetworkInterface"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance = "ClbInstance"
+
+	// AssociatedInstanceTypeForDescribeEipAddressesInputAlbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	AssociatedInstanceTypeForDescribeEipAddressesInputAlbInstance = "AlbInstance"
+)
+
+const (
+	// ISPForDescribeEipAddressesInputBgp is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputBgp = "BGP"
+
+	// ISPForDescribeEipAddressesInputSingleLineBgp is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputSingleLineBgp = "SingleLine_BGP"
+
+	// ISPForDescribeEipAddressesInputFusionBgp is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputFusionBgp = "Fusion_BGP"
+
+	// ISPForDescribeEipAddressesInputChinaMobile is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaMobile = "ChinaMobile"
+
+	// ISPForDescribeEipAddressesInputChinaUnicom is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaUnicom = "ChinaUnicom"
+
+	// ISPForDescribeEipAddressesInputChinaTelecom is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaTelecom = "ChinaTelecom"
+
+	// ISPForDescribeEipAddressesInputChinaMobileValue is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaMobileValue = "ChinaMobile_Value"
+
+	// ISPForDescribeEipAddressesInputChinaUnicomValue is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// ISPForDescribeEipAddressesInputChinaTelecomValue is a ISPForDescribeEipAddressesInput enum value
+	ISPForDescribeEipAddressesInputChinaTelecomValue = "ChinaTelecom_Value"
+)
+
+const (
+	// StatusForDescribeEipAddressesInputAttaching is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputAttaching = "Attaching"
+
+	// StatusForDescribeEipAddressesInputDetaching is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputDetaching = "Detaching"
+
+	// StatusForDescribeEipAddressesInputAttached is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputAttached = "Attached"
+
+	// StatusForDescribeEipAddressesInputAvailable is a StatusForDescribeEipAddressesInput enum value
+	StatusForDescribeEipAddressesInputAvailable = "Available"
+)

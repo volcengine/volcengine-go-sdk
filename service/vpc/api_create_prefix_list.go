@@ -144,18 +144,18 @@ type CreatePrefixListInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	DryRun *bool `type:"boolean"`
 
-	IpVersion *string `type:"string"`
+	IpVersion *string `type:"string" enum:"IpVersionForCreatePrefixListInput"`
 
 	// MaxEntries is a required field
 	MaxEntries *int32 `type:"int32" required:"true"`
 
 	PrefixListEntries []*PrefixListEntryForCreatePrefixListInput `type:"list"`
 
-	PrefixListName *string `type:"string"`
+	PrefixListName *string `min:"1" max:"128" type:"string"`
 
 	Tags []*TagForCreatePrefixListInput `type:"list"`
 }
@@ -173,8 +173,20 @@ func (s CreatePrefixListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreatePrefixListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreatePrefixListInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.MaxEntries == nil {
 		invalidParams.Add(request.NewErrParamRequired("MaxEntries"))
+	}
+	if s.PrefixListName != nil && len(*s.PrefixListName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PrefixListName", 1))
+	}
+	if s.PrefixListName != nil && len(*s.PrefixListName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("PrefixListName", 128, *s.PrefixListName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -322,3 +334,11 @@ func (s *TagForCreatePrefixListInput) SetValue(v string) *TagForCreatePrefixList
 	s.Value = &v
 	return s
 }
+
+const (
+	// IpVersionForCreatePrefixListInputIpv4 is a IpVersionForCreatePrefixListInput enum value
+	IpVersionForCreatePrefixListInputIpv4 = "IPv4"
+
+	// IpVersionForCreatePrefixListInputIpv6 is a IpVersionForCreatePrefixListInput enum value
+	IpVersionForCreatePrefixListInputIpv6 = "IPv6"
+)

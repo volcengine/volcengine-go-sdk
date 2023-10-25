@@ -147,15 +147,19 @@ type CreateVpcInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	DnsServers []*string `type:"list"`
+
+	EnableIpv6 *bool `type:"boolean"`
+
+	Ipv6CidrBlock *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
 	Tags []*TagForCreateVpcInput `type:"list"`
 
-	VpcName *string `type:"string"`
+	VpcName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -173,6 +177,18 @@ func (s *CreateVpcInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateVpcInput"}
 	if s.CidrBlock == nil {
 		invalidParams.Add(request.NewErrParamRequired("CidrBlock"))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.VpcName != nil && len(*s.VpcName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VpcName", 1))
+	}
+	if s.VpcName != nil && len(*s.VpcName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VpcName", 128, *s.VpcName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -202,6 +218,18 @@ func (s *CreateVpcInput) SetDescription(v string) *CreateVpcInput {
 // SetDnsServers sets the DnsServers field's value.
 func (s *CreateVpcInput) SetDnsServers(v []*string) *CreateVpcInput {
 	s.DnsServers = v
+	return s
+}
+
+// SetEnableIpv6 sets the EnableIpv6 field's value.
+func (s *CreateVpcInput) SetEnableIpv6(v bool) *CreateVpcInput {
+	s.EnableIpv6 = &v
+	return s
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *CreateVpcInput) SetIpv6CidrBlock(v string) *CreateVpcInput {
+	s.Ipv6CidrBlock = &v
 	return s
 }
 

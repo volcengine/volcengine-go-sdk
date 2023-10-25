@@ -142,14 +142,18 @@ func (c *VPC) ModifyVpcAttributesWithContext(ctx volcengine.Context, input *Modi
 type ModifyVpcAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	DnsServers []*string `type:"list"`
+
+	EnableIpv6 *bool `type:"boolean"`
+
+	Ipv6CidrBlock *string `type:"string"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
-	VpcName *string `type:"string"`
+	VpcName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -165,8 +169,20 @@ func (s ModifyVpcAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyVpcAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyVpcAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.VpcName != nil && len(*s.VpcName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VpcName", 1))
+	}
+	if s.VpcName != nil && len(*s.VpcName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VpcName", 128, *s.VpcName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -184,6 +200,18 @@ func (s *ModifyVpcAttributesInput) SetDescription(v string) *ModifyVpcAttributes
 // SetDnsServers sets the DnsServers field's value.
 func (s *ModifyVpcAttributesInput) SetDnsServers(v []*string) *ModifyVpcAttributesInput {
 	s.DnsServers = v
+	return s
+}
+
+// SetEnableIpv6 sets the EnableIpv6 field's value.
+func (s *ModifyVpcAttributesInput) SetEnableIpv6(v bool) *ModifyVpcAttributesInput {
+	s.EnableIpv6 = &v
+	return s
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *ModifyVpcAttributesInput) SetIpv6CidrBlock(v string) *ModifyVpcAttributesInput {
+	s.Ipv6CidrBlock = &v
 	return s
 }
 

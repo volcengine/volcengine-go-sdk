@@ -142,12 +142,12 @@ func (c *VPC) ModifyNetworkInterfaceAttributesWithContext(ctx volcengine.Context
 type ModifyNetworkInterfaceAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
 
-	NetworkInterfaceName *string `type:"string"`
+	NetworkInterfaceName *string `min:"1" max:"128" type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
 }
@@ -165,8 +165,20 @@ func (s ModifyNetworkInterfaceAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyNetworkInterfaceAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyNetworkInterfaceAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.NetworkInterfaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaceId"))
+	}
+	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NetworkInterfaceName", 1))
+	}
+	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("NetworkInterfaceName", 128, *s.NetworkInterfaceName))
 	}
 
 	if invalidParams.Len() > 0 {

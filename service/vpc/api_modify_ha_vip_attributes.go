@@ -142,12 +142,12 @@ func (c *VPC) ModifyHaVipAttributesWithContext(ctx volcengine.Context, input *Mo
 type ModifyHaVipAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// HaVipId is a required field
 	HaVipId *string `type:"string" required:"true"`
 
-	HaVipName *string `type:"string"`
+	HaVipName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -163,8 +163,20 @@ func (s ModifyHaVipAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyHaVipAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyHaVipAttributesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.HaVipId == nil {
 		invalidParams.Add(request.NewErrParamRequired("HaVipId"))
+	}
+	if s.HaVipName != nil && len(*s.HaVipName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("HaVipName", 1))
+	}
+	if s.HaVipName != nil && len(*s.HaVipName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("HaVipName", 128, *s.HaVipName))
 	}
 
 	if invalidParams.Len() > 0 {

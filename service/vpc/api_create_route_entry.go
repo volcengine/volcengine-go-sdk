@@ -144,7 +144,7 @@ type CreateRouteEntryInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	DestinationCidrBlock *string `type:"string"`
 
@@ -156,7 +156,7 @@ type CreateRouteEntryInput struct {
 	// NextHopType is a required field
 	NextHopType *string `type:"string" required:"true"`
 
-	RouteEntryName *string `type:"string"`
+	RouteEntryName *string `min:"1" max:"128" type:"string"`
 
 	// RouteTableId is a required field
 	RouteTableId *string `type:"string" required:"true"`
@@ -175,11 +175,23 @@ func (s CreateRouteEntryInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateRouteEntryInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateRouteEntryInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.NextHopId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NextHopId"))
 	}
 	if s.NextHopType == nil {
 		invalidParams.Add(request.NewErrParamRequired("NextHopType"))
+	}
+	if s.RouteEntryName != nil && len(*s.RouteEntryName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RouteEntryName", 1))
+	}
+	if s.RouteEntryName != nil && len(*s.RouteEntryName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("RouteEntryName", 128, *s.RouteEntryName))
 	}
 	if s.RouteTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))

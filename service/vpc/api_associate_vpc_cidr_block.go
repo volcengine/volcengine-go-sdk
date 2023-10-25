@@ -142,8 +142,7 @@ func (c *VPC) AssociateVpcCidrBlockWithContext(ctx volcengine.Context, input *As
 type AssociateVpcCidrBlockInput struct {
 	_ struct{} `type:"structure"`
 
-	// UserCidrBlock is a required field
-	UserCidrBlock *string `type:"string" required:"true"`
+	SecondaryCidrBlock *string `type:"string"`
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
@@ -162,9 +161,6 @@ func (s AssociateVpcCidrBlockInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AssociateVpcCidrBlockInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AssociateVpcCidrBlockInput"}
-	if s.UserCidrBlock == nil {
-		invalidParams.Add(request.NewErrParamRequired("UserCidrBlock"))
-	}
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
@@ -175,9 +171,9 @@ func (s *AssociateVpcCidrBlockInput) Validate() error {
 	return nil
 }
 
-// SetUserCidrBlock sets the UserCidrBlock field's value.
-func (s *AssociateVpcCidrBlockInput) SetUserCidrBlock(v string) *AssociateVpcCidrBlockInput {
-	s.UserCidrBlock = &v
+// SetSecondaryCidrBlock sets the SecondaryCidrBlock field's value.
+func (s *AssociateVpcCidrBlockInput) SetSecondaryCidrBlock(v string) *AssociateVpcCidrBlockInput {
+	s.SecondaryCidrBlock = &v
 	return s
 }
 
@@ -193,6 +189,10 @@ type AssociateVpcCidrBlockOutput struct {
 	Metadata *response.ResponseMetadata
 
 	RequestId *string `type:"string"`
+
+	SecondaryCidrBlocks []*string `type:"list"`
+
+	VpcId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -208,5 +208,17 @@ func (s AssociateVpcCidrBlockOutput) GoString() string {
 // SetRequestId sets the RequestId field's value.
 func (s *AssociateVpcCidrBlockOutput) SetRequestId(v string) *AssociateVpcCidrBlockOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetSecondaryCidrBlocks sets the SecondaryCidrBlocks field's value.
+func (s *AssociateVpcCidrBlockOutput) SetSecondaryCidrBlocks(v []*string) *AssociateVpcCidrBlockOutput {
+	s.SecondaryCidrBlocks = v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *AssociateVpcCidrBlockOutput) SetVpcId(v string) *AssociateVpcCidrBlockOutput {
+	s.VpcId = &v
 	return s
 }

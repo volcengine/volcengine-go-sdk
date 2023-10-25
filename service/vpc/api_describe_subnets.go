@@ -142,9 +142,11 @@ func (c *VPC) DescribeSubnetsWithContext(ctx volcengine.Context, input *Describe
 type DescribeSubnetsInput struct {
 	_ struct{} `type:"structure"`
 
+	IsDefault *bool `type:"boolean"`
+
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -167,6 +169,25 @@ func (s DescribeSubnetsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSubnetsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSubnetsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSubnetsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *DescribeSubnetsInput) SetIsDefault(v bool) *DescribeSubnetsInput {
+	s.IsDefault = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -316,6 +337,10 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	Description *string `type:"string"`
 
+	Ipv6CidrBlock *string `type:"string"`
+
+	IsDefault *bool `type:"boolean"`
+
 	NetworkAclId *string `type:"string"`
 
 	ProjectName *string `type:"string"`
@@ -374,6 +399,18 @@ func (s *SubnetForDescribeSubnetsOutput) SetCreationTime(v string) *SubnetForDes
 // SetDescription sets the Description field's value.
 func (s *SubnetForDescribeSubnetsOutput) SetDescription(v string) *SubnetForDescribeSubnetsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetIpv6CidrBlock(v string) *SubnetForDescribeSubnetsOutput {
+	s.Ipv6CidrBlock = &v
+	return s
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetIsDefault(v bool) *SubnetForDescribeSubnetsOutput {
+	s.IsDefault = &v
 	return s
 }
 

@@ -142,12 +142,12 @@ func (c *VPC) ModifyRouteEntryWithContext(ctx volcengine.Context, input *ModifyR
 type ModifyRouteEntryInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// RouteEntryId is a required field
 	RouteEntryId *string `type:"string" required:"true"`
 
-	RouteEntryName *string `type:"string"`
+	RouteEntryName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -163,8 +163,20 @@ func (s ModifyRouteEntryInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyRouteEntryInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyRouteEntryInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.RouteEntryId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RouteEntryId"))
+	}
+	if s.RouteEntryName != nil && len(*s.RouteEntryName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RouteEntryName", 1))
+	}
+	if s.RouteEntryName != nil && len(*s.RouteEntryName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("RouteEntryName", 128, *s.RouteEntryName))
 	}
 
 	if invalidParams.Len() > 0 {

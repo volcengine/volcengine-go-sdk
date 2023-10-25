@@ -148,7 +148,7 @@ type DescribeNetworkAclsInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -165,6 +165,19 @@ func (s DescribeNetworkAclsInput) String() string {
 // GoString returns the string representation
 func (s DescribeNetworkAclsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeNetworkAclsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeNetworkAclsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNetworkAclIds sets the NetworkAclIds field's value.

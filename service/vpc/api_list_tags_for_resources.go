@@ -142,14 +142,14 @@ func (c *VPC) ListTagsForResourcesWithContext(ctx volcengine.Context, input *Lis
 type ListTagsForResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	MaxResults *int32 `type:"int32"`
+	MaxResults *int32 `max:"100" type:"int32"`
 
 	NextToken *string `type:"string"`
 
 	ResourceIds []*string `type:"list"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true"`
+	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForListTagsForResourcesInput"`
 
 	TagFilters []*TagFilterForListTagsForResourcesInput `type:"list"`
 
@@ -169,6 +169,9 @@ func (s ListTagsForResourcesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListTagsForResourcesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListTagsForResourcesInput"}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
 	if s.ResourceType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
 	}
@@ -330,3 +333,35 @@ func (s *TagFilterForListTagsForResourcesInput) SetValues(v []*string) *TagFilte
 	s.Values = v
 	return s
 }
+
+const (
+	// ResourceTypeForListTagsForResourcesInputVpc is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputVpc = "vpc"
+
+	// ResourceTypeForListTagsForResourcesInputEni is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputEni = "eni"
+
+	// ResourceTypeForListTagsForResourcesInputSecuritygroup is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputSecuritygroup = "securitygroup"
+
+	// ResourceTypeForListTagsForResourcesInputEip is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputEip = "eip"
+
+	// ResourceTypeForListTagsForResourcesInputBandwidthpackage is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputBandwidthpackage = "bandwidthpackage"
+
+	// ResourceTypeForListTagsForResourcesInputVpngateway is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputVpngateway = "vpngateway"
+
+	// ResourceTypeForListTagsForResourcesInputNgw is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputNgw = "ngw"
+
+	// ResourceTypeForListTagsForResourcesInputDirectconnectconnection is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputDirectconnectconnection = "directconnectconnection"
+
+	// ResourceTypeForListTagsForResourcesInputDirectconnectgateway is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputDirectconnectgateway = "directconnectgateway"
+
+	// ResourceTypeForListTagsForResourcesInputDirectconnectvirtualinterface is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputDirectconnectvirtualinterface = "directconnectvirtualinterface"
+)

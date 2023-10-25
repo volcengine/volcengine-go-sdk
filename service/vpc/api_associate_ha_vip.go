@@ -150,7 +150,7 @@ type AssociateHaVipInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"InstanceTypeForAssociateHaVipInput"`
 }
 
 // String returns the string representation
@@ -226,3 +226,11 @@ func (s *AssociateHaVipOutput) SetRequestId(v string) *AssociateHaVipOutput {
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// InstanceTypeForAssociateHaVipInputNetworkInterface is a InstanceTypeForAssociateHaVipInput enum value
+	InstanceTypeForAssociateHaVipInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForAssociateHaVipInputEcsInstance is a InstanceTypeForAssociateHaVipInput enum value
+	InstanceTypeForAssociateHaVipInputEcsInstance = "EcsInstance"
+)

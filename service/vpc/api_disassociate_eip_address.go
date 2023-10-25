@@ -145,9 +145,11 @@ type DisassociateEipAddressInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
+	ClientToken *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateEipAddressInput"`
 }
 
 // String returns the string representation
@@ -176,6 +178,12 @@ func (s *DisassociateEipAddressInput) Validate() error {
 // SetAllocationId sets the AllocationId field's value.
 func (s *DisassociateEipAddressInput) SetAllocationId(v string) *DisassociateEipAddressInput {
 	s.AllocationId = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DisassociateEipAddressInput) SetClientToken(v string) *DisassociateEipAddressInput {
+	s.ClientToken = &v
 	return s
 }
 
@@ -214,3 +222,17 @@ func (s *DisassociateEipAddressOutput) SetRequestId(v string) *DisassociateEipAd
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// InstanceTypeForDisassociateEipAddressInputNat is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputNat = "Nat"
+
+	// InstanceTypeForDisassociateEipAddressInputNetworkInterface is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForDisassociateEipAddressInputClbInstance is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputClbInstance = "ClbInstance"
+
+	// InstanceTypeForDisassociateEipAddressInputEcsInstance is a InstanceTypeForDisassociateEipAddressInput enum value
+	InstanceTypeForDisassociateEipAddressInputEcsInstance = "EcsInstance"
+)

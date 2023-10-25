@@ -142,26 +142,29 @@ func (c *VPC) AllocateEipAddressWithContext(ctx volcengine.Context, input *Alloc
 type AllocateEipAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int32 `type:"int32"`
+	Bandwidth *int32 `min:"1" max:"500" type:"int32"`
 
 	BandwidthPackageId *string `type:"string"`
 
-	// BillingType is a required field
-	BillingType *int32 `type:"int32" required:"true"`
+	BillingType *int32 `min:"1" max:"3" type:"int32"`
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	ISP *string `type:"string"`
+	ISP *string `type:"string" enum:"ISPForAllocateEipAddressInput"`
 
-	Name *string `type:"string"`
+	Name *string `min:"1" max:"128" type:"string"`
 
 	Period *int32 `type:"int32"`
 
-	PeriodUnit *int32 `type:"int32"`
+	PeriodUnit *int32 `min:"1" max:"2" type:"int32"`
 
 	ProjectName *string `type:"string"`
+
+	RenewPeriodTimes *int32 `type:"int32"`
+
+	RenewType *int32 `min:"1" max:"3" type:"int32"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -181,8 +184,41 @@ func (s AllocateEipAddressInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AllocateEipAddressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AllocateEipAddressInput"}
-	if s.BillingType == nil {
-		invalidParams.Add(request.NewErrParamRequired("BillingType"))
+	if s.Bandwidth != nil && *s.Bandwidth < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth > 500 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 500))
+	}
+	if s.BillingType != nil && *s.BillingType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
+	}
+	if s.BillingType != nil && *s.BillingType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.Name != nil && len(*s.Name) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("Name", 128, *s.Name))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PeriodUnit", 1))
+	}
+	if s.PeriodUnit != nil && *s.PeriodUnit > 2 {
+		invalidParams.Add(request.NewErrParamMaxValue("PeriodUnit", 2))
+	}
+	if s.RenewType != nil && *s.RenewType < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RenewType", 1))
+	}
+	if s.RenewType != nil && *s.RenewType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("RenewType", 3))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -248,6 +284,18 @@ func (s *AllocateEipAddressInput) SetPeriodUnit(v int32) *AllocateEipAddressInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *AllocateEipAddressInput) SetProjectName(v string) *AllocateEipAddressInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetRenewPeriodTimes sets the RenewPeriodTimes field's value.
+func (s *AllocateEipAddressInput) SetRenewPeriodTimes(v int32) *AllocateEipAddressInput {
+	s.RenewPeriodTimes = &v
+	return s
+}
+
+// SetRenewType sets the RenewType field's value.
+func (s *AllocateEipAddressInput) SetRenewType(v int32) *AllocateEipAddressInput {
+	s.RenewType = &v
 	return s
 }
 
@@ -332,3 +380,32 @@ func (s *TagForAllocateEipAddressInput) SetValue(v string) *TagForAllocateEipAdd
 	s.Value = &v
 	return s
 }
+
+const (
+	// ISPForAllocateEipAddressInputBgp is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputBgp = "BGP"
+
+	// ISPForAllocateEipAddressInputSingleLineBgp is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputSingleLineBgp = "SingleLine_BGP"
+
+	// ISPForAllocateEipAddressInputFusionBgp is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputFusionBgp = "Fusion_BGP"
+
+	// ISPForAllocateEipAddressInputChinaMobile is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaMobile = "ChinaMobile"
+
+	// ISPForAllocateEipAddressInputChinaUnicom is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaUnicom = "ChinaUnicom"
+
+	// ISPForAllocateEipAddressInputChinaTelecom is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaTelecom = "ChinaTelecom"
+
+	// ISPForAllocateEipAddressInputChinaMobileValue is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaMobileValue = "ChinaMobile_Value"
+
+	// ISPForAllocateEipAddressInputChinaUnicomValue is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// ISPForAllocateEipAddressInputChinaTelecomValue is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputChinaTelecomValue = "ChinaTelecom_Value"
+)

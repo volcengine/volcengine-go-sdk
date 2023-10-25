@@ -180,7 +180,7 @@ type DescribeNetworkAclAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	NetworkAclAttribute []*NetworkAclAttributeForDescribeNetworkAclAttributesOutput `type:"list"`
+	NetworkAclAttribute *NetworkAclAttributeForDescribeNetworkAclAttributesOutput `type:"structure"`
 
 	RequestId *string `type:"string"`
 }
@@ -196,7 +196,7 @@ func (s DescribeNetworkAclAttributesOutput) GoString() string {
 }
 
 // SetNetworkAclAttribute sets the NetworkAclAttribute field's value.
-func (s *DescribeNetworkAclAttributesOutput) SetNetworkAclAttribute(v []*NetworkAclAttributeForDescribeNetworkAclAttributesOutput) *DescribeNetworkAclAttributesOutput {
+func (s *DescribeNetworkAclAttributesOutput) SetNetworkAclAttribute(v *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) *DescribeNetworkAclAttributesOutput {
 	s.NetworkAclAttribute = v
 	return s
 }

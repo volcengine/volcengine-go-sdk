@@ -148,7 +148,7 @@ type BandwidthPackageForDescribeBandwidthPackagesOutput struct {
 
 	BandwidthPackageName *string `type:"string"`
 
-	BillingType *string `type:"string"`
+	BillingType *int32 `type:"int32"`
 
 	BusinessStatus *string `type:"string"`
 
@@ -160,11 +160,15 @@ type BandwidthPackageForDescribeBandwidthPackagesOutput struct {
 
 	EipAddresses []*EipAddressForDescribeBandwidthPackagesOutput `type:"list"`
 
+	ExpiredTime *string `type:"string"`
+
 	ISP *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	Protocol *string `type:"string"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -204,7 +208,7 @@ func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetBandwidthPackage
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetBillingType(v string) *BandwidthPackageForDescribeBandwidthPackagesOutput {
+func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetBillingType(v int32) *BandwidthPackageForDescribeBandwidthPackagesOutput {
 	s.BillingType = &v
 	return s
 }
@@ -239,6 +243,12 @@ func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetEipAddresses(v [
 	return s
 }
 
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetExpiredTime(v string) *BandwidthPackageForDescribeBandwidthPackagesOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
 // SetISP sets the ISP field's value.
 func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetISP(v string) *BandwidthPackageForDescribeBandwidthPackagesOutput {
 	s.ISP = &v
@@ -254,6 +264,12 @@ func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetOverdueTime(v st
 // SetProjectName sets the ProjectName field's value.
 func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetProjectName(v string) *BandwidthPackageForDescribeBandwidthPackagesOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetProtocol(v string) *BandwidthPackageForDescribeBandwidthPackagesOutput {
+	s.Protocol = &v
 	return s
 }
 
@@ -288,13 +304,15 @@ type DescribeBandwidthPackagesInput struct {
 
 	BandwidthPackageName *string `type:"string"`
 
-	ISP *string `type:"string"`
+	ISP *string `type:"string" enum:"ISPForDescribeBandwidthPackagesInput"`
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
+
+	Protocol *string `type:"string" enum:"ProtocolForDescribeBandwidthPackagesInput"`
 
 	SecurityProtectionEnabled *bool `type:"boolean"`
 
@@ -309,6 +327,19 @@ func (s DescribeBandwidthPackagesInput) String() string {
 // GoString returns the string representation
 func (s DescribeBandwidthPackagesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeBandwidthPackagesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeBandwidthPackagesInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBandwidthPackageIds sets the BandwidthPackageIds field's value.
@@ -344,6 +375,12 @@ func (s *DescribeBandwidthPackagesInput) SetPageSize(v int32) *DescribeBandwidth
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeBandwidthPackagesInput) SetProjectName(v string) *DescribeBandwidthPackagesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *DescribeBandwidthPackagesInput) SetProtocol(v string) *DescribeBandwidthPackagesInput {
+	s.Protocol = &v
 	return s
 }
 
@@ -504,3 +541,40 @@ func (s *TagForDescribeBandwidthPackagesOutput) SetValue(v string) *TagForDescri
 	s.Value = &v
 	return s
 }
+
+const (
+	// ISPForDescribeBandwidthPackagesInputBgp is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputBgp = "BGP"
+
+	// ISPForDescribeBandwidthPackagesInputSingleLineBgp is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputSingleLineBgp = "SingleLine_BGP"
+
+	// ISPForDescribeBandwidthPackagesInputFusionBgp is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputFusionBgp = "Fusion_BGP"
+
+	// ISPForDescribeBandwidthPackagesInputChinaMobile is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputChinaMobile = "ChinaMobile"
+
+	// ISPForDescribeBandwidthPackagesInputChinaUnicom is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputChinaUnicom = "ChinaUnicom"
+
+	// ISPForDescribeBandwidthPackagesInputChinaTelecom is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputChinaTelecom = "ChinaTelecom"
+
+	// ISPForDescribeBandwidthPackagesInputChinaMobileValue is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputChinaMobileValue = "ChinaMobile_Value"
+
+	// ISPForDescribeBandwidthPackagesInputChinaUnicomValue is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputChinaUnicomValue = "ChinaUnicom_Value"
+
+	// ISPForDescribeBandwidthPackagesInputChinaTelecomValue is a ISPForDescribeBandwidthPackagesInput enum value
+	ISPForDescribeBandwidthPackagesInputChinaTelecomValue = "ChinaTelecom_Value"
+)
+
+const (
+	// ProtocolForDescribeBandwidthPackagesInputIpv4 is a ProtocolForDescribeBandwidthPackagesInput enum value
+	ProtocolForDescribeBandwidthPackagesInputIpv4 = "IPv4"
+
+	// ProtocolForDescribeBandwidthPackagesInputIpv6 is a ProtocolForDescribeBandwidthPackagesInput enum value
+	ProtocolForDescribeBandwidthPackagesInputIpv6 = "IPv6"
+)

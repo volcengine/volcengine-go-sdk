@@ -220,6 +220,8 @@ type DescribeNetworkInterfaceAttributesOutput struct {
 
 	DeviceId *string `type:"string"`
 
+	IPv6Sets []*string `type:"list"`
+
 	MacAddress *string `type:"string"`
 
 	NetworkInterfaceId *string `type:"string"`
@@ -294,6 +296,12 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetDescription(v string) *Des
 // SetDeviceId sets the DeviceId field's value.
 func (s *DescribeNetworkInterfaceAttributesOutput) SetDeviceId(v string) *DescribeNetworkInterfaceAttributesOutput {
 	s.DeviceId = &v
+	return s
+}
+
+// SetIPv6Sets sets the IPv6Sets field's value.
+func (s *DescribeNetworkInterfaceAttributesOutput) SetIPv6Sets(v []*string) *DescribeNetworkInterfaceAttributesOutput {
+	s.IPv6Sets = v
 	return s
 }
 
@@ -405,7 +413,7 @@ func (s *DescribeNetworkInterfaceAttributesOutput) SetZoneId(v string) *Describe
 	return s
 }
 
-type PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput struct {
+type PrivateIpSetForDescribeNetworkInterfaceAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	AssociatedElasticIp *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput `type:"structure"`
@@ -413,6 +421,40 @@ type PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput struct {
 	Primary *bool `type:"boolean"`
 
 	PrivateIpAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
+	s.AssociatedElasticIp = v
+	return s
+}
+
+// SetPrimary sets the Primary field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetPrimary(v bool) *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
+	s.Primary = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpAddress(v string) *PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
+	s.PrivateIpAddress = &v
+	return s
+}
+
+type PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	PrivateIpSet []*PrivateIpSetForDescribeNetworkInterfaceAttributesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -425,21 +467,9 @@ func (s PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) GoString() str
 	return s.String()
 }
 
-// SetAssociatedElasticIp sets the AssociatedElasticIp field's value.
-func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetAssociatedElasticIp(v *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
-	s.AssociatedElasticIp = v
-	return s
-}
-
-// SetPrimary sets the Primary field's value.
-func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetPrimary(v bool) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
-	s.Primary = &v
-	return s
-}
-
-// SetPrivateIpAddress sets the PrivateIpAddress field's value.
-func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpAddress(v string) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
-	s.PrivateIpAddress = &v
+// SetPrivateIpSet sets the PrivateIpSet field's value.
+func (s *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput) SetPrivateIpSet(v []*PrivateIpSetForDescribeNetworkInterfaceAttributesOutput) *PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
+	s.PrivateIpSet = v
 	return s
 }
 

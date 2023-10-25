@@ -144,7 +144,7 @@ type DescribeSecurityGroupsInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -165,6 +165,19 @@ func (s DescribeSecurityGroupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeSecurityGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSecurityGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSecurityGroupsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -278,6 +291,8 @@ type SecurityGroupForDescribeSecurityGroupsOutput struct {
 
 	SecurityGroupName *string `type:"string"`
 
+	ServiceManaged *bool `type:"boolean"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeSecurityGroupsOutput `type:"list"`
@@ -324,6 +339,12 @@ func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupId(v stri
 // SetSecurityGroupName sets the SecurityGroupName field's value.
 func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetSecurityGroupName(v string) *SecurityGroupForDescribeSecurityGroupsOutput {
 	s.SecurityGroupName = &v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *SecurityGroupForDescribeSecurityGroupsOutput) SetServiceManaged(v bool) *SecurityGroupForDescribeSecurityGroupsOutput {
+	s.ServiceManaged = &v
 	return s
 }
 

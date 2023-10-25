@@ -144,9 +144,13 @@ type CreateNetworkInterfaceInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	NetworkInterfaceName *string `type:"string"`
+	Ipv6Address []*string `type:"list"`
+
+	Ipv6AddressCount *int32 `type:"int32"`
+
+	NetworkInterfaceName *string `min:"1" max:"128" type:"string"`
 
 	PortSecurityEnabled *bool `type:"boolean"`
 
@@ -158,8 +162,7 @@ type CreateNetworkInterfaceInput struct {
 
 	SecondaryPrivateIpAddressCount *int32 `type:"int32"`
 
-	// SecurityGroupIds is a required field
-	SecurityGroupIds []*string `type:"list" required:"true"`
+	SecurityGroupIds []*string `type:"list"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -180,8 +183,17 @@ func (s CreateNetworkInterfaceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateNetworkInterfaceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateNetworkInterfaceInput"}
-	if s.SecurityGroupIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NetworkInterfaceName", 1))
+	}
+	if s.NetworkInterfaceName != nil && len(*s.NetworkInterfaceName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("NetworkInterfaceName", 128, *s.NetworkInterfaceName))
 	}
 	if s.SubnetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
@@ -202,6 +214,18 @@ func (s *CreateNetworkInterfaceInput) SetClientToken(v string) *CreateNetworkInt
 // SetDescription sets the Description field's value.
 func (s *CreateNetworkInterfaceInput) SetDescription(v string) *CreateNetworkInterfaceInput {
 	s.Description = &v
+	return s
+}
+
+// SetIpv6Address sets the Ipv6Address field's value.
+func (s *CreateNetworkInterfaceInput) SetIpv6Address(v []*string) *CreateNetworkInterfaceInput {
+	s.Ipv6Address = v
+	return s
+}
+
+// SetIpv6AddressCount sets the Ipv6AddressCount field's value.
+func (s *CreateNetworkInterfaceInput) SetIpv6AddressCount(v int32) *CreateNetworkInterfaceInput {
+	s.Ipv6AddressCount = &v
 	return s
 }
 

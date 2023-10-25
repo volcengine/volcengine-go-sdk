@@ -144,7 +144,7 @@ type DescribePrefixListAssociationsInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	// PrefixListId is a required field
 	PrefixListId *string `type:"string" required:"true"`
@@ -165,6 +165,9 @@ func (s DescribePrefixListAssociationsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribePrefixListAssociationsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribePrefixListAssociationsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.PrefixListId == nil {
 		invalidParams.Add(request.NewErrParamRequired("PrefixListId"))
 	}

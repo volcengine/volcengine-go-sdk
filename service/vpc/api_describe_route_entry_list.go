@@ -152,7 +152,7 @@ type DescribeRouteEntryListInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	RouteEntryId *string `type:"string"`
 
@@ -177,6 +177,9 @@ func (s DescribeRouteEntryListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeRouteEntryListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeRouteEntryListInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
 	if s.RouteTableId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RouteTableId"))
 	}

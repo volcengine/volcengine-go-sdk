@@ -150,7 +150,7 @@ type DisassociateHaVipInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateHaVipInput"`
 }
 
 // String returns the string representation
@@ -226,3 +226,11 @@ func (s *DisassociateHaVipOutput) SetRequestId(v string) *DisassociateHaVipOutpu
 	s.RequestId = &v
 	return s
 }
+
+const (
+	// InstanceTypeForDisassociateHaVipInputNetworkInterface is a InstanceTypeForDisassociateHaVipInput enum value
+	InstanceTypeForDisassociateHaVipInputNetworkInterface = "NetworkInterface"
+
+	// InstanceTypeForDisassociateHaVipInputEcsInstance is a InstanceTypeForDisassociateHaVipInput enum value
+	InstanceTypeForDisassociateHaVipInputEcsInstance = "EcsInstance"
+)

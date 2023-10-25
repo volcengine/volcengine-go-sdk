@@ -180,9 +180,11 @@ func (s *AssociateCenForDescribeVpcsOutput) SetCenStatus(v string) *AssociateCen
 type DescribeVpcsInput struct {
 	_ struct{} `type:"structure"`
 
+	IsDefault *bool `type:"boolean"`
+
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -201,6 +203,25 @@ func (s DescribeVpcsInput) String() string {
 // GoString returns the string representation
 func (s DescribeVpcsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeVpcsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeVpcsInput"}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetIsDefault sets the IsDefault field's value.
+func (s *DescribeVpcsInput) SetIsDefault(v bool) *DescribeVpcsInput {
+	s.IsDefault = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -370,9 +391,11 @@ type VpcForDescribeVpcsOutput struct {
 
 	DnsServers []*string `type:"list"`
 
+	IsDefault *bool `type:"boolean"`
+
 	NatGatewayIds []*string `type:"list"`
 
-	NetworkAclNum *int32 `type:"int32"`
+	NetworkAclNum *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -389,6 +412,8 @@ type VpcForDescribeVpcsOutput struct {
 	Tags []*TagForDescribeVpcsOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
+
+	UserCidrBlocks []*string `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -441,6 +466,12 @@ func (s *VpcForDescribeVpcsOutput) SetDnsServers(v []*string) *VpcForDescribeVpc
 	return s
 }
 
+// SetIsDefault sets the IsDefault field's value.
+func (s *VpcForDescribeVpcsOutput) SetIsDefault(v bool) *VpcForDescribeVpcsOutput {
+	s.IsDefault = &v
+	return s
+}
+
 // SetNatGatewayIds sets the NatGatewayIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetNatGatewayIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.NatGatewayIds = v
@@ -448,7 +479,7 @@ func (s *VpcForDescribeVpcsOutput) SetNatGatewayIds(v []*string) *VpcForDescribe
 }
 
 // SetNetworkAclNum sets the NetworkAclNum field's value.
-func (s *VpcForDescribeVpcsOutput) SetNetworkAclNum(v int32) *VpcForDescribeVpcsOutput {
+func (s *VpcForDescribeVpcsOutput) SetNetworkAclNum(v string) *VpcForDescribeVpcsOutput {
 	s.NetworkAclNum = &v
 	return s
 }
@@ -498,6 +529,12 @@ func (s *VpcForDescribeVpcsOutput) SetTags(v []*TagForDescribeVpcsOutput) *VpcFo
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *VpcForDescribeVpcsOutput) SetUpdateTime(v string) *VpcForDescribeVpcsOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+// SetUserCidrBlocks sets the UserCidrBlocks field's value.
+func (s *VpcForDescribeVpcsOutput) SetUserCidrBlocks(v []*string) *VpcForDescribeVpcsOutput {
+	s.UserCidrBlocks = v
 	return s
 }
 

@@ -145,11 +145,11 @@ type ModifyEipAddressAttributesInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
-	Bandwidth *int32 `type:"int32"`
+	Bandwidth *int32 `min:"1" max:"1000" type:"int32"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
-	Name *string `type:"string"`
+	Name *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -167,6 +167,24 @@ func (s *ModifyEipAddressAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyEipAddressAttributesInput"}
 	if s.AllocationId == nil {
 		invalidParams.Add(request.NewErrParamRequired("AllocationId"))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
+	}
+	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.Name != nil && len(*s.Name) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("Name", 128, *s.Name))
 	}
 
 	if invalidParams.Len() > 0 {

@@ -145,9 +145,9 @@ type ModifyBandwidthPackageAttributesInput struct {
 	// BandwidthPackageId is a required field
 	BandwidthPackageId *string `type:"string" required:"true"`
 
-	BandwidthPackageName *string `type:"string"`
+	BandwidthPackageName *string `min:"1" max:"128" type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 }
 
 // String returns the string representation
@@ -165,6 +165,18 @@ func (s *ModifyBandwidthPackageAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyBandwidthPackageAttributesInput"}
 	if s.BandwidthPackageId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BandwidthPackageId"))
+	}
+	if s.BandwidthPackageName != nil && len(*s.BandwidthPackageName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("BandwidthPackageName", 1))
+	}
+	if s.BandwidthPackageName != nil && len(*s.BandwidthPackageName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("BandwidthPackageName", 128, *s.BandwidthPackageName))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 
 	if invalidParams.Len() > 0 {
