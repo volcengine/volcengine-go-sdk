@@ -148,9 +148,9 @@ type DescribeHaVipsInput struct {
 
 	IpAddress *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -203,13 +203,13 @@ func (s *DescribeHaVipsInput) SetIpAddress(v string) *DescribeHaVipsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeHaVipsInput) SetPageNumber(v int32) *DescribeHaVipsInput {
+func (s *DescribeHaVipsInput) SetPageNumber(v int64) *DescribeHaVipsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeHaVipsInput) SetPageSize(v int32) *DescribeHaVipsInput {
+func (s *DescribeHaVipsInput) SetPageSize(v int64) *DescribeHaVipsInput {
 	s.PageSize = &v
 	return s
 }
@@ -245,13 +245,13 @@ type DescribeHaVipsOutput struct {
 
 	HaVips []*HaVipForDescribeHaVipsOutput `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -271,13 +271,13 @@ func (s *DescribeHaVipsOutput) SetHaVips(v []*HaVipForDescribeHaVipsOutput) *Des
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeHaVipsOutput) SetPageNumber(v int32) *DescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetPageNumber(v int64) *DescribeHaVipsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeHaVipsOutput) SetPageSize(v int32) *DescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetPageSize(v int64) *DescribeHaVipsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -289,7 +289,7 @@ func (s *DescribeHaVipsOutput) SetRequestId(v string) *DescribeHaVipsOutput {
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeHaVipsOutput) SetTotalCount(v int32) *DescribeHaVipsOutput {
+func (s *DescribeHaVipsOutput) SetTotalCount(v int64) *DescribeHaVipsOutput {
 	s.TotalCount = &v
 	return s
 }

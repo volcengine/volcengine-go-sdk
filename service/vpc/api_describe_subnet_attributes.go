@@ -182,7 +182,7 @@ type DescribeSubnetAttributesOutput struct {
 
 	AccountId *string `type:"string"`
 
-	AvailableIpAddressCount *int32 `type:"int32"`
+	AvailableIpAddressCount *int64 `type:"integer"`
 
 	CidrBlock *string `type:"string"`
 
@@ -208,7 +208,7 @@ type DescribeSubnetAttributesOutput struct {
 
 	SubnetName *string `type:"string"`
 
-	TotalIpv4Count *int32 `type:"int32"`
+	TotalIpv4Count *int64 `type:"integer"`
 
 	UpdateTime *string `type:"string"`
 
@@ -234,7 +234,7 @@ func (s *DescribeSubnetAttributesOutput) SetAccountId(v string) *DescribeSubnetA
 }
 
 // SetAvailableIpAddressCount sets the AvailableIpAddressCount field's value.
-func (s *DescribeSubnetAttributesOutput) SetAvailableIpAddressCount(v int32) *DescribeSubnetAttributesOutput {
+func (s *DescribeSubnetAttributesOutput) SetAvailableIpAddressCount(v int64) *DescribeSubnetAttributesOutput {
 	s.AvailableIpAddressCount = &v
 	return s
 }
@@ -312,7 +312,7 @@ func (s *DescribeSubnetAttributesOutput) SetSubnetName(v string) *DescribeSubnet
 }
 
 // SetTotalIpv4Count sets the TotalIpv4Count field's value.
-func (s *DescribeSubnetAttributesOutput) SetTotalIpv4Count(v int32) *DescribeSubnetAttributesOutput {
+func (s *DescribeSubnetAttributesOutput) SetTotalIpv4Count(v int64) *DescribeSubnetAttributesOutput {
 	s.TotalIpv4Count = &v
 	return s
 }

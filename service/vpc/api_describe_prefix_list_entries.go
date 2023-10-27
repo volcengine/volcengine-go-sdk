@@ -142,9 +142,9 @@ func (c *VPC) DescribePrefixListEntriesWithContext(ctx volcengine.Context, input
 type DescribePrefixListEntriesInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	// PrefixListId is a required field
 	PrefixListId *string `type:"string" required:"true"`
@@ -177,13 +177,13 @@ func (s *DescribePrefixListEntriesInput) Validate() error {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribePrefixListEntriesInput) SetPageNumber(v int32) *DescribePrefixListEntriesInput {
+func (s *DescribePrefixListEntriesInput) SetPageNumber(v int64) *DescribePrefixListEntriesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribePrefixListEntriesInput) SetPageSize(v int32) *DescribePrefixListEntriesInput {
+func (s *DescribePrefixListEntriesInput) SetPageSize(v int64) *DescribePrefixListEntriesInput {
 	s.PageSize = &v
 	return s
 }
@@ -199,15 +199,15 @@ type DescribePrefixListEntriesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	PrefixListEntries []*PrefixListEntryForDescribePrefixListEntriesOutput `type:"list"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -221,13 +221,13 @@ func (s DescribePrefixListEntriesOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribePrefixListEntriesOutput) SetPageNumber(v int32) *DescribePrefixListEntriesOutput {
+func (s *DescribePrefixListEntriesOutput) SetPageNumber(v int64) *DescribePrefixListEntriesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribePrefixListEntriesOutput) SetPageSize(v int32) *DescribePrefixListEntriesOutput {
+func (s *DescribePrefixListEntriesOutput) SetPageSize(v int64) *DescribePrefixListEntriesOutput {
 	s.PageSize = &v
 	return s
 }
@@ -245,7 +245,7 @@ func (s *DescribePrefixListEntriesOutput) SetRequestId(v string) *DescribePrefix
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribePrefixListEntriesOutput) SetTotalCount(v int32) *DescribePrefixListEntriesOutput {
+func (s *DescribePrefixListEntriesOutput) SetTotalCount(v int64) *DescribePrefixListEntriesOutput {
 	s.TotalCount = &v
 	return s
 }

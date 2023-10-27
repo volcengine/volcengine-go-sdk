@@ -142,13 +142,13 @@ func (c *VPC) DescribeBandwidthPackagesWithContext(ctx volcengine.Context, input
 type BandwidthPackageForDescribeBandwidthPackagesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int32 `type:"int32"`
+	Bandwidth *int64 `type:"integer"`
 
 	BandwidthPackageId *string `type:"string"`
 
 	BandwidthPackageName *string `type:"string"`
 
-	BillingType *int32 `type:"int32"`
+	BillingType *int64 `type:"integer"`
 
 	BusinessStatus *string `type:"string"`
 
@@ -190,7 +190,7 @@ func (s BandwidthPackageForDescribeBandwidthPackagesOutput) GoString() string {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetBandwidth(v int32) *BandwidthPackageForDescribeBandwidthPackagesOutput {
+func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetBandwidth(v int64) *BandwidthPackageForDescribeBandwidthPackagesOutput {
 	s.Bandwidth = &v
 	return s
 }
@@ -208,7 +208,7 @@ func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetBandwidthPackage
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetBillingType(v int32) *BandwidthPackageForDescribeBandwidthPackagesOutput {
+func (s *BandwidthPackageForDescribeBandwidthPackagesOutput) SetBillingType(v int64) *BandwidthPackageForDescribeBandwidthPackagesOutput {
 	s.BillingType = &v
 	return s
 }
@@ -306,9 +306,9 @@ type DescribeBandwidthPackagesInput struct {
 
 	ISP *string `type:"string" enum:"ISPForDescribeBandwidthPackagesInput"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -361,13 +361,13 @@ func (s *DescribeBandwidthPackagesInput) SetISP(v string) *DescribeBandwidthPack
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeBandwidthPackagesInput) SetPageNumber(v int32) *DescribeBandwidthPackagesInput {
+func (s *DescribeBandwidthPackagesInput) SetPageNumber(v int64) *DescribeBandwidthPackagesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeBandwidthPackagesInput) SetPageSize(v int32) *DescribeBandwidthPackagesInput {
+func (s *DescribeBandwidthPackagesInput) SetPageSize(v int64) *DescribeBandwidthPackagesInput {
 	s.PageSize = &v
 	return s
 }
@@ -403,13 +403,13 @@ type DescribeBandwidthPackagesOutput struct {
 
 	BandwidthPackages []*BandwidthPackageForDescribeBandwidthPackagesOutput `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -429,13 +429,13 @@ func (s *DescribeBandwidthPackagesOutput) SetBandwidthPackages(v []*BandwidthPac
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeBandwidthPackagesOutput) SetPageNumber(v int32) *DescribeBandwidthPackagesOutput {
+func (s *DescribeBandwidthPackagesOutput) SetPageNumber(v int64) *DescribeBandwidthPackagesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeBandwidthPackagesOutput) SetPageSize(v int32) *DescribeBandwidthPackagesOutput {
+func (s *DescribeBandwidthPackagesOutput) SetPageSize(v int64) *DescribeBandwidthPackagesOutput {
 	s.PageSize = &v
 	return s
 }
@@ -447,7 +447,7 @@ func (s *DescribeBandwidthPackagesOutput) SetRequestId(v string) *DescribeBandwi
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeBandwidthPackagesOutput) SetTotalCount(v int32) *DescribeBandwidthPackagesOutput {
+func (s *DescribeBandwidthPackagesOutput) SetTotalCount(v int64) *DescribeBandwidthPackagesOutput {
 	s.TotalCount = &v
 	return s
 }

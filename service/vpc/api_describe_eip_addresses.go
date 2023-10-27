@@ -148,7 +148,7 @@ type DescribeEipAddressesInput struct {
 
 	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
 
-	BillingType *int32 `min:"1" max:"3" type:"int32"`
+	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
 	EipAddresses []*string `type:"list"`
 
@@ -156,9 +156,9 @@ type DescribeEipAddressesInput struct {
 
 	Name *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -217,7 +217,7 @@ func (s *DescribeEipAddressesInput) SetAssociatedInstanceType(v string) *Describ
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *DescribeEipAddressesInput) SetBillingType(v int32) *DescribeEipAddressesInput {
+func (s *DescribeEipAddressesInput) SetBillingType(v int64) *DescribeEipAddressesInput {
 	s.BillingType = &v
 	return s
 }
@@ -241,13 +241,13 @@ func (s *DescribeEipAddressesInput) SetName(v string) *DescribeEipAddressesInput
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeEipAddressesInput) SetPageNumber(v int32) *DescribeEipAddressesInput {
+func (s *DescribeEipAddressesInput) SetPageNumber(v int64) *DescribeEipAddressesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeEipAddressesInput) SetPageSize(v int32) *DescribeEipAddressesInput {
+func (s *DescribeEipAddressesInput) SetPageSize(v int64) *DescribeEipAddressesInput {
 	s.PageSize = &v
 	return s
 }
@@ -283,13 +283,13 @@ type DescribeEipAddressesOutput struct {
 
 	EipAddresses []*EipAddressForDescribeEipAddressesOutput `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -309,13 +309,13 @@ func (s *DescribeEipAddressesOutput) SetEipAddresses(v []*EipAddressForDescribeE
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeEipAddressesOutput) SetPageNumber(v int32) *DescribeEipAddressesOutput {
+func (s *DescribeEipAddressesOutput) SetPageNumber(v int64) *DescribeEipAddressesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeEipAddressesOutput) SetPageSize(v int32) *DescribeEipAddressesOutput {
+func (s *DescribeEipAddressesOutput) SetPageSize(v int64) *DescribeEipAddressesOutput {
 	s.PageSize = &v
 	return s
 }
@@ -327,7 +327,7 @@ func (s *DescribeEipAddressesOutput) SetRequestId(v string) *DescribeEipAddresse
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeEipAddressesOutput) SetTotalCount(v int32) *DescribeEipAddressesOutput {
+func (s *DescribeEipAddressesOutput) SetTotalCount(v int64) *DescribeEipAddressesOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -339,11 +339,11 @@ type EipAddressForDescribeEipAddressesOutput struct {
 
 	AllocationTime *string `type:"string"`
 
-	Bandwidth *int32 `type:"int32"`
+	Bandwidth *int64 `type:"integer"`
 
 	BandwidthPackageId *string `type:"string"`
 
-	BillingType *int32 `type:"int32"`
+	BillingType *int64 `type:"integer"`
 
 	BusinessStatus *string `type:"string"`
 
@@ -401,7 +401,7 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetAllocationTime(v string) *E
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidth(v int32) *EipAddressForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidth(v int64) *EipAddressForDescribeEipAddressesOutput {
 	s.Bandwidth = &v
 	return s
 }
@@ -413,7 +413,7 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetBandwidthPackageId(v string
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *EipAddressForDescribeEipAddressesOutput) SetBillingType(v int32) *EipAddressForDescribeEipAddressesOutput {
+func (s *EipAddressForDescribeEipAddressesOutput) SetBillingType(v int64) *EipAddressForDescribeEipAddressesOutput {
 	s.BillingType = &v
 	return s
 }

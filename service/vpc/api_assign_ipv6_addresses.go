@@ -144,7 +144,7 @@ type AssignIpv6AddressesInput struct {
 
 	Ipv6Address []*string `type:"list"`
 
-	Ipv6AddressCount *int32 `type:"int32"`
+	Ipv6AddressCount *int64 `type:"integer"`
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
@@ -180,7 +180,7 @@ func (s *AssignIpv6AddressesInput) SetIpv6Address(v []*string) *AssignIpv6Addres
 }
 
 // SetIpv6AddressCount sets the Ipv6AddressCount field's value.
-func (s *AssignIpv6AddressesInput) SetIpv6AddressCount(v int32) *AssignIpv6AddressesInput {
+func (s *AssignIpv6AddressesInput) SetIpv6AddressCount(v int64) *AssignIpv6AddressesInput {
 	s.Ipv6AddressCount = &v
 	return s
 }

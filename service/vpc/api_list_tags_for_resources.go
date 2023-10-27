@@ -142,7 +142,7 @@ func (c *VPC) ListTagsForResourcesWithContext(ctx volcengine.Context, input *Lis
 type ListTagsForResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	MaxResults *int32 `max:"100" type:"int32"`
+	MaxResults *int64 `max:"100" type:"integer"`
 
 	NextToken *string `type:"string"`
 
@@ -183,7 +183,7 @@ func (s *ListTagsForResourcesInput) Validate() error {
 }
 
 // SetMaxResults sets the MaxResults field's value.
-func (s *ListTagsForResourcesInput) SetMaxResults(v int32) *ListTagsForResourcesInput {
+func (s *ListTagsForResourcesInput) SetMaxResults(v int64) *ListTagsForResourcesInput {
 	s.MaxResults = &v
 	return s
 }

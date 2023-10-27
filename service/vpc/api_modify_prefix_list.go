@@ -180,7 +180,7 @@ type ModifyPrefixListInput struct {
 
 	DryRun *string `type:"string"`
 
-	MaxEntries *int32 `type:"int32"`
+	MaxEntries *int64 `type:"integer"`
 
 	// PrefixListId is a required field
 	PrefixListId *string `type:"string" required:"true"`
@@ -250,7 +250,7 @@ func (s *ModifyPrefixListInput) SetDryRun(v string) *ModifyPrefixListInput {
 }
 
 // SetMaxEntries sets the MaxEntries field's value.
-func (s *ModifyPrefixListInput) SetMaxEntries(v int32) *ModifyPrefixListInput {
+func (s *ModifyPrefixListInput) SetMaxEntries(v int64) *ModifyPrefixListInput {
 	s.MaxEntries = &v
 	return s
 }

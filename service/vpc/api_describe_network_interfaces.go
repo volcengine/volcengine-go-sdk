@@ -180,9 +180,9 @@ type DescribeNetworkInterfacesInput struct {
 
 	NetworkInterfaceName *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	PrimaryIpAddresses []*string `type:"list"`
 
@@ -253,13 +253,13 @@ func (s *DescribeNetworkInterfacesInput) SetNetworkInterfaceName(v string) *Desc
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeNetworkInterfacesInput) SetPageNumber(v int32) *DescribeNetworkInterfacesInput {
+func (s *DescribeNetworkInterfacesInput) SetPageNumber(v int64) *DescribeNetworkInterfacesInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeNetworkInterfacesInput) SetPageSize(v int32) *DescribeNetworkInterfacesInput {
+func (s *DescribeNetworkInterfacesInput) SetPageSize(v int64) *DescribeNetworkInterfacesInput {
 	s.PageSize = &v
 	return s
 }
@@ -331,13 +331,13 @@ type DescribeNetworkInterfacesOutput struct {
 
 	NetworkInterfaceSets []*NetworkInterfaceSetForDescribeNetworkInterfacesOutput `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -357,13 +357,13 @@ func (s *DescribeNetworkInterfacesOutput) SetNetworkInterfaceSets(v []*NetworkIn
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeNetworkInterfacesOutput) SetPageNumber(v int32) *DescribeNetworkInterfacesOutput {
+func (s *DescribeNetworkInterfacesOutput) SetPageNumber(v int64) *DescribeNetworkInterfacesOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeNetworkInterfacesOutput) SetPageSize(v int32) *DescribeNetworkInterfacesOutput {
+func (s *DescribeNetworkInterfacesOutput) SetPageSize(v int64) *DescribeNetworkInterfacesOutput {
 	s.PageSize = &v
 	return s
 }
@@ -375,7 +375,7 @@ func (s *DescribeNetworkInterfacesOutput) SetRequestId(v string) *DescribeNetwor
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeNetworkInterfacesOutput) SetTotalCount(v int32) *DescribeNetworkInterfacesOutput {
+func (s *DescribeNetworkInterfacesOutput) SetTotalCount(v int64) *DescribeNetworkInterfacesOutput {
 	s.TotalCount = &v
 	return s
 }

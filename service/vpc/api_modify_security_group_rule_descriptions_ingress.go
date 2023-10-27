@@ -149,14 +149,14 @@ type ModifySecurityGroupRuleDescriptionsIngressInput struct {
 	Policy *string `type:"string"`
 
 	// PortEnd is a required field
-	PortEnd *int32 `type:"int32" required:"true"`
+	PortEnd *int64 `type:"integer" required:"true"`
 
 	// PortStart is a required field
-	PortStart *int32 `type:"int32" required:"true"`
+	PortStart *int64 `type:"integer" required:"true"`
 
 	PrefixListId *string `type:"string"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int64 `type:"integer"`
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
@@ -218,13 +218,13 @@ func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPolicy(v string) *M
 }
 
 // SetPortEnd sets the PortEnd field's value.
-func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortEnd(v int32) *ModifySecurityGroupRuleDescriptionsIngressInput {
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortEnd(v int64) *ModifySecurityGroupRuleDescriptionsIngressInput {
 	s.PortEnd = &v
 	return s
 }
 
 // SetPortStart sets the PortStart field's value.
-func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortStart(v int32) *ModifySecurityGroupRuleDescriptionsIngressInput {
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPortStart(v int64) *ModifySecurityGroupRuleDescriptionsIngressInput {
 	s.PortStart = &v
 	return s
 }
@@ -236,7 +236,7 @@ func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPrefixListId(v stri
 }
 
 // SetPriority sets the Priority field's value.
-func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPriority(v int32) *ModifySecurityGroupRuleDescriptionsIngressInput {
+func (s *ModifySecurityGroupRuleDescriptionsIngressInput) SetPriority(v int64) *ModifySecurityGroupRuleDescriptionsIngressInput {
 	s.Priority = &v
 	return s
 }

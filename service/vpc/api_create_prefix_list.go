@@ -151,7 +151,7 @@ type CreatePrefixListInput struct {
 	IpVersion *string `type:"string" enum:"IpVersionForCreatePrefixListInput"`
 
 	// MaxEntries is a required field
-	MaxEntries *int32 `type:"int32" required:"true"`
+	MaxEntries *int64 `type:"integer" required:"true"`
 
 	PrefixListEntries []*PrefixListEntryForCreatePrefixListInput `type:"list"`
 
@@ -220,7 +220,7 @@ func (s *CreatePrefixListInput) SetIpVersion(v string) *CreatePrefixListInput {
 }
 
 // SetMaxEntries sets the MaxEntries field's value.
-func (s *CreatePrefixListInput) SetMaxEntries(v int32) *CreatePrefixListInput {
+func (s *CreatePrefixListInput) SetMaxEntries(v int64) *CreatePrefixListInput {
 	s.MaxEntries = &v
 	return s
 }

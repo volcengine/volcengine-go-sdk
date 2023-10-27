@@ -348,15 +348,15 @@ type PermissionForDescribeSecurityGroupAttributesOutput struct {
 
 	Policy *string `type:"string"`
 
-	PortEnd *int32 `type:"int32"`
+	PortEnd *int64 `type:"integer"`
 
-	PortStart *int32 `type:"int32"`
+	PortStart *int64 `type:"integer"`
 
 	PrefixListCidrs []*string `type:"list"`
 
 	PrefixListId *string `type:"string"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
 
@@ -406,13 +406,13 @@ func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPolicy(v string)
 }
 
 // SetPortEnd sets the PortEnd field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortEnd(v int32) *PermissionForDescribeSecurityGroupAttributesOutput {
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortEnd(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
 	s.PortEnd = &v
 	return s
 }
 
 // SetPortStart sets the PortStart field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortStart(v int32) *PermissionForDescribeSecurityGroupAttributesOutput {
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPortStart(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
 	s.PortStart = &v
 	return s
 }
@@ -430,7 +430,7 @@ func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPrefixListId(v s
 }
 
 // SetPriority sets the Priority field's value.
-func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPriority(v int32) *PermissionForDescribeSecurityGroupAttributesOutput {
+func (s *PermissionForDescribeSecurityGroupAttributesOutput) SetPriority(v int64) *PermissionForDescribeSecurityGroupAttributesOutput {
 	s.Priority = &v
 	return s
 }

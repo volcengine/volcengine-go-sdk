@@ -144,9 +144,9 @@ type DescribeSubnetsInput struct {
 
 	IsDefault *bool `type:"boolean"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -191,13 +191,13 @@ func (s *DescribeSubnetsInput) SetIsDefault(v bool) *DescribeSubnetsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSubnetsInput) SetPageNumber(v int32) *DescribeSubnetsInput {
+func (s *DescribeSubnetsInput) SetPageNumber(v int64) *DescribeSubnetsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeSubnetsInput) SetPageSize(v int32) *DescribeSubnetsInput {
+func (s *DescribeSubnetsInput) SetPageSize(v int64) *DescribeSubnetsInput {
 	s.PageSize = &v
 	return s
 }
@@ -243,15 +243,15 @@ type DescribeSubnetsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
 	Subnets []*SubnetForDescribeSubnetsOutput `type:"list"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -265,13 +265,13 @@ func (s DescribeSubnetsOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSubnetsOutput) SetPageNumber(v int32) *DescribeSubnetsOutput {
+func (s *DescribeSubnetsOutput) SetPageNumber(v int64) *DescribeSubnetsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeSubnetsOutput) SetPageSize(v int32) *DescribeSubnetsOutput {
+func (s *DescribeSubnetsOutput) SetPageSize(v int64) *DescribeSubnetsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -289,7 +289,7 @@ func (s *DescribeSubnetsOutput) SetSubnets(v []*SubnetForDescribeSubnetsOutput) 
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeSubnetsOutput) SetTotalCount(v int32) *DescribeSubnetsOutput {
+func (s *DescribeSubnetsOutput) SetTotalCount(v int64) *DescribeSubnetsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -329,7 +329,7 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	AccountId *string `type:"string"`
 
-	AvailableIpAddressCount *int32 `type:"int32"`
+	AvailableIpAddressCount *int64 `type:"integer"`
 
 	CidrBlock *string `type:"string"`
 
@@ -353,7 +353,7 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	SubnetName *string `type:"string"`
 
-	TotalIpv4Count *int32 `type:"int32"`
+	TotalIpv4Count *int64 `type:"integer"`
 
 	UpdateTime *string `type:"string"`
 
@@ -379,7 +379,7 @@ func (s *SubnetForDescribeSubnetsOutput) SetAccountId(v string) *SubnetForDescri
 }
 
 // SetAvailableIpAddressCount sets the AvailableIpAddressCount field's value.
-func (s *SubnetForDescribeSubnetsOutput) SetAvailableIpAddressCount(v int32) *SubnetForDescribeSubnetsOutput {
+func (s *SubnetForDescribeSubnetsOutput) SetAvailableIpAddressCount(v int64) *SubnetForDescribeSubnetsOutput {
 	s.AvailableIpAddressCount = &v
 	return s
 }
@@ -451,7 +451,7 @@ func (s *SubnetForDescribeSubnetsOutput) SetSubnetName(v string) *SubnetForDescr
 }
 
 // SetTotalIpv4Count sets the TotalIpv4Count field's value.
-func (s *SubnetForDescribeSubnetsOutput) SetTotalIpv4Count(v int32) *SubnetForDescribeSubnetsOutput {
+func (s *SubnetForDescribeSubnetsOutput) SetTotalIpv4Count(v int64) *SubnetForDescribeSubnetsOutput {
 	s.TotalIpv4Count = &v
 	return s
 }

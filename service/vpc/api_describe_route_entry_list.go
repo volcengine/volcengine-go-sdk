@@ -150,9 +150,9 @@ type DescribeRouteEntryListInput struct {
 
 	NextHopType *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	RouteEntryId *string `type:"string"`
 
@@ -215,13 +215,13 @@ func (s *DescribeRouteEntryListInput) SetNextHopType(v string) *DescribeRouteEnt
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeRouteEntryListInput) SetPageNumber(v int32) *DescribeRouteEntryListInput {
+func (s *DescribeRouteEntryListInput) SetPageNumber(v int64) *DescribeRouteEntryListInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeRouteEntryListInput) SetPageSize(v int32) *DescribeRouteEntryListInput {
+func (s *DescribeRouteEntryListInput) SetPageSize(v int64) *DescribeRouteEntryListInput {
 	s.PageSize = &v
 	return s
 }
@@ -255,15 +255,15 @@ type DescribeRouteEntryListOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
 	RouteEntries []*RouteEntryForDescribeRouteEntryListOutput `type:"list"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -277,13 +277,13 @@ func (s DescribeRouteEntryListOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeRouteEntryListOutput) SetPageNumber(v int32) *DescribeRouteEntryListOutput {
+func (s *DescribeRouteEntryListOutput) SetPageNumber(v int64) *DescribeRouteEntryListOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeRouteEntryListOutput) SetPageSize(v int32) *DescribeRouteEntryListOutput {
+func (s *DescribeRouteEntryListOutput) SetPageSize(v int64) *DescribeRouteEntryListOutput {
 	s.PageSize = &v
 	return s
 }
@@ -301,7 +301,7 @@ func (s *DescribeRouteEntryListOutput) SetRouteEntries(v []*RouteEntryForDescrib
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeRouteEntryListOutput) SetTotalCount(v int32) *DescribeRouteEntryListOutput {
+func (s *DescribeRouteEntryListOutput) SetTotalCount(v int64) *DescribeRouteEntryListOutput {
 	s.TotalCount = &v
 	return s
 }

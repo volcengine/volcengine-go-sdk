@@ -184,11 +184,11 @@ type DescribeEipAddressAttributesOutput struct {
 
 	AllocationTime *string `type:"string"`
 
-	Bandwidth *int32 `type:"int32"`
+	Bandwidth *int64 `type:"integer"`
 
 	BandwidthPackageId *string `type:"string"`
 
-	BillingType *int32 `type:"int32"`
+	BillingType *int64 `type:"integer"`
 
 	BusinessStatus *string `type:"string"`
 
@@ -248,7 +248,7 @@ func (s *DescribeEipAddressAttributesOutput) SetAllocationTime(v string) *Descri
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *DescribeEipAddressAttributesOutput) SetBandwidth(v int32) *DescribeEipAddressAttributesOutput {
+func (s *DescribeEipAddressAttributesOutput) SetBandwidth(v int64) *DescribeEipAddressAttributesOutput {
 	s.Bandwidth = &v
 	return s
 }
@@ -260,7 +260,7 @@ func (s *DescribeEipAddressAttributesOutput) SetBandwidthPackageId(v string) *De
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *DescribeEipAddressAttributesOutput) SetBillingType(v int32) *DescribeEipAddressAttributesOutput {
+func (s *DescribeEipAddressAttributesOutput) SetBillingType(v int64) *DescribeEipAddressAttributesOutput {
 	s.BillingType = &v
 	return s
 }

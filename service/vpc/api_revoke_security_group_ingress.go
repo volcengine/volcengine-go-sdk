@@ -149,14 +149,14 @@ type RevokeSecurityGroupIngressInput struct {
 	Policy *string `type:"string"`
 
 	// PortEnd is a required field
-	PortEnd *int32 `type:"int32" required:"true"`
+	PortEnd *int64 `type:"integer" required:"true"`
 
 	// PortStart is a required field
-	PortStart *int32 `type:"int32" required:"true"`
+	PortStart *int64 `type:"integer" required:"true"`
 
 	PrefixListId *string `type:"string"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int64 `type:"integer"`
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
@@ -218,13 +218,13 @@ func (s *RevokeSecurityGroupIngressInput) SetPolicy(v string) *RevokeSecurityGro
 }
 
 // SetPortEnd sets the PortEnd field's value.
-func (s *RevokeSecurityGroupIngressInput) SetPortEnd(v int32) *RevokeSecurityGroupIngressInput {
+func (s *RevokeSecurityGroupIngressInput) SetPortEnd(v int64) *RevokeSecurityGroupIngressInput {
 	s.PortEnd = &v
 	return s
 }
 
 // SetPortStart sets the PortStart field's value.
-func (s *RevokeSecurityGroupIngressInput) SetPortStart(v int32) *RevokeSecurityGroupIngressInput {
+func (s *RevokeSecurityGroupIngressInput) SetPortStart(v int64) *RevokeSecurityGroupIngressInput {
 	s.PortStart = &v
 	return s
 }
@@ -236,7 +236,7 @@ func (s *RevokeSecurityGroupIngressInput) SetPrefixListId(v string) *RevokeSecur
 }
 
 // SetPriority sets the Priority field's value.
-func (s *RevokeSecurityGroupIngressInput) SetPriority(v int32) *RevokeSecurityGroupIngressInput {
+func (s *RevokeSecurityGroupIngressInput) SetPriority(v int64) *RevokeSecurityGroupIngressInput {
 	s.Priority = &v
 	return s
 }

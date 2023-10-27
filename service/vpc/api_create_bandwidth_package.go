@@ -143,19 +143,19 @@ type CreateBandwidthPackageInput struct {
 	_ struct{} `type:"structure"`
 
 	// Bandwidth is a required field
-	Bandwidth *int32 `min:"2" max:"5000" type:"int32" required:"true"`
+	Bandwidth *int64 `min:"2" max:"5000" type:"integer" required:"true"`
 
 	BandwidthPackageName *string `min:"1" max:"128" type:"string"`
 
-	BillingType *int32 `min:"1" max:"4" type:"int32"`
+	BillingType *int64 `min:"1" max:"4" type:"integer"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
 	ISP *string `type:"string" enum:"ISPForCreateBandwidthPackageInput"`
 
-	Period *int32 `type:"int32"`
+	Period *int64 `type:"integer"`
 
-	PeriodUnit *int32 `min:"1" max:"2" type:"int32"`
+	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -220,7 +220,7 @@ func (s *CreateBandwidthPackageInput) Validate() error {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *CreateBandwidthPackageInput) SetBandwidth(v int32) *CreateBandwidthPackageInput {
+func (s *CreateBandwidthPackageInput) SetBandwidth(v int64) *CreateBandwidthPackageInput {
 	s.Bandwidth = &v
 	return s
 }
@@ -232,7 +232,7 @@ func (s *CreateBandwidthPackageInput) SetBandwidthPackageName(v string) *CreateB
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *CreateBandwidthPackageInput) SetBillingType(v int32) *CreateBandwidthPackageInput {
+func (s *CreateBandwidthPackageInput) SetBillingType(v int64) *CreateBandwidthPackageInput {
 	s.BillingType = &v
 	return s
 }
@@ -250,13 +250,13 @@ func (s *CreateBandwidthPackageInput) SetISP(v string) *CreateBandwidthPackageIn
 }
 
 // SetPeriod sets the Period field's value.
-func (s *CreateBandwidthPackageInput) SetPeriod(v int32) *CreateBandwidthPackageInput {
+func (s *CreateBandwidthPackageInput) SetPeriod(v int64) *CreateBandwidthPackageInput {
 	s.Period = &v
 	return s
 }
 
 // SetPeriodUnit sets the PeriodUnit field's value.
-func (s *CreateBandwidthPackageInput) SetPeriodUnit(v int32) *CreateBandwidthPackageInput {
+func (s *CreateBandwidthPackageInput) SetPeriodUnit(v int64) *CreateBandwidthPackageInput {
 	s.PeriodUnit = &v
 	return s
 }

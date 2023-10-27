@@ -142,9 +142,9 @@ func (c *VPC) DescribeSecurityGroupsWithContext(ctx volcengine.Context, input *D
 type DescribeSecurityGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -181,13 +181,13 @@ func (s *DescribeSecurityGroupsInput) Validate() error {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSecurityGroupsInput) SetPageNumber(v int32) *DescribeSecurityGroupsInput {
+func (s *DescribeSecurityGroupsInput) SetPageNumber(v int64) *DescribeSecurityGroupsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeSecurityGroupsInput) SetPageSize(v int32) *DescribeSecurityGroupsInput {
+func (s *DescribeSecurityGroupsInput) SetPageSize(v int64) *DescribeSecurityGroupsInput {
 	s.PageSize = &v
 	return s
 }
@@ -227,15 +227,15 @@ type DescribeSecurityGroupsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
 	SecurityGroups []*SecurityGroupForDescribeSecurityGroupsOutput `type:"list"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -249,13 +249,13 @@ func (s DescribeSecurityGroupsOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeSecurityGroupsOutput) SetPageNumber(v int32) *DescribeSecurityGroupsOutput {
+func (s *DescribeSecurityGroupsOutput) SetPageNumber(v int64) *DescribeSecurityGroupsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeSecurityGroupsOutput) SetPageSize(v int32) *DescribeSecurityGroupsOutput {
+func (s *DescribeSecurityGroupsOutput) SetPageSize(v int64) *DescribeSecurityGroupsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -273,7 +273,7 @@ func (s *DescribeSecurityGroupsOutput) SetSecurityGroups(v []*SecurityGroupForDe
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeSecurityGroupsOutput) SetTotalCount(v int32) *DescribeSecurityGroupsOutput {
+func (s *DescribeSecurityGroupsOutput) SetTotalCount(v int64) *DescribeSecurityGroupsOutput {
 	s.TotalCount = &v
 	return s
 }

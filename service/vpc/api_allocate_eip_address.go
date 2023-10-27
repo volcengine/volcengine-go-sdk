@@ -142,11 +142,11 @@ func (c *VPC) AllocateEipAddressWithContext(ctx volcengine.Context, input *Alloc
 type AllocateEipAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int32 `min:"1" max:"500" type:"int32"`
+	Bandwidth *int64 `min:"1" max:"500" type:"integer"`
 
 	BandwidthPackageId *string `type:"string"`
 
-	BillingType *int32 `min:"1" max:"3" type:"int32"`
+	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
 	ClientToken *string `type:"string"`
 
@@ -156,15 +156,15 @@ type AllocateEipAddressInput struct {
 
 	Name *string `min:"1" max:"128" type:"string"`
 
-	Period *int32 `type:"int32"`
+	Period *int64 `type:"integer"`
 
-	PeriodUnit *int32 `min:"1" max:"2" type:"int32"`
+	PeriodUnit *int64 `min:"1" max:"2" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
-	RenewPeriodTimes *int32 `type:"int32"`
+	RenewPeriodTimes *int64 `type:"integer"`
 
-	RenewType *int32 `min:"1" max:"3" type:"int32"`
+	RenewType *int64 `min:"1" max:"3" type:"integer"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -228,7 +228,7 @@ func (s *AllocateEipAddressInput) Validate() error {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *AllocateEipAddressInput) SetBandwidth(v int32) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetBandwidth(v int64) *AllocateEipAddressInput {
 	s.Bandwidth = &v
 	return s
 }
@@ -240,7 +240,7 @@ func (s *AllocateEipAddressInput) SetBandwidthPackageId(v string) *AllocateEipAd
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *AllocateEipAddressInput) SetBillingType(v int32) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetBillingType(v int64) *AllocateEipAddressInput {
 	s.BillingType = &v
 	return s
 }
@@ -270,13 +270,13 @@ func (s *AllocateEipAddressInput) SetName(v string) *AllocateEipAddressInput {
 }
 
 // SetPeriod sets the Period field's value.
-func (s *AllocateEipAddressInput) SetPeriod(v int32) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetPeriod(v int64) *AllocateEipAddressInput {
 	s.Period = &v
 	return s
 }
 
 // SetPeriodUnit sets the PeriodUnit field's value.
-func (s *AllocateEipAddressInput) SetPeriodUnit(v int32) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetPeriodUnit(v int64) *AllocateEipAddressInput {
 	s.PeriodUnit = &v
 	return s
 }
@@ -288,13 +288,13 @@ func (s *AllocateEipAddressInput) SetProjectName(v string) *AllocateEipAddressIn
 }
 
 // SetRenewPeriodTimes sets the RenewPeriodTimes field's value.
-func (s *AllocateEipAddressInput) SetRenewPeriodTimes(v int32) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetRenewPeriodTimes(v int64) *AllocateEipAddressInput {
 	s.RenewPeriodTimes = &v
 	return s
 }
 
 // SetRenewType sets the RenewType field's value.
-func (s *AllocateEipAddressInput) SetRenewType(v int32) *AllocateEipAddressInput {
+func (s *AllocateEipAddressInput) SetRenewType(v int64) *AllocateEipAddressInput {
 	s.RenewType = &v
 	return s
 }

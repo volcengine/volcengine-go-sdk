@@ -142,9 +142,9 @@ func (c *VPC) DescribePrefixListsWithContext(ctx volcengine.Context, input *Desc
 type DescribePrefixListsInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	// PrefixListIds is a required field
 	PrefixListIds []*string `type:"list" required:"true"`
@@ -178,13 +178,13 @@ func (s *DescribePrefixListsInput) Validate() error {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribePrefixListsInput) SetPageNumber(v int32) *DescribePrefixListsInput {
+func (s *DescribePrefixListsInput) SetPageNumber(v int64) *DescribePrefixListsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribePrefixListsInput) SetPageSize(v int32) *DescribePrefixListsInput {
+func (s *DescribePrefixListsInput) SetPageSize(v int64) *DescribePrefixListsInput {
 	s.PageSize = &v
 	return s
 }
@@ -212,15 +212,15 @@ type DescribePrefixListsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	PrefixLists []*PrefixListForDescribePrefixListsOutput `type:"list"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -234,13 +234,13 @@ func (s DescribePrefixListsOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribePrefixListsOutput) SetPageNumber(v int32) *DescribePrefixListsOutput {
+func (s *DescribePrefixListsOutput) SetPageNumber(v int64) *DescribePrefixListsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribePrefixListsOutput) SetPageSize(v int32) *DescribePrefixListsOutput {
+func (s *DescribePrefixListsOutput) SetPageSize(v int64) *DescribePrefixListsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -258,7 +258,7 @@ func (s *DescribePrefixListsOutput) SetRequestId(v string) *DescribePrefixListsO
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribePrefixListsOutput) SetTotalCount(v int32) *DescribePrefixListsOutput {
+func (s *DescribePrefixListsOutput) SetTotalCount(v int64) *DescribePrefixListsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -266,7 +266,7 @@ func (s *DescribePrefixListsOutput) SetTotalCount(v int32) *DescribePrefixListsO
 type PrefixListForDescribePrefixListsOutput struct {
 	_ struct{} `type:"structure"`
 
-	AssociationCount *int32 `type:"int32"`
+	AssociationCount *int64 `type:"integer"`
 
 	Cidrs []*string `type:"list"`
 
@@ -298,7 +298,7 @@ func (s PrefixListForDescribePrefixListsOutput) GoString() string {
 }
 
 // SetAssociationCount sets the AssociationCount field's value.
-func (s *PrefixListForDescribePrefixListsOutput) SetAssociationCount(v int32) *PrefixListForDescribePrefixListsOutput {
+func (s *PrefixListForDescribePrefixListsOutput) SetAssociationCount(v int64) *PrefixListForDescribePrefixListsOutput {
 	s.AssociationCount = &v
 	return s
 }

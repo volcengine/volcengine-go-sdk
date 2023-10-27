@@ -182,9 +182,9 @@ type DescribeVpcsInput struct {
 
 	IsDefault *bool `type:"boolean"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -225,13 +225,13 @@ func (s *DescribeVpcsInput) SetIsDefault(v bool) *DescribeVpcsInput {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeVpcsInput) SetPageNumber(v int32) *DescribeVpcsInput {
+func (s *DescribeVpcsInput) SetPageNumber(v int64) *DescribeVpcsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeVpcsInput) SetPageSize(v int32) *DescribeVpcsInput {
+func (s *DescribeVpcsInput) SetPageSize(v int64) *DescribeVpcsInput {
 	s.PageSize = &v
 	return s
 }
@@ -265,13 +265,13 @@ type DescribeVpcsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 
 	Vpcs []*VpcForDescribeVpcsOutput `type:"list"`
 }
@@ -287,13 +287,13 @@ func (s DescribeVpcsOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeVpcsOutput) SetPageNumber(v int32) *DescribeVpcsOutput {
+func (s *DescribeVpcsOutput) SetPageNumber(v int64) *DescribeVpcsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeVpcsOutput) SetPageSize(v int32) *DescribeVpcsOutput {
+func (s *DescribeVpcsOutput) SetPageSize(v int64) *DescribeVpcsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -305,7 +305,7 @@ func (s *DescribeVpcsOutput) SetRequestId(v string) *DescribeVpcsOutput {
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeVpcsOutput) SetTotalCount(v int32) *DescribeVpcsOutput {
+func (s *DescribeVpcsOutput) SetTotalCount(v int64) *DescribeVpcsOutput {
 	s.TotalCount = &v
 	return s
 }

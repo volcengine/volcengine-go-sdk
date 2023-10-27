@@ -142,9 +142,9 @@ func (c *VPC) DescribeRouteTableListWithContext(ctx volcengine.Context, input *D
 type DescribeRouteTableListInput struct {
 	_ struct{} `type:"structure"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -179,13 +179,13 @@ func (s *DescribeRouteTableListInput) Validate() error {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeRouteTableListInput) SetPageNumber(v int32) *DescribeRouteTableListInput {
+func (s *DescribeRouteTableListInput) SetPageNumber(v int64) *DescribeRouteTableListInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeRouteTableListInput) SetPageSize(v int32) *DescribeRouteTableListInput {
+func (s *DescribeRouteTableListInput) SetPageSize(v int64) *DescribeRouteTableListInput {
 	s.PageSize = &v
 	return s
 }
@@ -219,15 +219,15 @@ type DescribeRouteTableListOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
 	RouterTableList []*RouterTableListForDescribeRouteTableListOutput `type:"list"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -241,13 +241,13 @@ func (s DescribeRouteTableListOutput) GoString() string {
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeRouteTableListOutput) SetPageNumber(v int32) *DescribeRouteTableListOutput {
+func (s *DescribeRouteTableListOutput) SetPageNumber(v int64) *DescribeRouteTableListOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeRouteTableListOutput) SetPageSize(v int32) *DescribeRouteTableListOutput {
+func (s *DescribeRouteTableListOutput) SetPageSize(v int64) *DescribeRouteTableListOutput {
 	s.PageSize = &v
 	return s
 }
@@ -265,7 +265,7 @@ func (s *DescribeRouteTableListOutput) SetRouterTableList(v []*RouterTableListFo
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeRouteTableListOutput) SetTotalCount(v int32) *DescribeRouteTableListOutput {
+func (s *DescribeRouteTableListOutput) SetTotalCount(v int64) *DescribeRouteTableListOutput {
 	s.TotalCount = &v
 	return s
 }

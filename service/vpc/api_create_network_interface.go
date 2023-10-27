@@ -148,7 +148,7 @@ type CreateNetworkInterfaceInput struct {
 
 	Ipv6Address []*string `type:"list"`
 
-	Ipv6AddressCount *int32 `type:"int32"`
+	Ipv6AddressCount *int64 `type:"integer"`
 
 	NetworkInterfaceName *string `min:"1" max:"128" type:"string"`
 
@@ -160,7 +160,7 @@ type CreateNetworkInterfaceInput struct {
 
 	ProjectName *string `type:"string"`
 
-	SecondaryPrivateIpAddressCount *int32 `type:"int32"`
+	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
 
 	SecurityGroupIds []*string `type:"list"`
 
@@ -224,7 +224,7 @@ func (s *CreateNetworkInterfaceInput) SetIpv6Address(v []*string) *CreateNetwork
 }
 
 // SetIpv6AddressCount sets the Ipv6AddressCount field's value.
-func (s *CreateNetworkInterfaceInput) SetIpv6AddressCount(v int32) *CreateNetworkInterfaceInput {
+func (s *CreateNetworkInterfaceInput) SetIpv6AddressCount(v int64) *CreateNetworkInterfaceInput {
 	s.Ipv6AddressCount = &v
 	return s
 }
@@ -260,7 +260,7 @@ func (s *CreateNetworkInterfaceInput) SetProjectName(v string) *CreateNetworkInt
 }
 
 // SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
-func (s *CreateNetworkInterfaceInput) SetSecondaryPrivateIpAddressCount(v int32) *CreateNetworkInterfaceInput {
+func (s *CreateNetworkInterfaceInput) SetSecondaryPrivateIpAddressCount(v int64) *CreateNetworkInterfaceInput {
 	s.SecondaryPrivateIpAddressCount = &v
 	return s
 }

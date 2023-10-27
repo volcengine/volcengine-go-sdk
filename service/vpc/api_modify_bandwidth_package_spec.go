@@ -143,7 +143,7 @@ type ModifyBandwidthPackageSpecInput struct {
 	_ struct{} `type:"structure"`
 
 	// Bandwidth is a required field
-	Bandwidth *int32 `min:"2" max:"5000" type:"int32" required:"true"`
+	Bandwidth *int64 `min:"2" max:"5000" type:"integer" required:"true"`
 
 	// BandwidthPackageId is a required field
 	BandwidthPackageId *string `type:"string" required:"true"`
@@ -182,7 +182,7 @@ func (s *ModifyBandwidthPackageSpecInput) Validate() error {
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *ModifyBandwidthPackageSpecInput) SetBandwidth(v int32) *ModifyBandwidthPackageSpecInput {
+func (s *ModifyBandwidthPackageSpecInput) SetBandwidth(v int64) *ModifyBandwidthPackageSpecInput {
 	s.Bandwidth = &v
 	return s
 }

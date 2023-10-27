@@ -147,7 +147,7 @@ type AssignPrivateIpAddressesInput struct {
 
 	PrivateIpAddress []*string `type:"list"`
 
-	SecondaryPrivateIpAddressCount *int32 `type:"int32"`
+	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -186,7 +186,7 @@ func (s *AssignPrivateIpAddressesInput) SetPrivateIpAddress(v []*string) *Assign
 }
 
 // SetSecondaryPrivateIpAddressCount sets the SecondaryPrivateIpAddressCount field's value.
-func (s *AssignPrivateIpAddressesInput) SetSecondaryPrivateIpAddressCount(v int32) *AssignPrivateIpAddressesInput {
+func (s *AssignPrivateIpAddressesInput) SetSecondaryPrivateIpAddressCount(v int64) *AssignPrivateIpAddressesInput {
 	s.SecondaryPrivateIpAddressCount = &v
 	return s
 }

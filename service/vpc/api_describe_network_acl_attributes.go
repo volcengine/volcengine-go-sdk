@@ -222,7 +222,7 @@ type EgressAclEntryForDescribeNetworkAclAttributesOutput struct {
 
 	Port *string `type:"string"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
 }
@@ -274,7 +274,7 @@ func (s *EgressAclEntryForDescribeNetworkAclAttributesOutput) SetPort(v string) 
 }
 
 // SetPriority sets the Priority field's value.
-func (s *EgressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int32) *EgressAclEntryForDescribeNetworkAclAttributesOutput {
+func (s *EgressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int64) *EgressAclEntryForDescribeNetworkAclAttributesOutput {
 	s.Priority = &v
 	return s
 }
@@ -298,7 +298,7 @@ type IngressAclEntryForDescribeNetworkAclAttributesOutput struct {
 
 	Port *string `type:"string"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
 
@@ -346,7 +346,7 @@ func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetPort(v string)
 }
 
 // SetPriority sets the Priority field's value.
-func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int32) *IngressAclEntryForDescribeNetworkAclAttributesOutput {
+func (s *IngressAclEntryForDescribeNetworkAclAttributesOutput) SetPriority(v int64) *IngressAclEntryForDescribeNetworkAclAttributesOutput {
 	s.Priority = &v
 	return s
 }

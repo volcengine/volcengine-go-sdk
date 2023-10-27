@@ -146,7 +146,7 @@ type ModifySubnetAttributesInput struct {
 
 	EnableIpv6 *bool `type:"boolean"`
 
-	Ipv6CidrBlock *int32 `max:"255" type:"int32"`
+	Ipv6CidrBlock *int64 `max:"255" type:"integer"`
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
@@ -205,7 +205,7 @@ func (s *ModifySubnetAttributesInput) SetEnableIpv6(v bool) *ModifySubnetAttribu
 }
 
 // SetIpv6CidrBlock sets the Ipv6CidrBlock field's value.
-func (s *ModifySubnetAttributesInput) SetIpv6CidrBlock(v int32) *ModifySubnetAttributesInput {
+func (s *ModifySubnetAttributesInput) SetIpv6CidrBlock(v int64) *ModifySubnetAttributesInput {
 	s.Ipv6CidrBlock = &v
 	return s
 }

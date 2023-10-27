@@ -145,7 +145,7 @@ type ModifyEipAddressAttributesInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
-	Bandwidth *int32 `min:"1" max:"1000" type:"int32"`
+	Bandwidth *int64 `min:"1" max:"1000" type:"integer"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -200,7 +200,7 @@ func (s *ModifyEipAddressAttributesInput) SetAllocationId(v string) *ModifyEipAd
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *ModifyEipAddressAttributesInput) SetBandwidth(v int32) *ModifyEipAddressAttributesInput {
+func (s *ModifyEipAddressAttributesInput) SetBandwidth(v int64) *ModifyEipAddressAttributesInput {
 	s.Bandwidth = &v
 	return s
 }

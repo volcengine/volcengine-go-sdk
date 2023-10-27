@@ -146,9 +146,9 @@ type DescribeNetworkAclsInput struct {
 
 	NetworkAclName *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `max:"100" type:"int32"`
+	PageSize *int64 `max:"100" type:"integer"`
 
 	ProjectName *string `type:"string"`
 
@@ -193,13 +193,13 @@ func (s *DescribeNetworkAclsInput) SetNetworkAclName(v string) *DescribeNetworkA
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeNetworkAclsInput) SetPageNumber(v int32) *DescribeNetworkAclsInput {
+func (s *DescribeNetworkAclsInput) SetPageNumber(v int64) *DescribeNetworkAclsInput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeNetworkAclsInput) SetPageSize(v int32) *DescribeNetworkAclsInput {
+func (s *DescribeNetworkAclsInput) SetPageSize(v int64) *DescribeNetworkAclsInput {
 	s.PageSize = &v
 	return s
 }
@@ -229,13 +229,13 @@ type DescribeNetworkAclsOutput struct {
 
 	NetworkAcls []*NetworkAclForDescribeNetworkAclsOutput `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int64 `type:"integer"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -255,13 +255,13 @@ func (s *DescribeNetworkAclsOutput) SetNetworkAcls(v []*NetworkAclForDescribeNet
 }
 
 // SetPageNumber sets the PageNumber field's value.
-func (s *DescribeNetworkAclsOutput) SetPageNumber(v int32) *DescribeNetworkAclsOutput {
+func (s *DescribeNetworkAclsOutput) SetPageNumber(v int64) *DescribeNetworkAclsOutput {
 	s.PageNumber = &v
 	return s
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeNetworkAclsOutput) SetPageSize(v int32) *DescribeNetworkAclsOutput {
+func (s *DescribeNetworkAclsOutput) SetPageSize(v int64) *DescribeNetworkAclsOutput {
 	s.PageSize = &v
 	return s
 }
@@ -273,7 +273,7 @@ func (s *DescribeNetworkAclsOutput) SetRequestId(v string) *DescribeNetworkAclsO
 }
 
 // SetTotalCount sets the TotalCount field's value.
-func (s *DescribeNetworkAclsOutput) SetTotalCount(v int32) *DescribeNetworkAclsOutput {
+func (s *DescribeNetworkAclsOutput) SetTotalCount(v int64) *DescribeNetworkAclsOutput {
 	s.TotalCount = &v
 	return s
 }
@@ -293,7 +293,7 @@ type EgressAclEntryForDescribeNetworkAclsOutput struct {
 
 	Port *string `type:"string"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
 }
@@ -345,7 +345,7 @@ func (s *EgressAclEntryForDescribeNetworkAclsOutput) SetPort(v string) *EgressAc
 }
 
 // SetPriority sets the Priority field's value.
-func (s *EgressAclEntryForDescribeNetworkAclsOutput) SetPriority(v int32) *EgressAclEntryForDescribeNetworkAclsOutput {
+func (s *EgressAclEntryForDescribeNetworkAclsOutput) SetPriority(v int64) *EgressAclEntryForDescribeNetworkAclsOutput {
 	s.Priority = &v
 	return s
 }
@@ -369,7 +369,7 @@ type IngressAclEntryForDescribeNetworkAclsOutput struct {
 
 	Port *string `type:"string"`
 
-	Priority *int32 `type:"int32"`
+	Priority *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
 
@@ -417,7 +417,7 @@ func (s *IngressAclEntryForDescribeNetworkAclsOutput) SetPort(v string) *Ingress
 }
 
 // SetPriority sets the Priority field's value.
-func (s *IngressAclEntryForDescribeNetworkAclsOutput) SetPriority(v int32) *IngressAclEntryForDescribeNetworkAclsOutput {
+func (s *IngressAclEntryForDescribeNetworkAclsOutput) SetPriority(v int64) *IngressAclEntryForDescribeNetworkAclsOutput {
 	s.Priority = &v
 	return s
 }
