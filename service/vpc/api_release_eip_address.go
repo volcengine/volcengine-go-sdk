@@ -22,13 +22,13 @@ const opReleaseEipAddressCommon = "ReleaseEipAddress"
 // See ReleaseEipAddressCommon for more information on using the ReleaseEipAddressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ReleaseEipAddressCommonRequest method.
-//	req, resp := client.ReleaseEipAddressCommonRequest(params)
+//    // Example sending a request using the ReleaseEipAddressCommonRequest method.
+//    req, resp := client.ReleaseEipAddressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ReleaseEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opReleaseEipAddressCommon,
@@ -87,13 +87,13 @@ const opReleaseEipAddress = "ReleaseEipAddress"
 // See ReleaseEipAddress for more information on using the ReleaseEipAddress
 // API call, and error handling.
 //
-//	// Example sending a request using the ReleaseEipAddressRequest method.
-//	req, resp := client.ReleaseEipAddressRequest(params)
+//    // Example sending a request using the ReleaseEipAddressRequest method.
+//    req, resp := client.ReleaseEipAddressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ReleaseEipAddressRequest(input *ReleaseEipAddressInput) (req *request.Request, output *ReleaseEipAddressOutput) {
 	op := &request.Operation{
 		Name:       opReleaseEipAddress,

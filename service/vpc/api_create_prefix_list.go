@@ -22,13 +22,13 @@ const opCreatePrefixListCommon = "CreatePrefixList"
 // See CreatePrefixListCommon for more information on using the CreatePrefixListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreatePrefixListCommonRequest method.
-//	req, resp := client.CreatePrefixListCommonRequest(params)
+//    // Example sending a request using the CreatePrefixListCommonRequest method.
+//    req, resp := client.CreatePrefixListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreatePrefixListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreatePrefixListCommon,
@@ -87,13 +87,13 @@ const opCreatePrefixList = "CreatePrefixList"
 // See CreatePrefixList for more information on using the CreatePrefixList
 // API call, and error handling.
 //
-//	// Example sending a request using the CreatePrefixListRequest method.
-//	req, resp := client.CreatePrefixListRequest(params)
+//    // Example sending a request using the CreatePrefixListRequest method.
+//    req, resp := client.CreatePrefixListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreatePrefixListRequest(input *CreatePrefixListInput) (req *request.Request, output *CreatePrefixListOutput) {
 	op := &request.Operation{
 		Name:       opCreatePrefixList,
@@ -146,7 +146,7 @@ type CreatePrefixListInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
-	DryRun *string `type:"string"`
+	DryRun *bool `type:"boolean"`
 
 	IpVersion *string `type:"string" enum:"IpVersionForCreatePrefixListInput"`
 
@@ -208,7 +208,7 @@ func (s *CreatePrefixListInput) SetDescription(v string) *CreatePrefixListInput 
 }
 
 // SetDryRun sets the DryRun field's value.
-func (s *CreatePrefixListInput) SetDryRun(v string) *CreatePrefixListInput {
+func (s *CreatePrefixListInput) SetDryRun(v bool) *CreatePrefixListInput {
 	s.DryRun = &v
 	return s
 }

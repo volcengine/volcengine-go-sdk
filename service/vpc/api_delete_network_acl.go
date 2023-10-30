@@ -22,13 +22,13 @@ const opDeleteNetworkAclCommon = "DeleteNetworkAcl"
 // See DeleteNetworkAclCommon for more information on using the DeleteNetworkAclCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteNetworkAclCommonRequest method.
-//	req, resp := client.DeleteNetworkAclCommonRequest(params)
+//    // Example sending a request using the DeleteNetworkAclCommonRequest method.
+//    req, resp := client.DeleteNetworkAclCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteNetworkAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteNetworkAclCommon,
@@ -87,13 +87,13 @@ const opDeleteNetworkAcl = "DeleteNetworkAcl"
 // See DeleteNetworkAcl for more information on using the DeleteNetworkAcl
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteNetworkAclRequest method.
-//	req, resp := client.DeleteNetworkAclRequest(params)
+//    // Example sending a request using the DeleteNetworkAclRequest method.
+//    req, resp := client.DeleteNetworkAclRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteNetworkAclRequest(input *DeleteNetworkAclInput) (req *request.Request, output *DeleteNetworkAclOutput) {
 	op := &request.Operation{
 		Name:       opDeleteNetworkAcl,

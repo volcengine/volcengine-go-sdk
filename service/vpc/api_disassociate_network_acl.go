@@ -3,6 +3,8 @@
 package vpc
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -22,13 +24,13 @@ const opDisassociateNetworkAclCommon = "DisassociateNetworkAcl"
 // See DisassociateNetworkAclCommon for more information on using the DisassociateNetworkAclCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateNetworkAclCommonRequest method.
-//	req, resp := client.DisassociateNetworkAclCommonRequest(params)
+//    // Example sending a request using the DisassociateNetworkAclCommonRequest method.
+//    req, resp := client.DisassociateNetworkAclCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateNetworkAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateNetworkAclCommon,
@@ -87,13 +89,13 @@ const opDisassociateNetworkAcl = "DisassociateNetworkAcl"
 // See DisassociateNetworkAcl for more information on using the DisassociateNetworkAcl
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateNetworkAclRequest method.
-//	req, resp := client.DisassociateNetworkAclRequest(params)
+//    // Example sending a request using the DisassociateNetworkAclRequest method.
+//    req, resp := client.DisassociateNetworkAclRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateNetworkAclRequest(input *DisassociateNetworkAclInput) (req *request.Request, output *DisassociateNetworkAclOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateNetworkAcl,
@@ -145,7 +147,8 @@ type DisassociateNetworkAclInput struct {
 	// NetworkAclId is a required field
 	NetworkAclId *string `type:"string" required:"true"`
 
-	Resource []*ResourceForDisassociateNetworkAclInput `type:"list"`
+	// Resource is a required field
+	Resource []*ResourceForDisassociateNetworkAclInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -163,6 +166,19 @@ func (s *DisassociateNetworkAclInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DisassociateNetworkAclInput"}
 	if s.NetworkAclId == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkAclId"))
+	}
+	if s.Resource == nil {
+		invalidParams.Add(request.NewErrParamRequired("Resource"))
+	}
+	if s.Resource != nil {
+		for i, v := range s.Resource {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Resource", i), err.(request.ErrInvalidParams))
+			}
+		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -210,7 +226,8 @@ func (s *DisassociateNetworkAclOutput) SetRequestId(v string) *DisassociateNetwo
 type ResourceForDisassociateNetworkAclInput struct {
 	_ struct{} `type:"structure"`
 
-	ResourceId *string `type:"string"`
+	// ResourceId is a required field
+	ResourceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -221,6 +238,19 @@ func (s ResourceForDisassociateNetworkAclInput) String() string {
 // GoString returns the string representation
 func (s ResourceForDisassociateNetworkAclInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ResourceForDisassociateNetworkAclInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ResourceForDisassociateNetworkAclInput"}
+	if s.ResourceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetResourceId sets the ResourceId field's value.

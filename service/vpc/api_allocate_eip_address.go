@@ -22,13 +22,13 @@ const opAllocateEipAddressCommon = "AllocateEipAddress"
 // See AllocateEipAddressCommon for more information on using the AllocateEipAddressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AllocateEipAddressCommonRequest method.
-//	req, resp := client.AllocateEipAddressCommonRequest(params)
+//    // Example sending a request using the AllocateEipAddressCommonRequest method.
+//    req, resp := client.AllocateEipAddressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AllocateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAllocateEipAddressCommon,
@@ -87,13 +87,13 @@ const opAllocateEipAddress = "AllocateEipAddress"
 // See AllocateEipAddress for more information on using the AllocateEipAddress
 // API call, and error handling.
 //
-//	// Example sending a request using the AllocateEipAddressRequest method.
-//	req, resp := client.AllocateEipAddressRequest(params)
+//    // Example sending a request using the AllocateEipAddressRequest method.
+//    req, resp := client.AllocateEipAddressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AllocateEipAddressRequest(input *AllocateEipAddressInput) (req *request.Request, output *AllocateEipAddressOutput) {
 	op := &request.Operation{
 		Name:       opAllocateEipAddress,

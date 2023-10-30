@@ -22,13 +22,13 @@ const opAssociateVpcCidrBlockCommon = "AssociateVpcCidrBlock"
 // See AssociateVpcCidrBlockCommon for more information on using the AssociateVpcCidrBlockCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateVpcCidrBlockCommonRequest method.
-//	req, resp := client.AssociateVpcCidrBlockCommonRequest(params)
+//    // Example sending a request using the AssociateVpcCidrBlockCommonRequest method.
+//    req, resp := client.AssociateVpcCidrBlockCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateVpcCidrBlockCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateVpcCidrBlockCommon,
@@ -87,13 +87,13 @@ const opAssociateVpcCidrBlock = "AssociateVpcCidrBlock"
 // See AssociateVpcCidrBlock for more information on using the AssociateVpcCidrBlock
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateVpcCidrBlockRequest method.
-//	req, resp := client.AssociateVpcCidrBlockRequest(params)
+//    // Example sending a request using the AssociateVpcCidrBlockRequest method.
+//    req, resp := client.AssociateVpcCidrBlockRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateVpcCidrBlockRequest(input *AssociateVpcCidrBlockInput) (req *request.Request, output *AssociateVpcCidrBlockOutput) {
 	op := &request.Operation{
 		Name:       opAssociateVpcCidrBlock,

@@ -22,13 +22,13 @@ const opDescribePrefixListAssociationsCommon = "DescribePrefixListAssociations"
 // See DescribePrefixListAssociationsCommon for more information on using the DescribePrefixListAssociationsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribePrefixListAssociationsCommonRequest method.
-//	req, resp := client.DescribePrefixListAssociationsCommonRequest(params)
+//    // Example sending a request using the DescribePrefixListAssociationsCommonRequest method.
+//    req, resp := client.DescribePrefixListAssociationsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribePrefixListAssociationsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribePrefixListAssociationsCommon,
@@ -87,13 +87,13 @@ const opDescribePrefixListAssociations = "DescribePrefixListAssociations"
 // See DescribePrefixListAssociations for more information on using the DescribePrefixListAssociations
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribePrefixListAssociationsRequest method.
-//	req, resp := client.DescribePrefixListAssociationsRequest(params)
+//    // Example sending a request using the DescribePrefixListAssociationsRequest method.
+//    req, resp := client.DescribePrefixListAssociationsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribePrefixListAssociationsRequest(input *DescribePrefixListAssociationsInput) (req *request.Request, output *DescribePrefixListAssociationsOutput) {
 	op := &request.Operation{
 		Name:       opDescribePrefixListAssociations,

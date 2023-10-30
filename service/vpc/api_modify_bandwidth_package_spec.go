@@ -22,13 +22,13 @@ const opModifyBandwidthPackageSpecCommon = "ModifyBandwidthPackageSpec"
 // See ModifyBandwidthPackageSpecCommon for more information on using the ModifyBandwidthPackageSpecCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBandwidthPackageSpecCommonRequest method.
-//	req, resp := client.ModifyBandwidthPackageSpecCommonRequest(params)
+//    // Example sending a request using the ModifyBandwidthPackageSpecCommonRequest method.
+//    req, resp := client.ModifyBandwidthPackageSpecCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyBandwidthPackageSpecCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyBandwidthPackageSpecCommon,
@@ -87,13 +87,13 @@ const opModifyBandwidthPackageSpec = "ModifyBandwidthPackageSpec"
 // See ModifyBandwidthPackageSpec for more information on using the ModifyBandwidthPackageSpec
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBandwidthPackageSpecRequest method.
-//	req, resp := client.ModifyBandwidthPackageSpecRequest(params)
+//    // Example sending a request using the ModifyBandwidthPackageSpecRequest method.
+//    req, resp := client.ModifyBandwidthPackageSpecRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyBandwidthPackageSpecRequest(input *ModifyBandwidthPackageSpecInput) (req *request.Request, output *ModifyBandwidthPackageSpecOutput) {
 	op := &request.Operation{
 		Name:       opModifyBandwidthPackageSpec,

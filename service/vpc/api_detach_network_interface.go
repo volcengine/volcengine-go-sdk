@@ -22,13 +22,13 @@ const opDetachNetworkInterfaceCommon = "DetachNetworkInterface"
 // See DetachNetworkInterfaceCommon for more information on using the DetachNetworkInterfaceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachNetworkInterfaceCommonRequest method.
-//	req, resp := client.DetachNetworkInterfaceCommonRequest(params)
+//    // Example sending a request using the DetachNetworkInterfaceCommonRequest method.
+//    req, resp := client.DetachNetworkInterfaceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DetachNetworkInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachNetworkInterfaceCommon,
@@ -87,13 +87,13 @@ const opDetachNetworkInterface = "DetachNetworkInterface"
 // See DetachNetworkInterface for more information on using the DetachNetworkInterface
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachNetworkInterfaceRequest method.
-//	req, resp := client.DetachNetworkInterfaceRequest(params)
+//    // Example sending a request using the DetachNetworkInterfaceRequest method.
+//    req, resp := client.DetachNetworkInterfaceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DetachNetworkInterfaceRequest(input *DetachNetworkInterfaceInput) (req *request.Request, output *DetachNetworkInterfaceOutput) {
 	op := &request.Operation{
 		Name:       opDetachNetworkInterface,

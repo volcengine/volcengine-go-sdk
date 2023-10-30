@@ -22,13 +22,13 @@ const opAssignIpv6AddressesCommon = "AssignIpv6Addresses"
 // See AssignIpv6AddressesCommon for more information on using the AssignIpv6AddressesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssignIpv6AddressesCommonRequest method.
-//	req, resp := client.AssignIpv6AddressesCommonRequest(params)
+//    // Example sending a request using the AssignIpv6AddressesCommonRequest method.
+//    req, resp := client.AssignIpv6AddressesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssignIpv6AddressesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssignIpv6AddressesCommon,
@@ -87,13 +87,13 @@ const opAssignIpv6Addresses = "AssignIpv6Addresses"
 // See AssignIpv6Addresses for more information on using the AssignIpv6Addresses
 // API call, and error handling.
 //
-//	// Example sending a request using the AssignIpv6AddressesRequest method.
-//	req, resp := client.AssignIpv6AddressesRequest(params)
+//    // Example sending a request using the AssignIpv6AddressesRequest method.
+//    req, resp := client.AssignIpv6AddressesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssignIpv6AddressesRequest(input *AssignIpv6AddressesInput) (req *request.Request, output *AssignIpv6AddressesOutput) {
 	op := &request.Operation{
 		Name:       opAssignIpv6Addresses,

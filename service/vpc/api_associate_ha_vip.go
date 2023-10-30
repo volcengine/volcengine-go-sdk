@@ -22,13 +22,13 @@ const opAssociateHaVipCommon = "AssociateHaVip"
 // See AssociateHaVipCommon for more information on using the AssociateHaVipCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateHaVipCommonRequest method.
-//	req, resp := client.AssociateHaVipCommonRequest(params)
+//    // Example sending a request using the AssociateHaVipCommonRequest method.
+//    req, resp := client.AssociateHaVipCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateHaVipCommon,
@@ -87,13 +87,13 @@ const opAssociateHaVip = "AssociateHaVip"
 // See AssociateHaVip for more information on using the AssociateHaVip
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateHaVipRequest method.
-//	req, resp := client.AssociateHaVipRequest(params)
+//    // Example sending a request using the AssociateHaVipRequest method.
+//    req, resp := client.AssociateHaVipRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AssociateHaVipRequest(input *AssociateHaVipInput) (req *request.Request, output *AssociateHaVipOutput) {
 	op := &request.Operation{
 		Name:       opAssociateHaVip,

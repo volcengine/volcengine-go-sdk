@@ -22,13 +22,13 @@ const opDeleteVpcCommon = "DeleteVpc"
 // See DeleteVpcCommon for more information on using the DeleteVpcCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteVpcCommonRequest method.
-//	req, resp := client.DeleteVpcCommonRequest(params)
+//    // Example sending a request using the DeleteVpcCommonRequest method.
+//    req, resp := client.DeleteVpcCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteVpcCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteVpcCommon,
@@ -87,13 +87,13 @@ const opDeleteVpc = "DeleteVpc"
 // See DeleteVpc for more information on using the DeleteVpc
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteVpcRequest method.
-//	req, resp := client.DeleteVpcRequest(params)
+//    // Example sending a request using the DeleteVpcRequest method.
+//    req, resp := client.DeleteVpcRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteVpcRequest(input *DeleteVpcInput) (req *request.Request, output *DeleteVpcOutput) {
 	op := &request.Operation{
 		Name:       opDeleteVpc,

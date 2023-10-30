@@ -22,13 +22,13 @@ const opDescribeNetworkInterfacesCommon = "DescribeNetworkInterfaces"
 // See DescribeNetworkInterfacesCommon for more information on using the DescribeNetworkInterfacesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNetworkInterfacesCommonRequest method.
-//	req, resp := client.DescribeNetworkInterfacesCommonRequest(params)
+//    // Example sending a request using the DescribeNetworkInterfacesCommonRequest method.
+//    req, resp := client.DescribeNetworkInterfacesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeNetworkInterfacesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkInterfacesCommon,
@@ -87,13 +87,13 @@ const opDescribeNetworkInterfaces = "DescribeNetworkInterfaces"
 // See DescribeNetworkInterfaces for more information on using the DescribeNetworkInterfaces
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNetworkInterfacesRequest method.
-//	req, resp := client.DescribeNetworkInterfacesRequest(params)
+//    // Example sending a request using the DescribeNetworkInterfacesRequest method.
+//    req, resp := client.DescribeNetworkInterfacesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeNetworkInterfacesRequest(input *DescribeNetworkInterfacesInput) (req *request.Request, output *DescribeNetworkInterfacesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeNetworkInterfaces,

@@ -22,13 +22,13 @@ const opDescribeVpcsCommon = "DescribeVpcs"
 // See DescribeVpcsCommon for more information on using the DescribeVpcsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcsCommonRequest method.
-//	req, resp := client.DescribeVpcsCommonRequest(params)
+//    // Example sending a request using the DescribeVpcsCommonRequest method.
+//    req, resp := client.DescribeVpcsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeVpcsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcsCommon,
@@ -87,13 +87,13 @@ const opDescribeVpcs = "DescribeVpcs"
 // See DescribeVpcs for more information on using the DescribeVpcs
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcsRequest method.
-//	req, resp := client.DescribeVpcsRequest(params)
+//    // Example sending a request using the DescribeVpcsRequest method.
+//    req, resp := client.DescribeVpcsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeVpcsRequest(input *DescribeVpcsInput) (req *request.Request, output *DescribeVpcsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpcs,
@@ -401,6 +401,8 @@ type VpcForDescribeVpcsOutput struct {
 
 	RouteTableIds []*string `type:"list"`
 
+	SecondaryCidrBlocks []*string `type:"list"`
+
 	SecurityGroupIds []*string `type:"list"`
 
 	Status *string `type:"string"`
@@ -491,6 +493,12 @@ func (s *VpcForDescribeVpcsOutput) SetProjectName(v string) *VpcForDescribeVpcsO
 // SetRouteTableIds sets the RouteTableIds field's value.
 func (s *VpcForDescribeVpcsOutput) SetRouteTableIds(v []*string) *VpcForDescribeVpcsOutput {
 	s.RouteTableIds = v
+	return s
+}
+
+// SetSecondaryCidrBlocks sets the SecondaryCidrBlocks field's value.
+func (s *VpcForDescribeVpcsOutput) SetSecondaryCidrBlocks(v []*string) *VpcForDescribeVpcsOutput {
+	s.SecondaryCidrBlocks = v
 	return s
 }
 

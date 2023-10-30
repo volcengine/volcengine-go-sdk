@@ -22,13 +22,13 @@ const opUntagResourcesCommon = "UntagResources"
 // See UntagResourcesCommon for more information on using the UntagResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UntagResourcesCommonRequest method.
-//	req, resp := client.UntagResourcesCommonRequest(params)
+//    // Example sending a request using the UntagResourcesCommonRequest method.
+//    req, resp := client.UntagResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) UntagResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUntagResourcesCommon,
@@ -87,13 +87,13 @@ const opUntagResources = "UntagResources"
 // See UntagResources for more information on using the UntagResources
 // API call, and error handling.
 //
-//	// Example sending a request using the UntagResourcesRequest method.
-//	req, resp := client.UntagResourcesRequest(params)
+//    // Example sending a request using the UntagResourcesRequest method.
+//    req, resp := client.UntagResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) UntagResourcesRequest(input *UntagResourcesInput) (req *request.Request, output *UntagResourcesOutput) {
 	op := &request.Operation{
 		Name:       opUntagResources,

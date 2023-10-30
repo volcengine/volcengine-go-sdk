@@ -22,13 +22,13 @@ const opModifyVpcAttributesCommon = "ModifyVpcAttributes"
 // See ModifyVpcAttributesCommon for more information on using the ModifyVpcAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpcAttributesCommonRequest method.
-//	req, resp := client.ModifyVpcAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyVpcAttributesCommonRequest method.
+//    req, resp := client.ModifyVpcAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyVpcAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVpcAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyVpcAttributes = "ModifyVpcAttributes"
 // See ModifyVpcAttributes for more information on using the ModifyVpcAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpcAttributesRequest method.
-//	req, resp := client.ModifyVpcAttributesRequest(params)
+//    // Example sending a request using the ModifyVpcAttributesRequest method.
+//    req, resp := client.ModifyVpcAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyVpcAttributesRequest(input *ModifyVpcAttributesInput) (req *request.Request, output *ModifyVpcAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyVpcAttributes,
@@ -153,7 +153,7 @@ type ModifyVpcAttributesInput struct {
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
-	VpcName *string `min:"2" max:"128" type:"string"`
+	VpcName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -178,8 +178,8 @@ func (s *ModifyVpcAttributesInput) Validate() error {
 	if s.VpcId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
-	if s.VpcName != nil && len(*s.VpcName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("VpcName", 2))
+	if s.VpcName != nil && len(*s.VpcName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VpcName", 1))
 	}
 	if s.VpcName != nil && len(*s.VpcName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("VpcName", 128, *s.VpcName))

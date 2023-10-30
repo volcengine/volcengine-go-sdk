@@ -22,13 +22,13 @@ const opDescribeRouteEntryListCommon = "DescribeRouteEntryList"
 // See DescribeRouteEntryListCommon for more information on using the DescribeRouteEntryListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRouteEntryListCommonRequest method.
-//	req, resp := client.DescribeRouteEntryListCommonRequest(params)
+//    // Example sending a request using the DescribeRouteEntryListCommonRequest method.
+//    req, resp := client.DescribeRouteEntryListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeRouteEntryListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeRouteEntryListCommon,
@@ -87,13 +87,13 @@ const opDescribeRouteEntryList = "DescribeRouteEntryList"
 // See DescribeRouteEntryList for more information on using the DescribeRouteEntryList
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRouteEntryListRequest method.
-//	req, resp := client.DescribeRouteEntryListRequest(params)
+//    // Example sending a request using the DescribeRouteEntryListRequest method.
+//    req, resp := client.DescribeRouteEntryListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeRouteEntryListRequest(input *DescribeRouteEntryListInput) (req *request.Request, output *DescribeRouteEntryListOutput) {
 	op := &request.Operation{
 		Name:       opDescribeRouteEntryList,

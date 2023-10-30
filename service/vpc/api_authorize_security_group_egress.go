@@ -22,13 +22,13 @@ const opAuthorizeSecurityGroupEgressCommon = "AuthorizeSecurityGroupEgress"
 // See AuthorizeSecurityGroupEgressCommon for more information on using the AuthorizeSecurityGroupEgressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AuthorizeSecurityGroupEgressCommonRequest method.
-//	req, resp := client.AuthorizeSecurityGroupEgressCommonRequest(params)
+//    // Example sending a request using the AuthorizeSecurityGroupEgressCommonRequest method.
+//    req, resp := client.AuthorizeSecurityGroupEgressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AuthorizeSecurityGroupEgressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAuthorizeSecurityGroupEgressCommon,
@@ -87,13 +87,13 @@ const opAuthorizeSecurityGroupEgress = "AuthorizeSecurityGroupEgress"
 // See AuthorizeSecurityGroupEgress for more information on using the AuthorizeSecurityGroupEgress
 // API call, and error handling.
 //
-//	// Example sending a request using the AuthorizeSecurityGroupEgressRequest method.
-//	req, resp := client.AuthorizeSecurityGroupEgressRequest(params)
+//    // Example sending a request using the AuthorizeSecurityGroupEgressRequest method.
+//    req, resp := client.AuthorizeSecurityGroupEgressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AuthorizeSecurityGroupEgressRequest(input *AuthorizeSecurityGroupEgressInput) (req *request.Request, output *AuthorizeSecurityGroupEgressOutput) {
 	op := &request.Operation{
 		Name:       opAuthorizeSecurityGroupEgress,

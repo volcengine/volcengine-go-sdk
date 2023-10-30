@@ -22,13 +22,13 @@ const opDescribeSubnetsCommon = "DescribeSubnets"
 // See DescribeSubnetsCommon for more information on using the DescribeSubnetsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubnetsCommonRequest method.
-//	req, resp := client.DescribeSubnetsCommonRequest(params)
+//    // Example sending a request using the DescribeSubnetsCommonRequest method.
+//    req, resp := client.DescribeSubnetsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSubnetsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSubnetsCommon,
@@ -87,13 +87,13 @@ const opDescribeSubnets = "DescribeSubnets"
 // See DescribeSubnets for more information on using the DescribeSubnets
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubnetsRequest method.
-//	req, resp := client.DescribeSubnetsRequest(params)
+//    // Example sending a request using the DescribeSubnetsRequest method.
+//    req, resp := client.DescribeSubnetsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSubnetsRequest(input *DescribeSubnetsInput) (req *request.Request, output *DescribeSubnetsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSubnets,
@@ -156,8 +156,7 @@ type DescribeSubnetsInput struct {
 
 	SubnetName *string `type:"string"`
 
-	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -177,9 +176,6 @@ func (s *DescribeSubnetsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeSubnetsInput"}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-	if s.VpcId == nil {
-		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
 
 	if invalidParams.Len() > 0 {

@@ -22,13 +22,13 @@ const opDescribePrefixListEntriesCommon = "DescribePrefixListEntries"
 // See DescribePrefixListEntriesCommon for more information on using the DescribePrefixListEntriesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribePrefixListEntriesCommonRequest method.
-//	req, resp := client.DescribePrefixListEntriesCommonRequest(params)
+//    // Example sending a request using the DescribePrefixListEntriesCommonRequest method.
+//    req, resp := client.DescribePrefixListEntriesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribePrefixListEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribePrefixListEntriesCommon,
@@ -87,13 +87,13 @@ const opDescribePrefixListEntries = "DescribePrefixListEntries"
 // See DescribePrefixListEntries for more information on using the DescribePrefixListEntries
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribePrefixListEntriesRequest method.
-//	req, resp := client.DescribePrefixListEntriesRequest(params)
+//    // Example sending a request using the DescribePrefixListEntriesRequest method.
+//    req, resp := client.DescribePrefixListEntriesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribePrefixListEntriesRequest(input *DescribePrefixListEntriesInput) (req *request.Request, output *DescribePrefixListEntriesOutput) {
 	op := &request.Operation{
 		Name:       opDescribePrefixListEntries,
