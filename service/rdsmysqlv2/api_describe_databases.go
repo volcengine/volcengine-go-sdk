@@ -152,8 +152,6 @@ type DatabasForDescribeDatabasesOutput struct {
 
 	DBName *string `type:"string"`
 
-	DBPartition *int32 `type:"int32"`
-
 	DBStatus *string `type:"string"`
 
 	DatabasePrivileges []*DatabasePrivilegeForDescribeDatabasesOutput `type:"list"`
@@ -186,12 +184,6 @@ func (s *DatabasForDescribeDatabasesOutput) SetDBDesc(v string) *DatabasForDescr
 // SetDBName sets the DBName field's value.
 func (s *DatabasForDescribeDatabasesOutput) SetDBName(v string) *DatabasForDescribeDatabasesOutput {
 	s.DBName = &v
-	return s
-}
-
-// SetDBPartition sets the DBPartition field's value.
-func (s *DatabasForDescribeDatabasesOutput) SetDBPartition(v int32) *DatabasForDescribeDatabasesOutput {
-	s.DBPartition = &v
 	return s
 }
 
@@ -289,6 +281,68 @@ func (s *DatabasePrivilegesInfoForDescribeDatabasesOutput) SetAccountPrivilegeCu
 	return s
 }
 
+type DatabasesInfoForDescribeDatabasesOutput struct {
+	_ struct{} `type:"structure"`
+
+	CharacterSetName *string `type:"string"`
+
+	DBDesc *string `type:"string"`
+
+	DBName *string `type:"string"`
+
+	DBStatus *string `type:"string"`
+
+	DatabasePrivileges []*DatabasePrivilegeForDescribeDatabasesOutput `type:"list"`
+
+	DatabasePrivilegesInfo []*DatabasePrivilegesInfoForDescribeDatabasesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DatabasesInfoForDescribeDatabasesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DatabasesInfoForDescribeDatabasesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCharacterSetName sets the CharacterSetName field's value.
+func (s *DatabasesInfoForDescribeDatabasesOutput) SetCharacterSetName(v string) *DatabasesInfoForDescribeDatabasesOutput {
+	s.CharacterSetName = &v
+	return s
+}
+
+// SetDBDesc sets the DBDesc field's value.
+func (s *DatabasesInfoForDescribeDatabasesOutput) SetDBDesc(v string) *DatabasesInfoForDescribeDatabasesOutput {
+	s.DBDesc = &v
+	return s
+}
+
+// SetDBName sets the DBName field's value.
+func (s *DatabasesInfoForDescribeDatabasesOutput) SetDBName(v string) *DatabasesInfoForDescribeDatabasesOutput {
+	s.DBName = &v
+	return s
+}
+
+// SetDBStatus sets the DBStatus field's value.
+func (s *DatabasesInfoForDescribeDatabasesOutput) SetDBStatus(v string) *DatabasesInfoForDescribeDatabasesOutput {
+	s.DBStatus = &v
+	return s
+}
+
+// SetDatabasePrivileges sets the DatabasePrivileges field's value.
+func (s *DatabasesInfoForDescribeDatabasesOutput) SetDatabasePrivileges(v []*DatabasePrivilegeForDescribeDatabasesOutput) *DatabasesInfoForDescribeDatabasesOutput {
+	s.DatabasePrivileges = v
+	return s
+}
+
+// SetDatabasePrivilegesInfo sets the DatabasePrivilegesInfo field's value.
+func (s *DatabasesInfoForDescribeDatabasesOutput) SetDatabasePrivilegesInfo(v []*DatabasePrivilegesInfoForDescribeDatabasesOutput) *DatabasesInfoForDescribeDatabasesOutput {
+	s.DatabasePrivilegesInfo = v
+	return s
+}
+
 type DescribeDatabasesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -358,6 +412,8 @@ type DescribeDatabasesOutput struct {
 
 	Databases []*DatabasForDescribeDatabasesOutput `type:"list"`
 
+	DatabasesInfo []*DatabasesInfoForDescribeDatabasesOutput `type:"list"`
+
 	Total *int32 `type:"int32"`
 }
 
@@ -374,6 +430,12 @@ func (s DescribeDatabasesOutput) GoString() string {
 // SetDatabases sets the Databases field's value.
 func (s *DescribeDatabasesOutput) SetDatabases(v []*DatabasForDescribeDatabasesOutput) *DescribeDatabasesOutput {
 	s.Databases = v
+	return s
+}
+
+// SetDatabasesInfo sets the DatabasesInfo field's value.
+func (s *DescribeDatabasesOutput) SetDatabasesInfo(v []*DatabasesInfoForDescribeDatabasesOutput) *DescribeDatabasesOutput {
+	s.DatabasesInfo = v
 	return s
 }
 

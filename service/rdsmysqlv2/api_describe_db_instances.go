@@ -416,6 +416,8 @@ type DescribeDBInstancesOutput struct {
 
 	Instances []*InstanceForDescribeDBInstancesOutput `type:"list"`
 
+	InstancesInfo []*InstancesInfoForDescribeDBInstancesOutput `type:"list"`
+
 	Total *int32 `type:"int32"`
 }
 
@@ -432,6 +434,12 @@ func (s DescribeDBInstancesOutput) GoString() string {
 // SetInstances sets the Instances field's value.
 func (s *DescribeDBInstancesOutput) SetInstances(v []*InstanceForDescribeDBInstancesOutput) *DescribeDBInstancesOutput {
 	s.Instances = v
+	return s
+}
+
+// SetInstancesInfo sets the InstancesInfo field's value.
+func (s *DescribeDBInstancesOutput) SetInstancesInfo(v []*InstancesInfoForDescribeDBInstancesOutput) *DescribeDBInstancesOutput {
+	s.InstancesInfo = v
 	return s
 }
 
@@ -663,6 +671,228 @@ func (s *InstanceForDescribeDBInstancesOutput) SetZoneId(v string) *InstanceForD
 	return s
 }
 
+type InstancesInfoForDescribeDBInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
+
+	AddressObject []*AddressObjectForDescribeDBInstancesOutput `type:"list"`
+
+	AllowListVersion *string `type:"string"`
+
+	ChargeDetail *ChargeDetailForDescribeDBInstancesOutput `type:"structure"`
+
+	CreateTime *string `type:"string"`
+
+	DBEngineVersion *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceName *string `type:"string"`
+
+	InstanceStatus *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	LowerCaseTableNames *string `type:"string"`
+
+	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstancesOutput `type:"list"`
+
+	NodeNumber *int32 `type:"int32"`
+
+	NodeSpec *string `type:"string"`
+
+	Port *string `type:"string"`
+
+	ProjectName *string `type:"string"`
+
+	RegionId *string `type:"string"`
+
+	ServerCollation *string `type:"string"`
+
+	ShardNumber *int32 `type:"int32"`
+
+	StorageSpace *int32 `type:"int32"`
+
+	StorageType *string `type:"string"`
+
+	StorageUse *int32 `type:"int32"`
+
+	SubnetId *string `type:"string"`
+
+	TimeZone *string `type:"string"`
+
+	VpcId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s InstancesInfoForDescribeDBInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstancesInfoForDescribeDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetAccountId(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetAddressObject sets the AddressObject field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetAddressObject(v []*AddressObjectForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
+	s.AddressObject = v
+	return s
+}
+
+// SetAllowListVersion sets the AllowListVersion field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetAllowListVersion(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.AllowListVersion = &v
+	return s
+}
+
+// SetChargeDetail sets the ChargeDetail field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetChargeDetail(v *ChargeDetailForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
+	s.ChargeDetail = v
+	return s
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetCreateTime(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDBEngineVersion sets the DBEngineVersion field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetDBEngineVersion(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.DBEngineVersion = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceId(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceName(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceStatus sets the InstanceStatus field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceStatus(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.InstanceStatus = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceType(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetLowerCaseTableNames sets the LowerCaseTableNames field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetLowerCaseTableNames(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.LowerCaseTableNames = &v
+	return s
+}
+
+// SetNodeDetailInfo sets the NodeDetailInfo field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetNodeDetailInfo(v []*NodeDetailInfoForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
+	s.NodeDetailInfo = v
+	return s
+}
+
+// SetNodeNumber sets the NodeNumber field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetNodeNumber(v int32) *InstancesInfoForDescribeDBInstancesOutput {
+	s.NodeNumber = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetNodeSpec(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.NodeSpec = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetPort(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.Port = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetProjectName(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetRegionId(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.RegionId = &v
+	return s
+}
+
+// SetServerCollation sets the ServerCollation field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetServerCollation(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.ServerCollation = &v
+	return s
+}
+
+// SetShardNumber sets the ShardNumber field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetShardNumber(v int32) *InstancesInfoForDescribeDBInstancesOutput {
+	s.ShardNumber = &v
+	return s
+}
+
+// SetStorageSpace sets the StorageSpace field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetStorageSpace(v int32) *InstancesInfoForDescribeDBInstancesOutput {
+	s.StorageSpace = &v
+	return s
+}
+
+// SetStorageType sets the StorageType field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetStorageType(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.StorageType = &v
+	return s
+}
+
+// SetStorageUse sets the StorageUse field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetStorageUse(v int32) *InstancesInfoForDescribeDBInstancesOutput {
+	s.StorageUse = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetSubnetId(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.SubnetId = &v
+	return s
+}
+
+// SetTimeZone sets the TimeZone field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetTimeZone(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.TimeZone = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetVpcId(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetZoneId(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.ZoneId = &v
+	return s
+}
+
 type NodeDetailInfoForDescribeDBInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -681,10 +911,6 @@ type NodeDetailInfoForDescribeDBInstancesOutput struct {
 	NodeType *string `type:"string"`
 
 	RegionId *string `type:"string"`
-
-	ShardId *string `type:"string"`
-
-	SyncDelay *int64 `type:"int64"`
 
 	UpdateTime *string `type:"string"`
 
@@ -748,18 +974,6 @@ func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetNodeType(v string) *Node
 // SetRegionId sets the RegionId field's value.
 func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetRegionId(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
 	s.RegionId = &v
-	return s
-}
-
-// SetShardId sets the ShardId field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetShardId(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.ShardId = &v
-	return s
-}
-
-// SetSyncDelay sets the SyncDelay field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetSyncDelay(v int64) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.SyncDelay = &v
 	return s
 }
 

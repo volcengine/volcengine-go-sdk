@@ -245,6 +245,108 @@ func (s *BackupForDescribeBackupsOutput) SetDBTableInfos(v []*DBTableInfoForDesc
 	return s
 }
 
+type BackupsInfoForDescribeBackupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	BackupEndTime *string `type:"string"`
+
+	BackupFileName *string `type:"string"`
+
+	BackupFileSize *int64 `type:"int64"`
+
+	BackupId *string `type:"string"`
+
+	BackupMethod *string `type:"string"`
+
+	BackupStartTime *string `type:"string"`
+
+	BackupStatus *string `type:"string"`
+
+	BackupType *string `type:"string"`
+
+	ConsistentTime *string `type:"string"`
+
+	CreateType *string `type:"string"`
+
+	DBTableInfos []*DBTableInfoForDescribeBackupsOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s BackupsInfoForDescribeBackupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackupsInfoForDescribeBackupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBackupEndTime sets the BackupEndTime field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetBackupEndTime(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.BackupEndTime = &v
+	return s
+}
+
+// SetBackupFileName sets the BackupFileName field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetBackupFileName(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.BackupFileName = &v
+	return s
+}
+
+// SetBackupFileSize sets the BackupFileSize field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetBackupFileSize(v int64) *BackupsInfoForDescribeBackupsOutput {
+	s.BackupFileSize = &v
+	return s
+}
+
+// SetBackupId sets the BackupId field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetBackupId(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.BackupId = &v
+	return s
+}
+
+// SetBackupMethod sets the BackupMethod field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetBackupMethod(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.BackupMethod = &v
+	return s
+}
+
+// SetBackupStartTime sets the BackupStartTime field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetBackupStartTime(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.BackupStartTime = &v
+	return s
+}
+
+// SetBackupStatus sets the BackupStatus field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetBackupStatus(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.BackupStatus = &v
+	return s
+}
+
+// SetBackupType sets the BackupType field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetBackupType(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.BackupType = &v
+	return s
+}
+
+// SetConsistentTime sets the ConsistentTime field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetConsistentTime(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.ConsistentTime = &v
+	return s
+}
+
+// SetCreateType sets the CreateType field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetCreateType(v string) *BackupsInfoForDescribeBackupsOutput {
+	s.CreateType = &v
+	return s
+}
+
+// SetDBTableInfos sets the DBTableInfos field's value.
+func (s *BackupsInfoForDescribeBackupsOutput) SetDBTableInfos(v []*DBTableInfoForDescribeBackupsOutput) *BackupsInfoForDescribeBackupsOutput {
+	s.DBTableInfos = v
+	return s
+}
+
 type DBTableInfoForDescribeBackupsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -390,6 +492,8 @@ type DescribeBackupsOutput struct {
 
 	Backups []*BackupForDescribeBackupsOutput `type:"list"`
 
+	BackupsInfo []*BackupsInfoForDescribeBackupsOutput `type:"list"`
+
 	Total *int32 `type:"int32"`
 }
 
@@ -406,6 +510,12 @@ func (s DescribeBackupsOutput) GoString() string {
 // SetBackups sets the Backups field's value.
 func (s *DescribeBackupsOutput) SetBackups(v []*BackupForDescribeBackupsOutput) *DescribeBackupsOutput {
 	s.Backups = v
+	return s
+}
+
+// SetBackupsInfo sets the BackupsInfo field's value.
+func (s *DescribeBackupsOutput) SetBackupsInfo(v []*BackupsInfoForDescribeBackupsOutput) *DescribeBackupsOutput {
+	s.BackupsInfo = v
 	return s
 }
 
