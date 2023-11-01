@@ -152,6 +152,8 @@ type CreateDatabaseInput struct {
 
 	DBName *string `min:"2" max:"64" type:"string"`
 
+	DatabasePrivileges []*DatabasePrivilegeForCreateDatabaseInput `type:"list"`
+
 	DatabasePrivilegesInfo []*DatabasePrivilegesInfoForCreateDatabaseInput `type:"list"`
 
 	// InstanceId is a required field
@@ -205,6 +207,12 @@ func (s *CreateDatabaseInput) SetDBName(v string) *CreateDatabaseInput {
 	return s
 }
 
+// SetDatabasePrivileges sets the DatabasePrivileges field's value.
+func (s *CreateDatabaseInput) SetDatabasePrivileges(v []*DatabasePrivilegeForCreateDatabaseInput) *CreateDatabaseInput {
+	s.DatabasePrivileges = v
+	return s
+}
+
 // SetDatabasePrivilegesInfo sets the DatabasePrivilegesInfo field's value.
 func (s *CreateDatabaseInput) SetDatabasePrivilegesInfo(v []*DatabasePrivilegesInfoForCreateDatabaseInput) *CreateDatabaseInput {
 	s.DatabasePrivilegesInfo = v
@@ -231,6 +239,44 @@ func (s CreateDatabaseOutput) String() string {
 // GoString returns the string representation
 func (s CreateDatabaseOutput) GoString() string {
 	return s.String()
+}
+
+type DatabasePrivilegeForCreateDatabaseInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountName *string `type:"string"`
+
+	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForCreateDatabaseInput"`
+
+	AccountPrivilegeDetail *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DatabasePrivilegeForCreateDatabaseInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DatabasePrivilegeForCreateDatabaseInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountName sets the AccountName field's value.
+func (s *DatabasePrivilegeForCreateDatabaseInput) SetAccountName(v string) *DatabasePrivilegeForCreateDatabaseInput {
+	s.AccountName = &v
+	return s
+}
+
+// SetAccountPrivilege sets the AccountPrivilege field's value.
+func (s *DatabasePrivilegeForCreateDatabaseInput) SetAccountPrivilege(v string) *DatabasePrivilegeForCreateDatabaseInput {
+	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeDetail sets the AccountPrivilegeDetail field's value.
+func (s *DatabasePrivilegeForCreateDatabaseInput) SetAccountPrivilegeDetail(v string) *DatabasePrivilegeForCreateDatabaseInput {
+	s.AccountPrivilegeDetail = &v
+	return s
 }
 
 type DatabasePrivilegesInfoForCreateDatabaseInput struct {
