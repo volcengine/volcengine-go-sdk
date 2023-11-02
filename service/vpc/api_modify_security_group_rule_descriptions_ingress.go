@@ -22,13 +22,13 @@ const opModifySecurityGroupRuleDescriptionsIngressCommon = "ModifySecurityGroupR
 // See ModifySecurityGroupRuleDescriptionsIngressCommon for more information on using the ModifySecurityGroupRuleDescriptionsIngressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressCommonRequest method.
-//	req, resp := client.ModifySecurityGroupRuleDescriptionsIngressCommonRequest(params)
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressCommonRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsIngressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupRuleDescriptionsIngressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupRuleDescriptionsIngressCommon,
@@ -87,13 +87,13 @@ const opModifySecurityGroupRuleDescriptionsIngress = "ModifySecurityGroupRuleDes
 // See ModifySecurityGroupRuleDescriptionsIngress for more information on using the ModifySecurityGroupRuleDescriptionsIngress
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressRequest method.
-//	req, resp := client.ModifySecurityGroupRuleDescriptionsIngressRequest(params)
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsIngressRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsIngressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupRuleDescriptionsIngressRequest(input *ModifySecurityGroupRuleDescriptionsIngressInput) (req *request.Request, output *ModifySecurityGroupRuleDescriptionsIngressOutput) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupRuleDescriptionsIngress,

@@ -22,13 +22,13 @@ const opDisassociateEipAddressCommon = "DisassociateEipAddress"
 // See DisassociateEipAddressCommon for more information on using the DisassociateEipAddressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateEipAddressCommonRequest method.
-//	req, resp := client.DisassociateEipAddressCommonRequest(params)
+//    // Example sending a request using the DisassociateEipAddressCommonRequest method.
+//    req, resp := client.DisassociateEipAddressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateEipAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateEipAddressCommon,
@@ -87,13 +87,13 @@ const opDisassociateEipAddress = "DisassociateEipAddress"
 // See DisassociateEipAddress for more information on using the DisassociateEipAddress
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateEipAddressRequest method.
-//	req, resp := client.DisassociateEipAddressRequest(params)
+//    // Example sending a request using the DisassociateEipAddressRequest method.
+//    req, resp := client.DisassociateEipAddressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateEipAddressRequest(input *DisassociateEipAddressInput) (req *request.Request, output *DisassociateEipAddressOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateEipAddress,

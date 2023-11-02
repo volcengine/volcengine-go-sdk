@@ -601,10 +601,6 @@ type ChargeDetailForDescribeDBInstanceDetailOutput struct {
 	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
-
-	TempModifyEndTime *string `type:"string"`
-
-	TempModifyStartTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -674,18 +670,6 @@ func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetPeriod(v int32) *Char
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetPeriodUnit(v string) *ChargeDetailForDescribeDBInstanceDetailOutput {
 	s.PeriodUnit = &v
-	return s
-}
-
-// SetTempModifyEndTime sets the TempModifyEndTime field's value.
-func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetTempModifyEndTime(v string) *ChargeDetailForDescribeDBInstanceDetailOutput {
-	s.TempModifyEndTime = &v
-	return s
-}
-
-// SetTempModifyStartTime sets the TempModifyStartTime field's value.
-func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetTempModifyStartTime(v string) *ChargeDetailForDescribeDBInstanceDetailOutput {
-	s.TempModifyStartTime = &v
 	return s
 }
 
@@ -875,8 +859,6 @@ type DescribeDBInstanceDetailOutput struct {
 	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstanceDetailOutput `type:"list"`
 
 	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list"`
-
-	ShardInfo []*ShardInfoForDescribeDBInstanceDetailOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -922,12 +904,6 @@ func (s *DescribeDBInstanceDetailOutput) SetNodeDetailInfo(v []*NodeDetailInfoFo
 // SetNodes sets the Nodes field's value.
 func (s *DescribeDBInstanceDetailOutput) SetNodes(v []*NodeForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
 	s.Nodes = v
-	return s
-}
-
-// SetShardInfo sets the ShardInfo field's value.
-func (s *DescribeDBInstanceDetailOutput) SetShardInfo(v []*ShardInfoForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
-	s.ShardInfo = v
 	return s
 }
 
@@ -1382,52 +1358,6 @@ func (s *ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput) SetNodeType(v stri
 // SetWeight sets the Weight field's value.
 func (s *ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput) SetWeight(v int32) *ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput {
 	s.Weight = &v
-	return s
-}
-
-type ShardInfoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
-
-	InstanceId *string `type:"string"`
-
-	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstanceDetailOutput `type:"list"`
-
-	ShardId *string `type:"string"`
-
-	ShardStatus *string `type:"string"`
-}
-
-// String returns the string representation
-func (s ShardInfoForDescribeDBInstanceDetailOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ShardInfoForDescribeDBInstanceDetailOutput) GoString() string {
-	return s.String()
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *ShardInfoForDescribeDBInstanceDetailOutput) SetInstanceId(v string) *ShardInfoForDescribeDBInstanceDetailOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetNodeDetailInfo sets the NodeDetailInfo field's value.
-func (s *ShardInfoForDescribeDBInstanceDetailOutput) SetNodeDetailInfo(v []*NodeDetailInfoForDescribeDBInstanceDetailOutput) *ShardInfoForDescribeDBInstanceDetailOutput {
-	s.NodeDetailInfo = v
-	return s
-}
-
-// SetShardId sets the ShardId field's value.
-func (s *ShardInfoForDescribeDBInstanceDetailOutput) SetShardId(v string) *ShardInfoForDescribeDBInstanceDetailOutput {
-	s.ShardId = &v
-	return s
-}
-
-// SetShardStatus sets the ShardStatus field's value.
-func (s *ShardInfoForDescribeDBInstanceDetailOutput) SetShardStatus(v string) *ShardInfoForDescribeDBInstanceDetailOutput {
-	s.ShardStatus = &v
 	return s
 }
 

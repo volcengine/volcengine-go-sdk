@@ -22,13 +22,13 @@ const opDescribeHaVipsCommon = "DescribeHaVips"
 // See DescribeHaVipsCommon for more information on using the DescribeHaVipsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeHaVipsCommonRequest method.
-//	req, resp := client.DescribeHaVipsCommonRequest(params)
+//    // Example sending a request using the DescribeHaVipsCommonRequest method.
+//    req, resp := client.DescribeHaVipsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeHaVipsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeHaVipsCommon,
@@ -87,13 +87,13 @@ const opDescribeHaVips = "DescribeHaVips"
 // See DescribeHaVips for more information on using the DescribeHaVips
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeHaVipsRequest method.
-//	req, resp := client.DescribeHaVipsRequest(params)
+//    // Example sending a request using the DescribeHaVipsRequest method.
+//    req, resp := client.DescribeHaVipsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeHaVipsRequest(input *DescribeHaVipsInput) (req *request.Request, output *DescribeHaVipsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeHaVips,

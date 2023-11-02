@@ -148,8 +148,6 @@ type ModifyDBInstanceMaintenanceWindowInput struct {
 
 	DayKind *string `type:"string" enum:"EnumOfDayKindForModifyDBInstanceMaintenanceWindowInput"`
 
-	DayOfMonth []*int64 `type:"list"`
-
 	DayOfWeek []*string `type:"list"`
 
 	// InstanceId is a required field
@@ -184,12 +182,6 @@ func (s *ModifyDBInstanceMaintenanceWindowInput) Validate() error {
 // SetDayKind sets the DayKind field's value.
 func (s *ModifyDBInstanceMaintenanceWindowInput) SetDayKind(v string) *ModifyDBInstanceMaintenanceWindowInput {
 	s.DayKind = &v
-	return s
-}
-
-// SetDayOfMonth sets the DayOfMonth field's value.
-func (s *ModifyDBInstanceMaintenanceWindowInput) SetDayOfMonth(v []*int64) *ModifyDBInstanceMaintenanceWindowInput {
-	s.DayOfMonth = v
 	return s
 }
 

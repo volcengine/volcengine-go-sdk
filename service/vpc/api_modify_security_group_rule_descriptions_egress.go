@@ -22,13 +22,13 @@ const opModifySecurityGroupRuleDescriptionsEgressCommon = "ModifySecurityGroupRu
 // See ModifySecurityGroupRuleDescriptionsEgressCommon for more information on using the ModifySecurityGroupRuleDescriptionsEgressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressCommonRequest method.
-//	req, resp := client.ModifySecurityGroupRuleDescriptionsEgressCommonRequest(params)
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressCommonRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsEgressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupRuleDescriptionsEgressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupRuleDescriptionsEgressCommon,
@@ -87,13 +87,13 @@ const opModifySecurityGroupRuleDescriptionsEgress = "ModifySecurityGroupRuleDesc
 // See ModifySecurityGroupRuleDescriptionsEgress for more information on using the ModifySecurityGroupRuleDescriptionsEgress
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressRequest method.
-//	req, resp := client.ModifySecurityGroupRuleDescriptionsEgressRequest(params)
+//    // Example sending a request using the ModifySecurityGroupRuleDescriptionsEgressRequest method.
+//    req, resp := client.ModifySecurityGroupRuleDescriptionsEgressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySecurityGroupRuleDescriptionsEgressRequest(input *ModifySecurityGroupRuleDescriptionsEgressInput) (req *request.Request, output *ModifySecurityGroupRuleDescriptionsEgressOutput) {
 	op := &request.Operation{
 		Name:       opModifySecurityGroupRuleDescriptionsEgress,

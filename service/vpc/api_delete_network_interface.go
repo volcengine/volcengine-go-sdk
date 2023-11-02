@@ -22,13 +22,13 @@ const opDeleteNetworkInterfaceCommon = "DeleteNetworkInterface"
 // See DeleteNetworkInterfaceCommon for more information on using the DeleteNetworkInterfaceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteNetworkInterfaceCommonRequest method.
-//	req, resp := client.DeleteNetworkInterfaceCommonRequest(params)
+//    // Example sending a request using the DeleteNetworkInterfaceCommonRequest method.
+//    req, resp := client.DeleteNetworkInterfaceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteNetworkInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteNetworkInterfaceCommon,
@@ -87,13 +87,13 @@ const opDeleteNetworkInterface = "DeleteNetworkInterface"
 // See DeleteNetworkInterface for more information on using the DeleteNetworkInterface
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteNetworkInterfaceRequest method.
-//	req, resp := client.DeleteNetworkInterfaceRequest(params)
+//    // Example sending a request using the DeleteNetworkInterfaceRequest method.
+//    req, resp := client.DeleteNetworkInterfaceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteNetworkInterfaceRequest(input *DeleteNetworkInterfaceInput) (req *request.Request, output *DeleteNetworkInterfaceOutput) {
 	op := &request.Operation{
 		Name:       opDeleteNetworkInterface,

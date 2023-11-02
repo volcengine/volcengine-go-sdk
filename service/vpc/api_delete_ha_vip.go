@@ -22,13 +22,13 @@ const opDeleteHaVipCommon = "DeleteHaVip"
 // See DeleteHaVipCommon for more information on using the DeleteHaVipCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteHaVipCommonRequest method.
-//	req, resp := client.DeleteHaVipCommonRequest(params)
+//    // Example sending a request using the DeleteHaVipCommonRequest method.
+//    req, resp := client.DeleteHaVipCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteHaVipCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteHaVipCommon,
@@ -87,13 +87,13 @@ const opDeleteHaVip = "DeleteHaVip"
 // See DeleteHaVip for more information on using the DeleteHaVip
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteHaVipRequest method.
-//	req, resp := client.DeleteHaVipRequest(params)
+//    // Example sending a request using the DeleteHaVipRequest method.
+//    req, resp := client.DeleteHaVipRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeleteHaVipRequest(input *DeleteHaVipInput) (req *request.Request, output *DeleteHaVipOutput) {
 	op := &request.Operation{
 		Name:       opDeleteHaVip,

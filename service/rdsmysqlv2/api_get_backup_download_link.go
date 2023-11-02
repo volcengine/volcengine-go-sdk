@@ -150,8 +150,6 @@ type GetBackupDownloadLinkInput struct {
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
-
-	NodeId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -189,12 +187,6 @@ func (s *GetBackupDownloadLinkInput) SetInstanceId(v string) *GetBackupDownloadL
 	return s
 }
 
-// SetNodeId sets the NodeId field's value.
-func (s *GetBackupDownloadLinkInput) SetNodeId(v string) *GetBackupDownloadLinkInput {
-	s.NodeId = &v
-	return s
-}
-
 type GetBackupDownloadLinkOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -215,8 +207,6 @@ type GetBackupDownloadLinkOutput struct {
 	InstanceId *string `type:"string"`
 
 	LinkExpiredTime *string `type:"string"`
-
-	NodeId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -274,11 +264,5 @@ func (s *GetBackupDownloadLinkOutput) SetInstanceId(v string) *GetBackupDownload
 // SetLinkExpiredTime sets the LinkExpiredTime field's value.
 func (s *GetBackupDownloadLinkOutput) SetLinkExpiredTime(v string) *GetBackupDownloadLinkOutput {
 	s.LinkExpiredTime = &v
-	return s
-}
-
-// SetNodeId sets the NodeId field's value.
-func (s *GetBackupDownloadLinkOutput) SetNodeId(v string) *GetBackupDownloadLinkOutput {
-	s.NodeId = &v
 	return s
 }

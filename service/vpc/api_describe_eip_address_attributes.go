@@ -22,13 +22,13 @@ const opDescribeEipAddressAttributesCommon = "DescribeEipAddressAttributes"
 // See DescribeEipAddressAttributesCommon for more information on using the DescribeEipAddressAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeEipAddressAttributesCommonRequest method.
-//	req, resp := client.DescribeEipAddressAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeEipAddressAttributesCommonRequest method.
+//    req, resp := client.DescribeEipAddressAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeEipAddressAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeEipAddressAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeEipAddressAttributes = "DescribeEipAddressAttributes"
 // See DescribeEipAddressAttributes for more information on using the DescribeEipAddressAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeEipAddressAttributesRequest method.
-//	req, resp := client.DescribeEipAddressAttributesRequest(params)
+//    // Example sending a request using the DescribeEipAddressAttributesRequest method.
+//    req, resp := client.DescribeEipAddressAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeEipAddressAttributesRequest(input *DescribeEipAddressAttributesInput) (req *request.Request, output *DescribeEipAddressAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeEipAddressAttributes,

@@ -22,13 +22,13 @@ const opModifyBandwidthPackageAttributesCommon = "ModifyBandwidthPackageAttribut
 // See ModifyBandwidthPackageAttributesCommon for more information on using the ModifyBandwidthPackageAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBandwidthPackageAttributesCommonRequest method.
-//	req, resp := client.ModifyBandwidthPackageAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyBandwidthPackageAttributesCommonRequest method.
+//    req, resp := client.ModifyBandwidthPackageAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyBandwidthPackageAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyBandwidthPackageAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyBandwidthPackageAttributes = "ModifyBandwidthPackageAttributes"
 // See ModifyBandwidthPackageAttributes for more information on using the ModifyBandwidthPackageAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBandwidthPackageAttributesRequest method.
-//	req, resp := client.ModifyBandwidthPackageAttributesRequest(params)
+//    // Example sending a request using the ModifyBandwidthPackageAttributesRequest method.
+//    req, resp := client.ModifyBandwidthPackageAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyBandwidthPackageAttributesRequest(input *ModifyBandwidthPackageAttributesInput) (req *request.Request, output *ModifyBandwidthPackageAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyBandwidthPackageAttributes,

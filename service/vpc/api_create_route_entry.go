@@ -22,13 +22,13 @@ const opCreateRouteEntryCommon = "CreateRouteEntry"
 // See CreateRouteEntryCommon for more information on using the CreateRouteEntryCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateRouteEntryCommonRequest method.
-//	req, resp := client.CreateRouteEntryCommonRequest(params)
+//    // Example sending a request using the CreateRouteEntryCommonRequest method.
+//    req, resp := client.CreateRouteEntryCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateRouteEntryCommon,
@@ -87,13 +87,13 @@ const opCreateRouteEntry = "CreateRouteEntry"
 // See CreateRouteEntry for more information on using the CreateRouteEntry
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateRouteEntryRequest method.
-//	req, resp := client.CreateRouteEntryRequest(params)
+//    // Example sending a request using the CreateRouteEntryRequest method.
+//    req, resp := client.CreateRouteEntryRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) CreateRouteEntryRequest(input *CreateRouteEntryInput) (req *request.Request, output *CreateRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opCreateRouteEntry,

@@ -22,13 +22,13 @@ const opDescribeSubnetAttributesCommon = "DescribeSubnetAttributes"
 // See DescribeSubnetAttributesCommon for more information on using the DescribeSubnetAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubnetAttributesCommonRequest method.
-//	req, resp := client.DescribeSubnetAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeSubnetAttributesCommonRequest method.
+//    req, resp := client.DescribeSubnetAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSubnetAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSubnetAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeSubnetAttributes = "DescribeSubnetAttributes"
 // See DescribeSubnetAttributes for more information on using the DescribeSubnetAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubnetAttributesRequest method.
-//	req, resp := client.DescribeSubnetAttributesRequest(params)
+//    // Example sending a request using the DescribeSubnetAttributesRequest method.
+//    req, resp := client.DescribeSubnetAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DescribeSubnetAttributesRequest(input *DescribeSubnetAttributesInput) (req *request.Request, output *DescribeSubnetAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSubnetAttributes,

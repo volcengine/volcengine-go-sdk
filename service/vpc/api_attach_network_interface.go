@@ -22,13 +22,13 @@ const opAttachNetworkInterfaceCommon = "AttachNetworkInterface"
 // See AttachNetworkInterfaceCommon for more information on using the AttachNetworkInterfaceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachNetworkInterfaceCommonRequest method.
-//	req, resp := client.AttachNetworkInterfaceCommonRequest(params)
+//    // Example sending a request using the AttachNetworkInterfaceCommonRequest method.
+//    req, resp := client.AttachNetworkInterfaceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AttachNetworkInterfaceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachNetworkInterfaceCommon,
@@ -87,13 +87,13 @@ const opAttachNetworkInterface = "AttachNetworkInterface"
 // See AttachNetworkInterface for more information on using the AttachNetworkInterface
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachNetworkInterfaceRequest method.
-//	req, resp := client.AttachNetworkInterfaceRequest(params)
+//    // Example sending a request using the AttachNetworkInterfaceRequest method.
+//    req, resp := client.AttachNetworkInterfaceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) AttachNetworkInterfaceRequest(input *AttachNetworkInterfaceInput) (req *request.Request, output *AttachNetworkInterfaceOutput) {
 	op := &request.Operation{
 		Name:       opAttachNetworkInterface,

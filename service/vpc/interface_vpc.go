@@ -16,18 +16,19 @@ import (
 // VPCAPI provides an interface to enable mocking the
 // vpc.VPC service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// VPC.
-//	func myFunc(svc VPCAPI) bool {
-//	    // Make svc.AddBandwidthPackageIp request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // VPC.
+//    func myFunc(svc VPCAPI) bool {
+//        // Make svc.AddBandwidthPackageIp request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := vpc.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := vpc.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type VPCAPI interface {
 	AddBandwidthPackageIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddBandwidthPackageIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -364,6 +365,14 @@ type VPCAPI interface {
 	DescribePrefixListEntries(*DescribePrefixListEntriesInput) (*DescribePrefixListEntriesOutput, error)
 	DescribePrefixListEntriesWithContext(volcengine.Context, *DescribePrefixListEntriesInput, ...request.Option) (*DescribePrefixListEntriesOutput, error)
 	DescribePrefixListEntriesRequest(*DescribePrefixListEntriesInput) (*request.Request, *DescribePrefixListEntriesOutput)
+
+	DescribePrefixListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrefixListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrefixListsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrefixLists(*DescribePrefixListsInput) (*DescribePrefixListsOutput, error)
+	DescribePrefixListsWithContext(volcengine.Context, *DescribePrefixListsInput, ...request.Option) (*DescribePrefixListsOutput, error)
+	DescribePrefixListsRequest(*DescribePrefixListsInput) (*request.Request, *DescribePrefixListsOutput)
 
 	DescribeRouteEntryListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRouteEntryListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -202,8 +202,6 @@ type CreateDBInstanceInput struct {
 
 	AllowListIds []*string `type:"list"`
 
-	BillingRuleCode *string `type:"string"`
-
 	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure"`
 
 	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
@@ -222,17 +220,7 @@ type CreateDBInstanceInput struct {
 
 	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list"`
 
-	NodeNumber *int32 `type:"int32"`
-
-	NodeSpec *string `type:"string"`
-
-	Number *int32 `type:"int32"`
-
 	ProjectName *string `type:"string"`
-
-	ServerCollation *string `type:"string"`
-
-	ShardNumber *int32 `type:"int32"`
 
 	StorageSpace *int32 `type:"int32"`
 
@@ -245,8 +233,6 @@ type CreateDBInstanceInput struct {
 	SuperAccountPassword *string `min:"8" max:"32" type:"string"`
 
 	VpcId *string `type:"string"`
-
-	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -284,12 +270,6 @@ func (s *CreateDBInstanceInput) Validate() error {
 // SetAllowListIds sets the AllowListIds field's value.
 func (s *CreateDBInstanceInput) SetAllowListIds(v []*string) *CreateDBInstanceInput {
 	s.AllowListIds = v
-	return s
-}
-
-// SetBillingRuleCode sets the BillingRuleCode field's value.
-func (s *CreateDBInstanceInput) SetBillingRuleCode(v string) *CreateDBInstanceInput {
-	s.BillingRuleCode = &v
 	return s
 }
 
@@ -347,39 +327,9 @@ func (s *CreateDBInstanceInput) SetNodeInfo(v []*NodeInfoForCreateDBInstanceInpu
 	return s
 }
 
-// SetNodeNumber sets the NodeNumber field's value.
-func (s *CreateDBInstanceInput) SetNodeNumber(v int32) *CreateDBInstanceInput {
-	s.NodeNumber = &v
-	return s
-}
-
-// SetNodeSpec sets the NodeSpec field's value.
-func (s *CreateDBInstanceInput) SetNodeSpec(v string) *CreateDBInstanceInput {
-	s.NodeSpec = &v
-	return s
-}
-
-// SetNumber sets the Number field's value.
-func (s *CreateDBInstanceInput) SetNumber(v int32) *CreateDBInstanceInput {
-	s.Number = &v
-	return s
-}
-
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput {
 	s.ProjectName = &v
-	return s
-}
-
-// SetServerCollation sets the ServerCollation field's value.
-func (s *CreateDBInstanceInput) SetServerCollation(v string) *CreateDBInstanceInput {
-	s.ServerCollation = &v
-	return s
-}
-
-// SetShardNumber sets the ShardNumber field's value.
-func (s *CreateDBInstanceInput) SetShardNumber(v int32) *CreateDBInstanceInput {
-	s.ShardNumber = &v
 	return s
 }
 
@@ -416,12 +366,6 @@ func (s *CreateDBInstanceInput) SetSuperAccountPassword(v string) *CreateDBInsta
 // SetVpcId sets the VpcId field's value.
 func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 	s.VpcId = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *CreateDBInstanceInput) SetZoneId(v string) *CreateDBInstanceInput {
-	s.ZoneId = &v
 	return s
 }
 

@@ -152,8 +152,6 @@ type CreateDatabaseInput struct {
 
 	DBName *string `min:"2" max:"64" type:"string"`
 
-	DBPartition *int32 `type:"int32"`
-
 	DatabasePrivileges []*DatabasePrivilegeForCreateDatabaseInput `type:"list"`
 
 	DatabasePrivilegesInfo []*DatabasePrivilegesInfoForCreateDatabaseInput `type:"list"`
@@ -206,12 +204,6 @@ func (s *CreateDatabaseInput) SetDBDesc(v string) *CreateDatabaseInput {
 // SetDBName sets the DBName field's value.
 func (s *CreateDatabaseInput) SetDBName(v string) *CreateDatabaseInput {
 	s.DBName = &v
-	return s
-}
-
-// SetDBPartition sets the DBPartition field's value.
-func (s *CreateDatabaseInput) SetDBPartition(v int32) *CreateDatabaseInput {
-	s.DBPartition = &v
 	return s
 }
 

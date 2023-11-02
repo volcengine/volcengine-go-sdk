@@ -22,13 +22,13 @@ const opModifyPrefixListCommon = "ModifyPrefixList"
 // See ModifyPrefixListCommon for more information on using the ModifyPrefixListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyPrefixListCommonRequest method.
-//	req, resp := client.ModifyPrefixListCommonRequest(params)
+//    // Example sending a request using the ModifyPrefixListCommonRequest method.
+//    req, resp := client.ModifyPrefixListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyPrefixListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyPrefixListCommon,
@@ -87,13 +87,13 @@ const opModifyPrefixList = "ModifyPrefixList"
 // See ModifyPrefixList for more information on using the ModifyPrefixList
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyPrefixListRequest method.
-//	req, resp := client.ModifyPrefixListRequest(params)
+//    // Example sending a request using the ModifyPrefixListRequest method.
+//    req, resp := client.ModifyPrefixListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifyPrefixListRequest(input *ModifyPrefixListInput) (req *request.Request, output *ModifyPrefixListOutput) {
 	op := &request.Operation{
 		Name:       opModifyPrefixList,

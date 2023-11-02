@@ -133,6 +133,14 @@ type RDSMYSQLV2API interface {
 	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
 	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
 
+	DeleteBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteBackup(*DeleteBackupInput) (*DeleteBackupOutput, error)
+	DeleteBackupWithContext(volcengine.Context, *DeleteBackupInput, ...request.Option) (*DeleteBackupOutput, error)
+	DeleteBackupRequest(*DeleteBackupInput) (*request.Request, *DeleteBackupOutput)
+
 	DeleteDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -309,14 +317,6 @@ type RDSMYSQLV2API interface {
 	DescribeDBInstanceSSLWithContext(volcengine.Context, *DescribeDBInstanceSSLInput, ...request.Option) (*DescribeDBInstanceSSLOutput, error)
 	DescribeDBInstanceSSLRequest(*DescribeDBInstanceSSLInput) (*request.Request, *DescribeDBInstanceSSLOutput)
 
-	DescribeDBInstanceShardsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeDBInstanceShardsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeDBInstanceShardsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeDBInstanceShards(*DescribeDBInstanceShardsInput) (*DescribeDBInstanceShardsOutput, error)
-	DescribeDBInstanceShardsWithContext(volcengine.Context, *DescribeDBInstanceShardsInput, ...request.Option) (*DescribeDBInstanceShardsOutput, error)
-	DescribeDBInstanceShardsRequest(*DescribeDBInstanceShardsInput) (*request.Request, *DescribeDBInstanceShardsOutput)
-
 	DescribeDBInstanceSpecsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceSpecsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceSpecsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -357,21 +357,13 @@ type RDSMYSQLV2API interface {
 	DescribeDatabasesWithContext(volcengine.Context, *DescribeDatabasesInput, ...request.Option) (*DescribeDatabasesOutput, error)
 	DescribeDatabasesRequest(*DescribeDatabasesInput) (*request.Request, *DescribeDatabasesOutput)
 
-	DescribeEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+	DescribeErrorLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeErrorLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeErrorLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
 
-	DescribeEvents(*DescribeEventsInput) (*DescribeEventsOutput, error)
-	DescribeEventsWithContext(volcengine.Context, *DescribeEventsInput, ...request.Option) (*DescribeEventsOutput, error)
-	DescribeEventsRequest(*DescribeEventsInput) (*request.Request, *DescribeEventsOutput)
-
-	DescribeFailoverLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeFailoverLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeFailoverLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeFailoverLogs(*DescribeFailoverLogsInput) (*DescribeFailoverLogsOutput, error)
-	DescribeFailoverLogsWithContext(volcengine.Context, *DescribeFailoverLogsInput, ...request.Option) (*DescribeFailoverLogsOutput, error)
-	DescribeFailoverLogsRequest(*DescribeFailoverLogsInput) (*request.Request, *DescribeFailoverLogsOutput)
+	DescribeErrorLogs(*DescribeErrorLogsInput) (*DescribeErrorLogsOutput, error)
+	DescribeErrorLogsWithContext(volcengine.Context, *DescribeErrorLogsInput, ...request.Option) (*DescribeErrorLogsOutput, error)
+	DescribeErrorLogsRequest(*DescribeErrorLogsInput) (*request.Request, *DescribeErrorLogsOutput)
 
 	DescribeParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -380,14 +372,6 @@ type RDSMYSQLV2API interface {
 	DescribeParameterTemplate(*DescribeParameterTemplateInput) (*DescribeParameterTemplateOutput, error)
 	DescribeParameterTemplateWithContext(volcengine.Context, *DescribeParameterTemplateInput, ...request.Option) (*DescribeParameterTemplateOutput, error)
 	DescribeParameterTemplateRequest(*DescribeParameterTemplateInput) (*request.Request, *DescribeParameterTemplateOutput)
-
-	DescribeProxySQLConcurrencyControlConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeProxySQLConcurrencyControlConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeProxySQLConcurrencyControlConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeProxySQLConcurrencyControlConfig(*DescribeProxySQLConcurrencyControlConfigInput) (*DescribeProxySQLConcurrencyControlConfigOutput, error)
-	DescribeProxySQLConcurrencyControlConfigWithContext(volcengine.Context, *DescribeProxySQLConcurrencyControlConfigInput, ...request.Option) (*DescribeProxySQLConcurrencyControlConfigOutput, error)
-	DescribeProxySQLConcurrencyControlConfigRequest(*DescribeProxySQLConcurrencyControlConfigInput) (*request.Request, *DescribeProxySQLConcurrencyControlConfigOutput)
 
 	DescribeRecoverableTimeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRecoverableTimeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -404,6 +388,14 @@ type RDSMYSQLV2API interface {
 	DescribeRegions(*DescribeRegionsInput) (*DescribeRegionsOutput, error)
 	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
 	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
+
+	DescribeSlowLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSlowLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSlowLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSlowLogs(*DescribeSlowLogsInput) (*DescribeSlowLogsOutput, error)
+	DescribeSlowLogsWithContext(volcengine.Context, *DescribeSlowLogsInput, ...request.Option) (*DescribeSlowLogsOutput, error)
+	DescribeSlowLogsRequest(*DescribeSlowLogsInput) (*request.Request, *DescribeSlowLogsOutput)
 
 	DescribeTagsByResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTagsByResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -429,14 +421,6 @@ type RDSMYSQLV2API interface {
 	DownloadBackupWithContext(volcengine.Context, *DownloadBackupInput, ...request.Option) (*DownloadBackupOutput, error)
 	DownloadBackupRequest(*DownloadBackupInput) (*request.Request, *DownloadBackupOutput)
 
-	DownloadSSLCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DownloadSSLCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DownloadSSLCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DownloadSSLCertificate(*DownloadSSLCertificateInput) (*DownloadSSLCertificateOutput, error)
-	DownloadSSLCertificateWithContext(volcengine.Context, *DownloadSSLCertificateInput, ...request.Option) (*DownloadSSLCertificateOutput, error)
-	DownloadSSLCertificateRequest(*DownloadSSLCertificateInput) (*request.Request, *DownloadSSLCertificateOutput)
-
 	GetBackupDownloadLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetBackupDownloadLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetBackupDownloadLinkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -460,14 +444,6 @@ type RDSMYSQLV2API interface {
 	GrantDatabasePrivilege(*GrantDatabasePrivilegeInput) (*GrantDatabasePrivilegeOutput, error)
 	GrantDatabasePrivilegeWithContext(volcengine.Context, *GrantDatabasePrivilegeInput, ...request.Option) (*GrantDatabasePrivilegeOutput, error)
 	GrantDatabasePrivilegeRequest(*GrantDatabasePrivilegeInput) (*request.Request, *GrantDatabasePrivilegeOutput)
-
-	ListParameterTemplatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ListParameterTemplatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ListParameterTemplatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ListParameterTemplates(*ListParameterTemplatesInput) (*ListParameterTemplatesOutput, error)
-	ListParameterTemplatesWithContext(volcengine.Context, *ListParameterTemplatesInput, ...request.Option) (*ListParameterTemplatesOutput, error)
-	ListParameterTemplatesRequest(*ListParameterTemplatesInput) (*request.Request, *ListParameterTemplatesOutput)
 
 	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -589,22 +565,6 @@ type RDSMYSQLV2API interface {
 	ModifyDBInstanceTDEWithContext(volcengine.Context, *ModifyDBInstanceTDEInput, ...request.Option) (*ModifyDBInstanceTDEOutput, error)
 	ModifyDBInstanceTDERequest(*ModifyDBInstanceTDEInput) (*request.Request, *ModifyDBInstanceTDEOutput)
 
-	ModifyDBInstanceTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyDBInstanceTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyDBInstanceTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyDBInstanceType(*ModifyDBInstanceTypeInput) (*ModifyDBInstanceTypeOutput, error)
-	ModifyDBInstanceTypeWithContext(volcengine.Context, *ModifyDBInstanceTypeInput, ...request.Option) (*ModifyDBInstanceTypeOutput, error)
-	ModifyDBInstanceTypeRequest(*ModifyDBInstanceTypeInput) (*request.Request, *ModifyDBInstanceTypeOutput)
-
-	ModifyDBProxyCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyDBProxyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyDBProxyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyDBProxy(*ModifyDBProxyInput) (*ModifyDBProxyOutput, error)
-	ModifyDBProxyWithContext(volcengine.Context, *ModifyDBProxyInput, ...request.Option) (*ModifyDBProxyOutput, error)
-	ModifyDBProxyRequest(*ModifyDBProxyInput) (*request.Request, *ModifyDBProxyOutput)
-
 	ModifyDBProxyConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBProxyConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBProxyConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -621,14 +581,6 @@ type RDSMYSQLV2API interface {
 	ModifyDatabaseDescriptionWithContext(volcengine.Context, *ModifyDatabaseDescriptionInput, ...request.Option) (*ModifyDatabaseDescriptionOutput, error)
 	ModifyDatabaseDescriptionRequest(*ModifyDatabaseDescriptionInput) (*request.Request, *ModifyDatabaseDescriptionOutput)
 
-	ModifyDatabasePrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyDatabasePrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyDatabasePrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyDatabasePrivilege(*ModifyDatabasePrivilegeInput) (*ModifyDatabasePrivilegeOutput, error)
-	ModifyDatabasePrivilegeWithContext(volcengine.Context, *ModifyDatabasePrivilegeInput, ...request.Option) (*ModifyDatabasePrivilegeOutput, error)
-	ModifyDatabasePrivilegeRequest(*ModifyDatabasePrivilegeInput) (*request.Request, *ModifyDatabasePrivilegeOutput)
-
 	ModifyParameterTemplateCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyParameterTemplateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyParameterTemplateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -636,14 +588,6 @@ type RDSMYSQLV2API interface {
 	ModifyParameterTemplate(*ModifyParameterTemplateInput) (*ModifyParameterTemplateOutput, error)
 	ModifyParameterTemplateWithContext(volcengine.Context, *ModifyParameterTemplateInput, ...request.Option) (*ModifyParameterTemplateOutput, error)
 	ModifyParameterTemplateRequest(*ModifyParameterTemplateInput) (*request.Request, *ModifyParameterTemplateOutput)
-
-	ModifyProxySQLConcurrencyControlConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyProxySQLConcurrencyControlConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyProxySQLConcurrencyControlConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyProxySQLConcurrencyControlConfig(*ModifyProxySQLConcurrencyControlConfigInput) (*ModifyProxySQLConcurrencyControlConfigOutput, error)
-	ModifyProxySQLConcurrencyControlConfigWithContext(volcengine.Context, *ModifyProxySQLConcurrencyControlConfigInput, ...request.Option) (*ModifyProxySQLConcurrencyControlConfigOutput, error)
-	ModifyProxySQLConcurrencyControlConfigRequest(*ModifyProxySQLConcurrencyControlConfigInput) (*request.Request, *ModifyProxySQLConcurrencyControlConfigOutput)
 
 	RebuildDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RebuildDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -216,8 +216,6 @@ type DescribeBinlogFilesInput struct {
 
 	InstanceId *string `type:"string"`
 
-	NodeId *string `type:"string"`
-
 	StartTime *string `type:"string"`
 }
 
@@ -255,12 +253,6 @@ func (s *DescribeBinlogFilesInput) SetInstanceId(v string) *DescribeBinlogFilesI
 	return s
 }
 
-// SetNodeId sets the NodeId field's value.
-func (s *DescribeBinlogFilesInput) SetNodeId(v string) *DescribeBinlogFilesInput {
-	s.NodeId = &v
-	return s
-}
-
 // SetStartTime sets the StartTime field's value.
 func (s *DescribeBinlogFilesInput) SetStartTime(v string) *DescribeBinlogFilesInput {
 	s.StartTime = &v
@@ -275,8 +267,6 @@ type DescribeBinlogFilesOutput struct {
 	BinlogFiles []*BinlogFileForDescribeBinlogFilesOutput `type:"list"`
 
 	Context *string `type:"string"`
-
-	NodeId *string `type:"string"`
 
 	Total *int32 `type:"int32"`
 }
@@ -300,12 +290,6 @@ func (s *DescribeBinlogFilesOutput) SetBinlogFiles(v []*BinlogFileForDescribeBin
 // SetContext sets the Context field's value.
 func (s *DescribeBinlogFilesOutput) SetContext(v string) *DescribeBinlogFilesOutput {
 	s.Context = &v
-	return s
-}
-
-// SetNodeId sets the NodeId field's value.
-func (s *DescribeBinlogFilesOutput) SetNodeId(v string) *DescribeBinlogFilesOutput {
-	s.NodeId = &v
 	return s
 }
 

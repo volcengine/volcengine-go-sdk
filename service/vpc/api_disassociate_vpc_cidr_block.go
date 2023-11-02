@@ -22,13 +22,13 @@ const opDisassociateVpcCidrBlockCommon = "DisassociateVpcCidrBlock"
 // See DisassociateVpcCidrBlockCommon for more information on using the DisassociateVpcCidrBlockCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateVpcCidrBlockCommonRequest method.
-//	req, resp := client.DisassociateVpcCidrBlockCommonRequest(params)
+//    // Example sending a request using the DisassociateVpcCidrBlockCommonRequest method.
+//    req, resp := client.DisassociateVpcCidrBlockCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateVpcCidrBlockCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateVpcCidrBlockCommon,
@@ -87,13 +87,13 @@ const opDisassociateVpcCidrBlock = "DisassociateVpcCidrBlock"
 // See DisassociateVpcCidrBlock for more information on using the DisassociateVpcCidrBlock
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateVpcCidrBlockRequest method.
-//	req, resp := client.DisassociateVpcCidrBlockRequest(params)
+//    // Example sending a request using the DisassociateVpcCidrBlockRequest method.
+//    req, resp := client.DisassociateVpcCidrBlockRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DisassociateVpcCidrBlockRequest(input *DisassociateVpcCidrBlockInput) (req *request.Request, output *DisassociateVpcCidrBlockOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateVpcCidrBlock,

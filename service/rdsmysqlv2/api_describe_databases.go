@@ -152,8 +152,6 @@ type DatabasForDescribeDatabasesOutput struct {
 
 	DBName *string `type:"string"`
 
-	DBPartition *int32 `type:"int32"`
-
 	DBStatus *string `type:"string"`
 
 	DatabasePrivileges []*DatabasePrivilegeForDescribeDatabasesOutput `type:"list"`
@@ -186,12 +184,6 @@ func (s *DatabasForDescribeDatabasesOutput) SetDBDesc(v string) *DatabasForDescr
 // SetDBName sets the DBName field's value.
 func (s *DatabasForDescribeDatabasesOutput) SetDBName(v string) *DatabasForDescribeDatabasesOutput {
 	s.DBName = &v
-	return s
-}
-
-// SetDBPartition sets the DBPartition field's value.
-func (s *DatabasForDescribeDatabasesOutput) SetDBPartition(v int32) *DatabasForDescribeDatabasesOutput {
-	s.DBPartition = &v
 	return s
 }
 
@@ -298,8 +290,6 @@ type DatabasesInfoForDescribeDatabasesOutput struct {
 
 	DBName *string `type:"string"`
 
-	DBPartition *int32 `type:"int32"`
-
 	DBStatus *string `type:"string"`
 
 	DatabasePrivileges []*DatabasePrivilegeForDescribeDatabasesOutput `type:"list"`
@@ -332,12 +322,6 @@ func (s *DatabasesInfoForDescribeDatabasesOutput) SetDBDesc(v string) *Databases
 // SetDBName sets the DBName field's value.
 func (s *DatabasesInfoForDescribeDatabasesOutput) SetDBName(v string) *DatabasesInfoForDescribeDatabasesOutput {
 	s.DBName = &v
-	return s
-}
-
-// SetDBPartition sets the DBPartition field's value.
-func (s *DatabasesInfoForDescribeDatabasesOutput) SetDBPartition(v int32) *DatabasesInfoForDescribeDatabasesOutput {
-	s.DBPartition = &v
 	return s
 }
 

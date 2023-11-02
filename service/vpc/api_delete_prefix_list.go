@@ -22,13 +22,13 @@ const opDeletePrefixListCommon = "DeletePrefixList"
 // See DeletePrefixListCommon for more information on using the DeletePrefixListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeletePrefixListCommonRequest method.
-//	req, resp := client.DeletePrefixListCommonRequest(params)
+//    // Example sending a request using the DeletePrefixListCommonRequest method.
+//    req, resp := client.DeletePrefixListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeletePrefixListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeletePrefixListCommon,
@@ -87,13 +87,13 @@ const opDeletePrefixList = "DeletePrefixList"
 // See DeletePrefixList for more information on using the DeletePrefixList
 // API call, and error handling.
 //
-//	// Example sending a request using the DeletePrefixListRequest method.
-//	req, resp := client.DeletePrefixListRequest(params)
+//    // Example sending a request using the DeletePrefixListRequest method.
+//    req, resp := client.DeletePrefixListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) DeletePrefixListRequest(input *DeletePrefixListInput) (req *request.Request, output *DeletePrefixListOutput) {
 	op := &request.Operation{
 		Name:       opDeletePrefixList,
@@ -144,7 +144,7 @@ type DeletePrefixListInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DryRun *string `type:"string"`
+	DryRun *bool `type:"boolean"`
 
 	// PrefixListId is a required field
 	PrefixListId *string `type:"string" required:"true"`
@@ -180,7 +180,7 @@ func (s *DeletePrefixListInput) SetClientToken(v string) *DeletePrefixListInput 
 }
 
 // SetDryRun sets the DryRun field's value.
-func (s *DeletePrefixListInput) SetDryRun(v string) *DeletePrefixListInput {
+func (s *DeletePrefixListInput) SetDryRun(v bool) *DeletePrefixListInput {
 	s.DryRun = &v
 	return s
 }

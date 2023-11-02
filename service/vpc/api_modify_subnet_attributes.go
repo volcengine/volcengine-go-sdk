@@ -22,13 +22,13 @@ const opModifySubnetAttributesCommon = "ModifySubnetAttributes"
 // See ModifySubnetAttributesCommon for more information on using the ModifySubnetAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySubnetAttributesCommonRequest method.
-//	req, resp := client.ModifySubnetAttributesCommonRequest(params)
+//    // Example sending a request using the ModifySubnetAttributesCommonRequest method.
+//    req, resp := client.ModifySubnetAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySubnetAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifySubnetAttributesCommon,
@@ -87,13 +87,13 @@ const opModifySubnetAttributes = "ModifySubnetAttributes"
 // See ModifySubnetAttributes for more information on using the ModifySubnetAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifySubnetAttributesRequest method.
-//	req, resp := client.ModifySubnetAttributesRequest(params)
+//    // Example sending a request using the ModifySubnetAttributesRequest method.
+//    req, resp := client.ModifySubnetAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VPC) ModifySubnetAttributesRequest(input *ModifySubnetAttributesInput) (req *request.Request, output *ModifySubnetAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifySubnetAttributes,
