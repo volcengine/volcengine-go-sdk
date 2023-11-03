@@ -22,13 +22,13 @@ const opDescribeListenerAttributesCommon = "DescribeListenerAttributes"
 // See DescribeListenerAttributesCommon for more information on using the DescribeListenerAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeListenerAttributesCommonRequest method.
-//	req, resp := client.DescribeListenerAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeListenerAttributesCommonRequest method.
+//    req, resp := client.DescribeListenerAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeListenerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeListenerAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeListenerAttributes = "DescribeListenerAttributes"
 // See DescribeListenerAttributes for more information on using the DescribeListenerAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeListenerAttributesRequest method.
-//	req, resp := client.DescribeListenerAttributesRequest(params)
+//    // Example sending a request using the DescribeListenerAttributesRequest method.
+//    req, resp := client.DescribeListenerAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeListenerAttributesRequest(input *DescribeListenerAttributesInput) (req *request.Request, output *DescribeListenerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeListenerAttributes,
@@ -210,9 +210,15 @@ type DescribeListenerAttributesOutput struct {
 
 	LoadBalancerId *string `type:"string"`
 
+	PersistenceTimeout *int64 `type:"integer"`
+
+	PersistenceType *string `type:"string"`
+
 	Port *int64 `type:"integer"`
 
 	Protocol *string `type:"string"`
+
+	ProxyProtocolType *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
@@ -325,6 +331,18 @@ func (s *DescribeListenerAttributesOutput) SetLoadBalancerId(v string) *Describe
 	return s
 }
 
+// SetPersistenceTimeout sets the PersistenceTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetPersistenceTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.PersistenceTimeout = &v
+	return s
+}
+
+// SetPersistenceType sets the PersistenceType field's value.
+func (s *DescribeListenerAttributesOutput) SetPersistenceType(v string) *DescribeListenerAttributesOutput {
+	s.PersistenceType = &v
+	return s
+}
+
 // SetPort sets the Port field's value.
 func (s *DescribeListenerAttributesOutput) SetPort(v int64) *DescribeListenerAttributesOutput {
 	s.Port = &v
@@ -334,6 +352,12 @@ func (s *DescribeListenerAttributesOutput) SetPort(v int64) *DescribeListenerAtt
 // SetProtocol sets the Protocol field's value.
 func (s *DescribeListenerAttributesOutput) SetProtocol(v string) *DescribeListenerAttributesOutput {
 	s.Protocol = &v
+	return s
+}
+
+// SetProxyProtocolType sets the ProxyProtocolType field's value.
+func (s *DescribeListenerAttributesOutput) SetProxyProtocolType(v string) *DescribeListenerAttributesOutput {
+	s.ProxyProtocolType = &v
 	return s
 }
 

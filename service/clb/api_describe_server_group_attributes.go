@@ -22,13 +22,13 @@ const opDescribeServerGroupAttributesCommon = "DescribeServerGroupAttributes"
 // See DescribeServerGroupAttributesCommon for more information on using the DescribeServerGroupAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeServerGroupAttributesCommonRequest method.
-//	req, resp := client.DescribeServerGroupAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeServerGroupAttributesCommonRequest method.
+//    req, resp := client.DescribeServerGroupAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeServerGroupAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeServerGroupAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeServerGroupAttributes = "DescribeServerGroupAttributes"
 // See DescribeServerGroupAttributes for more information on using the DescribeServerGroupAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeServerGroupAttributesRequest method.
-//	req, resp := client.DescribeServerGroupAttributesRequest(params)
+//    // Example sending a request using the DescribeServerGroupAttributesRequest method.
+//    req, resp := client.DescribeServerGroupAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeServerGroupAttributesRequest(input *DescribeServerGroupAttributesInput) (req *request.Request, output *DescribeServerGroupAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeServerGroupAttributes,
@@ -180,6 +180,8 @@ type DescribeServerGroupAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AddressIpVersion *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	Listeners []*string `type:"list"`
@@ -193,6 +195,8 @@ type DescribeServerGroupAttributesOutput struct {
 	ServerGroupName *string `type:"string"`
 
 	Servers []*ServerForDescribeServerGroupAttributesOutput `type:"list"`
+
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -203,6 +207,12 @@ func (s DescribeServerGroupAttributesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeServerGroupAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *DescribeServerGroupAttributesOutput) SetAddressIpVersion(v string) *DescribeServerGroupAttributesOutput {
+	s.AddressIpVersion = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -244,6 +254,12 @@ func (s *DescribeServerGroupAttributesOutput) SetServerGroupName(v string) *Desc
 // SetServers sets the Servers field's value.
 func (s *DescribeServerGroupAttributesOutput) SetServers(v []*ServerForDescribeServerGroupAttributesOutput) *DescribeServerGroupAttributesOutput {
 	s.Servers = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeServerGroupAttributesOutput) SetType(v string) *DescribeServerGroupAttributesOutput {
+	s.Type = &v
 	return s
 }
 

@@ -24,13 +24,13 @@ const opCreateServerGroupCommon = "CreateServerGroup"
 // See CreateServerGroupCommon for more information on using the CreateServerGroupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateServerGroupCommonRequest method.
-//	req, resp := client.CreateServerGroupCommonRequest(params)
+//    // Example sending a request using the CreateServerGroupCommonRequest method.
+//    req, resp := client.CreateServerGroupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) CreateServerGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateServerGroupCommon,
@@ -89,13 +89,13 @@ const opCreateServerGroup = "CreateServerGroup"
 // See CreateServerGroup for more information on using the CreateServerGroup
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateServerGroupRequest method.
-//	req, resp := client.CreateServerGroupRequest(params)
+//    // Example sending a request using the CreateServerGroupRequest method.
+//    req, resp := client.CreateServerGroupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) CreateServerGroupRequest(input *CreateServerGroupInput) (req *request.Request, output *CreateServerGroupOutput) {
 	op := &request.Operation{
 		Name:       opCreateServerGroup,
@@ -144,6 +144,8 @@ func (c *CLB) CreateServerGroupWithContext(ctx volcengine.Context, input *Create
 type CreateServerGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	AddressIpVersion *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	// LoadBalancerId is a required field
@@ -191,6 +193,12 @@ func (s *CreateServerGroupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *CreateServerGroupInput) SetAddressIpVersion(v string) *CreateServerGroupInput {
+	s.AddressIpVersion = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

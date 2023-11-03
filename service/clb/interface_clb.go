@@ -16,18 +16,19 @@ import (
 // CLBAPI provides an interface to enable mocking the
 // clb.CLB service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// CLB.
-//	func myFunc(svc CLBAPI) bool {
-//	    // Make svc.AddAclEntries request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // CLB.
+//    func myFunc(svc CLBAPI) bool {
+//        // Make svc.AddAclEntries request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := clb.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := clb.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type CLBAPI interface {
 	AddAclEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddAclEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

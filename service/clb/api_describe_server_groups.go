@@ -22,13 +22,13 @@ const opDescribeServerGroupsCommon = "DescribeServerGroups"
 // See DescribeServerGroupsCommon for more information on using the DescribeServerGroupsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeServerGroupsCommonRequest method.
-//	req, resp := client.DescribeServerGroupsCommonRequest(params)
+//    // Example sending a request using the DescribeServerGroupsCommonRequest method.
+//    req, resp := client.DescribeServerGroupsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeServerGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeServerGroupsCommon,
@@ -87,13 +87,13 @@ const opDescribeServerGroups = "DescribeServerGroups"
 // See DescribeServerGroups for more information on using the DescribeServerGroups
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeServerGroupsRequest method.
-//	req, resp := client.DescribeServerGroupsRequest(params)
+//    // Example sending a request using the DescribeServerGroupsRequest method.
+//    req, resp := client.DescribeServerGroupsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeServerGroupsRequest(input *DescribeServerGroupsInput) (req *request.Request, output *DescribeServerGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeServerGroups,
@@ -151,6 +151,8 @@ type DescribeServerGroupsInput struct {
 	ServerGroupIds []*string `type:"list"`
 
 	ServerGroupName *string `type:"string"`
+
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -190,6 +192,12 @@ func (s *DescribeServerGroupsInput) SetServerGroupIds(v []*string) *DescribeServ
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *DescribeServerGroupsInput) SetServerGroupName(v string) *DescribeServerGroupsInput {
 	s.ServerGroupName = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeServerGroupsInput) SetType(v string) *DescribeServerGroupsInput {
+	s.Type = &v
 	return s
 }
 
@@ -252,6 +260,8 @@ func (s *DescribeServerGroupsOutput) SetTotalCount(v int64) *DescribeServerGroup
 type ServerGroupForDescribeServerGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
+	AddressIpVersion *string `type:"string"`
+
 	CreateTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -259,6 +269,8 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 	ServerGroupId *string `type:"string"`
 
 	ServerGroupName *string `type:"string"`
+
+	Type *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -271,6 +283,12 @@ func (s ServerGroupForDescribeServerGroupsOutput) String() string {
 // GoString returns the string representation
 func (s ServerGroupForDescribeServerGroupsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetAddressIpVersion(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.AddressIpVersion = &v
+	return s
 }
 
 // SetCreateTime sets the CreateTime field's value.
@@ -294,6 +312,12 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupId(v string) *S
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupName(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.ServerGroupName = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetType(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.Type = &v
 	return s
 }
 

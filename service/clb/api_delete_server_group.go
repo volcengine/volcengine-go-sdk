@@ -22,13 +22,13 @@ const opDeleteServerGroupCommon = "DeleteServerGroup"
 // See DeleteServerGroupCommon for more information on using the DeleteServerGroupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteServerGroupCommonRequest method.
-//	req, resp := client.DeleteServerGroupCommonRequest(params)
+//    // Example sending a request using the DeleteServerGroupCommonRequest method.
+//    req, resp := client.DeleteServerGroupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DeleteServerGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteServerGroupCommon,
@@ -87,13 +87,13 @@ const opDeleteServerGroup = "DeleteServerGroup"
 // See DeleteServerGroup for more information on using the DeleteServerGroup
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteServerGroupRequest method.
-//	req, resp := client.DeleteServerGroupRequest(params)
+//    // Example sending a request using the DeleteServerGroupRequest method.
+//    req, resp := client.DeleteServerGroupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DeleteServerGroupRequest(input *DeleteServerGroupInput) (req *request.Request, output *DeleteServerGroupOutput) {
 	op := &request.Operation{
 		Name:       opDeleteServerGroup,

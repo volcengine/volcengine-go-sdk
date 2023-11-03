@@ -22,13 +22,13 @@ const opSetLoadBalancerRenewalCommon = "SetLoadBalancerRenewal"
 // See SetLoadBalancerRenewalCommon for more information on using the SetLoadBalancerRenewalCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the SetLoadBalancerRenewalCommonRequest method.
-//	req, resp := client.SetLoadBalancerRenewalCommonRequest(params)
+//    // Example sending a request using the SetLoadBalancerRenewalCommonRequest method.
+//    req, resp := client.SetLoadBalancerRenewalCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) SetLoadBalancerRenewalCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opSetLoadBalancerRenewalCommon,
@@ -87,13 +87,13 @@ const opSetLoadBalancerRenewal = "SetLoadBalancerRenewal"
 // See SetLoadBalancerRenewal for more information on using the SetLoadBalancerRenewal
 // API call, and error handling.
 //
-//	// Example sending a request using the SetLoadBalancerRenewalRequest method.
-//	req, resp := client.SetLoadBalancerRenewalRequest(params)
+//    // Example sending a request using the SetLoadBalancerRenewalRequest method.
+//    req, resp := client.SetLoadBalancerRenewalRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) SetLoadBalancerRenewalRequest(input *SetLoadBalancerRenewalInput) (req *request.Request, output *SetLoadBalancerRenewalOutput) {
 	op := &request.Operation{
 		Name:       opSetLoadBalancerRenewal,
@@ -142,7 +142,8 @@ func (c *CLB) SetLoadBalancerRenewalWithContext(ctx volcengine.Context, input *S
 type SetLoadBalancerRenewalInput struct {
 	_ struct{} `type:"structure"`
 
-	LoadBalancerId *string `type:"string"`
+	// LoadBalancerId is a required field
+	LoadBalancerId *string `type:"string" required:"true"`
 
 	RemainRenewTimes *int64 `type:"integer"`
 
@@ -165,6 +166,9 @@ func (s SetLoadBalancerRenewalInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *SetLoadBalancerRenewalInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "SetLoadBalancerRenewalInput"}
+	if s.LoadBalancerId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
 	if s.RenewType == nil {
 		invalidParams.Add(request.NewErrParamRequired("RenewType"))
 	}

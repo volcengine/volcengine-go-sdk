@@ -22,13 +22,13 @@ const opDeleteCertificateCommon = "DeleteCertificate"
 // See DeleteCertificateCommon for more information on using the DeleteCertificateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCertificateCommonRequest method.
-//	req, resp := client.DeleteCertificateCommonRequest(params)
+//    // Example sending a request using the DeleteCertificateCommonRequest method.
+//    req, resp := client.DeleteCertificateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DeleteCertificateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCertificateCommon,
@@ -87,13 +87,13 @@ const opDeleteCertificate = "DeleteCertificate"
 // See DeleteCertificate for more information on using the DeleteCertificate
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCertificateRequest method.
-//	req, resp := client.DeleteCertificateRequest(params)
+//    // Example sending a request using the DeleteCertificateRequest method.
+//    req, resp := client.DeleteCertificateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DeleteCertificateRequest(input *DeleteCertificateInput) (req *request.Request, output *DeleteCertificateOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCertificate,

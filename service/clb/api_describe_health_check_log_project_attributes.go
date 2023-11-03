@@ -22,13 +22,13 @@ const opDescribeHealthCheckLogProjectAttributesCommon = "DescribeHealthCheckLogP
 // See DescribeHealthCheckLogProjectAttributesCommon for more information on using the DescribeHealthCheckLogProjectAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeHealthCheckLogProjectAttributesCommonRequest method.
-//	req, resp := client.DescribeHealthCheckLogProjectAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeHealthCheckLogProjectAttributesCommonRequest method.
+//    req, resp := client.DescribeHealthCheckLogProjectAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeHealthCheckLogProjectAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeHealthCheckLogProjectAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeHealthCheckLogProjectAttributes = "DescribeHealthCheckLogProject
 // See DescribeHealthCheckLogProjectAttributes for more information on using the DescribeHealthCheckLogProjectAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeHealthCheckLogProjectAttributesRequest method.
-//	req, resp := client.DescribeHealthCheckLogProjectAttributesRequest(params)
+//    // Example sending a request using the DescribeHealthCheckLogProjectAttributesRequest method.
+//    req, resp := client.DescribeHealthCheckLogProjectAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeHealthCheckLogProjectAttributesRequest(input *DescribeHealthCheckLogProjectAttributesInput) (req *request.Request, output *DescribeHealthCheckLogProjectAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeHealthCheckLogProjectAttributes,
