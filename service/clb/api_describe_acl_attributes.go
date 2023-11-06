@@ -22,13 +22,13 @@ const opDescribeAclAttributesCommon = "DescribeAclAttributes"
 // See DescribeAclAttributesCommon for more information on using the DescribeAclAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAclAttributesCommonRequest method.
-//	req, resp := client.DescribeAclAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeAclAttributesCommonRequest method.
+//    req, resp := client.DescribeAclAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeAclAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAclAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeAclAttributes = "DescribeAclAttributes"
 // See DescribeAclAttributes for more information on using the DescribeAclAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAclAttributesRequest method.
-//	req, resp := client.DescribeAclAttributesRequest(params)
+//    // Example sending a request using the DescribeAclAttributesRequest method.
+//    req, resp := client.DescribeAclAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeAclAttributesRequest(input *DescribeAclAttributesInput) (req *request.Request, output *DescribeAclAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAclAttributes,

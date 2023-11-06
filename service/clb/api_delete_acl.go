@@ -22,13 +22,13 @@ const opDeleteAclCommon = "DeleteAcl"
 // See DeleteAclCommon for more information on using the DeleteAclCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteAclCommonRequest method.
-//	req, resp := client.DeleteAclCommonRequest(params)
+//    // Example sending a request using the DeleteAclCommonRequest method.
+//    req, resp := client.DeleteAclCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DeleteAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteAclCommon,
@@ -87,13 +87,13 @@ const opDeleteAcl = "DeleteAcl"
 // See DeleteAcl for more information on using the DeleteAcl
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteAclRequest method.
-//	req, resp := client.DeleteAclRequest(params)
+//    // Example sending a request using the DeleteAclRequest method.
+//    req, resp := client.DeleteAclRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DeleteAclRequest(input *DeleteAclInput) (req *request.Request, output *DeleteAclOutput) {
 	op := &request.Operation{
 		Name:       opDeleteAcl,

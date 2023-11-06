@@ -22,13 +22,13 @@ const opDescribeAclsCommon = "DescribeAcls"
 // See DescribeAclsCommon for more information on using the DescribeAclsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAclsCommonRequest method.
-//	req, resp := client.DescribeAclsCommonRequest(params)
+//    // Example sending a request using the DescribeAclsCommonRequest method.
+//    req, resp := client.DescribeAclsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeAclsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAclsCommon,
@@ -87,13 +87,13 @@ const opDescribeAcls = "DescribeAcls"
 // See DescribeAcls for more information on using the DescribeAcls
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAclsRequest method.
-//	req, resp := client.DescribeAclsRequest(params)
+//    // Example sending a request using the DescribeAclsRequest method.
+//    req, resp := client.DescribeAclsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeAclsRequest(input *DescribeAclsInput) (req *request.Request, output *DescribeAclsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAcls,
@@ -158,6 +158,8 @@ type AclForDescribeAclsOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeAclsOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -216,6 +218,12 @@ func (s *AclForDescribeAclsOutput) SetProjectName(v string) *AclForDescribeAclsO
 // SetStatus sets the Status field's value.
 func (s *AclForDescribeAclsOutput) SetStatus(v string) *AclForDescribeAclsOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *AclForDescribeAclsOutput) SetTags(v []*TagForDescribeAclsOutput) *AclForDescribeAclsOutput {
+	s.Tags = v
 	return s
 }
 
@@ -300,6 +308,10 @@ type DescribeAclsOutput struct {
 
 	RequestId *string `type:"string"`
 
+	ServiceManaged *bool `type:"boolean"`
+
+	Tags []*TagForDescribeAclsOutput `type:"list"`
+
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -337,6 +349,18 @@ func (s *DescribeAclsOutput) SetRequestId(v string) *DescribeAclsOutput {
 	return s
 }
 
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *DescribeAclsOutput) SetServiceManaged(v bool) *DescribeAclsOutput {
+	s.ServiceManaged = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeAclsOutput) SetTags(v []*TagForDescribeAclsOutput) *DescribeAclsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeAclsOutput) SetTotalCount(v int64) *DescribeAclsOutput {
 	s.TotalCount = &v
@@ -370,5 +394,35 @@ func (s *TagFilterForDescribeAclsInput) SetKey(v string) *TagFilterForDescribeAc
 // SetValues sets the Values field's value.
 func (s *TagFilterForDescribeAclsInput) SetValues(v []*string) *TagFilterForDescribeAclsInput {
 	s.Values = v
+	return s
+}
+
+type TagForDescribeAclsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeAclsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeAclsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeAclsOutput) SetKey(v string) *TagForDescribeAclsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeAclsOutput) SetValue(v string) *TagForDescribeAclsOutput {
+	s.Value = &v
 	return s
 }

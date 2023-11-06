@@ -22,13 +22,13 @@ const opDescribeLoadBalancersCommon = "DescribeLoadBalancers"
 // See DescribeLoadBalancersCommon for more information on using the DescribeLoadBalancersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeLoadBalancersCommonRequest method.
-//	req, resp := client.DescribeLoadBalancersCommonRequest(params)
+//    // Example sending a request using the DescribeLoadBalancersCommonRequest method.
+//    req, resp := client.DescribeLoadBalancersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeLoadBalancersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancersCommon,
@@ -87,13 +87,13 @@ const opDescribeLoadBalancers = "DescribeLoadBalancers"
 // See DescribeLoadBalancers for more information on using the DescribeLoadBalancers
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeLoadBalancersRequest method.
-//	req, resp := client.DescribeLoadBalancersRequest(params)
+//    // Example sending a request using the DescribeLoadBalancersRequest method.
+//    req, resp := client.DescribeLoadBalancersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeLoadBalancersRequest(input *DescribeLoadBalancersInput) (req *request.Request, output *DescribeLoadBalancersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancers,
@@ -152,13 +152,19 @@ type DescribeLoadBalancersInput struct {
 
 	LoadBalancerName *string `type:"string"`
 
+	MasterZoneId *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
 
+	Status *string `type:"string"`
+
 	TagFilters []*TagFilterForDescribeLoadBalancersInput `type:"list"`
+
+	Type *string `type:"string"`
 
 	VpcId *string `type:"string"`
 }
@@ -203,6 +209,12 @@ func (s *DescribeLoadBalancersInput) SetLoadBalancerName(v string) *DescribeLoad
 	return s
 }
 
+// SetMasterZoneId sets the MasterZoneId field's value.
+func (s *DescribeLoadBalancersInput) SetMasterZoneId(v string) *DescribeLoadBalancersInput {
+	s.MasterZoneId = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeLoadBalancersInput) SetPageNumber(v int64) *DescribeLoadBalancersInput {
 	s.PageNumber = &v
@@ -221,9 +233,21 @@ func (s *DescribeLoadBalancersInput) SetProjectName(v string) *DescribeLoadBalan
 	return s
 }
 
+// SetStatus sets the Status field's value.
+func (s *DescribeLoadBalancersInput) SetStatus(v string) *DescribeLoadBalancersInput {
+	s.Status = &v
+	return s
+}
+
 // SetTagFilters sets the TagFilters field's value.
 func (s *DescribeLoadBalancersInput) SetTagFilters(v []*TagFilterForDescribeLoadBalancersInput) *DescribeLoadBalancersInput {
 	s.TagFilters = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *DescribeLoadBalancersInput) SetType(v string) *DescribeLoadBalancersInput {
+	s.Type = &v
 	return s
 }
 
@@ -237,6 +261,8 @@ type DescribeLoadBalancersOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	AccountId *string `type:"string"`
 
 	LoadBalancers []*LoadBalancerForDescribeLoadBalancersOutput `type:"list"`
 
@@ -257,6 +283,12 @@ func (s DescribeLoadBalancersOutput) String() string {
 // GoString returns the string representation
 func (s DescribeLoadBalancersOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeLoadBalancersOutput) SetAccountId(v string) *DescribeLoadBalancersOutput {
+	s.AccountId = &v
+	return s
 }
 
 // SetLoadBalancers sets the LoadBalancers field's value.

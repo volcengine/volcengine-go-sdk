@@ -22,13 +22,13 @@ const opDescribeLoadBalancerAttributesCommon = "DescribeLoadBalancerAttributes"
 // See DescribeLoadBalancerAttributesCommon for more information on using the DescribeLoadBalancerAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeLoadBalancerAttributesCommonRequest method.
-//	req, resp := client.DescribeLoadBalancerAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeLoadBalancerAttributesCommonRequest method.
+//    req, resp := client.DescribeLoadBalancerAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeLoadBalancerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancerAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeLoadBalancerAttributes = "DescribeLoadBalancerAttributes"
 // See DescribeLoadBalancerAttributes for more information on using the DescribeLoadBalancerAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeLoadBalancerAttributesRequest method.
-//	req, resp := client.DescribeLoadBalancerAttributesRequest(params)
+//    // Example sending a request using the DescribeLoadBalancerAttributesRequest method.
+//    req, resp := client.DescribeLoadBalancerAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeLoadBalancerAttributesRequest(input *DescribeLoadBalancerAttributesInput) (req *request.Request, output *DescribeLoadBalancerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeLoadBalancerAttributes,
@@ -212,7 +212,11 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	AccessLog *AccessLogForDescribeLoadBalancerAttributesOutput `type:"structure"`
 
+	AccountId *string `type:"string"`
+
 	AddressIpVersion *string `type:"string"`
+
+	AllowedPorts []*string `type:"list"`
 
 	BusinessStatus *string `type:"string"`
 
@@ -303,9 +307,21 @@ func (s *DescribeLoadBalancerAttributesOutput) SetAccessLog(v *AccessLogForDescr
 	return s
 }
 
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetAccountId(v string) *DescribeLoadBalancerAttributesOutput {
+	s.AccountId = &v
+	return s
+}
+
 // SetAddressIpVersion sets the AddressIpVersion field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetAddressIpVersion(v string) *DescribeLoadBalancerAttributesOutput {
 	s.AddressIpVersion = &v
+	return s
+}
+
+// SetAllowedPorts sets the AllowedPorts field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetAllowedPorts(v []*string) *DescribeLoadBalancerAttributesOutput {
+	s.AllowedPorts = v
 	return s
 }
 
@@ -592,6 +608,8 @@ type Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
+	BandwidthPackageId *string `type:"string"`
+
 	BillingType *int64 `type:"integer"`
 
 	ISP *string `type:"string"`
@@ -612,6 +630,12 @@ func (s Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput) GoString() 
 // SetBandwidth sets the Bandwidth field's value.
 func (s *Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput) SetBandwidth(v int64) *Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput) SetBandwidthPackageId(v string) *Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
+	s.BandwidthPackageId = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opAttachHealthCheckLogTopicCommon = "AttachHealthCheckLogTopic"
 // See AttachHealthCheckLogTopicCommon for more information on using the AttachHealthCheckLogTopicCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachHealthCheckLogTopicCommonRequest method.
-//	req, resp := client.AttachHealthCheckLogTopicCommonRequest(params)
+//    // Example sending a request using the AttachHealthCheckLogTopicCommonRequest method.
+//    req, resp := client.AttachHealthCheckLogTopicCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) AttachHealthCheckLogTopicCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachHealthCheckLogTopicCommon,
@@ -87,13 +87,13 @@ const opAttachHealthCheckLogTopic = "AttachHealthCheckLogTopic"
 // See AttachHealthCheckLogTopic for more information on using the AttachHealthCheckLogTopic
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachHealthCheckLogTopicRequest method.
-//	req, resp := client.AttachHealthCheckLogTopicRequest(params)
+//    // Example sending a request using the AttachHealthCheckLogTopicRequest method.
+//    req, resp := client.AttachHealthCheckLogTopicRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) AttachHealthCheckLogTopicRequest(input *AttachHealthCheckLogTopicInput) (req *request.Request, output *AttachHealthCheckLogTopicOutput) {
 	op := &request.Operation{
 		Name:       opAttachHealthCheckLogTopic,

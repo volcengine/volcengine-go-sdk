@@ -22,13 +22,13 @@ const opConvertLoadBalancerBillingTypeCommon = "ConvertLoadBalancerBillingType"
 // See ConvertLoadBalancerBillingTypeCommon for more information on using the ConvertLoadBalancerBillingTypeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ConvertLoadBalancerBillingTypeCommonRequest method.
-//	req, resp := client.ConvertLoadBalancerBillingTypeCommonRequest(params)
+//    // Example sending a request using the ConvertLoadBalancerBillingTypeCommonRequest method.
+//    req, resp := client.ConvertLoadBalancerBillingTypeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) ConvertLoadBalancerBillingTypeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opConvertLoadBalancerBillingTypeCommon,
@@ -87,13 +87,13 @@ const opConvertLoadBalancerBillingType = "ConvertLoadBalancerBillingType"
 // See ConvertLoadBalancerBillingType for more information on using the ConvertLoadBalancerBillingType
 // API call, and error handling.
 //
-//	// Example sending a request using the ConvertLoadBalancerBillingTypeRequest method.
-//	req, resp := client.ConvertLoadBalancerBillingTypeRequest(params)
+//    // Example sending a request using the ConvertLoadBalancerBillingTypeRequest method.
+//    req, resp := client.ConvertLoadBalancerBillingTypeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) ConvertLoadBalancerBillingTypeRequest(input *ConvertLoadBalancerBillingTypeInput) (req *request.Request, output *ConvertLoadBalancerBillingTypeOutput) {
 	op := &request.Operation{
 		Name:       opConvertLoadBalancerBillingType,
@@ -148,6 +148,8 @@ type ConvertLoadBalancerBillingTypeInput struct {
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
 
+	LoadBalancerSpec *string `type:"string"`
+
 	Period *int64 `type:"integer"`
 
 	PeriodUnit *string `type:"string"`
@@ -188,6 +190,12 @@ func (s *ConvertLoadBalancerBillingTypeInput) SetLoadBalancerBillingType(v int64
 // SetLoadBalancerId sets the LoadBalancerId field's value.
 func (s *ConvertLoadBalancerBillingTypeInput) SetLoadBalancerId(v string) *ConvertLoadBalancerBillingTypeInput {
 	s.LoadBalancerId = &v
+	return s
+}
+
+// SetLoadBalancerSpec sets the LoadBalancerSpec field's value.
+func (s *ConvertLoadBalancerBillingTypeInput) SetLoadBalancerSpec(v string) *ConvertLoadBalancerBillingTypeInput {
+	s.LoadBalancerSpec = &v
 	return s
 }
 

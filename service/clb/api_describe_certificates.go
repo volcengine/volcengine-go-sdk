@@ -22,13 +22,13 @@ const opDescribeCertificatesCommon = "DescribeCertificates"
 // See DescribeCertificatesCommon for more information on using the DescribeCertificatesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCertificatesCommonRequest method.
-//	req, resp := client.DescribeCertificatesCommonRequest(params)
+//    // Example sending a request using the DescribeCertificatesCommonRequest method.
+//    req, resp := client.DescribeCertificatesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeCertificatesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCertificatesCommon,
@@ -87,13 +87,13 @@ const opDescribeCertificates = "DescribeCertificates"
 // See DescribeCertificates for more information on using the DescribeCertificates
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCertificatesRequest method.
-//	req, resp := client.DescribeCertificatesRequest(params)
+//    // Example sending a request using the DescribeCertificatesRequest method.
+//    req, resp := client.DescribeCertificatesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DescribeCertificatesRequest(input *DescribeCertificatesInput) (req *request.Request, output *DescribeCertificatesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCertificates,
@@ -292,6 +292,10 @@ type DescribeCertificatesOutput struct {
 
 	RequestId *string `type:"string"`
 
+	ServiceManaged *bool `type:"boolean"`
+
+	Tags []*TagForDescribeCertificatesOutput `type:"list"`
+
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -329,6 +333,18 @@ func (s *DescribeCertificatesOutput) SetRequestId(v string) *DescribeCertificate
 	return s
 }
 
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *DescribeCertificatesOutput) SetServiceManaged(v bool) *DescribeCertificatesOutput {
+	s.ServiceManaged = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeCertificatesOutput) SetTags(v []*TagForDescribeCertificatesOutput) *DescribeCertificatesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeCertificatesOutput) SetTotalCount(v int64) *DescribeCertificatesOutput {
 	s.TotalCount = &v
@@ -362,5 +378,35 @@ func (s *TagFilterForDescribeCertificatesInput) SetKey(v string) *TagFilterForDe
 // SetValues sets the Values field's value.
 func (s *TagFilterForDescribeCertificatesInput) SetValues(v []*string) *TagFilterForDescribeCertificatesInput {
 	s.Values = v
+	return s
+}
+
+type TagForDescribeCertificatesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeCertificatesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeCertificatesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeCertificatesOutput) SetKey(v string) *TagForDescribeCertificatesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeCertificatesOutput) SetValue(v string) *TagForDescribeCertificatesOutput {
+	s.Value = &v
 	return s
 }

@@ -22,13 +22,13 @@ const opDeleteHealthCheckLogProjectCommon = "DeleteHealthCheckLogProject"
 // See DeleteHealthCheckLogProjectCommon for more information on using the DeleteHealthCheckLogProjectCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteHealthCheckLogProjectCommonRequest method.
-//	req, resp := client.DeleteHealthCheckLogProjectCommonRequest(params)
+//    // Example sending a request using the DeleteHealthCheckLogProjectCommonRequest method.
+//    req, resp := client.DeleteHealthCheckLogProjectCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DeleteHealthCheckLogProjectCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteHealthCheckLogProjectCommon,
@@ -87,13 +87,13 @@ const opDeleteHealthCheckLogProject = "DeleteHealthCheckLogProject"
 // See DeleteHealthCheckLogProject for more information on using the DeleteHealthCheckLogProject
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteHealthCheckLogProjectRequest method.
-//	req, resp := client.DeleteHealthCheckLogProjectRequest(params)
+//    // Example sending a request using the DeleteHealthCheckLogProjectRequest method.
+//    req, resp := client.DeleteHealthCheckLogProjectRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) DeleteHealthCheckLogProjectRequest(input *DeleteHealthCheckLogProjectInput) (req *request.Request, output *DeleteHealthCheckLogProjectOutput) {
 	op := &request.Operation{
 		Name:       opDeleteHealthCheckLogProject,

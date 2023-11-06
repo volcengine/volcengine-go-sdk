@@ -22,13 +22,13 @@ const opCreateListenerCommon = "CreateListener"
 // See CreateListenerCommon for more information on using the CreateListenerCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateListenerCommonRequest method.
-//	req, resp := client.CreateListenerCommonRequest(params)
+//    // Example sending a request using the CreateListenerCommonRequest method.
+//    req, resp := client.CreateListenerCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) CreateListenerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateListenerCommon,
@@ -87,13 +87,13 @@ const opCreateListener = "CreateListener"
 // See CreateListener for more information on using the CreateListener
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateListenerRequest method.
-//	req, resp := client.CreateListenerRequest(params)
+//    // Example sending a request using the CreateListenerRequest method.
+//    req, resp := client.CreateListenerRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) CreateListenerRequest(input *CreateListenerInput) (req *request.Request, output *CreateListenerOutput) {
 	op := &request.Operation{
 		Name:       opCreateListener,

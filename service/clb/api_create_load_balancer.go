@@ -22,13 +22,13 @@ const opCreateLoadBalancerCommon = "CreateLoadBalancer"
 // See CreateLoadBalancerCommon for more information on using the CreateLoadBalancerCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateLoadBalancerCommonRequest method.
-//	req, resp := client.CreateLoadBalancerCommonRequest(params)
+//    // Example sending a request using the CreateLoadBalancerCommonRequest method.
+//    req, resp := client.CreateLoadBalancerCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) CreateLoadBalancerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateLoadBalancerCommon,
@@ -87,13 +87,13 @@ const opCreateLoadBalancer = "CreateLoadBalancer"
 // See CreateLoadBalancer for more information on using the CreateLoadBalancer
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateLoadBalancerRequest method.
-//	req, resp := client.CreateLoadBalancerRequest(params)
+//    // Example sending a request using the CreateLoadBalancerRequest method.
+//    req, resp := client.CreateLoadBalancerRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) CreateLoadBalancerRequest(input *CreateLoadBalancerInput) (req *request.Request, output *CreateLoadBalancerOutput) {
 	op := &request.Operation{
 		Name:       opCreateLoadBalancer,
@@ -158,7 +158,8 @@ type CreateLoadBalancerInput struct {
 
 	LoadBalancerName *string `type:"string"`
 
-	LoadBalancerSpec *string `type:"string"`
+	// LoadBalancerSpec is a required field
+	LoadBalancerSpec *string `type:"string" required:"true"`
 
 	MasterZoneId *string `type:"string"`
 
@@ -186,6 +187,8 @@ type CreateLoadBalancerInput struct {
 	Type *string `type:"string" required:"true"`
 
 	VpcId *string `type:"string"`
+
+	ZoneType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -201,6 +204,9 @@ func (s CreateLoadBalancerInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateLoadBalancerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateLoadBalancerInput"}
+	if s.LoadBalancerSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("LoadBalancerSpec"))
+	}
 	if s.RegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RegionId"))
 	}
@@ -340,6 +346,12 @@ func (s *CreateLoadBalancerInput) SetType(v string) *CreateLoadBalancerInput {
 // SetVpcId sets the VpcId field's value.
 func (s *CreateLoadBalancerInput) SetVpcId(v string) *CreateLoadBalancerInput {
 	s.VpcId = &v
+	return s
+}
+
+// SetZoneType sets the ZoneType field's value.
+func (s *CreateLoadBalancerInput) SetZoneType(v string) *CreateLoadBalancerInput {
+	s.ZoneType = &v
 	return s
 }
 

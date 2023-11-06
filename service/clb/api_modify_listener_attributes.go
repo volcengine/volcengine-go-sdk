@@ -22,13 +22,13 @@ const opModifyListenerAttributesCommon = "ModifyListenerAttributes"
 // See ModifyListenerAttributesCommon for more information on using the ModifyListenerAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyListenerAttributesCommonRequest method.
-//	req, resp := client.ModifyListenerAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyListenerAttributesCommonRequest method.
+//    req, resp := client.ModifyListenerAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) ModifyListenerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyListenerAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyListenerAttributes = "ModifyListenerAttributes"
 // See ModifyListenerAttributes for more information on using the ModifyListenerAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyListenerAttributesRequest method.
-//	req, resp := client.ModifyListenerAttributesRequest(params)
+//    // Example sending a request using the ModifyListenerAttributesRequest method.
+//    req, resp := client.ModifyListenerAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) ModifyListenerAttributesRequest(input *ModifyListenerAttributesInput) (req *request.Request, output *ModifyListenerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyListenerAttributes,
@@ -158,6 +158,10 @@ type HealthCheckForModifyListenerAttributesInput struct {
 
 	URI *string `type:"string"`
 
+	UdpExpect *string `type:"string"`
+
+	UdpRequest *string `type:"string"`
+
 	UnhealthyThreshold *int64 `type:"integer"`
 }
 
@@ -216,6 +220,18 @@ func (s *HealthCheckForModifyListenerAttributesInput) SetTimeout(v int64) *Healt
 // SetURI sets the URI field's value.
 func (s *HealthCheckForModifyListenerAttributesInput) SetURI(v string) *HealthCheckForModifyListenerAttributesInput {
 	s.URI = &v
+	return s
+}
+
+// SetUdpExpect sets the UdpExpect field's value.
+func (s *HealthCheckForModifyListenerAttributesInput) SetUdpExpect(v string) *HealthCheckForModifyListenerAttributesInput {
+	s.UdpExpect = &v
+	return s
+}
+
+// SetUdpRequest sets the UdpRequest field's value.
+func (s *HealthCheckForModifyListenerAttributesInput) SetUdpRequest(v string) *HealthCheckForModifyListenerAttributesInput {
+	s.UdpRequest = &v
 	return s
 }
 

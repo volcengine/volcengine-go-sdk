@@ -24,13 +24,13 @@ const opModifyServerGroupAttributesCommon = "ModifyServerGroupAttributes"
 // See ModifyServerGroupAttributesCommon for more information on using the ModifyServerGroupAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyServerGroupAttributesCommonRequest method.
-//	req, resp := client.ModifyServerGroupAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyServerGroupAttributesCommonRequest method.
+//    req, resp := client.ModifyServerGroupAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) ModifyServerGroupAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyServerGroupAttributesCommon,
@@ -89,13 +89,13 @@ const opModifyServerGroupAttributes = "ModifyServerGroupAttributes"
 // See ModifyServerGroupAttributes for more information on using the ModifyServerGroupAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyServerGroupAttributesRequest method.
-//	req, resp := client.ModifyServerGroupAttributesRequest(params)
+//    // Example sending a request using the ModifyServerGroupAttributesRequest method.
+//    req, resp := client.ModifyServerGroupAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CLB) ModifyServerGroupAttributesRequest(input *ModifyServerGroupAttributesInput) (req *request.Request, output *ModifyServerGroupAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyServerGroupAttributes,
