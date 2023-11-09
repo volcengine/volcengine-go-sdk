@@ -22,13 +22,13 @@ const opDeleteRulesCommon = "DeleteRules"
 // See DeleteRulesCommon for more information on using the DeleteRulesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteRulesCommonRequest method.
-//	req, resp := client.DeleteRulesCommonRequest(params)
+//    // Example sending a request using the DeleteRulesCommonRequest method.
+//    req, resp := client.DeleteRulesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DeleteRulesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteRulesCommon,
@@ -87,13 +87,13 @@ const opDeleteRules = "DeleteRules"
 // See DeleteRules for more information on using the DeleteRules
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteRulesRequest method.
-//	req, resp := client.DeleteRulesRequest(params)
+//    // Example sending a request using the DeleteRulesRequest method.
+//    req, resp := client.DeleteRulesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DeleteRulesRequest(input *DeleteRulesInput) (req *request.Request, output *DeleteRulesOutput) {
 	op := &request.Operation{
 		Name:       opDeleteRules,

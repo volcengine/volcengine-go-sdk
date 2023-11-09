@@ -22,13 +22,13 @@ const opDisableAccessLogCommon = "DisableAccessLog"
 // See DisableAccessLogCommon for more information on using the DisableAccessLogCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisableAccessLogCommonRequest method.
-//	req, resp := client.DisableAccessLogCommonRequest(params)
+//    // Example sending a request using the DisableAccessLogCommonRequest method.
+//    req, resp := client.DisableAccessLogCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DisableAccessLogCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisableAccessLogCommon,
@@ -87,13 +87,13 @@ const opDisableAccessLog = "DisableAccessLog"
 // See DisableAccessLog for more information on using the DisableAccessLog
 // API call, and error handling.
 //
-//	// Example sending a request using the DisableAccessLogRequest method.
-//	req, resp := client.DisableAccessLogRequest(params)
+//    // Example sending a request using the DisableAccessLogRequest method.
+//    req, resp := client.DisableAccessLogRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DisableAccessLogRequest(input *DisableAccessLogInput) (req *request.Request, output *DisableAccessLogOutput) {
 	op := &request.Operation{
 		Name:       opDisableAccessLog,

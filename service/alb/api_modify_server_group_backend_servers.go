@@ -24,13 +24,13 @@ const opModifyServerGroupBackendServersCommon = "ModifyServerGroupBackendServers
 // See ModifyServerGroupBackendServersCommon for more information on using the ModifyServerGroupBackendServersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyServerGroupBackendServersCommonRequest method.
-//	req, resp := client.ModifyServerGroupBackendServersCommonRequest(params)
+//    // Example sending a request using the ModifyServerGroupBackendServersCommonRequest method.
+//    req, resp := client.ModifyServerGroupBackendServersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyServerGroupBackendServersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyServerGroupBackendServersCommon,
@@ -89,13 +89,13 @@ const opModifyServerGroupBackendServers = "ModifyServerGroupBackendServers"
 // See ModifyServerGroupBackendServers for more information on using the ModifyServerGroupBackendServers
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyServerGroupBackendServersRequest method.
-//	req, resp := client.ModifyServerGroupBackendServersRequest(params)
+//    // Example sending a request using the ModifyServerGroupBackendServersRequest method.
+//    req, resp := client.ModifyServerGroupBackendServersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyServerGroupBackendServersRequest(input *ModifyServerGroupBackendServersInput) (req *request.Request, output *ModifyServerGroupBackendServersOutput) {
 	op := &request.Operation{
 		Name:       opModifyServerGroupBackendServers,

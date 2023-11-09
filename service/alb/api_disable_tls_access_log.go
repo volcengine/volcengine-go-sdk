@@ -22,13 +22,13 @@ const opDisableTLSAccessLogCommon = "DisableTLSAccessLog"
 // See DisableTLSAccessLogCommon for more information on using the DisableTLSAccessLogCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisableTLSAccessLogCommonRequest method.
-//	req, resp := client.DisableTLSAccessLogCommonRequest(params)
+//    // Example sending a request using the DisableTLSAccessLogCommonRequest method.
+//    req, resp := client.DisableTLSAccessLogCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DisableTLSAccessLogCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisableTLSAccessLogCommon,
@@ -87,13 +87,13 @@ const opDisableTLSAccessLog = "DisableTLSAccessLog"
 // See DisableTLSAccessLog for more information on using the DisableTLSAccessLog
 // API call, and error handling.
 //
-//	// Example sending a request using the DisableTLSAccessLogRequest method.
-//	req, resp := client.DisableTLSAccessLogRequest(params)
+//    // Example sending a request using the DisableTLSAccessLogRequest method.
+//    req, resp := client.DisableTLSAccessLogRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DisableTLSAccessLogRequest(input *DisableTLSAccessLogInput) (req *request.Request, output *DisableTLSAccessLogOutput) {
 	op := &request.Operation{
 		Name:       opDisableTLSAccessLog,

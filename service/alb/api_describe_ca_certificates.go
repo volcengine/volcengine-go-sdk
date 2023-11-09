@@ -22,13 +22,13 @@ const opDescribeCACertificatesCommon = "DescribeCACertificates"
 // See DescribeCACertificatesCommon for more information on using the DescribeCACertificatesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCACertificatesCommonRequest method.
-//	req, resp := client.DescribeCACertificatesCommonRequest(params)
+//    // Example sending a request using the DescribeCACertificatesCommonRequest method.
+//    req, resp := client.DescribeCACertificatesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeCACertificatesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCACertificatesCommon,
@@ -87,13 +87,13 @@ const opDescribeCACertificates = "DescribeCACertificates"
 // See DescribeCACertificates for more information on using the DescribeCACertificates
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCACertificatesRequest method.
-//	req, resp := client.DescribeCACertificatesRequest(params)
+//    // Example sending a request using the DescribeCACertificatesRequest method.
+//    req, resp := client.DescribeCACertificatesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeCACertificatesRequest(input *DescribeCACertificatesInput) (req *request.Request, output *DescribeCACertificatesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCACertificates,

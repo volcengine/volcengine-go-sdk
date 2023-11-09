@@ -24,13 +24,13 @@ const opTagResourcesCommon = "TagResources"
 // See TagResourcesCommon for more information on using the TagResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the TagResourcesCommonRequest method.
-//	req, resp := client.TagResourcesCommonRequest(params)
+//    // Example sending a request using the TagResourcesCommonRequest method.
+//    req, resp := client.TagResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) TagResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opTagResourcesCommon,
@@ -89,13 +89,13 @@ const opTagResources = "TagResources"
 // See TagResources for more information on using the TagResources
 // API call, and error handling.
 //
-//	// Example sending a request using the TagResourcesRequest method.
-//	req, resp := client.TagResourcesRequest(params)
+//    // Example sending a request using the TagResourcesRequest method.
+//    req, resp := client.TagResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) TagResourcesRequest(input *TagResourcesInput) (req *request.Request, output *TagResourcesOutput) {
 	op := &request.Operation{
 		Name:       opTagResources,

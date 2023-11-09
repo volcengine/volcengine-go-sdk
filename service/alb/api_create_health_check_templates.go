@@ -24,13 +24,13 @@ const opCreateHealthCheckTemplatesCommon = "CreateHealthCheckTemplates"
 // See CreateHealthCheckTemplatesCommon for more information on using the CreateHealthCheckTemplatesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateHealthCheckTemplatesCommonRequest method.
-//	req, resp := client.CreateHealthCheckTemplatesCommonRequest(params)
+//    // Example sending a request using the CreateHealthCheckTemplatesCommonRequest method.
+//    req, resp := client.CreateHealthCheckTemplatesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) CreateHealthCheckTemplatesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateHealthCheckTemplatesCommon,
@@ -89,13 +89,13 @@ const opCreateHealthCheckTemplates = "CreateHealthCheckTemplates"
 // See CreateHealthCheckTemplates for more information on using the CreateHealthCheckTemplates
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateHealthCheckTemplatesRequest method.
-//	req, resp := client.CreateHealthCheckTemplatesRequest(params)
+//    // Example sending a request using the CreateHealthCheckTemplatesRequest method.
+//    req, resp := client.CreateHealthCheckTemplatesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) CreateHealthCheckTemplatesRequest(input *CreateHealthCheckTemplatesInput) (req *request.Request, output *CreateHealthCheckTemplatesOutput) {
 	op := &request.Operation{
 		Name:       opCreateHealthCheckTemplates,
@@ -228,6 +228,8 @@ type HealthCheckTemplateForCreateHealthCheckTemplatesInput struct {
 
 	HealthCheckHttpCode *string `type:"string"`
 
+	HealthCheckHttpVersion *string `type:"string"`
+
 	HealthCheckInterval *int64 `type:"integer"`
 
 	HealthCheckMethod *string `type:"string"`
@@ -290,6 +292,12 @@ func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetHealthCheckDo
 // SetHealthCheckHttpCode sets the HealthCheckHttpCode field's value.
 func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetHealthCheckHttpCode(v string) *HealthCheckTemplateForCreateHealthCheckTemplatesInput {
 	s.HealthCheckHttpCode = &v
+	return s
+}
+
+// SetHealthCheckHttpVersion sets the HealthCheckHttpVersion field's value.
+func (s *HealthCheckTemplateForCreateHealthCheckTemplatesInput) SetHealthCheckHttpVersion(v string) *HealthCheckTemplateForCreateHealthCheckTemplatesInput {
+	s.HealthCheckHttpVersion = &v
 	return s
 }
 

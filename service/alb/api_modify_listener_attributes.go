@@ -22,13 +22,13 @@ const opModifyListenerAttributesCommon = "ModifyListenerAttributes"
 // See ModifyListenerAttributesCommon for more information on using the ModifyListenerAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyListenerAttributesCommonRequest method.
-//	req, resp := client.ModifyListenerAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyListenerAttributesCommonRequest method.
+//    req, resp := client.ModifyListenerAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyListenerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyListenerAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyListenerAttributes = "ModifyListenerAttributes"
 // See ModifyListenerAttributes for more information on using the ModifyListenerAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyListenerAttributesRequest method.
-//	req, resp := client.ModifyListenerAttributesRequest(params)
+//    // Example sending a request using the ModifyListenerAttributesRequest method.
+//    req, resp := client.ModifyListenerAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyListenerAttributesRequest(input *ModifyListenerAttributesInput) (req *request.Request, output *ModifyListenerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyListenerAttributes,

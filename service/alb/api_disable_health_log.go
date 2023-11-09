@@ -22,13 +22,13 @@ const opDisableHealthLogCommon = "DisableHealthLog"
 // See DisableHealthLogCommon for more information on using the DisableHealthLogCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisableHealthLogCommonRequest method.
-//	req, resp := client.DisableHealthLogCommonRequest(params)
+//    // Example sending a request using the DisableHealthLogCommonRequest method.
+//    req, resp := client.DisableHealthLogCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DisableHealthLogCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisableHealthLogCommon,
@@ -87,13 +87,13 @@ const opDisableHealthLog = "DisableHealthLog"
 // See DisableHealthLog for more information on using the DisableHealthLog
 // API call, and error handling.
 //
-//	// Example sending a request using the DisableHealthLogRequest method.
-//	req, resp := client.DisableHealthLogRequest(params)
+//    // Example sending a request using the DisableHealthLogRequest method.
+//    req, resp := client.DisableHealthLogRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DisableHealthLogRequest(input *DisableHealthLogInput) (req *request.Request, output *DisableHealthLogOutput) {
 	op := &request.Operation{
 		Name:       opDisableHealthLog,

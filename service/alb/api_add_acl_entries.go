@@ -24,13 +24,13 @@ const opAddAclEntriesCommon = "AddAclEntries"
 // See AddAclEntriesCommon for more information on using the AddAclEntriesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AddAclEntriesCommonRequest method.
-//	req, resp := client.AddAclEntriesCommonRequest(params)
+//    // Example sending a request using the AddAclEntriesCommonRequest method.
+//    req, resp := client.AddAclEntriesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) AddAclEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAddAclEntriesCommon,
@@ -89,13 +89,13 @@ const opAddAclEntries = "AddAclEntries"
 // See AddAclEntries for more information on using the AddAclEntries
 // API call, and error handling.
 //
-//	// Example sending a request using the AddAclEntriesRequest method.
-//	req, resp := client.AddAclEntriesRequest(params)
+//    // Example sending a request using the AddAclEntriesRequest method.
+//    req, resp := client.AddAclEntriesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) AddAclEntriesRequest(input *AddAclEntriesInput) (req *request.Request, output *AddAclEntriesOutput) {
 	op := &request.Operation{
 		Name:       opAddAclEntries,

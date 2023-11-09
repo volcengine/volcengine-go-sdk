@@ -22,13 +22,13 @@ const opReplaceCertificateCommon = "ReplaceCertificate"
 // See ReplaceCertificateCommon for more information on using the ReplaceCertificateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ReplaceCertificateCommonRequest method.
-//	req, resp := client.ReplaceCertificateCommonRequest(params)
+//    // Example sending a request using the ReplaceCertificateCommonRequest method.
+//    req, resp := client.ReplaceCertificateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ReplaceCertificateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opReplaceCertificateCommon,
@@ -87,13 +87,13 @@ const opReplaceCertificate = "ReplaceCertificate"
 // See ReplaceCertificate for more information on using the ReplaceCertificate
 // API call, and error handling.
 //
-//	// Example sending a request using the ReplaceCertificateRequest method.
-//	req, resp := client.ReplaceCertificateRequest(params)
+//    // Example sending a request using the ReplaceCertificateRequest method.
+//    req, resp := client.ReplaceCertificateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ReplaceCertificateRequest(input *ReplaceCertificateInput) (req *request.Request, output *ReplaceCertificateOutput) {
 	op := &request.Operation{
 		Name:       opReplaceCertificate,

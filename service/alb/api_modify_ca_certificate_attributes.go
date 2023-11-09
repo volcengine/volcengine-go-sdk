@@ -22,13 +22,13 @@ const opModifyCACertificateAttributesCommon = "ModifyCACertificateAttributes"
 // See ModifyCACertificateAttributesCommon for more information on using the ModifyCACertificateAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCACertificateAttributesCommonRequest method.
-//	req, resp := client.ModifyCACertificateAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyCACertificateAttributesCommonRequest method.
+//    req, resp := client.ModifyCACertificateAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyCACertificateAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCACertificateAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyCACertificateAttributes = "ModifyCACertificateAttributes"
 // See ModifyCACertificateAttributes for more information on using the ModifyCACertificateAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCACertificateAttributesRequest method.
-//	req, resp := client.ModifyCACertificateAttributesRequest(params)
+//    // Example sending a request using the ModifyCACertificateAttributesRequest method.
+//    req, resp := client.ModifyCACertificateAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyCACertificateAttributesRequest(input *ModifyCACertificateAttributesInput) (req *request.Request, output *ModifyCACertificateAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyCACertificateAttributes,

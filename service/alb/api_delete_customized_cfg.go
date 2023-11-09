@@ -22,13 +22,13 @@ const opDeleteCustomizedCfgCommon = "DeleteCustomizedCfg"
 // See DeleteCustomizedCfgCommon for more information on using the DeleteCustomizedCfgCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCustomizedCfgCommonRequest method.
-//	req, resp := client.DeleteCustomizedCfgCommonRequest(params)
+//    // Example sending a request using the DeleteCustomizedCfgCommonRequest method.
+//    req, resp := client.DeleteCustomizedCfgCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DeleteCustomizedCfgCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCustomizedCfgCommon,
@@ -87,13 +87,13 @@ const opDeleteCustomizedCfg = "DeleteCustomizedCfg"
 // See DeleteCustomizedCfg for more information on using the DeleteCustomizedCfg
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCustomizedCfgRequest method.
-//	req, resp := client.DeleteCustomizedCfgRequest(params)
+//    // Example sending a request using the DeleteCustomizedCfgRequest method.
+//    req, resp := client.DeleteCustomizedCfgRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DeleteCustomizedCfgRequest(input *DeleteCustomizedCfgInput) (req *request.Request, output *DeleteCustomizedCfgOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCustomizedCfg,

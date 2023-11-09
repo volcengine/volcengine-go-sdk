@@ -24,13 +24,13 @@ const opModifyRulesCommon = "ModifyRules"
 // See ModifyRulesCommon for more information on using the ModifyRulesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyRulesCommonRequest method.
-//	req, resp := client.ModifyRulesCommonRequest(params)
+//    // Example sending a request using the ModifyRulesCommonRequest method.
+//    req, resp := client.ModifyRulesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyRulesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyRulesCommon,
@@ -89,13 +89,13 @@ const opModifyRules = "ModifyRules"
 // See ModifyRules for more information on using the ModifyRules
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyRulesRequest method.
-//	req, resp := client.ModifyRulesRequest(params)
+//    // Example sending a request using the ModifyRulesRequest method.
+//    req, resp := client.ModifyRulesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyRulesRequest(input *ModifyRulesInput) (req *request.Request, output *ModifyRulesOutput) {
 	op := &request.Operation{
 		Name:       opModifyRules,
@@ -299,12 +299,38 @@ func (s *RedirectConfigForModifyRulesInput) SetRedirectUri(v string) *RedirectCo
 	return s
 }
 
+type RewriteConfigForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	RewritePath *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RewriteConfigForModifyRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RewriteConfigForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetRewritePath sets the RewritePath field's value.
+func (s *RewriteConfigForModifyRulesInput) SetRewritePath(v string) *RewriteConfigForModifyRulesInput {
+	s.RewritePath = &v
+	return s
+}
+
 type RuleForModifyRulesInput struct {
 	_ struct{} `type:"structure"`
 
 	Description *string `type:"string"`
 
 	RedirectConfig *RedirectConfigForModifyRulesInput `type:"structure"`
+
+	RewriteConfig *RewriteConfigForModifyRulesInput `type:"structure"`
+
+	RewriteEnabled *string `type:"string"`
 
 	RuleAction *string `type:"string"`
 
@@ -355,6 +381,18 @@ func (s *RuleForModifyRulesInput) SetDescription(v string) *RuleForModifyRulesIn
 // SetRedirectConfig sets the RedirectConfig field's value.
 func (s *RuleForModifyRulesInput) SetRedirectConfig(v *RedirectConfigForModifyRulesInput) *RuleForModifyRulesInput {
 	s.RedirectConfig = v
+	return s
+}
+
+// SetRewriteConfig sets the RewriteConfig field's value.
+func (s *RuleForModifyRulesInput) SetRewriteConfig(v *RewriteConfigForModifyRulesInput) *RuleForModifyRulesInput {
+	s.RewriteConfig = v
+	return s
+}
+
+// SetRewriteEnabled sets the RewriteEnabled field's value.
+func (s *RuleForModifyRulesInput) SetRewriteEnabled(v string) *RuleForModifyRulesInput {
+	s.RewriteEnabled = &v
 	return s
 }
 
