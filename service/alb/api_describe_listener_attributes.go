@@ -22,13 +22,13 @@ const opDescribeListenerAttributesCommon = "DescribeListenerAttributes"
 // See DescribeListenerAttributesCommon for more information on using the DescribeListenerAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeListenerAttributesCommonRequest method.
-//	req, resp := client.DescribeListenerAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeListenerAttributesCommonRequest method.
+//    req, resp := client.DescribeListenerAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeListenerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeListenerAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeListenerAttributes = "DescribeListenerAttributes"
 // See DescribeListenerAttributes for more information on using the DescribeListenerAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeListenerAttributesRequest method.
-//	req, resp := client.DescribeListenerAttributesRequest(params)
+//    // Example sending a request using the DescribeListenerAttributesRequest method.
+//    req, resp := client.DescribeListenerAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeListenerAttributesRequest(input *DescribeListenerAttributesInput) (req *request.Request, output *DescribeListenerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeListenerAttributes,

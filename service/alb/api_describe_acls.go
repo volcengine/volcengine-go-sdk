@@ -22,13 +22,13 @@ const opDescribeAclsCommon = "DescribeAcls"
 // See DescribeAclsCommon for more information on using the DescribeAclsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAclsCommonRequest method.
-//	req, resp := client.DescribeAclsCommonRequest(params)
+//    // Example sending a request using the DescribeAclsCommonRequest method.
+//    req, resp := client.DescribeAclsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeAclsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAclsCommon,
@@ -87,13 +87,13 @@ const opDescribeAcls = "DescribeAcls"
 // See DescribeAcls for more information on using the DescribeAcls
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAclsRequest method.
-//	req, resp := client.DescribeAclsRequest(params)
+//    // Example sending a request using the DescribeAclsRequest method.
+//    req, resp := client.DescribeAclsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeAclsRequest(input *DescribeAclsInput) (req *request.Request, output *DescribeAclsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAcls,

@@ -24,13 +24,13 @@ const opModifyHealthCheckTemplatesAttributesCommon = "ModifyHealthCheckTemplates
 // See ModifyHealthCheckTemplatesAttributesCommon for more information on using the ModifyHealthCheckTemplatesAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyHealthCheckTemplatesAttributesCommonRequest method.
-//	req, resp := client.ModifyHealthCheckTemplatesAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyHealthCheckTemplatesAttributesCommonRequest method.
+//    req, resp := client.ModifyHealthCheckTemplatesAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyHealthCheckTemplatesAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyHealthCheckTemplatesAttributesCommon,
@@ -89,13 +89,13 @@ const opModifyHealthCheckTemplatesAttributes = "ModifyHealthCheckTemplatesAttrib
 // See ModifyHealthCheckTemplatesAttributes for more information on using the ModifyHealthCheckTemplatesAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyHealthCheckTemplatesAttributesRequest method.
-//	req, resp := client.ModifyHealthCheckTemplatesAttributesRequest(params)
+//    // Example sending a request using the ModifyHealthCheckTemplatesAttributesRequest method.
+//    req, resp := client.ModifyHealthCheckTemplatesAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyHealthCheckTemplatesAttributesRequest(input *ModifyHealthCheckTemplatesAttributesInput) (req *request.Request, output *ModifyHealthCheckTemplatesAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyHealthCheckTemplatesAttributes,
@@ -150,6 +150,8 @@ type HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput struct {
 
 	HealthCheckHttpCode *string `type:"string"`
 
+	HealthCheckHttpVersion *string `type:"string"`
+
 	HealthCheckInterval *int64 `type:"integer"`
 
 	HealthCheckMethod *string `type:"string"`
@@ -157,7 +159,7 @@ type HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput struct {
 	HealthCheckProtocol *string `type:"string"`
 
 	// HealthCheckTemplateId is a required field
-	HealthCheckTemplateId *string `type:"string" required:"true"`
+	HealthCheckTemplateId *string `min:"1" max:"128" type:"string" required:"true"`
 
 	// HealthCheckTemplateName is a required field
 	HealthCheckTemplateName *string `type:"string" required:"true"`
@@ -187,6 +189,12 @@ func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) Valida
 	if s.HealthCheckTemplateId == nil {
 		invalidParams.Add(request.NewErrParamRequired("HealthCheckTemplateId"))
 	}
+	if s.HealthCheckTemplateId != nil && len(*s.HealthCheckTemplateId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("HealthCheckTemplateId", 1))
+	}
+	if s.HealthCheckTemplateId != nil && len(*s.HealthCheckTemplateId) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("HealthCheckTemplateId", 128, *s.HealthCheckTemplateId))
+	}
 	if s.HealthCheckTemplateName == nil {
 		invalidParams.Add(request.NewErrParamRequired("HealthCheckTemplateName"))
 	}
@@ -212,6 +220,12 @@ func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) SetHea
 // SetHealthCheckHttpCode sets the HealthCheckHttpCode field's value.
 func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) SetHealthCheckHttpCode(v string) *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
 	s.HealthCheckHttpCode = &v
+	return s
+}
+
+// SetHealthCheckHttpVersion sets the HealthCheckHttpVersion field's value.
+func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) SetHealthCheckHttpVersion(v string) *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
+	s.HealthCheckHttpVersion = &v
 	return s
 }
 

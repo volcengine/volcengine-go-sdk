@@ -22,13 +22,13 @@ const opDescribeServerGroupAttributesCommon = "DescribeServerGroupAttributes"
 // See DescribeServerGroupAttributesCommon for more information on using the DescribeServerGroupAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeServerGroupAttributesCommonRequest method.
-//	req, resp := client.DescribeServerGroupAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeServerGroupAttributesCommonRequest method.
+//    req, resp := client.DescribeServerGroupAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeServerGroupAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeServerGroupAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeServerGroupAttributes = "DescribeServerGroupAttributes"
 // See DescribeServerGroupAttributes for more information on using the DescribeServerGroupAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeServerGroupAttributesRequest method.
-//	req, resp := client.DescribeServerGroupAttributesRequest(params)
+//    // Example sending a request using the DescribeServerGroupAttributesRequest method.
+//    req, resp := client.DescribeServerGroupAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeServerGroupAttributesRequest(input *DescribeServerGroupAttributesInput) (req *request.Request, output *DescribeServerGroupAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeServerGroupAttributes,
@@ -306,6 +306,8 @@ type HealthCheckForDescribeServerGroupAttributesOutput struct {
 
 	HttpCode *string `type:"string"`
 
+	HttpVersion *string `type:"string"`
+
 	Interval *int64 `type:"integer"`
 
 	Method *string `type:"string"`
@@ -350,6 +352,12 @@ func (s *HealthCheckForDescribeServerGroupAttributesOutput) SetHealthyThreshold(
 // SetHttpCode sets the HttpCode field's value.
 func (s *HealthCheckForDescribeServerGroupAttributesOutput) SetHttpCode(v string) *HealthCheckForDescribeServerGroupAttributesOutput {
 	s.HttpCode = &v
+	return s
+}
+
+// SetHttpVersion sets the HttpVersion field's value.
+func (s *HealthCheckForDescribeServerGroupAttributesOutput) SetHttpVersion(v string) *HealthCheckForDescribeServerGroupAttributesOutput {
+	s.HttpVersion = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opModifyAclAttributesCommon = "ModifyAclAttributes"
 // See ModifyAclAttributesCommon for more information on using the ModifyAclAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyAclAttributesCommonRequest method.
-//	req, resp := client.ModifyAclAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyAclAttributesCommonRequest method.
+//    req, resp := client.ModifyAclAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyAclAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyAclAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyAclAttributes = "ModifyAclAttributes"
 // See ModifyAclAttributes for more information on using the ModifyAclAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyAclAttributesRequest method.
-//	req, resp := client.ModifyAclAttributesRequest(params)
+//    // Example sending a request using the ModifyAclAttributesRequest method.
+//    req, resp := client.ModifyAclAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyAclAttributesRequest(input *ModifyAclAttributesInput) (req *request.Request, output *ModifyAclAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyAclAttributes,

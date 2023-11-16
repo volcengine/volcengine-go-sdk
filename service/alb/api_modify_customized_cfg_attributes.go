@@ -22,13 +22,13 @@ const opModifyCustomizedCfgAttributesCommon = "ModifyCustomizedCfgAttributes"
 // See ModifyCustomizedCfgAttributesCommon for more information on using the ModifyCustomizedCfgAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCustomizedCfgAttributesCommonRequest method.
-//	req, resp := client.ModifyCustomizedCfgAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyCustomizedCfgAttributesCommonRequest method.
+//    req, resp := client.ModifyCustomizedCfgAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyCustomizedCfgAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCustomizedCfgAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyCustomizedCfgAttributes = "ModifyCustomizedCfgAttributes"
 // See ModifyCustomizedCfgAttributes for more information on using the ModifyCustomizedCfgAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCustomizedCfgAttributesRequest method.
-//	req, resp := client.ModifyCustomizedCfgAttributesRequest(params)
+//    // Example sending a request using the ModifyCustomizedCfgAttributesRequest method.
+//    req, resp := client.ModifyCustomizedCfgAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) ModifyCustomizedCfgAttributesRequest(input *ModifyCustomizedCfgAttributesInput) (req *request.Request, output *ModifyCustomizedCfgAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyCustomizedCfgAttributes,

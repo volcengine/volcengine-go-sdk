@@ -22,13 +22,13 @@ const opDescribeCustomizedCfgsCommon = "DescribeCustomizedCfgs"
 // See DescribeCustomizedCfgsCommon for more information on using the DescribeCustomizedCfgsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCustomizedCfgsCommonRequest method.
-//	req, resp := client.DescribeCustomizedCfgsCommonRequest(params)
+//    // Example sending a request using the DescribeCustomizedCfgsCommonRequest method.
+//    req, resp := client.DescribeCustomizedCfgsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeCustomizedCfgsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCustomizedCfgsCommon,
@@ -87,13 +87,13 @@ const opDescribeCustomizedCfgs = "DescribeCustomizedCfgs"
 // See DescribeCustomizedCfgs for more information on using the DescribeCustomizedCfgs
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCustomizedCfgsRequest method.
-//	req, resp := client.DescribeCustomizedCfgsRequest(params)
+//    // Example sending a request using the DescribeCustomizedCfgsRequest method.
+//    req, resp := client.DescribeCustomizedCfgsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeCustomizedCfgsRequest(input *DescribeCustomizedCfgsInput) (req *request.Request, output *DescribeCustomizedCfgsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCustomizedCfgs,

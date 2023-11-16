@@ -22,13 +22,13 @@ const opCreateServerGroupCommon = "CreateServerGroup"
 // See CreateServerGroupCommon for more information on using the CreateServerGroupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateServerGroupCommonRequest method.
-//	req, resp := client.CreateServerGroupCommonRequest(params)
+//    // Example sending a request using the CreateServerGroupCommonRequest method.
+//    req, resp := client.CreateServerGroupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) CreateServerGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateServerGroupCommon,
@@ -87,13 +87,13 @@ const opCreateServerGroup = "CreateServerGroup"
 // See CreateServerGroup for more information on using the CreateServerGroup
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateServerGroupRequest method.
-//	req, resp := client.CreateServerGroupRequest(params)
+//    // Example sending a request using the CreateServerGroupRequest method.
+//    req, resp := client.CreateServerGroupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) CreateServerGroupRequest(input *CreateServerGroupInput) (req *request.Request, output *CreateServerGroupOutput) {
 	op := &request.Operation{
 		Name:       opCreateServerGroup,
@@ -280,6 +280,8 @@ type HealthCheckForCreateServerGroupInput struct {
 
 	HttpCode *string `type:"string"`
 
+	HttpVersion *string `type:"string"`
+
 	Interval *string `type:"string"`
 
 	Method *string `type:"string"`
@@ -324,6 +326,12 @@ func (s *HealthCheckForCreateServerGroupInput) SetHealthyThreshold(v string) *He
 // SetHttpCode sets the HttpCode field's value.
 func (s *HealthCheckForCreateServerGroupInput) SetHttpCode(v string) *HealthCheckForCreateServerGroupInput {
 	s.HttpCode = &v
+	return s
+}
+
+// SetHttpVersion sets the HttpVersion field's value.
+func (s *HealthCheckForCreateServerGroupInput) SetHttpVersion(v string) *HealthCheckForCreateServerGroupInput {
+	s.HttpVersion = &v
 	return s
 }
 

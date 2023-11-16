@@ -22,13 +22,13 @@ const opDescribeRulesCommon = "DescribeRules"
 // See DescribeRulesCommon for more information on using the DescribeRulesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRulesCommonRequest method.
-//	req, resp := client.DescribeRulesCommonRequest(params)
+//    // Example sending a request using the DescribeRulesCommonRequest method.
+//    req, resp := client.DescribeRulesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeRulesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeRulesCommon,
@@ -87,13 +87,13 @@ const opDescribeRules = "DescribeRules"
 // See DescribeRules for more information on using the DescribeRules
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRulesRequest method.
-//	req, resp := client.DescribeRulesRequest(params)
+//    // Example sending a request using the DescribeRulesRequest method.
+//    req, resp := client.DescribeRulesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) DescribeRulesRequest(input *DescribeRulesInput) (req *request.Request, output *DescribeRulesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeRules,
@@ -261,6 +261,28 @@ func (s *RedirectConfigForDescribeRulesOutput) SetRedirectUri(v string) *Redirec
 	return s
 }
 
+type RewriteConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	RewritePath *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RewriteConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RewriteConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetRewritePath sets the RewritePath field's value.
+func (s *RewriteConfigForDescribeRulesOutput) SetRewritePath(v string) *RewriteConfigForDescribeRulesOutput {
+	s.RewritePath = &v
+	return s
+}
+
 type RuleForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -269,6 +291,10 @@ type RuleForDescribeRulesOutput struct {
 	Domain *string `type:"string"`
 
 	RedirectConfig *RedirectConfigForDescribeRulesOutput `type:"structure"`
+
+	RewriteConfig *RewriteConfigForDescribeRulesOutput `type:"structure"`
+
+	RewriteEnabled *string `type:"string"`
 
 	RuleAction *string `type:"string"`
 
@@ -308,6 +334,18 @@ func (s *RuleForDescribeRulesOutput) SetDomain(v string) *RuleForDescribeRulesOu
 // SetRedirectConfig sets the RedirectConfig field's value.
 func (s *RuleForDescribeRulesOutput) SetRedirectConfig(v *RedirectConfigForDescribeRulesOutput) *RuleForDescribeRulesOutput {
 	s.RedirectConfig = v
+	return s
+}
+
+// SetRewriteConfig sets the RewriteConfig field's value.
+func (s *RuleForDescribeRulesOutput) SetRewriteConfig(v *RewriteConfigForDescribeRulesOutput) *RuleForDescribeRulesOutput {
+	s.RewriteConfig = v
+	return s
+}
+
+// SetRewriteEnabled sets the RewriteEnabled field's value.
+func (s *RuleForDescribeRulesOutput) SetRewriteEnabled(v string) *RuleForDescribeRulesOutput {
+	s.RewriteEnabled = &v
 	return s
 }
 

@@ -24,13 +24,13 @@ const opCreateRulesCommon = "CreateRules"
 // See CreateRulesCommon for more information on using the CreateRulesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateRulesCommonRequest method.
-//	req, resp := client.CreateRulesCommonRequest(params)
+//    // Example sending a request using the CreateRulesCommonRequest method.
+//    req, resp := client.CreateRulesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) CreateRulesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateRulesCommon,
@@ -89,13 +89,13 @@ const opCreateRules = "CreateRules"
 // See CreateRules for more information on using the CreateRules
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateRulesRequest method.
-//	req, resp := client.CreateRulesRequest(params)
+//    // Example sending a request using the CreateRulesRequest method.
+//    req, resp := client.CreateRulesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) CreateRulesRequest(input *CreateRulesInput) (req *request.Request, output *CreateRulesOutput) {
 	op := &request.Operation{
 		Name:       opCreateRules,
@@ -303,6 +303,28 @@ func (s *RedirectConfigForCreateRulesInput) SetRedirectUri(v string) *RedirectCo
 	return s
 }
 
+type RewriteConfigForCreateRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	RewritePath *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RewriteConfigForCreateRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RewriteConfigForCreateRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetRewritePath sets the RewritePath field's value.
+func (s *RewriteConfigForCreateRulesInput) SetRewritePath(v string) *RewriteConfigForCreateRulesInput {
+	s.RewritePath = &v
+	return s
+}
+
 type RuleForCreateRulesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -311,6 +333,10 @@ type RuleForCreateRulesInput struct {
 	Domain *string `type:"string"`
 
 	RedirectConfig *RedirectConfigForCreateRulesInput `type:"structure"`
+
+	RewriteConfig *RewriteConfigForCreateRulesInput `type:"structure"`
+
+	RewriteEnabled *string `type:"string"`
 
 	RuleAction *string `type:"string"`
 
@@ -363,6 +389,18 @@ func (s *RuleForCreateRulesInput) SetDomain(v string) *RuleForCreateRulesInput {
 // SetRedirectConfig sets the RedirectConfig field's value.
 func (s *RuleForCreateRulesInput) SetRedirectConfig(v *RedirectConfigForCreateRulesInput) *RuleForCreateRulesInput {
 	s.RedirectConfig = v
+	return s
+}
+
+// SetRewriteConfig sets the RewriteConfig field's value.
+func (s *RuleForCreateRulesInput) SetRewriteConfig(v *RewriteConfigForCreateRulesInput) *RuleForCreateRulesInput {
+	s.RewriteConfig = v
+	return s
+}
+
+// SetRewriteEnabled sets the RewriteEnabled field's value.
+func (s *RuleForCreateRulesInput) SetRewriteEnabled(v string) *RuleForCreateRulesInput {
+	s.RewriteEnabled = &v
 	return s
 }
 

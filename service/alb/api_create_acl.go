@@ -22,13 +22,13 @@ const opCreateAclCommon = "CreateAcl"
 // See CreateAclCommon for more information on using the CreateAclCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateAclCommonRequest method.
-//	req, resp := client.CreateAclCommonRequest(params)
+//    // Example sending a request using the CreateAclCommonRequest method.
+//    req, resp := client.CreateAclCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) CreateAclCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateAclCommon,
@@ -87,13 +87,13 @@ const opCreateAcl = "CreateAcl"
 // See CreateAcl for more information on using the CreateAcl
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateAclRequest method.
-//	req, resp := client.CreateAclRequest(params)
+//    // Example sending a request using the CreateAclRequest method.
+//    req, resp := client.CreateAclRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) CreateAclRequest(input *CreateAclInput) (req *request.Request, output *CreateAclOutput) {
 	op := &request.Operation{
 		Name:       opCreateAcl,

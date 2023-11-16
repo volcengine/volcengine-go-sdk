@@ -22,13 +22,13 @@ const opUploadCACertificateCommon = "UploadCACertificate"
 // See UploadCACertificateCommon for more information on using the UploadCACertificateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UploadCACertificateCommonRequest method.
-//	req, resp := client.UploadCACertificateCommonRequest(params)
+//    // Example sending a request using the UploadCACertificateCommonRequest method.
+//    req, resp := client.UploadCACertificateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) UploadCACertificateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUploadCACertificateCommon,
@@ -87,13 +87,13 @@ const opUploadCACertificate = "UploadCACertificate"
 // See UploadCACertificate for more information on using the UploadCACertificate
 // API call, and error handling.
 //
-//	// Example sending a request using the UploadCACertificateRequest method.
-//	req, resp := client.UploadCACertificateRequest(params)
+//    // Example sending a request using the UploadCACertificateRequest method.
+//    req, resp := client.UploadCACertificateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ALB) UploadCACertificateRequest(input *UploadCACertificateInput) (req *request.Request, output *UploadCACertificateOutput) {
 	op := &request.Operation{
 		Name:       opUploadCACertificate,
