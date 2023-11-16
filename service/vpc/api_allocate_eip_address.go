@@ -388,6 +388,9 @@ const (
 	// ISPForAllocateEipAddressInputSingleLineBgp is a ISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputSingleLineBgp = "SingleLine_BGP"
 
+	// ISPForAllocateEipAddressInputStaticBgp is a ISPForAllocateEipAddressInput enum value
+	ISPForAllocateEipAddressInputStaticBgp = "Static_BGP"
+
 	// ISPForAllocateEipAddressInputFusionBgp is a ISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputFusionBgp = "Fusion_BGP"
 

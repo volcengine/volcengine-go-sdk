@@ -354,6 +354,9 @@ const (
 	// ISPForCreateBandwidthPackageInputSingleLineBgp is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputSingleLineBgp = "SingleLine_BGP"
 
+	// ISPForCreateBandwidthPackageInputStaticBgp is a ISPForCreateBandwidthPackageInput enum value
+	ISPForCreateBandwidthPackageInputStaticBgp = "Static_BGP"
+
 	// ISPForCreateBandwidthPackageInputFusionBgp is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputFusionBgp = "Fusion_BGP"
 
