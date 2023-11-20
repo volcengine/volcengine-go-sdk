@@ -16,18 +16,19 @@ import (
 // VKEAPI provides an interface to enable mocking the
 // vke.VKE service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// VKE.
-//	func myFunc(svc VKEAPI) bool {
-//	    // Make svc.CreateAddon request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // VKE.
+//    func myFunc(svc VKEAPI) bool {
+//        // Make svc.CreateAddon request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := vke.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := vke.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type VKEAPI interface {
 	CreateAddonCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAddonCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

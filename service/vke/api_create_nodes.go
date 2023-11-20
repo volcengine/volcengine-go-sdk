@@ -22,13 +22,13 @@ const opCreateNodesCommon = "CreateNodes"
 // See CreateNodesCommon for more information on using the CreateNodesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateNodesCommonRequest method.
-//	req, resp := client.CreateNodesCommonRequest(params)
+//    // Example sending a request using the CreateNodesCommonRequest method.
+//    req, resp := client.CreateNodesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateNodesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNodesCommon,
@@ -89,13 +89,13 @@ const opCreateNodes = "CreateNodes"
 // See CreateNodes for more information on using the CreateNodes
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateNodesRequest method.
-//	req, resp := client.CreateNodesRequest(params)
+//    // Example sending a request using the CreateNodesRequest method.
+//    req, resp := client.CreateNodesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateNodesRequest(input *CreateNodesInput) (req *request.Request, output *CreateNodesOutput) {
 	op := &request.Operation{
 		Name:       opCreateNodes,
@@ -150,7 +150,8 @@ type CreateNodesInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
 	ContainerStoragePath *string `type:"string"`
 
@@ -163,6 +164,8 @@ type CreateNodesInput struct {
 	KeepInstanceName *bool `type:"boolean"`
 
 	KubernetesConfig *KubernetesConfigForCreateNodesInput `type:"structure"`
+
+	NodePoolId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -173,6 +176,19 @@ func (s CreateNodesInput) String() string {
 // GoString returns the string representation
 func (s CreateNodesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateNodesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateNodesInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAdditionalContainerStorageEnabled sets the AdditionalContainerStorageEnabled field's value.
@@ -226,6 +242,12 @@ func (s *CreateNodesInput) SetKeepInstanceName(v bool) *CreateNodesInput {
 // SetKubernetesConfig sets the KubernetesConfig field's value.
 func (s *CreateNodesInput) SetKubernetesConfig(v *KubernetesConfigForCreateNodesInput) *CreateNodesInput {
 	s.KubernetesConfig = v
+	return s
+}
+
+// SetNodePoolId sets the NodePoolId field's value.
+func (s *CreateNodesInput) SetNodePoolId(v string) *CreateNodesInput {
+	s.NodePoolId = &v
 	return s
 }
 
@@ -360,11 +382,11 @@ func (s *TaintForCreateNodesInput) SetValue(v string) *TaintForCreateNodesInput 
 }
 
 const (
-	// EnumOfEffectForCreateNodesInputNoExecute is a EnumOfEffectForCreateNodesInput enum value
-	EnumOfEffectForCreateNodesInputNoExecute = "NoExecute"
-
 	// EnumOfEffectForCreateNodesInputNoSchedule is a EnumOfEffectForCreateNodesInput enum value
 	EnumOfEffectForCreateNodesInputNoSchedule = "NoSchedule"
+
+	// EnumOfEffectForCreateNodesInputNoExecute is a EnumOfEffectForCreateNodesInput enum value
+	EnumOfEffectForCreateNodesInputNoExecute = "NoExecute"
 
 	// EnumOfEffectForCreateNodesInputPreferNoSchedule is a EnumOfEffectForCreateNodesInput enum value
 	EnumOfEffectForCreateNodesInputPreferNoSchedule = "PreferNoSchedule"

@@ -22,13 +22,13 @@ const opUpdateAddonVersionCommon = "UpdateAddonVersion"
 // See UpdateAddonVersionCommon for more information on using the UpdateAddonVersionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateAddonVersionCommonRequest method.
-//	req, resp := client.UpdateAddonVersionCommonRequest(params)
+//    // Example sending a request using the UpdateAddonVersionCommonRequest method.
+//    req, resp := client.UpdateAddonVersionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UpdateAddonVersionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateAddonVersionCommon,
@@ -89,13 +89,13 @@ const opUpdateAddonVersion = "UpdateAddonVersion"
 // See UpdateAddonVersion for more information on using the UpdateAddonVersion
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateAddonVersionRequest method.
-//	req, resp := client.UpdateAddonVersionRequest(params)
+//    // Example sending a request using the UpdateAddonVersionRequest method.
+//    req, resp := client.UpdateAddonVersionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UpdateAddonVersionRequest(input *UpdateAddonVersionInput) (req *request.Request, output *UpdateAddonVersionOutput) {
 	op := &request.Operation{
 		Name:       opUpdateAddonVersion,
@@ -148,11 +148,14 @@ type UpdateAddonVersionInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 
-	Version *string `type:"string"`
+	// Version is a required field
+	Version *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,6 +166,25 @@ func (s UpdateAddonVersionInput) String() string {
 // GoString returns the string representation
 func (s UpdateAddonVersionInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateAddonVersionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateAddonVersionInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Version == nil {
+		invalidParams.Add(request.NewErrParamRequired("Version"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

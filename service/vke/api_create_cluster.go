@@ -22,13 +22,13 @@ const opCreateClusterCommon = "CreateCluster"
 // See CreateClusterCommon for more information on using the CreateClusterCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateClusterCommonRequest method.
-//	req, resp := client.CreateClusterCommonRequest(params)
+//    // Example sending a request using the CreateClusterCommonRequest method.
+//    req, resp := client.CreateClusterCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateClusterCommon,
@@ -89,13 +89,13 @@ const opCreateCluster = "CreateCluster"
 // See CreateCluster for more information on using the CreateCluster
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateClusterRequest method.
-//	req, resp := client.CreateClusterRequest(params)
+//    // Example sending a request using the CreateClusterRequest method.
+//    req, resp := client.CreateClusterRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateClusterRequest(input *CreateClusterInput) (req *request.Request, output *CreateClusterOutput) {
 	op := &request.Operation{
 		Name:       opCreateCluster,
@@ -226,7 +226,8 @@ type CreateClusterInput struct {
 
 	LoggingConfig *LoggingConfigForCreateClusterInput `type:"structure"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 
 	PodsConfig *PodsConfigForCreateClusterInput `type:"structure"`
 
@@ -243,6 +244,19 @@ func (s CreateClusterInput) String() string {
 // GoString returns the string representation
 func (s CreateClusterInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateClusterInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateClusterInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -471,6 +485,8 @@ type PublicAccessNetworkConfigForCreateClusterInput struct {
 	Bandwidth *int32 `type:"int32"`
 
 	BillingType *int32 `type:"int32"`
+
+	Isp *string `type:"string" enum:"EnumOfIspForCreateClusterInput"`
 }
 
 // String returns the string representation
@@ -492,6 +508,12 @@ func (s *PublicAccessNetworkConfigForCreateClusterInput) SetBandwidth(v int32) *
 // SetBillingType sets the BillingType field's value.
 func (s *PublicAccessNetworkConfigForCreateClusterInput) SetBillingType(v int32) *PublicAccessNetworkConfigForCreateClusterInput {
 	s.BillingType = &v
+	return s
+}
+
+// SetIsp sets the Isp field's value.
+func (s *PublicAccessNetworkConfigForCreateClusterInput) SetIsp(v string) *PublicAccessNetworkConfigForCreateClusterInput {
+	s.Isp = &v
 	return s
 }
 
@@ -570,6 +592,20 @@ func (s *VpcCniConfigForCreateClusterInput) SetSubnetIds(v []*string) *VpcCniCon
 }
 
 const (
+	// EnumOfIspForCreateClusterInputBgp is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputBgp = "BGP"
+
+	// EnumOfIspForCreateClusterInputChinaMobile is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputChinaMobile = "ChinaMobile"
+
+	// EnumOfIspForCreateClusterInputChinaTelecom is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputChinaTelecom = "ChinaTelecom"
+
+	// EnumOfIspForCreateClusterInputChinaUnicom is a EnumOfIspForCreateClusterInput enum value
+	EnumOfIspForCreateClusterInputChinaUnicom = "ChinaUnicom"
+)
+
+const (
 	// EnumOfLogTypeForCreateClusterInputAudit is a EnumOfLogTypeForCreateClusterInput enum value
 	EnumOfLogTypeForCreateClusterInputAudit = "Audit"
 
@@ -590,30 +626,12 @@ const (
 )
 
 const (
-	// EnumOfPodNetworkModeForCreateClusterInputCalicoBgp is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputCalicoBgp = "CalicoBgp"
-
-	// EnumOfPodNetworkModeForCreateClusterInputCalicoVxlan is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputCalicoVxlan = "CalicoVxlan"
-
-	// EnumOfPodNetworkModeForCreateClusterInputCarma is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputCarma = "Carma"
-
-	// EnumOfPodNetworkModeForCreateClusterInputCilium is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputCilium = "Cilium"
-
-	// EnumOfPodNetworkModeForCreateClusterInputDefault is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputDefault = "Default"
-
 	// EnumOfPodNetworkModeForCreateClusterInputFlannel is a EnumOfPodNetworkModeForCreateClusterInput enum value
 	EnumOfPodNetworkModeForCreateClusterInputFlannel = "Flannel"
 
-	// EnumOfPodNetworkModeForCreateClusterInputKubeOvn is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputKubeOvn = "KubeOvn"
+	// EnumOfPodNetworkModeForCreateClusterInputVpcCniShared is a EnumOfPodNetworkModeForCreateClusterInput enum value
+	EnumOfPodNetworkModeForCreateClusterInputVpcCniShared = "VpcCniShared"
 
 	// EnumOfPodNetworkModeForCreateClusterInputVpcCniDedicated is a EnumOfPodNetworkModeForCreateClusterInput enum value
 	EnumOfPodNetworkModeForCreateClusterInputVpcCniDedicated = "VpcCniDedicated"
-
-	// EnumOfPodNetworkModeForCreateClusterInputVpcCniShared is a EnumOfPodNetworkModeForCreateClusterInput enum value
-	EnumOfPodNetworkModeForCreateClusterInputVpcCniShared = "VpcCniShared"
 )

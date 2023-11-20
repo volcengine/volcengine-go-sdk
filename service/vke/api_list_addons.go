@@ -22,13 +22,13 @@ const opListAddonsCommon = "ListAddons"
 // See ListAddonsCommon for more information on using the ListAddonsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListAddonsCommonRequest method.
-//	req, resp := client.ListAddonsCommonRequest(params)
+//    // Example sending a request using the ListAddonsCommonRequest method.
+//    req, resp := client.ListAddonsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListAddonsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListAddonsCommon,
@@ -89,13 +89,13 @@ const opListAddons = "ListAddons"
 // See ListAddons for more information on using the ListAddons
 // API call, and error handling.
 //
-//	// Example sending a request using the ListAddonsRequest method.
-//	req, resp := client.ListAddonsRequest(params)
+//    // Example sending a request using the ListAddonsRequest method.
+//    req, resp := client.ListAddonsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListAddonsRequest(input *ListAddonsInput) (req *request.Request, output *ListAddonsOutput) {
 	op := &request.Operation{
 		Name:       opListAddons,
@@ -428,7 +428,7 @@ type StatusForListAddonsInput struct {
 
 	ConditionsType *string `type:"string" json:"Conditions.Type" enum:"EnumOfConditionsTypeForListAddonsInput"`
 
-	Phase *string `type:"string" json:"Phase" enum:"EnumOfPhaseForListAddonsInput"`
+	Phase *string `type:"string" enum:"EnumOfPhaseForListAddonsInput"`
 }
 
 // String returns the string representation
@@ -484,6 +484,9 @@ func (s *StatusForListAddonsOutput) SetPhase(v string) *StatusForListAddonsOutpu
 }
 
 const (
+	// EnumOfConditionsTypeForListAddonsInputOk is a EnumOfConditionsTypeForListAddonsInput enum value
+	EnumOfConditionsTypeForListAddonsInputOk = "Ok"
+
 	// EnumOfConditionsTypeForListAddonsInputClusterNotRunning is a EnumOfConditionsTypeForListAddonsInput enum value
 	EnumOfConditionsTypeForListAddonsInputClusterNotRunning = "ClusterNotRunning"
 
@@ -501,9 +504,6 @@ const (
 
 	// EnumOfConditionsTypeForListAddonsInputNameConflict is a EnumOfConditionsTypeForListAddonsInput enum value
 	EnumOfConditionsTypeForListAddonsInputNameConflict = "NameConflict"
-
-	// EnumOfConditionsTypeForListAddonsInputOk is a EnumOfConditionsTypeForListAddonsInput enum value
-	EnumOfConditionsTypeForListAddonsInputOk = "Ok"
 
 	// EnumOfConditionsTypeForListAddonsInputProgressing is a EnumOfConditionsTypeForListAddonsInput enum value
 	EnumOfConditionsTypeForListAddonsInputProgressing = "Progressing"
@@ -527,14 +527,14 @@ const (
 )
 
 const (
-	// EnumOfDeployNodeTypeListForListAddonsInputEdgeNode is a EnumOfDeployNodeTypeListForListAddonsInput enum value
-	EnumOfDeployNodeTypeListForListAddonsInputEdgeNode = "EdgeNode"
-
 	// EnumOfDeployNodeTypeListForListAddonsInputNode is a EnumOfDeployNodeTypeListForListAddonsInput enum value
 	EnumOfDeployNodeTypeListForListAddonsInputNode = "Node"
 
 	// EnumOfDeployNodeTypeListForListAddonsInputVirtualNode is a EnumOfDeployNodeTypeListForListAddonsInput enum value
 	EnumOfDeployNodeTypeListForListAddonsInputVirtualNode = "VirtualNode"
+
+	// EnumOfDeployNodeTypeListForListAddonsInputEdgeNode is a EnumOfDeployNodeTypeListForListAddonsInput enum value
+	EnumOfDeployNodeTypeListForListAddonsInputEdgeNode = "EdgeNode"
 )
 
 const (
@@ -546,9 +546,6 @@ const (
 
 	// EnumOfPhaseForListAddonsInputFailed is a EnumOfPhaseForListAddonsInput enum value
 	EnumOfPhaseForListAddonsInputFailed = "Failed"
-
-	// EnumOfPhaseForListAddonsInputNone is a EnumOfPhaseForListAddonsInput enum value
-	EnumOfPhaseForListAddonsInputNone = "None"
 
 	// EnumOfPhaseForListAddonsInputRunning is a EnumOfPhaseForListAddonsInput enum value
 	EnumOfPhaseForListAddonsInputRunning = "Running"

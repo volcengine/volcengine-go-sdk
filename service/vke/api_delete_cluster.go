@@ -22,13 +22,13 @@ const opDeleteClusterCommon = "DeleteCluster"
 // See DeleteClusterCommon for more information on using the DeleteClusterCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteClusterCommonRequest method.
-//	req, resp := client.DeleteClusterCommonRequest(params)
+//    // Example sending a request using the DeleteClusterCommonRequest method.
+//    req, resp := client.DeleteClusterCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) DeleteClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteClusterCommon,
@@ -89,13 +89,13 @@ const opDeleteCluster = "DeleteCluster"
 // See DeleteCluster for more information on using the DeleteCluster
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteClusterRequest method.
-//	req, resp := client.DeleteClusterRequest(params)
+//    // Example sending a request using the DeleteClusterRequest method.
+//    req, resp := client.DeleteClusterRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) DeleteClusterRequest(input *DeleteClusterInput) (req *request.Request, output *DeleteClusterOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCluster,
@@ -150,7 +150,8 @@ type DeleteClusterInput struct {
 
 	Force *bool `type:"boolean"`
 
-	Id *string `type:"string"`
+	// Id is a required field
+	Id *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +162,19 @@ func (s DeleteClusterInput) String() string {
 // GoString returns the string representation
 func (s DeleteClusterInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteClusterInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteClusterInput"}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCascadingDeleteResources sets the CascadingDeleteResources field's value.
@@ -198,17 +212,17 @@ func (s DeleteClusterOutput) GoString() string {
 }
 
 const (
-	// EnumOfCascadingDeleteResourceListForDeleteClusterInputClb is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
-	EnumOfCascadingDeleteResourceListForDeleteClusterInputClb = "Clb"
-
 	// EnumOfCascadingDeleteResourceListForDeleteClusterInputDefaultNodePoolResource is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
 	EnumOfCascadingDeleteResourceListForDeleteClusterInputDefaultNodePoolResource = "DefaultNodePoolResource"
 
-	// EnumOfCascadingDeleteResourceListForDeleteClusterInputNat is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
-	EnumOfCascadingDeleteResourceListForDeleteClusterInputNat = "Nat"
-
 	// EnumOfCascadingDeleteResourceListForDeleteClusterInputNodePoolResource is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
 	EnumOfCascadingDeleteResourceListForDeleteClusterInputNodePoolResource = "NodePoolResource"
+
+	// EnumOfCascadingDeleteResourceListForDeleteClusterInputClb is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
+	EnumOfCascadingDeleteResourceListForDeleteClusterInputClb = "Clb"
+
+	// EnumOfCascadingDeleteResourceListForDeleteClusterInputNat is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
+	EnumOfCascadingDeleteResourceListForDeleteClusterInputNat = "Nat"
 
 	// EnumOfCascadingDeleteResourceListForDeleteClusterInputTryBest is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
 	EnumOfCascadingDeleteResourceListForDeleteClusterInputTryBest = "TryBest"

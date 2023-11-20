@@ -22,13 +22,13 @@ const opListSupportedResourceTypesCommon = "ListSupportedResourceTypes"
 // See ListSupportedResourceTypesCommon for more information on using the ListSupportedResourceTypesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListSupportedResourceTypesCommonRequest method.
-//	req, resp := client.ListSupportedResourceTypesCommonRequest(params)
+//    // Example sending a request using the ListSupportedResourceTypesCommonRequest method.
+//    req, resp := client.ListSupportedResourceTypesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListSupportedResourceTypesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListSupportedResourceTypesCommon,
@@ -89,13 +89,13 @@ const opListSupportedResourceTypes = "ListSupportedResourceTypes"
 // See ListSupportedResourceTypes for more information on using the ListSupportedResourceTypes
 // API call, and error handling.
 //
-//	// Example sending a request using the ListSupportedResourceTypesRequest method.
-//	req, resp := client.ListSupportedResourceTypesRequest(params)
+//    // Example sending a request using the ListSupportedResourceTypesRequest method.
+//    req, resp := client.ListSupportedResourceTypesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListSupportedResourceTypesRequest(input *ListSupportedResourceTypesInput) (req *request.Request, output *ListSupportedResourceTypesOutput) {
 	op := &request.Operation{
 		Name:       opListSupportedResourceTypes,

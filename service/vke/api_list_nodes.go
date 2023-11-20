@@ -22,13 +22,13 @@ const opListNodesCommon = "ListNodes"
 // See ListNodesCommon for more information on using the ListNodesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListNodesCommonRequest method.
-//	req, resp := client.ListNodesCommonRequest(params)
+//    // Example sending a request using the ListNodesCommonRequest method.
+//    req, resp := client.ListNodesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListNodesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListNodesCommon,
@@ -89,13 +89,13 @@ const opListNodes = "ListNodes"
 // See ListNodes for more information on using the ListNodes
 // API call, and error handling.
 //
-//	// Example sending a request using the ListNodesRequest method.
-//	req, resp := client.ListNodesRequest(params)
+//    // Example sending a request using the ListNodesRequest method.
+//    req, resp := client.ListNodesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListNodesRequest(input *ListNodesInput) (req *request.Request, output *ListNodesOutput) {
 	op := &request.Operation{
 		Name:       opListNodes,
@@ -602,7 +602,7 @@ func (s *StatusForListNodesOutput) SetPhase(v string) *StatusForListNodesOutput 
 type TaintForListNodesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Effect *string `type:"string"`
+	Effect *string `type:"string" enum:"EnumOfEffectForListNodesOutput"`
 
 	Key *string `type:"string"`
 
@@ -638,20 +638,20 @@ func (s *TaintForListNodesOutput) SetValue(v string) *TaintForListNodesOutput {
 }
 
 const (
-	// EnumOfConditionsTypeForListNodesInputBalance is a EnumOfConditionsTypeForListNodesInput enum value
-	EnumOfConditionsTypeForListNodesInputBalance = "Balance"
-
-	// EnumOfConditionsTypeForListNodesInputInitializeFailed is a EnumOfConditionsTypeForListNodesInput enum value
-	EnumOfConditionsTypeForListNodesInputInitializeFailed = "InitializeFailed"
-
-	// EnumOfConditionsTypeForListNodesInputNotReady is a EnumOfConditionsTypeForListNodesInput enum value
-	EnumOfConditionsTypeForListNodesInputNotReady = "NotReady"
+	// EnumOfConditionsTypeForListNodesInputProgressing is a EnumOfConditionsTypeForListNodesInput enum value
+	EnumOfConditionsTypeForListNodesInputProgressing = "Progressing"
 
 	// EnumOfConditionsTypeForListNodesInputOk is a EnumOfConditionsTypeForListNodesInput enum value
 	EnumOfConditionsTypeForListNodesInputOk = "Ok"
 
-	// EnumOfConditionsTypeForListNodesInputProgressing is a EnumOfConditionsTypeForListNodesInput enum value
-	EnumOfConditionsTypeForListNodesInputProgressing = "Progressing"
+	// EnumOfConditionsTypeForListNodesInputUnschedulable is a EnumOfConditionsTypeForListNodesInput enum value
+	EnumOfConditionsTypeForListNodesInputUnschedulable = "Unschedulable"
+
+	// EnumOfConditionsTypeForListNodesInputNotReady is a EnumOfConditionsTypeForListNodesInput enum value
+	EnumOfConditionsTypeForListNodesInputNotReady = "NotReady"
+
+	// EnumOfConditionsTypeForListNodesInputInitializeFailed is a EnumOfConditionsTypeForListNodesInput enum value
+	EnumOfConditionsTypeForListNodesInputInitializeFailed = "InitializeFailed"
 
 	// EnumOfConditionsTypeForListNodesInputResourceCleanupFailed is a EnumOfConditionsTypeForListNodesInput enum value
 	EnumOfConditionsTypeForListNodesInputResourceCleanupFailed = "ResourceCleanupFailed"
@@ -659,46 +659,46 @@ const (
 	// EnumOfConditionsTypeForListNodesInputSecurity is a EnumOfConditionsTypeForListNodesInput enum value
 	EnumOfConditionsTypeForListNodesInputSecurity = "Security"
 
-	// EnumOfConditionsTypeForListNodesInputUnknown is a EnumOfConditionsTypeForListNodesInput enum value
-	EnumOfConditionsTypeForListNodesInputUnknown = "Unknown"
+	// EnumOfConditionsTypeForListNodesInputBalance is a EnumOfConditionsTypeForListNodesInput enum value
+	EnumOfConditionsTypeForListNodesInputBalance = "Balance"
 
-	// EnumOfConditionsTypeForListNodesInputUnschedulable is a EnumOfConditionsTypeForListNodesInput enum value
-	EnumOfConditionsTypeForListNodesInputUnschedulable = "Unschedulable"
+	// EnumOfConditionsTypeForListNodesInputUnknow is a EnumOfConditionsTypeForListNodesInput enum value
+	EnumOfConditionsTypeForListNodesInputUnknow = "Unknow"
+)
+
+const (
+	// EnumOfEffectForListNodesOutputNoSchedule is a EnumOfEffectForListNodesOutput enum value
+	EnumOfEffectForListNodesOutputNoSchedule = "NoSchedule"
+
+	// EnumOfEffectForListNodesOutputNoExecute is a EnumOfEffectForListNodesOutput enum value
+	EnumOfEffectForListNodesOutputNoExecute = "NoExecute"
+
+	// EnumOfEffectForListNodesOutputPreferNoSchedule is a EnumOfEffectForListNodesOutput enum value
+	EnumOfEffectForListNodesOutputPreferNoSchedule = "PreferNoSchedule"
 )
 
 const (
 	// EnumOfPhaseForListNodesInputCreating is a EnumOfPhaseForListNodesInput enum value
 	EnumOfPhaseForListNodesInputCreating = "Creating"
 
+	// EnumOfPhaseForListNodesInputRunning is a EnumOfPhaseForListNodesInput enum value
+	EnumOfPhaseForListNodesInputRunning = "Running"
+
 	// EnumOfPhaseForListNodesInputDeleting is a EnumOfPhaseForListNodesInput enum value
 	EnumOfPhaseForListNodesInputDeleting = "Deleting"
+
+	// EnumOfPhaseForListNodesInputUpdating is a EnumOfPhaseForListNodesInput enum value
+	EnumOfPhaseForListNodesInputUpdating = "Updating"
 
 	// EnumOfPhaseForListNodesInputFailed is a EnumOfPhaseForListNodesInput enum value
 	EnumOfPhaseForListNodesInputFailed = "Failed"
 
-	// EnumOfPhaseForListNodesInputRunning is a EnumOfPhaseForListNodesInput enum value
-	EnumOfPhaseForListNodesInputRunning = "Running"
-
 	// EnumOfPhaseForListNodesInputStarting is a EnumOfPhaseForListNodesInput enum value
 	EnumOfPhaseForListNodesInputStarting = "Starting"
-
-	// EnumOfPhaseForListNodesInputStopped is a EnumOfPhaseForListNodesInput enum value
-	EnumOfPhaseForListNodesInputStopped = "Stopped"
 
 	// EnumOfPhaseForListNodesInputStopping is a EnumOfPhaseForListNodesInput enum value
 	EnumOfPhaseForListNodesInputStopping = "Stopping"
 
-	// EnumOfPhaseForListNodesInputUpdating is a EnumOfPhaseForListNodesInput enum value
-	EnumOfPhaseForListNodesInputUpdating = "Updating"
-)
-
-const (
-	// EnumOfRoleListForListNodesOutputEtcd is a EnumOfRoleListForListNodesOutput enum value
-	EnumOfRoleListForListNodesOutputEtcd = "Etcd"
-
-	// EnumOfRoleListForListNodesOutputMaster is a EnumOfRoleListForListNodesOutput enum value
-	EnumOfRoleListForListNodesOutputMaster = "Master"
-
-	// EnumOfRoleListForListNodesOutputWorker is a EnumOfRoleListForListNodesOutput enum value
-	EnumOfRoleListForListNodesOutputWorker = "Worker"
+	// EnumOfPhaseForListNodesInputStopped is a EnumOfPhaseForListNodesInput enum value
+	EnumOfPhaseForListNodesInputStopped = "Stopped"
 )

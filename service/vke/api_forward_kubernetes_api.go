@@ -22,13 +22,13 @@ const opForwardKubernetesApiCommon = "ForwardKubernetesApi"
 // See ForwardKubernetesApiCommon for more information on using the ForwardKubernetesApiCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ForwardKubernetesApiCommonRequest method.
-//	req, resp := client.ForwardKubernetesApiCommonRequest(params)
+//    // Example sending a request using the ForwardKubernetesApiCommonRequest method.
+//    req, resp := client.ForwardKubernetesApiCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ForwardKubernetesApiCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opForwardKubernetesApiCommon,
@@ -89,13 +89,13 @@ const opForwardKubernetesApi = "ForwardKubernetesApi"
 // See ForwardKubernetesApi for more information on using the ForwardKubernetesApi
 // API call, and error handling.
 //
-//	// Example sending a request using the ForwardKubernetesApiRequest method.
-//	req, resp := client.ForwardKubernetesApiRequest(params)
+//    // Example sending a request using the ForwardKubernetesApiRequest method.
+//    req, resp := client.ForwardKubernetesApiRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ForwardKubernetesApiRequest(input *ForwardKubernetesApiInput) (req *request.Request, output *ForwardKubernetesApiOutput) {
 	op := &request.Operation{
 		Name:       opForwardKubernetesApi,
@@ -148,13 +148,16 @@ type ForwardKubernetesApiInput struct {
 
 	Body *string `type:"string"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
 	Headers []*HeaderForForwardKubernetesApiInput `type:"list"`
 
-	Method *string `type:"string"`
+	// Method is a required field
+	Method *string `type:"string" required:"true"`
 
-	Path *string `type:"string"`
+	// Path is a required field
+	Path *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -165,6 +168,25 @@ func (s ForwardKubernetesApiInput) String() string {
 // GoString returns the string representation
 func (s ForwardKubernetesApiInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ForwardKubernetesApiInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ForwardKubernetesApiInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.Method == nil {
+		invalidParams.Add(request.NewErrParamRequired("Method"))
+	}
+	if s.Path == nil {
+		invalidParams.Add(request.NewErrParamRequired("Path"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBody sets the Body field's value.

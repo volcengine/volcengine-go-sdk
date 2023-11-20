@@ -22,13 +22,13 @@ const opUntagResourcesCommon = "UntagResources"
 // See UntagResourcesCommon for more information on using the UntagResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UntagResourcesCommonRequest method.
-//	req, resp := client.UntagResourcesCommonRequest(params)
+//    // Example sending a request using the UntagResourcesCommonRequest method.
+//    req, resp := client.UntagResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UntagResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUntagResourcesCommon,
@@ -89,13 +89,13 @@ const opUntagResources = "UntagResources"
 // See UntagResources for more information on using the UntagResources
 // API call, and error handling.
 //
-//	// Example sending a request using the UntagResourcesRequest method.
-//	req, resp := client.UntagResourcesRequest(params)
+//    // Example sending a request using the UntagResourcesRequest method.
+//    req, resp := client.UntagResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UntagResourcesRequest(input *UntagResourcesInput) (req *request.Request, output *UntagResourcesOutput) {
 	op := &request.Operation{
 		Name:       opUntagResources,
@@ -148,7 +148,8 @@ type UntagResourcesInput struct {
 
 	ResourceIds []*string `type:"list"`
 
-	ResourceType *string `type:"string" enum:"EnumOfResourceTypeForUntagResourcesInput"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForUntagResourcesInput"`
 
 	TagKeys []*string `type:"list"`
 }
@@ -161,6 +162,19 @@ func (s UntagResourcesInput) String() string {
 // GoString returns the string representation
 func (s UntagResourcesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UntagResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UntagResourcesInput"}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetResourceIds sets the ResourceIds field's value.
@@ -198,12 +212,12 @@ func (s UntagResourcesOutput) GoString() string {
 }
 
 const (
-	// EnumOfResourceTypeForUntagResourcesInputBareMachine is a EnumOfResourceTypeForUntagResourcesInput enum value
-	EnumOfResourceTypeForUntagResourcesInputBareMachine = "BareMachine"
-
 	// EnumOfResourceTypeForUntagResourcesInputCluster is a EnumOfResourceTypeForUntagResourcesInput enum value
 	EnumOfResourceTypeForUntagResourcesInputCluster = "Cluster"
 
 	// EnumOfResourceTypeForUntagResourcesInputNodePool is a EnumOfResourceTypeForUntagResourcesInput enum value
 	EnumOfResourceTypeForUntagResourcesInputNodePool = "NodePool"
+
+	// EnumOfResourceTypeForUntagResourcesInputBareMachine is a EnumOfResourceTypeForUntagResourcesInput enum value
+	EnumOfResourceTypeForUntagResourcesInputBareMachine = "BareMachine"
 )

@@ -22,13 +22,13 @@ const opListTagsForResourcesCommon = "ListTagsForResources"
 // See ListTagsForResourcesCommon for more information on using the ListTagsForResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListTagsForResourcesCommonRequest method.
-//	req, resp := client.ListTagsForResourcesCommonRequest(params)
+//    // Example sending a request using the ListTagsForResourcesCommonRequest method.
+//    req, resp := client.ListTagsForResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListTagsForResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListTagsForResourcesCommon,
@@ -89,13 +89,13 @@ const opListTagsForResources = "ListTagsForResources"
 // See ListTagsForResources for more information on using the ListTagsForResources
 // API call, and error handling.
 //
-//	// Example sending a request using the ListTagsForResourcesRequest method.
-//	req, resp := client.ListTagsForResourcesRequest(params)
+//    // Example sending a request using the ListTagsForResourcesRequest method.
+//    req, resp := client.ListTagsForResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListTagsForResourcesRequest(input *ListTagsForResourcesInput) (req *request.Request, output *ListTagsForResourcesOutput) {
 	op := &request.Operation{
 		Name:       opListTagsForResources,
@@ -152,7 +152,8 @@ type ListTagsForResourcesInput struct {
 
 	ResourceIds []*string `type:"list"`
 
-	ResourceType *string `type:"string" enum:"EnumOfResourceTypeForListTagsForResourcesInput"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForListTagsForResourcesInput"`
 
 	TagFilters []*TagFilterForListTagsForResourcesInput `type:"list"`
 
@@ -167,6 +168,19 @@ func (s ListTagsForResourcesInput) String() string {
 // GoString returns the string representation
 func (s ListTagsForResourcesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListTagsForResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListTagsForResourcesInput"}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetMaxResults sets the MaxResults field's value.
@@ -322,20 +336,20 @@ func (s *TagFilterForListTagsForResourcesInput) SetValues(v []*string) *TagFilte
 }
 
 const (
-	// EnumOfResourceTypeForListTagsForResourcesInputBareMachine is a EnumOfResourceTypeForListTagsForResourcesInput enum value
-	EnumOfResourceTypeForListTagsForResourcesInputBareMachine = "BareMachine"
-
 	// EnumOfResourceTypeForListTagsForResourcesInputCluster is a EnumOfResourceTypeForListTagsForResourcesInput enum value
 	EnumOfResourceTypeForListTagsForResourcesInputCluster = "Cluster"
 
 	// EnumOfResourceTypeForListTagsForResourcesInputNodePool is a EnumOfResourceTypeForListTagsForResourcesInput enum value
 	EnumOfResourceTypeForListTagsForResourcesInputNodePool = "NodePool"
+
+	// EnumOfResourceTypeForListTagsForResourcesInputBareMachine is a EnumOfResourceTypeForListTagsForResourcesInput enum value
+	EnumOfResourceTypeForListTagsForResourcesInputBareMachine = "BareMachine"
 )
 
 const (
-	// EnumOfTypeForListTagsForResourcesInputCustom is a EnumOfTypeForListTagsForResourcesInput enum value
-	EnumOfTypeForListTagsForResourcesInputCustom = "Custom"
-
 	// EnumOfTypeForListTagsForResourcesInputSystem is a EnumOfTypeForListTagsForResourcesInput enum value
 	EnumOfTypeForListTagsForResourcesInputSystem = "System"
+
+	// EnumOfTypeForListTagsForResourcesInputCustom is a EnumOfTypeForListTagsForResourcesInput enum value
+	EnumOfTypeForListTagsForResourcesInputCustom = "Custom"
 )

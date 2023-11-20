@@ -22,13 +22,13 @@ const opCreateDefaultNodePoolCommon = "CreateDefaultNodePool"
 // See CreateDefaultNodePoolCommon for more information on using the CreateDefaultNodePoolCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDefaultNodePoolCommonRequest method.
-//	req, resp := client.CreateDefaultNodePoolCommonRequest(params)
+//    // Example sending a request using the CreateDefaultNodePoolCommonRequest method.
+//    req, resp := client.CreateDefaultNodePoolCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateDefaultNodePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDefaultNodePoolCommon,
@@ -89,13 +89,13 @@ const opCreateDefaultNodePool = "CreateDefaultNodePool"
 // See CreateDefaultNodePool for more information on using the CreateDefaultNodePool
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDefaultNodePoolRequest method.
-//	req, resp := client.CreateDefaultNodePoolRequest(params)
+//    // Example sending a request using the CreateDefaultNodePoolRequest method.
+//    req, resp := client.CreateDefaultNodePoolRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateDefaultNodePoolRequest(input *CreateDefaultNodePoolInput) (req *request.Request, output *CreateDefaultNodePoolOutput) {
 	op := &request.Operation{
 		Name:       opCreateDefaultNodePool,
@@ -148,7 +148,8 @@ type CreateDefaultNodePoolInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
 	KubernetesConfig *KubernetesConfigForCreateDefaultNodePoolInput `type:"structure"`
 
@@ -165,6 +166,19 @@ func (s CreateDefaultNodePoolInput) String() string {
 // GoString returns the string representation
 func (s CreateDefaultNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDefaultNodePoolInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDefaultNodePoolInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -472,11 +486,11 @@ func (s *TaintForCreateDefaultNodePoolInput) SetValue(v string) *TaintForCreateD
 }
 
 const (
-	// EnumOfEffectForCreateDefaultNodePoolInputNoExecute is a EnumOfEffectForCreateDefaultNodePoolInput enum value
-	EnumOfEffectForCreateDefaultNodePoolInputNoExecute = "NoExecute"
-
 	// EnumOfEffectForCreateDefaultNodePoolInputNoSchedule is a EnumOfEffectForCreateDefaultNodePoolInput enum value
 	EnumOfEffectForCreateDefaultNodePoolInputNoSchedule = "NoSchedule"
+
+	// EnumOfEffectForCreateDefaultNodePoolInputNoExecute is a EnumOfEffectForCreateDefaultNodePoolInput enum value
+	EnumOfEffectForCreateDefaultNodePoolInputNoExecute = "NoExecute"
 
 	// EnumOfEffectForCreateDefaultNodePoolInputPreferNoSchedule is a EnumOfEffectForCreateDefaultNodePoolInput enum value
 	EnumOfEffectForCreateDefaultNodePoolInputPreferNoSchedule = "PreferNoSchedule"
