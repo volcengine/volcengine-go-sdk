@@ -22,13 +22,13 @@ const opDeleteNodesCommon = "DeleteNodes"
 // See DeleteNodesCommon for more information on using the DeleteNodesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteNodesCommonRequest method.
-//	req, resp := client.DeleteNodesCommonRequest(params)
+//    // Example sending a request using the DeleteNodesCommonRequest method.
+//    req, resp := client.DeleteNodesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) DeleteNodesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteNodesCommon,
@@ -89,13 +89,13 @@ const opDeleteNodes = "DeleteNodes"
 // See DeleteNodes for more information on using the DeleteNodes
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteNodesRequest method.
-//	req, resp := client.DeleteNodesRequest(params)
+//    // Example sending a request using the DeleteNodesRequest method.
+//    req, resp := client.DeleteNodesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) DeleteNodesRequest(input *DeleteNodesInput) (req *request.Request, output *DeleteNodesOutput) {
 	op := &request.Operation{
 		Name:       opDeleteNodes,
@@ -148,7 +148,8 @@ type DeleteNodesInput struct {
 
 	CascadingDeleteResources []*string `type:"list"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
 	Ids []*string `type:"list"`
 
@@ -163,6 +164,19 @@ func (s DeleteNodesInput) String() string {
 // GoString returns the string representation
 func (s DeleteNodesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteNodesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteNodesInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCascadingDeleteResources sets the CascadingDeleteResources field's value.

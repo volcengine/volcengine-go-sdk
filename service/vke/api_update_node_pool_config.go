@@ -22,13 +22,13 @@ const opUpdateNodePoolConfigCommon = "UpdateNodePoolConfig"
 // See UpdateNodePoolConfigCommon for more information on using the UpdateNodePoolConfigCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateNodePoolConfigCommonRequest method.
-//	req, resp := client.UpdateNodePoolConfigCommonRequest(params)
+//    // Example sending a request using the UpdateNodePoolConfigCommonRequest method.
+//    req, resp := client.UpdateNodePoolConfigCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UpdateNodePoolConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateNodePoolConfigCommon,
@@ -89,13 +89,13 @@ const opUpdateNodePoolConfig = "UpdateNodePoolConfig"
 // See UpdateNodePoolConfig for more information on using the UpdateNodePoolConfig
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateNodePoolConfigRequest method.
-//	req, resp := client.UpdateNodePoolConfigRequest(params)
+//    // Example sending a request using the UpdateNodePoolConfigRequest method.
+//    req, resp := client.UpdateNodePoolConfigRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UpdateNodePoolConfigRequest(input *UpdateNodePoolConfigInput) (req *request.Request, output *UpdateNodePoolConfigOutput) {
 	op := &request.Operation{
 		Name:       opUpdateNodePoolConfig,
@@ -610,9 +610,11 @@ type UpdateNodePoolConfigInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
-	Id *string `type:"string"`
+	// Id is a required field
+	Id *string `type:"string" required:"true"`
 
 	KubernetesConfig *KubernetesConfigForUpdateNodePoolConfigInput `type:"structure"`
 
@@ -629,6 +631,22 @@ func (s UpdateNodePoolConfigInput) String() string {
 // GoString returns the string representation
 func (s UpdateNodePoolConfigInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateNodePoolConfigInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateNodePoolConfigInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoScaling sets the AutoScaling field's value.
@@ -690,11 +708,11 @@ func (s UpdateNodePoolConfigOutput) GoString() string {
 }
 
 const (
-	// EnumOfEffectForUpdateNodePoolConfigInputNoExecute is a EnumOfEffectForUpdateNodePoolConfigInput enum value
-	EnumOfEffectForUpdateNodePoolConfigInputNoExecute = "NoExecute"
-
 	// EnumOfEffectForUpdateNodePoolConfigInputNoSchedule is a EnumOfEffectForUpdateNodePoolConfigInput enum value
 	EnumOfEffectForUpdateNodePoolConfigInputNoSchedule = "NoSchedule"
+
+	// EnumOfEffectForUpdateNodePoolConfigInputNoExecute is a EnumOfEffectForUpdateNodePoolConfigInput enum value
+	EnumOfEffectForUpdateNodePoolConfigInputNoExecute = "NoExecute"
 
 	// EnumOfEffectForUpdateNodePoolConfigInputPreferNoSchedule is a EnumOfEffectForUpdateNodePoolConfigInput enum value
 	EnumOfEffectForUpdateNodePoolConfigInputPreferNoSchedule = "PreferNoSchedule"
@@ -706,25 +724,25 @@ const (
 )
 
 const (
-	// EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority is a EnumOfSubnetPolicyForUpdateNodePoolConfigInput enum value
-	EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority = "Priority"
-
 	// EnumOfSubnetPolicyForUpdateNodePoolConfigInputZoneBalance is a EnumOfSubnetPolicyForUpdateNodePoolConfigInput enum value
 	EnumOfSubnetPolicyForUpdateNodePoolConfigInputZoneBalance = "ZoneBalance"
+
+	// EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority is a EnumOfSubnetPolicyForUpdateNodePoolConfigInput enum value
+	EnumOfSubnetPolicyForUpdateNodePoolConfigInputPriority = "Priority"
 )
 
 const (
-	// EnumOfTypeForUpdateNodePoolConfigInputEssd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputEssd = "ESSD"
+	// EnumOfTypeForUpdateNodePoolConfigInputEssdPl0 is a EnumOfTypeForUpdateNodePoolConfigInput enum value
+	EnumOfTypeForUpdateNodePoolConfigInputEssdPl0 = "ESSD_PL0"
 
 	// EnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl is a EnumOfTypeForUpdateNodePoolConfigInput enum value
 	EnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl = "ESSD_FlexPL"
 
-	// EnumOfTypeForUpdateNodePoolConfigInputEssdPl0 is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputEssdPl0 = "ESSD_PL0"
-
 	// EnumOfTypeForUpdateNodePoolConfigInputEssdPl1 is a EnumOfTypeForUpdateNodePoolConfigInput enum value
 	EnumOfTypeForUpdateNodePoolConfigInputEssdPl1 = "ESSD_PL1"
+
+	// EnumOfTypeForUpdateNodePoolConfigInputEssd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
+	EnumOfTypeForUpdateNodePoolConfigInputEssd = "ESSD"
 
 	// EnumOfTypeForUpdateNodePoolConfigInputPtssd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
 	EnumOfTypeForUpdateNodePoolConfigInputPtssd = "PTSSD"

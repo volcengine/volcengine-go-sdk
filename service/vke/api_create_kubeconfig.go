@@ -22,13 +22,13 @@ const opCreateKubeconfigCommon = "CreateKubeconfig"
 // See CreateKubeconfigCommon for more information on using the CreateKubeconfigCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateKubeconfigCommonRequest method.
-//	req, resp := client.CreateKubeconfigCommonRequest(params)
+//    // Example sending a request using the CreateKubeconfigCommonRequest method.
+//    req, resp := client.CreateKubeconfigCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateKubeconfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateKubeconfigCommon,
@@ -89,13 +89,13 @@ const opCreateKubeconfig = "CreateKubeconfig"
 // See CreateKubeconfig for more information on using the CreateKubeconfig
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateKubeconfigRequest method.
-//	req, resp := client.CreateKubeconfigRequest(params)
+//    // Example sending a request using the CreateKubeconfigRequest method.
+//    req, resp := client.CreateKubeconfigRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateKubeconfigRequest(input *CreateKubeconfigInput) (req *request.Request, output *CreateKubeconfigOutput) {
 	op := &request.Operation{
 		Name:       opCreateKubeconfig,
@@ -146,9 +146,11 @@ func (c *VKE) CreateKubeconfigWithContext(ctx volcengine.Context, input *CreateK
 type CreateKubeconfigInput struct {
 	_ struct{} `type:"structure"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForCreateKubeconfigInput"`
+	// Type is a required field
+	Type *string `type:"string" required:"true" enum:"EnumOfTypeForCreateKubeconfigInput"`
 
 	ValidDuration *int32 `type:"int32"`
 }
@@ -161,6 +163,22 @@ func (s CreateKubeconfigInput) String() string {
 // GoString returns the string representation
 func (s CreateKubeconfigInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateKubeconfigInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateKubeconfigInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClusterId sets the ClusterId field's value.
@@ -211,7 +229,4 @@ const (
 
 	// EnumOfTypeForCreateKubeconfigInputPublic is a EnumOfTypeForCreateKubeconfigInput enum value
 	EnumOfTypeForCreateKubeconfigInputPublic = "Public"
-
-	// EnumOfTypeForCreateKubeconfigInputTargetCluster is a EnumOfTypeForCreateKubeconfigInput enum value
-	EnumOfTypeForCreateKubeconfigInputTargetCluster = "TargetCluster"
 )

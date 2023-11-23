@@ -22,13 +22,13 @@ const opUpdateAddonConfigCommon = "UpdateAddonConfig"
 // See UpdateAddonConfigCommon for more information on using the UpdateAddonConfigCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateAddonConfigCommonRequest method.
-//	req, resp := client.UpdateAddonConfigCommonRequest(params)
+//    // Example sending a request using the UpdateAddonConfigCommonRequest method.
+//    req, resp := client.UpdateAddonConfigCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UpdateAddonConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateAddonConfigCommon,
@@ -89,13 +89,13 @@ const opUpdateAddonConfig = "UpdateAddonConfig"
 // See UpdateAddonConfig for more information on using the UpdateAddonConfig
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateAddonConfigRequest method.
-//	req, resp := client.UpdateAddonConfigRequest(params)
+//    // Example sending a request using the UpdateAddonConfigRequest method.
+//    req, resp := client.UpdateAddonConfigRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UpdateAddonConfigRequest(input *UpdateAddonConfigInput) (req *request.Request, output *UpdateAddonConfigOutput) {
 	op := &request.Operation{
 		Name:       opUpdateAddonConfig,
@@ -148,11 +148,13 @@ type UpdateAddonConfigInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
 	Config *string `type:"string"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,6 +165,22 @@ func (s UpdateAddonConfigInput) String() string {
 // GoString returns the string representation
 func (s UpdateAddonConfigInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateAddonConfigInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateAddonConfigInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

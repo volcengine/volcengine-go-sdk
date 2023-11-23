@@ -22,13 +22,13 @@ const opListClustersCommon = "ListClusters"
 // See ListClustersCommon for more information on using the ListClustersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListClustersCommonRequest method.
-//	req, resp := client.ListClustersCommonRequest(params)
+//    // Example sending a request using the ListClustersCommonRequest method.
+//    req, resp := client.ListClustersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListClustersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListClustersCommon,
@@ -89,13 +89,13 @@ const opListClusters = "ListClusters"
 // See ListClusters for more information on using the ListClusters
 // API call, and error handling.
 //
-//	// Example sending a request using the ListClustersRequest method.
-//	req, resp := client.ListClustersRequest(params)
+//    // Example sending a request using the ListClustersRequest method.
+//    req, resp := client.ListClustersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListClustersRequest(input *ListClustersInput) (req *request.Request, output *ListClustersOutput) {
 	op := &request.Operation{
 		Name:       opListClusters,
@@ -398,8 +398,6 @@ func (s *FlannelConfigForListClustersOutput) SetPodCidrs(v []*string) *FlannelCo
 type ItemForListClustersOutput struct {
 	_ struct{} `type:"structure"`
 
-	ChargeType *string `type:"string"`
-
 	ClusterConfig *ClusterConfigForListClustersOutput `type:"structure"`
 
 	CreateClientToken *string `type:"string"`
@@ -441,12 +439,6 @@ func (s ItemForListClustersOutput) String() string {
 // GoString returns the string representation
 func (s ItemForListClustersOutput) GoString() string {
 	return s.String()
-}
-
-// SetChargeType sets the ChargeType field's value.
-func (s *ItemForListClustersOutput) SetChargeType(v string) *ItemForListClustersOutput {
-	s.ChargeType = &v
-	return s
 }
 
 // SetClusterConfig sets the ClusterConfig field's value.
@@ -1132,41 +1124,29 @@ const (
 	// EnumOfPhaseForListClustersInputRunning is a EnumOfPhaseForListClustersInput enum value
 	EnumOfPhaseForListClustersInputRunning = "Running"
 
+	// EnumOfPhaseForListClustersInputUpdating is a EnumOfPhaseForListClustersInput enum value
+	EnumOfPhaseForListClustersInputUpdating = "Updating"
+
 	// EnumOfPhaseForListClustersInputStarting is a EnumOfPhaseForListClustersInput enum value
 	EnumOfPhaseForListClustersInputStarting = "Starting"
 
 	// EnumOfPhaseForListClustersInputStopped is a EnumOfPhaseForListClustersInput enum value
 	EnumOfPhaseForListClustersInputStopped = "Stopped"
-
-	// EnumOfPhaseForListClustersInputUpdating is a EnumOfPhaseForListClustersInput enum value
-	EnumOfPhaseForListClustersInputUpdating = "Updating"
 )
 
 const (
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputFlannel is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputFlannel = "Flannel"
+
+	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
+	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared = "VpcCniShared"
+
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoBgp is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoBgp = "CalicoBgp"
 
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoVxlan is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputCalicoVxlan = "CalicoVxlan"
 
-	// EnumOfPodsConfigPodNetworkModeForListClustersInputCarma is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
-	EnumOfPodsConfigPodNetworkModeForListClustersInputCarma = "Carma"
-
-	// EnumOfPodsConfigPodNetworkModeForListClustersInputCilium is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
-	EnumOfPodsConfigPodNetworkModeForListClustersInputCilium = "Cilium"
-
-	// EnumOfPodsConfigPodNetworkModeForListClustersInputDefault is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
-	EnumOfPodsConfigPodNetworkModeForListClustersInputDefault = "Default"
-
-	// EnumOfPodsConfigPodNetworkModeForListClustersInputFlannel is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
-	EnumOfPodsConfigPodNetworkModeForListClustersInputFlannel = "Flannel"
-
-	// EnumOfPodsConfigPodNetworkModeForListClustersInputKubeOvn is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
-	EnumOfPodsConfigPodNetworkModeForListClustersInputKubeOvn = "KubeOvn"
-
 	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniDedicated is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
 	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniDedicated = "VpcCniDedicated"
-
-	// EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared is a EnumOfPodsConfigPodNetworkModeForListClustersInput enum value
-	EnumOfPodsConfigPodNetworkModeForListClustersInputVpcCniShared = "VpcCniShared"
 )

@@ -22,13 +22,13 @@ const opCreateNodePoolCommon = "CreateNodePool"
 // See CreateNodePoolCommon for more information on using the CreateNodePoolCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateNodePoolCommonRequest method.
-//	req, resp := client.CreateNodePoolCommonRequest(params)
+//    // Example sending a request using the CreateNodePoolCommonRequest method.
+//    req, resp := client.CreateNodePoolCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateNodePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNodePoolCommon,
@@ -89,13 +89,13 @@ const opCreateNodePool = "CreateNodePool"
 // See CreateNodePool for more information on using the CreateNodePool
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateNodePoolRequest method.
-//	req, resp := client.CreateNodePoolRequest(params)
+//    // Example sending a request using the CreateNodePoolRequest method.
+//    req, resp := client.CreateNodePoolRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateNodePoolRequest(input *CreateNodePoolInput) (req *request.Request, output *CreateNodePoolOutput) {
 	op := &request.Operation{
 		Name:       opCreateNodePool,
@@ -212,11 +212,13 @@ type CreateNodePoolInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
 	KubernetesConfig *KubernetesConfigForCreateNodePoolInput `type:"structure"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 
 	NodeConfig *NodeConfigForCreateNodePoolInput `type:"structure"`
 
@@ -231,6 +233,22 @@ func (s CreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s CreateNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateNodePoolInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateNodePoolInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoScaling sets the AutoScaling field's value.
@@ -706,11 +724,11 @@ func (s *TaintForCreateNodePoolInput) SetValue(v string) *TaintForCreateNodePool
 }
 
 const (
-	// EnumOfEffectForCreateNodePoolInputNoExecute is a EnumOfEffectForCreateNodePoolInput enum value
-	EnumOfEffectForCreateNodePoolInputNoExecute = "NoExecute"
-
 	// EnumOfEffectForCreateNodePoolInputNoSchedule is a EnumOfEffectForCreateNodePoolInput enum value
 	EnumOfEffectForCreateNodePoolInputNoSchedule = "NoSchedule"
+
+	// EnumOfEffectForCreateNodePoolInputNoExecute is a EnumOfEffectForCreateNodePoolInput enum value
+	EnumOfEffectForCreateNodePoolInputNoExecute = "NoExecute"
 
 	// EnumOfEffectForCreateNodePoolInputPreferNoSchedule is a EnumOfEffectForCreateNodePoolInput enum value
 	EnumOfEffectForCreateNodePoolInputPreferNoSchedule = "PreferNoSchedule"
@@ -730,25 +748,25 @@ const (
 )
 
 const (
-	// EnumOfSubnetPolicyForCreateNodePoolInputPriority is a EnumOfSubnetPolicyForCreateNodePoolInput enum value
-	EnumOfSubnetPolicyForCreateNodePoolInputPriority = "Priority"
-
 	// EnumOfSubnetPolicyForCreateNodePoolInputZoneBalance is a EnumOfSubnetPolicyForCreateNodePoolInput enum value
 	EnumOfSubnetPolicyForCreateNodePoolInputZoneBalance = "ZoneBalance"
+
+	// EnumOfSubnetPolicyForCreateNodePoolInputPriority is a EnumOfSubnetPolicyForCreateNodePoolInput enum value
+	EnumOfSubnetPolicyForCreateNodePoolInputPriority = "Priority"
 )
 
 const (
-	// EnumOfTypeForCreateNodePoolInputEssd is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputEssd = "ESSD"
+	// EnumOfTypeForCreateNodePoolInputEssdPl0 is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputEssdPl0 = "ESSD_PL0"
 
 	// EnumOfTypeForCreateNodePoolInputEssdFlexPl is a EnumOfTypeForCreateNodePoolInput enum value
 	EnumOfTypeForCreateNodePoolInputEssdFlexPl = "ESSD_FlexPL"
 
-	// EnumOfTypeForCreateNodePoolInputEssdPl0 is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputEssdPl0 = "ESSD_PL0"
-
 	// EnumOfTypeForCreateNodePoolInputEssdPl1 is a EnumOfTypeForCreateNodePoolInput enum value
 	EnumOfTypeForCreateNodePoolInputEssdPl1 = "ESSD_PL1"
+
+	// EnumOfTypeForCreateNodePoolInputEssd is a EnumOfTypeForCreateNodePoolInput enum value
+	EnumOfTypeForCreateNodePoolInputEssd = "ESSD"
 
 	// EnumOfTypeForCreateNodePoolInputPtssd is a EnumOfTypeForCreateNodePoolInput enum value
 	EnumOfTypeForCreateNodePoolInputPtssd = "PTSSD"

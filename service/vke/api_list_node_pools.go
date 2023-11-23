@@ -22,13 +22,13 @@ const opListNodePoolsCommon = "ListNodePools"
 // See ListNodePoolsCommon for more information on using the ListNodePoolsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListNodePoolsCommonRequest method.
-//	req, resp := client.ListNodePoolsCommonRequest(params)
+//    // Example sending a request using the ListNodePoolsCommonRequest method.
+//    req, resp := client.ListNodePoolsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListNodePoolsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListNodePoolsCommon,
@@ -89,13 +89,13 @@ const opListNodePools = "ListNodePools"
 // See ListNodePools for more information on using the ListNodePools
 // API call, and error handling.
 //
-//	// Example sending a request using the ListNodePoolsRequest method.
-//	req, resp := client.ListNodePoolsRequest(params)
+//    // Example sending a request using the ListNodePoolsRequest method.
+//    req, resp := client.ListNodePoolsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListNodePoolsRequest(input *ListNodePoolsInput) (req *request.Request, output *ListNodePoolsOutput) {
 	op := &request.Operation{
 		Name:       opListNodePools,
@@ -156,7 +156,7 @@ type AutoScalingForListNodePoolsOutput struct {
 
 	Priority *int32 `type:"int32"`
 
-	SubnetPolicy *string `type:"string"`
+	SubnetPolicy *string `type:"string" enum:"EnumOfSubnetPolicyForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -272,7 +272,7 @@ type DataVolumeForListNodePoolsOutput struct {
 
 	Size *int32 `type:"int32"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" enum:"EnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -990,7 +990,7 @@ type SystemVolumeForListNodePoolsOutput struct {
 
 	Size *int32 `type:"int32"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" enum:"EnumOfTypeForListNodePoolsOutput"`
 }
 
 // String returns the string representation
@@ -1078,7 +1078,7 @@ func (s *TagForListNodePoolsOutput) SetValue(v string) *TagForListNodePoolsOutpu
 type TaintForListNodePoolsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Effect *string `type:"string"`
+	Effect *string `type:"string" enum:"EnumOfEffectForListNodePoolsOutput"`
 
 	Key *string `type:"string"`
 
@@ -1146,6 +1146,17 @@ const (
 )
 
 const (
+	// EnumOfEffectForListNodePoolsOutputNoSchedule is a EnumOfEffectForListNodePoolsOutput enum value
+	EnumOfEffectForListNodePoolsOutputNoSchedule = "NoSchedule"
+
+	// EnumOfEffectForListNodePoolsOutputNoExecute is a EnumOfEffectForListNodePoolsOutput enum value
+	EnumOfEffectForListNodePoolsOutputNoExecute = "NoExecute"
+
+	// EnumOfEffectForListNodePoolsOutputPreferNoSchedule is a EnumOfEffectForListNodePoolsOutput enum value
+	EnumOfEffectForListNodePoolsOutputPreferNoSchedule = "PreferNoSchedule"
+)
+
+const (
 	// EnumOfPhaseForListNodePoolsInputCreating is a EnumOfPhaseForListNodePoolsInput enum value
 	EnumOfPhaseForListNodePoolsInputCreating = "Creating"
 
@@ -1168,4 +1179,29 @@ const (
 const (
 	// EnumOfSecurityStrategyListForListNodePoolsOutputHids is a EnumOfSecurityStrategyListForListNodePoolsOutput enum value
 	EnumOfSecurityStrategyListForListNodePoolsOutputHids = "Hids"
+)
+
+const (
+	// EnumOfSubnetPolicyForListNodePoolsOutputZoneBalance is a EnumOfSubnetPolicyForListNodePoolsOutput enum value
+	EnumOfSubnetPolicyForListNodePoolsOutputZoneBalance = "ZoneBalance"
+
+	// EnumOfSubnetPolicyForListNodePoolsOutputPriority is a EnumOfSubnetPolicyForListNodePoolsOutput enum value
+	EnumOfSubnetPolicyForListNodePoolsOutputPriority = "Priority"
+)
+
+const (
+	// EnumOfTypeForListNodePoolsOutputEssdPl0 is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputEssdPl0 = "ESSD_PL0"
+
+	// EnumOfTypeForListNodePoolsOutputEssdFlexPl is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputEssdFlexPl = "ESSD_FlexPL"
+
+	// EnumOfTypeForListNodePoolsOutputEssdPl1 is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputEssdPl1 = "ESSD_PL1"
+
+	// EnumOfTypeForListNodePoolsOutputEssd is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputEssd = "ESSD"
+
+	// EnumOfTypeForListNodePoolsOutputPtssd is a EnumOfTypeForListNodePoolsOutput enum value
+	EnumOfTypeForListNodePoolsOutputPtssd = "PTSSD"
 )

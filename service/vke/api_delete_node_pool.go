@@ -22,13 +22,13 @@ const opDeleteNodePoolCommon = "DeleteNodePool"
 // See DeleteNodePoolCommon for more information on using the DeleteNodePoolCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteNodePoolCommonRequest method.
-//	req, resp := client.DeleteNodePoolCommonRequest(params)
+//    // Example sending a request using the DeleteNodePoolCommonRequest method.
+//    req, resp := client.DeleteNodePoolCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) DeleteNodePoolCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteNodePoolCommon,
@@ -89,13 +89,13 @@ const opDeleteNodePool = "DeleteNodePool"
 // See DeleteNodePool for more information on using the DeleteNodePool
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteNodePoolRequest method.
-//	req, resp := client.DeleteNodePoolRequest(params)
+//    // Example sending a request using the DeleteNodePoolRequest method.
+//    req, resp := client.DeleteNodePoolRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) DeleteNodePoolRequest(input *DeleteNodePoolInput) (req *request.Request, output *DeleteNodePoolOutput) {
 	op := &request.Operation{
 		Name:       opDeleteNodePool,
@@ -148,9 +148,11 @@ type DeleteNodePoolInput struct {
 
 	CascadingDeleteResources []*string `type:"list"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
-	Id *string `type:"string"`
+	// Id is a required field
+	Id *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +163,22 @@ func (s DeleteNodePoolInput) String() string {
 // GoString returns the string representation
 func (s DeleteNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteNodePoolInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteNodePoolInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCascadingDeleteResources sets the CascadingDeleteResources field's value.

@@ -22,13 +22,13 @@ const opListSupportedAddonsCommon = "ListSupportedAddons"
 // See ListSupportedAddonsCommon for more information on using the ListSupportedAddonsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListSupportedAddonsCommonRequest method.
-//	req, resp := client.ListSupportedAddonsCommonRequest(params)
+//    // Example sending a request using the ListSupportedAddonsCommonRequest method.
+//    req, resp := client.ListSupportedAddonsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListSupportedAddonsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListSupportedAddonsCommon,
@@ -89,13 +89,13 @@ const opListSupportedAddons = "ListSupportedAddons"
 // See ListSupportedAddons for more information on using the ListSupportedAddons
 // API call, and error handling.
 //
-//	// Example sending a request using the ListSupportedAddonsRequest method.
-//	req, resp := client.ListSupportedAddonsRequest(params)
+//    // Example sending a request using the ListSupportedAddonsRequest method.
+//    req, resp := client.ListSupportedAddonsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) ListSupportedAddonsRequest(input *ListSupportedAddonsInput) (req *request.Request, output *ListSupportedAddonsOutput) {
 	op := &request.Operation{
 		Name:       opListSupportedAddons,
@@ -240,13 +240,13 @@ type ItemForListSupportedAddonsOutput struct {
 
 	Categories []*string `type:"list"`
 
-	DeployMode *string `type:"string"`
+	DeployMode *string `type:"string" enum:"EnumOfDeployModeForListSupportedAddonsOutput"`
 
 	DeployNodeTypes []*string `type:"list"`
 
 	Name *string `type:"string"`
 
-	Necessary *string `type:"string"`
+	Necessary *string `type:"string" enum:"EnumOfNecessaryForListSupportedAddonsOutput"`
 
 	PodNetworkModes []*string `type:"list"`
 
@@ -398,61 +398,66 @@ func (s *VersionForListSupportedAddonsOutput) SetVersion(v string) *VersionForLi
 }
 
 const (
+	// EnumOfCategoryListForListSupportedAddonsInputStorage is a EnumOfCategoryListForListSupportedAddonsInput enum value
+	EnumOfCategoryListForListSupportedAddonsInputStorage = "Storage"
+
+	// EnumOfCategoryListForListSupportedAddonsInputNetwork is a EnumOfCategoryListForListSupportedAddonsInput enum value
+	EnumOfCategoryListForListSupportedAddonsInputNetwork = "Network"
+
+	// EnumOfCategoryListForListSupportedAddonsInputMonitor is a EnumOfCategoryListForListSupportedAddonsInput enum value
+	EnumOfCategoryListForListSupportedAddonsInputMonitor = "Monitor"
+
+	// EnumOfCategoryListForListSupportedAddonsInputScheduler is a EnumOfCategoryListForListSupportedAddonsInput enum value
+	EnumOfCategoryListForListSupportedAddonsInputScheduler = "Scheduler"
+
 	// EnumOfCategoryListForListSupportedAddonsInputDns is a EnumOfCategoryListForListSupportedAddonsInput enum value
 	EnumOfCategoryListForListSupportedAddonsInputDns = "Dns"
+
+	// EnumOfCategoryListForListSupportedAddonsInputSecurity is a EnumOfCategoryListForListSupportedAddonsInput enum value
+	EnumOfCategoryListForListSupportedAddonsInputSecurity = "Security"
 
 	// EnumOfCategoryListForListSupportedAddonsInputGpu is a EnumOfCategoryListForListSupportedAddonsInput enum value
 	EnumOfCategoryListForListSupportedAddonsInputGpu = "Gpu"
 
 	// EnumOfCategoryListForListSupportedAddonsInputImage is a EnumOfCategoryListForListSupportedAddonsInput enum value
 	EnumOfCategoryListForListSupportedAddonsInputImage = "Image"
-
-	// EnumOfCategoryListForListSupportedAddonsInputMonitor is a EnumOfCategoryListForListSupportedAddonsInput enum value
-	EnumOfCategoryListForListSupportedAddonsInputMonitor = "Monitor"
-
-	// EnumOfCategoryListForListSupportedAddonsInputNetwork is a EnumOfCategoryListForListSupportedAddonsInput enum value
-	EnumOfCategoryListForListSupportedAddonsInputNetwork = "Network"
-
-	// EnumOfCategoryListForListSupportedAddonsInputScheduler is a EnumOfCategoryListForListSupportedAddonsInput enum value
-	EnumOfCategoryListForListSupportedAddonsInputScheduler = "Scheduler"
-
-	// EnumOfCategoryListForListSupportedAddonsInputSecurity is a EnumOfCategoryListForListSupportedAddonsInput enum value
-	EnumOfCategoryListForListSupportedAddonsInputSecurity = "Security"
-
-	// EnumOfCategoryListForListSupportedAddonsInputStorage is a EnumOfCategoryListForListSupportedAddonsInput enum value
-	EnumOfCategoryListForListSupportedAddonsInputStorage = "Storage"
 )
 
 const (
+	// EnumOfCategoryListForListSupportedAddonsOutputMonitor is a EnumOfCategoryListForListSupportedAddonsOutput enum value
+	EnumOfCategoryListForListSupportedAddonsOutputMonitor = "Monitor"
+
 	// EnumOfCategoryListForListSupportedAddonsOutputDns is a EnumOfCategoryListForListSupportedAddonsOutput enum value
 	EnumOfCategoryListForListSupportedAddonsOutputDns = "Dns"
+
+	// EnumOfCategoryListForListSupportedAddonsOutputStorage is a EnumOfCategoryListForListSupportedAddonsOutput enum value
+	EnumOfCategoryListForListSupportedAddonsOutputStorage = "Storage"
+
+	// EnumOfCategoryListForListSupportedAddonsOutputScheduler is a EnumOfCategoryListForListSupportedAddonsOutput enum value
+	EnumOfCategoryListForListSupportedAddonsOutputScheduler = "Scheduler"
+
+	// EnumOfCategoryListForListSupportedAddonsOutputNetwork is a EnumOfCategoryListForListSupportedAddonsOutput enum value
+	EnumOfCategoryListForListSupportedAddonsOutputNetwork = "Network"
+
+	// EnumOfCategoryListForListSupportedAddonsOutputSecurity is a EnumOfCategoryListForListSupportedAddonsOutput enum value
+	EnumOfCategoryListForListSupportedAddonsOutputSecurity = "Security"
 
 	// EnumOfCategoryListForListSupportedAddonsOutputGpu is a EnumOfCategoryListForListSupportedAddonsOutput enum value
 	EnumOfCategoryListForListSupportedAddonsOutputGpu = "Gpu"
 
 	// EnumOfCategoryListForListSupportedAddonsOutputImage is a EnumOfCategoryListForListSupportedAddonsOutput enum value
 	EnumOfCategoryListForListSupportedAddonsOutputImage = "Image"
-
-	// EnumOfCategoryListForListSupportedAddonsOutputMonitor is a EnumOfCategoryListForListSupportedAddonsOutput enum value
-	EnumOfCategoryListForListSupportedAddonsOutputMonitor = "Monitor"
-
-	// EnumOfCategoryListForListSupportedAddonsOutputNetwork is a EnumOfCategoryListForListSupportedAddonsOutput enum value
-	EnumOfCategoryListForListSupportedAddonsOutputNetwork = "Network"
-
-	// EnumOfCategoryListForListSupportedAddonsOutputScheduler is a EnumOfCategoryListForListSupportedAddonsOutput enum value
-	EnumOfCategoryListForListSupportedAddonsOutputScheduler = "Scheduler"
-
-	// EnumOfCategoryListForListSupportedAddonsOutputSecurity is a EnumOfCategoryListForListSupportedAddonsOutput enum value
-	EnumOfCategoryListForListSupportedAddonsOutputSecurity = "Security"
-
-	// EnumOfCategoryListForListSupportedAddonsOutputStorage is a EnumOfCategoryListForListSupportedAddonsOutput enum value
-	EnumOfCategoryListForListSupportedAddonsOutputStorage = "Storage"
 )
 
 const (
-	// EnumOfDeployModeListForListSupportedAddonsInputEither is a EnumOfDeployModeListForListSupportedAddonsInput enum value
-	EnumOfDeployModeListForListSupportedAddonsInputEither = "Either"
+	// EnumOfDeployModeForListSupportedAddonsOutputUnmanaged is a EnumOfDeployModeForListSupportedAddonsOutput enum value
+	EnumOfDeployModeForListSupportedAddonsOutputUnmanaged = "Unmanaged"
 
+	// EnumOfDeployModeForListSupportedAddonsOutputManaged is a EnumOfDeployModeForListSupportedAddonsOutput enum value
+	EnumOfDeployModeForListSupportedAddonsOutputManaged = "Managed"
+)
+
+const (
 	// EnumOfDeployModeListForListSupportedAddonsInputManaged is a EnumOfDeployModeListForListSupportedAddonsInput enum value
 	EnumOfDeployModeListForListSupportedAddonsInputManaged = "Managed"
 
@@ -461,68 +466,79 @@ const (
 )
 
 const (
-	// EnumOfDeployNodeTypeListForListSupportedAddonsInputEdgeNode is a EnumOfDeployNodeTypeListForListSupportedAddonsInput enum value
-	EnumOfDeployNodeTypeListForListSupportedAddonsInputEdgeNode = "EdgeNode"
-
 	// EnumOfDeployNodeTypeListForListSupportedAddonsInputNode is a EnumOfDeployNodeTypeListForListSupportedAddonsInput enum value
 	EnumOfDeployNodeTypeListForListSupportedAddonsInputNode = "Node"
 
 	// EnumOfDeployNodeTypeListForListSupportedAddonsInputVirtualNode is a EnumOfDeployNodeTypeListForListSupportedAddonsInput enum value
 	EnumOfDeployNodeTypeListForListSupportedAddonsInputVirtualNode = "VirtualNode"
+
+	// EnumOfDeployNodeTypeListForListSupportedAddonsInputEdgeNode is a EnumOfDeployNodeTypeListForListSupportedAddonsInput enum value
+	EnumOfDeployNodeTypeListForListSupportedAddonsInputEdgeNode = "EdgeNode"
 )
 
 const (
-	// EnumOfDeployNodeTypeListForListSupportedAddonsOutputEdgeNode is a EnumOfDeployNodeTypeListForListSupportedAddonsOutput enum value
-	EnumOfDeployNodeTypeListForListSupportedAddonsOutputEdgeNode = "EdgeNode"
-
 	// EnumOfDeployNodeTypeListForListSupportedAddonsOutputNode is a EnumOfDeployNodeTypeListForListSupportedAddonsOutput enum value
 	EnumOfDeployNodeTypeListForListSupportedAddonsOutputNode = "Node"
 
 	// EnumOfDeployNodeTypeListForListSupportedAddonsOutputVirtualNode is a EnumOfDeployNodeTypeListForListSupportedAddonsOutput enum value
 	EnumOfDeployNodeTypeListForListSupportedAddonsOutputVirtualNode = "VirtualNode"
+
+	// EnumOfDeployNodeTypeListForListSupportedAddonsOutputEdgeNode is a EnumOfDeployNodeTypeListForListSupportedAddonsOutput enum value
+	EnumOfDeployNodeTypeListForListSupportedAddonsOutputEdgeNode = "EdgeNode"
 )
 
 const (
-	// EnumOfNecessaryListForListSupportedAddonsInputOnDemand is a EnumOfNecessaryListForListSupportedAddonsInput enum value
-	EnumOfNecessaryListForListSupportedAddonsInputOnDemand = "OnDemand"
+	// EnumOfNecessaryForListSupportedAddonsOutputRequired is a EnumOfNecessaryForListSupportedAddonsOutput enum value
+	EnumOfNecessaryForListSupportedAddonsOutputRequired = "Required"
+
+	// EnumOfNecessaryForListSupportedAddonsOutputRecommended is a EnumOfNecessaryForListSupportedAddonsOutput enum value
+	EnumOfNecessaryForListSupportedAddonsOutputRecommended = "Recommended"
+
+	// EnumOfNecessaryForListSupportedAddonsOutputOnDemand is a EnumOfNecessaryForListSupportedAddonsOutput enum value
+	EnumOfNecessaryForListSupportedAddonsOutputOnDemand = "OnDemand"
+)
+
+const (
+	// EnumOfNecessaryListForListSupportedAddonsInputRequired is a EnumOfNecessaryListForListSupportedAddonsInput enum value
+	EnumOfNecessaryListForListSupportedAddonsInputRequired = "Required"
 
 	// EnumOfNecessaryListForListSupportedAddonsInputRecommended is a EnumOfNecessaryListForListSupportedAddonsInput enum value
 	EnumOfNecessaryListForListSupportedAddonsInputRecommended = "Recommended"
 
-	// EnumOfNecessaryListForListSupportedAddonsInputRequired is a EnumOfNecessaryListForListSupportedAddonsInput enum value
-	EnumOfNecessaryListForListSupportedAddonsInputRequired = "Required"
+	// EnumOfNecessaryListForListSupportedAddonsInputOnDemand is a EnumOfNecessaryListForListSupportedAddonsInput enum value
+	EnumOfNecessaryListForListSupportedAddonsInputOnDemand = "OnDemand"
 )
 
 const (
+	// EnumOfPodNetworkModeListForListSupportedAddonsInputFlannel is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
+	EnumOfPodNetworkModeListForListSupportedAddonsInputFlannel = "Flannel"
+
+	// EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniShared is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
+	EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniShared = "VpcCniShared"
+
 	// EnumOfPodNetworkModeListForListSupportedAddonsInputCalicoBgp is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
 	EnumOfPodNetworkModeListForListSupportedAddonsInputCalicoBgp = "CalicoBgp"
 
 	// EnumOfPodNetworkModeListForListSupportedAddonsInputCalicoVxlan is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
 	EnumOfPodNetworkModeListForListSupportedAddonsInputCalicoVxlan = "CalicoVxlan"
 
-	// EnumOfPodNetworkModeListForListSupportedAddonsInputFlannel is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
-	EnumOfPodNetworkModeListForListSupportedAddonsInputFlannel = "Flannel"
-
 	// EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniDedicated is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
 	EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniDedicated = "VpcCniDedicated"
-
-	// EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniShared is a EnumOfPodNetworkModeListForListSupportedAddonsInput enum value
-	EnumOfPodNetworkModeListForListSupportedAddonsInputVpcCniShared = "VpcCniShared"
 )
 
 const (
+	// EnumOfPodNetworkModeListForListSupportedAddonsOutputFlannel is a EnumOfPodNetworkModeListForListSupportedAddonsOutput enum value
+	EnumOfPodNetworkModeListForListSupportedAddonsOutputFlannel = "Flannel"
+
+	// EnumOfPodNetworkModeListForListSupportedAddonsOutputVpcCniShared is a EnumOfPodNetworkModeListForListSupportedAddonsOutput enum value
+	EnumOfPodNetworkModeListForListSupportedAddonsOutputVpcCniShared = "VpcCniShared"
+
 	// EnumOfPodNetworkModeListForListSupportedAddonsOutputCalicoBgp is a EnumOfPodNetworkModeListForListSupportedAddonsOutput enum value
 	EnumOfPodNetworkModeListForListSupportedAddonsOutputCalicoBgp = "CalicoBgp"
 
 	// EnumOfPodNetworkModeListForListSupportedAddonsOutputCalicoVxlan is a EnumOfPodNetworkModeListForListSupportedAddonsOutput enum value
 	EnumOfPodNetworkModeListForListSupportedAddonsOutputCalicoVxlan = "CalicoVxlan"
 
-	// EnumOfPodNetworkModeListForListSupportedAddonsOutputFlannel is a EnumOfPodNetworkModeListForListSupportedAddonsOutput enum value
-	EnumOfPodNetworkModeListForListSupportedAddonsOutputFlannel = "Flannel"
-
 	// EnumOfPodNetworkModeListForListSupportedAddonsOutputVpcCniDedicated is a EnumOfPodNetworkModeListForListSupportedAddonsOutput enum value
 	EnumOfPodNetworkModeListForListSupportedAddonsOutputVpcCniDedicated = "VpcCniDedicated"
-
-	// EnumOfPodNetworkModeListForListSupportedAddonsOutputVpcCniShared is a EnumOfPodNetworkModeListForListSupportedAddonsOutput enum value
-	EnumOfPodNetworkModeListForListSupportedAddonsOutputVpcCniShared = "VpcCniShared"
 )

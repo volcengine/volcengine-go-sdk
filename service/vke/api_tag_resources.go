@@ -22,13 +22,13 @@ const opTagResourcesCommon = "TagResources"
 // See TagResourcesCommon for more information on using the TagResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the TagResourcesCommonRequest method.
-//	req, resp := client.TagResourcesCommonRequest(params)
+//    // Example sending a request using the TagResourcesCommonRequest method.
+//    req, resp := client.TagResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) TagResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opTagResourcesCommon,
@@ -89,13 +89,13 @@ const opTagResources = "TagResources"
 // See TagResources for more information on using the TagResources
 // API call, and error handling.
 //
-//	// Example sending a request using the TagResourcesRequest method.
-//	req, resp := client.TagResourcesRequest(params)
+//    // Example sending a request using the TagResourcesRequest method.
+//    req, resp := client.TagResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) TagResourcesRequest(input *TagResourcesInput) (req *request.Request, output *TagResourcesOutput) {
 	op := &request.Operation{
 		Name:       opTagResources,
@@ -178,7 +178,8 @@ type TagResourcesInput struct {
 
 	ResourceIds []*string `type:"list"`
 
-	ResourceType *string `type:"string" enum:"EnumOfResourceTypeForTagResourcesInput"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForTagResourcesInput"`
 
 	Tags []*TagForTagResourcesInput `type:"list"`
 }
@@ -191,6 +192,19 @@ func (s TagResourcesInput) String() string {
 // GoString returns the string representation
 func (s TagResourcesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagResourcesInput"}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetResourceIds sets the ResourceIds field's value.
@@ -228,12 +242,12 @@ func (s TagResourcesOutput) GoString() string {
 }
 
 const (
-	// EnumOfResourceTypeForTagResourcesInputBareMachine is a EnumOfResourceTypeForTagResourcesInput enum value
-	EnumOfResourceTypeForTagResourcesInputBareMachine = "BareMachine"
-
 	// EnumOfResourceTypeForTagResourcesInputCluster is a EnumOfResourceTypeForTagResourcesInput enum value
 	EnumOfResourceTypeForTagResourcesInputCluster = "Cluster"
 
 	// EnumOfResourceTypeForTagResourcesInputNodePool is a EnumOfResourceTypeForTagResourcesInput enum value
 	EnumOfResourceTypeForTagResourcesInputNodePool = "NodePool"
+
+	// EnumOfResourceTypeForTagResourcesInputBareMachine is a EnumOfResourceTypeForTagResourcesInput enum value
+	EnumOfResourceTypeForTagResourcesInputBareMachine = "BareMachine"
 )

@@ -22,13 +22,13 @@ const opDeleteAddonCommon = "DeleteAddon"
 // See DeleteAddonCommon for more information on using the DeleteAddonCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteAddonCommonRequest method.
-//	req, resp := client.DeleteAddonCommonRequest(params)
+//    // Example sending a request using the DeleteAddonCommonRequest method.
+//    req, resp := client.DeleteAddonCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) DeleteAddonCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteAddonCommon,
@@ -89,13 +89,13 @@ const opDeleteAddon = "DeleteAddon"
 // See DeleteAddon for more information on using the DeleteAddon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteAddonRequest method.
-//	req, resp := client.DeleteAddonRequest(params)
+//    // Example sending a request using the DeleteAddonRequest method.
+//    req, resp := client.DeleteAddonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) DeleteAddonRequest(input *DeleteAddonInput) (req *request.Request, output *DeleteAddonOutput) {
 	op := &request.Operation{
 		Name:       opDeleteAddon,
@@ -148,9 +148,11 @@ type DeleteAddonInput struct {
 
 	CascadingDeleteResources []*string `type:"list"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +163,22 @@ func (s DeleteAddonInput) String() string {
 // GoString returns the string representation
 func (s DeleteAddonInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteAddonInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteAddonInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCascadingDeleteResources sets the CascadingDeleteResources field's value.

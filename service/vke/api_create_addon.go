@@ -22,13 +22,13 @@ const opCreateAddonCommon = "CreateAddon"
 // See CreateAddonCommon for more information on using the CreateAddonCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateAddonCommonRequest method.
-//	req, resp := client.CreateAddonCommonRequest(params)
+//    // Example sending a request using the CreateAddonCommonRequest method.
+//    req, resp := client.CreateAddonCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateAddonCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateAddonCommon,
@@ -89,13 +89,13 @@ const opCreateAddon = "CreateAddon"
 // See CreateAddon for more information on using the CreateAddon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateAddonRequest method.
-//	req, resp := client.CreateAddonRequest(params)
+//    // Example sending a request using the CreateAddonRequest method.
+//    req, resp := client.CreateAddonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) CreateAddonRequest(input *CreateAddonInput) (req *request.Request, output *CreateAddonOutput) {
 	op := &request.Operation{
 		Name:       opCreateAddon,
@@ -148,7 +148,8 @@ type CreateAddonInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ClusterId *string `type:"string"`
+	// ClusterId is a required field
+	ClusterId *string `type:"string" required:"true"`
 
 	Config *string `type:"string"`
 
@@ -156,7 +157,8 @@ type CreateAddonInput struct {
 
 	DeployNodeType *string `type:"string" enum:"EnumOfDeployNodeTypeForCreateAddonInput"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 
 	Version *string `type:"string"`
 }
@@ -169,6 +171,22 @@ func (s CreateAddonInput) String() string {
 // GoString returns the string representation
 func (s CreateAddonInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateAddonInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateAddonInput"}
+	if s.ClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ClusterId"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -230,20 +248,20 @@ func (s CreateAddonOutput) GoString() string {
 }
 
 const (
-	// EnumOfDeployModeForCreateAddonInputManaged is a EnumOfDeployModeForCreateAddonInput enum value
-	EnumOfDeployModeForCreateAddonInputManaged = "Managed"
-
 	// EnumOfDeployModeForCreateAddonInputUnmanaged is a EnumOfDeployModeForCreateAddonInput enum value
 	EnumOfDeployModeForCreateAddonInputUnmanaged = "Unmanaged"
+
+	// EnumOfDeployModeForCreateAddonInputManaged is a EnumOfDeployModeForCreateAddonInput enum value
+	EnumOfDeployModeForCreateAddonInputManaged = "Managed"
 )
 
 const (
-	// EnumOfDeployNodeTypeForCreateAddonInputEdgeNode is a EnumOfDeployNodeTypeForCreateAddonInput enum value
-	EnumOfDeployNodeTypeForCreateAddonInputEdgeNode = "EdgeNode"
-
 	// EnumOfDeployNodeTypeForCreateAddonInputNode is a EnumOfDeployNodeTypeForCreateAddonInput enum value
 	EnumOfDeployNodeTypeForCreateAddonInputNode = "Node"
 
 	// EnumOfDeployNodeTypeForCreateAddonInputVirtualNode is a EnumOfDeployNodeTypeForCreateAddonInput enum value
 	EnumOfDeployNodeTypeForCreateAddonInputVirtualNode = "VirtualNode"
+
+	// EnumOfDeployNodeTypeForCreateAddonInputEdgeNode is a EnumOfDeployNodeTypeForCreateAddonInput enum value
+	EnumOfDeployNodeTypeForCreateAddonInputEdgeNode = "EdgeNode"
 )

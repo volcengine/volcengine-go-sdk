@@ -22,13 +22,13 @@ const opUpdateClusterConfigCommon = "UpdateClusterConfig"
 // See UpdateClusterConfigCommon for more information on using the UpdateClusterConfigCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateClusterConfigCommonRequest method.
-//	req, resp := client.UpdateClusterConfigCommonRequest(params)
+//    // Example sending a request using the UpdateClusterConfigCommonRequest method.
+//    req, resp := client.UpdateClusterConfigCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UpdateClusterConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateClusterConfigCommon,
@@ -89,13 +89,13 @@ const opUpdateClusterConfig = "UpdateClusterConfig"
 // See UpdateClusterConfig for more information on using the UpdateClusterConfig
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateClusterConfigRequest method.
-//	req, resp := client.UpdateClusterConfigRequest(params)
+//    // Example sending a request using the UpdateClusterConfigRequest method.
+//    req, resp := client.UpdateClusterConfigRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VKE) UpdateClusterConfigRequest(input *UpdateClusterConfigInput) (req *request.Request, output *UpdateClusterConfigOutput) {
 	op := &request.Operation{
 		Name:       opUpdateClusterConfig,
@@ -334,7 +334,8 @@ type UpdateClusterConfigInput struct {
 
 	Description *string `type:"string"`
 
-	Id *string `type:"string"`
+	// Id is a required field
+	Id *string `type:"string" required:"true"`
 
 	LoggingConfig *LoggingConfigForUpdateClusterConfigInput `type:"structure"`
 
@@ -351,6 +352,19 @@ func (s UpdateClusterConfigInput) String() string {
 // GoString returns the string representation
 func (s UpdateClusterConfigInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateClusterConfigInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateClusterConfigInput"}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
