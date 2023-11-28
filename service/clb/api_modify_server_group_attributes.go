@@ -3,8 +3,6 @@
 package clb
 
 import (
-	"fmt"
-
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -151,8 +149,7 @@ type ModifyServerGroupAttributesInput struct {
 
 	ServerGroupName *string `type:"string"`
 
-	// Servers is a required field
-	Servers []*ServerForModifyServerGroupAttributesInput `type:"list" required:"true"`
+	Servers []*ServerForModifyServerGroupAttributesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -170,19 +167,6 @@ func (s *ModifyServerGroupAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyServerGroupAttributesInput"}
 	if s.ServerGroupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
-	}
-	if s.Servers == nil {
-		invalidParams.Add(request.NewErrParamRequired("Servers"))
-	}
-	if s.Servers != nil {
-		for i, v := range s.Servers {
-			if v == nil {
-				continue
-			}
-			if err := v.Validate(); err != nil {
-				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
-			}
-		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -244,14 +228,11 @@ type ServerForModifyServerGroupAttributesInput struct {
 
 	Description *string `type:"string"`
 
-	// Port is a required field
-	Port *int64 `type:"integer" required:"true"`
+	Port *int64 `type:"integer"`
 
-	// ServerId is a required field
-	ServerId *string `type:"string" required:"true"`
+	ServerId *string `type:"string"`
 
-	// Weight is a required field
-	Weight *int64 `type:"integer" required:"true"`
+	Weight *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -262,25 +243,6 @@ func (s ServerForModifyServerGroupAttributesInput) String() string {
 // GoString returns the string representation
 func (s ServerForModifyServerGroupAttributesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ServerForModifyServerGroupAttributesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ServerForModifyServerGroupAttributesInput"}
-	if s.Port == nil {
-		invalidParams.Add(request.NewErrParamRequired("Port"))
-	}
-	if s.ServerId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerId"))
-	}
-	if s.Weight == nil {
-		invalidParams.Add(request.NewErrParamRequired("Weight"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetDescription sets the Description field's value.

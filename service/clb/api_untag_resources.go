@@ -146,7 +146,7 @@ type UntagResourcesInput struct {
 	ResourceIds []*string `type:"list" required:"true"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForUntagResourcesInput"`
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForUntagResourcesInput"`
 
 	// TagKeys is a required field
 	TagKeys []*string `type:"list" required:"true"`
@@ -224,12 +224,12 @@ func (s *UntagResourcesOutput) SetRequestId(v string) *UntagResourcesOutput {
 }
 
 const (
-	// ResourceTypeForUntagResourcesInputClb is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputClb is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputClb = "CLB"
 
-	// ResourceTypeForUntagResourcesInputAcl is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputAcl is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputAcl = "ACL"
 
-	// ResourceTypeForUntagResourcesInputCertificate is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputCertificate is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputCertificate = "Certificate"
 )

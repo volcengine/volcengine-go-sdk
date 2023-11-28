@@ -158,8 +158,7 @@ type CreateLoadBalancerInput struct {
 
 	LoadBalancerName *string `type:"string"`
 
-	// LoadBalancerSpec is a required field
-	LoadBalancerSpec *string `type:"string" required:"true"`
+	LoadBalancerSpec *string `type:"string"`
 
 	MasterZoneId *string `type:"string"`
 
@@ -204,9 +203,6 @@ func (s CreateLoadBalancerInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateLoadBalancerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateLoadBalancerInput"}
-	if s.LoadBalancerSpec == nil {
-		invalidParams.Add(request.NewErrParamRequired("LoadBalancerSpec"))
-	}
 	if s.RegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RegionId"))
 	}
