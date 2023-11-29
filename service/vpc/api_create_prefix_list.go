@@ -148,7 +148,7 @@ type CreatePrefixListInput struct {
 
 	DryRun *bool `type:"boolean"`
 
-	IpVersion *string `type:"string" enum:"IpVersionForCreatePrefixListInput"`
+	IpVersion *string `type:"string" enum:"EnumOfIpVersionForCreatePrefixListInput"`
 
 	// MaxEntries is a required field
 	MaxEntries *int64 `type:"integer" required:"true"`
@@ -336,9 +336,9 @@ func (s *TagForCreatePrefixListInput) SetValue(v string) *TagForCreatePrefixList
 }
 
 const (
-	// IpVersionForCreatePrefixListInputIpv4 is a IpVersionForCreatePrefixListInput enum value
+	// IpVersionForCreatePrefixListInputIpv4 is a EnumOfIpVersionForCreatePrefixListInput enum value
 	IpVersionForCreatePrefixListInputIpv4 = "IPv4"
 
-	// IpVersionForCreatePrefixListInputIpv6 is a IpVersionForCreatePrefixListInput enum value
+	// IpVersionForCreatePrefixListInputIpv6 is a EnumOfIpVersionForCreatePrefixListInput enum value
 	IpVersionForCreatePrefixListInputIpv6 = "IPv6"
 )

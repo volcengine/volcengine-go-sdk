@@ -142,6 +142,10 @@ func (c *VPC) DescribeRouteTableListWithContext(ctx volcengine.Context, input *D
 type DescribeRouteTableListInput struct {
 	_ struct{} `type:"structure"`
 
+	MaxResults *int64 `type:"integer"`
+
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
@@ -176,6 +180,18 @@ func (s *DescribeRouteTableListInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeRouteTableListInput) SetMaxResults(v int64) *DescribeRouteTableListInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeRouteTableListInput) SetNextToken(v string) *DescribeRouteTableListInput {
+	s.NextToken = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -219,6 +235,8 @@ type DescribeRouteTableListOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -238,6 +256,12 @@ func (s DescribeRouteTableListOutput) String() string {
 // GoString returns the string representation
 func (s DescribeRouteTableListOutput) GoString() string {
 	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeRouteTableListOutput) SetNextToken(v string) *DescribeRouteTableListOutput {
+	s.NextToken = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.

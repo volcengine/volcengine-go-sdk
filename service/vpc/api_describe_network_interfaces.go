@@ -176,9 +176,13 @@ type DescribeNetworkInterfacesInput struct {
 
 	Ipv6Addresses []*string `type:"list"`
 
+	MaxResults *int64 `min:"1" max:"100" type:"integer"`
+
 	NetworkInterfaceIds []*string `type:"list"`
 
 	NetworkInterfaceName *string `type:"string"`
+
+	NextToken *string `type:"string"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -218,6 +222,12 @@ func (s DescribeNetworkInterfacesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeNetworkInterfacesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeNetworkInterfacesInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
@@ -240,6 +250,12 @@ func (s *DescribeNetworkInterfacesInput) SetIpv6Addresses(v []*string) *Describe
 	return s
 }
 
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeNetworkInterfacesInput) SetMaxResults(v int64) *DescribeNetworkInterfacesInput {
+	s.MaxResults = &v
+	return s
+}
+
 // SetNetworkInterfaceIds sets the NetworkInterfaceIds field's value.
 func (s *DescribeNetworkInterfacesInput) SetNetworkInterfaceIds(v []*string) *DescribeNetworkInterfacesInput {
 	s.NetworkInterfaceIds = v
@@ -249,6 +265,12 @@ func (s *DescribeNetworkInterfacesInput) SetNetworkInterfaceIds(v []*string) *De
 // SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
 func (s *DescribeNetworkInterfacesInput) SetNetworkInterfaceName(v string) *DescribeNetworkInterfacesInput {
 	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeNetworkInterfacesInput) SetNextToken(v string) *DescribeNetworkInterfacesInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -331,6 +353,8 @@ type DescribeNetworkInterfacesOutput struct {
 
 	NetworkInterfaceSets []*NetworkInterfaceSetForDescribeNetworkInterfacesOutput `type:"list"`
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -353,6 +377,12 @@ func (s DescribeNetworkInterfacesOutput) GoString() string {
 // SetNetworkInterfaceSets sets the NetworkInterfaceSets field's value.
 func (s *DescribeNetworkInterfacesOutput) SetNetworkInterfaceSets(v []*NetworkInterfaceSetForDescribeNetworkInterfacesOutput) *DescribeNetworkInterfacesOutput {
 	s.NetworkInterfaceSets = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeNetworkInterfacesOutput) SetNextToken(v string) *DescribeNetworkInterfacesOutput {
+	s.NextToken = &v
 	return s
 }
 
