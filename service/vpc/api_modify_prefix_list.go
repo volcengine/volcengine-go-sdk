@@ -178,7 +178,7 @@ type ModifyPrefixListInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
-	DryRun *string `type:"string"`
+	DryRun *bool `type:"boolean"`
 
 	MaxEntries *int64 `type:"integer"`
 
@@ -244,7 +244,7 @@ func (s *ModifyPrefixListInput) SetDescription(v string) *ModifyPrefixListInput 
 }
 
 // SetDryRun sets the DryRun field's value.
-func (s *ModifyPrefixListInput) SetDryRun(v string) *ModifyPrefixListInput {
+func (s *ModifyPrefixListInput) SetDryRun(v bool) *ModifyPrefixListInput {
 	s.DryRun = &v
 	return s
 }

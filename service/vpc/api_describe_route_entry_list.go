@@ -146,9 +146,13 @@ type DescribeRouteEntryListInput struct {
 
 	DestinationPrefixListId *string `type:"string"`
 
+	MaxResults *int64 `min:"1" max:"100" type:"integer"`
+
 	NextHopId *string `type:"string"`
 
 	NextHopType *string `type:"string"`
+
+	NextToken *string `type:"string"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -177,6 +181,12 @@ func (s DescribeRouteEntryListInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeRouteEntryListInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeRouteEntryListInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
@@ -202,6 +212,12 @@ func (s *DescribeRouteEntryListInput) SetDestinationPrefixListId(v string) *Desc
 	return s
 }
 
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeRouteEntryListInput) SetMaxResults(v int64) *DescribeRouteEntryListInput {
+	s.MaxResults = &v
+	return s
+}
+
 // SetNextHopId sets the NextHopId field's value.
 func (s *DescribeRouteEntryListInput) SetNextHopId(v string) *DescribeRouteEntryListInput {
 	s.NextHopId = &v
@@ -211,6 +227,12 @@ func (s *DescribeRouteEntryListInput) SetNextHopId(v string) *DescribeRouteEntry
 // SetNextHopType sets the NextHopType field's value.
 func (s *DescribeRouteEntryListInput) SetNextHopType(v string) *DescribeRouteEntryListInput {
 	s.NextHopType = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeRouteEntryListInput) SetNextToken(v string) *DescribeRouteEntryListInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -255,6 +277,8 @@ type DescribeRouteEntryListOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -274,6 +298,12 @@ func (s DescribeRouteEntryListOutput) String() string {
 // GoString returns the string representation
 func (s DescribeRouteEntryListOutput) GoString() string {
 	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeRouteEntryListOutput) SetNextToken(v string) *DescribeRouteEntryListOutput {
+	s.NextToken = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.

@@ -142,9 +142,13 @@ func (c *VPC) DescribeNetworkAclsWithContext(ctx volcengine.Context, input *Desc
 type DescribeNetworkAclsInput struct {
 	_ struct{} `type:"structure"`
 
+	MaxResults *int64 `min:"1" max:"100" type:"integer"`
+
 	NetworkAclIds []*string `type:"list"`
 
 	NetworkAclName *string `type:"string"`
+
+	NextToken *string `type:"string"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -170,6 +174,12 @@ func (s DescribeNetworkAclsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeNetworkAclsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeNetworkAclsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
@@ -178,6 +188,12 @@ func (s *DescribeNetworkAclsInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeNetworkAclsInput) SetMaxResults(v int64) *DescribeNetworkAclsInput {
+	s.MaxResults = &v
+	return s
 }
 
 // SetNetworkAclIds sets the NetworkAclIds field's value.
@@ -189,6 +205,12 @@ func (s *DescribeNetworkAclsInput) SetNetworkAclIds(v []*string) *DescribeNetwor
 // SetNetworkAclName sets the NetworkAclName field's value.
 func (s *DescribeNetworkAclsInput) SetNetworkAclName(v string) *DescribeNetworkAclsInput {
 	s.NetworkAclName = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeNetworkAclsInput) SetNextToken(v string) *DescribeNetworkAclsInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -229,6 +251,8 @@ type DescribeNetworkAclsOutput struct {
 
 	NetworkAcls []*NetworkAclForDescribeNetworkAclsOutput `type:"list"`
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -251,6 +275,12 @@ func (s DescribeNetworkAclsOutput) GoString() string {
 // SetNetworkAcls sets the NetworkAcls field's value.
 func (s *DescribeNetworkAclsOutput) SetNetworkAcls(v []*NetworkAclForDescribeNetworkAclsOutput) *DescribeNetworkAclsOutput {
 	s.NetworkAcls = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeNetworkAclsOutput) SetNextToken(v string) *DescribeNetworkAclsOutput {
+	s.NextToken = &v
 	return s
 }
 

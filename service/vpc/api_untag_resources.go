@@ -146,7 +146,7 @@ type UntagResourcesInput struct {
 	ResourceIds []*string `type:"list" required:"true"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForUntagResourcesInput"`
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForUntagResourcesInput"`
 
 	// TagKeys is a required field
 	TagKeys []*string `type:"list" required:"true"`
@@ -224,33 +224,33 @@ func (s *UntagResourcesOutput) SetRequestId(v string) *UntagResourcesOutput {
 }
 
 const (
-	// ResourceTypeForUntagResourcesInputVpc is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputVpc is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputVpc = "vpc"
 
-	// ResourceTypeForUntagResourcesInputEni is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputEni is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputEni = "eni"
 
-	// ResourceTypeForUntagResourcesInputSecuritygroup is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputSecuritygroup is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputSecuritygroup = "securitygroup"
 
-	// ResourceTypeForUntagResourcesInputEip is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputEip is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputEip = "eip"
 
-	// ResourceTypeForUntagResourcesInputBandwidthpackage is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputBandwidthpackage is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputBandwidthpackage = "bandwidthpackage"
 
-	// ResourceTypeForUntagResourcesInputVpngateway is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputVpngateway is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputVpngateway = "vpngateway"
 
-	// ResourceTypeForUntagResourcesInputNgw is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputNgw is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputNgw = "ngw"
 
-	// ResourceTypeForUntagResourcesInputDirectconnectconnection is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputDirectconnectconnection is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputDirectconnectconnection = "directconnectconnection"
 
-	// ResourceTypeForUntagResourcesInputDirectconnectgateway is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputDirectconnectgateway is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputDirectconnectgateway = "directconnectgateway"
 
-	// ResourceTypeForUntagResourcesInputDirectconnectvirtualinterface is a ResourceTypeForUntagResourcesInput enum value
+	// ResourceTypeForUntagResourcesInputDirectconnectvirtualinterface is a EnumOfResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputDirectconnectvirtualinterface = "directconnectvirtualinterface"
 )

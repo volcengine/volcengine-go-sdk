@@ -144,6 +144,10 @@ type DescribeSubnetsInput struct {
 
 	IsDefault *bool `type:"boolean"`
 
+	MaxResults *int64 `type:"integer"`
+
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
@@ -187,6 +191,18 @@ func (s *DescribeSubnetsInput) Validate() error {
 // SetIsDefault sets the IsDefault field's value.
 func (s *DescribeSubnetsInput) SetIsDefault(v bool) *DescribeSubnetsInput {
 	s.IsDefault = &v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeSubnetsInput) SetMaxResults(v int64) *DescribeSubnetsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeSubnetsInput) SetNextToken(v string) *DescribeSubnetsInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -243,6 +259,8 @@ type DescribeSubnetsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -262,6 +280,12 @@ func (s DescribeSubnetsOutput) String() string {
 // GoString returns the string representation
 func (s DescribeSubnetsOutput) GoString() string {
 	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeSubnetsOutput) SetNextToken(v string) *DescribeSubnetsOutput {
+	s.NextToken = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.

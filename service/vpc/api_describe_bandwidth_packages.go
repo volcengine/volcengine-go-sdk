@@ -304,7 +304,11 @@ type DescribeBandwidthPackagesInput struct {
 
 	BandwidthPackageName *string `type:"string"`
 
-	ISP *string `type:"string" enum:"ISPForDescribeBandwidthPackagesInput"`
+	ISP *string `type:"string" enum:"EnumOfISPForDescribeBandwidthPackagesInput"`
+
+	MaxResults *int64 `min:"1" max:"100" type:"integer"`
+
+	NextToken *string `type:"string"`
 
 	PageNumber *int64 `type:"integer"`
 
@@ -312,7 +316,7 @@ type DescribeBandwidthPackagesInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Protocol *string `type:"string" enum:"ProtocolForDescribeBandwidthPackagesInput"`
+	Protocol *string `type:"string" enum:"EnumOfProtocolForDescribeBandwidthPackagesInput"`
 
 	SecurityProtectionEnabled *bool `type:"boolean"`
 
@@ -332,6 +336,12 @@ func (s DescribeBandwidthPackagesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeBandwidthPackagesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeBandwidthPackagesInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
@@ -357,6 +367,18 @@ func (s *DescribeBandwidthPackagesInput) SetBandwidthPackageName(v string) *Desc
 // SetISP sets the ISP field's value.
 func (s *DescribeBandwidthPackagesInput) SetISP(v string) *DescribeBandwidthPackagesInput {
 	s.ISP = &v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeBandwidthPackagesInput) SetMaxResults(v int64) *DescribeBandwidthPackagesInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeBandwidthPackagesInput) SetNextToken(v string) *DescribeBandwidthPackagesInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -403,6 +425,8 @@ type DescribeBandwidthPackagesOutput struct {
 
 	BandwidthPackages []*BandwidthPackageForDescribeBandwidthPackagesOutput `type:"list"`
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -425,6 +449,12 @@ func (s DescribeBandwidthPackagesOutput) GoString() string {
 // SetBandwidthPackages sets the BandwidthPackages field's value.
 func (s *DescribeBandwidthPackagesOutput) SetBandwidthPackages(v []*BandwidthPackageForDescribeBandwidthPackagesOutput) *DescribeBandwidthPackagesOutput {
 	s.BandwidthPackages = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeBandwidthPackagesOutput) SetNextToken(v string) *DescribeBandwidthPackagesOutput {
+	s.NextToken = &v
 	return s
 }
 
@@ -543,41 +573,41 @@ func (s *TagForDescribeBandwidthPackagesOutput) SetValue(v string) *TagForDescri
 }
 
 const (
-	// ISPForDescribeBandwidthPackagesInputBgp is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputBgp is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputBgp = "BGP"
 
-	// ISPForDescribeBandwidthPackagesInputSingleLineBgp is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputSingleLineBgp is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputSingleLineBgp = "SingleLine_BGP"
 
-	// ISPForDescribeBandwidthPackagesInputStaticBgp is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputStaticBgp is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputStaticBgp = "Static_BGP"
 
-	// ISPForDescribeBandwidthPackagesInputFusionBgp is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputFusionBgp is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputFusionBgp = "Fusion_BGP"
 
-	// ISPForDescribeBandwidthPackagesInputChinaMobile is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaMobile is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaMobile = "ChinaMobile"
 
-	// ISPForDescribeBandwidthPackagesInputChinaUnicom is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaUnicom is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaUnicom = "ChinaUnicom"
 
-	// ISPForDescribeBandwidthPackagesInputChinaTelecom is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaTelecom is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaTelecom = "ChinaTelecom"
 
-	// ISPForDescribeBandwidthPackagesInputChinaMobileValue is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaMobileValue is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaMobileValue = "ChinaMobile_Value"
 
-	// ISPForDescribeBandwidthPackagesInputChinaUnicomValue is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaUnicomValue is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaUnicomValue = "ChinaUnicom_Value"
 
-	// ISPForDescribeBandwidthPackagesInputChinaTelecomValue is a ISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaTelecomValue is a EnumOfISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaTelecomValue = "ChinaTelecom_Value"
 )
 
 const (
-	// ProtocolForDescribeBandwidthPackagesInputIpv4 is a ProtocolForDescribeBandwidthPackagesInput enum value
+	// ProtocolForDescribeBandwidthPackagesInputIpv4 is a EnumOfProtocolForDescribeBandwidthPackagesInput enum value
 	ProtocolForDescribeBandwidthPackagesInputIpv4 = "IPv4"
 
-	// ProtocolForDescribeBandwidthPackagesInputIpv6 is a ProtocolForDescribeBandwidthPackagesInput enum value
+	// ProtocolForDescribeBandwidthPackagesInputIpv6 is a EnumOfProtocolForDescribeBandwidthPackagesInput enum value
 	ProtocolForDescribeBandwidthPackagesInputIpv6 = "IPv6"
 )
