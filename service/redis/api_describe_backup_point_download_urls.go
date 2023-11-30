@@ -192,9 +192,11 @@ func (s *BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput) SetShar
 type DescribeBackupPointDownloadUrlsInput struct {
 	_ struct{} `type:"structure"`
 
-	BackupPointId *string `type:"string"`
+	// BackupPointId is a required field
+	BackupPointId *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -205,6 +207,22 @@ func (s DescribeBackupPointDownloadUrlsInput) String() string {
 // GoString returns the string representation
 func (s DescribeBackupPointDownloadUrlsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeBackupPointDownloadUrlsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeBackupPointDownloadUrlsInput"}
+	if s.BackupPointId == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupPointId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupPointId sets the BackupPointId field's value.

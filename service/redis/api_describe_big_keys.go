@@ -207,8 +207,6 @@ type DescribeBigKeysInput struct {
 
 	OrderBy *string `type:"string"`
 
-	OrderType *string `type:"string"`
-
 	// PageSize is a required field
 	PageSize *int32 `type:"int32" required:"true"`
 
@@ -258,12 +256,6 @@ func (s *DescribeBigKeysInput) SetKeyType(v string) *DescribeBigKeysInput {
 // SetOrderBy sets the OrderBy field's value.
 func (s *DescribeBigKeysInput) SetOrderBy(v string) *DescribeBigKeysInput {
 	s.OrderBy = &v
-	return s
-}
-
-// SetOrderType sets the OrderType field's value.
-func (s *DescribeBigKeysInput) SetOrderType(v string) *DescribeBigKeysInput {
-	s.OrderType = &v
 	return s
 }
 

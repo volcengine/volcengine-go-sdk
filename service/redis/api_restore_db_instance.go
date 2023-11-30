@@ -146,11 +146,15 @@ func (c *REDIS) RestoreDBInstanceWithContext(ctx volcengine.Context, input *Rest
 type RestoreDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	BackupType *string `type:"string" enum:"EnumOfBackupTypeForRestoreDBInstanceInput"`
+	BackupType *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	ClientToken *string `type:"string"`
 
-	TimePoint *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	// TimePoint is a required field
+	TimePoint *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,9 +167,31 @@ func (s RestoreDBInstanceInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestoreDBInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestoreDBInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.TimePoint == nil {
+		invalidParams.Add(request.NewErrParamRequired("TimePoint"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetBackupType sets the BackupType field's value.
 func (s *RestoreDBInstanceInput) SetBackupType(v string) *RestoreDBInstanceInput {
 	s.BackupType = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *RestoreDBInstanceInput) SetClientToken(v string) *RestoreDBInstanceInput {
+	s.ClientToken = &v
 	return s
 }
 
@@ -196,17 +222,3 @@ func (s RestoreDBInstanceOutput) String() string {
 func (s RestoreDBInstanceOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfBackupTypeForRestoreDBInstanceInputAll is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
-	EnumOfBackupTypeForRestoreDBInstanceInputAll = "All"
-
-	// EnumOfBackupTypeForRestoreDBInstanceInputFull is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
-	EnumOfBackupTypeForRestoreDBInstanceInputFull = "Full"
-
-	// EnumOfBackupTypeForRestoreDBInstanceInputInc is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
-	EnumOfBackupTypeForRestoreDBInstanceInputInc = "Inc"
-
-	// EnumOfBackupTypeForRestoreDBInstanceInputInvalid is a EnumOfBackupTypeForRestoreDBInstanceInput enum value
-	EnumOfBackupTypeForRestoreDBInstanceInputInvalid = "Invalid"
-)

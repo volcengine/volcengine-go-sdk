@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // REDIS.
 //    func myFunc(svc REDISAPI) bool {
-//        // Make svc.AssociateAllowList request
+//        // Make svc.AddTagsToResource request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type REDISAPI interface {
+	AddTagsToResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddTagsToResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddTagsToResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddTagsToResource(*AddTagsToResourceInput) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
+
 	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,14 @@ type REDISAPI interface {
 	CreateDBInstance(*CreateDBInstanceInput) (*CreateDBInstanceOutput, error)
 	CreateDBInstanceWithContext(volcengine.Context, *CreateDBInstanceInput, ...request.Option) (*CreateDBInstanceOutput, error)
 	CreateDBInstanceRequest(*CreateDBInstanceInput) (*request.Request, *CreateDBInstanceOutput)
+
+	DecreaseDBInstanceNodeNumberCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DecreaseDBInstanceNodeNumberCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DecreaseDBInstanceNodeNumberCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DecreaseDBInstanceNodeNumber(*DecreaseDBInstanceNodeNumberInput) (*DecreaseDBInstanceNodeNumberOutput, error)
+	DecreaseDBInstanceNodeNumberWithContext(volcengine.Context, *DecreaseDBInstanceNodeNumberInput, ...request.Option) (*DecreaseDBInstanceNodeNumberOutput, error)
+	DecreaseDBInstanceNodeNumberRequest(*DecreaseDBInstanceNodeNumberInput) (*request.Request, *DecreaseDBInstanceNodeNumberOutput)
 
 	DeleteAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -174,6 +190,14 @@ type REDISAPI interface {
 	DescribeDBInstanceParamsWithContext(volcengine.Context, *DescribeDBInstanceParamsInput, ...request.Option) (*DescribeDBInstanceParamsOutput, error)
 	DescribeDBInstanceParamsRequest(*DescribeDBInstanceParamsInput) (*request.Request, *DescribeDBInstanceParamsOutput)
 
+	DescribeDBInstanceShardsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceShardsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceShardsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceShards(*DescribeDBInstanceShardsInput) (*DescribeDBInstanceShardsOutput, error)
+	DescribeDBInstanceShardsWithContext(volcengine.Context, *DescribeDBInstanceShardsInput, ...request.Option) (*DescribeDBInstanceShardsOutput, error)
+	DescribeDBInstanceShardsRequest(*DescribeDBInstanceShardsInput) (*request.Request, *DescribeDBInstanceShardsOutput)
+
 	DescribeDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -214,6 +238,14 @@ type REDISAPI interface {
 	DescribeSlowLogsWithContext(volcengine.Context, *DescribeSlowLogsInput, ...request.Option) (*DescribeSlowLogsOutput, error)
 	DescribeSlowLogsRequest(*DescribeSlowLogsInput) (*request.Request, *DescribeSlowLogsOutput)
 
+	DescribeTagsByResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTagsByResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTagsByResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTagsByResource(*DescribeTagsByResourceInput) (*DescribeTagsByResourceOutput, error)
+	DescribeTagsByResourceWithContext(volcengine.Context, *DescribeTagsByResourceInput, ...request.Option) (*DescribeTagsByResourceOutput, error)
+	DescribeTagsByResourceRequest(*DescribeTagsByResourceInput) (*request.Request, *DescribeTagsByResourceOutput)
+
 	DescribeZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -229,6 +261,30 @@ type REDISAPI interface {
 	DisassociateAllowList(*DisassociateAllowListInput) (*DisassociateAllowListOutput, error)
 	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
 	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
+
+	EnableShardedClusterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableShardedClusterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableShardedClusterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableShardedCluster(*EnableShardedClusterInput) (*EnableShardedClusterOutput, error)
+	EnableShardedClusterWithContext(volcengine.Context, *EnableShardedClusterInput, ...request.Option) (*EnableShardedClusterOutput, error)
+	EnableShardedClusterRequest(*EnableShardedClusterInput) (*request.Request, *EnableShardedClusterOutput)
+
+	FlushDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	FlushDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	FlushDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	FlushDBInstance(*FlushDBInstanceInput) (*FlushDBInstanceOutput, error)
+	FlushDBInstanceWithContext(volcengine.Context, *FlushDBInstanceInput, ...request.Option) (*FlushDBInstanceOutput, error)
+	FlushDBInstanceRequest(*FlushDBInstanceInput) (*request.Request, *FlushDBInstanceOutput)
+
+	IncreaseDBInstanceNodeNumberCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	IncreaseDBInstanceNodeNumberCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	IncreaseDBInstanceNodeNumberCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	IncreaseDBInstanceNodeNumber(*IncreaseDBInstanceNodeNumberInput) (*IncreaseDBInstanceNodeNumberOutput, error)
+	IncreaseDBInstanceNodeNumberWithContext(volcengine.Context, *IncreaseDBInstanceNodeNumberInput, ...request.Option) (*IncreaseDBInstanceNodeNumberOutput, error)
+	IncreaseDBInstanceNodeNumberRequest(*IncreaseDBInstanceNodeNumberInput) (*request.Request, *IncreaseDBInstanceNodeNumberOutput)
 
 	ListDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -261,6 +317,22 @@ type REDISAPI interface {
 	ModifyDBAccount(*ModifyDBAccountInput) (*ModifyDBAccountOutput, error)
 	ModifyDBAccountWithContext(volcengine.Context, *ModifyDBAccountInput, ...request.Option) (*ModifyDBAccountOutput, error)
 	ModifyDBAccountRequest(*ModifyDBAccountInput) (*request.Request, *ModifyDBAccountOutput)
+
+	ModifyDBInstanceAZConfigureCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceAZConfigureCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceAZConfigureCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceAZConfigure(*ModifyDBInstanceAZConfigureInput) (*ModifyDBInstanceAZConfigureOutput, error)
+	ModifyDBInstanceAZConfigureWithContext(volcengine.Context, *ModifyDBInstanceAZConfigureInput, ...request.Option) (*ModifyDBInstanceAZConfigureOutput, error)
+	ModifyDBInstanceAZConfigureRequest(*ModifyDBInstanceAZConfigureInput) (*request.Request, *ModifyDBInstanceAZConfigureOutput)
+
+	ModifyDBInstanceAdditionalBandwidthPerShardCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceAdditionalBandwidthPerShardCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceAdditionalBandwidthPerShardCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceAdditionalBandwidthPerShard(*ModifyDBInstanceAdditionalBandwidthPerShardInput) (*ModifyDBInstanceAdditionalBandwidthPerShardOutput, error)
+	ModifyDBInstanceAdditionalBandwidthPerShardWithContext(volcengine.Context, *ModifyDBInstanceAdditionalBandwidthPerShardInput, ...request.Option) (*ModifyDBInstanceAdditionalBandwidthPerShardOutput, error)
+	ModifyDBInstanceAdditionalBandwidthPerShardRequest(*ModifyDBInstanceAdditionalBandwidthPerShardInput) (*request.Request, *ModifyDBInstanceAdditionalBandwidthPerShardOutput)
 
 	ModifyDBInstanceChargeTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceChargeTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -334,6 +406,14 @@ type REDISAPI interface {
 	ModifyDBInstanceVpcAuthModeWithContext(volcengine.Context, *ModifyDBInstanceVpcAuthModeInput, ...request.Option) (*ModifyDBInstanceVpcAuthModeOutput, error)
 	ModifyDBInstanceVpcAuthModeRequest(*ModifyDBInstanceVpcAuthModeInput) (*request.Request, *ModifyDBInstanceVpcAuthModeOutput)
 
+	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveTagsFromResource(*RemoveTagsFromResourceInput) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceWithContext(volcengine.Context, *RemoveTagsFromResourceInput, ...request.Option) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceRequest(*RemoveTagsFromResourceInput) (*request.Request, *RemoveTagsFromResourceOutput)
+
 	RestartDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestartDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RestartDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -341,6 +421,14 @@ type REDISAPI interface {
 	RestartDBInstance(*RestartDBInstanceInput) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
+
+	RestartDBInstanceProxyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestartDBInstanceProxyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestartDBInstanceProxyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestartDBInstanceProxy(*RestartDBInstanceProxyInput) (*RestartDBInstanceProxyOutput, error)
+	RestartDBInstanceProxyWithContext(volcengine.Context, *RestartDBInstanceProxyInput, ...request.Option) (*RestartDBInstanceProxyOutput, error)
+	RestartDBInstanceProxyRequest(*RestartDBInstanceProxyInput) (*request.Request, *RestartDBInstanceProxyOutput)
 
 	RestoreDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -365,6 +453,14 @@ type REDISAPI interface {
 	StopContinuousBackup(*StopContinuousBackupInput) (*StopContinuousBackupOutput, error)
 	StopContinuousBackupWithContext(volcengine.Context, *StopContinuousBackupInput, ...request.Option) (*StopContinuousBackupOutput, error)
 	StopContinuousBackupRequest(*StopContinuousBackupInput) (*request.Request, *StopContinuousBackupOutput)
+
+	SwitchOverCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SwitchOverCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SwitchOverCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SwitchOver(*SwitchOverInput) (*SwitchOverOutput, error)
+	SwitchOverWithContext(volcengine.Context, *SwitchOverInput, ...request.Option) (*SwitchOverOutput, error)
+	SwitchOverRequest(*SwitchOverInput) (*request.Request, *SwitchOverOutput)
 
 	UpgradeAllowListVersionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpgradeAllowListVersionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -151,7 +151,8 @@ type ModifyDBInstanceVpcAuthModeInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	VpcAuthMode *string `type:"string"`
+	// VpcAuthMode is a required field
+	VpcAuthMode *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -169,6 +170,9 @@ func (s *ModifyDBInstanceVpcAuthModeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceVpcAuthModeInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.VpcAuthMode == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcAuthMode"))
 	}
 
 	if invalidParams.Len() > 0 {
