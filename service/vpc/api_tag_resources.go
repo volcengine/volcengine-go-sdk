@@ -192,7 +192,7 @@ type TagResourcesInput struct {
 	ResourceIds []*string `type:"list" required:"true"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForTagResourcesInput"`
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForTagResourcesInput"`
 
 	// Tags is a required field
 	Tags []*TagForTagResourcesInput `type:"list" required:"true"`
@@ -280,33 +280,33 @@ func (s *TagResourcesOutput) SetRequestId(v string) *TagResourcesOutput {
 }
 
 const (
-	// ResourceTypeForTagResourcesInputVpc is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputVpc is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputVpc = "vpc"
 
-	// ResourceTypeForTagResourcesInputEni is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputEni is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputEni = "eni"
 
-	// ResourceTypeForTagResourcesInputSecuritygroup is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputSecuritygroup is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputSecuritygroup = "securitygroup"
 
-	// ResourceTypeForTagResourcesInputEip is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputEip is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputEip = "eip"
 
-	// ResourceTypeForTagResourcesInputBandwidthpackage is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputBandwidthpackage is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputBandwidthpackage = "bandwidthpackage"
 
-	// ResourceTypeForTagResourcesInputVpngateway is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputVpngateway is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputVpngateway = "vpngateway"
 
-	// ResourceTypeForTagResourcesInputNgw is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputNgw is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputNgw = "ngw"
 
-	// ResourceTypeForTagResourcesInputDirectconnectconnection is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputDirectconnectconnection is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputDirectconnectconnection = "directconnectconnection"
 
-	// ResourceTypeForTagResourcesInputDirectconnectgateway is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputDirectconnectgateway is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputDirectconnectgateway = "directconnectgateway"
 
-	// ResourceTypeForTagResourcesInputDirectconnectvirtualinterface is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputDirectconnectvirtualinterface is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputDirectconnectvirtualinterface = "directconnectvirtualinterface"
 )

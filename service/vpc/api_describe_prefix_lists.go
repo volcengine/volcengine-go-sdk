@@ -142,6 +142,10 @@ func (c *VPC) DescribePrefixListsWithContext(ctx volcengine.Context, input *Desc
 type DescribePrefixListsInput struct {
 	_ struct{} `type:"structure"`
 
+	MaxResults *int64 `min:"1" max:"100" type:"integer"`
+
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -167,6 +171,12 @@ func (s DescribePrefixListsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribePrefixListsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribePrefixListsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
 	if s.PrefixListIds == nil {
 		invalidParams.Add(request.NewErrParamRequired("PrefixListIds"))
 	}
@@ -175,6 +185,18 @@ func (s *DescribePrefixListsInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribePrefixListsInput) SetMaxResults(v int64) *DescribePrefixListsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribePrefixListsInput) SetNextToken(v string) *DescribePrefixListsInput {
+	s.NextToken = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -212,6 +234,8 @@ type DescribePrefixListsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -231,6 +255,12 @@ func (s DescribePrefixListsOutput) String() string {
 // GoString returns the string representation
 func (s DescribePrefixListsOutput) GoString() string {
 	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribePrefixListsOutput) SetNextToken(v string) *DescribePrefixListsOutput {
+	s.NextToken = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.

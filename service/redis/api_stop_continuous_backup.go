@@ -148,7 +148,8 @@ type StopContinuousBackupInput struct {
 
 	ClientToken *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s StopContinuousBackupInput) String() string {
 // GoString returns the string representation
 func (s StopContinuousBackupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StopContinuousBackupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StopContinuousBackupInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

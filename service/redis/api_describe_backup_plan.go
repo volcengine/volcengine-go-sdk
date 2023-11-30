@@ -146,7 +146,8 @@ func (c *REDIS) DescribeBackupPlanWithContext(ctx volcengine.Context, input *Des
 type DescribeBackupPlanInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s DescribeBackupPlanInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeBackupPlanInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeBackupPlanInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeBackupPlanInput) SetInstanceId(v string) *DescribeBackupPlanInput {
 	s.InstanceId = &v
@@ -169,6 +183,22 @@ type DescribeBackupPlanOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Active *bool `type:"boolean"`
+
+	BackupHour *int32 `type:"int32"`
+
+	BackupType *string `type:"string"`
+
+	ExpectNextBackupTime *string `type:"string"`
+
+	InstanceId *string `type:"string"`
+
+	LastUpdateTime *string `type:"string"`
+
+	Period []*int32 `type:"list"`
+
+	TTL *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -179,4 +209,52 @@ func (s DescribeBackupPlanOutput) String() string {
 // GoString returns the string representation
 func (s DescribeBackupPlanOutput) GoString() string {
 	return s.String()
+}
+
+// SetActive sets the Active field's value.
+func (s *DescribeBackupPlanOutput) SetActive(v bool) *DescribeBackupPlanOutput {
+	s.Active = &v
+	return s
+}
+
+// SetBackupHour sets the BackupHour field's value.
+func (s *DescribeBackupPlanOutput) SetBackupHour(v int32) *DescribeBackupPlanOutput {
+	s.BackupHour = &v
+	return s
+}
+
+// SetBackupType sets the BackupType field's value.
+func (s *DescribeBackupPlanOutput) SetBackupType(v string) *DescribeBackupPlanOutput {
+	s.BackupType = &v
+	return s
+}
+
+// SetExpectNextBackupTime sets the ExpectNextBackupTime field's value.
+func (s *DescribeBackupPlanOutput) SetExpectNextBackupTime(v string) *DescribeBackupPlanOutput {
+	s.ExpectNextBackupTime = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *DescribeBackupPlanOutput) SetInstanceId(v string) *DescribeBackupPlanOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetLastUpdateTime sets the LastUpdateTime field's value.
+func (s *DescribeBackupPlanOutput) SetLastUpdateTime(v string) *DescribeBackupPlanOutput {
+	s.LastUpdateTime = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *DescribeBackupPlanOutput) SetPeriod(v []*int32) *DescribeBackupPlanOutput {
+	s.Period = v
+	return s
+}
+
+// SetTTL sets the TTL field's value.
+func (s *DescribeBackupPlanOutput) SetTTL(v int32) *DescribeBackupPlanOutput {
+	s.TTL = &v
+	return s
 }

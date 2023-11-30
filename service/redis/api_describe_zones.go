@@ -209,6 +209,8 @@ type ZoneForDescribeZonesOutput struct {
 	ZoneId *string `type:"string"`
 
 	ZoneName *string `type:"string"`
+
+	ZoneStatus *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -230,5 +232,11 @@ func (s *ZoneForDescribeZonesOutput) SetZoneId(v string) *ZoneForDescribeZonesOu
 // SetZoneName sets the ZoneName field's value.
 func (s *ZoneForDescribeZonesOutput) SetZoneName(v string) *ZoneForDescribeZonesOutput {
 	s.ZoneName = &v
+	return s
+}
+
+// SetZoneStatus sets the ZoneStatus field's value.
+func (s *ZoneForDescribeZonesOutput) SetZoneStatus(v int32) *ZoneForDescribeZonesOutput {
+	s.ZoneStatus = &v
 	return s
 }

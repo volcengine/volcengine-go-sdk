@@ -148,6 +148,10 @@ type DescribeHaVipsInput struct {
 
 	IpAddress *string `type:"string"`
 
+	MaxResults *int64 `min:"1" max:"100" type:"integer"`
+
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
@@ -174,6 +178,12 @@ func (s DescribeHaVipsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeHaVipsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeHaVipsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
@@ -199,6 +209,18 @@ func (s *DescribeHaVipsInput) SetHaVipName(v string) *DescribeHaVipsInput {
 // SetIpAddress sets the IpAddress field's value.
 func (s *DescribeHaVipsInput) SetIpAddress(v string) *DescribeHaVipsInput {
 	s.IpAddress = &v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeHaVipsInput) SetMaxResults(v int64) *DescribeHaVipsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeHaVipsInput) SetNextToken(v string) *DescribeHaVipsInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -245,6 +267,8 @@ type DescribeHaVipsOutput struct {
 
 	HaVips []*HaVipForDescribeHaVipsOutput `type:"list"`
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -267,6 +291,12 @@ func (s DescribeHaVipsOutput) GoString() string {
 // SetHaVips sets the HaVips field's value.
 func (s *DescribeHaVipsOutput) SetHaVips(v []*HaVipForDescribeHaVipsOutput) *DescribeHaVipsOutput {
 	s.HaVips = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeHaVipsOutput) SetNextToken(v string) *DescribeHaVipsOutput {
+	s.NextToken = &v
 	return s
 }
 

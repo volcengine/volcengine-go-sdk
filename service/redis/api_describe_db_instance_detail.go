@@ -214,6 +214,8 @@ type DescribeDBInstanceDetailOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AutoRenew *bool `type:"boolean"`
+
 	Capacity *CapacityForDescribeDBInstanceDetailOutput `type:"structure"`
 
 	ChargeType *string `type:"string"`
@@ -226,11 +228,15 @@ type DescribeDBInstanceDetailOutput struct {
 
 	ExpiredTime *string `type:"string"`
 
+	InstanceClass *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
 
 	MaintenanceTime *string `type:"string"`
+
+	MultiAZ *string `type:"string"`
 
 	NodeNumber *int32 `type:"int32"`
 
@@ -240,11 +246,15 @@ type DescribeDBInstanceDetailOutput struct {
 
 	ShardCapacity *float64 `type:"double"`
 
+	ShardCapacityV2 *int32 `type:"int32"`
+
 	ShardNumber *int32 `type:"int32"`
 
 	ShardedCluster *int32 `type:"int32"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list"`
 
 	VisitAddrs []*VisitAddrForDescribeDBInstanceDetailOutput `type:"list"`
 
@@ -263,6 +273,12 @@ func (s DescribeDBInstanceDetailOutput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstanceDetailOutput) GoString() string {
 	return s.String()
+}
+
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *DescribeDBInstanceDetailOutput) SetAutoRenew(v bool) *DescribeDBInstanceDetailOutput {
+	s.AutoRenew = &v
+	return s
 }
 
 // SetCapacity sets the Capacity field's value.
@@ -301,6 +317,12 @@ func (s *DescribeDBInstanceDetailOutput) SetExpiredTime(v string) *DescribeDBIns
 	return s
 }
 
+// SetInstanceClass sets the InstanceClass field's value.
+func (s *DescribeDBInstanceDetailOutput) SetInstanceClass(v string) *DescribeDBInstanceDetailOutput {
+	s.InstanceClass = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeDBInstanceDetailOutput) SetInstanceId(v string) *DescribeDBInstanceDetailOutput {
 	s.InstanceId = &v
@@ -316,6 +338,12 @@ func (s *DescribeDBInstanceDetailOutput) SetInstanceName(v string) *DescribeDBIn
 // SetMaintenanceTime sets the MaintenanceTime field's value.
 func (s *DescribeDBInstanceDetailOutput) SetMaintenanceTime(v string) *DescribeDBInstanceDetailOutput {
 	s.MaintenanceTime = &v
+	return s
+}
+
+// SetMultiAZ sets the MultiAZ field's value.
+func (s *DescribeDBInstanceDetailOutput) SetMultiAZ(v string) *DescribeDBInstanceDetailOutput {
+	s.MultiAZ = &v
 	return s
 }
 
@@ -343,6 +371,12 @@ func (s *DescribeDBInstanceDetailOutput) SetShardCapacity(v float64) *DescribeDB
 	return s
 }
 
+// SetShardCapacityV2 sets the ShardCapacityV2 field's value.
+func (s *DescribeDBInstanceDetailOutput) SetShardCapacityV2(v int32) *DescribeDBInstanceDetailOutput {
+	s.ShardCapacityV2 = &v
+	return s
+}
+
 // SetShardNumber sets the ShardNumber field's value.
 func (s *DescribeDBInstanceDetailOutput) SetShardNumber(v int32) *DescribeDBInstanceDetailOutput {
 	s.ShardNumber = &v
@@ -358,6 +392,12 @@ func (s *DescribeDBInstanceDetailOutput) SetShardedCluster(v int32) *DescribeDBI
 // SetStatus sets the Status field's value.
 func (s *DescribeDBInstanceDetailOutput) SetStatus(v string) *DescribeDBInstanceDetailOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeDBInstanceDetailOutput) SetTags(v []*TagForDescribeDBInstanceDetailOutput) *DescribeDBInstanceDetailOutput {
+	s.Tags = v
 	return s
 }
 
@@ -382,6 +422,36 @@ func (s *DescribeDBInstanceDetailOutput) SetVpcId(v string) *DescribeDBInstanceD
 // SetZoneIds sets the ZoneIds field's value.
 func (s *DescribeDBInstanceDetailOutput) SetZoneIds(v []*string) *DescribeDBInstanceDetailOutput {
 	s.ZoneIds = v
+	return s
+}
+
+type TagForDescribeDBInstanceDetailOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeDBInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeDBInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeDBInstanceDetailOutput) SetKey(v string) *TagForDescribeDBInstanceDetailOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeDBInstanceDetailOutput) SetValue(v string) *TagForDescribeDBInstanceDetailOutput {
+	s.Value = &v
 	return s
 }
 

@@ -236,7 +236,8 @@ type DescribeBackupsInput struct {
 
 	EndTime *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	PageNumber *int32 `type:"int32"`
 
@@ -253,6 +254,19 @@ func (s DescribeBackupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeBackupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeBackupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeBackupsInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupStrategyList sets the BackupStrategyList field's value.

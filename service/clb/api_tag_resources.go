@@ -192,7 +192,7 @@ type TagResourcesInput struct {
 	ResourceIds []*string `type:"list" required:"true"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForTagResourcesInput"`
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForTagResourcesInput"`
 
 	// Tags is a required field
 	Tags []*TagForTagResourcesInput `type:"list" required:"true"`
@@ -280,12 +280,12 @@ func (s *TagResourcesOutput) SetRequestId(v string) *TagResourcesOutput {
 }
 
 const (
-	// ResourceTypeForTagResourcesInputClb is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputClb is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputClb = "CLB"
 
-	// ResourceTypeForTagResourcesInputAcl is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputAcl is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputAcl = "ACL"
 
-	// ResourceTypeForTagResourcesInputCertificate is a ResourceTypeForTagResourcesInput enum value
+	// ResourceTypeForTagResourcesInputCertificate is a EnumOfResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputCertificate = "Certificate"
 )

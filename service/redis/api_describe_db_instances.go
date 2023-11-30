@@ -199,7 +199,7 @@ type DescribeDBInstancesInput struct {
 
 	Status *string `type:"string"`
 
-	Tags []*TagForDescribeDBInstancesInput `type:"list"`
+	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
 
 	VpcId *string `type:"string"`
 
@@ -295,9 +295,9 @@ func (s *DescribeDBInstancesInput) SetStatus(v string) *DescribeDBInstancesInput
 	return s
 }
 
-// SetTags sets the Tags field's value.
-func (s *DescribeDBInstancesInput) SetTags(v []*TagForDescribeDBInstancesInput) *DescribeDBInstancesInput {
-	s.Tags = v
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeDBInstancesInput) SetTagFilters(v []*TagFilterForDescribeDBInstancesInput) *DescribeDBInstancesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -358,9 +358,13 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	ExpiredTime *string `type:"string"`
 
+	InstanceClass *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
+
+	MultiAZ *string `type:"string"`
 
 	NodeNumber *int32 `type:"int32"`
 
@@ -423,6 +427,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetExpiredTime(v string) *Instanc
 	return s
 }
 
+// SetInstanceClass sets the InstanceClass field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetInstanceClass(v string) *InstanceForDescribeDBInstancesOutput {
+	s.InstanceClass = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetInstanceId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.InstanceId = &v
@@ -432,6 +442,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetInstanceId(v string) *Instance
 // SetInstanceName sets the InstanceName field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetInstanceName(v string) *InstanceForDescribeDBInstancesOutput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetMultiAZ sets the MultiAZ field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetMultiAZ(v string) *InstanceForDescribeDBInstancesOutput {
+	s.MultiAZ = &v
 	return s
 }
 
@@ -495,7 +511,7 @@ func (s *InstanceForDescribeDBInstancesOutput) SetZoneIds(v []*string) *Instance
 	return s
 }
 
-type TagForDescribeDBInstancesInput struct {
+type TagFilterForDescribeDBInstancesInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
@@ -504,23 +520,23 @@ type TagForDescribeDBInstancesInput struct {
 }
 
 // String returns the string representation
-func (s TagForDescribeDBInstancesInput) String() string {
+func (s TagFilterForDescribeDBInstancesInput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s TagForDescribeDBInstancesInput) GoString() string {
+func (s TagFilterForDescribeDBInstancesInput) GoString() string {
 	return s.String()
 }
 
 // SetKey sets the Key field's value.
-func (s *TagForDescribeDBInstancesInput) SetKey(v string) *TagForDescribeDBInstancesInput {
+func (s *TagFilterForDescribeDBInstancesInput) SetKey(v string) *TagFilterForDescribeDBInstancesInput {
 	s.Key = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *TagForDescribeDBInstancesInput) SetValue(v string) *TagForDescribeDBInstancesInput {
+func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForDescribeDBInstancesInput {
 	s.Value = &v
 	return s
 }

@@ -152,7 +152,7 @@ type AllocateEipAddressInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
-	ISP *string `type:"string" enum:"ISPForAllocateEipAddressInput"`
+	ISP *string `type:"string" enum:"EnumOfISPForAllocateEipAddressInput"`
 
 	Name *string `min:"1" max:"128" type:"string"`
 
@@ -382,33 +382,33 @@ func (s *TagForAllocateEipAddressInput) SetValue(v string) *TagForAllocateEipAdd
 }
 
 const (
-	// ISPForAllocateEipAddressInputBgp is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputBgp is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputBgp = "BGP"
 
-	// ISPForAllocateEipAddressInputSingleLineBgp is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputSingleLineBgp is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputSingleLineBgp = "SingleLine_BGP"
 
-	// ISPForAllocateEipAddressInputStaticBgp is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputStaticBgp is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputStaticBgp = "Static_BGP"
 
-	// ISPForAllocateEipAddressInputFusionBgp is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputFusionBgp is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputFusionBgp = "Fusion_BGP"
 
-	// ISPForAllocateEipAddressInputChinaMobile is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputChinaMobile is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputChinaMobile = "ChinaMobile"
 
-	// ISPForAllocateEipAddressInputChinaUnicom is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputChinaUnicom is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputChinaUnicom = "ChinaUnicom"
 
-	// ISPForAllocateEipAddressInputChinaTelecom is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputChinaTelecom is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputChinaTelecom = "ChinaTelecom"
 
-	// ISPForAllocateEipAddressInputChinaMobileValue is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputChinaMobileValue is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputChinaMobileValue = "ChinaMobile_Value"
 
-	// ISPForAllocateEipAddressInputChinaUnicomValue is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputChinaUnicomValue is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputChinaUnicomValue = "ChinaUnicom_Value"
 
-	// ISPForAllocateEipAddressInputChinaTelecomValue is a ISPForAllocateEipAddressInput enum value
+	// ISPForAllocateEipAddressInputChinaTelecomValue is a EnumOfISPForAllocateEipAddressInput enum value
 	ISPForAllocateEipAddressInputChinaTelecomValue = "ChinaTelecom_Value"
 )

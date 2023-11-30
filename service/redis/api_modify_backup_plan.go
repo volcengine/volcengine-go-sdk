@@ -146,15 +146,17 @@ func (c *REDIS) ModifyBackupPlanWithContext(ctx volcengine.Context, input *Modif
 type ModifyBackupPlanInput struct {
 	_ struct{} `type:"structure"`
 
-	Active *bool `type:"boolean"`
+	// Active is a required field
+	Active *bool `type:"boolean" required:"true"`
 
-	BackupHour *int8 `type:"int8"`
+	BackupHour *int32 `type:"int32"`
 
 	ClientToken *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	Period []*int64 `type:"list"`
+	Period []*int32 `type:"list"`
 }
 
 // String returns the string representation
@@ -167,6 +169,22 @@ func (s ModifyBackupPlanInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyBackupPlanInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyBackupPlanInput"}
+	if s.Active == nil {
+		invalidParams.Add(request.NewErrParamRequired("Active"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetActive sets the Active field's value.
 func (s *ModifyBackupPlanInput) SetActive(v bool) *ModifyBackupPlanInput {
 	s.Active = &v
@@ -174,7 +192,7 @@ func (s *ModifyBackupPlanInput) SetActive(v bool) *ModifyBackupPlanInput {
 }
 
 // SetBackupHour sets the BackupHour field's value.
-func (s *ModifyBackupPlanInput) SetBackupHour(v int8) *ModifyBackupPlanInput {
+func (s *ModifyBackupPlanInput) SetBackupHour(v int32) *ModifyBackupPlanInput {
 	s.BackupHour = &v
 	return s
 }
@@ -192,7 +210,7 @@ func (s *ModifyBackupPlanInput) SetInstanceId(v string) *ModifyBackupPlanInput {
 }
 
 // SetPeriod sets the Period field's value.
-func (s *ModifyBackupPlanInput) SetPeriod(v []*int64) *ModifyBackupPlanInput {
+func (s *ModifyBackupPlanInput) SetPeriod(v []*int32) *ModifyBackupPlanInput {
 	s.Period = v
 	return s
 }

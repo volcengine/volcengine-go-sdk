@@ -143,6 +143,28 @@ func (c *REDIS) CreateDBInstanceWithContext(ctx volcengine.Context, input *Creat
 	return out, req.Send()
 }
 
+type ConfigureNodeForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	AZ *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConfigureNodeForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigureNodeForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAZ sets the AZ field's value.
+func (s *ConfigureNodeForCreateDBInstanceInput) SetAZ(v string) *ConfigureNodeForCreateDBInstanceInput {
+	s.AZ = &v
+	return s
+}
+
 type CreateDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -152,6 +174,8 @@ type CreateDBInstanceInput struct {
 
 	ClientToken *string `type:"string"`
 
+	ConfigureNodes []*ConfigureNodeForCreateDBInstanceInput `type:"list"`
+
 	DeletionProtection *string `type:"string"`
 
 	// EngineVersion is a required field
@@ -159,9 +183,14 @@ type CreateDBInstanceInput struct {
 
 	InstanceName *string `type:"string"`
 
-	NodeNumber *int32 `type:"int32"`
+	// MultiAZ is a required field
+	MultiAZ *string `type:"string" required:"true"`
 
-	Password *string `type:"string"`
+	// NodeNumber is a required field
+	NodeNumber *int32 `type:"int32" required:"true"`
+
+	// Password is a required field
+	Password *string `type:"string" required:"true"`
 
 	Port *int32 `type:"int32"`
 
@@ -177,11 +206,16 @@ type CreateDBInstanceInput struct {
 
 	ShardNumber *int32 `type:"int32"`
 
-	ShardedCluster *int32 `type:"int32"`
+	// ShardedCluster is a required field
+	ShardedCluster *int32 `type:"int32" required:"true"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 
-	VpcId *string `type:"string"`
+	Tags []*TagForCreateDBInstanceInput `type:"list"`
+
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
 	ZoneIds []*string `type:"list"`
 }
@@ -202,11 +236,29 @@ func (s *CreateDBInstanceInput) Validate() error {
 	if s.EngineVersion == nil {
 		invalidParams.Add(request.NewErrParamRequired("EngineVersion"))
 	}
+	if s.MultiAZ == nil {
+		invalidParams.Add(request.NewErrParamRequired("MultiAZ"))
+	}
+	if s.NodeNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
+	}
+	if s.Password == nil {
+		invalidParams.Add(request.NewErrParamRequired("Password"))
+	}
 	if s.RegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RegionId"))
 	}
 	if s.ShardCapacity == nil {
 		invalidParams.Add(request.NewErrParamRequired("ShardCapacity"))
+	}
+	if s.ShardedCluster == nil {
+		invalidParams.Add(request.NewErrParamRequired("ShardedCluster"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -233,6 +285,12 @@ func (s *CreateDBInstanceInput) SetClientToken(v string) *CreateDBInstanceInput 
 	return s
 }
 
+// SetConfigureNodes sets the ConfigureNodes field's value.
+func (s *CreateDBInstanceInput) SetConfigureNodes(v []*ConfigureNodeForCreateDBInstanceInput) *CreateDBInstanceInput {
+	s.ConfigureNodes = v
+	return s
+}
+
 // SetDeletionProtection sets the DeletionProtection field's value.
 func (s *CreateDBInstanceInput) SetDeletionProtection(v string) *CreateDBInstanceInput {
 	s.DeletionProtection = &v
@@ -248,6 +306,12 @@ func (s *CreateDBInstanceInput) SetEngineVersion(v string) *CreateDBInstanceInpu
 // SetInstanceName sets the InstanceName field's value.
 func (s *CreateDBInstanceInput) SetInstanceName(v string) *CreateDBInstanceInput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetMultiAZ sets the MultiAZ field's value.
+func (s *CreateDBInstanceInput) SetMultiAZ(v string) *CreateDBInstanceInput {
+	s.MultiAZ = &v
 	return s
 }
 
@@ -311,6 +375,12 @@ func (s *CreateDBInstanceInput) SetSubnetId(v string) *CreateDBInstanceInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateDBInstanceInput) SetTags(v []*TagForCreateDBInstanceInput) *CreateDBInstanceInput {
+	s.Tags = v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 	s.VpcId = &v
@@ -352,5 +422,35 @@ func (s *CreateDBInstanceOutput) SetInstanceId(v string) *CreateDBInstanceOutput
 // SetOrderNO sets the OrderNO field's value.
 func (s *CreateDBInstanceOutput) SetOrderNO(v string) *CreateDBInstanceOutput {
 	s.OrderNO = &v
+	return s
+}
+
+type TagForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateDBInstanceInput) SetKey(v string) *TagForCreateDBInstanceInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateDBInstanceInput) SetValue(v string) *TagForCreateDBInstanceInput {
+	s.Value = &v
 	return s
 }

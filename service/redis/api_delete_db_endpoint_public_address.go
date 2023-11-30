@@ -148,9 +148,6 @@ type DeleteDBEndpointPublicAddressInput struct {
 
 	ClientToken *string `type:"string"`
 
-	// EipId is a required field
-	EipId *string `type:"string" required:"true"`
-
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 }
@@ -168,9 +165,6 @@ func (s DeleteDBEndpointPublicAddressInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DeleteDBEndpointPublicAddressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteDBEndpointPublicAddressInput"}
-	if s.EipId == nil {
-		invalidParams.Add(request.NewErrParamRequired("EipId"))
-	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
@@ -184,12 +178,6 @@ func (s *DeleteDBEndpointPublicAddressInput) Validate() error {
 // SetClientToken sets the ClientToken field's value.
 func (s *DeleteDBEndpointPublicAddressInput) SetClientToken(v string) *DeleteDBEndpointPublicAddressInput {
 	s.ClientToken = &v
-	return s
-}
-
-// SetEipId sets the EipId field's value.
-func (s *DeleteDBEndpointPublicAddressInput) SetEipId(v string) *DeleteDBEndpointPublicAddressInput {
-	s.EipId = &v
 	return s
 }
 

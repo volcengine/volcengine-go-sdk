@@ -182,6 +182,10 @@ type DescribeVpcsInput struct {
 
 	IsDefault *bool `type:"boolean"`
 
+	MaxResults *int64 `min:"1" max:"100" type:"integer"`
+
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
@@ -208,6 +212,12 @@ func (s DescribeVpcsInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeVpcsInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeVpcsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
 	if s.PageSize != nil && *s.PageSize > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
 	}
@@ -221,6 +231,18 @@ func (s *DescribeVpcsInput) Validate() error {
 // SetIsDefault sets the IsDefault field's value.
 func (s *DescribeVpcsInput) SetIsDefault(v bool) *DescribeVpcsInput {
 	s.IsDefault = &v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *DescribeVpcsInput) SetMaxResults(v int64) *DescribeVpcsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeVpcsInput) SetNextToken(v string) *DescribeVpcsInput {
+	s.NextToken = &v
 	return s
 }
 
@@ -265,6 +287,8 @@ type DescribeVpcsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	NextToken *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -284,6 +308,12 @@ func (s DescribeVpcsOutput) String() string {
 // GoString returns the string representation
 func (s DescribeVpcsOutput) GoString() string {
 	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *DescribeVpcsOutput) SetNextToken(v string) *DescribeVpcsOutput {
+	s.NextToken = &v
+	return s
 }
 
 // SetPageNumber sets the PageNumber field's value.
