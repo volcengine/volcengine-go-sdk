@@ -3,8 +3,6 @@
 package clb
 
 import (
-	"fmt"
-
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -147,8 +145,7 @@ type AddServerGroupBackendServersInput struct {
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
 
-	// Servers is a required field
-	Servers []*ServerForAddServerGroupBackendServersInput `type:"list" required:"true"`
+	Servers []*ServerForAddServerGroupBackendServersInput `type:"list"`
 }
 
 // String returns the string representation
@@ -166,19 +163,6 @@ func (s *AddServerGroupBackendServersInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AddServerGroupBackendServersInput"}
 	if s.ServerGroupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
-	}
-	if s.Servers == nil {
-		invalidParams.Add(request.NewErrParamRequired("Servers"))
-	}
-	if s.Servers != nil {
-		for i, v := range s.Servers {
-			if v == nil {
-				continue
-			}
-			if err := v.Validate(); err != nil {
-				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Servers", i), err.(request.ErrInvalidParams))
-			}
-		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -236,17 +220,13 @@ type ServerForAddServerGroupBackendServersInput struct {
 
 	Description *string `type:"string"`
 
-	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string"`
 
-	// Ip is a required field
-	Ip *string `type:"string" required:"true"`
+	Ip *string `type:"string"`
 
-	// Port is a required field
-	Port *int64 `type:"integer" required:"true"`
+	Port *int64 `type:"integer"`
 
-	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `type:"string"`
 
 	Weight *int64 `type:"integer"`
 }
@@ -259,28 +239,6 @@ func (s ServerForAddServerGroupBackendServersInput) String() string {
 // GoString returns the string representation
 func (s ServerForAddServerGroupBackendServersInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *ServerForAddServerGroupBackendServersInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "ServerForAddServerGroupBackendServersInput"}
-	if s.InstanceId == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
-	}
-	if s.Ip == nil {
-		invalidParams.Add(request.NewErrParamRequired("Ip"))
-	}
-	if s.Port == nil {
-		invalidParams.Add(request.NewErrParamRequired("Port"))
-	}
-	if s.Type == nil {
-		invalidParams.Add(request.NewErrParamRequired("Type"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetDescription sets the Description field's value.

@@ -149,7 +149,7 @@ type ListTagsForResourcesInput struct {
 	ResourceIds []*string `type:"list"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"ResourceTypeForListTagsForResourcesInput"`
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForListTagsForResourcesInput"`
 
 	TagFilters []*TagFilterForListTagsForResourcesInput `type:"list"`
 
@@ -335,6 +335,6 @@ func (s *TagFilterForListTagsForResourcesInput) SetValues(v []*string) *TagFilte
 }
 
 const (
-	// ResourceTypeForListTagsForResourcesInputClb is a ResourceTypeForListTagsForResourcesInput enum value
+	// ResourceTypeForListTagsForResourcesInputClb is a EnumOfResourceTypeForListTagsForResourcesInput enum value
 	ResourceTypeForListTagsForResourcesInputClb = "CLB"
 )

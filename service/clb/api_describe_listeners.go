@@ -388,6 +388,8 @@ type ListenerForDescribeListenersOutput struct {
 
 	ProxyProtocolType *string `type:"string"`
 
+	Scheduler *string `type:"string"`
+
 	ServerGroupId *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -504,6 +506,12 @@ func (s *ListenerForDescribeListenersOutput) SetProtocol(v string) *ListenerForD
 // SetProxyProtocolType sets the ProxyProtocolType field's value.
 func (s *ListenerForDescribeListenersOutput) SetProxyProtocolType(v string) *ListenerForDescribeListenersOutput {
 	s.ProxyProtocolType = &v
+	return s
+}
+
+// SetScheduler sets the Scheduler field's value.
+func (s *ListenerForDescribeListenersOutput) SetScheduler(v string) *ListenerForDescribeListenersOutput {
+	s.Scheduler = &v
 	return s
 }
 
