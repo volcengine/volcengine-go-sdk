@@ -156,7 +156,7 @@ type AutoScalingForListNodePoolsOutput struct {
 
 	Priority *int32 `type:"int32"`
 
-	SubnetPolicy *string `type:"string" enum:"EnumOfSubnetPolicyForListNodePoolsOutput"`
+	SubnetPolicy *string `type:"string"`
 }
 
 // String returns the string representation
@@ -272,7 +272,7 @@ type DataVolumeForListNodePoolsOutput struct {
 
 	Size *int32 `type:"int32"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForListNodePoolsOutput"`
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -990,7 +990,7 @@ type SystemVolumeForListNodePoolsOutput struct {
 
 	Size *int32 `type:"int32"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForListNodePoolsOutput"`
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -1174,34 +1174,4 @@ const (
 
 	// EnumOfPhaseForListNodePoolsInputUpdating is a EnumOfPhaseForListNodePoolsInput enum value
 	EnumOfPhaseForListNodePoolsInputUpdating = "Updating"
-)
-
-const (
-	// EnumOfSecurityStrategyListForListNodePoolsOutputHids is a EnumOfSecurityStrategyListForListNodePoolsOutput enum value
-	EnumOfSecurityStrategyListForListNodePoolsOutputHids = "Hids"
-)
-
-const (
-	// EnumOfSubnetPolicyForListNodePoolsOutputZoneBalance is a EnumOfSubnetPolicyForListNodePoolsOutput enum value
-	EnumOfSubnetPolicyForListNodePoolsOutputZoneBalance = "ZoneBalance"
-
-	// EnumOfSubnetPolicyForListNodePoolsOutputPriority is a EnumOfSubnetPolicyForListNodePoolsOutput enum value
-	EnumOfSubnetPolicyForListNodePoolsOutputPriority = "Priority"
-)
-
-const (
-	// EnumOfTypeForListNodePoolsOutputEssdPl0 is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputEssdPl0 = "ESSD_PL0"
-
-	// EnumOfTypeForListNodePoolsOutputEssdFlexPl is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputEssdFlexPl = "ESSD_FlexPL"
-
-	// EnumOfTypeForListNodePoolsOutputEssdPl1 is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputEssdPl1 = "ESSD_PL1"
-
-	// EnumOfTypeForListNodePoolsOutputEssd is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputEssd = "ESSD"
-
-	// EnumOfTypeForListNodePoolsOutputPtssd is a EnumOfTypeForListNodePoolsOutput enum value
-	EnumOfTypeForListNodePoolsOutputPtssd = "PTSSD"
 )

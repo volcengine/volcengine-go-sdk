@@ -152,6 +152,8 @@ type DeleteClusterInput struct {
 
 	// Id is a required field
 	Id *string `type:"string" required:"true"`
+
+	RetainResources []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -195,6 +197,12 @@ func (s *DeleteClusterInput) SetId(v string) *DeleteClusterInput {
 	return s
 }
 
+// SetRetainResources sets the RetainResources field's value.
+func (s *DeleteClusterInput) SetRetainResources(v []*string) *DeleteClusterInput {
+	s.RetainResources = v
+	return s
+}
+
 type DeleteClusterOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -226,4 +234,27 @@ const (
 
 	// EnumOfCascadingDeleteResourceListForDeleteClusterInputTryBest is a EnumOfCascadingDeleteResourceListForDeleteClusterInput enum value
 	EnumOfCascadingDeleteResourceListForDeleteClusterInputTryBest = "TryBest"
+)
+
+const (
+	// EnumOfRetainResourceListForDeleteClusterInputDefaultNodePoolResource is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputDefaultNodePoolResource = "DefaultNodePoolResource"
+
+	// EnumOfRetainResourceListForDeleteClusterInputNodePoolResource is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputNodePoolResource = "NodePoolResource"
+
+	// EnumOfRetainResourceListForDeleteClusterInputAlb is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputAlb = "Alb"
+
+	// EnumOfRetainResourceListForDeleteClusterInputClb is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputClb = "Clb"
+
+	// EnumOfRetainResourceListForDeleteClusterInputNat is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputNat = "Nat"
+
+	// EnumOfRetainResourceListForDeleteClusterInputSecurityGroup is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputSecurityGroup = "SecurityGroup"
+
+	// EnumOfRetainResourceListForDeleteClusterInputAll is a EnumOfRetainResourceListForDeleteClusterInput enum value
+	EnumOfRetainResourceListForDeleteClusterInputAll = "All"
 )

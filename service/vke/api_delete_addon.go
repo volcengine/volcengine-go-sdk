@@ -153,6 +153,8 @@ type DeleteAddonInput struct {
 
 	// Name is a required field
 	Name *string `type:"string" required:"true"`
+
+	RetainResources []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -199,6 +201,12 @@ func (s *DeleteAddonInput) SetName(v string) *DeleteAddonInput {
 	return s
 }
 
+// SetRetainResources sets the RetainResources field's value.
+func (s *DeleteAddonInput) SetRetainResources(v []*string) *DeleteAddonInput {
+	s.RetainResources = v
+	return s
+}
+
 type DeleteAddonOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -218,4 +226,9 @@ func (s DeleteAddonOutput) GoString() string {
 const (
 	// EnumOfCascadingDeleteResourceListForDeleteAddonInputCrd is a EnumOfCascadingDeleteResourceListForDeleteAddonInput enum value
 	EnumOfCascadingDeleteResourceListForDeleteAddonInputCrd = "Crd"
+)
+
+const (
+	// EnumOfRetainResourceListForDeleteAddonInputCrd is a EnumOfRetainResourceListForDeleteAddonInput enum value
+	EnumOfRetainResourceListForDeleteAddonInputCrd = "Crd"
 )

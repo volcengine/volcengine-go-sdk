@@ -126,6 +126,14 @@ type VKEAPI interface {
 	ForwardKubernetesApiWithContext(volcengine.Context, *ForwardKubernetesApiInput, ...request.Option) (*ForwardKubernetesApiOutput, error)
 	ForwardKubernetesApiRequest(*ForwardKubernetesApiInput) (*request.Request, *ForwardKubernetesApiOutput)
 
+	GetGlobalDefaultDeleteOptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetGlobalDefaultDeleteOptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetGlobalDefaultDeleteOptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetGlobalDefaultDeleteOption(*GetGlobalDefaultDeleteOptionInput) (*GetGlobalDefaultDeleteOptionOutput, error)
+	GetGlobalDefaultDeleteOptionWithContext(volcengine.Context, *GetGlobalDefaultDeleteOptionInput, ...request.Option) (*GetGlobalDefaultDeleteOptionOutput, error)
+	GetGlobalDefaultDeleteOptionRequest(*GetGlobalDefaultDeleteOptionInput) (*request.Request, *GetGlobalDefaultDeleteOptionOutput)
+
 	ListAddonsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAddonsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAddonsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -189,6 +197,14 @@ type VKEAPI interface {
 	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
+	SetGlobalDefaultDeleteOptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetGlobalDefaultDeleteOptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetGlobalDefaultDeleteOptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetGlobalDefaultDeleteOption(*SetGlobalDefaultDeleteOptionInput) (*SetGlobalDefaultDeleteOptionOutput, error)
+	SetGlobalDefaultDeleteOptionWithContext(volcengine.Context, *SetGlobalDefaultDeleteOptionInput, ...request.Option) (*SetGlobalDefaultDeleteOptionOutput, error)
+	SetGlobalDefaultDeleteOptionRequest(*SetGlobalDefaultDeleteOptionInput) (*request.Request, *SetGlobalDefaultDeleteOptionOutput)
 
 	TagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	TagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
