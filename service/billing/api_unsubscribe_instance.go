@@ -176,11 +176,13 @@ func (s *SuccessInstanceInfoForUnsubscribeInstanceOutput) SetProduct(v string) *
 type UnsubscribeInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `max:"36" type:"string"`
 
-	InstanceID *string `type:"string"`
+	// InstanceID is a required field
+	InstanceID *string `type:"string" required:"true"`
 
-	Product *string `type:"string"`
+	// Product is a required field
+	Product *string `type:"string" required:"true"`
 
 	UnsubscribeRelatedInstance *bool `type:"boolean"`
 }
@@ -193,6 +195,25 @@ func (s UnsubscribeInstanceInput) String() string {
 // GoString returns the string representation
 func (s UnsubscribeInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UnsubscribeInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UnsubscribeInstanceInput"}
+	if s.ClientToken != nil && len(*s.ClientToken) > 36 {
+		invalidParams.Add(request.NewErrParamMaxLen("ClientToken", 36, *s.ClientToken))
+	}
+	if s.InstanceID == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceID"))
+	}
+	if s.Product == nil {
+		invalidParams.Add(request.NewErrParamRequired("Product"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

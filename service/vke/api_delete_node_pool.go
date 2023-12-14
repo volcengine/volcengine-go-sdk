@@ -153,6 +153,8 @@ type DeleteNodePoolInput struct {
 
 	// Id is a required field
 	Id *string `type:"string" required:"true"`
+
+	RetainResources []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -199,6 +201,12 @@ func (s *DeleteNodePoolInput) SetId(v string) *DeleteNodePoolInput {
 	return s
 }
 
+// SetRetainResources sets the RetainResources field's value.
+func (s *DeleteNodePoolInput) SetRetainResources(v []*string) *DeleteNodePoolInput {
+	s.RetainResources = v
+	return s
+}
+
 type DeleteNodePoolOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -218,4 +226,9 @@ func (s DeleteNodePoolOutput) GoString() string {
 const (
 	// EnumOfCascadingDeleteResourceListForDeleteNodePoolInputEcs is a EnumOfCascadingDeleteResourceListForDeleteNodePoolInput enum value
 	EnumOfCascadingDeleteResourceListForDeleteNodePoolInputEcs = "Ecs"
+)
+
+const (
+	// EnumOfRetainResourceListForDeleteNodePoolInputEcs is a EnumOfRetainResourceListForDeleteNodePoolInput enum value
+	EnumOfRetainResourceListForDeleteNodePoolInputEcs = "Ecs"
 )
