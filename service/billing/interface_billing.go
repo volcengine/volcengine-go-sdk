@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // BILLING.
 //    func myFunc(svc BILLINGAPI) bool {
-//        // Make svc.QueryBalanceAcct request
+//        // Make svc.ListAmortizedCostBillDetail request
 //    }
 //
 //    func main() {
@@ -30,6 +30,62 @@ import (
 //    }
 //
 type BILLINGAPI interface {
+	ListAmortizedCostBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAmortizedCostBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAmortizedCostBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAmortizedCostBillDetail(*ListAmortizedCostBillDetailInput) (*ListAmortizedCostBillDetailOutput, error)
+	ListAmortizedCostBillDetailWithContext(volcengine.Context, *ListAmortizedCostBillDetailInput, ...request.Option) (*ListAmortizedCostBillDetailOutput, error)
+	ListAmortizedCostBillDetailRequest(*ListAmortizedCostBillDetailInput) (*request.Request, *ListAmortizedCostBillDetailOutput)
+
+	ListAmortizedCostBillMonthlyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAmortizedCostBillMonthlyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAmortizedCostBillMonthlyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAmortizedCostBillMonthly(*ListAmortizedCostBillMonthlyInput) (*ListAmortizedCostBillMonthlyOutput, error)
+	ListAmortizedCostBillMonthlyWithContext(volcengine.Context, *ListAmortizedCostBillMonthlyInput, ...request.Option) (*ListAmortizedCostBillMonthlyOutput, error)
+	ListAmortizedCostBillMonthlyRequest(*ListAmortizedCostBillMonthlyInput) (*request.Request, *ListAmortizedCostBillMonthlyOutput)
+
+	ListBillCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBillCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBillCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBill(*ListBillInput) (*ListBillOutput, error)
+	ListBillWithContext(volcengine.Context, *ListBillInput, ...request.Option) (*ListBillOutput, error)
+	ListBillRequest(*ListBillInput) (*request.Request, *ListBillOutput)
+
+	ListBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBillDetail(*ListBillDetailInput) (*ListBillDetailOutput, error)
+	ListBillDetailWithContext(volcengine.Context, *ListBillDetailInput, ...request.Option) (*ListBillDetailOutput, error)
+	ListBillDetailRequest(*ListBillDetailInput) (*request.Request, *ListBillDetailOutput)
+
+	ListBillOverviewByCategoryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBillOverviewByCategoryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBillOverviewByCategoryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBillOverviewByCategory(*ListBillOverviewByCategoryInput) (*ListBillOverviewByCategoryOutput, error)
+	ListBillOverviewByCategoryWithContext(volcengine.Context, *ListBillOverviewByCategoryInput, ...request.Option) (*ListBillOverviewByCategoryOutput, error)
+	ListBillOverviewByCategoryRequest(*ListBillOverviewByCategoryInput) (*request.Request, *ListBillOverviewByCategoryOutput)
+
+	ListBillOverviewByProdCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListBillOverviewByProdCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListBillOverviewByProdCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListBillOverviewByProd(*ListBillOverviewByProdInput) (*ListBillOverviewByProdOutput, error)
+	ListBillOverviewByProdWithContext(volcengine.Context, *ListBillOverviewByProdInput, ...request.Option) (*ListBillOverviewByProdOutput, error)
+	ListBillOverviewByProdRequest(*ListBillOverviewByProdInput) (*request.Request, *ListBillOverviewByProdOutput)
+
+	ListSplitBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSplitBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSplitBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSplitBillDetail(*ListSplitBillDetailInput) (*ListSplitBillDetailOutput, error)
+	ListSplitBillDetailWithContext(volcengine.Context, *ListSplitBillDetailInput, ...request.Option) (*ListSplitBillDetailOutput, error)
+	ListSplitBillDetailRequest(*ListSplitBillDetailInput) (*request.Request, *ListSplitBillDetailOutput)
+
 	QueryBalanceAcctCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryBalanceAcctCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	QueryBalanceAcctCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
