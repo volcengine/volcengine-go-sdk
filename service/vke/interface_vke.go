@@ -174,6 +174,14 @@ type VKEAPI interface {
 	ListNodesWithContext(volcengine.Context, *ListNodesInput, ...request.Option) (*ListNodesOutput, error)
 	ListNodesRequest(*ListNodesInput) (*request.Request, *ListNodesOutput)
 
+	ListScalingEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListScalingEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListScalingEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListScalingEvents(*ListScalingEventsInput) (*ListScalingEventsOutput, error)
+	ListScalingEventsWithContext(volcengine.Context, *ListScalingEventsInput, ...request.Option) (*ListScalingEventsOutput, error)
+	ListScalingEventsRequest(*ListScalingEventsInput) (*request.Request, *ListScalingEventsOutput)
+
 	ListSupportedAddonsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSupportedAddonsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSupportedAddonsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
