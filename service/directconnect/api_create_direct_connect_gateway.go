@@ -22,13 +22,13 @@ const opCreateDirectConnectGatewayCommon = "CreateDirectConnectGateway"
 // See CreateDirectConnectGatewayCommon for more information on using the CreateDirectConnectGatewayCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDirectConnectGatewayCommonRequest method.
-//	req, resp := client.CreateDirectConnectGatewayCommonRequest(params)
+//    // Example sending a request using the CreateDirectConnectGatewayCommonRequest method.
+//    req, resp := client.CreateDirectConnectGatewayCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) CreateDirectConnectGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectGatewayCommon,
@@ -87,13 +87,13 @@ const opCreateDirectConnectGateway = "CreateDirectConnectGateway"
 // See CreateDirectConnectGateway for more information on using the CreateDirectConnectGateway
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDirectConnectGatewayRequest method.
-//	req, resp := client.CreateDirectConnectGatewayRequest(params)
+//    // Example sending a request using the CreateDirectConnectGatewayRequest method.
+//    req, resp := client.CreateDirectConnectGatewayRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) CreateDirectConnectGatewayRequest(input *CreateDirectConnectGatewayInput) (req *request.Request, output *CreateDirectConnectGatewayOutput) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectGateway,
@@ -146,8 +146,9 @@ type CreateDirectConnectGatewayInput struct {
 
 	Description *string `type:"string"`
 
-	// DirectConnectGatewayName is a required field
-	DirectConnectGatewayName *string `type:"string" required:"true"`
+	DirectConnectGatewayName *string `type:"string"`
+
+	EnableIpv6 *bool `type:"boolean"`
 
 	Tags []*TagForCreateDirectConnectGatewayInput `type:"list"`
 }
@@ -160,19 +161,6 @@ func (s CreateDirectConnectGatewayInput) String() string {
 // GoString returns the string representation
 func (s CreateDirectConnectGatewayInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *CreateDirectConnectGatewayInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "CreateDirectConnectGatewayInput"}
-	if s.DirectConnectGatewayName == nil {
-		invalidParams.Add(request.NewErrParamRequired("DirectConnectGatewayName"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -190,6 +178,12 @@ func (s *CreateDirectConnectGatewayInput) SetDescription(v string) *CreateDirect
 // SetDirectConnectGatewayName sets the DirectConnectGatewayName field's value.
 func (s *CreateDirectConnectGatewayInput) SetDirectConnectGatewayName(v string) *CreateDirectConnectGatewayInput {
 	s.DirectConnectGatewayName = &v
+	return s
+}
+
+// SetEnableIpv6 sets the EnableIpv6 field's value.
+func (s *CreateDirectConnectGatewayInput) SetEnableIpv6(v bool) *CreateDirectConnectGatewayInput {
+	s.EnableIpv6 = &v
 	return s
 }
 

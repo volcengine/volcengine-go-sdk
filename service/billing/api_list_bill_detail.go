@@ -153,6 +153,8 @@ type ListBillDetailInput struct {
 
 	BillingMode []*string `type:"list"`
 
+	ExpenseDate *string `type:"string"`
+
 	GroupPeriod *int32 `type:"int32"`
 
 	GroupTerm *int32 `type:"int32"`
@@ -212,6 +214,12 @@ func (s *ListBillDetailInput) SetBillPeriod(v string) *ListBillDetailInput {
 // SetBillingMode sets the BillingMode field's value.
 func (s *ListBillDetailInput) SetBillingMode(v []*string) *ListBillDetailInput {
 	s.BillingMode = v
+	return s
+}
+
+// SetExpenseDate sets the ExpenseDate field's value.
+func (s *ListBillDetailInput) SetExpenseDate(v string) *ListBillDetailInput {
+	s.ExpenseDate = &v
 	return s
 }
 

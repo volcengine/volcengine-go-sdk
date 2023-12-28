@@ -22,13 +22,13 @@ const opDescribeDirectConnectConnectionsCommon = "DescribeDirectConnectConnectio
 // See DescribeDirectConnectConnectionsCommon for more information on using the DescribeDirectConnectConnectionsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectConnectionsCommonRequest method.
-//	req, resp := client.DescribeDirectConnectConnectionsCommonRequest(params)
+//    // Example sending a request using the DescribeDirectConnectConnectionsCommonRequest method.
+//    req, resp := client.DescribeDirectConnectConnectionsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectConnectionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectConnectionsCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectConnections = "DescribeDirectConnectConnections"
 // See DescribeDirectConnectConnections for more information on using the DescribeDirectConnectConnections
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectConnectionsRequest method.
-//	req, resp := client.DescribeDirectConnectConnectionsRequest(params)
+//    // Example sending a request using the DescribeDirectConnectConnectionsRequest method.
+//    req, resp := client.DescribeDirectConnectConnectionsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectConnectionsRequest(input *DescribeDirectConnectConnectionsInput) (req *request.Request, output *DescribeDirectConnectConnectionsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectConnections,
@@ -142,8 +142,6 @@ func (c *DIRECTCONNECT) DescribeDirectConnectConnectionsWithContext(ctx volcengi
 type DescribeDirectConnectConnectionsInput struct {
 	_ struct{} `type:"structure"`
 
-	AccessPoint *string `type:"string"`
-
 	ConnectionType *string `type:"string"`
 
 	DirectConnectAccessPointId *string `type:"string"`
@@ -154,13 +152,13 @@ type DescribeDirectConnectConnectionsInput struct {
 
 	LineOperator *string `type:"string"`
 
-	Operator *string `type:"string"`
-
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
 
 	PeerLocation *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	TagFilters []*TagFilterForDescribeDirectConnectConnectionsInput `type:"list"`
 }
@@ -173,12 +171,6 @@ func (s DescribeDirectConnectConnectionsInput) String() string {
 // GoString returns the string representation
 func (s DescribeDirectConnectConnectionsInput) GoString() string {
 	return s.String()
-}
-
-// SetAccessPoint sets the AccessPoint field's value.
-func (s *DescribeDirectConnectConnectionsInput) SetAccessPoint(v string) *DescribeDirectConnectConnectionsInput {
-	s.AccessPoint = &v
-	return s
 }
 
 // SetConnectionType sets the ConnectionType field's value.
@@ -211,12 +203,6 @@ func (s *DescribeDirectConnectConnectionsInput) SetLineOperator(v string) *Descr
 	return s
 }
 
-// SetOperator sets the Operator field's value.
-func (s *DescribeDirectConnectConnectionsInput) SetOperator(v string) *DescribeDirectConnectConnectionsInput {
-	s.Operator = &v
-	return s
-}
-
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeDirectConnectConnectionsInput) SetPageNumber(v int64) *DescribeDirectConnectConnectionsInput {
 	s.PageNumber = &v
@@ -232,6 +218,12 @@ func (s *DescribeDirectConnectConnectionsInput) SetPageSize(v int64) *DescribeDi
 // SetPeerLocation sets the PeerLocation field's value.
 func (s *DescribeDirectConnectConnectionsInput) SetPeerLocation(v string) *DescribeDirectConnectConnectionsInput {
 	s.PeerLocation = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeDirectConnectConnectionsInput) SetProjectName(v string) *DescribeDirectConnectConnectionsInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -343,6 +335,8 @@ type DirectConnectConnectionForDescribeDirectConnectConnectionsOutput struct {
 	PortSpec *string `type:"string"`
 
 	PortType *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -495,6 +489,12 @@ func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetPo
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetProjectName(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) SetStatus(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 	s.Status = &v
@@ -523,6 +523,8 @@ type TagFilterForDescribeDirectConnectConnectionsInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -538,6 +540,12 @@ func (s TagFilterForDescribeDirectConnectConnectionsInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeDirectConnectConnectionsInput) SetKey(v string) *TagFilterForDescribeDirectConnectConnectionsInput {
 	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeDirectConnectConnectionsInput) SetValues(v []*string) *TagFilterForDescribeDirectConnectConnectionsInput {
+	s.Values = v
 	return s
 }
 

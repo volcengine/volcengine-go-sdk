@@ -22,13 +22,13 @@ const opDeleteBgpPeerCommon = "DeleteBgpPeer"
 // See DeleteBgpPeerCommon for more information on using the DeleteBgpPeerCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteBgpPeerCommonRequest method.
-//	req, resp := client.DeleteBgpPeerCommonRequest(params)
+//    // Example sending a request using the DeleteBgpPeerCommonRequest method.
+//    req, resp := client.DeleteBgpPeerCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DeleteBgpPeerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteBgpPeerCommon,
@@ -87,13 +87,13 @@ const opDeleteBgpPeer = "DeleteBgpPeer"
 // See DeleteBgpPeer for more information on using the DeleteBgpPeer
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteBgpPeerRequest method.
-//	req, resp := client.DeleteBgpPeerRequest(params)
+//    // Example sending a request using the DeleteBgpPeerRequest method.
+//    req, resp := client.DeleteBgpPeerRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DeleteBgpPeerRequest(input *DeleteBgpPeerInput) (req *request.Request, output *DeleteBgpPeerOutput) {
 	op := &request.Operation{
 		Name:       opDeleteBgpPeer,

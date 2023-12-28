@@ -22,13 +22,13 @@ const opDescribeDirectConnectGatewaysCommon = "DescribeDirectConnectGateways"
 // See DescribeDirectConnectGatewaysCommon for more information on using the DescribeDirectConnectGatewaysCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectGatewaysCommonRequest method.
-//	req, resp := client.DescribeDirectConnectGatewaysCommonRequest(params)
+//    // Example sending a request using the DescribeDirectConnectGatewaysCommonRequest method.
+//    req, resp := client.DescribeDirectConnectGatewaysCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewaysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectGatewaysCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectGateways = "DescribeDirectConnectGateways"
 // See DescribeDirectConnectGateways for more information on using the DescribeDirectConnectGateways
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectGatewaysRequest method.
-//	req, resp := client.DescribeDirectConnectGatewaysRequest(params)
+//    // Example sending a request using the DescribeDirectConnectGatewaysRequest method.
+//    req, resp := client.DescribeDirectConnectGatewaysRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewaysRequest(input *DescribeDirectConnectGatewaysInput) (req *request.Request, output *DescribeDirectConnectGatewaysOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectGateways,
@@ -314,6 +314,8 @@ type DirectConnectGatewayForDescribeDirectConnectGatewaysOutput struct {
 
 	DirectConnectGatewayName *string `type:"string"`
 
+	EnableIpv6 *bool `type:"boolean"`
+
 	LockReason *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
@@ -383,6 +385,12 @@ func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetDirectCo
 	return s
 }
 
+// SetEnableIpv6 sets the EnableIpv6 field's value.
+func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetEnableIpv6(v bool) *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
+	s.EnableIpv6 = &v
+	return s
+}
+
 // SetLockReason sets the LockReason field's value.
 func (s *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput) SetLockReason(v string) *DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
 	s.LockReason = &v
@@ -417,6 +425,8 @@ type TagFilterForDescribeDirectConnectGatewaysInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
+
+	Value []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -432,6 +442,12 @@ func (s TagFilterForDescribeDirectConnectGatewaysInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeDirectConnectGatewaysInput) SetKey(v string) *TagFilterForDescribeDirectConnectGatewaysInput {
 	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagFilterForDescribeDirectConnectGatewaysInput) SetValue(v []*string) *TagFilterForDescribeDirectConnectGatewaysInput {
+	s.Value = v
 	return s
 }
 

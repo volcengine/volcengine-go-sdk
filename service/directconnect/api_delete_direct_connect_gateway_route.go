@@ -22,13 +22,13 @@ const opDeleteDirectConnectGatewayRouteCommon = "DeleteDirectConnectGatewayRoute
 // See DeleteDirectConnectGatewayRouteCommon for more information on using the DeleteDirectConnectGatewayRouteCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDirectConnectGatewayRouteCommonRequest method.
-//	req, resp := client.DeleteDirectConnectGatewayRouteCommonRequest(params)
+//    // Example sending a request using the DeleteDirectConnectGatewayRouteCommonRequest method.
+//    req, resp := client.DeleteDirectConnectGatewayRouteCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DeleteDirectConnectGatewayRouteCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDirectConnectGatewayRouteCommon,
@@ -87,13 +87,13 @@ const opDeleteDirectConnectGatewayRoute = "DeleteDirectConnectGatewayRoute"
 // See DeleteDirectConnectGatewayRoute for more information on using the DeleteDirectConnectGatewayRoute
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDirectConnectGatewayRouteRequest method.
-//	req, resp := client.DeleteDirectConnectGatewayRouteRequest(params)
+//    // Example sending a request using the DeleteDirectConnectGatewayRouteRequest method.
+//    req, resp := client.DeleteDirectConnectGatewayRouteRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DeleteDirectConnectGatewayRouteRequest(input *DeleteDirectConnectGatewayRouteInput) (req *request.Request, output *DeleteDirectConnectGatewayRouteOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDirectConnectGatewayRoute,

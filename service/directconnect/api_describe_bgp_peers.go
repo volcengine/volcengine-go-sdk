@@ -22,13 +22,13 @@ const opDescribeBgpPeersCommon = "DescribeBgpPeers"
 // See DescribeBgpPeersCommon for more information on using the DescribeBgpPeersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBgpPeersCommonRequest method.
-//	req, resp := client.DescribeBgpPeersCommonRequest(params)
+//    // Example sending a request using the DescribeBgpPeersCommonRequest method.
+//    req, resp := client.DescribeBgpPeersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeBgpPeersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeBgpPeersCommon,
@@ -87,13 +87,13 @@ const opDescribeBgpPeers = "DescribeBgpPeers"
 // See DescribeBgpPeers for more information on using the DescribeBgpPeers
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBgpPeersRequest method.
-//	req, resp := client.DescribeBgpPeersRequest(params)
+//    // Example sending a request using the DescribeBgpPeersRequest method.
+//    req, resp := client.DescribeBgpPeersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeBgpPeersRequest(input *DescribeBgpPeersInput) (req *request.Request, output *DescribeBgpPeersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeBgpPeers,
@@ -154,6 +154,8 @@ type BgpPeerForDescribeBgpPeersOutput struct {
 
 	Description *string `type:"string"`
 
+	IpVersion *string `type:"string"`
+
 	LocalAsn *int64 `type:"integer"`
 
 	RemoteAsn *int64 `type:"integer"`
@@ -213,6 +215,12 @@ func (s *BgpPeerForDescribeBgpPeersOutput) SetDescription(v string) *BgpPeerForD
 	return s
 }
 
+// SetIpVersion sets the IpVersion field's value.
+func (s *BgpPeerForDescribeBgpPeersOutput) SetIpVersion(v string) *BgpPeerForDescribeBgpPeersOutput {
+	s.IpVersion = &v
+	return s
+}
+
 // SetLocalAsn sets the LocalAsn field's value.
 func (s *BgpPeerForDescribeBgpPeersOutput) SetLocalAsn(v int64) *BgpPeerForDescribeBgpPeersOutput {
 	s.LocalAsn = &v
@@ -258,6 +266,8 @@ type DescribeBgpPeersInput struct {
 
 	DirectConnectGatewayId *string `type:"string"`
 
+	IpVersion *string `type:"string"`
+
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
@@ -292,6 +302,12 @@ func (s *DescribeBgpPeersInput) SetBgpPeerName(v string) *DescribeBgpPeersInput 
 // SetDirectConnectGatewayId sets the DirectConnectGatewayId field's value.
 func (s *DescribeBgpPeersInput) SetDirectConnectGatewayId(v string) *DescribeBgpPeersInput {
 	s.DirectConnectGatewayId = &v
+	return s
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *DescribeBgpPeersInput) SetIpVersion(v string) *DescribeBgpPeersInput {
+	s.IpVersion = &v
 	return s
 }
 
