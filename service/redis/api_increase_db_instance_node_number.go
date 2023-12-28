@@ -181,7 +181,7 @@ type IncreaseDBInstanceNodeNumberInput struct {
 	InstanceId *string `type:"string" required:"true"`
 
 	// NodesNumberToIncrease is a required field
-	NodesNumberToIncrease *string `type:"string" required:"true"`
+	NodesNumberToIncrease *int32 `type:"int32" required:"true"`
 }
 
 // String returns the string representation
@@ -244,7 +244,7 @@ func (s *IncreaseDBInstanceNodeNumberInput) SetInstanceId(v string) *IncreaseDBI
 }
 
 // SetNodesNumberToIncrease sets the NodesNumberToIncrease field's value.
-func (s *IncreaseDBInstanceNodeNumberInput) SetNodesNumberToIncrease(v string) *IncreaseDBInstanceNodeNumberInput {
+func (s *IncreaseDBInstanceNodeNumberInput) SetNodesNumberToIncrease(v int32) *IncreaseDBInstanceNodeNumberInput {
 	s.NodesNumberToIncrease = &v
 	return s
 }

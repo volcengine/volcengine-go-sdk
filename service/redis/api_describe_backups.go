@@ -148,9 +148,9 @@ type BackupForDescribeBackupsOutput struct {
 
 	BackupPointId *string `type:"string"`
 
-	BackupStrategy *string `type:"string"`
+	BackupStrategy *string `type:"string" enum:"EnumOfBackupStrategyForDescribeBackupsOutput"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" enum:"EnumOfBackupTypeForDescribeBackupsOutput"`
 
 	EndTime *string `type:"string"`
 
@@ -162,7 +162,7 @@ type BackupForDescribeBackupsOutput struct {
 
 	StartTime *string `type:"string"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"EnumOfStatusForDescribeBackupsOutput"`
 }
 
 // String returns the string representation
@@ -340,9 +340,11 @@ func (s *DescribeBackupsOutput) SetTotal(v int32) *DescribeBackupsOutput {
 type InstanceDetailForDescribeBackupsOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *int32 `type:"int32"`
+	AccountId *int64 `type:"int64"`
 
 	ArchType *string `type:"string"`
+
+	AutoRenew *bool `type:"boolean"`
 
 	ChargeType *string `type:"string"`
 
@@ -358,13 +360,9 @@ type InstanceDetailForDescribeBackupsOutput struct {
 
 	NetworkType *string `type:"string"`
 
-	ProjectName *string `type:"string"`
-
 	RegionId *string `type:"string"`
 
 	Replicas *int32 `type:"int32"`
-
-	ServerCpu *int32 `type:"int32"`
 
 	ShardCapacity *int64 `type:"int64"`
 
@@ -390,7 +388,7 @@ func (s InstanceDetailForDescribeBackupsOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetAccountId(v int32) *InstanceDetailForDescribeBackupsOutput {
+func (s *InstanceDetailForDescribeBackupsOutput) SetAccountId(v int64) *InstanceDetailForDescribeBackupsOutput {
 	s.AccountId = &v
 	return s
 }
@@ -398,6 +396,12 @@ func (s *InstanceDetailForDescribeBackupsOutput) SetAccountId(v int32) *Instance
 // SetArchType sets the ArchType field's value.
 func (s *InstanceDetailForDescribeBackupsOutput) SetArchType(v string) *InstanceDetailForDescribeBackupsOutput {
 	s.ArchType = &v
+	return s
+}
+
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *InstanceDetailForDescribeBackupsOutput) SetAutoRenew(v bool) *InstanceDetailForDescribeBackupsOutput {
+	s.AutoRenew = &v
 	return s
 }
 
@@ -443,12 +447,6 @@ func (s *InstanceDetailForDescribeBackupsOutput) SetNetworkType(v string) *Insta
 	return s
 }
 
-// SetProjectName sets the ProjectName field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetProjectName(v string) *InstanceDetailForDescribeBackupsOutput {
-	s.ProjectName = &v
-	return s
-}
-
 // SetRegionId sets the RegionId field's value.
 func (s *InstanceDetailForDescribeBackupsOutput) SetRegionId(v string) *InstanceDetailForDescribeBackupsOutput {
 	s.RegionId = &v
@@ -458,12 +456,6 @@ func (s *InstanceDetailForDescribeBackupsOutput) SetRegionId(v string) *Instance
 // SetReplicas sets the Replicas field's value.
 func (s *InstanceDetailForDescribeBackupsOutput) SetReplicas(v int32) *InstanceDetailForDescribeBackupsOutput {
 	s.Replicas = &v
-	return s
-}
-
-// SetServerCpu sets the ServerCpu field's value.
-func (s *InstanceDetailForDescribeBackupsOutput) SetServerCpu(v int32) *InstanceDetailForDescribeBackupsOutput {
-	s.ServerCpu = &v
 	return s
 }
 
@@ -532,3 +524,45 @@ func (s *VpcInfoForDescribeBackupsOutput) SetName(v string) *VpcInfoForDescribeB
 	s.Name = &v
 	return s
 }
+
+const (
+	// EnumOfBackupStrategyForDescribeBackupsOutputManualBackup is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
+	EnumOfBackupStrategyForDescribeBackupsOutputManualBackup = "ManualBackup"
+
+	// EnumOfBackupStrategyForDescribeBackupsOutputAutomatedBackup is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
+	EnumOfBackupStrategyForDescribeBackupsOutputAutomatedBackup = "AutomatedBackup"
+
+	// EnumOfBackupStrategyForDescribeBackupsOutputDataFlashBack is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
+	EnumOfBackupStrategyForDescribeBackupsOutputDataFlashBack = "DataFlashBack"
+
+	// EnumOfBackupStrategyForDescribeBackupsOutputAllStrategy is a EnumOfBackupStrategyForDescribeBackupsOutput enum value
+	EnumOfBackupStrategyForDescribeBackupsOutputAllStrategy = "AllStrategy"
+)
+
+const (
+	// EnumOfBackupTypeForDescribeBackupsOutputInvalid is a EnumOfBackupTypeForDescribeBackupsOutput enum value
+	EnumOfBackupTypeForDescribeBackupsOutputInvalid = "Invalid"
+
+	// EnumOfBackupTypeForDescribeBackupsOutputFull is a EnumOfBackupTypeForDescribeBackupsOutput enum value
+	EnumOfBackupTypeForDescribeBackupsOutputFull = "Full"
+
+	// EnumOfBackupTypeForDescribeBackupsOutputInc is a EnumOfBackupTypeForDescribeBackupsOutput enum value
+	EnumOfBackupTypeForDescribeBackupsOutputInc = "Inc"
+
+	// EnumOfBackupTypeForDescribeBackupsOutputAll is a EnumOfBackupTypeForDescribeBackupsOutput enum value
+	EnumOfBackupTypeForDescribeBackupsOutputAll = "All"
+)
+
+const (
+	// EnumOfStatusForDescribeBackupsOutputCreating is a EnumOfStatusForDescribeBackupsOutput enum value
+	EnumOfStatusForDescribeBackupsOutputCreating = "Creating"
+
+	// EnumOfStatusForDescribeBackupsOutputAvailable is a EnumOfStatusForDescribeBackupsOutput enum value
+	EnumOfStatusForDescribeBackupsOutputAvailable = "Available"
+
+	// EnumOfStatusForDescribeBackupsOutputUnavailable is a EnumOfStatusForDescribeBackupsOutput enum value
+	EnumOfStatusForDescribeBackupsOutputUnavailable = "Unavailable"
+
+	// EnumOfStatusForDescribeBackupsOutputDeleting is a EnumOfStatusForDescribeBackupsOutput enum value
+	EnumOfStatusForDescribeBackupsOutputDeleting = "Deleting"
+)

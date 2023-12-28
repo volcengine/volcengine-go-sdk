@@ -168,6 +168,8 @@ func (s *ConfigureNodeForCreateDBInstanceInput) SetAZ(v string) *ConfigureNodeFo
 type CreateDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	AllowListIds []*string `type:"list"`
+
 	AutoRenew *bool `type:"boolean"`
 
 	ChargeType *string `type:"string"`
@@ -216,8 +218,6 @@ type CreateDBInstanceInput struct {
 
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
-
-	ZoneIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -265,6 +265,12 @@ func (s *CreateDBInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *CreateDBInstanceInput) SetAllowListIds(v []*string) *CreateDBInstanceInput {
+	s.AllowListIds = v
+	return s
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -384,12 +390,6 @@ func (s *CreateDBInstanceInput) SetTags(v []*TagForCreateDBInstanceInput) *Creat
 // SetVpcId sets the VpcId field's value.
 func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 	s.VpcId = &v
-	return s
-}
-
-// SetZoneIds sets the ZoneIds field's value.
-func (s *CreateDBInstanceInput) SetZoneIds(v []*string) *CreateDBInstanceInput {
-	s.ZoneIds = v
 	return s
 }
 
