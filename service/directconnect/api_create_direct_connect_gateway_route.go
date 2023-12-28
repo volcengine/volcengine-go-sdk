@@ -22,13 +22,13 @@ const opCreateDirectConnectGatewayRouteCommon = "CreateDirectConnectGatewayRoute
 // See CreateDirectConnectGatewayRouteCommon for more information on using the CreateDirectConnectGatewayRouteCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDirectConnectGatewayRouteCommonRequest method.
-//	req, resp := client.CreateDirectConnectGatewayRouteCommonRequest(params)
+//    // Example sending a request using the CreateDirectConnectGatewayRouteCommonRequest method.
+//    req, resp := client.CreateDirectConnectGatewayRouteCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) CreateDirectConnectGatewayRouteCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectGatewayRouteCommon,
@@ -87,13 +87,13 @@ const opCreateDirectConnectGatewayRoute = "CreateDirectConnectGatewayRoute"
 // See CreateDirectConnectGatewayRoute for more information on using the CreateDirectConnectGatewayRoute
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDirectConnectGatewayRouteRequest method.
-//	req, resp := client.CreateDirectConnectGatewayRouteRequest(params)
+//    // Example sending a request using the CreateDirectConnectGatewayRouteRequest method.
+//    req, resp := client.CreateDirectConnectGatewayRouteRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) CreateDirectConnectGatewayRouteRequest(input *CreateDirectConnectGatewayRouteInput) (req *request.Request, output *CreateDirectConnectGatewayRouteOutput) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectGatewayRoute,

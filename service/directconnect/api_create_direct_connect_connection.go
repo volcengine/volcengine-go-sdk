@@ -22,13 +22,13 @@ const opCreateDirectConnectConnectionCommon = "CreateDirectConnectConnection"
 // See CreateDirectConnectConnectionCommon for more information on using the CreateDirectConnectConnectionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDirectConnectConnectionCommonRequest method.
-//	req, resp := client.CreateDirectConnectConnectionCommonRequest(params)
+//    // Example sending a request using the CreateDirectConnectConnectionCommonRequest method.
+//    req, resp := client.CreateDirectConnectConnectionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) CreateDirectConnectConnectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectConnectionCommon,
@@ -87,13 +87,13 @@ const opCreateDirectConnectConnection = "CreateDirectConnectConnection"
 // See CreateDirectConnectConnection for more information on using the CreateDirectConnectConnection
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDirectConnectConnectionRequest method.
-//	req, resp := client.CreateDirectConnectConnectionRequest(params)
+//    // Example sending a request using the CreateDirectConnectConnectionRequest method.
+//    req, resp := client.CreateDirectConnectConnectionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) CreateDirectConnectConnectionRequest(input *CreateDirectConnectConnectionInput) (req *request.Request, output *CreateDirectConnectConnectionOutput) {
 	op := &request.Operation{
 		Name:       opCreateDirectConnectConnection,
@@ -163,6 +163,8 @@ type CreateDirectConnectConnectionInput struct {
 
 	DirectConnectConnectionName *string `type:"string"`
 
+	DriectConnectAccessPointId *string `type:"string"`
+
 	// LineOperator is a required field
 	LineOperator *string `type:"string" required:"true"`
 
@@ -174,6 +176,8 @@ type CreateDirectConnectConnectionInput struct {
 
 	// PortType is a required field
 	PortType *string `type:"string" required:"true"`
+
+	ProjectName *string `type:"string"`
 
 	Tags []*TagForCreateDirectConnectConnectionInput `type:"list"`
 }
@@ -273,6 +277,12 @@ func (s *CreateDirectConnectConnectionInput) SetDirectConnectConnectionName(v st
 	return s
 }
 
+// SetDriectConnectAccessPointId sets the DriectConnectAccessPointId field's value.
+func (s *CreateDirectConnectConnectionInput) SetDriectConnectAccessPointId(v string) *CreateDirectConnectConnectionInput {
+	s.DriectConnectAccessPointId = &v
+	return s
+}
+
 // SetLineOperator sets the LineOperator field's value.
 func (s *CreateDirectConnectConnectionInput) SetLineOperator(v string) *CreateDirectConnectConnectionInput {
 	s.LineOperator = &v
@@ -294,6 +304,12 @@ func (s *CreateDirectConnectConnectionInput) SetPortSpec(v string) *CreateDirect
 // SetPortType sets the PortType field's value.
 func (s *CreateDirectConnectConnectionInput) SetPortType(v string) *CreateDirectConnectConnectionInput {
 	s.PortType = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateDirectConnectConnectionInput) SetProjectName(v string) *CreateDirectConnectConnectionInput {
+	s.ProjectName = &v
 	return s
 }
 

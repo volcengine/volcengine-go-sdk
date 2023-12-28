@@ -22,13 +22,13 @@ const opDescribeBgpPeerAttributesCommon = "DescribeBgpPeerAttributes"
 // See DescribeBgpPeerAttributesCommon for more information on using the DescribeBgpPeerAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBgpPeerAttributesCommonRequest method.
-//	req, resp := client.DescribeBgpPeerAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeBgpPeerAttributesCommonRequest method.
+//    req, resp := client.DescribeBgpPeerAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeBgpPeerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeBgpPeerAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeBgpPeerAttributes = "DescribeBgpPeerAttributes"
 // See DescribeBgpPeerAttributes for more information on using the DescribeBgpPeerAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBgpPeerAttributesRequest method.
-//	req, resp := client.DescribeBgpPeerAttributesRequest(params)
+//    // Example sending a request using the DescribeBgpPeerAttributesRequest method.
+//    req, resp := client.DescribeBgpPeerAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeBgpPeerAttributesRequest(input *DescribeBgpPeerAttributesInput) (req *request.Request, output *DescribeBgpPeerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeBgpPeerAttributes,
@@ -192,6 +192,8 @@ type DescribeBgpPeerAttributesOutput struct {
 
 	Description *string `type:"string"`
 
+	IpVersion *string `type:"string"`
+
 	LocalAsn *int64 `type:"integer"`
 
 	RemoteAsn *int64 `type:"integer"`
@@ -250,6 +252,12 @@ func (s *DescribeBgpPeerAttributesOutput) SetCreationTime(v string) *DescribeBgp
 // SetDescription sets the Description field's value.
 func (s *DescribeBgpPeerAttributesOutput) SetDescription(v string) *DescribeBgpPeerAttributesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *DescribeBgpPeerAttributesOutput) SetIpVersion(v string) *DescribeBgpPeerAttributesOutput {
+	s.IpVersion = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opDescribeDirectConnectAccessPointsCommon = "DescribeDirectConnectAccessPo
 // See DescribeDirectConnectAccessPointsCommon for more information on using the DescribeDirectConnectAccessPointsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectAccessPointsCommonRequest method.
-//	req, resp := client.DescribeDirectConnectAccessPointsCommonRequest(params)
+//    // Example sending a request using the DescribeDirectConnectAccessPointsCommonRequest method.
+//    req, resp := client.DescribeDirectConnectAccessPointsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectAccessPointsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectAccessPointsCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectAccessPoints = "DescribeDirectConnectAccessPoints"
 // See DescribeDirectConnectAccessPoints for more information on using the DescribeDirectConnectAccessPoints
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectAccessPointsRequest method.
-//	req, resp := client.DescribeDirectConnectAccessPointsRequest(params)
+//    // Example sending a request using the DescribeDirectConnectAccessPointsRequest method.
+//    req, resp := client.DescribeDirectConnectAccessPointsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectAccessPointsRequest(input *DescribeDirectConnectAccessPointsInput) (req *request.Request, output *DescribeDirectConnectAccessPointsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectAccessPoints,

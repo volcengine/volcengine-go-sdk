@@ -22,13 +22,13 @@ const opCreateBgpPeerCommon = "CreateBgpPeer"
 // See CreateBgpPeerCommon for more information on using the CreateBgpPeerCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateBgpPeerCommonRequest method.
-//	req, resp := client.CreateBgpPeerCommonRequest(params)
+//    // Example sending a request using the CreateBgpPeerCommonRequest method.
+//    req, resp := client.CreateBgpPeerCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) CreateBgpPeerCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateBgpPeerCommon,
@@ -87,13 +87,13 @@ const opCreateBgpPeer = "CreateBgpPeer"
 // See CreateBgpPeer for more information on using the CreateBgpPeer
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateBgpPeerRequest method.
-//	req, resp := client.CreateBgpPeerRequest(params)
+//    // Example sending a request using the CreateBgpPeerRequest method.
+//    req, resp := client.CreateBgpPeerRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) CreateBgpPeerRequest(input *CreateBgpPeerInput) (req *request.Request, output *CreateBgpPeerOutput) {
 	op := &request.Operation{
 		Name:       opCreateBgpPeer,
@@ -144,9 +144,11 @@ type CreateBgpPeerInput struct {
 
 	AuthKey *string `type:"string"`
 
-	BgpPeerName *string `min:"1" max:"128" type:"string"`
+	BgpPeerName *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
+
+	IpVersion *string `type:"string"`
 
 	// RemoteAsn is a required field
 	RemoteAsn *int64 `type:"integer" required:"true"`
@@ -168,18 +170,6 @@ func (s CreateBgpPeerInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateBgpPeerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateBgpPeerInput"}
-	if s.BgpPeerName != nil && len(*s.BgpPeerName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("BgpPeerName", 1))
-	}
-	if s.BgpPeerName != nil && len(*s.BgpPeerName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("BgpPeerName", 128, *s.BgpPeerName))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
 	if s.RemoteAsn == nil {
 		invalidParams.Add(request.NewErrParamRequired("RemoteAsn"))
 	}
@@ -208,6 +198,12 @@ func (s *CreateBgpPeerInput) SetBgpPeerName(v string) *CreateBgpPeerInput {
 // SetDescription sets the Description field's value.
 func (s *CreateBgpPeerInput) SetDescription(v string) *CreateBgpPeerInput {
 	s.Description = &v
+	return s
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *CreateBgpPeerInput) SetIpVersion(v string) *CreateBgpPeerInput {
+	s.IpVersion = &v
 	return s
 }
 

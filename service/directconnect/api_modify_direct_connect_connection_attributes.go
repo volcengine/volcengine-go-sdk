@@ -22,13 +22,13 @@ const opModifyDirectConnectConnectionAttributesCommon = "ModifyDirectConnectConn
 // See ModifyDirectConnectConnectionAttributesCommon for more information on using the ModifyDirectConnectConnectionAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDirectConnectConnectionAttributesCommonRequest method.
-//	req, resp := client.ModifyDirectConnectConnectionAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyDirectConnectConnectionAttributesCommonRequest method.
+//    req, resp := client.ModifyDirectConnectConnectionAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) ModifyDirectConnectConnectionAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDirectConnectConnectionAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyDirectConnectConnectionAttributes = "ModifyDirectConnectConnection
 // See ModifyDirectConnectConnectionAttributes for more information on using the ModifyDirectConnectConnectionAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDirectConnectConnectionAttributesRequest method.
-//	req, resp := client.ModifyDirectConnectConnectionAttributesRequest(params)
+//    // Example sending a request using the ModifyDirectConnectConnectionAttributesRequest method.
+//    req, resp := client.ModifyDirectConnectConnectionAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) ModifyDirectConnectConnectionAttributesRequest(input *ModifyDirectConnectConnectionAttributesInput) (req *request.Request, output *ModifyDirectConnectConnectionAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyDirectConnectConnectionAttributes,
@@ -154,6 +154,8 @@ type ModifyDirectConnectConnectionAttributesInput struct {
 	DirectConnectConnectionId *string `type:"string" required:"true"`
 
 	DirectConnectConnectionName *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -212,6 +214,12 @@ func (s *ModifyDirectConnectConnectionAttributesInput) SetDirectConnectConnectio
 // SetDirectConnectConnectionName sets the DirectConnectConnectionName field's value.
 func (s *ModifyDirectConnectConnectionAttributesInput) SetDirectConnectConnectionName(v string) *ModifyDirectConnectConnectionAttributesInput {
 	s.DirectConnectConnectionName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *ModifyDirectConnectConnectionAttributesInput) SetProjectName(v string) *ModifyDirectConnectConnectionAttributesInput {
+	s.ProjectName = &v
 	return s
 }
 

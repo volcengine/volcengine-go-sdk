@@ -22,13 +22,13 @@ const opDescribeDirectConnectGatewayRoutesCommon = "DescribeDirectConnectGateway
 // See DescribeDirectConnectGatewayRoutesCommon for more information on using the DescribeDirectConnectGatewayRoutesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectGatewayRoutesCommonRequest method.
-//	req, resp := client.DescribeDirectConnectGatewayRoutesCommonRequest(params)
+//    // Example sending a request using the DescribeDirectConnectGatewayRoutesCommonRequest method.
+//    req, resp := client.DescribeDirectConnectGatewayRoutesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewayRoutesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectGatewayRoutesCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectGatewayRoutes = "DescribeDirectConnectGatewayRoutes
 // See DescribeDirectConnectGatewayRoutes for more information on using the DescribeDirectConnectGatewayRoutes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectGatewayRoutesRequest method.
-//	req, resp := client.DescribeDirectConnectGatewayRoutesRequest(params)
+//    // Example sending a request using the DescribeDirectConnectGatewayRoutesRequest method.
+//    req, resp := client.DescribeDirectConnectGatewayRoutesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectGatewayRoutesRequest(input *DescribeDirectConnectGatewayRoutesInput) (req *request.Request, output *DescribeDirectConnectGatewayRoutesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectGatewayRoutes,

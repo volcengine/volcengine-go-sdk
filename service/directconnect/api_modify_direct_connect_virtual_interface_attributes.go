@@ -22,13 +22,13 @@ const opModifyDirectConnectVirtualInterfaceAttributesCommon = "ModifyDirectConne
 // See ModifyDirectConnectVirtualInterfaceAttributesCommon for more information on using the ModifyDirectConnectVirtualInterfaceAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDirectConnectVirtualInterfaceAttributesCommonRequest method.
-//	req, resp := client.ModifyDirectConnectVirtualInterfaceAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyDirectConnectVirtualInterfaceAttributesCommonRequest method.
+//    req, resp := client.ModifyDirectConnectVirtualInterfaceAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) ModifyDirectConnectVirtualInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDirectConnectVirtualInterfaceAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyDirectConnectVirtualInterfaceAttributes = "ModifyDirectConnectVirt
 // See ModifyDirectConnectVirtualInterfaceAttributes for more information on using the ModifyDirectConnectVirtualInterfaceAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDirectConnectVirtualInterfaceAttributesRequest method.
-//	req, resp := client.ModifyDirectConnectVirtualInterfaceAttributesRequest(params)
+//    // Example sending a request using the ModifyDirectConnectVirtualInterfaceAttributesRequest method.
+//    req, resp := client.ModifyDirectConnectVirtualInterfaceAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) ModifyDirectConnectVirtualInterfaceAttributesRequest(input *ModifyDirectConnectVirtualInterfaceAttributesInput) (req *request.Request, output *ModifyDirectConnectVirtualInterfaceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyDirectConnectVirtualInterfaceAttributes,
@@ -144,24 +144,28 @@ type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
-	BfdDetectInterval *int64 `min:"200" max:"1000" type:"integer"`
+	BfdDetectInterval *int64 `type:"integer"`
 
-	BfdDetectMultiplier *int64 `min:"3" max:"10" type:"integer"`
+	BfdDetectMultiplier *int64 `type:"integer"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 
 	EnableBfd *bool `type:"boolean"`
 
 	EnableNqa *bool `type:"boolean"`
 
-	NqaDetectInterval *int64 `min:"1000" max:"5000" type:"integer"`
+	LocalIpv6Ip *string `type:"string"`
 
-	NqaDetectMultiplier *int64 `min:"3" max:"8" type:"integer"`
+	NqaDetectInterval *int64 `type:"integer"`
+
+	NqaDetectMultiplier *int64 `type:"integer"`
+
+	PeerIpv6Ip *string `type:"string"`
 
 	// VirtualInterfaceId is a required field
 	VirtualInterfaceId *string `type:"string" required:"true"`
 
-	VirtualInterfaceName *string `min:"1" max:"128" type:"string"`
+	VirtualInterfaceName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -177,44 +181,8 @@ func (s ModifyDirectConnectVirtualInterfaceAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDirectConnectVirtualInterfaceAttributesInput"}
-	if s.BfdDetectInterval != nil && *s.BfdDetectInterval < 200 {
-		invalidParams.Add(request.NewErrParamMinValue("BfdDetectInterval", 200))
-	}
-	if s.BfdDetectInterval != nil && *s.BfdDetectInterval > 1000 {
-		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectInterval", 1000))
-	}
-	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier < 3 {
-		invalidParams.Add(request.NewErrParamMinValue("BfdDetectMultiplier", 3))
-	}
-	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier > 10 {
-		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectMultiplier", 10))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
-	}
-	if s.NqaDetectInterval != nil && *s.NqaDetectInterval < 1000 {
-		invalidParams.Add(request.NewErrParamMinValue("NqaDetectInterval", 1000))
-	}
-	if s.NqaDetectInterval != nil && *s.NqaDetectInterval > 5000 {
-		invalidParams.Add(request.NewErrParamMaxValue("NqaDetectInterval", 5000))
-	}
-	if s.NqaDetectMultiplier != nil && *s.NqaDetectMultiplier < 3 {
-		invalidParams.Add(request.NewErrParamMinValue("NqaDetectMultiplier", 3))
-	}
-	if s.NqaDetectMultiplier != nil && *s.NqaDetectMultiplier > 8 {
-		invalidParams.Add(request.NewErrParamMaxValue("NqaDetectMultiplier", 8))
-	}
 	if s.VirtualInterfaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VirtualInterfaceId"))
-	}
-	if s.VirtualInterfaceName != nil && len(*s.VirtualInterfaceName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("VirtualInterfaceName", 1))
-	}
-	if s.VirtualInterfaceName != nil && len(*s.VirtualInterfaceName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("VirtualInterfaceName", 128, *s.VirtualInterfaceName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -259,6 +227,12 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetEnableNqa(v bool
 	return s
 }
 
+// SetLocalIpv6Ip sets the LocalIpv6Ip field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetLocalIpv6Ip(v string) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.LocalIpv6Ip = &v
+	return s
+}
+
 // SetNqaDetectInterval sets the NqaDetectInterval field's value.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetNqaDetectInterval(v int64) *ModifyDirectConnectVirtualInterfaceAttributesInput {
 	s.NqaDetectInterval = &v
@@ -268,6 +242,12 @@ func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetNqaDetectInterva
 // SetNqaDetectMultiplier sets the NqaDetectMultiplier field's value.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetNqaDetectMultiplier(v int64) *ModifyDirectConnectVirtualInterfaceAttributesInput {
 	s.NqaDetectMultiplier = &v
+	return s
+}
+
+// SetPeerIpv6Ip sets the PeerIpv6Ip field's value.
+func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) SetPeerIpv6Ip(v string) *ModifyDirectConnectVirtualInterfaceAttributesInput {
+	s.PeerIpv6Ip = &v
 	return s
 }
 

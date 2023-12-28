@@ -22,13 +22,13 @@ const opDescribeDirectConnectConnectionAttributesCommon = "DescribeDirectConnect
 // See DescribeDirectConnectConnectionAttributesCommon for more information on using the DescribeDirectConnectConnectionAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectConnectionAttributesCommonRequest method.
-//	req, resp := client.DescribeDirectConnectConnectionAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeDirectConnectConnectionAttributesCommonRequest method.
+//    req, resp := client.DescribeDirectConnectConnectionAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectConnectionAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectConnectionAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectConnectionAttributes = "DescribeDirectConnectConnec
 // See DescribeDirectConnectConnectionAttributes for more information on using the DescribeDirectConnectConnectionAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectConnectionAttributesRequest method.
-//	req, resp := client.DescribeDirectConnectConnectionAttributesRequest(params)
+//    // Example sending a request using the DescribeDirectConnectConnectionAttributesRequest method.
+//    req, resp := client.DescribeDirectConnectConnectionAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectConnectionAttributesRequest(input *DescribeDirectConnectConnectionAttributesInput) (req *request.Request, output *DescribeDirectConnectConnectionAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectConnectionAttributes,
@@ -144,6 +144,8 @@ type DescribeDirectConnectConnectionAttributesInput struct {
 
 	// DirectConnectConnectionId is a required field
 	DirectConnectConnectionId *string `type:"string" required:"true"`
+
+	ProjectName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -175,10 +177,46 @@ func (s *DescribeDirectConnectConnectionAttributesInput) SetDirectConnectConnect
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeDirectConnectConnectionAttributesInput) SetProjectName(v string) *DescribeDirectConnectConnectionAttributesInput {
+	s.ProjectName = &v
+	return s
+}
+
 type DescribeDirectConnectConnectionAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	DirectConnectConnection *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput `type:"structure"`
+
+	RequestId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeDirectConnectConnectionAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeDirectConnectConnectionAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDirectConnectConnection sets the DirectConnectConnection field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetDirectConnectConnection(v *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) *DescribeDirectConnectConnectionAttributesOutput {
+	s.DirectConnectConnection = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeDirectConnectConnectionAttributesOutput) SetRequestId(v string) *DescribeDirectConnectConnectionAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput struct {
+	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
 
@@ -224,7 +262,7 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 
 	PortType *string `type:"string"`
 
-	RequestId *string `type:"string"`
+	ProjectName *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -236,173 +274,173 @@ type DescribeDirectConnectConnectionAttributesOutput struct {
 }
 
 // String returns the string representation
-func (s DescribeDirectConnectConnectionAttributesOutput) String() string {
+func (s DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DescribeDirectConnectConnectionAttributesOutput) GoString() string {
+func (s DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) GoString() string {
 	return s.String()
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetAccountId(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetAccountId(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.AccountId = &v
 	return s
 }
 
 // SetBandwidth sets the Bandwidth field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetBandwidth(v int64) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetBandwidth(v int64) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.Bandwidth = &v
 	return s
 }
 
 // SetBillingType sets the BillingType field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetBillingType(v int64) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetBillingType(v int64) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.BillingType = &v
 	return s
 }
 
 // SetBusinessStatus sets the BusinessStatus field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetBusinessStatus(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetBusinessStatus(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.BusinessStatus = &v
 	return s
 }
 
 // SetConnectionType sets the ConnectionType field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetConnectionType(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetConnectionType(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.ConnectionType = &v
 	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetCreationTime(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetCreationTime(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.CreationTime = &v
 	return s
 }
 
 // SetCustomerContactEmail sets the CustomerContactEmail field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetCustomerContactEmail(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetCustomerContactEmail(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.CustomerContactEmail = &v
 	return s
 }
 
 // SetCustomerContactPhone sets the CustomerContactPhone field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetCustomerContactPhone(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetCustomerContactPhone(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.CustomerContactPhone = &v
 	return s
 }
 
 // SetCustomerName sets the CustomerName field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetCustomerName(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetCustomerName(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.CustomerName = &v
 	return s
 }
 
 // SetDeletedTime sets the DeletedTime field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetDeletedTime(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetDeletedTime(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.DeletedTime = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetDescription(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetDescription(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.Description = &v
 	return s
 }
 
 // SetDirectConnectAccessPointId sets the DirectConnectAccessPointId field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetDirectConnectAccessPointId(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetDirectConnectAccessPointId(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.DirectConnectAccessPointId = &v
 	return s
 }
 
 // SetDirectConnectConnectionId sets the DirectConnectConnectionId field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetDirectConnectConnectionId(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetDirectConnectConnectionId(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.DirectConnectConnectionId = &v
 	return s
 }
 
 // SetDirectConnectConnectionName sets the DirectConnectConnectionName field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetDirectConnectConnectionName(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetDirectConnectConnectionName(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.DirectConnectConnectionName = &v
 	return s
 }
 
 // SetExpectBandwidth sets the ExpectBandwidth field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetExpectBandwidth(v int64) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetExpectBandwidth(v int64) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.ExpectBandwidth = &v
 	return s
 }
 
 // SetExpiredTime sets the ExpiredTime field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetExpiredTime(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetExpiredTime(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.ExpiredTime = &v
 	return s
 }
 
 // SetLineOperator sets the LineOperator field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetLineOperator(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetLineOperator(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.LineOperator = &v
 	return s
 }
 
 // SetParentConnectionAccountId sets the ParentConnectionAccountId field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetParentConnectionAccountId(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetParentConnectionAccountId(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.ParentConnectionAccountId = &v
 	return s
 }
 
 // SetParentConnectionId sets the ParentConnectionId field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetParentConnectionId(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetParentConnectionId(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.ParentConnectionId = &v
 	return s
 }
 
 // SetPeerLocation sets the PeerLocation field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetPeerLocation(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetPeerLocation(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.PeerLocation = &v
 	return s
 }
 
 // SetPortSpec sets the PortSpec field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetPortSpec(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetPortSpec(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.PortSpec = &v
 	return s
 }
 
 // SetPortType sets the PortType field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetPortType(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetPortType(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.PortType = &v
 	return s
 }
 
-// SetRequestId sets the RequestId field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetRequestId(v string) *DescribeDirectConnectConnectionAttributesOutput {
-	s.RequestId = &v
+// SetProjectName sets the ProjectName field's value.
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetProjectName(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
+	s.ProjectName = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetStatus(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetStatus(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.Status = &v
 	return s
 }
 
 // SetTags sets the Tags field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetTags(v []*TagForDescribeDirectConnectConnectionAttributesOutput) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetTags(v []*TagForDescribeDirectConnectConnectionAttributesOutput) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.Tags = v
 	return s
 }
 
 // SetUpdateTime sets the UpdateTime field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetUpdateTime(v string) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetUpdateTime(v string) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.UpdateTime = &v
 	return s
 }
 
 // SetVlanId sets the VlanId field's value.
-func (s *DescribeDirectConnectConnectionAttributesOutput) SetVlanId(v int64) *DescribeDirectConnectConnectionAttributesOutput {
+func (s *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput) SetVlanId(v int64) *DirectConnectConnectionForDescribeDirectConnectConnectionAttributesOutput {
 	s.VlanId = &v
 	return s
 }

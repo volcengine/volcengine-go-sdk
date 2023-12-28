@@ -22,13 +22,13 @@ const opModifyBgpPeerAttributesCommon = "ModifyBgpPeerAttributes"
 // See ModifyBgpPeerAttributesCommon for more information on using the ModifyBgpPeerAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBgpPeerAttributesCommonRequest method.
-//	req, resp := client.ModifyBgpPeerAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyBgpPeerAttributesCommonRequest method.
+//    req, resp := client.ModifyBgpPeerAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) ModifyBgpPeerAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyBgpPeerAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyBgpPeerAttributes = "ModifyBgpPeerAttributes"
 // See ModifyBgpPeerAttributes for more information on using the ModifyBgpPeerAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBgpPeerAttributesRequest method.
-//	req, resp := client.ModifyBgpPeerAttributesRequest(params)
+//    // Example sending a request using the ModifyBgpPeerAttributesRequest method.
+//    req, resp := client.ModifyBgpPeerAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) ModifyBgpPeerAttributesRequest(input *ModifyBgpPeerAttributesInput) (req *request.Request, output *ModifyBgpPeerAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyBgpPeerAttributes,
@@ -145,9 +145,9 @@ type ModifyBgpPeerAttributesInput struct {
 	// BgpPeerId is a required field
 	BgpPeerId *string `type:"string" required:"true"`
 
-	BgpPeerName *string `min:"1" max:"128" type:"string"`
+	BgpPeerName *string `type:"string"`
 
-	Description *string `min:"1" max:"255" type:"string"`
+	Description *string `type:"string"`
 }
 
 // String returns the string representation
@@ -165,18 +165,6 @@ func (s *ModifyBgpPeerAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyBgpPeerAttributesInput"}
 	if s.BgpPeerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BgpPeerId"))
-	}
-	if s.BgpPeerName != nil && len(*s.BgpPeerName) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("BgpPeerName", 1))
-	}
-	if s.BgpPeerName != nil && len(*s.BgpPeerName) > 128 {
-		invalidParams.Add(request.NewErrParamMaxLen("BgpPeerName", 128, *s.BgpPeerName))
-	}
-	if s.Description != nil && len(*s.Description) < 1 {
-		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
-	}
-	if s.Description != nil && len(*s.Description) > 255 {
-		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 
 	if invalidParams.Len() > 0 {

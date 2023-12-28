@@ -22,13 +22,13 @@ const opDeleteDirectConnectGatewayCommon = "DeleteDirectConnectGateway"
 // See DeleteDirectConnectGatewayCommon for more information on using the DeleteDirectConnectGatewayCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDirectConnectGatewayCommonRequest method.
-//	req, resp := client.DeleteDirectConnectGatewayCommonRequest(params)
+//    // Example sending a request using the DeleteDirectConnectGatewayCommonRequest method.
+//    req, resp := client.DeleteDirectConnectGatewayCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DeleteDirectConnectGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDirectConnectGatewayCommon,
@@ -87,13 +87,13 @@ const opDeleteDirectConnectGateway = "DeleteDirectConnectGateway"
 // See DeleteDirectConnectGateway for more information on using the DeleteDirectConnectGateway
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDirectConnectGatewayRequest method.
-//	req, resp := client.DeleteDirectConnectGatewayRequest(params)
+//    // Example sending a request using the DeleteDirectConnectGatewayRequest method.
+//    req, resp := client.DeleteDirectConnectGatewayRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DeleteDirectConnectGatewayRequest(input *DeleteDirectConnectGatewayInput) (req *request.Request, output *DeleteDirectConnectGatewayOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDirectConnectGateway,

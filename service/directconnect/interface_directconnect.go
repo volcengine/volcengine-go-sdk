@@ -16,19 +16,28 @@ import (
 // DIRECTCONNECTAPI provides an interface to enable mocking the
 // directconnect.DIRECTCONNECT service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// DIRECTCONNECT.
-//	func myFunc(svc DIRECTCONNECTAPI) bool {
-//	    // Make svc.CreateBgpPeer request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // DIRECTCONNECT.
+//    func myFunc(svc DIRECTCONNECTAPI) bool {
+//        // Make svc.ApplyDirectConnectConnectionLoa request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := directconnect.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := directconnect.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type DIRECTCONNECTAPI interface {
+	ApplyDirectConnectConnectionLoaCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ApplyDirectConnectConnectionLoaCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ApplyDirectConnectConnectionLoaCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ApplyDirectConnectConnectionLoa(*ApplyDirectConnectConnectionLoaInput) (*ApplyDirectConnectConnectionLoaOutput, error)
+	ApplyDirectConnectConnectionLoaWithContext(volcengine.Context, *ApplyDirectConnectConnectionLoaInput, ...request.Option) (*ApplyDirectConnectConnectionLoaOutput, error)
+	ApplyDirectConnectConnectionLoaRequest(*ApplyDirectConnectConnectionLoaInput) (*request.Request, *ApplyDirectConnectConnectionLoaOutput)
+
 	CreateBgpPeerCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBgpPeerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateBgpPeerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +158,14 @@ type DIRECTCONNECTAPI interface {
 	DescribeDirectConnectConnectionAttributesWithContext(volcengine.Context, *DescribeDirectConnectConnectionAttributesInput, ...request.Option) (*DescribeDirectConnectConnectionAttributesOutput, error)
 	DescribeDirectConnectConnectionAttributesRequest(*DescribeDirectConnectConnectionAttributesInput) (*request.Request, *DescribeDirectConnectConnectionAttributesOutput)
 
+	DescribeDirectConnectConnectionLoaAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDirectConnectConnectionLoaAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDirectConnectConnectionLoaAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDirectConnectConnectionLoaAttributes(*DescribeDirectConnectConnectionLoaAttributesInput) (*DescribeDirectConnectConnectionLoaAttributesOutput, error)
+	DescribeDirectConnectConnectionLoaAttributesWithContext(volcengine.Context, *DescribeDirectConnectConnectionLoaAttributesInput, ...request.Option) (*DescribeDirectConnectConnectionLoaAttributesOutput, error)
+	DescribeDirectConnectConnectionLoaAttributesRequest(*DescribeDirectConnectConnectionLoaAttributesInput) (*request.Request, *DescribeDirectConnectConnectionLoaAttributesOutput)
+
 	DescribeDirectConnectConnectionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDirectConnectConnectionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDirectConnectConnectionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -220,6 +237,14 @@ type DIRECTCONNECTAPI interface {
 	ModifyDirectConnectConnectionAttributes(*ModifyDirectConnectConnectionAttributesInput) (*ModifyDirectConnectConnectionAttributesOutput, error)
 	ModifyDirectConnectConnectionAttributesWithContext(volcengine.Context, *ModifyDirectConnectConnectionAttributesInput, ...request.Option) (*ModifyDirectConnectConnectionAttributesOutput, error)
 	ModifyDirectConnectConnectionAttributesRequest(*ModifyDirectConnectConnectionAttributesInput) (*request.Request, *ModifyDirectConnectConnectionAttributesOutput)
+
+	ModifyDirectConnectConnectionLoaAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDirectConnectConnectionLoaAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDirectConnectConnectionLoaAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDirectConnectConnectionLoaAttributes(*ModifyDirectConnectConnectionLoaAttributesInput) (*ModifyDirectConnectConnectionLoaAttributesOutput, error)
+	ModifyDirectConnectConnectionLoaAttributesWithContext(volcengine.Context, *ModifyDirectConnectConnectionLoaAttributesInput, ...request.Option) (*ModifyDirectConnectConnectionLoaAttributesOutput, error)
+	ModifyDirectConnectConnectionLoaAttributesRequest(*ModifyDirectConnectConnectionLoaAttributesInput) (*request.Request, *ModifyDirectConnectConnectionLoaAttributesOutput)
 
 	ModifyDirectConnectGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDirectConnectGatewayAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

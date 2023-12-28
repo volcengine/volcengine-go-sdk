@@ -22,13 +22,13 @@ const opDescribeDirectConnectVirtualInterfaceAttributesCommon = "DescribeDirectC
 // See DescribeDirectConnectVirtualInterfaceAttributesCommon for more information on using the DescribeDirectConnectVirtualInterfaceAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectVirtualInterfaceAttributesCommonRequest method.
-//	req, resp := client.DescribeDirectConnectVirtualInterfaceAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeDirectConnectVirtualInterfaceAttributesCommonRequest method.
+//    req, resp := client.DescribeDirectConnectVirtualInterfaceAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectVirtualInterfaceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectVirtualInterfaceAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeDirectConnectVirtualInterfaceAttributes = "DescribeDirectConnect
 // See DescribeDirectConnectVirtualInterfaceAttributes for more information on using the DescribeDirectConnectVirtualInterfaceAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDirectConnectVirtualInterfaceAttributesRequest method.
-//	req, resp := client.DescribeDirectConnectVirtualInterfaceAttributesRequest(params)
+//    // Example sending a request using the DescribeDirectConnectVirtualInterfaceAttributesRequest method.
+//    req, resp := client.DescribeDirectConnectVirtualInterfaceAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *DIRECTCONNECT) DescribeDirectConnectVirtualInterfaceAttributesRequest(input *DescribeDirectConnectVirtualInterfaceAttributesInput) (req *request.Request, output *DescribeDirectConnectVirtualInterfaceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDirectConnectVirtualInterfaceAttributes,
@@ -202,11 +202,15 @@ type DescribeDirectConnectVirtualInterfaceAttributesOutput struct {
 
 	LocalIp *string `type:"string"`
 
+	LocalIpv6Ip *string `type:"string"`
+
 	NqaDetectInterval *int64 `type:"integer"`
 
 	NqaDetectMultiplier *int64 `type:"integer"`
 
 	PeerIp *string `type:"string"`
+
+	PeerIpv6Ip *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
@@ -301,6 +305,12 @@ func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetLocalIp(v str
 	return s
 }
 
+// SetLocalIpv6Ip sets the LocalIpv6Ip field's value.
+func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetLocalIpv6Ip(v string) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
+	s.LocalIpv6Ip = &v
+	return s
+}
+
 // SetNqaDetectInterval sets the NqaDetectInterval field's value.
 func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetNqaDetectInterval(v int64) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
 	s.NqaDetectInterval = &v
@@ -316,6 +326,12 @@ func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetNqaDetectMult
 // SetPeerIp sets the PeerIp field's value.
 func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetPeerIp(v string) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
 	s.PeerIp = &v
+	return s
+}
+
+// SetPeerIpv6Ip sets the PeerIpv6Ip field's value.
+func (s *DescribeDirectConnectVirtualInterfaceAttributesOutput) SetPeerIpv6Ip(v string) *DescribeDirectConnectVirtualInterfaceAttributesOutput {
+	s.PeerIpv6Ip = &v
 	return s
 }
 
