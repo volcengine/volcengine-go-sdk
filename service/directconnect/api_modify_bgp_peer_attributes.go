@@ -145,9 +145,9 @@ type ModifyBgpPeerAttributesInput struct {
 	// BgpPeerId is a required field
 	BgpPeerId *string `type:"string" required:"true"`
 
-	BgpPeerName *string `type:"string"`
+	BgpPeerName *string `min:"1" max:"128" type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 }
 
 // String returns the string representation
@@ -165,6 +165,18 @@ func (s *ModifyBgpPeerAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyBgpPeerAttributesInput"}
 	if s.BgpPeerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("BgpPeerId"))
+	}
+	if s.BgpPeerName != nil && len(*s.BgpPeerName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("BgpPeerName", 1))
+	}
+	if s.BgpPeerName != nil && len(*s.BgpPeerName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("BgpPeerName", 128, *s.BgpPeerName))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
 	}
 
 	if invalidParams.Len() > 0 {
