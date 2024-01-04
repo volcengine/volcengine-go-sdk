@@ -22,13 +22,13 @@ const opCreateCenBandwidthPackageCommon = "CreateCenBandwidthPackage"
 // See CreateCenBandwidthPackageCommon for more information on using the CreateCenBandwidthPackageCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCenBandwidthPackageCommonRequest method.
-//	req, resp := client.CreateCenBandwidthPackageCommonRequest(params)
+//    // Example sending a request using the CreateCenBandwidthPackageCommonRequest method.
+//    req, resp := client.CreateCenBandwidthPackageCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) CreateCenBandwidthPackageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCenBandwidthPackageCommon,
@@ -87,13 +87,13 @@ const opCreateCenBandwidthPackage = "CreateCenBandwidthPackage"
 // See CreateCenBandwidthPackage for more information on using the CreateCenBandwidthPackage
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCenBandwidthPackageRequest method.
-//	req, resp := client.CreateCenBandwidthPackageRequest(params)
+//    // Example sending a request using the CreateCenBandwidthPackageRequest method.
+//    req, resp := client.CreateCenBandwidthPackageRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) CreateCenBandwidthPackageRequest(input *CreateCenBandwidthPackageInput) (req *request.Request, output *CreateCenBandwidthPackageOutput) {
 	op := &request.Operation{
 		Name:       opCreateCenBandwidthPackage,
@@ -291,6 +291,8 @@ type CreateCenBandwidthPackageOutput struct {
 	Metadata *response.ResponseMetadata
 
 	CenBandwidthPackageId *string `type:"string"`
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -309,10 +311,18 @@ func (s *CreateCenBandwidthPackageOutput) SetCenBandwidthPackageId(v string) *Cr
 	return s
 }
 
+// SetRequestId sets the RequestId field's value.
+func (s *CreateCenBandwidthPackageOutput) SetRequestId(v string) *CreateCenBandwidthPackageOutput {
+	s.RequestId = &v
+	return s
+}
+
 type TagForCreateCenBandwidthPackageInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
+
+	Value *string `type:"string"`
 }
 
 // String returns the string representation
@@ -331,9 +341,15 @@ func (s *TagForCreateCenBandwidthPackageInput) SetKey(v string) *TagForCreateCen
 	return s
 }
 
+// SetValue sets the Value field's value.
+func (s *TagForCreateCenBandwidthPackageInput) SetValue(v string) *TagForCreateCenBandwidthPackageInput {
+	s.Value = &v
+	return s
+}
+
 const (
-	// PeriodUnitForCreateCenBandwidthPackageInputMoth is a PeriodUnitForCreateCenBandwidthPackageInput enum value
-	PeriodUnitForCreateCenBandwidthPackageInputMoth = "Moth"
+	// PeriodUnitForCreateCenBandwidthPackageInputMonth is a PeriodUnitForCreateCenBandwidthPackageInput enum value
+	PeriodUnitForCreateCenBandwidthPackageInputMonth = "Month"
 
 	// PeriodUnitForCreateCenBandwidthPackageInputYear is a PeriodUnitForCreateCenBandwidthPackageInput enum value
 	PeriodUnitForCreateCenBandwidthPackageInputYear = "Year"

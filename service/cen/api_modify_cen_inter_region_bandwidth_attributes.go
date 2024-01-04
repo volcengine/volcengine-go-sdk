@@ -22,13 +22,13 @@ const opModifyCenInterRegionBandwidthAttributesCommon = "ModifyCenInterRegionBan
 // See ModifyCenInterRegionBandwidthAttributesCommon for more information on using the ModifyCenInterRegionBandwidthAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCenInterRegionBandwidthAttributesCommonRequest method.
-//	req, resp := client.ModifyCenInterRegionBandwidthAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyCenInterRegionBandwidthAttributesCommonRequest method.
+//    req, resp := client.ModifyCenInterRegionBandwidthAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) ModifyCenInterRegionBandwidthAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCenInterRegionBandwidthAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyCenInterRegionBandwidthAttributes = "ModifyCenInterRegionBandwidth
 // See ModifyCenInterRegionBandwidthAttributes for more information on using the ModifyCenInterRegionBandwidthAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCenInterRegionBandwidthAttributesRequest method.
-//	req, resp := client.ModifyCenInterRegionBandwidthAttributesRequest(params)
+//    // Example sending a request using the ModifyCenInterRegionBandwidthAttributesRequest method.
+//    req, resp := client.ModifyCenInterRegionBandwidthAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) ModifyCenInterRegionBandwidthAttributesRequest(input *ModifyCenInterRegionBandwidthAttributesInput) (req *request.Request, output *ModifyCenInterRegionBandwidthAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyCenInterRegionBandwidthAttributes,
@@ -187,6 +187,8 @@ type ModifyCenInterRegionBandwidthAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -197,4 +199,10 @@ func (s ModifyCenInterRegionBandwidthAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyCenInterRegionBandwidthAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyCenInterRegionBandwidthAttributesOutput) SetRequestId(v string) *ModifyCenInterRegionBandwidthAttributesOutput {
+	s.RequestId = &v
+	return s
 }

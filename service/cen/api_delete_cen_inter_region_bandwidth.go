@@ -22,13 +22,13 @@ const opDeleteCenInterRegionBandwidthCommon = "DeleteCenInterRegionBandwidth"
 // See DeleteCenInterRegionBandwidthCommon for more information on using the DeleteCenInterRegionBandwidthCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCenInterRegionBandwidthCommonRequest method.
-//	req, resp := client.DeleteCenInterRegionBandwidthCommonRequest(params)
+//    // Example sending a request using the DeleteCenInterRegionBandwidthCommonRequest method.
+//    req, resp := client.DeleteCenInterRegionBandwidthCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DeleteCenInterRegionBandwidthCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCenInterRegionBandwidthCommon,
@@ -87,13 +87,13 @@ const opDeleteCenInterRegionBandwidth = "DeleteCenInterRegionBandwidth"
 // See DeleteCenInterRegionBandwidth for more information on using the DeleteCenInterRegionBandwidth
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCenInterRegionBandwidthRequest method.
-//	req, resp := client.DeleteCenInterRegionBandwidthRequest(params)
+//    // Example sending a request using the DeleteCenInterRegionBandwidthRequest method.
+//    req, resp := client.DeleteCenInterRegionBandwidthRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DeleteCenInterRegionBandwidthRequest(input *DeleteCenInterRegionBandwidthInput) (req *request.Request, output *DeleteCenInterRegionBandwidthOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCenInterRegionBandwidth,
@@ -179,6 +179,8 @@ type DeleteCenInterRegionBandwidthOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -189,4 +191,10 @@ func (s DeleteCenInterRegionBandwidthOutput) String() string {
 // GoString returns the string representation
 func (s DeleteCenInterRegionBandwidthOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteCenInterRegionBandwidthOutput) SetRequestId(v string) *DeleteCenInterRegionBandwidthOutput {
+	s.RequestId = &v
+	return s
 }

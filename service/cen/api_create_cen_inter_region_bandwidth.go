@@ -22,13 +22,13 @@ const opCreateCenInterRegionBandwidthCommon = "CreateCenInterRegionBandwidth"
 // See CreateCenInterRegionBandwidthCommon for more information on using the CreateCenInterRegionBandwidthCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCenInterRegionBandwidthCommonRequest method.
-//	req, resp := client.CreateCenInterRegionBandwidthCommonRequest(params)
+//    // Example sending a request using the CreateCenInterRegionBandwidthCommonRequest method.
+//    req, resp := client.CreateCenInterRegionBandwidthCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) CreateCenInterRegionBandwidthCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCenInterRegionBandwidthCommon,
@@ -87,13 +87,13 @@ const opCreateCenInterRegionBandwidth = "CreateCenInterRegionBandwidth"
 // See CreateCenInterRegionBandwidth for more information on using the CreateCenInterRegionBandwidth
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCenInterRegionBandwidthRequest method.
-//	req, resp := client.CreateCenInterRegionBandwidthRequest(params)
+//    // Example sending a request using the CreateCenInterRegionBandwidthRequest method.
+//    req, resp := client.CreateCenInterRegionBandwidthRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) CreateCenInterRegionBandwidthRequest(input *CreateCenInterRegionBandwidthInput) (req *request.Request, output *CreateCenInterRegionBandwidthOutput) {
 	op := &request.Operation{
 		Name:       opCreateCenInterRegionBandwidth,
@@ -217,6 +217,8 @@ type CreateCenInterRegionBandwidthOutput struct {
 	Metadata *response.ResponseMetadata
 
 	InterRegionBandwidthId *string `type:"string"`
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -232,5 +234,11 @@ func (s CreateCenInterRegionBandwidthOutput) GoString() string {
 // SetInterRegionBandwidthId sets the InterRegionBandwidthId field's value.
 func (s *CreateCenInterRegionBandwidthOutput) SetInterRegionBandwidthId(v string) *CreateCenInterRegionBandwidthOutput {
 	s.InterRegionBandwidthId = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateCenInterRegionBandwidthOutput) SetRequestId(v string) *CreateCenInterRegionBandwidthOutput {
+	s.RequestId = &v
 	return s
 }

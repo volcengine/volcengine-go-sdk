@@ -22,13 +22,13 @@ const opGrantInstanceToCenCommon = "GrantInstanceToCen"
 // See GrantInstanceToCenCommon for more information on using the GrantInstanceToCenCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GrantInstanceToCenCommonRequest method.
-//	req, resp := client.GrantInstanceToCenCommonRequest(params)
+//    // Example sending a request using the GrantInstanceToCenCommonRequest method.
+//    req, resp := client.GrantInstanceToCenCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) GrantInstanceToCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGrantInstanceToCenCommon,
@@ -87,13 +87,13 @@ const opGrantInstanceToCen = "GrantInstanceToCen"
 // See GrantInstanceToCen for more information on using the GrantInstanceToCen
 // API call, and error handling.
 //
-//	// Example sending a request using the GrantInstanceToCenRequest method.
-//	req, resp := client.GrantInstanceToCenRequest(params)
+//    // Example sending a request using the GrantInstanceToCenRequest method.
+//    req, resp := client.GrantInstanceToCenRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) GrantInstanceToCenRequest(input *GrantInstanceToCenInput) (req *request.Request, output *GrantInstanceToCenOutput) {
 	op := &request.Operation{
 		Name:       opGrantInstanceToCen,
@@ -154,7 +154,8 @@ type GrantInstanceToCenInput struct {
 	// InstanceRegionId is a required field
 	InstanceRegionId *string `type:"string" required:"true"`
 
-	InstanceType *string `type:"string" enum:"InstanceTypeForGrantInstanceToCenInput"`
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForGrantInstanceToCenInput"`
 }
 
 // String returns the string representation
@@ -181,6 +182,9 @@ func (s *GrantInstanceToCenInput) Validate() error {
 	}
 	if s.InstanceRegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceRegionId"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -223,6 +227,8 @@ type GrantInstanceToCenOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -233,6 +239,12 @@ func (s GrantInstanceToCenOutput) String() string {
 // GoString returns the string representation
 func (s GrantInstanceToCenOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *GrantInstanceToCenOutput) SetRequestId(v string) *GrantInstanceToCenOutput {
+	s.RequestId = &v
+	return s
 }
 
 const (

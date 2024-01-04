@@ -22,13 +22,13 @@ const opPublishCenRouteEntryCommon = "PublishCenRouteEntry"
 // See PublishCenRouteEntryCommon for more information on using the PublishCenRouteEntryCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the PublishCenRouteEntryCommonRequest method.
-//	req, resp := client.PublishCenRouteEntryCommonRequest(params)
+//    // Example sending a request using the PublishCenRouteEntryCommonRequest method.
+//    req, resp := client.PublishCenRouteEntryCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) PublishCenRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opPublishCenRouteEntryCommon,
@@ -87,13 +87,13 @@ const opPublishCenRouteEntry = "PublishCenRouteEntry"
 // See PublishCenRouteEntry for more information on using the PublishCenRouteEntry
 // API call, and error handling.
 //
-//	// Example sending a request using the PublishCenRouteEntryRequest method.
-//	req, resp := client.PublishCenRouteEntryRequest(params)
+//    // Example sending a request using the PublishCenRouteEntryRequest method.
+//    req, resp := client.PublishCenRouteEntryRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) PublishCenRouteEntryRequest(input *PublishCenRouteEntryInput) (req *request.Request, output *PublishCenRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opPublishCenRouteEntry,
@@ -227,6 +227,8 @@ type PublishCenRouteEntryOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -237,4 +239,10 @@ func (s PublishCenRouteEntryOutput) String() string {
 // GoString returns the string representation
 func (s PublishCenRouteEntryOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *PublishCenRouteEntryOutput) SetRequestId(v string) *PublishCenRouteEntryOutput {
+	s.RequestId = &v
+	return s
 }
