@@ -143,6 +143,28 @@ func (c *REDIS) ModifyDBInstanceAZConfigureWithContext(ctx volcengine.Context, i
 	return out, req.Send()
 }
 
+type ConfigureNodeForModifyDBInstanceAZConfigureInput struct {
+	_ struct{} `type:"structure"`
+
+	AZ *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConfigureNodeForModifyDBInstanceAZConfigureInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigureNodeForModifyDBInstanceAZConfigureInput) GoString() string {
+	return s.String()
+}
+
+// SetAZ sets the AZ field's value.
+func (s *ConfigureNodeForModifyDBInstanceAZConfigureInput) SetAZ(v string) *ConfigureNodeForModifyDBInstanceAZConfigureInput {
+	s.AZ = &v
+	return s
+}
+
 type ModifyDBInstanceAZConfigureInput struct {
 	_ struct{} `type:"structure"`
 
@@ -151,7 +173,7 @@ type ModifyDBInstanceAZConfigureInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ConfigureNodes []*string `type:"list"`
+	ConfigureNodes []*ConfigureNodeForModifyDBInstanceAZConfigureInput `type:"list"`
 
 	CreateBackup *bool `type:"boolean"`
 
@@ -204,7 +226,7 @@ func (s *ModifyDBInstanceAZConfigureInput) SetClientToken(v string) *ModifyDBIns
 }
 
 // SetConfigureNodes sets the ConfigureNodes field's value.
-func (s *ModifyDBInstanceAZConfigureInput) SetConfigureNodes(v []*string) *ModifyDBInstanceAZConfigureInput {
+func (s *ModifyDBInstanceAZConfigureInput) SetConfigureNodes(v []*ConfigureNodeForModifyDBInstanceAZConfigureInput) *ModifyDBInstanceAZConfigureInput {
 	s.ConfigureNodes = v
 	return s
 }

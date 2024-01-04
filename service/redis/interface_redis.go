@@ -358,14 +358,6 @@ type REDISAPI interface {
 	ModifyDBInstanceNameWithContext(volcengine.Context, *ModifyDBInstanceNameInput, ...request.Option) (*ModifyDBInstanceNameOutput, error)
 	ModifyDBInstanceNameRequest(*ModifyDBInstanceNameInput) (*request.Request, *ModifyDBInstanceNameOutput)
 
-	ModifyDBInstanceNodeNumberCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyDBInstanceNodeNumberCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyDBInstanceNodeNumberCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyDBInstanceNodeNumber(*ModifyDBInstanceNodeNumberInput) (*ModifyDBInstanceNodeNumberOutput, error)
-	ModifyDBInstanceNodeNumberWithContext(volcengine.Context, *ModifyDBInstanceNodeNumberInput, ...request.Option) (*ModifyDBInstanceNodeNumberOutput, error)
-	ModifyDBInstanceNodeNumberRequest(*ModifyDBInstanceNodeNumberInput) (*request.Request, *ModifyDBInstanceNodeNumberOutput)
-
 	ModifyDBInstanceParamsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceParamsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceParamsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

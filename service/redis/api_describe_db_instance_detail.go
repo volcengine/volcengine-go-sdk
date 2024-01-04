@@ -254,6 +254,8 @@ type DescribeDBInstanceDetailOutput struct {
 
 	Status *string `type:"string"`
 
+	SubnetId *string `type:"string"`
+
 	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list"`
 
 	VisitAddrs []*VisitAddrForDescribeDBInstanceDetailOutput `type:"list"`
@@ -392,6 +394,12 @@ func (s *DescribeDBInstanceDetailOutput) SetShardedCluster(v int32) *DescribeDBI
 // SetStatus sets the Status field's value.
 func (s *DescribeDBInstanceDetailOutput) SetStatus(v string) *DescribeDBInstanceDetailOutput {
 	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *DescribeDBInstanceDetailOutput) SetSubnetId(v string) *DescribeDBInstanceDetailOutput {
+	s.SubnetId = &v
 	return s
 }
 

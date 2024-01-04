@@ -153,9 +153,6 @@ type ModifyDBInstanceChargeTypeInput struct {
 
 	ClientToken *string `type:"string"`
 
-	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
-
 	InstanceIds []*string `type:"list"`
 
 	PurchaseMonths *int32 `type:"int32"`
@@ -176,9 +173,6 @@ func (s *ModifyDBInstanceChargeTypeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceChargeTypeInput"}
 	if s.ChargeType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
-	}
-	if s.InstanceId == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -202,12 +196,6 @@ func (s *ModifyDBInstanceChargeTypeInput) SetChargeType(v string) *ModifyDBInsta
 // SetClientToken sets the ClientToken field's value.
 func (s *ModifyDBInstanceChargeTypeInput) SetClientToken(v string) *ModifyDBInstanceChargeTypeInput {
 	s.ClientToken = &v
-	return s
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *ModifyDBInstanceChargeTypeInput) SetInstanceId(v string) *ModifyDBInstanceChargeTypeInput {
-	s.InstanceId = &v
 	return s
 }
 
