@@ -22,13 +22,13 @@ const opWithdrawCenRouteEntryCommon = "WithdrawCenRouteEntry"
 // See WithdrawCenRouteEntryCommon for more information on using the WithdrawCenRouteEntryCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the WithdrawCenRouteEntryCommonRequest method.
-//	req, resp := client.WithdrawCenRouteEntryCommonRequest(params)
+//    // Example sending a request using the WithdrawCenRouteEntryCommonRequest method.
+//    req, resp := client.WithdrawCenRouteEntryCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) WithdrawCenRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opWithdrawCenRouteEntryCommon,
@@ -87,13 +87,13 @@ const opWithdrawCenRouteEntry = "WithdrawCenRouteEntry"
 // See WithdrawCenRouteEntry for more information on using the WithdrawCenRouteEntry
 // API call, and error handling.
 //
-//	// Example sending a request using the WithdrawCenRouteEntryRequest method.
-//	req, resp := client.WithdrawCenRouteEntryRequest(params)
+//    // Example sending a request using the WithdrawCenRouteEntryRequest method.
+//    req, resp := client.WithdrawCenRouteEntryRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) WithdrawCenRouteEntryRequest(input *WithdrawCenRouteEntryInput) (req *request.Request, output *WithdrawCenRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opWithdrawCenRouteEntry,
@@ -227,6 +227,8 @@ type WithdrawCenRouteEntryOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -237,4 +239,10 @@ func (s WithdrawCenRouteEntryOutput) String() string {
 // GoString returns the string representation
 func (s WithdrawCenRouteEntryOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *WithdrawCenRouteEntryOutput) SetRequestId(v string) *WithdrawCenRouteEntryOutput {
+	s.RequestId = &v
+	return s
 }

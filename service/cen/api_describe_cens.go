@@ -22,13 +22,13 @@ const opDescribeCensCommon = "DescribeCens"
 // See DescribeCensCommon for more information on using the DescribeCensCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCensCommonRequest method.
-//	req, resp := client.DescribeCensCommonRequest(params)
+//    // Example sending a request using the DescribeCensCommonRequest method.
+//    req, resp := client.DescribeCensCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCensCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCensCommon,
@@ -87,13 +87,13 @@ const opDescribeCens = "DescribeCens"
 // See DescribeCens for more information on using the DescribeCens
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCensRequest method.
-//	req, resp := client.DescribeCensRequest(params)
+//    // Example sending a request using the DescribeCensRequest method.
+//    req, resp := client.DescribeCensRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCensRequest(input *DescribeCensInput) (req *request.Request, output *DescribeCensOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCens,
@@ -236,7 +236,7 @@ func (s *CenForDescribeCensOutput) SetUpdateTime(v string) *CenForDescribeCensOu
 type DescribeCensInput struct {
 	_ struct{} `type:"structure"`
 
-	CenIds *string `type:"string"`
+	CenIds []*string `type:"list"`
 
 	CenName *string `type:"string"`
 
@@ -260,8 +260,8 @@ func (s DescribeCensInput) GoString() string {
 }
 
 // SetCenIds sets the CenIds field's value.
-func (s *DescribeCensInput) SetCenIds(v string) *DescribeCensInput {
-	s.CenIds = &v
+func (s *DescribeCensInput) SetCenIds(v []*string) *DescribeCensInput {
+	s.CenIds = v
 	return s
 }
 
@@ -306,6 +306,8 @@ type DescribeCensOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	RequestId *string `type:"string"`
+
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -337,6 +339,12 @@ func (s *DescribeCensOutput) SetPageSize(v int64) *DescribeCensOutput {
 	return s
 }
 
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeCensOutput) SetRequestId(v string) *DescribeCensOutput {
+	s.RequestId = &v
+	return s
+}
+
 // SetTotalCount sets the TotalCount field's value.
 func (s *DescribeCensOutput) SetTotalCount(v int64) *DescribeCensOutput {
 	s.TotalCount = &v
@@ -347,6 +355,8 @@ type TagFilterForDescribeCensInput struct {
 	_ struct{} `type:"structure"`
 
 	Key *string `type:"string"`
+
+	Value []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -362,6 +372,12 @@ func (s TagFilterForDescribeCensInput) GoString() string {
 // SetKey sets the Key field's value.
 func (s *TagFilterForDescribeCensInput) SetKey(v string) *TagFilterForDescribeCensInput {
 	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagFilterForDescribeCensInput) SetValue(v []*string) *TagFilterForDescribeCensInput {
+	s.Value = v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opDescribeCenInterRegionBandwidthAttributesCommon = "DescribeCenInterRegio
 // See DescribeCenInterRegionBandwidthAttributesCommon for more information on using the DescribeCenInterRegionBandwidthAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenInterRegionBandwidthAttributesCommonRequest method.
-//	req, resp := client.DescribeCenInterRegionBandwidthAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeCenInterRegionBandwidthAttributesCommonRequest method.
+//    req, resp := client.DescribeCenInterRegionBandwidthAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenInterRegionBandwidthAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenInterRegionBandwidthAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenInterRegionBandwidthAttributes = "DescribeCenInterRegionBandw
 // See DescribeCenInterRegionBandwidthAttributes for more information on using the DescribeCenInterRegionBandwidthAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenInterRegionBandwidthAttributesRequest method.
-//	req, resp := client.DescribeCenInterRegionBandwidthAttributesRequest(params)
+//    // Example sending a request using the DescribeCenInterRegionBandwidthAttributesRequest method.
+//    req, resp := client.DescribeCenInterRegionBandwidthAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenInterRegionBandwidthAttributesRequest(input *DescribeCenInterRegionBandwidthAttributesInput) (req *request.Request, output *DescribeCenInterRegionBandwidthAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenInterRegionBandwidthAttributes,
@@ -194,6 +194,8 @@ type DescribeCenInterRegionBandwidthAttributesOutput struct {
 
 	PeerRegionId *string `type:"string"`
 
+	RequestId *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -248,6 +250,12 @@ func (s *DescribeCenInterRegionBandwidthAttributesOutput) SetLocalRegionId(v str
 // SetPeerRegionId sets the PeerRegionId field's value.
 func (s *DescribeCenInterRegionBandwidthAttributesOutput) SetPeerRegionId(v string) *DescribeCenInterRegionBandwidthAttributesOutput {
 	s.PeerRegionId = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeCenInterRegionBandwidthAttributesOutput) SetRequestId(v string) *DescribeCenInterRegionBandwidthAttributesOutput {
+	s.RequestId = &v
 	return s
 }
 

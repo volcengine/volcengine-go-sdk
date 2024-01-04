@@ -22,13 +22,13 @@ const opDescribeCenServiceRouteEntriesCommon = "DescribeCenServiceRouteEntries"
 // See DescribeCenServiceRouteEntriesCommon for more information on using the DescribeCenServiceRouteEntriesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenServiceRouteEntriesCommonRequest method.
-//	req, resp := client.DescribeCenServiceRouteEntriesCommonRequest(params)
+//    // Example sending a request using the DescribeCenServiceRouteEntriesCommonRequest method.
+//    req, resp := client.DescribeCenServiceRouteEntriesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenServiceRouteEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenServiceRouteEntriesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenServiceRouteEntries = "DescribeCenServiceRouteEntries"
 // See DescribeCenServiceRouteEntries for more information on using the DescribeCenServiceRouteEntries
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenServiceRouteEntriesRequest method.
-//	req, resp := client.DescribeCenServiceRouteEntriesRequest(params)
+//    // Example sending a request using the DescribeCenServiceRouteEntriesRequest method.
+//    req, resp := client.DescribeCenServiceRouteEntriesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenServiceRouteEntriesRequest(input *DescribeCenServiceRouteEntriesInput) (req *request.Request, output *DescribeCenServiceRouteEntriesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenServiceRouteEntries,
@@ -144,6 +144,8 @@ type DescribeCenServiceRouteEntriesInput struct {
 
 	CenId *string `type:"string"`
 
+	CenRouteEntryIds []*string `type:"list"`
+
 	DestinationCidrBlock *string `type:"string"`
 
 	PageNumber *int64 `type:"integer"`
@@ -168,6 +170,12 @@ func (s DescribeCenServiceRouteEntriesInput) GoString() string {
 // SetCenId sets the CenId field's value.
 func (s *DescribeCenServiceRouteEntriesInput) SetCenId(v string) *DescribeCenServiceRouteEntriesInput {
 	s.CenId = &v
+	return s
+}
+
+// SetCenRouteEntryIds sets the CenRouteEntryIds field's value.
+func (s *DescribeCenServiceRouteEntriesInput) SetCenRouteEntryIds(v []*string) *DescribeCenServiceRouteEntriesInput {
+	s.CenRouteEntryIds = v
 	return s
 }
 

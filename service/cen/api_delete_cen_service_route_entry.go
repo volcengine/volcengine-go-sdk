@@ -22,13 +22,13 @@ const opDeleteCenServiceRouteEntryCommon = "DeleteCenServiceRouteEntry"
 // See DeleteCenServiceRouteEntryCommon for more information on using the DeleteCenServiceRouteEntryCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCenServiceRouteEntryCommonRequest method.
-//	req, resp := client.DeleteCenServiceRouteEntryCommonRequest(params)
+//    // Example sending a request using the DeleteCenServiceRouteEntryCommonRequest method.
+//    req, resp := client.DeleteCenServiceRouteEntryCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DeleteCenServiceRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCenServiceRouteEntryCommon,
@@ -87,13 +87,13 @@ const opDeleteCenServiceRouteEntry = "DeleteCenServiceRouteEntry"
 // See DeleteCenServiceRouteEntry for more information on using the DeleteCenServiceRouteEntry
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCenServiceRouteEntryRequest method.
-//	req, resp := client.DeleteCenServiceRouteEntryRequest(params)
+//    // Example sending a request using the DeleteCenServiceRouteEntryRequest method.
+//    req, resp := client.DeleteCenServiceRouteEntryRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DeleteCenServiceRouteEntryRequest(input *DeleteCenServiceRouteEntryInput) (req *request.Request, output *DeleteCenServiceRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCenServiceRouteEntry,
@@ -203,6 +203,8 @@ type DeleteCenServiceRouteEntryOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -213,4 +215,10 @@ func (s DeleteCenServiceRouteEntryOutput) String() string {
 // GoString returns the string representation
 func (s DeleteCenServiceRouteEntryOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteCenServiceRouteEntryOutput) SetRequestId(v string) *DeleteCenServiceRouteEntryOutput {
+	s.RequestId = &v
+	return s
 }

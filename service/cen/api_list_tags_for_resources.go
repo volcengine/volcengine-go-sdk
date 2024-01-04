@@ -22,13 +22,13 @@ const opListTagsForResourcesCommon = "ListTagsForResources"
 // See ListTagsForResourcesCommon for more information on using the ListTagsForResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListTagsForResourcesCommonRequest method.
-//	req, resp := client.ListTagsForResourcesCommonRequest(params)
+//    // Example sending a request using the ListTagsForResourcesCommonRequest method.
+//    req, resp := client.ListTagsForResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) ListTagsForResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListTagsForResourcesCommon,
@@ -87,13 +87,13 @@ const opListTagsForResources = "ListTagsForResources"
 // See ListTagsForResources for more information on using the ListTagsForResources
 // API call, and error handling.
 //
-//	// Example sending a request using the ListTagsForResourcesRequest method.
-//	req, resp := client.ListTagsForResourcesRequest(params)
+//    // Example sending a request using the ListTagsForResourcesRequest method.
+//    req, resp := client.ListTagsForResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) ListTagsForResourcesRequest(input *ListTagsForResourcesInput) (req *request.Request, output *ListTagsForResourcesOutput) {
 	op := &request.Operation{
 		Name:       opListTagsForResources,
@@ -225,6 +225,8 @@ type ListTagsForResourcesOutput struct {
 
 	NextToken *string `type:"string"`
 
+	RequestId *string `type:"string"`
+
 	ResourceTags []*ResourceTagForListTagsForResourcesOutput `type:"list"`
 }
 
@@ -241,6 +243,12 @@ func (s ListTagsForResourcesOutput) GoString() string {
 // SetNextToken sets the NextToken field's value.
 func (s *ListTagsForResourcesOutput) SetNextToken(v string) *ListTagsForResourcesOutput {
 	s.NextToken = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ListTagsForResourcesOutput) SetRequestId(v string) *ListTagsForResourcesOutput {
+	s.RequestId = &v
 	return s
 }
 

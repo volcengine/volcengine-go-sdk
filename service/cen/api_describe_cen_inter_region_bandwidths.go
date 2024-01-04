@@ -22,13 +22,13 @@ const opDescribeCenInterRegionBandwidthsCommon = "DescribeCenInterRegionBandwidt
 // See DescribeCenInterRegionBandwidthsCommon for more information on using the DescribeCenInterRegionBandwidthsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenInterRegionBandwidthsCommonRequest method.
-//	req, resp := client.DescribeCenInterRegionBandwidthsCommonRequest(params)
+//    // Example sending a request using the DescribeCenInterRegionBandwidthsCommonRequest method.
+//    req, resp := client.DescribeCenInterRegionBandwidthsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenInterRegionBandwidthsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenInterRegionBandwidthsCommon,
@@ -87,13 +87,13 @@ const opDescribeCenInterRegionBandwidths = "DescribeCenInterRegionBandwidths"
 // See DescribeCenInterRegionBandwidths for more information on using the DescribeCenInterRegionBandwidths
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenInterRegionBandwidthsRequest method.
-//	req, resp := client.DescribeCenInterRegionBandwidthsRequest(params)
+//    // Example sending a request using the DescribeCenInterRegionBandwidthsRequest method.
+//    req, resp := client.DescribeCenInterRegionBandwidthsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenInterRegionBandwidthsRequest(input *DescribeCenInterRegionBandwidthsInput) (req *request.Request, output *DescribeCenInterRegionBandwidthsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenInterRegionBandwidths,
@@ -142,11 +142,13 @@ func (c *CEN) DescribeCenInterRegionBandwidthsWithContext(ctx volcengine.Context
 type DescribeCenInterRegionBandwidthsInput struct {
 	_ struct{} `type:"structure"`
 
+	CenId *string `type:"string"`
+
 	InterRegionBandwidthIds []*string `type:"list"`
 
 	PageNumber *int64 `type:"integer"`
 
-	PageSize *string `type:"string"`
+	PageSize *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -157,6 +159,12 @@ func (s DescribeCenInterRegionBandwidthsInput) String() string {
 // GoString returns the string representation
 func (s DescribeCenInterRegionBandwidthsInput) GoString() string {
 	return s.String()
+}
+
+// SetCenId sets the CenId field's value.
+func (s *DescribeCenInterRegionBandwidthsInput) SetCenId(v string) *DescribeCenInterRegionBandwidthsInput {
+	s.CenId = &v
+	return s
 }
 
 // SetInterRegionBandwidthIds sets the InterRegionBandwidthIds field's value.
@@ -172,7 +180,7 @@ func (s *DescribeCenInterRegionBandwidthsInput) SetPageNumber(v int64) *Describe
 }
 
 // SetPageSize sets the PageSize field's value.
-func (s *DescribeCenInterRegionBandwidthsInput) SetPageSize(v string) *DescribeCenInterRegionBandwidthsInput {
+func (s *DescribeCenInterRegionBandwidthsInput) SetPageSize(v int64) *DescribeCenInterRegionBandwidthsInput {
 	s.PageSize = &v
 	return s
 }
@@ -187,6 +195,8 @@ type DescribeCenInterRegionBandwidthsOutput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
 
 	TotalCount *int64 `type:"integer"`
 }
@@ -216,6 +226,12 @@ func (s *DescribeCenInterRegionBandwidthsOutput) SetPageNumber(v int64) *Describ
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCenInterRegionBandwidthsOutput) SetPageSize(v int64) *DescribeCenInterRegionBandwidthsOutput {
 	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeCenInterRegionBandwidthsOutput) SetRequestId(v string) *DescribeCenInterRegionBandwidthsOutput {
+	s.RequestId = &v
 	return s
 }
 

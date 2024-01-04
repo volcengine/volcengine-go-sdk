@@ -22,13 +22,13 @@ const opCreateCenServiceRouteEntryCommon = "CreateCenServiceRouteEntry"
 // See CreateCenServiceRouteEntryCommon for more information on using the CreateCenServiceRouteEntryCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCenServiceRouteEntryCommonRequest method.
-//	req, resp := client.CreateCenServiceRouteEntryCommonRequest(params)
+//    // Example sending a request using the CreateCenServiceRouteEntryCommonRequest method.
+//    req, resp := client.CreateCenServiceRouteEntryCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) CreateCenServiceRouteEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCenServiceRouteEntryCommon,
@@ -87,13 +87,13 @@ const opCreateCenServiceRouteEntry = "CreateCenServiceRouteEntry"
 // See CreateCenServiceRouteEntry for more information on using the CreateCenServiceRouteEntry
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCenServiceRouteEntryRequest method.
-//	req, resp := client.CreateCenServiceRouteEntryRequest(params)
+//    // Example sending a request using the CreateCenServiceRouteEntryRequest method.
+//    req, resp := client.CreateCenServiceRouteEntryRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) CreateCenServiceRouteEntryRequest(input *CreateCenServiceRouteEntryInput) (req *request.Request, output *CreateCenServiceRouteEntryOutput) {
 	op := &request.Operation{
 		Name:       opCreateCenServiceRouteEntry,
@@ -149,6 +149,10 @@ type CreateCenServiceRouteEntryInput struct {
 
 	// DestinationCidrBlock is a required field
 	DestinationCidrBlock *string `type:"string" required:"true"`
+
+	PublishMode *string `type:"string"`
+
+	PublishToInstances []*PublishToInstanceForCreateCenServiceRouteEntryInput `type:"list"`
 
 	// ServiceRegionId is a required field
 	ServiceRegionId *string `type:"string" required:"true"`
@@ -207,6 +211,18 @@ func (s *CreateCenServiceRouteEntryInput) SetDestinationCidrBlock(v string) *Cre
 	return s
 }
 
+// SetPublishMode sets the PublishMode field's value.
+func (s *CreateCenServiceRouteEntryInput) SetPublishMode(v string) *CreateCenServiceRouteEntryInput {
+	s.PublishMode = &v
+	return s
+}
+
+// SetPublishToInstances sets the PublishToInstances field's value.
+func (s *CreateCenServiceRouteEntryInput) SetPublishToInstances(v []*PublishToInstanceForCreateCenServiceRouteEntryInput) *CreateCenServiceRouteEntryInput {
+	s.PublishToInstances = v
+	return s
+}
+
 // SetServiceRegionId sets the ServiceRegionId field's value.
 func (s *CreateCenServiceRouteEntryInput) SetServiceRegionId(v string) *CreateCenServiceRouteEntryInput {
 	s.ServiceRegionId = &v
@@ -223,6 +239,8 @@ type CreateCenServiceRouteEntryOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -233,4 +251,48 @@ func (s CreateCenServiceRouteEntryOutput) String() string {
 // GoString returns the string representation
 func (s CreateCenServiceRouteEntryOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateCenServiceRouteEntryOutput) SetRequestId(v string) *CreateCenServiceRouteEntryOutput {
+	s.RequestId = &v
+	return s
+}
+
+type PublishToInstanceForCreateCenServiceRouteEntryInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceRegionId *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+}
+
+// String returns the string representation
+func (s PublishToInstanceForCreateCenServiceRouteEntryInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PublishToInstanceForCreateCenServiceRouteEntryInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *PublishToInstanceForCreateCenServiceRouteEntryInput) SetInstanceId(v string) *PublishToInstanceForCreateCenServiceRouteEntryInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceRegionId sets the InstanceRegionId field's value.
+func (s *PublishToInstanceForCreateCenServiceRouteEntryInput) SetInstanceRegionId(v string) *PublishToInstanceForCreateCenServiceRouteEntryInput {
+	s.InstanceRegionId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *PublishToInstanceForCreateCenServiceRouteEntryInput) SetInstanceType(v string) *PublishToInstanceForCreateCenServiceRouteEntryInput {
+	s.InstanceType = &v
+	return s
 }
