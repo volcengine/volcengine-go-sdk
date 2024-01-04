@@ -22,13 +22,13 @@ const opDescribeCenAttachedInstanceAttributesCommon = "DescribeCenAttachedInstan
 // See DescribeCenAttachedInstanceAttributesCommon for more information on using the DescribeCenAttachedInstanceAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenAttachedInstanceAttributesCommonRequest method.
-//	req, resp := client.DescribeCenAttachedInstanceAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeCenAttachedInstanceAttributesCommonRequest method.
+//    req, resp := client.DescribeCenAttachedInstanceAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenAttachedInstanceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenAttachedInstanceAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenAttachedInstanceAttributes = "DescribeCenAttachedInstanceAttr
 // See DescribeCenAttachedInstanceAttributes for more information on using the DescribeCenAttachedInstanceAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenAttachedInstanceAttributesRequest method.
-//	req, resp := client.DescribeCenAttachedInstanceAttributesRequest(params)
+//    // Example sending a request using the DescribeCenAttachedInstanceAttributesRequest method.
+//    req, resp := client.DescribeCenAttachedInstanceAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenAttachedInstanceAttributesRequest(input *DescribeCenAttachedInstanceAttributesInput) (req *request.Request, output *DescribeCenAttachedInstanceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenAttachedInstanceAttributes,
@@ -226,6 +226,8 @@ type DescribeCenAttachedInstanceAttributesOutput struct {
 
 	InstanceType *string `type:"string"`
 
+	RequestId *string `type:"string"`
+
 	Status *string `type:"string"`
 }
 
@@ -266,6 +268,12 @@ func (s *DescribeCenAttachedInstanceAttributesOutput) SetInstanceRegionId(v stri
 // SetInstanceType sets the InstanceType field's value.
 func (s *DescribeCenAttachedInstanceAttributesOutput) SetInstanceType(v string) *DescribeCenAttachedInstanceAttributesOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeCenAttachedInstanceAttributesOutput) SetRequestId(v string) *DescribeCenAttachedInstanceAttributesOutput {
+	s.RequestId = &v
 	return s
 }
 

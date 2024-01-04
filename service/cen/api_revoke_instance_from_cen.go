@@ -22,13 +22,13 @@ const opRevokeInstanceFromCenCommon = "RevokeInstanceFromCen"
 // See RevokeInstanceFromCenCommon for more information on using the RevokeInstanceFromCenCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RevokeInstanceFromCenCommonRequest method.
-//	req, resp := client.RevokeInstanceFromCenCommonRequest(params)
+//    // Example sending a request using the RevokeInstanceFromCenCommonRequest method.
+//    req, resp := client.RevokeInstanceFromCenCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) RevokeInstanceFromCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRevokeInstanceFromCenCommon,
@@ -87,13 +87,13 @@ const opRevokeInstanceFromCen = "RevokeInstanceFromCen"
 // See RevokeInstanceFromCen for more information on using the RevokeInstanceFromCen
 // API call, and error handling.
 //
-//	// Example sending a request using the RevokeInstanceFromCenRequest method.
-//	req, resp := client.RevokeInstanceFromCenRequest(params)
+//    // Example sending a request using the RevokeInstanceFromCenRequest method.
+//    req, resp := client.RevokeInstanceFromCenRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) RevokeInstanceFromCenRequest(input *RevokeInstanceFromCenInput) (req *request.Request, output *RevokeInstanceFromCenOutput) {
 	op := &request.Operation{
 		Name:       opRevokeInstanceFromCen,
@@ -154,7 +154,8 @@ type RevokeInstanceFromCenInput struct {
 	// InstanceRegionId is a required field
 	InstanceRegionId *string `type:"string" required:"true"`
 
-	InstanceType *string `type:"string" enum:"InstanceTypeForRevokeInstanceFromCenInput"`
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForRevokeInstanceFromCenInput"`
 }
 
 // String returns the string representation
@@ -181,6 +182,9 @@ func (s *RevokeInstanceFromCenInput) Validate() error {
 	}
 	if s.InstanceRegionId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceRegionId"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -223,6 +227,8 @@ type RevokeInstanceFromCenOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -233,6 +239,12 @@ func (s RevokeInstanceFromCenOutput) String() string {
 // GoString returns the string representation
 func (s RevokeInstanceFromCenOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *RevokeInstanceFromCenOutput) SetRequestId(v string) *RevokeInstanceFromCenOutput {
+	s.RequestId = &v
+	return s
 }
 
 const (

@@ -22,13 +22,13 @@ const opDescribeInstanceGrantedRulesCommon = "DescribeInstanceGrantedRules"
 // See DescribeInstanceGrantedRulesCommon for more information on using the DescribeInstanceGrantedRulesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceGrantedRulesCommonRequest method.
-//	req, resp := client.DescribeInstanceGrantedRulesCommonRequest(params)
+//    // Example sending a request using the DescribeInstanceGrantedRulesCommonRequest method.
+//    req, resp := client.DescribeInstanceGrantedRulesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeInstanceGrantedRulesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceGrantedRulesCommon,
@@ -87,13 +87,13 @@ const opDescribeInstanceGrantedRules = "DescribeInstanceGrantedRules"
 // See DescribeInstanceGrantedRules for more information on using the DescribeInstanceGrantedRules
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceGrantedRulesRequest method.
-//	req, resp := client.DescribeInstanceGrantedRulesRequest(params)
+//    // Example sending a request using the DescribeInstanceGrantedRulesRequest method.
+//    req, resp := client.DescribeInstanceGrantedRulesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeInstanceGrantedRulesRequest(input *DescribeInstanceGrantedRulesInput) (req *request.Request, output *DescribeInstanceGrantedRulesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceGrantedRules,
@@ -266,6 +266,8 @@ type DescribeInstanceGrantedRulesOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	RequestId *string `type:"string"`
+
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -294,6 +296,12 @@ func (s *DescribeInstanceGrantedRulesOutput) SetPageNumber(v int64) *DescribeIns
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeInstanceGrantedRulesOutput) SetPageSize(v int64) *DescribeInstanceGrantedRulesOutput {
 	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeInstanceGrantedRulesOutput) SetRequestId(v string) *DescribeInstanceGrantedRulesOutput {
+	s.RequestId = &v
 	return s
 }
 

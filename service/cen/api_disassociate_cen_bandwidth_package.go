@@ -22,13 +22,13 @@ const opDisassociateCenBandwidthPackageCommon = "DisassociateCenBandwidthPackage
 // See DisassociateCenBandwidthPackageCommon for more information on using the DisassociateCenBandwidthPackageCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateCenBandwidthPackageCommonRequest method.
-//	req, resp := client.DisassociateCenBandwidthPackageCommonRequest(params)
+//    // Example sending a request using the DisassociateCenBandwidthPackageCommonRequest method.
+//    req, resp := client.DisassociateCenBandwidthPackageCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DisassociateCenBandwidthPackageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateCenBandwidthPackageCommon,
@@ -87,13 +87,13 @@ const opDisassociateCenBandwidthPackage = "DisassociateCenBandwidthPackage"
 // See DisassociateCenBandwidthPackage for more information on using the DisassociateCenBandwidthPackage
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateCenBandwidthPackageRequest method.
-//	req, resp := client.DisassociateCenBandwidthPackageRequest(params)
+//    // Example sending a request using the DisassociateCenBandwidthPackageRequest method.
+//    req, resp := client.DisassociateCenBandwidthPackageRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DisassociateCenBandwidthPackageRequest(input *DisassociateCenBandwidthPackageInput) (req *request.Request, output *DisassociateCenBandwidthPackageOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateCenBandwidthPackage,
@@ -191,6 +191,8 @@ type DisassociateCenBandwidthPackageOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -201,4 +203,10 @@ func (s DisassociateCenBandwidthPackageOutput) String() string {
 // GoString returns the string representation
 func (s DisassociateCenBandwidthPackageOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DisassociateCenBandwidthPackageOutput) SetRequestId(v string) *DisassociateCenBandwidthPackageOutput {
+	s.RequestId = &v
+	return s
 }

@@ -22,13 +22,13 @@ const opDescribeCenBandwidthPackagesCommon = "DescribeCenBandwidthPackages"
 // See DescribeCenBandwidthPackagesCommon for more information on using the DescribeCenBandwidthPackagesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenBandwidthPackagesCommonRequest method.
-//	req, resp := client.DescribeCenBandwidthPackagesCommonRequest(params)
+//    // Example sending a request using the DescribeCenBandwidthPackagesCommonRequest method.
+//    req, resp := client.DescribeCenBandwidthPackagesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenBandwidthPackagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenBandwidthPackagesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenBandwidthPackages = "DescribeCenBandwidthPackages"
 // See DescribeCenBandwidthPackages for more information on using the DescribeCenBandwidthPackages
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenBandwidthPackagesRequest method.
-//	req, resp := client.DescribeCenBandwidthPackagesRequest(params)
+//    // Example sending a request using the DescribeCenBandwidthPackagesRequest method.
+//    req, resp := client.DescribeCenBandwidthPackagesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenBandwidthPackagesRequest(input *DescribeCenBandwidthPackagesInput) (req *request.Request, output *DescribeCenBandwidthPackagesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenBandwidthPackages,
@@ -148,6 +148,8 @@ type CenBandwidthPackageForDescribeCenBandwidthPackagesOutput struct {
 
 	BillingType *int64 `type:"integer"`
 
+	Business *string `type:"string"`
+
 	CenBandwidthPackageId *string `type:"string"`
 
 	CenBandwidthPackageName *string `type:"string"`
@@ -164,6 +166,8 @@ type CenBandwidthPackageForDescribeCenBandwidthPackagesOutput struct {
 
 	LocalGeographicRegionSetId *string `type:"string"`
 
+	LocalGeographiclRegionSetId *string `type:"string"`
+
 	PeerGeographicRegionSetId *string `type:"string"`
 
 	ProjectName *string `type:"string"`
@@ -173,6 +177,8 @@ type CenBandwidthPackageForDescribeCenBandwidthPackagesOutput struct {
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeCenBandwidthPackagesOutput `type:"list"`
+
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
@@ -200,6 +206,12 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetBandwidth(
 // SetBillingType sets the BillingType field's value.
 func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetBillingType(v int64) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 	s.BillingType = &v
+	return s
+}
+
+// SetBusiness sets the Business field's value.
+func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetBusiness(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
+	s.Business = &v
 	return s
 }
 
@@ -251,6 +263,12 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetLocalGeogr
 	return s
 }
 
+// SetLocalGeographiclRegionSetId sets the LocalGeographiclRegionSetId field's value.
+func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetLocalGeographiclRegionSetId(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
+	s.LocalGeographiclRegionSetId = &v
+	return s
+}
+
 // SetPeerGeographicRegionSetId sets the PeerGeographicRegionSetId field's value.
 func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetPeerGeographicRegionSetId(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 	s.PeerGeographicRegionSetId = &v
@@ -278,6 +296,12 @@ func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetStatus(v s
 // SetTags sets the Tags field's value.
 func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetTags(v []*TagForDescribeCenBandwidthPackagesOutput) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 	s.Tags = v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput) SetUpdatedAt(v string) *CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
+	s.UpdatedAt = &v
 	return s
 }
 
@@ -378,6 +402,8 @@ type DescribeCenBandwidthPackagesOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	RequestId *string `type:"string"`
+
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -406,6 +432,12 @@ func (s *DescribeCenBandwidthPackagesOutput) SetPageNumber(v int64) *DescribeCen
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCenBandwidthPackagesOutput) SetPageSize(v int64) *DescribeCenBandwidthPackagesOutput {
 	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeCenBandwidthPackagesOutput) SetRequestId(v string) *DescribeCenBandwidthPackagesOutput {
+	s.RequestId = &v
 	return s
 }
 

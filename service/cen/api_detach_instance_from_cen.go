@@ -22,13 +22,13 @@ const opDetachInstanceFromCenCommon = "DetachInstanceFromCen"
 // See DetachInstanceFromCenCommon for more information on using the DetachInstanceFromCenCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachInstanceFromCenCommonRequest method.
-//	req, resp := client.DetachInstanceFromCenCommonRequest(params)
+//    // Example sending a request using the DetachInstanceFromCenCommonRequest method.
+//    req, resp := client.DetachInstanceFromCenCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DetachInstanceFromCenCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachInstanceFromCenCommon,
@@ -87,13 +87,13 @@ const opDetachInstanceFromCen = "DetachInstanceFromCen"
 // See DetachInstanceFromCen for more information on using the DetachInstanceFromCen
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachInstanceFromCenRequest method.
-//	req, resp := client.DetachInstanceFromCenRequest(params)
+//    // Example sending a request using the DetachInstanceFromCenRequest method.
+//    req, resp := client.DetachInstanceFromCenRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DetachInstanceFromCenRequest(input *DetachInstanceFromCenInput) (req *request.Request, output *DetachInstanceFromCenOutput) {
 	op := &request.Operation{
 		Name:       opDetachInstanceFromCen,
@@ -215,6 +215,8 @@ type DetachInstanceFromCenOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -225,4 +227,10 @@ func (s DetachInstanceFromCenOutput) String() string {
 // GoString returns the string representation
 func (s DetachInstanceFromCenOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DetachInstanceFromCenOutput) SetRequestId(v string) *DetachInstanceFromCenOutput {
+	s.RequestId = &v
+	return s
 }

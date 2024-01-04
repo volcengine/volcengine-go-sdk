@@ -151,6 +151,8 @@ type ModifyDBInstanceSubnetInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
+	RetentionDays *int32 `type:"int32"`
+
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
 
@@ -196,6 +198,12 @@ func (s *ModifyDBInstanceSubnetInput) SetClientToken(v string) *ModifyDBInstance
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBInstanceSubnetInput) SetInstanceId(v string) *ModifyDBInstanceSubnetInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetRetentionDays sets the RetentionDays field's value.
+func (s *ModifyDBInstanceSubnetInput) SetRetentionDays(v int32) *ModifyDBInstanceSubnetInput {
+	s.RetentionDays = &v
 	return s
 }
 

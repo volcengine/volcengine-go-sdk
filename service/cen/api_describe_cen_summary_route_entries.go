@@ -22,13 +22,13 @@ const opDescribeCenSummaryRouteEntriesCommon = "DescribeCenSummaryRouteEntries"
 // See DescribeCenSummaryRouteEntriesCommon for more information on using the DescribeCenSummaryRouteEntriesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenSummaryRouteEntriesCommonRequest method.
-//	req, resp := client.DescribeCenSummaryRouteEntriesCommonRequest(params)
+//    // Example sending a request using the DescribeCenSummaryRouteEntriesCommonRequest method.
+//    req, resp := client.DescribeCenSummaryRouteEntriesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenSummaryRouteEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenSummaryRouteEntriesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenSummaryRouteEntries = "DescribeCenSummaryRouteEntries"
 // See DescribeCenSummaryRouteEntries for more information on using the DescribeCenSummaryRouteEntries
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenSummaryRouteEntriesRequest method.
-//	req, resp := client.DescribeCenSummaryRouteEntriesRequest(params)
+//    // Example sending a request using the DescribeCenSummaryRouteEntriesRequest method.
+//    req, resp := client.DescribeCenSummaryRouteEntriesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenSummaryRouteEntriesRequest(input *DescribeCenSummaryRouteEntriesInput) (req *request.Request, output *DescribeCenSummaryRouteEntriesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenSummaryRouteEntries,
@@ -268,7 +268,11 @@ type DescribeCenSummaryRouteEntriesOutput struct {
 
 	CenSummaryRouteEntries []*CenSummaryRouteEntryForDescribeCenSummaryRouteEntriesOutput `type:"list"`
 
+	PageNumber *int64 `type:"integer"`
+
 	PageSize *int64 `type:"integer"`
+
+	RequestId *string `type:"string"`
 
 	TotalCount *int64 `type:"integer"`
 }
@@ -289,9 +293,21 @@ func (s *DescribeCenSummaryRouteEntriesOutput) SetCenSummaryRouteEntries(v []*Ce
 	return s
 }
 
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeCenSummaryRouteEntriesOutput) SetPageNumber(v int64) *DescribeCenSummaryRouteEntriesOutput {
+	s.PageNumber = &v
+	return s
+}
+
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCenSummaryRouteEntriesOutput) SetPageSize(v int64) *DescribeCenSummaryRouteEntriesOutput {
 	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeCenSummaryRouteEntriesOutput) SetRequestId(v string) *DescribeCenSummaryRouteEntriesOutput {
+	s.RequestId = &v
 	return s
 }
 

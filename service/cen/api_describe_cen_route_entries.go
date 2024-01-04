@@ -22,13 +22,13 @@ const opDescribeCenRouteEntriesCommon = "DescribeCenRouteEntries"
 // See DescribeCenRouteEntriesCommon for more information on using the DescribeCenRouteEntriesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenRouteEntriesCommonRequest method.
-//	req, resp := client.DescribeCenRouteEntriesCommonRequest(params)
+//    // Example sending a request using the DescribeCenRouteEntriesCommonRequest method.
+//    req, resp := client.DescribeCenRouteEntriesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenRouteEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenRouteEntriesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenRouteEntries = "DescribeCenRouteEntries"
 // See DescribeCenRouteEntries for more information on using the DescribeCenRouteEntries
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenRouteEntriesRequest method.
-//	req, resp := client.DescribeCenRouteEntriesRequest(params)
+//    // Example sending a request using the DescribeCenRouteEntriesRequest method.
+//    req, resp := client.DescribeCenRouteEntriesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenRouteEntriesRequest(input *DescribeCenRouteEntriesInput) (req *request.Request, output *DescribeCenRouteEntriesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenRouteEntries,
@@ -306,6 +306,8 @@ type DescribeCenRouteEntriesOutput struct {
 
 	PageSize *int64 `type:"integer"`
 
+	RequestId *string `type:"string"`
+
 	TotalCount *int64 `type:"integer"`
 }
 
@@ -334,6 +336,12 @@ func (s *DescribeCenRouteEntriesOutput) SetPageNumber(v int64) *DescribeCenRoute
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeCenRouteEntriesOutput) SetPageSize(v int64) *DescribeCenRouteEntriesOutput {
 	s.PageSize = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeCenRouteEntriesOutput) SetRequestId(v string) *DescribeCenRouteEntriesOutput {
+	s.RequestId = &v
 	return s
 }
 

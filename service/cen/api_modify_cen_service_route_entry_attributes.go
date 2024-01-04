@@ -22,13 +22,13 @@ const opModifyCenServiceRouteEntryAttributesCommon = "ModifyCenServiceRouteEntry
 // See ModifyCenServiceRouteEntryAttributesCommon for more information on using the ModifyCenServiceRouteEntryAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCenServiceRouteEntryAttributesCommonRequest method.
-//	req, resp := client.ModifyCenServiceRouteEntryAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyCenServiceRouteEntryAttributesCommonRequest method.
+//    req, resp := client.ModifyCenServiceRouteEntryAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) ModifyCenServiceRouteEntryAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCenServiceRouteEntryAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyCenServiceRouteEntryAttributes = "ModifyCenServiceRouteEntryAttrib
 // See ModifyCenServiceRouteEntryAttributes for more information on using the ModifyCenServiceRouteEntryAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCenServiceRouteEntryAttributesRequest method.
-//	req, resp := client.ModifyCenServiceRouteEntryAttributesRequest(params)
+//    // Example sending a request using the ModifyCenServiceRouteEntryAttributesRequest method.
+//    req, resp := client.ModifyCenServiceRouteEntryAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) ModifyCenServiceRouteEntryAttributesRequest(input *ModifyCenServiceRouteEntryAttributesInput) (req *request.Request, output *ModifyCenServiceRouteEntryAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyCenServiceRouteEntryAttributes,
@@ -227,6 +227,8 @@ type ModifyCenServiceRouteEntryAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -237,6 +239,12 @@ func (s ModifyCenServiceRouteEntryAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyCenServiceRouteEntryAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyCenServiceRouteEntryAttributesOutput) SetRequestId(v string) *ModifyCenServiceRouteEntryAttributesOutput {
+	s.RequestId = &v
+	return s
 }
 
 type PublishToInstanceForModifyCenServiceRouteEntryAttributesInput struct {

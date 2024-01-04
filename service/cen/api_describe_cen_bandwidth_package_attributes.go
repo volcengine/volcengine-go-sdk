@@ -22,13 +22,13 @@ const opDescribeCenBandwidthPackageAttributesCommon = "DescribeCenBandwidthPacka
 // See DescribeCenBandwidthPackageAttributesCommon for more information on using the DescribeCenBandwidthPackageAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenBandwidthPackageAttributesCommonRequest method.
-//	req, resp := client.DescribeCenBandwidthPackageAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeCenBandwidthPackageAttributesCommonRequest method.
+//    req, resp := client.DescribeCenBandwidthPackageAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenBandwidthPackageAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCenBandwidthPackageAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeCenBandwidthPackageAttributes = "DescribeCenBandwidthPackageAttr
 // See DescribeCenBandwidthPackageAttributes for more information on using the DescribeCenBandwidthPackageAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCenBandwidthPackageAttributesRequest method.
-//	req, resp := client.DescribeCenBandwidthPackageAttributesRequest(params)
+//    // Example sending a request using the DescribeCenBandwidthPackageAttributesRequest method.
+//    req, resp := client.DescribeCenBandwidthPackageAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) DescribeCenBandwidthPackageAttributesRequest(input *DescribeCenBandwidthPackageAttributesInput) (req *request.Request, output *DescribeCenBandwidthPackageAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCenBandwidthPackageAttributes,
@@ -210,9 +210,13 @@ type DescribeCenBandwidthPackageAttributesOutput struct {
 
 	RemainingBandwidth *int64 `type:"integer"`
 
+	RequestId *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeCenBandwidthPackageAttributesOutput `type:"list"`
+
+	UpdatedAt *string `type:"string"`
 }
 
 // String returns the string representation
@@ -315,6 +319,12 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetRemainingBandwidth(v in
 	return s
 }
 
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeCenBandwidthPackageAttributesOutput) SetRequestId(v string) *DescribeCenBandwidthPackageAttributesOutput {
+	s.RequestId = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DescribeCenBandwidthPackageAttributesOutput) SetStatus(v string) *DescribeCenBandwidthPackageAttributesOutput {
 	s.Status = &v
@@ -324,6 +334,12 @@ func (s *DescribeCenBandwidthPackageAttributesOutput) SetStatus(v string) *Descr
 // SetTags sets the Tags field's value.
 func (s *DescribeCenBandwidthPackageAttributesOutput) SetTags(v []*TagForDescribeCenBandwidthPackageAttributesOutput) *DescribeCenBandwidthPackageAttributesOutput {
 	s.Tags = v
+	return s
+}
+
+// SetUpdatedAt sets the UpdatedAt field's value.
+func (s *DescribeCenBandwidthPackageAttributesOutput) SetUpdatedAt(v string) *DescribeCenBandwidthPackageAttributesOutput {
+	s.UpdatedAt = &v
 	return s
 }
 

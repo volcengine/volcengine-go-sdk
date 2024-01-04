@@ -22,13 +22,13 @@ const opModifyCenAttributesCommon = "ModifyCenAttributes"
 // See ModifyCenAttributesCommon for more information on using the ModifyCenAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCenAttributesCommonRequest method.
-//	req, resp := client.ModifyCenAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyCenAttributesCommonRequest method.
+//    req, resp := client.ModifyCenAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) ModifyCenAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCenAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyCenAttributes = "ModifyCenAttributes"
 // See ModifyCenAttributes for more information on using the ModifyCenAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCenAttributesRequest method.
-//	req, resp := client.ModifyCenAttributesRequest(params)
+//    // Example sending a request using the ModifyCenAttributesRequest method.
+//    req, resp := client.ModifyCenAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *CEN) ModifyCenAttributesRequest(input *ModifyCenAttributesInput) (req *request.Request, output *ModifyCenAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyCenAttributes,
@@ -195,6 +195,8 @@ type ModifyCenAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	RequestId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -205,4 +207,10 @@ func (s ModifyCenAttributesOutput) String() string {
 // GoString returns the string representation
 func (s ModifyCenAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyCenAttributesOutput) SetRequestId(v string) *ModifyCenAttributesOutput {
+	s.RequestId = &v
+	return s
 }
