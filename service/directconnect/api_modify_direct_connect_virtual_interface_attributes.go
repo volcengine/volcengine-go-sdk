@@ -144,11 +144,11 @@ type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 
 	Bandwidth *int64 `type:"integer"`
 
-	BfdDetectInterval *int64 `type:"integer"`
+	BfdDetectInterval *int64 `min:"200" max:"1000" type:"integer"`
 
-	BfdDetectMultiplier *int64 `type:"integer"`
+	BfdDetectMultiplier *int64 `min:"3" max:"10" type:"integer"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	EnableBfd *bool `type:"boolean"`
 
@@ -156,16 +156,16 @@ type ModifyDirectConnectVirtualInterfaceAttributesInput struct {
 
 	LocalIpv6Ip *string `type:"string"`
 
-	NqaDetectInterval *int64 `type:"integer"`
+	NqaDetectInterval *int64 `min:"1000" max:"5000" type:"integer"`
 
-	NqaDetectMultiplier *int64 `type:"integer"`
+	NqaDetectMultiplier *int64 `min:"3" max:"8" type:"integer"`
 
 	PeerIpv6Ip *string `type:"string"`
 
 	// VirtualInterfaceId is a required field
 	VirtualInterfaceId *string `type:"string" required:"true"`
 
-	VirtualInterfaceName *string `type:"string"`
+	VirtualInterfaceName *string `min:"1" max:"128" type:"string"`
 }
 
 // String returns the string representation
@@ -181,8 +181,44 @@ func (s ModifyDirectConnectVirtualInterfaceAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyDirectConnectVirtualInterfaceAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDirectConnectVirtualInterfaceAttributesInput"}
+	if s.BfdDetectInterval != nil && *s.BfdDetectInterval < 200 {
+		invalidParams.Add(request.NewErrParamMinValue("BfdDetectInterval", 200))
+	}
+	if s.BfdDetectInterval != nil && *s.BfdDetectInterval > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectInterval", 1000))
+	}
+	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier < 3 {
+		invalidParams.Add(request.NewErrParamMinValue("BfdDetectMultiplier", 3))
+	}
+	if s.BfdDetectMultiplier != nil && *s.BfdDetectMultiplier > 10 {
+		invalidParams.Add(request.NewErrParamMaxValue("BfdDetectMultiplier", 10))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
+	if s.NqaDetectInterval != nil && *s.NqaDetectInterval < 1000 {
+		invalidParams.Add(request.NewErrParamMinValue("NqaDetectInterval", 1000))
+	}
+	if s.NqaDetectInterval != nil && *s.NqaDetectInterval > 5000 {
+		invalidParams.Add(request.NewErrParamMaxValue("NqaDetectInterval", 5000))
+	}
+	if s.NqaDetectMultiplier != nil && *s.NqaDetectMultiplier < 3 {
+		invalidParams.Add(request.NewErrParamMinValue("NqaDetectMultiplier", 3))
+	}
+	if s.NqaDetectMultiplier != nil && *s.NqaDetectMultiplier > 8 {
+		invalidParams.Add(request.NewErrParamMaxValue("NqaDetectMultiplier", 8))
+	}
 	if s.VirtualInterfaceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("VirtualInterfaceId"))
+	}
+	if s.VirtualInterfaceName != nil && len(*s.VirtualInterfaceName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("VirtualInterfaceName", 1))
+	}
+	if s.VirtualInterfaceName != nil && len(*s.VirtualInterfaceName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("VirtualInterfaceName", 128, *s.VirtualInterfaceName))
 	}
 
 	if invalidParams.Len() > 0 {

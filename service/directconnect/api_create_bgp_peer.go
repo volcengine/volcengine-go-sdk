@@ -144,9 +144,9 @@ type CreateBgpPeerInput struct {
 
 	AuthKey *string `type:"string"`
 
-	BgpPeerName *string `type:"string"`
+	BgpPeerName *string `min:"1" max:"128" type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	IpVersion *string `type:"string"`
 
@@ -170,6 +170,18 @@ func (s CreateBgpPeerInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateBgpPeerInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateBgpPeerInput"}
+	if s.BgpPeerName != nil && len(*s.BgpPeerName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("BgpPeerName", 1))
+	}
+	if s.BgpPeerName != nil && len(*s.BgpPeerName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("BgpPeerName", 128, *s.BgpPeerName))
+	}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.RemoteAsn == nil {
 		invalidParams.Add(request.NewErrParamRequired("RemoteAsn"))
 	}
