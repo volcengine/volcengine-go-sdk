@@ -156,9 +156,9 @@ type DescribeSnapshotsInput struct {
 
 	SnapshotName *string `type:"string"`
 
-	SnapshotType *string `type:"string"`
+	SnapshotType *string `type:"string" enum:"EnumOfSnapshotTypeForDescribeSnapshotsInput"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"EnumOfStatusForDescribeSnapshotsInput"`
 }
 
 // String returns the string representation
@@ -282,13 +282,13 @@ type SnapshotForDescribeSnapshotsOutput struct {
 
 	SnapshotName *string `type:"string"`
 
-	SnapshotType *string `type:"string"`
+	SnapshotType *string `type:"string" enum:"EnumOfSnapshotTypeForDescribeSnapshotsOutput"`
 
 	SourceSize *int32 `type:"int32"`
 
 	SourceVersion *string `type:"string"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"EnumOfStatusForDescribeSnapshotsOutput"`
 
 	ZoneId *string `type:"string"`
 }
@@ -386,3 +386,44 @@ func (s *SnapshotForDescribeSnapshotsOutput) SetZoneId(v string) *SnapshotForDes
 	s.ZoneId = &v
 	return s
 }
+
+const (
+	// EnumOfSnapshotTypeForDescribeSnapshotsInputManual is a EnumOfSnapshotTypeForDescribeSnapshotsInput enum value
+	EnumOfSnapshotTypeForDescribeSnapshotsInputManual = "Manual"
+
+	// EnumOfSnapshotTypeForDescribeSnapshotsInputAuto is a EnumOfSnapshotTypeForDescribeSnapshotsInput enum value
+	EnumOfSnapshotTypeForDescribeSnapshotsInputAuto = "Auto"
+)
+
+const (
+	// EnumOfSnapshotTypeForDescribeSnapshotsOutputManual is a EnumOfSnapshotTypeForDescribeSnapshotsOutput enum value
+	EnumOfSnapshotTypeForDescribeSnapshotsOutputManual = "Manual"
+
+	// EnumOfSnapshotTypeForDescribeSnapshotsOutputAuto is a EnumOfSnapshotTypeForDescribeSnapshotsOutput enum value
+	EnumOfSnapshotTypeForDescribeSnapshotsOutputAuto = "Auto"
+)
+
+const (
+	// EnumOfStatusForDescribeSnapshotsInputProgressing is a EnumOfStatusForDescribeSnapshotsInput enum value
+	EnumOfStatusForDescribeSnapshotsInputProgressing = "Progressing"
+
+	// EnumOfStatusForDescribeSnapshotsInputAccomplished is a EnumOfStatusForDescribeSnapshotsInput enum value
+	EnumOfStatusForDescribeSnapshotsInputAccomplished = "Accomplished"
+
+	// EnumOfStatusForDescribeSnapshotsInputFailed is a EnumOfStatusForDescribeSnapshotsInput enum value
+	EnumOfStatusForDescribeSnapshotsInputFailed = "Failed"
+
+	// EnumOfStatusForDescribeSnapshotsInputDeleting is a EnumOfStatusForDescribeSnapshotsInput enum value
+	EnumOfStatusForDescribeSnapshotsInputDeleting = "Deleting"
+)
+
+const (
+	// EnumOfStatusForDescribeSnapshotsOutputProgressing is a EnumOfStatusForDescribeSnapshotsOutput enum value
+	EnumOfStatusForDescribeSnapshotsOutputProgressing = "Progressing"
+
+	// EnumOfStatusForDescribeSnapshotsOutputAccomplished is a EnumOfStatusForDescribeSnapshotsOutput enum value
+	EnumOfStatusForDescribeSnapshotsOutputAccomplished = "Accomplished"
+
+	// EnumOfStatusForDescribeSnapshotsOutputFailed is a EnumOfStatusForDescribeSnapshotsOutput enum value
+	EnumOfStatusForDescribeSnapshotsOutputFailed = "Failed"
+)

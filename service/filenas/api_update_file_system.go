@@ -148,7 +148,7 @@ type TagForUpdateFileSystemInput struct {
 
 	Key *string `type:"string"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" enum:"EnumOfTypeForUpdateFileSystemInput"`
 
 	Value *string `type:"string"`
 }
@@ -186,7 +186,8 @@ type UpdateFileSystemInput struct {
 
 	Description *string `type:"string"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" required:"true"`
 
 	FileSystemName *string `type:"string"`
 
@@ -203,6 +204,19 @@ func (s UpdateFileSystemInput) String() string {
 // GoString returns the string representation
 func (s UpdateFileSystemInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateFileSystemInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.
@@ -250,3 +264,11 @@ func (s UpdateFileSystemOutput) String() string {
 func (s UpdateFileSystemOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfTypeForUpdateFileSystemInputCustom is a EnumOfTypeForUpdateFileSystemInput enum value
+	EnumOfTypeForUpdateFileSystemInputCustom = "Custom"
+
+	// EnumOfTypeForUpdateFileSystemInputSystem is a EnumOfTypeForUpdateFileSystemInput enum value
+	EnumOfTypeForUpdateFileSystemInputSystem = "System"
+)

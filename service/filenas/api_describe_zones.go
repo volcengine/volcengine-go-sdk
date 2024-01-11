@@ -192,11 +192,11 @@ func (s *DescribeZonesOutput) SetZones(v []*ZoneForDescribeZonesOutput) *Describ
 type SaleForDescribeZonesOutput struct {
 	_ struct{} `type:"structure"`
 
-	FileSystemType *string `type:"string"`
+	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribeZonesOutput"`
 
-	ProtocolType *string `type:"string"`
+	ProtocolType *string `type:"string" enum:"EnumOfProtocolTypeForDescribeZonesOutput"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"EnumOfStatusForDescribeZonesOutput"`
 
 	StorageType *string `type:"string"`
 }
@@ -240,7 +240,7 @@ type ZoneForDescribeZonesOutput struct {
 
 	Sales []*SaleForDescribeZonesOutput `type:"list"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"EnumOfStatusForDescribeZonesOutput"`
 
 	ZoneId *string `type:"string"`
 
@@ -280,3 +280,33 @@ func (s *ZoneForDescribeZonesOutput) SetZoneName(v string) *ZoneForDescribeZones
 	s.ZoneName = &v
 	return s
 }
+
+const (
+	// EnumOfFileSystemTypeForDescribeZonesOutputExtreme is a EnumOfFileSystemTypeForDescribeZonesOutput enum value
+	EnumOfFileSystemTypeForDescribeZonesOutputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForDescribeZonesOutputCommon is a EnumOfFileSystemTypeForDescribeZonesOutput enum value
+	EnumOfFileSystemTypeForDescribeZonesOutputCommon = "Common"
+
+	// EnumOfFileSystemTypeForDescribeZonesOutputCache is a EnumOfFileSystemTypeForDescribeZonesOutput enum value
+	EnumOfFileSystemTypeForDescribeZonesOutputCache = "Cache"
+)
+
+const (
+	// EnumOfProtocolTypeForDescribeZonesOutputNfs is a EnumOfProtocolTypeForDescribeZonesOutput enum value
+	EnumOfProtocolTypeForDescribeZonesOutputNfs = "NFS"
+
+	// EnumOfProtocolTypeForDescribeZonesOutputSmb is a EnumOfProtocolTypeForDescribeZonesOutput enum value
+	EnumOfProtocolTypeForDescribeZonesOutputSmb = "SMB"
+)
+
+const (
+	// EnumOfStatusForDescribeZonesOutputOnSale is a EnumOfStatusForDescribeZonesOutput enum value
+	EnumOfStatusForDescribeZonesOutputOnSale = "OnSale"
+
+	// EnumOfStatusForDescribeZonesOutputSoldOut is a EnumOfStatusForDescribeZonesOutput enum value
+	EnumOfStatusForDescribeZonesOutputSoldOut = "SoldOut"
+
+	// EnumOfStatusForDescribeZonesOutputUnSold is a EnumOfStatusForDescribeZonesOutput enum value
+	EnumOfStatusForDescribeZonesOutputUnSold = "UnSold"
+)

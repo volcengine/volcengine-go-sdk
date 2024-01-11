@@ -146,9 +146,11 @@ func (c *FILENAS) DeleteMountPointWithContext(ctx volcengine.Context, input *Del
 type DeleteMountPointInput struct {
 	_ struct{} `type:"structure"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" required:"true"`
 
-	MountPointId *string `type:"string"`
+	// MountPointId is a required field
+	MountPointId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s DeleteMountPointInput) String() string {
 // GoString returns the string representation
 func (s DeleteMountPointInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteMountPointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteMountPointInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+	if s.MountPointId == nil {
+		invalidParams.Add(request.NewErrParamRequired("MountPointId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFileSystemId sets the FileSystemId field's value.

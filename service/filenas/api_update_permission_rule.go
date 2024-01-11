@@ -150,9 +150,9 @@ type PermissionRuleForUpdatePermissionRuleInput struct {
 
 	PermissionRuleId *string `type:"string"`
 
-	RwMode *string `type:"string"`
+	RwMode *string `type:"string" enum:"EnumOfRwModeForUpdatePermissionRuleInput"`
 
-	UserMode *string `type:"string"`
+	UserMode *string `type:"string" enum:"EnumOfUserModeForUpdatePermissionRuleInput"`
 }
 
 // String returns the string representation
@@ -192,7 +192,8 @@ func (s *PermissionRuleForUpdatePermissionRuleInput) SetUserMode(v string) *Perm
 type UpdatePermissionRuleInput struct {
 	_ struct{} `type:"structure"`
 
-	FileSystemType *string `type:"string"`
+	// FileSystemType is a required field
+	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForUpdatePermissionRuleInput"`
 
 	PermissionGroupId *string `type:"string"`
 
@@ -207,6 +208,19 @@ func (s UpdatePermissionRuleInput) String() string {
 // GoString returns the string representation
 func (s UpdatePermissionRuleInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdatePermissionRuleInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdatePermissionRuleInput"}
+	if s.FileSystemType == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFileSystemType sets the FileSystemType field's value.
@@ -242,3 +256,30 @@ func (s UpdatePermissionRuleOutput) String() string {
 func (s UpdatePermissionRuleOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfFileSystemTypeForUpdatePermissionRuleInputExtreme is a EnumOfFileSystemTypeForUpdatePermissionRuleInput enum value
+	EnumOfFileSystemTypeForUpdatePermissionRuleInputExtreme = "Extreme"
+)
+
+const (
+	// EnumOfRwModeForUpdatePermissionRuleInputRw is a EnumOfRwModeForUpdatePermissionRuleInput enum value
+	EnumOfRwModeForUpdatePermissionRuleInputRw = "RW"
+
+	// EnumOfRwModeForUpdatePermissionRuleInputRo is a EnumOfRwModeForUpdatePermissionRuleInput enum value
+	EnumOfRwModeForUpdatePermissionRuleInputRo = "RO"
+)
+
+const (
+	// EnumOfUserModeForUpdatePermissionRuleInputAllSquash is a EnumOfUserModeForUpdatePermissionRuleInput enum value
+	EnumOfUserModeForUpdatePermissionRuleInputAllSquash = "All_squash"
+
+	// EnumOfUserModeForUpdatePermissionRuleInputNoAllSquash is a EnumOfUserModeForUpdatePermissionRuleInput enum value
+	EnumOfUserModeForUpdatePermissionRuleInputNoAllSquash = "No_all_squash"
+
+	// EnumOfUserModeForUpdatePermissionRuleInputRootSquash is a EnumOfUserModeForUpdatePermissionRuleInput enum value
+	EnumOfUserModeForUpdatePermissionRuleInputRootSquash = "Root_squash"
+
+	// EnumOfUserModeForUpdatePermissionRuleInputNoRootSquash is a EnumOfUserModeForUpdatePermissionRuleInput enum value
+	EnumOfUserModeForUpdatePermissionRuleInputNoRootSquash = "No_root_squash"
+)

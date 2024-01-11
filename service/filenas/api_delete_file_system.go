@@ -146,7 +146,8 @@ func (c *FILENAS) DeleteFileSystemWithContext(ctx volcengine.Context, input *Del
 type DeleteFileSystemInput struct {
 	_ struct{} `type:"structure"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DeleteFileSystemInput) String() string {
 // GoString returns the string representation
 func (s DeleteFileSystemInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteFileSystemInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFileSystemId sets the FileSystemId field's value.

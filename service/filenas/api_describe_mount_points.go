@@ -158,7 +158,7 @@ type ConvertMountPointForDescribeMountPointsOutput struct {
 
 	PermissionGroup *PermissionGroupForDescribeMountPointsOutput `type:"structure"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"EnumOfStatusForDescribeMountPointsOutput"`
 
 	SubnetId *string `type:"string"`
 
@@ -256,7 +256,8 @@ func (s *ConvertMountPointForDescribeMountPointsOutput) SetVpcName(v string) *Co
 type DescribeMountPointsInput struct {
 	_ struct{} `type:"structure"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" required:"true"`
 
 	MountPointId *string `type:"string"`
 
@@ -273,6 +274,19 @@ func (s DescribeMountPointsInput) String() string {
 // GoString returns the string representation
 func (s DescribeMountPointsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeMountPointsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeMountPointsInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFileSystemId sets the FileSystemId field's value.
@@ -378,7 +392,7 @@ type PermissionGroupForDescribeMountPointsOutput struct {
 
 	FileSystemCount *int32 `type:"int32"`
 
-	FileSystemType *string `type:"string"`
+	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribeMountPointsOutput"`
 
 	MountPoints []*MountPointForDescribeMountPointsOutput `type:"list"`
 
@@ -446,3 +460,37 @@ func (s *PermissionGroupForDescribeMountPointsOutput) SetPermissionRuleCount(v i
 	s.PermissionRuleCount = &v
 	return s
 }
+
+const (
+	// EnumOfFileSystemTypeForDescribeMountPointsOutputExtreme is a EnumOfFileSystemTypeForDescribeMountPointsOutput enum value
+	EnumOfFileSystemTypeForDescribeMountPointsOutputExtreme = "Extreme"
+)
+
+const (
+	// EnumOfStatusForDescribeMountPointsOutputUnknown is a EnumOfStatusForDescribeMountPointsOutput enum value
+	EnumOfStatusForDescribeMountPointsOutputUnknown = "Unknown"
+
+	// EnumOfStatusForDescribeMountPointsOutputCreating is a EnumOfStatusForDescribeMountPointsOutput enum value
+	EnumOfStatusForDescribeMountPointsOutputCreating = "Creating"
+
+	// EnumOfStatusForDescribeMountPointsOutputRunning is a EnumOfStatusForDescribeMountPointsOutput enum value
+	EnumOfStatusForDescribeMountPointsOutputRunning = "Running"
+
+	// EnumOfStatusForDescribeMountPointsOutputUpdating is a EnumOfStatusForDescribeMountPointsOutput enum value
+	EnumOfStatusForDescribeMountPointsOutputUpdating = "Updating"
+
+	// EnumOfStatusForDescribeMountPointsOutputError is a EnumOfStatusForDescribeMountPointsOutput enum value
+	EnumOfStatusForDescribeMountPointsOutputError = "Error"
+
+	// EnumOfStatusForDescribeMountPointsOutputDeleting is a EnumOfStatusForDescribeMountPointsOutput enum value
+	EnumOfStatusForDescribeMountPointsOutputDeleting = "Deleting"
+
+	// EnumOfStatusForDescribeMountPointsOutputDeleteError is a EnumOfStatusForDescribeMountPointsOutput enum value
+	EnumOfStatusForDescribeMountPointsOutputDeleteError = "DeleteError"
+
+	// EnumOfStatusForDescribeMountPointsOutputDeleted is a EnumOfStatusForDescribeMountPointsOutput enum value
+	EnumOfStatusForDescribeMountPointsOutputDeleted = "Deleted"
+
+	// EnumOfStatusForDescribeMountPointsOutputStopped is a EnumOfStatusForDescribeMountPointsOutput enum value
+	EnumOfStatusForDescribeMountPointsOutputStopped = "Stopped"
+)

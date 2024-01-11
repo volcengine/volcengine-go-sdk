@@ -146,9 +146,11 @@ func (c *FILENAS) DescribePermissionRulesWithContext(ctx volcengine.Context, inp
 type DescribePermissionRulesInput struct {
 	_ struct{} `type:"structure"`
 
-	FileSystemType *string `type:"string"`
+	// FileSystemType is a required field
+	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForDescribePermissionRulesInput"`
 
-	PermissionGroupId *string `type:"string"`
+	// PermissionGroupId is a required field
+	PermissionGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s DescribePermissionRulesInput) String() string {
 // GoString returns the string representation
 func (s DescribePermissionRulesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribePermissionRulesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribePermissionRulesInput"}
+	if s.FileSystemType == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemType"))
+	}
+	if s.PermissionGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("PermissionGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFileSystemType sets the FileSystemType field's value.
@@ -212,9 +230,9 @@ type PermissionRuleForDescribePermissionRulesOutput struct {
 
 	PermissionRuleId *string `type:"string"`
 
-	RwMode *string `type:"string"`
+	RwMode *string `type:"string" enum:"EnumOfRwModeForDescribePermissionRulesOutput"`
 
-	UserMode *string `type:"string"`
+	UserMode *string `type:"string" enum:"EnumOfUserModeForDescribePermissionRulesOutput"`
 }
 
 // String returns the string representation
@@ -250,3 +268,30 @@ func (s *PermissionRuleForDescribePermissionRulesOutput) SetUserMode(v string) *
 	s.UserMode = &v
 	return s
 }
+
+const (
+	// EnumOfFileSystemTypeForDescribePermissionRulesInputExtreme is a EnumOfFileSystemTypeForDescribePermissionRulesInput enum value
+	EnumOfFileSystemTypeForDescribePermissionRulesInputExtreme = "Extreme"
+)
+
+const (
+	// EnumOfRwModeForDescribePermissionRulesOutputRw is a EnumOfRwModeForDescribePermissionRulesOutput enum value
+	EnumOfRwModeForDescribePermissionRulesOutputRw = "RW"
+
+	// EnumOfRwModeForDescribePermissionRulesOutputRo is a EnumOfRwModeForDescribePermissionRulesOutput enum value
+	EnumOfRwModeForDescribePermissionRulesOutputRo = "RO"
+)
+
+const (
+	// EnumOfUserModeForDescribePermissionRulesOutputAllSquash is a EnumOfUserModeForDescribePermissionRulesOutput enum value
+	EnumOfUserModeForDescribePermissionRulesOutputAllSquash = "All_squash"
+
+	// EnumOfUserModeForDescribePermissionRulesOutputNoAllSquash is a EnumOfUserModeForDescribePermissionRulesOutput enum value
+	EnumOfUserModeForDescribePermissionRulesOutputNoAllSquash = "No_all_squash"
+
+	// EnumOfUserModeForDescribePermissionRulesOutputRootSquash is a EnumOfUserModeForDescribePermissionRulesOutput enum value
+	EnumOfUserModeForDescribePermissionRulesOutputRootSquash = "Root_squash"
+
+	// EnumOfUserModeForDescribePermissionRulesOutputNoRootSquash is a EnumOfUserModeForDescribePermissionRulesOutput enum value
+	EnumOfUserModeForDescribePermissionRulesOutputNoRootSquash = "No_root_squash"
+)
