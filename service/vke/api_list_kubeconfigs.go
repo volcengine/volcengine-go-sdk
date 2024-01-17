@@ -150,6 +150,8 @@ type FilterForListKubeconfigsInput struct {
 
 	Ids []*string `type:"list"`
 
+	RoleIds []*int64 `type:"list"`
+
 	Types []*string `type:"list"`
 
 	UserIds []*int64 `type:"list"`
@@ -177,6 +179,12 @@ func (s *FilterForListKubeconfigsInput) SetIds(v []*string) *FilterForListKubeco
 	return s
 }
 
+// SetRoleIds sets the RoleIds field's value.
+func (s *FilterForListKubeconfigsInput) SetRoleIds(v []*int64) *FilterForListKubeconfigsInput {
+	s.RoleIds = v
+	return s
+}
+
 // SetTypes sets the Types field's value.
 func (s *FilterForListKubeconfigsInput) SetTypes(v []*string) *FilterForListKubeconfigsInput {
 	s.Types = v
@@ -201,6 +209,8 @@ type ItemForListKubeconfigsOutput struct {
 	Id *string `type:"string"`
 
 	Kubeconfig *string `type:"string"`
+
+	RoleId *int64 `type:"int64"`
 
 	Type *string `type:"string"`
 
@@ -244,6 +254,12 @@ func (s *ItemForListKubeconfigsOutput) SetId(v string) *ItemForListKubeconfigsOu
 // SetKubeconfig sets the Kubeconfig field's value.
 func (s *ItemForListKubeconfigsOutput) SetKubeconfig(v string) *ItemForListKubeconfigsOutput {
 	s.Kubeconfig = &v
+	return s
+}
+
+// SetRoleId sets the RoleId field's value.
+func (s *ItemForListKubeconfigsOutput) SetRoleId(v int64) *ItemForListKubeconfigsOutput {
+	s.RoleId = &v
 	return s
 }
 

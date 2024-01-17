@@ -498,6 +498,8 @@ type KubernetesConfigForListNodePoolsOutput struct {
 
 	Labels []*LabelForListNodePoolsOutput `type:"list"`
 
+	NamePrefix *string `type:"string"`
+
 	Taints []*TaintForListNodePoolsOutput `type:"list"`
 }
 
@@ -520,6 +522,12 @@ func (s *KubernetesConfigForListNodePoolsOutput) SetCordon(v bool) *KubernetesCo
 // SetLabels sets the Labels field's value.
 func (s *KubernetesConfigForListNodePoolsOutput) SetLabels(v []*LabelForListNodePoolsOutput) *KubernetesConfigForListNodePoolsOutput {
 	s.Labels = v
+	return s
+}
+
+// SetNamePrefix sets the NamePrefix field's value.
+func (s *KubernetesConfigForListNodePoolsOutput) SetNamePrefix(v string) *KubernetesConfigForListNodePoolsOutput {
+	s.NamePrefix = &v
 	return s
 }
 
