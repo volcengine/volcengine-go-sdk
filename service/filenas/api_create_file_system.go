@@ -146,29 +146,35 @@ func (c *FILENAS) CreateFileSystemWithContext(ctx volcengine.Context, input *Cre
 type CreateFileSystemInput struct {
 	_ struct{} `type:"structure"`
 
-	Capacity *int32 `type:"int32"`
+	// Capacity is a required field
+	Capacity *int32 `type:"int32" required:"true"`
 
-	ChargeType *string `type:"string"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true" enum:"EnumOfChargeTypeForCreateFileSystemInput"`
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	Description *string `max:"120" type:"string"`
 
-	FileSystemName *string `type:"string"`
+	// FileSystemName is a required field
+	FileSystemName *string `min:"1" max:"128" type:"string" required:"true"`
 
-	FileSystemType *string `type:"string"`
+	// FileSystemType is a required field
+	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForCreateFileSystemInput"`
 
 	ProjectName *string `type:"string"`
 
-	ProtocolType *string `type:"string"`
+	// ProtocolType is a required field
+	ProtocolType *string `type:"string" required:"true" enum:"EnumOfProtocolTypeForCreateFileSystemInput"`
 
 	SnapshotId *string `type:"string"`
 
-	StorageType *string `type:"string"`
+	StorageType *string `type:"string" enum:"EnumOfStorageTypeForCreateFileSystemInput"`
 
 	Tags []*TagForCreateFileSystemInput `type:"list"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -179,6 +185,43 @@ func (s CreateFileSystemInput) String() string {
 // GoString returns the string representation
 func (s CreateFileSystemInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateFileSystemInput"}
+	if s.Capacity == nil {
+		invalidParams.Add(request.NewErrParamRequired("Capacity"))
+	}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+	if s.Description != nil && len(*s.Description) > 120 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 120, *s.Description))
+	}
+	if s.FileSystemName == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemName"))
+	}
+	if s.FileSystemName != nil && len(*s.FileSystemName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("FileSystemName", 1))
+	}
+	if s.FileSystemName != nil && len(*s.FileSystemName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("FileSystemName", 128, *s.FileSystemName))
+	}
+	if s.FileSystemType == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemType"))
+	}
+	if s.ProtocolType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ProtocolType"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCapacity sets the Capacity field's value.
@@ -290,7 +333,7 @@ type TagForCreateFileSystemInput struct {
 
 	Key *string `type:"string"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" enum:"EnumOfTypeForCreateFileSystemInput"`
 
 	Value *string `type:"string"`
 }
@@ -322,3 +365,31 @@ func (s *TagForCreateFileSystemInput) SetValue(v string) *TagForCreateFileSystem
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfChargeTypeForCreateFileSystemInputPayAsYouGo is a EnumOfChargeTypeForCreateFileSystemInput enum value
+	EnumOfChargeTypeForCreateFileSystemInputPayAsYouGo = "PayAsYouGo"
+)
+
+const (
+	// EnumOfFileSystemTypeForCreateFileSystemInputExtreme is a EnumOfFileSystemTypeForCreateFileSystemInput enum value
+	EnumOfFileSystemTypeForCreateFileSystemInputExtreme = "Extreme"
+)
+
+const (
+	// EnumOfProtocolTypeForCreateFileSystemInputNfs is a EnumOfProtocolTypeForCreateFileSystemInput enum value
+	EnumOfProtocolTypeForCreateFileSystemInputNfs = "NFS"
+)
+
+const (
+	// EnumOfStorageTypeForCreateFileSystemInputStandard is a EnumOfStorageTypeForCreateFileSystemInput enum value
+	EnumOfStorageTypeForCreateFileSystemInputStandard = "Standard"
+)
+
+const (
+	// EnumOfTypeForCreateFileSystemInputCustom is a EnumOfTypeForCreateFileSystemInput enum value
+	EnumOfTypeForCreateFileSystemInputCustom = "Custom"
+
+	// EnumOfTypeForCreateFileSystemInputSystem is a EnumOfTypeForCreateFileSystemInput enum value
+	EnumOfTypeForCreateFileSystemInputSystem = "System"
+)

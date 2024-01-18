@@ -148,7 +148,7 @@ type CapacityForDescribeFileSystemsOutput struct {
 
 	Total *int64 `type:"int64"`
 
-	Used *int64 `type:"int64" json:"used"`
+	Used *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -178,7 +178,7 @@ type DescribeFileSystemsInput struct {
 
 	FileSystemIds *string `type:"string"`
 
-	FileSystemType *string `type:"string"`
+	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribeFileSystemsInput"`
 
 	Filters []*FilterForDescribeFileSystemsInput `type:"list"`
 
@@ -296,7 +296,7 @@ type FileSystemForDescribeFileSystemsOutput struct {
 
 	Capacity *CapacityForDescribeFileSystemsOutput `type:"structure"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeFileSystemsOutput"`
 
 	CreateTime *string `type:"string"`
 
@@ -306,19 +306,19 @@ type FileSystemForDescribeFileSystemsOutput struct {
 
 	FileSystemName *string `type:"string"`
 
-	FileSystemType *string `type:"string"`
+	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribeFileSystemsOutput"`
 
 	ProjectName *string `type:"string"`
 
-	ProtocolType *string `type:"string"`
+	ProtocolType *string `type:"string" enum:"EnumOfProtocolTypeForDescribeFileSystemsOutput"`
 
 	RegionId *string `type:"string"`
 
 	SnapshotCount *int32 `type:"int32"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"EnumOfStatusForDescribeFileSystemsOutput"`
 
-	StorageType *string `type:"string"`
+	StorageType *string `type:"string" enum:"EnumOfStorageTypeForDescribeFileSystemsOutput"`
 
 	Tags []*TagForDescribeFileSystemsOutput `type:"list"`
 
@@ -452,7 +452,7 @@ func (s *FileSystemForDescribeFileSystemsOutput) SetZoneName(v string) *FileSyst
 type FilterForDescribeFileSystemsInput struct {
 	_ struct{} `type:"structure"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" enum:"EnumOfKeyForDescribeFileSystemsInput"`
 
 	Value *string `type:"string"`
 }
@@ -514,7 +514,7 @@ type TagForDescribeFileSystemsOutput struct {
 
 	Key *string `type:"string"`
 
-	Type *string `type:"string"`
+	Type *string `type:"string" enum:"EnumOfTypeForDescribeFileSystemsOutput"`
 
 	Value *string `type:"string"`
 }
@@ -546,3 +546,109 @@ func (s *TagForDescribeFileSystemsOutput) SetValue(v string) *TagForDescribeFile
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfChargeTypeForDescribeFileSystemsOutputPayAsYouGo is a EnumOfChargeTypeForDescribeFileSystemsOutput enum value
+	EnumOfChargeTypeForDescribeFileSystemsOutputPayAsYouGo = "PayAsYouGo"
+
+	// EnumOfChargeTypeForDescribeFileSystemsOutputSubscription is a EnumOfChargeTypeForDescribeFileSystemsOutput enum value
+	EnumOfChargeTypeForDescribeFileSystemsOutputSubscription = "Subscription"
+
+	// EnumOfChargeTypeForDescribeFileSystemsOutputPackage is a EnumOfChargeTypeForDescribeFileSystemsOutput enum value
+	EnumOfChargeTypeForDescribeFileSystemsOutputPackage = "Package"
+
+	// EnumOfChargeTypeForDescribeFileSystemsOutputNotEnabled is a EnumOfChargeTypeForDescribeFileSystemsOutput enum value
+	EnumOfChargeTypeForDescribeFileSystemsOutputNotEnabled = "NotEnabled"
+)
+
+const (
+	// EnumOfFileSystemTypeForDescribeFileSystemsInputExtreme is a EnumOfFileSystemTypeForDescribeFileSystemsInput enum value
+	EnumOfFileSystemTypeForDescribeFileSystemsInputExtreme = "Extreme"
+)
+
+const (
+	// EnumOfFileSystemTypeForDescribeFileSystemsOutputExtreme is a EnumOfFileSystemTypeForDescribeFileSystemsOutput enum value
+	EnumOfFileSystemTypeForDescribeFileSystemsOutputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForDescribeFileSystemsOutputCommon is a EnumOfFileSystemTypeForDescribeFileSystemsOutput enum value
+	EnumOfFileSystemTypeForDescribeFileSystemsOutputCommon = "Common"
+
+	// EnumOfFileSystemTypeForDescribeFileSystemsOutputCache is a EnumOfFileSystemTypeForDescribeFileSystemsOutput enum value
+	EnumOfFileSystemTypeForDescribeFileSystemsOutputCache = "Cache"
+)
+
+const (
+	// EnumOfKeyForDescribeFileSystemsInputStatus is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputStatus = "Status"
+
+	// EnumOfKeyForDescribeFileSystemsInputFileSystemName is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputFileSystemName = "FileSystemName"
+
+	// EnumOfKeyForDescribeFileSystemsInputZoneId is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputZoneId = "ZoneId"
+
+	// EnumOfKeyForDescribeFileSystemsInputProtocolType is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputProtocolType = "ProtocolType"
+
+	// EnumOfKeyForDescribeFileSystemsInputStorageType is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputStorageType = "StorageType"
+
+	// EnumOfKeyForDescribeFileSystemsInputChargeType is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputChargeType = "ChargeType"
+
+	// EnumOfKeyForDescribeFileSystemsInputPermissionGroupId is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputPermissionGroupId = "PermissionGroupId"
+
+	// EnumOfKeyForDescribeFileSystemsInputMountPointId is a EnumOfKeyForDescribeFileSystemsInput enum value
+	EnumOfKeyForDescribeFileSystemsInputMountPointId = "MountPointId"
+)
+
+const (
+	// EnumOfProtocolTypeForDescribeFileSystemsOutputNfs is a EnumOfProtocolTypeForDescribeFileSystemsOutput enum value
+	EnumOfProtocolTypeForDescribeFileSystemsOutputNfs = "NFS"
+)
+
+const (
+	// EnumOfStatusForDescribeFileSystemsOutputUnknown is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputUnknown = "Unknown"
+
+	// EnumOfStatusForDescribeFileSystemsOutputRunning is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputRunning = "Running"
+
+	// EnumOfStatusForDescribeFileSystemsOutputCreating is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputCreating = "Creating"
+
+	// EnumOfStatusForDescribeFileSystemsOutputExpanding is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputExpanding = "Expanding"
+
+	// EnumOfStatusForDescribeFileSystemsOutputError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputError = "Error"
+
+	// EnumOfStatusForDescribeFileSystemsOutputDeleting is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputDeleting = "Deleting"
+
+	// EnumOfStatusForDescribeFileSystemsOutputDeleteError is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputDeleteError = "DeleteError"
+
+	// EnumOfStatusForDescribeFileSystemsOutputDeleted is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputDeleted = "Deleted"
+
+	// EnumOfStatusForDescribeFileSystemsOutputStopped is a EnumOfStatusForDescribeFileSystemsOutput enum value
+	EnumOfStatusForDescribeFileSystemsOutputStopped = "Stopped"
+)
+
+const (
+	// EnumOfStorageTypeForDescribeFileSystemsOutputStandard is a EnumOfStorageTypeForDescribeFileSystemsOutput enum value
+	EnumOfStorageTypeForDescribeFileSystemsOutputStandard = "Standard"
+
+	// EnumOfStorageTypeForDescribeFileSystemsOutputAdvance is a EnumOfStorageTypeForDescribeFileSystemsOutput enum value
+	EnumOfStorageTypeForDescribeFileSystemsOutputAdvance = "Advance"
+)
+
+const (
+	// EnumOfTypeForDescribeFileSystemsOutputCustom is a EnumOfTypeForDescribeFileSystemsOutput enum value
+	EnumOfTypeForDescribeFileSystemsOutputCustom = "Custom"
+
+	// EnumOfTypeForDescribeFileSystemsOutputSystem is a EnumOfTypeForDescribeFileSystemsOutput enum value
+	EnumOfTypeForDescribeFileSystemsOutputSystem = "System"
+)

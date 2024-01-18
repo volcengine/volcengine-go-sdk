@@ -146,7 +146,8 @@ func (c *FILENAS) DescribePermissionGroupsWithContext(ctx volcengine.Context, in
 type DescribePermissionGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	FileSystemType *string `type:"string"`
+	// FileSystemType is a required field
+	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForDescribePermissionGroupsInput"`
 
 	Filters []*FilterForDescribePermissionGroupsInput `type:"list"`
 
@@ -163,6 +164,19 @@ func (s DescribePermissionGroupsInput) String() string {
 // GoString returns the string representation
 func (s DescribePermissionGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribePermissionGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribePermissionGroupsInput"}
+	if s.FileSystemType == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFileSystemType sets the FileSystemType field's value.
@@ -240,7 +254,7 @@ func (s *DescribePermissionGroupsOutput) SetTotalCount(v int32) *DescribePermiss
 type FilterForDescribePermissionGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" enum:"EnumOfKeyForDescribePermissionGroupsInput"`
 
 	Value *string `type:"string"`
 }
@@ -314,7 +328,7 @@ type PermissionGroupForDescribePermissionGroupsOutput struct {
 
 	FileSystemCount *int32 `type:"int32"`
 
-	FileSystemType *string `type:"string"`
+	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribePermissionGroupsOutput"`
 
 	MountPoints []*MountPointForDescribePermissionGroupsOutput `type:"list"`
 
@@ -382,3 +396,21 @@ func (s *PermissionGroupForDescribePermissionGroupsOutput) SetPermissionRuleCoun
 	s.PermissionRuleCount = &v
 	return s
 }
+
+const (
+	// EnumOfFileSystemTypeForDescribePermissionGroupsInputExtreme is a EnumOfFileSystemTypeForDescribePermissionGroupsInput enum value
+	EnumOfFileSystemTypeForDescribePermissionGroupsInputExtreme = "Extreme"
+)
+
+const (
+	// EnumOfFileSystemTypeForDescribePermissionGroupsOutputExtreme is a EnumOfFileSystemTypeForDescribePermissionGroupsOutput enum value
+	EnumOfFileSystemTypeForDescribePermissionGroupsOutputExtreme = "Extreme"
+)
+
+const (
+	// EnumOfKeyForDescribePermissionGroupsInputPermissionGroupName is a EnumOfKeyForDescribePermissionGroupsInput enum value
+	EnumOfKeyForDescribePermissionGroupsInputPermissionGroupName = "PermissionGroupName"
+
+	// EnumOfKeyForDescribePermissionGroupsInputPermissionGroupId is a EnumOfKeyForDescribePermissionGroupsInput enum value
+	EnumOfKeyForDescribePermissionGroupsInputPermissionGroupId = "PermissionGroupId"
+)

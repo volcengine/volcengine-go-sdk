@@ -146,15 +146,20 @@ func (c *FILENAS) CreateMountPointWithContext(ctx volcengine.Context, input *Cre
 type CreateMountPointInput struct {
 	_ struct{} `type:"structure"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" required:"true"`
 
-	MountPointName *string `type:"string"`
+	// MountPointName is a required field
+	MountPointName *string `type:"string" required:"true"`
 
-	PermissionGroupId *string `type:"string"`
+	// PermissionGroupId is a required field
+	PermissionGroupId *string `type:"string" required:"true"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -165,6 +170,31 @@ func (s CreateMountPointInput) String() string {
 // GoString returns the string representation
 func (s CreateMountPointInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateMountPointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateMountPointInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+	if s.MountPointName == nil {
+		invalidParams.Add(request.NewErrParamRequired("MountPointName"))
+	}
+	if s.PermissionGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("PermissionGroupId"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFileSystemId sets the FileSystemId field's value.

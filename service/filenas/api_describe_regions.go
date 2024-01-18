@@ -196,7 +196,7 @@ type RegionForDescribeRegionsOutput struct {
 
 	RegionName *string `type:"string"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"EnumOfStatusForDescribeRegionsOutput"`
 }
 
 // String returns the string representation
@@ -226,3 +226,14 @@ func (s *RegionForDescribeRegionsOutput) SetStatus(v string) *RegionForDescribeR
 	s.Status = &v
 	return s
 }
+
+const (
+	// EnumOfStatusForDescribeRegionsOutputOnSale is a EnumOfStatusForDescribeRegionsOutput enum value
+	EnumOfStatusForDescribeRegionsOutputOnSale = "OnSale"
+
+	// EnumOfStatusForDescribeRegionsOutputSoldOut is a EnumOfStatusForDescribeRegionsOutput enum value
+	EnumOfStatusForDescribeRegionsOutputSoldOut = "SoldOut"
+
+	// EnumOfStatusForDescribeRegionsOutputUnSold is a EnumOfStatusForDescribeRegionsOutput enum value
+	EnumOfStatusForDescribeRegionsOutputUnSold = "UnSold"
+)

@@ -146,7 +146,8 @@ func (c *FILENAS) DeleteSnapshotWithContext(ctx volcengine.Context, input *Delet
 type DeleteSnapshotInput struct {
 	_ struct{} `type:"structure"`
 
-	SnapshotId *string `type:"string"`
+	// SnapshotId is a required field
+	SnapshotId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DeleteSnapshotInput) String() string {
 // GoString returns the string representation
 func (s DeleteSnapshotInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteSnapshotInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteSnapshotInput"}
+	if s.SnapshotId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SnapshotId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetSnapshotId sets the SnapshotId field's value.

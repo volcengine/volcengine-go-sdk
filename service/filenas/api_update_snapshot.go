@@ -148,7 +148,8 @@ type UpdateSnapshotInput struct {
 
 	Description *string `type:"string"`
 
-	SnapshotId *string `type:"string"`
+	// SnapshotId is a required field
+	SnapshotId *string `type:"string" required:"true"`
 
 	SnapshotName *string `type:"string"`
 }
@@ -161,6 +162,19 @@ func (s UpdateSnapshotInput) String() string {
 // GoString returns the string representation
 func (s UpdateSnapshotInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateSnapshotInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateSnapshotInput"}
+	if s.SnapshotId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SnapshotId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.
