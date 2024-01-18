@@ -330,6 +330,10 @@ type ListForListBillDetailOutput struct {
 
 	BillPeriod *string `type:"string"`
 
+	BillingFunction *string `type:"string"`
+
+	BillingMethodCode *string `type:"string"`
+
 	BillingMode *string `type:"string"`
 
 	BusiPeriod *string `type:"string"`
@@ -354,6 +358,16 @@ type ListForListBillDetailOutput struct {
 
 	DiscountBillAmount *string `type:"string"`
 
+	DiscountBizBillingFunction *string `type:"string"`
+
+	DiscountBizMeasureInterval *string `type:"string"`
+
+	DiscountBizUnitPrice *string `type:"string"`
+
+	DiscountBizUnitPriceInterval *string `type:"string"`
+
+	EffectiveFactor *string `type:"string"`
+
 	Element *string `type:"string"`
 
 	ElementCode *string `type:"string"`
@@ -373,6 +387,10 @@ type ListForListBillDetailOutput struct {
 	InstanceName *string `type:"string"`
 
 	InstanceNo *string `type:"string"`
+
+	MarketPrice *string `type:"string"`
+
+	MeasureInterval *string `type:"string"`
 
 	OriginalBillAmount *string `type:"string"`
 
@@ -395,6 +413,8 @@ type ListForListBillDetailOutput struct {
 	PreferentialBillAmount *string `type:"string"`
 
 	Price *string `type:"string"`
+
+	PriceInterval *string `type:"string"`
 
 	PriceUnit *string `type:"string"`
 
@@ -477,6 +497,18 @@ func (s *ListForListBillDetailOutput) SetBillPeriod(v string) *ListForListBillDe
 	return s
 }
 
+// SetBillingFunction sets the BillingFunction field's value.
+func (s *ListForListBillDetailOutput) SetBillingFunction(v string) *ListForListBillDetailOutput {
+	s.BillingFunction = &v
+	return s
+}
+
+// SetBillingMethodCode sets the BillingMethodCode field's value.
+func (s *ListForListBillDetailOutput) SetBillingMethodCode(v string) *ListForListBillDetailOutput {
+	s.BillingMethodCode = &v
+	return s
+}
+
 // SetBillingMode sets the BillingMode field's value.
 func (s *ListForListBillDetailOutput) SetBillingMode(v string) *ListForListBillDetailOutput {
 	s.BillingMode = &v
@@ -549,6 +581,36 @@ func (s *ListForListBillDetailOutput) SetDiscountBillAmount(v string) *ListForLi
 	return s
 }
 
+// SetDiscountBizBillingFunction sets the DiscountBizBillingFunction field's value.
+func (s *ListForListBillDetailOutput) SetDiscountBizBillingFunction(v string) *ListForListBillDetailOutput {
+	s.DiscountBizBillingFunction = &v
+	return s
+}
+
+// SetDiscountBizMeasureInterval sets the DiscountBizMeasureInterval field's value.
+func (s *ListForListBillDetailOutput) SetDiscountBizMeasureInterval(v string) *ListForListBillDetailOutput {
+	s.DiscountBizMeasureInterval = &v
+	return s
+}
+
+// SetDiscountBizUnitPrice sets the DiscountBizUnitPrice field's value.
+func (s *ListForListBillDetailOutput) SetDiscountBizUnitPrice(v string) *ListForListBillDetailOutput {
+	s.DiscountBizUnitPrice = &v
+	return s
+}
+
+// SetDiscountBizUnitPriceInterval sets the DiscountBizUnitPriceInterval field's value.
+func (s *ListForListBillDetailOutput) SetDiscountBizUnitPriceInterval(v string) *ListForListBillDetailOutput {
+	s.DiscountBizUnitPriceInterval = &v
+	return s
+}
+
+// SetEffectiveFactor sets the EffectiveFactor field's value.
+func (s *ListForListBillDetailOutput) SetEffectiveFactor(v string) *ListForListBillDetailOutput {
+	s.EffectiveFactor = &v
+	return s
+}
+
 // SetElement sets the Element field's value.
 func (s *ListForListBillDetailOutput) SetElement(v string) *ListForListBillDetailOutput {
 	s.Element = &v
@@ -606,6 +668,18 @@ func (s *ListForListBillDetailOutput) SetInstanceName(v string) *ListForListBill
 // SetInstanceNo sets the InstanceNo field's value.
 func (s *ListForListBillDetailOutput) SetInstanceNo(v string) *ListForListBillDetailOutput {
 	s.InstanceNo = &v
+	return s
+}
+
+// SetMarketPrice sets the MarketPrice field's value.
+func (s *ListForListBillDetailOutput) SetMarketPrice(v string) *ListForListBillDetailOutput {
+	s.MarketPrice = &v
+	return s
+}
+
+// SetMeasureInterval sets the MeasureInterval field's value.
+func (s *ListForListBillDetailOutput) SetMeasureInterval(v string) *ListForListBillDetailOutput {
+	s.MeasureInterval = &v
 	return s
 }
 
@@ -672,6 +746,12 @@ func (s *ListForListBillDetailOutput) SetPreferentialBillAmount(v string) *ListF
 // SetPrice sets the Price field's value.
 func (s *ListForListBillDetailOutput) SetPrice(v string) *ListForListBillDetailOutput {
 	s.Price = &v
+	return s
+}
+
+// SetPriceInterval sets the PriceInterval field's value.
+func (s *ListForListBillDetailOutput) SetPriceInterval(v string) *ListForListBillDetailOutput {
+	s.PriceInterval = &v
 	return s
 }
 

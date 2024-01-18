@@ -148,9 +148,11 @@ type CreatePermissionGroupInput struct {
 
 	Description *string `type:"string"`
 
-	FileSystemType *string `type:"string"`
+	// FileSystemType is a required field
+	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForCreatePermissionGroupInput"`
 
-	PermissionGroupName *string `type:"string"`
+	// PermissionGroupName is a required field
+	PermissionGroupName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +163,22 @@ func (s CreatePermissionGroupInput) String() string {
 // GoString returns the string representation
 func (s CreatePermissionGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreatePermissionGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreatePermissionGroupInput"}
+	if s.FileSystemType == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemType"))
+	}
+	if s.PermissionGroupName == nil {
+		invalidParams.Add(request.NewErrParamRequired("PermissionGroupName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.
@@ -204,3 +222,8 @@ func (s *CreatePermissionGroupOutput) SetPermissionGroupId(v string) *CreatePerm
 	s.PermissionGroupId = &v
 	return s
 }
+
+const (
+	// EnumOfFileSystemTypeForCreatePermissionGroupInputExtreme is a EnumOfFileSystemTypeForCreatePermissionGroupInput enum value
+	EnumOfFileSystemTypeForCreatePermissionGroupInputExtreme = "Extreme"
+)

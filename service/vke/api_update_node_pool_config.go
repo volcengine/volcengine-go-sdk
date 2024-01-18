@@ -250,6 +250,8 @@ type KubernetesConfigForUpdateNodePoolConfigInput struct {
 
 	Labels []*LabelForUpdateNodePoolConfigInput `type:"list"`
 
+	NamePrefix *string `type:"string"`
+
 	Taints []*TaintForUpdateNodePoolConfigInput `type:"list"`
 }
 
@@ -272,6 +274,12 @@ func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetCordon(v bool) *Kubern
 // SetLabels sets the Labels field's value.
 func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetLabels(v []*LabelForUpdateNodePoolConfigInput) *KubernetesConfigForUpdateNodePoolConfigInput {
 	s.Labels = v
+	return s
+}
+
+// SetNamePrefix sets the NamePrefix field's value.
+func (s *KubernetesConfigForUpdateNodePoolConfigInput) SetNamePrefix(v string) *KubernetesConfigForUpdateNodePoolConfigInput {
+	s.NamePrefix = &v
 	return s
 }
 

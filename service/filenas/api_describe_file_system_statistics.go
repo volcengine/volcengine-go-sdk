@@ -148,7 +148,7 @@ type CommonCapacityForDescribeFileSystemStatisticsOutput struct {
 
 	Total *int64 `type:"int64"`
 
-	Used *int64 `type:"int64" json:"used"`
+	Used *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -224,7 +224,7 @@ type ExtremeCapacityForDescribeFileSystemStatisticsOutput struct {
 
 	Total *int64 `type:"int64"`
 
-	Used *int64 `type:"int64" json:"used"`
+	Used *int64 `type:"int64"`
 }
 
 // String returns the string representation

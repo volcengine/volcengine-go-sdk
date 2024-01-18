@@ -362,6 +362,8 @@ type KubernetesConfigForCreateNodePoolInput struct {
 
 	Labels []*LabelForCreateNodePoolInput `type:"list"`
 
+	NamePrefix *string `type:"string"`
+
 	Taints []*TaintForCreateNodePoolInput `type:"list"`
 }
 
@@ -384,6 +386,12 @@ func (s *KubernetesConfigForCreateNodePoolInput) SetCordon(v bool) *KubernetesCo
 // SetLabels sets the Labels field's value.
 func (s *KubernetesConfigForCreateNodePoolInput) SetLabels(v []*LabelForCreateNodePoolInput) *KubernetesConfigForCreateNodePoolInput {
 	s.Labels = v
+	return s
+}
+
+// SetNamePrefix sets the NamePrefix field's value.
+func (s *KubernetesConfigForCreateNodePoolInput) SetNamePrefix(v string) *KubernetesConfigForCreateNodePoolInput {
+	s.NamePrefix = &v
 	return s
 }
 

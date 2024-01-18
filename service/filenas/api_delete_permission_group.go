@@ -146,9 +146,11 @@ func (c *FILENAS) DeletePermissionGroupWithContext(ctx volcengine.Context, input
 type DeletePermissionGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	FileSystemType *string `type:"string"`
+	// FileSystemType is a required field
+	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForDeletePermissionGroupInput"`
 
-	PermissionGroupId *string `type:"string"`
+	// PermissionGroupId is a required field
+	PermissionGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s DeletePermissionGroupInput) String() string {
 // GoString returns the string representation
 func (s DeletePermissionGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeletePermissionGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeletePermissionGroupInput"}
+	if s.FileSystemType == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemType"))
+	}
+	if s.PermissionGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("PermissionGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFileSystemType sets the FileSystemType field's value.
@@ -188,3 +206,8 @@ func (s DeletePermissionGroupOutput) String() string {
 func (s DeletePermissionGroupOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfFileSystemTypeForDeletePermissionGroupInputExtreme is a EnumOfFileSystemTypeForDeletePermissionGroupInput enum value
+	EnumOfFileSystemTypeForDeletePermissionGroupInputExtreme = "Extreme"
+)

@@ -30,9 +30,9 @@ var initRequest func(*request.Request)
 
 // Service information constants
 const (
-	ServiceName = "FileNAS"   // Name of service.
+	ServiceName = "filenas"   // Name of service.
 	EndpointsID = ServiceName // ID to lookup a service endpoint with.
-	ServiceID   = "FileNAS"   // ServiceID is a unique identifer of a specific service.
+	ServiceID   = "filenas"   // ServiceID is a unique identifer of a specific service.
 )
 
 // New create int can support ssl or region locate set

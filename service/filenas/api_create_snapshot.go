@@ -148,9 +148,11 @@ type CreateSnapshotInput struct {
 
 	Description *string `type:"string"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" required:"true"`
 
-	SnapshotName *string `type:"string"`
+	// SnapshotName is a required field
+	SnapshotName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +163,22 @@ func (s CreateSnapshotInput) String() string {
 // GoString returns the string representation
 func (s CreateSnapshotInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateSnapshotInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateSnapshotInput"}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+	if s.SnapshotName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SnapshotName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.

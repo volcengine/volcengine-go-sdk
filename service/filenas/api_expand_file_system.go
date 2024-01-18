@@ -146,9 +146,11 @@ func (c *FILENAS) ExpandFileSystemWithContext(ctx volcengine.Context, input *Exp
 type ExpandFileSystemInput struct {
 	_ struct{} `type:"structure"`
 
-	Capacity *int32 `type:"int32"`
+	// Capacity is a required field
+	Capacity *int32 `type:"int32" required:"true"`
 
-	FileSystemId *string `type:"string"`
+	// FileSystemId is a required field
+	FileSystemId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s ExpandFileSystemInput) String() string {
 // GoString returns the string representation
 func (s ExpandFileSystemInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ExpandFileSystemInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ExpandFileSystemInput"}
+	if s.Capacity == nil {
+		invalidParams.Add(request.NewErrParamRequired("Capacity"))
+	}
+	if s.FileSystemId == nil {
+		invalidParams.Add(request.NewErrParamRequired("FileSystemId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCapacity sets the Capacity field's value.
