@@ -4,6 +4,7 @@ package session
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
+	"code.byted.org/eps-platform/volcengine-innersdk-golang/volcengine/volcengineutil"
 	"crypto/tls"
 	"crypto/x509"
 	"io"
@@ -555,6 +556,14 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 	var err error
 
 	region := volcengine.StringValue(s.Config.Region)
+
+	if s.Config.Endpoint == nil {
+		endpoint, endpointErr := volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region)
+		if endpointErr != nil {
+			panic(endpointErr)
+		}
+		s.Config.Endpoint = endpoint
+	}
 
 	if endpoint := volcengine.StringValue(s.Config.Endpoint); len(endpoint) != 0 {
 		resolved.URL = endpoints.AddScheme(endpoint, volcengine.BoolValue(s.Config.DisableSSL))
