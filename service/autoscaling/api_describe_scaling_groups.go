@@ -22,13 +22,13 @@ const opDescribeScalingGroupsCommon = "DescribeScalingGroups"
 // See DescribeScalingGroupsCommon for more information on using the DescribeScalingGroupsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingGroupsCommonRequest method.
-//	req, resp := client.DescribeScalingGroupsCommonRequest(params)
+//    // Example sending a request using the DescribeScalingGroupsCommonRequest method.
+//    req, resp := client.DescribeScalingGroupsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeScalingGroupsCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingGroupsCommonRequest(input *map[string]inter
 	return
 }
 
-// DescribeScalingGroupsCommon API operation for AUTO_SCALING.
+// DescribeScalingGroupsCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingGroupsCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingGroupsCommonRequest(input)
@@ -87,13 +87,13 @@ const opDescribeScalingGroups = "DescribeScalingGroups"
 // See DescribeScalingGroups for more information on using the DescribeScalingGroups
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingGroupsRequest method.
-//	req, resp := client.DescribeScalingGroupsRequest(params)
+//    // Example sending a request using the DescribeScalingGroupsRequest method.
+//    req, resp := client.DescribeScalingGroupsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingGroupsRequest(input *DescribeScalingGroupsInput) (req *request.Request, output *DescribeScalingGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeScalingGroups,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingGroupsRequest(input *DescribeScalingGroupsI
 	return
 }
 
-// DescribeScalingGroups API operation for AUTO_SCALING.
+// DescribeScalingGroups API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingGroups for usage and error information.
 func (c *AUTOSCALING) DescribeScalingGroups(input *DescribeScalingGroupsInput) (*DescribeScalingGroupsOutput, error) {
 	req, out := c.DescribeScalingGroupsRequest(input)
@@ -144,7 +144,7 @@ type DescribeScalingGroupsInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `min:"1" max:"100" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -163,6 +163,22 @@ func (s DescribeScalingGroupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeScalingGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingGroupsInput"}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -249,10 +265,58 @@ func (s *DescribeScalingGroupsOutput) SetTotalCount(v int32) *DescribeScalingGro
 	return s
 }
 
+type InstancesDistributionForDescribeScalingGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CompensateWithOnDemand *bool `type:"boolean"`
+
+	OnDemandBaseCapacity *int32 `type:"int32"`
+
+	OnDemandPercentageAboveBaseCapacity *int32 `type:"int32"`
+
+	SpotInstanceRemedy *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s InstancesDistributionForDescribeScalingGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstancesDistributionForDescribeScalingGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCompensateWithOnDemand sets the CompensateWithOnDemand field's value.
+func (s *InstancesDistributionForDescribeScalingGroupsOutput) SetCompensateWithOnDemand(v bool) *InstancesDistributionForDescribeScalingGroupsOutput {
+	s.CompensateWithOnDemand = &v
+	return s
+}
+
+// SetOnDemandBaseCapacity sets the OnDemandBaseCapacity field's value.
+func (s *InstancesDistributionForDescribeScalingGroupsOutput) SetOnDemandBaseCapacity(v int32) *InstancesDistributionForDescribeScalingGroupsOutput {
+	s.OnDemandBaseCapacity = &v
+	return s
+}
+
+// SetOnDemandPercentageAboveBaseCapacity sets the OnDemandPercentageAboveBaseCapacity field's value.
+func (s *InstancesDistributionForDescribeScalingGroupsOutput) SetOnDemandPercentageAboveBaseCapacity(v int32) *InstancesDistributionForDescribeScalingGroupsOutput {
+	s.OnDemandPercentageAboveBaseCapacity = &v
+	return s
+}
+
+// SetSpotInstanceRemedy sets the SpotInstanceRemedy field's value.
+func (s *InstancesDistributionForDescribeScalingGroupsOutput) SetSpotInstanceRemedy(v bool) *InstancesDistributionForDescribeScalingGroupsOutput {
+	s.SpotInstanceRemedy = &v
+	return s
+}
+
 type LaunchTemplateOverrideForDescribeScalingGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	InstanceType *string `type:"string"`
+
+	WeightedCapacity *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -268,6 +332,12 @@ func (s LaunchTemplateOverrideForDescribeScalingGroupsOutput) GoString() string 
 // SetInstanceType sets the InstanceType field's value.
 func (s *LaunchTemplateOverrideForDescribeScalingGroupsOutput) SetInstanceType(v string) *LaunchTemplateOverrideForDescribeScalingGroupsOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetWeightedCapacity sets the WeightedCapacity field's value.
+func (s *LaunchTemplateOverrideForDescribeScalingGroupsOutput) SetWeightedCapacity(v int32) *LaunchTemplateOverrideForDescribeScalingGroupsOutput {
+	s.WeightedCapacity = &v
 	return s
 }
 
@@ -287,6 +357,8 @@ type ScalingGroupForDescribeScalingGroupsOutput struct {
 	HealthCheckType *string `type:"string"`
 
 	InstanceTerminatePolicy *string `type:"string"`
+
+	InstancesDistribution *InstancesDistributionForDescribeScalingGroupsOutput `type:"structure"`
 
 	LaunchTemplateId *string `type:"string"`
 
@@ -374,6 +446,12 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetHealthCheckType(v string
 // SetInstanceTerminatePolicy sets the InstanceTerminatePolicy field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetInstanceTerminatePolicy(v string) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.InstanceTerminatePolicy = &v
+	return s
+}
+
+// SetInstancesDistribution sets the InstancesDistribution field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetInstancesDistribution(v *InstancesDistributionForDescribeScalingGroupsOutput) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.InstancesDistribution = v
 	return s
 }
 
@@ -494,6 +572,8 @@ type ServerGroupAttributeForDescribeScalingGroupsOutput struct {
 
 	ServerGroupId *string `type:"string"`
 
+	Type *string `type:"string"`
+
 	Weight *int32 `type:"int32"`
 }
 
@@ -522,6 +602,12 @@ func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetPort(v int32) *S
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetServerGroupId(v string) *ServerGroupAttributeForDescribeScalingGroupsOutput {
 	s.ServerGroupId = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ServerGroupAttributeForDescribeScalingGroupsOutput) SetType(v string) *ServerGroupAttributeForDescribeScalingGroupsOutput {
+	s.Type = &v
 	return s
 }
 

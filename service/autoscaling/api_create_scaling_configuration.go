@@ -3,6 +3,8 @@
 package autoscaling
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -22,13 +24,13 @@ const opCreateScalingConfigurationCommon = "CreateScalingConfiguration"
 // See CreateScalingConfigurationCommon for more information on using the CreateScalingConfigurationCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateScalingConfigurationCommonRequest method.
-//	req, resp := client.CreateScalingConfigurationCommonRequest(params)
+//    // Example sending a request using the CreateScalingConfigurationCommonRequest method.
+//    req, resp := client.CreateScalingConfigurationCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) CreateScalingConfigurationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateScalingConfigurationCommon,
@@ -46,13 +48,13 @@ func (c *AUTOSCALING) CreateScalingConfigurationCommonRequest(input *map[string]
 	return
 }
 
-// CreateScalingConfigurationCommon API operation for AUTO_SCALING.
+// CreateScalingConfigurationCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation CreateScalingConfigurationCommon for usage and error information.
 func (c *AUTOSCALING) CreateScalingConfigurationCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateScalingConfigurationCommonRequest(input)
@@ -87,13 +89,13 @@ const opCreateScalingConfiguration = "CreateScalingConfiguration"
 // See CreateScalingConfiguration for more information on using the CreateScalingConfiguration
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateScalingConfigurationRequest method.
-//	req, resp := client.CreateScalingConfigurationRequest(params)
+//    // Example sending a request using the CreateScalingConfigurationRequest method.
+//    req, resp := client.CreateScalingConfigurationRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) CreateScalingConfigurationRequest(input *CreateScalingConfigurationInput) (req *request.Request, output *CreateScalingConfigurationOutput) {
 	op := &request.Operation{
 		Name:       opCreateScalingConfiguration,
@@ -111,13 +113,13 @@ func (c *AUTOSCALING) CreateScalingConfigurationRequest(input *CreateScalingConf
 	return
 }
 
-// CreateScalingConfiguration API operation for AUTO_SCALING.
+// CreateScalingConfiguration API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation CreateScalingConfiguration for usage and error information.
 func (c *AUTOSCALING) CreateScalingConfiguration(input *CreateScalingConfigurationInput) (*CreateScalingConfigurationOutput, error) {
 	req, out := c.CreateScalingConfigurationRequest(input)
@@ -150,37 +152,44 @@ type CreateScalingConfigurationInput struct {
 
 	HpcClusterId *string `type:"string"`
 
-	ImageId *string `type:"string"`
+	// ImageId is a required field
+	ImageId *string `type:"string" required:"true"`
 
 	InstanceDescription *string `type:"string"`
 
-	InstanceName *string `type:"string"`
+	// InstanceName is a required field
+	InstanceName *string `type:"string" required:"true"`
 
-	InstanceTypes []*string `type:"list"`
+	// InstanceTypes is a required field
+	InstanceTypes []*string `type:"list" required:"true"`
 
 	Ipv6AddressCount *int32 `type:"int32"`
 
 	KeyPairName *string `type:"string"`
 
-	Password *string `type:"string"`
+	Password *string `min:"8" max:"30" type:"string"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `max:"64" type:"string"`
 
-	ScalingConfigurationName *string `type:"string"`
+	// ScalingConfigurationName is a required field
+	ScalingConfigurationName *string `min:"1" max:"128" type:"string" required:"true"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
-	SecurityEnhancementStrategy *string `type:"string"`
+	SecurityEnhancementStrategy *string `type:"string" enum:"EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInput"`
 
-	SecurityGroupIds []*string `type:"list"`
+	// SecurityGroupIds is a required field
+	SecurityGroupIds []*string `type:"list" required:"true"`
 
-	SpotStrategy *string `type:"string"`
+	SpotStrategy *string `type:"string" enum:"EnumOfSpotStrategyForCreateScalingConfigurationInput"`
 
 	Tags *string `type:"string"`
 
 	UserData *string `type:"string"`
 
-	Volumes []*VolumeForCreateScalingConfigurationInput `type:"list"`
+	// Volumes is a required field
+	Volumes []*VolumeForCreateScalingConfigurationInput `type:"list" required:"true"`
 
 	ZoneId *string `type:"string"`
 }
@@ -193,6 +202,62 @@ func (s CreateScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s CreateScalingConfigurationInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateScalingConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateScalingConfigurationInput"}
+	if s.ImageId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageId"))
+	}
+	if s.InstanceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceName"))
+	}
+	if s.InstanceTypes == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceTypes"))
+	}
+	if s.Password != nil && len(*s.Password) < 8 {
+		invalidParams.Add(request.NewErrParamMinLen("Password", 8))
+	}
+	if s.Password != nil && len(*s.Password) > 30 {
+		invalidParams.Add(request.NewErrParamMaxLen("Password", 30, *s.Password))
+	}
+	if s.ProjectName != nil && len(*s.ProjectName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ProjectName", 64, *s.ProjectName))
+	}
+	if s.ScalingConfigurationName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingConfigurationName"))
+	}
+	if s.ScalingConfigurationName != nil && len(*s.ScalingConfigurationName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ScalingConfigurationName", 1))
+	}
+	if s.ScalingConfigurationName != nil && len(*s.ScalingConfigurationName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("ScalingConfigurationName", 128, *s.ScalingConfigurationName))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+	if s.SecurityGroupIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("SecurityGroupIds"))
+	}
+	if s.Volumes == nil {
+		invalidParams.Add(request.NewErrParamRequired("Volumes"))
+	}
+	if s.Volumes != nil {
+		for i, v := range s.Volumes {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Volumes", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -350,7 +415,9 @@ type EipForCreateScalingConfigurationInput struct {
 
 	Bandwidth *int32 `type:"int32"`
 
-	BillingType *string `type:"string"`
+	BandwidthPackageId *string `type:"string"`
+
+	BillingType *string `type:"string" enum:"EnumOfEipBillingTypeForCreateScalingConfigurationInput"`
 
 	ISP *string `type:"string"`
 }
@@ -371,6 +438,12 @@ func (s *EipForCreateScalingConfigurationInput) SetBandwidth(v int32) *EipForCre
 	return s
 }
 
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *EipForCreateScalingConfigurationInput) SetBandwidthPackageId(v string) *EipForCreateScalingConfigurationInput {
+	s.BandwidthPackageId = &v
+	return s
+}
+
 // SetBillingType sets the BillingType field's value.
 func (s *EipForCreateScalingConfigurationInput) SetBillingType(v string) *EipForCreateScalingConfigurationInput {
 	s.BillingType = &v
@@ -388,9 +461,11 @@ type VolumeForCreateScalingConfigurationInput struct {
 
 	DeleteWithInstance *bool `type:"boolean"`
 
-	Size *int32 `type:"int32"`
+	// Size is a required field
+	Size *int32 `type:"int32" required:"true"`
 
-	VolumeType *string `type:"string"`
+	// VolumeType is a required field
+	VolumeType *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -401,6 +476,22 @@ func (s VolumeForCreateScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s VolumeForCreateScalingConfigurationInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VolumeForCreateScalingConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VolumeForCreateScalingConfigurationInput"}
+	if s.Size == nil {
+		invalidParams.Add(request.NewErrParamRequired("Size"))
+	}
+	if s.VolumeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
@@ -420,3 +511,27 @@ func (s *VolumeForCreateScalingConfigurationInput) SetVolumeType(v string) *Volu
 	s.VolumeType = &v
 	return s
 }
+
+const (
+	// EnumOfEipBillingTypeForCreateScalingConfigurationInputPostPaidByBandwidth is a EnumOfEipBillingTypeForCreateScalingConfigurationInput enum value
+	EnumOfEipBillingTypeForCreateScalingConfigurationInputPostPaidByBandwidth = "PostPaidByBandwidth"
+
+	// EnumOfEipBillingTypeForCreateScalingConfigurationInputPostPaidByTraffic is a EnumOfEipBillingTypeForCreateScalingConfigurationInput enum value
+	EnumOfEipBillingTypeForCreateScalingConfigurationInputPostPaidByTraffic = "PostPaidByTraffic"
+)
+
+const (
+	// EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInputActive is a EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInput enum value
+	EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInputActive = "Active"
+
+	// EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInputInActive is a EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInput enum value
+	EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInputInActive = "InActive"
+)
+
+const (
+	// EnumOfSpotStrategyForCreateScalingConfigurationInputNoSpot is a EnumOfSpotStrategyForCreateScalingConfigurationInput enum value
+	EnumOfSpotStrategyForCreateScalingConfigurationInputNoSpot = "NoSpot"
+
+	// EnumOfSpotStrategyForCreateScalingConfigurationInputSpotAsPriceGo is a EnumOfSpotStrategyForCreateScalingConfigurationInput enum value
+	EnumOfSpotStrategyForCreateScalingConfigurationInputSpotAsPriceGo = "SpotAsPriceGo"
+)

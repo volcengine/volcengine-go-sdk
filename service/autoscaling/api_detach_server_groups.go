@@ -3,6 +3,8 @@
 package autoscaling
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -22,13 +24,13 @@ const opDetachServerGroupsCommon = "DetachServerGroups"
 // See DetachServerGroupsCommon for more information on using the DetachServerGroupsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachServerGroupsCommonRequest method.
-//	req, resp := client.DetachServerGroupsCommonRequest(params)
+//    // Example sending a request using the DetachServerGroupsCommonRequest method.
+//    req, resp := client.DetachServerGroupsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DetachServerGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachServerGroupsCommon,
@@ -46,13 +48,13 @@ func (c *AUTOSCALING) DetachServerGroupsCommonRequest(input *map[string]interfac
 	return
 }
 
-// DetachServerGroupsCommon API operation for AUTO_SCALING.
+// DetachServerGroupsCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DetachServerGroupsCommon for usage and error information.
 func (c *AUTOSCALING) DetachServerGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachServerGroupsCommonRequest(input)
@@ -87,13 +89,13 @@ const opDetachServerGroups = "DetachServerGroups"
 // See DetachServerGroups for more information on using the DetachServerGroups
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachServerGroupsRequest method.
-//	req, resp := client.DetachServerGroupsRequest(params)
+//    // Example sending a request using the DetachServerGroupsRequest method.
+//    req, resp := client.DetachServerGroupsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DetachServerGroupsRequest(input *DetachServerGroupsInput) (req *request.Request, output *DetachServerGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDetachServerGroups,
@@ -111,13 +113,13 @@ func (c *AUTOSCALING) DetachServerGroupsRequest(input *DetachServerGroupsInput) 
 	return
 }
 
-// DetachServerGroups API operation for AUTO_SCALING.
+// DetachServerGroups API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DetachServerGroups for usage and error information.
 func (c *AUTOSCALING) DetachServerGroups(input *DetachServerGroupsInput) (*DetachServerGroupsOutput, error) {
 	req, out := c.DetachServerGroupsRequest(input)
@@ -142,11 +144,13 @@ func (c *AUTOSCALING) DetachServerGroupsWithContext(ctx volcengine.Context, inpu
 type DetachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `max:"64" type:"string"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
-	ServerGroupAttributes []*ServerGroupAttributeForDetachServerGroupsInput `type:"list"`
+	// ServerGroupAttributes is a required field
+	ServerGroupAttributes []*ServerGroupAttributeForDetachServerGroupsInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +161,35 @@ func (s DetachServerGroupsInput) String() string {
 // GoString returns the string representation
 func (s DetachServerGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DetachServerGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DetachServerGroupsInput"}
+	if s.ClientToken != nil && len(*s.ClientToken) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ClientToken", 64, *s.ClientToken))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+	if s.ServerGroupAttributes == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServerGroupAttributes"))
+	}
+	if s.ServerGroupAttributes != nil {
+		for i, v := range s.ServerGroupAttributes {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "ServerGroupAttributes", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -204,7 +237,13 @@ func (s *DetachServerGroupsOutput) SetScalingGroupId(v string) *DetachServerGrou
 type ServerGroupAttributeForDetachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	ServerGroupId *string `type:"string"`
+	// Port is a required field
+	Port *int32 `type:"int32" required:"true"`
+
+	// ServerGroupId is a required field
+	ServerGroupId *string `type:"string" required:"true"`
+
+	Type *string `type:"string" enum:"EnumOfTypeForDetachServerGroupsInput"`
 }
 
 // String returns the string representation
@@ -217,8 +256,44 @@ func (s ServerGroupAttributeForDetachServerGroupsInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerGroupAttributeForDetachServerGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerGroupAttributeForDetachServerGroupsInput"}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.ServerGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPort sets the Port field's value.
+func (s *ServerGroupAttributeForDetachServerGroupsInput) SetPort(v int32) *ServerGroupAttributeForDetachServerGroupsInput {
+	s.Port = &v
+	return s
+}
+
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *ServerGroupAttributeForDetachServerGroupsInput) SetServerGroupId(v string) *ServerGroupAttributeForDetachServerGroupsInput {
 	s.ServerGroupId = &v
 	return s
 }
+
+// SetType sets the Type field's value.
+func (s *ServerGroupAttributeForDetachServerGroupsInput) SetType(v string) *ServerGroupAttributeForDetachServerGroupsInput {
+	s.Type = &v
+	return s
+}
+
+const (
+	// EnumOfTypeForDetachServerGroupsInputClb is a EnumOfTypeForDetachServerGroupsInput enum value
+	EnumOfTypeForDetachServerGroupsInputClb = "CLB"
+
+	// EnumOfTypeForDetachServerGroupsInputAlb is a EnumOfTypeForDetachServerGroupsInput enum value
+	EnumOfTypeForDetachServerGroupsInputAlb = "ALB"
+)

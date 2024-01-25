@@ -22,13 +22,13 @@ const opDescribeScalingInstancesCommon = "DescribeScalingInstances"
 // See DescribeScalingInstancesCommon for more information on using the DescribeScalingInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingInstancesCommonRequest method.
-//	req, resp := client.DescribeScalingInstancesCommonRequest(params)
+//    // Example sending a request using the DescribeScalingInstancesCommonRequest method.
+//    req, resp := client.DescribeScalingInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeScalingInstancesCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingInstancesCommonRequest(input *map[string]in
 	return
 }
 
-// DescribeScalingInstancesCommon API operation for AUTO_SCALING.
+// DescribeScalingInstancesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingInstancesCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingInstancesCommonRequest(input)
@@ -87,13 +87,13 @@ const opDescribeScalingInstances = "DescribeScalingInstances"
 // See DescribeScalingInstances for more information on using the DescribeScalingInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingInstancesRequest method.
-//	req, resp := client.DescribeScalingInstancesRequest(params)
+//    // Example sending a request using the DescribeScalingInstancesRequest method.
+//    req, resp := client.DescribeScalingInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingInstancesRequest(input *DescribeScalingInstancesInput) (req *request.Request, output *DescribeScalingInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeScalingInstances,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingInstancesRequest(input *DescribeScalingInst
 	return
 }
 
-// DescribeScalingInstances API operation for AUTO_SCALING.
+// DescribeScalingInstances API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingInstances for usage and error information.
 func (c *AUTOSCALING) DescribeScalingInstances(input *DescribeScalingInstancesInput) (*DescribeScalingInstancesOutput, error) {
 	req, out := c.DescribeScalingInstancesRequest(input)
@@ -142,19 +142,19 @@ func (c *AUTOSCALING) DescribeScalingInstancesWithContext(ctx volcengine.Context
 type DescribeScalingInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	CreationType *string `type:"string"`
+	CreationType *string `type:"string" enum:"EnumOfCreationTypeForDescribeScalingInstancesInput"`
 
 	InstanceIds []*string `type:"list"`
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `min:"1" max:"100" type:"int32"`
 
 	ScalingConfigurationId *string `type:"string"`
 
 	ScalingGroupId *string `type:"string"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" enum:"EnumOfStatusForDescribeScalingInstancesInput"`
 }
 
 // String returns the string representation
@@ -165,6 +165,22 @@ func (s DescribeScalingInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeScalingInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingInstancesInput"}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCreationType sets the CreationType field's value.
@@ -358,3 +374,40 @@ func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetZoneId(v string) *
 	s.ZoneId = &v
 	return s
 }
+
+const (
+	// EnumOfCreationTypeForDescribeScalingInstancesInputAutoCreated is a EnumOfCreationTypeForDescribeScalingInstancesInput enum value
+	EnumOfCreationTypeForDescribeScalingInstancesInputAutoCreated = "AutoCreated"
+
+	// EnumOfCreationTypeForDescribeScalingInstancesInputAttached is a EnumOfCreationTypeForDescribeScalingInstancesInput enum value
+	EnumOfCreationTypeForDescribeScalingInstancesInputAttached = "Attached"
+)
+
+const (
+	// EnumOfStatusForDescribeScalingInstancesInputInit is a EnumOfStatusForDescribeScalingInstancesInput enum value
+	EnumOfStatusForDescribeScalingInstancesInputInit = "Init"
+
+	// EnumOfStatusForDescribeScalingInstancesInputPending is a EnumOfStatusForDescribeScalingInstancesInput enum value
+	EnumOfStatusForDescribeScalingInstancesInputPending = "Pending"
+
+	// EnumOfStatusForDescribeScalingInstancesInputPendingWait is a EnumOfStatusForDescribeScalingInstancesInput enum value
+	EnumOfStatusForDescribeScalingInstancesInputPendingWait = "Pending:Wait"
+
+	// EnumOfStatusForDescribeScalingInstancesInputInService is a EnumOfStatusForDescribeScalingInstancesInput enum value
+	EnumOfStatusForDescribeScalingInstancesInputInService = "InService"
+
+	// EnumOfStatusForDescribeScalingInstancesInputError is a EnumOfStatusForDescribeScalingInstancesInput enum value
+	EnumOfStatusForDescribeScalingInstancesInputError = "Error"
+
+	// EnumOfStatusForDescribeScalingInstancesInputRemoving is a EnumOfStatusForDescribeScalingInstancesInput enum value
+	EnumOfStatusForDescribeScalingInstancesInputRemoving = "Removing"
+
+	// EnumOfStatusForDescribeScalingInstancesInputRemovingWait is a EnumOfStatusForDescribeScalingInstancesInput enum value
+	EnumOfStatusForDescribeScalingInstancesInputRemovingWait = "Removing:Wait"
+
+	// EnumOfStatusForDescribeScalingInstancesInputStopped is a EnumOfStatusForDescribeScalingInstancesInput enum value
+	EnumOfStatusForDescribeScalingInstancesInputStopped = "Stopped"
+
+	// EnumOfStatusForDescribeScalingInstancesInputProtected is a EnumOfStatusForDescribeScalingInstancesInput enum value
+	EnumOfStatusForDescribeScalingInstancesInputProtected = "Protected"
+)

@@ -22,13 +22,13 @@ const opRemoveInstancesCommon = "RemoveInstances"
 // See RemoveInstancesCommon for more information on using the RemoveInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RemoveInstancesCommonRequest method.
-//	req, resp := client.RemoveInstancesCommonRequest(params)
+//    // Example sending a request using the RemoveInstancesCommonRequest method.
+//    req, resp := client.RemoveInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) RemoveInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRemoveInstancesCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) RemoveInstancesCommonRequest(input *map[string]interface{}
 	return
 }
 
-// RemoveInstancesCommon API operation for AUTO_SCALING.
+// RemoveInstancesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation RemoveInstancesCommon for usage and error information.
 func (c *AUTOSCALING) RemoveInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RemoveInstancesCommonRequest(input)
@@ -87,13 +87,13 @@ const opRemoveInstances = "RemoveInstances"
 // See RemoveInstances for more information on using the RemoveInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the RemoveInstancesRequest method.
-//	req, resp := client.RemoveInstancesRequest(params)
+//    // Example sending a request using the RemoveInstancesRequest method.
+//    req, resp := client.RemoveInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) RemoveInstancesRequest(input *RemoveInstancesInput) (req *request.Request, output *RemoveInstancesOutput) {
 	op := &request.Operation{
 		Name:       opRemoveInstances,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) RemoveInstancesRequest(input *RemoveInstancesInput) (req *
 	return
 }
 
-// RemoveInstances API operation for AUTO_SCALING.
+// RemoveInstances API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation RemoveInstances for usage and error information.
 func (c *AUTOSCALING) RemoveInstances(input *RemoveInstancesInput) (*RemoveInstancesOutput, error) {
 	req, out := c.RemoveInstancesRequest(input)
@@ -144,13 +144,17 @@ type RemoveInstancesInput struct {
 
 	DecreaseDesiredCapacity *bool `type:"boolean"`
 
-	InstanceIds []*string `type:"list"`
+	ForceDelete *bool `type:"boolean"`
+
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 
 	LifecycleHook *bool `type:"boolean"`
 
-	RemoveMode *string `type:"string"`
+	RemoveMode *string `type:"string" enum:"EnumOfRemoveModeForRemoveInstancesInput"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,9 +167,31 @@ func (s RemoveInstancesInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RemoveInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RemoveInstancesInput"}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetDecreaseDesiredCapacity sets the DecreaseDesiredCapacity field's value.
 func (s *RemoveInstancesInput) SetDecreaseDesiredCapacity(v bool) *RemoveInstancesInput {
 	s.DecreaseDesiredCapacity = &v
+	return s
+}
+
+// SetForceDelete sets the ForceDelete field's value.
+func (s *RemoveInstancesInput) SetForceDelete(v bool) *RemoveInstancesInput {
+	s.ForceDelete = &v
 	return s
 }
 
@@ -208,3 +234,11 @@ func (s RemoveInstancesOutput) String() string {
 func (s RemoveInstancesOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfRemoveModeForRemoveInstancesInputRelease is a EnumOfRemoveModeForRemoveInstancesInput enum value
+	EnumOfRemoveModeForRemoveInstancesInputRelease = "release"
+
+	// EnumOfRemoveModeForRemoveInstancesInputRecycle is a EnumOfRemoveModeForRemoveInstancesInput enum value
+	EnumOfRemoveModeForRemoveInstancesInputRecycle = "recycle"
+)

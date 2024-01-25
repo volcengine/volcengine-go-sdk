@@ -22,13 +22,13 @@ const opDescribeScalingConfigurationsCommon = "DescribeScalingConfigurations"
 // See DescribeScalingConfigurationsCommon for more information on using the DescribeScalingConfigurationsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingConfigurationsCommonRequest method.
-//	req, resp := client.DescribeScalingConfigurationsCommonRequest(params)
+//    // Example sending a request using the DescribeScalingConfigurationsCommonRequest method.
+//    req, resp := client.DescribeScalingConfigurationsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingConfigurationsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeScalingConfigurationsCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingConfigurationsCommonRequest(input *map[stri
 	return
 }
 
-// DescribeScalingConfigurationsCommon API operation for AUTO_SCALING.
+// DescribeScalingConfigurationsCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingConfigurationsCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingConfigurationsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingConfigurationsCommonRequest(input)
@@ -87,13 +87,13 @@ const opDescribeScalingConfigurations = "DescribeScalingConfigurations"
 // See DescribeScalingConfigurations for more information on using the DescribeScalingConfigurations
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingConfigurationsRequest method.
-//	req, resp := client.DescribeScalingConfigurationsRequest(params)
+//    // Example sending a request using the DescribeScalingConfigurationsRequest method.
+//    req, resp := client.DescribeScalingConfigurationsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingConfigurationsRequest(input *DescribeScalingConfigurationsInput) (req *request.Request, output *DescribeScalingConfigurationsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeScalingConfigurations,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingConfigurationsRequest(input *DescribeScalin
 	return
 }
 
-// DescribeScalingConfigurations API operation for AUTO_SCALING.
+// DescribeScalingConfigurations API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingConfigurations for usage and error information.
 func (c *AUTOSCALING) DescribeScalingConfigurations(input *DescribeScalingConfigurationsInput) (*DescribeScalingConfigurationsOutput, error) {
 	req, out := c.DescribeScalingConfigurationsRequest(input)
@@ -144,7 +144,7 @@ type DescribeScalingConfigurationsInput struct {
 
 	PageNumber *int32 `type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `min:"1" max:"100" type:"int32"`
 
 	ScalingConfigurationIds []*string `type:"list"`
 
@@ -161,6 +161,22 @@ func (s DescribeScalingConfigurationsInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingConfigurationsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeScalingConfigurationsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingConfigurationsInput"}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+	if s.PageSize != nil && *s.PageSize > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -246,7 +262,9 @@ type EipForDescribeScalingConfigurationsOutput struct {
 
 	Bandwidth *int32 `type:"int32"`
 
-	BillingType *string `type:"string"`
+	BandwidthPackageId *string `type:"string"`
+
+	BillingType *string `type:"string" enum:"EnumOfBillingTypeForDescribeScalingConfigurationsOutput"`
 
 	ISP *string `type:"string"`
 }
@@ -264,6 +282,12 @@ func (s EipForDescribeScalingConfigurationsOutput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *EipForDescribeScalingConfigurationsOutput) SetBandwidth(v int32) *EipForDescribeScalingConfigurationsOutput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *EipForDescribeScalingConfigurationsOutput) SetBandwidthPackageId(v string) *EipForDescribeScalingConfigurationsOutput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -304,7 +328,7 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 
 	KeyPairName *string `type:"string"`
 
-	LifecycleState *string `type:"string"`
+	LifecycleState *string `type:"string" enum:"EnumOfLifecycleStateForDescribeScalingConfigurationsOutput"`
 
 	ProjectName *string `type:"string"`
 
@@ -314,7 +338,7 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 
 	ScalingGroupId *string `type:"string"`
 
-	SecurityEnhancementStrategy *string `type:"string"`
+	SecurityEnhancementStrategy *string `type:"string" enum:"EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutput"`
 
 	SecurityGroupIds []*string `type:"list"`
 
@@ -552,3 +576,27 @@ func (s *VolumeForDescribeScalingConfigurationsOutput) SetVolumeType(v string) *
 	s.VolumeType = &v
 	return s
 }
+
+const (
+	// EnumOfBillingTypeForDescribeScalingConfigurationsOutputPostPaidByBandwidth is a EnumOfBillingTypeForDescribeScalingConfigurationsOutput enum value
+	EnumOfBillingTypeForDescribeScalingConfigurationsOutputPostPaidByBandwidth = "PostPaidByBandwidth"
+
+	// EnumOfBillingTypeForDescribeScalingConfigurationsOutputPostPaidByTraffic is a EnumOfBillingTypeForDescribeScalingConfigurationsOutput enum value
+	EnumOfBillingTypeForDescribeScalingConfigurationsOutputPostPaidByTraffic = "PostPaidByTraffic"
+)
+
+const (
+	// EnumOfLifecycleStateForDescribeScalingConfigurationsOutputActive is a EnumOfLifecycleStateForDescribeScalingConfigurationsOutput enum value
+	EnumOfLifecycleStateForDescribeScalingConfigurationsOutputActive = "Active"
+
+	// EnumOfLifecycleStateForDescribeScalingConfigurationsOutputInActive is a EnumOfLifecycleStateForDescribeScalingConfigurationsOutput enum value
+	EnumOfLifecycleStateForDescribeScalingConfigurationsOutputInActive = "InActive"
+)
+
+const (
+	// EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutputActive is a EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutput enum value
+	EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutputActive = "Active"
+
+	// EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutputInActive is a EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutput enum value
+	EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutputInActive = "InActive"
+)

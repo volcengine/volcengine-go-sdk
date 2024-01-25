@@ -22,13 +22,13 @@ const opModifyScalingGroupCommon = "ModifyScalingGroup"
 // See ModifyScalingGroupCommon for more information on using the ModifyScalingGroupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyScalingGroupCommonRequest method.
-//	req, resp := client.ModifyScalingGroupCommonRequest(params)
+//    // Example sending a request using the ModifyScalingGroupCommonRequest method.
+//    req, resp := client.ModifyScalingGroupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) ModifyScalingGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyScalingGroupCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) ModifyScalingGroupCommonRequest(input *map[string]interfac
 	return
 }
 
-// ModifyScalingGroupCommon API operation for AUTO_SCALING.
+// ModifyScalingGroupCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation ModifyScalingGroupCommon for usage and error information.
 func (c *AUTOSCALING) ModifyScalingGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyScalingGroupCommonRequest(input)
@@ -87,13 +87,13 @@ const opModifyScalingGroup = "ModifyScalingGroup"
 // See ModifyScalingGroup for more information on using the ModifyScalingGroup
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyScalingGroupRequest method.
-//	req, resp := client.ModifyScalingGroupRequest(params)
+//    // Example sending a request using the ModifyScalingGroupRequest method.
+//    req, resp := client.ModifyScalingGroupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) ModifyScalingGroupRequest(input *ModifyScalingGroupInput) (req *request.Request, output *ModifyScalingGroupOutput) {
 	op := &request.Operation{
 		Name:       opModifyScalingGroup,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) ModifyScalingGroupRequest(input *ModifyScalingGroupInput) 
 	return
 }
 
-// ModifyScalingGroup API operation for AUTO_SCALING.
+// ModifyScalingGroup API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation ModifyScalingGroup for usage and error information.
 func (c *AUTOSCALING) ModifyScalingGroup(input *ModifyScalingGroupInput) (*ModifyScalingGroupOutput, error) {
 	req, out := c.ModifyScalingGroupRequest(input)
@@ -137,6 +137,68 @@ func (c *AUTOSCALING) ModifyScalingGroupWithContext(ctx volcengine.Context, inpu
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
+}
+
+type InstancesDistributionForModifyScalingGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	CompensateWithOnDemand *bool `type:"boolean"`
+
+	OnDemandBaseCapacity *int32 `max:"2000" type:"int32"`
+
+	OnDemandPercentageAboveBaseCapacity *int32 `max:"100" type:"int32"`
+
+	SpotInstanceRemedy *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s InstancesDistributionForModifyScalingGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstancesDistributionForModifyScalingGroupInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *InstancesDistributionForModifyScalingGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "InstancesDistributionForModifyScalingGroupInput"}
+	if s.OnDemandBaseCapacity != nil && *s.OnDemandBaseCapacity > 2000 {
+		invalidParams.Add(request.NewErrParamMaxValue("OnDemandBaseCapacity", 2000))
+	}
+	if s.OnDemandPercentageAboveBaseCapacity != nil && *s.OnDemandPercentageAboveBaseCapacity > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("OnDemandPercentageAboveBaseCapacity", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCompensateWithOnDemand sets the CompensateWithOnDemand field's value.
+func (s *InstancesDistributionForModifyScalingGroupInput) SetCompensateWithOnDemand(v bool) *InstancesDistributionForModifyScalingGroupInput {
+	s.CompensateWithOnDemand = &v
+	return s
+}
+
+// SetOnDemandBaseCapacity sets the OnDemandBaseCapacity field's value.
+func (s *InstancesDistributionForModifyScalingGroupInput) SetOnDemandBaseCapacity(v int32) *InstancesDistributionForModifyScalingGroupInput {
+	s.OnDemandBaseCapacity = &v
+	return s
+}
+
+// SetOnDemandPercentageAboveBaseCapacity sets the OnDemandPercentageAboveBaseCapacity field's value.
+func (s *InstancesDistributionForModifyScalingGroupInput) SetOnDemandPercentageAboveBaseCapacity(v int32) *InstancesDistributionForModifyScalingGroupInput {
+	s.OnDemandPercentageAboveBaseCapacity = &v
+	return s
+}
+
+// SetSpotInstanceRemedy sets the SpotInstanceRemedy field's value.
+func (s *InstancesDistributionForModifyScalingGroupInput) SetSpotInstanceRemedy(v bool) *InstancesDistributionForModifyScalingGroupInput {
+	s.SpotInstanceRemedy = &v
+	return s
 }
 
 type LaunchTemplateOverrideForModifyScalingGroupInput struct {
@@ -170,9 +232,11 @@ type ModifyScalingGroupInput struct {
 
 	DesireInstanceNumber *int32 `type:"int32"`
 
-	HealthCheckType *string `type:"string"`
+	HealthCheckType *string `type:"string" enum:"EnumOfHealthCheckTypeForModifyScalingGroupInput"`
 
-	InstanceTerminatePolicy *string `type:"string"`
+	InstanceTerminatePolicy *string `type:"string" enum:"EnumOfInstanceTerminatePolicyForModifyScalingGroupInput"`
+
+	InstancesDistribution *InstancesDistributionForModifyScalingGroupInput `type:"structure"`
 
 	LaunchTemplateId *string `type:"string"`
 
@@ -184,11 +248,12 @@ type ModifyScalingGroupInput struct {
 
 	MinInstanceNumber *int32 `type:"int32"`
 
-	MultiAZPolicy *string `type:"string"`
+	MultiAZPolicy *string `type:"string" enum:"EnumOfMultiAZPolicyForModifyScalingGroupInput"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
-	ScalingGroupName *string `type:"string"`
+	ScalingGroupName *string `max:"128" type:"string"`
 
 	SubnetIds []*string `type:"list"`
 }
@@ -201,6 +266,27 @@ func (s ModifyScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s ModifyScalingGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyScalingGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyScalingGroupInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+	if s.ScalingGroupName != nil && len(*s.ScalingGroupName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("ScalingGroupName", 128, *s.ScalingGroupName))
+	}
+	if s.InstancesDistribution != nil {
+		if err := s.InstancesDistribution.Validate(); err != nil {
+			invalidParams.AddNested("InstancesDistribution", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetActiveScalingConfigurationId sets the ActiveScalingConfigurationId field's value.
@@ -230,6 +316,12 @@ func (s *ModifyScalingGroupInput) SetHealthCheckType(v string) *ModifyScalingGro
 // SetInstanceTerminatePolicy sets the InstanceTerminatePolicy field's value.
 func (s *ModifyScalingGroupInput) SetInstanceTerminatePolicy(v string) *ModifyScalingGroupInput {
 	s.InstanceTerminatePolicy = &v
+	return s
+}
+
+// SetInstancesDistribution sets the InstancesDistribution field's value.
+func (s *ModifyScalingGroupInput) SetInstancesDistribution(v *InstancesDistributionForModifyScalingGroupInput) *ModifyScalingGroupInput {
+	s.InstancesDistribution = v
 	return s
 }
 
@@ -310,3 +402,33 @@ func (s *ModifyScalingGroupOutput) SetScalingGroupId(v string) *ModifyScalingGro
 	s.ScalingGroupId = &v
 	return s
 }
+
+const (
+	// EnumOfHealthCheckTypeForModifyScalingGroupInputEcs is a EnumOfHealthCheckTypeForModifyScalingGroupInput enum value
+	EnumOfHealthCheckTypeForModifyScalingGroupInputEcs = "ECS"
+
+	// EnumOfHealthCheckTypeForModifyScalingGroupInputNone is a EnumOfHealthCheckTypeForModifyScalingGroupInput enum value
+	EnumOfHealthCheckTypeForModifyScalingGroupInputNone = "NONE"
+)
+
+const (
+	// EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestInstance is a EnumOfInstanceTerminatePolicyForModifyScalingGroupInput enum value
+	EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestInstance = "OldestInstance"
+
+	// EnumOfInstanceTerminatePolicyForModifyScalingGroupInputNewestInstance is a EnumOfInstanceTerminatePolicyForModifyScalingGroupInput enum value
+	EnumOfInstanceTerminatePolicyForModifyScalingGroupInputNewestInstance = "NewestInstance"
+
+	// EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestScalingConfigurationWithOldestInstance is a EnumOfInstanceTerminatePolicyForModifyScalingGroupInput enum value
+	EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestScalingConfigurationWithOldestInstance = "OldestScalingConfigurationWithOldestInstance"
+
+	// EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestScalingConfigurationWithNewestInstance is a EnumOfInstanceTerminatePolicyForModifyScalingGroupInput enum value
+	EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestScalingConfigurationWithNewestInstance = "OldestScalingConfigurationWithNewestInstance"
+)
+
+const (
+	// EnumOfMultiAZPolicyForModifyScalingGroupInputPriority is a EnumOfMultiAZPolicyForModifyScalingGroupInput enum value
+	EnumOfMultiAZPolicyForModifyScalingGroupInputPriority = "PRIORITY"
+
+	// EnumOfMultiAZPolicyForModifyScalingGroupInputBalance is a EnumOfMultiAZPolicyForModifyScalingGroupInput enum value
+	EnumOfMultiAZPolicyForModifyScalingGroupInputBalance = "BALANCE"
+)

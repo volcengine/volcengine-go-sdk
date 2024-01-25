@@ -22,13 +22,13 @@ const opUntagResourcesCommon = "UntagResources"
 // See UntagResourcesCommon for more information on using the UntagResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UntagResourcesCommonRequest method.
-//	req, resp := client.UntagResourcesCommonRequest(params)
+//    // Example sending a request using the UntagResourcesCommonRequest method.
+//    req, resp := client.UntagResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) UntagResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUntagResourcesCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) UntagResourcesCommonRequest(input *map[string]interface{})
 	return
 }
 
-// UntagResourcesCommon API operation for AUTO_SCALING.
+// UntagResourcesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation UntagResourcesCommon for usage and error information.
 func (c *AUTOSCALING) UntagResourcesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.UntagResourcesCommonRequest(input)
@@ -87,13 +87,13 @@ const opUntagResources = "UntagResources"
 // See UntagResources for more information on using the UntagResources
 // API call, and error handling.
 //
-//	// Example sending a request using the UntagResourcesRequest method.
-//	req, resp := client.UntagResourcesRequest(params)
+//    // Example sending a request using the UntagResourcesRequest method.
+//    req, resp := client.UntagResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) UntagResourcesRequest(input *UntagResourcesInput) (req *request.Request, output *UntagResourcesOutput) {
 	op := &request.Operation{
 		Name:       opUntagResources,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) UntagResourcesRequest(input *UntagResourcesInput) (req *re
 	return
 }
 
-// UntagResources API operation for AUTO_SCALING.
+// UntagResources API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation UntagResources for usage and error information.
 func (c *AUTOSCALING) UntagResources(input *UntagResourcesInput) (*UntagResourcesOutput, error) {
 	req, out := c.UntagResourcesRequest(input)
@@ -202,11 +202,14 @@ func (s *OperationDetailForUntagResourcesOutput) SetResourceId(v string) *Operat
 type UntagResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	ResourceIds []*string `type:"list"`
+	// ResourceIds is a required field
+	ResourceIds []*string `type:"list" required:"true"`
 
-	ResourceType *string `type:"string"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForUntagResourcesInput"`
 
-	TagKeys []*string `type:"list"`
+	// TagKeys is a required field
+	TagKeys []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -217,6 +220,25 @@ func (s UntagResourcesInput) String() string {
 // GoString returns the string representation
 func (s UntagResourcesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UntagResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UntagResourcesInput"}
+	if s.ResourceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+	if s.TagKeys == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagKeys"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetResourceIds sets the ResourceIds field's value.
@@ -260,3 +282,8 @@ func (s *UntagResourcesOutput) SetOperationDetails(v []*OperationDetailForUntagR
 	s.OperationDetails = v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForUntagResourcesInputScalinggroup is a EnumOfResourceTypeForUntagResourcesInput enum value
+	EnumOfResourceTypeForUntagResourcesInputScalinggroup = "scalinggroup"
+)

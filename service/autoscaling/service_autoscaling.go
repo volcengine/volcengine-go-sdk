@@ -13,7 +13,7 @@ import (
 )
 
 // AUTOSCALING provides the API operation methods for making requests to
-// AUTO_SCALING. See this package's package overview docs
+// AUTOSCALING. See this package's package overview docs
 // for details on the service.
 //
 // AUTOSCALING methods are safe to use concurrently. It is not safe to
