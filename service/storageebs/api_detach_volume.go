@@ -22,13 +22,13 @@ const opDetachVolumeCommon = "DetachVolume"
 // See DetachVolumeCommon for more information on using the DetachVolumeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachVolumeCommonRequest method.
-//	req, resp := client.DetachVolumeCommonRequest(params)
+//    // Example sending a request using the DetachVolumeCommonRequest method.
+//    req, resp := client.DetachVolumeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DetachVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachVolumeCommon,
@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DetachVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// DetachVolumeCommon API operation for STORAGE_EBS.
+// DetachVolumeCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DetachVolumeCommon for usage and error information.
 func (c *STORAGEEBS) DetachVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachVolumeCommonRequest(input)
@@ -87,13 +87,13 @@ const opDetachVolume = "DetachVolume"
 // See DetachVolume for more information on using the DetachVolume
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachVolumeRequest method.
-//	req, resp := client.DetachVolumeRequest(params)
+//    // Example sending a request using the DetachVolumeRequest method.
+//    req, resp := client.DetachVolumeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DetachVolumeRequest(input *DetachVolumeInput) (req *request.Request, output *DetachVolumeOutput) {
 	op := &request.Operation{
 		Name:       opDetachVolume,
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DetachVolumeRequest(input *DetachVolumeInput) (req *request
 	return
 }
 
-// DetachVolume API operation for STORAGE_EBS.
+// DetachVolume API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DetachVolume for usage and error information.
 func (c *STORAGEEBS) DetachVolume(input *DetachVolumeInput) (*DetachVolumeOutput, error) {
 	req, out := c.DetachVolumeRequest(input)

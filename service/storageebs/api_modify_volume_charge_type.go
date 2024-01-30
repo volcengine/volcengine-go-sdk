@@ -22,13 +22,13 @@ const opModifyVolumeChargeTypeCommon = "ModifyVolumeChargeType"
 // See ModifyVolumeChargeTypeCommon for more information on using the ModifyVolumeChargeTypeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVolumeChargeTypeCommonRequest method.
-//	req, resp := client.ModifyVolumeChargeTypeCommonRequest(params)
+//    // Example sending a request using the ModifyVolumeChargeTypeCommonRequest method.
+//    req, resp := client.ModifyVolumeChargeTypeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) ModifyVolumeChargeTypeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVolumeChargeTypeCommon,
@@ -46,13 +46,13 @@ func (c *STORAGEEBS) ModifyVolumeChargeTypeCommonRequest(input *map[string]inter
 	return
 }
 
-// ModifyVolumeChargeTypeCommon API operation for STORAGE_EBS.
+// ModifyVolumeChargeTypeCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation ModifyVolumeChargeTypeCommon for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeChargeTypeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyVolumeChargeTypeCommonRequest(input)
@@ -87,13 +87,13 @@ const opModifyVolumeChargeType = "ModifyVolumeChargeType"
 // See ModifyVolumeChargeType for more information on using the ModifyVolumeChargeType
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVolumeChargeTypeRequest method.
-//	req, resp := client.ModifyVolumeChargeTypeRequest(params)
+//    // Example sending a request using the ModifyVolumeChargeTypeRequest method.
+//    req, resp := client.ModifyVolumeChargeTypeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) ModifyVolumeChargeTypeRequest(input *ModifyVolumeChargeTypeInput) (req *request.Request, output *ModifyVolumeChargeTypeOutput) {
 	op := &request.Operation{
 		Name:       opModifyVolumeChargeType,
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) ModifyVolumeChargeTypeRequest(input *ModifyVolumeChargeType
 	return
 }
 
-// ModifyVolumeChargeType API operation for STORAGE_EBS.
+// ModifyVolumeChargeType API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation ModifyVolumeChargeType for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeChargeType(input *ModifyVolumeChargeTypeInput) (*ModifyVolumeChargeTypeOutput, error) {
 	req, out := c.ModifyVolumeChargeTypeRequest(input)

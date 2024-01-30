@@ -13,7 +13,7 @@ import (
 )
 
 // STORAGEEBS provides the API operation methods for making requests to
-// STORAGE_EBS. See this package's package overview docs
+// STORAGEEBS. See this package's package overview docs
 // for details on the service.
 //
 // STORAGEEBS methods are safe to use concurrently. It is not safe to
