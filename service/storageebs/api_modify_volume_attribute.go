@@ -22,13 +22,13 @@ const opModifyVolumeAttributeCommon = "ModifyVolumeAttribute"
 // See ModifyVolumeAttributeCommon for more information on using the ModifyVolumeAttributeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVolumeAttributeCommonRequest method.
-//	req, resp := client.ModifyVolumeAttributeCommonRequest(params)
+//    // Example sending a request using the ModifyVolumeAttributeCommonRequest method.
+//    req, resp := client.ModifyVolumeAttributeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) ModifyVolumeAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVolumeAttributeCommon,
@@ -46,13 +46,13 @@ func (c *STORAGEEBS) ModifyVolumeAttributeCommonRequest(input *map[string]interf
 	return
 }
 
-// ModifyVolumeAttributeCommon API operation for STORAGE_EBS.
+// ModifyVolumeAttributeCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation ModifyVolumeAttributeCommon for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeAttributeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyVolumeAttributeCommonRequest(input)
@@ -87,13 +87,13 @@ const opModifyVolumeAttribute = "ModifyVolumeAttribute"
 // See ModifyVolumeAttribute for more information on using the ModifyVolumeAttribute
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVolumeAttributeRequest method.
-//	req, resp := client.ModifyVolumeAttributeRequest(params)
+//    // Example sending a request using the ModifyVolumeAttributeRequest method.
+//    req, resp := client.ModifyVolumeAttributeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) ModifyVolumeAttributeRequest(input *ModifyVolumeAttributeInput) (req *request.Request, output *ModifyVolumeAttributeOutput) {
 	op := &request.Operation{
 		Name:       opModifyVolumeAttribute,
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) ModifyVolumeAttributeRequest(input *ModifyVolumeAttributeIn
 	return
 }
 
-// ModifyVolumeAttribute API operation for STORAGE_EBS.
+// ModifyVolumeAttribute API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation ModifyVolumeAttribute for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeAttribute(input *ModifyVolumeAttributeInput) (*ModifyVolumeAttributeOutput, error) {
 	req, out := c.ModifyVolumeAttributeRequest(input)
