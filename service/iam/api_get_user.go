@@ -202,7 +202,7 @@ func (s *GetUserOutput) SetUser(v *UserForGetUserOutput) *GetUserOutput {
 type UserForGetUserOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *int32 `type:"int32"`
+	AccountId *int64 `type:"int64"`
 
 	CreateDate *string `type:"string"`
 
@@ -238,7 +238,7 @@ func (s UserForGetUserOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *UserForGetUserOutput) SetAccountId(v int32) *UserForGetUserOutput {
+func (s *UserForGetUserOutput) SetAccountId(v int64) *UserForGetUserOutput {
 	s.AccountId = &v
 	return s
 }

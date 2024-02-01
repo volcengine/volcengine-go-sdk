@@ -242,7 +242,7 @@ func (s *UpdateUserOutput) SetUser(v *UserForUpdateUserOutput) *UpdateUserOutput
 type UserForUpdateUserOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *int32 `type:"int32"`
+	AccountId *int64 `type:"int64"`
 
 	CreateDate *string `type:"string"`
 
@@ -278,7 +278,7 @@ func (s UserForUpdateUserOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *UserForUpdateUserOutput) SetAccountId(v int32) *UserForUpdateUserOutput {
+func (s *UserForUpdateUserOutput) SetAccountId(v int64) *UserForUpdateUserOutput {
 	s.AccountId = &v
 	return s
 }

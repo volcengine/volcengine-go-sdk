@@ -228,7 +228,7 @@ func (s *ListUsersOutput) SetUserMetadata(v []*UserMetadataForListUsersOutput) *
 type UserMetadataForListUsersOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *int32 `type:"int32"`
+	AccountId *int64 `type:"int64"`
 
 	CreateDate *string `type:"string"`
 
@@ -264,7 +264,7 @@ func (s UserMetadataForListUsersOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *UserMetadataForListUsersOutput) SetAccountId(v int32) *UserMetadataForListUsersOutput {
+func (s *UserMetadataForListUsersOutput) SetAccountId(v int64) *UserMetadataForListUsersOutput {
 	s.AccountId = &v
 	return s
 }
