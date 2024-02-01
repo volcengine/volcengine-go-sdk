@@ -22,13 +22,13 @@ const opDescribeTagsCommon = "DescribeTags"
 // See DescribeTagsCommon for more information on using the DescribeTagsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTagsCommonRequest method.
-//	req, resp := client.DescribeTagsCommonRequest(params)
+//    // Example sending a request using the DescribeTagsCommonRequest method.
+//    req, resp := client.DescribeTagsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DescribeTagsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTagsCommon,
@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DescribeTagsCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// DescribeTagsCommon API operation for STORAGE_EBS.
+// DescribeTagsCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DescribeTagsCommon for usage and error information.
 func (c *STORAGEEBS) DescribeTagsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeTagsCommonRequest(input)
@@ -87,13 +87,13 @@ const opDescribeTags = "DescribeTags"
 // See DescribeTags for more information on using the DescribeTags
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTagsRequest method.
-//	req, resp := client.DescribeTagsRequest(params)
+//    // Example sending a request using the DescribeTagsRequest method.
+//    req, resp := client.DescribeTagsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DescribeTagsRequest(input *DescribeTagsInput) (req *request.Request, output *DescribeTagsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTags,
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DescribeTagsRequest(input *DescribeTagsInput) (req *request
 	return
 }
 
-// DescribeTags API operation for STORAGE_EBS.
+// DescribeTags API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DescribeTags for usage and error information.
 func (c *STORAGEEBS) DescribeTags(input *DescribeTagsInput) (*DescribeTagsOutput, error) {
 	req, out := c.DescribeTagsRequest(input)

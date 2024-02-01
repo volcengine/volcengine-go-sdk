@@ -22,13 +22,13 @@ const opAttachVolumeCommon = "AttachVolume"
 // See AttachVolumeCommon for more information on using the AttachVolumeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachVolumeCommonRequest method.
-//	req, resp := client.AttachVolumeCommonRequest(params)
+//    // Example sending a request using the AttachVolumeCommonRequest method.
+//    req, resp := client.AttachVolumeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) AttachVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachVolumeCommon,
@@ -46,13 +46,13 @@ func (c *STORAGEEBS) AttachVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// AttachVolumeCommon API operation for STORAGE_EBS.
+// AttachVolumeCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation AttachVolumeCommon for usage and error information.
 func (c *STORAGEEBS) AttachVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachVolumeCommonRequest(input)
@@ -87,13 +87,13 @@ const opAttachVolume = "AttachVolume"
 // See AttachVolume for more information on using the AttachVolume
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachVolumeRequest method.
-//	req, resp := client.AttachVolumeRequest(params)
+//    // Example sending a request using the AttachVolumeRequest method.
+//    req, resp := client.AttachVolumeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) AttachVolumeRequest(input *AttachVolumeInput) (req *request.Request, output *AttachVolumeOutput) {
 	op := &request.Operation{
 		Name:       opAttachVolume,
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) AttachVolumeRequest(input *AttachVolumeInput) (req *request
 	return
 }
 
-// AttachVolume API operation for STORAGE_EBS.
+// AttachVolume API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation AttachVolume for usage and error information.
 func (c *STORAGEEBS) AttachVolume(input *AttachVolumeInput) (*AttachVolumeOutput, error) {
 	req, out := c.AttachVolumeRequest(input)

@@ -22,13 +22,13 @@ const opDescribeLifecycleHooksCommon = "DescribeLifecycleHooks"
 // See DescribeLifecycleHooksCommon for more information on using the DescribeLifecycleHooksCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeLifecycleHooksCommonRequest method.
-//	req, resp := client.DescribeLifecycleHooksCommonRequest(params)
+//    // Example sending a request using the DescribeLifecycleHooksCommonRequest method.
+//    req, resp := client.DescribeLifecycleHooksCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeLifecycleHooksCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeLifecycleHooksCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeLifecycleHooksCommonRequest(input *map[string]inte
 	return
 }
 
-// DescribeLifecycleHooksCommon API operation for AUTO_SCALING.
+// DescribeLifecycleHooksCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeLifecycleHooksCommon for usage and error information.
 func (c *AUTOSCALING) DescribeLifecycleHooksCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeLifecycleHooksCommonRequest(input)
@@ -87,13 +87,13 @@ const opDescribeLifecycleHooks = "DescribeLifecycleHooks"
 // See DescribeLifecycleHooks for more information on using the DescribeLifecycleHooks
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeLifecycleHooksRequest method.
-//	req, resp := client.DescribeLifecycleHooksRequest(params)
+//    // Example sending a request using the DescribeLifecycleHooksRequest method.
+//    req, resp := client.DescribeLifecycleHooksRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeLifecycleHooksRequest(input *DescribeLifecycleHooksInput) (req *request.Request, output *DescribeLifecycleHooksOutput) {
 	op := &request.Operation{
 		Name:       opDescribeLifecycleHooks,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeLifecycleHooksRequest(input *DescribeLifecycleHook
 	return
 }
 
-// DescribeLifecycleHooks API operation for AUTO_SCALING.
+// DescribeLifecycleHooks API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeLifecycleHooks for usage and error information.
 func (c *AUTOSCALING) DescribeLifecycleHooks(input *DescribeLifecycleHooksInput) (*DescribeLifecycleHooksOutput, error) {
 	req, out := c.DescribeLifecycleHooksRequest(input)
@@ -150,7 +150,8 @@ type DescribeLifecycleHooksInput struct {
 
 	PageSize *int32 `type:"int32"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +162,19 @@ func (s DescribeLifecycleHooksInput) String() string {
 // GoString returns the string representation
 func (s DescribeLifecycleHooksInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeLifecycleHooksInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeLifecycleHooksInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetLifecycleHookIds sets the LifecycleHookIds field's value.
@@ -241,8 +255,40 @@ func (s *DescribeLifecycleHooksOutput) SetTotalCount(v int32) *DescribeLifecycle
 	return s
 }
 
+type LifecycleCommandForDescribeLifecycleHooksOutput struct {
+	_ struct{} `type:"structure"`
+
+	CommandId *string `type:"string"`
+
+	Parameters *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LifecycleCommandForDescribeLifecycleHooksOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleCommandForDescribeLifecycleHooksOutput) GoString() string {
+	return s.String()
+}
+
+// SetCommandId sets the CommandId field's value.
+func (s *LifecycleCommandForDescribeLifecycleHooksOutput) SetCommandId(v string) *LifecycleCommandForDescribeLifecycleHooksOutput {
+	s.CommandId = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *LifecycleCommandForDescribeLifecycleHooksOutput) SetParameters(v string) *LifecycleCommandForDescribeLifecycleHooksOutput {
+	s.Parameters = &v
+	return s
+}
+
 type LifecycleHookForDescribeLifecycleHooksOutput struct {
 	_ struct{} `type:"structure"`
+
+	LifecycleCommand *LifecycleCommandForDescribeLifecycleHooksOutput `type:"structure"`
 
 	LifecycleHookId *string `type:"string"`
 
@@ -265,6 +311,12 @@ func (s LifecycleHookForDescribeLifecycleHooksOutput) String() string {
 // GoString returns the string representation
 func (s LifecycleHookForDescribeLifecycleHooksOutput) GoString() string {
 	return s.String()
+}
+
+// SetLifecycleCommand sets the LifecycleCommand field's value.
+func (s *LifecycleHookForDescribeLifecycleHooksOutput) SetLifecycleCommand(v *LifecycleCommandForDescribeLifecycleHooksOutput) *LifecycleHookForDescribeLifecycleHooksOutput {
+	s.LifecycleCommand = v
+	return s
 }
 
 // SetLifecycleHookId sets the LifecycleHookId field's value.

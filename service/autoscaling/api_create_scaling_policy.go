@@ -22,13 +22,13 @@ const opCreateScalingPolicyCommon = "CreateScalingPolicy"
 // See CreateScalingPolicyCommon for more information on using the CreateScalingPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateScalingPolicyCommonRequest method.
-//	req, resp := client.CreateScalingPolicyCommonRequest(params)
+//    // Example sending a request using the CreateScalingPolicyCommonRequest method.
+//    req, resp := client.CreateScalingPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) CreateScalingPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateScalingPolicyCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) CreateScalingPolicyCommonRequest(input *map[string]interfa
 	return
 }
 
-// CreateScalingPolicyCommon API operation for AUTO_SCALING.
+// CreateScalingPolicyCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation CreateScalingPolicyCommon for usage and error information.
 func (c *AUTOSCALING) CreateScalingPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateScalingPolicyCommonRequest(input)
@@ -87,13 +87,13 @@ const opCreateScalingPolicy = "CreateScalingPolicy"
 // See CreateScalingPolicy for more information on using the CreateScalingPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateScalingPolicyRequest method.
-//	req, resp := client.CreateScalingPolicyRequest(params)
+//    // Example sending a request using the CreateScalingPolicyRequest method.
+//    req, resp := client.CreateScalingPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) CreateScalingPolicyRequest(input *CreateScalingPolicyInput) (req *request.Request, output *CreateScalingPolicyOutput) {
 	op := &request.Operation{
 		Name:       opCreateScalingPolicy,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) CreateScalingPolicyRequest(input *CreateScalingPolicyInput
 	return
 }
 
-// CreateScalingPolicy API operation for AUTO_SCALING.
+// CreateScalingPolicy API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation CreateScalingPolicy for usage and error information.
 func (c *AUTOSCALING) CreateScalingPolicy(input *CreateScalingPolicyInput) (*CreateScalingPolicyOutput, error) {
 	req, out := c.CreateScalingPolicyRequest(input)
@@ -190,9 +190,9 @@ type AlarmPolicyForCreateScalingPolicyInput struct {
 
 	Condition *AlarmPolicyConditionForCreateScalingPolicyInput `type:"structure"`
 
-	EvaluationCount *int32 `type:"int32"`
+	EvaluationCount *int32 `min:"1" max:"180" type:"int32"`
 
-	RuleType *string `type:"string"`
+	RuleType *string `type:"string" enum:"EnumOfAlarmPolicyRuleTypeForCreateScalingPolicyInput"`
 }
 
 // String returns the string representation
@@ -203,6 +203,22 @@ func (s AlarmPolicyForCreateScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s AlarmPolicyForCreateScalingPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AlarmPolicyForCreateScalingPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AlarmPolicyForCreateScalingPolicyInput"}
+	if s.EvaluationCount != nil && *s.EvaluationCount < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("EvaluationCount", 1))
+	}
+	if s.EvaluationCount != nil && *s.EvaluationCount > 180 {
+		invalidParams.Add(request.NewErrParamMaxValue("EvaluationCount", 180))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCondition sets the Condition field's value.
@@ -226,21 +242,27 @@ func (s *AlarmPolicyForCreateScalingPolicyInput) SetRuleType(v string) *AlarmPol
 type CreateScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	AdjustmentType *string `type:"string"`
+	// AdjustmentType is a required field
+	AdjustmentType *string `type:"string" required:"true" enum:"EnumOfAdjustmentTypeForCreateScalingPolicyInput"`
 
-	AdjustmentValue *int32 `type:"int32"`
+	// AdjustmentValue is a required field
+	AdjustmentValue *int32 `type:"int32" required:"true"`
 
 	AlarmPolicy *AlarmPolicyForCreateScalingPolicyInput `type:"structure"`
 
 	Cooldown *int32 `type:"int32"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
-	ScalingPolicyName *string `type:"string"`
+	// ScalingPolicyName is a required field
+	ScalingPolicyName *string `type:"string" required:"true"`
 
-	ScalingPolicyType *string `type:"string"`
+	// ScalingPolicyType is a required field
+	ScalingPolicyType *string `type:"string" required:"true" enum:"EnumOfScalingPolicyTypeForCreateScalingPolicyInput"`
 
-	ScheduledPolicy *ScheduledPolicyForCreateScalingPolicyInput `type:"structure"`
+	// ScheduledPolicy is a required field
+	ScheduledPolicy *ScheduledPolicyForCreateScalingPolicyInput `type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -251,6 +273,44 @@ func (s CreateScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s CreateScalingPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateScalingPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateScalingPolicyInput"}
+	if s.AdjustmentType == nil {
+		invalidParams.Add(request.NewErrParamRequired("AdjustmentType"))
+	}
+	if s.AdjustmentValue == nil {
+		invalidParams.Add(request.NewErrParamRequired("AdjustmentValue"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+	if s.ScalingPolicyName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyName"))
+	}
+	if s.ScalingPolicyType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyType"))
+	}
+	if s.ScheduledPolicy == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScheduledPolicy"))
+	}
+	if s.AlarmPolicy != nil {
+		if err := s.AlarmPolicy.Validate(); err != nil {
+			invalidParams.AddNested("AlarmPolicy", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.ScheduledPolicy != nil {
+		if err := s.ScheduledPolicy.Validate(); err != nil {
+			invalidParams.AddNested("ScheduledPolicy", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAdjustmentType sets the AdjustmentType field's value.
@@ -328,11 +388,12 @@ func (s *CreateScalingPolicyOutput) SetScalingPolicyId(v string) *CreateScalingP
 type ScheduledPolicyForCreateScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	LaunchTime *string `type:"string"`
+	// LaunchTime is a required field
+	LaunchTime *string `type:"string" required:"true"`
 
 	RecurrenceEndTime *string `type:"string"`
 
-	RecurrenceType *string `type:"string"`
+	RecurrenceType *string `type:"string" enum:"EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput"`
 
 	RecurrenceValue *string `type:"string"`
 }
@@ -345,6 +406,19 @@ func (s ScheduledPolicyForCreateScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s ScheduledPolicyForCreateScalingPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ScheduledPolicyForCreateScalingPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ScheduledPolicyForCreateScalingPolicyInput"}
+	if s.LaunchTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("LaunchTime"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetLaunchTime sets the LaunchTime field's value.
@@ -370,3 +444,44 @@ func (s *ScheduledPolicyForCreateScalingPolicyInput) SetRecurrenceValue(v string
 	s.RecurrenceValue = &v
 	return s
 }
+
+const (
+	// EnumOfAdjustmentTypeForCreateScalingPolicyInputQuantityChangeInCapacity is a EnumOfAdjustmentTypeForCreateScalingPolicyInput enum value
+	EnumOfAdjustmentTypeForCreateScalingPolicyInputQuantityChangeInCapacity = "QuantityChangeInCapacity"
+
+	// EnumOfAdjustmentTypeForCreateScalingPolicyInputPercentChangeInCapacity is a EnumOfAdjustmentTypeForCreateScalingPolicyInput enum value
+	EnumOfAdjustmentTypeForCreateScalingPolicyInputPercentChangeInCapacity = "PercentChangeInCapacity"
+
+	// EnumOfAdjustmentTypeForCreateScalingPolicyInputTotalCapacity is a EnumOfAdjustmentTypeForCreateScalingPolicyInput enum value
+	EnumOfAdjustmentTypeForCreateScalingPolicyInputTotalCapacity = "TotalCapacity"
+)
+
+const (
+	// EnumOfAlarmPolicyRuleTypeForCreateScalingPolicyInputStatic is a EnumOfAlarmPolicyRuleTypeForCreateScalingPolicyInput enum value
+	EnumOfAlarmPolicyRuleTypeForCreateScalingPolicyInputStatic = "Static"
+)
+
+const (
+	// EnumOfScalingPolicyTypeForCreateScalingPolicyInputScheduled is a EnumOfScalingPolicyTypeForCreateScalingPolicyInput enum value
+	EnumOfScalingPolicyTypeForCreateScalingPolicyInputScheduled = "Scheduled"
+
+	// EnumOfScalingPolicyTypeForCreateScalingPolicyInputRecurrence is a EnumOfScalingPolicyTypeForCreateScalingPolicyInput enum value
+	EnumOfScalingPolicyTypeForCreateScalingPolicyInputRecurrence = "Recurrence"
+
+	// EnumOfScalingPolicyTypeForCreateScalingPolicyInputAlarm is a EnumOfScalingPolicyTypeForCreateScalingPolicyInput enum value
+	EnumOfScalingPolicyTypeForCreateScalingPolicyInputAlarm = "Alarm"
+)
+
+const (
+	// EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputDaily is a EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput enum value
+	EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputDaily = "Daily"
+
+	// EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputWeekly is a EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput enum value
+	EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputWeekly = "Weekly"
+
+	// EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputMonthly is a EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput enum value
+	EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputMonthly = "Monthly"
+
+	// EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputCron is a EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput enum value
+	EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputCron = "Cron"
+)

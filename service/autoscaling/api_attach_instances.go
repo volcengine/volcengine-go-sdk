@@ -22,13 +22,13 @@ const opAttachInstancesCommon = "AttachInstances"
 // See AttachInstancesCommon for more information on using the AttachInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachInstancesCommonRequest method.
-//	req, resp := client.AttachInstancesCommonRequest(params)
+//    // Example sending a request using the AttachInstancesCommonRequest method.
+//    req, resp := client.AttachInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) AttachInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachInstancesCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) AttachInstancesCommonRequest(input *map[string]interface{}
 	return
 }
 
-// AttachInstancesCommon API operation for AUTO_SCALING.
+// AttachInstancesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation AttachInstancesCommon for usage and error information.
 func (c *AUTOSCALING) AttachInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachInstancesCommonRequest(input)
@@ -87,13 +87,13 @@ const opAttachInstances = "AttachInstances"
 // See AttachInstances for more information on using the AttachInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachInstancesRequest method.
-//	req, resp := client.AttachInstancesRequest(params)
+//    // Example sending a request using the AttachInstancesRequest method.
+//    req, resp := client.AttachInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) AttachInstancesRequest(input *AttachInstancesInput) (req *request.Request, output *AttachInstancesOutput) {
 	op := &request.Operation{
 		Name:       opAttachInstances,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) AttachInstancesRequest(input *AttachInstancesInput) (req *
 	return
 }
 
-// AttachInstances API operation for AUTO_SCALING.
+// AttachInstances API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation AttachInstances for usage and error information.
 func (c *AUTOSCALING) AttachInstances(input *AttachInstancesInput) (*AttachInstancesOutput, error) {
 	req, out := c.AttachInstancesRequest(input)
@@ -144,11 +144,13 @@ type AttachInstancesInput struct {
 
 	Entrusted *bool `type:"boolean"`
 
-	InstanceIds []*string `type:"list"`
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 
 	LifecycleHook *bool `type:"boolean"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s AttachInstancesInput) String() string {
 // GoString returns the string representation
 func (s AttachInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AttachInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AttachInstancesInput"}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEntrusted sets the Entrusted field's value.

@@ -22,13 +22,13 @@ const opDeleteScalingGroupCommon = "DeleteScalingGroup"
 // See DeleteScalingGroupCommon for more information on using the DeleteScalingGroupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteScalingGroupCommonRequest method.
-//	req, resp := client.DeleteScalingGroupCommonRequest(params)
+//    // Example sending a request using the DeleteScalingGroupCommonRequest method.
+//    req, resp := client.DeleteScalingGroupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DeleteScalingGroupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteScalingGroupCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DeleteScalingGroupCommonRequest(input *map[string]interfac
 	return
 }
 
-// DeleteScalingGroupCommon API operation for AUTO_SCALING.
+// DeleteScalingGroupCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DeleteScalingGroupCommon for usage and error information.
 func (c *AUTOSCALING) DeleteScalingGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteScalingGroupCommonRequest(input)
@@ -87,13 +87,13 @@ const opDeleteScalingGroup = "DeleteScalingGroup"
 // See DeleteScalingGroup for more information on using the DeleteScalingGroup
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteScalingGroupRequest method.
-//	req, resp := client.DeleteScalingGroupRequest(params)
+//    // Example sending a request using the DeleteScalingGroupRequest method.
+//    req, resp := client.DeleteScalingGroupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DeleteScalingGroupRequest(input *DeleteScalingGroupInput) (req *request.Request, output *DeleteScalingGroupOutput) {
 	op := &request.Operation{
 		Name:       opDeleteScalingGroup,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DeleteScalingGroupRequest(input *DeleteScalingGroupInput) 
 	return
 }
 
-// DeleteScalingGroup API operation for AUTO_SCALING.
+// DeleteScalingGroup API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DeleteScalingGroup for usage and error information.
 func (c *AUTOSCALING) DeleteScalingGroup(input *DeleteScalingGroupInput) (*DeleteScalingGroupOutput, error) {
 	req, out := c.DeleteScalingGroupRequest(input)
@@ -142,7 +142,10 @@ func (c *AUTOSCALING) DeleteScalingGroupWithContext(ctx volcengine.Context, inpu
 type DeleteScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingGroupId *string `type:"string"`
+	KeepInstance *bool `type:"boolean"`
+
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +156,25 @@ func (s DeleteScalingGroupInput) String() string {
 // GoString returns the string representation
 func (s DeleteScalingGroupInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteScalingGroupInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteScalingGroupInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKeepInstance sets the KeepInstance field's value.
+func (s *DeleteScalingGroupInput) SetKeepInstance(v bool) *DeleteScalingGroupInput {
+	s.KeepInstance = &v
+	return s
 }
 
 // SetScalingGroupId sets the ScalingGroupId field's value.

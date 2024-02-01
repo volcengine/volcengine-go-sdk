@@ -22,13 +22,13 @@ const opDeleteTagsCommon = "DeleteTags"
 // See DeleteTagsCommon for more information on using the DeleteTagsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteTagsCommonRequest method.
-//	req, resp := client.DeleteTagsCommonRequest(params)
+//    // Example sending a request using the DeleteTagsCommonRequest method.
+//    req, resp := client.DeleteTagsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DeleteTagsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteTagsCommon,
@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DeleteTagsCommonRequest(input *map[string]interface{}) (req
 	return
 }
 
-// DeleteTagsCommon API operation for STORAGE_EBS.
+// DeleteTagsCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DeleteTagsCommon for usage and error information.
 func (c *STORAGEEBS) DeleteTagsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteTagsCommonRequest(input)
@@ -87,13 +87,13 @@ const opDeleteTags = "DeleteTags"
 // See DeleteTags for more information on using the DeleteTags
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteTagsRequest method.
-//	req, resp := client.DeleteTagsRequest(params)
+//    // Example sending a request using the DeleteTagsRequest method.
+//    req, resp := client.DeleteTagsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DeleteTagsRequest(input *DeleteTagsInput) (req *request.Request, output *DeleteTagsOutput) {
 	op := &request.Operation{
 		Name:       opDeleteTags,
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DeleteTagsRequest(input *DeleteTagsInput) (req *request.Req
 	return
 }
 
-// DeleteTags API operation for STORAGE_EBS.
+// DeleteTags API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DeleteTags for usage and error information.
 func (c *STORAGEEBS) DeleteTags(input *DeleteTagsInput) (*DeleteTagsOutput, error) {
 	req, out := c.DeleteTagsRequest(input)

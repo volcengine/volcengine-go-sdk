@@ -22,13 +22,13 @@ const opDisableScalingPolicyCommon = "DisableScalingPolicy"
 // See DisableScalingPolicyCommon for more information on using the DisableScalingPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisableScalingPolicyCommonRequest method.
-//	req, resp := client.DisableScalingPolicyCommonRequest(params)
+//    // Example sending a request using the DisableScalingPolicyCommonRequest method.
+//    req, resp := client.DisableScalingPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DisableScalingPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisableScalingPolicyCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DisableScalingPolicyCommonRequest(input *map[string]interf
 	return
 }
 
-// DisableScalingPolicyCommon API operation for AUTO_SCALING.
+// DisableScalingPolicyCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DisableScalingPolicyCommon for usage and error information.
 func (c *AUTOSCALING) DisableScalingPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DisableScalingPolicyCommonRequest(input)
@@ -87,13 +87,13 @@ const opDisableScalingPolicy = "DisableScalingPolicy"
 // See DisableScalingPolicy for more information on using the DisableScalingPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the DisableScalingPolicyRequest method.
-//	req, resp := client.DisableScalingPolicyRequest(params)
+//    // Example sending a request using the DisableScalingPolicyRequest method.
+//    req, resp := client.DisableScalingPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DisableScalingPolicyRequest(input *DisableScalingPolicyInput) (req *request.Request, output *DisableScalingPolicyOutput) {
 	op := &request.Operation{
 		Name:       opDisableScalingPolicy,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DisableScalingPolicyRequest(input *DisableScalingPolicyInp
 	return
 }
 
-// DisableScalingPolicy API operation for AUTO_SCALING.
+// DisableScalingPolicy API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DisableScalingPolicy for usage and error information.
 func (c *AUTOSCALING) DisableScalingPolicy(input *DisableScalingPolicyInput) (*DisableScalingPolicyOutput, error) {
 	req, out := c.DisableScalingPolicyRequest(input)
@@ -142,7 +142,8 @@ func (c *AUTOSCALING) DisableScalingPolicyWithContext(ctx volcengine.Context, in
 type DisableScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	ScalingPolicyId *string `type:"string"`
+	// ScalingPolicyId is a required field
+	ScalingPolicyId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DisableScalingPolicyInput) String() string {
 // GoString returns the string representation
 func (s DisableScalingPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisableScalingPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisableScalingPolicyInput"}
+	if s.ScalingPolicyId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingPolicyId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetScalingPolicyId sets the ScalingPolicyId field's value.

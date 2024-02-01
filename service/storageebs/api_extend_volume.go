@@ -24,13 +24,13 @@ const opExtendVolumeCommon = "ExtendVolume"
 // See ExtendVolumeCommon for more information on using the ExtendVolumeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ExtendVolumeCommonRequest method.
-//	req, resp := client.ExtendVolumeCommonRequest(params)
+//    // Example sending a request using the ExtendVolumeCommonRequest method.
+//    req, resp := client.ExtendVolumeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) ExtendVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opExtendVolumeCommon,
@@ -48,13 +48,13 @@ func (c *STORAGEEBS) ExtendVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// ExtendVolumeCommon API operation for STORAGE_EBS.
+// ExtendVolumeCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation ExtendVolumeCommon for usage and error information.
 func (c *STORAGEEBS) ExtendVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ExtendVolumeCommonRequest(input)
@@ -89,13 +89,13 @@ const opExtendVolume = "ExtendVolume"
 // See ExtendVolume for more information on using the ExtendVolume
 // API call, and error handling.
 //
-//	// Example sending a request using the ExtendVolumeRequest method.
-//	req, resp := client.ExtendVolumeRequest(params)
+//    // Example sending a request using the ExtendVolumeRequest method.
+//    req, resp := client.ExtendVolumeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) ExtendVolumeRequest(input *ExtendVolumeInput) (req *request.Request, output *ExtendVolumeOutput) {
 	op := &request.Operation{
 		Name:       opExtendVolume,
@@ -113,13 +113,13 @@ func (c *STORAGEEBS) ExtendVolumeRequest(input *ExtendVolumeInput) (req *request
 	return
 }
 
-// ExtendVolume API operation for STORAGE_EBS.
+// ExtendVolume API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation ExtendVolume for usage and error information.
 func (c *STORAGEEBS) ExtendVolume(input *ExtendVolumeInput) (*ExtendVolumeOutput, error) {
 	req, out := c.ExtendVolumeRequest(input)

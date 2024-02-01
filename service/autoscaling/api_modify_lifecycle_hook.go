@@ -22,13 +22,13 @@ const opModifyLifecycleHookCommon = "ModifyLifecycleHook"
 // See ModifyLifecycleHookCommon for more information on using the ModifyLifecycleHookCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyLifecycleHookCommonRequest method.
-//	req, resp := client.ModifyLifecycleHookCommonRequest(params)
+//    // Example sending a request using the ModifyLifecycleHookCommonRequest method.
+//    req, resp := client.ModifyLifecycleHookCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) ModifyLifecycleHookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyLifecycleHookCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) ModifyLifecycleHookCommonRequest(input *map[string]interfa
 	return
 }
 
-// ModifyLifecycleHookCommon API operation for AUTO_SCALING.
+// ModifyLifecycleHookCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation ModifyLifecycleHookCommon for usage and error information.
 func (c *AUTOSCALING) ModifyLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyLifecycleHookCommonRequest(input)
@@ -87,13 +87,13 @@ const opModifyLifecycleHook = "ModifyLifecycleHook"
 // See ModifyLifecycleHook for more information on using the ModifyLifecycleHook
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyLifecycleHookRequest method.
-//	req, resp := client.ModifyLifecycleHookRequest(params)
+//    // Example sending a request using the ModifyLifecycleHookRequest method.
+//    req, resp := client.ModifyLifecycleHookRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) ModifyLifecycleHookRequest(input *ModifyLifecycleHookInput) (req *request.Request, output *ModifyLifecycleHookOutput) {
 	op := &request.Operation{
 		Name:       opModifyLifecycleHook,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) ModifyLifecycleHookRequest(input *ModifyLifecycleHookInput
 	return
 }
 
-// ModifyLifecycleHook API operation for AUTO_SCALING.
+// ModifyLifecycleHook API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation ModifyLifecycleHook for usage and error information.
 func (c *AUTOSCALING) ModifyLifecycleHook(input *ModifyLifecycleHookInput) (*ModifyLifecycleHookOutput, error) {
 	req, out := c.ModifyLifecycleHookRequest(input)
@@ -139,16 +139,49 @@ func (c *AUTOSCALING) ModifyLifecycleHookWithContext(ctx volcengine.Context, inp
 	return out, req.Send()
 }
 
+type LifecycleCommandForModifyLifecycleHookInput struct {
+	_ struct{} `type:"structure"`
+
+	CommandId *string `type:"string"`
+
+	Parameters *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LifecycleCommandForModifyLifecycleHookInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleCommandForModifyLifecycleHookInput) GoString() string {
+	return s.String()
+}
+
+// SetCommandId sets the CommandId field's value.
+func (s *LifecycleCommandForModifyLifecycleHookInput) SetCommandId(v string) *LifecycleCommandForModifyLifecycleHookInput {
+	s.CommandId = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *LifecycleCommandForModifyLifecycleHookInput) SetParameters(v string) *LifecycleCommandForModifyLifecycleHookInput {
+	s.Parameters = &v
+	return s
+}
+
 type ModifyLifecycleHookInput struct {
 	_ struct{} `type:"structure"`
 
-	LifecycleHookId *string `type:"string"`
+	LifecycleCommand *LifecycleCommandForModifyLifecycleHookInput `type:"structure"`
 
-	LifecycleHookPolicy *string `type:"string"`
+	// LifecycleHookId is a required field
+	LifecycleHookId *string `type:"string" required:"true"`
+
+	LifecycleHookPolicy *string `type:"string" enum:"EnumOfLifecycleHookPolicyForModifyLifecycleHookInput"`
 
 	LifecycleHookTimeout *int32 `type:"int32"`
 
-	LifecycleHookType *string `type:"string"`
+	LifecycleHookType *string `type:"string" enum:"EnumOfLifecycleHookTypeForModifyLifecycleHookInput"`
 }
 
 // String returns the string representation
@@ -159,6 +192,25 @@ func (s ModifyLifecycleHookInput) String() string {
 // GoString returns the string representation
 func (s ModifyLifecycleHookInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyLifecycleHookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyLifecycleHookInput"}
+	if s.LifecycleHookId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLifecycleCommand sets the LifecycleCommand field's value.
+func (s *ModifyLifecycleHookInput) SetLifecycleCommand(v *LifecycleCommandForModifyLifecycleHookInput) *ModifyLifecycleHookInput {
+	s.LifecycleCommand = v
+	return s
 }
 
 // SetLifecycleHookId sets the LifecycleHookId field's value.
@@ -208,3 +260,22 @@ func (s *ModifyLifecycleHookOutput) SetLifecycleHookId(v string) *ModifyLifecycl
 	s.LifecycleHookId = &v
 	return s
 }
+
+const (
+	// EnumOfLifecycleHookPolicyForModifyLifecycleHookInputContinue is a EnumOfLifecycleHookPolicyForModifyLifecycleHookInput enum value
+	EnumOfLifecycleHookPolicyForModifyLifecycleHookInputContinue = "CONTINUE"
+
+	// EnumOfLifecycleHookPolicyForModifyLifecycleHookInputReject is a EnumOfLifecycleHookPolicyForModifyLifecycleHookInput enum value
+	EnumOfLifecycleHookPolicyForModifyLifecycleHookInputReject = "REJECT"
+
+	// EnumOfLifecycleHookPolicyForModifyLifecycleHookInputRollback is a EnumOfLifecycleHookPolicyForModifyLifecycleHookInput enum value
+	EnumOfLifecycleHookPolicyForModifyLifecycleHookInputRollback = "ROLLBACK"
+)
+
+const (
+	// EnumOfLifecycleHookTypeForModifyLifecycleHookInputScaleIn is a EnumOfLifecycleHookTypeForModifyLifecycleHookInput enum value
+	EnumOfLifecycleHookTypeForModifyLifecycleHookInputScaleIn = "SCALE_IN"
+
+	// EnumOfLifecycleHookTypeForModifyLifecycleHookInputScaleOut is a EnumOfLifecycleHookTypeForModifyLifecycleHookInput enum value
+	EnumOfLifecycleHookTypeForModifyLifecycleHookInputScaleOut = "SCALE_OUT"
+)

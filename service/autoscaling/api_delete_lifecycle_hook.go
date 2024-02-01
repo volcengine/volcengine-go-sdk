@@ -22,13 +22,13 @@ const opDeleteLifecycleHookCommon = "DeleteLifecycleHook"
 // See DeleteLifecycleHookCommon for more information on using the DeleteLifecycleHookCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteLifecycleHookCommonRequest method.
-//	req, resp := client.DeleteLifecycleHookCommonRequest(params)
+//    // Example sending a request using the DeleteLifecycleHookCommonRequest method.
+//    req, resp := client.DeleteLifecycleHookCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DeleteLifecycleHookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteLifecycleHookCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DeleteLifecycleHookCommonRequest(input *map[string]interfa
 	return
 }
 
-// DeleteLifecycleHookCommon API operation for AUTO_SCALING.
+// DeleteLifecycleHookCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DeleteLifecycleHookCommon for usage and error information.
 func (c *AUTOSCALING) DeleteLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteLifecycleHookCommonRequest(input)
@@ -87,13 +87,13 @@ const opDeleteLifecycleHook = "DeleteLifecycleHook"
 // See DeleteLifecycleHook for more information on using the DeleteLifecycleHook
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteLifecycleHookRequest method.
-//	req, resp := client.DeleteLifecycleHookRequest(params)
+//    // Example sending a request using the DeleteLifecycleHookRequest method.
+//    req, resp := client.DeleteLifecycleHookRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DeleteLifecycleHookRequest(input *DeleteLifecycleHookInput) (req *request.Request, output *DeleteLifecycleHookOutput) {
 	op := &request.Operation{
 		Name:       opDeleteLifecycleHook,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DeleteLifecycleHookRequest(input *DeleteLifecycleHookInput
 	return
 }
 
-// DeleteLifecycleHook API operation for AUTO_SCALING.
+// DeleteLifecycleHook API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DeleteLifecycleHook for usage and error information.
 func (c *AUTOSCALING) DeleteLifecycleHook(input *DeleteLifecycleHookInput) (*DeleteLifecycleHookOutput, error) {
 	req, out := c.DeleteLifecycleHookRequest(input)
@@ -142,7 +142,8 @@ func (c *AUTOSCALING) DeleteLifecycleHookWithContext(ctx volcengine.Context, inp
 type DeleteLifecycleHookInput struct {
 	_ struct{} `type:"structure"`
 
-	LifecycleHookId *string `type:"string"`
+	// LifecycleHookId is a required field
+	LifecycleHookId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DeleteLifecycleHookInput) String() string {
 // GoString returns the string representation
 func (s DeleteLifecycleHookInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteLifecycleHookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteLifecycleHookInput"}
+	if s.LifecycleHookId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetLifecycleHookId sets the LifecycleHookId field's value.

@@ -22,13 +22,13 @@ const opDescribeScalingPoliciesCommon = "DescribeScalingPolicies"
 // See DescribeScalingPoliciesCommon for more information on using the DescribeScalingPoliciesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingPoliciesCommonRequest method.
-//	req, resp := client.DescribeScalingPoliciesCommonRequest(params)
+//    // Example sending a request using the DescribeScalingPoliciesCommonRequest method.
+//    req, resp := client.DescribeScalingPoliciesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingPoliciesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeScalingPoliciesCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingPoliciesCommonRequest(input *map[string]int
 	return
 }
 
-// DescribeScalingPoliciesCommon API operation for AUTO_SCALING.
+// DescribeScalingPoliciesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingPoliciesCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingPoliciesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingPoliciesCommonRequest(input)
@@ -87,13 +87,13 @@ const opDescribeScalingPolicies = "DescribeScalingPolicies"
 // See DescribeScalingPolicies for more information on using the DescribeScalingPolicies
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingPoliciesRequest method.
-//	req, resp := client.DescribeScalingPoliciesRequest(params)
+//    // Example sending a request using the DescribeScalingPoliciesRequest method.
+//    req, resp := client.DescribeScalingPoliciesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingPoliciesRequest(input *DescribeScalingPoliciesInput) (req *request.Request, output *DescribeScalingPoliciesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeScalingPolicies,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingPoliciesRequest(input *DescribeScalingPolic
 	return
 }
 
-// DescribeScalingPolicies API operation for AUTO_SCALING.
+// DescribeScalingPolicies API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingPolicies for usage and error information.
 func (c *AUTOSCALING) DescribeScalingPolicies(input *DescribeScalingPoliciesInput) (*DescribeScalingPoliciesOutput, error) {
 	req, out := c.DescribeScalingPoliciesRequest(input)
@@ -230,13 +230,14 @@ type DescribeScalingPoliciesInput struct {
 
 	PageSize *int32 `type:"int32"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
 	ScalingPolicyIds []*string `type:"list"`
 
 	ScalingPolicyNames []*string `type:"list"`
 
-	ScalingPolicyType *string `type:"string"`
+	ScalingPolicyType *string `type:"string" enum:"EnumOfScalingPolicyTypeForDescribeScalingPoliciesInput"`
 }
 
 // String returns the string representation
@@ -247,6 +248,19 @@ func (s DescribeScalingPoliciesInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingPoliciesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeScalingPoliciesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingPoliciesInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.
@@ -480,3 +494,14 @@ func (s *ScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceValue(v s
 	s.RecurrenceValue = &v
 	return s
 }
+
+const (
+	// EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputScheduled is a EnumOfScalingPolicyTypeForDescribeScalingPoliciesInput enum value
+	EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputScheduled = "Scheduled"
+
+	// EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputRecurrence is a EnumOfScalingPolicyTypeForDescribeScalingPoliciesInput enum value
+	EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputRecurrence = "Recurrence"
+
+	// EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputAlarm is a EnumOfScalingPolicyTypeForDescribeScalingPoliciesInput enum value
+	EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputAlarm = "Alarm"
+)

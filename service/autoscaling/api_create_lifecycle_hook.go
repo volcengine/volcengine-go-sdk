@@ -22,13 +22,13 @@ const opCreateLifecycleHookCommon = "CreateLifecycleHook"
 // See CreateLifecycleHookCommon for more information on using the CreateLifecycleHookCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateLifecycleHookCommonRequest method.
-//	req, resp := client.CreateLifecycleHookCommonRequest(params)
+//    // Example sending a request using the CreateLifecycleHookCommonRequest method.
+//    req, resp := client.CreateLifecycleHookCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) CreateLifecycleHookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateLifecycleHookCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) CreateLifecycleHookCommonRequest(input *map[string]interfa
 	return
 }
 
-// CreateLifecycleHookCommon API operation for AUTO_SCALING.
+// CreateLifecycleHookCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation CreateLifecycleHookCommon for usage and error information.
 func (c *AUTOSCALING) CreateLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateLifecycleHookCommonRequest(input)
@@ -87,13 +87,13 @@ const opCreateLifecycleHook = "CreateLifecycleHook"
 // See CreateLifecycleHook for more information on using the CreateLifecycleHook
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateLifecycleHookRequest method.
-//	req, resp := client.CreateLifecycleHookRequest(params)
+//    // Example sending a request using the CreateLifecycleHookRequest method.
+//    req, resp := client.CreateLifecycleHookRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) CreateLifecycleHookRequest(input *CreateLifecycleHookInput) (req *request.Request, output *CreateLifecycleHookOutput) {
 	op := &request.Operation{
 		Name:       opCreateLifecycleHook,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) CreateLifecycleHookRequest(input *CreateLifecycleHookInput
 	return
 }
 
-// CreateLifecycleHook API operation for AUTO_SCALING.
+// CreateLifecycleHook API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation CreateLifecycleHook for usage and error information.
 func (c *AUTOSCALING) CreateLifecycleHook(input *CreateLifecycleHookInput) (*CreateLifecycleHookOutput, error) {
 	req, out := c.CreateLifecycleHookRequest(input)
@@ -142,15 +142,24 @@ func (c *AUTOSCALING) CreateLifecycleHookWithContext(ctx volcengine.Context, inp
 type CreateLifecycleHookInput struct {
 	_ struct{} `type:"structure"`
 
-	LifecycleHookName *string `type:"string"`
+	ClientToken *string `type:"string"`
 
-	LifecycleHookPolicy *string `type:"string"`
+	LifecycleCommand *LifecycleCommandForCreateLifecycleHookInput `type:"structure"`
 
-	LifecycleHookTimeout *int32 `type:"int32"`
+	// LifecycleHookName is a required field
+	LifecycleHookName *string `type:"string" required:"true"`
 
-	LifecycleHookType *string `type:"string"`
+	// LifecycleHookPolicy is a required field
+	LifecycleHookPolicy *string `type:"string" required:"true" enum:"EnumOfLifecycleHookPolicyForCreateLifecycleHookInput"`
 
-	ScalingGroupId *string `type:"string"`
+	// LifecycleHookTimeout is a required field
+	LifecycleHookTimeout *int32 `type:"int32" required:"true"`
+
+	// LifecycleHookType is a required field
+	LifecycleHookType *string `type:"string" required:"true" enum:"EnumOfLifecycleHookTypeForCreateLifecycleHookInput"`
+
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +170,43 @@ func (s CreateLifecycleHookInput) String() string {
 // GoString returns the string representation
 func (s CreateLifecycleHookInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateLifecycleHookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateLifecycleHookInput"}
+	if s.LifecycleHookName == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookName"))
+	}
+	if s.LifecycleHookPolicy == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookPolicy"))
+	}
+	if s.LifecycleHookTimeout == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookTimeout"))
+	}
+	if s.LifecycleHookType == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleHookType"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CreateLifecycleHookInput) SetClientToken(v string) *CreateLifecycleHookInput {
+	s.ClientToken = &v
+	return s
+}
+
+// SetLifecycleCommand sets the LifecycleCommand field's value.
+func (s *CreateLifecycleHookInput) SetLifecycleCommand(v *LifecycleCommandForCreateLifecycleHookInput) *CreateLifecycleHookInput {
+	s.LifecycleCommand = v
+	return s
 }
 
 // SetLifecycleHookName sets the LifecycleHookName field's value.
@@ -216,3 +262,52 @@ func (s *CreateLifecycleHookOutput) SetLifecycleHookId(v string) *CreateLifecycl
 	s.LifecycleHookId = &v
 	return s
 }
+
+type LifecycleCommandForCreateLifecycleHookInput struct {
+	_ struct{} `type:"structure"`
+
+	CommandId *string `type:"string"`
+
+	Parameters *string `type:"string"`
+}
+
+// String returns the string representation
+func (s LifecycleCommandForCreateLifecycleHookInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LifecycleCommandForCreateLifecycleHookInput) GoString() string {
+	return s.String()
+}
+
+// SetCommandId sets the CommandId field's value.
+func (s *LifecycleCommandForCreateLifecycleHookInput) SetCommandId(v string) *LifecycleCommandForCreateLifecycleHookInput {
+	s.CommandId = &v
+	return s
+}
+
+// SetParameters sets the Parameters field's value.
+func (s *LifecycleCommandForCreateLifecycleHookInput) SetParameters(v string) *LifecycleCommandForCreateLifecycleHookInput {
+	s.Parameters = &v
+	return s
+}
+
+const (
+	// EnumOfLifecycleHookPolicyForCreateLifecycleHookInputContinue is a EnumOfLifecycleHookPolicyForCreateLifecycleHookInput enum value
+	EnumOfLifecycleHookPolicyForCreateLifecycleHookInputContinue = "CONTINUE"
+
+	// EnumOfLifecycleHookPolicyForCreateLifecycleHookInputReject is a EnumOfLifecycleHookPolicyForCreateLifecycleHookInput enum value
+	EnumOfLifecycleHookPolicyForCreateLifecycleHookInputReject = "REJECT"
+
+	// EnumOfLifecycleHookPolicyForCreateLifecycleHookInputRollback is a EnumOfLifecycleHookPolicyForCreateLifecycleHookInput enum value
+	EnumOfLifecycleHookPolicyForCreateLifecycleHookInputRollback = "ROLLBACK"
+)
+
+const (
+	// EnumOfLifecycleHookTypeForCreateLifecycleHookInputScaleIn is a EnumOfLifecycleHookTypeForCreateLifecycleHookInput enum value
+	EnumOfLifecycleHookTypeForCreateLifecycleHookInputScaleIn = "SCALE_IN"
+
+	// EnumOfLifecycleHookTypeForCreateLifecycleHookInputScaleOut is a EnumOfLifecycleHookTypeForCreateLifecycleHookInput enum value
+	EnumOfLifecycleHookTypeForCreateLifecycleHookInputScaleOut = "SCALE_OUT"
+)

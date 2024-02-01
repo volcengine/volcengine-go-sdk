@@ -22,13 +22,13 @@ const opDeleteVolumeCommon = "DeleteVolume"
 // See DeleteVolumeCommon for more information on using the DeleteVolumeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteVolumeCommonRequest method.
-//	req, resp := client.DeleteVolumeCommonRequest(params)
+//    // Example sending a request using the DeleteVolumeCommonRequest method.
+//    req, resp := client.DeleteVolumeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DeleteVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteVolumeCommon,
@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DeleteVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// DeleteVolumeCommon API operation for STORAGE_EBS.
+// DeleteVolumeCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DeleteVolumeCommon for usage and error information.
 func (c *STORAGEEBS) DeleteVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteVolumeCommonRequest(input)
@@ -87,13 +87,13 @@ const opDeleteVolume = "DeleteVolume"
 // See DeleteVolume for more information on using the DeleteVolume
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteVolumeRequest method.
-//	req, resp := client.DeleteVolumeRequest(params)
+//    // Example sending a request using the DeleteVolumeRequest method.
+//    req, resp := client.DeleteVolumeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DeleteVolumeRequest(input *DeleteVolumeInput) (req *request.Request, output *DeleteVolumeOutput) {
 	op := &request.Operation{
 		Name:       opDeleteVolume,
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DeleteVolumeRequest(input *DeleteVolumeInput) (req *request
 	return
 }
 
-// DeleteVolume API operation for STORAGE_EBS.
+// DeleteVolume API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DeleteVolume for usage and error information.
 func (c *STORAGEEBS) DeleteVolume(input *DeleteVolumeInput) (*DeleteVolumeOutput, error) {
 	req, out := c.DeleteVolumeRequest(input)

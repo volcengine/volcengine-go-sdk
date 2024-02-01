@@ -22,13 +22,13 @@ const opDetachDBInstancesCommon = "DetachDBInstances"
 // See DetachDBInstancesCommon for more information on using the DetachDBInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachDBInstancesCommonRequest method.
-//	req, resp := client.DetachDBInstancesCommonRequest(params)
+//    // Example sending a request using the DetachDBInstancesCommonRequest method.
+//    req, resp := client.DetachDBInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DetachDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachDBInstancesCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DetachDBInstancesCommonRequest(input *map[string]interface
 	return
 }
 
-// DetachDBInstancesCommon API operation for AUTO_SCALING.
+// DetachDBInstancesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DetachDBInstancesCommon for usage and error information.
 func (c *AUTOSCALING) DetachDBInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachDBInstancesCommonRequest(input)
@@ -87,13 +87,13 @@ const opDetachDBInstances = "DetachDBInstances"
 // See DetachDBInstances for more information on using the DetachDBInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachDBInstancesRequest method.
-//	req, resp := client.DetachDBInstancesRequest(params)
+//    // Example sending a request using the DetachDBInstancesRequest method.
+//    req, resp := client.DetachDBInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DetachDBInstancesRequest(input *DetachDBInstancesInput) (req *request.Request, output *DetachDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDetachDBInstances,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DetachDBInstancesRequest(input *DetachDBInstancesInput) (r
 	return
 }
 
-// DetachDBInstances API operation for AUTO_SCALING.
+// DetachDBInstances API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DetachDBInstances for usage and error information.
 func (c *AUTOSCALING) DetachDBInstances(input *DetachDBInstancesInput) (*DetachDBInstancesOutput, error) {
 	req, out := c.DetachDBInstancesRequest(input)
@@ -142,11 +142,13 @@ func (c *AUTOSCALING) DetachDBInstancesWithContext(ctx volcengine.Context, input
 type DetachDBInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	DBInstanceIds []*string `type:"list"`
+	// DBInstanceIds is a required field
+	DBInstanceIds []*string `type:"list" required:"true"`
 
 	ForceDetach *bool `type:"boolean"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +159,22 @@ func (s DetachDBInstancesInput) String() string {
 // GoString returns the string representation
 func (s DetachDBInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DetachDBInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DetachDBInstancesInput"}
+	if s.DBInstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBInstanceIds"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBInstanceIds sets the DBInstanceIds field's value.

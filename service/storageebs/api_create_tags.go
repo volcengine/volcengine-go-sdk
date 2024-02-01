@@ -22,13 +22,13 @@ const opCreateTagsCommon = "CreateTags"
 // See CreateTagsCommon for more information on using the CreateTagsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateTagsCommonRequest method.
-//	req, resp := client.CreateTagsCommonRequest(params)
+//    // Example sending a request using the CreateTagsCommonRequest method.
+//    req, resp := client.CreateTagsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) CreateTagsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateTagsCommon,
@@ -46,13 +46,13 @@ func (c *STORAGEEBS) CreateTagsCommonRequest(input *map[string]interface{}) (req
 	return
 }
 
-// CreateTagsCommon API operation for STORAGE_EBS.
+// CreateTagsCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation CreateTagsCommon for usage and error information.
 func (c *STORAGEEBS) CreateTagsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateTagsCommonRequest(input)
@@ -87,13 +87,13 @@ const opCreateTags = "CreateTags"
 // See CreateTags for more information on using the CreateTags
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateTagsRequest method.
-//	req, resp := client.CreateTagsRequest(params)
+//    // Example sending a request using the CreateTagsRequest method.
+//    req, resp := client.CreateTagsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) CreateTagsRequest(input *CreateTagsInput) (req *request.Request, output *CreateTagsOutput) {
 	op := &request.Operation{
 		Name:       opCreateTags,
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) CreateTagsRequest(input *CreateTagsInput) (req *request.Req
 	return
 }
 
-// CreateTags API operation for STORAGE_EBS.
+// CreateTags API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation CreateTags for usage and error information.
 func (c *STORAGEEBS) CreateTags(input *CreateTagsInput) (*CreateTagsOutput, error) {
 	req, out := c.CreateTagsRequest(input)

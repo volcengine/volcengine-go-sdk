@@ -3,8 +3,6 @@
 package autoscaling
 
 import (
-	"encoding/json"
-
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -24,13 +22,13 @@ const opListTagResourcesCommon = "ListTagResources"
 // See ListTagResourcesCommon for more information on using the ListTagResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListTagResourcesCommonRequest method.
-//	req, resp := client.ListTagResourcesCommonRequest(params)
+//    // Example sending a request using the ListTagResourcesCommonRequest method.
+//    req, resp := client.ListTagResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) ListTagResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListTagResourcesCommon,
@@ -48,13 +46,13 @@ func (c *AUTOSCALING) ListTagResourcesCommonRequest(input *map[string]interface{
 	return
 }
 
-// ListTagResourcesCommon API operation for AUTO_SCALING.
+// ListTagResourcesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation ListTagResourcesCommon for usage and error information.
 func (c *AUTOSCALING) ListTagResourcesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ListTagResourcesCommonRequest(input)
@@ -89,13 +87,13 @@ const opListTagResources = "ListTagResources"
 // See ListTagResources for more information on using the ListTagResources
 // API call, and error handling.
 //
-//	// Example sending a request using the ListTagResourcesRequest method.
-//	req, resp := client.ListTagResourcesRequest(params)
+//    // Example sending a request using the ListTagResourcesRequest method.
+//    req, resp := client.ListTagResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) ListTagResourcesRequest(input *ListTagResourcesInput) (req *request.Request, output *ListTagResourcesOutput) {
 	op := &request.Operation{
 		Name:       opListTagResources,
@@ -113,13 +111,13 @@ func (c *AUTOSCALING) ListTagResourcesRequest(input *ListTagResourcesInput) (req
 	return
 }
 
-// ListTagResources API operation for AUTO_SCALING.
+// ListTagResources API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation ListTagResources for usage and error information.
 func (c *AUTOSCALING) ListTagResources(input *ListTagResourcesInput) (*ListTagResourcesOutput, error) {
 	req, out := c.ListTagResourcesRequest(input)
@@ -144,13 +142,14 @@ func (c *AUTOSCALING) ListTagResourcesWithContext(ctx volcengine.Context, input 
 type ListTagResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	MaxResults *json.Number `type:"json_number"`
+	MaxResults *int32 `min:"1" max:"100" type:"int32"`
 
 	NextToken *string `type:"string"`
 
 	ResourceIds []*string `type:"list"`
 
-	ResourceType *string `type:"string"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForListTagResourcesInput"`
 
 	TagFilters []*TagFilterForListTagResourcesInput `type:"list"`
 }
@@ -165,8 +164,27 @@ func (s ListTagResourcesInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListTagResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListTagResourcesInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.MaxResults != nil && *s.MaxResults > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetMaxResults sets the MaxResults field's value.
-func (s *ListTagResourcesInput) SetMaxResults(v json.Number) *ListTagResourcesInput {
+func (s *ListTagResourcesInput) SetMaxResults(v int32) *ListTagResourcesInput {
 	s.MaxResults = &v
 	return s
 }
@@ -302,3 +320,8 @@ func (s *TagResourceForListTagResourcesOutput) SetTagValue(v string) *TagResourc
 	s.TagValue = &v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForListTagResourcesInputScalinggroup is a EnumOfResourceTypeForListTagResourcesInput enum value
+	EnumOfResourceTypeForListTagResourcesInputScalinggroup = "scalinggroup"
+)

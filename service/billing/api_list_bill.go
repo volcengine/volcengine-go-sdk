@@ -300,6 +300,8 @@ type ListForListBillOutput struct {
 
 	BillCategoryParent *string `type:"string"`
 
+	BillDetailNum *string `type:"string"`
+
 	BillID *string `type:"string"`
 
 	BillPeriod *string `type:"string"`
@@ -378,6 +380,12 @@ func (s ListForListBillOutput) GoString() string {
 // SetBillCategoryParent sets the BillCategoryParent field's value.
 func (s *ListForListBillOutput) SetBillCategoryParent(v string) *ListForListBillOutput {
 	s.BillCategoryParent = &v
+	return s
+}
+
+// SetBillDetailNum sets the BillDetailNum field's value.
+func (s *ListForListBillOutput) SetBillDetailNum(v string) *ListForListBillOutput {
+	s.BillDetailNum = &v
 	return s
 }
 
