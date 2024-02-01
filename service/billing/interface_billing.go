@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // BILLING.
 //    func myFunc(svc BILLINGAPI) bool {
-//        // Make svc.ListAmortizedCostBillDetail request
+//        // Make svc.ListAmortizedCostBillDaily request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type BILLINGAPI interface {
+	ListAmortizedCostBillDailyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAmortizedCostBillDailyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAmortizedCostBillDailyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAmortizedCostBillDaily(*ListAmortizedCostBillDailyInput) (*ListAmortizedCostBillDailyOutput, error)
+	ListAmortizedCostBillDailyWithContext(volcengine.Context, *ListAmortizedCostBillDailyInput, ...request.Option) (*ListAmortizedCostBillDailyOutput, error)
+	ListAmortizedCostBillDailyRequest(*ListAmortizedCostBillDailyInput) (*request.Request, *ListAmortizedCostBillDailyOutput)
+
 	ListAmortizedCostBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAmortizedCostBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAmortizedCostBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
