@@ -150,6 +150,8 @@ type CreateUserInput struct {
 
 	MobilePhone *string `type:"string"`
 
+	Tags []*TagForCreateUserInput `type:"list"`
+
 	// UserName is a required field
 	UserName *string `type:"string" required:"true"`
 }
@@ -201,6 +203,12 @@ func (s *CreateUserInput) SetMobilePhone(v string) *CreateUserInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateUserInput) SetTags(v []*TagForCreateUserInput) *CreateUserInput {
+	s.Tags = v
+	return s
+}
+
 // SetUserName sets the UserName field's value.
 func (s *CreateUserInput) SetUserName(v string) *CreateUserInput {
 	s.UserName = &v
@@ -231,10 +239,40 @@ func (s *CreateUserOutput) SetUser(v *UserForCreateUserOutput) *CreateUserOutput
 	return s
 }
 
+type TagForCreateUserInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateUserInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateUserInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateUserInput) SetKey(v string) *TagForCreateUserInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateUserInput) SetValue(v string) *TagForCreateUserInput {
+	s.Value = &v
+	return s
+}
+
 type UserForCreateUserOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *int32 `type:"int32"`
+	AccountId *int64 `type:"int64"`
 
 	CreateDate *string `type:"string"`
 
@@ -270,7 +308,7 @@ func (s UserForCreateUserOutput) GoString() string {
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *UserForCreateUserOutput) SetAccountId(v int32) *UserForCreateUserOutput {
+func (s *UserForCreateUserOutput) SetAccountId(v int64) *UserForCreateUserOutput {
 	s.AccountId = &v
 	return s
 }

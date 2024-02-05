@@ -22,13 +22,13 @@ const opModifyScalingConfigurationCommon = "ModifyScalingConfiguration"
 // See ModifyScalingConfigurationCommon for more information on using the ModifyScalingConfigurationCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyScalingConfigurationCommonRequest method.
-//	req, resp := client.ModifyScalingConfigurationCommonRequest(params)
+//    // Example sending a request using the ModifyScalingConfigurationCommonRequest method.
+//    req, resp := client.ModifyScalingConfigurationCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) ModifyScalingConfigurationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyScalingConfigurationCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) ModifyScalingConfigurationCommonRequest(input *map[string]
 	return
 }
 
-// ModifyScalingConfigurationCommon API operation for AUTO_SCALING.
+// ModifyScalingConfigurationCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation ModifyScalingConfigurationCommon for usage and error information.
 func (c *AUTOSCALING) ModifyScalingConfigurationCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyScalingConfigurationCommonRequest(input)
@@ -87,13 +87,13 @@ const opModifyScalingConfiguration = "ModifyScalingConfiguration"
 // See ModifyScalingConfiguration for more information on using the ModifyScalingConfiguration
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyScalingConfigurationRequest method.
-//	req, resp := client.ModifyScalingConfigurationRequest(params)
+//    // Example sending a request using the ModifyScalingConfigurationRequest method.
+//    req, resp := client.ModifyScalingConfigurationRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) ModifyScalingConfigurationRequest(input *ModifyScalingConfigurationInput) (req *request.Request, output *ModifyScalingConfigurationOutput) {
 	op := &request.Operation{
 		Name:       opModifyScalingConfiguration,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) ModifyScalingConfigurationRequest(input *ModifyScalingConf
 	return
 }
 
-// ModifyScalingConfiguration API operation for AUTO_SCALING.
+// ModifyScalingConfiguration API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation ModifyScalingConfiguration for usage and error information.
 func (c *AUTOSCALING) ModifyScalingConfiguration(input *ModifyScalingConfigurationInput) (*ModifyScalingConfigurationOutput, error) {
 	req, out := c.ModifyScalingConfigurationRequest(input)
@@ -144,7 +144,9 @@ type EipForModifyScalingConfigurationInput struct {
 
 	Bandwidth *int32 `type:"int32"`
 
-	BillingType *string `type:"string"`
+	BandwidthPackageId *string `type:"string"`
+
+	BillingType *string `type:"string" enum:"EnumOfEipBillingTypeForModifyScalingConfigurationInput"`
 
 	ISP *string `type:"string"`
 }
@@ -162,6 +164,12 @@ func (s EipForModifyScalingConfigurationInput) GoString() string {
 // SetBandwidth sets the Bandwidth field's value.
 func (s *EipForModifyScalingConfigurationInput) SetBandwidth(v int32) *EipForModifyScalingConfigurationInput {
 	s.Bandwidth = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *EipForModifyScalingConfigurationInput) SetBandwidthPackageId(v string) *EipForModifyScalingConfigurationInput {
+	s.BandwidthPackageId = &v
 	return s
 }
 
@@ -202,15 +210,16 @@ type ModifyScalingConfigurationInput struct {
 
 	ProjectName *string `type:"string"`
 
-	ScalingConfigurationId *string `type:"string"`
+	// ScalingConfigurationId is a required field
+	ScalingConfigurationId *string `type:"string" required:"true"`
 
-	ScalingConfigurationName *string `type:"string"`
+	ScalingConfigurationName *string `min:"1" max:"128" type:"string"`
 
-	SecurityEnhancementStrategy *string `type:"string"`
+	SecurityEnhancementStrategy *string `type:"string" enum:"EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInput"`
 
 	SecurityGroupIds []*string `type:"list"`
 
-	SpotStrategy *string `type:"string"`
+	SpotStrategy *string `type:"string" enum:"EnumOfSpotStrategyForModifyScalingConfigurationInput"`
 
 	Tags *string `type:"string"`
 
@@ -229,6 +238,25 @@ func (s ModifyScalingConfigurationInput) String() string {
 // GoString returns the string representation
 func (s ModifyScalingConfigurationInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyScalingConfigurationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyScalingConfigurationInput"}
+	if s.ScalingConfigurationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingConfigurationId"))
+	}
+	if s.ScalingConfigurationName != nil && len(*s.ScalingConfigurationName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ScalingConfigurationName", 1))
+	}
+	if s.ScalingConfigurationName != nil && len(*s.ScalingConfigurationName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("ScalingConfigurationName", 128, *s.ScalingConfigurationName))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEip sets the Eip field's value.
@@ -412,3 +440,27 @@ func (s *VolumeForModifyScalingConfigurationInput) SetVolumeType(v string) *Volu
 	s.VolumeType = &v
 	return s
 }
+
+const (
+	// EnumOfEipBillingTypeForModifyScalingConfigurationInputPostPaidByBandwidth is a EnumOfEipBillingTypeForModifyScalingConfigurationInput enum value
+	EnumOfEipBillingTypeForModifyScalingConfigurationInputPostPaidByBandwidth = "PostPaidByBandwidth"
+
+	// EnumOfEipBillingTypeForModifyScalingConfigurationInputPostPaidByTraffic is a EnumOfEipBillingTypeForModifyScalingConfigurationInput enum value
+	EnumOfEipBillingTypeForModifyScalingConfigurationInputPostPaidByTraffic = "PostPaidByTraffic"
+)
+
+const (
+	// EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInputActive is a EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInput enum value
+	EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInputActive = "Active"
+
+	// EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInputInActive is a EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInput enum value
+	EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInputInActive = "InActive"
+)
+
+const (
+	// EnumOfSpotStrategyForModifyScalingConfigurationInputNoSpot is a EnumOfSpotStrategyForModifyScalingConfigurationInput enum value
+	EnumOfSpotStrategyForModifyScalingConfigurationInputNoSpot = "NoSpot"
+
+	// EnumOfSpotStrategyForModifyScalingConfigurationInputSpotAsPriceGo is a EnumOfSpotStrategyForModifyScalingConfigurationInput enum value
+	EnumOfSpotStrategyForModifyScalingConfigurationInputSpotAsPriceGo = "SpotAsPriceGo"
+)

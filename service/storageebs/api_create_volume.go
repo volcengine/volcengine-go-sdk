@@ -24,13 +24,13 @@ const opCreateVolumeCommon = "CreateVolume"
 // See CreateVolumeCommon for more information on using the CreateVolumeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateVolumeCommonRequest method.
-//	req, resp := client.CreateVolumeCommonRequest(params)
+//    // Example sending a request using the CreateVolumeCommonRequest method.
+//    req, resp := client.CreateVolumeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) CreateVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateVolumeCommon,
@@ -48,13 +48,13 @@ func (c *STORAGEEBS) CreateVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// CreateVolumeCommon API operation for STORAGE_EBS.
+// CreateVolumeCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation CreateVolumeCommon for usage and error information.
 func (c *STORAGEEBS) CreateVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateVolumeCommonRequest(input)
@@ -89,13 +89,13 @@ const opCreateVolume = "CreateVolume"
 // See CreateVolume for more information on using the CreateVolume
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateVolumeRequest method.
-//	req, resp := client.CreateVolumeRequest(params)
+//    // Example sending a request using the CreateVolumeRequest method.
+//    req, resp := client.CreateVolumeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) CreateVolumeRequest(input *CreateVolumeInput) (req *request.Request, output *CreateVolumeOutput) {
 	op := &request.Operation{
 		Name:       opCreateVolume,
@@ -113,13 +113,13 @@ func (c *STORAGEEBS) CreateVolumeRequest(input *CreateVolumeInput) (req *request
 	return
 }
 
-// CreateVolume API operation for STORAGE_EBS.
+// CreateVolume API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation CreateVolume for usage and error information.
 func (c *STORAGEEBS) CreateVolume(input *CreateVolumeInput) (*CreateVolumeOutput, error) {
 	req, out := c.CreateVolumeRequest(input)
@@ -155,6 +155,8 @@ type CreateVolumeInput struct {
 	ProjectName *string `type:"string"`
 
 	Size *json.Number `type:"json_number"`
+
+	SnapshotId *string `type:"string"`
 
 	Tags []*TagForCreateVolumeInput `type:"list"`
 
@@ -210,6 +212,12 @@ func (s *CreateVolumeInput) SetProjectName(v string) *CreateVolumeInput {
 // SetSize sets the Size field's value.
 func (s *CreateVolumeInput) SetSize(v json.Number) *CreateVolumeInput {
 	s.Size = &v
+	return s
+}
+
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *CreateVolumeInput) SetSnapshotId(v string) *CreateVolumeInput {
+	s.SnapshotId = &v
 	return s
 }
 

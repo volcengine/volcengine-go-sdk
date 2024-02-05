@@ -24,13 +24,13 @@ const opDescribeVolumesCommon = "DescribeVolumes"
 // See DescribeVolumesCommon for more information on using the DescribeVolumesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVolumesCommonRequest method.
-//	req, resp := client.DescribeVolumesCommonRequest(params)
+//    // Example sending a request using the DescribeVolumesCommonRequest method.
+//    req, resp := client.DescribeVolumesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DescribeVolumesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVolumesCommon,
@@ -48,13 +48,13 @@ func (c *STORAGEEBS) DescribeVolumesCommonRequest(input *map[string]interface{})
 	return
 }
 
-// DescribeVolumesCommon API operation for STORAGE_EBS.
+// DescribeVolumesCommon API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DescribeVolumesCommon for usage and error information.
 func (c *STORAGEEBS) DescribeVolumesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeVolumesCommonRequest(input)
@@ -89,13 +89,13 @@ const opDescribeVolumes = "DescribeVolumes"
 // See DescribeVolumes for more information on using the DescribeVolumes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVolumesRequest method.
-//	req, resp := client.DescribeVolumesRequest(params)
+//    // Example sending a request using the DescribeVolumesRequest method.
+//    req, resp := client.DescribeVolumesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *STORAGEEBS) DescribeVolumesRequest(input *DescribeVolumesInput) (req *request.Request, output *DescribeVolumesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVolumes,
@@ -113,13 +113,13 @@ func (c *STORAGEEBS) DescribeVolumesRequest(input *DescribeVolumesInput) (req *r
 	return
 }
 
-// DescribeVolumes API operation for STORAGE_EBS.
+// DescribeVolumes API operation for STORAGEEBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGE_EBS's
+// See the VOLCENGINE API reference guide for STORAGEEBS's
 // API operation DescribeVolumes for usage and error information.
 func (c *STORAGEEBS) DescribeVolumes(input *DescribeVolumesInput) (*DescribeVolumesOutput, error) {
 	req, out := c.DescribeVolumesRequest(input)

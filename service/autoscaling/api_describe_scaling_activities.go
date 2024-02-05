@@ -22,13 +22,13 @@ const opDescribeScalingActivitiesCommon = "DescribeScalingActivities"
 // See DescribeScalingActivitiesCommon for more information on using the DescribeScalingActivitiesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingActivitiesCommonRequest method.
-//	req, resp := client.DescribeScalingActivitiesCommonRequest(params)
+//    // Example sending a request using the DescribeScalingActivitiesCommonRequest method.
+//    req, resp := client.DescribeScalingActivitiesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingActivitiesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeScalingActivitiesCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingActivitiesCommonRequest(input *map[string]i
 	return
 }
 
-// DescribeScalingActivitiesCommon API operation for AUTO_SCALING.
+// DescribeScalingActivitiesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingActivitiesCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingActivitiesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingActivitiesCommonRequest(input)
@@ -87,13 +87,13 @@ const opDescribeScalingActivities = "DescribeScalingActivities"
 // See DescribeScalingActivities for more information on using the DescribeScalingActivities
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeScalingActivitiesRequest method.
-//	req, resp := client.DescribeScalingActivitiesRequest(params)
+//    // Example sending a request using the DescribeScalingActivitiesRequest method.
+//    req, resp := client.DescribeScalingActivitiesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) DescribeScalingActivitiesRequest(input *DescribeScalingActivitiesInput) (req *request.Request, output *DescribeScalingActivitiesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeScalingActivities,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingActivitiesRequest(input *DescribeScalingAct
 	return
 }
 
-// DescribeScalingActivities API operation for AUTO_SCALING.
+// DescribeScalingActivities API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation DescribeScalingActivities for usage and error information.
 func (c *AUTOSCALING) DescribeScalingActivities(input *DescribeScalingActivitiesInput) (*DescribeScalingActivitiesOutput, error) {
 	req, out := c.DescribeScalingActivitiesRequest(input)
@@ -150,11 +150,12 @@ type DescribeScalingActivitiesInput struct {
 
 	ScalingActivityIds []*string `type:"list"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
 	StartTime *string `type:"string"`
 
-	StatusCode *string `type:"string"`
+	StatusCode *string `type:"string" enum:"EnumOfStatusCodeForDescribeScalingActivitiesInput"`
 }
 
 // String returns the string representation
@@ -165,6 +166,19 @@ func (s DescribeScalingActivitiesInput) String() string {
 // GoString returns the string representation
 func (s DescribeScalingActivitiesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeScalingActivitiesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeScalingActivitiesInput"}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEndTime sets the EndTime field's value.
@@ -436,3 +450,26 @@ func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetTaskCategory(v st
 	s.TaskCategory = &v
 	return s
 }
+
+const (
+	// EnumOfStatusCodeForDescribeScalingActivitiesInputInit is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
+	EnumOfStatusCodeForDescribeScalingActivitiesInputInit = "Init"
+
+	// EnumOfStatusCodeForDescribeScalingActivitiesInputRunning is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
+	EnumOfStatusCodeForDescribeScalingActivitiesInputRunning = "Running"
+
+	// EnumOfStatusCodeForDescribeScalingActivitiesInputSuccess is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
+	EnumOfStatusCodeForDescribeScalingActivitiesInputSuccess = "Success"
+
+	// EnumOfStatusCodeForDescribeScalingActivitiesInputPartialSuccess is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
+	EnumOfStatusCodeForDescribeScalingActivitiesInputPartialSuccess = "PartialSuccess"
+
+	// EnumOfStatusCodeForDescribeScalingActivitiesInputError is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
+	EnumOfStatusCodeForDescribeScalingActivitiesInputError = "Error"
+
+	// EnumOfStatusCodeForDescribeScalingActivitiesInputRejected is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
+	EnumOfStatusCodeForDescribeScalingActivitiesInputRejected = "Rejected"
+
+	// EnumOfStatusCodeForDescribeScalingActivitiesInputException is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
+	EnumOfStatusCodeForDescribeScalingActivitiesInputException = "Exception"
+)

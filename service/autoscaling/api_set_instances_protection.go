@@ -22,13 +22,13 @@ const opSetInstancesProtectionCommon = "SetInstancesProtection"
 // See SetInstancesProtectionCommon for more information on using the SetInstancesProtectionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the SetInstancesProtectionCommonRequest method.
-//	req, resp := client.SetInstancesProtectionCommonRequest(params)
+//    // Example sending a request using the SetInstancesProtectionCommonRequest method.
+//    req, resp := client.SetInstancesProtectionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) SetInstancesProtectionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opSetInstancesProtectionCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) SetInstancesProtectionCommonRequest(input *map[string]inte
 	return
 }
 
-// SetInstancesProtectionCommon API operation for AUTO_SCALING.
+// SetInstancesProtectionCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation SetInstancesProtectionCommon for usage and error information.
 func (c *AUTOSCALING) SetInstancesProtectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.SetInstancesProtectionCommonRequest(input)
@@ -87,13 +87,13 @@ const opSetInstancesProtection = "SetInstancesProtection"
 // See SetInstancesProtection for more information on using the SetInstancesProtection
 // API call, and error handling.
 //
-//	// Example sending a request using the SetInstancesProtectionRequest method.
-//	req, resp := client.SetInstancesProtectionRequest(params)
+//    // Example sending a request using the SetInstancesProtectionRequest method.
+//    req, resp := client.SetInstancesProtectionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) SetInstancesProtectionRequest(input *SetInstancesProtectionInput) (req *request.Request, output *SetInstancesProtectionOutput) {
 	op := &request.Operation{
 		Name:       opSetInstancesProtection,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) SetInstancesProtectionRequest(input *SetInstancesProtectio
 	return
 }
 
-// SetInstancesProtection API operation for AUTO_SCALING.
+// SetInstancesProtection API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation SetInstancesProtection for usage and error information.
 func (c *AUTOSCALING) SetInstancesProtection(input *SetInstancesProtectionInput) (*SetInstancesProtectionOutput, error) {
 	req, out := c.SetInstancesProtectionRequest(input)
@@ -148,7 +148,7 @@ type InstanceProtectionResultForSetInstancesProtectionOutput struct {
 
 	Message *string `type:"string"`
 
-	Result *string `type:"string"`
+	Result *string `type:"string" enum:"EnumOfResultForSetInstancesProtectionOutput"`
 }
 
 // String returns the string representation
@@ -188,11 +188,13 @@ func (s *InstanceProtectionResultForSetInstancesProtectionOutput) SetResult(v st
 type SetInstancesProtectionInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceIds []*string `type:"list"`
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 
 	ProtectedFromScaleIn *bool `type:"boolean"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -203,6 +205,22 @@ func (s SetInstancesProtectionInput) String() string {
 // GoString returns the string representation
 func (s SetInstancesProtectionInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SetInstancesProtectionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SetInstancesProtectionInput"}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceIds sets the InstanceIds field's value.
@@ -246,3 +264,11 @@ func (s *SetInstancesProtectionOutput) SetInstanceProtectionResults(v []*Instanc
 	s.InstanceProtectionResults = v
 	return s
 }
+
+const (
+	// EnumOfResultForSetInstancesProtectionOutputSuccess is a EnumOfResultForSetInstancesProtectionOutput enum value
+	EnumOfResultForSetInstancesProtectionOutputSuccess = "Success"
+
+	// EnumOfResultForSetInstancesProtectionOutputFail is a EnumOfResultForSetInstancesProtectionOutput enum value
+	EnumOfResultForSetInstancesProtectionOutputFail = "Fail"
+)

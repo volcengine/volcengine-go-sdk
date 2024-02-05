@@ -22,13 +22,13 @@ const opCompleteLifecycleActivityCommon = "CompleteLifecycleActivity"
 // See CompleteLifecycleActivityCommon for more information on using the CompleteLifecycleActivityCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CompleteLifecycleActivityCommonRequest method.
-//	req, resp := client.CompleteLifecycleActivityCommonRequest(params)
+//    // Example sending a request using the CompleteLifecycleActivityCommonRequest method.
+//    req, resp := client.CompleteLifecycleActivityCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) CompleteLifecycleActivityCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCompleteLifecycleActivityCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) CompleteLifecycleActivityCommonRequest(input *map[string]i
 	return
 }
 
-// CompleteLifecycleActivityCommon API operation for AUTO_SCALING.
+// CompleteLifecycleActivityCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation CompleteLifecycleActivityCommon for usage and error information.
 func (c *AUTOSCALING) CompleteLifecycleActivityCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CompleteLifecycleActivityCommonRequest(input)
@@ -87,13 +87,13 @@ const opCompleteLifecycleActivity = "CompleteLifecycleActivity"
 // See CompleteLifecycleActivity for more information on using the CompleteLifecycleActivity
 // API call, and error handling.
 //
-//	// Example sending a request using the CompleteLifecycleActivityRequest method.
-//	req, resp := client.CompleteLifecycleActivityRequest(params)
+//    // Example sending a request using the CompleteLifecycleActivityRequest method.
+//    req, resp := client.CompleteLifecycleActivityRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) CompleteLifecycleActivityRequest(input *CompleteLifecycleActivityInput) (req *request.Request, output *CompleteLifecycleActivityOutput) {
 	op := &request.Operation{
 		Name:       opCompleteLifecycleActivity,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) CompleteLifecycleActivityRequest(input *CompleteLifecycleA
 	return
 }
 
-// CompleteLifecycleActivity API operation for AUTO_SCALING.
+// CompleteLifecycleActivity API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation CompleteLifecycleActivity for usage and error information.
 func (c *AUTOSCALING) CompleteLifecycleActivity(input *CompleteLifecycleActivityInput) (*CompleteLifecycleActivityOutput, error) {
 	req, out := c.CompleteLifecycleActivityRequest(input)
@@ -142,9 +142,12 @@ func (c *AUTOSCALING) CompleteLifecycleActivityWithContext(ctx volcengine.Contex
 type CompleteLifecycleActivityInput struct {
 	_ struct{} `type:"structure"`
 
-	LifecycleActivityId *string `type:"string"`
+	ClientToken *string `type:"string"`
 
-	LifecycleActivityPolicy *string `type:"string"`
+	// LifecycleActivityId is a required field
+	LifecycleActivityId *string `type:"string" required:"true"`
+
+	LifecycleActivityPolicy *string `type:"string" enum:"EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInput"`
 }
 
 // String returns the string representation
@@ -155,6 +158,25 @@ func (s CompleteLifecycleActivityInput) String() string {
 // GoString returns the string representation
 func (s CompleteLifecycleActivityInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CompleteLifecycleActivityInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CompleteLifecycleActivityInput"}
+	if s.LifecycleActivityId == nil {
+		invalidParams.Add(request.NewErrParamRequired("LifecycleActivityId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *CompleteLifecycleActivityInput) SetClientToken(v string) *CompleteLifecycleActivityInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetLifecycleActivityId sets the LifecycleActivityId field's value.
@@ -200,3 +222,14 @@ func (s *CompleteLifecycleActivityOutput) SetLifecycleActivityId(v string) *Comp
 	s.LifecycleActivityId = &v
 	return s
 }
+
+const (
+	// EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputContinue is a EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInput enum value
+	EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputContinue = "CONTINUE"
+
+	// EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputReject is a EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInput enum value
+	EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputReject = "REJECT"
+
+	// EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputRollback is a EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInput enum value
+	EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputRollback = "ROLLBACK"
+)

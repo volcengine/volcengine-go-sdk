@@ -22,13 +22,13 @@ const opAttachDBInstancesCommon = "AttachDBInstances"
 // See AttachDBInstancesCommon for more information on using the AttachDBInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachDBInstancesCommonRequest method.
-//	req, resp := client.AttachDBInstancesCommonRequest(params)
+//    // Example sending a request using the AttachDBInstancesCommonRequest method.
+//    req, resp := client.AttachDBInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) AttachDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachDBInstancesCommon,
@@ -46,13 +46,13 @@ func (c *AUTOSCALING) AttachDBInstancesCommonRequest(input *map[string]interface
 	return
 }
 
-// AttachDBInstancesCommon API operation for AUTO_SCALING.
+// AttachDBInstancesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation AttachDBInstancesCommon for usage and error information.
 func (c *AUTOSCALING) AttachDBInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachDBInstancesCommonRequest(input)
@@ -87,13 +87,13 @@ const opAttachDBInstances = "AttachDBInstances"
 // See AttachDBInstances for more information on using the AttachDBInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachDBInstancesRequest method.
-//	req, resp := client.AttachDBInstancesRequest(params)
+//    // Example sending a request using the AttachDBInstancesRequest method.
+//    req, resp := client.AttachDBInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) AttachDBInstancesRequest(input *AttachDBInstancesInput) (req *request.Request, output *AttachDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opAttachDBInstances,
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) AttachDBInstancesRequest(input *AttachDBInstancesInput) (r
 	return
 }
 
-// AttachDBInstances API operation for AUTO_SCALING.
+// AttachDBInstances API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation AttachDBInstances for usage and error information.
 func (c *AUTOSCALING) AttachDBInstances(input *AttachDBInstancesInput) (*AttachDBInstancesOutput, error) {
 	req, out := c.AttachDBInstancesRequest(input)
@@ -142,11 +142,13 @@ func (c *AUTOSCALING) AttachDBInstancesWithContext(ctx volcengine.Context, input
 type AttachDBInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	DBInstanceIds []*string `type:"list"`
+	// DBInstanceIds is a required field
+	DBInstanceIds []*string `type:"list" required:"true"`
 
 	ForceAttach *bool `type:"boolean"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +159,22 @@ func (s AttachDBInstancesInput) String() string {
 // GoString returns the string representation
 func (s AttachDBInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AttachDBInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AttachDBInstancesInput"}
+	if s.DBInstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBInstanceIds"))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDBInstanceIds sets the DBInstanceIds field's value.

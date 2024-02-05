@@ -3,6 +3,8 @@
 package autoscaling
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -22,13 +24,13 @@ const opAttachServerGroupsCommon = "AttachServerGroups"
 // See AttachServerGroupsCommon for more information on using the AttachServerGroupsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachServerGroupsCommonRequest method.
-//	req, resp := client.AttachServerGroupsCommonRequest(params)
+//    // Example sending a request using the AttachServerGroupsCommonRequest method.
+//    req, resp := client.AttachServerGroupsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) AttachServerGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachServerGroupsCommon,
@@ -46,13 +48,13 @@ func (c *AUTOSCALING) AttachServerGroupsCommonRequest(input *map[string]interfac
 	return
 }
 
-// AttachServerGroupsCommon API operation for AUTO_SCALING.
+// AttachServerGroupsCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation AttachServerGroupsCommon for usage and error information.
 func (c *AUTOSCALING) AttachServerGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachServerGroupsCommonRequest(input)
@@ -87,13 +89,13 @@ const opAttachServerGroups = "AttachServerGroups"
 // See AttachServerGroups for more information on using the AttachServerGroups
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachServerGroupsRequest method.
-//	req, resp := client.AttachServerGroupsRequest(params)
+//    // Example sending a request using the AttachServerGroupsRequest method.
+//    req, resp := client.AttachServerGroupsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) AttachServerGroupsRequest(input *AttachServerGroupsInput) (req *request.Request, output *AttachServerGroupsOutput) {
 	op := &request.Operation{
 		Name:       opAttachServerGroups,
@@ -111,13 +113,13 @@ func (c *AUTOSCALING) AttachServerGroupsRequest(input *AttachServerGroupsInput) 
 	return
 }
 
-// AttachServerGroups API operation for AUTO_SCALING.
+// AttachServerGroups API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation AttachServerGroups for usage and error information.
 func (c *AUTOSCALING) AttachServerGroups(input *AttachServerGroupsInput) (*AttachServerGroupsOutput, error) {
 	req, out := c.AttachServerGroupsRequest(input)
@@ -142,11 +144,13 @@ func (c *AUTOSCALING) AttachServerGroupsWithContext(ctx volcengine.Context, inpu
 type AttachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `max:"64" type:"string"`
 
-	ScalingGroupId *string `type:"string"`
+	// ScalingGroupId is a required field
+	ScalingGroupId *string `type:"string" required:"true"`
 
-	ServerGroupAttributes []*ServerGroupAttributeForAttachServerGroupsInput `type:"list"`
+	// ServerGroupAttributes is a required field
+	ServerGroupAttributes []*ServerGroupAttributeForAttachServerGroupsInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +161,35 @@ func (s AttachServerGroupsInput) String() string {
 // GoString returns the string representation
 func (s AttachServerGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AttachServerGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AttachServerGroupsInput"}
+	if s.ClientToken != nil && len(*s.ClientToken) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("ClientToken", 64, *s.ClientToken))
+	}
+	if s.ScalingGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
+	}
+	if s.ServerGroupAttributes == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServerGroupAttributes"))
+	}
+	if s.ServerGroupAttributes != nil {
+		for i, v := range s.ServerGroupAttributes {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "ServerGroupAttributes", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -204,11 +237,16 @@ func (s *AttachServerGroupsOutput) SetScalingGroupId(v string) *AttachServerGrou
 type ServerGroupAttributeForAttachServerGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	Port *int32 `type:"int32"`
+	// Port is a required field
+	Port *int32 `type:"int32" required:"true"`
 
-	ServerGroupId *string `type:"string"`
+	// ServerGroupId is a required field
+	ServerGroupId *string `type:"string" required:"true"`
 
-	Weight *int32 `type:"int32"`
+	Type *string `type:"string" enum:"EnumOfTypeForAttachServerGroupsInput"`
+
+	// Weight is a required field
+	Weight *int32 `type:"int32" required:"true"`
 }
 
 // String returns the string representation
@@ -219,6 +257,25 @@ func (s ServerGroupAttributeForAttachServerGroupsInput) String() string {
 // GoString returns the string representation
 func (s ServerGroupAttributeForAttachServerGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ServerGroupAttributeForAttachServerGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ServerGroupAttributeForAttachServerGroupsInput"}
+	if s.Port == nil {
+		invalidParams.Add(request.NewErrParamRequired("Port"))
+	}
+	if s.ServerGroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
+	}
+	if s.Weight == nil {
+		invalidParams.Add(request.NewErrParamRequired("Weight"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPort sets the Port field's value.
@@ -233,8 +290,22 @@ func (s *ServerGroupAttributeForAttachServerGroupsInput) SetServerGroupId(v stri
 	return s
 }
 
+// SetType sets the Type field's value.
+func (s *ServerGroupAttributeForAttachServerGroupsInput) SetType(v string) *ServerGroupAttributeForAttachServerGroupsInput {
+	s.Type = &v
+	return s
+}
+
 // SetWeight sets the Weight field's value.
 func (s *ServerGroupAttributeForAttachServerGroupsInput) SetWeight(v int32) *ServerGroupAttributeForAttachServerGroupsInput {
 	s.Weight = &v
 	return s
 }
+
+const (
+	// EnumOfTypeForAttachServerGroupsInputClb is a EnumOfTypeForAttachServerGroupsInput enum value
+	EnumOfTypeForAttachServerGroupsInputClb = "CLB"
+
+	// EnumOfTypeForAttachServerGroupsInputAlb is a EnumOfTypeForAttachServerGroupsInput enum value
+	EnumOfTypeForAttachServerGroupsInputAlb = "ALB"
+)

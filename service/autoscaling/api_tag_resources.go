@@ -3,6 +3,8 @@
 package autoscaling
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -22,13 +24,13 @@ const opTagResourcesCommon = "TagResources"
 // See TagResourcesCommon for more information on using the TagResourcesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the TagResourcesCommonRequest method.
-//	req, resp := client.TagResourcesCommonRequest(params)
+//    // Example sending a request using the TagResourcesCommonRequest method.
+//    req, resp := client.TagResourcesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) TagResourcesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opTagResourcesCommon,
@@ -46,13 +48,13 @@ func (c *AUTOSCALING) TagResourcesCommonRequest(input *map[string]interface{}) (
 	return
 }
 
-// TagResourcesCommon API operation for AUTO_SCALING.
+// TagResourcesCommon API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation TagResourcesCommon for usage and error information.
 func (c *AUTOSCALING) TagResourcesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.TagResourcesCommonRequest(input)
@@ -87,13 +89,13 @@ const opTagResources = "TagResources"
 // See TagResources for more information on using the TagResources
 // API call, and error handling.
 //
-//	// Example sending a request using the TagResourcesRequest method.
-//	req, resp := client.TagResourcesRequest(params)
+//    // Example sending a request using the TagResourcesRequest method.
+//    req, resp := client.TagResourcesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *AUTOSCALING) TagResourcesRequest(input *TagResourcesInput) (req *request.Request, output *TagResourcesOutput) {
 	op := &request.Operation{
 		Name:       opTagResources,
@@ -111,13 +113,13 @@ func (c *AUTOSCALING) TagResourcesRequest(input *TagResourcesInput) (req *reques
 	return
 }
 
-// TagResources API operation for AUTO_SCALING.
+// TagResources API operation for AUTOSCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTO_SCALING's
+// See the VOLCENGINE API reference guide for AUTOSCALING's
 // API operation TagResources for usage and error information.
 func (c *AUTOSCALING) TagResources(input *TagResourcesInput) (*TagResourcesOutput, error) {
 	req, out := c.TagResourcesRequest(input)
@@ -202,7 +204,8 @@ func (s *OperationDetailForTagResourcesOutput) SetResourceId(v string) *Operatio
 type TagForTagResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	Key *string `type:"string"`
+	// Key is a required field
+	Key *string `type:"string" required:"true"`
 
 	Value *string `type:"string"`
 }
@@ -215,6 +218,19 @@ func (s TagForTagResourcesInput) String() string {
 // GoString returns the string representation
 func (s TagForTagResourcesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagForTagResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagForTagResourcesInput"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetKey sets the Key field's value.
@@ -232,11 +248,14 @@ func (s *TagForTagResourcesInput) SetValue(v string) *TagForTagResourcesInput {
 type TagResourcesInput struct {
 	_ struct{} `type:"structure"`
 
-	ResourceIds []*string `type:"list"`
+	// ResourceIds is a required field
+	ResourceIds []*string `type:"list" required:"true"`
 
-	ResourceType *string `type:"string"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForTagResourcesInput"`
 
-	Tags []*TagForTagResourcesInput `type:"list"`
+	// Tags is a required field
+	Tags []*TagForTagResourcesInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -247,6 +266,35 @@ func (s TagResourcesInput) String() string {
 // GoString returns the string representation
 func (s TagResourcesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagResourcesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagResourcesInput"}
+	if s.ResourceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+	if s.Tags == nil {
+		invalidParams.Add(request.NewErrParamRequired("Tags"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetResourceIds sets the ResourceIds field's value.
@@ -290,3 +338,8 @@ func (s *TagResourcesOutput) SetOperationDetails(v []*OperationDetailForTagResou
 	s.OperationDetails = v
 	return s
 }
+
+const (
+	// EnumOfResourceTypeForTagResourcesInputScalinggroup is a EnumOfResourceTypeForTagResourcesInput enum value
+	EnumOfResourceTypeForTagResourcesInputScalinggroup = "scalinggroup"
+)
