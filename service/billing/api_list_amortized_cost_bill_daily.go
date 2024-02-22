@@ -22,13 +22,13 @@ const opListAmortizedCostBillDailyCommon = "ListAmortizedCostBillDaily"
 // See ListAmortizedCostBillDailyCommon for more information on using the ListAmortizedCostBillDailyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ListAmortizedCostBillDailyCommonRequest method.
-//	req, resp := client.ListAmortizedCostBillDailyCommonRequest(params)
+//    // Example sending a request using the ListAmortizedCostBillDailyCommonRequest method.
+//    req, resp := client.ListAmortizedCostBillDailyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *BILLING) ListAmortizedCostBillDailyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opListAmortizedCostBillDailyCommon,
@@ -89,13 +89,13 @@ const opListAmortizedCostBillDaily = "ListAmortizedCostBillDaily"
 // See ListAmortizedCostBillDaily for more information on using the ListAmortizedCostBillDaily
 // API call, and error handling.
 //
-//	// Example sending a request using the ListAmortizedCostBillDailyRequest method.
-//	req, resp := client.ListAmortizedCostBillDailyRequest(params)
+//    // Example sending a request using the ListAmortizedCostBillDailyRequest method.
+//    req, resp := client.ListAmortizedCostBillDailyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *BILLING) ListAmortizedCostBillDailyRequest(input *ListAmortizedCostBillDailyInput) (req *request.Request, output *ListAmortizedCostBillDailyOutput) {
 	op := &request.Operation{
 		Name:       opListAmortizedCostBillDaily,
