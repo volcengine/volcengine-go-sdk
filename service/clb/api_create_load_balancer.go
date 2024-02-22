@@ -402,6 +402,8 @@ type EipBillingConfigForCreateLoadBalancerInput struct {
 
 	ISP *string `type:"string"`
 
+	SecurityProtectionInstanceId *int64 `type:"integer"`
+
 	SecurityProtectionTypes []*string `type:"list"`
 }
 
@@ -436,6 +438,12 @@ func (s *EipBillingConfigForCreateLoadBalancerInput) SetEipBillingType(v int64) 
 // SetISP sets the ISP field's value.
 func (s *EipBillingConfigForCreateLoadBalancerInput) SetISP(v string) *EipBillingConfigForCreateLoadBalancerInput {
 	s.ISP = &v
+	return s
+}
+
+// SetSecurityProtectionInstanceId sets the SecurityProtectionInstanceId field's value.
+func (s *EipBillingConfigForCreateLoadBalancerInput) SetSecurityProtectionInstanceId(v int64) *EipBillingConfigForCreateLoadBalancerInput {
+	s.SecurityProtectionInstanceId = &v
 	return s
 }
 
