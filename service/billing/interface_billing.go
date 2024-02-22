@@ -16,20 +16,27 @@ import (
 // BILLINGAPI provides an interface to enable mocking the
 // billing.BILLING service client's API operation,
 //
-//    // volcengine sdk func uses an SDK service client to make a request to
-//    // BILLING.
-//    func myFunc(svc BILLINGAPI) bool {
-//        // Make svc.ListAmortizedCostBillDetail request
-//    }
+//	// volcengine sdk func uses an SDK service client to make a request to
+//	// BILLING.
+//	func myFunc(svc BILLINGAPI) bool {
+//	    // Make svc.ListAmortizedCostBillDaily request
+//	}
 //
-//    func main() {
-//        sess := session.New()
-//        svc := billing.New(sess)
+//	func main() {
+//	    sess := session.New()
+//	    svc := billing.New(sess)
 //
-//        myFunc(svc)
-//    }
-//
+//	    myFunc(svc)
+//	}
 type BILLINGAPI interface {
+	ListAmortizedCostBillDailyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAmortizedCostBillDailyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAmortizedCostBillDailyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAmortizedCostBillDaily(*ListAmortizedCostBillDailyInput) (*ListAmortizedCostBillDailyOutput, error)
+	ListAmortizedCostBillDailyWithContext(volcengine.Context, *ListAmortizedCostBillDailyInput, ...request.Option) (*ListAmortizedCostBillDailyOutput, error)
+	ListAmortizedCostBillDailyRequest(*ListAmortizedCostBillDailyInput) (*request.Request, *ListAmortizedCostBillDailyOutput)
+
 	ListAmortizedCostBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAmortizedCostBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAmortizedCostBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
