@@ -22,13 +22,13 @@ const opCreateTopicCommon = "CreateTopic"
 // See CreateTopicCommon for more information on using the CreateTopicCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateTopicCommonRequest method.
-//	req, resp := client.CreateTopicCommonRequest(params)
+//    // Example sending a request using the CreateTopicCommonRequest method.
+//    req, resp := client.CreateTopicCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) CreateTopicCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateTopicCommon,
@@ -89,13 +89,13 @@ const opCreateTopic = "CreateTopic"
 // See CreateTopic for more information on using the CreateTopic
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateTopicRequest method.
-//	req, resp := client.CreateTopicRequest(params)
+//    // Example sending a request using the CreateTopicRequest method.
+//    req, resp := client.CreateTopicRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) CreateTopicRequest(input *CreateTopicInput) (req *request.Request, output *CreateTopicOutput) {
 	op := &request.Operation{
 		Name:       opCreateTopic,
@@ -182,15 +182,18 @@ type CreateTopicInput struct {
 
 	Description *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	Parameters *string `type:"string"`
 
-	PartitionNumber *int32 `type:"int32"`
+	// PartitionNumber is a required field
+	PartitionNumber *int32 `type:"int32" required:"true"`
 
 	ReplicaNumber *int32 `type:"int32"`
 
-	TopicName *string `type:"string"`
+	// TopicName is a required field
+	TopicName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -201,6 +204,25 @@ func (s CreateTopicInput) String() string {
 // GoString returns the string representation
 func (s CreateTopicInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateTopicInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateTopicInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PartitionNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PartitionNumber"))
+	}
+	if s.TopicName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TopicName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccessPolicies sets the AccessPolicies field's value.

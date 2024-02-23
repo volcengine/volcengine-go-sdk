@@ -22,13 +22,13 @@ const opCreatePublicAddressCommon = "CreatePublicAddress"
 // See CreatePublicAddressCommon for more information on using the CreatePublicAddressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreatePublicAddressCommonRequest method.
-//	req, resp := client.CreatePublicAddressCommonRequest(params)
+//    // Example sending a request using the CreatePublicAddressCommonRequest method.
+//    req, resp := client.CreatePublicAddressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) CreatePublicAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreatePublicAddressCommon,
@@ -89,13 +89,13 @@ const opCreatePublicAddress = "CreatePublicAddress"
 // See CreatePublicAddress for more information on using the CreatePublicAddress
 // API call, and error handling.
 //
-//	// Example sending a request using the CreatePublicAddressRequest method.
-//	req, resp := client.CreatePublicAddressRequest(params)
+//    // Example sending a request using the CreatePublicAddressRequest method.
+//    req, resp := client.CreatePublicAddressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) CreatePublicAddressRequest(input *CreatePublicAddressInput) (req *request.Request, output *CreatePublicAddressOutput) {
 	op := &request.Operation{
 		Name:       opCreatePublicAddress,
@@ -146,9 +146,11 @@ func (c *KAFKA) CreatePublicAddressWithContext(ctx volcengine.Context, input *Cr
 type CreatePublicAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	EipId *string `type:"string"`
+	// EipId is a required field
+	EipId *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s CreatePublicAddressInput) String() string {
 // GoString returns the string representation
 func (s CreatePublicAddressInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreatePublicAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreatePublicAddressInput"}
+	if s.EipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("EipId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEipId sets the EipId field's value.

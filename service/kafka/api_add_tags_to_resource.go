@@ -22,13 +22,13 @@ const opAddTagsToResourceCommon = "AddTagsToResource"
 // See AddTagsToResourceCommon for more information on using the AddTagsToResourceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AddTagsToResourceCommonRequest method.
-//	req, resp := client.AddTagsToResourceCommonRequest(params)
+//    // Example sending a request using the AddTagsToResourceCommonRequest method.
+//    req, resp := client.AddTagsToResourceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) AddTagsToResourceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAddTagsToResourceCommon,
@@ -89,13 +89,13 @@ const opAddTagsToResource = "AddTagsToResource"
 // See AddTagsToResource for more information on using the AddTagsToResource
 // API call, and error handling.
 //
-//	// Example sending a request using the AddTagsToResourceRequest method.
-//	req, resp := client.AddTagsToResourceRequest(params)
+//    // Example sending a request using the AddTagsToResourceRequest method.
+//    req, resp := client.AddTagsToResourceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) AddTagsToResourceRequest(input *AddTagsToResourceInput) (req *request.Request, output *AddTagsToResourceOutput) {
 	op := &request.Operation{
 		Name:       opAddTagsToResource,

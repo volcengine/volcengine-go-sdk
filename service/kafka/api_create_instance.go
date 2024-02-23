@@ -22,13 +22,13 @@ const opCreateInstanceCommon = "CreateInstance"
 // See CreateInstanceCommon for more information on using the CreateInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateInstanceCommonRequest method.
-//	req, resp := client.CreateInstanceCommonRequest(params)
+//    // Example sending a request using the CreateInstanceCommonRequest method.
+//    req, resp := client.CreateInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) CreateInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateInstanceCommon,
@@ -89,13 +89,13 @@ const opCreateInstance = "CreateInstance"
 // See CreateInstance for more information on using the CreateInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateInstanceRequest method.
-//	req, resp := client.CreateInstanceRequest(params)
+//    // Example sending a request using the CreateInstanceRequest method.
+//    req, resp := client.CreateInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) CreateInstanceRequest(input *CreateInstanceInput) (req *request.Request, output *CreateInstanceOutput) {
 	op := &request.Operation{
 		Name:       opCreateInstance,
@@ -194,7 +194,8 @@ type CreateInstanceInput struct {
 
 	ChargeInfo *ChargeInfoForCreateInstanceInput `type:"structure"`
 
-	ComputeSpec *string `type:"string"`
+	// ComputeSpec is a required field
+	ComputeSpec *string `type:"string" required:"true"`
 
 	EipId *string `type:"string"`
 
@@ -212,9 +213,10 @@ type CreateInstanceInput struct {
 
 	StorageSpace *int32 `type:"int32"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForCreateInstanceInput"`
+	StorageType *string `type:"string"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 
 	Tags map[string]*string `type:"map"`
 
@@ -222,11 +224,14 @@ type CreateInstanceInput struct {
 
 	UserPassword *string `type:"string"`
 
-	Version *string `type:"string"`
+	// Version is a required field
+	Version *string `type:"string" required:"true"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -237,6 +242,31 @@ func (s CreateInstanceInput) String() string {
 // GoString returns the string representation
 func (s CreateInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateInstanceInput"}
+	if s.ComputeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("ComputeSpec"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.Version == nil {
+		invalidParams.Add(request.NewErrParamRequired("Version"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetChargeInfo sets the ChargeInfo field's value.
@@ -378,35 +408,3 @@ func (s *CreateInstanceOutput) SetOrderId(v string) *CreateInstanceOutput {
 	s.OrderId = &v
 	return s
 }
-
-const (
-	// EnumOfStorageTypeForCreateInstanceInputEssd is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputEssd = "ESSD"
-
-	// EnumOfStorageTypeForCreateInstanceInputEssdFlexPl is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputEssdFlexPl = "ESSD_FlexPL"
-
-	// EnumOfStorageTypeForCreateInstanceInputEssdFlexPlInner is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputEssdFlexPlInner = "ESSD_FlexPL_Inner"
-
-	// EnumOfStorageTypeForCreateInstanceInputEssdPl0 is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputEssdPl0 = "ESSD_PL0"
-
-	// EnumOfStorageTypeForCreateInstanceInputEssdPl1 is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputEssdPl1 = "ESSD_PL1"
-
-	// EnumOfStorageTypeForCreateInstanceInputEssdPl2 is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputEssdPl2 = "ESSD_PL2"
-
-	// EnumOfStorageTypeForCreateInstanceInputEssdPl3 is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputEssdPl3 = "ESSD_PL3"
-
-	// EnumOfStorageTypeForCreateInstanceInputEssdPl4 is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputEssdPl4 = "ESSD_PL4"
-
-	// EnumOfStorageTypeForCreateInstanceInputHighCapacity is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputHighCapacity = "HighCapacity"
-
-	// EnumOfStorageTypeForCreateInstanceInputHighPerformance is a EnumOfStorageTypeForCreateInstanceInput enum value
-	EnumOfStorageTypeForCreateInstanceInputHighPerformance = "HighPerformance"
-)

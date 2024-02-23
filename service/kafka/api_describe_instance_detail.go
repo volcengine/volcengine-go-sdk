@@ -22,13 +22,13 @@ const opDescribeInstanceDetailCommon = "DescribeInstanceDetail"
 // See DescribeInstanceDetailCommon for more information on using the DescribeInstanceDetailCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceDetailCommonRequest method.
-//	req, resp := client.DescribeInstanceDetailCommonRequest(params)
+//    // Example sending a request using the DescribeInstanceDetailCommonRequest method.
+//    req, resp := client.DescribeInstanceDetailCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeInstanceDetailCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceDetailCommon,
@@ -89,13 +89,13 @@ const opDescribeInstanceDetail = "DescribeInstanceDetail"
 // See DescribeInstanceDetail for more information on using the DescribeInstanceDetail
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceDetailRequest method.
-//	req, resp := client.DescribeInstanceDetailRequest(params)
+//    // Example sending a request using the DescribeInstanceDetailRequest method.
+//    req, resp := client.DescribeInstanceDetailRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeInstanceDetailRequest(input *DescribeInstanceDetailInput) (req *request.Request, output *DescribeInstanceDetailOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceDetail,
@@ -484,7 +484,8 @@ func (s *ConnectionInfoForDescribeInstanceDetailOutput) SetPublicEndpoint(v stri
 type DescribeInstanceDetailInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -495,6 +496,19 @@ func (s DescribeInstanceDetailInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstanceDetailInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeInstanceDetailInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeInstanceDetailInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

@@ -22,13 +22,13 @@ const opModifyInstanceAttributesCommon = "ModifyInstanceAttributes"
 // See ModifyInstanceAttributesCommon for more information on using the ModifyInstanceAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceAttributesCommonRequest method.
-//	req, resp := client.ModifyInstanceAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyInstanceAttributesCommonRequest method.
+//    req, resp := client.ModifyInstanceAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyInstanceAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceAttributesCommon,
@@ -89,13 +89,13 @@ const opModifyInstanceAttributes = "ModifyInstanceAttributes"
 // See ModifyInstanceAttributes for more information on using the ModifyInstanceAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceAttributesRequest method.
-//	req, resp := client.ModifyInstanceAttributesRequest(params)
+//    // Example sending a request using the ModifyInstanceAttributesRequest method.
+//    req, resp := client.ModifyInstanceAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyInstanceAttributesRequest(input *ModifyInstanceAttributesInput) (req *request.Request, output *ModifyInstanceAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceAttributes,
@@ -148,7 +148,8 @@ type ModifyInstanceAttributesInput struct {
 
 	InstanceDescription *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	InstanceName *string `type:"string"`
 }
@@ -161,6 +162,19 @@ func (s ModifyInstanceAttributesInput) String() string {
 // GoString returns the string representation
 func (s ModifyInstanceAttributesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyInstanceAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyInstanceAttributesInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceDescription sets the InstanceDescription field's value.

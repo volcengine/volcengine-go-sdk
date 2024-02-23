@@ -22,13 +22,13 @@ const opDescribeTopicAccessPoliciesCommon = "DescribeTopicAccessPolicies"
 // See DescribeTopicAccessPoliciesCommon for more information on using the DescribeTopicAccessPoliciesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTopicAccessPoliciesCommonRequest method.
-//	req, resp := client.DescribeTopicAccessPoliciesCommonRequest(params)
+//    // Example sending a request using the DescribeTopicAccessPoliciesCommonRequest method.
+//    req, resp := client.DescribeTopicAccessPoliciesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeTopicAccessPoliciesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTopicAccessPoliciesCommon,
@@ -89,13 +89,13 @@ const opDescribeTopicAccessPolicies = "DescribeTopicAccessPolicies"
 // See DescribeTopicAccessPolicies for more information on using the DescribeTopicAccessPolicies
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTopicAccessPoliciesRequest method.
-//	req, resp := client.DescribeTopicAccessPoliciesRequest(params)
+//    // Example sending a request using the DescribeTopicAccessPoliciesRequest method.
+//    req, resp := client.DescribeTopicAccessPoliciesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeTopicAccessPoliciesRequest(input *DescribeTopicAccessPoliciesInput) (req *request.Request, output *DescribeTopicAccessPoliciesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTopicAccessPolicies,
@@ -176,9 +176,11 @@ func (s *AccessPolicyForDescribeTopicAccessPoliciesOutput) SetUserName(v string)
 type DescribeTopicAccessPoliciesInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	TopicName *string `type:"string"`
+	// TopicName is a required field
+	TopicName *string `type:"string" required:"true"`
 
 	UserName *string `type:"string"`
 }
@@ -191,6 +193,22 @@ func (s DescribeTopicAccessPoliciesInput) String() string {
 // GoString returns the string representation
 func (s DescribeTopicAccessPoliciesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeTopicAccessPoliciesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeTopicAccessPoliciesInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.TopicName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TopicName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

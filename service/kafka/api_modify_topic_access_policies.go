@@ -22,13 +22,13 @@ const opModifyTopicAccessPoliciesCommon = "ModifyTopicAccessPolicies"
 // See ModifyTopicAccessPoliciesCommon for more information on using the ModifyTopicAccessPoliciesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyTopicAccessPoliciesCommonRequest method.
-//	req, resp := client.ModifyTopicAccessPoliciesCommonRequest(params)
+//    // Example sending a request using the ModifyTopicAccessPoliciesCommonRequest method.
+//    req, resp := client.ModifyTopicAccessPoliciesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyTopicAccessPoliciesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyTopicAccessPoliciesCommon,
@@ -89,13 +89,13 @@ const opModifyTopicAccessPolicies = "ModifyTopicAccessPolicies"
 // See ModifyTopicAccessPolicies for more information on using the ModifyTopicAccessPolicies
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyTopicAccessPoliciesRequest method.
-//	req, resp := client.ModifyTopicAccessPoliciesRequest(params)
+//    // Example sending a request using the ModifyTopicAccessPoliciesRequest method.
+//    req, resp := client.ModifyTopicAccessPoliciesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyTopicAccessPoliciesRequest(input *ModifyTopicAccessPoliciesInput) (req *request.Request, output *ModifyTopicAccessPoliciesOutput) {
 	op := &request.Operation{
 		Name:       opModifyTopicAccessPolicies,
@@ -178,13 +178,16 @@ type ModifyTopicAccessPoliciesInput struct {
 
 	AccessPolicies []*AccessPolicyForModifyTopicAccessPoliciesInput `type:"list"`
 
-	AllAuthority *bool `type:"boolean"`
+	// AllAuthority is a required field
+	AllAuthority *bool `type:"boolean" required:"true"`
 
 	DeletePolicies []*string `type:"list"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	TopicName *string `type:"string"`
+	// TopicName is a required field
+	TopicName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -195,6 +198,25 @@ func (s ModifyTopicAccessPoliciesInput) String() string {
 // GoString returns the string representation
 func (s ModifyTopicAccessPoliciesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyTopicAccessPoliciesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyTopicAccessPoliciesInput"}
+	if s.AllAuthority == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllAuthority"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.TopicName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TopicName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccessPolicies sets the AccessPolicies field's value.

@@ -22,13 +22,13 @@ const opDescribeConsumedTopicsCommon = "DescribeConsumedTopics"
 // See DescribeConsumedTopicsCommon for more information on using the DescribeConsumedTopicsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeConsumedTopicsCommonRequest method.
-//	req, resp := client.DescribeConsumedTopicsCommonRequest(params)
+//    // Example sending a request using the DescribeConsumedTopicsCommonRequest method.
+//    req, resp := client.DescribeConsumedTopicsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeConsumedTopicsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeConsumedTopicsCommon,
@@ -89,13 +89,13 @@ const opDescribeConsumedTopics = "DescribeConsumedTopics"
 // See DescribeConsumedTopics for more information on using the DescribeConsumedTopics
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeConsumedTopicsRequest method.
-//	req, resp := client.DescribeConsumedTopicsRequest(params)
+//    // Example sending a request using the DescribeConsumedTopicsRequest method.
+//    req, resp := client.DescribeConsumedTopicsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeConsumedTopicsRequest(input *DescribeConsumedTopicsInput) (req *request.Request, output *DescribeConsumedTopicsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeConsumedTopics,
@@ -176,13 +176,17 @@ func (s *ConsumedTopicsInfoForDescribeConsumedTopicsOutput) SetTopicName(v strin
 type DescribeConsumedTopicsInput struct {
 	_ struct{} `type:"structure"`
 
-	GroupId *string `type:"string"`
+	// GroupId is a required field
+	GroupId *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 
 	TopicName *string `type:"string"`
 }
@@ -195,6 +199,28 @@ func (s DescribeConsumedTopicsInput) String() string {
 // GoString returns the string representation
 func (s DescribeConsumedTopicsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeConsumedTopicsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeConsumedTopicsInput"}
+	if s.GroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("GroupId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetGroupId sets the GroupId field's value.
