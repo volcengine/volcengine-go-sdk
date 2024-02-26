@@ -161,8 +161,7 @@ type HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput struct {
 	// HealthCheckTemplateId is a required field
 	HealthCheckTemplateId *string `min:"1" max:"128" type:"string" required:"true"`
 
-	// HealthCheckTemplateName is a required field
-	HealthCheckTemplateName *string `type:"string" required:"true"`
+	HealthCheckTemplateName *string `min:"1" max:"128" type:"string"`
 
 	HealthCheckTimeout *int64 `type:"integer"`
 
@@ -195,8 +194,11 @@ func (s *HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput) Valida
 	if s.HealthCheckTemplateId != nil && len(*s.HealthCheckTemplateId) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("HealthCheckTemplateId", 128, *s.HealthCheckTemplateId))
 	}
-	if s.HealthCheckTemplateName == nil {
-		invalidParams.Add(request.NewErrParamRequired("HealthCheckTemplateName"))
+	if s.HealthCheckTemplateName != nil && len(*s.HealthCheckTemplateName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("HealthCheckTemplateName", 1))
+	}
+	if s.HealthCheckTemplateName != nil && len(*s.HealthCheckTemplateName) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("HealthCheckTemplateName", 128, *s.HealthCheckTemplateName))
 	}
 
 	if invalidParams.Len() > 0 {
