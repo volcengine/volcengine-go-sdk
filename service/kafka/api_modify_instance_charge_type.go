@@ -22,13 +22,13 @@ const opModifyInstanceChargeTypeCommon = "ModifyInstanceChargeType"
 // See ModifyInstanceChargeTypeCommon for more information on using the ModifyInstanceChargeTypeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceChargeTypeCommonRequest method.
-//	req, resp := client.ModifyInstanceChargeTypeCommonRequest(params)
+//    // Example sending a request using the ModifyInstanceChargeTypeCommonRequest method.
+//    req, resp := client.ModifyInstanceChargeTypeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyInstanceChargeTypeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceChargeTypeCommon,
@@ -89,13 +89,13 @@ const opModifyInstanceChargeType = "ModifyInstanceChargeType"
 // See ModifyInstanceChargeType for more information on using the ModifyInstanceChargeType
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceChargeTypeRequest method.
-//	req, resp := client.ModifyInstanceChargeTypeRequest(params)
+//    // Example sending a request using the ModifyInstanceChargeTypeRequest method.
+//    req, resp := client.ModifyInstanceChargeTypeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyInstanceChargeTypeRequest(input *ModifyInstanceChargeTypeInput) (req *request.Request, output *ModifyInstanceChargeTypeOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceChargeType,
@@ -194,7 +194,8 @@ type ModifyInstanceChargeTypeInput struct {
 
 	ChargeInfo *ChargeInfoForModifyInstanceChargeTypeInput `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -205,6 +206,19 @@ func (s ModifyInstanceChargeTypeInput) String() string {
 // GoString returns the string representation
 func (s ModifyInstanceChargeTypeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyInstanceChargeTypeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyInstanceChargeTypeInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetChargeInfo sets the ChargeInfo field's value.

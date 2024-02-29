@@ -22,13 +22,13 @@ const opDeleteUserCommon = "DeleteUser"
 // See DeleteUserCommon for more information on using the DeleteUserCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteUserCommonRequest method.
-//	req, resp := client.DeleteUserCommonRequest(params)
+//    // Example sending a request using the DeleteUserCommonRequest method.
+//    req, resp := client.DeleteUserCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DeleteUserCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteUserCommon,
@@ -89,13 +89,13 @@ const opDeleteUser = "DeleteUser"
 // See DeleteUser for more information on using the DeleteUser
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteUserRequest method.
-//	req, resp := client.DeleteUserRequest(params)
+//    // Example sending a request using the DeleteUserRequest method.
+//    req, resp := client.DeleteUserRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DeleteUserRequest(input *DeleteUserInput) (req *request.Request, output *DeleteUserOutput) {
 	op := &request.Operation{
 		Name:       opDeleteUser,
@@ -146,9 +146,11 @@ func (c *KAFKA) DeleteUserWithContext(ctx volcengine.Context, input *DeleteUserI
 type DeleteUserInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	UserName *string `type:"string"`
+	// UserName is a required field
+	UserName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s DeleteUserInput) String() string {
 // GoString returns the string representation
 func (s DeleteUserInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteUserInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteUserInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.UserName == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

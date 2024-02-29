@@ -22,13 +22,13 @@ const opDescribeInstancesCommon = "DescribeInstances"
 // See DescribeInstancesCommon for more information on using the DescribeInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstancesCommonRequest method.
-//	req, resp := client.DescribeInstancesCommonRequest(params)
+//    // Example sending a request using the DescribeInstancesCommonRequest method.
+//    req, resp := client.DescribeInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstancesCommon,
@@ -89,13 +89,13 @@ const opDescribeInstances = "DescribeInstances"
 // See DescribeInstances for more information on using the DescribeInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstancesRequest method.
-//	req, resp := client.DescribeInstancesRequest(params)
+//    // Example sending a request using the DescribeInstancesRequest method.
+//    req, resp := client.DescribeInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeInstancesRequest(input *DescribeInstancesInput) (req *request.Request, output *DescribeInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstances,
@@ -230,9 +230,13 @@ type DescribeInstancesInput struct {
 
 	InstanceStatus *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
+
+	Project *string `type:"string"`
 
 	Tags map[string][]*string `type:"map"`
 
@@ -247,6 +251,22 @@ func (s DescribeInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeInstancesInput"}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -276,6 +296,12 @@ func (s *DescribeInstancesInput) SetPageNumber(v int32) *DescribeInstancesInput 
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeInstancesInput) SetPageSize(v int32) *DescribeInstancesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProject sets the Project field's value.
+func (s *DescribeInstancesInput) SetProject(v string) *DescribeInstancesInput {
+	s.Project = &v
 	return s
 }
 

@@ -144,7 +144,7 @@ func (c *ALB) AddAclEntriesWithContext(ctx volcengine.Context, input *AddAclEntr
 type AclEntryForAddAclEntriesInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `min:"1" max:"255" type:"string"`
 
 	// Entry is a required field
 	Entry *string `type:"string" required:"true"`
@@ -163,6 +163,12 @@ func (s AclEntryForAddAclEntriesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *AclEntryForAddAclEntriesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AclEntryForAddAclEntriesInput"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.Entry == nil {
 		invalidParams.Add(request.NewErrParamRequired("Entry"))
 	}

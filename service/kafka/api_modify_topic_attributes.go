@@ -22,13 +22,13 @@ const opModifyTopicAttributesCommon = "ModifyTopicAttributes"
 // See ModifyTopicAttributesCommon for more information on using the ModifyTopicAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyTopicAttributesCommonRequest method.
-//	req, resp := client.ModifyTopicAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyTopicAttributesCommonRequest method.
+//    req, resp := client.ModifyTopicAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyTopicAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyTopicAttributesCommon,
@@ -89,13 +89,13 @@ const opModifyTopicAttributes = "ModifyTopicAttributes"
 // See ModifyTopicAttributes for more information on using the ModifyTopicAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyTopicAttributesRequest method.
-//	req, resp := client.ModifyTopicAttributesRequest(params)
+//    // Example sending a request using the ModifyTopicAttributesRequest method.
+//    req, resp := client.ModifyTopicAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyTopicAttributesRequest(input *ModifyTopicAttributesInput) (req *request.Request, output *ModifyTopicAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyTopicAttributes,
@@ -148,9 +148,11 @@ type ModifyTopicAttributesInput struct {
 
 	Description *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	TopicName *string `type:"string"`
+	// TopicName is a required field
+	TopicName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +163,22 @@ func (s ModifyTopicAttributesInput) String() string {
 // GoString returns the string representation
 func (s ModifyTopicAttributesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyTopicAttributesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyTopicAttributesInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.TopicName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TopicName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.

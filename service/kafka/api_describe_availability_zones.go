@@ -22,13 +22,13 @@ const opDescribeAvailabilityZonesCommon = "DescribeAvailabilityZones"
 // See DescribeAvailabilityZonesCommon for more information on using the DescribeAvailabilityZonesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailabilityZonesCommonRequest method.
-//	req, resp := client.DescribeAvailabilityZonesCommonRequest(params)
+//    // Example sending a request using the DescribeAvailabilityZonesCommonRequest method.
+//    req, resp := client.DescribeAvailabilityZonesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeAvailabilityZonesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAvailabilityZonesCommon,
@@ -89,13 +89,13 @@ const opDescribeAvailabilityZones = "DescribeAvailabilityZones"
 // See DescribeAvailabilityZones for more information on using the DescribeAvailabilityZones
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailabilityZonesRequest method.
-//	req, resp := client.DescribeAvailabilityZonesRequest(params)
+//    // Example sending a request using the DescribeAvailabilityZonesRequest method.
+//    req, resp := client.DescribeAvailabilityZonesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeAvailabilityZonesRequest(input *DescribeAvailabilityZonesInput) (req *request.Request, output *DescribeAvailabilityZonesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAvailabilityZones,
@@ -146,7 +146,8 @@ func (c *KAFKA) DescribeAvailabilityZonesWithContext(ctx volcengine.Context, inp
 type DescribeAvailabilityZonesInput struct {
 	_ struct{} `type:"structure"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DescribeAvailabilityZonesInput) String() string {
 // GoString returns the string representation
 func (s DescribeAvailabilityZonesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAvailabilityZonesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAvailabilityZonesInput"}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetRegionId sets the RegionId field's value.
@@ -202,6 +216,8 @@ type ZoneForDescribeAvailabilityZonesOutput struct {
 
 	Description *string `type:"string"`
 
+	Status *string `type:"string"`
+
 	ZoneId *string `type:"string"`
 
 	ZoneName *string `type:"string"`
@@ -220,6 +236,12 @@ func (s ZoneForDescribeAvailabilityZonesOutput) GoString() string {
 // SetDescription sets the Description field's value.
 func (s *ZoneForDescribeAvailabilityZonesOutput) SetDescription(v string) *ZoneForDescribeAvailabilityZonesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ZoneForDescribeAvailabilityZonesOutput) SetStatus(v string) *ZoneForDescribeAvailabilityZonesOutput {
+	s.Status = &v
 	return s
 }
 

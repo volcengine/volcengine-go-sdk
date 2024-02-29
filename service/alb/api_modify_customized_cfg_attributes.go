@@ -142,8 +142,7 @@ func (c *ALB) ModifyCustomizedCfgAttributesWithContext(ctx volcengine.Context, i
 type ModifyCustomizedCfgAttributesInput struct {
 	_ struct{} `type:"structure"`
 
-	// CustomizedCfgContent is a required field
-	CustomizedCfgContent *string `min:"1" max:"4096" type:"string" required:"true"`
+	CustomizedCfgContent *string `min:"1" max:"4096" type:"string"`
 
 	// CustomizedCfgId is a required field
 	CustomizedCfgId *string `type:"string" required:"true"`
@@ -166,9 +165,6 @@ func (s ModifyCustomizedCfgAttributesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyCustomizedCfgAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyCustomizedCfgAttributesInput"}
-	if s.CustomizedCfgContent == nil {
-		invalidParams.Add(request.NewErrParamRequired("CustomizedCfgContent"))
-	}
 	if s.CustomizedCfgContent != nil && len(*s.CustomizedCfgContent) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("CustomizedCfgContent", 1))
 	}

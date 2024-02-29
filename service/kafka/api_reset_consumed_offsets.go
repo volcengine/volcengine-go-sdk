@@ -22,13 +22,13 @@ const opResetConsumedOffsetsCommon = "ResetConsumedOffsets"
 // See ResetConsumedOffsetsCommon for more information on using the ResetConsumedOffsetsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ResetConsumedOffsetsCommonRequest method.
-//	req, resp := client.ResetConsumedOffsetsCommonRequest(params)
+//    // Example sending a request using the ResetConsumedOffsetsCommonRequest method.
+//    req, resp := client.ResetConsumedOffsetsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ResetConsumedOffsetsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opResetConsumedOffsetsCommon,
@@ -89,13 +89,13 @@ const opResetConsumedOffsets = "ResetConsumedOffsets"
 // See ResetConsumedOffsets for more information on using the ResetConsumedOffsets
 // API call, and error handling.
 //
-//	// Example sending a request using the ResetConsumedOffsetsRequest method.
-//	req, resp := client.ResetConsumedOffsetsRequest(params)
+//    // Example sending a request using the ResetConsumedOffsetsRequest method.
+//    req, resp := client.ResetConsumedOffsetsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ResetConsumedOffsetsRequest(input *ResetConsumedOffsetsInput) (req *request.Request, output *ResetConsumedOffsetsOutput) {
 	op := &request.Operation{
 		Name:       opResetConsumedOffsets,
@@ -146,9 +146,11 @@ func (c *KAFKA) ResetConsumedOffsetsWithContext(ctx volcengine.Context, input *R
 type ResetConsumedOffsetsInput struct {
 	_ struct{} `type:"structure"`
 
-	GroupId *string `type:"string"`
+	// GroupId is a required field
+	GroupId *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	ResetOffsetsInfo []*ResetOffsetsInfoForResetConsumedOffsetsInput `type:"list"`
 }
@@ -161,6 +163,22 @@ func (s ResetConsumedOffsetsInput) String() string {
 // GoString returns the string representation
 func (s ResetConsumedOffsetsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ResetConsumedOffsetsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ResetConsumedOffsetsInput"}
+	if s.GroupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("GroupId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetGroupId sets the GroupId field's value.
