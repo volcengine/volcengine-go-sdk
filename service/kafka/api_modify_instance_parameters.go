@@ -22,13 +22,13 @@ const opModifyInstanceParametersCommon = "ModifyInstanceParameters"
 // See ModifyInstanceParametersCommon for more information on using the ModifyInstanceParametersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceParametersCommonRequest method.
-//	req, resp := client.ModifyInstanceParametersCommonRequest(params)
+//    // Example sending a request using the ModifyInstanceParametersCommonRequest method.
+//    req, resp := client.ModifyInstanceParametersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyInstanceParametersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceParametersCommon,
@@ -89,13 +89,13 @@ const opModifyInstanceParameters = "ModifyInstanceParameters"
 // See ModifyInstanceParameters for more information on using the ModifyInstanceParameters
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceParametersRequest method.
-//	req, resp := client.ModifyInstanceParametersRequest(params)
+//    // Example sending a request using the ModifyInstanceParametersRequest method.
+//    req, resp := client.ModifyInstanceParametersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyInstanceParametersRequest(input *ModifyInstanceParametersInput) (req *request.Request, output *ModifyInstanceParametersOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceParameters,
@@ -146,9 +146,11 @@ func (c *KAFKA) ModifyInstanceParametersWithContext(ctx volcengine.Context, inpu
 type ModifyInstanceParametersInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	Parameters *string `type:"string"`
+	// Parameters is a required field
+	Parameters *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s ModifyInstanceParametersInput) String() string {
 // GoString returns the string representation
 func (s ModifyInstanceParametersInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyInstanceParametersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyInstanceParametersInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

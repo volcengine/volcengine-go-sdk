@@ -22,13 +22,13 @@ const opDescribeGroupsCommon = "DescribeGroups"
 // See DescribeGroupsCommon for more information on using the DescribeGroupsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeGroupsCommonRequest method.
-//	req, resp := client.DescribeGroupsCommonRequest(params)
+//    // Example sending a request using the DescribeGroupsCommonRequest method.
+//    req, resp := client.DescribeGroupsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeGroupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeGroupsCommon,
@@ -89,13 +89,13 @@ const opDescribeGroups = "DescribeGroups"
 // See DescribeGroups for more information on using the DescribeGroups
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeGroupsRequest method.
-//	req, resp := client.DescribeGroupsRequest(params)
+//    // Example sending a request using the DescribeGroupsRequest method.
+//    req, resp := client.DescribeGroupsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeGroupsRequest(input *DescribeGroupsInput) (req *request.Request, output *DescribeGroupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeGroups,
@@ -148,11 +148,14 @@ type DescribeGroupsInput struct {
 
 	GroupId *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 }
 
 // String returns the string representation
@@ -163,6 +166,25 @@ func (s DescribeGroupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeGroupsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeGroupsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeGroupsInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetGroupId sets the GroupId field's value.

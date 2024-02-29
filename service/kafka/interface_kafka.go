@@ -16,18 +16,19 @@ import (
 // KAFKAAPI provides an interface to enable mocking the
 // kafka.KAFKA service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// KAFKA.
-//	func myFunc(svc KAFKAAPI) bool {
-//	    // Make svc.AddTagsToResource request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // KAFKA.
+//    func myFunc(svc KAFKAAPI) bool {
+//        // Make svc.AddTagsToResource request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := kafka.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := kafka.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type KAFKAAPI interface {
 	AddTagsToResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddTagsToResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -36,6 +37,38 @@ type KAFKAAPI interface {
 	AddTagsToResource(*AddTagsToResourceInput) (*AddTagsToResourceOutput, error)
 	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
 	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
+
+	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateAllowList(*AssociateAllowListInput) (*AssociateAllowListOutput, error)
+	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
+	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
+
+	CreateAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAcl(*CreateAclInput) (*CreateAclOutput, error)
+	CreateAclWithContext(volcengine.Context, *CreateAclInput, ...request.Option) (*CreateAclOutput, error)
+	CreateAclRequest(*CreateAclInput) (*request.Request, *CreateAclOutput)
+
+	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAllowList(*CreateAllowListInput) (*CreateAllowListOutput, error)
+	CreateAllowListWithContext(volcengine.Context, *CreateAllowListInput, ...request.Option) (*CreateAllowListOutput, error)
+	CreateAllowListRequest(*CreateAllowListInput) (*request.Request, *CreateAllowListOutput)
+
+	CreateGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateGroup(*CreateGroupInput) (*CreateGroupOutput, error)
+	CreateGroupWithContext(volcengine.Context, *CreateGroupInput, ...request.Option) (*CreateGroupOutput, error)
+	CreateGroupRequest(*CreateGroupInput) (*request.Request, *CreateGroupOutput)
 
 	CreateInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -68,6 +101,22 @@ type KAFKAAPI interface {
 	CreateUser(*CreateUserInput) (*CreateUserOutput, error)
 	CreateUserWithContext(volcengine.Context, *CreateUserInput, ...request.Option) (*CreateUserOutput, error)
 	CreateUserRequest(*CreateUserInput) (*request.Request, *CreateUserOutput)
+
+	DeleteAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAclCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAcl(*DeleteAclInput) (*DeleteAclOutput, error)
+	DeleteAclWithContext(volcengine.Context, *DeleteAclInput, ...request.Option) (*DeleteAclOutput, error)
+	DeleteAclRequest(*DeleteAclInput) (*request.Request, *DeleteAclOutput)
+
+	DeleteAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAllowList(*DeleteAllowListInput) (*DeleteAllowListOutput, error)
+	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
+	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
 
 	DeleteGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -108,6 +157,30 @@ type KAFKAAPI interface {
 	DeleteUser(*DeleteUserInput) (*DeleteUserOutput, error)
 	DeleteUserWithContext(volcengine.Context, *DeleteUserInput, ...request.Option) (*DeleteUserOutput, error)
 	DeleteUserRequest(*DeleteUserInput) (*request.Request, *DeleteUserOutput)
+
+	DescribeAclsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAclsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAclsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAcls(*DescribeAclsInput) (*DescribeAclsOutput, error)
+	DescribeAclsWithContext(volcengine.Context, *DescribeAclsInput, ...request.Option) (*DescribeAclsOutput, error)
+	DescribeAclsRequest(*DescribeAclsInput) (*request.Request, *DescribeAclsOutput)
+
+	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowListDetail(*DescribeAllowListDetailInput) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailWithContext(volcengine.Context, *DescribeAllowListDetailInput, ...request.Option) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailRequest(*DescribeAllowListDetailInput) (*request.Request, *DescribeAllowListDetailOutput)
+
+	DescribeAllowListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowLists(*DescribeAllowListsInput) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsWithContext(volcengine.Context, *DescribeAllowListsInput, ...request.Option) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsRequest(*DescribeAllowListsInput) (*request.Request, *DescribeAllowListsOutput)
 
 	DescribeAvailabilityZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeAvailabilityZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -157,6 +230,22 @@ type KAFKAAPI interface {
 	DescribeInstancesWithContext(volcengine.Context, *DescribeInstancesInput, ...request.Option) (*DescribeInstancesOutput, error)
 	DescribeInstancesRequest(*DescribeInstancesInput) (*request.Request, *DescribeInstancesOutput)
 
+	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRegions(*DescribeRegionsInput) (*DescribeRegionsOutput, error)
+	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
+	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
+
+	DescribeTagsByResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTagsByResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTagsByResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTagsByResource(*DescribeTagsByResourceInput) (*DescribeTagsByResourceOutput, error)
+	DescribeTagsByResourceWithContext(volcengine.Context, *DescribeTagsByResourceInput, ...request.Option) (*DescribeTagsByResourceOutput, error)
+	DescribeTagsByResourceRequest(*DescribeTagsByResourceInput) (*request.Request, *DescribeTagsByResourceOutput)
+
 	DescribeTopicAccessPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTopicAccessPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeTopicAccessPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -196,6 +285,30 @@ type KAFKAAPI interface {
 	DescribeUsers(*DescribeUsersInput) (*DescribeUsersOutput, error)
 	DescribeUsersWithContext(volcengine.Context, *DescribeUsersInput, ...request.Option) (*DescribeUsersOutput, error)
 	DescribeUsersRequest(*DescribeUsersInput) (*request.Request, *DescribeUsersOutput)
+
+	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateAllowList(*DisassociateAllowListInput) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
+
+	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyAllowList(*ModifyAllowListInput) (*ModifyAllowListOutput, error)
+	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
+	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
+
+	ModifyGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyGroup(*ModifyGroupInput) (*ModifyGroupOutput, error)
+	ModifyGroupWithContext(volcengine.Context, *ModifyGroupInput, ...request.Option) (*ModifyGroupOutput, error)
+	ModifyGroupRequest(*ModifyGroupInput) (*request.Request, *ModifyGroupOutput)
 
 	ModifyInstanceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyInstanceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

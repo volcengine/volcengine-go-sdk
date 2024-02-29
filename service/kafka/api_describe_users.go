@@ -22,13 +22,13 @@ const opDescribeUsersCommon = "DescribeUsers"
 // See DescribeUsersCommon for more information on using the DescribeUsersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeUsersCommonRequest method.
-//	req, resp := client.DescribeUsersCommonRequest(params)
+//    // Example sending a request using the DescribeUsersCommonRequest method.
+//    req, resp := client.DescribeUsersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeUsersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeUsersCommon,
@@ -89,13 +89,13 @@ const opDescribeUsers = "DescribeUsers"
 // See DescribeUsers for more information on using the DescribeUsers
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeUsersRequest method.
-//	req, resp := client.DescribeUsersRequest(params)
+//    // Example sending a request using the DescribeUsersRequest method.
+//    req, resp := client.DescribeUsersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeUsersRequest(input *DescribeUsersInput) (req *request.Request, output *DescribeUsersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeUsers,
@@ -146,11 +146,14 @@ func (c *KAFKA) DescribeUsersWithContext(ctx volcengine.Context, input *Describe
 type DescribeUsersInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 
 	UserName *string `type:"string"`
 }
@@ -163,6 +166,25 @@ func (s DescribeUsersInput) String() string {
 // GoString returns the string representation
 func (s DescribeUsersInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeUsersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeUsersInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

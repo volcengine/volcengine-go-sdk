@@ -22,13 +22,13 @@ const opModifyUserAuthorityCommon = "ModifyUserAuthority"
 // See ModifyUserAuthorityCommon for more information on using the ModifyUserAuthorityCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyUserAuthorityCommonRequest method.
-//	req, resp := client.ModifyUserAuthorityCommonRequest(params)
+//    // Example sending a request using the ModifyUserAuthorityCommonRequest method.
+//    req, resp := client.ModifyUserAuthorityCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyUserAuthorityCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyUserAuthorityCommon,
@@ -89,13 +89,13 @@ const opModifyUserAuthority = "ModifyUserAuthority"
 // See ModifyUserAuthority for more information on using the ModifyUserAuthority
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyUserAuthorityRequest method.
-//	req, resp := client.ModifyUserAuthorityRequest(params)
+//    // Example sending a request using the ModifyUserAuthorityRequest method.
+//    req, resp := client.ModifyUserAuthorityRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyUserAuthorityRequest(input *ModifyUserAuthorityInput) (req *request.Request, output *ModifyUserAuthorityOutput) {
 	op := &request.Operation{
 		Name:       opModifyUserAuthority,
@@ -146,11 +146,14 @@ func (c *KAFKA) ModifyUserAuthorityWithContext(ctx volcengine.Context, input *Mo
 type ModifyUserAuthorityInput struct {
 	_ struct{} `type:"structure"`
 
-	AllAuthority *bool `type:"boolean"`
+	// AllAuthority is a required field
+	AllAuthority *bool `type:"boolean" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	UserName *string `type:"string"`
+	// UserName is a required field
+	UserName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +164,25 @@ func (s ModifyUserAuthorityInput) String() string {
 // GoString returns the string representation
 func (s ModifyUserAuthorityInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyUserAuthorityInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyUserAuthorityInput"}
+	if s.AllAuthority == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllAuthority"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.UserName == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAllAuthority sets the AllAuthority field's value.

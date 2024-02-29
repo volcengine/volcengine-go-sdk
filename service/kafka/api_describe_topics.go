@@ -22,13 +22,13 @@ const opDescribeTopicsCommon = "DescribeTopics"
 // See DescribeTopicsCommon for more information on using the DescribeTopicsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTopicsCommonRequest method.
-//	req, resp := client.DescribeTopicsCommonRequest(params)
+//    // Example sending a request using the DescribeTopicsCommonRequest method.
+//    req, resp := client.DescribeTopicsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeTopicsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTopicsCommon,
@@ -89,13 +89,13 @@ const opDescribeTopics = "DescribeTopics"
 // See DescribeTopics for more information on using the DescribeTopics
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTopicsRequest method.
-//	req, resp := client.DescribeTopicsRequest(params)
+//    // Example sending a request using the DescribeTopicsRequest method.
+//    req, resp := client.DescribeTopicsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeTopicsRequest(input *DescribeTopicsInput) (req *request.Request, output *DescribeTopicsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTopics,
@@ -146,11 +146,14 @@ func (c *KAFKA) DescribeTopicsWithContext(ctx volcengine.Context, input *Describ
 type DescribeTopicsInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 
 	PartitionNumber *int32 `type:"int32"`
 
@@ -167,6 +170,25 @@ func (s DescribeTopicsInput) String() string {
 // GoString returns the string representation
 func (s DescribeTopicsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeTopicsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeTopicsInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

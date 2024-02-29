@@ -22,13 +22,13 @@ const opCreateUserCommon = "CreateUser"
 // See CreateUserCommon for more information on using the CreateUserCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateUserCommonRequest method.
-//	req, resp := client.CreateUserCommonRequest(params)
+//    // Example sending a request using the CreateUserCommonRequest method.
+//    req, resp := client.CreateUserCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) CreateUserCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateUserCommon,
@@ -89,13 +89,13 @@ const opCreateUser = "CreateUser"
 // See CreateUser for more information on using the CreateUser
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateUserRequest method.
-//	req, resp := client.CreateUserRequest(params)
+//    // Example sending a request using the CreateUserRequest method.
+//    req, resp := client.CreateUserRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) CreateUserRequest(input *CreateUserInput) (req *request.Request, output *CreateUserOutput) {
 	op := &request.Operation{
 		Name:       opCreateUser,
@@ -146,15 +146,21 @@ func (c *KAFKA) CreateUserWithContext(ctx volcengine.Context, input *CreateUserI
 type CreateUserInput struct {
 	_ struct{} `type:"structure"`
 
-	AllAuthority *bool `type:"boolean"`
+	// AllAuthority is a required field
+	AllAuthority *bool `type:"boolean" required:"true"`
 
 	Description *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	UserName *string `type:"string"`
+	PasswordType *string `type:"string"`
 
-	UserPassword *string `type:"string"`
+	// UserName is a required field
+	UserName *string `type:"string" required:"true"`
+
+	// UserPassword is a required field
+	UserPassword *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -165,6 +171,28 @@ func (s CreateUserInput) String() string {
 // GoString returns the string representation
 func (s CreateUserInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateUserInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateUserInput"}
+	if s.AllAuthority == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllAuthority"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.UserName == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserName"))
+	}
+	if s.UserPassword == nil {
+		invalidParams.Add(request.NewErrParamRequired("UserPassword"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAllAuthority sets the AllAuthority field's value.
@@ -182,6 +210,12 @@ func (s *CreateUserInput) SetDescription(v string) *CreateUserInput {
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateUserInput) SetInstanceId(v string) *CreateUserInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetPasswordType sets the PasswordType field's value.
+func (s *CreateUserInput) SetPasswordType(v string) *CreateUserInput {
+	s.PasswordType = &v
 	return s
 }
 

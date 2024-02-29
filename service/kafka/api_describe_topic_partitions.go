@@ -22,13 +22,13 @@ const opDescribeTopicPartitionsCommon = "DescribeTopicPartitions"
 // See DescribeTopicPartitionsCommon for more information on using the DescribeTopicPartitionsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTopicPartitionsCommonRequest method.
-//	req, resp := client.DescribeTopicPartitionsCommonRequest(params)
+//    // Example sending a request using the DescribeTopicPartitionsCommonRequest method.
+//    req, resp := client.DescribeTopicPartitionsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeTopicPartitionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTopicPartitionsCommon,
@@ -89,13 +89,13 @@ const opDescribeTopicPartitions = "DescribeTopicPartitions"
 // See DescribeTopicPartitions for more information on using the DescribeTopicPartitions
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTopicPartitionsRequest method.
-//	req, resp := client.DescribeTopicPartitionsRequest(params)
+//    // Example sending a request using the DescribeTopicPartitionsRequest method.
+//    req, resp := client.DescribeTopicPartitionsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DescribeTopicPartitionsRequest(input *DescribeTopicPartitionsInput) (req *request.Request, output *DescribeTopicPartitionsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTopicPartitions,
@@ -146,15 +146,19 @@ func (c *KAFKA) DescribeTopicPartitionsWithContext(ctx volcengine.Context, input
 type DescribeTopicPartitionsInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 
-	PartitionIds []*int64 `type:"list"`
+	PartitionIds []*int32 `type:"list"`
 
-	TopicName *string `type:"string"`
+	// TopicName is a required field
+	TopicName *string `type:"string" required:"true"`
 
 	UnderInsyncOnly *bool `type:"boolean"`
 }
@@ -167,6 +171,28 @@ func (s DescribeTopicPartitionsInput) String() string {
 // GoString returns the string representation
 func (s DescribeTopicPartitionsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeTopicPartitionsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeTopicPartitionsInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+	if s.TopicName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TopicName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -188,7 +214,7 @@ func (s *DescribeTopicPartitionsInput) SetPageSize(v int32) *DescribeTopicPartit
 }
 
 // SetPartitionIds sets the PartitionIds field's value.
-func (s *DescribeTopicPartitionsInput) SetPartitionIds(v []*int64) *DescribeTopicPartitionsInput {
+func (s *DescribeTopicPartitionsInput) SetPartitionIds(v []*int32) *DescribeTopicPartitionsInput {
 	s.PartitionIds = v
 	return s
 }
@@ -242,7 +268,7 @@ type PartitionsInfoForDescribeTopicPartitionsOutput struct {
 
 	EndOffset *int64 `type:"int64"`
 
-	InsyncReplicas []*int64 `type:"list"`
+	InsyncReplicas []*int32 `type:"list"`
 
 	Leader *int32 `type:"int32"`
 
@@ -250,11 +276,11 @@ type PartitionsInfoForDescribeTopicPartitionsOutput struct {
 
 	PartitionId *int32 `type:"int32"`
 
-	Replicas []*int64 `type:"list"`
+	Replicas []*int32 `type:"list"`
 
 	StartOffset *int64 `type:"int64"`
 
-	UnderInsyncReplicas []*int64 `type:"list"`
+	UnderInsyncReplicas []*int32 `type:"list"`
 }
 
 // String returns the string representation
@@ -274,7 +300,7 @@ func (s *PartitionsInfoForDescribeTopicPartitionsOutput) SetEndOffset(v int64) *
 }
 
 // SetInsyncReplicas sets the InsyncReplicas field's value.
-func (s *PartitionsInfoForDescribeTopicPartitionsOutput) SetInsyncReplicas(v []*int64) *PartitionsInfoForDescribeTopicPartitionsOutput {
+func (s *PartitionsInfoForDescribeTopicPartitionsOutput) SetInsyncReplicas(v []*int32) *PartitionsInfoForDescribeTopicPartitionsOutput {
 	s.InsyncReplicas = v
 	return s
 }
@@ -298,7 +324,7 @@ func (s *PartitionsInfoForDescribeTopicPartitionsOutput) SetPartitionId(v int32)
 }
 
 // SetReplicas sets the Replicas field's value.
-func (s *PartitionsInfoForDescribeTopicPartitionsOutput) SetReplicas(v []*int64) *PartitionsInfoForDescribeTopicPartitionsOutput {
+func (s *PartitionsInfoForDescribeTopicPartitionsOutput) SetReplicas(v []*int32) *PartitionsInfoForDescribeTopicPartitionsOutput {
 	s.Replicas = v
 	return s
 }
@@ -310,7 +336,7 @@ func (s *PartitionsInfoForDescribeTopicPartitionsOutput) SetStartOffset(v int64)
 }
 
 // SetUnderInsyncReplicas sets the UnderInsyncReplicas field's value.
-func (s *PartitionsInfoForDescribeTopicPartitionsOutput) SetUnderInsyncReplicas(v []*int64) *PartitionsInfoForDescribeTopicPartitionsOutput {
+func (s *PartitionsInfoForDescribeTopicPartitionsOutput) SetUnderInsyncReplicas(v []*int32) *PartitionsInfoForDescribeTopicPartitionsOutput {
 	s.UnderInsyncReplicas = v
 	return s
 }

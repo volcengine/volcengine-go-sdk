@@ -22,13 +22,13 @@ const opModifyTopicParametersCommon = "ModifyTopicParameters"
 // See ModifyTopicParametersCommon for more information on using the ModifyTopicParametersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyTopicParametersCommonRequest method.
-//	req, resp := client.ModifyTopicParametersCommonRequest(params)
+//    // Example sending a request using the ModifyTopicParametersCommonRequest method.
+//    req, resp := client.ModifyTopicParametersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyTopicParametersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyTopicParametersCommon,
@@ -89,13 +89,13 @@ const opModifyTopicParameters = "ModifyTopicParameters"
 // See ModifyTopicParameters for more information on using the ModifyTopicParameters
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyTopicParametersRequest method.
-//	req, resp := client.ModifyTopicParametersRequest(params)
+//    // Example sending a request using the ModifyTopicParametersRequest method.
+//    req, resp := client.ModifyTopicParametersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) ModifyTopicParametersRequest(input *ModifyTopicParametersInput) (req *request.Request, output *ModifyTopicParametersOutput) {
 	op := &request.Operation{
 		Name:       opModifyTopicParameters,
@@ -143,58 +143,21 @@ func (c *KAFKA) ModifyTopicParametersWithContext(ctx volcengine.Context, input *
 	return out, req.Send()
 }
 
-type InnerParametersForModifyTopicParametersInput struct {
-	_ struct{} `type:"structure"`
-
-	LogRetentionHours *int32 `type:"int32"`
-
-	MessageMaxByte *int32 `type:"int32"`
-
-	MinInsyncReplicaNumber *int32 `type:"int32"`
-}
-
-// String returns the string representation
-func (s InnerParametersForModifyTopicParametersInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s InnerParametersForModifyTopicParametersInput) GoString() string {
-	return s.String()
-}
-
-// SetLogRetentionHours sets the LogRetentionHours field's value.
-func (s *InnerParametersForModifyTopicParametersInput) SetLogRetentionHours(v int32) *InnerParametersForModifyTopicParametersInput {
-	s.LogRetentionHours = &v
-	return s
-}
-
-// SetMessageMaxByte sets the MessageMaxByte field's value.
-func (s *InnerParametersForModifyTopicParametersInput) SetMessageMaxByte(v int32) *InnerParametersForModifyTopicParametersInput {
-	s.MessageMaxByte = &v
-	return s
-}
-
-// SetMinInsyncReplicaNumber sets the MinInsyncReplicaNumber field's value.
-func (s *InnerParametersForModifyTopicParametersInput) SetMinInsyncReplicaNumber(v int32) *InnerParametersForModifyTopicParametersInput {
-	s.MinInsyncReplicaNumber = &v
-	return s
-}
-
 type ModifyTopicParametersInput struct {
 	_ struct{} `type:"structure"`
 
-	InnerParameters *InnerParametersForModifyTopicParametersInput `type:"structure"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
-
-	Parameters *string `type:"string"`
+	// Parameters is a required field
+	Parameters *string `type:"string" required:"true"`
 
 	PartitionNumber *int32 `type:"int32"`
 
 	ReplicaNumber *int32 `type:"int32"`
 
-	TopicName *string `type:"string"`
+	// TopicName is a required field
+	TopicName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -207,10 +170,23 @@ func (s ModifyTopicParametersInput) GoString() string {
 	return s.String()
 }
 
-// SetInnerParameters sets the InnerParameters field's value.
-func (s *ModifyTopicParametersInput) SetInnerParameters(v *InnerParametersForModifyTopicParametersInput) *ModifyTopicParametersInput {
-	s.InnerParameters = v
-	return s
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyTopicParametersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyTopicParametersInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.Parameters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Parameters"))
+	}
+	if s.TopicName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TopicName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

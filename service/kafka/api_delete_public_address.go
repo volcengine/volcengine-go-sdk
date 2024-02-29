@@ -22,13 +22,13 @@ const opDeletePublicAddressCommon = "DeletePublicAddress"
 // See DeletePublicAddressCommon for more information on using the DeletePublicAddressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeletePublicAddressCommonRequest method.
-//	req, resp := client.DeletePublicAddressCommonRequest(params)
+//    // Example sending a request using the DeletePublicAddressCommonRequest method.
+//    req, resp := client.DeletePublicAddressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DeletePublicAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeletePublicAddressCommon,
@@ -89,13 +89,13 @@ const opDeletePublicAddress = "DeletePublicAddress"
 // See DeletePublicAddress for more information on using the DeletePublicAddress
 // API call, and error handling.
 //
-//	// Example sending a request using the DeletePublicAddressRequest method.
-//	req, resp := client.DeletePublicAddressRequest(params)
+//    // Example sending a request using the DeletePublicAddressRequest method.
+//    req, resp := client.DeletePublicAddressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *KAFKA) DeletePublicAddressRequest(input *DeletePublicAddressInput) (req *request.Request, output *DeletePublicAddressOutput) {
 	op := &request.Operation{
 		Name:       opDeletePublicAddress,
@@ -146,7 +146,8 @@ func (c *KAFKA) DeletePublicAddressWithContext(ctx volcengine.Context, input *De
 type DeletePublicAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DeletePublicAddressInput) String() string {
 // GoString returns the string representation
 func (s DeletePublicAddressInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeletePublicAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeletePublicAddressInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
