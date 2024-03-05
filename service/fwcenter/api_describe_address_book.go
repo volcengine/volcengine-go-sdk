@@ -143,10 +143,10 @@ func (c *FWCENTER) DescribeAddressBookWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
-type DatumForDescribeAddressBookOutput struct {
+type DataForDescribeAddressBookOutput struct {
 	_ struct{} `type:"structure"`
 
-	AddressList *string `type:"string"`
+	AddressList []*string `type:"list"`
 
 	Description *string `type:"string"`
 
@@ -156,51 +156,51 @@ type DatumForDescribeAddressBookOutput struct {
 
 	GroupUuid *string `type:"string"`
 
-	RefCnt *string `type:"string"`
+	RefCnt *int32 `type:"int32"`
 }
 
 // String returns the string representation
-func (s DatumForDescribeAddressBookOutput) String() string {
+func (s DataForDescribeAddressBookOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DatumForDescribeAddressBookOutput) GoString() string {
+func (s DataForDescribeAddressBookOutput) GoString() string {
 	return s.String()
 }
 
 // SetAddressList sets the AddressList field's value.
-func (s *DatumForDescribeAddressBookOutput) SetAddressList(v string) *DatumForDescribeAddressBookOutput {
-	s.AddressList = &v
+func (s *DataForDescribeAddressBookOutput) SetAddressList(v []*string) *DataForDescribeAddressBookOutput {
+	s.AddressList = v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *DatumForDescribeAddressBookOutput) SetDescription(v string) *DatumForDescribeAddressBookOutput {
+func (s *DataForDescribeAddressBookOutput) SetDescription(v string) *DataForDescribeAddressBookOutput {
 	s.Description = &v
 	return s
 }
 
 // SetGroupName sets the GroupName field's value.
-func (s *DatumForDescribeAddressBookOutput) SetGroupName(v string) *DatumForDescribeAddressBookOutput {
+func (s *DataForDescribeAddressBookOutput) SetGroupName(v string) *DataForDescribeAddressBookOutput {
 	s.GroupName = &v
 	return s
 }
 
 // SetGroupType sets the GroupType field's value.
-func (s *DatumForDescribeAddressBookOutput) SetGroupType(v string) *DatumForDescribeAddressBookOutput {
+func (s *DataForDescribeAddressBookOutput) SetGroupType(v string) *DataForDescribeAddressBookOutput {
 	s.GroupType = &v
 	return s
 }
 
 // SetGroupUuid sets the GroupUuid field's value.
-func (s *DatumForDescribeAddressBookOutput) SetGroupUuid(v string) *DatumForDescribeAddressBookOutput {
+func (s *DataForDescribeAddressBookOutput) SetGroupUuid(v string) *DataForDescribeAddressBookOutput {
 	s.GroupUuid = &v
 	return s
 }
 
 // SetRefCnt sets the RefCnt field's value.
-func (s *DatumForDescribeAddressBookOutput) SetRefCnt(v string) *DatumForDescribeAddressBookOutput {
+func (s *DataForDescribeAddressBookOutput) SetRefCnt(v int32) *DataForDescribeAddressBookOutput {
 	s.RefCnt = &v
 	return s
 }
@@ -258,7 +258,7 @@ type DescribeAddressBookOutput struct {
 
 	Count *int32 `type:"int32"`
 
-	Data []*DatumForDescribeAddressBookOutput `type:"list"`
+	Data []*DataForDescribeAddressBookOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32"`
 
@@ -284,7 +284,7 @@ func (s *DescribeAddressBookOutput) SetCount(v int32) *DescribeAddressBookOutput
 }
 
 // SetData sets the Data field's value.
-func (s *DescribeAddressBookOutput) SetData(v []*DatumForDescribeAddressBookOutput) *DescribeAddressBookOutput {
+func (s *DescribeAddressBookOutput) SetData(v []*DataForDescribeAddressBookOutput) *DescribeAddressBookOutput {
 	s.Data = v
 	return s
 }

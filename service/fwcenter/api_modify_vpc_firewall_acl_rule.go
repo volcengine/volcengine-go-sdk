@@ -158,8 +158,6 @@ type ModifyVpcFirewallAclRuleInput struct {
 	// Destination is a required field
 	Destination *string `type:"string" required:"true"`
 
-	DestinationGroupType *string `type:"string"`
-
 	// DestinationType is a required field
 	DestinationType *string `type:"string" required:"true"`
 
@@ -171,8 +169,6 @@ type ModifyVpcFirewallAclRuleInput struct {
 
 	// Source is a required field
 	Source *string `type:"string" required:"true"`
-
-	SourceGroupType *string `type:"string"`
 
 	// SourceType is a required field
 	SourceType *string `type:"string" required:"true"`
@@ -257,12 +253,6 @@ func (s *ModifyVpcFirewallAclRuleInput) SetDestination(v string) *ModifyVpcFirew
 	return s
 }
 
-// SetDestinationGroupType sets the DestinationGroupType field's value.
-func (s *ModifyVpcFirewallAclRuleInput) SetDestinationGroupType(v string) *ModifyVpcFirewallAclRuleInput {
-	s.DestinationGroupType = &v
-	return s
-}
-
 // SetDestinationType sets the DestinationType field's value.
 func (s *ModifyVpcFirewallAclRuleInput) SetDestinationType(v string) *ModifyVpcFirewallAclRuleInput {
 	s.DestinationType = &v
@@ -284,12 +274,6 @@ func (s *ModifyVpcFirewallAclRuleInput) SetRuleId(v string) *ModifyVpcFirewallAc
 // SetSource sets the Source field's value.
 func (s *ModifyVpcFirewallAclRuleInput) SetSource(v string) *ModifyVpcFirewallAclRuleInput {
 	s.Source = &v
-	return s
-}
-
-// SetSourceGroupType sets the SourceGroupType field's value.
-func (s *ModifyVpcFirewallAclRuleInput) SetSourceGroupType(v string) *ModifyVpcFirewallAclRuleInput {
-	s.SourceGroupType = &v
 	return s
 }
 

@@ -143,16 +143,18 @@ func (c *FWCENTER) DescribeVpcFirewallListWithContext(ctx volcengine.Context, in
 	return out, req.Send()
 }
 
-type DatumForDescribeVpcFirewallListOutput struct {
+type DataForDescribeVpcFirewallListOutput struct {
 	_ struct{} `type:"structure"`
-
-	AttachmentCount *int32 `type:"int32"`
 
 	ErrMessage *string `type:"string"`
 
 	FirewallStatus *string `type:"string"`
 
+	PeakTrafficWithin7Day *int32 `type:"int32"`
+
 	Region *string `type:"string"`
+
+	RouteMode *string `type:"string"`
 
 	RoutePolicyStatus *string `type:"string"`
 
@@ -168,71 +170,77 @@ type DatumForDescribeVpcFirewallListOutput struct {
 }
 
 // String returns the string representation
-func (s DatumForDescribeVpcFirewallListOutput) String() string {
+func (s DataForDescribeVpcFirewallListOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DatumForDescribeVpcFirewallListOutput) GoString() string {
+func (s DataForDescribeVpcFirewallListOutput) GoString() string {
 	return s.String()
 }
 
-// SetAttachmentCount sets the AttachmentCount field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetAttachmentCount(v int32) *DatumForDescribeVpcFirewallListOutput {
-	s.AttachmentCount = &v
-	return s
-}
-
 // SetErrMessage sets the ErrMessage field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetErrMessage(v string) *DatumForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetErrMessage(v string) *DataForDescribeVpcFirewallListOutput {
 	s.ErrMessage = &v
 	return s
 }
 
 // SetFirewallStatus sets the FirewallStatus field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetFirewallStatus(v string) *DatumForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetFirewallStatus(v string) *DataForDescribeVpcFirewallListOutput {
 	s.FirewallStatus = &v
 	return s
 }
 
+// SetPeakTrafficWithin7Day sets the PeakTrafficWithin7Day field's value.
+func (s *DataForDescribeVpcFirewallListOutput) SetPeakTrafficWithin7Day(v int32) *DataForDescribeVpcFirewallListOutput {
+	s.PeakTrafficWithin7Day = &v
+	return s
+}
+
 // SetRegion sets the Region field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetRegion(v string) *DatumForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetRegion(v string) *DataForDescribeVpcFirewallListOutput {
 	s.Region = &v
 	return s
 }
 
+// SetRouteMode sets the RouteMode field's value.
+func (s *DataForDescribeVpcFirewallListOutput) SetRouteMode(v string) *DataForDescribeVpcFirewallListOutput {
+	s.RouteMode = &v
+	return s
+}
+
 // SetRoutePolicyStatus sets the RoutePolicyStatus field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetRoutePolicyStatus(v string) *DatumForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetRoutePolicyStatus(v string) *DataForDescribeVpcFirewallListOutput {
 	s.RoutePolicyStatus = &v
 	return s
 }
 
 // SetTransitRouterDescription sets the TransitRouterDescription field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetTransitRouterDescription(v string) *DatumForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetTransitRouterDescription(v string) *DataForDescribeVpcFirewallListOutput {
 	s.TransitRouterDescription = &v
 	return s
 }
 
 // SetTransitRouterId sets the TransitRouterId field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetTransitRouterId(v string) *DatumForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetTransitRouterId(v string) *DataForDescribeVpcFirewallListOutput {
 	s.TransitRouterId = &v
 	return s
 }
 
 // SetTransitRouterName sets the TransitRouterName field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetTransitRouterName(v string) *DatumForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetTransitRouterName(v string) *DataForDescribeVpcFirewallListOutput {
 	s.TransitRouterName = &v
 	return s
 }
 
 // SetVpcFirewallId sets the VpcFirewallId field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetVpcFirewallId(v string) *DatumForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetVpcFirewallId(v string) *DataForDescribeVpcFirewallListOutput {
 	s.VpcFirewallId = &v
 	return s
 }
 
 // SetVpcFirewallName sets the VpcFirewallName field's value.
-func (s *DatumForDescribeVpcFirewallListOutput) SetVpcFirewallName(v string) *DatumForDescribeVpcFirewallListOutput {
+func (s *DataForDescribeVpcFirewallListOutput) SetVpcFirewallName(v string) *DataForDescribeVpcFirewallListOutput {
 	s.VpcFirewallName = &v
 	return s
 }
@@ -247,6 +255,8 @@ type DescribeVpcFirewallListInput struct {
 	PageSize *int32 `type:"int32"`
 
 	RegionCode []*string `type:"list"`
+
+	RouteMode []*string `type:"list"`
 
 	RoutePolicyStatus []*string `type:"list"`
 
@@ -293,6 +303,12 @@ func (s *DescribeVpcFirewallListInput) SetRegionCode(v []*string) *DescribeVpcFi
 	return s
 }
 
+// SetRouteMode sets the RouteMode field's value.
+func (s *DescribeVpcFirewallListInput) SetRouteMode(v []*string) *DescribeVpcFirewallListInput {
+	s.RouteMode = v
+	return s
+}
+
 // SetRoutePolicyStatus sets the RoutePolicyStatus field's value.
 func (s *DescribeVpcFirewallListInput) SetRoutePolicyStatus(v []*string) *DescribeVpcFirewallListInput {
 	s.RoutePolicyStatus = v
@@ -330,7 +346,7 @@ type DescribeVpcFirewallListOutput struct {
 
 	Count *int32 `type:"int32"`
 
-	Data []*DatumForDescribeVpcFirewallListOutput `type:"list"`
+	Data []*DataForDescribeVpcFirewallListOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32"`
 
@@ -356,7 +372,7 @@ func (s *DescribeVpcFirewallListOutput) SetCount(v int32) *DescribeVpcFirewallLi
 }
 
 // SetData sets the Data field's value.
-func (s *DescribeVpcFirewallListOutput) SetData(v []*DatumForDescribeVpcFirewallListOutput) *DescribeVpcFirewallListOutput {
+func (s *DescribeVpcFirewallListOutput) SetData(v []*DataForDescribeVpcFirewallListOutput) *DescribeVpcFirewallListOutput {
 	s.Data = v
 	return s
 }

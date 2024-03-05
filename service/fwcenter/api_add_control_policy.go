@@ -158,8 +158,6 @@ type AddControlPolicyInput struct {
 	// Destination is a required field
 	Destination *string `type:"string" required:"true"`
 
-	DestinationGroupType *string `type:"string"`
-
 	// DestinationType is a required field
 	DestinationType *string `type:"string" required:"true"`
 
@@ -173,8 +171,6 @@ type AddControlPolicyInput struct {
 
 	// Source is a required field
 	Source *string `type:"string" required:"true"`
-
-	SourceGroupType *string `type:"string"`
 
 	// SourceType is a required field
 	SourceType *string `type:"string" required:"true"`
@@ -253,12 +249,6 @@ func (s *AddControlPolicyInput) SetDestination(v string) *AddControlPolicyInput 
 	return s
 }
 
-// SetDestinationGroupType sets the DestinationGroupType field's value.
-func (s *AddControlPolicyInput) SetDestinationGroupType(v string) *AddControlPolicyInput {
-	s.DestinationGroupType = &v
-	return s
-}
-
 // SetDestinationType sets the DestinationType field's value.
 func (s *AddControlPolicyInput) SetDestinationType(v string) *AddControlPolicyInput {
 	s.DestinationType = &v
@@ -286,12 +276,6 @@ func (s *AddControlPolicyInput) SetProto(v string) *AddControlPolicyInput {
 // SetSource sets the Source field's value.
 func (s *AddControlPolicyInput) SetSource(v string) *AddControlPolicyInput {
 	s.Source = &v
-	return s
-}
-
-// SetSourceGroupType sets the SourceGroupType field's value.
-func (s *AddControlPolicyInput) SetSourceGroupType(v string) *AddControlPolicyInput {
-	s.SourceGroupType = &v
 	return s
 }
 
