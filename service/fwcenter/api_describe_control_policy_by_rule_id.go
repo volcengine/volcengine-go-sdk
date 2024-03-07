@@ -22,13 +22,13 @@ const opDescribeControlPolicyByRuleIdCommon = "DescribeControlPolicyByRuleId"
 // See DescribeControlPolicyByRuleIdCommon for more information on using the DescribeControlPolicyByRuleIdCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeControlPolicyByRuleIdCommonRequest method.
-//    req, resp := client.DescribeControlPolicyByRuleIdCommonRequest(params)
+//	// Example sending a request using the DescribeControlPolicyByRuleIdCommonRequest method.
+//	req, resp := client.DescribeControlPolicyByRuleIdCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) DescribeControlPolicyByRuleIdCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeControlPolicyByRuleIdCommon,
@@ -89,13 +89,13 @@ const opDescribeControlPolicyByRuleId = "DescribeControlPolicyByRuleId"
 // See DescribeControlPolicyByRuleId for more information on using the DescribeControlPolicyByRuleId
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeControlPolicyByRuleIdRequest method.
-//    req, resp := client.DescribeControlPolicyByRuleIdRequest(params)
+//	// Example sending a request using the DescribeControlPolicyByRuleIdRequest method.
+//	req, resp := client.DescribeControlPolicyByRuleIdRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) DescribeControlPolicyByRuleIdRequest(input *DescribeControlPolicyByRuleIdInput) (req *request.Request, output *DescribeControlPolicyByRuleIdOutput) {
 	op := &request.Operation{
 		Name:       opDescribeControlPolicyByRuleId,
@@ -143,7 +143,7 @@ func (c *FWCENTER) DescribeControlPolicyByRuleIdWithContext(ctx volcengine.Conte
 	return out, req.Send()
 }
 
-type DatumForDescribeControlPolicyByRuleIdOutput struct {
+type DataForDescribeControlPolicyByRuleIdOutput struct {
 	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
@@ -156,13 +156,13 @@ type DatumForDescribeControlPolicyByRuleIdOutput struct {
 
 	DestPortGroupType *string `type:"string"`
 
-	DestPortList *string `type:"string"`
+	DestPortList []*string `type:"list"`
 
 	DestPortType *string `type:"string"`
 
 	Destination *string `type:"string"`
 
-	DestinationCidrList *string `type:"string"`
+	DestinationCidrList []*string `type:"list"`
 
 	DestinationGroupType *string `type:"string"`
 
@@ -170,7 +170,7 @@ type DatumForDescribeControlPolicyByRuleIdOutput struct {
 
 	Direction *string `type:"string"`
 
-	HitCnt *string `type:"string"`
+	HitCnt *int32 `type:"int32"`
 
 	Prio *int32 `type:"int32"`
 
@@ -180,148 +180,156 @@ type DatumForDescribeControlPolicyByRuleIdOutput struct {
 
 	Source *string `type:"string"`
 
-	SourceCidrList *string `type:"string"`
+	SourceCidrList []*string `type:"list"`
 
 	SourceGroupType *string `type:"string"`
 
 	SourceType *string `type:"string"`
 
-	Status *string `type:"string"`
+	Status *bool `type:"boolean"`
+
+	UseCount *int32 `type:"int32"`
 }
 
 // String returns the string representation
-func (s DatumForDescribeControlPolicyByRuleIdOutput) String() string {
+func (s DataForDescribeControlPolicyByRuleIdOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DatumForDescribeControlPolicyByRuleIdOutput) GoString() string {
+func (s DataForDescribeControlPolicyByRuleIdOutput) GoString() string {
 	return s.String()
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetAccountId(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetAccountId(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.AccountId = &v
 	return s
 }
 
 // SetAction sets the Action field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetAction(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetAction(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.Action = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDescription(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDescription(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.Description = &v
 	return s
 }
 
 // SetDestPort sets the DestPort field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDestPort(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestPort(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.DestPort = &v
 	return s
 }
 
 // SetDestPortGroupType sets the DestPortGroupType field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDestPortGroupType(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestPortGroupType(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.DestPortGroupType = &v
 	return s
 }
 
 // SetDestPortList sets the DestPortList field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDestPortList(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
-	s.DestPortList = &v
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestPortList(v []*string) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.DestPortList = v
 	return s
 }
 
 // SetDestPortType sets the DestPortType field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDestPortType(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestPortType(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.DestPortType = &v
 	return s
 }
 
 // SetDestination sets the Destination field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDestination(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestination(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.Destination = &v
 	return s
 }
 
 // SetDestinationCidrList sets the DestinationCidrList field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDestinationCidrList(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
-	s.DestinationCidrList = &v
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestinationCidrList(v []*string) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.DestinationCidrList = v
 	return s
 }
 
 // SetDestinationGroupType sets the DestinationGroupType field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDestinationGroupType(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestinationGroupType(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.DestinationGroupType = &v
 	return s
 }
 
 // SetDestinationType sets the DestinationType field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDestinationType(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDestinationType(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.DestinationType = &v
 	return s
 }
 
 // SetDirection sets the Direction field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetDirection(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetDirection(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.Direction = &v
 	return s
 }
 
 // SetHitCnt sets the HitCnt field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetHitCnt(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetHitCnt(v int32) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.HitCnt = &v
 	return s
 }
 
 // SetPrio sets the Prio field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetPrio(v int32) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetPrio(v int32) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.Prio = &v
 	return s
 }
 
 // SetProto sets the Proto field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetProto(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetProto(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.Proto = &v
 	return s
 }
 
 // SetRuleId sets the RuleId field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetRuleId(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetRuleId(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.RuleId = &v
 	return s
 }
 
 // SetSource sets the Source field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetSource(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetSource(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.Source = &v
 	return s
 }
 
 // SetSourceCidrList sets the SourceCidrList field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetSourceCidrList(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
-	s.SourceCidrList = &v
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetSourceCidrList(v []*string) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.SourceCidrList = v
 	return s
 }
 
 // SetSourceGroupType sets the SourceGroupType field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetSourceGroupType(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetSourceGroupType(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.SourceGroupType = &v
 	return s
 }
 
 // SetSourceType sets the SourceType field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetSourceType(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetSourceType(v string) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.SourceType = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *DatumForDescribeControlPolicyByRuleIdOutput) SetStatus(v string) *DatumForDescribeControlPolicyByRuleIdOutput {
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetStatus(v bool) *DataForDescribeControlPolicyByRuleIdOutput {
 	s.Status = &v
+	return s
+}
+
+// SetUseCount sets the UseCount field's value.
+func (s *DataForDescribeControlPolicyByRuleIdOutput) SetUseCount(v int32) *DataForDescribeControlPolicyByRuleIdOutput {
+	s.UseCount = &v
 	return s
 }
 
@@ -374,7 +382,7 @@ type DescribeControlPolicyByRuleIdOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DatumForDescribeControlPolicyByRuleIdOutput `type:"list"`
+	Data []*DataForDescribeControlPolicyByRuleIdOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -388,7 +396,7 @@ func (s DescribeControlPolicyByRuleIdOutput) GoString() string {
 }
 
 // SetData sets the Data field's value.
-func (s *DescribeControlPolicyByRuleIdOutput) SetData(v []*DatumForDescribeControlPolicyByRuleIdOutput) *DescribeControlPolicyByRuleIdOutput {
+func (s *DescribeControlPolicyByRuleIdOutput) SetData(v []*DataForDescribeControlPolicyByRuleIdOutput) *DescribeControlPolicyByRuleIdOutput {
 	s.Data = v
 	return s
 }

@@ -22,13 +22,13 @@ const opAddControlPolicyCommon = "AddControlPolicy"
 // See AddControlPolicyCommon for more information on using the AddControlPolicyCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AddControlPolicyCommonRequest method.
-//    req, resp := client.AddControlPolicyCommonRequest(params)
+//	// Example sending a request using the AddControlPolicyCommonRequest method.
+//	req, resp := client.AddControlPolicyCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) AddControlPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAddControlPolicyCommon,
@@ -89,13 +89,13 @@ const opAddControlPolicy = "AddControlPolicy"
 // See AddControlPolicy for more information on using the AddControlPolicy
 // API call, and error handling.
 //
-//    // Example sending a request using the AddControlPolicyRequest method.
-//    req, resp := client.AddControlPolicyRequest(params)
+//	// Example sending a request using the AddControlPolicyRequest method.
+//	req, resp := client.AddControlPolicyRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) AddControlPolicyRequest(input *AddControlPolicyInput) (req *request.Request, output *AddControlPolicyOutput) {
 	op := &request.Operation{
 		Name:       opAddControlPolicy,
@@ -158,8 +158,6 @@ type AddControlPolicyInput struct {
 	// Destination is a required field
 	Destination *string `type:"string" required:"true"`
 
-	DestinationGroupType *string `type:"string"`
-
 	// DestinationType is a required field
 	DestinationType *string `type:"string" required:"true"`
 
@@ -173,8 +171,6 @@ type AddControlPolicyInput struct {
 
 	// Source is a required field
 	Source *string `type:"string" required:"true"`
-
-	SourceGroupType *string `type:"string"`
 
 	// SourceType is a required field
 	SourceType *string `type:"string" required:"true"`
@@ -253,12 +249,6 @@ func (s *AddControlPolicyInput) SetDestination(v string) *AddControlPolicyInput 
 	return s
 }
 
-// SetDestinationGroupType sets the DestinationGroupType field's value.
-func (s *AddControlPolicyInput) SetDestinationGroupType(v string) *AddControlPolicyInput {
-	s.DestinationGroupType = &v
-	return s
-}
-
 // SetDestinationType sets the DestinationType field's value.
 func (s *AddControlPolicyInput) SetDestinationType(v string) *AddControlPolicyInput {
 	s.DestinationType = &v
@@ -286,12 +276,6 @@ func (s *AddControlPolicyInput) SetProto(v string) *AddControlPolicyInput {
 // SetSource sets the Source field's value.
 func (s *AddControlPolicyInput) SetSource(v string) *AddControlPolicyInput {
 	s.Source = &v
-	return s
-}
-
-// SetSourceGroupType sets the SourceGroupType field's value.
-func (s *AddControlPolicyInput) SetSourceGroupType(v string) *AddControlPolicyInput {
-	s.SourceGroupType = &v
 	return s
 }
 

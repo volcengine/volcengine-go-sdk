@@ -22,13 +22,13 @@ const opDescribeVpcFirewallAclRuleListCommon = "DescribeVpcFirewallAclRuleList"
 // See DescribeVpcFirewallAclRuleListCommon for more information on using the DescribeVpcFirewallAclRuleListCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpcFirewallAclRuleListCommonRequest method.
-//    req, resp := client.DescribeVpcFirewallAclRuleListCommonRequest(params)
+//	// Example sending a request using the DescribeVpcFirewallAclRuleListCommonRequest method.
+//	req, resp := client.DescribeVpcFirewallAclRuleListCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) DescribeVpcFirewallAclRuleListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcFirewallAclRuleListCommon,
@@ -89,13 +89,13 @@ const opDescribeVpcFirewallAclRuleList = "DescribeVpcFirewallAclRuleList"
 // See DescribeVpcFirewallAclRuleList for more information on using the DescribeVpcFirewallAclRuleList
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeVpcFirewallAclRuleListRequest method.
-//    req, resp := client.DescribeVpcFirewallAclRuleListRequest(params)
+//	// Example sending a request using the DescribeVpcFirewallAclRuleListRequest method.
+//	req, resp := client.DescribeVpcFirewallAclRuleListRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) DescribeVpcFirewallAclRuleListRequest(input *DescribeVpcFirewallAclRuleListInput) (req *request.Request, output *DescribeVpcFirewallAclRuleListOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpcFirewallAclRuleList,
@@ -143,7 +143,7 @@ func (c *FWCENTER) DescribeVpcFirewallAclRuleListWithContext(ctx volcengine.Cont
 	return out, req.Send()
 }
 
-type DatumForDescribeVpcFirewallAclRuleListOutput struct {
+type DataForDescribeVpcFirewallAclRuleListOutput struct {
 	_ struct{} `type:"structure"`
 
 	AccountId *string `type:"string"`
@@ -156,21 +156,21 @@ type DatumForDescribeVpcFirewallAclRuleListOutput struct {
 
 	DestPortGroupType *string `type:"string"`
 
-	DestPortList *string `type:"string"`
+	DestPortList []*string `type:"list"`
 
 	DestPortType *string `type:"string"`
 
 	Destination *string `type:"string"`
 
-	DestinationCidrList *string `type:"string"`
+	DestinationCidrList []*string `type:"list"`
 
 	DestinationGroupType *string `type:"string"`
 
 	DestinationType *string `type:"string"`
 
-	HitCnt *string `type:"string"`
+	HitCnt *int32 `type:"int32"`
 
-	Prio *string `type:"string"`
+	Prio *int32 `type:"int32"`
 
 	Proto *string `type:"string"`
 
@@ -178,15 +178,15 @@ type DatumForDescribeVpcFirewallAclRuleListOutput struct {
 
 	Source *string `type:"string"`
 
-	SourceCidrList *string `type:"string"`
+	SourceCidrList []*string `type:"list"`
 
 	SourceGroupType *string `type:"string"`
 
 	SourceType *string `type:"string"`
 
-	Status *string `type:"string"`
+	Status *bool `type:"boolean"`
 
-	UseCount *string `type:"string"`
+	UseCount *int32 `type:"int32"`
 
 	VpcFirewallId *string `type:"string"`
 
@@ -194,149 +194,149 @@ type DatumForDescribeVpcFirewallAclRuleListOutput struct {
 }
 
 // String returns the string representation
-func (s DatumForDescribeVpcFirewallAclRuleListOutput) String() string {
+func (s DataForDescribeVpcFirewallAclRuleListOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DatumForDescribeVpcFirewallAclRuleListOutput) GoString() string {
+func (s DataForDescribeVpcFirewallAclRuleListOutput) GoString() string {
 	return s.String()
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetAccountId(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetAccountId(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.AccountId = &v
 	return s
 }
 
 // SetAction sets the Action field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetAction(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetAction(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Action = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetDescription(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDescription(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Description = &v
 	return s
 }
 
 // SetDestPort sets the DestPort field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetDestPort(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestPort(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.DestPort = &v
 	return s
 }
 
 // SetDestPortGroupType sets the DestPortGroupType field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetDestPortGroupType(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestPortGroupType(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.DestPortGroupType = &v
 	return s
 }
 
 // SetDestPortList sets the DestPortList field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetDestPortList(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
-	s.DestPortList = &v
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestPortList(v []*string) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.DestPortList = v
 	return s
 }
 
 // SetDestPortType sets the DestPortType field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetDestPortType(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestPortType(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.DestPortType = &v
 	return s
 }
 
 // SetDestination sets the Destination field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetDestination(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestination(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Destination = &v
 	return s
 }
 
 // SetDestinationCidrList sets the DestinationCidrList field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetDestinationCidrList(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
-	s.DestinationCidrList = &v
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestinationCidrList(v []*string) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.DestinationCidrList = v
 	return s
 }
 
 // SetDestinationGroupType sets the DestinationGroupType field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetDestinationGroupType(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestinationGroupType(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.DestinationGroupType = &v
 	return s
 }
 
 // SetDestinationType sets the DestinationType field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetDestinationType(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetDestinationType(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.DestinationType = &v
 	return s
 }
 
 // SetHitCnt sets the HitCnt field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetHitCnt(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetHitCnt(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.HitCnt = &v
 	return s
 }
 
 // SetPrio sets the Prio field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetPrio(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetPrio(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Prio = &v
 	return s
 }
 
 // SetProto sets the Proto field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetProto(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetProto(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Proto = &v
 	return s
 }
 
 // SetRuleId sets the RuleId field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetRuleId(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetRuleId(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.RuleId = &v
 	return s
 }
 
 // SetSource sets the Source field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetSource(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetSource(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Source = &v
 	return s
 }
 
 // SetSourceCidrList sets the SourceCidrList field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetSourceCidrList(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
-	s.SourceCidrList = &v
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetSourceCidrList(v []*string) *DataForDescribeVpcFirewallAclRuleListOutput {
+	s.SourceCidrList = v
 	return s
 }
 
 // SetSourceGroupType sets the SourceGroupType field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetSourceGroupType(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetSourceGroupType(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.SourceGroupType = &v
 	return s
 }
 
 // SetSourceType sets the SourceType field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetSourceType(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetSourceType(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.SourceType = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetStatus(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetStatus(v bool) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.Status = &v
 	return s
 }
 
 // SetUseCount sets the UseCount field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetUseCount(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetUseCount(v int32) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.UseCount = &v
 	return s
 }
 
 // SetVpcFirewallId sets the VpcFirewallId field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetVpcFirewallId(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetVpcFirewallId(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.VpcFirewallId = &v
 	return s
 }
 
 // SetVpcFirewallName sets the VpcFirewallName field's value.
-func (s *DatumForDescribeVpcFirewallAclRuleListOutput) SetVpcFirewallName(v string) *DatumForDescribeVpcFirewallAclRuleListOutput {
+func (s *DataForDescribeVpcFirewallAclRuleListOutput) SetVpcFirewallName(v string) *DataForDescribeVpcFirewallAclRuleListOutput {
 	s.VpcFirewallName = &v
 	return s
 }
@@ -346,6 +346,8 @@ type DescribeVpcFirewallAclRuleListInput struct {
 
 	Action []*string `type:"list"`
 
+	Description *string `type:"string"`
+
 	Destination *string `type:"string"`
 
 	PageNumber *int32 `type:"int32"`
@@ -353,6 +355,8 @@ type DescribeVpcFirewallAclRuleListInput struct {
 	PageSize *int32 `type:"int32"`
 
 	Proto []*string `type:"list"`
+
+	RuleId *string `type:"string"`
 
 	Source *string `type:"string"`
 
@@ -391,6 +395,12 @@ func (s *DescribeVpcFirewallAclRuleListInput) SetAction(v []*string) *DescribeVp
 	return s
 }
 
+// SetDescription sets the Description field's value.
+func (s *DescribeVpcFirewallAclRuleListInput) SetDescription(v string) *DescribeVpcFirewallAclRuleListInput {
+	s.Description = &v
+	return s
+}
+
 // SetDestination sets the Destination field's value.
 func (s *DescribeVpcFirewallAclRuleListInput) SetDestination(v string) *DescribeVpcFirewallAclRuleListInput {
 	s.Destination = &v
@@ -412,6 +422,12 @@ func (s *DescribeVpcFirewallAclRuleListInput) SetPageSize(v int32) *DescribeVpcF
 // SetProto sets the Proto field's value.
 func (s *DescribeVpcFirewallAclRuleListInput) SetProto(v []*string) *DescribeVpcFirewallAclRuleListInput {
 	s.Proto = v
+	return s
+}
+
+// SetRuleId sets the RuleId field's value.
+func (s *DescribeVpcFirewallAclRuleListInput) SetRuleId(v string) *DescribeVpcFirewallAclRuleListInput {
+	s.RuleId = &v
 	return s
 }
 
@@ -440,7 +456,7 @@ type DescribeVpcFirewallAclRuleListOutput struct {
 
 	Count *int32 `type:"int32"`
 
-	Data []*DatumForDescribeVpcFirewallAclRuleListOutput `type:"list"`
+	Data []*DataForDescribeVpcFirewallAclRuleListOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32"`
 
@@ -466,7 +482,7 @@ func (s *DescribeVpcFirewallAclRuleListOutput) SetCount(v int32) *DescribeVpcFir
 }
 
 // SetData sets the Data field's value.
-func (s *DescribeVpcFirewallAclRuleListOutput) SetData(v []*DatumForDescribeVpcFirewallAclRuleListOutput) *DescribeVpcFirewallAclRuleListOutput {
+func (s *DescribeVpcFirewallAclRuleListOutput) SetData(v []*DataForDescribeVpcFirewallAclRuleListOutput) *DescribeVpcFirewallAclRuleListOutput {
 	s.Data = v
 	return s
 }
