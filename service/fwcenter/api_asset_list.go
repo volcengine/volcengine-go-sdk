@@ -22,13 +22,13 @@ const opAssetListCommon = "AssetList"
 // See AssetListCommon for more information on using the AssetListCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the AssetListCommonRequest method.
-//    req, resp := client.AssetListCommonRequest(params)
+//	// Example sending a request using the AssetListCommonRequest method.
+//	req, resp := client.AssetListCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) AssetListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssetListCommon,
@@ -89,13 +89,13 @@ const opAssetList = "AssetList"
 // See AssetList for more information on using the AssetList
 // API call, and error handling.
 //
-//    // Example sending a request using the AssetListRequest method.
-//    req, resp := client.AssetListRequest(params)
+//	// Example sending a request using the AssetListRequest method.
+//	req, resp := client.AssetListRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) AssetListRequest(input *AssetListInput) (req *request.Request, output *AssetListOutput) {
 	op := &request.Operation{
 		Name:       opAssetList,
@@ -218,7 +218,7 @@ type AssetListOutput struct {
 
 	Count *int32 `type:"int32"`
 
-	Data []*DatumForAssetListOutput `type:"list"`
+	Data []*DataForAssetListOutput `type:"list"`
 
 	PageNumber *int32 `type:"int32"`
 
@@ -244,7 +244,7 @@ func (s *AssetListOutput) SetCount(v int32) *AssetListOutput {
 }
 
 // SetData sets the Data field's value.
-func (s *AssetListOutput) SetData(v []*DatumForAssetListOutput) *AssetListOutput {
+func (s *AssetListOutput) SetData(v []*DataForAssetListOutput) *AssetListOutput {
 	s.Data = v
 	return s
 }
@@ -267,7 +267,7 @@ func (s *AssetListOutput) SetTotalCount(v int32) *AssetListOutput {
 	return s
 }
 
-type DatumForAssetListOutput struct {
+type DataForAssetListOutput struct {
 	_ struct{} `type:"structure"`
 
 	Account_id *string `type:"string" json:"account_id"`
@@ -290,65 +290,65 @@ type DatumForAssetListOutput struct {
 }
 
 // String returns the string representation
-func (s DatumForAssetListOutput) String() string {
+func (s DataForAssetListOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DatumForAssetListOutput) GoString() string {
+func (s DataForAssetListOutput) GoString() string {
 	return s.String()
 }
 
 // SetAccount_id sets the Account_id field's value.
-func (s *DatumForAssetListOutput) SetAccount_id(v string) *DatumForAssetListOutput {
+func (s *DataForAssetListOutput) SetAccount_id(v string) *DataForAssetListOutput {
 	s.Account_id = &v
 	return s
 }
 
 // SetCluster sets the Cluster field's value.
-func (s *DatumForAssetListOutput) SetCluster(v int32) *DatumForAssetListOutput {
+func (s *DataForAssetListOutput) SetCluster(v int32) *DataForAssetListOutput {
 	s.Cluster = &v
 	return s
 }
 
 // SetEnable sets the Enable field's value.
-func (s *DatumForAssetListOutput) SetEnable(v bool) *DatumForAssetListOutput {
+func (s *DataForAssetListOutput) SetEnable(v bool) *DataForAssetListOutput {
 	s.Enable = &v
 	return s
 }
 
 // SetId sets the Id field's value.
-func (s *DatumForAssetListOutput) SetId(v int32) *DatumForAssetListOutput {
+func (s *DataForAssetListOutput) SetId(v int32) *DataForAssetListOutput {
 	s.Id = &v
 	return s
 }
 
 // SetIp sets the Ip field's value.
-func (s *DatumForAssetListOutput) SetIp(v string) *DatumForAssetListOutput {
+func (s *DataForAssetListOutput) SetIp(v string) *DataForAssetListOutput {
 	s.Ip = &v
 	return s
 }
 
 // SetName sets the Name field's value.
-func (s *DatumForAssetListOutput) SetName(v string) *DatumForAssetListOutput {
+func (s *DataForAssetListOutput) SetName(v string) *DataForAssetListOutput {
 	s.Name = &v
 	return s
 }
 
 // SetRegion sets the Region field's value.
-func (s *DatumForAssetListOutput) SetRegion(v string) *DatumForAssetListOutput {
+func (s *DataForAssetListOutput) SetRegion(v string) *DataForAssetListOutput {
 	s.Region = &v
 	return s
 }
 
 // SetType sets the Type field's value.
-func (s *DatumForAssetListOutput) SetType(v string) *DatumForAssetListOutput {
+func (s *DataForAssetListOutput) SetType(v string) *DataForAssetListOutput {
 	s.Type = &v
 	return s
 }
 
 // SetUpdatetime sets the Updatetime field's value.
-func (s *DatumForAssetListOutput) SetUpdatetime(v int32) *DatumForAssetListOutput {
+func (s *DataForAssetListOutput) SetUpdatetime(v int32) *DataForAssetListOutput {
 	s.Updatetime = &v
 	return s
 }

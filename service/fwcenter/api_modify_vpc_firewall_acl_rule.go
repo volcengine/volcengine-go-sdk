@@ -22,13 +22,13 @@ const opModifyVpcFirewallAclRuleCommon = "ModifyVpcFirewallAclRule"
 // See ModifyVpcFirewallAclRuleCommon for more information on using the ModifyVpcFirewallAclRuleCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyVpcFirewallAclRuleCommonRequest method.
-//    req, resp := client.ModifyVpcFirewallAclRuleCommonRequest(params)
+//	// Example sending a request using the ModifyVpcFirewallAclRuleCommonRequest method.
+//	req, resp := client.ModifyVpcFirewallAclRuleCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) ModifyVpcFirewallAclRuleCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVpcFirewallAclRuleCommon,
@@ -89,13 +89,13 @@ const opModifyVpcFirewallAclRule = "ModifyVpcFirewallAclRule"
 // See ModifyVpcFirewallAclRule for more information on using the ModifyVpcFirewallAclRule
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyVpcFirewallAclRuleRequest method.
-//    req, resp := client.ModifyVpcFirewallAclRuleRequest(params)
+//	// Example sending a request using the ModifyVpcFirewallAclRuleRequest method.
+//	req, resp := client.ModifyVpcFirewallAclRuleRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) ModifyVpcFirewallAclRuleRequest(input *ModifyVpcFirewallAclRuleInput) (req *request.Request, output *ModifyVpcFirewallAclRuleOutput) {
 	op := &request.Operation{
 		Name:       opModifyVpcFirewallAclRule,
@@ -158,8 +158,6 @@ type ModifyVpcFirewallAclRuleInput struct {
 	// Destination is a required field
 	Destination *string `type:"string" required:"true"`
 
-	DestinationGroupType *string `type:"string"`
-
 	// DestinationType is a required field
 	DestinationType *string `type:"string" required:"true"`
 
@@ -171,8 +169,6 @@ type ModifyVpcFirewallAclRuleInput struct {
 
 	// Source is a required field
 	Source *string `type:"string" required:"true"`
-
-	SourceGroupType *string `type:"string"`
 
 	// SourceType is a required field
 	SourceType *string `type:"string" required:"true"`
@@ -257,12 +253,6 @@ func (s *ModifyVpcFirewallAclRuleInput) SetDestination(v string) *ModifyVpcFirew
 	return s
 }
 
-// SetDestinationGroupType sets the DestinationGroupType field's value.
-func (s *ModifyVpcFirewallAclRuleInput) SetDestinationGroupType(v string) *ModifyVpcFirewallAclRuleInput {
-	s.DestinationGroupType = &v
-	return s
-}
-
 // SetDestinationType sets the DestinationType field's value.
 func (s *ModifyVpcFirewallAclRuleInput) SetDestinationType(v string) *ModifyVpcFirewallAclRuleInput {
 	s.DestinationType = &v
@@ -284,12 +274,6 @@ func (s *ModifyVpcFirewallAclRuleInput) SetRuleId(v string) *ModifyVpcFirewallAc
 // SetSource sets the Source field's value.
 func (s *ModifyVpcFirewallAclRuleInput) SetSource(v string) *ModifyVpcFirewallAclRuleInput {
 	s.Source = &v
-	return s
-}
-
-// SetSourceGroupType sets the SourceGroupType field's value.
-func (s *ModifyVpcFirewallAclRuleInput) SetSourceGroupType(v string) *ModifyVpcFirewallAclRuleInput {
-	s.SourceGroupType = &v
 	return s
 }
 

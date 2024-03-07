@@ -22,13 +22,13 @@ const opModifyControlPolicyCommon = "ModifyControlPolicy"
 // See ModifyControlPolicyCommon for more information on using the ModifyControlPolicyCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyControlPolicyCommonRequest method.
-//    req, resp := client.ModifyControlPolicyCommonRequest(params)
+//	// Example sending a request using the ModifyControlPolicyCommonRequest method.
+//	req, resp := client.ModifyControlPolicyCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) ModifyControlPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyControlPolicyCommon,
@@ -89,13 +89,13 @@ const opModifyControlPolicy = "ModifyControlPolicy"
 // See ModifyControlPolicy for more information on using the ModifyControlPolicy
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyControlPolicyRequest method.
-//    req, resp := client.ModifyControlPolicyRequest(params)
+//	// Example sending a request using the ModifyControlPolicyRequest method.
+//	req, resp := client.ModifyControlPolicyRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *FWCENTER) ModifyControlPolicyRequest(input *ModifyControlPolicyInput) (req *request.Request, output *ModifyControlPolicyOutput) {
 	op := &request.Operation{
 		Name:       opModifyControlPolicy,
@@ -158,8 +158,6 @@ type ModifyControlPolicyInput struct {
 	// Destination is a required field
 	Destination *string `type:"string" required:"true"`
 
-	DestinationGroupType *string `type:"string"`
-
 	// DestinationType is a required field
 	DestinationType *string `type:"string" required:"true"`
 
@@ -174,8 +172,6 @@ type ModifyControlPolicyInput struct {
 
 	// Source is a required field
 	Source *string `type:"string" required:"true"`
-
-	SourceGroupType *string `type:"string"`
 
 	// SourceType is a required field
 	SourceType *string `type:"string" required:"true"`
@@ -257,12 +253,6 @@ func (s *ModifyControlPolicyInput) SetDestination(v string) *ModifyControlPolicy
 	return s
 }
 
-// SetDestinationGroupType sets the DestinationGroupType field's value.
-func (s *ModifyControlPolicyInput) SetDestinationGroupType(v string) *ModifyControlPolicyInput {
-	s.DestinationGroupType = &v
-	return s
-}
-
 // SetDestinationType sets the DestinationType field's value.
 func (s *ModifyControlPolicyInput) SetDestinationType(v string) *ModifyControlPolicyInput {
 	s.DestinationType = &v
@@ -290,12 +280,6 @@ func (s *ModifyControlPolicyInput) SetRuleId(v string) *ModifyControlPolicyInput
 // SetSource sets the Source field's value.
 func (s *ModifyControlPolicyInput) SetSource(v string) *ModifyControlPolicyInput {
 	s.Source = &v
-	return s
-}
-
-// SetSourceGroupType sets the SourceGroupType field's value.
-func (s *ModifyControlPolicyInput) SetSourceGroupType(v string) *ModifyControlPolicyInput {
-	s.SourceGroupType = &v
 	return s
 }
 
