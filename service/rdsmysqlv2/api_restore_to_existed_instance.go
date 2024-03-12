@@ -22,13 +22,13 @@ const opRestoreToExistedInstanceCommon = "RestoreToExistedInstance"
 // See RestoreToExistedInstanceCommon for more information on using the RestoreToExistedInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreToExistedInstanceCommonRequest method.
-//	req, resp := client.RestoreToExistedInstanceCommonRequest(params)
+//    // Example sending a request using the RestoreToExistedInstanceCommonRequest method.
+//    req, resp := client.RestoreToExistedInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RestoreToExistedInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestoreToExistedInstanceCommon,
@@ -89,13 +89,13 @@ const opRestoreToExistedInstance = "RestoreToExistedInstance"
 // See RestoreToExistedInstance for more information on using the RestoreToExistedInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreToExistedInstanceRequest method.
-//	req, resp := client.RestoreToExistedInstanceRequest(params)
+//    // Example sending a request using the RestoreToExistedInstanceRequest method.
+//    req, resp := client.RestoreToExistedInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RestoreToExistedInstanceRequest(input *RestoreToExistedInstanceInput) (req *request.Request, output *RestoreToExistedInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRestoreToExistedInstance,
@@ -150,11 +150,10 @@ type RestoreToExistedInstanceInput struct {
 
 	RestoreTime *string `type:"string"`
 
-	RestoreType *string `type:"string" enum:"EnumOfRestoreTypeForRestoreToExistedInstanceInput"`
+	RestoreType *string `type:"string"`
 
-	SourceDBInstanceId *string `type:"string" json:"SourceDBInstanceId"`
-
-	TableLevelMode *string `type:"string" enum:"EnumOfTableLevelModeForRestoreToExistedInstanceInput"`
+	// SourceDBInstanceId is a required field
+	SourceDBInstanceId *string `type:"string" required:"true"`
 
 	TableMeta []*TableMetaForRestoreToExistedInstanceInput `type:"list"`
 }
@@ -167,6 +166,19 @@ func (s RestoreToExistedInstanceInput) String() string {
 // GoString returns the string representation
 func (s RestoreToExistedInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestoreToExistedInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestoreToExistedInstanceInput"}
+	if s.SourceDBInstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SourceDBInstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupId sets the BackupId field's value.
@@ -190,12 +202,6 @@ func (s *RestoreToExistedInstanceInput) SetRestoreType(v string) *RestoreToExist
 // SetSourceDBInstanceId sets the SourceDBInstanceId field's value.
 func (s *RestoreToExistedInstanceInput) SetSourceDBInstanceId(v string) *RestoreToExistedInstanceInput {
 	s.SourceDBInstanceId = &v
-	return s
-}
-
-// SetTableLevelMode sets the TableLevelMode field's value.
-func (s *RestoreToExistedInstanceInput) SetTableLevelMode(v string) *RestoreToExistedInstanceInput {
-	s.TableLevelMode = &v
 	return s
 }
 
@@ -288,16 +294,3 @@ func (s *TableMetaForRestoreToExistedInstanceInput) SetTable(v []*TableForRestor
 	s.Table = v
 	return s
 }
-
-const (
-	// EnumOfRestoreTypeForRestoreToExistedInstanceInputInstanceLevel is a EnumOfRestoreTypeForRestoreToExistedInstanceInput enum value
-	EnumOfRestoreTypeForRestoreToExistedInstanceInputInstanceLevel = "INSTANCE_LEVEL"
-
-	// EnumOfRestoreTypeForRestoreToExistedInstanceInputTableLevel is a EnumOfRestoreTypeForRestoreToExistedInstanceInput enum value
-	EnumOfRestoreTypeForRestoreToExistedInstanceInputTableLevel = "TABLE_LEVEL"
-)
-
-const (
-	// EnumOfTableLevelModeForRestoreToExistedInstanceInputAllTable is a EnumOfTableLevelModeForRestoreToExistedInstanceInput enum value
-	EnumOfTableLevelModeForRestoreToExistedInstanceInputAllTable = "ALL_TABLE"
-)

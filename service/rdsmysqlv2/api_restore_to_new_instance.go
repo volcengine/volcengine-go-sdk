@@ -22,13 +22,13 @@ const opRestoreToNewInstanceCommon = "RestoreToNewInstance"
 // See RestoreToNewInstanceCommon for more information on using the RestoreToNewInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreToNewInstanceCommonRequest method.
-//	req, resp := client.RestoreToNewInstanceCommonRequest(params)
+//    // Example sending a request using the RestoreToNewInstanceCommonRequest method.
+//    req, resp := client.RestoreToNewInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RestoreToNewInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestoreToNewInstanceCommon,
@@ -89,13 +89,13 @@ const opRestoreToNewInstance = "RestoreToNewInstance"
 // See RestoreToNewInstance for more information on using the RestoreToNewInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreToNewInstanceRequest method.
-//	req, resp := client.RestoreToNewInstanceRequest(params)
+//    // Example sending a request using the RestoreToNewInstanceRequest method.
+//    req, resp := client.RestoreToNewInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RestoreToNewInstanceRequest(input *RestoreToNewInstanceInput) (req *request.Request, output *RestoreToNewInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRestoreToNewInstance,
@@ -148,13 +148,13 @@ type ChargeInfoForRestoreToNewInstanceInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForRestoreToNewInstanceInput"`
+	ChargeType *string `type:"string"`
 
 	Number *int32 `type:"int32"`
 
 	Period *int32 `type:"int32"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForRestoreToNewInstanceInput"`
+	PeriodUnit *string `type:"string"`
 }
 
 // String returns the string representation
@@ -232,13 +232,11 @@ type NodeInfoForRestoreToNewInstanceInput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForRestoreToNewInstanceInput"`
-
-	NodePool *string `type:"string"`
+	NodeOperateType *string `type:"string"`
 
 	NodeSpec *string `type:"string"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForRestoreToNewInstanceInput"`
+	NodeType *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -262,12 +260,6 @@ func (s *NodeInfoForRestoreToNewInstanceInput) SetNodeId(v string) *NodeInfoForR
 // SetNodeOperateType sets the NodeOperateType field's value.
 func (s *NodeInfoForRestoreToNewInstanceInput) SetNodeOperateType(v string) *NodeInfoForRestoreToNewInstanceInput {
 	s.NodeOperateType = &v
-	return s
-}
-
-// SetNodePool sets the NodePool field's value.
-func (s *NodeInfoForRestoreToNewInstanceInput) SetNodePool(v string) *NodeInfoForRestoreToNewInstanceInput {
-	s.NodePool = &v
 	return s
 }
 
@@ -306,31 +298,23 @@ type RestoreToNewInstanceInput struct {
 
 	NodeInfo []*NodeInfoForRestoreToNewInstanceInput `type:"list"`
 
-	NodeNumber *int32 `type:"int32"`
-
-	NodeSpec *string `type:"string"`
-
 	ProjectName *string `type:"string"`
 
 	RestoreTime *string `type:"string"`
 
-	ShardNumber *int32 `type:"int32"`
-
-	SrcInstanceId *string `type:"string" json:"SrcInstanceId"`
+	// SrcInstanceId is a required field
+	SrcInstanceId *string `type:"string" required:"true"`
 
 	StorageSpace *int32 `type:"int32"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForRestoreToNewInstanceInput"`
+	// StorageType is a required field
+	StorageType *string `type:"string" required:"true"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 
-	SuperAccountPassword *string `type:"string"`
-
-	TableMeta []*TableMetaForRestoreToNewInstanceInput `type:"list"`
-
-	VpcId *string `type:"string"`
-
-	ZoneId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -341,6 +325,28 @@ func (s RestoreToNewInstanceInput) String() string {
 // GoString returns the string representation
 func (s RestoreToNewInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestoreToNewInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestoreToNewInstanceInput"}
+	if s.SrcInstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SrcInstanceId"))
+	}
+	if s.StorageType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageType"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAllowListIds sets the AllowListIds field's value.
@@ -385,18 +391,6 @@ func (s *RestoreToNewInstanceInput) SetNodeInfo(v []*NodeInfoForRestoreToNewInst
 	return s
 }
 
-// SetNodeNumber sets the NodeNumber field's value.
-func (s *RestoreToNewInstanceInput) SetNodeNumber(v int32) *RestoreToNewInstanceInput {
-	s.NodeNumber = &v
-	return s
-}
-
-// SetNodeSpec sets the NodeSpec field's value.
-func (s *RestoreToNewInstanceInput) SetNodeSpec(v string) *RestoreToNewInstanceInput {
-	s.NodeSpec = &v
-	return s
-}
-
 // SetProjectName sets the ProjectName field's value.
 func (s *RestoreToNewInstanceInput) SetProjectName(v string) *RestoreToNewInstanceInput {
 	s.ProjectName = &v
@@ -406,12 +400,6 @@ func (s *RestoreToNewInstanceInput) SetProjectName(v string) *RestoreToNewInstan
 // SetRestoreTime sets the RestoreTime field's value.
 func (s *RestoreToNewInstanceInput) SetRestoreTime(v string) *RestoreToNewInstanceInput {
 	s.RestoreTime = &v
-	return s
-}
-
-// SetShardNumber sets the ShardNumber field's value.
-func (s *RestoreToNewInstanceInput) SetShardNumber(v int32) *RestoreToNewInstanceInput {
-	s.ShardNumber = &v
 	return s
 }
 
@@ -439,27 +427,9 @@ func (s *RestoreToNewInstanceInput) SetSubnetId(v string) *RestoreToNewInstanceI
 	return s
 }
 
-// SetSuperAccountPassword sets the SuperAccountPassword field's value.
-func (s *RestoreToNewInstanceInput) SetSuperAccountPassword(v string) *RestoreToNewInstanceInput {
-	s.SuperAccountPassword = &v
-	return s
-}
-
-// SetTableMeta sets the TableMeta field's value.
-func (s *RestoreToNewInstanceInput) SetTableMeta(v []*TableMetaForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
-	s.TableMeta = v
-	return s
-}
-
 // SetVpcId sets the VpcId field's value.
 func (s *RestoreToNewInstanceInput) SetVpcId(v string) *RestoreToNewInstanceInput {
 	s.VpcId = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *RestoreToNewInstanceInput) SetZoneId(v string) *RestoreToNewInstanceInput {
-	s.ZoneId = &v
 	return s
 }
 
@@ -494,126 +464,3 @@ func (s *RestoreToNewInstanceOutput) SetOrderId(v string) *RestoreToNewInstanceO
 	s.OrderId = &v
 	return s
 }
-
-type TableForRestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
-
-	NewTableName *string `type:"string"`
-
-	TableName *string `type:"string"`
-}
-
-// String returns the string representation
-func (s TableForRestoreToNewInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TableForRestoreToNewInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetNewTableName sets the NewTableName field's value.
-func (s *TableForRestoreToNewInstanceInput) SetNewTableName(v string) *TableForRestoreToNewInstanceInput {
-	s.NewTableName = &v
-	return s
-}
-
-// SetTableName sets the TableName field's value.
-func (s *TableForRestoreToNewInstanceInput) SetTableName(v string) *TableForRestoreToNewInstanceInput {
-	s.TableName = &v
-	return s
-}
-
-type TableMetaForRestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
-
-	DBName *string `type:"string"`
-
-	NewDBName *string `type:"string"`
-
-	Table []*TableForRestoreToNewInstanceInput `type:"list"`
-}
-
-// String returns the string representation
-func (s TableMetaForRestoreToNewInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TableMetaForRestoreToNewInstanceInput) GoString() string {
-	return s.String()
-}
-
-// SetDBName sets the DBName field's value.
-func (s *TableMetaForRestoreToNewInstanceInput) SetDBName(v string) *TableMetaForRestoreToNewInstanceInput {
-	s.DBName = &v
-	return s
-}
-
-// SetNewDBName sets the NewDBName field's value.
-func (s *TableMetaForRestoreToNewInstanceInput) SetNewDBName(v string) *TableMetaForRestoreToNewInstanceInput {
-	s.NewDBName = &v
-	return s
-}
-
-// SetTable sets the Table field's value.
-func (s *TableMetaForRestoreToNewInstanceInput) SetTable(v []*TableForRestoreToNewInstanceInput) *TableMetaForRestoreToNewInstanceInput {
-	s.Table = v
-	return s
-}
-
-const (
-	// EnumOfChargeTypeForRestoreToNewInstanceInputNotEnabled is a EnumOfChargeTypeForRestoreToNewInstanceInput enum value
-	EnumOfChargeTypeForRestoreToNewInstanceInputNotEnabled = "NotEnabled"
-
-	// EnumOfChargeTypeForRestoreToNewInstanceInputPostPaid is a EnumOfChargeTypeForRestoreToNewInstanceInput enum value
-	EnumOfChargeTypeForRestoreToNewInstanceInputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForRestoreToNewInstanceInputPrePaid is a EnumOfChargeTypeForRestoreToNewInstanceInput enum value
-	EnumOfChargeTypeForRestoreToNewInstanceInputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfNodeOperateTypeForRestoreToNewInstanceInputCreate is a EnumOfNodeOperateTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeOperateTypeForRestoreToNewInstanceInputCreate = "Create"
-
-	// EnumOfNodeOperateTypeForRestoreToNewInstanceInputDelete is a EnumOfNodeOperateTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeOperateTypeForRestoreToNewInstanceInputDelete = "Delete"
-
-	// EnumOfNodeOperateTypeForRestoreToNewInstanceInputModify is a EnumOfNodeOperateTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeOperateTypeForRestoreToNewInstanceInputModify = "Modify"
-)
-
-const (
-	// EnumOfNodeTypeForRestoreToNewInstanceInputPrimary is a EnumOfNodeTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeTypeForRestoreToNewInstanceInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForRestoreToNewInstanceInputReadOnly is a EnumOfNodeTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeTypeForRestoreToNewInstanceInputReadOnly = "ReadOnly"
-
-	// EnumOfNodeTypeForRestoreToNewInstanceInputSecondary is a EnumOfNodeTypeForRestoreToNewInstanceInput enum value
-	EnumOfNodeTypeForRestoreToNewInstanceInputSecondary = "Secondary"
-)
-
-const (
-	// EnumOfPeriodUnitForRestoreToNewInstanceInputMonth is a EnumOfPeriodUnitForRestoreToNewInstanceInput enum value
-	EnumOfPeriodUnitForRestoreToNewInstanceInputMonth = "Month"
-
-	// EnumOfPeriodUnitForRestoreToNewInstanceInputYear is a EnumOfPeriodUnitForRestoreToNewInstanceInput enum value
-	EnumOfPeriodUnitForRestoreToNewInstanceInputYear = "Year"
-)
-
-const (
-	// EnumOfStorageTypeForRestoreToNewInstanceInputCloudStorage is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
-	EnumOfStorageTypeForRestoreToNewInstanceInputCloudStorage = "CloudStorage"
-
-	// EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl1 is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
-	EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl1 = "ESSDPL1"
-
-	// EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl2 is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
-	EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl2 = "ESSDPL2"
-
-	// EnumOfStorageTypeForRestoreToNewInstanceInputLocalSsd is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
-	EnumOfStorageTypeForRestoreToNewInstanceInputLocalSsd = "LocalSSD"
-)

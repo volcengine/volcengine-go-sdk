@@ -22,13 +22,13 @@ const opModifyDBInstanceNameCommon = "ModifyDBInstanceName"
 // See ModifyDBInstanceNameCommon for more information on using the ModifyDBInstanceNameCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceNameCommonRequest method.
-//	req, resp := client.ModifyDBInstanceNameCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceNameCommonRequest method.
+//    req, resp := client.ModifyDBInstanceNameCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceNameCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceNameCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceName = "ModifyDBInstanceName"
 // See ModifyDBInstanceName for more information on using the ModifyDBInstanceName
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceNameRequest method.
-//	req, resp := client.ModifyDBInstanceNameRequest(params)
+//    // Example sending a request using the ModifyDBInstanceNameRequest method.
+//    req, resp := client.ModifyDBInstanceNameRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceNameRequest(input *ModifyDBInstanceNameInput) (req *request.Request, output *ModifyDBInstanceNameOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceName,

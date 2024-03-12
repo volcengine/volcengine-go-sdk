@@ -22,13 +22,13 @@ const opDescribeDBInstanceSpecsCommon = "DescribeDBInstanceSpecs"
 // See DescribeDBInstanceSpecsCommon for more information on using the DescribeDBInstanceSpecsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceSpecsCommonRequest method.
-//	req, resp := client.DescribeDBInstanceSpecsCommonRequest(params)
+//    // Example sending a request using the DescribeDBInstanceSpecsCommonRequest method.
+//    req, resp := client.DescribeDBInstanceSpecsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstanceSpecsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceSpecsCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstanceSpecs = "DescribeDBInstanceSpecs"
 // See DescribeDBInstanceSpecs for more information on using the DescribeDBInstanceSpecs
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceSpecsRequest method.
-//	req, resp := client.DescribeDBInstanceSpecsRequest(params)
+//    // Example sending a request using the DescribeDBInstanceSpecsRequest method.
+//    req, resp := client.DescribeDBInstanceSpecsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstanceSpecsRequest(input *DescribeDBInstanceSpecsInput) (req *request.Request, output *DescribeDBInstanceSpecsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceSpecs,
@@ -146,9 +146,9 @@ func (c *RDSMYSQLV2) DescribeDBInstanceSpecsWithContext(ctx volcengine.Context, 
 type DescribeDBInstanceSpecsInput struct {
 	_ struct{} `type:"structure"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput"`
+	DBEngineVersion *string `type:"string"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeDBInstanceSpecsInput"`
+	InstanceType *string `type:"string"`
 
 	SpecCode *string `type:"string"`
 
@@ -346,40 +346,3 @@ func (s *InstanceSpecsInfoForDescribeDBInstanceSpecsOutput) SetZoneId(v string) 
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputMySql56 is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputMySql56 = "MySQL_5_6"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputMySql57 is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputMySql57 = "MySQL_5_7"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputMySql80 = "MySQL_8_0"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputSqlserver2019Ent is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputSqlserver2019Std is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputSqlserver2019Web is a EnumOfDBEngineVersionForDescribeDBInstanceSpecsInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstanceSpecsInputSqlserver2019Web = "SQLServer_2019_Web"
-)
-
-const (
-	// EnumOfInstanceTypeForDescribeDBInstanceSpecsInputBasic is a EnumOfInstanceTypeForDescribeDBInstanceSpecsInput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceSpecsInputBasic = "Basic"
-
-	// EnumOfInstanceTypeForDescribeDBInstanceSpecsInputCluster is a EnumOfInstanceTypeForDescribeDBInstanceSpecsInput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceSpecsInputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForDescribeDBInstanceSpecsInputDoubleNode is a EnumOfInstanceTypeForDescribeDBInstanceSpecsInput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceSpecsInputDoubleNode = "DoubleNode"
-
-	// EnumOfInstanceTypeForDescribeDBInstanceSpecsInputHa is a EnumOfInstanceTypeForDescribeDBInstanceSpecsInput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceSpecsInputHa = "HA"
-
-	// EnumOfInstanceTypeForDescribeDBInstanceSpecsInputMultiNode is a EnumOfInstanceTypeForDescribeDBInstanceSpecsInput enum value
-	EnumOfInstanceTypeForDescribeDBInstanceSpecsInputMultiNode = "MultiNode"
-)

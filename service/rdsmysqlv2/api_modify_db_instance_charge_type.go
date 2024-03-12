@@ -22,13 +22,13 @@ const opModifyDBInstanceChargeTypeCommon = "ModifyDBInstanceChargeType"
 // See ModifyDBInstanceChargeTypeCommon for more information on using the ModifyDBInstanceChargeTypeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceChargeTypeCommonRequest method.
-//	req, resp := client.ModifyDBInstanceChargeTypeCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceChargeTypeCommonRequest method.
+//    req, resp := client.ModifyDBInstanceChargeTypeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceChargeTypeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceChargeTypeCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceChargeType = "ModifyDBInstanceChargeType"
 // See ModifyDBInstanceChargeType for more information on using the ModifyDBInstanceChargeType
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceChargeTypeRequest method.
-//	req, resp := client.ModifyDBInstanceChargeTypeRequest(params)
+//    // Example sending a request using the ModifyDBInstanceChargeTypeRequest method.
+//    req, resp := client.ModifyDBInstanceChargeTypeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceChargeTypeRequest(input *ModifyDBInstanceChargeTypeInput) (req *request.Request, output *ModifyDBInstanceChargeTypeOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceChargeType,
@@ -148,14 +148,17 @@ type ModifyDBInstanceChargeTypeInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForModifyDBInstanceChargeTypeInput"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	Period *int32 `type:"int32"`
+	// Period is a required field
+	Period *int32 `type:"int32" required:"true"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput"`
+	// PeriodUnit is a required field
+	PeriodUnit *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -171,8 +174,17 @@ func (s ModifyDBInstanceChargeTypeInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyDBInstanceChargeTypeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceChargeTypeInput"}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.Period == nil {
+		invalidParams.Add(request.NewErrParamRequired("Period"))
+	}
+	if s.PeriodUnit == nil {
+		invalidParams.Add(request.NewErrParamRequired("PeriodUnit"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -242,22 +254,3 @@ func (s *ModifyDBInstanceChargeTypeOutput) SetOrderNO(v string) *ModifyDBInstanc
 	s.OrderNO = &v
 	return s
 }
-
-const (
-	// EnumOfChargeTypeForModifyDBInstanceChargeTypeInputNotEnabled is a EnumOfChargeTypeForModifyDBInstanceChargeTypeInput enum value
-	EnumOfChargeTypeForModifyDBInstanceChargeTypeInputNotEnabled = "NotEnabled"
-
-	// EnumOfChargeTypeForModifyDBInstanceChargeTypeInputPostPaid is a EnumOfChargeTypeForModifyDBInstanceChargeTypeInput enum value
-	EnumOfChargeTypeForModifyDBInstanceChargeTypeInputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForModifyDBInstanceChargeTypeInputPrePaid is a EnumOfChargeTypeForModifyDBInstanceChargeTypeInput enum value
-	EnumOfChargeTypeForModifyDBInstanceChargeTypeInputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputMonth is a EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput enum value
-	EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputMonth = "Month"
-
-	// EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputYear is a EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput enum value
-	EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputYear = "Year"
-)

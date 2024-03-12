@@ -22,13 +22,13 @@ const opModifyDBInstanceTDECommon = "ModifyDBInstanceTDE"
 // See ModifyDBInstanceTDECommon for more information on using the ModifyDBInstanceTDECommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceTDECommonRequest method.
-//	req, resp := client.ModifyDBInstanceTDECommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceTDECommonRequest method.
+//    req, resp := client.ModifyDBInstanceTDECommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceTDECommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceTDECommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceTDE = "ModifyDBInstanceTDE"
 // See ModifyDBInstanceTDE for more information on using the ModifyDBInstanceTDE
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceTDERequest method.
-//	req, resp := client.ModifyDBInstanceTDERequest(params)
+//    // Example sending a request using the ModifyDBInstanceTDERequest method.
+//    req, resp := client.ModifyDBInstanceTDERequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceTDERequest(input *ModifyDBInstanceTDEInput) (req *request.Request, output *ModifyDBInstanceTDEOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceTDE,
@@ -149,7 +149,12 @@ type ModifyDBInstanceTDEInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	TDEStatus *string `type:"string" enum:"EnumOfTDEStatusForModifyDBInstanceTDEInput"`
+	KeyName *string `type:"string"`
+
+	KeyringName *string `type:"string"`
+
+	// TDEStatus is a required field
+	TDEStatus *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -168,6 +173,9 @@ func (s *ModifyDBInstanceTDEInput) Validate() error {
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
+	if s.TDEStatus == nil {
+		invalidParams.Add(request.NewErrParamRequired("TDEStatus"))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -178,6 +186,18 @@ func (s *ModifyDBInstanceTDEInput) Validate() error {
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBInstanceTDEInput) SetInstanceId(v string) *ModifyDBInstanceTDEInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetKeyName sets the KeyName field's value.
+func (s *ModifyDBInstanceTDEInput) SetKeyName(v string) *ModifyDBInstanceTDEInput {
+	s.KeyName = &v
+	return s
+}
+
+// SetKeyringName sets the KeyringName field's value.
+func (s *ModifyDBInstanceTDEInput) SetKeyringName(v string) *ModifyDBInstanceTDEInput {
+	s.KeyringName = &v
 	return s
 }
 
@@ -202,11 +222,3 @@ func (s ModifyDBInstanceTDEOutput) String() string {
 func (s ModifyDBInstanceTDEOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfTDEStatusForModifyDBInstanceTDEInputDisable is a EnumOfTDEStatusForModifyDBInstanceTDEInput enum value
-	EnumOfTDEStatusForModifyDBInstanceTDEInputDisable = "Disable"
-
-	// EnumOfTDEStatusForModifyDBInstanceTDEInputEnable is a EnumOfTDEStatusForModifyDBInstanceTDEInput enum value
-	EnumOfTDEStatusForModifyDBInstanceTDEInputEnable = "Enable"
-)

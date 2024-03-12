@@ -22,13 +22,13 @@ const opRevokeDatabasePrivilegeCommon = "RevokeDatabasePrivilege"
 // See RevokeDatabasePrivilegeCommon for more information on using the RevokeDatabasePrivilegeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RevokeDatabasePrivilegeCommonRequest method.
-//	req, resp := client.RevokeDatabasePrivilegeCommonRequest(params)
+//    // Example sending a request using the RevokeDatabasePrivilegeCommonRequest method.
+//    req, resp := client.RevokeDatabasePrivilegeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RevokeDatabasePrivilegeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRevokeDatabasePrivilegeCommon,
@@ -89,13 +89,13 @@ const opRevokeDatabasePrivilege = "RevokeDatabasePrivilege"
 // See RevokeDatabasePrivilege for more information on using the RevokeDatabasePrivilege
 // API call, and error handling.
 //
-//	// Example sending a request using the RevokeDatabasePrivilegeRequest method.
-//	req, resp := client.RevokeDatabasePrivilegeRequest(params)
+//    // Example sending a request using the RevokeDatabasePrivilegeRequest method.
+//    req, resp := client.RevokeDatabasePrivilegeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RevokeDatabasePrivilegeRequest(input *RevokeDatabasePrivilegeInput) (req *request.Request, output *RevokeDatabasePrivilegeOutput) {
 	op := &request.Operation{
 		Name:       opRevokeDatabasePrivilege,
@@ -150,7 +150,7 @@ type RevokeDatabasePrivilegeInput struct {
 	AccountNames *string `type:"string" required:"true"`
 
 	// DBName is a required field
-	DBName *string `min:"2" max:"64" type:"string" required:"true"`
+	DBName *string `type:"string" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -174,12 +174,6 @@ func (s *RevokeDatabasePrivilegeInput) Validate() error {
 	}
 	if s.DBName == nil {
 		invalidParams.Add(request.NewErrParamRequired("DBName"))
-	}
-	if s.DBName != nil && len(*s.DBName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("DBName", 2))
-	}
-	if s.DBName != nil && len(*s.DBName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("DBName", 64, *s.DBName))
 	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))

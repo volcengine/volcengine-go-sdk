@@ -22,13 +22,13 @@ const opModifyDBAccountDescriptionCommon = "ModifyDBAccountDescription"
 // See ModifyDBAccountDescriptionCommon for more information on using the ModifyDBAccountDescriptionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBAccountDescriptionCommonRequest method.
-//	req, resp := client.ModifyDBAccountDescriptionCommonRequest(params)
+//    // Example sending a request using the ModifyDBAccountDescriptionCommonRequest method.
+//    req, resp := client.ModifyDBAccountDescriptionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBAccountDescriptionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBAccountDescriptionCommon,
@@ -89,13 +89,13 @@ const opModifyDBAccountDescription = "ModifyDBAccountDescription"
 // See ModifyDBAccountDescription for more information on using the ModifyDBAccountDescription
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBAccountDescriptionRequest method.
-//	req, resp := client.ModifyDBAccountDescriptionRequest(params)
+//    // Example sending a request using the ModifyDBAccountDescriptionRequest method.
+//    req, resp := client.ModifyDBAccountDescriptionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBAccountDescriptionRequest(input *ModifyDBAccountDescriptionInput) (req *request.Request, output *ModifyDBAccountDescriptionOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBAccountDescription,
@@ -149,7 +149,9 @@ type ModifyDBAccountDescriptionInput struct {
 	AccountDesc *string `type:"string"`
 
 	// AccountName is a required field
-	AccountName *string `min:"2" max:"32" type:"string" required:"true"`
+	AccountName *string `type:"string" required:"true"`
+
+	Host *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -171,12 +173,6 @@ func (s *ModifyDBAccountDescriptionInput) Validate() error {
 	if s.AccountName == nil {
 		invalidParams.Add(request.NewErrParamRequired("AccountName"))
 	}
-	if s.AccountName != nil && len(*s.AccountName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
-	}
-	if s.AccountName != nil && len(*s.AccountName) > 32 {
-		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 32, *s.AccountName))
-	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
@@ -196,6 +192,12 @@ func (s *ModifyDBAccountDescriptionInput) SetAccountDesc(v string) *ModifyDBAcco
 // SetAccountName sets the AccountName field's value.
 func (s *ModifyDBAccountDescriptionInput) SetAccountName(v string) *ModifyDBAccountDescriptionInput {
 	s.AccountName = &v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *ModifyDBAccountDescriptionInput) SetHost(v string) *ModifyDBAccountDescriptionInput {
+	s.Host = &v
 	return s
 }
 

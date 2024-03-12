@@ -22,13 +22,13 @@ const opRebuildDBInstanceCommon = "RebuildDBInstance"
 // See RebuildDBInstanceCommon for more information on using the RebuildDBInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RebuildDBInstanceCommonRequest method.
-//	req, resp := client.RebuildDBInstanceCommonRequest(params)
+//    // Example sending a request using the RebuildDBInstanceCommonRequest method.
+//    req, resp := client.RebuildDBInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RebuildDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRebuildDBInstanceCommon,
@@ -89,13 +89,13 @@ const opRebuildDBInstance = "RebuildDBInstance"
 // See RebuildDBInstance for more information on using the RebuildDBInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the RebuildDBInstanceRequest method.
-//	req, resp := client.RebuildDBInstanceRequest(params)
+//    // Example sending a request using the RebuildDBInstanceRequest method.
+//    req, resp := client.RebuildDBInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RebuildDBInstanceRequest(input *RebuildDBInstanceInput) (req *request.Request, output *RebuildDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRebuildDBInstance,

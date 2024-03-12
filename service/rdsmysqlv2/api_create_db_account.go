@@ -22,13 +22,13 @@ const opCreateDBAccountCommon = "CreateDBAccount"
 // See CreateDBAccountCommon for more information on using the CreateDBAccountCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBAccountCommonRequest method.
-//	req, resp := client.CreateDBAccountCommonRequest(params)
+//    // Example sending a request using the CreateDBAccountCommonRequest method.
+//    req, resp := client.CreateDBAccountCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDBAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBAccountCommon,
@@ -89,13 +89,13 @@ const opCreateDBAccount = "CreateDBAccount"
 // See CreateDBAccount for more information on using the CreateDBAccount
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBAccountRequest method.
-//	req, resp := client.CreateDBAccountRequest(params)
+//    // Example sending a request using the CreateDBAccountRequest method.
+//    req, resp := client.CreateDBAccountRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDBAccountRequest(input *CreateDBAccountInput) (req *request.Request, output *CreateDBAccountOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBAccount,
@@ -146,7 +146,7 @@ func (c *RDSMYSQLV2) CreateDBAccountWithContext(ctx volcengine.Context, input *C
 type AccountPrivilegeForCreateDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForCreateDBAccountInput"`
+	AccountPrivilege *string `type:"string"`
 
 	AccountPrivilegeDetail *string `type:"string"`
 
@@ -181,58 +181,23 @@ func (s *AccountPrivilegeForCreateDBAccountInput) SetDBName(v string) *AccountPr
 	return s
 }
 
-type AccountPrivilegesInfoForCreateDBAccountInput struct {
-	_ struct{} `type:"structure"`
-
-	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForCreateDBAccountInput"`
-
-	AccountPrivilegeCustom *string `type:"string"`
-
-	DBName *string `type:"string"`
-}
-
-// String returns the string representation
-func (s AccountPrivilegesInfoForCreateDBAccountInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s AccountPrivilegesInfoForCreateDBAccountInput) GoString() string {
-	return s.String()
-}
-
-// SetAccountPrivilege sets the AccountPrivilege field's value.
-func (s *AccountPrivilegesInfoForCreateDBAccountInput) SetAccountPrivilege(v string) *AccountPrivilegesInfoForCreateDBAccountInput {
-	s.AccountPrivilege = &v
-	return s
-}
-
-// SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
-func (s *AccountPrivilegesInfoForCreateDBAccountInput) SetAccountPrivilegeCustom(v string) *AccountPrivilegesInfoForCreateDBAccountInput {
-	s.AccountPrivilegeCustom = &v
-	return s
-}
-
-// SetDBName sets the DBName field's value.
-func (s *AccountPrivilegesInfoForCreateDBAccountInput) SetDBName(v string) *AccountPrivilegesInfoForCreateDBAccountInput {
-	s.DBName = &v
-	return s
-}
-
 type CreateDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
 	AccountDesc *string `type:"string"`
 
-	AccountName *string `min:"2" max:"32" type:"string"`
+	// AccountName is a required field
+	AccountName *string `type:"string" required:"true"`
 
-	AccountPassword *string `min:"8" max:"32" type:"string"`
+	// AccountPassword is a required field
+	AccountPassword *string `type:"string" required:"true"`
 
 	AccountPrivileges []*AccountPrivilegeForCreateDBAccountInput `type:"list"`
 
-	AccountPrivilegesInfo []*AccountPrivilegesInfoForCreateDBAccountInput `type:"list"`
+	// AccountType is a required field
+	AccountType *string `type:"string" required:"true"`
 
-	AccountType *string `type:"string" enum:"EnumOfAccountTypeForCreateDBAccountInput"`
+	Host *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -251,17 +216,14 @@ func (s CreateDBAccountInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDBAccountInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBAccountInput"}
-	if s.AccountName != nil && len(*s.AccountName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
 	}
-	if s.AccountName != nil && len(*s.AccountName) > 32 {
-		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 32, *s.AccountName))
+	if s.AccountPassword == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPassword"))
 	}
-	if s.AccountPassword != nil && len(*s.AccountPassword) < 8 {
-		invalidParams.Add(request.NewErrParamMinLen("AccountPassword", 8))
-	}
-	if s.AccountPassword != nil && len(*s.AccountPassword) > 32 {
-		invalidParams.Add(request.NewErrParamMaxLen("AccountPassword", 32, *s.AccountPassword))
+	if s.AccountType == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountType"))
 	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
@@ -297,15 +259,15 @@ func (s *CreateDBAccountInput) SetAccountPrivileges(v []*AccountPrivilegeForCrea
 	return s
 }
 
-// SetAccountPrivilegesInfo sets the AccountPrivilegesInfo field's value.
-func (s *CreateDBAccountInput) SetAccountPrivilegesInfo(v []*AccountPrivilegesInfoForCreateDBAccountInput) *CreateDBAccountInput {
-	s.AccountPrivilegesInfo = v
-	return s
-}
-
 // SetAccountType sets the AccountType field's value.
 func (s *CreateDBAccountInput) SetAccountType(v string) *CreateDBAccountInput {
 	s.AccountType = &v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *CreateDBAccountInput) SetHost(v string) *CreateDBAccountInput {
+	s.Host = &v
 	return s
 }
 
@@ -330,34 +292,3 @@ func (s CreateDBAccountOutput) String() string {
 func (s CreateDBAccountOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfAccountPrivilegeForCreateDBAccountInputCustom is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
-	EnumOfAccountPrivilegeForCreateDBAccountInputCustom = "Custom"
-
-	// EnumOfAccountPrivilegeForCreateDBAccountInputDdlonly is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
-	EnumOfAccountPrivilegeForCreateDBAccountInputDdlonly = "DDLOnly"
-
-	// EnumOfAccountPrivilegeForCreateDBAccountInputDmlonly is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
-	EnumOfAccountPrivilegeForCreateDBAccountInputDmlonly = "DMLOnly"
-
-	// EnumOfAccountPrivilegeForCreateDBAccountInputNone is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
-	EnumOfAccountPrivilegeForCreateDBAccountInputNone = "None"
-
-	// EnumOfAccountPrivilegeForCreateDBAccountInputReadOnly is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
-	EnumOfAccountPrivilegeForCreateDBAccountInputReadOnly = "ReadOnly"
-
-	// EnumOfAccountPrivilegeForCreateDBAccountInputReadWrite is a EnumOfAccountPrivilegeForCreateDBAccountInput enum value
-	EnumOfAccountPrivilegeForCreateDBAccountInputReadWrite = "ReadWrite"
-)
-
-const (
-	// EnumOfAccountTypeForCreateDBAccountInputGrant is a EnumOfAccountTypeForCreateDBAccountInput enum value
-	EnumOfAccountTypeForCreateDBAccountInputGrant = "Grant"
-
-	// EnumOfAccountTypeForCreateDBAccountInputNormal is a EnumOfAccountTypeForCreateDBAccountInput enum value
-	EnumOfAccountTypeForCreateDBAccountInputNormal = "Normal"
-
-	// EnumOfAccountTypeForCreateDBAccountInputSuper is a EnumOfAccountTypeForCreateDBAccountInput enum value
-	EnumOfAccountTypeForCreateDBAccountInputSuper = "Super"
-)

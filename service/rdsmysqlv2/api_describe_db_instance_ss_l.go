@@ -22,13 +22,13 @@ const opDescribeDBInstanceSSLCommon = "DescribeDBInstanceSSL"
 // See DescribeDBInstanceSSLCommon for more information on using the DescribeDBInstanceSSLCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceSSLCommonRequest method.
-//	req, resp := client.DescribeDBInstanceSSLCommonRequest(params)
+//    // Example sending a request using the DescribeDBInstanceSSLCommonRequest method.
+//    req, resp := client.DescribeDBInstanceSSLCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstanceSSLCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceSSLCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstanceSSL = "DescribeDBInstanceSSL"
 // See DescribeDBInstanceSSL for more information on using the DescribeDBInstanceSSL
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceSSLRequest method.
-//	req, resp := client.DescribeDBInstanceSSLRequest(params)
+//    // Example sending a request using the DescribeDBInstanceSSLRequest method.
+//    req, resp := client.DescribeDBInstanceSSLRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstanceSSLRequest(input *DescribeDBInstanceSSLInput) (req *request.Request, output *DescribeDBInstanceSSLOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceSSL,

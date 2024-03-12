@@ -22,13 +22,13 @@ const opModifyParameterTemplateCommon = "ModifyParameterTemplate"
 // See ModifyParameterTemplateCommon for more information on using the ModifyParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyParameterTemplateCommonRequest method.
-//	req, resp := client.ModifyParameterTemplateCommonRequest(params)
+//    // Example sending a request using the ModifyParameterTemplateCommonRequest method.
+//    req, resp := client.ModifyParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opModifyParameterTemplate = "ModifyParameterTemplate"
 // See ModifyParameterTemplate for more information on using the ModifyParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyParameterTemplateRequest method.
-//	req, resp := client.ModifyParameterTemplateRequest(params)
+//    // Example sending a request using the ModifyParameterTemplateRequest method.
+//    req, resp := client.ModifyParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyParameterTemplateRequest(input *ModifyParameterTemplateInput) (req *request.Request, output *ModifyParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opModifyParameterTemplate,
@@ -146,12 +146,13 @@ func (c *RDSMYSQLV2) ModifyParameterTemplateWithContext(ctx volcengine.Context, 
 type ModifyParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
-	TemplateDesc *string `max:"200" type:"string"`
+	TemplateDesc *string `type:"string"`
 
 	// TemplateId is a required field
 	TemplateId *string `type:"string" required:"true"`
 
-	TemplateName *string `min:"2" max:"64" type:"string"`
+	// TemplateName is a required field
+	TemplateName *string `type:"string" required:"true"`
 
 	TemplateParams []*TemplateParamForModifyParameterTemplateInput `type:"list"`
 }
@@ -169,17 +170,11 @@ func (s ModifyParameterTemplateInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyParameterTemplateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyParameterTemplateInput"}
-	if s.TemplateDesc != nil && len(*s.TemplateDesc) > 200 {
-		invalidParams.Add(request.NewErrParamMaxLen("TemplateDesc", 200, *s.TemplateDesc))
-	}
 	if s.TemplateId == nil {
 		invalidParams.Add(request.NewErrParamRequired("TemplateId"))
 	}
-	if s.TemplateName != nil && len(*s.TemplateName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("TemplateName", 2))
-	}
-	if s.TemplateName != nil && len(*s.TemplateName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("TemplateName", 64, *s.TemplateName))
+	if s.TemplateName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TemplateName"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -231,8 +226,6 @@ func (s ModifyParameterTemplateOutput) GoString() string {
 type TemplateParamForModifyParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
-
 	Name *string `type:"string"`
 
 	RunningValue *string `type:"string"`
@@ -246,12 +239,6 @@ func (s TemplateParamForModifyParameterTemplateInput) String() string {
 // GoString returns the string representation
 func (s TemplateParamForModifyParameterTemplateInput) GoString() string {
 	return s.String()
-}
-
-// SetDescription sets the Description field's value.
-func (s *TemplateParamForModifyParameterTemplateInput) SetDescription(v string) *TemplateParamForModifyParameterTemplateInput {
-	s.Description = &v
-	return s
 }
 
 // SetName sets the Name field's value.

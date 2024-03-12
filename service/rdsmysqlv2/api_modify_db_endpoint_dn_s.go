@@ -22,13 +22,13 @@ const opModifyDBEndpointDNSCommon = "ModifyDBEndpointDNS"
 // See ModifyDBEndpointDNSCommon for more information on using the ModifyDBEndpointDNSCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBEndpointDNSCommonRequest method.
-//	req, resp := client.ModifyDBEndpointDNSCommonRequest(params)
+//    // Example sending a request using the ModifyDBEndpointDNSCommonRequest method.
+//    req, resp := client.ModifyDBEndpointDNSCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBEndpointDNSCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpointDNSCommon,
@@ -89,13 +89,13 @@ const opModifyDBEndpointDNS = "ModifyDBEndpointDNS"
 // See ModifyDBEndpointDNS for more information on using the ModifyDBEndpointDNS
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBEndpointDNSRequest method.
-//	req, resp := client.ModifyDBEndpointDNSRequest(params)
+//    // Example sending a request using the ModifyDBEndpointDNSRequest method.
+//    req, resp := client.ModifyDBEndpointDNSRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBEndpointDNSRequest(input *ModifyDBEndpointDNSInput) (req *request.Request, output *ModifyDBEndpointDNSOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpointDNS,
@@ -156,7 +156,7 @@ type ModifyDBEndpointDNSInput struct {
 	InstanceId *string `type:"string" required:"true"`
 
 	// NetworkType is a required field
-	NetworkType *string `type:"string" required:"true" enum:"EnumOfNetworkTypeForModifyDBEndpointDNSInput"`
+	NetworkType *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -230,20 +230,3 @@ func (s ModifyDBEndpointDNSOutput) String() string {
 func (s ModifyDBEndpointDNSOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfNetworkTypeForModifyDBEndpointDNSInputCarma is a EnumOfNetworkTypeForModifyDBEndpointDNSInput enum value
-	EnumOfNetworkTypeForModifyDBEndpointDNSInputCarma = "Carma"
-
-	// EnumOfNetworkTypeForModifyDBEndpointDNSInputIngress is a EnumOfNetworkTypeForModifyDBEndpointDNSInput enum value
-	EnumOfNetworkTypeForModifyDBEndpointDNSInputIngress = "Ingress"
-
-	// EnumOfNetworkTypeForModifyDBEndpointDNSInputInner is a EnumOfNetworkTypeForModifyDBEndpointDNSInput enum value
-	EnumOfNetworkTypeForModifyDBEndpointDNSInputInner = "Inner"
-
-	// EnumOfNetworkTypeForModifyDBEndpointDNSInputPrivate is a EnumOfNetworkTypeForModifyDBEndpointDNSInput enum value
-	EnumOfNetworkTypeForModifyDBEndpointDNSInputPrivate = "Private"
-
-	// EnumOfNetworkTypeForModifyDBEndpointDNSInputPublic is a EnumOfNetworkTypeForModifyDBEndpointDNSInput enum value
-	EnumOfNetworkTypeForModifyDBEndpointDNSInputPublic = "Public"
-)

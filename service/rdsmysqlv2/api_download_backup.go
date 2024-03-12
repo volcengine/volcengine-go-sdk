@@ -22,13 +22,13 @@ const opDownloadBackupCommon = "DownloadBackup"
 // See DownloadBackupCommon for more information on using the DownloadBackupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DownloadBackupCommonRequest method.
-//	req, resp := client.DownloadBackupCommonRequest(params)
+//    // Example sending a request using the DownloadBackupCommonRequest method.
+//    req, resp := client.DownloadBackupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DownloadBackupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDownloadBackupCommon,
@@ -89,13 +89,13 @@ const opDownloadBackup = "DownloadBackup"
 // See DownloadBackup for more information on using the DownloadBackup
 // API call, and error handling.
 //
-//	// Example sending a request using the DownloadBackupRequest method.
-//	req, resp := client.DownloadBackupRequest(params)
+//    // Example sending a request using the DownloadBackupRequest method.
+//    req, resp := client.DownloadBackupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DownloadBackupRequest(input *DownloadBackupInput) (req *request.Request, output *DownloadBackupOutput) {
 	op := &request.Operation{
 		Name:       opDownloadBackup,
@@ -146,7 +146,8 @@ func (c *RDSMYSQLV2) DownloadBackupWithContext(ctx volcengine.Context, input *Do
 type DownloadBackupInput struct {
 	_ struct{} `type:"structure"`
 
-	BackupId *string `type:"string"`
+	// BackupId is a required field
+	BackupId *string `type:"string" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -165,6 +166,9 @@ func (s DownloadBackupInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DownloadBackupInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DownloadBackupInput"}
+	if s.BackupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupId"))
+	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}

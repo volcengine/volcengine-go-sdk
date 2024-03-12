@@ -22,13 +22,13 @@ const opDescribeRecoverableTimeCommon = "DescribeRecoverableTime"
 // See DescribeRecoverableTimeCommon for more information on using the DescribeRecoverableTimeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRecoverableTimeCommonRequest method.
-//	req, resp := client.DescribeRecoverableTimeCommonRequest(params)
+//    // Example sending a request using the DescribeRecoverableTimeCommonRequest method.
+//    req, resp := client.DescribeRecoverableTimeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeRecoverableTimeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeRecoverableTimeCommon,
@@ -89,13 +89,13 @@ const opDescribeRecoverableTime = "DescribeRecoverableTime"
 // See DescribeRecoverableTime for more information on using the DescribeRecoverableTime
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRecoverableTimeRequest method.
-//	req, resp := client.DescribeRecoverableTimeRequest(params)
+//    // Example sending a request using the DescribeRecoverableTimeRequest method.
+//    req, resp := client.DescribeRecoverableTimeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeRecoverableTimeRequest(input *DescribeRecoverableTimeInput) (req *request.Request, output *DescribeRecoverableTimeOutput) {
 	op := &request.Operation{
 		Name:       opDescribeRecoverableTime,
@@ -151,7 +151,7 @@ type DescribeRecoverableTimeInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	RestoreType *string `type:"string" enum:"EnumOfRestoreTypeForDescribeRecoverableTimeInput"`
+	RestoreType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -248,11 +248,3 @@ func (s *RecoverableTimeInfoForDescribeRecoverableTimeOutput) SetLatestRecoverab
 	s.LatestRecoverableTime = &v
 	return s
 }
-
-const (
-	// EnumOfRestoreTypeForDescribeRecoverableTimeInputInstanceLevel is a EnumOfRestoreTypeForDescribeRecoverableTimeInput enum value
-	EnumOfRestoreTypeForDescribeRecoverableTimeInputInstanceLevel = "INSTANCE_LEVEL"
-
-	// EnumOfRestoreTypeForDescribeRecoverableTimeInputTableLevel is a EnumOfRestoreTypeForDescribeRecoverableTimeInput enum value
-	EnumOfRestoreTypeForDescribeRecoverableTimeInputTableLevel = "TABLE_LEVEL"
-)

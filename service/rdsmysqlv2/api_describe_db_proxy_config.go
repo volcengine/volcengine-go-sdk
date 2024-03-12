@@ -22,13 +22,13 @@ const opDescribeDBProxyConfigCommon = "DescribeDBProxyConfig"
 // See DescribeDBProxyConfigCommon for more information on using the DescribeDBProxyConfigCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBProxyConfigCommonRequest method.
-//	req, resp := client.DescribeDBProxyConfigCommonRequest(params)
+//    // Example sending a request using the DescribeDBProxyConfigCommonRequest method.
+//    req, resp := client.DescribeDBProxyConfigCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBProxyConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBProxyConfigCommon,
@@ -89,13 +89,13 @@ const opDescribeDBProxyConfig = "DescribeDBProxyConfig"
 // See DescribeDBProxyConfig for more information on using the DescribeDBProxyConfig
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBProxyConfigRequest method.
-//	req, resp := client.DescribeDBProxyConfigRequest(params)
+//    // Example sending a request using the DescribeDBProxyConfigRequest method.
+//    req, resp := client.DescribeDBProxyConfigRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBProxyConfigRequest(input *DescribeDBProxyConfigInput) (req *request.Request, output *DescribeDBProxyConfigOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBProxyConfig,
@@ -176,7 +176,8 @@ func (s *CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput) SetReason(v st
 type DescribeDBProxyConfigInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -187,6 +188,19 @@ func (s DescribeDBProxyConfigInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBProxyConfigInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDBProxyConfigInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDBProxyConfigInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

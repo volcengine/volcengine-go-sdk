@@ -22,13 +22,13 @@ const opModifyDBInstanceParametersCommon = "ModifyDBInstanceParameters"
 // See ModifyDBInstanceParametersCommon for more information on using the ModifyDBInstanceParametersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceParametersCommonRequest method.
-//	req, resp := client.ModifyDBInstanceParametersCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceParametersCommonRequest method.
+//    req, resp := client.ModifyDBInstanceParametersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceParametersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceParametersCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceParameters = "ModifyDBInstanceParameters"
 // See ModifyDBInstanceParameters for more information on using the ModifyDBInstanceParameters
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceParametersRequest method.
-//	req, resp := client.ModifyDBInstanceParametersRequest(params)
+//    // Example sending a request using the ModifyDBInstanceParametersRequest method.
+//    req, resp := client.ModifyDBInstanceParametersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceParametersRequest(input *ModifyDBInstanceParametersInput) (req *request.Request, output *ModifyDBInstanceParametersOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceParameters,
@@ -191,8 +191,6 @@ type ModifyDBInstanceParametersOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	InstanceId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -205,14 +203,18 @@ func (s ModifyDBInstanceParametersOutput) GoString() string {
 	return s.String()
 }
 
-// SetInstanceId sets the InstanceId field's value.
-func (s *ModifyDBInstanceParametersOutput) SetInstanceId(v string) *ModifyDBInstanceParametersOutput {
-	s.InstanceId = &v
-	return s
-}
-
 type ParameterForModifyDBInstanceParametersInput struct {
 	_ struct{} `type:"structure"`
+
+	CheckingCode *string `type:"string"`
+
+	Expression *string `type:"string"`
+
+	ForceRestart *bool `type:"boolean"`
+
+	ParameterDefaultValue *string `type:"string"`
+
+	ParameterDescription *string `type:"string"`
 
 	ParameterName *string `type:"string"`
 
@@ -227,6 +229,36 @@ func (s ParameterForModifyDBInstanceParametersInput) String() string {
 // GoString returns the string representation
 func (s ParameterForModifyDBInstanceParametersInput) GoString() string {
 	return s.String()
+}
+
+// SetCheckingCode sets the CheckingCode field's value.
+func (s *ParameterForModifyDBInstanceParametersInput) SetCheckingCode(v string) *ParameterForModifyDBInstanceParametersInput {
+	s.CheckingCode = &v
+	return s
+}
+
+// SetExpression sets the Expression field's value.
+func (s *ParameterForModifyDBInstanceParametersInput) SetExpression(v string) *ParameterForModifyDBInstanceParametersInput {
+	s.Expression = &v
+	return s
+}
+
+// SetForceRestart sets the ForceRestart field's value.
+func (s *ParameterForModifyDBInstanceParametersInput) SetForceRestart(v bool) *ParameterForModifyDBInstanceParametersInput {
+	s.ForceRestart = &v
+	return s
+}
+
+// SetParameterDefaultValue sets the ParameterDefaultValue field's value.
+func (s *ParameterForModifyDBInstanceParametersInput) SetParameterDefaultValue(v string) *ParameterForModifyDBInstanceParametersInput {
+	s.ParameterDefaultValue = &v
+	return s
+}
+
+// SetParameterDescription sets the ParameterDescription field's value.
+func (s *ParameterForModifyDBInstanceParametersInput) SetParameterDescription(v string) *ParameterForModifyDBInstanceParametersInput {
+	s.ParameterDescription = &v
+	return s
 }
 
 // SetParameterName sets the ParameterName field's value.

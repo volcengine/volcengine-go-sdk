@@ -22,13 +22,13 @@ const opDescribeAvailableCrossRegionCommon = "DescribeAvailableCrossRegion"
 // See DescribeAvailableCrossRegionCommon for more information on using the DescribeAvailableCrossRegionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailableCrossRegionCommonRequest method.
-//	req, resp := client.DescribeAvailableCrossRegionCommonRequest(params)
+//    // Example sending a request using the DescribeAvailableCrossRegionCommonRequest method.
+//    req, resp := client.DescribeAvailableCrossRegionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeAvailableCrossRegionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAvailableCrossRegionCommon,
@@ -89,13 +89,13 @@ const opDescribeAvailableCrossRegion = "DescribeAvailableCrossRegion"
 // See DescribeAvailableCrossRegion for more information on using the DescribeAvailableCrossRegion
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailableCrossRegionRequest method.
-//	req, resp := client.DescribeAvailableCrossRegionRequest(params)
+//    // Example sending a request using the DescribeAvailableCrossRegionRequest method.
+//    req, resp := client.DescribeAvailableCrossRegionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeAvailableCrossRegionRequest(input *DescribeAvailableCrossRegionInput) (req *request.Request, output *DescribeAvailableCrossRegionOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAvailableCrossRegion,
@@ -148,7 +148,8 @@ type DescribeAvailableCrossRegionInput struct {
 
 	InstanceId *string `type:"string"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s DescribeAvailableCrossRegionInput) String() string {
 // GoString returns the string representation
 func (s DescribeAvailableCrossRegionInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAvailableCrossRegionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAvailableCrossRegionInput"}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

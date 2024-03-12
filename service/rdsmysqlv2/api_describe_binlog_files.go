@@ -22,13 +22,13 @@ const opDescribeBinlogFilesCommon = "DescribeBinlogFiles"
 // See DescribeBinlogFilesCommon for more information on using the DescribeBinlogFilesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBinlogFilesCommonRequest method.
-//	req, resp := client.DescribeBinlogFilesCommonRequest(params)
+//    // Example sending a request using the DescribeBinlogFilesCommonRequest method.
+//    req, resp := client.DescribeBinlogFilesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeBinlogFilesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeBinlogFilesCommon,
@@ -89,13 +89,13 @@ const opDescribeBinlogFiles = "DescribeBinlogFiles"
 // See DescribeBinlogFiles for more information on using the DescribeBinlogFiles
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBinlogFilesRequest method.
-//	req, resp := client.DescribeBinlogFilesRequest(params)
+//    // Example sending a request using the DescribeBinlogFilesRequest method.
+//    req, resp := client.DescribeBinlogFilesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeBinlogFilesRequest(input *DescribeBinlogFilesInput) (req *request.Request, output *DescribeBinlogFilesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeBinlogFiles,
@@ -154,7 +154,7 @@ type BinlogFileForDescribeBinlogFilesOutput struct {
 
 	FileName *string `type:"string"`
 
-	FileSize *int64 `type:"int64"`
+	FileSize *int32 `type:"int32"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -194,7 +194,7 @@ func (s *BinlogFileForDescribeBinlogFilesOutput) SetFileName(v string) *BinlogFi
 }
 
 // SetFileSize sets the FileSize field's value.
-func (s *BinlogFileForDescribeBinlogFilesOutput) SetFileSize(v int64) *BinlogFileForDescribeBinlogFilesOutput {
+func (s *BinlogFileForDescribeBinlogFilesOutput) SetFileSize(v int32) *BinlogFileForDescribeBinlogFilesOutput {
 	s.FileSize = &v
 	return s
 }
@@ -212,11 +212,14 @@ type DescribeBinlogFilesInput struct {
 
 	Context *string `type:"string"`
 
-	EndTime *string `type:"string"`
+	// EndTime is a required field
+	EndTime *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	StartTime *string `type:"string"`
+	// StartTime is a required field
+	StartTime *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -227,6 +230,25 @@ func (s DescribeBinlogFilesInput) String() string {
 // GoString returns the string representation
 func (s DescribeBinlogFilesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeBinlogFilesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeBinlogFilesInput"}
+	if s.EndTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndTime"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.StartTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("StartTime"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupFileNumber sets the BackupFileNumber field's value.

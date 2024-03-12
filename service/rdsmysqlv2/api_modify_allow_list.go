@@ -22,13 +22,13 @@ const opModifyAllowListCommon = "ModifyAllowList"
 // See ModifyAllowListCommon for more information on using the ModifyAllowListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyAllowListCommonRequest method.
-//	req, resp := client.ModifyAllowListCommonRequest(params)
+//    // Example sending a request using the ModifyAllowListCommonRequest method.
+//    req, resp := client.ModifyAllowListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyAllowListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyAllowListCommon,
@@ -89,13 +89,13 @@ const opModifyAllowList = "ModifyAllowList"
 // See ModifyAllowList for more information on using the ModifyAllowList
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyAllowListRequest method.
-//	req, resp := client.ModifyAllowListRequest(params)
+//    // Example sending a request using the ModifyAllowListRequest method.
+//    req, resp := client.ModifyAllowListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyAllowListRequest(input *ModifyAllowListInput) (req *request.Request, output *ModifyAllowListOutput) {
 	op := &request.Operation{
 		Name:       opModifyAllowList,
@@ -158,7 +158,9 @@ type ModifyAllowListInput struct {
 
 	ApplyInstanceNum *int32 `type:"int32"`
 
-	ModifyMode *string `type:"string" enum:"EnumOfModifyModeForModifyAllowListInput"`
+	ModifyMode *string `type:"string"`
+
+	SecurityGroupIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -223,6 +225,12 @@ func (s *ModifyAllowListInput) SetModifyMode(v string) *ModifyAllowListInput {
 	return s
 }
 
+// SetSecurityGroupIds sets the SecurityGroupIds field's value.
+func (s *ModifyAllowListInput) SetSecurityGroupIds(v []*string) *ModifyAllowListInput {
+	s.SecurityGroupIds = v
+	return s
+}
+
 type ModifyAllowListOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -238,14 +246,3 @@ func (s ModifyAllowListOutput) String() string {
 func (s ModifyAllowListOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfModifyModeForModifyAllowListInputAppend is a EnumOfModifyModeForModifyAllowListInput enum value
-	EnumOfModifyModeForModifyAllowListInputAppend = "Append"
-
-	// EnumOfModifyModeForModifyAllowListInputCover is a EnumOfModifyModeForModifyAllowListInput enum value
-	EnumOfModifyModeForModifyAllowListInputCover = "Cover"
-
-	// EnumOfModifyModeForModifyAllowListInputDelete is a EnumOfModifyModeForModifyAllowListInput enum value
-	EnumOfModifyModeForModifyAllowListInputDelete = "Delete"
-)

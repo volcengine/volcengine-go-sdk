@@ -22,13 +22,13 @@ const opGetBackupDownloadLinkCommon = "GetBackupDownloadLink"
 // See GetBackupDownloadLinkCommon for more information on using the GetBackupDownloadLinkCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GetBackupDownloadLinkCommonRequest method.
-//	req, resp := client.GetBackupDownloadLinkCommonRequest(params)
+//    // Example sending a request using the GetBackupDownloadLinkCommonRequest method.
+//    req, resp := client.GetBackupDownloadLinkCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) GetBackupDownloadLinkCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetBackupDownloadLinkCommon,
@@ -89,13 +89,13 @@ const opGetBackupDownloadLink = "GetBackupDownloadLink"
 // See GetBackupDownloadLink for more information on using the GetBackupDownloadLink
 // API call, and error handling.
 //
-//	// Example sending a request using the GetBackupDownloadLinkRequest method.
-//	req, resp := client.GetBackupDownloadLinkRequest(params)
+//    // Example sending a request using the GetBackupDownloadLinkRequest method.
+//    req, resp := client.GetBackupDownloadLinkRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) GetBackupDownloadLinkRequest(input *GetBackupDownloadLinkInput) (req *request.Request, output *GetBackupDownloadLinkOutput) {
 	op := &request.Operation{
 		Name:       opGetBackupDownloadLink,
@@ -146,7 +146,8 @@ func (c *RDSMYSQLV2) GetBackupDownloadLinkWithContext(ctx volcengine.Context, in
 type GetBackupDownloadLinkInput struct {
 	_ struct{} `type:"structure"`
 
-	BackupId *string `type:"string"`
+	// BackupId is a required field
+	BackupId *string `type:"string" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -165,6 +166,9 @@ func (s GetBackupDownloadLinkInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *GetBackupDownloadLinkInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GetBackupDownloadLinkInput"}
+	if s.BackupId == nil {
+		invalidParams.Add(request.NewErrParamRequired("BackupId"))
+	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
@@ -202,7 +206,7 @@ type GetBackupDownloadLinkOutput struct {
 
 	BackupType *string `type:"string"`
 
-	DownloadProgress *int64 `type:"int64"`
+	DownloadProgress *int32 `type:"int32"`
 
 	InstanceId *string `type:"string"`
 
@@ -250,7 +254,7 @@ func (s *GetBackupDownloadLinkOutput) SetBackupType(v string) *GetBackupDownload
 }
 
 // SetDownloadProgress sets the DownloadProgress field's value.
-func (s *GetBackupDownloadLinkOutput) SetDownloadProgress(v int64) *GetBackupDownloadLinkOutput {
+func (s *GetBackupDownloadLinkOutput) SetDownloadProgress(v int32) *GetBackupDownloadLinkOutput {
 	s.DownloadProgress = &v
 	return s
 }

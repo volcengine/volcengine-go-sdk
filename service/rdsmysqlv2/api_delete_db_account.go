@@ -22,13 +22,13 @@ const opDeleteDBAccountCommon = "DeleteDBAccount"
 // See DeleteDBAccountCommon for more information on using the DeleteDBAccountCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDBAccountCommonRequest method.
-//	req, resp := client.DeleteDBAccountCommonRequest(params)
+//    // Example sending a request using the DeleteDBAccountCommonRequest method.
+//    req, resp := client.DeleteDBAccountCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DeleteDBAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDBAccountCommon,
@@ -89,13 +89,13 @@ const opDeleteDBAccount = "DeleteDBAccount"
 // See DeleteDBAccount for more information on using the DeleteDBAccount
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDBAccountRequest method.
-//	req, resp := client.DeleteDBAccountRequest(params)
+//    // Example sending a request using the DeleteDBAccountRequest method.
+//    req, resp := client.DeleteDBAccountRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DeleteDBAccountRequest(input *DeleteDBAccountInput) (req *request.Request, output *DeleteDBAccountOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDBAccount,
@@ -147,7 +147,9 @@ type DeleteDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
 	// AccountName is a required field
-	AccountName *string `min:"2" max:"32" type:"string" required:"true"`
+	AccountName *string `type:"string" required:"true"`
+
+	Host *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -169,12 +171,6 @@ func (s *DeleteDBAccountInput) Validate() error {
 	if s.AccountName == nil {
 		invalidParams.Add(request.NewErrParamRequired("AccountName"))
 	}
-	if s.AccountName != nil && len(*s.AccountName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
-	}
-	if s.AccountName != nil && len(*s.AccountName) > 32 {
-		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 32, *s.AccountName))
-	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
@@ -188,6 +184,12 @@ func (s *DeleteDBAccountInput) Validate() error {
 // SetAccountName sets the AccountName field's value.
 func (s *DeleteDBAccountInput) SetAccountName(v string) *DeleteDBAccountInput {
 	s.AccountName = &v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *DeleteDBAccountInput) SetHost(v string) *DeleteDBAccountInput {
+	s.Host = &v
 	return s
 }
 

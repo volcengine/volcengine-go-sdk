@@ -22,13 +22,13 @@ const opGrantDatabasePrivilegeCommon = "GrantDatabasePrivilege"
 // See GrantDatabasePrivilegeCommon for more information on using the GrantDatabasePrivilegeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GrantDatabasePrivilegeCommonRequest method.
-//	req, resp := client.GrantDatabasePrivilegeCommonRequest(params)
+//    // Example sending a request using the GrantDatabasePrivilegeCommonRequest method.
+//    req, resp := client.GrantDatabasePrivilegeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) GrantDatabasePrivilegeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGrantDatabasePrivilegeCommon,
@@ -89,13 +89,13 @@ const opGrantDatabasePrivilege = "GrantDatabasePrivilege"
 // See GrantDatabasePrivilege for more information on using the GrantDatabasePrivilege
 // API call, and error handling.
 //
-//	// Example sending a request using the GrantDatabasePrivilegeRequest method.
-//	req, resp := client.GrantDatabasePrivilegeRequest(params)
+//    // Example sending a request using the GrantDatabasePrivilegeRequest method.
+//    req, resp := client.GrantDatabasePrivilegeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) GrantDatabasePrivilegeRequest(input *GrantDatabasePrivilegeInput) (req *request.Request, output *GrantDatabasePrivilegeOutput) {
 	op := &request.Operation{
 		Name:       opGrantDatabasePrivilege,
@@ -148,9 +148,11 @@ type DatabasePrivilegeForGrantDatabasePrivilegeInput struct {
 
 	AccountName *string `type:"string"`
 
-	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForGrantDatabasePrivilegeInput"`
+	AccountPrivilege *string `type:"string"`
 
 	AccountPrivilegeDetail *string `type:"string"`
+
+	Host *string `type:"string"`
 }
 
 // String returns the string representation
@@ -181,11 +183,17 @@ func (s *DatabasePrivilegeForGrantDatabasePrivilegeInput) SetAccountPrivilegeDet
 	return s
 }
 
+// SetHost sets the Host field's value.
+func (s *DatabasePrivilegeForGrantDatabasePrivilegeInput) SetHost(v string) *DatabasePrivilegeForGrantDatabasePrivilegeInput {
+	s.Host = &v
+	return s
+}
+
 type GrantDatabasePrivilegeInput struct {
 	_ struct{} `type:"structure"`
 
 	// DBName is a required field
-	DBName *string `min:"2" max:"64" type:"string" required:"true"`
+	DBName *string `type:"string" required:"true"`
 
 	DatabasePrivileges []*DatabasePrivilegeForGrantDatabasePrivilegeInput `type:"list"`
 
@@ -208,12 +216,6 @@ func (s *GrantDatabasePrivilegeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "GrantDatabasePrivilegeInput"}
 	if s.DBName == nil {
 		invalidParams.Add(request.NewErrParamRequired("DBName"))
-	}
-	if s.DBName != nil && len(*s.DBName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("DBName", 2))
-	}
-	if s.DBName != nil && len(*s.DBName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("DBName", 64, *s.DBName))
 	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
@@ -258,23 +260,3 @@ func (s GrantDatabasePrivilegeOutput) String() string {
 func (s GrantDatabasePrivilegeOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputCustom is a EnumOfAccountPrivilegeForGrantDatabasePrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputCustom = "Custom"
-
-	// EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputDdlonly is a EnumOfAccountPrivilegeForGrantDatabasePrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputDdlonly = "DDLOnly"
-
-	// EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputDmlonly is a EnumOfAccountPrivilegeForGrantDatabasePrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputDmlonly = "DMLOnly"
-
-	// EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputNone is a EnumOfAccountPrivilegeForGrantDatabasePrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputNone = "None"
-
-	// EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputReadOnly is a EnumOfAccountPrivilegeForGrantDatabasePrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputReadOnly = "ReadOnly"
-
-	// EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputReadWrite is a EnumOfAccountPrivilegeForGrantDatabasePrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDatabasePrivilegeInputReadWrite = "ReadWrite"
-)
