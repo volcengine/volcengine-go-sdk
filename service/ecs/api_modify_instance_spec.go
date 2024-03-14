@@ -151,8 +151,7 @@ type ModifyInstanceSpecInput struct {
 
 	InstanceType *string `type:"string"`
 
-	// InstanceTypeId is a required field
-	InstanceTypeId *string `type:"string" required:"true"`
+	InstanceTypeId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -170,9 +169,6 @@ func (s *ModifyInstanceSpecInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyInstanceSpecInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
-	}
-	if s.InstanceTypeId == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceTypeId"))
 	}
 
 	if invalidParams.Len() > 0 {
