@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // BILLING.
 //    func myFunc(svc BILLINGAPI) bool {
-//        // Make svc.ListAmortizedCostBillDaily request
+//        // Make svc.CancelInvitation request
 //    }
 //
 //    func main() {
@@ -30,6 +30,38 @@ import (
 //    }
 //
 type BILLINGAPI interface {
+	CancelInvitationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelInvitationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelInvitationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelInvitation(*CancelInvitationInput) (*CancelInvitationOutput, error)
+	CancelInvitationWithContext(volcengine.Context, *CancelInvitationInput, ...request.Option) (*CancelInvitationOutput, error)
+	CancelInvitationRequest(*CancelInvitationInput) (*request.Request, *CancelInvitationOutput)
+
+	CreateFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateFinancialRelation(*CreateFinancialRelationInput) (*CreateFinancialRelationOutput, error)
+	CreateFinancialRelationWithContext(volcengine.Context, *CreateFinancialRelationInput, ...request.Option) (*CreateFinancialRelationOutput, error)
+	CreateFinancialRelationRequest(*CreateFinancialRelationInput) (*request.Request, *CreateFinancialRelationOutput)
+
+	DeleteFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteFinancialRelation(*DeleteFinancialRelationInput) (*DeleteFinancialRelationOutput, error)
+	DeleteFinancialRelationWithContext(volcengine.Context, *DeleteFinancialRelationInput, ...request.Option) (*DeleteFinancialRelationOutput, error)
+	DeleteFinancialRelationRequest(*DeleteFinancialRelationInput) (*request.Request, *DeleteFinancialRelationOutput)
+
+	HandleInvitationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	HandleInvitationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	HandleInvitationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	HandleInvitation(*HandleInvitationInput) (*HandleInvitationOutput, error)
+	HandleInvitationWithContext(volcengine.Context, *HandleInvitationInput, ...request.Option) (*HandleInvitationOutput, error)
+	HandleInvitationRequest(*HandleInvitationInput) (*request.Request, *HandleInvitationOutput)
+
 	ListAmortizedCostBillDailyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListAmortizedCostBillDailyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListAmortizedCostBillDailyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -86,6 +118,22 @@ type BILLINGAPI interface {
 	ListBillOverviewByProdWithContext(volcengine.Context, *ListBillOverviewByProdInput, ...request.Option) (*ListBillOverviewByProdOutput, error)
 	ListBillOverviewByProdRequest(*ListBillOverviewByProdInput) (*request.Request, *ListBillOverviewByProdOutput)
 
+	ListFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListFinancialRelation(*ListFinancialRelationInput) (*ListFinancialRelationOutput, error)
+	ListFinancialRelationWithContext(volcengine.Context, *ListFinancialRelationInput, ...request.Option) (*ListFinancialRelationOutput, error)
+	ListFinancialRelationRequest(*ListFinancialRelationInput) (*request.Request, *ListFinancialRelationOutput)
+
+	ListInvitationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListInvitationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListInvitationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListInvitation(*ListInvitationInput) (*ListInvitationOutput, error)
+	ListInvitationWithContext(volcengine.Context, *ListInvitationInput, ...request.Option) (*ListInvitationOutput, error)
+	ListInvitationRequest(*ListInvitationInput) (*request.Request, *ListInvitationOutput)
+
 	ListSplitBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSplitBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSplitBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -109,6 +157,14 @@ type BILLINGAPI interface {
 	UnsubscribeInstance(*UnsubscribeInstanceInput) (*UnsubscribeInstanceOutput, error)
 	UnsubscribeInstanceWithContext(volcengine.Context, *UnsubscribeInstanceInput, ...request.Option) (*UnsubscribeInstanceOutput, error)
 	UnsubscribeInstanceRequest(*UnsubscribeInstanceInput) (*request.Request, *UnsubscribeInstanceOutput)
+
+	UpdateAuthCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateAuthCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateAuthCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateAuth(*UpdateAuthInput) (*UpdateAuthOutput, error)
+	UpdateAuthWithContext(volcengine.Context, *UpdateAuthInput, ...request.Option) (*UpdateAuthOutput, error)
+	UpdateAuthRequest(*UpdateAuthInput) (*request.Request, *UpdateAuthOutput)
 }
 
 var _ BILLINGAPI = (*BILLING)(nil)
