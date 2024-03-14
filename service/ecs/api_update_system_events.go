@@ -22,13 +22,13 @@ const opUpdateSystemEventsCommon = "UpdateSystemEvents"
 // See UpdateSystemEventsCommon for more information on using the UpdateSystemEventsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateSystemEventsCommonRequest method.
-//	req, resp := client.UpdateSystemEventsCommonRequest(params)
+//    // Example sending a request using the UpdateSystemEventsCommonRequest method.
+//    req, resp := client.UpdateSystemEventsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) UpdateSystemEventsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateSystemEventsCommon,
@@ -87,13 +87,13 @@ const opUpdateSystemEvents = "UpdateSystemEvents"
 // See UpdateSystemEvents for more information on using the UpdateSystemEvents
 // API call, and error handling.
 //
-//	// Example sending a request using the UpdateSystemEventsRequest method.
-//	req, resp := client.UpdateSystemEventsRequest(params)
+//    // Example sending a request using the UpdateSystemEventsRequest method.
+//    req, resp := client.UpdateSystemEventsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) UpdateSystemEventsRequest(input *UpdateSystemEventsInput) (req *request.Request, output *UpdateSystemEventsOutput) {
 	op := &request.Operation{
 		Name:       opUpdateSystemEvents,
@@ -202,13 +202,15 @@ func (s *OperationDetailForUpdateSystemEventsOutput) SetEventId(v string) *Opera
 type UpdateSystemEventsInput struct {
 	_ struct{} `type:"structure"`
 
-	EventIds []*string `type:"list"`
+	// EventIds is a required field
+	EventIds []*string `type:"list" required:"true"`
 
 	OperatedEndAt *string `type:"string"`
 
 	OperatedStartAt *string `type:"string"`
 
-	Status *string `type:"string"`
+	// Status is a required field
+	Status *string `type:"string" required:"true"`
 
 	UpdatedAt *string `type:"string"`
 }
@@ -221,6 +223,22 @@ func (s UpdateSystemEventsInput) String() string {
 // GoString returns the string representation
 func (s UpdateSystemEventsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateSystemEventsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateSystemEventsInput"}
+	if s.EventIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("EventIds"))
+	}
+	if s.Status == nil {
+		invalidParams.Add(request.NewErrParamRequired("Status"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEventIds sets the EventIds field's value.

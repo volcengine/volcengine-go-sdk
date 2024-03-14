@@ -22,13 +22,13 @@ const opDescribeRegionsCommon = "DescribeRegions"
 // See DescribeRegionsCommon for more information on using the DescribeRegionsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRegionsCommonRequest method.
-//	req, resp := client.DescribeRegionsCommonRequest(params)
+//    // Example sending a request using the DescribeRegionsCommonRequest method.
+//    req, resp := client.DescribeRegionsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeRegionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeRegionsCommon,
@@ -87,13 +87,13 @@ const opDescribeRegions = "DescribeRegions"
 // See DescribeRegions for more information on using the DescribeRegions
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeRegionsRequest method.
-//	req, resp := client.DescribeRegionsRequest(params)
+//    // Example sending a request using the DescribeRegionsRequest method.
+//    req, resp := client.DescribeRegionsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeRegionsRequest(input *DescribeRegionsInput) (req *request.Request, output *DescribeRegionsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeRegions,

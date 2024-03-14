@@ -22,13 +22,13 @@ const opDescribeDeploymentSetsCommon = "DescribeDeploymentSets"
 // See DescribeDeploymentSetsCommon for more information on using the DescribeDeploymentSetsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDeploymentSetsCommonRequest method.
-//	req, resp := client.DescribeDeploymentSetsCommonRequest(params)
+//    // Example sending a request using the DescribeDeploymentSetsCommonRequest method.
+//    req, resp := client.DescribeDeploymentSetsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeDeploymentSetsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDeploymentSetsCommon,
@@ -87,13 +87,13 @@ const opDescribeDeploymentSets = "DescribeDeploymentSets"
 // See DescribeDeploymentSets for more information on using the DescribeDeploymentSets
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDeploymentSetsRequest method.
-//	req, resp := client.DescribeDeploymentSetsRequest(params)
+//    // Example sending a request using the DescribeDeploymentSetsRequest method.
+//    req, resp := client.DescribeDeploymentSetsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeDeploymentSetsRequest(input *DescribeDeploymentSetsInput) (req *request.Request, output *DescribeDeploymentSetsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDeploymentSets,

@@ -22,13 +22,13 @@ const opCreateKeyPairCommon = "CreateKeyPair"
 // See CreateKeyPairCommon for more information on using the CreateKeyPairCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateKeyPairCommonRequest method.
-//	req, resp := client.CreateKeyPairCommonRequest(params)
+//    // Example sending a request using the CreateKeyPairCommonRequest method.
+//    req, resp := client.CreateKeyPairCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateKeyPairCommon,
@@ -87,13 +87,13 @@ const opCreateKeyPair = "CreateKeyPair"
 // See CreateKeyPair for more information on using the CreateKeyPair
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateKeyPairRequest method.
-//	req, resp := client.CreateKeyPairRequest(params)
+//    // Example sending a request using the CreateKeyPairRequest method.
+//    req, resp := client.CreateKeyPairRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateKeyPairRequest(input *CreateKeyPairInput) (req *request.Request, output *CreateKeyPairOutput) {
 	op := &request.Operation{
 		Name:       opCreateKeyPair,
@@ -146,7 +146,8 @@ type CreateKeyPairInput struct {
 
 	Description *string `type:"string"`
 
-	KeyPairName *string `type:"string"`
+	// KeyPairName is a required field
+	KeyPairName *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
 }
@@ -159,6 +160,19 @@ func (s CreateKeyPairInput) String() string {
 // GoString returns the string representation
 func (s CreateKeyPairInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateKeyPairInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateKeyPairInput"}
+	if s.KeyPairName == nil {
+		invalidParams.Add(request.NewErrParamRequired("KeyPairName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

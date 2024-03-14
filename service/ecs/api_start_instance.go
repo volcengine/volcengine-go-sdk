@@ -22,13 +22,13 @@ const opStartInstanceCommon = "StartInstance"
 // See StartInstanceCommon for more information on using the StartInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the StartInstanceCommonRequest method.
-//	req, resp := client.StartInstanceCommonRequest(params)
+//    // Example sending a request using the StartInstanceCommonRequest method.
+//    req, resp := client.StartInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StartInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStartInstanceCommon,
@@ -87,13 +87,13 @@ const opStartInstance = "StartInstance"
 // See StartInstance for more information on using the StartInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the StartInstanceRequest method.
-//	req, resp := client.StartInstanceRequest(params)
+//    // Example sending a request using the StartInstanceRequest method.
+//    req, resp := client.StartInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StartInstanceRequest(input *StartInstanceInput) (req *request.Request, output *StartInstanceOutput) {
 	op := &request.Operation{
 		Name:       opStartInstance,
@@ -146,7 +146,8 @@ type StartInstanceInput struct {
 
 	DryRun *bool `type:"boolean"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s StartInstanceInput) String() string {
 // GoString returns the string representation
 func (s StartInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

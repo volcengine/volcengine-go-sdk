@@ -22,13 +22,13 @@ const opModifyImageSharePermissionCommon = "ModifyImageSharePermission"
 // See ModifyImageSharePermissionCommon for more information on using the ModifyImageSharePermissionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyImageSharePermissionCommonRequest method.
-//	req, resp := client.ModifyImageSharePermissionCommonRequest(params)
+//    // Example sending a request using the ModifyImageSharePermissionCommonRequest method.
+//    req, resp := client.ModifyImageSharePermissionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyImageSharePermissionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyImageSharePermissionCommon,
@@ -87,13 +87,13 @@ const opModifyImageSharePermission = "ModifyImageSharePermission"
 // See ModifyImageSharePermission for more information on using the ModifyImageSharePermission
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyImageSharePermissionRequest method.
-//	req, resp := client.ModifyImageSharePermissionRequest(params)
+//    // Example sending a request using the ModifyImageSharePermissionRequest method.
+//    req, resp := client.ModifyImageSharePermissionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyImageSharePermissionRequest(input *ModifyImageSharePermissionInput) (req *request.Request, output *ModifyImageSharePermissionOutput) {
 	op := &request.Operation{
 		Name:       opModifyImageSharePermission,
@@ -144,7 +144,8 @@ type ModifyImageSharePermissionInput struct {
 
 	AddAccounts []*string `type:"list"`
 
-	ImageId *string `type:"string"`
+	// ImageId is a required field
+	ImageId *string `type:"string" required:"true"`
 
 	RemoveAccounts []*string `type:"list"`
 }
@@ -157,6 +158,19 @@ func (s ModifyImageSharePermissionInput) String() string {
 // GoString returns the string representation
 func (s ModifyImageSharePermissionInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyImageSharePermissionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyImageSharePermissionInput"}
+	if s.ImageId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAddAccounts sets the AddAccounts field's value.

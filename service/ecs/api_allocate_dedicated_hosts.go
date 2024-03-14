@@ -22,13 +22,13 @@ const opAllocateDedicatedHostsCommon = "AllocateDedicatedHosts"
 // See AllocateDedicatedHostsCommon for more information on using the AllocateDedicatedHostsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AllocateDedicatedHostsCommonRequest method.
-//	req, resp := client.AllocateDedicatedHostsCommonRequest(params)
+//    // Example sending a request using the AllocateDedicatedHostsCommonRequest method.
+//    req, resp := client.AllocateDedicatedHostsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) AllocateDedicatedHostsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAllocateDedicatedHostsCommon,
@@ -87,13 +87,13 @@ const opAllocateDedicatedHosts = "AllocateDedicatedHosts"
 // See AllocateDedicatedHosts for more information on using the AllocateDedicatedHosts
 // API call, and error handling.
 //
-//	// Example sending a request using the AllocateDedicatedHostsRequest method.
-//	req, resp := client.AllocateDedicatedHostsRequest(params)
+//    // Example sending a request using the AllocateDedicatedHostsRequest method.
+//    req, resp := client.AllocateDedicatedHostsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) AllocateDedicatedHostsRequest(input *AllocateDedicatedHostsInput) (req *request.Request, output *AllocateDedicatedHostsOutput) {
 	op := &request.Operation{
 		Name:       opAllocateDedicatedHosts,
@@ -156,11 +156,13 @@ type AllocateDedicatedHostsInput struct {
 
 	CpuOvercommitRatio *float64 `type:"double"`
 
-	DedicatedHostName *string `type:"string"`
+	// DedicatedHostName is a required field
+	DedicatedHostName *string `type:"string" required:"true"`
 
 	DedicatedHostRecovery *string `type:"string"`
 
-	DedicatedHostTypeId *string `type:"string"`
+	// DedicatedHostTypeId is a required field
+	DedicatedHostTypeId *string `type:"string" required:"true"`
 
 	Description *string `type:"string"`
 
@@ -168,7 +170,8 @@ type AllocateDedicatedHostsInput struct {
 
 	PeriodUnit *string `type:"string"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -179,6 +182,25 @@ func (s AllocateDedicatedHostsInput) String() string {
 // GoString returns the string representation
 func (s AllocateDedicatedHostsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AllocateDedicatedHostsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AllocateDedicatedHostsInput"}
+	if s.DedicatedHostName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DedicatedHostName"))
+	}
+	if s.DedicatedHostTypeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DedicatedHostTypeId"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoPlacement sets the AutoPlacement field's value.

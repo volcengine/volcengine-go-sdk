@@ -22,13 +22,13 @@ const opDescribeSpotPriceHistoryCommon = "DescribeSpotPriceHistory"
 // See DescribeSpotPriceHistoryCommon for more information on using the DescribeSpotPriceHistoryCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSpotPriceHistoryCommonRequest method.
-//	req, resp := client.DescribeSpotPriceHistoryCommonRequest(params)
+//    // Example sending a request using the DescribeSpotPriceHistoryCommonRequest method.
+//    req, resp := client.DescribeSpotPriceHistoryCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeSpotPriceHistoryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSpotPriceHistoryCommon,
@@ -87,13 +87,13 @@ const opDescribeSpotPriceHistory = "DescribeSpotPriceHistory"
 // See DescribeSpotPriceHistory for more information on using the DescribeSpotPriceHistory
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSpotPriceHistoryRequest method.
-//	req, resp := client.DescribeSpotPriceHistoryRequest(params)
+//    // Example sending a request using the DescribeSpotPriceHistoryRequest method.
+//    req, resp := client.DescribeSpotPriceHistoryRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeSpotPriceHistoryRequest(input *DescribeSpotPriceHistoryInput) (req *request.Request, output *DescribeSpotPriceHistoryOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSpotPriceHistory,
@@ -142,7 +142,8 @@ func (c *ECS) DescribeSpotPriceHistoryWithContext(ctx volcengine.Context, input 
 type DescribeSpotPriceHistoryInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceTypeId *string `type:"string"`
+	// InstanceTypeId is a required field
+	InstanceTypeId *string `type:"string" required:"true"`
 
 	MaxResults *int32 `type:"int32"`
 
@@ -163,6 +164,19 @@ func (s DescribeSpotPriceHistoryInput) String() string {
 // GoString returns the string representation
 func (s DescribeSpotPriceHistoryInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeSpotPriceHistoryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeSpotPriceHistoryInput"}
+	if s.InstanceTypeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceTypeId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceTypeId sets the InstanceTypeId field's value.

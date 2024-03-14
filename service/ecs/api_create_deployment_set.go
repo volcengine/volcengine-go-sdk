@@ -22,13 +22,13 @@ const opCreateDeploymentSetCommon = "CreateDeploymentSet"
 // See CreateDeploymentSetCommon for more information on using the CreateDeploymentSetCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDeploymentSetCommonRequest method.
-//	req, resp := client.CreateDeploymentSetCommonRequest(params)
+//    // Example sending a request using the CreateDeploymentSetCommonRequest method.
+//    req, resp := client.CreateDeploymentSetCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateDeploymentSetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDeploymentSetCommon,
@@ -87,13 +87,13 @@ const opCreateDeploymentSet = "CreateDeploymentSet"
 // See CreateDeploymentSet for more information on using the CreateDeploymentSet
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDeploymentSetRequest method.
-//	req, resp := client.CreateDeploymentSetRequest(params)
+//    // Example sending a request using the CreateDeploymentSetRequest method.
+//    req, resp := client.CreateDeploymentSetRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateDeploymentSetRequest(input *CreateDeploymentSetInput) (req *request.Request, output *CreateDeploymentSetOutput) {
 	op := &request.Operation{
 		Name:       opCreateDeploymentSet,
@@ -144,7 +144,8 @@ type CreateDeploymentSetInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DeploymentSetName *string `type:"string"`
+	// DeploymentSetName is a required field
+	DeploymentSetName *string `type:"string" required:"true"`
 
 	Description *string `type:"string"`
 
@@ -161,6 +162,19 @@ func (s CreateDeploymentSetInput) String() string {
 // GoString returns the string representation
 func (s CreateDeploymentSetInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDeploymentSetInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDeploymentSetInput"}
+	if s.DeploymentSetName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DeploymentSetName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

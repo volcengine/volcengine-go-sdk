@@ -22,13 +22,13 @@ const opDescribeDedicatedHostClustersCommon = "DescribeDedicatedHostClusters"
 // See DescribeDedicatedHostClustersCommon for more information on using the DescribeDedicatedHostClustersCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDedicatedHostClustersCommonRequest method.
-//	req, resp := client.DescribeDedicatedHostClustersCommonRequest(params)
+//    // Example sending a request using the DescribeDedicatedHostClustersCommonRequest method.
+//    req, resp := client.DescribeDedicatedHostClustersCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeDedicatedHostClustersCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDedicatedHostClustersCommon,
@@ -87,13 +87,13 @@ const opDescribeDedicatedHostClusters = "DescribeDedicatedHostClusters"
 // See DescribeDedicatedHostClusters for more information on using the DescribeDedicatedHostClusters
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDedicatedHostClustersRequest method.
-//	req, resp := client.DescribeDedicatedHostClustersRequest(params)
+//    // Example sending a request using the DescribeDedicatedHostClustersRequest method.
+//    req, resp := client.DescribeDedicatedHostClustersRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeDedicatedHostClustersRequest(input *DescribeDedicatedHostClustersInput) (req *request.Request, output *DescribeDedicatedHostClustersOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDedicatedHostClusters,

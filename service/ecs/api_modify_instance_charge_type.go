@@ -22,13 +22,13 @@ const opModifyInstanceChargeTypeCommon = "ModifyInstanceChargeType"
 // See ModifyInstanceChargeTypeCommon for more information on using the ModifyInstanceChargeTypeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceChargeTypeCommonRequest method.
-//	req, resp := client.ModifyInstanceChargeTypeCommonRequest(params)
+//    // Example sending a request using the ModifyInstanceChargeTypeCommonRequest method.
+//    req, resp := client.ModifyInstanceChargeTypeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyInstanceChargeTypeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceChargeTypeCommon,
@@ -87,13 +87,13 @@ const opModifyInstanceChargeType = "ModifyInstanceChargeType"
 // See ModifyInstanceChargeType for more information on using the ModifyInstanceChargeType
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceChargeTypeRequest method.
-//	req, resp := client.ModifyInstanceChargeTypeRequest(params)
+//    // Example sending a request using the ModifyInstanceChargeTypeRequest method.
+//    req, resp := client.ModifyInstanceChargeTypeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyInstanceChargeTypeRequest(input *ModifyInstanceChargeTypeInput) (req *request.Request, output *ModifyInstanceChargeTypeOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceChargeType,

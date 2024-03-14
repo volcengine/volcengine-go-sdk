@@ -3,6 +3,8 @@
 package ecs
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -22,13 +24,13 @@ const opCreateTagsCommon = "CreateTags"
 // See CreateTagsCommon for more information on using the CreateTagsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateTagsCommonRequest method.
-//	req, resp := client.CreateTagsCommonRequest(params)
+//    // Example sending a request using the CreateTagsCommonRequest method.
+//    req, resp := client.CreateTagsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateTagsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateTagsCommon,
@@ -87,13 +89,13 @@ const opCreateTags = "CreateTags"
 // See CreateTags for more information on using the CreateTags
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateTagsRequest method.
-//	req, resp := client.CreateTagsRequest(params)
+//    // Example sending a request using the CreateTagsRequest method.
+//    req, resp := client.CreateTagsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateTagsRequest(input *CreateTagsInput) (req *request.Request, output *CreateTagsOutput) {
 	op := &request.Operation{
 		Name:       opCreateTags,
@@ -144,11 +146,14 @@ type CreateTagsInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ResourceIds []*string `type:"list"`
+	// ResourceIds is a required field
+	ResourceIds []*string `type:"list" required:"true"`
 
-	ResourceType *string `type:"string"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true"`
 
-	Tags []*TagForCreateTagsInput `type:"list"`
+	// Tags is a required field
+	Tags []*TagForCreateTagsInput `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +164,35 @@ func (s CreateTagsInput) String() string {
 // GoString returns the string representation
 func (s CreateTagsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateTagsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateTagsInput"}
+	if s.ResourceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+	if s.Tags == nil {
+		invalidParams.Add(request.NewErrParamRequired("Tags"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -272,7 +306,8 @@ func (s *OperationDetailForCreateTagsOutput) SetResourceId(v string) *OperationD
 type TagForCreateTagsInput struct {
 	_ struct{} `type:"structure"`
 
-	Key *string `type:"string"`
+	// Key is a required field
+	Key *string `type:"string" required:"true"`
 
 	Value *string `type:"string"`
 }
@@ -285,6 +320,19 @@ func (s TagForCreateTagsInput) String() string {
 // GoString returns the string representation
 func (s TagForCreateTagsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagForCreateTagsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagForCreateTagsInput"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetKey sets the Key field's value.

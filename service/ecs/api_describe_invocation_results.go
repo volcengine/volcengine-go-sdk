@@ -22,13 +22,13 @@ const opDescribeInvocationResultsCommon = "DescribeInvocationResults"
 // See DescribeInvocationResultsCommon for more information on using the DescribeInvocationResultsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInvocationResultsCommonRequest method.
-//	req, resp := client.DescribeInvocationResultsCommonRequest(params)
+//    // Example sending a request using the DescribeInvocationResultsCommonRequest method.
+//    req, resp := client.DescribeInvocationResultsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInvocationResultsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInvocationResultsCommon,
@@ -87,13 +87,13 @@ const opDescribeInvocationResults = "DescribeInvocationResults"
 // See DescribeInvocationResults for more information on using the DescribeInvocationResults
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInvocationResultsRequest method.
-//	req, resp := client.DescribeInvocationResultsRequest(params)
+//    // Example sending a request using the DescribeInvocationResultsRequest method.
+//    req, resp := client.DescribeInvocationResultsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInvocationResultsRequest(input *DescribeInvocationResultsInput) (req *request.Request, output *DescribeInvocationResultsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInvocationResults,
@@ -146,7 +146,8 @@ type DescribeInvocationResultsInput struct {
 
 	InstanceId *string `type:"string"`
 
-	InvocationId *string `type:"string"`
+	// InvocationId is a required field
+	InvocationId *string `type:"string" required:"true"`
 
 	InvocationResultStatus *string `type:"string"`
 
@@ -163,6 +164,19 @@ func (s DescribeInvocationResultsInput) String() string {
 // GoString returns the string representation
 func (s DescribeInvocationResultsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeInvocationResultsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeInvocationResultsInput"}
+	if s.InvocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InvocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCommandId sets the CommandId field's value.

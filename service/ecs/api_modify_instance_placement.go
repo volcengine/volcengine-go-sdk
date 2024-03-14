@@ -22,13 +22,13 @@ const opModifyInstancePlacementCommon = "ModifyInstancePlacement"
 // See ModifyInstancePlacementCommon for more information on using the ModifyInstancePlacementCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstancePlacementCommonRequest method.
-//	req, resp := client.ModifyInstancePlacementCommonRequest(params)
+//    // Example sending a request using the ModifyInstancePlacementCommonRequest method.
+//    req, resp := client.ModifyInstancePlacementCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyInstancePlacementCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstancePlacementCommon,
@@ -87,13 +87,13 @@ const opModifyInstancePlacement = "ModifyInstancePlacement"
 // See ModifyInstancePlacement for more information on using the ModifyInstancePlacement
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstancePlacementRequest method.
-//	req, resp := client.ModifyInstancePlacementRequest(params)
+//    // Example sending a request using the ModifyInstancePlacementRequest method.
+//    req, resp := client.ModifyInstancePlacementRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyInstancePlacementRequest(input *ModifyInstancePlacementInput) (req *request.Request, output *ModifyInstancePlacementOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstancePlacement,
@@ -148,7 +148,8 @@ type ModifyInstancePlacementInput struct {
 
 	DedicatedHostId *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s ModifyInstancePlacementInput) String() string {
 // GoString returns the string representation
 func (s ModifyInstancePlacementInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyInstancePlacementInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyInstancePlacementInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAffinity sets the Affinity field's value.

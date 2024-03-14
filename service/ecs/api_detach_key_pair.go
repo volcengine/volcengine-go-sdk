@@ -22,13 +22,13 @@ const opDetachKeyPairCommon = "DetachKeyPair"
 // See DetachKeyPairCommon for more information on using the DetachKeyPairCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachKeyPairCommonRequest method.
-//	req, resp := client.DetachKeyPairCommonRequest(params)
+//    // Example sending a request using the DetachKeyPairCommonRequest method.
+//    req, resp := client.DetachKeyPairCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DetachKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDetachKeyPairCommon,
@@ -87,13 +87,13 @@ const opDetachKeyPair = "DetachKeyPair"
 // See DetachKeyPair for more information on using the DetachKeyPair
 // API call, and error handling.
 //
-//	// Example sending a request using the DetachKeyPairRequest method.
-//	req, resp := client.DetachKeyPairRequest(params)
+//    // Example sending a request using the DetachKeyPairRequest method.
+//    req, resp := client.DetachKeyPairRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DetachKeyPairRequest(input *DetachKeyPairInput) (req *request.Request, output *DetachKeyPairOutput) {
 	op := &request.Operation{
 		Name:       opDetachKeyPair,

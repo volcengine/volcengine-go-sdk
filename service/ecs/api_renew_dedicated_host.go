@@ -22,13 +22,13 @@ const opRenewDedicatedHostCommon = "RenewDedicatedHost"
 // See RenewDedicatedHostCommon for more information on using the RenewDedicatedHostCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RenewDedicatedHostCommonRequest method.
-//	req, resp := client.RenewDedicatedHostCommonRequest(params)
+//    // Example sending a request using the RenewDedicatedHostCommonRequest method.
+//    req, resp := client.RenewDedicatedHostCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RenewDedicatedHostCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRenewDedicatedHostCommon,
@@ -87,13 +87,13 @@ const opRenewDedicatedHost = "RenewDedicatedHost"
 // See RenewDedicatedHost for more information on using the RenewDedicatedHost
 // API call, and error handling.
 //
-//	// Example sending a request using the RenewDedicatedHostRequest method.
-//	req, resp := client.RenewDedicatedHostRequest(params)
+//    // Example sending a request using the RenewDedicatedHostRequest method.
+//    req, resp := client.RenewDedicatedHostRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RenewDedicatedHostRequest(input *RenewDedicatedHostInput) (req *request.Request, output *RenewDedicatedHostOutput) {
 	op := &request.Operation{
 		Name:       opRenewDedicatedHost,
@@ -144,11 +144,14 @@ type RenewDedicatedHostInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DedicatedHostId *string `type:"string"`
+	// DedicatedHostId is a required field
+	DedicatedHostId *string `type:"string" required:"true"`
 
-	Period *int32 `type:"int32"`
+	// Period is a required field
+	Period *int32 `type:"int32" required:"true"`
 
-	PeriodUnit *string `type:"string"`
+	// PeriodUnit is a required field
+	PeriodUnit *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +162,25 @@ func (s RenewDedicatedHostInput) String() string {
 // GoString returns the string representation
 func (s RenewDedicatedHostInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RenewDedicatedHostInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RenewDedicatedHostInput"}
+	if s.DedicatedHostId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DedicatedHostId"))
+	}
+	if s.Period == nil {
+		invalidParams.Add(request.NewErrParamRequired("Period"))
+	}
+	if s.PeriodUnit == nil {
+		invalidParams.Add(request.NewErrParamRequired("PeriodUnit"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

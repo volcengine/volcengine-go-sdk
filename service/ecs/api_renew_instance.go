@@ -22,13 +22,13 @@ const opRenewInstanceCommon = "RenewInstance"
 // See RenewInstanceCommon for more information on using the RenewInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RenewInstanceCommonRequest method.
-//	req, resp := client.RenewInstanceCommonRequest(params)
+//    // Example sending a request using the RenewInstanceCommonRequest method.
+//    req, resp := client.RenewInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RenewInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRenewInstanceCommon,
@@ -87,13 +87,13 @@ const opRenewInstance = "RenewInstance"
 // See RenewInstance for more information on using the RenewInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the RenewInstanceRequest method.
-//	req, resp := client.RenewInstanceRequest(params)
+//    // Example sending a request using the RenewInstanceRequest method.
+//    req, resp := client.RenewInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RenewInstanceRequest(input *RenewInstanceInput) (req *request.Request, output *RenewInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRenewInstance,
@@ -144,11 +144,14 @@ type RenewInstanceInput struct {
 
 	ClientToken *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	Period *int32 `type:"int32"`
+	// Period is a required field
+	Period *int32 `type:"int32" required:"true"`
 
-	PeriodUnit *string `type:"string"`
+	// PeriodUnit is a required field
+	PeriodUnit *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +162,25 @@ func (s RenewInstanceInput) String() string {
 // GoString returns the string representation
 func (s RenewInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RenewInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RenewInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.Period == nil {
+		invalidParams.Add(request.NewErrParamRequired("Period"))
+	}
+	if s.PeriodUnit == nil {
+		invalidParams.Add(request.NewErrParamRequired("PeriodUnit"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

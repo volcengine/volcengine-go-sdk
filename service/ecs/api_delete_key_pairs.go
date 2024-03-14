@@ -22,13 +22,13 @@ const opDeleteKeyPairsCommon = "DeleteKeyPairs"
 // See DeleteKeyPairsCommon for more information on using the DeleteKeyPairsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteKeyPairsCommonRequest method.
-//	req, resp := client.DeleteKeyPairsCommonRequest(params)
+//    // Example sending a request using the DeleteKeyPairsCommonRequest method.
+//    req, resp := client.DeleteKeyPairsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteKeyPairsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteKeyPairsCommon,
@@ -87,13 +87,13 @@ const opDeleteKeyPairs = "DeleteKeyPairs"
 // See DeleteKeyPairs for more information on using the DeleteKeyPairs
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteKeyPairsRequest method.
-//	req, resp := client.DeleteKeyPairsRequest(params)
+//    // Example sending a request using the DeleteKeyPairsRequest method.
+//    req, resp := client.DeleteKeyPairsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteKeyPairsRequest(input *DeleteKeyPairsInput) (req *request.Request, output *DeleteKeyPairsOutput) {
 	op := &request.Operation{
 		Name:       opDeleteKeyPairs,
@@ -144,7 +144,8 @@ type DeleteKeyPairsInput struct {
 
 	ClientToken *string `type:"string"`
 
-	KeyPairNames []*string `type:"list"`
+	// KeyPairNames is a required field
+	KeyPairNames []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -155,6 +156,19 @@ func (s DeleteKeyPairsInput) String() string {
 // GoString returns the string representation
 func (s DeleteKeyPairsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteKeyPairsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteKeyPairsInput"}
+	if s.KeyPairNames == nil {
+		invalidParams.Add(request.NewErrParamRequired("KeyPairNames"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

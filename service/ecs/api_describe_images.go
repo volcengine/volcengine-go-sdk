@@ -24,13 +24,13 @@ const opDescribeImagesCommon = "DescribeImages"
 // See DescribeImagesCommon for more information on using the DescribeImagesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeImagesCommonRequest method.
-//	req, resp := client.DescribeImagesCommonRequest(params)
+//    // Example sending a request using the DescribeImagesCommonRequest method.
+//    req, resp := client.DescribeImagesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeImagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeImagesCommon,
@@ -89,13 +89,13 @@ const opDescribeImages = "DescribeImages"
 // See DescribeImages for more information on using the DescribeImages
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeImagesRequest method.
-//	req, resp := client.DescribeImagesRequest(params)
+//    // Example sending a request using the DescribeImagesRequest method.
+//    req, resp := client.DescribeImagesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeImagesRequest(input *DescribeImagesInput) (req *request.Request, output *DescribeImagesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeImages,

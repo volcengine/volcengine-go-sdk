@@ -22,13 +22,13 @@ const opDeleteInstanceCommon = "DeleteInstance"
 // See DeleteInstanceCommon for more information on using the DeleteInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteInstanceCommonRequest method.
-//	req, resp := client.DeleteInstanceCommonRequest(params)
+//    // Example sending a request using the DeleteInstanceCommonRequest method.
+//    req, resp := client.DeleteInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteInstanceCommon,
@@ -87,13 +87,13 @@ const opDeleteInstance = "DeleteInstance"
 // See DeleteInstance for more information on using the DeleteInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteInstanceRequest method.
-//	req, resp := client.DeleteInstanceRequest(params)
+//    // Example sending a request using the DeleteInstanceRequest method.
+//    req, resp := client.DeleteInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteInstanceRequest(input *DeleteInstanceInput) (req *request.Request, output *DeleteInstanceOutput) {
 	op := &request.Operation{
 		Name:       opDeleteInstance,
@@ -144,7 +144,8 @@ type DeleteInstanceInput struct {
 
 	DryRun *bool `type:"boolean"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -155,6 +156,19 @@ func (s DeleteInstanceInput) String() string {
 // GoString returns the string representation
 func (s DeleteInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDryRun sets the DryRun field's value.

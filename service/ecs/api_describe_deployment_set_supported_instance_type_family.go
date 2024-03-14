@@ -22,13 +22,13 @@ const opDescribeDeploymentSetSupportedInstanceTypeFamilyCommon = "DescribeDeploy
 // See DescribeDeploymentSetSupportedInstanceTypeFamilyCommon for more information on using the DescribeDeploymentSetSupportedInstanceTypeFamilyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest method.
-//	req, resp := client.DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest(params)
+//    // Example sending a request using the DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest method.
+//    req, resp := client.DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDeploymentSetSupportedInstanceTypeFamilyCommon,
@@ -87,13 +87,13 @@ const opDescribeDeploymentSetSupportedInstanceTypeFamily = "DescribeDeploymentSe
 // See DescribeDeploymentSetSupportedInstanceTypeFamily for more information on using the DescribeDeploymentSetSupportedInstanceTypeFamily
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDeploymentSetSupportedInstanceTypeFamilyRequest method.
-//	req, resp := client.DescribeDeploymentSetSupportedInstanceTypeFamilyRequest(params)
+//    // Example sending a request using the DescribeDeploymentSetSupportedInstanceTypeFamilyRequest method.
+//    req, resp := client.DescribeDeploymentSetSupportedInstanceTypeFamilyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeDeploymentSetSupportedInstanceTypeFamilyRequest(input *DescribeDeploymentSetSupportedInstanceTypeFamilyInput) (req *request.Request, output *DescribeDeploymentSetSupportedInstanceTypeFamilyOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDeploymentSetSupportedInstanceTypeFamily,

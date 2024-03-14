@@ -22,13 +22,13 @@ const opModifyCommandCommon = "ModifyCommand"
 // See ModifyCommandCommon for more information on using the ModifyCommandCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCommandCommonRequest method.
-//	req, resp := client.ModifyCommandCommonRequest(params)
+//    // Example sending a request using the ModifyCommandCommonRequest method.
+//    req, resp := client.ModifyCommandCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyCommandCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCommandCommon,
@@ -87,13 +87,13 @@ const opModifyCommand = "ModifyCommand"
 // See ModifyCommand for more information on using the ModifyCommand
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCommandRequest method.
-//	req, resp := client.ModifyCommandRequest(params)
+//    // Example sending a request using the ModifyCommandRequest method.
+//    req, resp := client.ModifyCommandRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyCommandRequest(input *ModifyCommandInput) (req *request.Request, output *ModifyCommandOutput) {
 	op := &request.Operation{
 		Name:       opModifyCommand,
@@ -144,7 +144,8 @@ type ModifyCommandInput struct {
 
 	CommandContent *string `type:"string"`
 
-	CommandId *string `type:"string"`
+	// CommandId is a required field
+	CommandId *string `type:"string" required:"true"`
 
 	Description *string `type:"string"`
 
@@ -171,6 +172,19 @@ func (s ModifyCommandInput) String() string {
 // GoString returns the string representation
 func (s ModifyCommandInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyCommandInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyCommandInput"}
+	if s.CommandId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CommandId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCommandContent sets the CommandContent field's value.

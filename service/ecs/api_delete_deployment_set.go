@@ -22,13 +22,13 @@ const opDeleteDeploymentSetCommon = "DeleteDeploymentSet"
 // See DeleteDeploymentSetCommon for more information on using the DeleteDeploymentSetCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDeploymentSetCommonRequest method.
-//	req, resp := client.DeleteDeploymentSetCommonRequest(params)
+//    // Example sending a request using the DeleteDeploymentSetCommonRequest method.
+//    req, resp := client.DeleteDeploymentSetCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteDeploymentSetCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDeploymentSetCommon,
@@ -87,13 +87,13 @@ const opDeleteDeploymentSet = "DeleteDeploymentSet"
 // See DeleteDeploymentSet for more information on using the DeleteDeploymentSet
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDeploymentSetRequest method.
-//	req, resp := client.DeleteDeploymentSetRequest(params)
+//    // Example sending a request using the DeleteDeploymentSetRequest method.
+//    req, resp := client.DeleteDeploymentSetRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteDeploymentSetRequest(input *DeleteDeploymentSetInput) (req *request.Request, output *DeleteDeploymentSetOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDeploymentSet,
@@ -144,7 +144,8 @@ type DeleteDeploymentSetInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DeploymentSetId *string `type:"string"`
+	// DeploymentSetId is a required field
+	DeploymentSetId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -155,6 +156,19 @@ func (s DeleteDeploymentSetInput) String() string {
 // GoString returns the string representation
 func (s DeleteDeploymentSetInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteDeploymentSetInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteDeploymentSetInput"}
+	if s.DeploymentSetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DeploymentSetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

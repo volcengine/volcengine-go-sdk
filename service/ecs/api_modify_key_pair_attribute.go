@@ -22,13 +22,13 @@ const opModifyKeyPairAttributeCommon = "ModifyKeyPairAttribute"
 // See ModifyKeyPairAttributeCommon for more information on using the ModifyKeyPairAttributeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyKeyPairAttributeCommonRequest method.
-//	req, resp := client.ModifyKeyPairAttributeCommonRequest(params)
+//    // Example sending a request using the ModifyKeyPairAttributeCommonRequest method.
+//    req, resp := client.ModifyKeyPairAttributeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyKeyPairAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyKeyPairAttributeCommon,
@@ -87,13 +87,13 @@ const opModifyKeyPairAttribute = "ModifyKeyPairAttribute"
 // See ModifyKeyPairAttribute for more information on using the ModifyKeyPairAttribute
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyKeyPairAttributeRequest method.
-//	req, resp := client.ModifyKeyPairAttributeRequest(params)
+//    // Example sending a request using the ModifyKeyPairAttributeRequest method.
+//    req, resp := client.ModifyKeyPairAttributeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyKeyPairAttributeRequest(input *ModifyKeyPairAttributeInput) (req *request.Request, output *ModifyKeyPairAttributeOutput) {
 	op := &request.Operation{
 		Name:       opModifyKeyPairAttribute,
@@ -144,7 +144,8 @@ type ModifyKeyPairAttributeInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Description *string `type:"string"`
+	// Description is a required field
+	Description *string `type:"string" required:"true"`
 
 	KeyPairId *string `type:"string"`
 
@@ -159,6 +160,19 @@ func (s ModifyKeyPairAttributeInput) String() string {
 // GoString returns the string representation
 func (s ModifyKeyPairAttributeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyKeyPairAttributeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyKeyPairAttributeInput"}
+	if s.Description == nil {
+		invalidParams.Add(request.NewErrParamRequired("Description"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

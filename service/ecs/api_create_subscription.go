@@ -22,13 +22,13 @@ const opCreateSubscriptionCommon = "CreateSubscription"
 // See CreateSubscriptionCommon for more information on using the CreateSubscriptionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSubscriptionCommonRequest method.
-//	req, resp := client.CreateSubscriptionCommonRequest(params)
+//    // Example sending a request using the CreateSubscriptionCommonRequest method.
+//    req, resp := client.CreateSubscriptionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateSubscriptionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateSubscriptionCommon,
@@ -87,13 +87,13 @@ const opCreateSubscription = "CreateSubscription"
 // See CreateSubscription for more information on using the CreateSubscription
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateSubscriptionRequest method.
-//	req, resp := client.CreateSubscriptionRequest(params)
+//    // Example sending a request using the CreateSubscriptionRequest method.
+//    req, resp := client.CreateSubscriptionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateSubscriptionRequest(input *CreateSubscriptionInput) (req *request.Request, output *CreateSubscriptionOutput) {
 	op := &request.Operation{
 		Name:       opCreateSubscription,
@@ -142,9 +142,11 @@ func (c *ECS) CreateSubscriptionWithContext(ctx volcengine.Context, input *Creat
 type CreateSubscriptionInput struct {
 	_ struct{} `type:"structure"`
 
-	EventTypes []*string `type:"list"`
+	// EventTypes is a required field
+	EventTypes []*string `type:"list" required:"true"`
 
-	Type *string `type:"string"`
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -155,6 +157,22 @@ func (s CreateSubscriptionInput) String() string {
 // GoString returns the string representation
 func (s CreateSubscriptionInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateSubscriptionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateSubscriptionInput"}
+	if s.EventTypes == nil {
+		invalidParams.Add(request.NewErrParamRequired("EventTypes"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEventTypes sets the EventTypes field's value.

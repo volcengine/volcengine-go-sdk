@@ -22,13 +22,13 @@ const opDescribeInvocationInstancesCommon = "DescribeInvocationInstances"
 // See DescribeInvocationInstancesCommon for more information on using the DescribeInvocationInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInvocationInstancesCommonRequest method.
-//	req, resp := client.DescribeInvocationInstancesCommonRequest(params)
+//    // Example sending a request using the DescribeInvocationInstancesCommonRequest method.
+//    req, resp := client.DescribeInvocationInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInvocationInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInvocationInstancesCommon,
@@ -87,13 +87,13 @@ const opDescribeInvocationInstances = "DescribeInvocationInstances"
 // See DescribeInvocationInstances for more information on using the DescribeInvocationInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInvocationInstancesRequest method.
-//	req, resp := client.DescribeInvocationInstancesRequest(params)
+//    // Example sending a request using the DescribeInvocationInstancesRequest method.
+//    req, resp := client.DescribeInvocationInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInvocationInstancesRequest(input *DescribeInvocationInstancesInput) (req *request.Request, output *DescribeInvocationInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInvocationInstances,
@@ -144,7 +144,8 @@ type DescribeInvocationInstancesInput struct {
 
 	InstanceId *string `type:"string"`
 
-	InvocationId *string `type:"string"`
+	// InvocationId is a required field
+	InvocationId *string `type:"string" required:"true"`
 
 	PageNumber *int32 `type:"int32"`
 
@@ -159,6 +160,19 @@ func (s DescribeInvocationInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeInvocationInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeInvocationInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeInvocationInstancesInput"}
+	if s.InvocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InvocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

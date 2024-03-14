@@ -22,13 +22,13 @@ const opInstallCloudAssistantCommon = "InstallCloudAssistant"
 // See InstallCloudAssistantCommon for more information on using the InstallCloudAssistantCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the InstallCloudAssistantCommonRequest method.
-//	req, resp := client.InstallCloudAssistantCommonRequest(params)
+//    // Example sending a request using the InstallCloudAssistantCommonRequest method.
+//    req, resp := client.InstallCloudAssistantCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) InstallCloudAssistantCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opInstallCloudAssistantCommon,
@@ -87,13 +87,13 @@ const opInstallCloudAssistant = "InstallCloudAssistant"
 // See InstallCloudAssistant for more information on using the InstallCloudAssistant
 // API call, and error handling.
 //
-//	// Example sending a request using the InstallCloudAssistantRequest method.
-//	req, resp := client.InstallCloudAssistantRequest(params)
+//    // Example sending a request using the InstallCloudAssistantRequest method.
+//    req, resp := client.InstallCloudAssistantRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) InstallCloudAssistantRequest(input *InstallCloudAssistantInput) (req *request.Request, output *InstallCloudAssistantOutput) {
 	op := &request.Operation{
 		Name:       opInstallCloudAssistant,
@@ -172,7 +172,8 @@ func (s *FailedInstanceForInstallCloudAssistantOutput) SetId(v string) *FailedIn
 type InstallCloudAssistantInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceIds []*string `type:"list"`
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -183,6 +184,19 @@ func (s InstallCloudAssistantInput) String() string {
 // GoString returns the string representation
 func (s InstallCloudAssistantInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *InstallCloudAssistantInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "InstallCloudAssistantInput"}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceIds sets the InstanceIds field's value.

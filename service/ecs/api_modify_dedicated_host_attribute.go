@@ -22,13 +22,13 @@ const opModifyDedicatedHostAttributeCommon = "ModifyDedicatedHostAttribute"
 // See ModifyDedicatedHostAttributeCommon for more information on using the ModifyDedicatedHostAttributeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDedicatedHostAttributeCommonRequest method.
-//	req, resp := client.ModifyDedicatedHostAttributeCommonRequest(params)
+//    // Example sending a request using the ModifyDedicatedHostAttributeCommonRequest method.
+//    req, resp := client.ModifyDedicatedHostAttributeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyDedicatedHostAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDedicatedHostAttributeCommon,
@@ -87,13 +87,13 @@ const opModifyDedicatedHostAttribute = "ModifyDedicatedHostAttribute"
 // See ModifyDedicatedHostAttribute for more information on using the ModifyDedicatedHostAttribute
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDedicatedHostAttributeRequest method.
-//	req, resp := client.ModifyDedicatedHostAttributeRequest(params)
+//    // Example sending a request using the ModifyDedicatedHostAttributeRequest method.
+//    req, resp := client.ModifyDedicatedHostAttributeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyDedicatedHostAttributeRequest(input *ModifyDedicatedHostAttributeInput) (req *request.Request, output *ModifyDedicatedHostAttributeOutput) {
 	op := &request.Operation{
 		Name:       opModifyDedicatedHostAttribute,
@@ -150,7 +150,8 @@ type ModifyDedicatedHostAttributeInput struct {
 
 	DedicatedHostClusterId *string `type:"string"`
 
-	DedicatedHostId *string `type:"string"`
+	// DedicatedHostId is a required field
+	DedicatedHostId *string `type:"string" required:"true"`
 
 	DedicatedHostName *string `type:"string"`
 
@@ -167,6 +168,19 @@ func (s ModifyDedicatedHostAttributeInput) String() string {
 // GoString returns the string representation
 func (s ModifyDedicatedHostAttributeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDedicatedHostAttributeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDedicatedHostAttributeInput"}
+	if s.DedicatedHostId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DedicatedHostId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoPlacement sets the AutoPlacement field's value.

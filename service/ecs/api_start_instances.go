@@ -22,13 +22,13 @@ const opStartInstancesCommon = "StartInstances"
 // See StartInstancesCommon for more information on using the StartInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the StartInstancesCommonRequest method.
-//	req, resp := client.StartInstancesCommonRequest(params)
+//    // Example sending a request using the StartInstancesCommonRequest method.
+//    req, resp := client.StartInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StartInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStartInstancesCommon,
@@ -87,13 +87,13 @@ const opStartInstances = "StartInstances"
 // See StartInstances for more information on using the StartInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the StartInstancesRequest method.
-//	req, resp := client.StartInstancesRequest(params)
+//    // Example sending a request using the StartInstancesRequest method.
+//    req, resp := client.StartInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StartInstancesRequest(input *StartInstancesInput) (req *request.Request, output *StartInstancesOutput) {
 	op := &request.Operation{
 		Name:       opStartInstances,

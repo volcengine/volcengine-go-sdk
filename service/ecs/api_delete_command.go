@@ -22,13 +22,13 @@ const opDeleteCommandCommon = "DeleteCommand"
 // See DeleteCommandCommon for more information on using the DeleteCommandCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCommandCommonRequest method.
-//	req, resp := client.DeleteCommandCommonRequest(params)
+//    // Example sending a request using the DeleteCommandCommonRequest method.
+//    req, resp := client.DeleteCommandCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteCommandCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteCommandCommon,
@@ -87,13 +87,13 @@ const opDeleteCommand = "DeleteCommand"
 // See DeleteCommand for more information on using the DeleteCommand
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteCommandRequest method.
-//	req, resp := client.DeleteCommandRequest(params)
+//    // Example sending a request using the DeleteCommandRequest method.
+//    req, resp := client.DeleteCommandRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteCommandRequest(input *DeleteCommandInput) (req *request.Request, output *DeleteCommandOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCommand,
@@ -142,7 +142,8 @@ func (c *ECS) DeleteCommandWithContext(ctx volcengine.Context, input *DeleteComm
 type DeleteCommandInput struct {
 	_ struct{} `type:"structure"`
 
-	CommandId *string `type:"string"`
+	// CommandId is a required field
+	CommandId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DeleteCommandInput) String() string {
 // GoString returns the string representation
 func (s DeleteCommandInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteCommandInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteCommandInput"}
+	if s.CommandId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CommandId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCommandId sets the CommandId field's value.

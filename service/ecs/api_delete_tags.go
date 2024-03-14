@@ -22,13 +22,13 @@ const opDeleteTagsCommon = "DeleteTags"
 // See DeleteTagsCommon for more information on using the DeleteTagsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteTagsCommonRequest method.
-//	req, resp := client.DeleteTagsCommonRequest(params)
+//    // Example sending a request using the DeleteTagsCommonRequest method.
+//    req, resp := client.DeleteTagsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteTagsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteTagsCommon,
@@ -87,13 +87,13 @@ const opDeleteTags = "DeleteTags"
 // See DeleteTags for more information on using the DeleteTags
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteTagsRequest method.
-//	req, resp := client.DeleteTagsRequest(params)
+//    // Example sending a request using the DeleteTagsRequest method.
+//    req, resp := client.DeleteTagsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteTagsRequest(input *DeleteTagsInput) (req *request.Request, output *DeleteTagsOutput) {
 	op := &request.Operation{
 		Name:       opDeleteTags,
@@ -144,11 +144,14 @@ type DeleteTagsInput struct {
 
 	ClientToken *string `type:"string"`
 
-	ResourceIds []*string `type:"list"`
+	// ResourceIds is a required field
+	ResourceIds []*string `type:"list" required:"true"`
 
-	ResourceType *string `type:"string"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true"`
 
-	TagKeys []*string `type:"list"`
+	// TagKeys is a required field
+	TagKeys []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +162,25 @@ func (s DeleteTagsInput) String() string {
 // GoString returns the string representation
 func (s DeleteTagsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteTagsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteTagsInput"}
+	if s.ResourceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+	if s.TagKeys == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagKeys"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

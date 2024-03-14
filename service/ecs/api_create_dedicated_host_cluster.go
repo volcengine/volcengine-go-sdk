@@ -22,13 +22,13 @@ const opCreateDedicatedHostClusterCommon = "CreateDedicatedHostCluster"
 // See CreateDedicatedHostClusterCommon for more information on using the CreateDedicatedHostClusterCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDedicatedHostClusterCommonRequest method.
-//	req, resp := client.CreateDedicatedHostClusterCommonRequest(params)
+//    // Example sending a request using the CreateDedicatedHostClusterCommonRequest method.
+//    req, resp := client.CreateDedicatedHostClusterCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateDedicatedHostClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDedicatedHostClusterCommon,
@@ -87,13 +87,13 @@ const opCreateDedicatedHostCluster = "CreateDedicatedHostCluster"
 // See CreateDedicatedHostCluster for more information on using the CreateDedicatedHostCluster
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDedicatedHostClusterRequest method.
-//	req, resp := client.CreateDedicatedHostClusterRequest(params)
+//    // Example sending a request using the CreateDedicatedHostClusterRequest method.
+//    req, resp := client.CreateDedicatedHostClusterRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateDedicatedHostClusterRequest(input *CreateDedicatedHostClusterInput) (req *request.Request, output *CreateDedicatedHostClusterOutput) {
 	op := &request.Operation{
 		Name:       opCreateDedicatedHostCluster,
@@ -144,11 +144,13 @@ type CreateDedicatedHostClusterInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DedicatedHostClusterName *string `type:"string"`
+	// DedicatedHostClusterName is a required field
+	DedicatedHostClusterName *string `type:"string" required:"true"`
 
 	Description *string `type:"string"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s CreateDedicatedHostClusterInput) String() string {
 // GoString returns the string representation
 func (s CreateDedicatedHostClusterInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDedicatedHostClusterInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDedicatedHostClusterInput"}
+	if s.DedicatedHostClusterName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DedicatedHostClusterName"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

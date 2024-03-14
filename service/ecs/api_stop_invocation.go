@@ -22,13 +22,13 @@ const opStopInvocationCommon = "StopInvocation"
 // See StopInvocationCommon for more information on using the StopInvocationCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the StopInvocationCommonRequest method.
-//	req, resp := client.StopInvocationCommonRequest(params)
+//    // Example sending a request using the StopInvocationCommonRequest method.
+//    req, resp := client.StopInvocationCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StopInvocationCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStopInvocationCommon,
@@ -87,13 +87,13 @@ const opStopInvocation = "StopInvocation"
 // See StopInvocation for more information on using the StopInvocation
 // API call, and error handling.
 //
-//	// Example sending a request using the StopInvocationRequest method.
-//	req, resp := client.StopInvocationRequest(params)
+//    // Example sending a request using the StopInvocationRequest method.
+//    req, resp := client.StopInvocationRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StopInvocationRequest(input *StopInvocationInput) (req *request.Request, output *StopInvocationOutput) {
 	op := &request.Operation{
 		Name:       opStopInvocation,
@@ -142,7 +142,8 @@ func (c *ECS) StopInvocationWithContext(ctx volcengine.Context, input *StopInvoc
 type StopInvocationInput struct {
 	_ struct{} `type:"structure"`
 
-	InvocationId *string `type:"string"`
+	// InvocationId is a required field
+	InvocationId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s StopInvocationInput) String() string {
 // GoString returns the string representation
 func (s StopInvocationInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StopInvocationInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StopInvocationInput"}
+	if s.InvocationId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InvocationId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInvocationId sets the InvocationId field's value.

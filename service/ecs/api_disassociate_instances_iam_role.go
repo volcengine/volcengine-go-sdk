@@ -22,13 +22,13 @@ const opDisassociateInstancesIamRoleCommon = "DisassociateInstancesIamRole"
 // See DisassociateInstancesIamRoleCommon for more information on using the DisassociateInstancesIamRoleCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateInstancesIamRoleCommonRequest method.
-//	req, resp := client.DisassociateInstancesIamRoleCommonRequest(params)
+//    // Example sending a request using the DisassociateInstancesIamRoleCommonRequest method.
+//    req, resp := client.DisassociateInstancesIamRoleCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DisassociateInstancesIamRoleCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDisassociateInstancesIamRoleCommon,
@@ -87,13 +87,13 @@ const opDisassociateInstancesIamRole = "DisassociateInstancesIamRole"
 // See DisassociateInstancesIamRole for more information on using the DisassociateInstancesIamRole
 // API call, and error handling.
 //
-//	// Example sending a request using the DisassociateInstancesIamRoleRequest method.
-//	req, resp := client.DisassociateInstancesIamRoleRequest(params)
+//    // Example sending a request using the DisassociateInstancesIamRoleRequest method.
+//    req, resp := client.DisassociateInstancesIamRoleRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DisassociateInstancesIamRoleRequest(input *DisassociateInstancesIamRoleInput) (req *request.Request, output *DisassociateInstancesIamRoleOutput) {
 	op := &request.Operation{
 		Name:       opDisassociateInstancesIamRole,
@@ -146,7 +146,8 @@ type DisassociateInstancesIamRoleInput struct {
 
 	IamRoleName *string `type:"string"`
 
-	InstanceIds []*string `type:"list"`
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DisassociateInstancesIamRoleInput) String() string {
 // GoString returns the string representation
 func (s DisassociateInstancesIamRoleInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisassociateInstancesIamRoleInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisassociateInstancesIamRoleInput"}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

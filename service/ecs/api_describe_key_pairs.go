@@ -22,13 +22,13 @@ const opDescribeKeyPairsCommon = "DescribeKeyPairs"
 // See DescribeKeyPairsCommon for more information on using the DescribeKeyPairsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeKeyPairsCommonRequest method.
-//	req, resp := client.DescribeKeyPairsCommonRequest(params)
+//    // Example sending a request using the DescribeKeyPairsCommonRequest method.
+//    req, resp := client.DescribeKeyPairsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeKeyPairsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeKeyPairsCommon,
@@ -87,13 +87,13 @@ const opDescribeKeyPairs = "DescribeKeyPairs"
 // See DescribeKeyPairs for more information on using the DescribeKeyPairs
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeKeyPairsRequest method.
-//	req, resp := client.DescribeKeyPairsRequest(params)
+//    // Example sending a request using the DescribeKeyPairsRequest method.
+//    req, resp := client.DescribeKeyPairsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeKeyPairsRequest(input *DescribeKeyPairsInput) (req *request.Request, output *DescribeKeyPairsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeKeyPairs,
@@ -254,6 +254,8 @@ type KeyPairForDescribeKeyPairsOutput struct {
 
 	KeyPairName *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	UpdatedAt *string `type:"string"`
 }
 
@@ -294,6 +296,12 @@ func (s *KeyPairForDescribeKeyPairsOutput) SetKeyPairId(v string) *KeyPairForDes
 // SetKeyPairName sets the KeyPairName field's value.
 func (s *KeyPairForDescribeKeyPairsOutput) SetKeyPairName(v string) *KeyPairForDescribeKeyPairsOutput {
 	s.KeyPairName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *KeyPairForDescribeKeyPairsOutput) SetProjectName(v string) *KeyPairForDescribeKeyPairsOutput {
+	s.ProjectName = &v
 	return s
 }
 

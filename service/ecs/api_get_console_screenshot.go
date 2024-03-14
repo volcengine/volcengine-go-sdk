@@ -22,13 +22,13 @@ const opGetConsoleScreenshotCommon = "GetConsoleScreenshot"
 // See GetConsoleScreenshotCommon for more information on using the GetConsoleScreenshotCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GetConsoleScreenshotCommonRequest method.
-//	req, resp := client.GetConsoleScreenshotCommonRequest(params)
+//    // Example sending a request using the GetConsoleScreenshotCommonRequest method.
+//    req, resp := client.GetConsoleScreenshotCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) GetConsoleScreenshotCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetConsoleScreenshotCommon,
@@ -87,13 +87,13 @@ const opGetConsoleScreenshot = "GetConsoleScreenshot"
 // See GetConsoleScreenshot for more information on using the GetConsoleScreenshot
 // API call, and error handling.
 //
-//	// Example sending a request using the GetConsoleScreenshotRequest method.
-//	req, resp := client.GetConsoleScreenshotRequest(params)
+//    // Example sending a request using the GetConsoleScreenshotRequest method.
+//    req, resp := client.GetConsoleScreenshotRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) GetConsoleScreenshotRequest(input *GetConsoleScreenshotInput) (req *request.Request, output *GetConsoleScreenshotOutput) {
 	op := &request.Operation{
 		Name:       opGetConsoleScreenshot,
@@ -142,7 +142,8 @@ func (c *ECS) GetConsoleScreenshotWithContext(ctx volcengine.Context, input *Get
 type GetConsoleScreenshotInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	WakeUp *bool `type:"boolean"`
 }
@@ -155,6 +156,19 @@ func (s GetConsoleScreenshotInput) String() string {
 // GoString returns the string representation
 func (s GetConsoleScreenshotInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetConsoleScreenshotInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetConsoleScreenshotInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

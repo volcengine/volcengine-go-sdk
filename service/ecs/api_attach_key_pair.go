@@ -22,13 +22,13 @@ const opAttachKeyPairCommon = "AttachKeyPair"
 // See AttachKeyPairCommon for more information on using the AttachKeyPairCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachKeyPairCommonRequest method.
-//	req, resp := client.AttachKeyPairCommonRequest(params)
+//    // Example sending a request using the AttachKeyPairCommonRequest method.
+//    req, resp := client.AttachKeyPairCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) AttachKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAttachKeyPairCommon,
@@ -87,13 +87,13 @@ const opAttachKeyPair = "AttachKeyPair"
 // See AttachKeyPair for more information on using the AttachKeyPair
 // API call, and error handling.
 //
-//	// Example sending a request using the AttachKeyPairRequest method.
-//	req, resp := client.AttachKeyPairRequest(params)
+//    // Example sending a request using the AttachKeyPairRequest method.
+//    req, resp := client.AttachKeyPairRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) AttachKeyPairRequest(input *AttachKeyPairInput) (req *request.Request, output *AttachKeyPairOutput) {
 	op := &request.Operation{
 		Name:       opAttachKeyPair,
