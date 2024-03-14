@@ -22,13 +22,13 @@ const opDescribeParameterTemplateCommon = "DescribeParameterTemplate"
 // See DescribeParameterTemplateCommon for more information on using the DescribeParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeParameterTemplateCommonRequest method.
-//	req, resp := client.DescribeParameterTemplateCommonRequest(params)
+//    // Example sending a request using the DescribeParameterTemplateCommonRequest method.
+//    req, resp := client.DescribeParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opDescribeParameterTemplate = "DescribeParameterTemplate"
 // See DescribeParameterTemplate for more information on using the DescribeParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeParameterTemplateRequest method.
-//	req, resp := client.DescribeParameterTemplateRequest(params)
+//    // Example sending a request using the DescribeParameterTemplateRequest method.
+//    req, resp := client.DescribeParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeParameterTemplateRequest(input *DescribeParameterTemplateInput) (req *request.Request, output *DescribeParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opDescribeParameterTemplate,
@@ -212,7 +212,9 @@ type TemplateInfoForDescribeParameterTemplateOutput struct {
 
 	NeedRestart *bool `type:"boolean"`
 
-	ParameterNum *int64 `type:"int64"`
+	ParameterNum *int32 `type:"int32"`
+
+	ProjectName *string `type:"string"`
 
 	TemplateCategory *string `type:"string"`
 
@@ -262,8 +264,14 @@ func (s *TemplateInfoForDescribeParameterTemplateOutput) SetNeedRestart(v bool) 
 }
 
 // SetParameterNum sets the ParameterNum field's value.
-func (s *TemplateInfoForDescribeParameterTemplateOutput) SetParameterNum(v int64) *TemplateInfoForDescribeParameterTemplateOutput {
+func (s *TemplateInfoForDescribeParameterTemplateOutput) SetParameterNum(v int32) *TemplateInfoForDescribeParameterTemplateOutput {
 	s.ParameterNum = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *TemplateInfoForDescribeParameterTemplateOutput) SetProjectName(v string) *TemplateInfoForDescribeParameterTemplateOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -324,8 +332,6 @@ func (s *TemplateInfoForDescribeParameterTemplateOutput) SetUpdateTime(v string)
 type TemplateParamForDescribeParameterTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
-
 	Name *string `type:"string"`
 
 	RunningValue *string `type:"string"`
@@ -339,12 +345,6 @@ func (s TemplateParamForDescribeParameterTemplateOutput) String() string {
 // GoString returns the string representation
 func (s TemplateParamForDescribeParameterTemplateOutput) GoString() string {
 	return s.String()
-}
-
-// SetDescription sets the Description field's value.
-func (s *TemplateParamForDescribeParameterTemplateOutput) SetDescription(v string) *TemplateParamForDescribeParameterTemplateOutput {
-	s.Description = &v
-	return s
 }
 
 // SetName sets the Name field's value.

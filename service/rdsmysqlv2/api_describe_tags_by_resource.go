@@ -22,13 +22,13 @@ const opDescribeTagsByResourceCommon = "DescribeTagsByResource"
 // See DescribeTagsByResourceCommon for more information on using the DescribeTagsByResourceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTagsByResourceCommonRequest method.
-//	req, resp := client.DescribeTagsByResourceCommonRequest(params)
+//    // Example sending a request using the DescribeTagsByResourceCommonRequest method.
+//    req, resp := client.DescribeTagsByResourceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeTagsByResourceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTagsByResourceCommon,
@@ -89,13 +89,13 @@ const opDescribeTagsByResource = "DescribeTagsByResource"
 // See DescribeTagsByResource for more information on using the DescribeTagsByResource
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTagsByResourceRequest method.
-//	req, resp := client.DescribeTagsByResourceRequest(params)
+//    // Example sending a request using the DescribeTagsByResourceRequest method.
+//    req, resp := client.DescribeTagsByResourceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeTagsByResourceRequest(input *DescribeTagsByResourceInput) (req *request.Request, output *DescribeTagsByResourceOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTagsByResource,
@@ -148,9 +148,11 @@ type DescribeTagsByResourceInput struct {
 
 	InstanceIds []*string `type:"list"`
 
-	PageNumber *int32 `type:"int32"`
+	// PageNumber is a required field
+	PageNumber *int32 `type:"int32" required:"true"`
 
-	PageSize *int32 `type:"int32"`
+	// PageSize is a required field
+	PageSize *int32 `type:"int32" required:"true"`
 
 	TagFilters []*TagFilterForDescribeTagsByResourceInput `type:"list"`
 }
@@ -163,6 +165,22 @@ func (s DescribeTagsByResourceInput) String() string {
 // GoString returns the string representation
 func (s DescribeTagsByResourceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeTagsByResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeTagsByResourceInput"}
+	if s.PageNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
+	}
+	if s.PageSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("PageSize"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceIds sets the InstanceIds field's value.

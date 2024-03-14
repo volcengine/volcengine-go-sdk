@@ -22,13 +22,13 @@ const opModifyDBInstanceSyncModeCommon = "ModifyDBInstanceSyncMode"
 // See ModifyDBInstanceSyncModeCommon for more information on using the ModifyDBInstanceSyncModeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceSyncModeCommonRequest method.
-//	req, resp := client.ModifyDBInstanceSyncModeCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceSyncModeCommonRequest method.
+//    req, resp := client.ModifyDBInstanceSyncModeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceSyncModeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceSyncModeCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceSyncMode = "ModifyDBInstanceSyncMode"
 // See ModifyDBInstanceSyncMode for more information on using the ModifyDBInstanceSyncMode
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceSyncModeRequest method.
-//	req, resp := client.ModifyDBInstanceSyncModeRequest(params)
+//    // Example sending a request using the ModifyDBInstanceSyncModeRequest method.
+//    req, resp := client.ModifyDBInstanceSyncModeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceSyncModeRequest(input *ModifyDBInstanceSyncModeInput) (req *request.Request, output *ModifyDBInstanceSyncModeOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceSyncMode,
@@ -149,7 +149,8 @@ type ModifyDBInstanceSyncModeInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	SyncMode *string `type:"string" enum:"EnumOfSyncModeForModifyDBInstanceSyncModeInput"`
+	// SyncMode is a required field
+	SyncMode *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -167,6 +168,9 @@ func (s *ModifyDBInstanceSyncModeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceSyncModeInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.SyncMode == nil {
+		invalidParams.Add(request.NewErrParamRequired("SyncMode"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -202,14 +206,3 @@ func (s ModifyDBInstanceSyncModeOutput) String() string {
 func (s ModifyDBInstanceSyncModeOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfSyncModeForModifyDBInstanceSyncModeInputAsync is a EnumOfSyncModeForModifyDBInstanceSyncModeInput enum value
-	EnumOfSyncModeForModifyDBInstanceSyncModeInputAsync = "Async"
-
-	// EnumOfSyncModeForModifyDBInstanceSyncModeInputSemiSync is a EnumOfSyncModeForModifyDBInstanceSyncModeInput enum value
-	EnumOfSyncModeForModifyDBInstanceSyncModeInputSemiSync = "SemiSync"
-
-	// EnumOfSyncModeForModifyDBInstanceSyncModeInputSync is a EnumOfSyncModeForModifyDBInstanceSyncModeInput enum value
-	EnumOfSyncModeForModifyDBInstanceSyncModeInputSync = "Sync"
-)

@@ -22,13 +22,13 @@ const opSwitchDBInstanceHACommon = "SwitchDBInstanceHA"
 // See SwitchDBInstanceHACommon for more information on using the SwitchDBInstanceHACommon
 // API call, and error handling.
 //
-//	// Example sending a request using the SwitchDBInstanceHACommonRequest method.
-//	req, resp := client.SwitchDBInstanceHACommonRequest(params)
+//    // Example sending a request using the SwitchDBInstanceHACommonRequest method.
+//    req, resp := client.SwitchDBInstanceHACommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) SwitchDBInstanceHACommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opSwitchDBInstanceHACommon,
@@ -89,13 +89,13 @@ const opSwitchDBInstanceHA = "SwitchDBInstanceHA"
 // See SwitchDBInstanceHA for more information on using the SwitchDBInstanceHA
 // API call, and error handling.
 //
-//	// Example sending a request using the SwitchDBInstanceHARequest method.
-//	req, resp := client.SwitchDBInstanceHARequest(params)
+//    // Example sending a request using the SwitchDBInstanceHARequest method.
+//    req, resp := client.SwitchDBInstanceHARequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) SwitchDBInstanceHARequest(input *SwitchDBInstanceHAInput) (req *request.Request, output *SwitchDBInstanceHAOutput) {
 	op := &request.Operation{
 		Name:       opSwitchDBInstanceHA,
@@ -149,9 +149,8 @@ type SwitchDBInstanceHAInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	NodeId *string `type:"string"`
-
-	ZoneId *string `type:"string"`
+	// NodeId is a required field
+	NodeId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -170,6 +169,9 @@ func (s *SwitchDBInstanceHAInput) Validate() error {
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
+	if s.NodeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeId"))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -186,12 +188,6 @@ func (s *SwitchDBInstanceHAInput) SetInstanceId(v string) *SwitchDBInstanceHAInp
 // SetNodeId sets the NodeId field's value.
 func (s *SwitchDBInstanceHAInput) SetNodeId(v string) *SwitchDBInstanceHAInput {
 	s.NodeId = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *SwitchDBInstanceHAInput) SetZoneId(v string) *SwitchDBInstanceHAInput {
-	s.ZoneId = &v
 	return s
 }
 

@@ -22,13 +22,13 @@ const opDescribeDBInstanceTDECommon = "DescribeDBInstanceTDE"
 // See DescribeDBInstanceTDECommon for more information on using the DescribeDBInstanceTDECommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceTDECommonRequest method.
-//	req, resp := client.DescribeDBInstanceTDECommonRequest(params)
+//    // Example sending a request using the DescribeDBInstanceTDECommonRequest method.
+//    req, resp := client.DescribeDBInstanceTDECommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstanceTDECommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceTDECommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstanceTDE = "DescribeDBInstanceTDE"
 // See DescribeDBInstanceTDE for more information on using the DescribeDBInstanceTDE
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceTDERequest method.
-//	req, resp := client.DescribeDBInstanceTDERequest(params)
+//    // Example sending a request using the DescribeDBInstanceTDERequest method.
+//    req, resp := client.DescribeDBInstanceTDERequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstanceTDERequest(input *DescribeDBInstanceTDEInput) (req *request.Request, output *DescribeDBInstanceTDEOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceTDE,

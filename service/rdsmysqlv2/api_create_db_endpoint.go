@@ -22,13 +22,13 @@ const opCreateDBEndpointCommon = "CreateDBEndpoint"
 // See CreateDBEndpointCommon for more information on using the CreateDBEndpointCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBEndpointCommonRequest method.
-//	req, resp := client.CreateDBEndpointCommonRequest(params)
+//    // Example sending a request using the CreateDBEndpointCommonRequest method.
+//    req, resp := client.CreateDBEndpointCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDBEndpointCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBEndpointCommon,
@@ -89,13 +89,13 @@ const opCreateDBEndpoint = "CreateDBEndpoint"
 // See CreateDBEndpoint for more information on using the CreateDBEndpoint
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBEndpointRequest method.
-//	req, resp := client.CreateDBEndpointRequest(params)
+//    // Example sending a request using the CreateDBEndpointRequest method.
+//    req, resp := client.CreateDBEndpointRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDBEndpointRequest(input *CreateDBEndpointInput) (req *request.Request, output *CreateDBEndpointOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBEndpoint,
@@ -152,14 +152,15 @@ type CreateDBEndpointInput struct {
 
 	EndpointName *string `type:"string"`
 
-	EndpointType *string `type:"string" enum:"EnumOfEndpointTypeForCreateDBEndpointInput"`
+	// EndpointType is a required field
+	EndpointType *string `type:"string" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
 	Nodes *string `type:"string"`
 
-	ReadWriteMode *string `type:"string" enum:"EnumOfReadWriteModeForCreateDBEndpointInput"`
+	ReadWriteMode *string `type:"string"`
 }
 
 // String returns the string representation
@@ -175,6 +176,9 @@ func (s CreateDBEndpointInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDBEndpointInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBEndpointInput"}
+	if s.EndpointType == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndpointType"))
+	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
@@ -258,28 +262,3 @@ func (s *CreateDBEndpointOutput) SetInstanceId(v string) *CreateDBEndpointOutput
 	s.InstanceId = &v
 	return s
 }
-
-const (
-	// EnumOfEndpointTypeForCreateDBEndpointInputAllNode is a EnumOfEndpointTypeForCreateDBEndpointInput enum value
-	EnumOfEndpointTypeForCreateDBEndpointInputAllNode = "AllNode"
-
-	// EnumOfEndpointTypeForCreateDBEndpointInputCluster is a EnumOfEndpointTypeForCreateDBEndpointInput enum value
-	EnumOfEndpointTypeForCreateDBEndpointInputCluster = "Cluster"
-
-	// EnumOfEndpointTypeForCreateDBEndpointInputCustom is a EnumOfEndpointTypeForCreateDBEndpointInput enum value
-	EnumOfEndpointTypeForCreateDBEndpointInputCustom = "Custom"
-
-	// EnumOfEndpointTypeForCreateDBEndpointInputDirect is a EnumOfEndpointTypeForCreateDBEndpointInput enum value
-	EnumOfEndpointTypeForCreateDBEndpointInputDirect = "Direct"
-
-	// EnumOfEndpointTypeForCreateDBEndpointInputPrimary is a EnumOfEndpointTypeForCreateDBEndpointInput enum value
-	EnumOfEndpointTypeForCreateDBEndpointInputPrimary = "Primary"
-)
-
-const (
-	// EnumOfReadWriteModeForCreateDBEndpointInputReadOnly is a EnumOfReadWriteModeForCreateDBEndpointInput enum value
-	EnumOfReadWriteModeForCreateDBEndpointInputReadOnly = "ReadOnly"
-
-	// EnumOfReadWriteModeForCreateDBEndpointInputReadWrite is a EnumOfReadWriteModeForCreateDBEndpointInput enum value
-	EnumOfReadWriteModeForCreateDBEndpointInputReadWrite = "ReadWrite"
-)

@@ -22,13 +22,13 @@ const opModifyCrossBackupPolicyCommon = "ModifyCrossBackupPolicy"
 // See ModifyCrossBackupPolicyCommon for more information on using the ModifyCrossBackupPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCrossBackupPolicyCommonRequest method.
-//	req, resp := client.ModifyCrossBackupPolicyCommonRequest(params)
+//    // Example sending a request using the ModifyCrossBackupPolicyCommonRequest method.
+//    req, resp := client.ModifyCrossBackupPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyCrossBackupPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyCrossBackupPolicyCommon,
@@ -89,13 +89,13 @@ const opModifyCrossBackupPolicy = "ModifyCrossBackupPolicy"
 // See ModifyCrossBackupPolicy for more information on using the ModifyCrossBackupPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyCrossBackupPolicyRequest method.
-//	req, resp := client.ModifyCrossBackupPolicyRequest(params)
+//    // Example sending a request using the ModifyCrossBackupPolicyRequest method.
+//    req, resp := client.ModifyCrossBackupPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyCrossBackupPolicyRequest(input *ModifyCrossBackupPolicyInput) (req *request.Request, output *ModifyCrossBackupPolicyOutput) {
 	op := &request.Operation{
 		Name:       opModifyCrossBackupPolicy,
@@ -150,7 +150,8 @@ type ModifyCrossBackupPolicyInput struct {
 
 	CrossBackupRegion *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	LogBackupEnabled *bool `type:"boolean"`
 
@@ -165,6 +166,19 @@ func (s ModifyCrossBackupPolicyInput) String() string {
 // GoString returns the string representation
 func (s ModifyCrossBackupPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyCrossBackupPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyCrossBackupPolicyInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBackupEnabled sets the BackupEnabled field's value.

@@ -22,13 +22,13 @@ const opModifyDBEndpointCommon = "ModifyDBEndpoint"
 // See ModifyDBEndpointCommon for more information on using the ModifyDBEndpointCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBEndpointCommonRequest method.
-//	req, resp := client.ModifyDBEndpointCommonRequest(params)
+//    // Example sending a request using the ModifyDBEndpointCommonRequest method.
+//    req, resp := client.ModifyDBEndpointCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBEndpointCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpointCommon,
@@ -89,13 +89,13 @@ const opModifyDBEndpoint = "ModifyDBEndpoint"
 // See ModifyDBEndpoint for more information on using the ModifyDBEndpoint
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBEndpointRequest method.
-//	req, resp := client.ModifyDBEndpointRequest(params)
+//    // Example sending a request using the ModifyDBEndpointRequest method.
+//    req, resp := client.ModifyDBEndpointRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBEndpointRequest(input *ModifyDBEndpointInput) (req *request.Request, output *ModifyDBEndpointOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBEndpoint,
@@ -160,13 +160,13 @@ type ModifyDBEndpointInput struct {
 
 	Nodes *string `type:"string"`
 
-	ReadOnlyNodeDistributionType *string `type:"string" enum:"EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInput"`
+	ReadOnlyNodeDistributionType *string `type:"string"`
 
 	ReadOnlyNodeMaxDelayTime *int32 `type:"int32"`
 
 	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForModifyDBEndpointInput `type:"list"`
 
-	ReadWriteMode *string `type:"string" enum:"EnumOfReadWriteModeForModifyDBEndpointInput"`
+	ReadWriteMode *string `type:"string"`
 
 	ReadWriteSpliting *bool `type:"boolean"`
 }
@@ -284,7 +284,7 @@ type ReadOnlyNodeWeightForModifyDBEndpointInput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForModifyDBEndpointInput"`
+	NodeType *string `type:"string"`
 
 	Weight *int32 `type:"int32"`
 }
@@ -316,30 +316,3 @@ func (s *ReadOnlyNodeWeightForModifyDBEndpointInput) SetWeight(v int32) *ReadOnl
 	s.Weight = &v
 	return s
 }
-
-const (
-	// EnumOfNodeTypeForModifyDBEndpointInputPrimary is a EnumOfNodeTypeForModifyDBEndpointInput enum value
-	EnumOfNodeTypeForModifyDBEndpointInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForModifyDBEndpointInputReadOnly is a EnumOfNodeTypeForModifyDBEndpointInput enum value
-	EnumOfNodeTypeForModifyDBEndpointInputReadOnly = "ReadOnly"
-
-	// EnumOfNodeTypeForModifyDBEndpointInputSecondary is a EnumOfNodeTypeForModifyDBEndpointInput enum value
-	EnumOfNodeTypeForModifyDBEndpointInputSecondary = "Secondary"
-)
-
-const (
-	// EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputCustom is a EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInput enum value
-	EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputCustom = "Custom"
-
-	// EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputDefault is a EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInput enum value
-	EnumOfReadOnlyNodeDistributionTypeForModifyDBEndpointInputDefault = "Default"
-)
-
-const (
-	// EnumOfReadWriteModeForModifyDBEndpointInputReadOnly is a EnumOfReadWriteModeForModifyDBEndpointInput enum value
-	EnumOfReadWriteModeForModifyDBEndpointInputReadOnly = "ReadOnly"
-
-	// EnumOfReadWriteModeForModifyDBEndpointInputReadWrite is a EnumOfReadWriteModeForModifyDBEndpointInput enum value
-	EnumOfReadWriteModeForModifyDBEndpointInputReadWrite = "ReadWrite"
-)

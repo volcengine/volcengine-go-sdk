@@ -22,13 +22,13 @@ const opDescribeAllowListsCommon = "DescribeAllowLists"
 // See DescribeAllowListsCommon for more information on using the DescribeAllowListsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAllowListsCommonRequest method.
-//	req, resp := client.DescribeAllowListsCommonRequest(params)
+//    // Example sending a request using the DescribeAllowListsCommonRequest method.
+//    req, resp := client.DescribeAllowListsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeAllowListsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAllowListsCommon,
@@ -89,13 +89,13 @@ const opDescribeAllowLists = "DescribeAllowLists"
 // See DescribeAllowLists for more information on using the DescribeAllowLists
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAllowListsRequest method.
-//	req, resp := client.DescribeAllowListsRequest(params)
+//    // Example sending a request using the DescribeAllowListsRequest method.
+//    req, resp := client.DescribeAllowListsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeAllowListsRequest(input *DescribeAllowListsInput) (req *request.Request, output *DescribeAllowListsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAllowLists,
@@ -210,7 +210,8 @@ type DescribeAllowListsInput struct {
 
 	InstanceId *string `type:"string"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -221,6 +222,19 @@ func (s DescribeAllowListsInput) String() string {
 // GoString returns the string representation
 func (s DescribeAllowListsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAllowListsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAllowListsInput"}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

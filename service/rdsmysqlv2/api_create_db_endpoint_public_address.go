@@ -22,13 +22,13 @@ const opCreateDBEndpointPublicAddressCommon = "CreateDBEndpointPublicAddress"
 // See CreateDBEndpointPublicAddressCommon for more information on using the CreateDBEndpointPublicAddressCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBEndpointPublicAddressCommonRequest method.
-//	req, resp := client.CreateDBEndpointPublicAddressCommonRequest(params)
+//    // Example sending a request using the CreateDBEndpointPublicAddressCommonRequest method.
+//    req, resp := client.CreateDBEndpointPublicAddressCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDBEndpointPublicAddressCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBEndpointPublicAddressCommon,
@@ -89,13 +89,13 @@ const opCreateDBEndpointPublicAddress = "CreateDBEndpointPublicAddress"
 // See CreateDBEndpointPublicAddress for more information on using the CreateDBEndpointPublicAddress
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBEndpointPublicAddressRequest method.
-//	req, resp := client.CreateDBEndpointPublicAddressRequest(params)
+//    // Example sending a request using the CreateDBEndpointPublicAddressRequest method.
+//    req, resp := client.CreateDBEndpointPublicAddressRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDBEndpointPublicAddressRequest(input *CreateDBEndpointPublicAddressInput) (req *request.Request, output *CreateDBEndpointPublicAddressOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBEndpointPublicAddress,
@@ -146,8 +146,6 @@ func (c *RDSMYSQLV2) CreateDBEndpointPublicAddressWithContext(ctx volcengine.Con
 type CreateDBEndpointPublicAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	DomainPrefix *string `type:"string"`
-
 	// EipId is a required field
 	EipId *string `type:"string" required:"true"`
 
@@ -185,12 +183,6 @@ func (s *CreateDBEndpointPublicAddressInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetDomainPrefix sets the DomainPrefix field's value.
-func (s *CreateDBEndpointPublicAddressInput) SetDomainPrefix(v string) *CreateDBEndpointPublicAddressInput {
-	s.DomainPrefix = &v
-	return s
 }
 
 // SetEipId sets the EipId field's value.

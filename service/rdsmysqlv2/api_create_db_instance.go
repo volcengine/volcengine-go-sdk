@@ -22,13 +22,13 @@ const opCreateDBInstanceCommon = "CreateDBInstance"
 // See CreateDBInstanceCommon for more information on using the CreateDBInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBInstanceCommonRequest method.
-//	req, resp := client.CreateDBInstanceCommonRequest(params)
+//    // Example sending a request using the CreateDBInstanceCommonRequest method.
+//    req, resp := client.CreateDBInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBInstanceCommon,
@@ -89,13 +89,13 @@ const opCreateDBInstance = "CreateDBInstance"
 // See CreateDBInstance for more information on using the CreateDBInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBInstanceRequest method.
-//	req, resp := client.CreateDBInstanceRequest(params)
+//    // Example sending a request using the CreateDBInstanceRequest method.
+//    req, resp := client.CreateDBInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDBInstanceRequest(input *CreateDBInstanceInput) (req *request.Request, output *CreateDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBInstance,
@@ -148,13 +148,13 @@ type ChargeInfoForCreateDBInstanceInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForCreateDBInstanceInput"`
+	ChargeType *string `type:"string"`
 
 	Number *int32 `type:"int32"`
 
 	Period *int32 `type:"int32"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
+	PeriodUnit *string `type:"string"`
 }
 
 // String returns the string representation
@@ -204,7 +204,8 @@ type CreateDBInstanceInput struct {
 
 	ChargeInfo *ChargeInfoForCreateDBInstanceInput `type:"structure"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
+	// DBEngineVersion is a required field
+	DBEngineVersion *string `type:"string" required:"true"`
 
 	DBParamGroupId *string `type:"string"`
 
@@ -214,7 +215,7 @@ type CreateDBInstanceInput struct {
 
 	InstanceTags []*InstanceTagForCreateDBInstanceInput `type:"list"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForCreateDBInstanceInput"`
+	InstanceType *string `type:"string"`
 
 	LowerCaseTableNames *string `type:"string"`
 
@@ -222,17 +223,21 @@ type CreateDBInstanceInput struct {
 
 	ProjectName *string `type:"string"`
 
-	StorageSpace *int32 `type:"int32"`
+	// StorageSpace is a required field
+	StorageSpace *int32 `type:"int32" required:"true"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForCreateDBInstanceInput"`
+	// StorageType is a required field
+	StorageType *string `type:"string" required:"true"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 
-	SuperAccountName *string `min:"2" max:"16" type:"string"`
+	SuperAccountName *string `type:"string"`
 
-	SuperAccountPassword *string `min:"8" max:"32" type:"string"`
+	SuperAccountPassword *string `type:"string"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -248,17 +253,20 @@ func (s CreateDBInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDBInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBInstanceInput"}
-	if s.SuperAccountName != nil && len(*s.SuperAccountName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("SuperAccountName", 2))
+	if s.DBEngineVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBEngineVersion"))
 	}
-	if s.SuperAccountName != nil && len(*s.SuperAccountName) > 16 {
-		invalidParams.Add(request.NewErrParamMaxLen("SuperAccountName", 16, *s.SuperAccountName))
+	if s.StorageSpace == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageSpace"))
 	}
-	if s.SuperAccountPassword != nil && len(*s.SuperAccountPassword) < 8 {
-		invalidParams.Add(request.NewErrParamMinLen("SuperAccountPassword", 8))
+	if s.StorageType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageType"))
 	}
-	if s.SuperAccountPassword != nil && len(*s.SuperAccountPassword) > 32 {
-		invalidParams.Add(request.NewErrParamMaxLen("SuperAccountPassword", 32, *s.SuperAccountPassword))
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -436,13 +444,11 @@ type NodeInfoForCreateDBInstanceInput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForCreateDBInstanceInput"`
-
-	NodePool *string `type:"string"`
+	NodeOperateType *string `type:"string"`
 
 	NodeSpec *string `type:"string"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForCreateDBInstanceInput"`
+	NodeType *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -469,12 +475,6 @@ func (s *NodeInfoForCreateDBInstanceInput) SetNodeOperateType(v string) *NodeInf
 	return s
 }
 
-// SetNodePool sets the NodePool field's value.
-func (s *NodeInfoForCreateDBInstanceInput) SetNodePool(v string) *NodeInfoForCreateDBInstanceInput {
-	s.NodePool = &v
-	return s
-}
-
 // SetNodeSpec sets the NodeSpec field's value.
 func (s *NodeInfoForCreateDBInstanceInput) SetNodeSpec(v string) *NodeInfoForCreateDBInstanceInput {
 	s.NodeSpec = &v
@@ -492,95 +492,3 @@ func (s *NodeInfoForCreateDBInstanceInput) SetZoneId(v string) *NodeInfoForCreat
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfChargeTypeForCreateDBInstanceInputNotEnabled is a EnumOfChargeTypeForCreateDBInstanceInput enum value
-	EnumOfChargeTypeForCreateDBInstanceInputNotEnabled = "NotEnabled"
-
-	// EnumOfChargeTypeForCreateDBInstanceInputPostPaid is a EnumOfChargeTypeForCreateDBInstanceInput enum value
-	EnumOfChargeTypeForCreateDBInstanceInputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForCreateDBInstanceInputPrePaid is a EnumOfChargeTypeForCreateDBInstanceInput enum value
-	EnumOfChargeTypeForCreateDBInstanceInputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql56 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputMySql56 = "MySQL_5_6"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql57 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputMySql57 = "MySQL_5_7"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 = "MySQL_8_0"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Ent is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Std is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Web is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
-	EnumOfDBEngineVersionForCreateDBInstanceInputSqlserver2019Web = "SQLServer_2019_Web"
-)
-
-const (
-	// EnumOfInstanceTypeForCreateDBInstanceInputBasic is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
-	EnumOfInstanceTypeForCreateDBInstanceInputBasic = "Basic"
-
-	// EnumOfInstanceTypeForCreateDBInstanceInputCluster is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
-	EnumOfInstanceTypeForCreateDBInstanceInputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForCreateDBInstanceInputDoubleNode is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
-	EnumOfInstanceTypeForCreateDBInstanceInputDoubleNode = "DoubleNode"
-
-	// EnumOfInstanceTypeForCreateDBInstanceInputHa is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
-	EnumOfInstanceTypeForCreateDBInstanceInputHa = "HA"
-
-	// EnumOfInstanceTypeForCreateDBInstanceInputMultiNode is a EnumOfInstanceTypeForCreateDBInstanceInput enum value
-	EnumOfInstanceTypeForCreateDBInstanceInputMultiNode = "MultiNode"
-)
-
-const (
-	// EnumOfNodeOperateTypeForCreateDBInstanceInputCreate is a EnumOfNodeOperateTypeForCreateDBInstanceInput enum value
-	EnumOfNodeOperateTypeForCreateDBInstanceInputCreate = "Create"
-
-	// EnumOfNodeOperateTypeForCreateDBInstanceInputDelete is a EnumOfNodeOperateTypeForCreateDBInstanceInput enum value
-	EnumOfNodeOperateTypeForCreateDBInstanceInputDelete = "Delete"
-
-	// EnumOfNodeOperateTypeForCreateDBInstanceInputModify is a EnumOfNodeOperateTypeForCreateDBInstanceInput enum value
-	EnumOfNodeOperateTypeForCreateDBInstanceInputModify = "Modify"
-)
-
-const (
-	// EnumOfNodeTypeForCreateDBInstanceInputPrimary is a EnumOfNodeTypeForCreateDBInstanceInput enum value
-	EnumOfNodeTypeForCreateDBInstanceInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForCreateDBInstanceInputReadOnly is a EnumOfNodeTypeForCreateDBInstanceInput enum value
-	EnumOfNodeTypeForCreateDBInstanceInputReadOnly = "ReadOnly"
-
-	// EnumOfNodeTypeForCreateDBInstanceInputSecondary is a EnumOfNodeTypeForCreateDBInstanceInput enum value
-	EnumOfNodeTypeForCreateDBInstanceInputSecondary = "Secondary"
-)
-
-const (
-	// EnumOfPeriodUnitForCreateDBInstanceInputMonth is a EnumOfPeriodUnitForCreateDBInstanceInput enum value
-	EnumOfPeriodUnitForCreateDBInstanceInputMonth = "Month"
-
-	// EnumOfPeriodUnitForCreateDBInstanceInputYear is a EnumOfPeriodUnitForCreateDBInstanceInput enum value
-	EnumOfPeriodUnitForCreateDBInstanceInputYear = "Year"
-)
-
-const (
-	// EnumOfStorageTypeForCreateDBInstanceInputCloudStorage is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputCloudStorage = "CloudStorage"
-
-	// EnumOfStorageTypeForCreateDBInstanceInputEssdpl1 is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputEssdpl1 = "ESSDPL1"
-
-	// EnumOfStorageTypeForCreateDBInstanceInputEssdpl2 is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputEssdpl2 = "ESSDPL2"
-
-	// EnumOfStorageTypeForCreateDBInstanceInputLocalSsd is a EnumOfStorageTypeForCreateDBInstanceInput enum value
-	EnumOfStorageTypeForCreateDBInstanceInputLocalSsd = "LocalSSD"
-)

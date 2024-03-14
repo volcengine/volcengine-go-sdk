@@ -22,13 +22,13 @@ const opSaveAsParameterTemplateCommon = "SaveAsParameterTemplate"
 // See SaveAsParameterTemplateCommon for more information on using the SaveAsParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the SaveAsParameterTemplateCommonRequest method.
-//	req, resp := client.SaveAsParameterTemplateCommonRequest(params)
+//    // Example sending a request using the SaveAsParameterTemplateCommonRequest method.
+//    req, resp := client.SaveAsParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) SaveAsParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opSaveAsParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opSaveAsParameterTemplate = "SaveAsParameterTemplate"
 // See SaveAsParameterTemplate for more information on using the SaveAsParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the SaveAsParameterTemplateRequest method.
-//	req, resp := client.SaveAsParameterTemplateRequest(params)
+//    // Example sending a request using the SaveAsParameterTemplateRequest method.
+//    req, resp := client.SaveAsParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) SaveAsParameterTemplateRequest(input *SaveAsParameterTemplateInput) (req *request.Request, output *SaveAsParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opSaveAsParameterTemplate,
@@ -149,9 +149,10 @@ type SaveAsParameterTemplateInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	TemplateDesc *string `max:"200" type:"string"`
+	TemplateDesc *string `type:"string"`
 
-	TemplateName *string `min:"2" max:"64" type:"string"`
+	// TemplateName is a required field
+	TemplateName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -170,14 +171,8 @@ func (s *SaveAsParameterTemplateInput) Validate() error {
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
-	if s.TemplateDesc != nil && len(*s.TemplateDesc) > 200 {
-		invalidParams.Add(request.NewErrParamMaxLen("TemplateDesc", 200, *s.TemplateDesc))
-	}
-	if s.TemplateName != nil && len(*s.TemplateName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("TemplateName", 2))
-	}
-	if s.TemplateName != nil && len(*s.TemplateName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("TemplateName", 64, *s.TemplateName))
+	if s.TemplateName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TemplateName"))
 	}
 
 	if invalidParams.Len() > 0 {

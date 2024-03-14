@@ -22,13 +22,13 @@ const opModifyDBInstanceSSLCommon = "ModifyDBInstanceSSL"
 // See ModifyDBInstanceSSLCommon for more information on using the ModifyDBInstanceSSLCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceSSLCommonRequest method.
-//	req, resp := client.ModifyDBInstanceSSLCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceSSLCommonRequest method.
+//    req, resp := client.ModifyDBInstanceSSLCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceSSLCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceSSLCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceSSL = "ModifyDBInstanceSSL"
 // See ModifyDBInstanceSSL for more information on using the ModifyDBInstanceSSL
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceSSLRequest method.
-//	req, resp := client.ModifyDBInstanceSSLRequest(params)
+//    // Example sending a request using the ModifyDBInstanceSSLRequest method.
+//    req, resp := client.ModifyDBInstanceSSLRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceSSLRequest(input *ModifyDBInstanceSSLInput) (req *request.Request, output *ModifyDBInstanceSSLOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceSSL,
@@ -149,6 +149,8 @@ type ModifyDBInstanceSSLInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
+	ReloadSSLCertificate *bool `type:"boolean"`
+
 	SSLEnable *bool `type:"boolean"`
 }
 
@@ -178,6 +180,12 @@ func (s *ModifyDBInstanceSSLInput) Validate() error {
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBInstanceSSLInput) SetInstanceId(v string) *ModifyDBInstanceSSLInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetReloadSSLCertificate sets the ReloadSSLCertificate field's value.
+func (s *ModifyDBInstanceSSLInput) SetReloadSSLCertificate(v bool) *ModifyDBInstanceSSLInput {
+	s.ReloadSSLCertificate = &v
 	return s
 }
 

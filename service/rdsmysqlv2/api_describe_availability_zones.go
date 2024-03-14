@@ -22,13 +22,13 @@ const opDescribeAvailabilityZonesCommon = "DescribeAvailabilityZones"
 // See DescribeAvailabilityZonesCommon for more information on using the DescribeAvailabilityZonesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailabilityZonesCommonRequest method.
-//	req, resp := client.DescribeAvailabilityZonesCommonRequest(params)
+//    // Example sending a request using the DescribeAvailabilityZonesCommonRequest method.
+//    req, resp := client.DescribeAvailabilityZonesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeAvailabilityZonesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAvailabilityZonesCommon,
@@ -89,13 +89,13 @@ const opDescribeAvailabilityZones = "DescribeAvailabilityZones"
 // See DescribeAvailabilityZones for more information on using the DescribeAvailabilityZones
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailabilityZonesRequest method.
-//	req, resp := client.DescribeAvailabilityZonesRequest(params)
+//    // Example sending a request using the DescribeAvailabilityZonesRequest method.
+//    req, resp := client.DescribeAvailabilityZonesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeAvailabilityZonesRequest(input *DescribeAvailabilityZonesInput) (req *request.Request, output *DescribeAvailabilityZonesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAvailabilityZones,
@@ -145,8 +145,6 @@ func (c *RDSMYSQLV2) DescribeAvailabilityZonesWithContext(ctx volcengine.Context
 
 type DescribeAvailabilityZonesInput struct {
 	_ struct{} `type:"structure"`
-
-	RegionId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -157,12 +155,6 @@ func (s DescribeAvailabilityZonesInput) String() string {
 // GoString returns the string representation
 func (s DescribeAvailabilityZonesInput) GoString() string {
 	return s.String()
-}
-
-// SetRegionId sets the RegionId field's value.
-func (s *DescribeAvailabilityZonesInput) SetRegionId(v string) *DescribeAvailabilityZonesInput {
-	s.RegionId = &v
-	return s
 }
 
 type DescribeAvailabilityZonesOutput struct {

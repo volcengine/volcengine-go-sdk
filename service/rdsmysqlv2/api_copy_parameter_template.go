@@ -22,13 +22,13 @@ const opCopyParameterTemplateCommon = "CopyParameterTemplate"
 // See CopyParameterTemplateCommon for more information on using the CopyParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CopyParameterTemplateCommonRequest method.
-//	req, resp := client.CopyParameterTemplateCommonRequest(params)
+//    // Example sending a request using the CopyParameterTemplateCommonRequest method.
+//    req, resp := client.CopyParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CopyParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCopyParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opCopyParameterTemplate = "CopyParameterTemplate"
 // See CopyParameterTemplate for more information on using the CopyParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the CopyParameterTemplateRequest method.
-//	req, resp := client.CopyParameterTemplateRequest(params)
+//    // Example sending a request using the CopyParameterTemplateRequest method.
+//    req, resp := client.CopyParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CopyParameterTemplateRequest(input *CopyParameterTemplateInput) (req *request.Request, output *CopyParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opCopyParameterTemplate,
@@ -149,9 +149,10 @@ type CopyParameterTemplateInput struct {
 	// SrcTemplateId is a required field
 	SrcTemplateId *string `type:"string" required:"true"`
 
-	TemplateDesc *string `max:"200" type:"string"`
+	TemplateDesc *string `type:"string"`
 
-	TemplateName *string `min:"2" max:"64" type:"string"`
+	// TemplateName is a required field
+	TemplateName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -170,14 +171,8 @@ func (s *CopyParameterTemplateInput) Validate() error {
 	if s.SrcTemplateId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SrcTemplateId"))
 	}
-	if s.TemplateDesc != nil && len(*s.TemplateDesc) > 200 {
-		invalidParams.Add(request.NewErrParamMaxLen("TemplateDesc", 200, *s.TemplateDesc))
-	}
-	if s.TemplateName != nil && len(*s.TemplateName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("TemplateName", 2))
-	}
-	if s.TemplateName != nil && len(*s.TemplateName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("TemplateName", 64, *s.TemplateName))
+	if s.TemplateName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TemplateName"))
 	}
 
 	if invalidParams.Len() > 0 {

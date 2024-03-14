@@ -22,13 +22,13 @@ const opCreateDatabaseCommon = "CreateDatabase"
 // See CreateDatabaseCommon for more information on using the CreateDatabaseCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDatabaseCommonRequest method.
-//	req, resp := client.CreateDatabaseCommonRequest(params)
+//    // Example sending a request using the CreateDatabaseCommonRequest method.
+//    req, resp := client.CreateDatabaseCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDatabaseCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDatabaseCommon,
@@ -89,13 +89,13 @@ const opCreateDatabase = "CreateDatabase"
 // See CreateDatabase for more information on using the CreateDatabase
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDatabaseRequest method.
-//	req, resp := client.CreateDatabaseRequest(params)
+//    // Example sending a request using the CreateDatabaseRequest method.
+//    req, resp := client.CreateDatabaseRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateDatabaseRequest(input *CreateDatabaseInput) (req *request.Request, output *CreateDatabaseOutput) {
 	op := &request.Operation{
 		Name:       opCreateDatabase,
@@ -150,11 +150,10 @@ type CreateDatabaseInput struct {
 
 	DBDesc *string `type:"string"`
 
-	DBName *string `min:"2" max:"64" type:"string"`
+	// DBName is a required field
+	DBName *string `type:"string" required:"true"`
 
 	DatabasePrivileges []*DatabasePrivilegeForCreateDatabaseInput `type:"list"`
-
-	DatabasePrivilegesInfo []*DatabasePrivilegesInfoForCreateDatabaseInput `type:"list"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -173,11 +172,8 @@ func (s CreateDatabaseInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDatabaseInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDatabaseInput"}
-	if s.DBName != nil && len(*s.DBName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("DBName", 2))
-	}
-	if s.DBName != nil && len(*s.DBName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("DBName", 64, *s.DBName))
+	if s.DBName == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBName"))
 	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
@@ -213,12 +209,6 @@ func (s *CreateDatabaseInput) SetDatabasePrivileges(v []*DatabasePrivilegeForCre
 	return s
 }
 
-// SetDatabasePrivilegesInfo sets the DatabasePrivilegesInfo field's value.
-func (s *CreateDatabaseInput) SetDatabasePrivilegesInfo(v []*DatabasePrivilegesInfoForCreateDatabaseInput) *CreateDatabaseInput {
-	s.DatabasePrivilegesInfo = v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *CreateDatabaseInput) SetInstanceId(v string) *CreateDatabaseInput {
 	s.InstanceId = &v
@@ -246,9 +236,11 @@ type DatabasePrivilegeForCreateDatabaseInput struct {
 
 	AccountName *string `type:"string"`
 
-	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForCreateDatabaseInput"`
+	AccountPrivilege *string `type:"string"`
 
 	AccountPrivilegeDetail *string `type:"string"`
+
+	Host *string `type:"string"`
 }
 
 // String returns the string representation
@@ -279,60 +271,8 @@ func (s *DatabasePrivilegeForCreateDatabaseInput) SetAccountPrivilegeDetail(v st
 	return s
 }
 
-type DatabasePrivilegesInfoForCreateDatabaseInput struct {
-	_ struct{} `type:"structure"`
-
-	AccountName *string `type:"string"`
-
-	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForCreateDatabaseInput"`
-
-	AccountPrivilegeCustom *string `type:"string"`
-}
-
-// String returns the string representation
-func (s DatabasePrivilegesInfoForCreateDatabaseInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s DatabasePrivilegesInfoForCreateDatabaseInput) GoString() string {
-	return s.String()
-}
-
-// SetAccountName sets the AccountName field's value.
-func (s *DatabasePrivilegesInfoForCreateDatabaseInput) SetAccountName(v string) *DatabasePrivilegesInfoForCreateDatabaseInput {
-	s.AccountName = &v
+// SetHost sets the Host field's value.
+func (s *DatabasePrivilegeForCreateDatabaseInput) SetHost(v string) *DatabasePrivilegeForCreateDatabaseInput {
+	s.Host = &v
 	return s
 }
-
-// SetAccountPrivilege sets the AccountPrivilege field's value.
-func (s *DatabasePrivilegesInfoForCreateDatabaseInput) SetAccountPrivilege(v string) *DatabasePrivilegesInfoForCreateDatabaseInput {
-	s.AccountPrivilege = &v
-	return s
-}
-
-// SetAccountPrivilegeCustom sets the AccountPrivilegeCustom field's value.
-func (s *DatabasePrivilegesInfoForCreateDatabaseInput) SetAccountPrivilegeCustom(v string) *DatabasePrivilegesInfoForCreateDatabaseInput {
-	s.AccountPrivilegeCustom = &v
-	return s
-}
-
-const (
-	// EnumOfAccountPrivilegeForCreateDatabaseInputCustom is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
-	EnumOfAccountPrivilegeForCreateDatabaseInputCustom = "Custom"
-
-	// EnumOfAccountPrivilegeForCreateDatabaseInputDdlonly is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
-	EnumOfAccountPrivilegeForCreateDatabaseInputDdlonly = "DDLOnly"
-
-	// EnumOfAccountPrivilegeForCreateDatabaseInputDmlonly is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
-	EnumOfAccountPrivilegeForCreateDatabaseInputDmlonly = "DMLOnly"
-
-	// EnumOfAccountPrivilegeForCreateDatabaseInputNone is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
-	EnumOfAccountPrivilegeForCreateDatabaseInputNone = "None"
-
-	// EnumOfAccountPrivilegeForCreateDatabaseInputReadOnly is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
-	EnumOfAccountPrivilegeForCreateDatabaseInputReadOnly = "ReadOnly"
-
-	// EnumOfAccountPrivilegeForCreateDatabaseInputReadWrite is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
-	EnumOfAccountPrivilegeForCreateDatabaseInputReadWrite = "ReadWrite"
-)

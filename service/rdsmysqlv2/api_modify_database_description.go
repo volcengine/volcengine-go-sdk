@@ -22,13 +22,13 @@ const opModifyDatabaseDescriptionCommon = "ModifyDatabaseDescription"
 // See ModifyDatabaseDescriptionCommon for more information on using the ModifyDatabaseDescriptionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDatabaseDescriptionCommonRequest method.
-//	req, resp := client.ModifyDatabaseDescriptionCommonRequest(params)
+//    // Example sending a request using the ModifyDatabaseDescriptionCommonRequest method.
+//    req, resp := client.ModifyDatabaseDescriptionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDatabaseDescriptionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDatabaseDescriptionCommon,
@@ -89,13 +89,13 @@ const opModifyDatabaseDescription = "ModifyDatabaseDescription"
 // See ModifyDatabaseDescription for more information on using the ModifyDatabaseDescription
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDatabaseDescriptionRequest method.
-//	req, resp := client.ModifyDatabaseDescriptionRequest(params)
+//    // Example sending a request using the ModifyDatabaseDescriptionRequest method.
+//    req, resp := client.ModifyDatabaseDescriptionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDatabaseDescriptionRequest(input *ModifyDatabaseDescriptionInput) (req *request.Request, output *ModifyDatabaseDescriptionOutput) {
 	op := &request.Operation{
 		Name:       opModifyDatabaseDescription,
@@ -149,7 +149,7 @@ type ModifyDatabaseDescriptionInput struct {
 	DBDesc *string `type:"string"`
 
 	// DBName is a required field
-	DBName *string `min:"2" max:"64" type:"string" required:"true"`
+	DBName *string `type:"string" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -170,12 +170,6 @@ func (s *ModifyDatabaseDescriptionInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDatabaseDescriptionInput"}
 	if s.DBName == nil {
 		invalidParams.Add(request.NewErrParamRequired("DBName"))
-	}
-	if s.DBName != nil && len(*s.DBName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("DBName", 2))
-	}
-	if s.DBName != nil && len(*s.DBName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("DBName", 64, *s.DBName))
 	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))

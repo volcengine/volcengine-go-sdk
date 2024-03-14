@@ -22,13 +22,13 @@ const opResetDBAccountCommon = "ResetDBAccount"
 // See ResetDBAccountCommon for more information on using the ResetDBAccountCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ResetDBAccountCommonRequest method.
-//	req, resp := client.ResetDBAccountCommonRequest(params)
+//    // Example sending a request using the ResetDBAccountCommonRequest method.
+//    req, resp := client.ResetDBAccountCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ResetDBAccountCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opResetDBAccountCommon,
@@ -89,13 +89,13 @@ const opResetDBAccount = "ResetDBAccount"
 // See ResetDBAccount for more information on using the ResetDBAccount
 // API call, and error handling.
 //
-//	// Example sending a request using the ResetDBAccountRequest method.
-//	req, resp := client.ResetDBAccountRequest(params)
+//    // Example sending a request using the ResetDBAccountRequest method.
+//    req, resp := client.ResetDBAccountRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ResetDBAccountRequest(input *ResetDBAccountInput) (req *request.Request, output *ResetDBAccountOutput) {
 	op := &request.Operation{
 		Name:       opResetDBAccount,
@@ -147,9 +147,12 @@ type ResetDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
 	// AccountName is a required field
-	AccountName *string `min:"2" max:"32" type:"string" required:"true"`
+	AccountName *string `type:"string" required:"true"`
 
-	AccountPassword *string `min:"8" max:"32" type:"string"`
+	// AccountPassword is a required field
+	AccountPassword *string `type:"string" required:"true"`
+
+	Host *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -171,17 +174,8 @@ func (s *ResetDBAccountInput) Validate() error {
 	if s.AccountName == nil {
 		invalidParams.Add(request.NewErrParamRequired("AccountName"))
 	}
-	if s.AccountName != nil && len(*s.AccountName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
-	}
-	if s.AccountName != nil && len(*s.AccountName) > 32 {
-		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 32, *s.AccountName))
-	}
-	if s.AccountPassword != nil && len(*s.AccountPassword) < 8 {
-		invalidParams.Add(request.NewErrParamMinLen("AccountPassword", 8))
-	}
-	if s.AccountPassword != nil && len(*s.AccountPassword) > 32 {
-		invalidParams.Add(request.NewErrParamMaxLen("AccountPassword", 32, *s.AccountPassword))
+	if s.AccountPassword == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPassword"))
 	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
@@ -202,6 +196,12 @@ func (s *ResetDBAccountInput) SetAccountName(v string) *ResetDBAccountInput {
 // SetAccountPassword sets the AccountPassword field's value.
 func (s *ResetDBAccountInput) SetAccountPassword(v string) *ResetDBAccountInput {
 	s.AccountPassword = &v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *ResetDBAccountInput) SetHost(v string) *ResetDBAccountInput {
+	s.Host = &v
 	return s
 }
 

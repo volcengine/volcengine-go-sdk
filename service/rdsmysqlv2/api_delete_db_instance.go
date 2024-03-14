@@ -22,13 +22,13 @@ const opDeleteDBInstanceCommon = "DeleteDBInstance"
 // See DeleteDBInstanceCommon for more information on using the DeleteDBInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDBInstanceCommonRequest method.
-//	req, resp := client.DeleteDBInstanceCommonRequest(params)
+//    // Example sending a request using the DeleteDBInstanceCommonRequest method.
+//    req, resp := client.DeleteDBInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DeleteDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDBInstanceCommon,
@@ -89,13 +89,13 @@ const opDeleteDBInstance = "DeleteDBInstance"
 // See DeleteDBInstance for more information on using the DeleteDBInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDBInstanceRequest method.
-//	req, resp := client.DeleteDBInstanceRequest(params)
+//    // Example sending a request using the DeleteDBInstanceRequest method.
+//    req, resp := client.DeleteDBInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DeleteDBInstanceRequest(input *DeleteDBInstanceInput) (req *request.Request, output *DeleteDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDBInstance,
@@ -146,7 +146,7 @@ func (c *RDSMYSQLV2) DeleteDBInstanceWithContext(ctx volcengine.Context, input *
 type DeleteDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	DataKeepPolicy *string `type:"string" enum:"EnumOfDataKeepPolicyForDeleteDBInstanceInput"`
+	DataKeepPolicy *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -202,14 +202,3 @@ func (s DeleteDBInstanceOutput) String() string {
 func (s DeleteDBInstanceOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfDataKeepPolicyForDeleteDBInstanceInputAll is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
-	EnumOfDataKeepPolicyForDeleteDBInstanceInputAll = "All"
-
-	// EnumOfDataKeepPolicyForDeleteDBInstanceInputLast is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
-	EnumOfDataKeepPolicyForDeleteDBInstanceInputLast = "Last"
-
-	// EnumOfDataKeepPolicyForDeleteDBInstanceInputNone is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
-	EnumOfDataKeepPolicyForDeleteDBInstanceInputNone = "None"
-)

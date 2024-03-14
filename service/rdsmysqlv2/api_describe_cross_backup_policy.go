@@ -22,13 +22,13 @@ const opDescribeCrossBackupPolicyCommon = "DescribeCrossBackupPolicy"
 // See DescribeCrossBackupPolicyCommon for more information on using the DescribeCrossBackupPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCrossBackupPolicyCommonRequest method.
-//	req, resp := client.DescribeCrossBackupPolicyCommonRequest(params)
+//    // Example sending a request using the DescribeCrossBackupPolicyCommonRequest method.
+//    req, resp := client.DescribeCrossBackupPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeCrossBackupPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCrossBackupPolicyCommon,
@@ -89,13 +89,13 @@ const opDescribeCrossBackupPolicy = "DescribeCrossBackupPolicy"
 // See DescribeCrossBackupPolicy for more information on using the DescribeCrossBackupPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCrossBackupPolicyRequest method.
-//	req, resp := client.DescribeCrossBackupPolicyRequest(params)
+//    // Example sending a request using the DescribeCrossBackupPolicyRequest method.
+//    req, resp := client.DescribeCrossBackupPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeCrossBackupPolicyRequest(input *DescribeCrossBackupPolicyInput) (req *request.Request, output *DescribeCrossBackupPolicyOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCrossBackupPolicy,
@@ -146,7 +146,8 @@ func (c *RDSMYSQLV2) DescribeCrossBackupPolicyWithContext(ctx volcengine.Context
 type DescribeCrossBackupPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DescribeCrossBackupPolicyInput) String() string {
 // GoString returns the string representation
 func (s DescribeCrossBackupPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeCrossBackupPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeCrossBackupPolicyInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

@@ -22,13 +22,13 @@ const opCreateBinlogBackupCommon = "CreateBinlogBackup"
 // See CreateBinlogBackupCommon for more information on using the CreateBinlogBackupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateBinlogBackupCommonRequest method.
-//	req, resp := client.CreateBinlogBackupCommonRequest(params)
+//    // Example sending a request using the CreateBinlogBackupCommonRequest method.
+//    req, resp := client.CreateBinlogBackupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateBinlogBackupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateBinlogBackupCommon,
@@ -89,13 +89,13 @@ const opCreateBinlogBackup = "CreateBinlogBackup"
 // See CreateBinlogBackup for more information on using the CreateBinlogBackup
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateBinlogBackupRequest method.
-//	req, resp := client.CreateBinlogBackupRequest(params)
+//    // Example sending a request using the CreateBinlogBackupRequest method.
+//    req, resp := client.CreateBinlogBackupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateBinlogBackupRequest(input *CreateBinlogBackupInput) (req *request.Request, output *CreateBinlogBackupOutput) {
 	op := &request.Operation{
 		Name:       opCreateBinlogBackup,

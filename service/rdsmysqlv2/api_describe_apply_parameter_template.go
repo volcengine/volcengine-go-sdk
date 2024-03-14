@@ -22,13 +22,13 @@ const opDescribeApplyParameterTemplateCommon = "DescribeApplyParameterTemplate"
 // See DescribeApplyParameterTemplateCommon for more information on using the DescribeApplyParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeApplyParameterTemplateCommonRequest method.
-//	req, resp := client.DescribeApplyParameterTemplateCommonRequest(params)
+//    // Example sending a request using the DescribeApplyParameterTemplateCommonRequest method.
+//    req, resp := client.DescribeApplyParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeApplyParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeApplyParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opDescribeApplyParameterTemplate = "DescribeApplyParameterTemplate"
 // See DescribeApplyParameterTemplate for more information on using the DescribeApplyParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeApplyParameterTemplateRequest method.
-//	req, resp := client.DescribeApplyParameterTemplateRequest(params)
+//    // Example sending a request using the DescribeApplyParameterTemplateRequest method.
+//    req, resp := client.DescribeApplyParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeApplyParameterTemplateRequest(input *DescribeApplyParameterTemplateInput) (req *request.Request, output *DescribeApplyParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opDescribeApplyParameterTemplate,
@@ -241,8 +241,6 @@ type ParameterForDescribeApplyParameterTemplateOutput struct {
 	OldValue *string `type:"string"`
 
 	Restart *bool `type:"boolean"`
-
-	Result *string `type:"string"`
 }
 
 // String returns the string representation
@@ -276,11 +274,5 @@ func (s *ParameterForDescribeApplyParameterTemplateOutput) SetOldValue(v string)
 // SetRestart sets the Restart field's value.
 func (s *ParameterForDescribeApplyParameterTemplateOutput) SetRestart(v bool) *ParameterForDescribeApplyParameterTemplateOutput {
 	s.Restart = &v
-	return s
-}
-
-// SetResult sets the Result field's value.
-func (s *ParameterForDescribeApplyParameterTemplateOutput) SetResult(v string) *ParameterForDescribeApplyParameterTemplateOutput {
-	s.Result = &v
 	return s
 }

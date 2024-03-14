@@ -22,13 +22,13 @@ const opModifyDBInstanceMaintenanceWindowCommon = "ModifyDBInstanceMaintenanceWi
 // See ModifyDBInstanceMaintenanceWindowCommon for more information on using the ModifyDBInstanceMaintenanceWindowCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceMaintenanceWindowCommonRequest method.
-//	req, resp := client.ModifyDBInstanceMaintenanceWindowCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceMaintenanceWindowCommonRequest method.
+//    req, resp := client.ModifyDBInstanceMaintenanceWindowCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceMaintenanceWindowCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceMaintenanceWindowCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceMaintenanceWindow = "ModifyDBInstanceMaintenanceWindow"
 // See ModifyDBInstanceMaintenanceWindow for more information on using the ModifyDBInstanceMaintenanceWindow
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceMaintenanceWindowRequest method.
-//	req, resp := client.ModifyDBInstanceMaintenanceWindowRequest(params)
+//    // Example sending a request using the ModifyDBInstanceMaintenanceWindowRequest method.
+//    req, resp := client.ModifyDBInstanceMaintenanceWindowRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceMaintenanceWindowRequest(input *ModifyDBInstanceMaintenanceWindowInput) (req *request.Request, output *ModifyDBInstanceMaintenanceWindowOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceMaintenanceWindow,
@@ -146,14 +146,15 @@ func (c *RDSMYSQLV2) ModifyDBInstanceMaintenanceWindowWithContext(ctx volcengine
 type ModifyDBInstanceMaintenanceWindowInput struct {
 	_ struct{} `type:"structure"`
 
-	DayKind *string `type:"string" enum:"EnumOfDayKindForModifyDBInstanceMaintenanceWindowInput"`
+	DayKind *string `type:"string"`
 
 	DayOfWeek []*string `type:"list"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	MaintenanceTime *string `type:"string"`
+	// MaintenanceTime is a required field
+	MaintenanceTime *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -171,6 +172,9 @@ func (s *ModifyDBInstanceMaintenanceWindowInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceMaintenanceWindowInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.MaintenanceTime == nil {
+		invalidParams.Add(request.NewErrParamRequired("MaintenanceTime"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -218,11 +222,3 @@ func (s ModifyDBInstanceMaintenanceWindowOutput) String() string {
 func (s ModifyDBInstanceMaintenanceWindowOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfDayKindForModifyDBInstanceMaintenanceWindowInputMonth is a EnumOfDayKindForModifyDBInstanceMaintenanceWindowInput enum value
-	EnumOfDayKindForModifyDBInstanceMaintenanceWindowInputMonth = "Month"
-
-	// EnumOfDayKindForModifyDBInstanceMaintenanceWindowInputWeek is a EnumOfDayKindForModifyDBInstanceMaintenanceWindowInput enum value
-	EnumOfDayKindForModifyDBInstanceMaintenanceWindowInputWeek = "Week"
-)

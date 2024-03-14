@@ -22,13 +22,13 @@ const opDescribeDBInstancesCommon = "DescribeDBInstances"
 // See DescribeDBInstancesCommon for more information on using the DescribeDBInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstancesCommonRequest method.
-//	req, resp := client.DescribeDBInstancesCommonRequest(params)
+//    // Example sending a request using the DescribeDBInstancesCommonRequest method.
+//    req, resp := client.DescribeDBInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstancesCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstances = "DescribeDBInstances"
 // See DescribeDBInstances for more information on using the DescribeDBInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstancesRequest method.
-//	req, resp := client.DescribeDBInstancesRequest(params)
+//    // Example sending a request using the DescribeDBInstancesRequest method.
+//    req, resp := client.DescribeDBInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstancesRequest(input *DescribeDBInstancesInput) (req *request.Request, output *DescribeDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstances,
@@ -154,6 +154,8 @@ type AddressObjectForDescribeDBInstancesOutput struct {
 
 	IPAddress *string `type:"string"`
 
+	InternetProtocol *string `type:"string"`
+
 	NetworkType *string `type:"string"`
 
 	Port *string `type:"string"`
@@ -195,6 +197,12 @@ func (s *AddressObjectForDescribeDBInstancesOutput) SetIPAddress(v string) *Addr
 	return s
 }
 
+// SetInternetProtocol sets the InternetProtocol field's value.
+func (s *AddressObjectForDescribeDBInstancesOutput) SetInternetProtocol(v string) *AddressObjectForDescribeDBInstancesOutput {
+	s.InternetProtocol = &v
+	return s
+}
+
 // SetNetworkType sets the NetworkType field's value.
 func (s *AddressObjectForDescribeDBInstancesOutput) SetNetworkType(v string) *AddressObjectForDescribeDBInstancesOutput {
 	s.NetworkType = &v
@@ -226,8 +234,6 @@ type ChargeDetailForDescribeDBInstancesOutput struct {
 
 	ChargeType *string `type:"string"`
 
-	Number *int32 `type:"int32"`
-
 	OverdueReclaimTime *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
@@ -235,6 +241,10 @@ type ChargeDetailForDescribeDBInstancesOutput struct {
 	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string"`
+
+	TempModifyEndTime *string `type:"string"`
+
+	TempModifyStartTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -277,12 +287,6 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetChargeType(v string) *Char
 	return s
 }
 
-// SetNumber sets the Number field's value.
-func (s *ChargeDetailForDescribeDBInstancesOutput) SetNumber(v int32) *ChargeDetailForDescribeDBInstancesOutput {
-	s.Number = &v
-	return s
-}
-
 // SetOverdueReclaimTime sets the OverdueReclaimTime field's value.
 func (s *ChargeDetailForDescribeDBInstancesOutput) SetOverdueReclaimTime(v string) *ChargeDetailForDescribeDBInstancesOutput {
 	s.OverdueReclaimTime = &v
@@ -307,28 +311,40 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetPeriodUnit(v string) *Char
 	return s
 }
 
+// SetTempModifyEndTime sets the TempModifyEndTime field's value.
+func (s *ChargeDetailForDescribeDBInstancesOutput) SetTempModifyEndTime(v string) *ChargeDetailForDescribeDBInstancesOutput {
+	s.TempModifyEndTime = &v
+	return s
+}
+
+// SetTempModifyStartTime sets the TempModifyStartTime field's value.
+func (s *ChargeDetailForDescribeDBInstancesOutput) SetTempModifyStartTime(v string) *ChargeDetailForDescribeDBInstancesOutput {
+	s.TempModifyStartTime = &v
+	return s
+}
+
 type DescribeDBInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesInput"`
+	ChargeType *string `type:"string"`
 
 	CreateTimeEnd *string `type:"string"`
 
 	CreateTimeStart *string `type:"string"`
 
-	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstancesInput"`
+	DBEngineVersion *string `type:"string"`
 
 	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
 
-	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesInput"`
-
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeDBInstancesInput"`
+	InstanceStatus *string `type:"string"`
 
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
+
+	ProjectName *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -385,12 +401,6 @@ func (s *DescribeDBInstancesInput) SetInstanceStatus(v string) *DescribeDBInstan
 	return s
 }
 
-// SetInstanceType sets the InstanceType field's value.
-func (s *DescribeDBInstancesInput) SetInstanceType(v string) *DescribeDBInstancesInput {
-	s.InstanceType = &v
-	return s
-}
-
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeDBInstancesInput) SetPageNumber(v int32) *DescribeDBInstancesInput {
 	s.PageNumber = &v
@@ -400,6 +410,12 @@ func (s *DescribeDBInstancesInput) SetPageNumber(v int32) *DescribeDBInstancesIn
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeDBInstancesInput) SetPageSize(v int32) *DescribeDBInstancesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeDBInstancesInput) SetProjectName(v string) *DescribeDBInstancesInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -415,8 +431,6 @@ type DescribeDBInstancesOutput struct {
 	Metadata *response.ResponseMetadata
 
 	Instances []*InstanceForDescribeDBInstancesOutput `type:"list"`
-
-	InstancesInfo []*InstancesInfoForDescribeDBInstancesOutput `type:"list"`
 
 	Total *int32 `type:"int32"`
 }
@@ -437,12 +451,6 @@ func (s *DescribeDBInstancesOutput) SetInstances(v []*InstanceForDescribeDBInsta
 	return s
 }
 
-// SetInstancesInfo sets the InstancesInfo field's value.
-func (s *DescribeDBInstancesOutput) SetInstancesInfo(v []*InstancesInfoForDescribeDBInstancesOutput) *DescribeDBInstancesOutput {
-	s.InstancesInfo = v
-	return s
-}
-
 // SetTotal sets the Total field's value.
 func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput {
 	s.Total = &v
@@ -451,8 +459,6 @@ func (s *DescribeDBInstancesOutput) SetTotal(v int32) *DescribeDBInstancesOutput
 
 type InstanceForDescribeDBInstancesOutput struct {
 	_ struct{} `type:"structure"`
-
-	AccountId *string `type:"string"`
 
 	AddressObject []*AddressObjectForDescribeDBInstancesOutput `type:"list"`
 
@@ -474,27 +480,19 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	LowerCaseTableNames *string `type:"string"`
 
-	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstancesOutput `type:"list"`
+	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure"`
 
 	NodeNumber *int32 `type:"int32"`
 
 	NodeSpec *string `type:"string"`
 
-	Port *string `type:"string"`
-
 	ProjectName *string `type:"string"`
 
 	RegionId *string `type:"string"`
 
-	ServerCollation *string `type:"string"`
-
-	ShardNumber *int32 `type:"int32"`
-
 	StorageSpace *int32 `type:"int32"`
 
 	StorageType *string `type:"string"`
-
-	StorageUse *int32 `type:"int32"`
 
 	SubnetId *string `type:"string"`
 
@@ -513,12 +511,6 @@ func (s InstanceForDescribeDBInstancesOutput) String() string {
 // GoString returns the string representation
 func (s InstanceForDescribeDBInstancesOutput) GoString() string {
 	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetAccountId(v string) *InstanceForDescribeDBInstancesOutput {
-	s.AccountId = &v
-	return s
 }
 
 // SetAddressObject sets the AddressObject field's value.
@@ -581,9 +573,9 @@ func (s *InstanceForDescribeDBInstancesOutput) SetLowerCaseTableNames(v string) 
 	return s
 }
 
-// SetNodeDetailInfo sets the NodeDetailInfo field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetNodeDetailInfo(v []*NodeDetailInfoForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
-	s.NodeDetailInfo = v
+// SetMaintenanceWindow sets the MaintenanceWindow field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetMaintenanceWindow(v *MaintenanceWindowForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
+	s.MaintenanceWindow = v
 	return s
 }
 
@@ -599,12 +591,6 @@ func (s *InstanceForDescribeDBInstancesOutput) SetNodeSpec(v string) *InstanceFo
 	return s
 }
 
-// SetPort sets the Port field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetPort(v string) *InstanceForDescribeDBInstancesOutput {
-	s.Port = &v
-	return s
-}
-
 // SetProjectName sets the ProjectName field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetProjectName(v string) *InstanceForDescribeDBInstancesOutput {
 	s.ProjectName = &v
@@ -617,18 +603,6 @@ func (s *InstanceForDescribeDBInstancesOutput) SetRegionId(v string) *InstanceFo
 	return s
 }
 
-// SetServerCollation sets the ServerCollation field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetServerCollation(v string) *InstanceForDescribeDBInstancesOutput {
-	s.ServerCollation = &v
-	return s
-}
-
-// SetShardNumber sets the ShardNumber field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetShardNumber(v int32) *InstanceForDescribeDBInstancesOutput {
-	s.ShardNumber = &v
-	return s
-}
-
 // SetStorageSpace sets the StorageSpace field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetStorageSpace(v int32) *InstanceForDescribeDBInstancesOutput {
 	s.StorageSpace = &v
@@ -638,12 +612,6 @@ func (s *InstanceForDescribeDBInstancesOutput) SetStorageSpace(v int32) *Instanc
 // SetStorageType sets the StorageType field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetStorageType(v string) *InstanceForDescribeDBInstancesOutput {
 	s.StorageType = &v
-	return s
-}
-
-// SetStorageUse sets the StorageUse field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetStorageUse(v int32) *InstanceForDescribeDBInstancesOutput {
-	s.StorageUse = &v
 	return s
 }
 
@@ -671,460 +639,48 @@ func (s *InstanceForDescribeDBInstancesOutput) SetZoneId(v string) *InstanceForD
 	return s
 }
 
-type InstancesInfoForDescribeDBInstancesOutput struct {
+type MaintenanceWindowForDescribeDBInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
+	DayKind *string `type:"string"`
 
-	AddressObject []*AddressObjectForDescribeDBInstancesOutput `type:"list"`
+	DayOfMonth []*int32 `type:"list"`
 
-	AllowListVersion *string `type:"string"`
+	DayOfWeek []*string `type:"list"`
 
-	ChargeDetail *ChargeDetailForDescribeDBInstancesOutput `type:"structure"`
-
-	CreateTime *string `type:"string"`
-
-	DBEngineVersion *string `type:"string"`
-
-	InstanceId *string `type:"string"`
-
-	InstanceName *string `type:"string"`
-
-	InstanceStatus *string `type:"string"`
-
-	InstanceType *string `type:"string"`
-
-	LowerCaseTableNames *string `type:"string"`
-
-	NodeDetailInfo []*NodeDetailInfoForDescribeDBInstancesOutput `type:"list"`
-
-	NodeNumber *int32 `type:"int32"`
-
-	NodeSpec *string `type:"string"`
-
-	Port *string `type:"string"`
-
-	ProjectName *string `type:"string"`
-
-	RegionId *string `type:"string"`
-
-	ServerCollation *string `type:"string"`
-
-	ShardNumber *int32 `type:"int32"`
-
-	StorageSpace *int32 `type:"int32"`
-
-	StorageType *string `type:"string"`
-
-	StorageUse *int32 `type:"int32"`
-
-	SubnetId *string `type:"string"`
-
-	TimeZone *string `type:"string"`
-
-	VpcId *string `type:"string"`
-
-	ZoneId *string `type:"string"`
+	MaintenanceTime *string `type:"string"`
 }
 
 // String returns the string representation
-func (s InstancesInfoForDescribeDBInstancesOutput) String() string {
+func (s MaintenanceWindowForDescribeDBInstancesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s InstancesInfoForDescribeDBInstancesOutput) GoString() string {
+func (s MaintenanceWindowForDescribeDBInstancesOutput) GoString() string {
 	return s.String()
 }
 
-// SetAccountId sets the AccountId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetAccountId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.AccountId = &v
+// SetDayKind sets the DayKind field's value.
+func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayKind(v string) *MaintenanceWindowForDescribeDBInstancesOutput {
+	s.DayKind = &v
 	return s
 }
 
-// SetAddressObject sets the AddressObject field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetAddressObject(v []*AddressObjectForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
-	s.AddressObject = v
+// SetDayOfMonth sets the DayOfMonth field's value.
+func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayOfMonth(v []*int32) *MaintenanceWindowForDescribeDBInstancesOutput {
+	s.DayOfMonth = v
 	return s
 }
 
-// SetAllowListVersion sets the AllowListVersion field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetAllowListVersion(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.AllowListVersion = &v
+// SetDayOfWeek sets the DayOfWeek field's value.
+func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayOfWeek(v []*string) *MaintenanceWindowForDescribeDBInstancesOutput {
+	s.DayOfWeek = v
 	return s
 }
 
-// SetChargeDetail sets the ChargeDetail field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetChargeDetail(v *ChargeDetailForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ChargeDetail = v
+// SetMaintenanceTime sets the MaintenanceTime field's value.
+func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetMaintenanceTime(v string) *MaintenanceWindowForDescribeDBInstancesOutput {
+	s.MaintenanceTime = &v
 	return s
 }
-
-// SetCreateTime sets the CreateTime field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetCreateTime(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.CreateTime = &v
-	return s
-}
-
-// SetDBEngineVersion sets the DBEngineVersion field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetDBEngineVersion(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.DBEngineVersion = &v
-	return s
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetInstanceName sets the InstanceName field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceName(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.InstanceName = &v
-	return s
-}
-
-// SetInstanceStatus sets the InstanceStatus field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceStatus(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.InstanceStatus = &v
-	return s
-}
-
-// SetInstanceType sets the InstanceType field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceType(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.InstanceType = &v
-	return s
-}
-
-// SetLowerCaseTableNames sets the LowerCaseTableNames field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetLowerCaseTableNames(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.LowerCaseTableNames = &v
-	return s
-}
-
-// SetNodeDetailInfo sets the NodeDetailInfo field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetNodeDetailInfo(v []*NodeDetailInfoForDescribeDBInstancesOutput) *InstancesInfoForDescribeDBInstancesOutput {
-	s.NodeDetailInfo = v
-	return s
-}
-
-// SetNodeNumber sets the NodeNumber field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetNodeNumber(v int32) *InstancesInfoForDescribeDBInstancesOutput {
-	s.NodeNumber = &v
-	return s
-}
-
-// SetNodeSpec sets the NodeSpec field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetNodeSpec(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.NodeSpec = &v
-	return s
-}
-
-// SetPort sets the Port field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetPort(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.Port = &v
-	return s
-}
-
-// SetProjectName sets the ProjectName field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetProjectName(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ProjectName = &v
-	return s
-}
-
-// SetRegionId sets the RegionId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetRegionId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.RegionId = &v
-	return s
-}
-
-// SetServerCollation sets the ServerCollation field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetServerCollation(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ServerCollation = &v
-	return s
-}
-
-// SetShardNumber sets the ShardNumber field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetShardNumber(v int32) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ShardNumber = &v
-	return s
-}
-
-// SetStorageSpace sets the StorageSpace field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetStorageSpace(v int32) *InstancesInfoForDescribeDBInstancesOutput {
-	s.StorageSpace = &v
-	return s
-}
-
-// SetStorageType sets the StorageType field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetStorageType(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.StorageType = &v
-	return s
-}
-
-// SetStorageUse sets the StorageUse field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetStorageUse(v int32) *InstancesInfoForDescribeDBInstancesOutput {
-	s.StorageUse = &v
-	return s
-}
-
-// SetSubnetId sets the SubnetId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetSubnetId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.SubnetId = &v
-	return s
-}
-
-// SetTimeZone sets the TimeZone field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetTimeZone(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.TimeZone = &v
-	return s
-}
-
-// SetVpcId sets the VpcId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetVpcId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.VpcId = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *InstancesInfoForDescribeDBInstancesOutput) SetZoneId(v string) *InstancesInfoForDescribeDBInstancesOutput {
-	s.ZoneId = &v
-	return s
-}
-
-type NodeDetailInfoForDescribeDBInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	CreateTime *string `type:"string"`
-
-	InstanceId *string `type:"string"`
-
-	Memory *int32 `type:"int32"`
-
-	NodeId *string `type:"string"`
-
-	NodeSpec *string `type:"string"`
-
-	NodeStatus *string `type:"string"`
-
-	NodeType *string `type:"string"`
-
-	RegionId *string `type:"string"`
-
-	UpdateTime *string `type:"string"`
-
-	VCPU *int32 `type:"int32"`
-
-	ZoneId *string `type:"string"`
-}
-
-// String returns the string representation
-func (s NodeDetailInfoForDescribeDBInstancesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s NodeDetailInfoForDescribeDBInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetCreateTime sets the CreateTime field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetCreateTime(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.CreateTime = &v
-	return s
-}
-
-// SetInstanceId sets the InstanceId field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetInstanceId(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.InstanceId = &v
-	return s
-}
-
-// SetMemory sets the Memory field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetMemory(v int32) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.Memory = &v
-	return s
-}
-
-// SetNodeId sets the NodeId field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetNodeId(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.NodeId = &v
-	return s
-}
-
-// SetNodeSpec sets the NodeSpec field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetNodeSpec(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.NodeSpec = &v
-	return s
-}
-
-// SetNodeStatus sets the NodeStatus field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetNodeStatus(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.NodeStatus = &v
-	return s
-}
-
-// SetNodeType sets the NodeType field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetNodeType(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.NodeType = &v
-	return s
-}
-
-// SetRegionId sets the RegionId field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetRegionId(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.RegionId = &v
-	return s
-}
-
-// SetUpdateTime sets the UpdateTime field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetUpdateTime(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.UpdateTime = &v
-	return s
-}
-
-// SetVCPU sets the VCPU field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetVCPU(v int32) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.VCPU = &v
-	return s
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *NodeDetailInfoForDescribeDBInstancesOutput) SetZoneId(v string) *NodeDetailInfoForDescribeDBInstancesOutput {
-	s.ZoneId = &v
-	return s
-}
-
-const (
-	// EnumOfChargeTypeForDescribeDBInstancesInputNotEnabled is a EnumOfChargeTypeForDescribeDBInstancesInput enum value
-	EnumOfChargeTypeForDescribeDBInstancesInputNotEnabled = "NotEnabled"
-
-	// EnumOfChargeTypeForDescribeDBInstancesInputPostPaid is a EnumOfChargeTypeForDescribeDBInstancesInput enum value
-	EnumOfChargeTypeForDescribeDBInstancesInputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForDescribeDBInstancesInputPrePaid is a EnumOfChargeTypeForDescribeDBInstancesInput enum value
-	EnumOfChargeTypeForDescribeDBInstancesInputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfDBEngineVersionForDescribeDBInstancesInputMySql56 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstancesInputMySql56 = "MySQL_5_6"
-
-	// EnumOfDBEngineVersionForDescribeDBInstancesInputMySql57 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstancesInputMySql57 = "MySQL_5_7"
-
-	// EnumOfDBEngineVersionForDescribeDBInstancesInputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstancesInputMySql80 = "MySQL_8_0"
-
-	// EnumOfDBEngineVersionForDescribeDBInstancesInputSqlserver2019Ent is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstancesInputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfDBEngineVersionForDescribeDBInstancesInputSqlserver2019Std is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstancesInputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfDBEngineVersionForDescribeDBInstancesInputSqlserver2019Web is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
-	EnumOfDBEngineVersionForDescribeDBInstancesInputSqlserver2019Web = "SQLServer_2019_Web"
-)
-
-const (
-	// EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining = "AllowListMaintaining"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputClosed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputClosed = "Closed"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputClosing is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputClosing = "Closing"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed = "CreateFailed"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputCreating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputCreating = "Creating"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputDeleting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputDeleting = "Deleting"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputDestroyed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputDestroyed = "Destroyed"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputDestroying is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputDestroying = "Destroying"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputError is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputError = "Error"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputImporting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputImporting = "Importing"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputMaintaining = "Maintaining"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputMasterChanging is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputMasterChanging = "MasterChanging"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputMigrating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputMigrating = "Migrating"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputProxyCreating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputProxyCreating = "ProxyCreating"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputProxyDeleting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputProxyDeleting = "ProxyDeleting"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputReclaiming is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputReclaiming = "Reclaiming"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRecycled is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRecycled = "Recycled"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputReleased is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputReleased = "Released"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRestarting = "Restarting"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRestoring = "Restoring"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputResuming is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputResuming = "Resuming"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRunning is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRunning = "Running"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputSslupdating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputSslupdating = "SSLUpdating"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputTdeupdating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputTdeupdating = "TDEUpdating"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputUnknown is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputUnknown = "Unknown"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputUpdating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputUpdating = "Updating"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading = "Upgrading"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid = "WaitingPaid"
-)
-
-const (
-	// EnumOfInstanceTypeForDescribeDBInstancesInputBasic is a EnumOfInstanceTypeForDescribeDBInstancesInput enum value
-	EnumOfInstanceTypeForDescribeDBInstancesInputBasic = "Basic"
-
-	// EnumOfInstanceTypeForDescribeDBInstancesInputCluster is a EnumOfInstanceTypeForDescribeDBInstancesInput enum value
-	EnumOfInstanceTypeForDescribeDBInstancesInputCluster = "Cluster"
-
-	// EnumOfInstanceTypeForDescribeDBInstancesInputDoubleNode is a EnumOfInstanceTypeForDescribeDBInstancesInput enum value
-	EnumOfInstanceTypeForDescribeDBInstancesInputDoubleNode = "DoubleNode"
-
-	// EnumOfInstanceTypeForDescribeDBInstancesInputHa is a EnumOfInstanceTypeForDescribeDBInstancesInput enum value
-	EnumOfInstanceTypeForDescribeDBInstancesInputHa = "HA"
-
-	// EnumOfInstanceTypeForDescribeDBInstancesInputMultiNode is a EnumOfInstanceTypeForDescribeDBInstancesInput enum value
-	EnumOfInstanceTypeForDescribeDBInstancesInputMultiNode = "MultiNode"
-)

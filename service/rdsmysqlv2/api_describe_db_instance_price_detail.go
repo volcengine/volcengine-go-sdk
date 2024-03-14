@@ -22,13 +22,13 @@ const opDescribeDBInstancePriceDetailCommon = "DescribeDBInstancePriceDetail"
 // See DescribeDBInstancePriceDetailCommon for more information on using the DescribeDBInstancePriceDetailCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstancePriceDetailCommonRequest method.
-//	req, resp := client.DescribeDBInstancePriceDetailCommonRequest(params)
+//    // Example sending a request using the DescribeDBInstancePriceDetailCommonRequest method.
+//    req, resp := client.DescribeDBInstancePriceDetailCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstancePriceDetailCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstancePriceDetailCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstancePriceDetail = "DescribeDBInstancePriceDetail"
 // See DescribeDBInstancePriceDetail for more information on using the DescribeDBInstancePriceDetail
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstancePriceDetailRequest method.
-//	req, resp := client.DescribeDBInstancePriceDetailRequest(params)
+//    // Example sending a request using the DescribeDBInstancePriceDetailRequest method.
+//    req, resp := client.DescribeDBInstancePriceDetailRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeDBInstancePriceDetailRequest(input *DescribeDBInstancePriceDetailInput) (req *request.Request, output *DescribeDBInstancePriceDetailOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstancePriceDetail,
@@ -150,7 +150,7 @@ type ChargeItemPriceForDescribeDBInstancePriceDetailOutput struct {
 
 	ChargeItemType *string `type:"string"`
 
-	ChargeItemValue *int64 `type:"int64"`
+	ChargeItemValue *int32 `type:"int32"`
 
 	DiscountPrice *float64 `type:"double"`
 
@@ -182,7 +182,7 @@ func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetChargeItemTyp
 }
 
 // SetChargeItemValue sets the ChargeItemValue field's value.
-func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetChargeItemValue(v int64) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
+func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetChargeItemValue(v int32) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
 	s.ChargeItemValue = &v
 	return s
 }
@@ -208,7 +208,8 @@ func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetPayablePrice(
 type DescribeDBInstancePriceDetailInput struct {
 	_ struct{} `type:"structure"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancePriceDetailInput"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true"`
 
 	NodeInfo []*NodeInfoForDescribeDBInstancePriceDetailInput `type:"list"`
 
@@ -216,11 +217,13 @@ type DescribeDBInstancePriceDetailInput struct {
 
 	Period *int32 `type:"int32"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForDescribeDBInstancePriceDetailInput"`
+	PeriodUnit *string `type:"string"`
 
-	StorageSpace *int32 `type:"int32"`
+	// StorageSpace is a required field
+	StorageSpace *int32 `type:"int32" required:"true"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForDescribeDBInstancePriceDetailInput"`
+	// StorageType is a required field
+	StorageType *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -231,6 +234,25 @@ func (s DescribeDBInstancePriceDetailInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstancePriceDetailInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDBInstancePriceDetailInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstancePriceDetailInput"}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+	if s.StorageSpace == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageSpace"))
+	}
+	if s.StorageType == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetChargeType sets the ChargeType field's value.
@@ -368,11 +390,11 @@ type NodeInfoForDescribeDBInstancePriceDetailInput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInput"`
+	NodeOperateType *string `type:"string"`
 
 	NodeSpec *string `type:"string"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForDescribeDBInstancePriceDetailInput"`
+	NodeType *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -416,58 +438,3 @@ func (s *NodeInfoForDescribeDBInstancePriceDetailInput) SetZoneId(v string) *Nod
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfChargeTypeForDescribeDBInstancePriceDetailInputNotEnabled is a EnumOfChargeTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfChargeTypeForDescribeDBInstancePriceDetailInputNotEnabled = "NotEnabled"
-
-	// EnumOfChargeTypeForDescribeDBInstancePriceDetailInputPostPaid is a EnumOfChargeTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfChargeTypeForDescribeDBInstancePriceDetailInputPostPaid = "PostPaid"
-
-	// EnumOfChargeTypeForDescribeDBInstancePriceDetailInputPrePaid is a EnumOfChargeTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfChargeTypeForDescribeDBInstancePriceDetailInputPrePaid = "PrePaid"
-)
-
-const (
-	// EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInputCreate is a EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInputCreate = "Create"
-
-	// EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInputDelete is a EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInputDelete = "Delete"
-
-	// EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInputModify is a EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfNodeOperateTypeForDescribeDBInstancePriceDetailInputModify = "Modify"
-)
-
-const (
-	// EnumOfNodeTypeForDescribeDBInstancePriceDetailInputPrimary is a EnumOfNodeTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfNodeTypeForDescribeDBInstancePriceDetailInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForDescribeDBInstancePriceDetailInputReadOnly is a EnumOfNodeTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfNodeTypeForDescribeDBInstancePriceDetailInputReadOnly = "ReadOnly"
-
-	// EnumOfNodeTypeForDescribeDBInstancePriceDetailInputSecondary is a EnumOfNodeTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfNodeTypeForDescribeDBInstancePriceDetailInputSecondary = "Secondary"
-)
-
-const (
-	// EnumOfPeriodUnitForDescribeDBInstancePriceDetailInputMonth is a EnumOfPeriodUnitForDescribeDBInstancePriceDetailInput enum value
-	EnumOfPeriodUnitForDescribeDBInstancePriceDetailInputMonth = "Month"
-
-	// EnumOfPeriodUnitForDescribeDBInstancePriceDetailInputYear is a EnumOfPeriodUnitForDescribeDBInstancePriceDetailInput enum value
-	EnumOfPeriodUnitForDescribeDBInstancePriceDetailInputYear = "Year"
-)
-
-const (
-	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputCloudStorage is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputCloudStorage = "CloudStorage"
-
-	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputEssdpl1 is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputEssdpl1 = "ESSDPL1"
-
-	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputEssdpl2 is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputEssdpl2 = "ESSDPL2"
-
-	// EnumOfStorageTypeForDescribeDBInstancePriceDetailInputLocalSsd is a EnumOfStorageTypeForDescribeDBInstancePriceDetailInput enum value
-	EnumOfStorageTypeForDescribeDBInstancePriceDetailInputLocalSsd = "LocalSSD"
-)

@@ -22,13 +22,13 @@ const opCreateParameterTemplateCommon = "CreateParameterTemplate"
 // See CreateParameterTemplateCommon for more information on using the CreateParameterTemplateCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateParameterTemplateCommonRequest method.
-//	req, resp := client.CreateParameterTemplateCommonRequest(params)
+//    // Example sending a request using the CreateParameterTemplateCommonRequest method.
+//    req, resp := client.CreateParameterTemplateCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateParameterTemplateCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateParameterTemplateCommon,
@@ -89,13 +89,13 @@ const opCreateParameterTemplate = "CreateParameterTemplate"
 // See CreateParameterTemplate for more information on using the CreateParameterTemplate
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateParameterTemplateRequest method.
-//	req, resp := client.CreateParameterTemplateRequest(params)
+//    // Example sending a request using the CreateParameterTemplateRequest method.
+//    req, resp := client.CreateParameterTemplateRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) CreateParameterTemplateRequest(input *CreateParameterTemplateInput) (req *request.Request, output *CreateParameterTemplateOutput) {
 	op := &request.Operation{
 		Name:       opCreateParameterTemplate,
@@ -146,15 +146,16 @@ func (c *RDSMYSQLV2) CreateParameterTemplateWithContext(ctx volcengine.Context, 
 type CreateParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
-	TemplateDesc *string `max:"200" type:"string"`
+	TemplateDesc *string `type:"string"`
 
-	TemplateName *string `min:"2" max:"64" type:"string"`
+	// TemplateName is a required field
+	TemplateName *string `type:"string" required:"true"`
 
 	TemplateParams []*TemplateParamForCreateParameterTemplateInput `type:"list"`
 
-	TemplateType *string `type:"string" enum:"EnumOfTemplateTypeForCreateParameterTemplateInput"`
+	TemplateType *string `type:"string"`
 
-	TemplateTypeVersion *string `type:"string" enum:"EnumOfTemplateTypeVersionForCreateParameterTemplateInput"`
+	TemplateTypeVersion *string `type:"string"`
 }
 
 // String returns the string representation
@@ -170,14 +171,8 @@ func (s CreateParameterTemplateInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateParameterTemplateInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateParameterTemplateInput"}
-	if s.TemplateDesc != nil && len(*s.TemplateDesc) > 200 {
-		invalidParams.Add(request.NewErrParamMaxLen("TemplateDesc", 200, *s.TemplateDesc))
-	}
-	if s.TemplateName != nil && len(*s.TemplateName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("TemplateName", 2))
-	}
-	if s.TemplateName != nil && len(*s.TemplateName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("TemplateName", 64, *s.TemplateName))
+	if s.TemplateName == nil {
+		invalidParams.Add(request.NewErrParamRequired("TemplateName"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -235,8 +230,6 @@ func (s CreateParameterTemplateOutput) GoString() string {
 type TemplateParamForCreateParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
-
 	Name *string `type:"string"`
 
 	RunningValue *string `type:"string"`
@@ -252,12 +245,6 @@ func (s TemplateParamForCreateParameterTemplateInput) GoString() string {
 	return s.String()
 }
 
-// SetDescription sets the Description field's value.
-func (s *TemplateParamForCreateParameterTemplateInput) SetDescription(v string) *TemplateParamForCreateParameterTemplateInput {
-	s.Description = &v
-	return s
-}
-
 // SetName sets the Name field's value.
 func (s *TemplateParamForCreateParameterTemplateInput) SetName(v string) *TemplateParamForCreateParameterTemplateInput {
 	s.Name = &v
@@ -269,34 +256,3 @@ func (s *TemplateParamForCreateParameterTemplateInput) SetRunningValue(v string)
 	s.RunningValue = &v
 	return s
 }
-
-const (
-	// EnumOfTemplateTypeForCreateParameterTemplateInputMysql is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeForCreateParameterTemplateInputMysql = "Mysql"
-
-	// EnumOfTemplateTypeForCreateParameterTemplateInputPostgresql is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeForCreateParameterTemplateInputPostgresql = "Postgresql"
-
-	// EnumOfTemplateTypeForCreateParameterTemplateInputSqlserver is a EnumOfTemplateTypeForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeForCreateParameterTemplateInputSqlserver = "Sqlserver"
-)
-
-const (
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql56 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql56 = "MySQL_5_6"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql57 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql57 = "MySQL_5_7"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql80 is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputMySql80 = "MySQL_8_0"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Ent is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Ent = "SQLServer_2019_Ent"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Std is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Std = "SQLServer_2019_Std"
-
-	// EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Web is a EnumOfTemplateTypeVersionForCreateParameterTemplateInput enum value
-	EnumOfTemplateTypeVersionForCreateParameterTemplateInputSqlserver2019Web = "SQLServer_2019_Web"
-)

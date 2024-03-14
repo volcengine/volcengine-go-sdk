@@ -22,13 +22,13 @@ const opDescribeBackupsCommon = "DescribeBackups"
 // See DescribeBackupsCommon for more information on using the DescribeBackupsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBackupsCommonRequest method.
-//	req, resp := client.DescribeBackupsCommonRequest(params)
+//    // Example sending a request using the DescribeBackupsCommonRequest method.
+//    req, resp := client.DescribeBackupsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeBackupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeBackupsCommon,
@@ -89,13 +89,13 @@ const opDescribeBackups = "DescribeBackups"
 // See DescribeBackups for more information on using the DescribeBackups
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBackupsRequest method.
-//	req, resp := client.DescribeBackupsRequest(params)
+//    // Example sending a request using the DescribeBackupsRequest method.
+//    req, resp := client.DescribeBackupsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeBackupsRequest(input *DescribeBackupsInput) (req *request.Request, output *DescribeBackupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeBackups,
@@ -150,11 +150,13 @@ type BackupForDescribeBackupsOutput struct {
 
 	BackupFileName *string `type:"string"`
 
-	BackupFileSize *int64 `type:"int64"`
+	BackupFileSize *int32 `type:"int32"`
 
 	BackupId *string `type:"string"`
 
 	BackupMethod *string `type:"string"`
+
+	BackupRegion *string `type:"string"`
 
 	BackupStartTime *string `type:"string"`
 
@@ -167,6 +169,14 @@ type BackupForDescribeBackupsOutput struct {
 	CreateType *string `type:"string"`
 
 	DBTableInfos []*DBTableInfoForDescribeBackupsOutput `type:"list"`
+
+	DownloadStatus *string `type:"string"`
+
+	ErrorMessage *string `type:"string"`
+
+	ExpiredTime *string `type:"string"`
+
+	IsExpired *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -192,7 +202,7 @@ func (s *BackupForDescribeBackupsOutput) SetBackupFileName(v string) *BackupForD
 }
 
 // SetBackupFileSize sets the BackupFileSize field's value.
-func (s *BackupForDescribeBackupsOutput) SetBackupFileSize(v int64) *BackupForDescribeBackupsOutput {
+func (s *BackupForDescribeBackupsOutput) SetBackupFileSize(v int32) *BackupForDescribeBackupsOutput {
 	s.BackupFileSize = &v
 	return s
 }
@@ -206,6 +216,12 @@ func (s *BackupForDescribeBackupsOutput) SetBackupId(v string) *BackupForDescrib
 // SetBackupMethod sets the BackupMethod field's value.
 func (s *BackupForDescribeBackupsOutput) SetBackupMethod(v string) *BackupForDescribeBackupsOutput {
 	s.BackupMethod = &v
+	return s
+}
+
+// SetBackupRegion sets the BackupRegion field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupRegion(v string) *BackupForDescribeBackupsOutput {
+	s.BackupRegion = &v
 	return s
 }
 
@@ -245,105 +261,27 @@ func (s *BackupForDescribeBackupsOutput) SetDBTableInfos(v []*DBTableInfoForDesc
 	return s
 }
 
-type BackupsInfoForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
-
-	BackupEndTime *string `type:"string"`
-
-	BackupFileName *string `type:"string"`
-
-	BackupFileSize *int64 `type:"int64"`
-
-	BackupId *string `type:"string"`
-
-	BackupMethod *string `type:"string"`
-
-	BackupStartTime *string `type:"string"`
-
-	BackupStatus *string `type:"string"`
-
-	BackupType *string `type:"string"`
-
-	ConsistentTime *string `type:"string"`
-
-	CreateType *string `type:"string"`
-
-	DBTableInfos []*DBTableInfoForDescribeBackupsOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s BackupsInfoForDescribeBackupsOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s BackupsInfoForDescribeBackupsOutput) GoString() string {
-	return s.String()
-}
-
-// SetBackupEndTime sets the BackupEndTime field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetBackupEndTime(v string) *BackupsInfoForDescribeBackupsOutput {
-	s.BackupEndTime = &v
+// SetDownloadStatus sets the DownloadStatus field's value.
+func (s *BackupForDescribeBackupsOutput) SetDownloadStatus(v string) *BackupForDescribeBackupsOutput {
+	s.DownloadStatus = &v
 	return s
 }
 
-// SetBackupFileName sets the BackupFileName field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetBackupFileName(v string) *BackupsInfoForDescribeBackupsOutput {
-	s.BackupFileName = &v
+// SetErrorMessage sets the ErrorMessage field's value.
+func (s *BackupForDescribeBackupsOutput) SetErrorMessage(v string) *BackupForDescribeBackupsOutput {
+	s.ErrorMessage = &v
 	return s
 }
 
-// SetBackupFileSize sets the BackupFileSize field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetBackupFileSize(v int64) *BackupsInfoForDescribeBackupsOutput {
-	s.BackupFileSize = &v
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *BackupForDescribeBackupsOutput) SetExpiredTime(v string) *BackupForDescribeBackupsOutput {
+	s.ExpiredTime = &v
 	return s
 }
 
-// SetBackupId sets the BackupId field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetBackupId(v string) *BackupsInfoForDescribeBackupsOutput {
-	s.BackupId = &v
-	return s
-}
-
-// SetBackupMethod sets the BackupMethod field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetBackupMethod(v string) *BackupsInfoForDescribeBackupsOutput {
-	s.BackupMethod = &v
-	return s
-}
-
-// SetBackupStartTime sets the BackupStartTime field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetBackupStartTime(v string) *BackupsInfoForDescribeBackupsOutput {
-	s.BackupStartTime = &v
-	return s
-}
-
-// SetBackupStatus sets the BackupStatus field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetBackupStatus(v string) *BackupsInfoForDescribeBackupsOutput {
-	s.BackupStatus = &v
-	return s
-}
-
-// SetBackupType sets the BackupType field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetBackupType(v string) *BackupsInfoForDescribeBackupsOutput {
-	s.BackupType = &v
-	return s
-}
-
-// SetConsistentTime sets the ConsistentTime field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetConsistentTime(v string) *BackupsInfoForDescribeBackupsOutput {
-	s.ConsistentTime = &v
-	return s
-}
-
-// SetCreateType sets the CreateType field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetCreateType(v string) *BackupsInfoForDescribeBackupsOutput {
-	s.CreateType = &v
-	return s
-}
-
-// SetDBTableInfos sets the DBTableInfos field's value.
-func (s *BackupsInfoForDescribeBackupsOutput) SetDBTableInfos(v []*DBTableInfoForDescribeBackupsOutput) *BackupsInfoForDescribeBackupsOutput {
-	s.DBTableInfos = v
+// SetIsExpired sets the IsExpired field's value.
+func (s *BackupForDescribeBackupsOutput) SetIsExpired(v bool) *BackupForDescribeBackupsOutput {
+	s.IsExpired = &v
 	return s
 }
 
@@ -384,15 +322,13 @@ type DescribeBackupsInput struct {
 
 	BackupId *string `type:"string"`
 
-	BackupMethod *string `type:"string" enum:"EnumOfBackupMethodForDescribeBackupsInput"`
+	BackupMethod *string `type:"string"`
 
 	BackupStartTime *string `type:"string"`
 
-	BackupStatus *string `type:"string" enum:"EnumOfBackupStatusForDescribeBackupsInput"`
+	BackupStatus *string `type:"string"`
 
-	BackupType *string `type:"string" enum:"EnumOfBackupTypeForDescribeBackupsInput"`
-
-	CreateType *string `type:"string" enum:"EnumOfCreateTypeForDescribeBackupsInput"`
+	BackupType *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -461,12 +397,6 @@ func (s *DescribeBackupsInput) SetBackupType(v string) *DescribeBackupsInput {
 	return s
 }
 
-// SetCreateType sets the CreateType field's value.
-func (s *DescribeBackupsInput) SetCreateType(v string) *DescribeBackupsInput {
-	s.CreateType = &v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeBackupsInput) SetInstanceId(v string) *DescribeBackupsInput {
 	s.InstanceId = &v
@@ -492,8 +422,6 @@ type DescribeBackupsOutput struct {
 
 	Backups []*BackupForDescribeBackupsOutput `type:"list"`
 
-	BackupsInfo []*BackupsInfoForDescribeBackupsOutput `type:"list"`
-
 	Total *int32 `type:"int32"`
 }
 
@@ -513,55 +441,8 @@ func (s *DescribeBackupsOutput) SetBackups(v []*BackupForDescribeBackupsOutput) 
 	return s
 }
 
-// SetBackupsInfo sets the BackupsInfo field's value.
-func (s *DescribeBackupsOutput) SetBackupsInfo(v []*BackupsInfoForDescribeBackupsOutput) *DescribeBackupsOutput {
-	s.BackupsInfo = v
-	return s
-}
-
 // SetTotal sets the Total field's value.
 func (s *DescribeBackupsOutput) SetTotal(v int32) *DescribeBackupsOutput {
 	s.Total = &v
 	return s
 }
-
-const (
-	// EnumOfBackupMethodForDescribeBackupsInputLogical is a EnumOfBackupMethodForDescribeBackupsInput enum value
-	EnumOfBackupMethodForDescribeBackupsInputLogical = "Logical"
-
-	// EnumOfBackupMethodForDescribeBackupsInputPhysical is a EnumOfBackupMethodForDescribeBackupsInput enum value
-	EnumOfBackupMethodForDescribeBackupsInputPhysical = "Physical"
-
-	// EnumOfBackupMethodForDescribeBackupsInputSnapshot is a EnumOfBackupMethodForDescribeBackupsInput enum value
-	EnumOfBackupMethodForDescribeBackupsInputSnapshot = "Snapshot"
-)
-
-const (
-	// EnumOfBackupStatusForDescribeBackupsInputFailed is a EnumOfBackupStatusForDescribeBackupsInput enum value
-	EnumOfBackupStatusForDescribeBackupsInputFailed = "Failed"
-
-	// EnumOfBackupStatusForDescribeBackupsInputRunning is a EnumOfBackupStatusForDescribeBackupsInput enum value
-	EnumOfBackupStatusForDescribeBackupsInputRunning = "Running"
-
-	// EnumOfBackupStatusForDescribeBackupsInputSuccess is a EnumOfBackupStatusForDescribeBackupsInput enum value
-	EnumOfBackupStatusForDescribeBackupsInputSuccess = "Success"
-)
-
-const (
-	// EnumOfBackupTypeForDescribeBackupsInputFull is a EnumOfBackupTypeForDescribeBackupsInput enum value
-	EnumOfBackupTypeForDescribeBackupsInputFull = "Full"
-
-	// EnumOfBackupTypeForDescribeBackupsInputIncrement is a EnumOfBackupTypeForDescribeBackupsInput enum value
-	EnumOfBackupTypeForDescribeBackupsInputIncrement = "Increment"
-
-	// EnumOfBackupTypeForDescribeBackupsInputLog is a EnumOfBackupTypeForDescribeBackupsInput enum value
-	EnumOfBackupTypeForDescribeBackupsInputLog = "Log"
-)
-
-const (
-	// EnumOfCreateTypeForDescribeBackupsInputSystem is a EnumOfCreateTypeForDescribeBackupsInput enum value
-	EnumOfCreateTypeForDescribeBackupsInputSystem = "System"
-
-	// EnumOfCreateTypeForDescribeBackupsInputUser is a EnumOfCreateTypeForDescribeBackupsInput enum value
-	EnumOfCreateTypeForDescribeBackupsInputUser = "User"
-)

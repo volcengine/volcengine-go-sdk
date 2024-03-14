@@ -22,13 +22,13 @@ const opDescribeAllowListDetailCommon = "DescribeAllowListDetail"
 // See DescribeAllowListDetailCommon for more information on using the DescribeAllowListDetailCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAllowListDetailCommonRequest method.
-//	req, resp := client.DescribeAllowListDetailCommonRequest(params)
+//    // Example sending a request using the DescribeAllowListDetailCommonRequest method.
+//    req, resp := client.DescribeAllowListDetailCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeAllowListDetailCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAllowListDetailCommon,
@@ -89,13 +89,13 @@ const opDescribeAllowListDetail = "DescribeAllowListDetail"
 // See DescribeAllowListDetail for more information on using the DescribeAllowListDetail
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAllowListDetailRequest method.
-//	req, resp := client.DescribeAllowListDetailRequest(params)
+//    // Example sending a request using the DescribeAllowListDetailRequest method.
+//    req, resp := client.DescribeAllowListDetailRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeAllowListDetailRequest(input *DescribeAllowListDetailInput) (req *request.Request, output *DescribeAllowListDetailOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAllowListDetail,

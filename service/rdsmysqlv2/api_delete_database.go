@@ -22,13 +22,13 @@ const opDeleteDatabaseCommon = "DeleteDatabase"
 // See DeleteDatabaseCommon for more information on using the DeleteDatabaseCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDatabaseCommonRequest method.
-//	req, resp := client.DeleteDatabaseCommonRequest(params)
+//    // Example sending a request using the DeleteDatabaseCommonRequest method.
+//    req, resp := client.DeleteDatabaseCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DeleteDatabaseCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDatabaseCommon,
@@ -89,13 +89,13 @@ const opDeleteDatabase = "DeleteDatabase"
 // See DeleteDatabase for more information on using the DeleteDatabase
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDatabaseRequest method.
-//	req, resp := client.DeleteDatabaseRequest(params)
+//    // Example sending a request using the DeleteDatabaseRequest method.
+//    req, resp := client.DeleteDatabaseRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DeleteDatabaseRequest(input *DeleteDatabaseInput) (req *request.Request, output *DeleteDatabaseOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDatabase,
@@ -147,7 +147,7 @@ type DeleteDatabaseInput struct {
 	_ struct{} `type:"structure"`
 
 	// DBName is a required field
-	DBName *string `min:"2" max:"64" type:"string" required:"true"`
+	DBName *string `type:"string" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -168,12 +168,6 @@ func (s *DeleteDatabaseInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeleteDatabaseInput"}
 	if s.DBName == nil {
 		invalidParams.Add(request.NewErrParamRequired("DBName"))
-	}
-	if s.DBName != nil && len(*s.DBName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("DBName", 2))
-	}
-	if s.DBName != nil && len(*s.DBName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("DBName", 64, *s.DBName))
 	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
