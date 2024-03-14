@@ -334,8 +334,7 @@ type RunInstancesInput struct {
 
 	InstanceType *string `type:"string"`
 
-	// InstanceTypeId is a required field
-	InstanceTypeId *string `type:"string" required:"true"`
+	InstanceTypeId *string `type:"string"`
 
 	KeepImageCredential *bool `type:"boolean"`
 
@@ -395,9 +394,6 @@ func (s *RunInstancesInput) Validate() error {
 	}
 	if s.InstanceName == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceName"))
-	}
-	if s.InstanceTypeId == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceTypeId"))
 	}
 	if s.NetworkInterfaces == nil {
 		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaces"))
