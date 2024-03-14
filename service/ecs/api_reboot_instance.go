@@ -22,13 +22,13 @@ const opRebootInstanceCommon = "RebootInstance"
 // See RebootInstanceCommon for more information on using the RebootInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RebootInstanceCommonRequest method.
-//	req, resp := client.RebootInstanceCommonRequest(params)
+//    // Example sending a request using the RebootInstanceCommonRequest method.
+//    req, resp := client.RebootInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RebootInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRebootInstanceCommon,
@@ -87,13 +87,13 @@ const opRebootInstance = "RebootInstance"
 // See RebootInstance for more information on using the RebootInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the RebootInstanceRequest method.
-//	req, resp := client.RebootInstanceRequest(params)
+//    // Example sending a request using the RebootInstanceRequest method.
+//    req, resp := client.RebootInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RebootInstanceRequest(input *RebootInstanceInput) (req *request.Request, output *RebootInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRebootInstance,
@@ -148,7 +148,8 @@ type RebootInstanceInput struct {
 
 	ForceStop *bool `type:"boolean"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s RebootInstanceInput) String() string {
 // GoString returns the string representation
 func (s RebootInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RebootInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RebootInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

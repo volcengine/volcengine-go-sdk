@@ -3,6 +3,8 @@
 package ecs
 
 import (
+	"fmt"
+
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -22,13 +24,13 @@ const opRunInstancesCommon = "RunInstances"
 // See RunInstancesCommon for more information on using the RunInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RunInstancesCommonRequest method.
-//	req, resp := client.RunInstancesCommonRequest(params)
+//    // Example sending a request using the RunInstancesCommonRequest method.
+//    req, resp := client.RunInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RunInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRunInstancesCommon,
@@ -87,13 +89,13 @@ const opRunInstances = "RunInstances"
 // See RunInstances for more information on using the RunInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the RunInstancesRequest method.
-//	req, resp := client.RunInstancesRequest(params)
+//    // Example sending a request using the RunInstancesRequest method.
+//    req, resp := client.RunInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RunInstancesRequest(input *RunInstancesInput) (req *request.Request, output *RunInstancesOutput) {
 	op := &request.Operation{
 		Name:       opRunInstances,
@@ -139,6 +141,60 @@ func (c *ECS) RunInstancesWithContext(ctx volcengine.Context, input *RunInstance
 	return out, req.Send()
 }
 
+type EipAddressForRunInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	BandwidthMbps *int32 `type:"int32"`
+
+	BandwidthPackageId *string `type:"string"`
+
+	ChargeType *string `type:"string"`
+
+	ISP *string `type:"string"`
+
+	ReleaseWithInstance *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s EipAddressForRunInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EipAddressForRunInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetBandwidthMbps sets the BandwidthMbps field's value.
+func (s *EipAddressForRunInstancesInput) SetBandwidthMbps(v int32) *EipAddressForRunInstancesInput {
+	s.BandwidthMbps = &v
+	return s
+}
+
+// SetBandwidthPackageId sets the BandwidthPackageId field's value.
+func (s *EipAddressForRunInstancesInput) SetBandwidthPackageId(v string) *EipAddressForRunInstancesInput {
+	s.BandwidthPackageId = &v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *EipAddressForRunInstancesInput) SetChargeType(v string) *EipAddressForRunInstancesInput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetISP sets the ISP field's value.
+func (s *EipAddressForRunInstancesInput) SetISP(v string) *EipAddressForRunInstancesInput {
+	s.ISP = &v
+	return s
+}
+
+// SetReleaseWithInstance sets the ReleaseWithInstance field's value.
+func (s *EipAddressForRunInstancesInput) SetReleaseWithInstance(v bool) *EipAddressForRunInstancesInput {
+	s.ReleaseWithInstance = &v
+	return s
+}
+
 type NetworkInterfaceForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -146,7 +202,8 @@ type NetworkInterfaceForRunInstancesInput struct {
 
 	SecurityGroupIds []*string `type:"list"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +214,19 @@ func (s NetworkInterfaceForRunInstancesInput) String() string {
 // GoString returns the string representation
 func (s NetworkInterfaceForRunInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *NetworkInterfaceForRunInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "NetworkInterfaceForRunInstancesInput"}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
@@ -236,25 +306,31 @@ type RunInstancesInput struct {
 
 	CreditSpecification *string `type:"string"`
 
+	DeploymentSetGroupNumber *int32 `type:"int32"`
+
 	DeploymentSetId *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	DryRun *bool `type:"boolean"`
 
-	HostName *string `deprecated:"true" type:"string"`
+	EipAddress *EipAddressForRunInstancesInput `type:"structure"`
+
+	HostName *string `type:"string"`
 
 	Hostname *string `type:"string"`
 
 	HpcClusterId *string `type:"string"`
 
-	ImageId *string `type:"string"`
+	// ImageId is a required field
+	ImageId *string `type:"string" required:"true"`
 
 	InstallRunCommandAgent *bool `type:"boolean"`
 
 	InstanceChargeType *string `type:"string"`
 
-	InstanceName *string `type:"string"`
+	// InstanceName is a required field
+	InstanceName *string `type:"string" required:"true"`
 
 	InstanceType *string `type:"string"`
 
@@ -266,7 +342,8 @@ type RunInstancesInput struct {
 
 	MinCount *int32 `type:"int32"`
 
-	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list"`
+	// NetworkInterfaces is a required field
+	NetworkInterfaces []*NetworkInterfaceForRunInstancesInput `type:"list" required:"true"`
 
 	Password *string `type:"string"`
 
@@ -292,9 +369,11 @@ type RunInstancesInput struct {
 
 	UserData *string `type:"string"`
 
-	Volumes []*VolumeForRunInstancesInput `type:"list"`
+	// Volumes is a required field
+	Volumes []*VolumeForRunInstancesInput `type:"list" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -305,6 +384,51 @@ func (s RunInstancesInput) String() string {
 // GoString returns the string representation
 func (s RunInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RunInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RunInstancesInput"}
+	if s.ImageId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageId"))
+	}
+	if s.InstanceName == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceName"))
+	}
+	if s.NetworkInterfaces == nil {
+		invalidParams.Add(request.NewErrParamRequired("NetworkInterfaces"))
+	}
+	if s.Volumes == nil {
+		invalidParams.Add(request.NewErrParamRequired("Volumes"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
+	}
+	if s.NetworkInterfaces != nil {
+		for i, v := range s.NetworkInterfaces {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "NetworkInterfaces", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Volumes != nil {
+		for i, v := range s.Volumes {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Volumes", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -337,6 +461,12 @@ func (s *RunInstancesInput) SetCreditSpecification(v string) *RunInstancesInput 
 	return s
 }
 
+// SetDeploymentSetGroupNumber sets the DeploymentSetGroupNumber field's value.
+func (s *RunInstancesInput) SetDeploymentSetGroupNumber(v int32) *RunInstancesInput {
+	s.DeploymentSetGroupNumber = &v
+	return s
+}
+
 // SetDeploymentSetId sets the DeploymentSetId field's value.
 func (s *RunInstancesInput) SetDeploymentSetId(v string) *RunInstancesInput {
 	s.DeploymentSetId = &v
@@ -352,6 +482,12 @@ func (s *RunInstancesInput) SetDescription(v string) *RunInstancesInput {
 // SetDryRun sets the DryRun field's value.
 func (s *RunInstancesInput) SetDryRun(v bool) *RunInstancesInput {
 	s.DryRun = &v
+	return s
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *RunInstancesInput) SetEipAddress(v *EipAddressForRunInstancesInput) *RunInstancesInput {
+	s.EipAddress = v
 	return s
 }
 
@@ -576,7 +712,10 @@ type VolumeForRunInstancesInput struct {
 
 	DeleteWithInstance *string `type:"string"`
 
-	Size *int32 `type:"int32"`
+	// Size is a required field
+	Size *int32 `type:"int32" required:"true"`
+
+	SnapshotId *string `type:"string"`
 
 	VolumeType *string `type:"string"`
 }
@@ -591,6 +730,19 @@ func (s VolumeForRunInstancesInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *VolumeForRunInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "VolumeForRunInstancesInput"}
+	if s.Size == nil {
+		invalidParams.Add(request.NewErrParamRequired("Size"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
 func (s *VolumeForRunInstancesInput) SetDeleteWithInstance(v string) *VolumeForRunInstancesInput {
 	s.DeleteWithInstance = &v
@@ -600,6 +752,12 @@ func (s *VolumeForRunInstancesInput) SetDeleteWithInstance(v string) *VolumeForR
 // SetSize sets the Size field's value.
 func (s *VolumeForRunInstancesInput) SetSize(v int32) *VolumeForRunInstancesInput {
 	s.Size = &v
+	return s
+}
+
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *VolumeForRunInstancesInput) SetSnapshotId(v string) *VolumeForRunInstancesInput {
+	s.SnapshotId = &v
 	return s
 }
 

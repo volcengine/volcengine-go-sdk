@@ -22,13 +22,13 @@ const opDescribeDedicatedHostsCommon = "DescribeDedicatedHosts"
 // See DescribeDedicatedHostsCommon for more information on using the DescribeDedicatedHostsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDedicatedHostsCommonRequest method.
-//	req, resp := client.DescribeDedicatedHostsCommonRequest(params)
+//    // Example sending a request using the DescribeDedicatedHostsCommonRequest method.
+//    req, resp := client.DescribeDedicatedHostsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeDedicatedHostsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDedicatedHostsCommon,
@@ -87,13 +87,13 @@ const opDescribeDedicatedHosts = "DescribeDedicatedHosts"
 // See DescribeDedicatedHosts for more information on using the DescribeDedicatedHosts
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDedicatedHostsRequest method.
-//	req, resp := client.DescribeDedicatedHostsRequest(params)
+//    // Example sending a request using the DescribeDedicatedHostsRequest method.
+//    req, resp := client.DescribeDedicatedHostsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeDedicatedHostsRequest(input *DescribeDedicatedHostsInput) (req *request.Request, output *DescribeDedicatedHostsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDedicatedHosts,

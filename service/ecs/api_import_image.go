@@ -22,13 +22,13 @@ const opImportImageCommon = "ImportImage"
 // See ImportImageCommon for more information on using the ImportImageCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ImportImageCommonRequest method.
-//	req, resp := client.ImportImageCommonRequest(params)
+//    // Example sending a request using the ImportImageCommonRequest method.
+//    req, resp := client.ImportImageCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ImportImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opImportImageCommon,
@@ -87,13 +87,13 @@ const opImportImage = "ImportImage"
 // See ImportImage for more information on using the ImportImage
 // API call, and error handling.
 //
-//	// Example sending a request using the ImportImageRequest method.
-//	req, resp := client.ImportImageRequest(params)
+//    // Example sending a request using the ImportImageRequest method.
+//    req, resp := client.ImportImageRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ImportImageRequest(input *ImportImageInput) (req *request.Request, output *ImportImageOutput) {
 	op := &request.Operation{
 		Name:       opImportImage,
@@ -148,11 +148,13 @@ type ImportImageInput struct {
 
 	Description *string `type:"string"`
 
-	ImageName *string `type:"string"`
+	// ImageName is a required field
+	ImageName *string `type:"string" required:"true"`
 
 	OsType *string `type:"string"`
 
-	Platform *string `type:"string"`
+	// Platform is a required field
+	Platform *string `type:"string" required:"true"`
 
 	PlatformVersion *string `type:"string"`
 
@@ -160,7 +162,8 @@ type ImportImageInput struct {
 
 	Tags []*TagForImportImageInput `type:"list"`
 
-	Url *string `type:"string"`
+	// Url is a required field
+	Url *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -171,6 +174,25 @@ func (s ImportImageInput) String() string {
 // GoString returns the string representation
 func (s ImportImageInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ImportImageInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ImportImageInput"}
+	if s.ImageName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageName"))
+	}
+	if s.Platform == nil {
+		invalidParams.Add(request.NewErrParamRequired("Platform"))
+	}
+	if s.Url == nil {
+		invalidParams.Add(request.NewErrParamRequired("Url"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetArchitecture sets the Architecture field's value.

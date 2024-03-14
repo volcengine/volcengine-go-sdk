@@ -22,13 +22,13 @@ const opCreateImageCommon = "CreateImage"
 // See CreateImageCommon for more information on using the CreateImageCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateImageCommonRequest method.
-//	req, resp := client.CreateImageCommonRequest(params)
+//    // Example sending a request using the CreateImageCommonRequest method.
+//    req, resp := client.CreateImageCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateImageCommon,
@@ -87,13 +87,13 @@ const opCreateImage = "CreateImage"
 // See CreateImage for more information on using the CreateImage
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateImageRequest method.
-//	req, resp := client.CreateImageRequest(params)
+//    // Example sending a request using the CreateImageRequest method.
+//    req, resp := client.CreateImageRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateImageRequest(input *CreateImageInput) (req *request.Request, output *CreateImageOutput) {
 	op := &request.Operation{
 		Name:       opCreateImage,
@@ -144,9 +144,11 @@ type CreateImageInput struct {
 
 	Description *string `type:"string"`
 
-	ImageName *string `type:"string"`
+	// ImageName is a required field
+	ImageName *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
 
@@ -161,6 +163,22 @@ func (s CreateImageInput) String() string {
 // GoString returns the string representation
 func (s CreateImageInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateImageInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateImageInput"}
+	if s.ImageName == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageName"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDescription sets the Description field's value.

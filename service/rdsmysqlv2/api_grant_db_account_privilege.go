@@ -22,13 +22,13 @@ const opGrantDBAccountPrivilegeCommon = "GrantDBAccountPrivilege"
 // See GrantDBAccountPrivilegeCommon for more information on using the GrantDBAccountPrivilegeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GrantDBAccountPrivilegeCommonRequest method.
-//	req, resp := client.GrantDBAccountPrivilegeCommonRequest(params)
+//    // Example sending a request using the GrantDBAccountPrivilegeCommonRequest method.
+//    req, resp := client.GrantDBAccountPrivilegeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) GrantDBAccountPrivilegeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGrantDBAccountPrivilegeCommon,
@@ -89,13 +89,13 @@ const opGrantDBAccountPrivilege = "GrantDBAccountPrivilege"
 // See GrantDBAccountPrivilege for more information on using the GrantDBAccountPrivilege
 // API call, and error handling.
 //
-//	// Example sending a request using the GrantDBAccountPrivilegeRequest method.
-//	req, resp := client.GrantDBAccountPrivilegeRequest(params)
+//    // Example sending a request using the GrantDBAccountPrivilegeRequest method.
+//    req, resp := client.GrantDBAccountPrivilegeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) GrantDBAccountPrivilegeRequest(input *GrantDBAccountPrivilegeInput) (req *request.Request, output *GrantDBAccountPrivilegeOutput) {
 	op := &request.Operation{
 		Name:       opGrantDBAccountPrivilege,
@@ -146,7 +146,7 @@ func (c *RDSMYSQLV2) GrantDBAccountPrivilegeWithContext(ctx volcengine.Context, 
 type AccountPrivilegeForGrantDBAccountPrivilegeInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput"`
+	AccountPrivilege *string `type:"string"`
 
 	AccountPrivilegeDetail *string `type:"string"`
 
@@ -185,9 +185,11 @@ type GrantDBAccountPrivilegeInput struct {
 	_ struct{} `type:"structure"`
 
 	// AccountName is a required field
-	AccountName *string `min:"2" max:"32" type:"string" required:"true"`
+	AccountName *string `type:"string" required:"true"`
 
 	AccountPrivileges []*AccountPrivilegeForGrantDBAccountPrivilegeInput `type:"list"`
+
+	Host *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -209,12 +211,6 @@ func (s *GrantDBAccountPrivilegeInput) Validate() error {
 	if s.AccountName == nil {
 		invalidParams.Add(request.NewErrParamRequired("AccountName"))
 	}
-	if s.AccountName != nil && len(*s.AccountName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
-	}
-	if s.AccountName != nil && len(*s.AccountName) > 32 {
-		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 32, *s.AccountName))
-	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
@@ -234,6 +230,12 @@ func (s *GrantDBAccountPrivilegeInput) SetAccountName(v string) *GrantDBAccountP
 // SetAccountPrivileges sets the AccountPrivileges field's value.
 func (s *GrantDBAccountPrivilegeInput) SetAccountPrivileges(v []*AccountPrivilegeForGrantDBAccountPrivilegeInput) *GrantDBAccountPrivilegeInput {
 	s.AccountPrivileges = v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *GrantDBAccountPrivilegeInput) SetHost(v string) *GrantDBAccountPrivilegeInput {
+	s.Host = &v
 	return s
 }
 
@@ -258,23 +260,3 @@ func (s GrantDBAccountPrivilegeOutput) String() string {
 func (s GrantDBAccountPrivilegeOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputCustom is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputCustom = "Custom"
-
-	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputDdlonly is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputDdlonly = "DDLOnly"
-
-	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputDmlonly is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputDmlonly = "DMLOnly"
-
-	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputNone is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputNone = "None"
-
-	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadOnly is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadOnly = "ReadOnly"
-
-	// EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadWrite is a EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInput enum value
-	EnumOfAccountPrivilegeForGrantDBAccountPrivilegeInputReadWrite = "ReadWrite"
-)

@@ -22,13 +22,13 @@ const opDescribeInstanceTypesCommon = "DescribeInstanceTypes"
 // See DescribeInstanceTypesCommon for more information on using the DescribeInstanceTypesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceTypesCommonRequest method.
-//	req, resp := client.DescribeInstanceTypesCommonRequest(params)
+//    // Example sending a request using the DescribeInstanceTypesCommonRequest method.
+//    req, resp := client.DescribeInstanceTypesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstanceTypesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceTypesCommon,
@@ -87,13 +87,13 @@ const opDescribeInstanceTypes = "DescribeInstanceTypes"
 // See DescribeInstanceTypes for more information on using the DescribeInstanceTypes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceTypesRequest method.
-//	req, resp := client.DescribeInstanceTypesRequest(params)
+//    // Example sending a request using the DescribeInstanceTypesRequest method.
+//    req, resp := client.DescribeInstanceTypesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstanceTypesRequest(input *DescribeInstanceTypesInput) (req *request.Request, output *DescribeInstanceTypesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceTypes,

@@ -22,13 +22,13 @@ const opDeleteImagesCommon = "DeleteImages"
 // See DeleteImagesCommon for more information on using the DeleteImagesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteImagesCommonRequest method.
-//	req, resp := client.DeleteImagesCommonRequest(params)
+//    // Example sending a request using the DeleteImagesCommonRequest method.
+//    req, resp := client.DeleteImagesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteImagesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteImagesCommon,
@@ -87,13 +87,13 @@ const opDeleteImages = "DeleteImages"
 // See DeleteImages for more information on using the DeleteImages
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteImagesRequest method.
-//	req, resp := client.DeleteImagesRequest(params)
+//    // Example sending a request using the DeleteImagesRequest method.
+//    req, resp := client.DeleteImagesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteImagesRequest(input *DeleteImagesInput) (req *request.Request, output *DeleteImagesOutput) {
 	op := &request.Operation{
 		Name:       opDeleteImages,
@@ -142,7 +142,8 @@ func (c *ECS) DeleteImagesWithContext(ctx volcengine.Context, input *DeleteImage
 type DeleteImagesInput struct {
 	_ struct{} `type:"structure"`
 
-	ImageIds []*string `type:"list"`
+	// ImageIds is a required field
+	ImageIds []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DeleteImagesInput) String() string {
 // GoString returns the string representation
 func (s DeleteImagesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteImagesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteImagesInput"}
+	if s.ImageIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetImageIds sets the ImageIds field's value.

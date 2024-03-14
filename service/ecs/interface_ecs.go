@@ -16,18 +16,19 @@ import (
 // ECSAPI provides an interface to enable mocking the
 // ecs.ECS service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// ECS.
-//	func myFunc(svc ECSAPI) bool {
-//	    // Make svc.AllocateDedicatedHosts request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // ECS.
+//    func myFunc(svc ECSAPI) bool {
+//        // Make svc.AllocateDedicatedHosts request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := ecs.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := ecs.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type ECSAPI interface {
 	AllocateDedicatedHostsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AllocateDedicatedHostsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -164,6 +165,14 @@ type ECSAPI interface {
 	DeleteInstances(*DeleteInstancesInput) (*DeleteInstancesOutput, error)
 	DeleteInstancesWithContext(volcengine.Context, *DeleteInstancesInput, ...request.Option) (*DeleteInstancesOutput, error)
 	DeleteInstancesRequest(*DeleteInstancesInput) (*request.Request, *DeleteInstancesOutput)
+
+	DeleteInvocationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteInvocationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteInvocationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteInvocation(*DeleteInvocationInput) (*DeleteInvocationOutput, error)
+	DeleteInvocationWithContext(volcengine.Context, *DeleteInvocationInput, ...request.Option) (*DeleteInvocationOutput, error)
+	DeleteInvocationRequest(*DeleteInvocationInput) (*request.Request, *DeleteInvocationOutput)
 
 	DeleteKeyPairsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteKeyPairsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -709,6 +718,14 @@ type ECSAPI interface {
 	StopInvocationWithContext(volcengine.Context, *StopInvocationInput, ...request.Option) (*StopInvocationOutput, error)
 	StopInvocationRequest(*StopInvocationInput) (*request.Request, *StopInvocationOutput)
 
+	UninstallCloudAssistantsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UninstallCloudAssistantsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UninstallCloudAssistantsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UninstallCloudAssistants(*UninstallCloudAssistantsInput) (*UninstallCloudAssistantsOutput, error)
+	UninstallCloudAssistantsWithContext(volcengine.Context, *UninstallCloudAssistantsInput, ...request.Option) (*UninstallCloudAssistantsOutput, error)
+	UninstallCloudAssistantsRequest(*UninstallCloudAssistantsInput) (*request.Request, *UninstallCloudAssistantsOutput)
+
 	UpdateSystemEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSystemEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateSystemEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -716,6 +733,14 @@ type ECSAPI interface {
 	UpdateSystemEvents(*UpdateSystemEventsInput) (*UpdateSystemEventsOutput, error)
 	UpdateSystemEventsWithContext(volcengine.Context, *UpdateSystemEventsInput, ...request.Option) (*UpdateSystemEventsOutput, error)
 	UpdateSystemEventsRequest(*UpdateSystemEventsInput) (*request.Request, *UpdateSystemEventsOutput)
+
+	UpgradeCloudAssistantsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpgradeCloudAssistantsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpgradeCloudAssistantsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpgradeCloudAssistants(*UpgradeCloudAssistantsInput) (*UpgradeCloudAssistantsOutput, error)
+	UpgradeCloudAssistantsWithContext(volcengine.Context, *UpgradeCloudAssistantsInput, ...request.Option) (*UpgradeCloudAssistantsOutput, error)
+	UpgradeCloudAssistantsRequest(*UpgradeCloudAssistantsInput) (*request.Request, *UpgradeCloudAssistantsOutput)
 }
 
 var _ ECSAPI = (*ECS)(nil)

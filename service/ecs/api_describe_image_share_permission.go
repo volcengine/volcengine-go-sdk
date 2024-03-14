@@ -22,13 +22,13 @@ const opDescribeImageSharePermissionCommon = "DescribeImageSharePermission"
 // See DescribeImageSharePermissionCommon for more information on using the DescribeImageSharePermissionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeImageSharePermissionCommonRequest method.
-//	req, resp := client.DescribeImageSharePermissionCommonRequest(params)
+//    // Example sending a request using the DescribeImageSharePermissionCommonRequest method.
+//    req, resp := client.DescribeImageSharePermissionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeImageSharePermissionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeImageSharePermissionCommon,
@@ -87,13 +87,13 @@ const opDescribeImageSharePermission = "DescribeImageSharePermission"
 // See DescribeImageSharePermission for more information on using the DescribeImageSharePermission
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeImageSharePermissionRequest method.
-//	req, resp := client.DescribeImageSharePermissionRequest(params)
+//    // Example sending a request using the DescribeImageSharePermissionRequest method.
+//    req, resp := client.DescribeImageSharePermissionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeImageSharePermissionRequest(input *DescribeImageSharePermissionInput) (req *request.Request, output *DescribeImageSharePermissionOutput) {
 	op := &request.Operation{
 		Name:       opDescribeImageSharePermission,
@@ -164,7 +164,8 @@ func (s *AccountForDescribeImageSharePermissionOutput) SetAccountId(v string) *A
 type DescribeImageSharePermissionInput struct {
 	_ struct{} `type:"structure"`
 
-	ImageId *string `type:"string"`
+	// ImageId is a required field
+	ImageId *string `type:"string" required:"true"`
 
 	MaxResults *int32 `type:"int32"`
 
@@ -179,6 +180,19 @@ func (s DescribeImageSharePermissionInput) String() string {
 // GoString returns the string representation
 func (s DescribeImageSharePermissionInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeImageSharePermissionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeImageSharePermissionInput"}
+	if s.ImageId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetImageId sets the ImageId field's value.

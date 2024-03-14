@@ -22,13 +22,13 @@ const opCreateCommandCommon = "CreateCommand"
 // See CreateCommandCommon for more information on using the CreateCommandCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCommandCommonRequest method.
-//	req, resp := client.CreateCommandCommonRequest(params)
+//    // Example sending a request using the CreateCommandCommonRequest method.
+//    req, resp := client.CreateCommandCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateCommandCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateCommandCommon,
@@ -87,13 +87,13 @@ const opCreateCommand = "CreateCommand"
 // See CreateCommand for more information on using the CreateCommand
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateCommandRequest method.
-//	req, resp := client.CreateCommandRequest(params)
+//    // Example sending a request using the CreateCommandRequest method.
+//    req, resp := client.CreateCommandRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) CreateCommandRequest(input *CreateCommandInput) (req *request.Request, output *CreateCommandOutput) {
 	op := &request.Operation{
 		Name:       opCreateCommand,
@@ -142,19 +142,22 @@ func (c *ECS) CreateCommandWithContext(ctx volcengine.Context, input *CreateComm
 type CreateCommandInput struct {
 	_ struct{} `type:"structure"`
 
-	CommandContent *string `type:"string"`
+	// CommandContent is a required field
+	CommandContent *string `type:"string" required:"true"`
 
 	Description *string `type:"string"`
 
 	EnableParameter *bool `type:"boolean"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 
 	ParameterDefinitions []*ParameterDefinitionForCreateCommandInput `type:"list"`
 
 	Timeout *int32 `type:"int32"`
 
-	Type *string `type:"string"`
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
 
 	Username *string `type:"string"`
 
@@ -169,6 +172,25 @@ func (s CreateCommandInput) String() string {
 // GoString returns the string representation
 func (s CreateCommandInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateCommandInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateCommandInput"}
+	if s.CommandContent == nil {
+		invalidParams.Add(request.NewErrParamRequired("CommandContent"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCommandContent sets the CommandContent field's value.

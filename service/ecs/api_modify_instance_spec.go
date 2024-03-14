@@ -22,13 +22,13 @@ const opModifyInstanceSpecCommon = "ModifyInstanceSpec"
 // See ModifyInstanceSpecCommon for more information on using the ModifyInstanceSpecCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceSpecCommonRequest method.
-//	req, resp := client.ModifyInstanceSpecCommonRequest(params)
+//    // Example sending a request using the ModifyInstanceSpecCommonRequest method.
+//    req, resp := client.ModifyInstanceSpecCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyInstanceSpecCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceSpecCommon,
@@ -87,13 +87,13 @@ const opModifyInstanceSpec = "ModifyInstanceSpec"
 // See ModifyInstanceSpec for more information on using the ModifyInstanceSpec
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceSpecRequest method.
-//	req, resp := client.ModifyInstanceSpecRequest(params)
+//    // Example sending a request using the ModifyInstanceSpecRequest method.
+//    req, resp := client.ModifyInstanceSpecRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyInstanceSpecRequest(input *ModifyInstanceSpecInput) (req *request.Request, output *ModifyInstanceSpecOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceSpec,
@@ -146,9 +146,12 @@ type ModifyInstanceSpecInput struct {
 
 	DryRun *bool `type:"boolean"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	InstanceType *string `type:"string"`
+
+	InstanceTypeId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -159,6 +162,19 @@ func (s ModifyInstanceSpecInput) String() string {
 // GoString returns the string representation
 func (s ModifyInstanceSpecInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyInstanceSpecInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyInstanceSpecInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.
@@ -182,6 +198,12 @@ func (s *ModifyInstanceSpecInput) SetInstanceId(v string) *ModifyInstanceSpecInp
 // SetInstanceType sets the InstanceType field's value.
 func (s *ModifyInstanceSpecInput) SetInstanceType(v string) *ModifyInstanceSpecInput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *ModifyInstanceSpecInput) SetInstanceTypeId(v string) *ModifyInstanceSpecInput {
+	s.InstanceTypeId = &v
 	return s
 }
 

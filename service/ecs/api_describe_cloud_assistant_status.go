@@ -22,13 +22,13 @@ const opDescribeCloudAssistantStatusCommon = "DescribeCloudAssistantStatus"
 // See DescribeCloudAssistantStatusCommon for more information on using the DescribeCloudAssistantStatusCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCloudAssistantStatusCommonRequest method.
-//	req, resp := client.DescribeCloudAssistantStatusCommonRequest(params)
+//    // Example sending a request using the DescribeCloudAssistantStatusCommonRequest method.
+//    req, resp := client.DescribeCloudAssistantStatusCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeCloudAssistantStatusCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeCloudAssistantStatusCommon,
@@ -87,13 +87,13 @@ const opDescribeCloudAssistantStatus = "DescribeCloudAssistantStatus"
 // See DescribeCloudAssistantStatus for more information on using the DescribeCloudAssistantStatus
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeCloudAssistantStatusRequest method.
-//	req, resp := client.DescribeCloudAssistantStatusRequest(params)
+//    // Example sending a request using the DescribeCloudAssistantStatusRequest method.
+//    req, resp := client.DescribeCloudAssistantStatusRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeCloudAssistantStatusRequest(input *DescribeCloudAssistantStatusInput) (req *request.Request, output *DescribeCloudAssistantStatusOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCloudAssistantStatus,
@@ -146,9 +146,7 @@ type DescribeCloudAssistantStatusInput struct {
 
 	InstanceIds []*string `type:"list"`
 
-	OsType *string `type:"string"`
-
-	OsVersion *string `type:"string"`
+	OSType *string `type:"string"`
 
 	PageNumber *int32 `type:"int32"`
 
@@ -179,15 +177,9 @@ func (s *DescribeCloudAssistantStatusInput) SetInstanceIds(v []*string) *Describ
 	return s
 }
 
-// SetOsType sets the OsType field's value.
-func (s *DescribeCloudAssistantStatusInput) SetOsType(v string) *DescribeCloudAssistantStatusInput {
-	s.OsType = &v
-	return s
-}
-
-// SetOsVersion sets the OsVersion field's value.
-func (s *DescribeCloudAssistantStatusInput) SetOsVersion(v string) *DescribeCloudAssistantStatusInput {
-	s.OsVersion = &v
+// SetOSType sets the OSType field's value.
+func (s *DescribeCloudAssistantStatusInput) SetOSType(v string) *DescribeCloudAssistantStatusInput {
+	s.OSType = &v
 	return s
 }
 
@@ -270,9 +262,9 @@ type InstanceForDescribeCloudAssistantStatusOutput struct {
 
 	LastHeartbeatTime *string `type:"string"`
 
-	OsType *string `type:"string"`
+	OSType *string `type:"string"`
 
-	OsVersion *string `type:"string"`
+	OSVersion *string `type:"string"`
 
 	Status *string `type:"string"`
 }
@@ -317,15 +309,15 @@ func (s *InstanceForDescribeCloudAssistantStatusOutput) SetLastHeartbeatTime(v s
 	return s
 }
 
-// SetOsType sets the OsType field's value.
-func (s *InstanceForDescribeCloudAssistantStatusOutput) SetOsType(v string) *InstanceForDescribeCloudAssistantStatusOutput {
-	s.OsType = &v
+// SetOSType sets the OSType field's value.
+func (s *InstanceForDescribeCloudAssistantStatusOutput) SetOSType(v string) *InstanceForDescribeCloudAssistantStatusOutput {
+	s.OSType = &v
 	return s
 }
 
-// SetOsVersion sets the OsVersion field's value.
-func (s *InstanceForDescribeCloudAssistantStatusOutput) SetOsVersion(v string) *InstanceForDescribeCloudAssistantStatusOutput {
-	s.OsVersion = &v
+// SetOSVersion sets the OSVersion field's value.
+func (s *InstanceForDescribeCloudAssistantStatusOutput) SetOSVersion(v string) *InstanceForDescribeCloudAssistantStatusOutput {
+	s.OSVersion = &v
 	return s
 }
 

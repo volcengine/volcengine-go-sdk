@@ -22,13 +22,13 @@ const opRunCommandCommon = "RunCommand"
 // See RunCommandCommon for more information on using the RunCommandCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RunCommandCommonRequest method.
-//	req, resp := client.RunCommandCommonRequest(params)
+//    // Example sending a request using the RunCommandCommonRequest method.
+//    req, resp := client.RunCommandCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RunCommandCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRunCommandCommon,
@@ -87,13 +87,13 @@ const opRunCommand = "RunCommand"
 // See RunCommand for more information on using the RunCommand
 // API call, and error handling.
 //
-//	// Example sending a request using the RunCommandRequest method.
-//	req, resp := client.RunCommandRequest(params)
+//    // Example sending a request using the RunCommandRequest method.
+//    req, resp := client.RunCommandRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RunCommandRequest(input *RunCommandInput) (req *request.Request, output *RunCommandOutput) {
 	op := &request.Operation{
 		Name:       opRunCommand,
@@ -142,15 +142,18 @@ func (c *ECS) RunCommandWithContext(ctx volcengine.Context, input *RunCommandInp
 type RunCommandInput struct {
 	_ struct{} `type:"structure"`
 
-	CommandContent *string `type:"string"`
+	// CommandContent is a required field
+	CommandContent *string `type:"string" required:"true"`
 
 	Frequency *string `type:"string"`
 
-	InstanceIds []*string `type:"list"`
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 
 	InvocationDescription *string `type:"string"`
 
-	InvocationName *string `type:"string"`
+	// InvocationName is a required field
+	InvocationName *string `type:"string" required:"true"`
 
 	LaunchTime *string `type:"string"`
 
@@ -160,7 +163,8 @@ type RunCommandInput struct {
 
 	Timeout *int32 `type:"int32"`
 
-	Type *string `type:"string"`
+	// Type is a required field
+	Type *string `type:"string" required:"true"`
 
 	Username *string `type:"string"`
 
@@ -175,6 +179,28 @@ func (s RunCommandInput) String() string {
 // GoString returns the string representation
 func (s RunCommandInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RunCommandInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RunCommandInput"}
+	if s.CommandContent == nil {
+		invalidParams.Add(request.NewErrParamRequired("CommandContent"))
+	}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+	if s.InvocationName == nil {
+		invalidParams.Add(request.NewErrParamRequired("InvocationName"))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCommandContent sets the CommandContent field's value.

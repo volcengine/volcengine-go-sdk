@@ -22,13 +22,13 @@ const opDescribeInstanceECSTerminalUrlCommon = "DescribeInstanceECSTerminalUrl"
 // See DescribeInstanceECSTerminalUrlCommon for more information on using the DescribeInstanceECSTerminalUrlCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceECSTerminalUrlCommonRequest method.
-//	req, resp := client.DescribeInstanceECSTerminalUrlCommonRequest(params)
+//    // Example sending a request using the DescribeInstanceECSTerminalUrlCommonRequest method.
+//    req, resp := client.DescribeInstanceECSTerminalUrlCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstanceECSTerminalUrlCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceECSTerminalUrlCommon,
@@ -87,13 +87,13 @@ const opDescribeInstanceECSTerminalUrl = "DescribeInstanceECSTerminalUrl"
 // See DescribeInstanceECSTerminalUrl for more information on using the DescribeInstanceECSTerminalUrl
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceECSTerminalUrlRequest method.
-//	req, resp := client.DescribeInstanceECSTerminalUrlRequest(params)
+//    // Example sending a request using the DescribeInstanceECSTerminalUrlRequest method.
+//    req, resp := client.DescribeInstanceECSTerminalUrlRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstanceECSTerminalUrlRequest(input *DescribeInstanceECSTerminalUrlInput) (req *request.Request, output *DescribeInstanceECSTerminalUrlOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceECSTerminalUrl,
@@ -142,7 +142,8 @@ func (c *ECS) DescribeInstanceECSTerminalUrlWithContext(ctx volcengine.Context, 
 type DescribeInstanceECSTerminalUrlInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DescribeInstanceECSTerminalUrlInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstanceECSTerminalUrlInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeInstanceECSTerminalUrlInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeInstanceECSTerminalUrlInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

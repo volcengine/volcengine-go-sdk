@@ -22,13 +22,13 @@ const opImportKeyPairCommon = "ImportKeyPair"
 // See ImportKeyPairCommon for more information on using the ImportKeyPairCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ImportKeyPairCommonRequest method.
-//	req, resp := client.ImportKeyPairCommonRequest(params)
+//    // Example sending a request using the ImportKeyPairCommonRequest method.
+//    req, resp := client.ImportKeyPairCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ImportKeyPairCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opImportKeyPairCommon,
@@ -87,13 +87,13 @@ const opImportKeyPair = "ImportKeyPair"
 // See ImportKeyPair for more information on using the ImportKeyPair
 // API call, and error handling.
 //
-//	// Example sending a request using the ImportKeyPairRequest method.
-//	req, resp := client.ImportKeyPairRequest(params)
+//    // Example sending a request using the ImportKeyPairRequest method.
+//    req, resp := client.ImportKeyPairRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ImportKeyPairRequest(input *ImportKeyPairInput) (req *request.Request, output *ImportKeyPairOutput) {
 	op := &request.Operation{
 		Name:       opImportKeyPair,
@@ -146,11 +146,13 @@ type ImportKeyPairInput struct {
 
 	Description *string `type:"string"`
 
-	KeyPairName *string `type:"string"`
+	// KeyPairName is a required field
+	KeyPairName *string `type:"string" required:"true"`
 
 	ProjectName *string `type:"string"`
 
-	PublicKey *string `type:"string"`
+	// PublicKey is a required field
+	PublicKey *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +163,22 @@ func (s ImportKeyPairInput) String() string {
 // GoString returns the string representation
 func (s ImportKeyPairInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ImportKeyPairInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ImportKeyPairInput"}
+	if s.KeyPairName == nil {
+		invalidParams.Add(request.NewErrParamRequired("KeyPairName"))
+	}
+	if s.PublicKey == nil {
+		invalidParams.Add(request.NewErrParamRequired("PublicKey"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

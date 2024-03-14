@@ -22,13 +22,13 @@ const opStopInstancesCommon = "StopInstances"
 // See StopInstancesCommon for more information on using the StopInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the StopInstancesCommonRequest method.
-//	req, resp := client.StopInstancesCommonRequest(params)
+//    // Example sending a request using the StopInstancesCommonRequest method.
+//    req, resp := client.StopInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StopInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStopInstancesCommon,
@@ -87,13 +87,13 @@ const opStopInstances = "StopInstances"
 // See StopInstances for more information on using the StopInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the StopInstancesRequest method.
-//	req, resp := client.StopInstancesRequest(params)
+//    // Example sending a request using the StopInstancesRequest method.
+//    req, resp := client.StopInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StopInstancesRequest(input *StopInstancesInput) (req *request.Request, output *StopInstancesOutput) {
 	op := &request.Operation{
 		Name:       opStopInstances,

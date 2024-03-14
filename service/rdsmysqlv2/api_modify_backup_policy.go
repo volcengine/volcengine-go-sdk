@@ -22,13 +22,13 @@ const opModifyBackupPolicyCommon = "ModifyBackupPolicy"
 // See ModifyBackupPolicyCommon for more information on using the ModifyBackupPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBackupPolicyCommonRequest method.
-//	req, resp := client.ModifyBackupPolicyCommonRequest(params)
+//    // Example sending a request using the ModifyBackupPolicyCommonRequest method.
+//    req, resp := client.ModifyBackupPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyBackupPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyBackupPolicyCommon,
@@ -89,13 +89,13 @@ const opModifyBackupPolicy = "ModifyBackupPolicy"
 // See ModifyBackupPolicy for more information on using the ModifyBackupPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBackupPolicyRequest method.
-//	req, resp := client.ModifyBackupPolicyRequest(params)
+//    // Example sending a request using the ModifyBackupPolicyRequest method.
+//    req, resp := client.ModifyBackupPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyBackupPolicyRequest(input *ModifyBackupPolicyInput) (req *request.Request, output *ModifyBackupPolicyOutput) {
 	op := &request.Operation{
 		Name:       opModifyBackupPolicy,
@@ -164,7 +164,10 @@ type ModifyBackupPolicyInput struct {
 
 	DataIncrBackupPeriods []*string `type:"list"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
+	LockDdlTime *int32 `type:"int32"`
 
 	LogBackupRetentionDay *int32 `type:"int32"`
 }
@@ -177,6 +180,19 @@ func (s ModifyBackupPolicyInput) String() string {
 // GoString returns the string representation
 func (s ModifyBackupPolicyInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyBackupPolicyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyBackupPolicyInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBinlogFileCountsEnable sets the BinlogFileCountsEnable field's value.
@@ -239,6 +255,12 @@ func (s *ModifyBackupPolicyInput) SetInstanceId(v string) *ModifyBackupPolicyInp
 	return s
 }
 
+// SetLockDdlTime sets the LockDdlTime field's value.
+func (s *ModifyBackupPolicyInput) SetLockDdlTime(v int32) *ModifyBackupPolicyInput {
+	s.LockDdlTime = &v
+	return s
+}
+
 // SetLogBackupRetentionDay sets the LogBackupRetentionDay field's value.
 func (s *ModifyBackupPolicyInput) SetLogBackupRetentionDay(v int32) *ModifyBackupPolicyInput {
 	s.LogBackupRetentionDay = &v
@@ -269,6 +291,8 @@ type ModifyBackupPolicyOutput struct {
 	DataIncrBackupPeriods []*string `type:"list"`
 
 	InstanceId *string `type:"string"`
+
+	LockDdlTime *int32 `type:"int32"`
 
 	LogBackupRetentionDay *int32 `type:"int32"`
 }
@@ -340,6 +364,12 @@ func (s *ModifyBackupPolicyOutput) SetDataIncrBackupPeriods(v []*string) *Modify
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyBackupPolicyOutput) SetInstanceId(v string) *ModifyBackupPolicyOutput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetLockDdlTime sets the LockDdlTime field's value.
+func (s *ModifyBackupPolicyOutput) SetLockDdlTime(v int32) *ModifyBackupPolicyOutput {
+	s.LockDdlTime = &v
 	return s
 }
 

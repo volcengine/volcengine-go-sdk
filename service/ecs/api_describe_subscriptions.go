@@ -24,13 +24,13 @@ const opDescribeSubscriptionsCommon = "DescribeSubscriptions"
 // See DescribeSubscriptionsCommon for more information on using the DescribeSubscriptionsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubscriptionsCommonRequest method.
-//	req, resp := client.DescribeSubscriptionsCommonRequest(params)
+//    // Example sending a request using the DescribeSubscriptionsCommonRequest method.
+//    req, resp := client.DescribeSubscriptionsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeSubscriptionsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSubscriptionsCommon,
@@ -89,13 +89,13 @@ const opDescribeSubscriptions = "DescribeSubscriptions"
 // See DescribeSubscriptions for more information on using the DescribeSubscriptions
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSubscriptionsRequest method.
-//	req, resp := client.DescribeSubscriptionsRequest(params)
+//    // Example sending a request using the DescribeSubscriptionsRequest method.
+//    req, resp := client.DescribeSubscriptionsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeSubscriptionsRequest(input *DescribeSubscriptionsInput) (req *request.Request, output *DescribeSubscriptionsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSubscriptions,

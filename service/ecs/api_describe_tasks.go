@@ -24,13 +24,13 @@ const opDescribeTasksCommon = "DescribeTasks"
 // See DescribeTasksCommon for more information on using the DescribeTasksCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTasksCommonRequest method.
-//	req, resp := client.DescribeTasksCommonRequest(params)
+//    // Example sending a request using the DescribeTasksCommonRequest method.
+//    req, resp := client.DescribeTasksCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeTasksCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTasksCommon,
@@ -89,13 +89,13 @@ const opDescribeTasks = "DescribeTasks"
 // See DescribeTasks for more information on using the DescribeTasks
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTasksRequest method.
-//	req, resp := client.DescribeTasksRequest(params)
+//    // Example sending a request using the DescribeTasksRequest method.
+//    req, resp := client.DescribeTasksRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeTasksRequest(input *DescribeTasksInput) (req *request.Request, output *DescribeTasksOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTasks,

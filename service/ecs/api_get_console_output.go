@@ -22,13 +22,13 @@ const opGetConsoleOutputCommon = "GetConsoleOutput"
 // See GetConsoleOutputCommon for more information on using the GetConsoleOutputCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GetConsoleOutputCommonRequest method.
-//	req, resp := client.GetConsoleOutputCommonRequest(params)
+//    // Example sending a request using the GetConsoleOutputCommonRequest method.
+//    req, resp := client.GetConsoleOutputCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) GetConsoleOutputCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetConsoleOutputCommon,
@@ -87,13 +87,13 @@ const opGetConsoleOutput = "GetConsoleOutput"
 // See GetConsoleOutput for more information on using the GetConsoleOutput
 // API call, and error handling.
 //
-//	// Example sending a request using the GetConsoleOutputRequest method.
-//	req, resp := client.GetConsoleOutputRequest(params)
+//    // Example sending a request using the GetConsoleOutputRequest method.
+//    req, resp := client.GetConsoleOutputRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) GetConsoleOutputRequest(input *GetConsoleOutputInput) (req *request.Request, output *GetConsoleOutputOutput) {
 	op := &request.Operation{
 		Name:       opGetConsoleOutput,
@@ -142,7 +142,8 @@ func (c *ECS) GetConsoleOutputWithContext(ctx volcengine.Context, input *GetCons
 type GetConsoleOutputInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s GetConsoleOutputInput) String() string {
 // GoString returns the string representation
 func (s GetConsoleOutputInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetConsoleOutputInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetConsoleOutputInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

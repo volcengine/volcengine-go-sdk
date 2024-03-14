@@ -22,13 +22,13 @@ const opDescribeBackupPolicyCommon = "DescribeBackupPolicy"
 // See DescribeBackupPolicyCommon for more information on using the DescribeBackupPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBackupPolicyCommonRequest method.
-//	req, resp := client.DescribeBackupPolicyCommonRequest(params)
+//    // Example sending a request using the DescribeBackupPolicyCommonRequest method.
+//    req, resp := client.DescribeBackupPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeBackupPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeBackupPolicyCommon,
@@ -89,13 +89,13 @@ const opDescribeBackupPolicy = "DescribeBackupPolicy"
 // See DescribeBackupPolicy for more information on using the DescribeBackupPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBackupPolicyRequest method.
-//	req, resp := client.DescribeBackupPolicyRequest(params)
+//    // Example sending a request using the DescribeBackupPolicyRequest method.
+//    req, resp := client.DescribeBackupPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DescribeBackupPolicyRequest(input *DescribeBackupPolicyInput) (req *request.Request, output *DescribeBackupPolicyOutput) {
 	op := &request.Operation{
 		Name:       opDescribeBackupPolicy,
@@ -200,7 +200,11 @@ type DescribeBackupPolicyOutput struct {
 
 	DataFullBackupTime *string `type:"string"`
 
+	DataIncrBackupPeriods []*string `type:"list"`
+
 	InstanceId *string `type:"string"`
+
+	LockDdlTime *int32 `type:"int32"`
 
 	LogBackupRetentionDay *int32 `type:"int32"`
 }
@@ -263,9 +267,21 @@ func (s *DescribeBackupPolicyOutput) SetDataFullBackupTime(v string) *DescribeBa
 	return s
 }
 
+// SetDataIncrBackupPeriods sets the DataIncrBackupPeriods field's value.
+func (s *DescribeBackupPolicyOutput) SetDataIncrBackupPeriods(v []*string) *DescribeBackupPolicyOutput {
+	s.DataIncrBackupPeriods = v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeBackupPolicyOutput) SetInstanceId(v string) *DescribeBackupPolicyOutput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetLockDdlTime sets the LockDdlTime field's value.
+func (s *DescribeBackupPolicyOutput) SetLockDdlTime(v int32) *DescribeBackupPolicyOutput {
+	s.LockDdlTime = &v
 	return s
 }
 

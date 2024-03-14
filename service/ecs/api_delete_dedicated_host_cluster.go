@@ -22,13 +22,13 @@ const opDeleteDedicatedHostClusterCommon = "DeleteDedicatedHostCluster"
 // See DeleteDedicatedHostClusterCommon for more information on using the DeleteDedicatedHostClusterCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDedicatedHostClusterCommonRequest method.
-//	req, resp := client.DeleteDedicatedHostClusterCommonRequest(params)
+//    // Example sending a request using the DeleteDedicatedHostClusterCommonRequest method.
+//    req, resp := client.DeleteDedicatedHostClusterCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteDedicatedHostClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDedicatedHostClusterCommon,
@@ -87,13 +87,13 @@ const opDeleteDedicatedHostCluster = "DeleteDedicatedHostCluster"
 // See DeleteDedicatedHostCluster for more information on using the DeleteDedicatedHostCluster
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDedicatedHostClusterRequest method.
-//	req, resp := client.DeleteDedicatedHostClusterRequest(params)
+//    // Example sending a request using the DeleteDedicatedHostClusterRequest method.
+//    req, resp := client.DeleteDedicatedHostClusterRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteDedicatedHostClusterRequest(input *DeleteDedicatedHostClusterInput) (req *request.Request, output *DeleteDedicatedHostClusterOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDedicatedHostCluster,
@@ -144,7 +144,8 @@ type DeleteDedicatedHostClusterInput struct {
 
 	ClientToken *string `type:"string"`
 
-	DedicatedHostClusterId *string `type:"string"`
+	// DedicatedHostClusterId is a required field
+	DedicatedHostClusterId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -155,6 +156,19 @@ func (s DeleteDedicatedHostClusterInput) String() string {
 // GoString returns the string representation
 func (s DeleteDedicatedHostClusterInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteDedicatedHostClusterInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteDedicatedHostClusterInput"}
+	if s.DedicatedHostClusterId == nil {
+		invalidParams.Add(request.NewErrParamRequired("DedicatedHostClusterId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

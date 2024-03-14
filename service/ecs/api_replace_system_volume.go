@@ -24,13 +24,13 @@ const opReplaceSystemVolumeCommon = "ReplaceSystemVolume"
 // See ReplaceSystemVolumeCommon for more information on using the ReplaceSystemVolumeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ReplaceSystemVolumeCommonRequest method.
-//	req, resp := client.ReplaceSystemVolumeCommonRequest(params)
+//    // Example sending a request using the ReplaceSystemVolumeCommonRequest method.
+//    req, resp := client.ReplaceSystemVolumeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ReplaceSystemVolumeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opReplaceSystemVolumeCommon,
@@ -89,13 +89,13 @@ const opReplaceSystemVolume = "ReplaceSystemVolume"
 // See ReplaceSystemVolume for more information on using the ReplaceSystemVolume
 // API call, and error handling.
 //
-//	// Example sending a request using the ReplaceSystemVolumeRequest method.
-//	req, resp := client.ReplaceSystemVolumeRequest(params)
+//    // Example sending a request using the ReplaceSystemVolumeRequest method.
+//    req, resp := client.ReplaceSystemVolumeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ReplaceSystemVolumeRequest(input *ReplaceSystemVolumeInput) (req *request.Request, output *ReplaceSystemVolumeOutput) {
 	op := &request.Operation{
 		Name:       opReplaceSystemVolume,
@@ -148,9 +148,11 @@ type ReplaceSystemVolumeInput struct {
 
 	DryRun *bool `type:"boolean"`
 
-	ImageId *string `type:"string"`
+	// ImageId is a required field
+	ImageId *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	KeepImageCredential *bool `type:"boolean"`
 
@@ -171,6 +173,22 @@ func (s ReplaceSystemVolumeInput) String() string {
 // GoString returns the string representation
 func (s ReplaceSystemVolumeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ReplaceSystemVolumeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ReplaceSystemVolumeInput"}
+	if s.ImageId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

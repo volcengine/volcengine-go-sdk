@@ -22,13 +22,13 @@ const opDeleteInstancesCommon = "DeleteInstances"
 // See DeleteInstancesCommon for more information on using the DeleteInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteInstancesCommonRequest method.
-//	req, resp := client.DeleteInstancesCommonRequest(params)
+//    // Example sending a request using the DeleteInstancesCommonRequest method.
+//    req, resp := client.DeleteInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteInstancesCommon,
@@ -87,13 +87,13 @@ const opDeleteInstances = "DeleteInstances"
 // See DeleteInstances for more information on using the DeleteInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteInstancesRequest method.
-//	req, resp := client.DeleteInstancesRequest(params)
+//    // Example sending a request using the DeleteInstancesRequest method.
+//    req, resp := client.DeleteInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DeleteInstancesRequest(input *DeleteInstancesInput) (req *request.Request, output *DeleteInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDeleteInstances,

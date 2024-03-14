@@ -24,13 +24,13 @@ const opDescribeSystemEventsCommon = "DescribeSystemEvents"
 // See DescribeSystemEventsCommon for more information on using the DescribeSystemEventsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSystemEventsCommonRequest method.
-//	req, resp := client.DescribeSystemEventsCommonRequest(params)
+//    // Example sending a request using the DescribeSystemEventsCommonRequest method.
+//    req, resp := client.DescribeSystemEventsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeSystemEventsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSystemEventsCommon,
@@ -89,13 +89,13 @@ const opDescribeSystemEvents = "DescribeSystemEvents"
 // See DescribeSystemEvents for more information on using the DescribeSystemEvents
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSystemEventsRequest method.
-//	req, resp := client.DescribeSystemEventsRequest(params)
+//    // Example sending a request using the DescribeSystemEventsRequest method.
+//    req, resp := client.DescribeSystemEventsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeSystemEventsRequest(input *DescribeSystemEventsInput) (req *request.Request, output *DescribeSystemEventsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSystemEvents,

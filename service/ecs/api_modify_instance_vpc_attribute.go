@@ -22,13 +22,13 @@ const opModifyInstanceVpcAttributeCommon = "ModifyInstanceVpcAttribute"
 // See ModifyInstanceVpcAttributeCommon for more information on using the ModifyInstanceVpcAttributeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceVpcAttributeCommonRequest method.
-//	req, resp := client.ModifyInstanceVpcAttributeCommonRequest(params)
+//    // Example sending a request using the ModifyInstanceVpcAttributeCommonRequest method.
+//    req, resp := client.ModifyInstanceVpcAttributeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyInstanceVpcAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyInstanceVpcAttributeCommon,
@@ -87,13 +87,13 @@ const opModifyInstanceVpcAttribute = "ModifyInstanceVpcAttribute"
 // See ModifyInstanceVpcAttribute for more information on using the ModifyInstanceVpcAttribute
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyInstanceVpcAttributeRequest method.
-//	req, resp := client.ModifyInstanceVpcAttributeRequest(params)
+//    // Example sending a request using the ModifyInstanceVpcAttributeRequest method.
+//    req, resp := client.ModifyInstanceVpcAttributeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyInstanceVpcAttributeRequest(input *ModifyInstanceVpcAttributeInput) (req *request.Request, output *ModifyInstanceVpcAttributeOutput) {
 	op := &request.Operation{
 		Name:       opModifyInstanceVpcAttribute,
@@ -144,13 +144,15 @@ type ModifyInstanceVpcAttributeInput struct {
 
 	ClientToken *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	PrimaryIpAddress *string `type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 
 	VpcId *string `type:"string"`
 }
@@ -163,6 +165,22 @@ func (s ModifyInstanceVpcAttributeInput) String() string {
 // GoString returns the string representation
 func (s ModifyInstanceVpcAttributeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyInstanceVpcAttributeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyInstanceVpcAttributeInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

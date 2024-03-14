@@ -24,13 +24,13 @@ const opDescribeEventTypesCommon = "DescribeEventTypes"
 // See DescribeEventTypesCommon for more information on using the DescribeEventTypesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeEventTypesCommonRequest method.
-//	req, resp := client.DescribeEventTypesCommonRequest(params)
+//    // Example sending a request using the DescribeEventTypesCommonRequest method.
+//    req, resp := client.DescribeEventTypesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeEventTypesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeEventTypesCommon,
@@ -89,13 +89,13 @@ const opDescribeEventTypes = "DescribeEventTypes"
 // See DescribeEventTypes for more information on using the DescribeEventTypes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeEventTypesRequest method.
-//	req, resp := client.DescribeEventTypesRequest(params)
+//    // Example sending a request using the DescribeEventTypesRequest method.
+//    req, resp := client.DescribeEventTypesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeEventTypesRequest(input *DescribeEventTypesInput) (req *request.Request, output *DescribeEventTypesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeEventTypes,

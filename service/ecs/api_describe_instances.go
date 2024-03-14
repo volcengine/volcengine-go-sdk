@@ -22,13 +22,13 @@ const opDescribeInstancesCommon = "DescribeInstances"
 // See DescribeInstancesCommon for more information on using the DescribeInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstancesCommonRequest method.
-//	req, resp := client.DescribeInstancesCommonRequest(params)
+//    // Example sending a request using the DescribeInstancesCommonRequest method.
+//    req, resp := client.DescribeInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstancesCommon,
@@ -87,13 +87,13 @@ const opDescribeInstances = "DescribeInstances"
 // See DescribeInstances for more information on using the DescribeInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstancesRequest method.
-//	req, resp := client.DescribeInstancesRequest(params)
+//    // Example sending a request using the DescribeInstancesRequest method.
+//    req, resp := client.DescribeInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstancesRequest(input *DescribeInstancesInput) (req *request.Request, output *DescribeInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstances,

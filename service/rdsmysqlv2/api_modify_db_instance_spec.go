@@ -22,13 +22,13 @@ const opModifyDBInstanceSpecCommon = "ModifyDBInstanceSpec"
 // See ModifyDBInstanceSpecCommon for more information on using the ModifyDBInstanceSpecCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceSpecCommonRequest method.
-//	req, resp := client.ModifyDBInstanceSpecCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceSpecCommonRequest method.
+//    req, resp := client.ModifyDBInstanceSpecCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceSpecCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceSpecCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceSpec = "ModifyDBInstanceSpec"
 // See ModifyDBInstanceSpec for more information on using the ModifyDBInstanceSpec
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceSpecRequest method.
-//	req, resp := client.ModifyDBInstanceSpecRequest(params)
+//    // Example sending a request using the ModifyDBInstanceSpecRequest method.
+//    req, resp := client.ModifyDBInstanceSpecRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBInstanceSpecRequest(input *ModifyDBInstanceSpecInput) (req *request.Request, output *ModifyDBInstanceSpecOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceSpec,
@@ -149,17 +149,15 @@ type ModifyDBInstanceSpecInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	ModifyType *string `type:"string" enum:"EnumOfModifyTypeForModifyDBInstanceSpecInput"`
+	ModifyType *string `type:"string"`
 
 	NodeInfo []*NodeInfoForModifyDBInstanceSpecInput `type:"list"`
 
-	RollbackTime *string `type:"string"`
-
 	StorageSpace *int32 `type:"int32"`
 
-	StorageType *string `type:"string" enum:"EnumOfStorageTypeForModifyDBInstanceSpecInput"`
+	StorageType *string `type:"string"`
 
-	SwitchType *string `type:"string" enum:"EnumOfSwitchTypeForModifyDBInstanceSpecInput"`
+	SwitchType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -200,12 +198,6 @@ func (s *ModifyDBInstanceSpecInput) SetModifyType(v string) *ModifyDBInstanceSpe
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *ModifyDBInstanceSpecInput) SetNodeInfo(v []*NodeInfoForModifyDBInstanceSpecInput) *ModifyDBInstanceSpecInput {
 	s.NodeInfo = v
-	return s
-}
-
-// SetRollbackTime sets the RollbackTime field's value.
-func (s *ModifyDBInstanceSpecInput) SetRollbackTime(v string) *ModifyDBInstanceSpecInput {
-	s.RollbackTime = &v
 	return s
 }
 
@@ -264,13 +256,11 @@ type NodeInfoForModifyDBInstanceSpecInput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeOperateType *string `type:"string" enum:"EnumOfNodeOperateTypeForModifyDBInstanceSpecInput"`
-
-	NodePool *string `type:"string"`
+	NodeOperateType *string `type:"string"`
 
 	NodeSpec *string `type:"string"`
 
-	NodeType *string `type:"string" enum:"EnumOfNodeTypeForModifyDBInstanceSpecInput"`
+	NodeType *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -297,12 +287,6 @@ func (s *NodeInfoForModifyDBInstanceSpecInput) SetNodeOperateType(v string) *Nod
 	return s
 }
 
-// SetNodePool sets the NodePool field's value.
-func (s *NodeInfoForModifyDBInstanceSpecInput) SetNodePool(v string) *NodeInfoForModifyDBInstanceSpecInput {
-	s.NodePool = &v
-	return s
-}
-
 // SetNodeSpec sets the NodeSpec field's value.
 func (s *NodeInfoForModifyDBInstanceSpecInput) SetNodeSpec(v string) *NodeInfoForModifyDBInstanceSpecInput {
 	s.NodeSpec = &v
@@ -320,55 +304,3 @@ func (s *NodeInfoForModifyDBInstanceSpecInput) SetZoneId(v string) *NodeInfoForM
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
-	EnumOfModifyTypeForModifyDBInstanceSpecInputTemporary = "Temporary"
-
-	// EnumOfModifyTypeForModifyDBInstanceSpecInputUsually is a EnumOfModifyTypeForModifyDBInstanceSpecInput enum value
-	EnumOfModifyTypeForModifyDBInstanceSpecInputUsually = "Usually"
-)
-
-const (
-	// EnumOfNodeOperateTypeForModifyDBInstanceSpecInputCreate is a EnumOfNodeOperateTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeOperateTypeForModifyDBInstanceSpecInputCreate = "Create"
-
-	// EnumOfNodeOperateTypeForModifyDBInstanceSpecInputDelete is a EnumOfNodeOperateTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeOperateTypeForModifyDBInstanceSpecInputDelete = "Delete"
-
-	// EnumOfNodeOperateTypeForModifyDBInstanceSpecInputModify is a EnumOfNodeOperateTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeOperateTypeForModifyDBInstanceSpecInputModify = "Modify"
-)
-
-const (
-	// EnumOfNodeTypeForModifyDBInstanceSpecInputPrimary is a EnumOfNodeTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeTypeForModifyDBInstanceSpecInputPrimary = "Primary"
-
-	// EnumOfNodeTypeForModifyDBInstanceSpecInputReadOnly is a EnumOfNodeTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeTypeForModifyDBInstanceSpecInputReadOnly = "ReadOnly"
-
-	// EnumOfNodeTypeForModifyDBInstanceSpecInputSecondary is a EnumOfNodeTypeForModifyDBInstanceSpecInput enum value
-	EnumOfNodeTypeForModifyDBInstanceSpecInputSecondary = "Secondary"
-)
-
-const (
-	// EnumOfStorageTypeForModifyDBInstanceSpecInputCloudStorage is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
-	EnumOfStorageTypeForModifyDBInstanceSpecInputCloudStorage = "CloudStorage"
-
-	// EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl1 is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
-	EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl1 = "ESSDPL1"
-
-	// EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl2 is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
-	EnumOfStorageTypeForModifyDBInstanceSpecInputEssdpl2 = "ESSDPL2"
-
-	// EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd is a EnumOfStorageTypeForModifyDBInstanceSpecInput enum value
-	EnumOfStorageTypeForModifyDBInstanceSpecInputLocalSsd = "LocalSSD"
-)
-
-const (
-	// EnumOfSwitchTypeForModifyDBInstanceSpecInputImmediate is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
-	EnumOfSwitchTypeForModifyDBInstanceSpecInputImmediate = "Immediate"
-
-	// EnumOfSwitchTypeForModifyDBInstanceSpecInputMaintainTime is a EnumOfSwitchTypeForModifyDBInstanceSpecInput enum value
-	EnumOfSwitchTypeForModifyDBInstanceSpecInputMaintainTime = "MaintainTime"
-)

@@ -22,13 +22,13 @@ const opModifyDBProxyConfigCommon = "ModifyDBProxyConfig"
 // See ModifyDBProxyConfigCommon for more information on using the ModifyDBProxyConfigCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBProxyConfigCommonRequest method.
-//	req, resp := client.ModifyDBProxyConfigCommonRequest(params)
+//    // Example sending a request using the ModifyDBProxyConfigCommonRequest method.
+//    req, resp := client.ModifyDBProxyConfigCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBProxyConfigCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBProxyConfigCommon,
@@ -89,13 +89,13 @@ const opModifyDBProxyConfig = "ModifyDBProxyConfig"
 // See ModifyDBProxyConfig for more information on using the ModifyDBProxyConfig
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBProxyConfigRequest method.
-//	req, resp := client.ModifyDBProxyConfigRequest(params)
+//    // Example sending a request using the ModifyDBProxyConfigRequest method.
+//    req, resp := client.ModifyDBProxyConfigRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) ModifyDBProxyConfigRequest(input *ModifyDBProxyConfigInput) (req *request.Request, output *ModifyDBProxyConfigOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBProxyConfig,
@@ -146,7 +146,7 @@ func (c *RDSMYSQLV2) ModifyDBProxyConfigWithContext(ctx volcengine.Context, inpu
 type ModifyDBProxyConfigInput struct {
 	_ struct{} `type:"structure"`
 
-	ConnectionPoolType *string `type:"string" enum:"EnumOfConnectionPoolTypeForModifyDBProxyConfigInput"`
+	ConnectionPoolType *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -202,11 +202,3 @@ func (s ModifyDBProxyConfigOutput) String() string {
 func (s ModifyDBProxyConfigOutput) GoString() string {
 	return s.String()
 }
-
-const (
-	// EnumOfConnectionPoolTypeForModifyDBProxyConfigInputDirect is a EnumOfConnectionPoolTypeForModifyDBProxyConfigInput enum value
-	EnumOfConnectionPoolTypeForModifyDBProxyConfigInputDirect = "Direct"
-
-	// EnumOfConnectionPoolTypeForModifyDBProxyConfigInputTransaction is a EnumOfConnectionPoolTypeForModifyDBProxyConfigInput enum value
-	EnumOfConnectionPoolTypeForModifyDBProxyConfigInputTransaction = "Transaction"
-)

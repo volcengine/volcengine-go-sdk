@@ -22,13 +22,13 @@ const opDescribeInstanceTypeFamiliesCommon = "DescribeInstanceTypeFamilies"
 // See DescribeInstanceTypeFamiliesCommon for more information on using the DescribeInstanceTypeFamiliesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceTypeFamiliesCommonRequest method.
-//	req, resp := client.DescribeInstanceTypeFamiliesCommonRequest(params)
+//    // Example sending a request using the DescribeInstanceTypeFamiliesCommonRequest method.
+//    req, resp := client.DescribeInstanceTypeFamiliesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstanceTypeFamiliesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceTypeFamiliesCommon,
@@ -87,13 +87,13 @@ const opDescribeInstanceTypeFamilies = "DescribeInstanceTypeFamilies"
 // See DescribeInstanceTypeFamilies for more information on using the DescribeInstanceTypeFamilies
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceTypeFamiliesRequest method.
-//	req, resp := client.DescribeInstanceTypeFamiliesRequest(params)
+//    // Example sending a request using the DescribeInstanceTypeFamiliesRequest method.
+//    req, resp := client.DescribeInstanceTypeFamiliesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstanceTypeFamiliesRequest(input *DescribeInstanceTypeFamiliesInput) (req *request.Request, output *DescribeInstanceTypeFamiliesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceTypeFamilies,

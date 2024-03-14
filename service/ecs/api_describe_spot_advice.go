@@ -22,13 +22,13 @@ const opDescribeSpotAdviceCommon = "DescribeSpotAdvice"
 // See DescribeSpotAdviceCommon for more information on using the DescribeSpotAdviceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSpotAdviceCommonRequest method.
-//	req, resp := client.DescribeSpotAdviceCommonRequest(params)
+//    // Example sending a request using the DescribeSpotAdviceCommonRequest method.
+//    req, resp := client.DescribeSpotAdviceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeSpotAdviceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSpotAdviceCommon,
@@ -87,13 +87,13 @@ const opDescribeSpotAdvice = "DescribeSpotAdvice"
 // See DescribeSpotAdvice for more information on using the DescribeSpotAdvice
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeSpotAdviceRequest method.
-//	req, resp := client.DescribeSpotAdviceRequest(params)
+//    // Example sending a request using the DescribeSpotAdviceRequest method.
+//    req, resp := client.DescribeSpotAdviceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeSpotAdviceRequest(input *DescribeSpotAdviceInput) (req *request.Request, output *DescribeSpotAdviceOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSpotAdvice,
@@ -213,6 +213,8 @@ type DescribeSpotAdviceInput struct {
 	MinMemorySize *int32 `type:"int32"`
 
 	NextToken *string `type:"string"`
+
+	ZoneId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -276,6 +278,12 @@ func (s *DescribeSpotAdviceInput) SetMinMemorySize(v int32) *DescribeSpotAdviceI
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeSpotAdviceInput) SetNextToken(v string) *DescribeSpotAdviceInput {
 	s.NextToken = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *DescribeSpotAdviceInput) SetZoneId(v string) *DescribeSpotAdviceInput {
+	s.ZoneId = &v
 	return s
 }
 

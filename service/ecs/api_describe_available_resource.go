@@ -22,13 +22,13 @@ const opDescribeAvailableResourceCommon = "DescribeAvailableResource"
 // See DescribeAvailableResourceCommon for more information on using the DescribeAvailableResourceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailableResourceCommonRequest method.
-//	req, resp := client.DescribeAvailableResourceCommonRequest(params)
+//    // Example sending a request using the DescribeAvailableResourceCommonRequest method.
+//    req, resp := client.DescribeAvailableResourceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeAvailableResourceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAvailableResourceCommon,
@@ -87,13 +87,13 @@ const opDescribeAvailableResource = "DescribeAvailableResource"
 // See DescribeAvailableResource for more information on using the DescribeAvailableResource
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailableResourceRequest method.
-//	req, resp := client.DescribeAvailableResourceRequest(params)
+//    // Example sending a request using the DescribeAvailableResourceRequest method.
+//    req, resp := client.DescribeAvailableResourceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeAvailableResourceRequest(input *DescribeAvailableResourceInput) (req *request.Request, output *DescribeAvailableResourceOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAvailableResource,
@@ -218,7 +218,8 @@ func (s *AvailableZoneForDescribeAvailableResourceOutput) SetZoneId(v string) *A
 type DescribeAvailableResourceInput struct {
 	_ struct{} `type:"structure"`
 
-	DestinationResource *string `type:"string"`
+	// DestinationResource is a required field
+	DestinationResource *string `type:"string" required:"true"`
 
 	InstanceChargeType *string `type:"string"`
 
@@ -239,6 +240,19 @@ func (s DescribeAvailableResourceInput) String() string {
 // GoString returns the string representation
 func (s DescribeAvailableResourceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAvailableResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAvailableResourceInput"}
+	if s.DestinationResource == nil {
+		invalidParams.Add(request.NewErrParamRequired("DestinationResource"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDestinationResource sets the DestinationResource field's value.

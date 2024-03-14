@@ -22,13 +22,13 @@ const opExportImageCommon = "ExportImage"
 // See ExportImageCommon for more information on using the ExportImageCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ExportImageCommonRequest method.
-//	req, resp := client.ExportImageCommonRequest(params)
+//    // Example sending a request using the ExportImageCommonRequest method.
+//    req, resp := client.ExportImageCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ExportImageCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opExportImageCommon,
@@ -87,13 +87,13 @@ const opExportImage = "ExportImage"
 // See ExportImage for more information on using the ExportImage
 // API call, and error handling.
 //
-//	// Example sending a request using the ExportImageRequest method.
-//	req, resp := client.ExportImageRequest(params)
+//    // Example sending a request using the ExportImageRequest method.
+//    req, resp := client.ExportImageRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ExportImageRequest(input *ExportImageInput) (req *request.Request, output *ExportImageOutput) {
 	op := &request.Operation{
 		Name:       opExportImage,
@@ -142,11 +142,14 @@ func (c *ECS) ExportImageWithContext(ctx volcengine.Context, input *ExportImageI
 type ExportImageInput struct {
 	_ struct{} `type:"structure"`
 
-	ImageId *string `type:"string"`
+	// ImageId is a required field
+	ImageId *string `type:"string" required:"true"`
 
-	TOSBucket *string `type:"string"`
+	// TOSBucket is a required field
+	TOSBucket *string `type:"string" required:"true"`
 
-	TOSPrefix *string `type:"string"`
+	// TOSPrefix is a required field
+	TOSPrefix *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +160,25 @@ func (s ExportImageInput) String() string {
 // GoString returns the string representation
 func (s ExportImageInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ExportImageInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ExportImageInput"}
+	if s.ImageId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageId"))
+	}
+	if s.TOSBucket == nil {
+		invalidParams.Add(request.NewErrParamRequired("TOSBucket"))
+	}
+	if s.TOSPrefix == nil {
+		invalidParams.Add(request.NewErrParamRequired("TOSPrefix"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetImageId sets the ImageId field's value.

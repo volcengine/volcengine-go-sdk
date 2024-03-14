@@ -22,13 +22,13 @@ const opRebootInstancesCommon = "RebootInstances"
 // See RebootInstancesCommon for more information on using the RebootInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RebootInstancesCommonRequest method.
-//	req, resp := client.RebootInstancesCommonRequest(params)
+//    // Example sending a request using the RebootInstancesCommonRequest method.
+//    req, resp := client.RebootInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RebootInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRebootInstancesCommon,
@@ -87,13 +87,13 @@ const opRebootInstances = "RebootInstances"
 // See RebootInstances for more information on using the RebootInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the RebootInstancesRequest method.
-//	req, resp := client.RebootInstancesRequest(params)
+//    // Example sending a request using the RebootInstancesRequest method.
+//    req, resp := client.RebootInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) RebootInstancesRequest(input *RebootInstancesInput) (req *request.Request, output *RebootInstancesOutput) {
 	op := &request.Operation{
 		Name:       opRebootInstances,

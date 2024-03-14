@@ -22,13 +22,13 @@ const opDescribeZonesCommon = "DescribeZones"
 // See DescribeZonesCommon for more information on using the DescribeZonesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeZonesCommonRequest method.
-//	req, resp := client.DescribeZonesCommonRequest(params)
+//    // Example sending a request using the DescribeZonesCommonRequest method.
+//    req, resp := client.DescribeZonesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeZonesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeZonesCommon,
@@ -87,13 +87,13 @@ const opDescribeZones = "DescribeZones"
 // See DescribeZones for more information on using the DescribeZones
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeZonesRequest method.
-//	req, resp := client.DescribeZonesRequest(params)
+//    // Example sending a request using the DescribeZonesRequest method.
+//    req, resp := client.DescribeZonesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeZonesRequest(input *DescribeZonesInput) (req *request.Request, output *DescribeZonesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeZones,

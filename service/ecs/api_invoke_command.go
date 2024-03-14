@@ -22,13 +22,13 @@ const opInvokeCommandCommon = "InvokeCommand"
 // See InvokeCommandCommon for more information on using the InvokeCommandCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the InvokeCommandCommonRequest method.
-//	req, resp := client.InvokeCommandCommonRequest(params)
+//    // Example sending a request using the InvokeCommandCommonRequest method.
+//    req, resp := client.InvokeCommandCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) InvokeCommandCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opInvokeCommandCommon,
@@ -87,13 +87,13 @@ const opInvokeCommand = "InvokeCommand"
 // See InvokeCommand for more information on using the InvokeCommand
 // API call, and error handling.
 //
-//	// Example sending a request using the InvokeCommandRequest method.
-//	req, resp := client.InvokeCommandRequest(params)
+//    // Example sending a request using the InvokeCommandRequest method.
+//    req, resp := client.InvokeCommandRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) InvokeCommandRequest(input *InvokeCommandInput) (req *request.Request, output *InvokeCommandOutput) {
 	op := &request.Operation{
 		Name:       opInvokeCommand,
@@ -142,11 +142,13 @@ func (c *ECS) InvokeCommandWithContext(ctx volcengine.Context, input *InvokeComm
 type InvokeCommandInput struct {
 	_ struct{} `type:"structure"`
 
-	CommandId *string `type:"string"`
+	// CommandId is a required field
+	CommandId *string `type:"string" required:"true"`
 
 	Frequency *string `type:"string"`
 
-	InstanceIds []*string `type:"list"`
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 
 	InvocationDescription *string `type:"string"`
 
@@ -175,6 +177,22 @@ func (s InvokeCommandInput) String() string {
 // GoString returns the string representation
 func (s InvokeCommandInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *InvokeCommandInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "InvokeCommandInput"}
+	if s.CommandId == nil {
+		invalidParams.Add(request.NewErrParamRequired("CommandId"))
+	}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetCommandId sets the CommandId field's value.

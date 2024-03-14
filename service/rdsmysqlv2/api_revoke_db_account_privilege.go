@@ -22,13 +22,13 @@ const opRevokeDBAccountPrivilegeCommon = "RevokeDBAccountPrivilege"
 // See RevokeDBAccountPrivilegeCommon for more information on using the RevokeDBAccountPrivilegeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RevokeDBAccountPrivilegeCommonRequest method.
-//	req, resp := client.RevokeDBAccountPrivilegeCommonRequest(params)
+//    // Example sending a request using the RevokeDBAccountPrivilegeCommonRequest method.
+//    req, resp := client.RevokeDBAccountPrivilegeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RevokeDBAccountPrivilegeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRevokeDBAccountPrivilegeCommon,
@@ -89,13 +89,13 @@ const opRevokeDBAccountPrivilege = "RevokeDBAccountPrivilege"
 // See RevokeDBAccountPrivilege for more information on using the RevokeDBAccountPrivilege
 // API call, and error handling.
 //
-//	// Example sending a request using the RevokeDBAccountPrivilegeRequest method.
-//	req, resp := client.RevokeDBAccountPrivilegeRequest(params)
+//    // Example sending a request using the RevokeDBAccountPrivilegeRequest method.
+//    req, resp := client.RevokeDBAccountPrivilegeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RevokeDBAccountPrivilegeRequest(input *RevokeDBAccountPrivilegeInput) (req *request.Request, output *RevokeDBAccountPrivilegeOutput) {
 	op := &request.Operation{
 		Name:       opRevokeDBAccountPrivilege,
@@ -147,10 +147,12 @@ type RevokeDBAccountPrivilegeInput struct {
 	_ struct{} `type:"structure"`
 
 	// AccountName is a required field
-	AccountName *string `min:"2" max:"32" type:"string" required:"true"`
+	AccountName *string `type:"string" required:"true"`
 
 	// DBNames is a required field
 	DBNames *string `type:"string" required:"true"`
+
+	Host *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -171,12 +173,6 @@ func (s *RevokeDBAccountPrivilegeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "RevokeDBAccountPrivilegeInput"}
 	if s.AccountName == nil {
 		invalidParams.Add(request.NewErrParamRequired("AccountName"))
-	}
-	if s.AccountName != nil && len(*s.AccountName) < 2 {
-		invalidParams.Add(request.NewErrParamMinLen("AccountName", 2))
-	}
-	if s.AccountName != nil && len(*s.AccountName) > 32 {
-		invalidParams.Add(request.NewErrParamMaxLen("AccountName", 32, *s.AccountName))
 	}
 	if s.DBNames == nil {
 		invalidParams.Add(request.NewErrParamRequired("DBNames"))
@@ -200,6 +196,12 @@ func (s *RevokeDBAccountPrivilegeInput) SetAccountName(v string) *RevokeDBAccoun
 // SetDBNames sets the DBNames field's value.
 func (s *RevokeDBAccountPrivilegeInput) SetDBNames(v string) *RevokeDBAccountPrivilegeInput {
 	s.DBNames = &v
+	return s
+}
+
+// SetHost sets the Host field's value.
+func (s *RevokeDBAccountPrivilegeInput) SetHost(v string) *RevokeDBAccountPrivilegeInput {
+	s.Host = &v
 	return s
 }
 

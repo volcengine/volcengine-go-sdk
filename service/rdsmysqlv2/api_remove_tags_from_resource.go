@@ -22,13 +22,13 @@ const opRemoveTagsFromResourceCommon = "RemoveTagsFromResource"
 // See RemoveTagsFromResourceCommon for more information on using the RemoveTagsFromResourceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RemoveTagsFromResourceCommonRequest method.
-//	req, resp := client.RemoveTagsFromResourceCommonRequest(params)
+//    // Example sending a request using the RemoveTagsFromResourceCommonRequest method.
+//    req, resp := client.RemoveTagsFromResourceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RemoveTagsFromResourceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRemoveTagsFromResourceCommon,
@@ -89,13 +89,13 @@ const opRemoveTagsFromResource = "RemoveTagsFromResource"
 // See RemoveTagsFromResource for more information on using the RemoveTagsFromResource
 // API call, and error handling.
 //
-//	// Example sending a request using the RemoveTagsFromResourceRequest method.
-//	req, resp := client.RemoveTagsFromResourceRequest(params)
+//    // Example sending a request using the RemoveTagsFromResourceRequest method.
+//    req, resp := client.RemoveTagsFromResourceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) RemoveTagsFromResourceRequest(input *RemoveTagsFromResourceInput) (req *request.Request, output *RemoveTagsFromResourceOutput) {
 	op := &request.Operation{
 		Name:       opRemoveTagsFromResource,

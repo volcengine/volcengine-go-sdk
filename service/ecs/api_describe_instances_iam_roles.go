@@ -22,13 +22,13 @@ const opDescribeInstancesIamRolesCommon = "DescribeInstancesIamRoles"
 // See DescribeInstancesIamRolesCommon for more information on using the DescribeInstancesIamRolesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstancesIamRolesCommonRequest method.
-//	req, resp := client.DescribeInstancesIamRolesCommonRequest(params)
+//    // Example sending a request using the DescribeInstancesIamRolesCommonRequest method.
+//    req, resp := client.DescribeInstancesIamRolesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstancesIamRolesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstancesIamRolesCommon,
@@ -87,13 +87,13 @@ const opDescribeInstancesIamRoles = "DescribeInstancesIamRoles"
 // See DescribeInstancesIamRoles for more information on using the DescribeInstancesIamRoles
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstancesIamRolesRequest method.
-//	req, resp := client.DescribeInstancesIamRolesRequest(params)
+//    // Example sending a request using the DescribeInstancesIamRolesRequest method.
+//    req, resp := client.DescribeInstancesIamRolesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstancesIamRolesRequest(input *DescribeInstancesIamRolesInput) (req *request.Request, output *DescribeInstancesIamRolesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstancesIamRoles,

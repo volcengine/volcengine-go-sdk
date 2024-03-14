@@ -22,13 +22,13 @@ const opAssociateInstancesIamRoleCommon = "AssociateInstancesIamRole"
 // See AssociateInstancesIamRoleCommon for more information on using the AssociateInstancesIamRoleCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateInstancesIamRoleCommonRequest method.
-//	req, resp := client.AssociateInstancesIamRoleCommonRequest(params)
+//    // Example sending a request using the AssociateInstancesIamRoleCommonRequest method.
+//    req, resp := client.AssociateInstancesIamRoleCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) AssociateInstancesIamRoleCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssociateInstancesIamRoleCommon,
@@ -87,13 +87,13 @@ const opAssociateInstancesIamRole = "AssociateInstancesIamRole"
 // See AssociateInstancesIamRole for more information on using the AssociateInstancesIamRole
 // API call, and error handling.
 //
-//	// Example sending a request using the AssociateInstancesIamRoleRequest method.
-//	req, resp := client.AssociateInstancesIamRoleRequest(params)
+//    // Example sending a request using the AssociateInstancesIamRoleRequest method.
+//    req, resp := client.AssociateInstancesIamRoleRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) AssociateInstancesIamRoleRequest(input *AssociateInstancesIamRoleInput) (req *request.Request, output *AssociateInstancesIamRoleOutput) {
 	op := &request.Operation{
 		Name:       opAssociateInstancesIamRole,
@@ -144,9 +144,11 @@ type AssociateInstancesIamRoleInput struct {
 
 	ClientToken *string `type:"string"`
 
-	IamRoleName *string `type:"string"`
+	// IamRoleName is a required field
+	IamRoleName *string `type:"string" required:"true"`
 
-	InstanceIds []*string `type:"list"`
+	// InstanceIds is a required field
+	InstanceIds []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +159,22 @@ func (s AssociateInstancesIamRoleInput) String() string {
 // GoString returns the string representation
 func (s AssociateInstancesIamRoleInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssociateInstancesIamRoleInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssociateInstancesIamRoleInput"}
+	if s.IamRoleName == nil {
+		invalidParams.Add(request.NewErrParamRequired("IamRoleName"))
+	}
+	if s.InstanceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

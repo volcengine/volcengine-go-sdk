@@ -22,13 +22,13 @@ const opStopInstanceCommon = "StopInstance"
 // See StopInstanceCommon for more information on using the StopInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the StopInstanceCommonRequest method.
-//	req, resp := client.StopInstanceCommonRequest(params)
+//    // Example sending a request using the StopInstanceCommonRequest method.
+//    req, resp := client.StopInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StopInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opStopInstanceCommon,
@@ -87,13 +87,13 @@ const opStopInstance = "StopInstance"
 // See StopInstance for more information on using the StopInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the StopInstanceRequest method.
-//	req, resp := client.StopInstanceRequest(params)
+//    // Example sending a request using the StopInstanceRequest method.
+//    req, resp := client.StopInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) StopInstanceRequest(input *StopInstanceInput) (req *request.Request, output *StopInstanceOutput) {
 	op := &request.Operation{
 		Name:       opStopInstance,
@@ -148,7 +148,8 @@ type StopInstanceInput struct {
 
 	ForceStop *bool `type:"boolean"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	StoppedMode *string `type:"string"`
 }
@@ -161,6 +162,19 @@ func (s StopInstanceInput) String() string {
 // GoString returns the string representation
 func (s StopInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StopInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StopInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

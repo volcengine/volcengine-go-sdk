@@ -22,13 +22,13 @@ const opUpgradeAllowListVersionCommon = "UpgradeAllowListVersion"
 // See UpgradeAllowListVersionCommon for more information on using the UpgradeAllowListVersionCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the UpgradeAllowListVersionCommonRequest method.
-//	req, resp := client.UpgradeAllowListVersionCommonRequest(params)
+//    // Example sending a request using the UpgradeAllowListVersionCommonRequest method.
+//    req, resp := client.UpgradeAllowListVersionCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) UpgradeAllowListVersionCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpgradeAllowListVersionCommon,
@@ -89,13 +89,13 @@ const opUpgradeAllowListVersion = "UpgradeAllowListVersion"
 // See UpgradeAllowListVersion for more information on using the UpgradeAllowListVersion
 // API call, and error handling.
 //
-//	// Example sending a request using the UpgradeAllowListVersionRequest method.
-//	req, resp := client.UpgradeAllowListVersionRequest(params)
+//    // Example sending a request using the UpgradeAllowListVersionRequest method.
+//    req, resp := client.UpgradeAllowListVersionRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) UpgradeAllowListVersionRequest(input *UpgradeAllowListVersionInput) (req *request.Request, output *UpgradeAllowListVersionOutput) {
 	op := &request.Operation{
 		Name:       opUpgradeAllowListVersion,

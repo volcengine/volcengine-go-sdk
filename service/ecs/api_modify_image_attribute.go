@@ -22,13 +22,13 @@ const opModifyImageAttributeCommon = "ModifyImageAttribute"
 // See ModifyImageAttributeCommon for more information on using the ModifyImageAttributeCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyImageAttributeCommonRequest method.
-//	req, resp := client.ModifyImageAttributeCommonRequest(params)
+//    // Example sending a request using the ModifyImageAttributeCommonRequest method.
+//    req, resp := client.ModifyImageAttributeCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyImageAttributeCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyImageAttributeCommon,
@@ -87,13 +87,13 @@ const opModifyImageAttribute = "ModifyImageAttribute"
 // See ModifyImageAttribute for more information on using the ModifyImageAttribute
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyImageAttributeRequest method.
-//	req, resp := client.ModifyImageAttributeRequest(params)
+//    // Example sending a request using the ModifyImageAttributeRequest method.
+//    req, resp := client.ModifyImageAttributeRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) ModifyImageAttributeRequest(input *ModifyImageAttributeInput) (req *request.Request, output *ModifyImageAttributeOutput) {
 	op := &request.Operation{
 		Name:       opModifyImageAttribute,
@@ -146,7 +146,8 @@ type ModifyImageAttributeInput struct {
 
 	Description *string `type:"string"`
 
-	ImageId *string `type:"string"`
+	// ImageId is a required field
+	ImageId *string `type:"string" required:"true"`
 
 	ImageName *string `type:"string"`
 }
@@ -159,6 +160,19 @@ func (s ModifyImageAttributeInput) String() string {
 // GoString returns the string representation
 func (s ModifyImageAttributeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyImageAttributeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyImageAttributeInput"}
+	if s.ImageId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ImageId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetBootMode sets the BootMode field's value.

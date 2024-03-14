@@ -22,13 +22,13 @@ const opDescribeTagsCommon = "DescribeTags"
 // See DescribeTagsCommon for more information on using the DescribeTagsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTagsCommonRequest method.
-//	req, resp := client.DescribeTagsCommonRequest(params)
+//    // Example sending a request using the DescribeTagsCommonRequest method.
+//    req, resp := client.DescribeTagsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeTagsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTagsCommon,
@@ -87,13 +87,13 @@ const opDescribeTags = "DescribeTags"
 // See DescribeTags for more information on using the DescribeTags
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTagsRequest method.
-//	req, resp := client.DescribeTagsRequest(params)
+//    // Example sending a request using the DescribeTagsRequest method.
+//    req, resp := client.DescribeTagsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeTagsRequest(input *DescribeTagsInput) (req *request.Request, output *DescribeTagsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTags,
@@ -146,9 +146,11 @@ type DescribeTagsInput struct {
 
 	NextToken *string `type:"string"`
 
-	ResourceIds []*string `type:"list"`
+	// ResourceIds is a required field
+	ResourceIds []*string `type:"list" required:"true"`
 
-	ResourceType *string `type:"string"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true"`
 
 	TagFilters []*TagFilterForDescribeTagsInput `type:"list"`
 }
@@ -161,6 +163,22 @@ func (s DescribeTagsInput) String() string {
 // GoString returns the string representation
 func (s DescribeTagsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeTagsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeTagsInput"}
+	if s.ResourceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetMaxResults sets the MaxResults field's value.

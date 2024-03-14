@@ -22,13 +22,13 @@ const opDeleteDBEndpointCommon = "DeleteDBEndpoint"
 // See DeleteDBEndpointCommon for more information on using the DeleteDBEndpointCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDBEndpointCommonRequest method.
-//	req, resp := client.DeleteDBEndpointCommonRequest(params)
+//    // Example sending a request using the DeleteDBEndpointCommonRequest method.
+//    req, resp := client.DeleteDBEndpointCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DeleteDBEndpointCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteDBEndpointCommon,
@@ -89,13 +89,13 @@ const opDeleteDBEndpoint = "DeleteDBEndpoint"
 // See DeleteDBEndpoint for more information on using the DeleteDBEndpoint
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteDBEndpointRequest method.
-//	req, resp := client.DeleteDBEndpointRequest(params)
+//    // Example sending a request using the DeleteDBEndpointRequest method.
+//    req, resp := client.DeleteDBEndpointRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMYSQLV2) DeleteDBEndpointRequest(input *DeleteDBEndpointInput) (req *request.Request, output *DeleteDBEndpointOutput) {
 	op := &request.Operation{
 		Name:       opDeleteDBEndpoint,

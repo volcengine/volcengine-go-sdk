@@ -22,13 +22,13 @@ const opDescribeInstanceVncUrlCommon = "DescribeInstanceVncUrl"
 // See DescribeInstanceVncUrlCommon for more information on using the DescribeInstanceVncUrlCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceVncUrlCommonRequest method.
-//	req, resp := client.DescribeInstanceVncUrlCommonRequest(params)
+//    // Example sending a request using the DescribeInstanceVncUrlCommonRequest method.
+//    req, resp := client.DescribeInstanceVncUrlCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstanceVncUrlCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceVncUrlCommon,
@@ -87,13 +87,13 @@ const opDescribeInstanceVncUrl = "DescribeInstanceVncUrl"
 // See DescribeInstanceVncUrl for more information on using the DescribeInstanceVncUrl
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeInstanceVncUrlRequest method.
-//	req, resp := client.DescribeInstanceVncUrlRequest(params)
+//    // Example sending a request using the DescribeInstanceVncUrlRequest method.
+//    req, resp := client.DescribeInstanceVncUrlRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *ECS) DescribeInstanceVncUrlRequest(input *DescribeInstanceVncUrlInput) (req *request.Request, output *DescribeInstanceVncUrlOutput) {
 	op := &request.Operation{
 		Name:       opDescribeInstanceVncUrl,
@@ -142,7 +142,8 @@ func (c *ECS) DescribeInstanceVncUrlWithContext(ctx volcengine.Context, input *D
 type DescribeInstanceVncUrlInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -153,6 +154,19 @@ func (s DescribeInstanceVncUrlInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstanceVncUrlInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeInstanceVncUrlInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeInstanceVncUrlInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
