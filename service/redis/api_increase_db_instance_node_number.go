@@ -171,6 +171,8 @@ type IncreaseDBInstanceNodeNumberInput struct {
 	// ApplyImmediately is a required field
 	ApplyImmediately *bool `type:"boolean" required:"true"`
 
+	BackupPointName *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	ConfigureNewNodes []*ConfigureNewNodeForIncreaseDBInstanceNodeNumberInput `type:"list"`
@@ -216,6 +218,12 @@ func (s *IncreaseDBInstanceNodeNumberInput) Validate() error {
 // SetApplyImmediately sets the ApplyImmediately field's value.
 func (s *IncreaseDBInstanceNodeNumberInput) SetApplyImmediately(v bool) *IncreaseDBInstanceNodeNumberInput {
 	s.ApplyImmediately = &v
+	return s
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *IncreaseDBInstanceNodeNumberInput) SetBackupPointName(v string) *IncreaseDBInstanceNodeNumberInput {
+	s.BackupPointName = &v
 	return s
 }
 

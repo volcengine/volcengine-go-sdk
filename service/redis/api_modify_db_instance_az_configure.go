@@ -171,6 +171,8 @@ type ModifyDBInstanceAZConfigureInput struct {
 	// ApplyImmediately is a required field
 	ApplyImmediately *bool `type:"boolean" required:"true"`
 
+	BackupPointName *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	ConfigureNodes []*ConfigureNodeForModifyDBInstanceAZConfigureInput `type:"list"`
@@ -216,6 +218,12 @@ func (s *ModifyDBInstanceAZConfigureInput) Validate() error {
 // SetApplyImmediately sets the ApplyImmediately field's value.
 func (s *ModifyDBInstanceAZConfigureInput) SetApplyImmediately(v bool) *ModifyDBInstanceAZConfigureInput {
 	s.ApplyImmediately = &v
+	return s
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *ModifyDBInstanceAZConfigureInput) SetBackupPointName(v string) *ModifyDBInstanceAZConfigureInput {
+	s.BackupPointName = &v
 	return s
 }
 

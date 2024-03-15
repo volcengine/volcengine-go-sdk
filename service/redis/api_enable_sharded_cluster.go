@@ -149,6 +149,8 @@ type EnableShardedClusterInput struct {
 	// ApplyImmediately is a required field
 	ApplyImmediately *bool `type:"boolean" required:"true"`
 
+	BackupPointName *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	CreateBackup *bool `type:"boolean"`
@@ -198,6 +200,12 @@ func (s *EnableShardedClusterInput) Validate() error {
 // SetApplyImmediately sets the ApplyImmediately field's value.
 func (s *EnableShardedClusterInput) SetApplyImmediately(v bool) *EnableShardedClusterInput {
 	s.ApplyImmediately = &v
+	return s
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *EnableShardedClusterInput) SetBackupPointName(v string) *EnableShardedClusterInput {
+	s.BackupPointName = &v
 	return s
 }
 

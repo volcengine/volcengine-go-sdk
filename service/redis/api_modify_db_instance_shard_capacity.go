@@ -149,6 +149,8 @@ type ModifyDBInstanceShardCapacityInput struct {
 	// ApplyImmediately is a required field
 	ApplyImmediately *bool `type:"boolean" required:"true"`
 
+	BackupPointName *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	CreateBackup *bool `type:"boolean"`
@@ -192,6 +194,12 @@ func (s *ModifyDBInstanceShardCapacityInput) Validate() error {
 // SetApplyImmediately sets the ApplyImmediately field's value.
 func (s *ModifyDBInstanceShardCapacityInput) SetApplyImmediately(v bool) *ModifyDBInstanceShardCapacityInput {
 	s.ApplyImmediately = &v
+	return s
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *ModifyDBInstanceShardCapacityInput) SetBackupPointName(v string) *ModifyDBInstanceShardCapacityInput {
+	s.BackupPointName = &v
 	return s
 }
 

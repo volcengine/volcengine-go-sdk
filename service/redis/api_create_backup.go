@@ -146,6 +146,8 @@ func (c *REDIS) CreateBackupWithContext(ctx volcengine.Context, input *CreateBac
 type CreateBackupInput struct {
 	_ struct{} `type:"structure"`
 
+	BackupPointName *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	// InstanceId is a required field
@@ -173,6 +175,12 @@ func (s *CreateBackupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *CreateBackupInput) SetBackupPointName(v string) *CreateBackupInput {
+	s.BackupPointName = &v
+	return s
 }
 
 // SetClientToken sets the ClientToken field's value.
