@@ -142,9 +142,9 @@ func (c *IAM) ListPoliciesWithContext(ctx volcengine.Context, input *ListPolicie
 type ListPoliciesInput struct {
 	_ struct{} `type:"structure"`
 
-	Limit *int64 `type:"integer"`
+	Limit *int32 `type:"int32"`
 
-	Offset *string `type:"string"`
+	Offset *int32 `type:"int32"`
 
 	Scope *string `type:"string"`
 }
@@ -160,13 +160,13 @@ func (s ListPoliciesInput) GoString() string {
 }
 
 // SetLimit sets the Limit field's value.
-func (s *ListPoliciesInput) SetLimit(v int64) *ListPoliciesInput {
+func (s *ListPoliciesInput) SetLimit(v int32) *ListPoliciesInput {
 	s.Limit = &v
 	return s
 }
 
 // SetOffset sets the Offset field's value.
-func (s *ListPoliciesInput) SetOffset(v string) *ListPoliciesInput {
+func (s *ListPoliciesInput) SetOffset(v int32) *ListPoliciesInput {
 	s.Offset = &v
 	return s
 }

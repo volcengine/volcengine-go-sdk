@@ -142,11 +142,11 @@ func (c *IAM) UpdateGroupWithContext(ctx volcengine.Context, input *UpdateGroupI
 type UpdateGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	NewDescription *string `type:"string"`
+	NewDescription *string `max:"128" type:"string"`
 
-	NewDisplayName *string `type:"string"`
+	NewDisplayName *string `max:"64" type:"string"`
 
-	NewUserGroupName *string `type:"string"`
+	NewUserGroupName *string `max:"64" type:"string"`
 
 	// UserGroupName is a required field
 	UserGroupName *string `type:"string" required:"true"`
@@ -165,6 +165,15 @@ func (s UpdateGroupInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdateGroupInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdateGroupInput"}
+	if s.NewDescription != nil && len(*s.NewDescription) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("NewDescription", 128, *s.NewDescription))
+	}
+	if s.NewDisplayName != nil && len(*s.NewDisplayName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("NewDisplayName", 64, *s.NewDisplayName))
+	}
+	if s.NewUserGroupName != nil && len(*s.NewUserGroupName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("NewUserGroupName", 64, *s.NewUserGroupName))
+	}
 	if s.UserGroupName == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserGroupName"))
 	}
@@ -203,8 +212,6 @@ type UpdateGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
-
-	UserGroup *UserGroupForUpdateGroupOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -215,72 +222,4 @@ func (s UpdateGroupOutput) String() string {
 // GoString returns the string representation
 func (s UpdateGroupOutput) GoString() string {
 	return s.String()
-}
-
-// SetUserGroup sets the UserGroup field's value.
-func (s *UpdateGroupOutput) SetUserGroup(v *UserGroupForUpdateGroupOutput) *UpdateGroupOutput {
-	s.UserGroup = v
-	return s
-}
-
-type UserGroupForUpdateGroupOutput struct {
-	_ struct{} `type:"structure"`
-
-	AccountID *int32 `type:"int32"`
-
-	CreateDate *string `type:"string"`
-
-	Description *string `type:"string"`
-
-	DisplayName *string `type:"string"`
-
-	UpdateDate *string `type:"string"`
-
-	UserGroupName *string `type:"string"`
-}
-
-// String returns the string representation
-func (s UserGroupForUpdateGroupOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s UserGroupForUpdateGroupOutput) GoString() string {
-	return s.String()
-}
-
-// SetAccountID sets the AccountID field's value.
-func (s *UserGroupForUpdateGroupOutput) SetAccountID(v int32) *UserGroupForUpdateGroupOutput {
-	s.AccountID = &v
-	return s
-}
-
-// SetCreateDate sets the CreateDate field's value.
-func (s *UserGroupForUpdateGroupOutput) SetCreateDate(v string) *UserGroupForUpdateGroupOutput {
-	s.CreateDate = &v
-	return s
-}
-
-// SetDescription sets the Description field's value.
-func (s *UserGroupForUpdateGroupOutput) SetDescription(v string) *UserGroupForUpdateGroupOutput {
-	s.Description = &v
-	return s
-}
-
-// SetDisplayName sets the DisplayName field's value.
-func (s *UserGroupForUpdateGroupOutput) SetDisplayName(v string) *UserGroupForUpdateGroupOutput {
-	s.DisplayName = &v
-	return s
-}
-
-// SetUpdateDate sets the UpdateDate field's value.
-func (s *UserGroupForUpdateGroupOutput) SetUpdateDate(v string) *UserGroupForUpdateGroupOutput {
-	s.UpdateDate = &v
-	return s
-}
-
-// SetUserGroupName sets the UserGroupName field's value.
-func (s *UserGroupForUpdateGroupOutput) SetUserGroupName(v string) *UserGroupForUpdateGroupOutput {
-	s.UserGroupName = &v
-	return s
 }

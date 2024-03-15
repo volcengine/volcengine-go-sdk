@@ -142,9 +142,9 @@ func (c *IAM) ListUsersForGroupWithContext(ctx volcengine.Context, input *ListUs
 type ListUsersForGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	Limit *int64 `type:"integer"`
+	Limit *int32 `type:"int32"`
 
-	Offset *string `type:"string"`
+	Offset *int32 `type:"int32"`
 
 	// UserGroupName is a required field
 	UserGroupName *string `type:"string" required:"true"`
@@ -174,13 +174,13 @@ func (s *ListUsersForGroupInput) Validate() error {
 }
 
 // SetLimit sets the Limit field's value.
-func (s *ListUsersForGroupInput) SetLimit(v int64) *ListUsersForGroupInput {
+func (s *ListUsersForGroupInput) SetLimit(v int32) *ListUsersForGroupInput {
 	s.Limit = &v
 	return s
 }
 
 // SetOffset sets the Offset field's value.
-func (s *ListUsersForGroupInput) SetOffset(v string) *ListUsersForGroupInput {
+func (s *ListUsersForGroupInput) SetOffset(v int32) *ListUsersForGroupInput {
 	s.Offset = &v
 	return s
 }

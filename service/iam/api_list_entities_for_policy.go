@@ -145,9 +145,9 @@ type ListEntitiesForPolicyInput struct {
 	// EntityFilter is a required field
 	EntityFilter *string `type:"string" required:"true"`
 
-	Limit *int64 `type:"integer"`
+	Limit *int32 `type:"int32"`
 
-	Offset *int64 `type:"integer"`
+	Offset *int32 `type:"int32"`
 
 	// PolicyName is a required field
 	PolicyName *string `type:"string" required:"true"`
@@ -192,13 +192,13 @@ func (s *ListEntitiesForPolicyInput) SetEntityFilter(v string) *ListEntitiesForP
 }
 
 // SetLimit sets the Limit field's value.
-func (s *ListEntitiesForPolicyInput) SetLimit(v int64) *ListEntitiesForPolicyInput {
+func (s *ListEntitiesForPolicyInput) SetLimit(v int32) *ListEntitiesForPolicyInput {
 	s.Limit = &v
 	return s
 }
 
 // SetOffset sets the Offset field's value.
-func (s *ListEntitiesForPolicyInput) SetOffset(v int64) *ListEntitiesForPolicyInput {
+func (s *ListEntitiesForPolicyInput) SetOffset(v int32) *ListEntitiesForPolicyInput {
 	s.Offset = &v
 	return s
 }

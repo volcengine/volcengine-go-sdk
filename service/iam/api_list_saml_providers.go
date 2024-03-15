@@ -142,9 +142,9 @@ func (c *IAM) ListSAMLProvidersWithContext(ctx volcengine.Context, input *ListSA
 type ListSAMLProvidersInput struct {
 	_ struct{} `type:"structure"`
 
-	Limit *int64 `type:"integer"`
+	Limit *int32 `max:"100" type:"int32"`
 
-	Offset *int64 `type:"integer"`
+	Offset *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -157,8 +157,21 @@ func (s ListSAMLProvidersInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListSAMLProvidersInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListSAMLProvidersInput"}
+	if s.Limit != nil && *s.Limit > 100 {
+		invalidParams.Add(request.NewErrParamMaxValue("Limit", 100))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetLimit sets the Limit field's value.
-func (s *ListSAMLProvidersInput) SetLimit(v int64) *ListSAMLProvidersInput {
+func (s *ListSAMLProvidersInput) SetLimit(v int32) *ListSAMLProvidersInput {
 	s.Limit = &v
 	return s
 }
@@ -176,7 +189,7 @@ type ListSAMLProvidersOutput struct {
 
 	Limit *int32 `type:"int32"`
 
-	Offset *int32 `type:"int32"`
+	Offset *int64 `type:"int64"`
 
 	SAMLProviders []*SAMLProviderForListSAMLProvidersOutput `type:"list"`
 
@@ -200,7 +213,7 @@ func (s *ListSAMLProvidersOutput) SetLimit(v int32) *ListSAMLProvidersOutput {
 }
 
 // SetOffset sets the Offset field's value.
-func (s *ListSAMLProvidersOutput) SetOffset(v int32) *ListSAMLProvidersOutput {
+func (s *ListSAMLProvidersOutput) SetOffset(v int64) *ListSAMLProvidersOutput {
 	s.Offset = &v
 	return s
 }
@@ -223,6 +236,8 @@ type SAMLProviderForListSAMLProvidersOutput struct {
 	CreateDate *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	ProviderName *string `type:"string"`
 
 	SAMLProviderName *string `type:"string"`
 
@@ -254,6 +269,12 @@ func (s *SAMLProviderForListSAMLProvidersOutput) SetCreateDate(v string) *SAMLPr
 // SetDescription sets the Description field's value.
 func (s *SAMLProviderForListSAMLProvidersOutput) SetDescription(v string) *SAMLProviderForListSAMLProvidersOutput {
 	s.Description = &v
+	return s
+}
+
+// SetProviderName sets the ProviderName field's value.
+func (s *SAMLProviderForListSAMLProvidersOutput) SetProviderName(v string) *SAMLProviderForListSAMLProvidersOutput {
+	s.ProviderName = &v
 	return s
 }
 

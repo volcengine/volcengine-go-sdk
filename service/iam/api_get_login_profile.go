@@ -202,13 +202,27 @@ func (s *GetLoginProfileOutput) SetLoginProfile(v *LoginProfileForGetLoginProfil
 type LoginProfileForGetLoginProfileOutput struct {
 	_ struct{} `type:"structure"`
 
+	CreateDate *string `type:"string"`
+
 	LastLoginDate *string `type:"string"`
 
 	LastLoginIp *string `type:"string"`
 
+	LastResetPasswordTime *int32 `type:"int32"`
+
 	LoginAllowed *bool `type:"boolean"`
 
+	LoginLocked *bool `type:"boolean"`
+
+	PasswordExpireAt *int32 `type:"int32"`
+
 	PasswordResetRequired *bool `type:"boolean"`
+
+	Status *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+
+	UserId *int64 `type:"int64"`
 
 	UserName *string `type:"string"`
 }
@@ -223,6 +237,12 @@ func (s LoginProfileForGetLoginProfileOutput) GoString() string {
 	return s.String()
 }
 
+// SetCreateDate sets the CreateDate field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetCreateDate(v string) *LoginProfileForGetLoginProfileOutput {
+	s.CreateDate = &v
+	return s
+}
+
 // SetLastLoginDate sets the LastLoginDate field's value.
 func (s *LoginProfileForGetLoginProfileOutput) SetLastLoginDate(v string) *LoginProfileForGetLoginProfileOutput {
 	s.LastLoginDate = &v
@@ -235,15 +255,51 @@ func (s *LoginProfileForGetLoginProfileOutput) SetLastLoginIp(v string) *LoginPr
 	return s
 }
 
+// SetLastResetPasswordTime sets the LastResetPasswordTime field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetLastResetPasswordTime(v int32) *LoginProfileForGetLoginProfileOutput {
+	s.LastResetPasswordTime = &v
+	return s
+}
+
 // SetLoginAllowed sets the LoginAllowed field's value.
 func (s *LoginProfileForGetLoginProfileOutput) SetLoginAllowed(v bool) *LoginProfileForGetLoginProfileOutput {
 	s.LoginAllowed = &v
 	return s
 }
 
+// SetLoginLocked sets the LoginLocked field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetLoginLocked(v bool) *LoginProfileForGetLoginProfileOutput {
+	s.LoginLocked = &v
+	return s
+}
+
+// SetPasswordExpireAt sets the PasswordExpireAt field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetPasswordExpireAt(v int32) *LoginProfileForGetLoginProfileOutput {
+	s.PasswordExpireAt = &v
+	return s
+}
+
 // SetPasswordResetRequired sets the PasswordResetRequired field's value.
 func (s *LoginProfileForGetLoginProfileOutput) SetPasswordResetRequired(v bool) *LoginProfileForGetLoginProfileOutput {
 	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetStatus(v string) *LoginProfileForGetLoginProfileOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetUpdateDate(v string) *LoginProfileForGetLoginProfileOutput {
+	s.UpdateDate = &v
+	return s
+}
+
+// SetUserId sets the UserId field's value.
+func (s *LoginProfileForGetLoginProfileOutput) SetUserId(v int64) *LoginProfileForGetLoginProfileOutput {
+	s.UserId = &v
 	return s
 }
 
