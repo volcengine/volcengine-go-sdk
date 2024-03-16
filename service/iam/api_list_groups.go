@@ -142,9 +142,9 @@ func (c *IAM) ListGroupsWithContext(ctx volcengine.Context, input *ListGroupsInp
 type ListGroupsInput struct {
 	_ struct{} `type:"structure"`
 
-	Limit *int64 `type:"integer"`
+	Limit *int32 `type:"int32"`
 
-	Offset *int64 `type:"integer"`
+	Offset *int32 `type:"int32"`
 
 	Query *string `type:"string"`
 }
@@ -160,13 +160,13 @@ func (s ListGroupsInput) GoString() string {
 }
 
 // SetLimit sets the Limit field's value.
-func (s *ListGroupsInput) SetLimit(v int64) *ListGroupsInput {
+func (s *ListGroupsInput) SetLimit(v int32) *ListGroupsInput {
 	s.Limit = &v
 	return s
 }
 
 // SetOffset sets the Offset field's value.
-func (s *ListGroupsInput) SetOffset(v int64) *ListGroupsInput {
+func (s *ListGroupsInput) SetOffset(v int32) *ListGroupsInput {
 	s.Offset = &v
 	return s
 }
@@ -228,7 +228,7 @@ func (s *ListGroupsOutput) SetUserGroups(v []*UserGroupForListGroupsOutput) *Lis
 type UserGroupForListGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountID *int32 `type:"int32"`
+	AccountID *int64 `type:"int64"`
 
 	CreateDate *string `type:"string"`
 
@@ -252,7 +252,7 @@ func (s UserGroupForListGroupsOutput) GoString() string {
 }
 
 // SetAccountID sets the AccountID field's value.
-func (s *UserGroupForListGroupsOutput) SetAccountID(v int32) *UserGroupForListGroupsOutput {
+func (s *UserGroupForListGroupsOutput) SetAccountID(v int64) *UserGroupForListGroupsOutput {
 	s.AccountID = &v
 	return s
 }

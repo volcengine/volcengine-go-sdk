@@ -149,9 +149,7 @@ type UpdateSAMLProviderInput struct {
 	// SAMLProviderName is a required field
 	SAMLProviderName *string `type:"string" required:"true"`
 
-	SSOType *int64 `type:"integer"`
-
-	Status *int64 `type:"integer"`
+	Status *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -195,14 +193,8 @@ func (s *UpdateSAMLProviderInput) SetSAMLProviderName(v string) *UpdateSAMLProvi
 	return s
 }
 
-// SetSSOType sets the SSOType field's value.
-func (s *UpdateSAMLProviderInput) SetSSOType(v int64) *UpdateSAMLProviderInput {
-	s.SSOType = &v
-	return s
-}
-
 // SetStatus sets the Status field's value.
-func (s *UpdateSAMLProviderInput) SetStatus(v int64) *UpdateSAMLProviderInput {
+func (s *UpdateSAMLProviderInput) SetStatus(v int32) *UpdateSAMLProviderInput {
 	s.Status = &v
 	return s
 }

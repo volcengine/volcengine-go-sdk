@@ -142,13 +142,27 @@ func (c *IAM) UpdateLoginProfileWithContext(ctx volcengine.Context, input *Updat
 type LoginProfileForUpdateLoginProfileOutput struct {
 	_ struct{} `type:"structure"`
 
+	CreateDate *string `type:"string"`
+
 	LastLoginDate *string `type:"string"`
 
 	LastLoginIp *string `type:"string"`
 
+	LastResetPasswordTime *int32 `type:"int32"`
+
 	LoginAllowed *bool `type:"boolean"`
 
+	LoginLocked *bool `type:"boolean"`
+
+	PasswordExpireAt *int32 `type:"int32"`
+
 	PasswordResetRequired *bool `type:"boolean"`
+
+	Status *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+
+	UserId *int64 `type:"int64"`
 
 	UserName *string `type:"string"`
 }
@@ -163,6 +177,12 @@ func (s LoginProfileForUpdateLoginProfileOutput) GoString() string {
 	return s.String()
 }
 
+// SetCreateDate sets the CreateDate field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetCreateDate(v string) *LoginProfileForUpdateLoginProfileOutput {
+	s.CreateDate = &v
+	return s
+}
+
 // SetLastLoginDate sets the LastLoginDate field's value.
 func (s *LoginProfileForUpdateLoginProfileOutput) SetLastLoginDate(v string) *LoginProfileForUpdateLoginProfileOutput {
 	s.LastLoginDate = &v
@@ -175,15 +195,51 @@ func (s *LoginProfileForUpdateLoginProfileOutput) SetLastLoginIp(v string) *Logi
 	return s
 }
 
+// SetLastResetPasswordTime sets the LastResetPasswordTime field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetLastResetPasswordTime(v int32) *LoginProfileForUpdateLoginProfileOutput {
+	s.LastResetPasswordTime = &v
+	return s
+}
+
 // SetLoginAllowed sets the LoginAllowed field's value.
 func (s *LoginProfileForUpdateLoginProfileOutput) SetLoginAllowed(v bool) *LoginProfileForUpdateLoginProfileOutput {
 	s.LoginAllowed = &v
 	return s
 }
 
+// SetLoginLocked sets the LoginLocked field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetLoginLocked(v bool) *LoginProfileForUpdateLoginProfileOutput {
+	s.LoginLocked = &v
+	return s
+}
+
+// SetPasswordExpireAt sets the PasswordExpireAt field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetPasswordExpireAt(v int32) *LoginProfileForUpdateLoginProfileOutput {
+	s.PasswordExpireAt = &v
+	return s
+}
+
 // SetPasswordResetRequired sets the PasswordResetRequired field's value.
 func (s *LoginProfileForUpdateLoginProfileOutput) SetPasswordResetRequired(v bool) *LoginProfileForUpdateLoginProfileOutput {
 	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetStatus(v string) *LoginProfileForUpdateLoginProfileOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetUpdateDate(v string) *LoginProfileForUpdateLoginProfileOutput {
+	s.UpdateDate = &v
+	return s
+}
+
+// SetUserId sets the UserId field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetUserId(v int64) *LoginProfileForUpdateLoginProfileOutput {
+	s.UserId = &v
 	return s
 }
 
@@ -201,12 +257,6 @@ type UpdateLoginProfileInput struct {
 	Password *string `type:"string"`
 
 	PasswordResetRequired *bool `type:"boolean"`
-
-	SafeAuthExemptDuration *int64 `type:"integer"`
-
-	SafeAuthFlag *bool `type:"boolean"`
-
-	SafeAuthType *string `type:"string"`
 
 	// UserName is a required field
 	UserName *string `type:"string" required:"true"`
@@ -250,24 +300,6 @@ func (s *UpdateLoginProfileInput) SetPassword(v string) *UpdateLoginProfileInput
 // SetPasswordResetRequired sets the PasswordResetRequired field's value.
 func (s *UpdateLoginProfileInput) SetPasswordResetRequired(v bool) *UpdateLoginProfileInput {
 	s.PasswordResetRequired = &v
-	return s
-}
-
-// SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
-func (s *UpdateLoginProfileInput) SetSafeAuthExemptDuration(v int64) *UpdateLoginProfileInput {
-	s.SafeAuthExemptDuration = &v
-	return s
-}
-
-// SetSafeAuthFlag sets the SafeAuthFlag field's value.
-func (s *UpdateLoginProfileInput) SetSafeAuthFlag(v bool) *UpdateLoginProfileInput {
-	s.SafeAuthFlag = &v
-	return s
-}
-
-// SetSafeAuthType sets the SafeAuthType field's value.
-func (s *UpdateLoginProfileInput) SetSafeAuthType(v string) *UpdateLoginProfileInput {
-	s.SafeAuthType = &v
 	return s
 }
 

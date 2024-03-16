@@ -149,12 +149,6 @@ type CreateLoginProfileInput struct {
 
 	PasswordResetRequired *bool `type:"boolean"`
 
-	SafeAuthExemptDuration *int64 `type:"integer"`
-
-	SafeAuthFlag *bool `type:"boolean"`
-
-	SafeAuthType *string `type:"string"`
-
 	// UserName is a required field
 	UserName *string `type:"string" required:"true"`
 }
@@ -203,24 +197,6 @@ func (s *CreateLoginProfileInput) SetPasswordResetRequired(v bool) *CreateLoginP
 	return s
 }
 
-// SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
-func (s *CreateLoginProfileInput) SetSafeAuthExemptDuration(v int64) *CreateLoginProfileInput {
-	s.SafeAuthExemptDuration = &v
-	return s
-}
-
-// SetSafeAuthFlag sets the SafeAuthFlag field's value.
-func (s *CreateLoginProfileInput) SetSafeAuthFlag(v bool) *CreateLoginProfileInput {
-	s.SafeAuthFlag = &v
-	return s
-}
-
-// SetSafeAuthType sets the SafeAuthType field's value.
-func (s *CreateLoginProfileInput) SetSafeAuthType(v string) *CreateLoginProfileInput {
-	s.SafeAuthType = &v
-	return s
-}
-
 // SetUserName sets the UserName field's value.
 func (s *CreateLoginProfileInput) SetUserName(v string) *CreateLoginProfileInput {
 	s.UserName = &v
@@ -254,13 +230,27 @@ func (s *CreateLoginProfileOutput) SetLoginProfile(v *LoginProfileForCreateLogin
 type LoginProfileForCreateLoginProfileOutput struct {
 	_ struct{} `type:"structure"`
 
+	CreateDate *string `type:"string"`
+
 	LastLoginDate *string `type:"string"`
 
 	LastLoginIp *string `type:"string"`
 
+	LastResetPasswordTime *int32 `type:"int32"`
+
 	LoginAllowed *bool `type:"boolean"`
 
+	LoginLocked *bool `type:"boolean"`
+
+	PasswordExpireAt *int32 `type:"int32"`
+
 	PasswordResetRequired *bool `type:"boolean"`
+
+	Status *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
+
+	UserId *int64 `type:"int64"`
 
 	UserName *string `type:"string"`
 }
@@ -275,6 +265,12 @@ func (s LoginProfileForCreateLoginProfileOutput) GoString() string {
 	return s.String()
 }
 
+// SetCreateDate sets the CreateDate field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetCreateDate(v string) *LoginProfileForCreateLoginProfileOutput {
+	s.CreateDate = &v
+	return s
+}
+
 // SetLastLoginDate sets the LastLoginDate field's value.
 func (s *LoginProfileForCreateLoginProfileOutput) SetLastLoginDate(v string) *LoginProfileForCreateLoginProfileOutput {
 	s.LastLoginDate = &v
@@ -287,15 +283,51 @@ func (s *LoginProfileForCreateLoginProfileOutput) SetLastLoginIp(v string) *Logi
 	return s
 }
 
+// SetLastResetPasswordTime sets the LastResetPasswordTime field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetLastResetPasswordTime(v int32) *LoginProfileForCreateLoginProfileOutput {
+	s.LastResetPasswordTime = &v
+	return s
+}
+
 // SetLoginAllowed sets the LoginAllowed field's value.
 func (s *LoginProfileForCreateLoginProfileOutput) SetLoginAllowed(v bool) *LoginProfileForCreateLoginProfileOutput {
 	s.LoginAllowed = &v
 	return s
 }
 
+// SetLoginLocked sets the LoginLocked field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetLoginLocked(v bool) *LoginProfileForCreateLoginProfileOutput {
+	s.LoginLocked = &v
+	return s
+}
+
+// SetPasswordExpireAt sets the PasswordExpireAt field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetPasswordExpireAt(v int32) *LoginProfileForCreateLoginProfileOutput {
+	s.PasswordExpireAt = &v
+	return s
+}
+
 // SetPasswordResetRequired sets the PasswordResetRequired field's value.
 func (s *LoginProfileForCreateLoginProfileOutput) SetPasswordResetRequired(v bool) *LoginProfileForCreateLoginProfileOutput {
 	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetStatus(v string) *LoginProfileForCreateLoginProfileOutput {
+	s.Status = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetUpdateDate(v string) *LoginProfileForCreateLoginProfileOutput {
+	s.UpdateDate = &v
+	return s
+}
+
+// SetUserId sets the UserId field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetUserId(v int64) *LoginProfileForCreateLoginProfileOutput {
+	s.UserId = &v
 	return s
 }
 
