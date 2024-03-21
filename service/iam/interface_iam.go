@@ -62,6 +62,14 @@ type IAMAPI interface {
 	AttachUserPolicyWithContext(volcengine.Context, *AttachUserPolicyInput, ...request.Option) (*AttachUserPolicyOutput, error)
 	AttachUserPolicyRequest(*AttachUserPolicyInput) (*request.Request, *AttachUserPolicyOutput)
 
+	ChangeSecureContactInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ChangeSecureContactInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ChangeSecureContactInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ChangeSecureContactInfo(*ChangeSecureContactInfoInput) (*ChangeSecureContactInfoOutput, error)
+	ChangeSecureContactInfoWithContext(volcengine.Context, *ChangeSecureContactInfoInput, ...request.Option) (*ChangeSecureContactInfoOutput, error)
+	ChangeSecureContactInfoRequest(*ChangeSecureContactInfoInput) (*request.Request, *ChangeSecureContactInfoOutput)
+
 	CreateAccessKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAccessKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAccessKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -85,6 +93,14 @@ type IAMAPI interface {
 	CreateLoginProfile(*CreateLoginProfileInput) (*CreateLoginProfileOutput, error)
 	CreateLoginProfileWithContext(volcengine.Context, *CreateLoginProfileInput, ...request.Option) (*CreateLoginProfileOutput, error)
 	CreateLoginProfileRequest(*CreateLoginProfileInput) (*request.Request, *CreateLoginProfileOutput)
+
+	CreateOAuthProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateOAuthProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateOAuthProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateOAuthProvider(*CreateOAuthProviderInput) (*CreateOAuthProviderOutput, error)
+	CreateOAuthProviderWithContext(volcengine.Context, *CreateOAuthProviderInput, ...request.Option) (*CreateOAuthProviderOutput, error)
+	CreateOAuthProviderRequest(*CreateOAuthProviderInput) (*request.Request, *CreateOAuthProviderOutput)
 
 	CreatePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreatePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -150,6 +166,14 @@ type IAMAPI interface {
 	DeleteLoginProfileWithContext(volcengine.Context, *DeleteLoginProfileInput, ...request.Option) (*DeleteLoginProfileOutput, error)
 	DeleteLoginProfileRequest(*DeleteLoginProfileInput) (*request.Request, *DeleteLoginProfileOutput)
 
+	DeleteOAuthProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteOAuthProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteOAuthProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteOAuthProvider(*DeleteOAuthProviderInput) (*DeleteOAuthProviderOutput, error)
+	DeleteOAuthProviderWithContext(volcengine.Context, *DeleteOAuthProviderInput, ...request.Option) (*DeleteOAuthProviderOutput, error)
+	DeleteOAuthProviderRequest(*DeleteOAuthProviderInput) (*request.Request, *DeleteOAuthProviderOutput)
+
 	DeletePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeletePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeletePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -173,6 +197,14 @@ type IAMAPI interface {
 	DeleteSAMLProvider(*DeleteSAMLProviderInput) (*DeleteSAMLProviderOutput, error)
 	DeleteSAMLProviderWithContext(volcengine.Context, *DeleteSAMLProviderInput, ...request.Option) (*DeleteSAMLProviderOutput, error)
 	DeleteSAMLProviderRequest(*DeleteSAMLProviderInput) (*request.Request, *DeleteSAMLProviderOutput)
+
+	DeleteServiceLinkedRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteServiceLinkedRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteServiceLinkedRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteServiceLinkedRole(*DeleteServiceLinkedRoleInput) (*DeleteServiceLinkedRoleOutput, error)
+	DeleteServiceLinkedRoleWithContext(volcengine.Context, *DeleteServiceLinkedRoleInput, ...request.Option) (*DeleteServiceLinkedRoleOutput, error)
+	DeleteServiceLinkedRoleRequest(*DeleteServiceLinkedRoleInput) (*request.Request, *DeleteServiceLinkedRoleOutput)
 
 	DeleteUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -222,6 +254,14 @@ type IAMAPI interface {
 	GetLoginProfileWithContext(volcengine.Context, *GetLoginProfileInput, ...request.Option) (*GetLoginProfileOutput, error)
 	GetLoginProfileRequest(*GetLoginProfileInput) (*request.Request, *GetLoginProfileOutput)
 
+	GetOAuthProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetOAuthProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetOAuthProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetOAuthProvider(*GetOAuthProviderInput) (*GetOAuthProviderOutput, error)
+	GetOAuthProviderWithContext(volcengine.Context, *GetOAuthProviderInput, ...request.Option) (*GetOAuthProviderOutput, error)
+	GetOAuthProviderRequest(*GetOAuthProviderInput) (*request.Request, *GetOAuthProviderOutput)
+
 	GetPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -245,6 +285,22 @@ type IAMAPI interface {
 	GetSAMLProvider(*GetSAMLProviderInput) (*GetSAMLProviderOutput, error)
 	GetSAMLProviderWithContext(volcengine.Context, *GetSAMLProviderInput, ...request.Option) (*GetSAMLProviderOutput, error)
 	GetSAMLProviderRequest(*GetSAMLProviderInput) (*request.Request, *GetSAMLProviderOutput)
+
+	GetSecurityConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSecurityConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSecurityConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSecurityConfig(*GetSecurityConfigInput) (*GetSecurityConfigOutput, error)
+	GetSecurityConfigWithContext(volcengine.Context, *GetSecurityConfigInput, ...request.Option) (*GetSecurityConfigOutput, error)
+	GetSecurityConfigRequest(*GetSecurityConfigInput) (*request.Request, *GetSecurityConfigOutput)
+
+	GetSecurityContactCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSecurityContactCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSecurityContactCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSecurityContact(*GetSecurityContactInput) (*GetSecurityContactOutput, error)
+	GetSecurityContactWithContext(volcengine.Context, *GetSecurityContactInput, ...request.Option) (*GetSecurityContactOutput, error)
+	GetSecurityContactRequest(*GetSecurityContactInput) (*request.Request, *GetSecurityContactOutput)
 
 	GetUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -310,6 +366,14 @@ type IAMAPI interface {
 	ListGroupsForUserWithContext(volcengine.Context, *ListGroupsForUserInput, ...request.Option) (*ListGroupsForUserOutput, error)
 	ListGroupsForUserRequest(*ListGroupsForUserInput) (*request.Request, *ListGroupsForUserOutput)
 
+	ListIdentityProvidersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListIdentityProvidersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListIdentityProvidersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListIdentityProviders(*ListIdentityProvidersInput) (*ListIdentityProvidersOutput, error)
+	ListIdentityProvidersWithContext(volcengine.Context, *ListIdentityProvidersInput, ...request.Option) (*ListIdentityProvidersOutput, error)
+	ListIdentityProvidersRequest(*ListIdentityProvidersInput) (*request.Request, *ListIdentityProvidersOutput)
+
 	ListPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -358,6 +422,22 @@ type IAMAPI interface {
 	RemoveUserFromGroupWithContext(volcengine.Context, *RemoveUserFromGroupInput, ...request.Option) (*RemoveUserFromGroupOutput, error)
 	RemoveUserFromGroupRequest(*RemoveUserFromGroupInput) (*request.Request, *RemoveUserFromGroupOutput)
 
+	SendCodeForChangeSecureContactInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SendCodeForChangeSecureContactInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SendCodeForChangeSecureContactInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SendCodeForChangeSecureContactInfo(*SendCodeForChangeSecureContactInfoInput) (*SendCodeForChangeSecureContactInfoOutput, error)
+	SendCodeForChangeSecureContactInfoWithContext(volcengine.Context, *SendCodeForChangeSecureContactInfoInput, ...request.Option) (*SendCodeForChangeSecureContactInfoOutput, error)
+	SendCodeForChangeSecureContactInfoRequest(*SendCodeForChangeSecureContactInfoInput) (*request.Request, *SendCodeForChangeSecureContactInfoOutput)
+
+	SetSecurityConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetSecurityConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetSecurityConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetSecurityConfig(*SetSecurityConfigInput) (*SetSecurityConfigOutput, error)
+	SetSecurityConfigWithContext(volcengine.Context, *SetSecurityConfigInput, ...request.Option) (*SetSecurityConfigOutput, error)
+	SetSecurityConfigRequest(*SetSecurityConfigInput) (*request.Request, *SetSecurityConfigOutput)
+
 	UpdateAccessKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateAccessKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateAccessKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -382,6 +462,14 @@ type IAMAPI interface {
 	UpdateLoginProfileWithContext(volcengine.Context, *UpdateLoginProfileInput, ...request.Option) (*UpdateLoginProfileOutput, error)
 	UpdateLoginProfileRequest(*UpdateLoginProfileInput) (*request.Request, *UpdateLoginProfileOutput)
 
+	UpdateOAuthProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateOAuthProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateOAuthProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateOAuthProvider(*UpdateOAuthProviderInput) (*UpdateOAuthProviderOutput, error)
+	UpdateOAuthProviderWithContext(volcengine.Context, *UpdateOAuthProviderInput, ...request.Option) (*UpdateOAuthProviderOutput, error)
+	UpdateOAuthProviderRequest(*UpdateOAuthProviderInput) (*request.Request, *UpdateOAuthProviderOutput)
+
 	UpdatePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdatePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdatePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -405,6 +493,14 @@ type IAMAPI interface {
 	UpdateSAMLProvider(*UpdateSAMLProviderInput) (*UpdateSAMLProviderOutput, error)
 	UpdateSAMLProviderWithContext(volcengine.Context, *UpdateSAMLProviderInput, ...request.Option) (*UpdateSAMLProviderOutput, error)
 	UpdateSAMLProviderRequest(*UpdateSAMLProviderInput) (*request.Request, *UpdateSAMLProviderOutput)
+
+	UpdateSecureContactInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateSecureContactInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateSecureContactInfoCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateSecureContactInfo(*UpdateSecureContactInfoInput) (*UpdateSecureContactInfoOutput, error)
+	UpdateSecureContactInfoWithContext(volcengine.Context, *UpdateSecureContactInfoInput, ...request.Option) (*UpdateSecureContactInfoOutput, error)
+	UpdateSecureContactInfoRequest(*UpdateSecureContactInfoInput) (*request.Request, *UpdateSecureContactInfoOutput)
 
 	UpdateUserCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateUserCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

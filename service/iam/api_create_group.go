@@ -142,12 +142,12 @@ func (c *IAM) CreateGroupWithContext(ctx volcengine.Context, input *CreateGroupI
 type CreateGroupInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `max:"128" type:"string"`
 
-	DisplayName *string `type:"string"`
+	DisplayName *string `max:"64" type:"string"`
 
 	// UserGroupName is a required field
-	UserGroupName *string `type:"string" required:"true"`
+	UserGroupName *string `max:"64" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,8 +163,17 @@ func (s CreateGroupInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateGroupInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateGroupInput"}
+	if s.Description != nil && len(*s.Description) > 128 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 128, *s.Description))
+	}
+	if s.DisplayName != nil && len(*s.DisplayName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("DisplayName", 64, *s.DisplayName))
+	}
 	if s.UserGroupName == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserGroupName"))
+	}
+	if s.UserGroupName != nil && len(*s.UserGroupName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("UserGroupName", 64, *s.UserGroupName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -218,7 +227,7 @@ func (s *CreateGroupOutput) SetUserGroup(v *UserGroupForCreateGroupOutput) *Crea
 type UserGroupForCreateGroupOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountID *int32 `type:"int32"`
+	AccountID *int64 `type:"int64"`
 
 	CreateDate *string `type:"string"`
 
@@ -242,7 +251,7 @@ func (s UserGroupForCreateGroupOutput) GoString() string {
 }
 
 // SetAccountID sets the AccountID field's value.
-func (s *UserGroupForCreateGroupOutput) SetAccountID(v int32) *UserGroupForCreateGroupOutput {
+func (s *UserGroupForCreateGroupOutput) SetAccountID(v int64) *UserGroupForCreateGroupOutput {
 	s.AccountID = &v
 	return s
 }

@@ -142,9 +142,9 @@ func (c *IAM) ListUsersWithContext(ctx volcengine.Context, input *ListUsersInput
 type ListUsersInput struct {
 	_ struct{} `type:"structure"`
 
-	Limit *int64 `type:"integer"`
+	Limit *int32 `type:"int32"`
 
-	Offset *string `type:"string"`
+	Offset *int32 `type:"int32"`
 
 	Query *string `type:"string"`
 }
@@ -160,13 +160,13 @@ func (s ListUsersInput) GoString() string {
 }
 
 // SetLimit sets the Limit field's value.
-func (s *ListUsersInput) SetLimit(v int64) *ListUsersInput {
+func (s *ListUsersInput) SetLimit(v int32) *ListUsersInput {
 	s.Limit = &v
 	return s
 }
 
 // SetOffset sets the Offset field's value.
-func (s *ListUsersInput) SetOffset(v string) *ListUsersInput {
+func (s *ListUsersInput) SetOffset(v int32) *ListUsersInput {
 	s.Offset = &v
 	return s
 }

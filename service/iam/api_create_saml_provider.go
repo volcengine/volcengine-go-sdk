@@ -142,7 +142,7 @@ func (c *IAM) CreateSAMLProviderWithContext(ctx volcengine.Context, input *Creat
 type CreateSAMLProviderInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `max:"256" type:"string"`
 
 	// EncodedSAMLMetadataDocument is a required field
 	EncodedSAMLMetadataDocument *string `type:"string" required:"true"`
@@ -151,9 +151,9 @@ type CreateSAMLProviderInput struct {
 	SAMLProviderName *string `type:"string" required:"true"`
 
 	// SSOType is a required field
-	SSOType *int64 `type:"integer" required:"true"`
+	SSOType *int32 `type:"int32" required:"true"`
 
-	Status *int64 `type:"integer"`
+	Status *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -169,6 +169,9 @@ func (s CreateSAMLProviderInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateSAMLProviderInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateSAMLProviderInput"}
+	if s.Description != nil && len(*s.Description) > 256 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 256, *s.Description))
+	}
 	if s.EncodedSAMLMetadataDocument == nil {
 		invalidParams.Add(request.NewErrParamRequired("EncodedSAMLMetadataDocument"))
 	}
@@ -204,13 +207,13 @@ func (s *CreateSAMLProviderInput) SetSAMLProviderName(v string) *CreateSAMLProvi
 }
 
 // SetSSOType sets the SSOType field's value.
-func (s *CreateSAMLProviderInput) SetSSOType(v int64) *CreateSAMLProviderInput {
+func (s *CreateSAMLProviderInput) SetSSOType(v int32) *CreateSAMLProviderInput {
 	s.SSOType = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *CreateSAMLProviderInput) SetStatus(v int64) *CreateSAMLProviderInput {
+func (s *CreateSAMLProviderInput) SetStatus(v int32) *CreateSAMLProviderInput {
 	s.Status = &v
 	return s
 }

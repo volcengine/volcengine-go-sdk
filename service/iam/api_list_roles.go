@@ -142,9 +142,9 @@ func (c *IAM) ListRolesWithContext(ctx volcengine.Context, input *ListRolesInput
 type ListRolesInput struct {
 	_ struct{} `type:"structure"`
 
-	Limit *int64 `type:"integer"`
+	Limit *int32 `type:"int32"`
 
-	Offset *int64 `type:"integer"`
+	Offset *int32 `type:"int32"`
 
 	Query *string `type:"string"`
 }
@@ -160,13 +160,13 @@ func (s ListRolesInput) GoString() string {
 }
 
 // SetLimit sets the Limit field's value.
-func (s *ListRolesInput) SetLimit(v int64) *ListRolesInput {
+func (s *ListRolesInput) SetLimit(v int32) *ListRolesInput {
 	s.Limit = &v
 	return s
 }
 
 // SetOffset sets the Offset field's value.
-func (s *ListRolesInput) SetOffset(v int64) *ListRolesInput {
+func (s *ListRolesInput) SetOffset(v int32) *ListRolesInput {
 	s.Offset = &v
 	return s
 }

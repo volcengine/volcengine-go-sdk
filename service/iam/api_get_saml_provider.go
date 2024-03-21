@@ -180,11 +180,15 @@ type GetSAMLProviderOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	CertificateExpireTime *string `type:"string"`
+
 	CreateDate *string `type:"string"`
 
 	Description *string `type:"string"`
 
-	SAMLProviderName *string `type:"string"`
+	EncodedSAMLMetadataDocument *string `type:"string"`
+
+	ProviderName *string `type:"string"`
 
 	SSOType *int32 `type:"int32"`
 
@@ -205,6 +209,12 @@ func (s GetSAMLProviderOutput) GoString() string {
 	return s.String()
 }
 
+// SetCertificateExpireTime sets the CertificateExpireTime field's value.
+func (s *GetSAMLProviderOutput) SetCertificateExpireTime(v string) *GetSAMLProviderOutput {
+	s.CertificateExpireTime = &v
+	return s
+}
+
 // SetCreateDate sets the CreateDate field's value.
 func (s *GetSAMLProviderOutput) SetCreateDate(v string) *GetSAMLProviderOutput {
 	s.CreateDate = &v
@@ -217,9 +227,15 @@ func (s *GetSAMLProviderOutput) SetDescription(v string) *GetSAMLProviderOutput 
 	return s
 }
 
-// SetSAMLProviderName sets the SAMLProviderName field's value.
-func (s *GetSAMLProviderOutput) SetSAMLProviderName(v string) *GetSAMLProviderOutput {
-	s.SAMLProviderName = &v
+// SetEncodedSAMLMetadataDocument sets the EncodedSAMLMetadataDocument field's value.
+func (s *GetSAMLProviderOutput) SetEncodedSAMLMetadataDocument(v string) *GetSAMLProviderOutput {
+	s.EncodedSAMLMetadataDocument = &v
+	return s
+}
+
+// SetProviderName sets the ProviderName field's value.
+func (s *GetSAMLProviderOutput) SetProviderName(v string) *GetSAMLProviderOutput {
+	s.ProviderName = &v
 	return s
 }
 
