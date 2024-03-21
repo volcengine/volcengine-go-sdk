@@ -161,6 +161,8 @@ type DescribeSlowLogsInput struct {
 	QueryEndTime *string `type:"string"`
 
 	QueryStartTime *string `type:"string"`
+
+	SlowLogType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -228,6 +230,12 @@ func (s *DescribeSlowLogsInput) SetQueryEndTime(v string) *DescribeSlowLogsInput
 // SetQueryStartTime sets the QueryStartTime field's value.
 func (s *DescribeSlowLogsInput) SetQueryStartTime(v string) *DescribeSlowLogsInput {
 	s.QueryStartTime = &v
+	return s
+}
+
+// SetSlowLogType sets the SlowLogType field's value.
+func (s *DescribeSlowLogsInput) SetSlowLogType(v string) *DescribeSlowLogsInput {
+	s.SlowLogType = &v
 	return s
 }
 
