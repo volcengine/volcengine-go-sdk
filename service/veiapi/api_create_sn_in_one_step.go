@@ -149,7 +149,7 @@ type CreateSNInOneStepInput struct {
 	Auto_renew *bool `type:"boolean" json:"auto_renew"`
 
 	// Count_of_month is a required field
-	Count_of_month *string `type:"string" json:"count_of_month" required:"true"`
+	Count_of_month *int32 `type:"int32" json:"count_of_month" required:"true"`
 
 	// Type is a required field
 	Type *int32 `type:"int32" json:"type" required:"true"`
@@ -188,7 +188,7 @@ func (s *CreateSNInOneStepInput) SetAuto_renew(v bool) *CreateSNInOneStepInput {
 }
 
 // SetCount_of_month sets the Count_of_month field's value.
-func (s *CreateSNInOneStepInput) SetCount_of_month(v string) *CreateSNInOneStepInput {
+func (s *CreateSNInOneStepInput) SetCount_of_month(v int32) *CreateSNInOneStepInput {
 	s.Count_of_month = &v
 	return s
 }
