@@ -22,13 +22,13 @@ const opModifyDBInstanceShardNumberCommon = "ModifyDBInstanceShardNumber"
 // See ModifyDBInstanceShardNumberCommon for more information on using the ModifyDBInstanceShardNumberCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBInstanceShardNumberCommonRequest method.
-//    req, resp := client.ModifyDBInstanceShardNumberCommonRequest(params)
+//	// Example sending a request using the ModifyDBInstanceShardNumberCommonRequest method.
+//	req, resp := client.ModifyDBInstanceShardNumberCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) ModifyDBInstanceShardNumberCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceShardNumberCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceShardNumber = "ModifyDBInstanceShardNumber"
 // See ModifyDBInstanceShardNumber for more information on using the ModifyDBInstanceShardNumber
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBInstanceShardNumberRequest method.
-//    req, resp := client.ModifyDBInstanceShardNumberRequest(params)
+//	// Example sending a request using the ModifyDBInstanceShardNumberRequest method.
+//	req, resp := client.ModifyDBInstanceShardNumberRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) ModifyDBInstanceShardNumberRequest(input *ModifyDBInstanceShardNumberInput) (req *request.Request, output *ModifyDBInstanceShardNumberOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceShardNumber,
@@ -149,6 +149,8 @@ type ModifyDBInstanceShardNumberInput struct {
 	// ApplyImmediately is a required field
 	ApplyImmediately *bool `type:"boolean" required:"true"`
 
+	BackupPointName *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	CreateBackup *bool `type:"boolean"`
@@ -192,6 +194,12 @@ func (s *ModifyDBInstanceShardNumberInput) Validate() error {
 // SetApplyImmediately sets the ApplyImmediately field's value.
 func (s *ModifyDBInstanceShardNumberInput) SetApplyImmediately(v bool) *ModifyDBInstanceShardNumberInput {
 	s.ApplyImmediately = &v
+	return s
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *ModifyDBInstanceShardNumberInput) SetBackupPointName(v string) *ModifyDBInstanceShardNumberInput {
+	s.BackupPointName = &v
 	return s
 }
 

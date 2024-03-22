@@ -22,13 +22,13 @@ const opRestoreDBInstanceCommon = "RestoreDBInstance"
 // See RestoreDBInstanceCommon for more information on using the RestoreDBInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RestoreDBInstanceCommonRequest method.
-//    req, resp := client.RestoreDBInstanceCommonRequest(params)
+//	// Example sending a request using the RestoreDBInstanceCommonRequest method.
+//	req, resp := client.RestoreDBInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) RestoreDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestoreDBInstanceCommon,
@@ -89,13 +89,13 @@ const opRestoreDBInstance = "RestoreDBInstance"
 // See RestoreDBInstance for more information on using the RestoreDBInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the RestoreDBInstanceRequest method.
-//    req, resp := client.RestoreDBInstanceRequest(params)
+//	// Example sending a request using the RestoreDBInstanceRequest method.
+//	req, resp := client.RestoreDBInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) RestoreDBInstanceRequest(input *RestoreDBInstanceInput) (req *request.Request, output *RestoreDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRestoreDBInstance,
@@ -146,6 +146,8 @@ func (c *REDIS) RestoreDBInstanceWithContext(ctx volcengine.Context, input *Rest
 type RestoreDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	BackupPointId *string `type:"string"`
+
 	BackupType *string `type:"string"`
 
 	ClientToken *string `type:"string"`
@@ -153,8 +155,7 @@ type RestoreDBInstanceInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	// TimePoint is a required field
-	TimePoint *string `type:"string" required:"true"`
+	TimePoint *string `type:"string"`
 }
 
 // String returns the string representation
@@ -173,14 +174,17 @@ func (s *RestoreDBInstanceInput) Validate() error {
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
-	if s.TimePoint == nil {
-		invalidParams.Add(request.NewErrParamRequired("TimePoint"))
-	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBackupPointId sets the BackupPointId field's value.
+func (s *RestoreDBInstanceInput) SetBackupPointId(v string) *RestoreDBInstanceInput {
+	s.BackupPointId = &v
+	return s
 }
 
 // SetBackupType sets the BackupType field's value.

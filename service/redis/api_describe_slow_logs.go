@@ -22,13 +22,13 @@ const opDescribeSlowLogsCommon = "DescribeSlowLogs"
 // See DescribeSlowLogsCommon for more information on using the DescribeSlowLogsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSlowLogsCommonRequest method.
-//    req, resp := client.DescribeSlowLogsCommonRequest(params)
+//	// Example sending a request using the DescribeSlowLogsCommonRequest method.
+//	req, resp := client.DescribeSlowLogsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) DescribeSlowLogsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeSlowLogsCommon,
@@ -89,13 +89,13 @@ const opDescribeSlowLogs = "DescribeSlowLogs"
 // See DescribeSlowLogs for more information on using the DescribeSlowLogs
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeSlowLogsRequest method.
-//    req, resp := client.DescribeSlowLogsRequest(params)
+//	// Example sending a request using the DescribeSlowLogsRequest method.
+//	req, resp := client.DescribeSlowLogsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) DescribeSlowLogsRequest(input *DescribeSlowLogsInput) (req *request.Request, output *DescribeSlowLogsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeSlowLogs,
@@ -161,6 +161,8 @@ type DescribeSlowLogsInput struct {
 	QueryEndTime *string `type:"string"`
 
 	QueryStartTime *string `type:"string"`
+
+	SlowLogType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -228,6 +230,12 @@ func (s *DescribeSlowLogsInput) SetQueryEndTime(v string) *DescribeSlowLogsInput
 // SetQueryStartTime sets the QueryStartTime field's value.
 func (s *DescribeSlowLogsInput) SetQueryStartTime(v string) *DescribeSlowLogsInput {
 	s.QueryStartTime = &v
+	return s
+}
+
+// SetSlowLogType sets the SlowLogType field's value.
+func (s *DescribeSlowLogsInput) SetSlowLogType(v string) *DescribeSlowLogsInput {
+	s.SlowLogType = &v
 	return s
 }
 

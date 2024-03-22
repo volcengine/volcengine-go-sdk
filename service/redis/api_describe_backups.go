@@ -22,13 +22,13 @@ const opDescribeBackupsCommon = "DescribeBackups"
 // See DescribeBackupsCommon for more information on using the DescribeBackupsCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeBackupsCommonRequest method.
-//    req, resp := client.DescribeBackupsCommonRequest(params)
+//	// Example sending a request using the DescribeBackupsCommonRequest method.
+//	req, resp := client.DescribeBackupsCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) DescribeBackupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeBackupsCommon,
@@ -89,13 +89,13 @@ const opDescribeBackups = "DescribeBackups"
 // See DescribeBackups for more information on using the DescribeBackups
 // API call, and error handling.
 //
-//    // Example sending a request using the DescribeBackupsRequest method.
-//    req, resp := client.DescribeBackupsRequest(params)
+//	// Example sending a request using the DescribeBackupsRequest method.
+//	req, resp := client.DescribeBackupsRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) DescribeBackupsRequest(input *DescribeBackupsInput) (req *request.Request, output *DescribeBackupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeBackups,
@@ -148,6 +148,8 @@ type BackupForDescribeBackupsOutput struct {
 
 	BackupPointId *string `type:"string"`
 
+	BackupPointName *string `type:"string"`
+
 	BackupStrategy *string `type:"string" enum:"EnumOfBackupStrategyForDescribeBackupsOutput"`
 
 	BackupType *string `type:"string" enum:"EnumOfBackupTypeForDescribeBackupsOutput"`
@@ -158,11 +160,15 @@ type BackupForDescribeBackupsOutput struct {
 
 	InstanceId *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Size *int64 `type:"int64"`
 
 	StartTime *string `type:"string"`
 
 	Status *string `type:"string" enum:"EnumOfStatusForDescribeBackupsOutput"`
+
+	TTL *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -178,6 +184,12 @@ func (s BackupForDescribeBackupsOutput) GoString() string {
 // SetBackupPointId sets the BackupPointId field's value.
 func (s *BackupForDescribeBackupsOutput) SetBackupPointId(v string) *BackupForDescribeBackupsOutput {
 	s.BackupPointId = &v
+	return s
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *BackupForDescribeBackupsOutput) SetBackupPointName(v string) *BackupForDescribeBackupsOutput {
+	s.BackupPointName = &v
 	return s
 }
 
@@ -211,6 +223,12 @@ func (s *BackupForDescribeBackupsOutput) SetInstanceId(v string) *BackupForDescr
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *BackupForDescribeBackupsOutput) SetProjectName(v string) *BackupForDescribeBackupsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSize sets the Size field's value.
 func (s *BackupForDescribeBackupsOutput) SetSize(v int64) *BackupForDescribeBackupsOutput {
 	s.Size = &v
@@ -229,19 +247,30 @@ func (s *BackupForDescribeBackupsOutput) SetStatus(v string) *BackupForDescribeB
 	return s
 }
 
+// SetTTL sets the TTL field's value.
+func (s *BackupForDescribeBackupsOutput) SetTTL(v int32) *BackupForDescribeBackupsOutput {
+	s.TTL = &v
+	return s
+}
+
 type DescribeBackupsInput struct {
 	_ struct{} `type:"structure"`
+
+	BackupPointName *string `type:"string"`
 
 	BackupStrategyList []*string `type:"list"`
 
 	EndTime *string `type:"string"`
 
-	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string"`
 
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
+
+	ProjectName *string `type:"string"`
+
+	Scope *string `type:"string" enum:"EnumOfScopeForDescribeBackupsInput"`
 
 	StartTime *string `type:"string"`
 }
@@ -256,17 +285,10 @@ func (s DescribeBackupsInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeBackupsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeBackupsInput"}
-	if s.InstanceId == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *DescribeBackupsInput) SetBackupPointName(v string) *DescribeBackupsInput {
+	s.BackupPointName = &v
+	return s
 }
 
 // SetBackupStrategyList sets the BackupStrategyList field's value.
@@ -296,6 +318,18 @@ func (s *DescribeBackupsInput) SetPageNumber(v int32) *DescribeBackupsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeBackupsInput) SetPageSize(v int32) *DescribeBackupsInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeBackupsInput) SetProjectName(v string) *DescribeBackupsInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetScope sets the Scope field's value.
+func (s *DescribeBackupsInput) SetScope(v string) *DescribeBackupsInput {
+	s.Scope = &v
 	return s
 }
 
@@ -551,6 +585,14 @@ const (
 
 	// EnumOfBackupTypeForDescribeBackupsOutputAll is a EnumOfBackupTypeForDescribeBackupsOutput enum value
 	EnumOfBackupTypeForDescribeBackupsOutputAll = "All"
+)
+
+const (
+	// EnumOfScopeForDescribeBackupsInputOneInstance is a EnumOfScopeForDescribeBackupsInput enum value
+	EnumOfScopeForDescribeBackupsInputOneInstance = "OneInstance"
+
+	// EnumOfScopeForDescribeBackupsInputAccountInstances is a EnumOfScopeForDescribeBackupsInput enum value
+	EnumOfScopeForDescribeBackupsInputAccountInstances = "AccountInstances"
 )
 
 const (

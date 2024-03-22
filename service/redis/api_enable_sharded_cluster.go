@@ -22,13 +22,13 @@ const opEnableShardedClusterCommon = "EnableShardedCluster"
 // See EnableShardedClusterCommon for more information on using the EnableShardedClusterCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the EnableShardedClusterCommonRequest method.
-//    req, resp := client.EnableShardedClusterCommonRequest(params)
+//	// Example sending a request using the EnableShardedClusterCommonRequest method.
+//	req, resp := client.EnableShardedClusterCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) EnableShardedClusterCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opEnableShardedClusterCommon,
@@ -89,13 +89,13 @@ const opEnableShardedCluster = "EnableShardedCluster"
 // See EnableShardedCluster for more information on using the EnableShardedCluster
 // API call, and error handling.
 //
-//    // Example sending a request using the EnableShardedClusterRequest method.
-//    req, resp := client.EnableShardedClusterRequest(params)
+//	// Example sending a request using the EnableShardedClusterRequest method.
+//	req, resp := client.EnableShardedClusterRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) EnableShardedClusterRequest(input *EnableShardedClusterInput) (req *request.Request, output *EnableShardedClusterOutput) {
 	op := &request.Operation{
 		Name:       opEnableShardedCluster,
@@ -149,6 +149,8 @@ type EnableShardedClusterInput struct {
 	// ApplyImmediately is a required field
 	ApplyImmediately *bool `type:"boolean" required:"true"`
 
+	BackupPointName *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	CreateBackup *bool `type:"boolean"`
@@ -198,6 +200,12 @@ func (s *EnableShardedClusterInput) Validate() error {
 // SetApplyImmediately sets the ApplyImmediately field's value.
 func (s *EnableShardedClusterInput) SetApplyImmediately(v bool) *EnableShardedClusterInput {
 	s.ApplyImmediately = &v
+	return s
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *EnableShardedClusterInput) SetBackupPointName(v string) *EnableShardedClusterInput {
+	s.BackupPointName = &v
 	return s
 }
 

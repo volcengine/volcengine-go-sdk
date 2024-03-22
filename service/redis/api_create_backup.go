@@ -22,13 +22,13 @@ const opCreateBackupCommon = "CreateBackup"
 // See CreateBackupCommon for more information on using the CreateBackupCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateBackupCommonRequest method.
-//    req, resp := client.CreateBackupCommonRequest(params)
+//	// Example sending a request using the CreateBackupCommonRequest method.
+//	req, resp := client.CreateBackupCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) CreateBackupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateBackupCommon,
@@ -89,13 +89,13 @@ const opCreateBackup = "CreateBackup"
 // See CreateBackup for more information on using the CreateBackup
 // API call, and error handling.
 //
-//    // Example sending a request using the CreateBackupRequest method.
-//    req, resp := client.CreateBackupRequest(params)
+//	// Example sending a request using the CreateBackupRequest method.
+//	req, resp := client.CreateBackupRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) CreateBackupRequest(input *CreateBackupInput) (req *request.Request, output *CreateBackupOutput) {
 	op := &request.Operation{
 		Name:       opCreateBackup,
@@ -146,6 +146,8 @@ func (c *REDIS) CreateBackupWithContext(ctx volcengine.Context, input *CreateBac
 type CreateBackupInput struct {
 	_ struct{} `type:"structure"`
 
+	BackupPointName *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	// InstanceId is a required field
@@ -173,6 +175,12 @@ func (s *CreateBackupInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetBackupPointName sets the BackupPointName field's value.
+func (s *CreateBackupInput) SetBackupPointName(v string) *CreateBackupInput {
+	s.BackupPointName = &v
+	return s
 }
 
 // SetClientToken sets the ClientToken field's value.
