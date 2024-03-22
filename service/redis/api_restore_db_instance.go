@@ -22,13 +22,13 @@ const opRestoreDBInstanceCommon = "RestoreDBInstance"
 // See RestoreDBInstanceCommon for more information on using the RestoreDBInstanceCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the RestoreDBInstanceCommonRequest method.
-//    req, resp := client.RestoreDBInstanceCommonRequest(params)
+//	// Example sending a request using the RestoreDBInstanceCommonRequest method.
+//	req, resp := client.RestoreDBInstanceCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) RestoreDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestoreDBInstanceCommon,
@@ -89,13 +89,13 @@ const opRestoreDBInstance = "RestoreDBInstance"
 // See RestoreDBInstance for more information on using the RestoreDBInstance
 // API call, and error handling.
 //
-//    // Example sending a request using the RestoreDBInstanceRequest method.
-//    req, resp := client.RestoreDBInstanceRequest(params)
+//	// Example sending a request using the RestoreDBInstanceRequest method.
+//	req, resp := client.RestoreDBInstanceRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) RestoreDBInstanceRequest(input *RestoreDBInstanceInput) (req *request.Request, output *RestoreDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRestoreDBInstance,

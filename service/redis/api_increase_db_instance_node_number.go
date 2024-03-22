@@ -22,13 +22,13 @@ const opIncreaseDBInstanceNodeNumberCommon = "IncreaseDBInstanceNodeNumber"
 // See IncreaseDBInstanceNodeNumberCommon for more information on using the IncreaseDBInstanceNodeNumberCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the IncreaseDBInstanceNodeNumberCommonRequest method.
-//    req, resp := client.IncreaseDBInstanceNodeNumberCommonRequest(params)
+//	// Example sending a request using the IncreaseDBInstanceNodeNumberCommonRequest method.
+//	req, resp := client.IncreaseDBInstanceNodeNumberCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) IncreaseDBInstanceNodeNumberCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opIncreaseDBInstanceNodeNumberCommon,
@@ -89,13 +89,13 @@ const opIncreaseDBInstanceNodeNumber = "IncreaseDBInstanceNodeNumber"
 // See IncreaseDBInstanceNodeNumber for more information on using the IncreaseDBInstanceNodeNumber
 // API call, and error handling.
 //
-//    // Example sending a request using the IncreaseDBInstanceNodeNumberRequest method.
-//    req, resp := client.IncreaseDBInstanceNodeNumberRequest(params)
+//	// Example sending a request using the IncreaseDBInstanceNodeNumberRequest method.
+//	req, resp := client.IncreaseDBInstanceNodeNumberRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) IncreaseDBInstanceNodeNumberRequest(input *IncreaseDBInstanceNodeNumberInput) (req *request.Request, output *IncreaseDBInstanceNodeNumberOutput) {
 	op := &request.Operation{
 		Name:       opIncreaseDBInstanceNodeNumber,

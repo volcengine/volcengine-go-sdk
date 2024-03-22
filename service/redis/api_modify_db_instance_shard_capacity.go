@@ -22,13 +22,13 @@ const opModifyDBInstanceShardCapacityCommon = "ModifyDBInstanceShardCapacity"
 // See ModifyDBInstanceShardCapacityCommon for more information on using the ModifyDBInstanceShardCapacityCommon
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBInstanceShardCapacityCommonRequest method.
-//    req, resp := client.ModifyDBInstanceShardCapacityCommonRequest(params)
+//	// Example sending a request using the ModifyDBInstanceShardCapacityCommonRequest method.
+//	req, resp := client.ModifyDBInstanceShardCapacityCommonRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) ModifyDBInstanceShardCapacityCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceShardCapacityCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceShardCapacity = "ModifyDBInstanceShardCapacity"
 // See ModifyDBInstanceShardCapacity for more information on using the ModifyDBInstanceShardCapacity
 // API call, and error handling.
 //
-//    // Example sending a request using the ModifyDBInstanceShardCapacityRequest method.
-//    req, resp := client.ModifyDBInstanceShardCapacityRequest(params)
+//	// Example sending a request using the ModifyDBInstanceShardCapacityRequest method.
+//	req, resp := client.ModifyDBInstanceShardCapacityRequest(params)
 //
-//    err := req.Send()
-//    if err == nil { // resp is now filled
-//        fmt.Println(resp)
-//    }
+//	err := req.Send()
+//	if err == nil { // resp is now filled
+//	    fmt.Println(resp)
+//	}
 func (c *REDIS) ModifyDBInstanceShardCapacityRequest(input *ModifyDBInstanceShardCapacityInput) (req *request.Request, output *ModifyDBInstanceShardCapacityOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceShardCapacity,
