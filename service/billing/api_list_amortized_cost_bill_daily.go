@@ -432,6 +432,8 @@ type ListForListAmortizedCostBillDailyOutput struct {
 
 	Project *string `type:"string"`
 
+	ProjectDisplayName *string `type:"string"`
+
 	Region *string `type:"string"`
 
 	RegionCode *string `type:"string"`
@@ -796,6 +798,12 @@ func (s *ListForListAmortizedCostBillDailyOutput) SetProductZh(v string) *ListFo
 // SetProject sets the Project field's value.
 func (s *ListForListAmortizedCostBillDailyOutput) SetProject(v string) *ListForListAmortizedCostBillDailyOutput {
 	s.Project = &v
+	return s
+}
+
+// SetProjectDisplayName sets the ProjectDisplayName field's value.
+func (s *ListForListAmortizedCostBillDailyOutput) SetProjectDisplayName(v string) *ListForListAmortizedCostBillDailyOutput {
+	s.ProjectDisplayName = &v
 	return s
 }
 
