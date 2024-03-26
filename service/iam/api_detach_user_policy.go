@@ -143,13 +143,13 @@ type DetachUserPolicyInput struct {
 	_ struct{} `type:"structure"`
 
 	// PolicyName is a required field
-	PolicyName *string `type:"string" required:"true"`
+	PolicyName *string `min:"1" max:"64" type:"string" required:"true"`
 
 	// PolicyType is a required field
-	PolicyType *string `type:"string" required:"true"`
+	PolicyType *string `type:"string" required:"true" enum:"EnumOfPolicyTypeForDetachUserPolicyInput"`
 
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `min:"1" max:"64" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -168,11 +168,23 @@ func (s *DetachUserPolicyInput) Validate() error {
 	if s.PolicyName == nil {
 		invalidParams.Add(request.NewErrParamRequired("PolicyName"))
 	}
+	if s.PolicyName != nil && len(*s.PolicyName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PolicyName", 1))
+	}
+	if s.PolicyName != nil && len(*s.PolicyName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("PolicyName", 64, *s.PolicyName))
+	}
 	if s.PolicyType == nil {
 		invalidParams.Add(request.NewErrParamRequired("PolicyType"))
 	}
 	if s.UserName == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserName"))
+	}
+	if s.UserName != nil && len(*s.UserName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("UserName", 1))
+	}
+	if s.UserName != nil && len(*s.UserName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("UserName", 64, *s.UserName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -214,3 +226,11 @@ func (s DetachUserPolicyOutput) String() string {
 func (s DetachUserPolicyOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfPolicyTypeForDetachUserPolicyInputSystem is a EnumOfPolicyTypeForDetachUserPolicyInput enum value
+	EnumOfPolicyTypeForDetachUserPolicyInputSystem = "System"
+
+	// EnumOfPolicyTypeForDetachUserPolicyInputCustom is a EnumOfPolicyTypeForDetachUserPolicyInput enum value
+	EnumOfPolicyTypeForDetachUserPolicyInputCustom = "Custom"
+)

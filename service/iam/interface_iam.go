@@ -118,14 +118,6 @@ type IAMAPI interface {
 	CreateRoleWithContext(volcengine.Context, *CreateRoleInput, ...request.Option) (*CreateRoleOutput, error)
 	CreateRoleRequest(*CreateRoleInput) (*request.Request, *CreateRoleOutput)
 
-	CreateSAMLProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	CreateSAMLProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	CreateSAMLProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	CreateSAMLProvider(*CreateSAMLProviderInput) (*CreateSAMLProviderOutput, error)
-	CreateSAMLProviderWithContext(volcengine.Context, *CreateSAMLProviderInput, ...request.Option) (*CreateSAMLProviderOutput, error)
-	CreateSAMLProviderRequest(*CreateSAMLProviderInput) (*request.Request, *CreateSAMLProviderOutput)
-
 	CreateServiceLinkedRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateServiceLinkedRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateServiceLinkedRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -462,14 +454,6 @@ type IAMAPI interface {
 	UpdateLoginProfileWithContext(volcengine.Context, *UpdateLoginProfileInput, ...request.Option) (*UpdateLoginProfileOutput, error)
 	UpdateLoginProfileRequest(*UpdateLoginProfileInput) (*request.Request, *UpdateLoginProfileOutput)
 
-	UpdateOAuthProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateOAuthProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateOAuthProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UpdateOAuthProvider(*UpdateOAuthProviderInput) (*UpdateOAuthProviderOutput, error)
-	UpdateOAuthProviderWithContext(volcengine.Context, *UpdateOAuthProviderInput, ...request.Option) (*UpdateOAuthProviderOutput, error)
-	UpdateOAuthProviderRequest(*UpdateOAuthProviderInput) (*request.Request, *UpdateOAuthProviderOutput)
-
 	UpdatePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdatePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdatePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -485,14 +469,6 @@ type IAMAPI interface {
 	UpdateRole(*UpdateRoleInput) (*UpdateRoleOutput, error)
 	UpdateRoleWithContext(volcengine.Context, *UpdateRoleInput, ...request.Option) (*UpdateRoleOutput, error)
 	UpdateRoleRequest(*UpdateRoleInput) (*request.Request, *UpdateRoleOutput)
-
-	UpdateSAMLProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
-	UpdateSAMLProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	UpdateSAMLProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	UpdateSAMLProvider(*UpdateSAMLProviderInput) (*UpdateSAMLProviderOutput, error)
-	UpdateSAMLProviderWithContext(volcengine.Context, *UpdateSAMLProviderInput, ...request.Option) (*UpdateSAMLProviderOutput, error)
-	UpdateSAMLProviderRequest(*UpdateSAMLProviderInput) (*request.Request, *UpdateSAMLProviderOutput)
 
 	UpdateSecureContactInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateSecureContactInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
