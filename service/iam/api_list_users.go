@@ -188,7 +188,7 @@ type ListUsersOutput struct {
 
 	Total *int32 `type:"int32"`
 
-	UserMetadata []*UserMetadataForListUsersOutput `type:"list"`
+	UserMetadata []*UserMetadatumForListUsersOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -220,12 +220,12 @@ func (s *ListUsersOutput) SetTotal(v int32) *ListUsersOutput {
 }
 
 // SetUserMetadata sets the UserMetadata field's value.
-func (s *ListUsersOutput) SetUserMetadata(v []*UserMetadataForListUsersOutput) *ListUsersOutput {
+func (s *ListUsersOutput) SetUserMetadata(v []*UserMetadatumForListUsersOutput) *ListUsersOutput {
 	s.UserMetadata = v
 	return s
 }
 
-type UserMetadataForListUsersOutput struct {
+type UserMetadatumForListUsersOutput struct {
 	_ struct{} `type:"structure"`
 
 	AccountId *int64 `type:"int64"`
@@ -254,83 +254,83 @@ type UserMetadataForListUsersOutput struct {
 }
 
 // String returns the string representation
-func (s UserMetadataForListUsersOutput) String() string {
+func (s UserMetadatumForListUsersOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s UserMetadataForListUsersOutput) GoString() string {
+func (s UserMetadatumForListUsersOutput) GoString() string {
 	return s.String()
 }
 
 // SetAccountId sets the AccountId field's value.
-func (s *UserMetadataForListUsersOutput) SetAccountId(v int64) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetAccountId(v int64) *UserMetadatumForListUsersOutput {
 	s.AccountId = &v
 	return s
 }
 
 // SetCreateDate sets the CreateDate field's value.
-func (s *UserMetadataForListUsersOutput) SetCreateDate(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetCreateDate(v string) *UserMetadatumForListUsersOutput {
 	s.CreateDate = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *UserMetadataForListUsersOutput) SetDescription(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetDescription(v string) *UserMetadatumForListUsersOutput {
 	s.Description = &v
 	return s
 }
 
 // SetDisplayName sets the DisplayName field's value.
-func (s *UserMetadataForListUsersOutput) SetDisplayName(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetDisplayName(v string) *UserMetadatumForListUsersOutput {
 	s.DisplayName = &v
 	return s
 }
 
 // SetEmail sets the Email field's value.
-func (s *UserMetadataForListUsersOutput) SetEmail(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetEmail(v string) *UserMetadatumForListUsersOutput {
 	s.Email = &v
 	return s
 }
 
 // SetEmailIsVerify sets the EmailIsVerify field's value.
-func (s *UserMetadataForListUsersOutput) SetEmailIsVerify(v bool) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetEmailIsVerify(v bool) *UserMetadatumForListUsersOutput {
 	s.EmailIsVerify = &v
 	return s
 }
 
 // SetId sets the Id field's value.
-func (s *UserMetadataForListUsersOutput) SetId(v int32) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetId(v int32) *UserMetadatumForListUsersOutput {
 	s.Id = &v
 	return s
 }
 
 // SetMobilePhone sets the MobilePhone field's value.
-func (s *UserMetadataForListUsersOutput) SetMobilePhone(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetMobilePhone(v string) *UserMetadatumForListUsersOutput {
 	s.MobilePhone = &v
 	return s
 }
 
 // SetMobilePhoneIsVerify sets the MobilePhoneIsVerify field's value.
-func (s *UserMetadataForListUsersOutput) SetMobilePhoneIsVerify(v bool) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetMobilePhoneIsVerify(v bool) *UserMetadatumForListUsersOutput {
 	s.MobilePhoneIsVerify = &v
 	return s
 }
 
 // SetTrn sets the Trn field's value.
-func (s *UserMetadataForListUsersOutput) SetTrn(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetTrn(v string) *UserMetadatumForListUsersOutput {
 	s.Trn = &v
 	return s
 }
 
 // SetUpdateDate sets the UpdateDate field's value.
-func (s *UserMetadataForListUsersOutput) SetUpdateDate(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetUpdateDate(v string) *UserMetadatumForListUsersOutput {
 	s.UpdateDate = &v
 	return s
 }
 
 // SetUserName sets the UserName field's value.
-func (s *UserMetadataForListUsersOutput) SetUserName(v string) *UserMetadataForListUsersOutput {
+func (s *UserMetadatumForListUsersOutput) SetUserName(v string) *UserMetadatumForListUsersOutput {
 	s.UserName = &v
 	return s
 }

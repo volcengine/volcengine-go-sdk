@@ -142,13 +142,13 @@ func (c *IAM) CreatePolicyWithContext(ctx volcengine.Context, input *CreatePolic
 type CreatePolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `max:"255" type:"string"`
 
 	// PolicyDocument is a required field
-	PolicyDocument *string `type:"string" required:"true"`
+	PolicyDocument *string `min:"1" max:"6144" type:"string" required:"true"`
 
 	// PolicyName is a required field
-	PolicyName *string `type:"string" required:"true"`
+	PolicyName *string `min:"1" max:"64" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -164,11 +164,26 @@ func (s CreatePolicyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreatePolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreatePolicyInput"}
+	if s.Description != nil && len(*s.Description) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("Description", 255, *s.Description))
+	}
 	if s.PolicyDocument == nil {
 		invalidParams.Add(request.NewErrParamRequired("PolicyDocument"))
 	}
+	if s.PolicyDocument != nil && len(*s.PolicyDocument) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PolicyDocument", 1))
+	}
+	if s.PolicyDocument != nil && len(*s.PolicyDocument) > 6144 {
+		invalidParams.Add(request.NewErrParamMaxLen("PolicyDocument", 6144, *s.PolicyDocument))
+	}
 	if s.PolicyName == nil {
 		invalidParams.Add(request.NewErrParamRequired("PolicyName"))
+	}
+	if s.PolicyName != nil && len(*s.PolicyName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PolicyName", 1))
+	}
+	if s.PolicyName != nil && len(*s.PolicyName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("PolicyName", 64, *s.PolicyName))
 	}
 
 	if invalidParams.Len() > 0 {

@@ -212,14 +212,14 @@ func (s *PolicyForUpdatePolicyOutput) SetUpdateDate(v string) *PolicyForUpdatePo
 type UpdatePolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	NewDescription *string `type:"string"`
+	NewDescription *string `max:"255" type:"string"`
 
-	NewPolicyDocument *string `type:"string"`
+	NewPolicyDocument *string `max:"6144" type:"string"`
 
-	NewPolicyName *string `type:"string"`
+	NewPolicyName *string `min:"1" max:"64" type:"string"`
 
 	// PolicyName is a required field
-	PolicyName *string `type:"string" required:"true"`
+	PolicyName *string `min:"1" max:"64" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -235,8 +235,26 @@ func (s UpdatePolicyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *UpdatePolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "UpdatePolicyInput"}
+	if s.NewDescription != nil && len(*s.NewDescription) > 255 {
+		invalidParams.Add(request.NewErrParamMaxLen("NewDescription", 255, *s.NewDescription))
+	}
+	if s.NewPolicyDocument != nil && len(*s.NewPolicyDocument) > 6144 {
+		invalidParams.Add(request.NewErrParamMaxLen("NewPolicyDocument", 6144, *s.NewPolicyDocument))
+	}
+	if s.NewPolicyName != nil && len(*s.NewPolicyName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NewPolicyName", 1))
+	}
+	if s.NewPolicyName != nil && len(*s.NewPolicyName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("NewPolicyName", 64, *s.NewPolicyName))
+	}
 	if s.PolicyName == nil {
 		invalidParams.Add(request.NewErrParamRequired("PolicyName"))
+	}
+	if s.PolicyName != nil && len(*s.PolicyName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PolicyName", 1))
+	}
+	if s.PolicyName != nil && len(*s.PolicyName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("PolicyName", 64, *s.PolicyName))
 	}
 
 	if invalidParams.Len() > 0 {
