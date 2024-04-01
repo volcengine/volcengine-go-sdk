@@ -228,6 +228,8 @@ type ListForListSplitBillDetailOutput struct {
 
 	Project *string `type:"string"`
 
+	ProjectDisplayName *string `type:"string"`
+
 	Region *string `type:"string"`
 
 	RegionCode *string `type:"string"`
@@ -527,6 +529,12 @@ func (s *ListForListSplitBillDetailOutput) SetProject(v string) *ListForListSpli
 	return s
 }
 
+// SetProjectDisplayName sets the ProjectDisplayName field's value.
+func (s *ListForListSplitBillDetailOutput) SetProjectDisplayName(v string) *ListForListSplitBillDetailOutput {
+	s.ProjectDisplayName = &v
+	return s
+}
+
 // SetRegion sets the Region field's value.
 func (s *ListForListSplitBillDetailOutput) SetRegion(v string) *ListForListSplitBillDetailOutput {
 	s.Region = &v
@@ -663,6 +671,8 @@ type ListSplitBillDetailInput struct {
 
 	BillingMode []*string `type:"list"`
 
+	ExpenseDate *string `type:"string"`
+
 	GroupPeriod *int32 `type:"int32"`
 
 	IgnoreZero *int32 `type:"int32"`
@@ -722,6 +732,12 @@ func (s *ListSplitBillDetailInput) SetBillPeriod(v string) *ListSplitBillDetailI
 // SetBillingMode sets the BillingMode field's value.
 func (s *ListSplitBillDetailInput) SetBillingMode(v []*string) *ListSplitBillDetailInput {
 	s.BillingMode = v
+	return s
+}
+
+// SetExpenseDate sets the ExpenseDate field's value.
+func (s *ListSplitBillDetailInput) SetExpenseDate(v string) *ListSplitBillDetailInput {
+	s.ExpenseDate = &v
 	return s
 }
 
