@@ -143,7 +143,7 @@ type DeletePolicyInput struct {
 	_ struct{} `type:"structure"`
 
 	// PolicyName is a required field
-	PolicyName *string `type:"string" required:"true"`
+	PolicyName *string `min:"1" max:"64" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +161,12 @@ func (s *DeletePolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DeletePolicyInput"}
 	if s.PolicyName == nil {
 		invalidParams.Add(request.NewErrParamRequired("PolicyName"))
+	}
+	if s.PolicyName != nil && len(*s.PolicyName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PolicyName", 1))
+	}
+	if s.PolicyName != nil && len(*s.PolicyName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("PolicyName", 64, *s.PolicyName))
 	}
 
 	if invalidParams.Len() > 0 {

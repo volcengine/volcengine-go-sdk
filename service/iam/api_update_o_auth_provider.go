@@ -32,7 +32,7 @@ const opUpdateOAuthProviderCommon = "UpdateOAuthProvider"
 func (c *IAM) UpdateOAuthProviderCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opUpdateOAuthProviderCommon,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 
@@ -97,7 +97,7 @@ const opUpdateOAuthProvider = "UpdateOAuthProvider"
 func (c *IAM) UpdateOAuthProviderRequest(input *UpdateOAuthProviderInput) (req *request.Request, output *UpdateOAuthProviderOutput) {
 	op := &request.Operation{
 		Name:       opUpdateOAuthProvider,
-		HTTPMethod: "GET",
+		HTTPMethod: "POST",
 		HTTPPath:   "/",
 	}
 

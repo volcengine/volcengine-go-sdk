@@ -143,13 +143,13 @@ type AttachUserGroupPolicyInput struct {
 	_ struct{} `type:"structure"`
 
 	// PolicyName is a required field
-	PolicyName *string `type:"string" required:"true"`
+	PolicyName *string `min:"1" max:"64" type:"string" required:"true"`
 
 	// PolicyType is a required field
-	PolicyType *string `type:"string" required:"true"`
+	PolicyType *string `type:"string" required:"true" enum:"EnumOfPolicyTypeForAttachUserGroupPolicyInput"`
 
 	// UserGroupName is a required field
-	UserGroupName *string `type:"string" required:"true"`
+	UserGroupName *string `min:"1" max:"64" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -168,11 +168,23 @@ func (s *AttachUserGroupPolicyInput) Validate() error {
 	if s.PolicyName == nil {
 		invalidParams.Add(request.NewErrParamRequired("PolicyName"))
 	}
+	if s.PolicyName != nil && len(*s.PolicyName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PolicyName", 1))
+	}
+	if s.PolicyName != nil && len(*s.PolicyName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("PolicyName", 64, *s.PolicyName))
+	}
 	if s.PolicyType == nil {
 		invalidParams.Add(request.NewErrParamRequired("PolicyType"))
 	}
 	if s.UserGroupName == nil {
 		invalidParams.Add(request.NewErrParamRequired("UserGroupName"))
+	}
+	if s.UserGroupName != nil && len(*s.UserGroupName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("UserGroupName", 1))
+	}
+	if s.UserGroupName != nil && len(*s.UserGroupName) > 64 {
+		invalidParams.Add(request.NewErrParamMaxLen("UserGroupName", 64, *s.UserGroupName))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -214,3 +226,11 @@ func (s AttachUserGroupPolicyOutput) String() string {
 func (s AttachUserGroupPolicyOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfPolicyTypeForAttachUserGroupPolicyInputSystem is a EnumOfPolicyTypeForAttachUserGroupPolicyInput enum value
+	EnumOfPolicyTypeForAttachUserGroupPolicyInputSystem = "System"
+
+	// EnumOfPolicyTypeForAttachUserGroupPolicyInputCustom is a EnumOfPolicyTypeForAttachUserGroupPolicyInput enum value
+	EnumOfPolicyTypeForAttachUserGroupPolicyInputCustom = "Custom"
+)

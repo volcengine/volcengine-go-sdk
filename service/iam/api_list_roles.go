@@ -186,7 +186,7 @@ type ListRolesOutput struct {
 
 	Offset *int32 `type:"int32"`
 
-	RoleMetadata []*RoleMetadataForListRolesOutput `type:"list"`
+	RoleMetadata []*RoleMetadatumForListRolesOutput `type:"list"`
 
 	Total *int32 `type:"int32"`
 }
@@ -214,7 +214,7 @@ func (s *ListRolesOutput) SetOffset(v int32) *ListRolesOutput {
 }
 
 // SetRoleMetadata sets the RoleMetadata field's value.
-func (s *ListRolesOutput) SetRoleMetadata(v []*RoleMetadataForListRolesOutput) *ListRolesOutput {
+func (s *ListRolesOutput) SetRoleMetadata(v []*RoleMetadatumForListRolesOutput) *ListRolesOutput {
 	s.RoleMetadata = v
 	return s
 }
@@ -225,7 +225,7 @@ func (s *ListRolesOutput) SetTotal(v int32) *ListRolesOutput {
 	return s
 }
 
-type RoleMetadataForListRolesOutput struct {
+type RoleMetadatumForListRolesOutput struct {
 	_ struct{} `type:"structure"`
 
 	CreateDate *string `type:"string"`
@@ -242,47 +242,47 @@ type RoleMetadataForListRolesOutput struct {
 }
 
 // String returns the string representation
-func (s RoleMetadataForListRolesOutput) String() string {
+func (s RoleMetadatumForListRolesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s RoleMetadataForListRolesOutput) GoString() string {
+func (s RoleMetadatumForListRolesOutput) GoString() string {
 	return s.String()
 }
 
 // SetCreateDate sets the CreateDate field's value.
-func (s *RoleMetadataForListRolesOutput) SetCreateDate(v string) *RoleMetadataForListRolesOutput {
+func (s *RoleMetadatumForListRolesOutput) SetCreateDate(v string) *RoleMetadatumForListRolesOutput {
 	s.CreateDate = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *RoleMetadataForListRolesOutput) SetDescription(v string) *RoleMetadataForListRolesOutput {
+func (s *RoleMetadatumForListRolesOutput) SetDescription(v string) *RoleMetadatumForListRolesOutput {
 	s.Description = &v
 	return s
 }
 
 // SetRoleId sets the RoleId field's value.
-func (s *RoleMetadataForListRolesOutput) SetRoleId(v int32) *RoleMetadataForListRolesOutput {
+func (s *RoleMetadatumForListRolesOutput) SetRoleId(v int32) *RoleMetadatumForListRolesOutput {
 	s.RoleId = &v
 	return s
 }
 
 // SetRoleName sets the RoleName field's value.
-func (s *RoleMetadataForListRolesOutput) SetRoleName(v string) *RoleMetadataForListRolesOutput {
+func (s *RoleMetadatumForListRolesOutput) SetRoleName(v string) *RoleMetadatumForListRolesOutput {
 	s.RoleName = &v
 	return s
 }
 
 // SetTrn sets the Trn field's value.
-func (s *RoleMetadataForListRolesOutput) SetTrn(v string) *RoleMetadataForListRolesOutput {
+func (s *RoleMetadatumForListRolesOutput) SetTrn(v string) *RoleMetadatumForListRolesOutput {
 	s.Trn = &v
 	return s
 }
 
 // SetTrustPolicyDocument sets the TrustPolicyDocument field's value.
-func (s *RoleMetadataForListRolesOutput) SetTrustPolicyDocument(v string) *RoleMetadataForListRolesOutput {
+func (s *RoleMetadatumForListRolesOutput) SetTrustPolicyDocument(v string) *RoleMetadatumForListRolesOutput {
 	s.TrustPolicyDocument = &v
 	return s
 }
