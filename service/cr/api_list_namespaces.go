@@ -171,6 +171,8 @@ type ItemForListNamespacesOutput struct {
 	CreateTime *string `type:"string"`
 
 	Name *string `type:"string"`
+
+	Project *string `type:"string"`
 }
 
 // String returns the string representation
@@ -195,6 +197,12 @@ func (s *ItemForListNamespacesOutput) SetName(v string) *ItemForListNamespacesOu
 	return s
 }
 
+// SetProject sets the Project field's value.
+func (s *ItemForListNamespacesOutput) SetProject(v string) *ItemForListNamespacesOutput {
+	s.Project = &v
+	return s
+}
+
 type ListNamespacesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -204,7 +212,8 @@ type ListNamespacesInput struct {
 
 	PageSize *int64 `type:"int64"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -215,6 +224,19 @@ func (s ListNamespacesInput) String() string {
 // GoString returns the string representation
 func (s ListNamespacesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListNamespacesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListNamespacesInput"}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFilter sets the Filter field's value.

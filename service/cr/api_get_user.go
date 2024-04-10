@@ -146,7 +146,8 @@ func (c *CR) GetUserWithContext(ctx volcengine.Context, input *GetUserInput, opt
 type GetUserInput struct {
 	_ struct{} `type:"structure"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s GetUserInput) String() string {
 // GoString returns the string representation
 func (s GetUserInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetUserInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetUserInput"}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetRegistry sets the Registry field's value.

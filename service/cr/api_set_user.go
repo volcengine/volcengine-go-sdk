@@ -146,9 +146,11 @@ func (c *CR) SetUserWithContext(ctx volcengine.Context, input *SetUserInput, opt
 type SetUserInput struct {
 	_ struct{} `type:"structure"`
 
-	Password *string `type:"string"`
+	// Password is a required field
+	Password *string `type:"string" required:"true"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s SetUserInput) String() string {
 // GoString returns the string representation
 func (s SetUserInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SetUserInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SetUserInput"}
+	if s.Password == nil {
+		invalidParams.Add(request.NewErrParamRequired("Password"))
+	}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPassword sets the Password field's value.

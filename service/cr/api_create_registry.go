@@ -148,7 +148,8 @@ type CreateRegistryInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s CreateRegistryInput) String() string {
 // GoString returns the string representation
 func (s CreateRegistryInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateRegistryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateRegistryInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

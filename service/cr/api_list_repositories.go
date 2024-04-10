@@ -252,7 +252,8 @@ type ListRepositoriesInput struct {
 
 	PageSize *int64 `type:"int64"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -263,6 +264,19 @@ func (s ListRepositoriesInput) String() string {
 // GoString returns the string representation
 func (s ListRepositoriesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListRepositoriesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListRepositoriesInput"}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFilter sets the Filter field's value.

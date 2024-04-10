@@ -148,7 +148,8 @@ type DeleteRegistryInput struct {
 
 	DeleteImmediately *bool `type:"boolean"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s DeleteRegistryInput) String() string {
 // GoString returns the string representation
 func (s DeleteRegistryInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteRegistryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteRegistryInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDeleteImmediately sets the DeleteImmediately field's value.

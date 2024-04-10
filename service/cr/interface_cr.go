@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // CR.
 //    func myFunc(svc CRAPI) bool {
-//        // Make svc.CreateNamespace request
+//        // Make svc.CreateEndpointAclPolicies request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type CRAPI interface {
+	CreateEndpointAclPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateEndpointAclPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateEndpointAclPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateEndpointAclPolicies(*CreateEndpointAclPoliciesInput) (*CreateEndpointAclPoliciesOutput, error)
+	CreateEndpointAclPoliciesWithContext(volcengine.Context, *CreateEndpointAclPoliciesInput, ...request.Option) (*CreateEndpointAclPoliciesOutput, error)
+	CreateEndpointAclPoliciesRequest(*CreateEndpointAclPoliciesInput) (*request.Request, *CreateEndpointAclPoliciesOutput)
+
 	CreateNamespaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNamespaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateNamespaceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +61,14 @@ type CRAPI interface {
 	CreateRepository(*CreateRepositoryInput) (*CreateRepositoryOutput, error)
 	CreateRepositoryWithContext(volcengine.Context, *CreateRepositoryInput, ...request.Option) (*CreateRepositoryOutput, error)
 	CreateRepositoryRequest(*CreateRepositoryInput) (*request.Request, *CreateRepositoryOutput)
+
+	DeleteEndpointAclPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteEndpointAclPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteEndpointAclPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteEndpointAclPolicies(*DeleteEndpointAclPoliciesInput) (*DeleteEndpointAclPoliciesOutput, error)
+	DeleteEndpointAclPoliciesWithContext(volcengine.Context, *DeleteEndpointAclPoliciesInput, ...request.Option) (*DeleteEndpointAclPoliciesOutput, error)
+	DeleteEndpointAclPoliciesRequest(*DeleteEndpointAclPoliciesInput) (*request.Request, *DeleteEndpointAclPoliciesOutput)
 
 	DeleteNamespaceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNamespaceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
