@@ -148,6 +148,8 @@ type CreateAllowListInput struct {
 
 	AllowList *string `type:"string"`
 
+	AllowListCategory *string `type:"string"`
+
 	AllowListDesc *string `type:"string"`
 
 	// AllowListName is a required field
@@ -155,7 +157,11 @@ type CreateAllowListInput struct {
 
 	AllowListType *string `type:"string"`
 
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForCreateAllowListInput `type:"list"`
+
 	SecurityGroupIds []*string `type:"list"`
+
+	UserAllowList *string `type:"string"`
 }
 
 // String returns the string representation
@@ -187,6 +193,12 @@ func (s *CreateAllowListInput) SetAllowList(v string) *CreateAllowListInput {
 	return s
 }
 
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *CreateAllowListInput) SetAllowListCategory(v string) *CreateAllowListInput {
+	s.AllowListCategory = &v
+	return s
+}
+
 // SetAllowListDesc sets the AllowListDesc field's value.
 func (s *CreateAllowListInput) SetAllowListDesc(v string) *CreateAllowListInput {
 	s.AllowListDesc = &v
@@ -205,9 +217,21 @@ func (s *CreateAllowListInput) SetAllowListType(v string) *CreateAllowListInput 
 	return s
 }
 
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *CreateAllowListInput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForCreateAllowListInput) *CreateAllowListInput {
+	s.SecurityGroupBindInfos = v
+	return s
+}
+
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *CreateAllowListInput) SetSecurityGroupIds(v []*string) *CreateAllowListInput {
 	s.SecurityGroupIds = v
+	return s
+}
+
+// SetUserAllowList sets the UserAllowList field's value.
+func (s *CreateAllowListInput) SetUserAllowList(v string) *CreateAllowListInput {
+	s.UserAllowList = &v
 	return s
 }
 
@@ -232,5 +256,51 @@ func (s CreateAllowListOutput) GoString() string {
 // SetAllowListId sets the AllowListId field's value.
 func (s *CreateAllowListOutput) SetAllowListId(v string) *CreateAllowListOutput {
 	s.AllowListId = &v
+	return s
+}
+
+type SecurityGroupBindInfoForCreateAllowListInput struct {
+	_ struct{} `type:"structure"`
+
+	BindMode *string `type:"string"`
+
+	IpList []*string `type:"list"`
+
+	SecurityGroupId *string `type:"string"`
+
+	SecurityGroupName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForCreateAllowListInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForCreateAllowListInput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetBindMode(v string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.BindMode = &v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetIpList(v []*string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.IpList = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupBindInfoForCreateAllowListInput) SetSecurityGroupName(v string) *SecurityGroupBindInfoForCreateAllowListInput {
+	s.SecurityGroupName = &v
 	return s
 }

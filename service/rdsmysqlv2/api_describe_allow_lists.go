@@ -146,6 +146,8 @@ func (c *RDSMYSQLV2) DescribeAllowListsWithContext(ctx volcengine.Context, input
 type AllowListForDescribeAllowListsOutput struct {
 	_ struct{} `type:"structure"`
 
+	AllowListCategory *string `type:"string"`
+
 	AllowListDesc *string `type:"string"`
 
 	AllowListIPNum *int32 `type:"int32"`
@@ -157,6 +159,8 @@ type AllowListForDescribeAllowListsOutput struct {
 	AllowListType *string `type:"string"`
 
 	AssociatedInstanceNum *int32 `type:"int32"`
+
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -167,6 +171,12 @@ func (s AllowListForDescribeAllowListsOutput) String() string {
 // GoString returns the string representation
 func (s AllowListForDescribeAllowListsOutput) GoString() string {
 	return s.String()
+}
+
+// SetAllowListCategory sets the AllowListCategory field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetAllowListCategory(v string) *AllowListForDescribeAllowListsOutput {
+	s.AllowListCategory = &v
+	return s
 }
 
 // SetAllowListDesc sets the AllowListDesc field's value.
@@ -202,6 +212,12 @@ func (s *AllowListForDescribeAllowListsOutput) SetAllowListType(v string) *Allow
 // SetAssociatedInstanceNum sets the AssociatedInstanceNum field's value.
 func (s *AllowListForDescribeAllowListsOutput) SetAssociatedInstanceNum(v int32) *AllowListForDescribeAllowListsOutput {
 	s.AssociatedInstanceNum = &v
+	return s
+}
+
+// SetSecurityGroupBindInfos sets the SecurityGroupBindInfos field's value.
+func (s *AllowListForDescribeAllowListsOutput) SetSecurityGroupBindInfos(v []*SecurityGroupBindInfoForDescribeAllowListsOutput) *AllowListForDescribeAllowListsOutput {
+	s.SecurityGroupBindInfos = v
 	return s
 }
 
@@ -270,5 +286,51 @@ func (s DescribeAllowListsOutput) GoString() string {
 // SetAllowLists sets the AllowLists field's value.
 func (s *DescribeAllowListsOutput) SetAllowLists(v []*AllowListForDescribeAllowListsOutput) *DescribeAllowListsOutput {
 	s.AllowLists = v
+	return s
+}
+
+type SecurityGroupBindInfoForDescribeAllowListsOutput struct {
+	_ struct{} `type:"structure"`
+
+	BindMode *string `type:"string"`
+
+	IpList []*string `type:"list"`
+
+	SecurityGroupId *string `type:"string"`
+
+	SecurityGroupName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SecurityGroupBindInfoForDescribeAllowListsOutput) GoString() string {
+	return s.String()
+}
+
+// SetBindMode sets the BindMode field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetBindMode(v string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.BindMode = &v
+	return s
+}
+
+// SetIpList sets the IpList field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetIpList(v []*string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.IpList = v
+	return s
+}
+
+// SetSecurityGroupId sets the SecurityGroupId field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetSecurityGroupId(v string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.SecurityGroupId = &v
+	return s
+}
+
+// SetSecurityGroupName sets the SecurityGroupName field's value.
+func (s *SecurityGroupBindInfoForDescribeAllowListsOutput) SetSecurityGroupName(v string) *SecurityGroupBindInfoForDescribeAllowListsOutput {
+	s.SecurityGroupName = &v
 	return s
 }
