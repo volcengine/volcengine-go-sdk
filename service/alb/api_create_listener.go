@@ -150,7 +150,11 @@ type CreateListenerInput struct {
 
 	CACertificateId *string `type:"string"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	Description *string `type:"string"`
 
@@ -172,6 +176,8 @@ type CreateListenerInput struct {
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
+
+	ProxyProtocolDisabled *string `type:"string"`
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
@@ -239,9 +245,21 @@ func (s *CreateListenerInput) SetCACertificateId(v string) *CreateListenerInput 
 	return s
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *CreateListenerInput) SetCertCenterCertificateId(v string) *CreateListenerInput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *CreateListenerInput) SetCertificateId(v string) *CreateListenerInput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *CreateListenerInput) SetCertificateSource(v string) *CreateListenerInput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -299,6 +317,12 @@ func (s *CreateListenerInput) SetProtocol(v string) *CreateListenerInput {
 	return s
 }
 
+// SetProxyProtocolDisabled sets the ProxyProtocolDisabled field's value.
+func (s *CreateListenerInput) SetProxyProtocolDisabled(v string) *CreateListenerInput {
+	s.ProxyProtocolDisabled = &v
+	return s
+}
+
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *CreateListenerInput) SetServerGroupId(v string) *CreateListenerInput {
 	s.ServerGroupId = &v
@@ -340,7 +364,11 @@ func (s *CreateListenerOutput) SetRequestId(v string) *CreateListenerOutput {
 type DomainExtensionForCreateListenerInput struct {
 	_ struct{} `type:"structure"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	Domain *string `type:"string"`
 }
@@ -355,9 +383,21 @@ func (s DomainExtensionForCreateListenerInput) GoString() string {
 	return s.String()
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *DomainExtensionForCreateListenerInput) SetCertCenterCertificateId(v string) *DomainExtensionForCreateListenerInput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *DomainExtensionForCreateListenerInput) SetCertificateId(v string) *DomainExtensionForCreateListenerInput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *DomainExtensionForCreateListenerInput) SetCertificateSource(v string) *DomainExtensionForCreateListenerInput {
+	s.CertificateSource = &v
 	return s
 }
 

@@ -144,7 +144,11 @@ type DomainExtensionForModifyListenerAttributesInput struct {
 
 	Action *string `type:"string"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	Domain *string `type:"string"`
 
@@ -167,9 +171,21 @@ func (s *DomainExtensionForModifyListenerAttributesInput) SetAction(v string) *D
 	return s
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *DomainExtensionForModifyListenerAttributesInput) SetCertCenterCertificateId(v string) *DomainExtensionForModifyListenerAttributesInput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *DomainExtensionForModifyListenerAttributesInput) SetCertificateId(v string) *DomainExtensionForModifyListenerAttributesInput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *DomainExtensionForModifyListenerAttributesInput) SetCertificateSource(v string) *DomainExtensionForModifyListenerAttributesInput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -196,7 +212,11 @@ type ModifyListenerAttributesInput struct {
 
 	CACertificateId *string `type:"string"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	CustomizedCfgId *string `type:"string"`
 
@@ -214,6 +234,8 @@ type ModifyListenerAttributesInput struct {
 	ListenerId *string `type:"string" required:"true"`
 
 	ListenerName *string `min:"1" max:"128" type:"string"`
+
+	ProxyProtocolDisabled *string `type:"string"`
 
 	ServerGroupId *string `type:"string"`
 }
@@ -271,9 +293,21 @@ func (s *ModifyListenerAttributesInput) SetCACertificateId(v string) *ModifyList
 	return s
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *ModifyListenerAttributesInput) SetCertCenterCertificateId(v string) *ModifyListenerAttributesInput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *ModifyListenerAttributesInput) SetCertificateId(v string) *ModifyListenerAttributesInput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *ModifyListenerAttributesInput) SetCertificateSource(v string) *ModifyListenerAttributesInput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -322,6 +356,12 @@ func (s *ModifyListenerAttributesInput) SetListenerId(v string) *ModifyListenerA
 // SetListenerName sets the ListenerName field's value.
 func (s *ModifyListenerAttributesInput) SetListenerName(v string) *ModifyListenerAttributesInput {
 	s.ListenerName = &v
+	return s
+}
+
+// SetProxyProtocolDisabled sets the ProxyProtocolDisabled field's value.
+func (s *ModifyListenerAttributesInput) SetProxyProtocolDisabled(v string) *ModifyListenerAttributesInput {
+	s.ProxyProtocolDisabled = &v
 	return s
 }
 

@@ -153,6 +153,8 @@ type DescribeListenersInput struct {
 	PageSize *int64 `type:"integer"`
 
 	ProjectName *string `type:"string"`
+
+	Protocol *string `type:"string"`
 }
 
 // String returns the string representation
@@ -198,6 +200,12 @@ func (s *DescribeListenersInput) SetPageSize(v int64) *DescribeListenersInput {
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeListenersInput) SetProjectName(v string) *DescribeListenersInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *DescribeListenersInput) SetProtocol(v string) *DescribeListenersInput {
+	s.Protocol = &v
 	return s
 }
 
@@ -260,7 +268,11 @@ func (s *DescribeListenersOutput) SetTotalCount(v int64) *DescribeListenersOutpu
 type DomainExtensionForDescribeListenersOutput struct {
 	_ struct{} `type:"structure"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	Domain *string `type:"string"`
 
@@ -279,9 +291,21 @@ func (s DomainExtensionForDescribeListenersOutput) GoString() string {
 	return s.String()
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *DomainExtensionForDescribeListenersOutput) SetCertCenterCertificateId(v string) *DomainExtensionForDescribeListenersOutput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *DomainExtensionForDescribeListenersOutput) SetCertificateId(v string) *DomainExtensionForDescribeListenersOutput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *DomainExtensionForDescribeListenersOutput) SetCertificateSource(v string) *DomainExtensionForDescribeListenersOutput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -314,7 +338,11 @@ type ListenerForDescribeListenersOutput struct {
 
 	CACertificateId *string `type:"string"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	CreateTime *string `type:"string"`
 
@@ -341,6 +369,8 @@ type ListenerForDescribeListenersOutput struct {
 	ProjectName *string `type:"string"`
 
 	Protocol *string `type:"string"`
+
+	ProxyProtocolDisabled *string `type:"string"`
 
 	ServerGroupId *string `type:"string"`
 
@@ -385,9 +415,21 @@ func (s *ListenerForDescribeListenersOutput) SetCACertificateId(v string) *Liste
 	return s
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *ListenerForDescribeListenersOutput) SetCertCenterCertificateId(v string) *ListenerForDescribeListenersOutput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *ListenerForDescribeListenersOutput) SetCertificateId(v string) *ListenerForDescribeListenersOutput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *ListenerForDescribeListenersOutput) SetCertificateSource(v string) *ListenerForDescribeListenersOutput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -466,6 +508,12 @@ func (s *ListenerForDescribeListenersOutput) SetProjectName(v string) *ListenerF
 // SetProtocol sets the Protocol field's value.
 func (s *ListenerForDescribeListenersOutput) SetProtocol(v string) *ListenerForDescribeListenersOutput {
 	s.Protocol = &v
+	return s
+}
+
+// SetProxyProtocolDisabled sets the ProxyProtocolDisabled field's value.
+func (s *ListenerForDescribeListenersOutput) SetProxyProtocolDisabled(v string) *ListenerForDescribeListenersOutput {
+	s.ProxyProtocolDisabled = &v
 	return s
 }
 

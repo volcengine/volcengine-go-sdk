@@ -188,7 +188,11 @@ type DescribeListenerAttributesOutput struct {
 
 	CACertificateId *string `type:"string"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	CreateTime *string `type:"string"`
 
@@ -215,6 +219,8 @@ type DescribeListenerAttributesOutput struct {
 	ProjectName *string `type:"string"`
 
 	Protocol *string `type:"string"`
+
+	ProxyProtocolDisabled *string `type:"string"`
 
 	RequestId *string `type:"string"`
 
@@ -261,9 +267,21 @@ func (s *DescribeListenerAttributesOutput) SetCACertificateId(v string) *Describ
 	return s
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *DescribeListenerAttributesOutput) SetCertCenterCertificateId(v string) *DescribeListenerAttributesOutput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *DescribeListenerAttributesOutput) SetCertificateId(v string) *DescribeListenerAttributesOutput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *DescribeListenerAttributesOutput) SetCertificateSource(v string) *DescribeListenerAttributesOutput {
+	s.CertificateSource = &v
 	return s
 }
 
@@ -345,6 +363,12 @@ func (s *DescribeListenerAttributesOutput) SetProtocol(v string) *DescribeListen
 	return s
 }
 
+// SetProxyProtocolDisabled sets the ProxyProtocolDisabled field's value.
+func (s *DescribeListenerAttributesOutput) SetProxyProtocolDisabled(v string) *DescribeListenerAttributesOutput {
+	s.ProxyProtocolDisabled = &v
+	return s
+}
+
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeListenerAttributesOutput) SetRequestId(v string) *DescribeListenerAttributesOutput {
 	s.RequestId = &v
@@ -378,7 +402,11 @@ func (s *DescribeListenerAttributesOutput) SetUpdateTime(v string) *DescribeList
 type DomainExtensionForDescribeListenerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	Domain *string `type:"string"`
 
@@ -397,9 +425,21 @@ func (s DomainExtensionForDescribeListenerAttributesOutput) GoString() string {
 	return s.String()
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *DomainExtensionForDescribeListenerAttributesOutput) SetCertCenterCertificateId(v string) *DomainExtensionForDescribeListenerAttributesOutput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *DomainExtensionForDescribeListenerAttributesOutput) SetCertificateId(v string) *DomainExtensionForDescribeListenerAttributesOutput {
 	s.CertificateId = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *DomainExtensionForDescribeListenerAttributesOutput) SetCertificateSource(v string) *DomainExtensionForDescribeListenerAttributesOutput {
+	s.CertificateSource = &v
 	return s
 }
 
