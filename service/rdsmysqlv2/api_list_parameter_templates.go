@@ -366,9 +366,17 @@ func (s *TemplateInfoForListParameterTemplatesOutput) SetUpdateTime(v string) *T
 type TemplateParamForListParameterTemplatesOutput struct {
 	_ struct{} `type:"structure"`
 
+	DefaultValue *string `type:"string"`
+
+	Description *string `type:"string"`
+
 	Name *string `type:"string"`
 
+	Restart *bool `type:"boolean"`
+
 	RunningValue *string `type:"string"`
+
+	ValueRange *string `type:"string"`
 }
 
 // String returns the string representation
@@ -381,14 +389,38 @@ func (s TemplateParamForListParameterTemplatesOutput) GoString() string {
 	return s.String()
 }
 
+// SetDefaultValue sets the DefaultValue field's value.
+func (s *TemplateParamForListParameterTemplatesOutput) SetDefaultValue(v string) *TemplateParamForListParameterTemplatesOutput {
+	s.DefaultValue = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *TemplateParamForListParameterTemplatesOutput) SetDescription(v string) *TemplateParamForListParameterTemplatesOutput {
+	s.Description = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *TemplateParamForListParameterTemplatesOutput) SetName(v string) *TemplateParamForListParameterTemplatesOutput {
 	s.Name = &v
 	return s
 }
 
+// SetRestart sets the Restart field's value.
+func (s *TemplateParamForListParameterTemplatesOutput) SetRestart(v bool) *TemplateParamForListParameterTemplatesOutput {
+	s.Restart = &v
+	return s
+}
+
 // SetRunningValue sets the RunningValue field's value.
 func (s *TemplateParamForListParameterTemplatesOutput) SetRunningValue(v string) *TemplateParamForListParameterTemplatesOutput {
 	s.RunningValue = &v
+	return s
+}
+
+// SetValueRange sets the ValueRange field's value.
+func (s *TemplateParamForListParameterTemplatesOutput) SetValueRange(v string) *TemplateParamForListParameterTemplatesOutput {
+	s.ValueRange = &v
 	return s
 }

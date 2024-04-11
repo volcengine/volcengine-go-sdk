@@ -142,9 +142,13 @@ func (c *ALB) ReplaceCertificateWithContext(ctx volcengine.Context, input *Repla
 type ReplaceCertificateInput struct {
 	_ struct{} `type:"structure"`
 
+	CertCenterCertificateId *string `type:"string"`
+
 	CertificateId *string `type:"string"`
 
 	CertificateName *string `min:"1" max:"128" type:"string"`
+
+	CertificateSource *string `type:"string"`
 
 	Description *string `type:"string"`
 
@@ -193,6 +197,12 @@ func (s *ReplaceCertificateInput) Validate() error {
 	return nil
 }
 
+// SetCertCenterCertificateId sets the CertCenterCertificateId field's value.
+func (s *ReplaceCertificateInput) SetCertCenterCertificateId(v string) *ReplaceCertificateInput {
+	s.CertCenterCertificateId = &v
+	return s
+}
+
 // SetCertificateId sets the CertificateId field's value.
 func (s *ReplaceCertificateInput) SetCertificateId(v string) *ReplaceCertificateInput {
 	s.CertificateId = &v
@@ -202,6 +212,12 @@ func (s *ReplaceCertificateInput) SetCertificateId(v string) *ReplaceCertificate
 // SetCertificateName sets the CertificateName field's value.
 func (s *ReplaceCertificateInput) SetCertificateName(v string) *ReplaceCertificateInput {
 	s.CertificateName = &v
+	return s
+}
+
+// SetCertificateSource sets the CertificateSource field's value.
+func (s *ReplaceCertificateInput) SetCertificateSource(v string) *ReplaceCertificateInput {
+	s.CertificateSource = &v
 	return s
 }
 

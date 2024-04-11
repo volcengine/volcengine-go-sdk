@@ -230,9 +230,17 @@ func (s CreateParameterTemplateOutput) GoString() string {
 type TemplateParamForCreateParameterTemplateInput struct {
 	_ struct{} `type:"structure"`
 
+	DefaultValue *string `type:"string"`
+
+	Description *string `type:"string"`
+
 	Name *string `type:"string"`
 
+	Restart *bool `type:"boolean"`
+
 	RunningValue *string `type:"string"`
+
+	ValueRange *string `type:"string"`
 }
 
 // String returns the string representation
@@ -245,14 +253,38 @@ func (s TemplateParamForCreateParameterTemplateInput) GoString() string {
 	return s.String()
 }
 
+// SetDefaultValue sets the DefaultValue field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetDefaultValue(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.DefaultValue = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetDescription(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.Description = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *TemplateParamForCreateParameterTemplateInput) SetName(v string) *TemplateParamForCreateParameterTemplateInput {
 	s.Name = &v
 	return s
 }
 
+// SetRestart sets the Restart field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetRestart(v bool) *TemplateParamForCreateParameterTemplateInput {
+	s.Restart = &v
+	return s
+}
+
 // SetRunningValue sets the RunningValue field's value.
 func (s *TemplateParamForCreateParameterTemplateInput) SetRunningValue(v string) *TemplateParamForCreateParameterTemplateInput {
 	s.RunningValue = &v
+	return s
+}
+
+// SetValueRange sets the ValueRange field's value.
+func (s *TemplateParamForCreateParameterTemplateInput) SetValueRange(v string) *TemplateParamForCreateParameterTemplateInput {
+	s.ValueRange = &v
 	return s
 }
