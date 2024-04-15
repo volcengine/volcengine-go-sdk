@@ -22,13 +22,13 @@ const opModifyDBInstanceAZConfigureCommon = "ModifyDBInstanceAZConfigure"
 // See ModifyDBInstanceAZConfigureCommon for more information on using the ModifyDBInstanceAZConfigureCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceAZConfigureCommonRequest method.
-//	req, resp := client.ModifyDBInstanceAZConfigureCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceAZConfigureCommonRequest method.
+//    req, resp := client.ModifyDBInstanceAZConfigureCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *REDIS) ModifyDBInstanceAZConfigureCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceAZConfigureCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceAZConfigure = "ModifyDBInstanceAZConfigure"
 // See ModifyDBInstanceAZConfigure for more information on using the ModifyDBInstanceAZConfigure
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceAZConfigureRequest method.
-//	req, resp := client.ModifyDBInstanceAZConfigureRequest(params)
+//    // Example sending a request using the ModifyDBInstanceAZConfigureRequest method.
+//    req, resp := client.ModifyDBInstanceAZConfigureRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *REDIS) ModifyDBInstanceAZConfigureRequest(input *ModifyDBInstanceAZConfigureInput) (req *request.Request, output *ModifyDBInstanceAZConfigureOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceAZConfigure,

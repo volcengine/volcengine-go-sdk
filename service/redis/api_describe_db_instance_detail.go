@@ -473,6 +473,8 @@ type VisitAddrForDescribeDBInstanceDetailOutput struct {
 	EipId *string `type:"string"`
 
 	Port *string `type:"string"`
+
+	VIP *string `type:"string"`
 }
 
 // String returns the string representation
@@ -506,5 +508,11 @@ func (s *VisitAddrForDescribeDBInstanceDetailOutput) SetEipId(v string) *VisitAd
 // SetPort sets the Port field's value.
 func (s *VisitAddrForDescribeDBInstanceDetailOutput) SetPort(v string) *VisitAddrForDescribeDBInstanceDetailOutput {
 	s.Port = &v
+	return s
+}
+
+// SetVIP sets the VIP field's value.
+func (s *VisitAddrForDescribeDBInstanceDetailOutput) SetVIP(v string) *VisitAddrForDescribeDBInstanceDetailOutput {
+	s.VIP = &v
 	return s
 }
