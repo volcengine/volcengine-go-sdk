@@ -149,6 +149,12 @@ type CreateLoginProfileInput struct {
 
 	PasswordResetRequired *bool `type:"boolean"`
 
+	SafeAuthExemptDuration *int32 `type:"int32"`
+
+	SafeAuthFlag *bool `type:"boolean"`
+
+	SafeAuthType *string `type:"string"`
+
 	// UserName is a required field
 	UserName *string `type:"string" required:"true"`
 }
@@ -194,6 +200,24 @@ func (s *CreateLoginProfileInput) SetPassword(v string) *CreateLoginProfileInput
 // SetPasswordResetRequired sets the PasswordResetRequired field's value.
 func (s *CreateLoginProfileInput) SetPasswordResetRequired(v bool) *CreateLoginProfileInput {
 	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
+func (s *CreateLoginProfileInput) SetSafeAuthExemptDuration(v int32) *CreateLoginProfileInput {
+	s.SafeAuthExemptDuration = &v
+	return s
+}
+
+// SetSafeAuthFlag sets the SafeAuthFlag field's value.
+func (s *CreateLoginProfileInput) SetSafeAuthFlag(v bool) *CreateLoginProfileInput {
+	s.SafeAuthFlag = &v
+	return s
+}
+
+// SetSafeAuthType sets the SafeAuthType field's value.
+func (s *CreateLoginProfileInput) SetSafeAuthType(v string) *CreateLoginProfileInput {
+	s.SafeAuthType = &v
 	return s
 }
 
