@@ -221,6 +221,8 @@ type ImageAttributeForListTagsOutput struct {
 	Digest *string `type:"string"`
 
 	Os *string `type:"string"`
+
+	Size *int64 `type:"int64"`
 }
 
 // String returns the string representation
@@ -254,6 +256,12 @@ func (s *ImageAttributeForListTagsOutput) SetDigest(v string) *ImageAttributeFor
 // SetOs sets the Os field's value.
 func (s *ImageAttributeForListTagsOutput) SetOs(v string) *ImageAttributeForListTagsOutput {
 	s.Os = &v
+	return s
+}
+
+// SetSize sets the Size field's value.
+func (s *ImageAttributeForListTagsOutput) SetSize(v int64) *ImageAttributeForListTagsOutput {
+	s.Size = &v
 	return s
 }
 
@@ -332,15 +340,18 @@ type ListTagsInput struct {
 
 	Filter *FilterForListTagsInput `type:"structure"`
 
-	Namespace *string `type:"string"`
+	// Namespace is a required field
+	Namespace *string `type:"string" required:"true"`
 
 	PageNumber *int64 `type:"int64"`
 
 	PageSize *int64 `type:"int64"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 
-	Repository *string `type:"string"`
+	// Repository is a required field
+	Repository *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -351,6 +362,25 @@ func (s ListTagsInput) String() string {
 // GoString returns the string representation
 func (s ListTagsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListTagsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListTagsInput"}
+	if s.Namespace == nil {
+		invalidParams.Add(request.NewErrParamRequired("Namespace"))
+	}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+	if s.Repository == nil {
+		invalidParams.Add(request.NewErrParamRequired("Repository"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFilter sets the Filter field's value.

@@ -148,9 +148,13 @@ type CreateNamespaceInput struct {
 
 	ClientToken *string `type:"string"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 
-	Registry *string `type:"string"`
+	Project *string `type:"string"`
+
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,6 +167,22 @@ func (s CreateNamespaceInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateNamespaceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateNamespaceInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateNamespaceInput) SetClientToken(v string) *CreateNamespaceInput {
 	s.ClientToken = &v
@@ -172,6 +192,12 @@ func (s *CreateNamespaceInput) SetClientToken(v string) *CreateNamespaceInput {
 // SetName sets the Name field's value.
 func (s *CreateNamespaceInput) SetName(v string) *CreateNamespaceInput {
 	s.Name = &v
+	return s
+}
+
+// SetProject sets the Project field's value.
+func (s *CreateNamespaceInput) SetProject(v string) *CreateNamespaceInput {
+	s.Project = &v
 	return s
 }
 

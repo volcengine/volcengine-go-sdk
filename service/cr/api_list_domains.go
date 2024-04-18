@@ -146,6 +146,10 @@ func (c *CR) ListDomainsWithContext(ctx volcengine.Context, input *ListDomainsIn
 type ItemForListDomainsOutput struct {
 	_ struct{} `type:"structure"`
 
+	CreateTime *string `type:"string"`
+
+	Default *bool `type:"boolean"`
+
 	Domain *string `type:"string"`
 
 	Type *string `type:"string"`
@@ -159,6 +163,18 @@ func (s ItemForListDomainsOutput) String() string {
 // GoString returns the string representation
 func (s ItemForListDomainsOutput) GoString() string {
 	return s.String()
+}
+
+// SetCreateTime sets the CreateTime field's value.
+func (s *ItemForListDomainsOutput) SetCreateTime(v string) *ItemForListDomainsOutput {
+	s.CreateTime = &v
+	return s
+}
+
+// SetDefault sets the Default field's value.
+func (s *ItemForListDomainsOutput) SetDefault(v bool) *ItemForListDomainsOutput {
+	s.Default = &v
+	return s
 }
 
 // SetDomain sets the Domain field's value.
@@ -180,7 +196,8 @@ type ListDomainsInput struct {
 
 	PageSize *int64 `type:"int64"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -191,6 +208,19 @@ func (s ListDomainsInput) String() string {
 // GoString returns the string representation
 func (s ListDomainsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListDomainsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListDomainsInput"}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.

@@ -22,13 +22,13 @@ const opDescribeBackupsCommon = "DescribeBackups"
 // See DescribeBackupsCommon for more information on using the DescribeBackupsCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBackupsCommonRequest method.
-//	req, resp := client.DescribeBackupsCommonRequest(params)
+//    // Example sending a request using the DescribeBackupsCommonRequest method.
+//    req, resp := client.DescribeBackupsCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *REDIS) DescribeBackupsCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeBackupsCommon,
@@ -89,13 +89,13 @@ const opDescribeBackups = "DescribeBackups"
 // See DescribeBackups for more information on using the DescribeBackups
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeBackupsRequest method.
-//	req, resp := client.DescribeBackupsRequest(params)
+//    // Example sending a request using the DescribeBackupsRequest method.
+//    req, resp := client.DescribeBackupsRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *REDIS) DescribeBackupsRequest(input *DescribeBackupsInput) (req *request.Request, output *DescribeBackupsOutput) {
 	op := &request.Operation{
 		Name:       opDescribeBackups,

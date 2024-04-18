@@ -22,13 +22,13 @@ const opModifyDBInstanceShardNumberCommon = "ModifyDBInstanceShardNumber"
 // See ModifyDBInstanceShardNumberCommon for more information on using the ModifyDBInstanceShardNumberCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceShardNumberCommonRequest method.
-//	req, resp := client.ModifyDBInstanceShardNumberCommonRequest(params)
+//    // Example sending a request using the ModifyDBInstanceShardNumberCommonRequest method.
+//    req, resp := client.ModifyDBInstanceShardNumberCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *REDIS) ModifyDBInstanceShardNumberCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceShardNumberCommon,
@@ -89,13 +89,13 @@ const opModifyDBInstanceShardNumber = "ModifyDBInstanceShardNumber"
 // See ModifyDBInstanceShardNumber for more information on using the ModifyDBInstanceShardNumber
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDBInstanceShardNumberRequest method.
-//	req, resp := client.ModifyDBInstanceShardNumberRequest(params)
+//    // Example sending a request using the ModifyDBInstanceShardNumberRequest method.
+//    req, resp := client.ModifyDBInstanceShardNumberRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *REDIS) ModifyDBInstanceShardNumberRequest(input *ModifyDBInstanceShardNumberInput) (req *request.Request, output *ModifyDBInstanceShardNumberOutput) {
 	op := &request.Operation{
 		Name:       opModifyDBInstanceShardNumber,

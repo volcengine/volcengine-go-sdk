@@ -22,13 +22,13 @@ const opDecreaseDBInstanceNodeNumberCommon = "DecreaseDBInstanceNodeNumber"
 // See DecreaseDBInstanceNodeNumberCommon for more information on using the DecreaseDBInstanceNodeNumberCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DecreaseDBInstanceNodeNumberCommonRequest method.
-//	req, resp := client.DecreaseDBInstanceNodeNumberCommonRequest(params)
+//    // Example sending a request using the DecreaseDBInstanceNodeNumberCommonRequest method.
+//    req, resp := client.DecreaseDBInstanceNodeNumberCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *REDIS) DecreaseDBInstanceNodeNumberCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDecreaseDBInstanceNodeNumberCommon,
@@ -89,13 +89,13 @@ const opDecreaseDBInstanceNodeNumber = "DecreaseDBInstanceNodeNumber"
 // See DecreaseDBInstanceNodeNumber for more information on using the DecreaseDBInstanceNodeNumber
 // API call, and error handling.
 //
-//	// Example sending a request using the DecreaseDBInstanceNodeNumberRequest method.
-//	req, resp := client.DecreaseDBInstanceNodeNumberRequest(params)
+//    // Example sending a request using the DecreaseDBInstanceNodeNumberRequest method.
+//    req, resp := client.DecreaseDBInstanceNodeNumberRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *REDIS) DecreaseDBInstanceNodeNumberRequest(input *DecreaseDBInstanceNodeNumberInput) (req *request.Request, output *DecreaseDBInstanceNodeNumberOutput) {
 	op := &request.Operation{
 		Name:       opDecreaseDBInstanceNodeNumber,
