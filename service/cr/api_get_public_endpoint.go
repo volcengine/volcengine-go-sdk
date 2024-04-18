@@ -143,10 +143,41 @@ func (c *CR) GetPublicEndpointWithContext(ctx volcengine.Context, input *GetPubl
 	return out, req.Send()
 }
 
+type AclPolicyForGetPublicEndpointOutput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `type:"string"`
+
+	Entry *string `type:"string"`
+}
+
+// String returns the string representation
+func (s AclPolicyForGetPublicEndpointOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AclPolicyForGetPublicEndpointOutput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *AclPolicyForGetPublicEndpointOutput) SetDescription(v string) *AclPolicyForGetPublicEndpointOutput {
+	s.Description = &v
+	return s
+}
+
+// SetEntry sets the Entry field's value.
+func (s *AclPolicyForGetPublicEndpointOutput) SetEntry(v string) *AclPolicyForGetPublicEndpointOutput {
+	s.Entry = &v
+	return s
+}
+
 type GetPublicEndpointInput struct {
 	_ struct{} `type:"structure"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +190,19 @@ func (s GetPublicEndpointInput) GoString() string {
 	return s.String()
 }
 
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetPublicEndpointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetPublicEndpointInput"}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
 // SetRegistry sets the Registry field's value.
 func (s *GetPublicEndpointInput) SetRegistry(v string) *GetPublicEndpointInput {
 	s.Registry = &v
@@ -169,6 +213,8 @@ type GetPublicEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	AclPolicies []*AclPolicyForGetPublicEndpointOutput `type:"list"`
 
 	Enabled *bool `type:"boolean"`
 
@@ -185,6 +231,12 @@ func (s GetPublicEndpointOutput) String() string {
 // GoString returns the string representation
 func (s GetPublicEndpointOutput) GoString() string {
 	return s.String()
+}
+
+// SetAclPolicies sets the AclPolicies field's value.
+func (s *GetPublicEndpointOutput) SetAclPolicies(v []*AclPolicyForGetPublicEndpointOutput) *GetPublicEndpointOutput {
+	s.AclPolicies = v
+	return s
 }
 
 // SetEnabled sets the Enabled field's value.

@@ -148,7 +148,8 @@ type UpdatePublicEndpointInput struct {
 
 	Enabled *bool `type:"boolean"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +160,19 @@ func (s UpdatePublicEndpointInput) String() string {
 // GoString returns the string representation
 func (s UpdatePublicEndpointInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdatePublicEndpointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdatePublicEndpointInput"}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEnabled sets the Enabled field's value.

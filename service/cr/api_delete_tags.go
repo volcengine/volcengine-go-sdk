@@ -148,11 +148,14 @@ type DeleteTagsInput struct {
 
 	Names []*string `type:"list"`
 
-	Namespace *string `type:"string"`
+	// Namespace is a required field
+	Namespace *string `type:"string" required:"true"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 
-	Repository *string `type:"string"`
+	// Repository is a required field
+	Repository *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,6 +166,25 @@ func (s DeleteTagsInput) String() string {
 // GoString returns the string representation
 func (s DeleteTagsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteTagsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteTagsInput"}
+	if s.Namespace == nil {
+		invalidParams.Add(request.NewErrParamRequired("Namespace"))
+	}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+	if s.Repository == nil {
+		invalidParams.Add(request.NewErrParamRequired("Repository"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetNames sets the Names field's value.
@@ -193,6 +215,10 @@ type DeleteTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	Failures []*FailureForDeleteTagsOutput `type:"list"`
+
+	Successes []*SuccessForDeleteTagsOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -203,4 +229,68 @@ func (s DeleteTagsOutput) String() string {
 // GoString returns the string representation
 func (s DeleteTagsOutput) GoString() string {
 	return s.String()
+}
+
+// SetFailures sets the Failures field's value.
+func (s *DeleteTagsOutput) SetFailures(v []*FailureForDeleteTagsOutput) *DeleteTagsOutput {
+	s.Failures = v
+	return s
+}
+
+// SetSuccesses sets the Successes field's value.
+func (s *DeleteTagsOutput) SetSuccesses(v []*SuccessForDeleteTagsOutput) *DeleteTagsOutput {
+	s.Successes = v
+	return s
+}
+
+type FailureForDeleteTagsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Name *string `type:"string"`
+
+	Reason *string `type:"string"`
+}
+
+// String returns the string representation
+func (s FailureForDeleteTagsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FailureForDeleteTagsOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *FailureForDeleteTagsOutput) SetName(v string) *FailureForDeleteTagsOutput {
+	s.Name = &v
+	return s
+}
+
+// SetReason sets the Reason field's value.
+func (s *FailureForDeleteTagsOutput) SetReason(v string) *FailureForDeleteTagsOutput {
+	s.Reason = &v
+	return s
+}
+
+type SuccessForDeleteTagsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Name *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SuccessForDeleteTagsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SuccessForDeleteTagsOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *SuccessForDeleteTagsOutput) SetName(v string) *SuccessForDeleteTagsOutput {
+	s.Name = &v
+	return s
 }

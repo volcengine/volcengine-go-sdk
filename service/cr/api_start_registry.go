@@ -146,7 +146,8 @@ func (c *CR) StartRegistryWithContext(ctx volcengine.Context, input *StartRegist
 type StartRegistryInput struct {
 	_ struct{} `type:"structure"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s StartRegistryInput) String() string {
 // GoString returns the string representation
 func (s StartRegistryInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StartRegistryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StartRegistryInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetName sets the Name field's value.

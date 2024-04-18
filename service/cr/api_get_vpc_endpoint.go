@@ -170,7 +170,8 @@ type GetVpcEndpointInput struct {
 
 	Filter *FilterForGetVpcEndpointInput `type:"structure"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -181,6 +182,19 @@ func (s GetVpcEndpointInput) String() string {
 // GoString returns the string representation
 func (s GetVpcEndpointInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetVpcEndpointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetVpcEndpointInput"}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetFilter sets the Filter field's value.

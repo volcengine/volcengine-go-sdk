@@ -146,7 +146,8 @@ func (c *CR) UpdateVpcEndpointWithContext(ctx volcengine.Context, input *UpdateV
 type UpdateVpcEndpointInput struct {
 	_ struct{} `type:"structure"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 
 	Vpcs []*VpcForUpdateVpcEndpointInput `type:"list"`
 }
@@ -159,6 +160,19 @@ func (s UpdateVpcEndpointInput) String() string {
 // GoString returns the string representation
 func (s UpdateVpcEndpointInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateVpcEndpointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateVpcEndpointInput"}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetRegistry sets the Registry field's value.

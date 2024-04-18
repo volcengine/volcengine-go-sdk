@@ -152,11 +152,14 @@ type UpdateRepositoryInput struct {
 
 	Description *string `type:"string"`
 
-	Name *string `type:"string"`
+	// Name is a required field
+	Name *string `type:"string" required:"true"`
 
-	Namespace *string `type:"string"`
+	// Namespace is a required field
+	Namespace *string `type:"string" required:"true"`
 
-	Registry *string `type:"string"`
+	// Registry is a required field
+	Registry *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -167,6 +170,25 @@ func (s UpdateRepositoryInput) String() string {
 // GoString returns the string representation
 func (s UpdateRepositoryInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateRepositoryInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateRepositoryInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Namespace == nil {
+		invalidParams.Add(request.NewErrParamRequired("Namespace"))
+	}
+	if s.Registry == nil {
+		invalidParams.Add(request.NewErrParamRequired("Registry"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAccessLevel sets the AccessLevel field's value.
