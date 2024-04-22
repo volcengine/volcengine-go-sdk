@@ -46,13 +46,13 @@ func (c *STORAGEEBS) RollbackVolumeCommonRequest(input *map[string]interface{}) 
 	return
 }
 
-// RollbackVolumeCommon API operation for STORAGEEBS.
+// RollbackVolumeCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation RollbackVolumeCommon for usage and error information.
 func (c *STORAGEEBS) RollbackVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RollbackVolumeCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) RollbackVolumeRequest(input *RollbackVolumeInput) (req *req
 	return
 }
 
-// RollbackVolume API operation for STORAGEEBS.
+// RollbackVolume API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation RollbackVolume for usage and error information.
 func (c *STORAGEEBS) RollbackVolume(input *RollbackVolumeInput) (*RollbackVolumeOutput, error) {
 	req, out := c.RollbackVolumeRequest(input)

@@ -46,13 +46,13 @@ func (c *STORAGEEBS) ModifyVolumeAttributeCommonRequest(input *map[string]interf
 	return
 }
 
-// ModifyVolumeAttributeCommon API operation for STORAGEEBS.
+// ModifyVolumeAttributeCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifyVolumeAttributeCommon for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeAttributeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyVolumeAttributeCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) ModifyVolumeAttributeRequest(input *ModifyVolumeAttributeIn
 	return
 }
 
-// ModifyVolumeAttribute API operation for STORAGEEBS.
+// ModifyVolumeAttribute API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifyVolumeAttribute for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeAttribute(input *ModifyVolumeAttributeInput) (*ModifyVolumeAttributeOutput, error) {
 	req, out := c.ModifyVolumeAttributeRequest(input)
@@ -146,9 +146,11 @@ type ModifyVolumeAttributeInput struct {
 
 	Description *string `type:"string"`
 
-	VolumeId *string `type:"string"`
+	// VolumeId is a required field
+	VolumeId *string `type:"string" required:"true"`
 
-	VolumeName *string `type:"string"`
+	// VolumeName is a required field
+	VolumeName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s ModifyVolumeAttributeInput) String() string {
 // GoString returns the string representation
 func (s ModifyVolumeAttributeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyVolumeAttributeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyVolumeAttributeInput"}
+	if s.VolumeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeId"))
+	}
+	if s.VolumeName == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.

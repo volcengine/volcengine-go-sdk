@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DescribeAutoSnapshotPolicyCommonRequest(input *map[string]i
 	return
 }
 
-// DescribeAutoSnapshotPolicyCommon API operation for STORAGEEBS.
+// DescribeAutoSnapshotPolicyCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DescribeAutoSnapshotPolicyCommon for usage and error information.
 func (c *STORAGEEBS) DescribeAutoSnapshotPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeAutoSnapshotPolicyCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DescribeAutoSnapshotPolicyRequest(input *DescribeAutoSnapsh
 	return
 }
 
-// DescribeAutoSnapshotPolicy API operation for STORAGEEBS.
+// DescribeAutoSnapshotPolicy API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DescribeAutoSnapshotPolicy for usage and error information.
 func (c *STORAGEEBS) DescribeAutoSnapshotPolicy(input *DescribeAutoSnapshotPolicyInput) (*DescribeAutoSnapshotPolicyOutput, error) {
 	req, out := c.DescribeAutoSnapshotPolicyRequest(input)

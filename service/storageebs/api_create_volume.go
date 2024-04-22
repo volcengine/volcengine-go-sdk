@@ -48,13 +48,13 @@ func (c *STORAGEEBS) CreateVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// CreateVolumeCommon API operation for STORAGEEBS.
+// CreateVolumeCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CreateVolumeCommon for usage and error information.
 func (c *STORAGEEBS) CreateVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateVolumeCommonRequest(input)
@@ -113,13 +113,13 @@ func (c *STORAGEEBS) CreateVolumeRequest(input *CreateVolumeInput) (req *request
 	return
 }
 
-// CreateVolume API operation for STORAGEEBS.
+// CreateVolume API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CreateVolume for usage and error information.
 func (c *STORAGEEBS) CreateVolume(input *CreateVolumeInput) (*CreateVolumeOutput, error) {
 	req, out := c.CreateVolumeRequest(input)
@@ -154,7 +154,8 @@ type CreateVolumeInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Size *json.Number `type:"json_number"`
+	// Size is a required field
+	Size *json.Number `type:"json_number" required:"true"`
 
 	SnapshotId *string `type:"string"`
 
@@ -162,9 +163,11 @@ type CreateVolumeInput struct {
 
 	VolumeChargeType *string `type:"string"`
 
-	VolumeName *string `type:"string"`
+	// VolumeName is a required field
+	VolumeName *string `type:"string" required:"true"`
 
-	VolumeType *string `type:"string"`
+	// VolumeType is a required field
+	VolumeType *string `type:"string" required:"true"`
 
 	ZoneId *string `type:"string"`
 }
@@ -177,6 +180,25 @@ func (s CreateVolumeInput) String() string {
 // GoString returns the string representation
 func (s CreateVolumeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateVolumeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateVolumeInput"}
+	if s.Size == nil {
+		invalidParams.Add(request.NewErrParamRequired("Size"))
+	}
+	if s.VolumeName == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeName"))
+	}
+	if s.VolumeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

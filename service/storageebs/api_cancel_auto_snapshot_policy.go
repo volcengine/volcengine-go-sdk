@@ -46,13 +46,13 @@ func (c *STORAGEEBS) CancelAutoSnapshotPolicyCommonRequest(input *map[string]int
 	return
 }
 
-// CancelAutoSnapshotPolicyCommon API operation for STORAGEEBS.
+// CancelAutoSnapshotPolicyCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CancelAutoSnapshotPolicyCommon for usage and error information.
 func (c *STORAGEEBS) CancelAutoSnapshotPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CancelAutoSnapshotPolicyCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) CancelAutoSnapshotPolicyRequest(input *CancelAutoSnapshotPo
 	return
 }
 
-// CancelAutoSnapshotPolicy API operation for STORAGEEBS.
+// CancelAutoSnapshotPolicy API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CancelAutoSnapshotPolicy for usage and error information.
 func (c *STORAGEEBS) CancelAutoSnapshotPolicy(input *CancelAutoSnapshotPolicyInput) (*CancelAutoSnapshotPolicyOutput, error) {
 	req, out := c.CancelAutoSnapshotPolicyRequest(input)

@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DeleteAutoSnapshotPolicyCommonRequest(input *map[string]int
 	return
 }
 
-// DeleteAutoSnapshotPolicyCommon API operation for STORAGEEBS.
+// DeleteAutoSnapshotPolicyCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteAutoSnapshotPolicyCommon for usage and error information.
 func (c *STORAGEEBS) DeleteAutoSnapshotPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteAutoSnapshotPolicyCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DeleteAutoSnapshotPolicyRequest(input *DeleteAutoSnapshotPo
 	return
 }
 
-// DeleteAutoSnapshotPolicy API operation for STORAGEEBS.
+// DeleteAutoSnapshotPolicy API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteAutoSnapshotPolicy for usage and error information.
 func (c *STORAGEEBS) DeleteAutoSnapshotPolicy(input *DeleteAutoSnapshotPolicyInput) (*DeleteAutoSnapshotPolicyOutput, error) {
 	req, out := c.DeleteAutoSnapshotPolicyRequest(input)

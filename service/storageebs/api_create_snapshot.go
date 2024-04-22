@@ -46,13 +46,13 @@ func (c *STORAGEEBS) CreateSnapshotCommonRequest(input *map[string]interface{}) 
 	return
 }
 
-// CreateSnapshotCommon API operation for STORAGEEBS.
+// CreateSnapshotCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CreateSnapshotCommon for usage and error information.
 func (c *STORAGEEBS) CreateSnapshotCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateSnapshotCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) CreateSnapshotRequest(input *CreateSnapshotInput) (req *req
 	return
 }
 
-// CreateSnapshot API operation for STORAGEEBS.
+// CreateSnapshot API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CreateSnapshot for usage and error information.
 func (c *STORAGEEBS) CreateSnapshot(input *CreateSnapshotInput) (*CreateSnapshotOutput, error) {
 	req, out := c.CreateSnapshotRequest(input)

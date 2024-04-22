@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DescribeTagsCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// DescribeTagsCommon API operation for STORAGEEBS.
+// DescribeTagsCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DescribeTagsCommon for usage and error information.
 func (c *STORAGEEBS) DescribeTagsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeTagsCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DescribeTagsRequest(input *DescribeTagsInput) (req *request
 	return
 }
 
-// DescribeTags API operation for STORAGEEBS.
+// DescribeTags API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DescribeTags for usage and error information.
 func (c *STORAGEEBS) DescribeTags(input *DescribeTagsInput) (*DescribeTagsOutput, error) {
 	req, out := c.DescribeTagsRequest(input)
@@ -146,9 +146,11 @@ type DescribeTagsInput struct {
 
 	PageSize *int32 `type:"int32"`
 
-	ResourceIds []*string `type:"list"`
+	// ResourceIds is a required field
+	ResourceIds []*string `type:"list" required:"true"`
 
-	ResourceType *string `type:"string"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true"`
 
 	SysTagVisible *bool `type:"boolean"`
 
@@ -163,6 +165,22 @@ func (s DescribeTagsInput) String() string {
 // GoString returns the string representation
 func (s DescribeTagsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeTagsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeTagsInput"}
+	if s.ResourceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetPageNumber sets the PageNumber field's value.

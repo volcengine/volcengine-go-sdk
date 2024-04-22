@@ -46,13 +46,13 @@ func (c *STORAGEEBS) AttachVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// AttachVolumeCommon API operation for STORAGEEBS.
+// AttachVolumeCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation AttachVolumeCommon for usage and error information.
 func (c *STORAGEEBS) AttachVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachVolumeCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) AttachVolumeRequest(input *AttachVolumeInput) (req *request
 	return
 }
 
-// AttachVolume API operation for STORAGEEBS.
+// AttachVolume API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation AttachVolume for usage and error information.
 func (c *STORAGEEBS) AttachVolume(input *AttachVolumeInput) (*AttachVolumeOutput, error) {
 	req, out := c.AttachVolumeRequest(input)
@@ -144,9 +144,11 @@ type AttachVolumeInput struct {
 
 	DeleteWithInstance *bool `type:"boolean"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	VolumeId *string `type:"string"`
+	// VolumeId is a required field
+	VolumeId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +159,22 @@ func (s AttachVolumeInput) String() string {
 // GoString returns the string representation
 func (s AttachVolumeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AttachVolumeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AttachVolumeInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.VolumeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
