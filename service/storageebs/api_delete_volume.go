@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DeleteVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// DeleteVolumeCommon API operation for STORAGEEBS.
+// DeleteVolumeCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteVolumeCommon for usage and error information.
 func (c *STORAGEEBS) DeleteVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteVolumeCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DeleteVolumeRequest(input *DeleteVolumeInput) (req *request
 	return
 }
 
-// DeleteVolume API operation for STORAGEEBS.
+// DeleteVolume API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteVolume for usage and error information.
 func (c *STORAGEEBS) DeleteVolume(input *DeleteVolumeInput) (*DeleteVolumeOutput, error) {
 	req, out := c.DeleteVolumeRequest(input)
@@ -144,7 +144,8 @@ type DeleteVolumeInput struct {
 
 	ClientToken *string `type:"string"`
 
-	VolumeId *string `type:"string"`
+	// VolumeId is a required field
+	VolumeId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -155,6 +156,19 @@ func (s DeleteVolumeInput) String() string {
 // GoString returns the string representation
 func (s DeleteVolumeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteVolumeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteVolumeInput"}
+	if s.VolumeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

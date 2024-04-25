@@ -46,13 +46,13 @@ func (c *STORAGEEBS) ModifySnapshotGroupCommonRequest(input *map[string]interfac
 	return
 }
 
-// ModifySnapshotGroupCommon API operation for STORAGEEBS.
+// ModifySnapshotGroupCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifySnapshotGroupCommon for usage and error information.
 func (c *STORAGEEBS) ModifySnapshotGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifySnapshotGroupCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) ModifySnapshotGroupRequest(input *ModifySnapshotGroupInput)
 	return
 }
 
-// ModifySnapshotGroup API operation for STORAGEEBS.
+// ModifySnapshotGroup API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifySnapshotGroup for usage and error information.
 func (c *STORAGEEBS) ModifySnapshotGroup(input *ModifySnapshotGroupInput) (*ModifySnapshotGroupOutput, error) {
 	req, out := c.ModifySnapshotGroupRequest(input)

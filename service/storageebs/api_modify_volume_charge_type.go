@@ -46,13 +46,13 @@ func (c *STORAGEEBS) ModifyVolumeChargeTypeCommonRequest(input *map[string]inter
 	return
 }
 
-// ModifyVolumeChargeTypeCommon API operation for STORAGEEBS.
+// ModifyVolumeChargeTypeCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifyVolumeChargeTypeCommon for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeChargeTypeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyVolumeChargeTypeCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) ModifyVolumeChargeTypeRequest(input *ModifyVolumeChargeType
 	return
 }
 
-// ModifyVolumeChargeType API operation for STORAGEEBS.
+// ModifyVolumeChargeType API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifyVolumeChargeType for usage and error information.
 func (c *STORAGEEBS) ModifyVolumeChargeType(input *ModifyVolumeChargeTypeInput) (*ModifyVolumeChargeTypeOutput, error) {
 	req, out := c.ModifyVolumeChargeTypeRequest(input)
@@ -144,11 +144,14 @@ type ModifyVolumeChargeTypeInput struct {
 
 	AutoPay *bool `type:"boolean"`
 
-	DiskChargeType *string `type:"string"`
+	// DiskChargeType is a required field
+	DiskChargeType *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	VolumeIds []*string `type:"list"`
+	// VolumeIds is a required field
+	VolumeIds []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +162,25 @@ func (s ModifyVolumeChargeTypeInput) String() string {
 // GoString returns the string representation
 func (s ModifyVolumeChargeTypeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyVolumeChargeTypeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyVolumeChargeTypeInput"}
+	if s.DiskChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("DiskChargeType"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.VolumeIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoPay sets the AutoPay field's value.

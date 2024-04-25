@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DescribeSnapshotGroupsCommonRequest(input *map[string]inter
 	return
 }
 
-// DescribeSnapshotGroupsCommon API operation for STORAGEEBS.
+// DescribeSnapshotGroupsCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DescribeSnapshotGroupsCommon for usage and error information.
 func (c *STORAGEEBS) DescribeSnapshotGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeSnapshotGroupsCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DescribeSnapshotGroupsRequest(input *DescribeSnapshotGroups
 	return
 }
 
-// DescribeSnapshotGroups API operation for STORAGEEBS.
+// DescribeSnapshotGroups API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DescribeSnapshotGroups for usage and error information.
 func (c *STORAGEEBS) DescribeSnapshotGroups(input *DescribeSnapshotGroupsInput) (*DescribeSnapshotGroupsOutput, error) {
 	req, out := c.DescribeSnapshotGroupsRequest(input)

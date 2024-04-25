@@ -46,13 +46,13 @@ func (c *STORAGEEBS) CreateAutoSnapshotPolicyCommonRequest(input *map[string]int
 	return
 }
 
-// CreateAutoSnapshotPolicyCommon API operation for STORAGEEBS.
+// CreateAutoSnapshotPolicyCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CreateAutoSnapshotPolicyCommon for usage and error information.
 func (c *STORAGEEBS) CreateAutoSnapshotPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateAutoSnapshotPolicyCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) CreateAutoSnapshotPolicyRequest(input *CreateAutoSnapshotPo
 	return
 }
 
-// CreateAutoSnapshotPolicy API operation for STORAGEEBS.
+// CreateAutoSnapshotPolicy API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation CreateAutoSnapshotPolicy for usage and error information.
 func (c *STORAGEEBS) CreateAutoSnapshotPolicy(input *CreateAutoSnapshotPolicyInput) (*CreateAutoSnapshotPolicyOutput, error) {
 	req, out := c.CreateAutoSnapshotPolicyRequest(input)
@@ -151,9 +151,11 @@ type CreateAutoSnapshotPolicyInput struct {
 
 	RepeatWeekdays []*string `type:"list"`
 
-	RetentionDays *int32 `type:"int32"`
+	// RetentionDays is a required field
+	RetentionDays *int32 `type:"int32" required:"true"`
 
-	TimePoints []*string `type:"list"`
+	// TimePoints is a required field
+	TimePoints []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -171,6 +173,12 @@ func (s *CreateAutoSnapshotPolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateAutoSnapshotPolicyInput"}
 	if s.AutoSnapshotPolicyName == nil {
 		invalidParams.Add(request.NewErrParamRequired("AutoSnapshotPolicyName"))
+	}
+	if s.RetentionDays == nil {
+		invalidParams.Add(request.NewErrParamRequired("RetentionDays"))
+	}
+	if s.TimePoints == nil {
+		invalidParams.Add(request.NewErrParamRequired("TimePoints"))
 	}
 
 	if invalidParams.Len() > 0 {

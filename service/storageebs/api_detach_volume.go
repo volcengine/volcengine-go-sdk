@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DetachVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// DetachVolumeCommon API operation for STORAGEEBS.
+// DetachVolumeCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DetachVolumeCommon for usage and error information.
 func (c *STORAGEEBS) DetachVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachVolumeCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DetachVolumeRequest(input *DetachVolumeInput) (req *request
 	return
 }
 
-// DetachVolume API operation for STORAGEEBS.
+// DetachVolume API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DetachVolume for usage and error information.
 func (c *STORAGEEBS) DetachVolume(input *DetachVolumeInput) (*DetachVolumeOutput, error) {
 	req, out := c.DetachVolumeRequest(input)
@@ -142,9 +142,11 @@ func (c *STORAGEEBS) DetachVolumeWithContext(ctx volcengine.Context, input *Deta
 type DetachVolumeInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	VolumeId *string `type:"string"`
+	// VolumeId is a required field
+	VolumeId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -155,6 +157,22 @@ func (s DetachVolumeInput) String() string {
 // GoString returns the string representation
 func (s DetachVolumeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DetachVolumeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DetachVolumeInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.VolumeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

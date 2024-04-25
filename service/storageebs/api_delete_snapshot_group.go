@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DeleteSnapshotGroupCommonRequest(input *map[string]interfac
 	return
 }
 
-// DeleteSnapshotGroupCommon API operation for STORAGEEBS.
+// DeleteSnapshotGroupCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteSnapshotGroupCommon for usage and error information.
 func (c *STORAGEEBS) DeleteSnapshotGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteSnapshotGroupCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DeleteSnapshotGroupRequest(input *DeleteSnapshotGroupInput)
 	return
 }
 
-// DeleteSnapshotGroup API operation for STORAGEEBS.
+// DeleteSnapshotGroup API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteSnapshotGroup for usage and error information.
 func (c *STORAGEEBS) DeleteSnapshotGroup(input *DeleteSnapshotGroupInput) (*DeleteSnapshotGroupOutput, error) {
 	req, out := c.DeleteSnapshotGroupRequest(input)

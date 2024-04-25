@@ -46,13 +46,13 @@ func (c *STORAGEEBS) ModifySnapshotAttributeCommonRequest(input *map[string]inte
 	return
 }
 
-// ModifySnapshotAttributeCommon API operation for STORAGEEBS.
+// ModifySnapshotAttributeCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifySnapshotAttributeCommon for usage and error information.
 func (c *STORAGEEBS) ModifySnapshotAttributeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifySnapshotAttributeCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) ModifySnapshotAttributeRequest(input *ModifySnapshotAttribu
 	return
 }
 
-// ModifySnapshotAttribute API operation for STORAGEEBS.
+// ModifySnapshotAttribute API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ModifySnapshotAttribute for usage and error information.
 func (c *STORAGEEBS) ModifySnapshotAttribute(input *ModifySnapshotAttributeInput) (*ModifySnapshotAttributeOutput, error) {
 	req, out := c.ModifySnapshotAttributeRequest(input)

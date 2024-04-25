@@ -46,13 +46,13 @@ func (c *STORAGEEBS) RollbackSnapshotGroupCommonRequest(input *map[string]interf
 	return
 }
 
-// RollbackSnapshotGroupCommon API operation for STORAGEEBS.
+// RollbackSnapshotGroupCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation RollbackSnapshotGroupCommon for usage and error information.
 func (c *STORAGEEBS) RollbackSnapshotGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RollbackSnapshotGroupCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) RollbackSnapshotGroupRequest(input *RollbackSnapshotGroupIn
 	return
 }
 
-// RollbackSnapshotGroup API operation for STORAGEEBS.
+// RollbackSnapshotGroup API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation RollbackSnapshotGroup for usage and error information.
 func (c *STORAGEEBS) RollbackSnapshotGroup(input *RollbackSnapshotGroupInput) (*RollbackSnapshotGroupOutput, error) {
 	req, out := c.RollbackSnapshotGroupRequest(input)

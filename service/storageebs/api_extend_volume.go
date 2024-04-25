@@ -48,13 +48,13 @@ func (c *STORAGEEBS) ExtendVolumeCommonRequest(input *map[string]interface{}) (r
 	return
 }
 
-// ExtendVolumeCommon API operation for STORAGEEBS.
+// ExtendVolumeCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ExtendVolumeCommon for usage and error information.
 func (c *STORAGEEBS) ExtendVolumeCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ExtendVolumeCommonRequest(input)
@@ -113,13 +113,13 @@ func (c *STORAGEEBS) ExtendVolumeRequest(input *ExtendVolumeInput) (req *request
 	return
 }
 
-// ExtendVolume API operation for STORAGEEBS.
+// ExtendVolume API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation ExtendVolume for usage and error information.
 func (c *STORAGEEBS) ExtendVolume(input *ExtendVolumeInput) (*ExtendVolumeOutput, error) {
 	req, out := c.ExtendVolumeRequest(input)
@@ -146,9 +146,11 @@ type ExtendVolumeInput struct {
 
 	ClientToken *string `type:"string"`
 
-	NewSize *json.Number `type:"json_number"`
+	// NewSize is a required field
+	NewSize *json.Number `type:"json_number" required:"true"`
 
-	VolumeId *string `type:"string"`
+	// VolumeId is a required field
+	VolumeId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s ExtendVolumeInput) String() string {
 // GoString returns the string representation
 func (s ExtendVolumeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ExtendVolumeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ExtendVolumeInput"}
+	if s.NewSize == nil {
+		invalidParams.Add(request.NewErrParamRequired("NewSize"))
+	}
+	if s.VolumeId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VolumeId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetClientToken sets the ClientToken field's value.

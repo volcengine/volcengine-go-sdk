@@ -46,13 +46,13 @@ func (c *STORAGEEBS) DeleteTagsCommonRequest(input *map[string]interface{}) (req
 	return
 }
 
-// DeleteTagsCommon API operation for STORAGEEBS.
+// DeleteTagsCommon API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteTagsCommon for usage and error information.
 func (c *STORAGEEBS) DeleteTagsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteTagsCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *STORAGEEBS) DeleteTagsRequest(input *DeleteTagsInput) (req *request.Req
 	return
 }
 
-// DeleteTags API operation for STORAGEEBS.
+// DeleteTags API operation for STORAGE_EBS.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for STORAGEEBS's
+// See the VOLCENGINE API reference guide for STORAGE_EBS's
 // API operation DeleteTags for usage and error information.
 func (c *STORAGEEBS) DeleteTags(input *DeleteTagsInput) (*DeleteTagsOutput, error) {
 	req, out := c.DeleteTagsRequest(input)
@@ -142,11 +142,14 @@ func (c *STORAGEEBS) DeleteTagsWithContext(ctx volcengine.Context, input *Delete
 type DeleteTagsInput struct {
 	_ struct{} `type:"structure"`
 
-	ResourceIds []*string `type:"list"`
+	// ResourceIds is a required field
+	ResourceIds []*string `type:"list" required:"true"`
 
-	ResourceType *string `type:"string"`
+	// ResourceType is a required field
+	ResourceType *string `type:"string" required:"true"`
 
-	TagKeys []*string `type:"list"`
+	// TagKeys is a required field
+	TagKeys []*string `type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +160,25 @@ func (s DeleteTagsInput) String() string {
 // GoString returns the string representation
 func (s DeleteTagsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteTagsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteTagsInput"}
+	if s.ResourceIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceIds"))
+	}
+	if s.ResourceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceType"))
+	}
+	if s.TagKeys == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagKeys"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetResourceIds sets the ResourceIds field's value.
