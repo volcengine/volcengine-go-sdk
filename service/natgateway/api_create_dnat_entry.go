@@ -22,13 +22,13 @@ const opCreateDnatEntryCommon = "CreateDnatEntry"
 // See CreateDnatEntryCommon for more information on using the CreateDnatEntryCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDnatEntryCommonRequest method.
-//	req, resp := client.CreateDnatEntryCommonRequest(params)
+//    // Example sending a request using the CreateDnatEntryCommonRequest method.
+//    req, resp := client.CreateDnatEntryCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) CreateDnatEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDnatEntryCommon,
@@ -87,13 +87,13 @@ const opCreateDnatEntry = "CreateDnatEntry"
 // See CreateDnatEntry for more information on using the CreateDnatEntry
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDnatEntryRequest method.
-//	req, resp := client.CreateDnatEntryRequest(params)
+//    // Example sending a request using the CreateDnatEntryRequest method.
+//    req, resp := client.CreateDnatEntryRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) CreateDnatEntryRequest(input *CreateDnatEntryInput) (req *request.Request, output *CreateDnatEntryOutput) {
 	op := &request.Operation{
 		Name:       opCreateDnatEntry,
@@ -158,6 +158,8 @@ type CreateDnatEntryInput struct {
 
 	// NatGatewayId is a required field
 	NatGatewayId *string `type:"string" required:"true"`
+
+	PortType *string `type:"string"`
 
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
@@ -240,6 +242,12 @@ func (s *CreateDnatEntryInput) SetInternalPort(v string) *CreateDnatEntryInput {
 // SetNatGatewayId sets the NatGatewayId field's value.
 func (s *CreateDnatEntryInput) SetNatGatewayId(v string) *CreateDnatEntryInput {
 	s.NatGatewayId = &v
+	return s
+}
+
+// SetPortType sets the PortType field's value.
+func (s *CreateDnatEntryInput) SetPortType(v string) *CreateDnatEntryInput {
+	s.PortType = &v
 	return s
 }
 

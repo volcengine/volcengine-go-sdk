@@ -22,13 +22,13 @@ const opDescribeControlPolicyCommon = "DescribeControlPolicy"
 // See DescribeControlPolicyCommon for more information on using the DescribeControlPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeControlPolicyCommonRequest method.
-//	req, resp := client.DescribeControlPolicyCommonRequest(params)
+//    // Example sending a request using the DescribeControlPolicyCommonRequest method.
+//    req, resp := client.DescribeControlPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeControlPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeControlPolicyCommon,
@@ -89,13 +89,13 @@ const opDescribeControlPolicy = "DescribeControlPolicy"
 // See DescribeControlPolicy for more information on using the DescribeControlPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeControlPolicyRequest method.
-//	req, resp := client.DescribeControlPolicyRequest(params)
+//    // Example sending a request using the DescribeControlPolicyRequest method.
+//    req, resp := client.DescribeControlPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeControlPolicyRequest(input *DescribeControlPolicyInput) (req *request.Request, output *DescribeControlPolicyOutput) {
 	op := &request.Operation{
 		Name:       opDescribeControlPolicy,

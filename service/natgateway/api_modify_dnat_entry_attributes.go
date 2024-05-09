@@ -22,13 +22,13 @@ const opModifyDnatEntryAttributesCommon = "ModifyDnatEntryAttributes"
 // See ModifyDnatEntryAttributesCommon for more information on using the ModifyDnatEntryAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDnatEntryAttributesCommonRequest method.
-//	req, resp := client.ModifyDnatEntryAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyDnatEntryAttributesCommonRequest method.
+//    req, resp := client.ModifyDnatEntryAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) ModifyDnatEntryAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyDnatEntryAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyDnatEntryAttributes = "ModifyDnatEntryAttributes"
 // See ModifyDnatEntryAttributes for more information on using the ModifyDnatEntryAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyDnatEntryAttributesRequest method.
-//	req, resp := client.ModifyDnatEntryAttributesRequest(params)
+//    // Example sending a request using the ModifyDnatEntryAttributesRequest method.
+//    req, resp := client.ModifyDnatEntryAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) ModifyDnatEntryAttributesRequest(input *ModifyDnatEntryAttributesInput) (req *request.Request, output *ModifyDnatEntryAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyDnatEntryAttributes,
@@ -147,20 +147,15 @@ type ModifyDnatEntryAttributesInput struct {
 
 	DnatEntryName *string `min:"1" max:"128" type:"string"`
 
-	// ExternalIp is a required field
-	ExternalIp *string `type:"string" required:"true"`
+	ExternalIp *string `type:"string"`
 
-	// ExternalPort is a required field
-	ExternalPort *string `type:"string" required:"true"`
+	ExternalPort *string `type:"string"`
 
-	// InternalIp is a required field
-	InternalIp *string `type:"string" required:"true"`
+	InternalIp *string `type:"string"`
 
-	// InternalPort is a required field
-	InternalPort *string `type:"string" required:"true"`
+	InternalPort *string `type:"string"`
 
-	// Protocol is a required field
-	Protocol *string `type:"string" required:"true"`
+	Protocol *string `type:"string"`
 }
 
 // String returns the string representation
@@ -184,21 +179,6 @@ func (s *ModifyDnatEntryAttributesInput) Validate() error {
 	}
 	if s.DnatEntryName != nil && len(*s.DnatEntryName) > 128 {
 		invalidParams.Add(request.NewErrParamMaxLen("DnatEntryName", 128, *s.DnatEntryName))
-	}
-	if s.ExternalIp == nil {
-		invalidParams.Add(request.NewErrParamRequired("ExternalIp"))
-	}
-	if s.ExternalPort == nil {
-		invalidParams.Add(request.NewErrParamRequired("ExternalPort"))
-	}
-	if s.InternalIp == nil {
-		invalidParams.Add(request.NewErrParamRequired("InternalIp"))
-	}
-	if s.InternalPort == nil {
-		invalidParams.Add(request.NewErrParamRequired("InternalPort"))
-	}
-	if s.Protocol == nil {
-		invalidParams.Add(request.NewErrParamRequired("Protocol"))
 	}
 
 	if invalidParams.Len() > 0 {

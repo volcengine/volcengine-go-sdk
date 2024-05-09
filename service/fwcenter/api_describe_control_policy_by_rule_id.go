@@ -22,13 +22,13 @@ const opDescribeControlPolicyByRuleIdCommon = "DescribeControlPolicyByRuleId"
 // See DescribeControlPolicyByRuleIdCommon for more information on using the DescribeControlPolicyByRuleIdCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeControlPolicyByRuleIdCommonRequest method.
-//	req, resp := client.DescribeControlPolicyByRuleIdCommonRequest(params)
+//    // Example sending a request using the DescribeControlPolicyByRuleIdCommonRequest method.
+//    req, resp := client.DescribeControlPolicyByRuleIdCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeControlPolicyByRuleIdCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeControlPolicyByRuleIdCommon,
@@ -89,13 +89,13 @@ const opDescribeControlPolicyByRuleId = "DescribeControlPolicyByRuleId"
 // See DescribeControlPolicyByRuleId for more information on using the DescribeControlPolicyByRuleId
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeControlPolicyByRuleIdRequest method.
-//	req, resp := client.DescribeControlPolicyByRuleIdRequest(params)
+//    // Example sending a request using the DescribeControlPolicyByRuleIdRequest method.
+//    req, resp := client.DescribeControlPolicyByRuleIdRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeControlPolicyByRuleIdRequest(input *DescribeControlPolicyByRuleIdInput) (req *request.Request, output *DescribeControlPolicyByRuleIdOutput) {
 	op := &request.Operation{
 		Name:       opDescribeControlPolicyByRuleId,

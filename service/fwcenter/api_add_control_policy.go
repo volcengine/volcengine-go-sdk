@@ -22,13 +22,13 @@ const opAddControlPolicyCommon = "AddControlPolicy"
 // See AddControlPolicyCommon for more information on using the AddControlPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AddControlPolicyCommonRequest method.
-//	req, resp := client.AddControlPolicyCommonRequest(params)
+//    // Example sending a request using the AddControlPolicyCommonRequest method.
+//    req, resp := client.AddControlPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) AddControlPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAddControlPolicyCommon,
@@ -89,13 +89,13 @@ const opAddControlPolicy = "AddControlPolicy"
 // See AddControlPolicy for more information on using the AddControlPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the AddControlPolicyRequest method.
-//	req, resp := client.AddControlPolicyRequest(params)
+//    // Example sending a request using the AddControlPolicyRequest method.
+//    req, resp := client.AddControlPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) AddControlPolicyRequest(input *AddControlPolicyInput) (req *request.Request, output *AddControlPolicyOutput) {
 	op := &request.Operation{
 		Name:       opAddControlPolicy,

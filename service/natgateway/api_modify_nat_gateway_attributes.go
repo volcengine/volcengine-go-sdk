@@ -22,13 +22,13 @@ const opModifyNatGatewayAttributesCommon = "ModifyNatGatewayAttributes"
 // See ModifyNatGatewayAttributesCommon for more information on using the ModifyNatGatewayAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyNatGatewayAttributesCommonRequest method.
-//	req, resp := client.ModifyNatGatewayAttributesCommonRequest(params)
+//    // Example sending a request using the ModifyNatGatewayAttributesCommonRequest method.
+//    req, resp := client.ModifyNatGatewayAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) ModifyNatGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyNatGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opModifyNatGatewayAttributes = "ModifyNatGatewayAttributes"
 // See ModifyNatGatewayAttributes for more information on using the ModifyNatGatewayAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyNatGatewayAttributesRequest method.
-//	req, resp := client.ModifyNatGatewayAttributesRequest(params)
+//    // Example sending a request using the ModifyNatGatewayAttributesRequest method.
+//    req, resp := client.ModifyNatGatewayAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) ModifyNatGatewayAttributesRequest(input *ModifyNatGatewayAttributesInput) (req *request.Request, output *ModifyNatGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opModifyNatGatewayAttributes,
@@ -149,7 +149,7 @@ type ModifyNatGatewayAttributesInput struct {
 
 	NatGatewayName *string `min:"1" max:"128" type:"string"`
 
-	Spec *string `type:"string" enum:"SpecForModifyNatGatewayAttributesInput"`
+	Spec *string `type:"string"`
 }
 
 // String returns the string representation
@@ -234,14 +234,3 @@ func (s *ModifyNatGatewayAttributesOutput) SetRequestId(v string) *ModifyNatGate
 	s.RequestId = &v
 	return s
 }
-
-const (
-	// SpecForModifyNatGatewayAttributesInputSmall is a SpecForModifyNatGatewayAttributesInput enum value
-	SpecForModifyNatGatewayAttributesInputSmall = "Small"
-
-	// SpecForModifyNatGatewayAttributesInputMedium is a SpecForModifyNatGatewayAttributesInput enum value
-	SpecForModifyNatGatewayAttributesInputMedium = "Medium"
-
-	// SpecForModifyNatGatewayAttributesInputLarge is a SpecForModifyNatGatewayAttributesInput enum value
-	SpecForModifyNatGatewayAttributesInputLarge = "Large"
-)

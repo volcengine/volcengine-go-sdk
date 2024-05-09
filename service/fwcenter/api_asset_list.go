@@ -22,13 +22,13 @@ const opAssetListCommon = "AssetList"
 // See AssetListCommon for more information on using the AssetListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AssetListCommonRequest method.
-//	req, resp := client.AssetListCommonRequest(params)
+//    // Example sending a request using the AssetListCommonRequest method.
+//    req, resp := client.AssetListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) AssetListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAssetListCommon,
@@ -89,13 +89,13 @@ const opAssetList = "AssetList"
 // See AssetList for more information on using the AssetList
 // API call, and error handling.
 //
-//	// Example sending a request using the AssetListRequest method.
-//	req, resp := client.AssetListRequest(params)
+//    // Example sending a request using the AssetListRequest method.
+//    req, resp := client.AssetListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) AssetListRequest(input *AssetListInput) (req *request.Request, output *AssetListOutput) {
 	op := &request.Operation{
 		Name:       opAssetList,

@@ -22,13 +22,13 @@ const opCreateNatGatewayCommon = "CreateNatGateway"
 // See CreateNatGatewayCommon for more information on using the CreateNatGatewayCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateNatGatewayCommonRequest method.
-//	req, resp := client.CreateNatGatewayCommonRequest(params)
+//    // Example sending a request using the CreateNatGatewayCommonRequest method.
+//    req, resp := client.CreateNatGatewayCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) CreateNatGatewayCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateNatGatewayCommon,
@@ -87,13 +87,13 @@ const opCreateNatGateway = "CreateNatGateway"
 // See CreateNatGateway for more information on using the CreateNatGateway
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateNatGatewayRequest method.
-//	req, resp := client.CreateNatGatewayRequest(params)
+//    // Example sending a request using the CreateNatGatewayRequest method.
+//    req, resp := client.CreateNatGatewayRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) CreateNatGatewayRequest(input *CreateNatGatewayInput) (req *request.Request, output *CreateNatGatewayOutput) {
 	op := &request.Operation{
 		Name:       opCreateNatGateway,
@@ -142,7 +142,7 @@ func (c *NATGATEWAY) CreateNatGatewayWithContext(ctx volcengine.Context, input *
 type CreateNatGatewayInput struct {
 	_ struct{} `type:"structure"`
 
-	BillingType *int64 `min:"1" max:"1" type:"integer"`
+	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
 	ClientToken *string `type:"string"`
 
@@ -152,11 +152,11 @@ type CreateNatGatewayInput struct {
 
 	Period *int64 `type:"integer"`
 
-	PeriodUnit *string `type:"string" enum:"PeriodUnitForCreateNatGatewayInput"`
+	PeriodUnit *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
-	Spec *string `type:"string" enum:"SpecForCreateNatGatewayInput"`
+	Spec *string `type:"string"`
 
 	SubnetId *string `type:"string"`
 
@@ -182,8 +182,8 @@ func (s *CreateNatGatewayInput) Validate() error {
 	if s.BillingType != nil && *s.BillingType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
 	}
-	if s.BillingType != nil && *s.BillingType > 1 {
-		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 1))
+	if s.BillingType != nil && *s.BillingType > 3 {
+		invalidParams.Add(request.NewErrParamMaxValue("BillingType", 3))
 	}
 	if s.Description != nil && len(*s.Description) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
@@ -334,22 +334,3 @@ func (s *TagForCreateNatGatewayInput) SetValue(v string) *TagForCreateNatGateway
 	s.Value = &v
 	return s
 }
-
-const (
-	// PeriodUnitForCreateNatGatewayInputMonth is a PeriodUnitForCreateNatGatewayInput enum value
-	PeriodUnitForCreateNatGatewayInputMonth = "Month"
-
-	// PeriodUnitForCreateNatGatewayInputYear is a PeriodUnitForCreateNatGatewayInput enum value
-	PeriodUnitForCreateNatGatewayInputYear = "Year"
-)
-
-const (
-	// SpecForCreateNatGatewayInputSmall is a SpecForCreateNatGatewayInput enum value
-	SpecForCreateNatGatewayInputSmall = "Small"
-
-	// SpecForCreateNatGatewayInputMedium is a SpecForCreateNatGatewayInput enum value
-	SpecForCreateNatGatewayInputMedium = "Medium"
-
-	// SpecForCreateNatGatewayInputLarge is a SpecForCreateNatGatewayInput enum value
-	SpecForCreateNatGatewayInputLarge = "Large"
-)

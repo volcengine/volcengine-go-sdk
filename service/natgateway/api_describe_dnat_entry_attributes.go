@@ -22,13 +22,13 @@ const opDescribeDnatEntryAttributesCommon = "DescribeDnatEntryAttributes"
 // See DescribeDnatEntryAttributesCommon for more information on using the DescribeDnatEntryAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDnatEntryAttributesCommonRequest method.
-//	req, resp := client.DescribeDnatEntryAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeDnatEntryAttributesCommonRequest method.
+//    req, resp := client.DescribeDnatEntryAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DescribeDnatEntryAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDnatEntryAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeDnatEntryAttributes = "DescribeDnatEntryAttributes"
 // See DescribeDnatEntryAttributes for more information on using the DescribeDnatEntryAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDnatEntryAttributesRequest method.
-//	req, resp := client.DescribeDnatEntryAttributesRequest(params)
+//    // Example sending a request using the DescribeDnatEntryAttributesRequest method.
+//    req, resp := client.DescribeDnatEntryAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DescribeDnatEntryAttributesRequest(input *DescribeDnatEntryAttributesInput) (req *request.Request, output *DescribeDnatEntryAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDnatEntryAttributes,
@@ -194,6 +194,8 @@ type DescribeDnatEntryAttributesOutput struct {
 
 	NatGatewayId *string `type:"string"`
 
+	PortType *string `type:"string"`
+
 	Protocol *string `type:"string"`
 
 	RequestId *string `type:"string"`
@@ -250,6 +252,12 @@ func (s *DescribeDnatEntryAttributesOutput) SetInternalPort(v string) *DescribeD
 // SetNatGatewayId sets the NatGatewayId field's value.
 func (s *DescribeDnatEntryAttributesOutput) SetNatGatewayId(v string) *DescribeDnatEntryAttributesOutput {
 	s.NatGatewayId = &v
+	return s
+}
+
+// SetPortType sets the PortType field's value.
+func (s *DescribeDnatEntryAttributesOutput) SetPortType(v string) *DescribeDnatEntryAttributesOutput {
+	s.PortType = &v
 	return s
 }
 
