@@ -142,6 +142,8 @@ func (c *ECS) DeleteImagesWithContext(ctx volcengine.Context, input *DeleteImage
 type DeleteImagesInput struct {
 	_ struct{} `type:"structure"`
 
+	DeleteBindedSnapshots *bool `type:"boolean"`
+
 	// ImageIds is a required field
 	ImageIds []*string `type:"list" required:"true"`
 }
@@ -167,6 +169,12 @@ func (s *DeleteImagesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetDeleteBindedSnapshots sets the DeleteBindedSnapshots field's value.
+func (s *DeleteImagesInput) SetDeleteBindedSnapshots(v bool) *DeleteImagesInput {
+	s.DeleteBindedSnapshots = &v
+	return s
 }
 
 // SetImageIds sets the ImageIds field's value.
