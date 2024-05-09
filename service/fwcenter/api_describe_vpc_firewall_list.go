@@ -22,13 +22,13 @@ const opDescribeVpcFirewallListCommon = "DescribeVpcFirewallList"
 // See DescribeVpcFirewallListCommon for more information on using the DescribeVpcFirewallListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcFirewallListCommonRequest method.
-//	req, resp := client.DescribeVpcFirewallListCommonRequest(params)
+//    // Example sending a request using the DescribeVpcFirewallListCommonRequest method.
+//    req, resp := client.DescribeVpcFirewallListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeVpcFirewallListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcFirewallListCommon,
@@ -89,13 +89,13 @@ const opDescribeVpcFirewallList = "DescribeVpcFirewallList"
 // See DescribeVpcFirewallList for more information on using the DescribeVpcFirewallList
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcFirewallListRequest method.
-//	req, resp := client.DescribeVpcFirewallListRequest(params)
+//    // Example sending a request using the DescribeVpcFirewallListRequest method.
+//    req, resp := client.DescribeVpcFirewallListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeVpcFirewallListRequest(input *DescribeVpcFirewallListInput) (req *request.Request, output *DescribeVpcFirewallListOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpcFirewallList,

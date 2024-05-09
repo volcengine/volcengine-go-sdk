@@ -16,18 +16,19 @@ import (
 // NATGATEWAYAPI provides an interface to enable mocking the
 // natgateway.NATGATEWAY service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// NATGATEWAY.
-//	func myFunc(svc NATGATEWAYAPI) bool {
-//	    // Make svc.CreateDnatEntry request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // NATGATEWAY.
+//    func myFunc(svc NATGATEWAYAPI) bool {
+//        // Make svc.CreateDnatEntry request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := natgateway.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := natgateway.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type NATGATEWAYAPI interface {
 	CreateDnatEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDnatEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

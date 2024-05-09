@@ -46,6 +46,14 @@ type FWCENTERAPI interface {
 	AddControlPolicyWithContext(volcengine.Context, *AddControlPolicyInput, ...request.Option) (*AddControlPolicyOutput, error)
 	AddControlPolicyRequest(*AddControlPolicyInput) (*request.Request, *AddControlPolicyOutput)
 
+	AddDnsControlPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddDnsControlPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddDnsControlPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddDnsControlPolicy(*AddDnsControlPolicyInput) (*AddDnsControlPolicyOutput, error)
+	AddDnsControlPolicyWithContext(volcengine.Context, *AddDnsControlPolicyInput, ...request.Option) (*AddDnsControlPolicyOutput, error)
+	AddDnsControlPolicyRequest(*AddDnsControlPolicyInput) (*request.Request, *AddDnsControlPolicyOutput)
+
 	AddVpcFirewallAclRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddVpcFirewallAclRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddVpcFirewallAclRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +85,14 @@ type FWCENTERAPI interface {
 	DeleteControlPolicy(*DeleteControlPolicyInput) (*DeleteControlPolicyOutput, error)
 	DeleteControlPolicyWithContext(volcengine.Context, *DeleteControlPolicyInput, ...request.Option) (*DeleteControlPolicyOutput, error)
 	DeleteControlPolicyRequest(*DeleteControlPolicyInput) (*request.Request, *DeleteControlPolicyOutput)
+
+	DeleteDnsControlPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDnsControlPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDnsControlPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDnsControlPolicy(*DeleteDnsControlPolicyInput) (*DeleteDnsControlPolicyOutput, error)
+	DeleteDnsControlPolicyWithContext(volcengine.Context, *DeleteDnsControlPolicyInput, ...request.Option) (*DeleteDnsControlPolicyOutput, error)
+	DeleteDnsControlPolicyRequest(*DeleteDnsControlPolicyInput) (*request.Request, *DeleteDnsControlPolicyOutput)
 
 	DeleteVpcFirewallAclRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVpcFirewallAclRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -118,6 +134,14 @@ type FWCENTERAPI interface {
 	DescribeControlPolicyPriorUsedWithContext(volcengine.Context, *DescribeControlPolicyPriorUsedInput, ...request.Option) (*DescribeControlPolicyPriorUsedOutput, error)
 	DescribeControlPolicyPriorUsedRequest(*DescribeControlPolicyPriorUsedInput) (*request.Request, *DescribeControlPolicyPriorUsedOutput)
 
+	DescribeDnsControlPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDnsControlPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDnsControlPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDnsControlPolicy(*DescribeDnsControlPolicyInput) (*DescribeDnsControlPolicyOutput, error)
+	DescribeDnsControlPolicyWithContext(volcengine.Context, *DescribeDnsControlPolicyInput, ...request.Option) (*DescribeDnsControlPolicyOutput, error)
+	DescribeDnsControlPolicyRequest(*DescribeDnsControlPolicyInput) (*request.Request, *DescribeDnsControlPolicyOutput)
+
 	DescribeVpcFirewallAclRuleListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpcFirewallAclRuleListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeVpcFirewallAclRuleListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -142,6 +166,14 @@ type FWCENTERAPI interface {
 	DescribeVpcFirewallListWithContext(volcengine.Context, *DescribeVpcFirewallListInput, ...request.Option) (*DescribeVpcFirewallListOutput, error)
 	DescribeVpcFirewallListRequest(*DescribeVpcFirewallListInput) (*request.Request, *DescribeVpcFirewallListOutput)
 
+	DescribeVpcsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeVpcsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeVpcsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeVpcs(*DescribeVpcsInput) (*DescribeVpcsOutput, error)
+	DescribeVpcsWithContext(volcengine.Context, *DescribeVpcsInput, ...request.Option) (*DescribeVpcsOutput, error)
+	DescribeVpcsRequest(*DescribeVpcsInput) (*request.Request, *DescribeVpcsOutput)
+
 	ModifyAddressBookCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyAddressBookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyAddressBookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -165,6 +197,14 @@ type FWCENTERAPI interface {
 	ModifyControlPolicyPosition(*ModifyControlPolicyPositionInput) (*ModifyControlPolicyPositionOutput, error)
 	ModifyControlPolicyPositionWithContext(volcengine.Context, *ModifyControlPolicyPositionInput, ...request.Option) (*ModifyControlPolicyPositionOutput, error)
 	ModifyControlPolicyPositionRequest(*ModifyControlPolicyPositionInput) (*request.Request, *ModifyControlPolicyPositionOutput)
+
+	ModifyDnsControlPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDnsControlPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDnsControlPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDnsControlPolicy(*ModifyDnsControlPolicyInput) (*ModifyDnsControlPolicyOutput, error)
+	ModifyDnsControlPolicyWithContext(volcengine.Context, *ModifyDnsControlPolicyInput, ...request.Option) (*ModifyDnsControlPolicyOutput, error)
+	ModifyDnsControlPolicyRequest(*ModifyDnsControlPolicyInput) (*request.Request, *ModifyDnsControlPolicyOutput)
 
 	ModifyVpcFirewallAclRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyVpcFirewallAclRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -197,6 +237,14 @@ type FWCENTERAPI interface {
 	UpdateControlPolicySwitch(*UpdateControlPolicySwitchInput) (*UpdateControlPolicySwitchOutput, error)
 	UpdateControlPolicySwitchWithContext(volcengine.Context, *UpdateControlPolicySwitchInput, ...request.Option) (*UpdateControlPolicySwitchOutput, error)
 	UpdateControlPolicySwitchRequest(*UpdateControlPolicySwitchInput) (*request.Request, *UpdateControlPolicySwitchOutput)
+
+	UpdateDnsControlPolicySwitchCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateDnsControlPolicySwitchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateDnsControlPolicySwitchCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateDnsControlPolicySwitch(*UpdateDnsControlPolicySwitchInput) (*UpdateDnsControlPolicySwitchOutput, error)
+	UpdateDnsControlPolicySwitchWithContext(volcengine.Context, *UpdateDnsControlPolicySwitchInput, ...request.Option) (*UpdateDnsControlPolicySwitchOutput, error)
+	UpdateDnsControlPolicySwitchRequest(*UpdateDnsControlPolicySwitchInput) (*request.Request, *UpdateDnsControlPolicySwitchOutput)
 
 	UpdateVpcFirewallAclRuleSwitchCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateVpcFirewallAclRuleSwitchCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

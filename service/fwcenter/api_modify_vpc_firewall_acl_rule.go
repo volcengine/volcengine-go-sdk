@@ -22,13 +22,13 @@ const opModifyVpcFirewallAclRuleCommon = "ModifyVpcFirewallAclRule"
 // See ModifyVpcFirewallAclRuleCommon for more information on using the ModifyVpcFirewallAclRuleCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpcFirewallAclRuleCommonRequest method.
-//	req, resp := client.ModifyVpcFirewallAclRuleCommonRequest(params)
+//    // Example sending a request using the ModifyVpcFirewallAclRuleCommonRequest method.
+//    req, resp := client.ModifyVpcFirewallAclRuleCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) ModifyVpcFirewallAclRuleCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyVpcFirewallAclRuleCommon,
@@ -89,13 +89,13 @@ const opModifyVpcFirewallAclRule = "ModifyVpcFirewallAclRule"
 // See ModifyVpcFirewallAclRule for more information on using the ModifyVpcFirewallAclRule
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyVpcFirewallAclRuleRequest method.
-//	req, resp := client.ModifyVpcFirewallAclRuleRequest(params)
+//    // Example sending a request using the ModifyVpcFirewallAclRuleRequest method.
+//    req, resp := client.ModifyVpcFirewallAclRuleRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) ModifyVpcFirewallAclRuleRequest(input *ModifyVpcFirewallAclRuleInput) (req *request.Request, output *ModifyVpcFirewallAclRuleOutput) {
 	op := &request.Operation{
 		Name:       opModifyVpcFirewallAclRule,

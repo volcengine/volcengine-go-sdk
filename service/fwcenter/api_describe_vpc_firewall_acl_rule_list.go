@@ -22,13 +22,13 @@ const opDescribeVpcFirewallAclRuleListCommon = "DescribeVpcFirewallAclRuleList"
 // See DescribeVpcFirewallAclRuleListCommon for more information on using the DescribeVpcFirewallAclRuleListCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcFirewallAclRuleListCommonRequest method.
-//	req, resp := client.DescribeVpcFirewallAclRuleListCommonRequest(params)
+//    // Example sending a request using the DescribeVpcFirewallAclRuleListCommonRequest method.
+//    req, resp := client.DescribeVpcFirewallAclRuleListCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeVpcFirewallAclRuleListCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeVpcFirewallAclRuleListCommon,
@@ -89,13 +89,13 @@ const opDescribeVpcFirewallAclRuleList = "DescribeVpcFirewallAclRuleList"
 // See DescribeVpcFirewallAclRuleList for more information on using the DescribeVpcFirewallAclRuleList
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeVpcFirewallAclRuleListRequest method.
-//	req, resp := client.DescribeVpcFirewallAclRuleListRequest(params)
+//    // Example sending a request using the DescribeVpcFirewallAclRuleListRequest method.
+//    req, resp := client.DescribeVpcFirewallAclRuleListRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeVpcFirewallAclRuleListRequest(input *DescribeVpcFirewallAclRuleListInput) (req *request.Request, output *DescribeVpcFirewallAclRuleListOutput) {
 	op := &request.Operation{
 		Name:       opDescribeVpcFirewallAclRuleList,

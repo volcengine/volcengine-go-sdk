@@ -22,13 +22,13 @@ const opModifyControlPolicyCommon = "ModifyControlPolicy"
 // See ModifyControlPolicyCommon for more information on using the ModifyControlPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyControlPolicyCommonRequest method.
-//	req, resp := client.ModifyControlPolicyCommonRequest(params)
+//    // Example sending a request using the ModifyControlPolicyCommonRequest method.
+//    req, resp := client.ModifyControlPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) ModifyControlPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyControlPolicyCommon,
@@ -89,13 +89,13 @@ const opModifyControlPolicy = "ModifyControlPolicy"
 // See ModifyControlPolicy for more information on using the ModifyControlPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyControlPolicyRequest method.
-//	req, resp := client.ModifyControlPolicyRequest(params)
+//    // Example sending a request using the ModifyControlPolicyRequest method.
+//    req, resp := client.ModifyControlPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) ModifyControlPolicyRequest(input *ModifyControlPolicyInput) (req *request.Request, output *ModifyControlPolicyOutput) {
 	op := &request.Operation{
 		Name:       opModifyControlPolicy,

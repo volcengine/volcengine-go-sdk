@@ -22,13 +22,13 @@ const opDescribeDnatEntriesCommon = "DescribeDnatEntries"
 // See DescribeDnatEntriesCommon for more information on using the DescribeDnatEntriesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDnatEntriesCommonRequest method.
-//	req, resp := client.DescribeDnatEntriesCommonRequest(params)
+//    // Example sending a request using the DescribeDnatEntriesCommonRequest method.
+//    req, resp := client.DescribeDnatEntriesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DescribeDnatEntriesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDnatEntriesCommon,
@@ -87,13 +87,13 @@ const opDescribeDnatEntries = "DescribeDnatEntries"
 // See DescribeDnatEntries for more information on using the DescribeDnatEntries
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDnatEntriesRequest method.
-//	req, resp := client.DescribeDnatEntriesRequest(params)
+//    // Example sending a request using the DescribeDnatEntriesRequest method.
+//    req, resp := client.DescribeDnatEntriesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DescribeDnatEntriesRequest(input *DescribeDnatEntriesInput) (req *request.Request, output *DescribeDnatEntriesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDnatEntries,
@@ -159,6 +159,8 @@ type DescribeDnatEntriesInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `max:"100" type:"integer"`
+
+	PortType *string `type:"string"`
 
 	Protocol *string `type:"string"`
 }
@@ -237,6 +239,12 @@ func (s *DescribeDnatEntriesInput) SetPageNumber(v int64) *DescribeDnatEntriesIn
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeDnatEntriesInput) SetPageSize(v int64) *DescribeDnatEntriesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetPortType sets the PortType field's value.
+func (s *DescribeDnatEntriesInput) SetPortType(v string) *DescribeDnatEntriesInput {
+	s.PortType = &v
 	return s
 }
 
@@ -319,6 +327,8 @@ type DnatEntryForDescribeDnatEntriesOutput struct {
 
 	NatGatewayId *string `type:"string"`
 
+	PortType *string `type:"string"`
+
 	Protocol *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -373,6 +383,12 @@ func (s *DnatEntryForDescribeDnatEntriesOutput) SetInternalPort(v string) *DnatE
 // SetNatGatewayId sets the NatGatewayId field's value.
 func (s *DnatEntryForDescribeDnatEntriesOutput) SetNatGatewayId(v string) *DnatEntryForDescribeDnatEntriesOutput {
 	s.NatGatewayId = &v
+	return s
+}
+
+// SetPortType sets the PortType field's value.
+func (s *DnatEntryForDescribeDnatEntriesOutput) SetPortType(v string) *DnatEntryForDescribeDnatEntriesOutput {
+	s.PortType = &v
 	return s
 }
 
