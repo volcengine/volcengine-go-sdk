@@ -291,6 +291,36 @@ func (s *DescribeImagesOutput) SetTotalCount(v int32) *DescribeImagesOutput {
 	return s
 }
 
+type DetectionResultForDescribeImagesOutput struct {
+	_ struct{} `type:"structure"`
+
+	DetectionStatus *string `type:"string"`
+
+	Items []*ItemForDescribeImagesOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s DetectionResultForDescribeImagesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DetectionResultForDescribeImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetDetectionStatus sets the DetectionStatus field's value.
+func (s *DetectionResultForDescribeImagesOutput) SetDetectionStatus(v string) *DetectionResultForDescribeImagesOutput {
+	s.DetectionStatus = &v
+	return s
+}
+
+// SetItems sets the Items field's value.
+func (s *DetectionResultForDescribeImagesOutput) SetItems(v []*ItemForDescribeImagesOutput) *DetectionResultForDescribeImagesOutput {
+	s.Items = v
+	return s
+}
+
 type ImageForDescribeImagesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -301,6 +331,8 @@ type ImageForDescribeImagesOutput struct {
 	CreatedAt *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	DetectionResults []*DetectionResultForDescribeImagesOutput `type:"list"`
 
 	ImageId *string `type:"string"`
 
@@ -323,6 +355,8 @@ type ImageForDescribeImagesOutput struct {
 	ShareStatus *string `type:"string"`
 
 	Size *int32 `type:"int32"`
+
+	Snapshots []*SnapshotForDescribeImagesOutput `type:"list"`
 
 	Status *string `type:"string"`
 
@@ -366,6 +400,12 @@ func (s *ImageForDescribeImagesOutput) SetCreatedAt(v string) *ImageForDescribeI
 // SetDescription sets the Description field's value.
 func (s *ImageForDescribeImagesOutput) SetDescription(v string) *ImageForDescribeImagesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDetectionResults sets the DetectionResults field's value.
+func (s *ImageForDescribeImagesOutput) SetDetectionResults(v []*DetectionResultForDescribeImagesOutput) *ImageForDescribeImagesOutput {
+	s.DetectionResults = v
 	return s
 }
 
@@ -435,6 +475,12 @@ func (s *ImageForDescribeImagesOutput) SetSize(v int32) *ImageForDescribeImagesO
 	return s
 }
 
+// SetSnapshots sets the Snapshots field's value.
+func (s *ImageForDescribeImagesOutput) SetSnapshots(v []*SnapshotForDescribeImagesOutput) *ImageForDescribeImagesOutput {
+	s.Snapshots = v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *ImageForDescribeImagesOutput) SetStatus(v string) *ImageForDescribeImagesOutput {
 	s.Status = &v
@@ -462,6 +508,90 @@ func (s *ImageForDescribeImagesOutput) SetVirtualSize(v json.Number) *ImageForDe
 // SetVisibility sets the Visibility field's value.
 func (s *ImageForDescribeImagesOutput) SetVisibility(v string) *ImageForDescribeImagesOutput {
 	s.Visibility = &v
+	return s
+}
+
+type ItemForDescribeImagesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Name *string `type:"string"`
+
+	Result *string `type:"string"`
+
+	RiskCode *string `type:"string"`
+
+	RiskLevel *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ItemForDescribeImagesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ItemForDescribeImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *ItemForDescribeImagesOutput) SetName(v string) *ItemForDescribeImagesOutput {
+	s.Name = &v
+	return s
+}
+
+// SetResult sets the Result field's value.
+func (s *ItemForDescribeImagesOutput) SetResult(v string) *ItemForDescribeImagesOutput {
+	s.Result = &v
+	return s
+}
+
+// SetRiskCode sets the RiskCode field's value.
+func (s *ItemForDescribeImagesOutput) SetRiskCode(v string) *ItemForDescribeImagesOutput {
+	s.RiskCode = &v
+	return s
+}
+
+// SetRiskLevel sets the RiskLevel field's value.
+func (s *ItemForDescribeImagesOutput) SetRiskLevel(v string) *ItemForDescribeImagesOutput {
+	s.RiskLevel = &v
+	return s
+}
+
+type SnapshotForDescribeImagesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Size *int32 `type:"int32"`
+
+	SnapshotId *string `type:"string"`
+
+	VolumeKind *string `type:"string"`
+}
+
+// String returns the string representation
+func (s SnapshotForDescribeImagesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SnapshotForDescribeImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetSize sets the Size field's value.
+func (s *SnapshotForDescribeImagesOutput) SetSize(v int32) *SnapshotForDescribeImagesOutput {
+	s.Size = &v
+	return s
+}
+
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *SnapshotForDescribeImagesOutput) SetSnapshotId(v string) *SnapshotForDescribeImagesOutput {
+	s.SnapshotId = &v
+	return s
+}
+
+// SetVolumeKind sets the VolumeKind field's value.
+func (s *SnapshotForDescribeImagesOutput) SetVolumeKind(v string) *SnapshotForDescribeImagesOutput {
+	s.VolumeKind = &v
 	return s
 }
 

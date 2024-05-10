@@ -147,10 +147,15 @@ type CreateImageInput struct {
 	// ImageName is a required field
 	ImageName *string `type:"string" required:"true"`
 
-	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string"`
+
+	NeedDetection *bool `type:"boolean"`
 
 	ProjectName *string `type:"string"`
+
+	SnapshotGroupId *string `type:"string"`
+
+	SnapshotId *string `type:"string"`
 
 	Tags []*TagForCreateImageInput `type:"list"`
 }
@@ -170,9 +175,6 @@ func (s *CreateImageInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateImageInput"}
 	if s.ImageName == nil {
 		invalidParams.Add(request.NewErrParamRequired("ImageName"))
-	}
-	if s.InstanceId == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -199,9 +201,27 @@ func (s *CreateImageInput) SetInstanceId(v string) *CreateImageInput {
 	return s
 }
 
+// SetNeedDetection sets the NeedDetection field's value.
+func (s *CreateImageInput) SetNeedDetection(v bool) *CreateImageInput {
+	s.NeedDetection = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateImageInput) SetProjectName(v string) *CreateImageInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSnapshotGroupId sets the SnapshotGroupId field's value.
+func (s *CreateImageInput) SetSnapshotGroupId(v string) *CreateImageInput {
+	s.SnapshotGroupId = &v
+	return s
+}
+
+// SetSnapshotId sets the SnapshotId field's value.
+func (s *CreateImageInput) SetSnapshotId(v string) *CreateImageInput {
+	s.SnapshotId = &v
 	return s
 }
 

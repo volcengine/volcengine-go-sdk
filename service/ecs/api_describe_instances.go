@@ -178,6 +178,8 @@ type DescribeInstancesInput struct {
 
 	DeploymentSetIds []*string `type:"list"`
 
+	EipAddresses []*string `type:"list"`
+
 	HpcClusterId *string `type:"string"`
 
 	InstanceChargeType *string `type:"string"`
@@ -236,6 +238,12 @@ func (s *DescribeInstancesInput) SetDedicatedHostId(v string) *DescribeInstances
 // SetDeploymentSetIds sets the DeploymentSetIds field's value.
 func (s *DescribeInstancesInput) SetDeploymentSetIds(v []*string) *DescribeInstancesInput {
 	s.DeploymentSetIds = v
+	return s
+}
+
+// SetEipAddresses sets the EipAddresses field's value.
+func (s *DescribeInstancesInput) SetEipAddresses(v []*string) *DescribeInstancesInput {
+	s.EipAddresses = v
 	return s
 }
 
@@ -379,6 +387,8 @@ type EipAddressForDescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	AllocationId *string `type:"string"`
+
+	IpAddress *string `type:"string"`
 }
 
 // String returns the string representation
@@ -394,6 +404,12 @@ func (s EipAddressForDescribeInstancesOutput) GoString() string {
 // SetAllocationId sets the AllocationId field's value.
 func (s *EipAddressForDescribeInstancesOutput) SetAllocationId(v string) *EipAddressForDescribeInstancesOutput {
 	s.AllocationId = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *EipAddressForDescribeInstancesOutput) SetIpAddress(v string) *EipAddressForDescribeInstancesOutput {
+	s.IpAddress = &v
 	return s
 }
 

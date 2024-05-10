@@ -438,6 +438,14 @@ type ECSAPI interface {
 	DetachKeyPairWithContext(volcengine.Context, *DetachKeyPairInput, ...request.Option) (*DetachKeyPairOutput, error)
 	DetachKeyPairRequest(*DetachKeyPairInput) (*request.Request, *DetachKeyPairOutput)
 
+	DetectImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetectImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetectImageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetectImage(*DetectImageInput) (*DetectImageOutput, error)
+	DetectImageWithContext(volcengine.Context, *DetectImageInput, ...request.Option) (*DetectImageOutput, error)
+	DetectImageRequest(*DetectImageInput) (*request.Request, *DetectImageOutput)
+
 	DisassociateInstancesIamRoleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateInstancesIamRoleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DisassociateInstancesIamRoleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
