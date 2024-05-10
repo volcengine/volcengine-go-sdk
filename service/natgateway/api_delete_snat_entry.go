@@ -22,13 +22,13 @@ const opDeleteSnatEntryCommon = "DeleteSnatEntry"
 // See DeleteSnatEntryCommon for more information on using the DeleteSnatEntryCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteSnatEntryCommonRequest method.
-//	req, resp := client.DeleteSnatEntryCommonRequest(params)
+//    // Example sending a request using the DeleteSnatEntryCommonRequest method.
+//    req, resp := client.DeleteSnatEntryCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DeleteSnatEntryCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDeleteSnatEntryCommon,
@@ -87,13 +87,13 @@ const opDeleteSnatEntry = "DeleteSnatEntry"
 // See DeleteSnatEntry for more information on using the DeleteSnatEntry
 // API call, and error handling.
 //
-//	// Example sending a request using the DeleteSnatEntryRequest method.
-//	req, resp := client.DeleteSnatEntryRequest(params)
+//    // Example sending a request using the DeleteSnatEntryRequest method.
+//    req, resp := client.DeleteSnatEntryRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DeleteSnatEntryRequest(input *DeleteSnatEntryInput) (req *request.Request, output *DeleteSnatEntryOutput) {
 	op := &request.Operation{
 		Name:       opDeleteSnatEntry,

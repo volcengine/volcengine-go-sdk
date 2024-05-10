@@ -22,13 +22,13 @@ const opAddVpcFirewallAclRuleCommon = "AddVpcFirewallAclRule"
 // See AddVpcFirewallAclRuleCommon for more information on using the AddVpcFirewallAclRuleCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the AddVpcFirewallAclRuleCommonRequest method.
-//	req, resp := client.AddVpcFirewallAclRuleCommonRequest(params)
+//    // Example sending a request using the AddVpcFirewallAclRuleCommonRequest method.
+//    req, resp := client.AddVpcFirewallAclRuleCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) AddVpcFirewallAclRuleCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opAddVpcFirewallAclRuleCommon,
@@ -89,13 +89,13 @@ const opAddVpcFirewallAclRule = "AddVpcFirewallAclRule"
 // See AddVpcFirewallAclRule for more information on using the AddVpcFirewallAclRule
 // API call, and error handling.
 //
-//	// Example sending a request using the AddVpcFirewallAclRuleRequest method.
-//	req, resp := client.AddVpcFirewallAclRuleRequest(params)
+//    // Example sending a request using the AddVpcFirewallAclRuleRequest method.
+//    req, resp := client.AddVpcFirewallAclRuleRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) AddVpcFirewallAclRuleRequest(input *AddVpcFirewallAclRuleInput) (req *request.Request, output *AddVpcFirewallAclRuleOutput) {
 	op := &request.Operation{
 		Name:       opAddVpcFirewallAclRule,

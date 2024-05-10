@@ -22,13 +22,13 @@ const opDescribeAddressBookCommon = "DescribeAddressBook"
 // See DescribeAddressBookCommon for more information on using the DescribeAddressBookCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAddressBookCommonRequest method.
-//	req, resp := client.DescribeAddressBookCommonRequest(params)
+//    // Example sending a request using the DescribeAddressBookCommonRequest method.
+//    req, resp := client.DescribeAddressBookCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeAddressBookCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAddressBookCommon,
@@ -89,13 +89,13 @@ const opDescribeAddressBook = "DescribeAddressBook"
 // See DescribeAddressBook for more information on using the DescribeAddressBook
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAddressBookRequest method.
-//	req, resp := client.DescribeAddressBookRequest(params)
+//    // Example sending a request using the DescribeAddressBookRequest method.
+//    req, resp := client.DescribeAddressBookRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *FWCENTER) DescribeAddressBookRequest(input *DescribeAddressBookInput) (req *request.Request, output *DescribeAddressBookOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAddressBook,

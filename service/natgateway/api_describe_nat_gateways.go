@@ -22,13 +22,13 @@ const opDescribeNatGatewaysCommon = "DescribeNatGateways"
 // See DescribeNatGatewaysCommon for more information on using the DescribeNatGatewaysCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNatGatewaysCommonRequest method.
-//	req, resp := client.DescribeNatGatewaysCommonRequest(params)
+//    // Example sending a request using the DescribeNatGatewaysCommonRequest method.
+//    req, resp := client.DescribeNatGatewaysCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DescribeNatGatewaysCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeNatGatewaysCommon,
@@ -87,13 +87,13 @@ const opDescribeNatGateways = "DescribeNatGateways"
 // See DescribeNatGateways for more information on using the DescribeNatGateways
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNatGatewaysRequest method.
-//	req, resp := client.DescribeNatGatewaysRequest(params)
+//    // Example sending a request using the DescribeNatGatewaysRequest method.
+//    req, resp := client.DescribeNatGatewaysRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DescribeNatGatewaysRequest(input *DescribeNatGatewaysInput) (req *request.Request, output *DescribeNatGatewaysOutput) {
 	op := &request.Operation{
 		Name:       opDescribeNatGateways,
@@ -154,7 +154,7 @@ type DescribeNatGatewaysInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Spec *string `type:"string" enum:"SpecForDescribeNatGatewaysInput"`
+	Spec *string `type:"string"`
 
 	SubnetId *string `type:"string"`
 
@@ -353,6 +353,8 @@ type NatGatewayForDescribeNatGatewaysOutput struct {
 
 	Description *string `type:"string"`
 
+	DnatEntryIds []*string `type:"list"`
+
 	EipAddresses []*EipAddressForDescribeNatGatewaysOutput `type:"list"`
 
 	ExpiredTime *string `type:"string"`
@@ -365,11 +367,15 @@ type NatGatewayForDescribeNatGatewaysOutput struct {
 
 	NetworkInterfaceId *string `type:"string"`
 
+	NetworkType *string `type:"string" enum:"NetworkTypeForDescribeNatGatewaysOutput"`
+
 	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
-	Spec *string `type:"string"`
+	SnatEntryIds []*string `type:"list"`
+
+	Spec *string `type:"string" enum:"SpecForDescribeNatGatewaysOutput"`
 
 	Status *string `type:"string"`
 
@@ -424,6 +430,12 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetDescription(v string) *NatGa
 	return s
 }
 
+// SetDnatEntryIds sets the DnatEntryIds field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetDnatEntryIds(v []*string) *NatGatewayForDescribeNatGatewaysOutput {
+	s.DnatEntryIds = v
+	return s
+}
+
 // SetEipAddresses sets the EipAddresses field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetEipAddresses(v []*EipAddressForDescribeNatGatewaysOutput) *NatGatewayForDescribeNatGatewaysOutput {
 	s.EipAddresses = v
@@ -460,6 +472,12 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetNetworkInterfaceId(v string)
 	return s
 }
 
+// SetNetworkType sets the NetworkType field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetNetworkType(v string) *NatGatewayForDescribeNatGatewaysOutput {
+	s.NetworkType = &v
+	return s
+}
+
 // SetOverdueTime sets the OverdueTime field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetOverdueTime(v string) *NatGatewayForDescribeNatGatewaysOutput {
 	s.OverdueTime = &v
@@ -469,6 +487,12 @@ func (s *NatGatewayForDescribeNatGatewaysOutput) SetOverdueTime(v string) *NatGa
 // SetProjectName sets the ProjectName field's value.
 func (s *NatGatewayForDescribeNatGatewaysOutput) SetProjectName(v string) *NatGatewayForDescribeNatGatewaysOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSnatEntryIds sets the SnatEntryIds field's value.
+func (s *NatGatewayForDescribeNatGatewaysOutput) SetSnatEntryIds(v []*string) *NatGatewayForDescribeNatGatewaysOutput {
+	s.SnatEntryIds = v
 	return s
 }
 
@@ -575,12 +599,26 @@ func (s *TagForDescribeNatGatewaysOutput) SetValue(v string) *TagForDescribeNatG
 }
 
 const (
-	// SpecForDescribeNatGatewaysInputSmall is a SpecForDescribeNatGatewaysInput enum value
-	SpecForDescribeNatGatewaysInputSmall = "Small"
+	// NetworkTypeForDescribeNatGatewaysOutputInternet is a NetworkTypeForDescribeNatGatewaysOutput enum value
+	NetworkTypeForDescribeNatGatewaysOutputInternet = "internet"
 
-	// SpecForDescribeNatGatewaysInputMedium is a SpecForDescribeNatGatewaysInput enum value
-	SpecForDescribeNatGatewaysInputMedium = "Medium"
+	// NetworkTypeForDescribeNatGatewaysOutputIntranet is a NetworkTypeForDescribeNatGatewaysOutput enum value
+	NetworkTypeForDescribeNatGatewaysOutputIntranet = "intranet"
+)
 
-	// SpecForDescribeNatGatewaysInputLarge is a SpecForDescribeNatGatewaysInput enum value
-	SpecForDescribeNatGatewaysInputLarge = "Large"
+const (
+	// SpecForDescribeNatGatewaysOutputSmall is a SpecForDescribeNatGatewaysOutput enum value
+	SpecForDescribeNatGatewaysOutputSmall = "Small"
+
+	// SpecForDescribeNatGatewaysOutputMedium is a SpecForDescribeNatGatewaysOutput enum value
+	SpecForDescribeNatGatewaysOutputMedium = "Medium"
+
+	// SpecForDescribeNatGatewaysOutputLarge is a SpecForDescribeNatGatewaysOutput enum value
+	SpecForDescribeNatGatewaysOutputLarge = "Large"
+
+	// SpecForDescribeNatGatewaysOutputExtraLarge1 is a SpecForDescribeNatGatewaysOutput enum value
+	SpecForDescribeNatGatewaysOutputExtraLarge1 = "Extra_Large_1"
+
+	// SpecForDescribeNatGatewaysOutputExtraLarge2 is a SpecForDescribeNatGatewaysOutput enum value
+	SpecForDescribeNatGatewaysOutputExtraLarge2 = "Extra_Large_2"
 )

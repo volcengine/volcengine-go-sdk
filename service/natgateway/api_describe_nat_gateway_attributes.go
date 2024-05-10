@@ -22,13 +22,13 @@ const opDescribeNatGatewayAttributesCommon = "DescribeNatGatewayAttributes"
 // See DescribeNatGatewayAttributesCommon for more information on using the DescribeNatGatewayAttributesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNatGatewayAttributesCommonRequest method.
-//	req, resp := client.DescribeNatGatewayAttributesCommonRequest(params)
+//    // Example sending a request using the DescribeNatGatewayAttributesCommonRequest method.
+//    req, resp := client.DescribeNatGatewayAttributesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DescribeNatGatewayAttributesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeNatGatewayAttributesCommon,
@@ -87,13 +87,13 @@ const opDescribeNatGatewayAttributes = "DescribeNatGatewayAttributes"
 // See DescribeNatGatewayAttributes for more information on using the DescribeNatGatewayAttributes
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeNatGatewayAttributesRequest method.
-//	req, resp := client.DescribeNatGatewayAttributesRequest(params)
+//    // Example sending a request using the DescribeNatGatewayAttributesRequest method.
+//    req, resp := client.DescribeNatGatewayAttributesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *NATGATEWAY) DescribeNatGatewayAttributesRequest(input *DescribeNatGatewayAttributesInput) (req *request.Request, output *DescribeNatGatewayAttributesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeNatGatewayAttributes,
@@ -190,6 +190,8 @@ type DescribeNatGatewayAttributesOutput struct {
 
 	Description *string `type:"string"`
 
+	DnatEntryIds []*string `type:"list"`
+
 	EipAddresses []*EipAddressForDescribeNatGatewayAttributesOutput `type:"list"`
 
 	ExpiredTime *string `type:"string"`
@@ -202,11 +204,15 @@ type DescribeNatGatewayAttributesOutput struct {
 
 	NetworkInterfaceId *string `type:"string"`
 
+	NetworkType *string `type:"string"`
+
 	OverdueTime *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
 	RequestId *string `type:"string"`
+
+	SnatEntryIds []*string `type:"list"`
 
 	Spec *string `type:"string"`
 
@@ -263,6 +269,12 @@ func (s *DescribeNatGatewayAttributesOutput) SetDescription(v string) *DescribeN
 	return s
 }
 
+// SetDnatEntryIds sets the DnatEntryIds field's value.
+func (s *DescribeNatGatewayAttributesOutput) SetDnatEntryIds(v []*string) *DescribeNatGatewayAttributesOutput {
+	s.DnatEntryIds = v
+	return s
+}
+
 // SetEipAddresses sets the EipAddresses field's value.
 func (s *DescribeNatGatewayAttributesOutput) SetEipAddresses(v []*EipAddressForDescribeNatGatewayAttributesOutput) *DescribeNatGatewayAttributesOutput {
 	s.EipAddresses = v
@@ -299,6 +311,12 @@ func (s *DescribeNatGatewayAttributesOutput) SetNetworkInterfaceId(v string) *De
 	return s
 }
 
+// SetNetworkType sets the NetworkType field's value.
+func (s *DescribeNatGatewayAttributesOutput) SetNetworkType(v string) *DescribeNatGatewayAttributesOutput {
+	s.NetworkType = &v
+	return s
+}
+
 // SetOverdueTime sets the OverdueTime field's value.
 func (s *DescribeNatGatewayAttributesOutput) SetOverdueTime(v string) *DescribeNatGatewayAttributesOutput {
 	s.OverdueTime = &v
@@ -314,6 +332,12 @@ func (s *DescribeNatGatewayAttributesOutput) SetProjectName(v string) *DescribeN
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeNatGatewayAttributesOutput) SetRequestId(v string) *DescribeNatGatewayAttributesOutput {
 	s.RequestId = &v
+	return s
+}
+
+// SetSnatEntryIds sets the SnatEntryIds field's value.
+func (s *DescribeNatGatewayAttributesOutput) SetSnatEntryIds(v []*string) *DescribeNatGatewayAttributesOutput {
+	s.SnatEntryIds = v
 	return s
 }
 
