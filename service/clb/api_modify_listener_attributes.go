@@ -258,6 +258,8 @@ type ModifyListenerAttributesInput struct {
 
 	ConnectionDrainTimeout *int64 `type:"integer"`
 
+	Cookie *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	Enabled *string `type:"string"`
@@ -265,6 +267,8 @@ type ModifyListenerAttributesInput struct {
 	EstablishedTimeout *int64 `type:"integer"`
 
 	HealthCheck *HealthCheckForModifyListenerAttributesInput `type:"structure"`
+
+	Http2Enabled *string `type:"string"`
 
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
@@ -347,6 +351,12 @@ func (s *ModifyListenerAttributesInput) SetConnectionDrainTimeout(v int64) *Modi
 	return s
 }
 
+// SetCookie sets the Cookie field's value.
+func (s *ModifyListenerAttributesInput) SetCookie(v string) *ModifyListenerAttributesInput {
+	s.Cookie = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *ModifyListenerAttributesInput) SetDescription(v string) *ModifyListenerAttributesInput {
 	s.Description = &v
@@ -368,6 +378,12 @@ func (s *ModifyListenerAttributesInput) SetEstablishedTimeout(v int64) *ModifyLi
 // SetHealthCheck sets the HealthCheck field's value.
 func (s *ModifyListenerAttributesInput) SetHealthCheck(v *HealthCheckForModifyListenerAttributesInput) *ModifyListenerAttributesInput {
 	s.HealthCheck = v
+	return s
+}
+
+// SetHttp2Enabled sets the Http2Enabled field's value.
+func (s *ModifyListenerAttributesInput) SetHttp2Enabled(v string) *ModifyListenerAttributesInput {
+	s.Http2Enabled = &v
 	return s
 }
 

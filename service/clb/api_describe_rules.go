@@ -207,12 +207,70 @@ func (s *DescribeRulesOutput) SetRules(v []*RuleForDescribeRulesOutput) *Describ
 	return s
 }
 
+type RedirectConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Host *string `type:"string"`
+
+	Path *string `type:"string"`
+
+	Port *string `type:"string"`
+
+	Protocol *string `type:"string"`
+
+	StatusCode *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RedirectConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RedirectConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetHost sets the Host field's value.
+func (s *RedirectConfigForDescribeRulesOutput) SetHost(v string) *RedirectConfigForDescribeRulesOutput {
+	s.Host = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *RedirectConfigForDescribeRulesOutput) SetPath(v string) *RedirectConfigForDescribeRulesOutput {
+	s.Path = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *RedirectConfigForDescribeRulesOutput) SetPort(v string) *RedirectConfigForDescribeRulesOutput {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *RedirectConfigForDescribeRulesOutput) SetProtocol(v string) *RedirectConfigForDescribeRulesOutput {
+	s.Protocol = &v
+	return s
+}
+
+// SetStatusCode sets the StatusCode field's value.
+func (s *RedirectConfigForDescribeRulesOutput) SetStatusCode(v string) *RedirectConfigForDescribeRulesOutput {
+	s.StatusCode = &v
+	return s
+}
+
 type RuleForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
+
+	ActionType *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	Domain *string `type:"string"`
+
+	RedirectConfig *RedirectConfigForDescribeRulesOutput `type:"structure"`
 
 	RuleId *string `type:"string"`
 
@@ -231,6 +289,12 @@ func (s RuleForDescribeRulesOutput) GoString() string {
 	return s.String()
 }
 
+// SetActionType sets the ActionType field's value.
+func (s *RuleForDescribeRulesOutput) SetActionType(v string) *RuleForDescribeRulesOutput {
+	s.ActionType = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *RuleForDescribeRulesOutput) SetDescription(v string) *RuleForDescribeRulesOutput {
 	s.Description = &v
@@ -240,6 +304,12 @@ func (s *RuleForDescribeRulesOutput) SetDescription(v string) *RuleForDescribeRu
 // SetDomain sets the Domain field's value.
 func (s *RuleForDescribeRulesOutput) SetDomain(v string) *RuleForDescribeRulesOutput {
 	s.Domain = &v
+	return s
+}
+
+// SetRedirectConfig sets the RedirectConfig field's value.
+func (s *RuleForDescribeRulesOutput) SetRedirectConfig(v *RedirectConfigForDescribeRulesOutput) *RuleForDescribeRulesOutput {
+	s.RedirectConfig = v
 	return s
 }
 

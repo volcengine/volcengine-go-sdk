@@ -284,8 +284,14 @@ const (
 	ResourceTypeForTagResourcesInputClb = "CLB"
 
 	// ResourceTypeForTagResourcesInputAcl is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputAcl = "ACL"
+	ResourceTypeForTagResourcesInputAcl = "acl"
 
 	// ResourceTypeForTagResourcesInputCertificate is a ResourceTypeForTagResourcesInput enum value
-	ResourceTypeForTagResourcesInputCertificate = "Certificate"
+	ResourceTypeForTagResourcesInputCertificate = "certificate"
+
+	// ResourceTypeForTagResourcesInputListener is a ResourceTypeForTagResourcesInput enum value
+	ResourceTypeForTagResourcesInputListener = "listener"
+
+	// ResourceTypeForTagResourcesInputServergroup is a ResourceTypeForTagResourcesInput enum value
+	ResourceTypeForTagResourcesInputServergroup = "servergroup"
 )

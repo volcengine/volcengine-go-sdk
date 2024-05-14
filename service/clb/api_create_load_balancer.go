@@ -144,6 +144,8 @@ type CreateLoadBalancerInput struct {
 
 	AddressIpVersion *string `type:"string"`
 
+	AllowedPorts []*string `type:"list"`
+
 	ClientToken *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -151,6 +153,8 @@ type CreateLoadBalancerInput struct {
 	EipBillingConfig *EipBillingConfigForCreateLoadBalancerInput `type:"structure"`
 
 	EniAddress *string `type:"string"`
+
+	EniAddressNum *int64 `type:"integer"`
 
 	EniIpv6Address *string `type:"string"`
 
@@ -225,6 +229,12 @@ func (s *CreateLoadBalancerInput) SetAddressIpVersion(v string) *CreateLoadBalan
 	return s
 }
 
+// SetAllowedPorts sets the AllowedPorts field's value.
+func (s *CreateLoadBalancerInput) SetAllowedPorts(v []*string) *CreateLoadBalancerInput {
+	s.AllowedPorts = v
+	return s
+}
+
 // SetClientToken sets the ClientToken field's value.
 func (s *CreateLoadBalancerInput) SetClientToken(v string) *CreateLoadBalancerInput {
 	s.ClientToken = &v
@@ -246,6 +256,12 @@ func (s *CreateLoadBalancerInput) SetEipBillingConfig(v *EipBillingConfigForCrea
 // SetEniAddress sets the EniAddress field's value.
 func (s *CreateLoadBalancerInput) SetEniAddress(v string) *CreateLoadBalancerInput {
 	s.EniAddress = &v
+	return s
+}
+
+// SetEniAddressNum sets the EniAddressNum field's value.
+func (s *CreateLoadBalancerInput) SetEniAddressNum(v int64) *CreateLoadBalancerInput {
+	s.EniAddressNum = &v
 	return s
 }
 

@@ -236,9 +236,15 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	EniAddress *string `type:"string"`
 
+	EniAddressNum *int64 `type:"integer"`
+
+	EniAddresses []*EniAddressForDescribeLoadBalancerAttributesOutput `type:"list"`
+
 	EniID *string `type:"string"`
 
 	EniIpv6Address *string `type:"string"`
+
+	ExclusiveClusterId *string `type:"string"`
 
 	ExpiredTime *string `type:"string"`
 
@@ -265,6 +271,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 	ModificationProtectionReason *string `type:"string"`
 
 	ModificationProtectionStatus *string `type:"string"`
+
+	NewArch *bool `type:"boolean"`
 
 	OverdueTime *string `type:"string"`
 
@@ -379,6 +387,18 @@ func (s *DescribeLoadBalancerAttributesOutput) SetEniAddress(v string) *Describe
 	return s
 }
 
+// SetEniAddressNum sets the EniAddressNum field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetEniAddressNum(v int64) *DescribeLoadBalancerAttributesOutput {
+	s.EniAddressNum = &v
+	return s
+}
+
+// SetEniAddresses sets the EniAddresses field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetEniAddresses(v []*EniAddressForDescribeLoadBalancerAttributesOutput) *DescribeLoadBalancerAttributesOutput {
+	s.EniAddresses = v
+	return s
+}
+
 // SetEniID sets the EniID field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetEniID(v string) *DescribeLoadBalancerAttributesOutput {
 	s.EniID = &v
@@ -388,6 +408,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetEniID(v string) *DescribeLoadB
 // SetEniIpv6Address sets the EniIpv6Address field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetEniIpv6Address(v string) *DescribeLoadBalancerAttributesOutput {
 	s.EniIpv6Address = &v
+	return s
+}
+
+// SetExclusiveClusterId sets the ExclusiveClusterId field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetExclusiveClusterId(v string) *DescribeLoadBalancerAttributesOutput {
+	s.ExclusiveClusterId = &v
 	return s
 }
 
@@ -466,6 +492,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetModificationProtectionReason(v
 // SetModificationProtectionStatus sets the ModificationProtectionStatus field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetModificationProtectionStatus(v string) *DescribeLoadBalancerAttributesOutput {
 	s.ModificationProtectionStatus = &v
+	return s
+}
+
+// SetNewArch sets the NewArch field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetNewArch(v bool) *DescribeLoadBalancerAttributesOutput {
+	s.NewArch = &v
 	return s
 }
 
@@ -600,6 +632,44 @@ func (s *EipForDescribeLoadBalancerAttributesOutput) SetISP(v string) *EipForDes
 // SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
 func (s *EipForDescribeLoadBalancerAttributesOutput) SetSecurityProtectionTypes(v []*string) *EipForDescribeLoadBalancerAttributesOutput {
 	s.SecurityProtectionTypes = v
+	return s
+}
+
+type EniAddressForDescribeLoadBalancerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	EipAddress *string `type:"string"`
+
+	EipId *string `type:"string"`
+
+	EniAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EniAddressForDescribeLoadBalancerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EniAddressForDescribeLoadBalancerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EniAddressForDescribeLoadBalancerAttributesOutput) SetEipAddress(v string) *EniAddressForDescribeLoadBalancerAttributesOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EniAddressForDescribeLoadBalancerAttributesOutput) SetEipId(v string) *EniAddressForDescribeLoadBalancerAttributesOutput {
+	s.EipId = &v
+	return s
+}
+
+// SetEniAddress sets the EniAddress field's value.
+func (s *EniAddressForDescribeLoadBalancerAttributesOutput) SetEniAddress(v string) *EniAddressForDescribeLoadBalancerAttributesOutput {
+	s.EniAddress = &v
 	return s
 }
 

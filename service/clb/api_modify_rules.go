@@ -223,10 +223,68 @@ func (s *ModifyRulesOutput) SetRequestId(v string) *ModifyRulesOutput {
 	return s
 }
 
+type RedirectConfigForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Host *string `type:"string"`
+
+	Path *string `type:"string"`
+
+	Port *string `type:"string"`
+
+	Protocol *string `type:"string"`
+
+	StatusCode *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RedirectConfigForModifyRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RedirectConfigForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetHost sets the Host field's value.
+func (s *RedirectConfigForModifyRulesInput) SetHost(v string) *RedirectConfigForModifyRulesInput {
+	s.Host = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *RedirectConfigForModifyRulesInput) SetPath(v string) *RedirectConfigForModifyRulesInput {
+	s.Path = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *RedirectConfigForModifyRulesInput) SetPort(v string) *RedirectConfigForModifyRulesInput {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *RedirectConfigForModifyRulesInput) SetProtocol(v string) *RedirectConfigForModifyRulesInput {
+	s.Protocol = &v
+	return s
+}
+
+// SetStatusCode sets the StatusCode field's value.
+func (s *RedirectConfigForModifyRulesInput) SetStatusCode(v string) *RedirectConfigForModifyRulesInput {
+	s.StatusCode = &v
+	return s
+}
+
 type RuleForModifyRulesInput struct {
 	_ struct{} `type:"structure"`
 
+	ActionType *string `type:"string"`
+
 	Description *string `type:"string"`
+
+	RedirectConfig *RedirectConfigForModifyRulesInput `type:"structure"`
 
 	// RuleId is a required field
 	RuleId *string `type:"string" required:"true"`
@@ -257,9 +315,21 @@ func (s *RuleForModifyRulesInput) Validate() error {
 	return nil
 }
 
+// SetActionType sets the ActionType field's value.
+func (s *RuleForModifyRulesInput) SetActionType(v string) *RuleForModifyRulesInput {
+	s.ActionType = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *RuleForModifyRulesInput) SetDescription(v string) *RuleForModifyRulesInput {
 	s.Description = &v
+	return s
+}
+
+// SetRedirectConfig sets the RedirectConfig field's value.
+func (s *RuleForModifyRulesInput) SetRedirectConfig(v *RedirectConfigForModifyRulesInput) *RuleForModifyRulesInput {
+	s.RedirectConfig = v
 	return s
 }
 

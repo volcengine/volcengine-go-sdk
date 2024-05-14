@@ -321,8 +321,48 @@ func (s *DescribeLoadBalancersOutput) SetTotalCount(v int64) *DescribeLoadBalanc
 	return s
 }
 
+type EniAddressForDescribeLoadBalancersOutput struct {
+	_ struct{} `type:"structure"`
+
+	EipAddress *string `type:"string"`
+
+	EipId *string `type:"string"`
+
+	EniAddress *string `type:"string"`
+}
+
+// String returns the string representation
+func (s EniAddressForDescribeLoadBalancersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s EniAddressForDescribeLoadBalancersOutput) GoString() string {
+	return s.String()
+}
+
+// SetEipAddress sets the EipAddress field's value.
+func (s *EniAddressForDescribeLoadBalancersOutput) SetEipAddress(v string) *EniAddressForDescribeLoadBalancersOutput {
+	s.EipAddress = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *EniAddressForDescribeLoadBalancersOutput) SetEipId(v string) *EniAddressForDescribeLoadBalancersOutput {
+	s.EipId = &v
+	return s
+}
+
+// SetEniAddress sets the EniAddress field's value.
+func (s *EniAddressForDescribeLoadBalancersOutput) SetEniAddress(v string) *EniAddressForDescribeLoadBalancersOutput {
+	s.EniAddress = &v
+	return s
+}
+
 type LoadBalancerForDescribeLoadBalancersOutput struct {
 	_ struct{} `type:"structure"`
+
+	AccountId *string `type:"string"`
 
 	AddressIpVersion *string `type:"string"`
 
@@ -340,9 +380,15 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	EniAddress *string `type:"string"`
 
+	EniAddressNum *int64 `type:"integer"`
+
+	EniAddresses []*EniAddressForDescribeLoadBalancersOutput `type:"list"`
+
 	EniID *string `type:"string"`
 
 	EniIpv6Address *string `type:"string"`
+
+	ExclusiveClusterId *string `type:"string"`
 
 	ExpiredTime *string `type:"string"`
 
@@ -363,6 +409,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 	ModificationProtectionReason *string `type:"string"`
 
 	ModificationProtectionStatus *string `type:"string"`
+
+	NewArch *bool `type:"boolean"`
 
 	OverdueTime *string `type:"string"`
 
@@ -393,6 +441,12 @@ func (s LoadBalancerForDescribeLoadBalancersOutput) String() string {
 // GoString returns the string representation
 func (s LoadBalancerForDescribeLoadBalancersOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetAccountId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.AccountId = &v
+	return s
 }
 
 // SetAddressIpVersion sets the AddressIpVersion field's value.
@@ -443,6 +497,18 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniAddress(v string) *Lo
 	return s
 }
 
+// SetEniAddressNum sets the EniAddressNum field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniAddressNum(v int64) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.EniAddressNum = &v
+	return s
+}
+
+// SetEniAddresses sets the EniAddresses field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniAddresses(v []*EniAddressForDescribeLoadBalancersOutput) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.EniAddresses = v
+	return s
+}
+
 // SetEniID sets the EniID field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniID(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.EniID = &v
@@ -452,6 +518,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniID(v string) *LoadBal
 // SetEniIpv6Address sets the EniIpv6Address field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetEniIpv6Address(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.EniIpv6Address = &v
+	return s
+}
+
+// SetExclusiveClusterId sets the ExclusiveClusterId field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetExclusiveClusterId(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.ExclusiveClusterId = &v
 	return s
 }
 
@@ -512,6 +584,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetModificationProtectionRe
 // SetModificationProtectionStatus sets the ModificationProtectionStatus field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetModificationProtectionStatus(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.ModificationProtectionStatus = &v
+	return s
+}
+
+// SetNewArch sets the NewArch field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetNewArch(v bool) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.NewArch = &v
 	return s
 }
 

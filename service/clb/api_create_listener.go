@@ -156,6 +156,8 @@ type CreateListenerInput struct {
 
 	ConnectionDrainTimeout *int64 `type:"integer"`
 
+	Cookie *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	Enabled *string `type:"string"`
@@ -163,6 +165,8 @@ type CreateListenerInput struct {
 	EstablishedTimeout *int64 `type:"integer"`
 
 	HealthCheck *HealthCheckForCreateListenerInput `type:"structure"`
+
+	Http2Enabled *string `type:"string"`
 
 	ListenerName *string `type:"string"`
 
@@ -185,6 +189,8 @@ type CreateListenerInput struct {
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
+
+	Tags []*TagForCreateListenerInput `type:"list"`
 }
 
 // String returns the string representation
@@ -261,6 +267,12 @@ func (s *CreateListenerInput) SetConnectionDrainTimeout(v int64) *CreateListener
 	return s
 }
 
+// SetCookie sets the Cookie field's value.
+func (s *CreateListenerInput) SetCookie(v string) *CreateListenerInput {
+	s.Cookie = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateListenerInput) SetDescription(v string) *CreateListenerInput {
 	s.Description = &v
@@ -282,6 +294,12 @@ func (s *CreateListenerInput) SetEstablishedTimeout(v int64) *CreateListenerInpu
 // SetHealthCheck sets the HealthCheck field's value.
 func (s *CreateListenerInput) SetHealthCheck(v *HealthCheckForCreateListenerInput) *CreateListenerInput {
 	s.HealthCheck = v
+	return s
+}
+
+// SetHttp2Enabled sets the Http2Enabled field's value.
+func (s *CreateListenerInput) SetHttp2Enabled(v string) *CreateListenerInput {
+	s.Http2Enabled = &v
 	return s
 }
 
@@ -336,6 +354,12 @@ func (s *CreateListenerInput) SetScheduler(v string) *CreateListenerInput {
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *CreateListenerInput) SetServerGroupId(v string) *CreateListenerInput {
 	s.ServerGroupId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateListenerInput) SetTags(v []*TagForCreateListenerInput) *CreateListenerInput {
+	s.Tags = v
 	return s
 }
 
@@ -470,5 +494,35 @@ func (s *HealthCheckForCreateListenerInput) SetUdpRequest(v string) *HealthCheck
 // SetUnhealthyThreshold sets the UnhealthyThreshold field's value.
 func (s *HealthCheckForCreateListenerInput) SetUnhealthyThreshold(v int64) *HealthCheckForCreateListenerInput {
 	s.UnhealthyThreshold = &v
+	return s
+}
+
+type TagForCreateListenerInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateListenerInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateListenerInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateListenerInput) SetKey(v string) *TagForCreateListenerInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateListenerInput) SetValue(v string) *TagForCreateListenerInput {
+	s.Value = &v
 	return s
 }
