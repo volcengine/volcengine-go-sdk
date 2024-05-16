@@ -152,6 +152,8 @@ type DescribeServerGroupsInput struct {
 
 	ServerGroupName *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeServerGroupsInput `type:"list"`
+
 	Type *string `type:"string"`
 }
 
@@ -192,6 +194,12 @@ func (s *DescribeServerGroupsInput) SetServerGroupIds(v []*string) *DescribeServ
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *DescribeServerGroupsInput) SetServerGroupName(v string) *DescribeServerGroupsInput {
 	s.ServerGroupName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeServerGroupsInput) SetTagFilters(v []*TagFilterForDescribeServerGroupsInput) *DescribeServerGroupsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -270,6 +278,8 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 
 	ServerGroupName *string `type:"string"`
 
+	Tags []*TagForDescribeServerGroupsOutput `type:"list"`
+
 	Type *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -315,6 +325,12 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetServerGroupName(v string) 
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetTags(v []*TagForDescribeServerGroupsOutput) *ServerGroupForDescribeServerGroupsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetType sets the Type field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetType(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.Type = &v
@@ -324,5 +340,65 @@ func (s *ServerGroupForDescribeServerGroupsOutput) SetType(v string) *ServerGrou
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetUpdateTime(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type TagFilterForDescribeServerGroupsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeServerGroupsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeServerGroupsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeServerGroupsInput) SetKey(v string) *TagFilterForDescribeServerGroupsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeServerGroupsInput) SetValues(v []*string) *TagFilterForDescribeServerGroupsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeServerGroupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeServerGroupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeServerGroupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeServerGroupsOutput) SetKey(v string) *TagForDescribeServerGroupsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeServerGroupsOutput) SetValue(v string) *TagForDescribeServerGroupsOutput {
+	s.Value = &v
 	return s
 }

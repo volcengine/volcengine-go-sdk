@@ -151,6 +151,8 @@ type DescribeListenersInput struct {
 	PageNumber *int64 `type:"integer"`
 
 	PageSize *int64 `type:"integer"`
+
+	TagFilters []*TagFilterForDescribeListenersInput `type:"list"`
 }
 
 // String returns the string representation
@@ -190,6 +192,12 @@ func (s *DescribeListenersInput) SetPageNumber(v int64) *DescribeListenersInput 
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeListenersInput) SetPageSize(v int64) *DescribeListenersInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeListenersInput) SetTagFilters(v []*TagFilterForDescribeListenersInput) *DescribeListenersInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -368,11 +376,17 @@ type ListenerForDescribeListenersOutput struct {
 
 	ConnectionDrainTimeout *int64 `type:"integer"`
 
+	Cookie *string `type:"string"`
+
 	CreateTime *string `type:"string"`
+
+	Description *string `type:"string"`
 
 	Enabled *string `type:"string"`
 
 	HealthCheck *HealthCheckForDescribeListenersOutput `type:"structure"`
+
+	Http2Enabled *string `type:"string"`
 
 	ListenerId *string `type:"string"`
 
@@ -393,6 +407,8 @@ type ListenerForDescribeListenersOutput struct {
 	ServerGroupId *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeListenersOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -449,9 +465,21 @@ func (s *ListenerForDescribeListenersOutput) SetConnectionDrainTimeout(v int64) 
 	return s
 }
 
+// SetCookie sets the Cookie field's value.
+func (s *ListenerForDescribeListenersOutput) SetCookie(v string) *ListenerForDescribeListenersOutput {
+	s.Cookie = &v
+	return s
+}
+
 // SetCreateTime sets the CreateTime field's value.
 func (s *ListenerForDescribeListenersOutput) SetCreateTime(v string) *ListenerForDescribeListenersOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ListenerForDescribeListenersOutput) SetDescription(v string) *ListenerForDescribeListenersOutput {
+	s.Description = &v
 	return s
 }
 
@@ -464,6 +492,12 @@ func (s *ListenerForDescribeListenersOutput) SetEnabled(v string) *ListenerForDe
 // SetHealthCheck sets the HealthCheck field's value.
 func (s *ListenerForDescribeListenersOutput) SetHealthCheck(v *HealthCheckForDescribeListenersOutput) *ListenerForDescribeListenersOutput {
 	s.HealthCheck = v
+	return s
+}
+
+// SetHttp2Enabled sets the Http2Enabled field's value.
+func (s *ListenerForDescribeListenersOutput) SetHttp2Enabled(v string) *ListenerForDescribeListenersOutput {
+	s.Http2Enabled = &v
 	return s
 }
 
@@ -527,8 +561,74 @@ func (s *ListenerForDescribeListenersOutput) SetStatus(v string) *ListenerForDes
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ListenerForDescribeListenersOutput) SetTags(v []*TagForDescribeListenersOutput) *ListenerForDescribeListenersOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ListenerForDescribeListenersOutput) SetUpdateTime(v string) *ListenerForDescribeListenersOutput {
 	s.UpdateTime = &v
+	return s
+}
+
+type TagFilterForDescribeListenersInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeListenersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeListenersInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeListenersInput) SetKey(v string) *TagFilterForDescribeListenersInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeListenersInput) SetValues(v []*string) *TagFilterForDescribeListenersInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeListenersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeListenersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeListenersOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeListenersOutput) SetKey(v string) *TagForDescribeListenersOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeListenersOutput) SetValue(v string) *TagForDescribeListenersOutput {
+	s.Value = &v
 	return s
 }

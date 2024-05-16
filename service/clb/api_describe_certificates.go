@@ -157,6 +157,10 @@ type CertificateForDescribeCertificatesOutput struct {
 	Listeners []*string `type:"list"`
 
 	ProjectName *string `type:"string"`
+
+	ServiceManaged *bool `type:"boolean"`
+
+	Tags []*TagForDescribeCertificatesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -214,6 +218,18 @@ func (s *CertificateForDescribeCertificatesOutput) SetListeners(v []*string) *Ce
 // SetProjectName sets the ProjectName field's value.
 func (s *CertificateForDescribeCertificatesOutput) SetProjectName(v string) *CertificateForDescribeCertificatesOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetServiceManaged(v bool) *CertificateForDescribeCertificatesOutput {
+	s.ServiceManaged = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetTags(v []*TagForDescribeCertificatesOutput) *CertificateForDescribeCertificatesOutput {
+	s.Tags = v
 	return s
 }
 

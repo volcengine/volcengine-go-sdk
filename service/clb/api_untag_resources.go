@@ -228,8 +228,14 @@ const (
 	ResourceTypeForUntagResourcesInputClb = "CLB"
 
 	// ResourceTypeForUntagResourcesInputAcl is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputAcl = "ACL"
+	ResourceTypeForUntagResourcesInputAcl = "acl"
 
 	// ResourceTypeForUntagResourcesInputCertificate is a ResourceTypeForUntagResourcesInput enum value
-	ResourceTypeForUntagResourcesInputCertificate = "Certificate"
+	ResourceTypeForUntagResourcesInputCertificate = "certificate"
+
+	// ResourceTypeForUntagResourcesInputListener is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputListener = "listener"
+
+	// ResourceTypeForUntagResourcesInputServergroup is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputServergroup = "servergroup"
 )

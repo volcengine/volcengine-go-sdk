@@ -142,6 +142,8 @@ func (c *CLB) ModifyLoadBalancerAttributesWithContext(ctx volcengine.Context, in
 type ModifyLoadBalancerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	AllowedPorts []*string `type:"list"`
+
 	Description *string `type:"string"`
 
 	// LoadBalancerId is a required field
@@ -179,6 +181,12 @@ func (s *ModifyLoadBalancerAttributesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAllowedPorts sets the AllowedPorts field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetAllowedPorts(v []*string) *ModifyLoadBalancerAttributesInput {
+	s.AllowedPorts = v
+	return s
 }
 
 // SetDescription sets the Description field's value.

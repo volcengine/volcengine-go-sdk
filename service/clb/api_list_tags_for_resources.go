@@ -337,4 +337,16 @@ func (s *TagFilterForListTagsForResourcesInput) SetValues(v []*string) *TagFilte
 const (
 	// ResourceTypeForListTagsForResourcesInputClb is a ResourceTypeForListTagsForResourcesInput enum value
 	ResourceTypeForListTagsForResourcesInputClb = "CLB"
+
+	// ResourceTypeForListTagsForResourcesInputAcl is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputAcl = "acl"
+
+	// ResourceTypeForListTagsForResourcesInputCertificate is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputCertificate = "certificate"
+
+	// ResourceTypeForListTagsForResourcesInputListener is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputListener = "listener"
+
+	// ResourceTypeForListTagsForResourcesInputServergroup is a ResourceTypeForListTagsForResourcesInput enum value
+	ResourceTypeForListTagsForResourcesInputServergroup = "servergroup"
 )

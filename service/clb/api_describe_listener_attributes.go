@@ -194,6 +194,8 @@ type DescribeListenerAttributesOutput struct {
 
 	ConnectionDrainTimeout *int64 `type:"integer"`
 
+	Cookie *string `type:"string"`
+
 	CreateTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -203,6 +205,8 @@ type DescribeListenerAttributesOutput struct {
 	EstablishedTimeout *int64 `type:"integer"`
 
 	HealthCheck *HealthCheckForDescribeListenerAttributesOutput `type:"structure"`
+
+	Http2Enabled *string `type:"string"`
 
 	ListenerId *string `type:"string"`
 
@@ -227,6 +231,8 @@ type DescribeListenerAttributesOutput struct {
 	ServerGroupId *string `type:"string"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeListenerAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -283,6 +289,12 @@ func (s *DescribeListenerAttributesOutput) SetConnectionDrainTimeout(v int64) *D
 	return s
 }
 
+// SetCookie sets the Cookie field's value.
+func (s *DescribeListenerAttributesOutput) SetCookie(v string) *DescribeListenerAttributesOutput {
+	s.Cookie = &v
+	return s
+}
+
 // SetCreateTime sets the CreateTime field's value.
 func (s *DescribeListenerAttributesOutput) SetCreateTime(v string) *DescribeListenerAttributesOutput {
 	s.CreateTime = &v
@@ -310,6 +322,12 @@ func (s *DescribeListenerAttributesOutput) SetEstablishedTimeout(v int64) *Descr
 // SetHealthCheck sets the HealthCheck field's value.
 func (s *DescribeListenerAttributesOutput) SetHealthCheck(v *HealthCheckForDescribeListenerAttributesOutput) *DescribeListenerAttributesOutput {
 	s.HealthCheck = v
+	return s
+}
+
+// SetHttp2Enabled sets the Http2Enabled field's value.
+func (s *DescribeListenerAttributesOutput) SetHttp2Enabled(v string) *DescribeListenerAttributesOutput {
+	s.Http2Enabled = &v
 	return s
 }
 
@@ -382,6 +400,12 @@ func (s *DescribeListenerAttributesOutput) SetServerGroupId(v string) *DescribeL
 // SetStatus sets the Status field's value.
 func (s *DescribeListenerAttributesOutput) SetStatus(v string) *DescribeListenerAttributesOutput {
 	s.Status = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeListenerAttributesOutput) SetTags(v []*TagForDescribeListenerAttributesOutput) *DescribeListenerAttributesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -490,5 +514,35 @@ func (s *HealthCheckForDescribeListenerAttributesOutput) SetUnHealthyThreshold(v
 // SetUri sets the Uri field's value.
 func (s *HealthCheckForDescribeListenerAttributesOutput) SetUri(v string) *HealthCheckForDescribeListenerAttributesOutput {
 	s.Uri = &v
+	return s
+}
+
+type TagForDescribeListenerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeListenerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeListenerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeListenerAttributesOutput) SetKey(v string) *TagForDescribeListenerAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeListenerAttributesOutput) SetValue(v string) *TagForDescribeListenerAttributesOutput {
+	s.Value = &v
 	return s
 }

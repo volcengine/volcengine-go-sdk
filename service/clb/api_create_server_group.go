@@ -153,6 +153,8 @@ type CreateServerGroupInput struct {
 
 	Servers []*ServerForCreateServerGroupInput `type:"list"`
 
+	Tags []*TagForCreateServerGroupInput `type:"list"`
+
 	Type *string `type:"string"`
 }
 
@@ -206,6 +208,12 @@ func (s *CreateServerGroupInput) SetServerGroupName(v string) *CreateServerGroup
 // SetServers sets the Servers field's value.
 func (s *CreateServerGroupInput) SetServers(v []*ServerForCreateServerGroupInput) *CreateServerGroupInput {
 	s.Servers = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateServerGroupInput) SetTags(v []*TagForCreateServerGroupInput) *CreateServerGroupInput {
+	s.Tags = v
 	return s
 }
 
@@ -306,5 +314,35 @@ func (s *ServerForCreateServerGroupInput) SetType(v string) *ServerForCreateServ
 // SetWeight sets the Weight field's value.
 func (s *ServerForCreateServerGroupInput) SetWeight(v int64) *ServerForCreateServerGroupInput {
 	s.Weight = &v
+	return s
+}
+
+type TagForCreateServerGroupInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateServerGroupInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateServerGroupInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateServerGroupInput) SetKey(v string) *TagForCreateServerGroupInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateServerGroupInput) SetValue(v string) *TagForCreateServerGroupInput {
+	s.Value = &v
 	return s
 }

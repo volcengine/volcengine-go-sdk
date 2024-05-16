@@ -196,6 +196,8 @@ type DescribeServerGroupAttributesOutput struct {
 
 	Servers []*ServerForDescribeServerGroupAttributesOutput `type:"list"`
 
+	Tags []*TagForDescribeServerGroupAttributesOutput `type:"list"`
+
 	Type *string `type:"string"`
 }
 
@@ -254,6 +256,12 @@ func (s *DescribeServerGroupAttributesOutput) SetServerGroupName(v string) *Desc
 // SetServers sets the Servers field's value.
 func (s *DescribeServerGroupAttributesOutput) SetServers(v []*ServerForDescribeServerGroupAttributesOutput) *DescribeServerGroupAttributesOutput {
 	s.Servers = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeServerGroupAttributesOutput) SetTags(v []*TagForDescribeServerGroupAttributesOutput) *DescribeServerGroupAttributesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -330,5 +338,35 @@ func (s *ServerForDescribeServerGroupAttributesOutput) SetType(v string) *Server
 // SetWeight sets the Weight field's value.
 func (s *ServerForDescribeServerGroupAttributesOutput) SetWeight(v int64) *ServerForDescribeServerGroupAttributesOutput {
 	s.Weight = &v
+	return s
+}
+
+type TagForDescribeServerGroupAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeServerGroupAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeServerGroupAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeServerGroupAttributesOutput) SetKey(v string) *TagForDescribeServerGroupAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeServerGroupAttributesOutput) SetValue(v string) *TagForDescribeServerGroupAttributesOutput {
+	s.Value = &v
 	return s
 }

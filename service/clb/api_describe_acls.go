@@ -156,6 +156,8 @@ type AclForDescribeAclsOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	ServiceManaged *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeAclsOutput `type:"list"`
@@ -212,6 +214,12 @@ func (s *AclForDescribeAclsOutput) SetListeners(v []*string) *AclForDescribeAcls
 // SetProjectName sets the ProjectName field's value.
 func (s *AclForDescribeAclsOutput) SetProjectName(v string) *AclForDescribeAclsOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *AclForDescribeAclsOutput) SetServiceManaged(v string) *AclForDescribeAclsOutput {
+	s.ServiceManaged = &v
 	return s
 }
 

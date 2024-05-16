@@ -3,8 +3,6 @@
 package clb
 
 import (
-	"fmt"
-
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
@@ -147,8 +145,7 @@ type CreateRulesInput struct {
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
 
-	// Rules is a required field
-	Rules []*RuleForCreateRulesInput `type:"list" required:"true"`
+	Rules []*RuleForCreateRulesInput `type:"list"`
 }
 
 // String returns the string representation
@@ -166,19 +163,6 @@ func (s *CreateRulesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateRulesInput"}
 	if s.ListenerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ListenerId"))
-	}
-	if s.Rules == nil {
-		invalidParams.Add(request.NewErrParamRequired("Rules"))
-	}
-	if s.Rules != nil {
-		for i, v := range s.Rules {
-			if v == nil {
-				continue
-			}
-			if err := v.Validate(); err != nil {
-				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Rules", i), err.(request.ErrInvalidParams))
-			}
-		}
 	}
 
 	if invalidParams.Len() > 0 {
@@ -231,15 +215,72 @@ func (s *CreateRulesOutput) SetRuleIds(v []*string) *CreateRulesOutput {
 	return s
 }
 
+type RedirectConfigForCreateRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	Host *string `type:"string"`
+
+	Path *string `type:"string"`
+
+	Port *string `type:"string"`
+
+	Protocol *string `type:"string"`
+
+	StatusCode *string `type:"string"`
+}
+
+// String returns the string representation
+func (s RedirectConfigForCreateRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RedirectConfigForCreateRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetHost sets the Host field's value.
+func (s *RedirectConfigForCreateRulesInput) SetHost(v string) *RedirectConfigForCreateRulesInput {
+	s.Host = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *RedirectConfigForCreateRulesInput) SetPath(v string) *RedirectConfigForCreateRulesInput {
+	s.Path = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *RedirectConfigForCreateRulesInput) SetPort(v string) *RedirectConfigForCreateRulesInput {
+	s.Port = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *RedirectConfigForCreateRulesInput) SetProtocol(v string) *RedirectConfigForCreateRulesInput {
+	s.Protocol = &v
+	return s
+}
+
+// SetStatusCode sets the StatusCode field's value.
+func (s *RedirectConfigForCreateRulesInput) SetStatusCode(v string) *RedirectConfigForCreateRulesInput {
+	s.StatusCode = &v
+	return s
+}
+
 type RuleForCreateRulesInput struct {
 	_ struct{} `type:"structure"`
+
+	ActionType *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	Domain *string `type:"string"`
 
-	// ServerGroupId is a required field
-	ServerGroupId *string `type:"string" required:"true"`
+	RedirectConfig *RedirectConfigForCreateRulesInput `type:"structure"`
+
+	ServerGroupId *string `type:"string"`
 
 	Url *string `type:"string"`
 }
@@ -254,17 +295,10 @@ func (s RuleForCreateRulesInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *RuleForCreateRulesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "RuleForCreateRulesInput"}
-	if s.ServerGroupId == nil {
-		invalidParams.Add(request.NewErrParamRequired("ServerGroupId"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetActionType sets the ActionType field's value.
+func (s *RuleForCreateRulesInput) SetActionType(v string) *RuleForCreateRulesInput {
+	s.ActionType = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -276,6 +310,12 @@ func (s *RuleForCreateRulesInput) SetDescription(v string) *RuleForCreateRulesIn
 // SetDomain sets the Domain field's value.
 func (s *RuleForCreateRulesInput) SetDomain(v string) *RuleForCreateRulesInput {
 	s.Domain = &v
+	return s
+}
+
+// SetRedirectConfig sets the RedirectConfig field's value.
+func (s *RuleForCreateRulesInput) SetRedirectConfig(v *RedirectConfigForCreateRulesInput) *RuleForCreateRulesInput {
+	s.RedirectConfig = v
 	return s
 }
 
