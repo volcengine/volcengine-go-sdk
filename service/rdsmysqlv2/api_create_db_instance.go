@@ -221,6 +221,8 @@ type CreateDBInstanceInput struct {
 
 	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list"`
 
+	Port *int32 `type:"int32"`
+
 	ProjectName *string `type:"string"`
 
 	// StorageSpace is a required field
@@ -332,6 +334,12 @@ func (s *CreateDBInstanceInput) SetLowerCaseTableNames(v string) *CreateDBInstan
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *CreateDBInstanceInput) SetNodeInfo(v []*NodeInfoForCreateDBInstanceInput) *CreateDBInstanceInput {
 	s.NodeInfo = v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *CreateDBInstanceInput) SetPort(v int32) *CreateDBInstanceInput {
+	s.Port = &v
 	return s
 }
 

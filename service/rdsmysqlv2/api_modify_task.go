@@ -146,6 +146,9 @@ func (c *RDSMYSQLV2) ModifyTaskWithContext(ctx volcengine.Context, input *Modify
 type ModifyTaskInput struct {
 	_ struct{} `type:"structure"`
 
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
+
 	// ModifyType is a required field
 	ModifyType *string `type:"string" required:"true"`
 
@@ -168,6 +171,9 @@ func (s ModifyTaskInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifyTaskInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyTaskInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
 	if s.ModifyType == nil {
 		invalidParams.Add(request.NewErrParamRequired("ModifyType"))
 	}
@@ -179,6 +185,12 @@ func (s *ModifyTaskInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *ModifyTaskInput) SetInstanceId(v string) *ModifyTaskInput {
+	s.InstanceId = &v
+	return s
 }
 
 // SetModifyType sets the ModifyType field's value.

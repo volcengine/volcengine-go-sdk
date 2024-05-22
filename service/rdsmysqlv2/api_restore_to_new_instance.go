@@ -298,6 +298,8 @@ type RestoreToNewInstanceInput struct {
 
 	NodeInfo []*NodeInfoForRestoreToNewInstanceInput `type:"list"`
 
+	Port *int32 `type:"int32"`
+
 	ProjectName *string `type:"string"`
 
 	RestoreTime *string `type:"string"`
@@ -388,6 +390,12 @@ func (s *RestoreToNewInstanceInput) SetInstanceTags(v []*InstanceTagForRestoreTo
 // SetNodeInfo sets the NodeInfo field's value.
 func (s *RestoreToNewInstanceInput) SetNodeInfo(v []*NodeInfoForRestoreToNewInstanceInput) *RestoreToNewInstanceInput {
 	s.NodeInfo = v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *RestoreToNewInstanceInput) SetPort(v int32) *RestoreToNewInstanceInput {
+	s.Port = &v
 	return s
 }
 

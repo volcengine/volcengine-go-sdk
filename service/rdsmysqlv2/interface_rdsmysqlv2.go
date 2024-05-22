@@ -686,6 +686,14 @@ type RDSMYSQLV2API interface {
 	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
 
+	RestoreToCrossRegionInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestoreToCrossRegionInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestoreToCrossRegionInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestoreToCrossRegionInstance(*RestoreToCrossRegionInstanceInput) (*RestoreToCrossRegionInstanceOutput, error)
+	RestoreToCrossRegionInstanceWithContext(volcengine.Context, *RestoreToCrossRegionInstanceInput, ...request.Option) (*RestoreToCrossRegionInstanceOutput, error)
+	RestoreToCrossRegionInstanceRequest(*RestoreToCrossRegionInstanceInput) (*request.Request, *RestoreToCrossRegionInstanceOutput)
+
 	RestoreToExistedInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestoreToExistedInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RestoreToExistedInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

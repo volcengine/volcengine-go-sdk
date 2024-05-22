@@ -156,6 +156,8 @@ type BinlogFileForDescribeBinlogFilesOutput struct {
 
 	FileSize *int32 `type:"int32"`
 
+	NodeId *string `type:"string"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -196,6 +198,12 @@ func (s *BinlogFileForDescribeBinlogFilesOutput) SetFileName(v string) *BinlogFi
 // SetFileSize sets the FileSize field's value.
 func (s *BinlogFileForDescribeBinlogFilesOutput) SetFileSize(v int32) *BinlogFileForDescribeBinlogFilesOutput {
 	s.FileSize = &v
+	return s
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *BinlogFileForDescribeBinlogFilesOutput) SetNodeId(v string) *BinlogFileForDescribeBinlogFilesOutput {
+	s.NodeId = &v
 	return s
 }
 

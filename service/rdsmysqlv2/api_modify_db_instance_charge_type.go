@@ -154,11 +154,9 @@ type ModifyDBInstanceChargeTypeInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	// Period is a required field
-	Period *int32 `type:"int32" required:"true"`
+	Period *int32 `type:"int32"`
 
-	// PeriodUnit is a required field
-	PeriodUnit *string `type:"string" required:"true"`
+	PeriodUnit *string `type:"string"`
 }
 
 // String returns the string representation
@@ -179,12 +177,6 @@ func (s *ModifyDBInstanceChargeTypeInput) Validate() error {
 	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
-	}
-	if s.Period == nil {
-		invalidParams.Add(request.NewErrParamRequired("Period"))
-	}
-	if s.PeriodUnit == nil {
-		invalidParams.Add(request.NewErrParamRequired("PeriodUnit"))
 	}
 
 	if invalidParams.Len() > 0 {
