@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingPoliciesCommonRequest(input *map[string]int
 	return
 }
 
-// DescribeScalingPoliciesCommon API operation for AUTOSCALING.
+// DescribeScalingPoliciesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingPoliciesCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingPoliciesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingPoliciesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingPoliciesRequest(input *DescribeScalingPolic
 	return
 }
 
-// DescribeScalingPolicies API operation for AUTOSCALING.
+// DescribeScalingPolicies API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingPolicies for usage and error information.
 func (c *AUTOSCALING) DescribeScalingPolicies(input *DescribeScalingPoliciesInput) (*DescribeScalingPoliciesOutput, error) {
 	req, out := c.DescribeScalingPoliciesRequest(input)
@@ -237,7 +237,7 @@ type DescribeScalingPoliciesInput struct {
 
 	ScalingPolicyNames []*string `type:"list"`
 
-	ScalingPolicyType *string `type:"string" enum:"EnumOfScalingPolicyTypeForDescribeScalingPoliciesInput"`
+	ScalingPolicyType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -494,14 +494,3 @@ func (s *ScheduledPolicyForDescribeScalingPoliciesOutput) SetRecurrenceValue(v s
 	s.RecurrenceValue = &v
 	return s
 }
-
-const (
-	// EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputScheduled is a EnumOfScalingPolicyTypeForDescribeScalingPoliciesInput enum value
-	EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputScheduled = "Scheduled"
-
-	// EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputRecurrence is a EnumOfScalingPolicyTypeForDescribeScalingPoliciesInput enum value
-	EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputRecurrence = "Recurrence"
-
-	// EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputAlarm is a EnumOfScalingPolicyTypeForDescribeScalingPoliciesInput enum value
-	EnumOfScalingPolicyTypeForDescribeScalingPoliciesInputAlarm = "Alarm"
-)

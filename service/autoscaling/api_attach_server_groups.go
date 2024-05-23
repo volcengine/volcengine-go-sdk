@@ -48,13 +48,13 @@ func (c *AUTOSCALING) AttachServerGroupsCommonRequest(input *map[string]interfac
 	return
 }
 
-// AttachServerGroupsCommon API operation for AUTOSCALING.
+// AttachServerGroupsCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation AttachServerGroupsCommon for usage and error information.
 func (c *AUTOSCALING) AttachServerGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachServerGroupsCommonRequest(input)
@@ -113,13 +113,13 @@ func (c *AUTOSCALING) AttachServerGroupsRequest(input *AttachServerGroupsInput) 
 	return
 }
 
-// AttachServerGroups API operation for AUTOSCALING.
+// AttachServerGroups API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation AttachServerGroups for usage and error information.
 func (c *AUTOSCALING) AttachServerGroups(input *AttachServerGroupsInput) (*AttachServerGroupsOutput, error) {
 	req, out := c.AttachServerGroupsRequest(input)
@@ -243,7 +243,7 @@ type ServerGroupAttributeForAttachServerGroupsInput struct {
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForAttachServerGroupsInput"`
+	Type *string `type:"string"`
 
 	// Weight is a required field
 	Weight *int32 `type:"int32" required:"true"`
@@ -301,11 +301,3 @@ func (s *ServerGroupAttributeForAttachServerGroupsInput) SetWeight(v int32) *Ser
 	s.Weight = &v
 	return s
 }
-
-const (
-	// EnumOfTypeForAttachServerGroupsInputClb is a EnumOfTypeForAttachServerGroupsInput enum value
-	EnumOfTypeForAttachServerGroupsInputClb = "CLB"
-
-	// EnumOfTypeForAttachServerGroupsInputAlb is a EnumOfTypeForAttachServerGroupsInput enum value
-	EnumOfTypeForAttachServerGroupsInputAlb = "ALB"
-)

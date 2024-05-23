@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DisableScalingGroupCommonRequest(input *map[string]interfa
 	return
 }
 
-// DisableScalingGroupCommon API operation for AUTOSCALING.
+// DisableScalingGroupCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DisableScalingGroupCommon for usage and error information.
 func (c *AUTOSCALING) DisableScalingGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DisableScalingGroupCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DisableScalingGroupRequest(input *DisableScalingGroupInput
 	return
 }
 
-// DisableScalingGroup API operation for AUTOSCALING.
+// DisableScalingGroup API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DisableScalingGroup for usage and error information.
 func (c *AUTOSCALING) DisableScalingGroup(input *DisableScalingGroupInput) (*DisableScalingGroupOutput, error) {
 	req, out := c.DisableScalingGroupRequest(input)

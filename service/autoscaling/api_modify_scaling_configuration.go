@@ -46,13 +46,13 @@ func (c *AUTOSCALING) ModifyScalingConfigurationCommonRequest(input *map[string]
 	return
 }
 
-// ModifyScalingConfigurationCommon API operation for AUTOSCALING.
+// ModifyScalingConfigurationCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyScalingConfigurationCommon for usage and error information.
 func (c *AUTOSCALING) ModifyScalingConfigurationCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyScalingConfigurationCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) ModifyScalingConfigurationRequest(input *ModifyScalingConf
 	return
 }
 
-// ModifyScalingConfiguration API operation for AUTOSCALING.
+// ModifyScalingConfiguration API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyScalingConfiguration for usage and error information.
 func (c *AUTOSCALING) ModifyScalingConfiguration(input *ModifyScalingConfigurationInput) (*ModifyScalingConfigurationOutput, error) {
 	req, out := c.ModifyScalingConfigurationRequest(input)
@@ -146,9 +146,13 @@ type EipForModifyScalingConfigurationInput struct {
 
 	BandwidthPackageId *string `type:"string"`
 
-	BillingType *string `type:"string" enum:"EnumOfEipBillingTypeForModifyScalingConfigurationInput"`
+	BillingType *string `type:"string"`
 
 	ISP *string `type:"string"`
+
+	SecurityProtectionInstanceId *int32 `type:"int32"`
+
+	SecurityProtectionTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -185,6 +189,48 @@ func (s *EipForModifyScalingConfigurationInput) SetISP(v string) *EipForModifySc
 	return s
 }
 
+// SetSecurityProtectionInstanceId sets the SecurityProtectionInstanceId field's value.
+func (s *EipForModifyScalingConfigurationInput) SetSecurityProtectionInstanceId(v int32) *EipForModifyScalingConfigurationInput {
+	s.SecurityProtectionInstanceId = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipForModifyScalingConfigurationInput) SetSecurityProtectionTypes(v []*string) *EipForModifyScalingConfigurationInput {
+	s.SecurityProtectionTypes = v
+	return s
+}
+
+type InstanceTypeOverrideForModifyScalingConfigurationInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceType *string `type:"string"`
+
+	PriceLimit *float64 `type:"float"`
+}
+
+// String returns the string representation
+func (s InstanceTypeOverrideForModifyScalingConfigurationInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypeOverrideForModifyScalingConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *InstanceTypeOverrideForModifyScalingConfigurationInput) SetInstanceType(v string) *InstanceTypeOverrideForModifyScalingConfigurationInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetPriceLimit sets the PriceLimit field's value.
+func (s *InstanceTypeOverrideForModifyScalingConfigurationInput) SetPriceLimit(v float64) *InstanceTypeOverrideForModifyScalingConfigurationInput {
+	s.PriceLimit = &v
+	return s
+}
+
 type ModifyScalingConfigurationInput struct {
 	_ struct{} `type:"structure"`
 
@@ -199,6 +245,8 @@ type ModifyScalingConfigurationInput struct {
 	InstanceDescription *string `type:"string"`
 
 	InstanceName *string `type:"string"`
+
+	InstanceTypeOverrides []*InstanceTypeOverrideForModifyScalingConfigurationInput `type:"list"`
 
 	InstanceTypes []*string `type:"list"`
 
@@ -215,11 +263,11 @@ type ModifyScalingConfigurationInput struct {
 
 	ScalingConfigurationName *string `min:"1" max:"128" type:"string"`
 
-	SecurityEnhancementStrategy *string `type:"string" enum:"EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInput"`
+	SecurityEnhancementStrategy *string `type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
 
-	SpotStrategy *string `type:"string" enum:"EnumOfSpotStrategyForModifyScalingConfigurationInput"`
+	SpotStrategy *string `type:"string"`
 
 	Tags *string `type:"string"`
 
@@ -292,6 +340,12 @@ func (s *ModifyScalingConfigurationInput) SetInstanceDescription(v string) *Modi
 // SetInstanceName sets the InstanceName field's value.
 func (s *ModifyScalingConfigurationInput) SetInstanceName(v string) *ModifyScalingConfigurationInput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceTypeOverrides sets the InstanceTypeOverrides field's value.
+func (s *ModifyScalingConfigurationInput) SetInstanceTypeOverrides(v []*InstanceTypeOverrideForModifyScalingConfigurationInput) *ModifyScalingConfigurationInput {
+	s.InstanceTypeOverrides = v
 	return s
 }
 
@@ -440,27 +494,3 @@ func (s *VolumeForModifyScalingConfigurationInput) SetVolumeType(v string) *Volu
 	s.VolumeType = &v
 	return s
 }
-
-const (
-	// EnumOfEipBillingTypeForModifyScalingConfigurationInputPostPaidByBandwidth is a EnumOfEipBillingTypeForModifyScalingConfigurationInput enum value
-	EnumOfEipBillingTypeForModifyScalingConfigurationInputPostPaidByBandwidth = "PostPaidByBandwidth"
-
-	// EnumOfEipBillingTypeForModifyScalingConfigurationInputPostPaidByTraffic is a EnumOfEipBillingTypeForModifyScalingConfigurationInput enum value
-	EnumOfEipBillingTypeForModifyScalingConfigurationInputPostPaidByTraffic = "PostPaidByTraffic"
-)
-
-const (
-	// EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInputActive is a EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInput enum value
-	EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInputActive = "Active"
-
-	// EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInputInActive is a EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInput enum value
-	EnumOfSecurityEnhancementStrategyForModifyScalingConfigurationInputInActive = "InActive"
-)
-
-const (
-	// EnumOfSpotStrategyForModifyScalingConfigurationInputNoSpot is a EnumOfSpotStrategyForModifyScalingConfigurationInput enum value
-	EnumOfSpotStrategyForModifyScalingConfigurationInputNoSpot = "NoSpot"
-
-	// EnumOfSpotStrategyForModifyScalingConfigurationInputSpotAsPriceGo is a EnumOfSpotStrategyForModifyScalingConfigurationInput enum value
-	EnumOfSpotStrategyForModifyScalingConfigurationInputSpotAsPriceGo = "SpotAsPriceGo"
-)

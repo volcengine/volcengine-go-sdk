@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeLifecycleHooksCommonRequest(input *map[string]inte
 	return
 }
 
-// DescribeLifecycleHooksCommon API operation for AUTOSCALING.
+// DescribeLifecycleHooksCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeLifecycleHooksCommon for usage and error information.
 func (c *AUTOSCALING) DescribeLifecycleHooksCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeLifecycleHooksCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeLifecycleHooksRequest(input *DescribeLifecycleHook
 	return
 }
 
-// DescribeLifecycleHooks API operation for AUTOSCALING.
+// DescribeLifecycleHooks API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeLifecycleHooks for usage and error information.
 func (c *AUTOSCALING) DescribeLifecycleHooks(input *DescribeLifecycleHooksInput) (*DescribeLifecycleHooksOutput, error) {
 	req, out := c.DescribeLifecycleHooksRequest(input)

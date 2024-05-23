@@ -46,13 +46,13 @@ func (c *AUTOSCALING) SetInstancesProtectionCommonRequest(input *map[string]inte
 	return
 }
 
-// SetInstancesProtectionCommon API operation for AUTOSCALING.
+// SetInstancesProtectionCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation SetInstancesProtectionCommon for usage and error information.
 func (c *AUTOSCALING) SetInstancesProtectionCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.SetInstancesProtectionCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) SetInstancesProtectionRequest(input *SetInstancesProtectio
 	return
 }
 
-// SetInstancesProtection API operation for AUTOSCALING.
+// SetInstancesProtection API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation SetInstancesProtection for usage and error information.
 func (c *AUTOSCALING) SetInstancesProtection(input *SetInstancesProtectionInput) (*SetInstancesProtectionOutput, error) {
 	req, out := c.SetInstancesProtectionRequest(input)
@@ -148,7 +148,7 @@ type InstanceProtectionResultForSetInstancesProtectionOutput struct {
 
 	Message *string `type:"string"`
 
-	Result *string `type:"string" enum:"EnumOfResultForSetInstancesProtectionOutput"`
+	Result *string `type:"string"`
 }
 
 // String returns the string representation
@@ -264,11 +264,3 @@ func (s *SetInstancesProtectionOutput) SetInstanceProtectionResults(v []*Instanc
 	s.InstanceProtectionResults = v
 	return s
 }
-
-const (
-	// EnumOfResultForSetInstancesProtectionOutputSuccess is a EnumOfResultForSetInstancesProtectionOutput enum value
-	EnumOfResultForSetInstancesProtectionOutputSuccess = "Success"
-
-	// EnumOfResultForSetInstancesProtectionOutputFail is a EnumOfResultForSetInstancesProtectionOutput enum value
-	EnumOfResultForSetInstancesProtectionOutputFail = "Fail"
-)

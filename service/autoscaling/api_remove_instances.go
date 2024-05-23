@@ -46,13 +46,13 @@ func (c *AUTOSCALING) RemoveInstancesCommonRequest(input *map[string]interface{}
 	return
 }
 
-// RemoveInstancesCommon API operation for AUTOSCALING.
+// RemoveInstancesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation RemoveInstancesCommon for usage and error information.
 func (c *AUTOSCALING) RemoveInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.RemoveInstancesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) RemoveInstancesRequest(input *RemoveInstancesInput) (req *
 	return
 }
 
-// RemoveInstances API operation for AUTOSCALING.
+// RemoveInstances API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation RemoveInstances for usage and error information.
 func (c *AUTOSCALING) RemoveInstances(input *RemoveInstancesInput) (*RemoveInstancesOutput, error) {
 	req, out := c.RemoveInstancesRequest(input)
@@ -151,7 +151,7 @@ type RemoveInstancesInput struct {
 
 	LifecycleHook *bool `type:"boolean"`
 
-	RemoveMode *string `type:"string" enum:"EnumOfRemoveModeForRemoveInstancesInput"`
+	RemoveMode *string `type:"string"`
 
 	// ScalingGroupId is a required field
 	ScalingGroupId *string `type:"string" required:"true"`
@@ -223,6 +223,8 @@ type RemoveInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	ScalingActivityId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -235,10 +237,8 @@ func (s RemoveInstancesOutput) GoString() string {
 	return s.String()
 }
 
-const (
-	// EnumOfRemoveModeForRemoveInstancesInputRelease is a EnumOfRemoveModeForRemoveInstancesInput enum value
-	EnumOfRemoveModeForRemoveInstancesInputRelease = "release"
-
-	// EnumOfRemoveModeForRemoveInstancesInputRecycle is a EnumOfRemoveModeForRemoveInstancesInput enum value
-	EnumOfRemoveModeForRemoveInstancesInputRecycle = "recycle"
-)
+// SetScalingActivityId sets the ScalingActivityId field's value.
+func (s *RemoveInstancesOutput) SetScalingActivityId(v string) *RemoveInstancesOutput {
+	s.ScalingActivityId = &v
+	return s
+}

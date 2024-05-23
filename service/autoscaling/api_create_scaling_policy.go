@@ -46,13 +46,13 @@ func (c *AUTOSCALING) CreateScalingPolicyCommonRequest(input *map[string]interfa
 	return
 }
 
-// CreateScalingPolicyCommon API operation for AUTOSCALING.
+// CreateScalingPolicyCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CreateScalingPolicyCommon for usage and error information.
 func (c *AUTOSCALING) CreateScalingPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateScalingPolicyCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) CreateScalingPolicyRequest(input *CreateScalingPolicyInput
 	return
 }
 
-// CreateScalingPolicy API operation for AUTOSCALING.
+// CreateScalingPolicy API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CreateScalingPolicy for usage and error information.
 func (c *AUTOSCALING) CreateScalingPolicy(input *CreateScalingPolicyInput) (*CreateScalingPolicyOutput, error) {
 	req, out := c.CreateScalingPolicyRequest(input)
@@ -192,7 +192,7 @@ type AlarmPolicyForCreateScalingPolicyInput struct {
 
 	EvaluationCount *int32 `min:"1" max:"180" type:"int32"`
 
-	RuleType *string `type:"string" enum:"EnumOfAlarmPolicyRuleTypeForCreateScalingPolicyInput"`
+	RuleType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -242,11 +242,9 @@ func (s *AlarmPolicyForCreateScalingPolicyInput) SetRuleType(v string) *AlarmPol
 type CreateScalingPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	// AdjustmentType is a required field
-	AdjustmentType *string `type:"string" required:"true" enum:"EnumOfAdjustmentTypeForCreateScalingPolicyInput"`
+	AdjustmentType *string `type:"string"`
 
-	// AdjustmentValue is a required field
-	AdjustmentValue *int32 `type:"int32" required:"true"`
+	AdjustmentValue *int32 `type:"int32"`
 
 	AlarmPolicy *AlarmPolicyForCreateScalingPolicyInput `type:"structure"`
 
@@ -259,7 +257,7 @@ type CreateScalingPolicyInput struct {
 	ScalingPolicyName *string `type:"string" required:"true"`
 
 	// ScalingPolicyType is a required field
-	ScalingPolicyType *string `type:"string" required:"true" enum:"EnumOfScalingPolicyTypeForCreateScalingPolicyInput"`
+	ScalingPolicyType *string `type:"string" required:"true"`
 
 	// ScheduledPolicy is a required field
 	ScheduledPolicy *ScheduledPolicyForCreateScalingPolicyInput `type:"structure" required:"true"`
@@ -278,12 +276,6 @@ func (s CreateScalingPolicyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateScalingPolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateScalingPolicyInput"}
-	if s.AdjustmentType == nil {
-		invalidParams.Add(request.NewErrParamRequired("AdjustmentType"))
-	}
-	if s.AdjustmentValue == nil {
-		invalidParams.Add(request.NewErrParamRequired("AdjustmentValue"))
-	}
 	if s.ScalingGroupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("ScalingGroupId"))
 	}
@@ -393,7 +385,7 @@ type ScheduledPolicyForCreateScalingPolicyInput struct {
 
 	RecurrenceEndTime *string `type:"string"`
 
-	RecurrenceType *string `type:"string" enum:"EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput"`
+	RecurrenceType *string `type:"string"`
 
 	RecurrenceValue *string `type:"string"`
 }
@@ -444,44 +436,3 @@ func (s *ScheduledPolicyForCreateScalingPolicyInput) SetRecurrenceValue(v string
 	s.RecurrenceValue = &v
 	return s
 }
-
-const (
-	// EnumOfAdjustmentTypeForCreateScalingPolicyInputQuantityChangeInCapacity is a EnumOfAdjustmentTypeForCreateScalingPolicyInput enum value
-	EnumOfAdjustmentTypeForCreateScalingPolicyInputQuantityChangeInCapacity = "QuantityChangeInCapacity"
-
-	// EnumOfAdjustmentTypeForCreateScalingPolicyInputPercentChangeInCapacity is a EnumOfAdjustmentTypeForCreateScalingPolicyInput enum value
-	EnumOfAdjustmentTypeForCreateScalingPolicyInputPercentChangeInCapacity = "PercentChangeInCapacity"
-
-	// EnumOfAdjustmentTypeForCreateScalingPolicyInputTotalCapacity is a EnumOfAdjustmentTypeForCreateScalingPolicyInput enum value
-	EnumOfAdjustmentTypeForCreateScalingPolicyInputTotalCapacity = "TotalCapacity"
-)
-
-const (
-	// EnumOfAlarmPolicyRuleTypeForCreateScalingPolicyInputStatic is a EnumOfAlarmPolicyRuleTypeForCreateScalingPolicyInput enum value
-	EnumOfAlarmPolicyRuleTypeForCreateScalingPolicyInputStatic = "Static"
-)
-
-const (
-	// EnumOfScalingPolicyTypeForCreateScalingPolicyInputScheduled is a EnumOfScalingPolicyTypeForCreateScalingPolicyInput enum value
-	EnumOfScalingPolicyTypeForCreateScalingPolicyInputScheduled = "Scheduled"
-
-	// EnumOfScalingPolicyTypeForCreateScalingPolicyInputRecurrence is a EnumOfScalingPolicyTypeForCreateScalingPolicyInput enum value
-	EnumOfScalingPolicyTypeForCreateScalingPolicyInputRecurrence = "Recurrence"
-
-	// EnumOfScalingPolicyTypeForCreateScalingPolicyInputAlarm is a EnumOfScalingPolicyTypeForCreateScalingPolicyInput enum value
-	EnumOfScalingPolicyTypeForCreateScalingPolicyInputAlarm = "Alarm"
-)
-
-const (
-	// EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputDaily is a EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput enum value
-	EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputDaily = "Daily"
-
-	// EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputWeekly is a EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput enum value
-	EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputWeekly = "Weekly"
-
-	// EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputMonthly is a EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput enum value
-	EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputMonthly = "Monthly"
-
-	// EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputCron is a EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInput enum value
-	EnumOfScheduledPolicyRecurrenceTypeForCreateScalingPolicyInputCron = "Cron"
-)
