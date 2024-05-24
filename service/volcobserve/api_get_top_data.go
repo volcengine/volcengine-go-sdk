@@ -22,13 +22,13 @@ const opGetTopDataCommon = "GetTopData"
 // See GetTopDataCommon for more information on using the GetTopDataCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GetTopDataCommonRequest method.
-//	req, resp := client.GetTopDataCommonRequest(params)
+//    // Example sending a request using the GetTopDataCommonRequest method.
+//    req, resp := client.GetTopDataCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VOLCOBSERVE) GetTopDataCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetTopDataCommon,
@@ -89,13 +89,13 @@ const opGetTopData = "GetTopData"
 // See GetTopData for more information on using the GetTopData
 // API call, and error handling.
 //
-//	// Example sending a request using the GetTopDataRequest method.
-//	req, resp := client.GetTopDataRequest(params)
+//    // Example sending a request using the GetTopDataRequest method.
+//    req, resp := client.GetTopDataRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VOLCOBSERVE) GetTopDataRequest(input *GetTopDataInput) (req *request.Request, output *GetTopDataOutput) {
 	op := &request.Operation{
 		Name:       opGetTopData,

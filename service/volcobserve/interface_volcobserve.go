@@ -16,19 +16,36 @@ import (
 // VOLCOBSERVEAPI provides an interface to enable mocking the
 // volcobserve.VOLCOBSERVE service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// VOLC_OBSERVE.
-//	func myFunc(svc VOLCOBSERVEAPI) bool {
-//	    // Make svc.GetMetricData request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // VOLC_OBSERVE.
+//    func myFunc(svc VOLCOBSERVEAPI) bool {
+//        // Make svc.CreateObjectGroup request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := volcobserve.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := volcobserve.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type VOLCOBSERVEAPI interface {
+	CreateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateObjectGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateObjectGroup(*CreateObjectGroupInput) (*CreateObjectGroupOutput, error)
+	CreateObjectGroupWithContext(volcengine.Context, *CreateObjectGroupInput, ...request.Option) (*CreateObjectGroupOutput, error)
+	CreateObjectGroupRequest(*CreateObjectGroupInput) (*request.Request, *CreateObjectGroupOutput)
+
+	DeleteObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteObjectGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteObjectGroup(*DeleteObjectGroupInput) (*DeleteObjectGroupOutput, error)
+	DeleteObjectGroupWithContext(volcengine.Context, *DeleteObjectGroupInput, ...request.Option) (*DeleteObjectGroupOutput, error)
+	DeleteObjectGroupRequest(*DeleteObjectGroupInput) (*request.Request, *DeleteObjectGroupOutput)
+
 	GetMetricDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetMetricDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GetMetricDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -44,6 +61,30 @@ type VOLCOBSERVEAPI interface {
 	GetTopData(*GetTopDataInput) (*GetTopDataOutput, error)
 	GetTopDataWithContext(volcengine.Context, *GetTopDataInput, ...request.Option) (*GetTopDataOutput, error)
 	GetTopDataRequest(*GetTopDataInput) (*request.Request, *GetTopDataOutput)
+
+	ListEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListEvents(*ListEventsInput) (*ListEventsOutput, error)
+	ListEventsWithContext(volcengine.Context, *ListEventsInput, ...request.Option) (*ListEventsOutput, error)
+	ListEventsRequest(*ListEventsInput) (*request.Request, *ListEventsOutput)
+
+	ListObjectGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListObjectGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListObjectGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListObjectGroups(*ListObjectGroupsInput) (*ListObjectGroupsOutput, error)
+	ListObjectGroupsWithContext(volcengine.Context, *ListObjectGroupsInput, ...request.Option) (*ListObjectGroupsOutput, error)
+	ListObjectGroupsRequest(*ListObjectGroupsInput) (*request.Request, *ListObjectGroupsOutput)
+
+	UpdateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateObjectGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateObjectGroup(*UpdateObjectGroupInput) (*UpdateObjectGroupOutput, error)
+	UpdateObjectGroupWithContext(volcengine.Context, *UpdateObjectGroupInput, ...request.Option) (*UpdateObjectGroupOutput, error)
+	UpdateObjectGroupRequest(*UpdateObjectGroupInput) (*request.Request, *UpdateObjectGroupOutput)
 }
 
 var _ VOLCOBSERVEAPI = (*VOLCOBSERVE)(nil)

@@ -22,13 +22,13 @@ const opGetMetricDataCommon = "GetMetricData"
 // See GetMetricDataCommon for more information on using the GetMetricDataCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the GetMetricDataCommonRequest method.
-//	req, resp := client.GetMetricDataCommonRequest(params)
+//    // Example sending a request using the GetMetricDataCommonRequest method.
+//    req, resp := client.GetMetricDataCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VOLCOBSERVE) GetMetricDataCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opGetMetricDataCommon,
@@ -89,13 +89,13 @@ const opGetMetricData = "GetMetricData"
 // See GetMetricData for more information on using the GetMetricData
 // API call, and error handling.
 //
-//	// Example sending a request using the GetMetricDataRequest method.
-//	req, resp := client.GetMetricDataRequest(params)
+//    // Example sending a request using the GetMetricDataRequest method.
+//    req, resp := client.GetMetricDataRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *VOLCOBSERVE) GetMetricDataRequest(input *GetMetricDataInput) (req *request.Request, output *GetMetricDataOutput) {
 	op := &request.Operation{
 		Name:       opGetMetricData,
