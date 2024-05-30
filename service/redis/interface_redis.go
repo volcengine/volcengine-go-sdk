@@ -86,6 +86,14 @@ type REDISAPI interface {
 	CreateDBInstanceWithContext(volcengine.Context, *CreateDBInstanceInput, ...request.Option) (*CreateDBInstanceOutput, error)
 	CreateDBInstanceRequest(*CreateDBInstanceInput) (*request.Request, *CreateDBInstanceOutput)
 
+	CreateEnterpriseDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateEnterpriseDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateEnterpriseDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateEnterpriseDBInstance(*CreateEnterpriseDBInstanceInput) (*CreateEnterpriseDBInstanceOutput, error)
+	CreateEnterpriseDBInstanceWithContext(volcengine.Context, *CreateEnterpriseDBInstanceInput, ...request.Option) (*CreateEnterpriseDBInstanceOutput, error)
+	CreateEnterpriseDBInstanceRequest(*CreateEnterpriseDBInstanceInput) (*request.Request, *CreateEnterpriseDBInstanceOutput)
+
 	DecreaseDBInstanceNodeNumberCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DecreaseDBInstanceNodeNumberCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DecreaseDBInstanceNodeNumberCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -205,6 +213,14 @@ type REDISAPI interface {
 	DescribeDBInstances(*DescribeDBInstancesInput) (*DescribeDBInstancesOutput, error)
 	DescribeDBInstancesWithContext(volcengine.Context, *DescribeDBInstancesInput, ...request.Option) (*DescribeDBInstancesOutput, error)
 	DescribeDBInstancesRequest(*DescribeDBInstancesInput) (*request.Request, *DescribeDBInstancesOutput)
+
+	DescribeEnterpriseDBInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEnterpriseDBInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEnterpriseDBInstanceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEnterpriseDBInstanceDetail(*DescribeEnterpriseDBInstanceDetailInput) (*DescribeEnterpriseDBInstanceDetailOutput, error)
+	DescribeEnterpriseDBInstanceDetailWithContext(volcengine.Context, *DescribeEnterpriseDBInstanceDetailInput, ...request.Option) (*DescribeEnterpriseDBInstanceDetailOutput, error)
+	DescribeEnterpriseDBInstanceDetailRequest(*DescribeEnterpriseDBInstanceDetailInput) (*request.Request, *DescribeEnterpriseDBInstanceDetailOutput)
 
 	DescribeNodeIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNodeIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -389,6 +405,14 @@ type REDISAPI interface {
 	ModifyDBInstanceSubnet(*ModifyDBInstanceSubnetInput) (*ModifyDBInstanceSubnetOutput, error)
 	ModifyDBInstanceSubnetWithContext(volcengine.Context, *ModifyDBInstanceSubnetInput, ...request.Option) (*ModifyDBInstanceSubnetOutput, error)
 	ModifyDBInstanceSubnetRequest(*ModifyDBInstanceSubnetInput) (*request.Request, *ModifyDBInstanceSubnetOutput)
+
+	ModifyDBInstanceVisitAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceVisitAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceVisitAddressCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceVisitAddress(*ModifyDBInstanceVisitAddressInput) (*ModifyDBInstanceVisitAddressOutput, error)
+	ModifyDBInstanceVisitAddressWithContext(volcengine.Context, *ModifyDBInstanceVisitAddressInput, ...request.Option) (*ModifyDBInstanceVisitAddressOutput, error)
+	ModifyDBInstanceVisitAddressRequest(*ModifyDBInstanceVisitAddressInput) (*request.Request, *ModifyDBInstanceVisitAddressOutput)
 
 	ModifyDBInstanceVpcAuthModeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceVpcAuthModeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

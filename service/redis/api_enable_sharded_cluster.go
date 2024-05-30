@@ -158,6 +158,8 @@ type EnableShardedClusterInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
+	ShardCapacity *int32 `type:"int32"`
+
 	// ShardNumber is a required field
 	ShardNumber *int32 `type:"int32" required:"true"`
 
@@ -224,6 +226,12 @@ func (s *EnableShardedClusterInput) SetCreateBackup(v bool) *EnableShardedCluste
 // SetInstanceId sets the InstanceId field's value.
 func (s *EnableShardedClusterInput) SetInstanceId(v string) *EnableShardedClusterInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetShardCapacity sets the ShardCapacity field's value.
+func (s *EnableShardedClusterInput) SetShardCapacity(v int32) *EnableShardedClusterInput {
+	s.ShardCapacity = &v
 	return s
 }
 

@@ -195,6 +195,8 @@ type DescribeDBInstancesInput struct {
 	// RegionId is a required field
 	RegionId *string `type:"string" required:"true"`
 
+	ServiceType *string `type:"string"`
+
 	ShardedCluster *int32 `type:"int32"`
 
 	Status *string `type:"string"`
@@ -283,6 +285,12 @@ func (s *DescribeDBInstancesInput) SetRegionId(v string) *DescribeDBInstancesInp
 	return s
 }
 
+// SetServiceType sets the ServiceType field's value.
+func (s *DescribeDBInstancesInput) SetServiceType(v string) *DescribeDBInstancesInput {
+	s.ServiceType = &v
+	return s
+}
+
 // SetShardedCluster sets the ShardedCluster field's value.
 func (s *DescribeDBInstancesInput) SetShardedCluster(v int32) *DescribeDBInstancesInput {
 	s.ShardedCluster = &v
@@ -354,6 +362,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	CreateTime *string `type:"string"`
 
+	DeletionProtection *string `type:"string"`
+
 	EngineVersion *string `type:"string"`
 
 	ExpiredTime *string `type:"string"`
@@ -371,6 +381,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 	ProjectName *string `type:"string"`
 
 	RegionId *string `type:"string"`
+
+	ServiceType *string `type:"string"`
 
 	ShardCapacity *float64 `type:"double"`
 
@@ -412,6 +424,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetChargeType(v string) *Instance
 // SetCreateTime sets the CreateTime field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetCreateTime(v string) *InstanceForDescribeDBInstancesOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetDeletionProtection(v string) *InstanceForDescribeDBInstancesOutput {
+	s.DeletionProtection = &v
 	return s
 }
 
@@ -466,6 +484,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetProjectName(v string) *Instanc
 // SetRegionId sets the RegionId field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetRegionId(v string) *InstanceForDescribeDBInstancesOutput {
 	s.RegionId = &v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetServiceType(v string) *InstanceForDescribeDBInstancesOutput {
+	s.ServiceType = &v
 	return s
 }
 
