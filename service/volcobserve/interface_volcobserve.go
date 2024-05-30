@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VOLC_OBSERVE.
 //    func myFunc(svc VOLCOBSERVEAPI) bool {
-//        // Make svc.CreateObjectGroup request
+//        // Make svc.CreateContactGroup request
 //    }
 //
 //    func main() {
@@ -30,6 +30,22 @@ import (
 //    }
 //
 type VOLCOBSERVEAPI interface {
+	CreateContactGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateContactGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateContactGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateContactGroup(*CreateContactGroupInput) (*CreateContactGroupOutput, error)
+	CreateContactGroupWithContext(volcengine.Context, *CreateContactGroupInput, ...request.Option) (*CreateContactGroupOutput, error)
+	CreateContactGroupRequest(*CreateContactGroupInput) (*request.Request, *CreateContactGroupOutput)
+
+	CreateContactsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateContactsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateContactsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateContacts(*CreateContactsInput) (*CreateContactsOutput, error)
+	CreateContactsWithContext(volcengine.Context, *CreateContactsInput, ...request.Option) (*CreateContactsOutput, error)
+	CreateContactsRequest(*CreateContactsInput) (*request.Request, *CreateContactsOutput)
+
 	CreateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateObjectGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +53,22 @@ type VOLCOBSERVEAPI interface {
 	CreateObjectGroup(*CreateObjectGroupInput) (*CreateObjectGroupOutput, error)
 	CreateObjectGroupWithContext(volcengine.Context, *CreateObjectGroupInput, ...request.Option) (*CreateObjectGroupOutput, error)
 	CreateObjectGroupRequest(*CreateObjectGroupInput) (*request.Request, *CreateObjectGroupOutput)
+
+	DeleteContactGroupByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteContactGroupByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteContactGroupByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteContactGroupByIds(*DeleteContactGroupByIdsInput) (*DeleteContactGroupByIdsOutput, error)
+	DeleteContactGroupByIdsWithContext(volcengine.Context, *DeleteContactGroupByIdsInput, ...request.Option) (*DeleteContactGroupByIdsOutput, error)
+	DeleteContactGroupByIdsRequest(*DeleteContactGroupByIdsInput) (*request.Request, *DeleteContactGroupByIdsOutput)
+
+	DeleteContactsByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteContactsByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteContactsByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteContactsByIds(*DeleteContactsByIdsInput) (*DeleteContactsByIdsOutput, error)
+	DeleteContactsByIdsWithContext(volcengine.Context, *DeleteContactsByIdsInput, ...request.Option) (*DeleteContactsByIdsOutput, error)
+	DeleteContactsByIdsRequest(*DeleteContactsByIdsInput) (*request.Request, *DeleteContactsByIdsOutput)
 
 	DeleteObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -62,6 +94,38 @@ type VOLCOBSERVEAPI interface {
 	GetTopDataWithContext(volcengine.Context, *GetTopDataInput, ...request.Option) (*GetTopDataOutput, error)
 	GetTopDataRequest(*GetTopDataInput) (*request.Request, *GetTopDataOutput)
 
+	ListContactGroupByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListContactGroupByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListContactGroupByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListContactGroupByIds(*ListContactGroupByIdsInput) (*ListContactGroupByIdsOutput, error)
+	ListContactGroupByIdsWithContext(volcengine.Context, *ListContactGroupByIdsInput, ...request.Option) (*ListContactGroupByIdsOutput, error)
+	ListContactGroupByIdsRequest(*ListContactGroupByIdsInput) (*request.Request, *ListContactGroupByIdsOutput)
+
+	ListContactGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListContactGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListContactGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListContactGroups(*ListContactGroupsInput) (*ListContactGroupsOutput, error)
+	ListContactGroupsWithContext(volcengine.Context, *ListContactGroupsInput, ...request.Option) (*ListContactGroupsOutput, error)
+	ListContactGroupsRequest(*ListContactGroupsInput) (*request.Request, *ListContactGroupsOutput)
+
+	ListContactsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListContactsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListContactsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListContacts(*ListContactsInput) (*ListContactsOutput, error)
+	ListContactsWithContext(volcengine.Context, *ListContactsInput, ...request.Option) (*ListContactsOutput, error)
+	ListContactsRequest(*ListContactsInput) (*request.Request, *ListContactsOutput)
+
+	ListContactsByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListContactsByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListContactsByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListContactsByIds(*ListContactsByIdsInput) (*ListContactsByIdsOutput, error)
+	ListContactsByIdsWithContext(volcengine.Context, *ListContactsByIdsInput, ...request.Option) (*ListContactsByIdsOutput, error)
+	ListContactsByIdsRequest(*ListContactsByIdsInput) (*request.Request, *ListContactsByIdsOutput)
+
 	ListEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +141,38 @@ type VOLCOBSERVEAPI interface {
 	ListObjectGroups(*ListObjectGroupsInput) (*ListObjectGroupsOutput, error)
 	ListObjectGroupsWithContext(volcengine.Context, *ListObjectGroupsInput, ...request.Option) (*ListObjectGroupsOutput, error)
 	ListObjectGroupsRequest(*ListObjectGroupsInput) (*request.Request, *ListObjectGroupsOutput)
+
+	UpdateContactGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateContactGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateContactGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateContactGroup(*UpdateContactGroupInput) (*UpdateContactGroupOutput, error)
+	UpdateContactGroupWithContext(volcengine.Context, *UpdateContactGroupInput, ...request.Option) (*UpdateContactGroupOutput, error)
+	UpdateContactGroupRequest(*UpdateContactGroupInput) (*request.Request, *UpdateContactGroupOutput)
+
+	UpdateContactGroupWithContactsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateContactGroupWithContactsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateContactGroupWithContactsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateContactGroupWithContacts(*UpdateContactGroupWithContactsInput) (*UpdateContactGroupWithContactsOutput, error)
+	UpdateContactGroupWithContactsWithContext(volcengine.Context, *UpdateContactGroupWithContactsInput, ...request.Option) (*UpdateContactGroupWithContactsOutput, error)
+	UpdateContactGroupWithContactsRequest(*UpdateContactGroupWithContactsInput) (*request.Request, *UpdateContactGroupWithContactsOutput)
+
+	UpdateContactsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateContactsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateContactsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateContacts(*UpdateContactsInput) (*UpdateContactsOutput, error)
+	UpdateContactsWithContext(volcengine.Context, *UpdateContactsInput, ...request.Option) (*UpdateContactsOutput, error)
+	UpdateContactsRequest(*UpdateContactsInput) (*request.Request, *UpdateContactsOutput)
+
+	UpdateContactsWithContactGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateContactsWithContactGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateContactsWithContactGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateContactsWithContactGroups(*UpdateContactsWithContactGroupsInput) (*UpdateContactsWithContactGroupsOutput, error)
+	UpdateContactsWithContactGroupsWithContext(volcengine.Context, *UpdateContactsWithContactGroupsInput, ...request.Option) (*UpdateContactsWithContactGroupsOutput, error)
+	UpdateContactsWithContactGroupsRequest(*UpdateContactsWithContactGroupsInput) (*request.Request, *UpdateContactsWithContactGroupsOutput)
 
 	UpdateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
