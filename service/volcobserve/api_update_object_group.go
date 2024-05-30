@@ -148,8 +148,6 @@ type ObjectForUpdateObjectGroupInput struct {
 
 	Dimensions map[string][]*string `type:"map"`
 
-	Id *string `type:"string"`
-
 	Namespace *string `type:"string"`
 
 	Region *string `type:"string"`
@@ -168,12 +166,6 @@ func (s ObjectForUpdateObjectGroupInput) GoString() string {
 // SetDimensions sets the Dimensions field's value.
 func (s *ObjectForUpdateObjectGroupInput) SetDimensions(v map[string][]*string) *ObjectForUpdateObjectGroupInput {
 	s.Dimensions = v
-	return s
-}
-
-// SetId sets the Id field's value.
-func (s *ObjectForUpdateObjectGroupInput) SetId(v string) *ObjectForUpdateObjectGroupInput {
-	s.Id = &v
 	return s
 }
 
