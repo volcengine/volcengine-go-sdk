@@ -214,6 +214,8 @@ type DescribeEipAddressAttributesOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	ReleaseWithInstance *bool `type:"boolean"`
+
 	RequestId *string `type:"string"`
 
 	SecurityProtectionTypes []*string `type:"list"`
@@ -334,6 +336,12 @@ func (s *DescribeEipAddressAttributesOutput) SetOverdueTime(v string) *DescribeE
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeEipAddressAttributesOutput) SetProjectName(v string) *DescribeEipAddressAttributesOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetReleaseWithInstance sets the ReleaseWithInstance field's value.
+func (s *DescribeEipAddressAttributesOutput) SetReleaseWithInstance(v bool) *DescribeEipAddressAttributesOutput {
+	s.ReleaseWithInstance = &v
 	return s
 }
 

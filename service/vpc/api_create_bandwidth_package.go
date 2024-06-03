@@ -151,7 +151,7 @@ type CreateBandwidthPackageInput struct {
 
 	Description *string `min:"1" max:"255" type:"string"`
 
-	ISP *string `type:"string" enum:"EnumOfISPForCreateBandwidthPackageInput"`
+	ISP *string `type:"string" enum:"ISPForCreateBandwidthPackageInput"`
 
 	Period *int64 `type:"integer"`
 
@@ -159,7 +159,7 @@ type CreateBandwidthPackageInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Protocol *string `type:"string" enum:"EnumOfProtocolForCreateBandwidthPackageInput"`
+	Protocol *string `type:"string" enum:"ProtocolForCreateBandwidthPackageInput"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -348,41 +348,41 @@ func (s *TagForCreateBandwidthPackageInput) SetValue(v string) *TagForCreateBand
 }
 
 const (
-	// ISPForCreateBandwidthPackageInputBgp is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputBgp is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputBgp = "BGP"
 
-	// ISPForCreateBandwidthPackageInputSingleLineBgp is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputSingleLineBgp is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputSingleLineBgp = "SingleLine_BGP"
 
-	// ISPForCreateBandwidthPackageInputStaticBgp is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputStaticBgp is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputStaticBgp = "Static_BGP"
 
-	// ISPForCreateBandwidthPackageInputFusionBgp is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputFusionBgp is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputFusionBgp = "Fusion_BGP"
 
-	// ISPForCreateBandwidthPackageInputChinaMobile is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputChinaMobile is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputChinaMobile = "ChinaMobile"
 
-	// ISPForCreateBandwidthPackageInputChinaUnicom is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputChinaUnicom is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputChinaUnicom = "ChinaUnicom"
 
-	// ISPForCreateBandwidthPackageInputChinaTelecom is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputChinaTelecom is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputChinaTelecom = "ChinaTelecom"
 
-	// ISPForCreateBandwidthPackageInputChinaMobileValue is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputChinaMobileValue is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputChinaMobileValue = "ChinaMobile_Value"
 
-	// ISPForCreateBandwidthPackageInputChinaUnicomValue is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputChinaUnicomValue is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputChinaUnicomValue = "ChinaUnicom_Value"
 
-	// ISPForCreateBandwidthPackageInputChinaTelecomValue is a EnumOfISPForCreateBandwidthPackageInput enum value
+	// ISPForCreateBandwidthPackageInputChinaTelecomValue is a ISPForCreateBandwidthPackageInput enum value
 	ISPForCreateBandwidthPackageInputChinaTelecomValue = "ChinaTelecom_Value"
 )
 
 const (
-	// ProtocolForCreateBandwidthPackageInputIpv4 is a EnumOfProtocolForCreateBandwidthPackageInput enum value
+	// ProtocolForCreateBandwidthPackageInputIpv4 is a ProtocolForCreateBandwidthPackageInput enum value
 	ProtocolForCreateBandwidthPackageInputIpv4 = "IPv4"
 
-	// ProtocolForCreateBandwidthPackageInputIpv6 is a EnumOfProtocolForCreateBandwidthPackageInput enum value
+	// ProtocolForCreateBandwidthPackageInputIpv6 is a ProtocolForCreateBandwidthPackageInput enum value
 	ProtocolForCreateBandwidthPackageInputIpv6 = "IPv6"
 )

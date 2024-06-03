@@ -149,7 +149,7 @@ type DisassociateEipAddressInput struct {
 
 	InstanceId *string `type:"string"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDisassociateEipAddressInput"`
+	InstanceType *string `type:"string" enum:"InstanceTypeForDisassociateEipAddressInput"`
 }
 
 // String returns the string representation
@@ -224,15 +224,15 @@ func (s *DisassociateEipAddressOutput) SetRequestId(v string) *DisassociateEipAd
 }
 
 const (
-	// InstanceTypeForDisassociateEipAddressInputNat is a EnumOfInstanceTypeForDisassociateEipAddressInput enum value
+	// InstanceTypeForDisassociateEipAddressInputNat is a InstanceTypeForDisassociateEipAddressInput enum value
 	InstanceTypeForDisassociateEipAddressInputNat = "Nat"
 
-	// InstanceTypeForDisassociateEipAddressInputNetworkInterface is a EnumOfInstanceTypeForDisassociateEipAddressInput enum value
+	// InstanceTypeForDisassociateEipAddressInputNetworkInterface is a InstanceTypeForDisassociateEipAddressInput enum value
 	InstanceTypeForDisassociateEipAddressInputNetworkInterface = "NetworkInterface"
 
-	// InstanceTypeForDisassociateEipAddressInputClbInstance is a EnumOfInstanceTypeForDisassociateEipAddressInput enum value
+	// InstanceTypeForDisassociateEipAddressInputClbInstance is a InstanceTypeForDisassociateEipAddressInput enum value
 	InstanceTypeForDisassociateEipAddressInputClbInstance = "ClbInstance"
 
-	// InstanceTypeForDisassociateEipAddressInputEcsInstance is a EnumOfInstanceTypeForDisassociateEipAddressInput enum value
+	// InstanceTypeForDisassociateEipAddressInputEcsInstance is a InstanceTypeForDisassociateEipAddressInput enum value
 	InstanceTypeForDisassociateEipAddressInputEcsInstance = "EcsInstance"
 )

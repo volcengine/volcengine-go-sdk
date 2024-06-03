@@ -153,6 +153,8 @@ type CreateSubnetInput struct {
 
 	SubnetName *string `min:"1" max:"128" type:"string"`
 
+	Tags []*TagForCreateSubnetInput `type:"list"`
+
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 
@@ -234,6 +236,12 @@ func (s *CreateSubnetInput) SetSubnetName(v string) *CreateSubnetInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateSubnetInput) SetTags(v []*TagForCreateSubnetInput) *CreateSubnetInput {
+	s.Tags = v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *CreateSubnetInput) SetVpcId(v string) *CreateSubnetInput {
 	s.VpcId = &v
@@ -275,5 +283,35 @@ func (s *CreateSubnetOutput) SetRequestId(v string) *CreateSubnetOutput {
 // SetSubnetId sets the SubnetId field's value.
 func (s *CreateSubnetOutput) SetSubnetId(v string) *CreateSubnetOutput {
 	s.SubnetId = &v
+	return s
+}
+
+type TagForCreateSubnetInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateSubnetInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateSubnetInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateSubnetInput) SetKey(v string) *TagForCreateSubnetInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateSubnetInput) SetValue(v string) *TagForCreateSubnetInput {
+	s.Value = &v
 	return s
 }

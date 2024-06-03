@@ -145,6 +145,8 @@ type AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput struct {
 	AllocationId *string `type:"string"`
 
 	EipAddress *string `type:"string"`
+
+	ReleaseWithInstance *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -166,6 +168,12 @@ func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetAllo
 // SetEipAddress sets the EipAddress field's value.
 func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetEipAddress(v string) *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
 	s.EipAddress = &v
+	return s
+}
+
+// SetReleaseWithInstance sets the ReleaseWithInstance field's value.
+func (s *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) SetReleaseWithInstance(v bool) *AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
+	s.ReleaseWithInstance = &v
 	return s
 }
 
