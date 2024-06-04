@@ -170,6 +170,10 @@ type ListAmortizedCostBillDetailInput struct {
 
 	Offset *int32 `type:"int32"`
 
+	OwnerID []*int64 `type:"list"`
+
+	PayerID []*int64 `type:"list"`
+
 	Product []*string `type:"list"`
 }
 
@@ -262,6 +266,18 @@ func (s *ListAmortizedCostBillDetailInput) SetNeedRecordNum(v int32) *ListAmorti
 // SetOffset sets the Offset field's value.
 func (s *ListAmortizedCostBillDetailInput) SetOffset(v int32) *ListAmortizedCostBillDetailInput {
 	s.Offset = &v
+	return s
+}
+
+// SetOwnerID sets the OwnerID field's value.
+func (s *ListAmortizedCostBillDetailInput) SetOwnerID(v []*int64) *ListAmortizedCostBillDetailInput {
+	s.OwnerID = v
+	return s
+}
+
+// SetPayerID sets the PayerID field's value.
+func (s *ListAmortizedCostBillDetailInput) SetPayerID(v []*int64) *ListAmortizedCostBillDetailInput {
+	s.PayerID = v
 	return s
 }
 

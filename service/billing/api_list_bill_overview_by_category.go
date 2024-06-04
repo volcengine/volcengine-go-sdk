@@ -174,6 +174,10 @@ type ListBillOverviewByCategoryInput struct {
 	BillPeriod *string `min:"7" max:"7" type:"string" required:"true"`
 
 	BillingMode []*string `type:"list"`
+
+	OwnerID []*int64 `type:"list"`
+
+	PayerID []*int64 `type:"list"`
 }
 
 // String returns the string representation
@@ -220,6 +224,18 @@ func (s *ListBillOverviewByCategoryInput) SetBillPeriod(v string) *ListBillOverv
 // SetBillingMode sets the BillingMode field's value.
 func (s *ListBillOverviewByCategoryInput) SetBillingMode(v []*string) *ListBillOverviewByCategoryInput {
 	s.BillingMode = v
+	return s
+}
+
+// SetOwnerID sets the OwnerID field's value.
+func (s *ListBillOverviewByCategoryInput) SetOwnerID(v []*int64) *ListBillOverviewByCategoryInput {
+	s.OwnerID = v
+	return s
+}
+
+// SetPayerID sets the PayerID field's value.
+func (s *ListBillOverviewByCategoryInput) SetPayerID(v []*int64) *ListBillOverviewByCategoryInput {
+	s.PayerID = v
 	return s
 }
 

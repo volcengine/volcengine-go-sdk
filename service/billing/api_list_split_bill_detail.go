@@ -686,6 +686,10 @@ type ListSplitBillDetailInput struct {
 
 	Offset *int32 `type:"int32"`
 
+	OwnerID []*int64 `type:"list"`
+
+	PayerID []*int64 `type:"list"`
+
 	Product []*string `type:"list"`
 
 	SplitItemID *string `type:"string"`
@@ -774,6 +778,18 @@ func (s *ListSplitBillDetailInput) SetNeedRecordNum(v int32) *ListSplitBillDetai
 // SetOffset sets the Offset field's value.
 func (s *ListSplitBillDetailInput) SetOffset(v int32) *ListSplitBillDetailInput {
 	s.Offset = &v
+	return s
+}
+
+// SetOwnerID sets the OwnerID field's value.
+func (s *ListSplitBillDetailInput) SetOwnerID(v []*int64) *ListSplitBillDetailInput {
+	s.OwnerID = v
+	return s
+}
+
+// SetPayerID sets the PayerID field's value.
+func (s *ListSplitBillDetailInput) SetPayerID(v []*int64) *ListSplitBillDetailInput {
+	s.PayerID = v
 	return s
 }
 
