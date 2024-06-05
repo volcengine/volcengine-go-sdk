@@ -152,6 +152,8 @@ type DescribeImagesInput struct {
 
 	InstanceTypeId *string `type:"string"`
 
+	IsLTS *bool `type:"boolean"`
+
 	IsSupportCloudInit *bool `type:"boolean"`
 
 	MaxResults *int32 `type:"int32"`
@@ -159,6 +161,8 @@ type DescribeImagesInput struct {
 	NextToken *string `type:"string"`
 
 	OsType *string `type:"string"`
+
+	Platform *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -203,6 +207,12 @@ func (s *DescribeImagesInput) SetInstanceTypeId(v string) *DescribeImagesInput {
 	return s
 }
 
+// SetIsLTS sets the IsLTS field's value.
+func (s *DescribeImagesInput) SetIsLTS(v bool) *DescribeImagesInput {
+	s.IsLTS = &v
+	return s
+}
+
 // SetIsSupportCloudInit sets the IsSupportCloudInit field's value.
 func (s *DescribeImagesInput) SetIsSupportCloudInit(v bool) *DescribeImagesInput {
 	s.IsSupportCloudInit = &v
@@ -224,6 +234,12 @@ func (s *DescribeImagesInput) SetNextToken(v string) *DescribeImagesInput {
 // SetOsType sets the OsType field's value.
 func (s *DescribeImagesInput) SetOsType(v string) *DescribeImagesInput {
 	s.OsType = &v
+	return s
+}
+
+// SetPlatform sets the Platform field's value.
+func (s *DescribeImagesInput) SetPlatform(v string) *DescribeImagesInput {
+	s.Platform = &v
 	return s
 }
 
@@ -291,7 +307,7 @@ func (s *DescribeImagesOutput) SetTotalCount(v int32) *DescribeImagesOutput {
 	return s
 }
 
-type DetectionResultForDescribeImagesOutput struct {
+type DetectionResultsForDescribeImagesOutput struct {
 	_ struct{} `type:"structure"`
 
 	DetectionStatus *string `type:"string"`
@@ -300,23 +316,23 @@ type DetectionResultForDescribeImagesOutput struct {
 }
 
 // String returns the string representation
-func (s DetectionResultForDescribeImagesOutput) String() string {
+func (s DetectionResultsForDescribeImagesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DetectionResultForDescribeImagesOutput) GoString() string {
+func (s DetectionResultsForDescribeImagesOutput) GoString() string {
 	return s.String()
 }
 
 // SetDetectionStatus sets the DetectionStatus field's value.
-func (s *DetectionResultForDescribeImagesOutput) SetDetectionStatus(v string) *DetectionResultForDescribeImagesOutput {
+func (s *DetectionResultsForDescribeImagesOutput) SetDetectionStatus(v string) *DetectionResultsForDescribeImagesOutput {
 	s.DetectionStatus = &v
 	return s
 }
 
 // SetItems sets the Items field's value.
-func (s *DetectionResultForDescribeImagesOutput) SetItems(v []*ItemForDescribeImagesOutput) *DetectionResultForDescribeImagesOutput {
+func (s *DetectionResultsForDescribeImagesOutput) SetItems(v []*ItemForDescribeImagesOutput) *DetectionResultsForDescribeImagesOutput {
 	s.Items = v
 	return s
 }
@@ -332,13 +348,15 @@ type ImageForDescribeImagesOutput struct {
 
 	Description *string `type:"string"`
 
-	DetectionResults []*DetectionResultForDescribeImagesOutput `type:"list"`
+	DetectionResults *DetectionResultsForDescribeImagesOutput `type:"structure"`
 
 	ImageId *string `type:"string"`
 
 	ImageName *string `type:"string"`
 
 	ImageOwnerId *string `type:"string"`
+
+	IsLTS *bool `type:"boolean"`
 
 	IsSupportCloudInit *bool `type:"boolean"`
 
@@ -404,7 +422,7 @@ func (s *ImageForDescribeImagesOutput) SetDescription(v string) *ImageForDescrib
 }
 
 // SetDetectionResults sets the DetectionResults field's value.
-func (s *ImageForDescribeImagesOutput) SetDetectionResults(v []*DetectionResultForDescribeImagesOutput) *ImageForDescribeImagesOutput {
+func (s *ImageForDescribeImagesOutput) SetDetectionResults(v *DetectionResultsForDescribeImagesOutput) *ImageForDescribeImagesOutput {
 	s.DetectionResults = v
 	return s
 }
@@ -424,6 +442,12 @@ func (s *ImageForDescribeImagesOutput) SetImageName(v string) *ImageForDescribeI
 // SetImageOwnerId sets the ImageOwnerId field's value.
 func (s *ImageForDescribeImagesOutput) SetImageOwnerId(v string) *ImageForDescribeImagesOutput {
 	s.ImageOwnerId = &v
+	return s
+}
+
+// SetIsLTS sets the IsLTS field's value.
+func (s *ImageForDescribeImagesOutput) SetIsLTS(v bool) *ImageForDescribeImagesOutput {
+	s.IsLTS = &v
 	return s
 }
 

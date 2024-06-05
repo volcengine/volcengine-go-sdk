@@ -151,6 +151,8 @@ type CreateDeploymentSetInput struct {
 
 	Granularity *string `type:"string"`
 
+	GroupCount *int32 `type:"int32"`
+
 	Strategy *string `type:"string"`
 }
 
@@ -198,6 +200,12 @@ func (s *CreateDeploymentSetInput) SetDescription(v string) *CreateDeploymentSet
 // SetGranularity sets the Granularity field's value.
 func (s *CreateDeploymentSetInput) SetGranularity(v string) *CreateDeploymentSetInput {
 	s.Granularity = &v
+	return s
+}
+
+// SetGroupCount sets the GroupCount field's value.
+func (s *CreateDeploymentSetInput) SetGroupCount(v int32) *CreateDeploymentSetInput {
+	s.GroupCount = &v
 	return s
 }
 

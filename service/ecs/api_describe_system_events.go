@@ -262,6 +262,8 @@ func (s *DescribeSystemEventsOutput) SetSystemEvents(v []*SystemEventForDescribe
 type SystemEventForDescribeSystemEventsOutput struct {
 	_ struct{} `type:"structure"`
 
+	Category *string `type:"string"`
+
 	CreatedAt *string `type:"string"`
 
 	ExtraInfo map[string]*string `type:"map"`
@@ -289,6 +291,12 @@ func (s SystemEventForDescribeSystemEventsOutput) String() string {
 // GoString returns the string representation
 func (s SystemEventForDescribeSystemEventsOutput) GoString() string {
 	return s.String()
+}
+
+// SetCategory sets the Category field's value.
+func (s *SystemEventForDescribeSystemEventsOutput) SetCategory(v string) *SystemEventForDescribeSystemEventsOutput {
+	s.Category = &v
+	return s
 }
 
 // SetCreatedAt sets the CreatedAt field's value.
