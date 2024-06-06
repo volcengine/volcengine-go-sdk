@@ -142,6 +142,8 @@ func (c *ECS) CreateImageWithContext(ctx volcengine.Context, input *CreateImageI
 type CreateImageInput struct {
 	_ struct{} `type:"structure"`
 
+	CreateWholeImage *bool `type:"boolean"`
+
 	Description *string `type:"string"`
 
 	// ImageName is a required field
@@ -181,6 +183,12 @@ func (s *CreateImageInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetCreateWholeImage sets the CreateWholeImage field's value.
+func (s *CreateImageInput) SetCreateWholeImage(v bool) *CreateImageInput {
+	s.CreateWholeImage = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

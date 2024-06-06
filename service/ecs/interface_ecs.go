@@ -102,6 +102,14 @@ type ECSAPI interface {
 	CreateKeyPairWithContext(volcengine.Context, *CreateKeyPairInput, ...request.Option) (*CreateKeyPairOutput, error)
 	CreateKeyPairRequest(*CreateKeyPairInput) (*request.Request, *CreateKeyPairOutput)
 
+	CreateScheduledInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateScheduledInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateScheduledInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateScheduledInstances(*CreateScheduledInstancesInput) (*CreateScheduledInstancesOutput, error)
+	CreateScheduledInstancesWithContext(volcengine.Context, *CreateScheduledInstancesInput, ...request.Option) (*CreateScheduledInstancesOutput, error)
+	CreateScheduledInstancesRequest(*CreateScheduledInstancesInput) (*request.Request, *CreateScheduledInstancesOutput)
+
 	CreateSubscriptionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSubscriptionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateSubscriptionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -181,6 +189,14 @@ type ECSAPI interface {
 	DeleteKeyPairs(*DeleteKeyPairsInput) (*DeleteKeyPairsOutput, error)
 	DeleteKeyPairsWithContext(volcengine.Context, *DeleteKeyPairsInput, ...request.Option) (*DeleteKeyPairsOutput, error)
 	DeleteKeyPairsRequest(*DeleteKeyPairsInput) (*request.Request, *DeleteKeyPairsOutput)
+
+	DeleteScheduledInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteScheduledInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteScheduledInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteScheduledInstance(*DeleteScheduledInstanceInput) (*DeleteScheduledInstanceOutput, error)
+	DeleteScheduledInstanceWithContext(volcengine.Context, *DeleteScheduledInstanceInput, ...request.Option) (*DeleteScheduledInstanceOutput, error)
+	DeleteScheduledInstanceRequest(*DeleteScheduledInstanceInput) (*request.Request, *DeleteScheduledInstanceOutput)
 
 	DeleteTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -366,6 +382,30 @@ type ECSAPI interface {
 	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
 	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
 
+	DescribeReservedInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeReservedInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeReservedInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeReservedInstances(*DescribeReservedInstancesInput) (*DescribeReservedInstancesOutput, error)
+	DescribeReservedInstancesWithContext(volcengine.Context, *DescribeReservedInstancesInput, ...request.Option) (*DescribeReservedInstancesOutput, error)
+	DescribeReservedInstancesRequest(*DescribeReservedInstancesInput) (*request.Request, *DescribeReservedInstancesOutput)
+
+	DescribeScheduledInstanceStockCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeScheduledInstanceStockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeScheduledInstanceStockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeScheduledInstanceStock(*DescribeScheduledInstanceStockInput) (*DescribeScheduledInstanceStockOutput, error)
+	DescribeScheduledInstanceStockWithContext(volcengine.Context, *DescribeScheduledInstanceStockInput, ...request.Option) (*DescribeScheduledInstanceStockOutput, error)
+	DescribeScheduledInstanceStockRequest(*DescribeScheduledInstanceStockInput) (*request.Request, *DescribeScheduledInstanceStockOutput)
+
+	DescribeScheduledInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeScheduledInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeScheduledInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeScheduledInstances(*DescribeScheduledInstancesInput) (*DescribeScheduledInstancesOutput, error)
+	DescribeScheduledInstancesWithContext(volcengine.Context, *DescribeScheduledInstancesInput, ...request.Option) (*DescribeScheduledInstancesOutput, error)
+	DescribeScheduledInstancesRequest(*DescribeScheduledInstancesInput) (*request.Request, *DescribeScheduledInstancesOutput)
+
 	DescribeSpotAdviceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSpotAdviceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSpotAdviceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -477,6 +517,14 @@ type ECSAPI interface {
 	GetConsoleScreenshot(*GetConsoleScreenshotInput) (*GetConsoleScreenshotOutput, error)
 	GetConsoleScreenshotWithContext(volcengine.Context, *GetConsoleScreenshotInput, ...request.Option) (*GetConsoleScreenshotOutput, error)
 	GetConsoleScreenshotRequest(*GetConsoleScreenshotInput) (*request.Request, *GetConsoleScreenshotOutput)
+
+	GetScheduledInstanceLatestReleaseAtCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetScheduledInstanceLatestReleaseAtCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetScheduledInstanceLatestReleaseAtCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetScheduledInstanceLatestReleaseAt(*GetScheduledInstanceLatestReleaseAtInput) (*GetScheduledInstanceLatestReleaseAtOutput, error)
+	GetScheduledInstanceLatestReleaseAtWithContext(volcengine.Context, *GetScheduledInstanceLatestReleaseAtInput, ...request.Option) (*GetScheduledInstanceLatestReleaseAtOutput, error)
+	GetScheduledInstanceLatestReleaseAtRequest(*GetScheduledInstanceLatestReleaseAtInput) (*request.Request, *GetScheduledInstanceLatestReleaseAtOutput)
 
 	ImportImageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ImportImageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -614,6 +662,14 @@ type ECSAPI interface {
 	ModifyKeyPairAttributeWithContext(volcengine.Context, *ModifyKeyPairAttributeInput, ...request.Option) (*ModifyKeyPairAttributeOutput, error)
 	ModifyKeyPairAttributeRequest(*ModifyKeyPairAttributeInput) (*request.Request, *ModifyKeyPairAttributeOutput)
 
+	ModifyReservedInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyReservedInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyReservedInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyReservedInstances(*ModifyReservedInstancesInput) (*ModifyReservedInstancesOutput, error)
+	ModifyReservedInstancesWithContext(volcengine.Context, *ModifyReservedInstancesInput, ...request.Option) (*ModifyReservedInstancesOutput, error)
+	ModifyReservedInstancesRequest(*ModifyReservedInstancesInput) (*request.Request, *ModifyReservedInstancesOutput)
+
 	ModifySubscriptionEventTypesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifySubscriptionEventTypesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifySubscriptionEventTypesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -621,6 +677,14 @@ type ECSAPI interface {
 	ModifySubscriptionEventTypes(*ModifySubscriptionEventTypesInput) (*ModifySubscriptionEventTypesOutput, error)
 	ModifySubscriptionEventTypesWithContext(volcengine.Context, *ModifySubscriptionEventTypesInput, ...request.Option) (*ModifySubscriptionEventTypesOutput, error)
 	ModifySubscriptionEventTypesRequest(*ModifySubscriptionEventTypesInput) (*request.Request, *ModifySubscriptionEventTypesOutput)
+
+	PurchaseReservedInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PurchaseReservedInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PurchaseReservedInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PurchaseReservedInstances(*PurchaseReservedInstancesInput) (*PurchaseReservedInstancesOutput, error)
+	PurchaseReservedInstancesWithContext(volcengine.Context, *PurchaseReservedInstancesInput, ...request.Option) (*PurchaseReservedInstancesOutput, error)
+	PurchaseReservedInstancesRequest(*PurchaseReservedInstancesInput) (*request.Request, *PurchaseReservedInstancesOutput)
 
 	RebootInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RebootInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

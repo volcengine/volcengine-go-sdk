@@ -221,6 +221,8 @@ type DescribeAvailableResourceInput struct {
 	// DestinationResource is a required field
 	DestinationResource *string `type:"string" required:"true"`
 
+	ElasticScheduledInstanceType *string `type:"string"`
+
 	InstanceChargeType *string `type:"string"`
 
 	InstanceType *string `type:"string"`
@@ -228,6 +230,8 @@ type DescribeAvailableResourceInput struct {
 	InstanceTypeId *string `type:"string"`
 
 	SpotStrategy *string `type:"string"`
+
+	VolumeType *string `type:"string"`
 
 	ZoneId *string `type:"string"`
 }
@@ -261,6 +265,12 @@ func (s *DescribeAvailableResourceInput) SetDestinationResource(v string) *Descr
 	return s
 }
 
+// SetElasticScheduledInstanceType sets the ElasticScheduledInstanceType field's value.
+func (s *DescribeAvailableResourceInput) SetElasticScheduledInstanceType(v string) *DescribeAvailableResourceInput {
+	s.ElasticScheduledInstanceType = &v
+	return s
+}
+
 // SetInstanceChargeType sets the InstanceChargeType field's value.
 func (s *DescribeAvailableResourceInput) SetInstanceChargeType(v string) *DescribeAvailableResourceInput {
 	s.InstanceChargeType = &v
@@ -282,6 +292,12 @@ func (s *DescribeAvailableResourceInput) SetInstanceTypeId(v string) *DescribeAv
 // SetSpotStrategy sets the SpotStrategy field's value.
 func (s *DescribeAvailableResourceInput) SetSpotStrategy(v string) *DescribeAvailableResourceInput {
 	s.SpotStrategy = &v
+	return s
+}
+
+// SetVolumeType sets the VolumeType field's value.
+func (s *DescribeAvailableResourceInput) SetVolumeType(v string) *DescribeAvailableResourceInput {
+	s.VolumeType = &v
 	return s
 }
 

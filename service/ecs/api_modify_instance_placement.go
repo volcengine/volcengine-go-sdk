@@ -148,8 +148,16 @@ type ModifyInstancePlacementInput struct {
 
 	DedicatedHostId *string `type:"string"`
 
+	DryRun *bool `type:"boolean"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
+
+	InstanceTypeId *string `type:"string"`
+
+	MigrationType *string `type:"string"`
+
+	Tenancy *string `type:"string"`
 }
 
 // String returns the string representation
@@ -193,9 +201,33 @@ func (s *ModifyInstancePlacementInput) SetDedicatedHostId(v string) *ModifyInsta
 	return s
 }
 
+// SetDryRun sets the DryRun field's value.
+func (s *ModifyInstancePlacementInput) SetDryRun(v bool) *ModifyInstancePlacementInput {
+	s.DryRun = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyInstancePlacementInput) SetInstanceId(v string) *ModifyInstancePlacementInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceTypeId sets the InstanceTypeId field's value.
+func (s *ModifyInstancePlacementInput) SetInstanceTypeId(v string) *ModifyInstancePlacementInput {
+	s.InstanceTypeId = &v
+	return s
+}
+
+// SetMigrationType sets the MigrationType field's value.
+func (s *ModifyInstancePlacementInput) SetMigrationType(v string) *ModifyInstancePlacementInput {
+	s.MigrationType = &v
+	return s
+}
+
+// SetTenancy sets the Tenancy field's value.
+func (s *ModifyInstancePlacementInput) SetTenancy(v string) *ModifyInstancePlacementInput {
+	s.Tenancy = &v
 	return s
 }
 

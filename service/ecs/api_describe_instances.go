@@ -176,6 +176,8 @@ type DescribeInstancesInput struct {
 
 	DedicatedHostId *string `type:"string"`
 
+	DeploymentSetGroupNumbers []*int32 `type:"list"`
+
 	DeploymentSetIds []*string `type:"list"`
 
 	EipAddresses []*string `type:"list"`
@@ -203,6 +205,8 @@ type DescribeInstancesInput struct {
 	PrimaryIpAddress *string `type:"string"`
 
 	ProjectName *string `type:"string"`
+
+	ScheduledInstanceId *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -232,6 +236,12 @@ func (s *DescribeInstancesInput) SetDedicatedHostClusterId(v string) *DescribeIn
 // SetDedicatedHostId sets the DedicatedHostId field's value.
 func (s *DescribeInstancesInput) SetDedicatedHostId(v string) *DescribeInstancesInput {
 	s.DedicatedHostId = &v
+	return s
+}
+
+// SetDeploymentSetGroupNumbers sets the DeploymentSetGroupNumbers field's value.
+func (s *DescribeInstancesInput) SetDeploymentSetGroupNumbers(v []*int32) *DescribeInstancesInput {
+	s.DeploymentSetGroupNumbers = v
 	return s
 }
 
@@ -316,6 +326,12 @@ func (s *DescribeInstancesInput) SetPrimaryIpAddress(v string) *DescribeInstance
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeInstancesInput) SetProjectName(v string) *DescribeInstancesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetScheduledInstanceId sets the ScheduledInstanceId field's value.
+func (s *DescribeInstancesInput) SetScheduledInstanceId(v string) *DescribeInstancesInput {
+	s.ScheduledInstanceId = &v
 	return s
 }
 
@@ -422,17 +438,23 @@ type InstanceForDescribeInstancesOutput struct {
 
 	CreatedAt *string `type:"string"`
 
+	DeploymentSetGroupNumber *int32 `type:"int32"`
+
 	DeploymentSetId *string `type:"string"`
 
 	Description *string `type:"string"`
 
 	EipAddress *EipAddressForDescribeInstancesOutput `type:"structure"`
 
+	ElasticScheduledInstanceType *string `type:"string"`
+
 	ExpiredAt *string `type:"string"`
 
 	HostName *string `type:"string"`
 
 	Hostname *string `type:"string"`
+
+	HpcClusterId *string `type:"string"`
 
 	ImageId *string `type:"string"`
 
@@ -463,6 +485,8 @@ type InstanceForDescribeInstancesOutput struct {
 	ProjectName *string `type:"string"`
 
 	RdmaIpAddresses []*string `type:"list"`
+
+	ScheduledInstanceId *string `type:"string"`
 
 	SpotPriceLimit *float64 `type:"float"`
 
@@ -511,6 +535,12 @@ func (s *InstanceForDescribeInstancesOutput) SetCreatedAt(v string) *InstanceFor
 	return s
 }
 
+// SetDeploymentSetGroupNumber sets the DeploymentSetGroupNumber field's value.
+func (s *InstanceForDescribeInstancesOutput) SetDeploymentSetGroupNumber(v int32) *InstanceForDescribeInstancesOutput {
+	s.DeploymentSetGroupNumber = &v
+	return s
+}
+
 // SetDeploymentSetId sets the DeploymentSetId field's value.
 func (s *InstanceForDescribeInstancesOutput) SetDeploymentSetId(v string) *InstanceForDescribeInstancesOutput {
 	s.DeploymentSetId = &v
@@ -529,6 +559,12 @@ func (s *InstanceForDescribeInstancesOutput) SetEipAddress(v *EipAddressForDescr
 	return s
 }
 
+// SetElasticScheduledInstanceType sets the ElasticScheduledInstanceType field's value.
+func (s *InstanceForDescribeInstancesOutput) SetElasticScheduledInstanceType(v string) *InstanceForDescribeInstancesOutput {
+	s.ElasticScheduledInstanceType = &v
+	return s
+}
+
 // SetExpiredAt sets the ExpiredAt field's value.
 func (s *InstanceForDescribeInstancesOutput) SetExpiredAt(v string) *InstanceForDescribeInstancesOutput {
 	s.ExpiredAt = &v
@@ -544,6 +580,12 @@ func (s *InstanceForDescribeInstancesOutput) SetHostName(v string) *InstanceForD
 // SetHostname sets the Hostname field's value.
 func (s *InstanceForDescribeInstancesOutput) SetHostname(v string) *InstanceForDescribeInstancesOutput {
 	s.Hostname = &v
+	return s
+}
+
+// SetHpcClusterId sets the HpcClusterId field's value.
+func (s *InstanceForDescribeInstancesOutput) SetHpcClusterId(v string) *InstanceForDescribeInstancesOutput {
+	s.HpcClusterId = &v
 	return s
 }
 
@@ -634,6 +676,12 @@ func (s *InstanceForDescribeInstancesOutput) SetProjectName(v string) *InstanceF
 // SetRdmaIpAddresses sets the RdmaIpAddresses field's value.
 func (s *InstanceForDescribeInstancesOutput) SetRdmaIpAddresses(v []*string) *InstanceForDescribeInstancesOutput {
 	s.RdmaIpAddresses = v
+	return s
+}
+
+// SetScheduledInstanceId sets the ScheduledInstanceId field's value.
+func (s *InstanceForDescribeInstancesOutput) SetScheduledInstanceId(v string) *InstanceForDescribeInstancesOutput {
+	s.ScheduledInstanceId = &v
 	return s
 }
 

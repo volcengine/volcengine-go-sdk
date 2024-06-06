@@ -146,6 +146,8 @@ type ModifyInstanceAttributeInput struct {
 
 	Description *string `type:"string"`
 
+	Hostname *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
@@ -188,6 +190,12 @@ func (s *ModifyInstanceAttributeInput) SetClientToken(v string) *ModifyInstanceA
 // SetDescription sets the Description field's value.
 func (s *ModifyInstanceAttributeInput) SetDescription(v string) *ModifyInstanceAttributeInput {
 	s.Description = &v
+	return s
+}
+
+// SetHostname sets the Hostname field's value.
+func (s *ModifyInstanceAttributeInput) SetHostname(v string) *ModifyInstanceAttributeInput {
+	s.Hostname = &v
 	return s
 }
 

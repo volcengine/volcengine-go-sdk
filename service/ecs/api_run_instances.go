@@ -153,6 +153,10 @@ type EipAddressForRunInstancesInput struct {
 	ISP *string `type:"string"`
 
 	ReleaseWithInstance *bool `type:"boolean"`
+
+	SecurityProtectionInstanceId *int32 `type:"int32"`
+
+	SecurityProtectionTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -195,10 +199,24 @@ func (s *EipAddressForRunInstancesInput) SetReleaseWithInstance(v bool) *EipAddr
 	return s
 }
 
+// SetSecurityProtectionInstanceId sets the SecurityProtectionInstanceId field's value.
+func (s *EipAddressForRunInstancesInput) SetSecurityProtectionInstanceId(v int32) *EipAddressForRunInstancesInput {
+	s.SecurityProtectionInstanceId = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipAddressForRunInstancesInput) SetSecurityProtectionTypes(v []*string) *EipAddressForRunInstancesInput {
+	s.SecurityProtectionTypes = v
+	return s
+}
+
 type NetworkInterfaceForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
 	PrimaryIpAddress *string `type:"string"`
+
+	PrivateIpAddresses []*string `type:"list"`
 
 	SecurityGroupIds []*string `type:"list"`
 
@@ -232,6 +250,12 @@ func (s *NetworkInterfaceForRunInstancesInput) Validate() error {
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
 func (s *NetworkInterfaceForRunInstancesInput) SetPrimaryIpAddress(v string) *NetworkInterfaceForRunInstancesInput {
 	s.PrimaryIpAddress = &v
+	return s
+}
+
+// SetPrivateIpAddresses sets the PrivateIpAddresses field's value.
+func (s *NetworkInterfaceForRunInstancesInput) SetPrivateIpAddresses(v []*string) *NetworkInterfaceForRunInstancesInput {
+	s.PrivateIpAddresses = v
 	return s
 }
 

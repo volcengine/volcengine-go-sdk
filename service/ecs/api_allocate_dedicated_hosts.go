@@ -156,6 +156,8 @@ type AllocateDedicatedHostsInput struct {
 
 	CpuOvercommitRatio *float64 `type:"double"`
 
+	DedicatedHostClusterId *string `type:"string"`
+
 	// DedicatedHostName is a required field
 	DedicatedHostName *string `type:"string" required:"true"`
 
@@ -165,6 +167,8 @@ type AllocateDedicatedHostsInput struct {
 	DedicatedHostTypeId *string `type:"string" required:"true"`
 
 	Description *string `type:"string"`
+
+	DryRun *bool `type:"boolean"`
 
 	Period *int32 `type:"int32"`
 
@@ -245,6 +249,12 @@ func (s *AllocateDedicatedHostsInput) SetCpuOvercommitRatio(v float64) *Allocate
 	return s
 }
 
+// SetDedicatedHostClusterId sets the DedicatedHostClusterId field's value.
+func (s *AllocateDedicatedHostsInput) SetDedicatedHostClusterId(v string) *AllocateDedicatedHostsInput {
+	s.DedicatedHostClusterId = &v
+	return s
+}
+
 // SetDedicatedHostName sets the DedicatedHostName field's value.
 func (s *AllocateDedicatedHostsInput) SetDedicatedHostName(v string) *AllocateDedicatedHostsInput {
 	s.DedicatedHostName = &v
@@ -266,6 +276,12 @@ func (s *AllocateDedicatedHostsInput) SetDedicatedHostTypeId(v string) *Allocate
 // SetDescription sets the Description field's value.
 func (s *AllocateDedicatedHostsInput) SetDescription(v string) *AllocateDedicatedHostsInput {
 	s.Description = &v
+	return s
+}
+
+// SetDryRun sets the DryRun field's value.
+func (s *AllocateDedicatedHostsInput) SetDryRun(v bool) *AllocateDedicatedHostsInput {
+	s.DryRun = &v
 	return s
 }
 
