@@ -147,8 +147,7 @@ type ModifyDeploymentSetAttributeInput struct {
 	// DeploymentSetId is a required field
 	DeploymentSetId *string `type:"string" required:"true"`
 
-	// DeploymentSetName is a required field
-	DeploymentSetName *string `type:"string" required:"true"`
+	DeploymentSetName *string `type:"string"`
 
 	Description *string `type:"string"`
 }
@@ -168,9 +167,6 @@ func (s *ModifyDeploymentSetAttributeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDeploymentSetAttributeInput"}
 	if s.DeploymentSetId == nil {
 		invalidParams.Add(request.NewErrParamRequired("DeploymentSetId"))
-	}
-	if s.DeploymentSetName == nil {
-		invalidParams.Add(request.NewErrParamRequired("DeploymentSetName"))
 	}
 
 	if invalidParams.Len() > 0 {

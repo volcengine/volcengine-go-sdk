@@ -150,6 +150,8 @@ type ModifyEipAddressAttributesInput struct {
 	Description *string `min:"1" max:"255" type:"string"`
 
 	Name *string `min:"1" max:"128" type:"string"`
+
+	ReleaseWithInstance *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -214,6 +216,12 @@ func (s *ModifyEipAddressAttributesInput) SetDescription(v string) *ModifyEipAdd
 // SetName sets the Name field's value.
 func (s *ModifyEipAddressAttributesInput) SetName(v string) *ModifyEipAddressAttributesInput {
 	s.Name = &v
+	return s
+}
+
+// SetReleaseWithInstance sets the ReleaseWithInstance field's value.
+func (s *ModifyEipAddressAttributesInput) SetReleaseWithInstance(v bool) *ModifyEipAddressAttributesInput {
+	s.ReleaseWithInstance = &v
 	return s
 }
 

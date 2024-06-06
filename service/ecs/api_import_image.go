@@ -151,6 +151,8 @@ type ImportImageInput struct {
 	// ImageName is a required field
 	ImageName *string `type:"string" required:"true"`
 
+	LicenseType *string `type:"string"`
+
 	NeedDetection *bool `type:"boolean"`
 
 	OsType *string `type:"string"`
@@ -218,6 +220,12 @@ func (s *ImportImageInput) SetDescription(v string) *ImportImageInput {
 // SetImageName sets the ImageName field's value.
 func (s *ImportImageInput) SetImageName(v string) *ImportImageInput {
 	s.ImageName = &v
+	return s
+}
+
+// SetLicenseType sets the LicenseType field's value.
+func (s *ImportImageInput) SetLicenseType(v string) *ImportImageInput {
+	s.LicenseType = &v
 	return s
 }
 

@@ -162,7 +162,11 @@ type ListBillInput struct {
 
 	Offset *int32 `type:"int32"`
 
+	OwnerID []*int64 `type:"list"`
+
 	PayStatus *string `type:"string"`
+
+	PayerID []*int64 `type:"list"`
 
 	Product []*string `type:"list"`
 }
@@ -235,9 +239,21 @@ func (s *ListBillInput) SetOffset(v int32) *ListBillInput {
 	return s
 }
 
+// SetOwnerID sets the OwnerID field's value.
+func (s *ListBillInput) SetOwnerID(v []*int64) *ListBillInput {
+	s.OwnerID = v
+	return s
+}
+
 // SetPayStatus sets the PayStatus field's value.
 func (s *ListBillInput) SetPayStatus(v string) *ListBillInput {
 	s.PayStatus = &v
+	return s
+}
+
+// SetPayerID sets the PayerID field's value.
+func (s *ListBillInput) SetPayerID(v []*int64) *ListBillInput {
+	s.PayerID = v
 	return s
 }
 

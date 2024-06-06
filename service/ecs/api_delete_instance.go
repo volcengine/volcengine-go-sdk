@@ -142,6 +142,8 @@ func (c *ECS) DeleteInstanceWithContext(ctx volcengine.Context, input *DeleteIns
 type DeleteInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	ClientToken *string `type:"string"`
+
 	DryRun *bool `type:"boolean"`
 
 	// InstanceId is a required field
@@ -169,6 +171,12 @@ func (s *DeleteInstanceInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *DeleteInstanceInput) SetClientToken(v string) *DeleteInstanceInput {
+	s.ClientToken = &v
+	return s
 }
 
 // SetDryRun sets the DryRun field's value.

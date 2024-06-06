@@ -304,7 +304,7 @@ type DescribeBandwidthPackagesInput struct {
 
 	BandwidthPackageName *string `type:"string"`
 
-	ISP *string `type:"string" enum:"EnumOfISPForDescribeBandwidthPackagesInput"`
+	ISP *string `type:"string" enum:"ISPForDescribeBandwidthPackagesInput"`
 
 	MaxResults *int64 `min:"1" max:"100" type:"integer"`
 
@@ -316,7 +316,7 @@ type DescribeBandwidthPackagesInput struct {
 
 	ProjectName *string `type:"string"`
 
-	Protocol *string `type:"string" enum:"EnumOfProtocolForDescribeBandwidthPackagesInput"`
+	Protocol *string `type:"string" enum:"ProtocolForDescribeBandwidthPackagesInput"`
 
 	SecurityProtectionEnabled *bool `type:"boolean"`
 
@@ -573,41 +573,41 @@ func (s *TagForDescribeBandwidthPackagesOutput) SetValue(v string) *TagForDescri
 }
 
 const (
-	// ISPForDescribeBandwidthPackagesInputBgp is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputBgp is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputBgp = "BGP"
 
-	// ISPForDescribeBandwidthPackagesInputSingleLineBgp is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputSingleLineBgp is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputSingleLineBgp = "SingleLine_BGP"
 
-	// ISPForDescribeBandwidthPackagesInputStaticBgp is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputStaticBgp is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputStaticBgp = "Static_BGP"
 
-	// ISPForDescribeBandwidthPackagesInputFusionBgp is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputFusionBgp is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputFusionBgp = "Fusion_BGP"
 
-	// ISPForDescribeBandwidthPackagesInputChinaMobile is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaMobile is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaMobile = "ChinaMobile"
 
-	// ISPForDescribeBandwidthPackagesInputChinaUnicom is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaUnicom is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaUnicom = "ChinaUnicom"
 
-	// ISPForDescribeBandwidthPackagesInputChinaTelecom is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaTelecom is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaTelecom = "ChinaTelecom"
 
-	// ISPForDescribeBandwidthPackagesInputChinaMobileValue is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaMobileValue is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaMobileValue = "ChinaMobile_Value"
 
-	// ISPForDescribeBandwidthPackagesInputChinaUnicomValue is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaUnicomValue is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaUnicomValue = "ChinaUnicom_Value"
 
-	// ISPForDescribeBandwidthPackagesInputChinaTelecomValue is a EnumOfISPForDescribeBandwidthPackagesInput enum value
+	// ISPForDescribeBandwidthPackagesInputChinaTelecomValue is a ISPForDescribeBandwidthPackagesInput enum value
 	ISPForDescribeBandwidthPackagesInputChinaTelecomValue = "ChinaTelecom_Value"
 )
 
 const (
-	// ProtocolForDescribeBandwidthPackagesInputIpv4 is a EnumOfProtocolForDescribeBandwidthPackagesInput enum value
+	// ProtocolForDescribeBandwidthPackagesInputIpv4 is a ProtocolForDescribeBandwidthPackagesInput enum value
 	ProtocolForDescribeBandwidthPackagesInputIpv4 = "IPv4"
 
-	// ProtocolForDescribeBandwidthPackagesInputIpv6 is a EnumOfProtocolForDescribeBandwidthPackagesInput enum value
+	// ProtocolForDescribeBandwidthPackagesInputIpv6 is a ProtocolForDescribeBandwidthPackagesInput enum value
 	ProtocolForDescribeBandwidthPackagesInputIpv6 = "IPv6"
 )

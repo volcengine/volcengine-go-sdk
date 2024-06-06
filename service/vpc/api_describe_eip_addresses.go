@@ -146,13 +146,13 @@ type DescribeEipAddressesInput struct {
 
 	AssociatedInstanceId *string `type:"string"`
 
-	AssociatedInstanceType *string `type:"string" enum:"EnumOfAssociatedInstanceTypeForDescribeEipAddressesInput"`
+	AssociatedInstanceType *string `type:"string" enum:"AssociatedInstanceTypeForDescribeEipAddressesInput"`
 
 	BillingType *int64 `min:"1" max:"3" type:"integer"`
 
 	EipAddresses []*string `type:"list"`
 
-	ISP *string `type:"string" enum:"EnumOfISPForDescribeEipAddressesInput"`
+	ISP *string `type:"string" enum:"ISPForDescribeEipAddressesInput"`
 
 	MaxResults *int64 `min:"1" max:"100" type:"integer"`
 
@@ -168,7 +168,7 @@ type DescribeEipAddressesInput struct {
 
 	SecurityProtectionEnabled *bool `type:"boolean"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeEipAddressesInput"`
+	Status *string `type:"string" enum:"StatusForDescribeEipAddressesInput"`
 
 	TagFilters []*TagFilterForDescribeEipAddressesInput `type:"list"`
 }
@@ -399,6 +399,8 @@ type EipAddressForDescribeEipAddressesOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	ReleaseWithInstance *bool `type:"boolean"`
+
 	SecurityProtectionTypes []*string `type:"list"`
 
 	Status *string `type:"string"`
@@ -520,6 +522,12 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetProjectName(v string) *EipA
 	return s
 }
 
+// SetReleaseWithInstance sets the ReleaseWithInstance field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetReleaseWithInstance(v bool) *EipAddressForDescribeEipAddressesOutput {
+	s.ReleaseWithInstance = &v
+	return s
+}
+
 // SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
 func (s *EipAddressForDescribeEipAddressesOutput) SetSecurityProtectionTypes(v []*string) *EipAddressForDescribeEipAddressesOutput {
 	s.SecurityProtectionTypes = v
@@ -605,64 +613,64 @@ func (s *TagForDescribeEipAddressesOutput) SetValue(v string) *TagForDescribeEip
 }
 
 const (
-	// AssociatedInstanceTypeForDescribeEipAddressesInputNat is a EnumOfAssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	// AssociatedInstanceTypeForDescribeEipAddressesInputNat is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
 	AssociatedInstanceTypeForDescribeEipAddressesInputNat = "Nat"
 
-	// AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance is a EnumOfAssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	// AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
 	AssociatedInstanceTypeForDescribeEipAddressesInputEcsInstance = "EcsInstance"
 
-	// AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface is a EnumOfAssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	// AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
 	AssociatedInstanceTypeForDescribeEipAddressesInputNetworkInterface = "NetworkInterface"
 
-	// AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance is a EnumOfAssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	// AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
 	AssociatedInstanceTypeForDescribeEipAddressesInputClbInstance = "ClbInstance"
 
-	// AssociatedInstanceTypeForDescribeEipAddressesInputAlbInstance is a EnumOfAssociatedInstanceTypeForDescribeEipAddressesInput enum value
+	// AssociatedInstanceTypeForDescribeEipAddressesInputAlbInstance is a AssociatedInstanceTypeForDescribeEipAddressesInput enum value
 	AssociatedInstanceTypeForDescribeEipAddressesInputAlbInstance = "AlbInstance"
 )
 
 const (
-	// ISPForDescribeEipAddressesInputBgp is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputBgp is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputBgp = "BGP"
 
-	// ISPForDescribeEipAddressesInputSingleLineBgp is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputSingleLineBgp is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputSingleLineBgp = "SingleLine_BGP"
 
-	// ISPForDescribeEipAddressesInputStaticBgp is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputStaticBgp is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputStaticBgp = "Static_BGP"
 
-	// ISPForDescribeEipAddressesInputFusionBgp is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputFusionBgp is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputFusionBgp = "Fusion_BGP"
 
-	// ISPForDescribeEipAddressesInputChinaMobile is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputChinaMobile is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputChinaMobile = "ChinaMobile"
 
-	// ISPForDescribeEipAddressesInputChinaUnicom is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputChinaUnicom is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputChinaUnicom = "ChinaUnicom"
 
-	// ISPForDescribeEipAddressesInputChinaTelecom is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputChinaTelecom is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputChinaTelecom = "ChinaTelecom"
 
-	// ISPForDescribeEipAddressesInputChinaMobileValue is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputChinaMobileValue is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputChinaMobileValue = "ChinaMobile_Value"
 
-	// ISPForDescribeEipAddressesInputChinaUnicomValue is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputChinaUnicomValue is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputChinaUnicomValue = "ChinaUnicom_Value"
 
-	// ISPForDescribeEipAddressesInputChinaTelecomValue is a EnumOfISPForDescribeEipAddressesInput enum value
+	// ISPForDescribeEipAddressesInputChinaTelecomValue is a ISPForDescribeEipAddressesInput enum value
 	ISPForDescribeEipAddressesInputChinaTelecomValue = "ChinaTelecom_Value"
 )
 
 const (
-	// StatusForDescribeEipAddressesInputAttaching is a EnumOfStatusForDescribeEipAddressesInput enum value
+	// StatusForDescribeEipAddressesInputAttaching is a StatusForDescribeEipAddressesInput enum value
 	StatusForDescribeEipAddressesInputAttaching = "Attaching"
 
-	// StatusForDescribeEipAddressesInputDetaching is a EnumOfStatusForDescribeEipAddressesInput enum value
+	// StatusForDescribeEipAddressesInputDetaching is a StatusForDescribeEipAddressesInput enum value
 	StatusForDescribeEipAddressesInputDetaching = "Detaching"
 
-	// StatusForDescribeEipAddressesInputAttached is a EnumOfStatusForDescribeEipAddressesInput enum value
+	// StatusForDescribeEipAddressesInputAttached is a StatusForDescribeEipAddressesInput enum value
 	StatusForDescribeEipAddressesInputAttached = "Attached"
 
-	// StatusForDescribeEipAddressesInputAvailable is a EnumOfStatusForDescribeEipAddressesInput enum value
+	// StatusForDescribeEipAddressesInputAvailable is a StatusForDescribeEipAddressesInput enum value
 	StatusForDescribeEipAddressesInputAvailable = "Available"
 )

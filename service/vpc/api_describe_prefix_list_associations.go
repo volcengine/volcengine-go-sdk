@@ -153,7 +153,7 @@ type DescribePrefixListAssociationsInput struct {
 	// PrefixListId is a required field
 	PrefixListId *string `type:"string" required:"true"`
 
-	ResourceType *string `type:"string" enum:"EnumOfResourceTypeForDescribePrefixListAssociationsInput"`
+	ResourceType *string `type:"string" enum:"ResourceTypeForDescribePrefixListAssociationsInput"`
 }
 
 // String returns the string representation
@@ -319,9 +319,9 @@ func (s *PrefixListAssociationForDescribePrefixListAssociationsOutput) SetResour
 }
 
 const (
-	// ResourceTypeForDescribePrefixListAssociationsInputVpcRouteTable is a EnumOfResourceTypeForDescribePrefixListAssociationsInput enum value
+	// ResourceTypeForDescribePrefixListAssociationsInputVpcRouteTable is a ResourceTypeForDescribePrefixListAssociationsInput enum value
 	ResourceTypeForDescribePrefixListAssociationsInputVpcRouteTable = "VpcRouteTable"
 
-	// ResourceTypeForDescribePrefixListAssociationsInputVpcSecurityGroup is a EnumOfResourceTypeForDescribePrefixListAssociationsInput enum value
+	// ResourceTypeForDescribePrefixListAssociationsInputVpcSecurityGroup is a ResourceTypeForDescribePrefixListAssociationsInput enum value
 	ResourceTypeForDescribePrefixListAssociationsInputVpcSecurityGroup = "VpcSecurityGroup"
 )

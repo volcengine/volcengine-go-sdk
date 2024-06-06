@@ -192,6 +192,8 @@ type DeploymentSetForDescribeDeploymentSetsOutput struct {
 
 	Granularity *string `type:"string"`
 
+	GroupCount *int32 `type:"int32"`
+
 	InstanceAmount *int32 `type:"int32"`
 
 	InstanceIds []*string `type:"list"`
@@ -242,6 +244,12 @@ func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetDeploymentSetName(v st
 // SetGranularity sets the Granularity field's value.
 func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetGranularity(v string) *DeploymentSetForDescribeDeploymentSetsOutput {
 	s.Granularity = &v
+	return s
+}
+
+// SetGroupCount sets the GroupCount field's value.
+func (s *DeploymentSetForDescribeDeploymentSetsOutput) SetGroupCount(v int32) *DeploymentSetForDescribeDeploymentSetsOutput {
+	s.GroupCount = &v
 	return s
 }
 

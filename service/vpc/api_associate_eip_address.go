@@ -151,7 +151,7 @@ type AssociateEipAddressInput struct {
 	InstanceId *string `type:"string" required:"true"`
 
 	// InstanceType is a required field
-	InstanceType *string `type:"string" required:"true" enum:"EnumOfInstanceTypeForAssociateEipAddressInput"`
+	InstanceType *string `type:"string" required:"true" enum:"InstanceTypeForAssociateEipAddressInput"`
 
 	PrivateIpAddress *string `type:"string"`
 }
@@ -240,18 +240,18 @@ func (s *AssociateEipAddressOutput) SetRequestId(v string) *AssociateEipAddressO
 }
 
 const (
-	// InstanceTypeForAssociateEipAddressInputNat is a EnumOfInstanceTypeForAssociateEipAddressInput enum value
+	// InstanceTypeForAssociateEipAddressInputNat is a InstanceTypeForAssociateEipAddressInput enum value
 	InstanceTypeForAssociateEipAddressInputNat = "Nat"
 
-	// InstanceTypeForAssociateEipAddressInputNetworkInterface is a EnumOfInstanceTypeForAssociateEipAddressInput enum value
+	// InstanceTypeForAssociateEipAddressInputNetworkInterface is a InstanceTypeForAssociateEipAddressInput enum value
 	InstanceTypeForAssociateEipAddressInputNetworkInterface = "NetworkInterface"
 
-	// InstanceTypeForAssociateEipAddressInputClbInstance is a EnumOfInstanceTypeForAssociateEipAddressInput enum value
+	// InstanceTypeForAssociateEipAddressInputClbInstance is a InstanceTypeForAssociateEipAddressInput enum value
 	InstanceTypeForAssociateEipAddressInputClbInstance = "ClbInstance"
 
-	// InstanceTypeForAssociateEipAddressInputEcsInstance is a EnumOfInstanceTypeForAssociateEipAddressInput enum value
+	// InstanceTypeForAssociateEipAddressInputEcsInstance is a InstanceTypeForAssociateEipAddressInput enum value
 	InstanceTypeForAssociateEipAddressInputEcsInstance = "EcsInstance"
 
-	// InstanceTypeForAssociateEipAddressInputHaVip is a EnumOfInstanceTypeForAssociateEipAddressInput enum value
+	// InstanceTypeForAssociateEipAddressInputHaVip is a InstanceTypeForAssociateEipAddressInput enum value
 	InstanceTypeForAssociateEipAddressInputHaVip = "HaVip"
 )
