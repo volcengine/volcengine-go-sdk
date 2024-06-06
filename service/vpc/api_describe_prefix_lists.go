@@ -142,6 +142,8 @@ func (c *VPC) DescribePrefixListsWithContext(ctx volcengine.Context, input *Desc
 type DescribePrefixListsInput struct {
 	_ struct{} `type:"structure"`
 
+	IpVersion *string `type:"string"`
+
 	MaxResults *int64 `min:"1" max:"100" type:"integer"`
 
 	NextToken *string `type:"string"`
@@ -154,6 +156,8 @@ type DescribePrefixListsInput struct {
 	PrefixListIds []*string `type:"list" required:"true"`
 
 	PrefixListName *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	TagFilters []*TagFilterForDescribePrefixListsInput `type:"list"`
 }
@@ -185,6 +189,12 @@ func (s *DescribePrefixListsInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetIpVersion sets the IpVersion field's value.
+func (s *DescribePrefixListsInput) SetIpVersion(v string) *DescribePrefixListsInput {
+	s.IpVersion = &v
+	return s
 }
 
 // SetMaxResults sets the MaxResults field's value.
@@ -220,6 +230,12 @@ func (s *DescribePrefixListsInput) SetPrefixListIds(v []*string) *DescribePrefix
 // SetPrefixListName sets the PrefixListName field's value.
 func (s *DescribePrefixListsInput) SetPrefixListName(v string) *DescribePrefixListsInput {
 	s.PrefixListName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribePrefixListsInput) SetProjectName(v string) *DescribePrefixListsInput {
+	s.ProjectName = &v
 	return s
 }
 
