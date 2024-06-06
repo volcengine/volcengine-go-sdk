@@ -168,6 +168,10 @@ type ListAmortizedCostBillMonthlyInput struct {
 
 	Offset *int32 `type:"int32"`
 
+	OwnerID []*int64 `type:"list"`
+
+	PayerID []*int64 `type:"list"`
+
 	Product []*string `type:"list"`
 }
 
@@ -254,6 +258,18 @@ func (s *ListAmortizedCostBillMonthlyInput) SetNeedRecordNum(v int32) *ListAmort
 // SetOffset sets the Offset field's value.
 func (s *ListAmortizedCostBillMonthlyInput) SetOffset(v int32) *ListAmortizedCostBillMonthlyInput {
 	s.Offset = &v
+	return s
+}
+
+// SetOwnerID sets the OwnerID field's value.
+func (s *ListAmortizedCostBillMonthlyInput) SetOwnerID(v []*int64) *ListAmortizedCostBillMonthlyInput {
+	s.OwnerID = v
+	return s
+}
+
+// SetPayerID sets the PayerID field's value.
+func (s *ListAmortizedCostBillMonthlyInput) SetPayerID(v []*int64) *ListAmortizedCostBillMonthlyInput {
+	s.PayerID = v
 	return s
 }
 
