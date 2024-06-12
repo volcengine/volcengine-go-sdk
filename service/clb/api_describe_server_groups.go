@@ -270,6 +270,8 @@ type ServerGroupForDescribeServerGroupsOutput struct {
 
 	AddressIpVersion *string `type:"string"`
 
+	AnyPortEnabled *string `type:"string"`
+
 	CreateTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -298,6 +300,12 @@ func (s ServerGroupForDescribeServerGroupsOutput) GoString() string {
 // SetAddressIpVersion sets the AddressIpVersion field's value.
 func (s *ServerGroupForDescribeServerGroupsOutput) SetAddressIpVersion(v string) *ServerGroupForDescribeServerGroupsOutput {
 	s.AddressIpVersion = &v
+	return s
+}
+
+// SetAnyPortEnabled sets the AnyPortEnabled field's value.
+func (s *ServerGroupForDescribeServerGroupsOutput) SetAnyPortEnabled(v string) *ServerGroupForDescribeServerGroupsOutput {
+	s.AnyPortEnabled = &v
 	return s
 }
 

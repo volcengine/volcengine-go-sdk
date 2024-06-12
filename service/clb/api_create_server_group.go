@@ -144,6 +144,8 @@ type CreateServerGroupInput struct {
 
 	AddressIpVersion *string `type:"string"`
 
+	AnyPortEnabled *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	// LoadBalancerId is a required field
@@ -184,6 +186,12 @@ func (s *CreateServerGroupInput) Validate() error {
 // SetAddressIpVersion sets the AddressIpVersion field's value.
 func (s *CreateServerGroupInput) SetAddressIpVersion(v string) *CreateServerGroupInput {
 	s.AddressIpVersion = &v
+	return s
+}
+
+// SetAnyPortEnabled sets the AnyPortEnabled field's value.
+func (s *CreateServerGroupInput) SetAnyPortEnabled(v string) *CreateServerGroupInput {
+	s.AnyPortEnabled = &v
 	return s
 }
 

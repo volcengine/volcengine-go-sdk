@@ -152,6 +152,10 @@ type CreateListenerInput struct {
 
 	CertificateId *string `type:"string"`
 
+	ClientBodyTimeout *int64 `type:"integer"`
+
+	ClientHeaderTimeout *int64 `type:"integer"`
+
 	ConnectionDrainEnabled *string `type:"string"`
 
 	ConnectionDrainTimeout *int64 `type:"integer"`
@@ -162,11 +166,15 @@ type CreateListenerInput struct {
 
 	Enabled *string `type:"string"`
 
+	EndPort *int64 `type:"integer"`
+
 	EstablishedTimeout *int64 `type:"integer"`
 
 	HealthCheck *HealthCheckForCreateListenerInput `type:"structure"`
 
 	Http2Enabled *string `type:"string"`
+
+	KeepaliveTimeout *int64 `type:"integer"`
 
 	ListenerName *string `type:"string"`
 
@@ -183,12 +191,24 @@ type CreateListenerInput struct {
 	// Protocol is a required field
 	Protocol *string `type:"string" required:"true"`
 
+	ProxyConnectTimeout *int64 `type:"integer"`
+
 	ProxyProtocolType *string `type:"string"`
+
+	ProxyReadTimeout *int64 `type:"integer"`
+
+	ProxySendTimeout *int64 `type:"integer"`
 
 	Scheduler *string `type:"string"`
 
+	SecurityPolicyId *string `type:"string"`
+
+	SendTimeout *int64 `type:"integer"`
+
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
+
+	StartPort *int64 `type:"integer"`
 
 	Tags []*TagForCreateListenerInput `type:"list"`
 }
@@ -255,6 +275,18 @@ func (s *CreateListenerInput) SetCertificateId(v string) *CreateListenerInput {
 	return s
 }
 
+// SetClientBodyTimeout sets the ClientBodyTimeout field's value.
+func (s *CreateListenerInput) SetClientBodyTimeout(v int64) *CreateListenerInput {
+	s.ClientBodyTimeout = &v
+	return s
+}
+
+// SetClientHeaderTimeout sets the ClientHeaderTimeout field's value.
+func (s *CreateListenerInput) SetClientHeaderTimeout(v int64) *CreateListenerInput {
+	s.ClientHeaderTimeout = &v
+	return s
+}
+
 // SetConnectionDrainEnabled sets the ConnectionDrainEnabled field's value.
 func (s *CreateListenerInput) SetConnectionDrainEnabled(v string) *CreateListenerInput {
 	s.ConnectionDrainEnabled = &v
@@ -285,6 +317,12 @@ func (s *CreateListenerInput) SetEnabled(v string) *CreateListenerInput {
 	return s
 }
 
+// SetEndPort sets the EndPort field's value.
+func (s *CreateListenerInput) SetEndPort(v int64) *CreateListenerInput {
+	s.EndPort = &v
+	return s
+}
+
 // SetEstablishedTimeout sets the EstablishedTimeout field's value.
 func (s *CreateListenerInput) SetEstablishedTimeout(v int64) *CreateListenerInput {
 	s.EstablishedTimeout = &v
@@ -300,6 +338,12 @@ func (s *CreateListenerInput) SetHealthCheck(v *HealthCheckForCreateListenerInpu
 // SetHttp2Enabled sets the Http2Enabled field's value.
 func (s *CreateListenerInput) SetHttp2Enabled(v string) *CreateListenerInput {
 	s.Http2Enabled = &v
+	return s
+}
+
+// SetKeepaliveTimeout sets the KeepaliveTimeout field's value.
+func (s *CreateListenerInput) SetKeepaliveTimeout(v int64) *CreateListenerInput {
+	s.KeepaliveTimeout = &v
 	return s
 }
 
@@ -339,9 +383,27 @@ func (s *CreateListenerInput) SetProtocol(v string) *CreateListenerInput {
 	return s
 }
 
+// SetProxyConnectTimeout sets the ProxyConnectTimeout field's value.
+func (s *CreateListenerInput) SetProxyConnectTimeout(v int64) *CreateListenerInput {
+	s.ProxyConnectTimeout = &v
+	return s
+}
+
 // SetProxyProtocolType sets the ProxyProtocolType field's value.
 func (s *CreateListenerInput) SetProxyProtocolType(v string) *CreateListenerInput {
 	s.ProxyProtocolType = &v
+	return s
+}
+
+// SetProxyReadTimeout sets the ProxyReadTimeout field's value.
+func (s *CreateListenerInput) SetProxyReadTimeout(v int64) *CreateListenerInput {
+	s.ProxyReadTimeout = &v
+	return s
+}
+
+// SetProxySendTimeout sets the ProxySendTimeout field's value.
+func (s *CreateListenerInput) SetProxySendTimeout(v int64) *CreateListenerInput {
+	s.ProxySendTimeout = &v
 	return s
 }
 
@@ -351,9 +413,27 @@ func (s *CreateListenerInput) SetScheduler(v string) *CreateListenerInput {
 	return s
 }
 
+// SetSecurityPolicyId sets the SecurityPolicyId field's value.
+func (s *CreateListenerInput) SetSecurityPolicyId(v string) *CreateListenerInput {
+	s.SecurityPolicyId = &v
+	return s
+}
+
+// SetSendTimeout sets the SendTimeout field's value.
+func (s *CreateListenerInput) SetSendTimeout(v int64) *CreateListenerInput {
+	s.SendTimeout = &v
+	return s
+}
+
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *CreateListenerInput) SetServerGroupId(v string) *CreateListenerInput {
 	s.ServerGroupId = &v
+	return s
+}
+
+// SetStartPort sets the StartPort field's value.
+func (s *CreateListenerInput) SetStartPort(v int64) *CreateListenerInput {
+	s.StartPort = &v
 	return s
 }
 
@@ -410,6 +490,8 @@ type HealthCheckForCreateListenerInput struct {
 
 	Method *string `type:"string"`
 
+	Port *int64 `type:"integer"`
+
 	Timeout *int64 `type:"integer"`
 
 	URI *string `type:"string"`
@@ -464,6 +546,12 @@ func (s *HealthCheckForCreateListenerInput) SetInterval(v int64) *HealthCheckFor
 // SetMethod sets the Method field's value.
 func (s *HealthCheckForCreateListenerInput) SetMethod(v string) *HealthCheckForCreateListenerInput {
 	s.Method = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *HealthCheckForCreateListenerInput) SetPort(v int64) *HealthCheckForCreateListenerInput {
+	s.Port = &v
 	return s
 }
 

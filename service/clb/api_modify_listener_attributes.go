@@ -154,6 +154,8 @@ type HealthCheckForModifyListenerAttributesInput struct {
 
 	Method *string `type:"string"`
 
+	Port *int64 `type:"integer"`
+
 	Timeout *int64 `type:"integer"`
 
 	URI *string `type:"string"`
@@ -211,6 +213,12 @@ func (s *HealthCheckForModifyListenerAttributesInput) SetMethod(v string) *Healt
 	return s
 }
 
+// SetPort sets the Port field's value.
+func (s *HealthCheckForModifyListenerAttributesInput) SetPort(v int64) *HealthCheckForModifyListenerAttributesInput {
+	s.Port = &v
+	return s
+}
+
 // SetTimeout sets the Timeout field's value.
 func (s *HealthCheckForModifyListenerAttributesInput) SetTimeout(v int64) *HealthCheckForModifyListenerAttributesInput {
 	s.Timeout = &v
@@ -254,6 +262,10 @@ type ModifyListenerAttributesInput struct {
 
 	CertificateId *string `type:"string"`
 
+	ClientBodyTimeout *int64 `type:"integer"`
+
+	ClientHeaderTimeout *int64 `type:"integer"`
+
 	ConnectionDrainEnabled *string `type:"string"`
 
 	ConnectionDrainTimeout *int64 `type:"integer"`
@@ -270,6 +282,8 @@ type ModifyListenerAttributesInput struct {
 
 	Http2Enabled *string `type:"string"`
 
+	KeepaliveTimeout *int64 `type:"integer"`
+
 	// ListenerId is a required field
 	ListenerId *string `type:"string" required:"true"`
 
@@ -279,9 +293,19 @@ type ModifyListenerAttributesInput struct {
 
 	PersistenceType *string `type:"string"`
 
+	ProxyConnectTimeout *int64 `type:"integer"`
+
 	ProxyProtocolType *string `type:"string"`
 
+	ProxyReadTimeout *int64 `type:"integer"`
+
+	ProxySendTimeout *int64 `type:"integer"`
+
 	Scheduler *string `type:"string"`
+
+	SecurityPolicyId *string `type:"string"`
+
+	SendTimeout *int64 `type:"integer"`
 
 	ServerGroupId *string `type:"string"`
 }
@@ -339,6 +363,18 @@ func (s *ModifyListenerAttributesInput) SetCertificateId(v string) *ModifyListen
 	return s
 }
 
+// SetClientBodyTimeout sets the ClientBodyTimeout field's value.
+func (s *ModifyListenerAttributesInput) SetClientBodyTimeout(v int64) *ModifyListenerAttributesInput {
+	s.ClientBodyTimeout = &v
+	return s
+}
+
+// SetClientHeaderTimeout sets the ClientHeaderTimeout field's value.
+func (s *ModifyListenerAttributesInput) SetClientHeaderTimeout(v int64) *ModifyListenerAttributesInput {
+	s.ClientHeaderTimeout = &v
+	return s
+}
+
 // SetConnectionDrainEnabled sets the ConnectionDrainEnabled field's value.
 func (s *ModifyListenerAttributesInput) SetConnectionDrainEnabled(v string) *ModifyListenerAttributesInput {
 	s.ConnectionDrainEnabled = &v
@@ -387,6 +423,12 @@ func (s *ModifyListenerAttributesInput) SetHttp2Enabled(v string) *ModifyListene
 	return s
 }
 
+// SetKeepaliveTimeout sets the KeepaliveTimeout field's value.
+func (s *ModifyListenerAttributesInput) SetKeepaliveTimeout(v int64) *ModifyListenerAttributesInput {
+	s.KeepaliveTimeout = &v
+	return s
+}
+
 // SetListenerId sets the ListenerId field's value.
 func (s *ModifyListenerAttributesInput) SetListenerId(v string) *ModifyListenerAttributesInput {
 	s.ListenerId = &v
@@ -411,15 +453,45 @@ func (s *ModifyListenerAttributesInput) SetPersistenceType(v string) *ModifyList
 	return s
 }
 
+// SetProxyConnectTimeout sets the ProxyConnectTimeout field's value.
+func (s *ModifyListenerAttributesInput) SetProxyConnectTimeout(v int64) *ModifyListenerAttributesInput {
+	s.ProxyConnectTimeout = &v
+	return s
+}
+
 // SetProxyProtocolType sets the ProxyProtocolType field's value.
 func (s *ModifyListenerAttributesInput) SetProxyProtocolType(v string) *ModifyListenerAttributesInput {
 	s.ProxyProtocolType = &v
 	return s
 }
 
+// SetProxyReadTimeout sets the ProxyReadTimeout field's value.
+func (s *ModifyListenerAttributesInput) SetProxyReadTimeout(v int64) *ModifyListenerAttributesInput {
+	s.ProxyReadTimeout = &v
+	return s
+}
+
+// SetProxySendTimeout sets the ProxySendTimeout field's value.
+func (s *ModifyListenerAttributesInput) SetProxySendTimeout(v int64) *ModifyListenerAttributesInput {
+	s.ProxySendTimeout = &v
+	return s
+}
+
 // SetScheduler sets the Scheduler field's value.
 func (s *ModifyListenerAttributesInput) SetScheduler(v string) *ModifyListenerAttributesInput {
 	s.Scheduler = &v
+	return s
+}
+
+// SetSecurityPolicyId sets the SecurityPolicyId field's value.
+func (s *ModifyListenerAttributesInput) SetSecurityPolicyId(v string) *ModifyListenerAttributesInput {
+	s.SecurityPolicyId = &v
+	return s
+}
+
+// SetSendTimeout sets the SendTimeout field's value.
+func (s *ModifyListenerAttributesInput) SetSendTimeout(v int64) *ModifyListenerAttributesInput {
+	s.SendTimeout = &v
 	return s
 }
 
