@@ -184,6 +184,14 @@ func (s *TagForUpdateFileSystemInput) SetValue(v string) *TagForUpdateFileSystem
 type UpdateFileSystemInput struct {
 	_ struct{} `type:"structure"`
 
+	AutoExpand *bool `type:"boolean"`
+
+	AutoExpandLimit *int32 `type:"int32"`
+
+	AutoExpandStep *int32 `type:"int32"`
+
+	AutoExpandThreshold *int32 `type:"int32"`
+
 	Description *string `type:"string"`
 
 	// FileSystemId is a required field
@@ -217,6 +225,30 @@ func (s *UpdateFileSystemInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAutoExpand sets the AutoExpand field's value.
+func (s *UpdateFileSystemInput) SetAutoExpand(v bool) *UpdateFileSystemInput {
+	s.AutoExpand = &v
+	return s
+}
+
+// SetAutoExpandLimit sets the AutoExpandLimit field's value.
+func (s *UpdateFileSystemInput) SetAutoExpandLimit(v int32) *UpdateFileSystemInput {
+	s.AutoExpandLimit = &v
+	return s
+}
+
+// SetAutoExpandStep sets the AutoExpandStep field's value.
+func (s *UpdateFileSystemInput) SetAutoExpandStep(v int32) *UpdateFileSystemInput {
+	s.AutoExpandStep = &v
+	return s
+}
+
+// SetAutoExpandThreshold sets the AutoExpandThreshold field's value.
+func (s *UpdateFileSystemInput) SetAutoExpandThreshold(v int32) *UpdateFileSystemInput {
+	s.AutoExpandThreshold = &v
+	return s
 }
 
 // SetDescription sets the Description field's value.

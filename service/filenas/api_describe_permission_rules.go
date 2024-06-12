@@ -146,8 +146,7 @@ func (c *FILENAS) DescribePermissionRulesWithContext(ctx volcengine.Context, inp
 type DescribePermissionRulesInput struct {
 	_ struct{} `type:"structure"`
 
-	// FileSystemType is a required field
-	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForDescribePermissionRulesInput"`
+	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForDescribePermissionRulesInput"`
 
 	// PermissionGroupId is a required field
 	PermissionGroupId *string `type:"string" required:"true"`
@@ -166,9 +165,6 @@ func (s DescribePermissionRulesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribePermissionRulesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribePermissionRulesInput"}
-	if s.FileSystemType == nil {
-		invalidParams.Add(request.NewErrParamRequired("FileSystemType"))
-	}
 	if s.PermissionGroupId == nil {
 		invalidParams.Add(request.NewErrParamRequired("PermissionGroupId"))
 	}
@@ -272,6 +268,12 @@ func (s *PermissionRuleForDescribePermissionRulesOutput) SetUserMode(v string) *
 const (
 	// EnumOfFileSystemTypeForDescribePermissionRulesInputExtreme is a EnumOfFileSystemTypeForDescribePermissionRulesInput enum value
 	EnumOfFileSystemTypeForDescribePermissionRulesInputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForDescribePermissionRulesInputCapacity is a EnumOfFileSystemTypeForDescribePermissionRulesInput enum value
+	EnumOfFileSystemTypeForDescribePermissionRulesInputCapacity = "Capacity"
+
+	// EnumOfFileSystemTypeForDescribePermissionRulesInputCache is a EnumOfFileSystemTypeForDescribePermissionRulesInput enum value
+	EnumOfFileSystemTypeForDescribePermissionRulesInputCache = "Cache"
 )
 
 const (

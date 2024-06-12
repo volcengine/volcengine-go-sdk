@@ -148,8 +148,7 @@ type CreatePermissionGroupInput struct {
 
 	Description *string `type:"string"`
 
-	// FileSystemType is a required field
-	FileSystemType *string `type:"string" required:"true" enum:"EnumOfFileSystemTypeForCreatePermissionGroupInput"`
+	FileSystemType *string `type:"string" enum:"EnumOfFileSystemTypeForCreatePermissionGroupInput"`
 
 	// PermissionGroupName is a required field
 	PermissionGroupName *string `type:"string" required:"true"`
@@ -168,9 +167,6 @@ func (s CreatePermissionGroupInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreatePermissionGroupInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreatePermissionGroupInput"}
-	if s.FileSystemType == nil {
-		invalidParams.Add(request.NewErrParamRequired("FileSystemType"))
-	}
 	if s.PermissionGroupName == nil {
 		invalidParams.Add(request.NewErrParamRequired("PermissionGroupName"))
 	}
@@ -226,4 +222,10 @@ func (s *CreatePermissionGroupOutput) SetPermissionGroupId(v string) *CreatePerm
 const (
 	// EnumOfFileSystemTypeForCreatePermissionGroupInputExtreme is a EnumOfFileSystemTypeForCreatePermissionGroupInput enum value
 	EnumOfFileSystemTypeForCreatePermissionGroupInputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForCreatePermissionGroupInputCapacity is a EnumOfFileSystemTypeForCreatePermissionGroupInput enum value
+	EnumOfFileSystemTypeForCreatePermissionGroupInputCapacity = "Capacity"
+
+	// EnumOfFileSystemTypeForCreatePermissionGroupInputCache is a EnumOfFileSystemTypeForCreatePermissionGroupInput enum value
+	EnumOfFileSystemTypeForCreatePermissionGroupInputCache = "Cache"
 )
