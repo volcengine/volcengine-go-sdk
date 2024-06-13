@@ -46,13 +46,13 @@ func (c *AUTOSCALING) CompleteLifecycleActivityCommonRequest(input *map[string]i
 	return
 }
 
-// CompleteLifecycleActivityCommon API operation for AUTOSCALING.
+// CompleteLifecycleActivityCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CompleteLifecycleActivityCommon for usage and error information.
 func (c *AUTOSCALING) CompleteLifecycleActivityCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CompleteLifecycleActivityCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) CompleteLifecycleActivityRequest(input *CompleteLifecycleA
 	return
 }
 
-// CompleteLifecycleActivity API operation for AUTOSCALING.
+// CompleteLifecycleActivity API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CompleteLifecycleActivity for usage and error information.
 func (c *AUTOSCALING) CompleteLifecycleActivity(input *CompleteLifecycleActivityInput) (*CompleteLifecycleActivityOutput, error) {
 	req, out := c.CompleteLifecycleActivityRequest(input)
@@ -147,7 +147,7 @@ type CompleteLifecycleActivityInput struct {
 	// LifecycleActivityId is a required field
 	LifecycleActivityId *string `type:"string" required:"true"`
 
-	LifecycleActivityPolicy *string `type:"string" enum:"EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInput"`
+	LifecycleActivityPolicy *string `type:"string"`
 }
 
 // String returns the string representation
@@ -222,14 +222,3 @@ func (s *CompleteLifecycleActivityOutput) SetLifecycleActivityId(v string) *Comp
 	s.LifecycleActivityId = &v
 	return s
 }
-
-const (
-	// EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputContinue is a EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInput enum value
-	EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputContinue = "CONTINUE"
-
-	// EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputReject is a EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInput enum value
-	EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputReject = "REJECT"
-
-	// EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputRollback is a EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInput enum value
-	EnumOfLifecycleActivityPolicyForCompleteLifecycleActivityInputRollback = "ROLLBACK"
-)

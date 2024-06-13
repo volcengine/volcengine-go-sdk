@@ -46,13 +46,13 @@ func (c *AUTOSCALING) ModifyLifecycleHookCommonRequest(input *map[string]interfa
 	return
 }
 
-// ModifyLifecycleHookCommon API operation for AUTOSCALING.
+// ModifyLifecycleHookCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyLifecycleHookCommon for usage and error information.
 func (c *AUTOSCALING) ModifyLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyLifecycleHookCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) ModifyLifecycleHookRequest(input *ModifyLifecycleHookInput
 	return
 }
 
-// ModifyLifecycleHook API operation for AUTOSCALING.
+// ModifyLifecycleHook API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyLifecycleHook for usage and error information.
 func (c *AUTOSCALING) ModifyLifecycleHook(input *ModifyLifecycleHookInput) (*ModifyLifecycleHookOutput, error) {
 	req, out := c.ModifyLifecycleHookRequest(input)
@@ -177,11 +177,11 @@ type ModifyLifecycleHookInput struct {
 	// LifecycleHookId is a required field
 	LifecycleHookId *string `type:"string" required:"true"`
 
-	LifecycleHookPolicy *string `type:"string" enum:"EnumOfLifecycleHookPolicyForModifyLifecycleHookInput"`
+	LifecycleHookPolicy *string `type:"string"`
 
 	LifecycleHookTimeout *int32 `type:"int32"`
 
-	LifecycleHookType *string `type:"string" enum:"EnumOfLifecycleHookTypeForModifyLifecycleHookInput"`
+	LifecycleHookType *string `type:"string"`
 }
 
 // String returns the string representation
@@ -260,22 +260,3 @@ func (s *ModifyLifecycleHookOutput) SetLifecycleHookId(v string) *ModifyLifecycl
 	s.LifecycleHookId = &v
 	return s
 }
-
-const (
-	// EnumOfLifecycleHookPolicyForModifyLifecycleHookInputContinue is a EnumOfLifecycleHookPolicyForModifyLifecycleHookInput enum value
-	EnumOfLifecycleHookPolicyForModifyLifecycleHookInputContinue = "CONTINUE"
-
-	// EnumOfLifecycleHookPolicyForModifyLifecycleHookInputReject is a EnumOfLifecycleHookPolicyForModifyLifecycleHookInput enum value
-	EnumOfLifecycleHookPolicyForModifyLifecycleHookInputReject = "REJECT"
-
-	// EnumOfLifecycleHookPolicyForModifyLifecycleHookInputRollback is a EnumOfLifecycleHookPolicyForModifyLifecycleHookInput enum value
-	EnumOfLifecycleHookPolicyForModifyLifecycleHookInputRollback = "ROLLBACK"
-)
-
-const (
-	// EnumOfLifecycleHookTypeForModifyLifecycleHookInputScaleIn is a EnumOfLifecycleHookTypeForModifyLifecycleHookInput enum value
-	EnumOfLifecycleHookTypeForModifyLifecycleHookInputScaleIn = "SCALE_IN"
-
-	// EnumOfLifecycleHookTypeForModifyLifecycleHookInputScaleOut is a EnumOfLifecycleHookTypeForModifyLifecycleHookInput enum value
-	EnumOfLifecycleHookTypeForModifyLifecycleHookInputScaleOut = "SCALE_OUT"
-)

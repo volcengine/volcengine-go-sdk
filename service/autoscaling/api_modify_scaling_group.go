@@ -46,13 +46,13 @@ func (c *AUTOSCALING) ModifyScalingGroupCommonRequest(input *map[string]interfac
 	return
 }
 
-// ModifyScalingGroupCommon API operation for AUTOSCALING.
+// ModifyScalingGroupCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyScalingGroupCommon for usage and error information.
 func (c *AUTOSCALING) ModifyScalingGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.ModifyScalingGroupCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) ModifyScalingGroupRequest(input *ModifyScalingGroupInput) 
 	return
 }
 
-// ModifyScalingGroup API operation for AUTOSCALING.
+// ModifyScalingGroup API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation ModifyScalingGroup for usage and error information.
 func (c *AUTOSCALING) ModifyScalingGroup(input *ModifyScalingGroupInput) (*ModifyScalingGroupOutput, error) {
 	req, out := c.ModifyScalingGroupRequest(input)
@@ -205,6 +205,8 @@ type LaunchTemplateOverrideForModifyScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
 	InstanceType *string `type:"string"`
+
+	PriceLimit *float64 `type:"float"`
 }
 
 // String returns the string representation
@@ -223,6 +225,12 @@ func (s *LaunchTemplateOverrideForModifyScalingGroupInput) SetInstanceType(v str
 	return s
 }
 
+// SetPriceLimit sets the PriceLimit field's value.
+func (s *LaunchTemplateOverrideForModifyScalingGroupInput) SetPriceLimit(v float64) *LaunchTemplateOverrideForModifyScalingGroupInput {
+	s.PriceLimit = &v
+	return s
+}
+
 type ModifyScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
@@ -232,9 +240,9 @@ type ModifyScalingGroupInput struct {
 
 	DesireInstanceNumber *int32 `type:"int32"`
 
-	HealthCheckType *string `type:"string" enum:"EnumOfHealthCheckTypeForModifyScalingGroupInput"`
+	HealthCheckType *string `type:"string"`
 
-	InstanceTerminatePolicy *string `type:"string" enum:"EnumOfInstanceTerminatePolicyForModifyScalingGroupInput"`
+	InstanceTerminatePolicy *string `type:"string"`
 
 	InstancesDistribution *InstancesDistributionForModifyScalingGroupInput `type:"structure"`
 
@@ -248,7 +256,7 @@ type ModifyScalingGroupInput struct {
 
 	MinInstanceNumber *int32 `type:"int32"`
 
-	MultiAZPolicy *string `type:"string" enum:"EnumOfMultiAZPolicyForModifyScalingGroupInput"`
+	MultiAZPolicy *string `type:"string"`
 
 	// ScalingGroupId is a required field
 	ScalingGroupId *string `type:"string" required:"true"`
@@ -402,33 +410,3 @@ func (s *ModifyScalingGroupOutput) SetScalingGroupId(v string) *ModifyScalingGro
 	s.ScalingGroupId = &v
 	return s
 }
-
-const (
-	// EnumOfHealthCheckTypeForModifyScalingGroupInputEcs is a EnumOfHealthCheckTypeForModifyScalingGroupInput enum value
-	EnumOfHealthCheckTypeForModifyScalingGroupInputEcs = "ECS"
-
-	// EnumOfHealthCheckTypeForModifyScalingGroupInputNone is a EnumOfHealthCheckTypeForModifyScalingGroupInput enum value
-	EnumOfHealthCheckTypeForModifyScalingGroupInputNone = "NONE"
-)
-
-const (
-	// EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestInstance is a EnumOfInstanceTerminatePolicyForModifyScalingGroupInput enum value
-	EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestInstance = "OldestInstance"
-
-	// EnumOfInstanceTerminatePolicyForModifyScalingGroupInputNewestInstance is a EnumOfInstanceTerminatePolicyForModifyScalingGroupInput enum value
-	EnumOfInstanceTerminatePolicyForModifyScalingGroupInputNewestInstance = "NewestInstance"
-
-	// EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestScalingConfigurationWithOldestInstance is a EnumOfInstanceTerminatePolicyForModifyScalingGroupInput enum value
-	EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestScalingConfigurationWithOldestInstance = "OldestScalingConfigurationWithOldestInstance"
-
-	// EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestScalingConfigurationWithNewestInstance is a EnumOfInstanceTerminatePolicyForModifyScalingGroupInput enum value
-	EnumOfInstanceTerminatePolicyForModifyScalingGroupInputOldestScalingConfigurationWithNewestInstance = "OldestScalingConfigurationWithNewestInstance"
-)
-
-const (
-	// EnumOfMultiAZPolicyForModifyScalingGroupInputPriority is a EnumOfMultiAZPolicyForModifyScalingGroupInput enum value
-	EnumOfMultiAZPolicyForModifyScalingGroupInputPriority = "PRIORITY"
-
-	// EnumOfMultiAZPolicyForModifyScalingGroupInputBalance is a EnumOfMultiAZPolicyForModifyScalingGroupInput enum value
-	EnumOfMultiAZPolicyForModifyScalingGroupInputBalance = "BALANCE"
-)

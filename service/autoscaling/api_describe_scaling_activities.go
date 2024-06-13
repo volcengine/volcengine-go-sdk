@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingActivitiesCommonRequest(input *map[string]i
 	return
 }
 
-// DescribeScalingActivitiesCommon API operation for AUTOSCALING.
+// DescribeScalingActivitiesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingActivitiesCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingActivitiesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingActivitiesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingActivitiesRequest(input *DescribeScalingAct
 	return
 }
 
-// DescribeScalingActivities API operation for AUTOSCALING.
+// DescribeScalingActivities API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingActivities for usage and error information.
 func (c *AUTOSCALING) DescribeScalingActivities(input *DescribeScalingActivitiesInput) (*DescribeScalingActivitiesOutput, error) {
 	req, out := c.DescribeScalingActivitiesRequest(input)
@@ -155,7 +155,7 @@ type DescribeScalingActivitiesInput struct {
 
 	StartTime *string `type:"string"`
 
-	StatusCode *string `type:"string" enum:"EnumOfStatusCodeForDescribeScalingActivitiesInput"`
+	StatusCode *string `type:"string"`
 }
 
 // String returns the string representation
@@ -450,26 +450,3 @@ func (s *ScalingActivityForDescribeScalingActivitiesOutput) SetTaskCategory(v st
 	s.TaskCategory = &v
 	return s
 }
-
-const (
-	// EnumOfStatusCodeForDescribeScalingActivitiesInputInit is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
-	EnumOfStatusCodeForDescribeScalingActivitiesInputInit = "Init"
-
-	// EnumOfStatusCodeForDescribeScalingActivitiesInputRunning is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
-	EnumOfStatusCodeForDescribeScalingActivitiesInputRunning = "Running"
-
-	// EnumOfStatusCodeForDescribeScalingActivitiesInputSuccess is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
-	EnumOfStatusCodeForDescribeScalingActivitiesInputSuccess = "Success"
-
-	// EnumOfStatusCodeForDescribeScalingActivitiesInputPartialSuccess is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
-	EnumOfStatusCodeForDescribeScalingActivitiesInputPartialSuccess = "PartialSuccess"
-
-	// EnumOfStatusCodeForDescribeScalingActivitiesInputError is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
-	EnumOfStatusCodeForDescribeScalingActivitiesInputError = "Error"
-
-	// EnumOfStatusCodeForDescribeScalingActivitiesInputRejected is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
-	EnumOfStatusCodeForDescribeScalingActivitiesInputRejected = "Rejected"
-
-	// EnumOfStatusCodeForDescribeScalingActivitiesInputException is a EnumOfStatusCodeForDescribeScalingActivitiesInput enum value
-	EnumOfStatusCodeForDescribeScalingActivitiesInputException = "Exception"
-)

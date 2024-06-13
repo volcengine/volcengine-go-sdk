@@ -46,13 +46,13 @@ func (c *AUTOSCALING) AttachDBInstancesCommonRequest(input *map[string]interface
 	return
 }
 
-// AttachDBInstancesCommon API operation for AUTOSCALING.
+// AttachDBInstancesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation AttachDBInstancesCommon for usage and error information.
 func (c *AUTOSCALING) AttachDBInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachDBInstancesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) AttachDBInstancesRequest(input *AttachDBInstancesInput) (r
 	return
 }
 
-// AttachDBInstances API operation for AUTOSCALING.
+// AttachDBInstances API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation AttachDBInstances for usage and error information.
 func (c *AUTOSCALING) AttachDBInstances(input *AttachDBInstancesInput) (*AttachDBInstancesOutput, error) {
 	req, out := c.AttachDBInstancesRequest(input)
