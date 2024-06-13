@@ -46,13 +46,13 @@ func (c *AUTOSCALING) AttachInstancesCommonRequest(input *map[string]interface{}
 	return
 }
 
-// AttachInstancesCommon API operation for AUTOSCALING.
+// AttachInstancesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation AttachInstancesCommon for usage and error information.
 func (c *AUTOSCALING) AttachInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.AttachInstancesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) AttachInstancesRequest(input *AttachInstancesInput) (req *
 	return
 }
 
-// AttachInstances API operation for AUTOSCALING.
+// AttachInstances API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation AttachInstances for usage and error information.
 func (c *AUTOSCALING) AttachInstances(input *AttachInstancesInput) (*AttachInstancesOutput, error) {
 	req, out := c.AttachInstancesRequest(input)
@@ -207,6 +207,8 @@ type AttachInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	ScalingActivityId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -217,4 +219,10 @@ func (s AttachInstancesOutput) String() string {
 // GoString returns the string representation
 func (s AttachInstancesOutput) GoString() string {
 	return s.String()
+}
+
+// SetScalingActivityId sets the ScalingActivityId field's value.
+func (s *AttachInstancesOutput) SetScalingActivityId(v string) *AttachInstancesOutput {
+	s.ScalingActivityId = &v
+	return s
 }

@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DeleteScalingPolicyCommonRequest(input *map[string]interfa
 	return
 }
 
-// DeleteScalingPolicyCommon API operation for AUTOSCALING.
+// DeleteScalingPolicyCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DeleteScalingPolicyCommon for usage and error information.
 func (c *AUTOSCALING) DeleteScalingPolicyCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteScalingPolicyCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DeleteScalingPolicyRequest(input *DeleteScalingPolicyInput
 	return
 }
 
-// DeleteScalingPolicy API operation for AUTOSCALING.
+// DeleteScalingPolicy API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DeleteScalingPolicy for usage and error information.
 func (c *AUTOSCALING) DeleteScalingPolicy(input *DeleteScalingPolicyInput) (*DeleteScalingPolicyOutput, error) {
 	req, out := c.DeleteScalingPolicyRequest(input)

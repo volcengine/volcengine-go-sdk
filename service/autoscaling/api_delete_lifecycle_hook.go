@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DeleteLifecycleHookCommonRequest(input *map[string]interfa
 	return
 }
 
-// DeleteLifecycleHookCommon API operation for AUTOSCALING.
+// DeleteLifecycleHookCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DeleteLifecycleHookCommon for usage and error information.
 func (c *AUTOSCALING) DeleteLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteLifecycleHookCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DeleteLifecycleHookRequest(input *DeleteLifecycleHookInput
 	return
 }
 
-// DeleteLifecycleHook API operation for AUTOSCALING.
+// DeleteLifecycleHook API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DeleteLifecycleHook for usage and error information.
 func (c *AUTOSCALING) DeleteLifecycleHook(input *DeleteLifecycleHookInput) (*DeleteLifecycleHookOutput, error) {
 	req, out := c.DeleteLifecycleHookRequest(input)

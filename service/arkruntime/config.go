@@ -2,6 +2,7 @@ package arkruntime
 
 import (
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -57,6 +58,9 @@ func WithRegion(region string) configOption {
 func WithBaseUrl(url string) configOption {
 	return func(config *ClientConfig) {
 		config.BaseURL = url
+		if strings.HasSuffix(url, "/") {
+			config.BaseURL = strings.TrimSuffix(url, "/")
+		}
 	}
 }
 

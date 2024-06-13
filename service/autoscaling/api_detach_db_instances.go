@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DetachDBInstancesCommonRequest(input *map[string]interface
 	return
 }
 
-// DetachDBInstancesCommon API operation for AUTOSCALING.
+// DetachDBInstancesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachDBInstancesCommon for usage and error information.
 func (c *AUTOSCALING) DetachDBInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachDBInstancesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DetachDBInstancesRequest(input *DetachDBInstancesInput) (r
 	return
 }
 
-// DetachDBInstances API operation for AUTOSCALING.
+// DetachDBInstances API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachDBInstances for usage and error information.
 func (c *AUTOSCALING) DetachDBInstances(input *DetachDBInstancesInput) (*DetachDBInstancesOutput, error) {
 	req, out := c.DetachDBInstancesRequest(input)

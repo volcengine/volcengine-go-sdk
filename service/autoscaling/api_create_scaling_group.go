@@ -46,13 +46,13 @@ func (c *AUTOSCALING) CreateScalingGroupCommonRequest(input *map[string]interfac
 	return
 }
 
-// CreateScalingGroupCommon API operation for AUTOSCALING.
+// CreateScalingGroupCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CreateScalingGroupCommon for usage and error information.
 func (c *AUTOSCALING) CreateScalingGroupCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateScalingGroupCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) CreateScalingGroupRequest(input *CreateScalingGroupInput) 
 	return
 }
 
-// CreateScalingGroup API operation for AUTOSCALING.
+// CreateScalingGroup API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CreateScalingGroup for usage and error information.
 func (c *AUTOSCALING) CreateScalingGroup(input *CreateScalingGroupInput) (*CreateScalingGroupOutput, error) {
 	req, out := c.CreateScalingGroupRequest(input)
@@ -150,9 +150,9 @@ type CreateScalingGroupInput struct {
 
 	DesireInstanceNumber *int32 `type:"int32"`
 
-	HealthCheckType *string `type:"string" enum:"EnumOfHealthCheckTypeForCreateScalingGroupInput"`
+	HealthCheckType *string `type:"string"`
 
-	InstanceTerminatePolicy *string `type:"string" enum:"EnumOfInstanceTerminatePolicyForCreateScalingGroupInput"`
+	InstanceTerminatePolicy *string `type:"string"`
 
 	InstancesDistribution *InstancesDistributionForCreateScalingGroupInput `type:"structure"`
 
@@ -168,14 +168,14 @@ type CreateScalingGroupInput struct {
 	// MinInstanceNumber is a required field
 	MinInstanceNumber *int32 `type:"int32" required:"true"`
 
-	MultiAZPolicy *string `type:"string" enum:"EnumOfMultiAZPolicyForCreateScalingGroupInput"`
+	MultiAZPolicy *string `type:"string"`
 
 	ProjectName *string `max:"64" type:"string"`
 
 	// ScalingGroupName is a required field
 	ScalingGroupName *string `type:"string" required:"true"`
 
-	ScalingMode *string `type:"string" enum:"EnumOfScalingModeForCreateScalingGroupInput"`
+	ScalingMode *string `type:"string"`
 
 	ServerGroupAttributes []*ServerGroupAttributeForCreateScalingGroupInput `type:"list"`
 
@@ -438,6 +438,8 @@ type LaunchTemplateOverrideForCreateScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
 	InstanceType *string `type:"string"`
+
+	PriceLimit *float64 `type:"float"`
 }
 
 // String returns the string representation
@@ -456,6 +458,12 @@ func (s *LaunchTemplateOverrideForCreateScalingGroupInput) SetInstanceType(v str
 	return s
 }
 
+// SetPriceLimit sets the PriceLimit field's value.
+func (s *LaunchTemplateOverrideForCreateScalingGroupInput) SetPriceLimit(v float64) *LaunchTemplateOverrideForCreateScalingGroupInput {
+	s.PriceLimit = &v
+	return s
+}
+
 type ServerGroupAttributeForCreateScalingGroupInput struct {
 	_ struct{} `type:"structure"`
 
@@ -463,7 +471,7 @@ type ServerGroupAttributeForCreateScalingGroupInput struct {
 
 	ServerGroupId *string `type:"string"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForCreateScalingGroupInput"`
+	Type *string `type:"string"`
 
 	Weight *int32 `type:"int32"`
 }
@@ -531,49 +539,3 @@ func (s *TagForCreateScalingGroupInput) SetValue(v string) *TagForCreateScalingG
 	s.Value = &v
 	return s
 }
-
-const (
-	// EnumOfHealthCheckTypeForCreateScalingGroupInputNone is a EnumOfHealthCheckTypeForCreateScalingGroupInput enum value
-	EnumOfHealthCheckTypeForCreateScalingGroupInputNone = "NONE"
-
-	// EnumOfHealthCheckTypeForCreateScalingGroupInputEcs is a EnumOfHealthCheckTypeForCreateScalingGroupInput enum value
-	EnumOfHealthCheckTypeForCreateScalingGroupInputEcs = "ECS"
-)
-
-const (
-	// EnumOfInstanceTerminatePolicyForCreateScalingGroupInputOldestInstance is a EnumOfInstanceTerminatePolicyForCreateScalingGroupInput enum value
-	EnumOfInstanceTerminatePolicyForCreateScalingGroupInputOldestInstance = "OldestInstance"
-
-	// EnumOfInstanceTerminatePolicyForCreateScalingGroupInputNewestInstance is a EnumOfInstanceTerminatePolicyForCreateScalingGroupInput enum value
-	EnumOfInstanceTerminatePolicyForCreateScalingGroupInputNewestInstance = "NewestInstance"
-
-	// EnumOfInstanceTerminatePolicyForCreateScalingGroupInputOldestScalingConfigurationWithOldestInstance is a EnumOfInstanceTerminatePolicyForCreateScalingGroupInput enum value
-	EnumOfInstanceTerminatePolicyForCreateScalingGroupInputOldestScalingConfigurationWithOldestInstance = "OldestScalingConfigurationWithOldestInstance"
-
-	// EnumOfInstanceTerminatePolicyForCreateScalingGroupInputOldestScalingConfigurationWithNewestInstance is a EnumOfInstanceTerminatePolicyForCreateScalingGroupInput enum value
-	EnumOfInstanceTerminatePolicyForCreateScalingGroupInputOldestScalingConfigurationWithNewestInstance = "OldestScalingConfigurationWithNewestInstance"
-)
-
-const (
-	// EnumOfMultiAZPolicyForCreateScalingGroupInputPriority is a EnumOfMultiAZPolicyForCreateScalingGroupInput enum value
-	EnumOfMultiAZPolicyForCreateScalingGroupInputPriority = "PRIORITY"
-
-	// EnumOfMultiAZPolicyForCreateScalingGroupInputBalance is a EnumOfMultiAZPolicyForCreateScalingGroupInput enum value
-	EnumOfMultiAZPolicyForCreateScalingGroupInputBalance = "BALANCE"
-)
-
-const (
-	// EnumOfScalingModeForCreateScalingGroupInputRelease is a EnumOfScalingModeForCreateScalingGroupInput enum value
-	EnumOfScalingModeForCreateScalingGroupInputRelease = "release"
-
-	// EnumOfScalingModeForCreateScalingGroupInputRecycle is a EnumOfScalingModeForCreateScalingGroupInput enum value
-	EnumOfScalingModeForCreateScalingGroupInputRecycle = "recycle"
-)
-
-const (
-	// EnumOfTypeForCreateScalingGroupInputClb is a EnumOfTypeForCreateScalingGroupInput enum value
-	EnumOfTypeForCreateScalingGroupInputClb = "CLB"
-
-	// EnumOfTypeForCreateScalingGroupInputAlb is a EnumOfTypeForCreateScalingGroupInput enum value
-	EnumOfTypeForCreateScalingGroupInputAlb = "ALB"
-)
