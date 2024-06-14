@@ -206,26 +206,35 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 }
 
 func (c *Client) Do(ctx context.Context, method, url, endpointId string, v model.Response, setters ...requestOption) (err error) {
-	i := 0
-	for {
-		i++
+	err = utils.Retry(
+		ctx,
+		utils.RetryPolicy{
+			MaxAttempts:       c.config.RetryTimes,
+			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
+			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
+			BackoffMultiplier: 1.2,
+		},
+		func() bool { return true },
+		func() error {
+			var req *http.Request
+			req, innerErr := c.newRequest(ctx, method, url, endpointId, setters...)
+			if err != nil {
+				return innerErr
+			}
 
-		var req *http.Request
-		req, err = c.newRequest(ctx, method, url, endpointId, setters...)
-		if err != nil {
-			return
-		}
-
-		err = c.sendRequest(req, v)
-		apiErr := &model.APIError{}
-		if errors.As(err, &apiErr) && i <= c.config.RetryTimes && apiErr.HTTPStatusCode > http.StatusInternalServerError {
-			interval := c.retryInterval(c.config.RetryTimes, c.config.RetryTimes-i)
-			time.Sleep(time.Duration(interval) * time.Second)
-		} else {
-			break
-		}
-	}
-
+			return c.sendRequest(req, v)
+		},
+		nil,
+		func(err error) bool {
+			apiErr := &model.APIError{}
+			if errors.As(err, &apiErr) {
+				return apiErr.HTTPStatusCode > http.StatusInternalServerError
+			} else if errors.Is(err, io.EOF) {
+				return true
+			}
+			return false
+		},
+	)
 	return
 }
 
@@ -276,25 +285,35 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 }
 
 func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url, endpointId string, setters ...requestOption) (streamReader *utils.ChatCompletionStreamReader, err error) {
-	i := 0
-	for {
-		i++
+	err = utils.Retry(
+		ctx,
+		utils.RetryPolicy{
+			MaxAttempts:       c.config.RetryTimes,
+			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
+			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
+			BackoffMultiplier: 1.2,
+		},
+		func() bool { return true },
+		func() error {
+			req, innerErr := c.newRequest(ctx, method, url, endpointId, setters...)
+			if innerErr != nil {
+				return innerErr
+			}
 
-		var req *http.Request
-		req, err = c.newRequest(ctx, method, url, endpointId, setters...)
-		if err != nil {
-			return
-		}
-
-		streamReader, err = sendChatCompletionRequestStream(c, req)
-		apiErr := &model.APIError{}
-		if errors.As(err, &apiErr) && i <= c.config.RetryTimes && apiErr.HTTPStatusCode > http.StatusInternalServerError {
-			interval := c.retryInterval(c.config.RetryTimes, c.config.RetryTimes-i)
-			time.Sleep(time.Duration(interval) * time.Second)
-		} else {
-			break
-		}
-	}
+			streamReader, err = sendChatCompletionRequestStream(c, req)
+			return err
+		},
+		nil,
+		func(err error) bool {
+			apiErr := &model.APIError{}
+			if errors.As(err, &apiErr) {
+				return apiErr.HTTPStatusCode > http.StatusInternalServerError
+			} else if errors.Is(err, io.EOF) {
+				return true
+			}
+			return false
+		},
+	)
 
 	return
 }
