@@ -216,7 +216,6 @@ func (c *Client) Do(ctx context.Context, method, url, endpointId string, v model
 		},
 		func() bool { return true },
 		func() error {
-			var req *http.Request
 			req, innerErr := c.newRequest(ctx, method, url, endpointId, setters...)
 			if err != nil {
 				return innerErr
