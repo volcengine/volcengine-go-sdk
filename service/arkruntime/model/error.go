@@ -33,7 +33,7 @@ func (e *APIError) Error() string {
 
 func (e *RequestError) Error() string {
 	//s, _ := json.Marshal(e)
-	return fmt.Sprintf("Error code: %d, err: %v, request_id: %s", e.HTTPStatusCode, e.Err, e.RequestId)
+	return fmt.Sprintf("RequestError code: %d, err: %v, request_id: %s", e.HTTPStatusCode, e.Err, e.RequestId)
 }
 
 func (e *RequestError) Unwrap() error {
