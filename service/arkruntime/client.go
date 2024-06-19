@@ -189,8 +189,9 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 	res, err := c.config.HTTPClient.Do(req)
 	if err != nil {
 		return &model.RequestError{
-			Err:       err,
-			RequestId: requestId,
+			HTTPStatusCode: -1,
+			Err:            err,
+			RequestId:      requestId,
 		}
 	}
 
@@ -207,8 +208,9 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 	err = decodeResponse(res.Body, v)
 	if err != nil {
 		err = &model.RequestError{
-			Err:       err,
-			RequestId: requestId,
+			HTTPStatusCode: res.StatusCode,
+			Err:            err,
+			RequestId:      requestId,
 		}
 	}
 	return err
@@ -243,8 +245,9 @@ func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, 
 	resp, err := c.config.HTTPClient.Do(req) //nolint:bodyclose // body should be closed by outer function
 	if err != nil {
 		err = &model.RequestError{
-			Err:       err,
-			RequestId: requestId,
+			HTTPStatusCode: -1,
+			Err:            err,
+			RequestId:      requestId,
 		}
 		return
 	}
@@ -269,8 +272,9 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
 		return &utils.ChatCompletionStreamReader{}, &model.RequestError{
-			Err:       err,
-			RequestId: requestId,
+			HTTPStatusCode: -1,
+			Err:            err,
+			RequestId:      requestId,
 		}
 	}
 	if isFailureStatusCode(resp) {
