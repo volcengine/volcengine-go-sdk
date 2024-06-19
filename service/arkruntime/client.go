@@ -204,7 +204,14 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 		return c.handleErrorResp(res)
 	}
 
-	return decodeResponse(res.Body, v)
+	err = decodeResponse(res.Body, v)
+	if err != nil {
+		err = &model.RequestError{
+			Err:       err,
+			RequestId: requestId,
+		}
+	}
+	return err
 }
 
 func (c *Client) Do(ctx context.Context, method, url, endpointId string, v model.Response, setters ...requestOption) (err error) {
