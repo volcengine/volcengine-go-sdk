@@ -27,7 +27,7 @@ func (c *Client) CreateBotChatCompletion(
 	}
 
 	requestOptions := append(setters, withBody(request))
-	err = c.Do(ctx, http.MethodPost, c.fullURL(chatCompletionsSuffix), request.Model, &response, requestOptions...)
+	err = c.Do(ctx, http.MethodPost, c.fullURL(botChatCompletionsSuffix), resourceTypeBot, request.Model, &response, requestOptions...)
 	if err != nil {
 		return
 	}
@@ -52,7 +52,7 @@ func (c *Client) CreateBotChatCompletionStream(
 
 	requestOptions := append(setters, withBody(request))
 
-	resp, err := c.BotChatCompletionRequestStreamDo(ctx, http.MethodPost, c.fullURL(chatCompletionsSuffix), request.Model, requestOptions...)
+	resp, err := c.BotChatCompletionRequestStreamDo(ctx, http.MethodPost, c.fullURL(botChatCompletionsSuffix), request.Model, requestOptions...)
 	if err != nil {
 		return
 	}

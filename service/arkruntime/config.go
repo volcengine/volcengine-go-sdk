@@ -16,7 +16,7 @@ const (
 const (
 	resourceTypeEndpoint = "endpoint"
 	resourceTypeBot      = "bot"
-	stsTokenKeyPattern   = "sts:%s:%s"
+	stsTokenKeyPattern   = "%s#%s"
 )
 
 type tokenInfo struct {

@@ -155,7 +155,7 @@ func WithCustomHeader(key, value string) requestOption {
 	}
 }
 
-func (c *Client) newRequest(ctx context.Context, method, url, endpointId string, setters ...requestOption) (*http.Request, error) {
+func (c *Client) newRequest(ctx context.Context, method, url, resourceType, resourceId string, setters ...requestOption) (*http.Request, error) {
 	// Default Options
 	args := &requestOptions{
 		body:   nil,
@@ -174,27 +174,7 @@ func (c *Client) newRequest(ctx context.Context, method, url, endpointId string,
 	if err != nil {
 		return nil, err
 	}
-	errH := c.setCommonHeaders(ctx, req, args.body, resourceTypeEndpoint, endpointId)
-	if errH != nil {
-		return nil, errH
-	}
-	return req, nil
-}
-
-func (c *Client) newBotRequest(ctx context.Context, method, url, botId string, setters ...requestOption) (*http.Request, error) {
-	// Default Options
-	args := &requestOptions{
-		body:   nil,
-		header: make(http.Header),
-	}
-	for _, setter := range setters {
-		setter(args)
-	}
-	req, err := c.requestBuilder.Build(ctx, method, url, args.body, args.header)
-	if err != nil {
-		return nil, err
-	}
-	errH := c.setCommonHeaders(ctx, req, args.body, resourceTypeBot, botId)
+	errH := c.setCommonHeaders(ctx, req, args.body, resourceType, resourceId)
 	if errH != nil {
 		return nil, errH
 	}
@@ -237,6 +217,29 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 			HTTPStatusCode: res.StatusCode,
 			Err:            err,
 			RequestId:      requestId,
+		}
+	}
+	return err
+}
+
+func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...requestOption) (err error) {
+	i := 0
+	for {
+		i++
+
+		var req *http.Request
+		req, err = c.newRequest(ctx, method, url, resourceType, resourceId, setters...)
+		if err != nil {
+			return
+		}
+
+		err = c.sendRequest(req, v)
+		apiErr := &model.APIError{}
+		if errors.As(err, &apiErr) && i <= c.config.RetryTimes && apiErr.HTTPStatusCode > http.StatusInternalServerError {
+			interval := c.retryInterval(c.config.RetryTimes, c.config.RetryTimes-i)
+			time.Sleep(time.Duration(interval) * time.Second)
+		} else {
+			break
 		}
 	}
 	return err
@@ -334,13 +337,13 @@ func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*uti
 	}, nil
 }
 
-func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, url, endpointId string, setters ...requestOption) (streamReader *utils.BotChatCompletionStreamReader, err error) {
+func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, url, botId string, setters ...requestOption) (streamReader *utils.BotChatCompletionStreamReader, err error) {
 	i := 0
 	for {
 		i++
 
 		var req *http.Request
-		req, err = c.newBotRequest(ctx, method, url, endpointId, setters...)
+		req, err = c.newRequest(ctx, method, url, resourceTypeBot, botId, setters...)
 		if err != nil {
 			return
 		}
