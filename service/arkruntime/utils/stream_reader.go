@@ -27,7 +27,21 @@ type ChatCompletionStreamReader struct {
 	model.HttpHeader
 }
 
+type BotChatCompletionStreamReader struct {
+	ChatCompletionStreamReader
+}
+
 func (stream *ChatCompletionStreamReader) Recv() (response model.ChatCompletionStreamResponse, err error) {
+	if stream.IsFinished {
+		err = io.EOF
+		return
+	}
+
+	response, err = stream.processLines()
+	return
+}
+
+func (stream *BotChatCompletionStreamReader) Recv() (response model.BotChatCompletionStreamResponse, err error) {
 	if stream.IsFinished {
 		err = io.EOF
 		return
@@ -83,6 +97,58 @@ func (stream *ChatCompletionStreamReader) processLines() (model.ChatCompletionSt
 		unmarshalErr := stream.Unmarshaler.Unmarshal(noPrefixLine, &response)
 		if unmarshalErr != nil {
 			return model.ChatCompletionStreamResponse{}, unmarshalErr
+		}
+
+		return response, nil
+	}
+}
+
+func (stream *BotChatCompletionStreamReader) processLines() (model.BotChatCompletionStreamResponse, error) {
+	var (
+		emptyMessagesCount uint
+		hasErrorPrefix     bool
+	)
+
+	for {
+		rawLine, readErr := stream.Reader.ReadBytes('\n')
+		if readErr != nil || hasErrorPrefix {
+			respErr := stream.unmarshalError()
+			if respErr != nil {
+				return model.BotChatCompletionStreamResponse{}, fmt.Errorf("error, %w", respErr.Error)
+			}
+			return model.BotChatCompletionStreamResponse{}, readErr
+		}
+
+		noSpaceLine := bytes.TrimSpace(rawLine)
+		if bytes.HasPrefix(noSpaceLine, errorPrefix) {
+			hasErrorPrefix = true
+		}
+		if !bytes.HasPrefix(noSpaceLine, headerData) || hasErrorPrefix {
+			if hasErrorPrefix {
+				noSpaceLine = bytes.TrimPrefix(noSpaceLine, headerData)
+			}
+			writeErr := stream.ErrAccumulator.Write(noSpaceLine)
+			if writeErr != nil {
+				return model.BotChatCompletionStreamResponse{}, writeErr
+			}
+			emptyMessagesCount++
+			if emptyMessagesCount > stream.EmptyMessagesLimit {
+				return model.BotChatCompletionStreamResponse{}, model.ErrTooManyEmptyStreamMessages
+			}
+
+			continue
+		}
+
+		noPrefixLine := bytes.TrimPrefix(noSpaceLine, headerData)
+		if string(noPrefixLine) == "[DONE]" {
+			stream.IsFinished = true
+			return model.BotChatCompletionStreamResponse{}, io.EOF
+		}
+
+		var response model.BotChatCompletionStreamResponse
+		unmarshalErr := stream.Unmarshaler.Unmarshal(noPrefixLine, &response)
+		if unmarshalErr != nil {
+			return model.BotChatCompletionStreamResponse{}, unmarshalErr
 		}
 
 		return response, nil

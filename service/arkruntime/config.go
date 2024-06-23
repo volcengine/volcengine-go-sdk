@@ -13,6 +13,12 @@ const (
 	defaultRetryTimes         int  = 2
 )
 
+const (
+	resourceTypeEndpoint = "endpoint"
+	resourceTypeBot      = "bot"
+	stsTokenKeyPattern   = "sts:%s:%s"
+)
+
 type tokenInfo struct {
 	token       string
 	expiredTime int64
