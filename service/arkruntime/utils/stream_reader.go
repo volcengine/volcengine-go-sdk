@@ -100,6 +100,12 @@ func (stream *ChatCompletionStreamReader) unmarshalError() (errResp *model.Error
 		errResp = nil
 	}
 
+	if errResp != nil && errResp.Error != nil {
+		if stream.Header() != nil {
+			errResp.Error.RequestId = stream.Header().Get(model.ClientRequestHeader)
+		}
+	}
+
 	return
 }
 
