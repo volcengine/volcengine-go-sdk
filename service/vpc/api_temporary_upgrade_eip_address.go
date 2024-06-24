@@ -146,7 +146,7 @@ type TemporaryUpgradeEipAddressInput struct {
 	AllocationId *string `min:"1" max:"128" type:"string" required:"true"`
 
 	// Bandwidth is a required field
-	Bandwidth *int64 `min:"1" max:"1000" type:"integer" required:"true"`
+	Bandwidth *int64 `min:"1" type:"integer" required:"true"`
 
 	// Period is a required field
 	Period *int64 `min:"1" max:"720" type:"integer" required:"true"`
@@ -179,9 +179,6 @@ func (s *TemporaryUpgradeEipAddressInput) Validate() error {
 	}
 	if s.Bandwidth != nil && *s.Bandwidth < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
 	}
 	if s.Period == nil {
 		invalidParams.Add(request.NewErrParamRequired("Period"))
