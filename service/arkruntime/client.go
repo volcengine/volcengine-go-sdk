@@ -7,8 +7,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"math"
-	"math/rand"
 	"net/http"
 	"strings"
 	"sync"
@@ -178,6 +176,7 @@ func (c *Client) newRequest(ctx context.Context, method, url, endpointId string,
 }
 
 func (c *Client) sendRequest(req *http.Request, v model.Response) error {
+	requestId := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Accept", "application/json")
 
 	// Check whether Content-Type is already set, Upload Files API requires
@@ -189,7 +188,11 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 
 	res, err := c.config.HTTPClient.Do(req)
 	if err != nil {
-		return err
+		return &model.RequestError{
+			HTTPStatusCode: -1,
+			Err:            err,
+			RequestId:      requestId,
+		}
 	}
 
 	defer res.Body.Close()
@@ -202,43 +205,50 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 		return c.handleErrorResp(res)
 	}
 
-	return decodeResponse(res.Body, v)
+	err = decodeResponse(res.Body, v)
+	if err != nil {
+		err = &model.RequestError{
+			HTTPStatusCode: res.StatusCode,
+			Err:            err,
+			RequestId:      requestId,
+		}
+	}
+	return err
 }
 
 func (c *Client) Do(ctx context.Context, method, url, endpointId string, v model.Response, setters ...requestOption) (err error) {
-	i := 0
-	for {
-		i++
+	err = utils.Retry(
+		ctx,
+		utils.RetryPolicy{
+			MaxAttempts:       c.config.RetryTimes,
+			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
+			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
+			BackoffMultiplier: 1.2,
+		},
+		func() bool { return true },
+		func() error {
+			req, innerErr := c.newRequest(ctx, method, url, endpointId, setters...)
+			if innerErr != nil {
+				return innerErr
+			}
 
-		var req *http.Request
-		req, err = c.newRequest(ctx, method, url, endpointId, setters...)
-		if err != nil {
-			return
-		}
-
-		err = c.sendRequest(req, v)
-		apiErr := &model.APIError{}
-		if errors.As(err, &apiErr) && i <= c.config.RetryTimes && apiErr.HTTPStatusCode > http.StatusInternalServerError {
-			interval := c.retryInterval(c.config.RetryTimes, c.config.RetryTimes-i)
-			time.Sleep(time.Duration(interval) * time.Second)
-		} else {
-			break
-		}
-	}
-
+			return c.sendRequest(req, v)
+		},
+		nil,
+		needRetryError,
+	)
 	return
 }
 
-func (c *Client) retryInterval(max, remain int) float64 {
-	nbRetries := max - remain
-	sleepSeconds := math.Min(model.InitialRetryDelay*math.Pow(2.0, float64(nbRetries)), model.MaxRetryDelay)
-	jitter := 1 - 0.25*rand.Float64()
-	return sleepSeconds * jitter
-}
-
 func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, err error) {
+	requestId := req.Header.Get(model.ClientRequestHeader)
 	resp, err := c.config.HTTPClient.Do(req) //nolint:bodyclose // body should be closed by outer function
 	if err != nil {
+		err = &model.RequestError{
+			HTTPStatusCode: -1,
+			Err:            err,
+			RequestId:      requestId,
+		}
 		return
 	}
 
@@ -253,6 +263,7 @@ func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, 
 }
 
 func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.ChatCompletionStreamReader, error) {
+	requestId := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
 	req.Header.Set("Cache-Control", "no-cache")
@@ -260,7 +271,11 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 
 	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
-		return &utils.ChatCompletionStreamReader{}, err
+		return &utils.ChatCompletionStreamReader{}, &model.RequestError{
+			HTTPStatusCode: -1,
+			Err:            err,
+			RequestId:      requestId,
+		}
 	}
 	if isFailureStatusCode(resp) {
 		return &utils.ChatCompletionStreamReader{}, client.handleErrorResp(resp)
@@ -276,25 +291,27 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 }
 
 func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url, endpointId string, setters ...requestOption) (streamReader *utils.ChatCompletionStreamReader, err error) {
-	i := 0
-	for {
-		i++
+	err = utils.Retry(
+		ctx,
+		utils.RetryPolicy{
+			MaxAttempts:       c.config.RetryTimes,
+			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
+			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
+			BackoffMultiplier: 1.2,
+		},
+		func() bool { return true },
+		func() error {
+			req, innerErr := c.newRequest(ctx, method, url, endpointId, setters...)
+			if innerErr != nil {
+				return innerErr
+			}
 
-		var req *http.Request
-		req, err = c.newRequest(ctx, method, url, endpointId, setters...)
-		if err != nil {
-			return
-		}
-
-		streamReader, err = sendChatCompletionRequestStream(c, req)
-		apiErr := &model.APIError{}
-		if errors.As(err, &apiErr) && i <= c.config.RetryTimes && apiErr.HTTPStatusCode > http.StatusInternalServerError {
-			interval := c.retryInterval(c.config.RetryTimes, c.config.RetryTimes-i)
-			time.Sleep(time.Duration(interval) * time.Second)
-		} else {
-			break
-		}
-	}
+			streamReader, err = sendChatCompletionRequestStream(c, req)
+			return err
+		},
+		nil,
+		needRetryError,
+	)
 
 	return
 }
@@ -321,8 +338,14 @@ func isFailureStatusCode(resp *http.Response) bool {
 	return resp.StatusCode < http.StatusOK || resp.StatusCode >= http.StatusBadRequest
 }
 
-func needRetryStatusCode(resp *http.Response) bool {
-	return resp.StatusCode >= http.StatusInternalServerError
+func needRetryError(err error) bool {
+	apiErr := &model.APIError{}
+	if errors.As(err, &apiErr) {
+		return apiErr.HTTPStatusCode > http.StatusInternalServerError
+	} else if errors.Is(err, io.EOF) {
+		return true
+	}
+	return false
 }
 
 func decodeResponse(body io.Reader, v interface{}) error {
@@ -352,14 +375,14 @@ func (c *Client) fullURL(suffix string) string {
 }
 
 func (c *Client) handleErrorResp(resp *http.Response) error {
-	reqestId := resp.Header.Get(model.ClientRequestHeader)
+	requestId := resp.Header.Get(model.ClientRequestHeader)
 	var errRes model.ErrorResponse
 	err := json.NewDecoder(resp.Body).Decode(&errRes)
 	if err != nil || errRes.Error == nil {
 		reqErr := &model.RequestError{
 			HTTPStatusCode: resp.StatusCode,
 			Err:            err,
-			RequestId:      reqestId,
+			RequestId:      requestId,
 		}
 		if errRes.Error != nil {
 			reqErr.Err = errRes.Error
@@ -368,6 +391,6 @@ func (c *Client) handleErrorResp(resp *http.Response) error {
 	}
 
 	errRes.Error.HTTPStatusCode = resp.StatusCode
-	errRes.Error.RequestId = reqestId
+	errRes.Error.RequestId = requestId
 	return errRes.Error
 }
