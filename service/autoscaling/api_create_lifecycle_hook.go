@@ -46,13 +46,13 @@ func (c *AUTOSCALING) CreateLifecycleHookCommonRequest(input *map[string]interfa
 	return
 }
 
-// CreateLifecycleHookCommon API operation for AUTOSCALING.
+// CreateLifecycleHookCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CreateLifecycleHookCommon for usage and error information.
 func (c *AUTOSCALING) CreateLifecycleHookCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateLifecycleHookCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) CreateLifecycleHookRequest(input *CreateLifecycleHookInput
 	return
 }
 
-// CreateLifecycleHook API operation for AUTOSCALING.
+// CreateLifecycleHook API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CreateLifecycleHook for usage and error information.
 func (c *AUTOSCALING) CreateLifecycleHook(input *CreateLifecycleHookInput) (*CreateLifecycleHookOutput, error) {
 	req, out := c.CreateLifecycleHookRequest(input)
@@ -150,13 +150,13 @@ type CreateLifecycleHookInput struct {
 	LifecycleHookName *string `type:"string" required:"true"`
 
 	// LifecycleHookPolicy is a required field
-	LifecycleHookPolicy *string `type:"string" required:"true" enum:"EnumOfLifecycleHookPolicyForCreateLifecycleHookInput"`
+	LifecycleHookPolicy *string `type:"string" required:"true"`
 
 	// LifecycleHookTimeout is a required field
 	LifecycleHookTimeout *int32 `type:"int32" required:"true"`
 
 	// LifecycleHookType is a required field
-	LifecycleHookType *string `type:"string" required:"true" enum:"EnumOfLifecycleHookTypeForCreateLifecycleHookInput"`
+	LifecycleHookType *string `type:"string" required:"true"`
 
 	// ScalingGroupId is a required field
 	ScalingGroupId *string `type:"string" required:"true"`
@@ -292,22 +292,3 @@ func (s *LifecycleCommandForCreateLifecycleHookInput) SetParameters(v string) *L
 	s.Parameters = &v
 	return s
 }
-
-const (
-	// EnumOfLifecycleHookPolicyForCreateLifecycleHookInputContinue is a EnumOfLifecycleHookPolicyForCreateLifecycleHookInput enum value
-	EnumOfLifecycleHookPolicyForCreateLifecycleHookInputContinue = "CONTINUE"
-
-	// EnumOfLifecycleHookPolicyForCreateLifecycleHookInputReject is a EnumOfLifecycleHookPolicyForCreateLifecycleHookInput enum value
-	EnumOfLifecycleHookPolicyForCreateLifecycleHookInputReject = "REJECT"
-
-	// EnumOfLifecycleHookPolicyForCreateLifecycleHookInputRollback is a EnumOfLifecycleHookPolicyForCreateLifecycleHookInput enum value
-	EnumOfLifecycleHookPolicyForCreateLifecycleHookInputRollback = "ROLLBACK"
-)
-
-const (
-	// EnumOfLifecycleHookTypeForCreateLifecycleHookInputScaleIn is a EnumOfLifecycleHookTypeForCreateLifecycleHookInput enum value
-	EnumOfLifecycleHookTypeForCreateLifecycleHookInputScaleIn = "SCALE_IN"
-
-	// EnumOfLifecycleHookTypeForCreateLifecycleHookInputScaleOut is a EnumOfLifecycleHookTypeForCreateLifecycleHookInput enum value
-	EnumOfLifecycleHookTypeForCreateLifecycleHookInputScaleOut = "SCALE_OUT"
-)

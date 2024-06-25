@@ -46,13 +46,13 @@ func (c *AUTOSCALING) UntagResourcesCommonRequest(input *map[string]interface{})
 	return
 }
 
-// UntagResourcesCommon API operation for AUTOSCALING.
+// UntagResourcesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation UntagResourcesCommon for usage and error information.
 func (c *AUTOSCALING) UntagResourcesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.UntagResourcesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) UntagResourcesRequest(input *UntagResourcesInput) (req *re
 	return
 }
 
-// UntagResources API operation for AUTOSCALING.
+// UntagResources API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation UntagResources for usage and error information.
 func (c *AUTOSCALING) UntagResources(input *UntagResourcesInput) (*UntagResourcesOutput, error) {
 	req, out := c.UntagResourcesRequest(input)
@@ -206,7 +206,7 @@ type UntagResourcesInput struct {
 	ResourceIds []*string `type:"list" required:"true"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForUntagResourcesInput"`
+	ResourceType *string `type:"string" required:"true"`
 
 	// TagKeys is a required field
 	TagKeys []*string `type:"list" required:"true"`
@@ -282,8 +282,3 @@ func (s *UntagResourcesOutput) SetOperationDetails(v []*OperationDetailForUntagR
 	s.OperationDetails = v
 	return s
 }
-
-const (
-	// EnumOfResourceTypeForUntagResourcesInputScalinggroup is a EnumOfResourceTypeForUntagResourcesInput enum value
-	EnumOfResourceTypeForUntagResourcesInputScalinggroup = "scalinggroup"
-)

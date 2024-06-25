@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingGroupsCommonRequest(input *map[string]inter
 	return
 }
 
-// DescribeScalingGroupsCommon API operation for AUTOSCALING.
+// DescribeScalingGroupsCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingGroupsCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingGroupsCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingGroupsRequest(input *DescribeScalingGroupsI
 	return
 }
 
-// DescribeScalingGroups API operation for AUTOSCALING.
+// DescribeScalingGroups API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingGroups for usage and error information.
 func (c *AUTOSCALING) DescribeScalingGroups(input *DescribeScalingGroupsInput) (*DescribeScalingGroupsOutput, error) {
 	req, out := c.DescribeScalingGroupsRequest(input)
@@ -316,6 +316,8 @@ type LaunchTemplateOverrideForDescribeScalingGroupsOutput struct {
 
 	InstanceType *string `type:"string"`
 
+	PriceLimit *float64 `type:"float"`
+
 	WeightedCapacity *int32 `type:"int32"`
 }
 
@@ -332,6 +334,12 @@ func (s LaunchTemplateOverrideForDescribeScalingGroupsOutput) GoString() string 
 // SetInstanceType sets the InstanceType field's value.
 func (s *LaunchTemplateOverrideForDescribeScalingGroupsOutput) SetInstanceType(v string) *LaunchTemplateOverrideForDescribeScalingGroupsOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetPriceLimit sets the PriceLimit field's value.
+func (s *LaunchTemplateOverrideForDescribeScalingGroupsOutput) SetPriceLimit(v float64) *LaunchTemplateOverrideForDescribeScalingGroupsOutput {
+	s.PriceLimit = &v
 	return s
 }
 
@@ -368,6 +376,8 @@ type ScalingGroupForDescribeScalingGroupsOutput struct {
 
 	LifecycleState *string `type:"string"`
 
+	LoadBalancerHealthCheckGracePeriod *int32 `type:"int32"`
+
 	MaxInstanceNumber *int32 `type:"int32"`
 
 	MinInstanceNumber *int32 `type:"int32"`
@@ -387,6 +397,8 @@ type ScalingGroupForDescribeScalingGroupsOutput struct {
 	StoppedInstanceCount *int32 `type:"int32"`
 
 	SubnetIds []*string `type:"list"`
+
+	SuspendedProcesses []*string `type:"list"`
 
 	Tags []*TagForDescribeScalingGroupsOutput `type:"list"`
 
@@ -479,6 +491,12 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLifecycleState(v string)
 	return s
 }
 
+// SetLoadBalancerHealthCheckGracePeriod sets the LoadBalancerHealthCheckGracePeriod field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetLoadBalancerHealthCheckGracePeriod(v int32) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.LoadBalancerHealthCheckGracePeriod = &v
+	return s
+}
+
 // SetMaxInstanceNumber sets the MaxInstanceNumber field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetMaxInstanceNumber(v int32) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.MaxInstanceNumber = &v
@@ -536,6 +554,12 @@ func (s *ScalingGroupForDescribeScalingGroupsOutput) SetStoppedInstanceCount(v i
 // SetSubnetIds sets the SubnetIds field's value.
 func (s *ScalingGroupForDescribeScalingGroupsOutput) SetSubnetIds(v []*string) *ScalingGroupForDescribeScalingGroupsOutput {
 	s.SubnetIds = v
+	return s
+}
+
+// SetSuspendedProcesses sets the SuspendedProcesses field's value.
+func (s *ScalingGroupForDescribeScalingGroupsOutput) SetSuspendedProcesses(v []*string) *ScalingGroupForDescribeScalingGroupsOutput {
+	s.SuspendedProcesses = v
 	return s
 }
 

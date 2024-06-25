@@ -142,9 +142,13 @@ func (c *CLB) ModifyLoadBalancerAttributesWithContext(ctx volcengine.Context, in
 type ModifyLoadBalancerAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	AddressIpVersion *string `type:"string"`
+
 	AllowedPorts []*string `type:"list"`
 
 	Description *string `type:"string"`
+
+	EniIpv6Address *string `type:"string"`
 
 	// LoadBalancerId is a required field
 	LoadBalancerId *string `type:"string" required:"true"`
@@ -183,6 +187,12 @@ func (s *ModifyLoadBalancerAttributesInput) Validate() error {
 	return nil
 }
 
+// SetAddressIpVersion sets the AddressIpVersion field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetAddressIpVersion(v string) *ModifyLoadBalancerAttributesInput {
+	s.AddressIpVersion = &v
+	return s
+}
+
 // SetAllowedPorts sets the AllowedPorts field's value.
 func (s *ModifyLoadBalancerAttributesInput) SetAllowedPorts(v []*string) *ModifyLoadBalancerAttributesInput {
 	s.AllowedPorts = v
@@ -192,6 +202,12 @@ func (s *ModifyLoadBalancerAttributesInput) SetAllowedPorts(v []*string) *Modify
 // SetDescription sets the Description field's value.
 func (s *ModifyLoadBalancerAttributesInput) SetDescription(v string) *ModifyLoadBalancerAttributesInput {
 	s.Description = &v
+	return s
+}
+
+// SetEniIpv6Address sets the EniIpv6Address field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetEniIpv6Address(v string) *ModifyLoadBalancerAttributesInput {
+	s.EniIpv6Address = &v
 	return s
 }
 

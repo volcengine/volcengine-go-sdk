@@ -190,6 +190,10 @@ type DescribeListenerAttributesOutput struct {
 
 	CertificateId *string `type:"string"`
 
+	ClientBodyTimeout *int64 `type:"integer"`
+
+	ClientHeaderTimeout *int64 `type:"integer"`
+
 	ConnectionDrainEnabled *string `type:"string"`
 
 	ConnectionDrainTimeout *int64 `type:"integer"`
@@ -202,11 +206,15 @@ type DescribeListenerAttributesOutput struct {
 
 	Enabled *string `type:"string"`
 
+	EndPort *int64 `type:"integer"`
+
 	EstablishedTimeout *int64 `type:"integer"`
 
 	HealthCheck *HealthCheckForDescribeListenerAttributesOutput `type:"structure"`
 
 	Http2Enabled *string `type:"string"`
+
+	KeepaliveTimeout *int64 `type:"integer"`
 
 	ListenerId *string `type:"string"`
 
@@ -222,13 +230,25 @@ type DescribeListenerAttributesOutput struct {
 
 	Protocol *string `type:"string"`
 
+	ProxyConnectTimeout *int64 `type:"integer"`
+
 	ProxyProtocolType *string `type:"string"`
+
+	ProxyReadTimeout *int64 `type:"integer"`
+
+	ProxySendTimeout *int64 `type:"integer"`
 
 	RequestId *string `type:"string"`
 
 	Scheduler *string `type:"string"`
 
+	SecurityPolicyId *string `type:"string"`
+
+	SendTimeout *int64 `type:"integer"`
+
 	ServerGroupId *string `type:"string"`
+
+	StartPort *int64 `type:"integer"`
 
 	Status *string `type:"string"`
 
@@ -277,6 +297,18 @@ func (s *DescribeListenerAttributesOutput) SetCertificateId(v string) *DescribeL
 	return s
 }
 
+// SetClientBodyTimeout sets the ClientBodyTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetClientBodyTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.ClientBodyTimeout = &v
+	return s
+}
+
+// SetClientHeaderTimeout sets the ClientHeaderTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetClientHeaderTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.ClientHeaderTimeout = &v
+	return s
+}
+
 // SetConnectionDrainEnabled sets the ConnectionDrainEnabled field's value.
 func (s *DescribeListenerAttributesOutput) SetConnectionDrainEnabled(v string) *DescribeListenerAttributesOutput {
 	s.ConnectionDrainEnabled = &v
@@ -313,6 +345,12 @@ func (s *DescribeListenerAttributesOutput) SetEnabled(v string) *DescribeListene
 	return s
 }
 
+// SetEndPort sets the EndPort field's value.
+func (s *DescribeListenerAttributesOutput) SetEndPort(v int64) *DescribeListenerAttributesOutput {
+	s.EndPort = &v
+	return s
+}
+
 // SetEstablishedTimeout sets the EstablishedTimeout field's value.
 func (s *DescribeListenerAttributesOutput) SetEstablishedTimeout(v int64) *DescribeListenerAttributesOutput {
 	s.EstablishedTimeout = &v
@@ -328,6 +366,12 @@ func (s *DescribeListenerAttributesOutput) SetHealthCheck(v *HealthCheckForDescr
 // SetHttp2Enabled sets the Http2Enabled field's value.
 func (s *DescribeListenerAttributesOutput) SetHttp2Enabled(v string) *DescribeListenerAttributesOutput {
 	s.Http2Enabled = &v
+	return s
+}
+
+// SetKeepaliveTimeout sets the KeepaliveTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetKeepaliveTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.KeepaliveTimeout = &v
 	return s
 }
 
@@ -373,9 +417,27 @@ func (s *DescribeListenerAttributesOutput) SetProtocol(v string) *DescribeListen
 	return s
 }
 
+// SetProxyConnectTimeout sets the ProxyConnectTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetProxyConnectTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.ProxyConnectTimeout = &v
+	return s
+}
+
 // SetProxyProtocolType sets the ProxyProtocolType field's value.
 func (s *DescribeListenerAttributesOutput) SetProxyProtocolType(v string) *DescribeListenerAttributesOutput {
 	s.ProxyProtocolType = &v
+	return s
+}
+
+// SetProxyReadTimeout sets the ProxyReadTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetProxyReadTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.ProxyReadTimeout = &v
+	return s
+}
+
+// SetProxySendTimeout sets the ProxySendTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetProxySendTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.ProxySendTimeout = &v
 	return s
 }
 
@@ -391,9 +453,27 @@ func (s *DescribeListenerAttributesOutput) SetScheduler(v string) *DescribeListe
 	return s
 }
 
+// SetSecurityPolicyId sets the SecurityPolicyId field's value.
+func (s *DescribeListenerAttributesOutput) SetSecurityPolicyId(v string) *DescribeListenerAttributesOutput {
+	s.SecurityPolicyId = &v
+	return s
+}
+
+// SetSendTimeout sets the SendTimeout field's value.
+func (s *DescribeListenerAttributesOutput) SetSendTimeout(v int64) *DescribeListenerAttributesOutput {
+	s.SendTimeout = &v
+	return s
+}
+
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *DescribeListenerAttributesOutput) SetServerGroupId(v string) *DescribeListenerAttributesOutput {
 	s.ServerGroupId = &v
+	return s
+}
+
+// SetStartPort sets the StartPort field's value.
+func (s *DescribeListenerAttributesOutput) SetStartPort(v int64) *DescribeListenerAttributesOutput {
+	s.StartPort = &v
 	return s
 }
 
@@ -429,6 +509,8 @@ type HealthCheckForDescribeListenerAttributesOutput struct {
 	Interval *int64 `type:"integer"`
 
 	Method *string `type:"string"`
+
+	Port *int64 `type:"integer"`
 
 	Timeout *int64 `type:"integer"`
 
@@ -484,6 +566,12 @@ func (s *HealthCheckForDescribeListenerAttributesOutput) SetInterval(v int64) *H
 // SetMethod sets the Method field's value.
 func (s *HealthCheckForDescribeListenerAttributesOutput) SetMethod(v string) *HealthCheckForDescribeListenerAttributesOutput {
 	s.Method = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *HealthCheckForDescribeListenerAttributesOutput) SetPort(v int64) *HealthCheckForDescribeListenerAttributesOutput {
+	s.Port = &v
 	return s
 }
 

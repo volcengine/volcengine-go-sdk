@@ -48,13 +48,13 @@ func (c *AUTOSCALING) TagResourcesCommonRequest(input *map[string]interface{}) (
 	return
 }
 
-// TagResourcesCommon API operation for AUTOSCALING.
+// TagResourcesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation TagResourcesCommon for usage and error information.
 func (c *AUTOSCALING) TagResourcesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.TagResourcesCommonRequest(input)
@@ -113,13 +113,13 @@ func (c *AUTOSCALING) TagResourcesRequest(input *TagResourcesInput) (req *reques
 	return
 }
 
-// TagResources API operation for AUTOSCALING.
+// TagResources API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation TagResources for usage and error information.
 func (c *AUTOSCALING) TagResources(input *TagResourcesInput) (*TagResourcesOutput, error) {
 	req, out := c.TagResourcesRequest(input)
@@ -252,7 +252,7 @@ type TagResourcesInput struct {
 	ResourceIds []*string `type:"list" required:"true"`
 
 	// ResourceType is a required field
-	ResourceType *string `type:"string" required:"true" enum:"EnumOfResourceTypeForTagResourcesInput"`
+	ResourceType *string `type:"string" required:"true"`
 
 	// Tags is a required field
 	Tags []*TagForTagResourcesInput `type:"list" required:"true"`
@@ -338,8 +338,3 @@ func (s *TagResourcesOutput) SetOperationDetails(v []*OperationDetailForTagResou
 	s.OperationDetails = v
 	return s
 }
-
-const (
-	// EnumOfResourceTypeForTagResourcesInputScalinggroup is a EnumOfResourceTypeForTagResourcesInput enum value
-	EnumOfResourceTypeForTagResourcesInputScalinggroup = "scalinggroup"
-)

@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DeleteScalingConfigurationCommonRequest(input *map[string]
 	return
 }
 
-// DeleteScalingConfigurationCommon API operation for AUTOSCALING.
+// DeleteScalingConfigurationCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DeleteScalingConfigurationCommon for usage and error information.
 func (c *AUTOSCALING) DeleteScalingConfigurationCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DeleteScalingConfigurationCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DeleteScalingConfigurationRequest(input *DeleteScalingConf
 	return
 }
 
-// DeleteScalingConfiguration API operation for AUTOSCALING.
+// DeleteScalingConfiguration API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DeleteScalingConfiguration for usage and error information.
 func (c *AUTOSCALING) DeleteScalingConfiguration(input *DeleteScalingConfigurationInput) (*DeleteScalingConfigurationOutput, error) {
 	req, out := c.DeleteScalingConfigurationRequest(input)

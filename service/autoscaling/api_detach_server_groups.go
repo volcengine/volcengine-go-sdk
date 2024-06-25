@@ -48,13 +48,13 @@ func (c *AUTOSCALING) DetachServerGroupsCommonRequest(input *map[string]interfac
 	return
 }
 
-// DetachServerGroupsCommon API operation for AUTOSCALING.
+// DetachServerGroupsCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachServerGroupsCommon for usage and error information.
 func (c *AUTOSCALING) DetachServerGroupsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachServerGroupsCommonRequest(input)
@@ -113,13 +113,13 @@ func (c *AUTOSCALING) DetachServerGroupsRequest(input *DetachServerGroupsInput) 
 	return
 }
 
-// DetachServerGroups API operation for AUTOSCALING.
+// DetachServerGroups API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachServerGroups for usage and error information.
 func (c *AUTOSCALING) DetachServerGroups(input *DetachServerGroupsInput) (*DetachServerGroupsOutput, error) {
 	req, out := c.DetachServerGroupsRequest(input)
@@ -243,7 +243,7 @@ type ServerGroupAttributeForDetachServerGroupsInput struct {
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
 
-	Type *string `type:"string" enum:"EnumOfTypeForDetachServerGroupsInput"`
+	Type *string `type:"string"`
 }
 
 // String returns the string representation
@@ -289,11 +289,3 @@ func (s *ServerGroupAttributeForDetachServerGroupsInput) SetType(v string) *Serv
 	s.Type = &v
 	return s
 }
-
-const (
-	// EnumOfTypeForDetachServerGroupsInputClb is a EnumOfTypeForDetachServerGroupsInput enum value
-	EnumOfTypeForDetachServerGroupsInputClb = "CLB"
-
-	// EnumOfTypeForDetachServerGroupsInputAlb is a EnumOfTypeForDetachServerGroupsInput enum value
-	EnumOfTypeForDetachServerGroupsInputAlb = "ALB"
-)
