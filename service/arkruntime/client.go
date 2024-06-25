@@ -223,29 +223,6 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 }
 
 func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...requestOption) (err error) {
-	i := 0
-	for {
-		i++
-
-		var req *http.Request
-		req, err = c.newRequest(ctx, method, url, resourceType, resourceId, setters...)
-		if err != nil {
-			return
-		}
-
-		err = c.sendRequest(req, v)
-		apiErr := &model.APIError{}
-		if errors.As(err, &apiErr) && i <= c.config.RetryTimes && apiErr.HTTPStatusCode > http.StatusInternalServerError {
-			interval := c.retryInterval(c.config.RetryTimes, c.config.RetryTimes-i)
-			time.Sleep(time.Duration(interval) * time.Second)
-		} else {
-			break
-		}
-	}
-	return err
-}
-
-func (c *Client) Do(ctx context.Context, method, url, endpointId string, v model.Response, setters ...requestOption) (err error) {
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
@@ -256,7 +233,7 @@ func (c *Client) Do(ctx context.Context, method, url, endpointId string, v model
 		},
 		func() bool { return true },
 		func() error {
-			req, innerErr := c.newRequest(ctx, method, url, endpointId, setters...)
+			req, innerErr := c.newRequest(ctx, method, url, resourceType, resourceId, setters...)
 			if innerErr != nil {
 				return innerErr
 			}
@@ -338,30 +315,6 @@ func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*uti
 }
 
 func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, url, botId string, setters ...requestOption) (streamReader *utils.BotChatCompletionStreamReader, err error) {
-	i := 0
-	for {
-		i++
-
-		var req *http.Request
-		req, err = c.newRequest(ctx, method, url, resourceTypeBot, botId, setters...)
-		if err != nil {
-			return
-		}
-
-		streamReader, err = sendBotChatCompletionRequestStream(c, req)
-		apiErr := &model.APIError{}
-		if errors.As(err, &apiErr) && i <= c.config.RetryTimes && apiErr.HTTPStatusCode > http.StatusInternalServerError {
-			interval := c.retryInterval(c.config.RetryTimes, c.config.RetryTimes-i)
-			time.Sleep(time.Duration(interval) * time.Second)
-		} else {
-			break
-		}
-	}
-
-	return
-}
-
-func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url, endpointId string, setters ...requestOption) (streamReader *utils.ChatCompletionStreamReader, err error) {
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
@@ -372,7 +325,33 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 		},
 		func() bool { return true },
 		func() error {
-			req, innerErr := c.newRequest(ctx, method, url, endpointId, setters...)
+			req, innerErr := c.newRequest(ctx, method, url, resourceTypeBot, botId, setters...)
+			if innerErr != nil {
+				return innerErr
+			}
+
+			streamReader, err = sendBotChatCompletionRequestStream(c, req)
+			return err
+		},
+		nil,
+		needRetryError,
+	)
+
+	return
+}
+
+func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url, resourceId string, setters ...requestOption) (streamReader *utils.ChatCompletionStreamReader, err error) {
+	err = utils.Retry(
+		ctx,
+		utils.RetryPolicy{
+			MaxAttempts:       c.config.RetryTimes,
+			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
+			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
+			BackoffMultiplier: 1.2,
+		},
+		func() bool { return true },
+		func() error {
+			req, innerErr := c.newRequest(ctx, method, url, resourceTypeEndpoint, resourceId, setters...)
 			if innerErr != nil {
 				return innerErr
 			}
