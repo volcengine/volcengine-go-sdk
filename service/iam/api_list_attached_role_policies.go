@@ -139,7 +139,7 @@ func (c *IAM) ListAttachedRolePoliciesWithContext(ctx volcengine.Context, input 
 	return out, req.Send()
 }
 
-type AttachedPolicyMetadatumForListAttachedRolePoliciesOutput struct {
+type AttachedPolicyMetadataForListAttachedRolePoliciesOutput struct {
 	_ struct{} `type:"structure"`
 
 	AttachDate *string `type:"string"`
@@ -154,41 +154,41 @@ type AttachedPolicyMetadatumForListAttachedRolePoliciesOutput struct {
 }
 
 // String returns the string representation
-func (s AttachedPolicyMetadatumForListAttachedRolePoliciesOutput) String() string {
+func (s AttachedPolicyMetadataForListAttachedRolePoliciesOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AttachedPolicyMetadatumForListAttachedRolePoliciesOutput) GoString() string {
+func (s AttachedPolicyMetadataForListAttachedRolePoliciesOutput) GoString() string {
 	return s.String()
 }
 
 // SetAttachDate sets the AttachDate field's value.
-func (s *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput) SetAttachDate(v string) *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
+func (s *AttachedPolicyMetadataForListAttachedRolePoliciesOutput) SetAttachDate(v string) *AttachedPolicyMetadataForListAttachedRolePoliciesOutput {
 	s.AttachDate = &v
 	return s
 }
 
 // SetDescription sets the Description field's value.
-func (s *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput) SetDescription(v string) *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
+func (s *AttachedPolicyMetadataForListAttachedRolePoliciesOutput) SetDescription(v string) *AttachedPolicyMetadataForListAttachedRolePoliciesOutput {
 	s.Description = &v
 	return s
 }
 
 // SetPolicyName sets the PolicyName field's value.
-func (s *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput) SetPolicyName(v string) *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
+func (s *AttachedPolicyMetadataForListAttachedRolePoliciesOutput) SetPolicyName(v string) *AttachedPolicyMetadataForListAttachedRolePoliciesOutput {
 	s.PolicyName = &v
 	return s
 }
 
 // SetPolicyTrn sets the PolicyTrn field's value.
-func (s *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput) SetPolicyTrn(v string) *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
+func (s *AttachedPolicyMetadataForListAttachedRolePoliciesOutput) SetPolicyTrn(v string) *AttachedPolicyMetadataForListAttachedRolePoliciesOutput {
 	s.PolicyTrn = &v
 	return s
 }
 
 // SetPolicyType sets the PolicyType field's value.
-func (s *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput) SetPolicyType(v string) *AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
+func (s *AttachedPolicyMetadataForListAttachedRolePoliciesOutput) SetPolicyType(v string) *AttachedPolicyMetadataForListAttachedRolePoliciesOutput {
 	s.PolicyType = &v
 	return s
 }
@@ -234,7 +234,7 @@ type ListAttachedRolePoliciesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AttachedPolicyMetadata []*AttachedPolicyMetadatumForListAttachedRolePoliciesOutput `type:"list"`
+	AttachedPolicyMetadata []*AttachedPolicyMetadataForListAttachedRolePoliciesOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -248,7 +248,7 @@ func (s ListAttachedRolePoliciesOutput) GoString() string {
 }
 
 // SetAttachedPolicyMetadata sets the AttachedPolicyMetadata field's value.
-func (s *ListAttachedRolePoliciesOutput) SetAttachedPolicyMetadata(v []*AttachedPolicyMetadatumForListAttachedRolePoliciesOutput) *ListAttachedRolePoliciesOutput {
+func (s *ListAttachedRolePoliciesOutput) SetAttachedPolicyMetadata(v []*AttachedPolicyMetadataForListAttachedRolePoliciesOutput) *ListAttachedRolePoliciesOutput {
 	s.AttachedPolicyMetadata = v
 	return s
 }
