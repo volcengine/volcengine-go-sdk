@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // IAM.
 //    func myFunc(svc IAMAPI) bool {
-//        // Make svc.AddUserToGroup request
+//        // Make svc.AddClientIDToOIDCProvider request
 //    }
 //
 //    func main() {
@@ -30,6 +30,22 @@ import (
 //    }
 //
 type IAMAPI interface {
+	AddClientIDToOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddClientIDToOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddClientIDToOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddClientIDToOIDCProvider(*AddClientIDToOIDCProviderInput) (*AddClientIDToOIDCProviderOutput, error)
+	AddClientIDToOIDCProviderWithContext(volcengine.Context, *AddClientIDToOIDCProviderInput, ...request.Option) (*AddClientIDToOIDCProviderOutput, error)
+	AddClientIDToOIDCProviderRequest(*AddClientIDToOIDCProviderInput) (*request.Request, *AddClientIDToOIDCProviderOutput)
+
+	AddThumbprintToOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddThumbprintToOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddThumbprintToOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddThumbprintToOIDCProvider(*AddThumbprintToOIDCProviderInput) (*AddThumbprintToOIDCProviderOutput, error)
+	AddThumbprintToOIDCProviderWithContext(volcengine.Context, *AddThumbprintToOIDCProviderInput, ...request.Option) (*AddThumbprintToOIDCProviderOutput, error)
+	AddThumbprintToOIDCProviderRequest(*AddThumbprintToOIDCProviderInput) (*request.Request, *AddThumbprintToOIDCProviderOutput)
+
 	AddUserToGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddUserToGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddUserToGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -102,6 +118,14 @@ type IAMAPI interface {
 	CreateOAuthProviderWithContext(volcengine.Context, *CreateOAuthProviderInput, ...request.Option) (*CreateOAuthProviderOutput, error)
 	CreateOAuthProviderRequest(*CreateOAuthProviderInput) (*request.Request, *CreateOAuthProviderOutput)
 
+	CreateOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateOIDCProvider(*CreateOIDCProviderInput) (*CreateOIDCProviderOutput, error)
+	CreateOIDCProviderWithContext(volcengine.Context, *CreateOIDCProviderInput, ...request.Option) (*CreateOIDCProviderOutput, error)
+	CreateOIDCProviderRequest(*CreateOIDCProviderInput) (*request.Request, *CreateOIDCProviderOutput)
+
 	CreatePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreatePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreatePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -165,6 +189,14 @@ type IAMAPI interface {
 	DeleteOAuthProvider(*DeleteOAuthProviderInput) (*DeleteOAuthProviderOutput, error)
 	DeleteOAuthProviderWithContext(volcengine.Context, *DeleteOAuthProviderInput, ...request.Option) (*DeleteOAuthProviderOutput, error)
 	DeleteOAuthProviderRequest(*DeleteOAuthProviderInput) (*request.Request, *DeleteOAuthProviderOutput)
+
+	DeleteOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteOIDCProvider(*DeleteOIDCProviderInput) (*DeleteOIDCProviderOutput, error)
+	DeleteOIDCProviderWithContext(volcengine.Context, *DeleteOIDCProviderInput, ...request.Option) (*DeleteOIDCProviderOutput, error)
+	DeleteOIDCProviderRequest(*DeleteOIDCProviderInput) (*request.Request, *DeleteOIDCProviderOutput)
 
 	DeletePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeletePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -253,6 +285,14 @@ type IAMAPI interface {
 	GetOAuthProvider(*GetOAuthProviderInput) (*GetOAuthProviderOutput, error)
 	GetOAuthProviderWithContext(volcengine.Context, *GetOAuthProviderInput, ...request.Option) (*GetOAuthProviderOutput, error)
 	GetOAuthProviderRequest(*GetOAuthProviderInput) (*request.Request, *GetOAuthProviderOutput)
+
+	GetOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetOIDCProvider(*GetOIDCProviderInput) (*GetOIDCProviderOutput, error)
+	GetOIDCProviderWithContext(volcengine.Context, *GetOIDCProviderInput, ...request.Option) (*GetOIDCProviderOutput, error)
+	GetOIDCProviderRequest(*GetOIDCProviderInput) (*request.Request, *GetOIDCProviderOutput)
 
 	GetPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -366,6 +406,14 @@ type IAMAPI interface {
 	ListIdentityProvidersWithContext(volcengine.Context, *ListIdentityProvidersInput, ...request.Option) (*ListIdentityProvidersOutput, error)
 	ListIdentityProvidersRequest(*ListIdentityProvidersInput) (*request.Request, *ListIdentityProvidersOutput)
 
+	ListOIDCProvidersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListOIDCProvidersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListOIDCProvidersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListOIDCProviders(*ListOIDCProvidersInput) (*ListOIDCProvidersOutput, error)
+	ListOIDCProvidersWithContext(volcengine.Context, *ListOIDCProvidersInput, ...request.Option) (*ListOIDCProvidersOutput, error)
+	ListOIDCProvidersRequest(*ListOIDCProvidersInput) (*request.Request, *ListOIDCProvidersOutput)
+
 	ListPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -381,6 +429,14 @@ type IAMAPI interface {
 	ListRoles(*ListRolesInput) (*ListRolesOutput, error)
 	ListRolesWithContext(volcengine.Context, *ListRolesInput, ...request.Option) (*ListRolesOutput, error)
 	ListRolesRequest(*ListRolesInput) (*request.Request, *ListRolesOutput)
+
+	ListSAMLProviderCertificatesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSAMLProviderCertificatesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSAMLProviderCertificatesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSAMLProviderCertificates(*ListSAMLProviderCertificatesInput) (*ListSAMLProviderCertificatesOutput, error)
+	ListSAMLProviderCertificatesWithContext(volcengine.Context, *ListSAMLProviderCertificatesInput, ...request.Option) (*ListSAMLProviderCertificatesOutput, error)
+	ListSAMLProviderCertificatesRequest(*ListSAMLProviderCertificatesInput) (*request.Request, *ListSAMLProviderCertificatesOutput)
 
 	ListSAMLProvidersCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSAMLProvidersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -405,6 +461,30 @@ type IAMAPI interface {
 	ListUsersForGroup(*ListUsersForGroupInput) (*ListUsersForGroupOutput, error)
 	ListUsersForGroupWithContext(volcengine.Context, *ListUsersForGroupInput, ...request.Option) (*ListUsersForGroupOutput, error)
 	ListUsersForGroupRequest(*ListUsersForGroupInput) (*request.Request, *ListUsersForGroupOutput)
+
+	RemoveClientIDFromOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveClientIDFromOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveClientIDFromOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveClientIDFromOIDCProvider(*RemoveClientIDFromOIDCProviderInput) (*RemoveClientIDFromOIDCProviderOutput, error)
+	RemoveClientIDFromOIDCProviderWithContext(volcengine.Context, *RemoveClientIDFromOIDCProviderInput, ...request.Option) (*RemoveClientIDFromOIDCProviderOutput, error)
+	RemoveClientIDFromOIDCProviderRequest(*RemoveClientIDFromOIDCProviderInput) (*request.Request, *RemoveClientIDFromOIDCProviderOutput)
+
+	RemoveSAMLProviderCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveSAMLProviderCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveSAMLProviderCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveSAMLProviderCertificate(*RemoveSAMLProviderCertificateInput) (*RemoveSAMLProviderCertificateOutput, error)
+	RemoveSAMLProviderCertificateWithContext(volcengine.Context, *RemoveSAMLProviderCertificateInput, ...request.Option) (*RemoveSAMLProviderCertificateOutput, error)
+	RemoveSAMLProviderCertificateRequest(*RemoveSAMLProviderCertificateInput) (*request.Request, *RemoveSAMLProviderCertificateOutput)
+
+	RemoveThumbprintFromOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveThumbprintFromOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveThumbprintFromOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveThumbprintFromOIDCProvider(*RemoveThumbprintFromOIDCProviderInput) (*RemoveThumbprintFromOIDCProviderOutput, error)
+	RemoveThumbprintFromOIDCProviderWithContext(volcengine.Context, *RemoveThumbprintFromOIDCProviderInput, ...request.Option) (*RemoveThumbprintFromOIDCProviderOutput, error)
+	RemoveThumbprintFromOIDCProviderRequest(*RemoveThumbprintFromOIDCProviderInput) (*request.Request, *RemoveThumbprintFromOIDCProviderOutput)
 
 	RemoveUserFromGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemoveUserFromGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -454,6 +534,14 @@ type IAMAPI interface {
 	UpdateLoginProfileWithContext(volcengine.Context, *UpdateLoginProfileInput, ...request.Option) (*UpdateLoginProfileOutput, error)
 	UpdateLoginProfileRequest(*UpdateLoginProfileInput) (*request.Request, *UpdateLoginProfileOutput)
 
+	UpdateOIDCProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateOIDCProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateOIDCProviderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateOIDCProvider(*UpdateOIDCProviderInput) (*UpdateOIDCProviderOutput, error)
+	UpdateOIDCProviderWithContext(volcengine.Context, *UpdateOIDCProviderInput, ...request.Option) (*UpdateOIDCProviderOutput, error)
+	UpdateOIDCProviderRequest(*UpdateOIDCProviderInput) (*request.Request, *UpdateOIDCProviderOutput)
+
 	UpdatePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdatePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdatePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -485,6 +573,14 @@ type IAMAPI interface {
 	UpdateUser(*UpdateUserInput) (*UpdateUserOutput, error)
 	UpdateUserWithContext(volcengine.Context, *UpdateUserInput, ...request.Option) (*UpdateUserOutput, error)
 	UpdateUserRequest(*UpdateUserInput) (*request.Request, *UpdateUserOutput)
+
+	AddSAMLProviderCertificateCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddSAMLProviderCertificateCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddSAMLProviderCertificateCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddSAMLProviderCertificate(*AddSAMLProviderCertificateInput) (*AddSAMLProviderCertificateOutput, error)
+	AddSAMLProviderCertificateWithContext(volcengine.Context, *AddSAMLProviderCertificateInput, ...request.Option) (*AddSAMLProviderCertificateOutput, error)
+	AddSAMLProviderCertificateRequest(*AddSAMLProviderCertificateInput) (*request.Request, *AddSAMLProviderCertificateOutput)
 
 	CreateSAMLProviderCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateSAMLProviderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
