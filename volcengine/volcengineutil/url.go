@@ -1,7 +1,7 @@
 package volcengineutil
 
 import (
-	"code.byted.org/eps-platform/volcengine-innersdk-golang/volcengine/volcengineerr"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 // Copy from https://github.com/aws/aws-sdk-go
@@ -30,15 +30,6 @@ type ServiceInfo struct {
 	Region  string
 }
 
-const (
-	endpoint = "open.volcengineapi.com"
-
-	//internalUrl = "open.volcengineapi.com"
-	//http  = "http"
-	//https = "https"
-
-)
-
 func (c *Endpoint) GetEndpoint() string {
 	if c.CustomerEndpoint != "" {
 		return c.CustomerEndpoint
@@ -49,21 +40,11 @@ func (c *Endpoint) GetEndpoint() string {
 
 const (
 	separator      = "."
-	endpointSuffix = separator + "commones.org"
+	openPrefix     = "open"
+	endpointSuffix = separator + "volcengineapi.com"
 )
 
-const (
-	regionCodeCNBeijing  = "cn-beijing"
-	regionCodeCNShanghai = "cn-shanghai"
-	regionCodeCNNantong  = "cn-nantong"
-)
-const (
-	ErrorCodeDefaultEndpointServiceNotExist        = "DefaultEndpointServiceNotExistError"
-	ErrorCodeDefaultEndpointRegionEndpointNotExist = "DefaultEndpointRegionEndpointNotExistError"
-)
-
-var ErrorDefaultEndpointServiceNotExist = volcengineerr.New(ErrorCodeDefaultEndpointServiceNotExist, "service info not exist when fetch default endpoint", nil)
-var ErrorDefaultEndpointRegionEndpointNotExist = volcengineerr.New(ErrorCodeDefaultEndpointRegionEndpointNotExist, "region endpoint info not exist when fetch default endpoint", nil)
+var endpoint = openPrefix + endpointSuffix
 
 type RegionEndpointMap map[string]string
 
@@ -81,44 +62,24 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 		GlobalEndpoint:    "iam" + endpointSuffix,
 		RegionEndpointMap: nil,
 	},
-	//"vpc": {
-	//	Service:        "vpc",
-	//	IsGlobal:       false,
-	//	GlobalEndpoint: "",
-	//	RegionEndpointMap: map[string]string{
-	//		regionCodeCNBeijing:  regionCodeCNBeijing + separator + "vpc" + endpointSuffix,
-	//		regionCodeCNShanghai: regionCodeCNShanghai + separator + "vpc" + endpointSuffix,
-	//		regionCodeCNNantong:  regionCodeCNNantong + separator + "vpc" + endpointSuffix,
-	//	},
-	//},
-	//"fw_center": {
-	//	Service:        "fw_center",
-	//	IsGlobal:       false,
-	//	GlobalEndpoint: "",
-	//	RegionEndpointMap: map[string]string{
-	//		regionCodeCNBeijing:  regionCodeCNBeijing + separator + "fw-center" + endpointSuffix,
-	//		regionCodeCNShanghai: regionCodeCNShanghai + separator + "fw-center" + endpointSuffix,
-	//		regionCodeCNNantong:  regionCodeCNNantong + separator + "fw-center" + endpointSuffix,
-	//	},
-	//},
 }
 
 func GetDefaultEndpointByServiceInfo(service string, regionCode string) (*string, volcengineerr.Error) {
 	defaultEndpointInfo, sExist := defaultEndpoint[service]
 	if sExist == false {
-		return nil, ErrorDefaultEndpointServiceNotExist
+		return &endpoint, nil
 	}
 
 	isGlobal := defaultEndpointInfo.IsGlobal
 	if isGlobal {
 		return &defaultEndpointInfo.GlobalEndpoint, nil
-	} else {
-		regionEndpointMp := defaultEndpointInfo.RegionEndpointMap
-		regionEndpointStr, rExist := regionEndpointMp[regionCode]
-		if !rExist {
-			return nil, ErrorDefaultEndpointRegionEndpointNotExist
-		}
-
-		return &regionEndpointStr, nil
 	}
+
+	regionEndpointMp := defaultEndpointInfo.RegionEndpointMap
+	regionEndpointStr, rExist := regionEndpointMp[regionCode]
+	if !rExist {
+		return &endpoint, nil
+	}
+
+	return &regionEndpointStr, nil
 }

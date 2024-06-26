@@ -4,7 +4,6 @@ package session
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
 import (
-	"code.byted.org/eps-platform/volcengine-innersdk-golang/volcengine/volcengineutil"
 	"crypto/tls"
 	"crypto/x509"
 	"io"
@@ -130,10 +129,6 @@ func New(cfgs ...*volcengine.Config) *Session {
 func NewSession(cfgs ...*volcengine.Config) (*Session, error) {
 	opts := Options{}
 	opts.Config.MergeIn(cfgs...)
-
-	if opts.Config.Endpoint == nil {
-		opts.Config.Endpoint = volcengine.String(volcengineutil.NewEndpoint().GetEndpoint())
-	}
 
 	//merge config region and endpoint info to sts
 	if opts.Config.Credentials == nil {
