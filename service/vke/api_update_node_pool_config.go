@@ -208,6 +208,8 @@ func (s *AutoScalingForUpdateNodePoolConfigInput) SetSubnetPolicy(v string) *Aut
 type DataVolumeForUpdateNodePoolConfigInput struct {
 	_ struct{} `type:"structure"`
 
+	FileSystem *string `type:"string" enum:"EnumOfFileSystemForUpdateNodePoolConfigInput"`
+
 	MountPoint *string `type:"string"`
 
 	Size *int32 `type:"int32"`
@@ -223,6 +225,12 @@ func (s DataVolumeForUpdateNodePoolConfigInput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForUpdateNodePoolConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetFileSystem sets the FileSystem field's value.
+func (s *DataVolumeForUpdateNodePoolConfigInput) SetFileSystem(v string) *DataVolumeForUpdateNodePoolConfigInput {
+	s.FileSystem = &v
+	return s
 }
 
 // SetMountPoint sets the MountPoint field's value.
@@ -727,6 +735,14 @@ const (
 )
 
 const (
+	// EnumOfFileSystemForUpdateNodePoolConfigInputExt4 is a EnumOfFileSystemForUpdateNodePoolConfigInput enum value
+	EnumOfFileSystemForUpdateNodePoolConfigInputExt4 = "Ext4"
+
+	// EnumOfFileSystemForUpdateNodePoolConfigInputXfs is a EnumOfFileSystemForUpdateNodePoolConfigInput enum value
+	EnumOfFileSystemForUpdateNodePoolConfigInputXfs = "Xfs"
+)
+
+const (
 	// EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids is a EnumOfSecurityStrategyListForUpdateNodePoolConfigInput enum value
 	EnumOfSecurityStrategyListForUpdateNodePoolConfigInputHids = "Hids"
 )
@@ -745,13 +761,4 @@ const (
 
 	// EnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl is a EnumOfTypeForUpdateNodePoolConfigInput enum value
 	EnumOfTypeForUpdateNodePoolConfigInputEssdFlexPl = "ESSD_FlexPL"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputEssdPl1 is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputEssdPl1 = "ESSD_PL1"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputEssd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputEssd = "ESSD"
-
-	// EnumOfTypeForUpdateNodePoolConfigInputPtssd is a EnumOfTypeForUpdateNodePoolConfigInput enum value
-	EnumOfTypeForUpdateNodePoolConfigInputPtssd = "PTSSD"
 )
