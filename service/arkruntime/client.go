@@ -161,16 +161,18 @@ func (c *Client) newRequest(ctx context.Context, method, url, endpointId string,
 		body:   nil,
 		header: make(http.Header),
 	}
+
+	errH := c.setCommonHeaders(ctx, args, endpointId)
+	if errH != nil {
+		return nil, errH
+	}
+
 	for _, setter := range setters {
 		setter(args)
 	}
 	req, err := c.requestBuilder.Build(ctx, method, url, args.body, args.header)
 	if err != nil {
 		return nil, err
-	}
-	errH := c.setCommonHeaders(ctx, req, args.body, endpointId)
-	if errH != nil {
-		return nil, errH
 	}
 	return req, nil
 }
@@ -316,11 +318,11 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 	return
 }
 
-func (c *Client) setCommonHeaders(ctx context.Context, req *http.Request, body interface{}, endpointId string) error {
-	req.Header.Set(model.ClientRequestHeader, utils.GenRequestId())
+func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, endpointId string) error {
+	args.header.Set(model.ClientRequestHeader, utils.GenRequestId())
 
 	if len(c.config.apiKey) > 0 {
-		req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.config.apiKey))
+		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", c.config.apiKey))
 	} else {
 		if !strings.HasPrefix(endpointId, "ep-") {
 			return model.ErrBodyWithoutEndpoint
@@ -329,7 +331,7 @@ func (c *Client) setCommonHeaders(ctx context.Context, req *http.Request, body i
 		if err != nil {
 			return fmt.Errorf("failed to get endpoint sts token. err=%v", err)
 		}
-		req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
+		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
 	}
 	return nil
 }
