@@ -374,6 +374,12 @@ const (
 const (
 	// EnumOfFileSystemTypeForCreateFileSystemInputExtreme is a EnumOfFileSystemTypeForCreateFileSystemInput enum value
 	EnumOfFileSystemTypeForCreateFileSystemInputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForCreateFileSystemInputCapacity is a EnumOfFileSystemTypeForCreateFileSystemInput enum value
+	EnumOfFileSystemTypeForCreateFileSystemInputCapacity = "Capacity"
+
+	// EnumOfFileSystemTypeForCreateFileSystemInputCache is a EnumOfFileSystemTypeForCreateFileSystemInput enum value
+	EnumOfFileSystemTypeForCreateFileSystemInputCache = "Cache"
 )
 
 const (

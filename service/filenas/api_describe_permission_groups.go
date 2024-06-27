@@ -400,6 +400,12 @@ func (s *PermissionGroupForDescribePermissionGroupsOutput) SetPermissionRuleCoun
 const (
 	// EnumOfFileSystemTypeForDescribePermissionGroupsInputExtreme is a EnumOfFileSystemTypeForDescribePermissionGroupsInput enum value
 	EnumOfFileSystemTypeForDescribePermissionGroupsInputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForDescribePermissionGroupsInputCapacity is a EnumOfFileSystemTypeForDescribePermissionGroupsInput enum value
+	EnumOfFileSystemTypeForDescribePermissionGroupsInputCapacity = "Capacity"
+
+	// EnumOfFileSystemTypeForDescribePermissionGroupsInputCache is a EnumOfFileSystemTypeForDescribePermissionGroupsInput enum value
+	EnumOfFileSystemTypeForDescribePermissionGroupsInputCache = "Cache"
 )
 
 const (
