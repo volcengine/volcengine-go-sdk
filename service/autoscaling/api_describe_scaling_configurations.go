@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingConfigurationsCommonRequest(input *map[stri
 	return
 }
 
-// DescribeScalingConfigurationsCommon API operation for AUTOSCALING.
+// DescribeScalingConfigurationsCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingConfigurationsCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingConfigurationsCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingConfigurationsCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingConfigurationsRequest(input *DescribeScalin
 	return
 }
 
-// DescribeScalingConfigurations API operation for AUTOSCALING.
+// DescribeScalingConfigurations API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingConfigurations for usage and error information.
 func (c *AUTOSCALING) DescribeScalingConfigurations(input *DescribeScalingConfigurationsInput) (*DescribeScalingConfigurationsOutput, error) {
 	req, out := c.DescribeScalingConfigurationsRequest(input)
@@ -264,9 +264,13 @@ type EipForDescribeScalingConfigurationsOutput struct {
 
 	BandwidthPackageId *string `type:"string"`
 
-	BillingType *string `type:"string" enum:"EnumOfBillingTypeForDescribeScalingConfigurationsOutput"`
+	BillingType *string `type:"string"`
 
 	ISP *string `type:"string"`
+
+	SecurityProtectionInstanceId *int32 `type:"int32"`
+
+	SecurityProtectionTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -303,6 +307,48 @@ func (s *EipForDescribeScalingConfigurationsOutput) SetISP(v string) *EipForDesc
 	return s
 }
 
+// SetSecurityProtectionInstanceId sets the SecurityProtectionInstanceId field's value.
+func (s *EipForDescribeScalingConfigurationsOutput) SetSecurityProtectionInstanceId(v int32) *EipForDescribeScalingConfigurationsOutput {
+	s.SecurityProtectionInstanceId = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipForDescribeScalingConfigurationsOutput) SetSecurityProtectionTypes(v []*string) *EipForDescribeScalingConfigurationsOutput {
+	s.SecurityProtectionTypes = v
+	return s
+}
+
+type InstanceTypeOverrideForDescribeScalingConfigurationsOutput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceType *string `type:"string"`
+
+	PriceLimit *float64 `type:"float"`
+}
+
+// String returns the string representation
+func (s InstanceTypeOverrideForDescribeScalingConfigurationsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypeOverrideForDescribeScalingConfigurationsOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *InstanceTypeOverrideForDescribeScalingConfigurationsOutput) SetInstanceType(v string) *InstanceTypeOverrideForDescribeScalingConfigurationsOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetPriceLimit sets the PriceLimit field's value.
+func (s *InstanceTypeOverrideForDescribeScalingConfigurationsOutput) SetPriceLimit(v float64) *InstanceTypeOverrideForDescribeScalingConfigurationsOutput {
+	s.PriceLimit = &v
+	return s
+}
+
 type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -322,13 +368,15 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 
 	InstanceName *string `type:"string"`
 
+	InstanceTypeOverrides []*InstanceTypeOverrideForDescribeScalingConfigurationsOutput `type:"list"`
+
 	InstanceTypes []*string `type:"list"`
 
 	Ipv6AddressCount *int32 `type:"int32"`
 
 	KeyPairName *string `type:"string"`
 
-	LifecycleState *string `type:"string" enum:"EnumOfLifecycleStateForDescribeScalingConfigurationsOutput"`
+	LifecycleState *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -338,7 +386,7 @@ type ScalingConfigurationForDescribeScalingConfigurationsOutput struct {
 
 	ScalingGroupId *string `type:"string"`
 
-	SecurityEnhancementStrategy *string `type:"string" enum:"EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutput"`
+	SecurityEnhancementStrategy *string `type:"string"`
 
 	SecurityGroupIds []*string `type:"list"`
 
@@ -410,6 +458,12 @@ func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetInstance
 // SetInstanceName sets the InstanceName field's value.
 func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetInstanceName(v string) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceTypeOverrides sets the InstanceTypeOverrides field's value.
+func (s *ScalingConfigurationForDescribeScalingConfigurationsOutput) SetInstanceTypeOverrides(v []*InstanceTypeOverrideForDescribeScalingConfigurationsOutput) *ScalingConfigurationForDescribeScalingConfigurationsOutput {
+	s.InstanceTypeOverrides = v
 	return s
 }
 
@@ -576,27 +630,3 @@ func (s *VolumeForDescribeScalingConfigurationsOutput) SetVolumeType(v string) *
 	s.VolumeType = &v
 	return s
 }
-
-const (
-	// EnumOfBillingTypeForDescribeScalingConfigurationsOutputPostPaidByBandwidth is a EnumOfBillingTypeForDescribeScalingConfigurationsOutput enum value
-	EnumOfBillingTypeForDescribeScalingConfigurationsOutputPostPaidByBandwidth = "PostPaidByBandwidth"
-
-	// EnumOfBillingTypeForDescribeScalingConfigurationsOutputPostPaidByTraffic is a EnumOfBillingTypeForDescribeScalingConfigurationsOutput enum value
-	EnumOfBillingTypeForDescribeScalingConfigurationsOutputPostPaidByTraffic = "PostPaidByTraffic"
-)
-
-const (
-	// EnumOfLifecycleStateForDescribeScalingConfigurationsOutputActive is a EnumOfLifecycleStateForDescribeScalingConfigurationsOutput enum value
-	EnumOfLifecycleStateForDescribeScalingConfigurationsOutputActive = "Active"
-
-	// EnumOfLifecycleStateForDescribeScalingConfigurationsOutputInActive is a EnumOfLifecycleStateForDescribeScalingConfigurationsOutput enum value
-	EnumOfLifecycleStateForDescribeScalingConfigurationsOutputInActive = "InActive"
-)
-
-const (
-	// EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutputActive is a EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutput enum value
-	EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutputActive = "Active"
-
-	// EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutputInActive is a EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutput enum value
-	EnumOfSecurityEnhancementStrategyForDescribeScalingConfigurationsOutputInActive = "InActive"
-)

@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DetachInstancesCommonRequest(input *map[string]interface{}
 	return
 }
 
-// DetachInstancesCommon API operation for AUTOSCALING.
+// DetachInstancesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachInstancesCommon for usage and error information.
 func (c *AUTOSCALING) DetachInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DetachInstancesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DetachInstancesRequest(input *DetachInstancesInput) (req *
 	return
 }
 
-// DetachInstances API operation for AUTOSCALING.
+// DetachInstances API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DetachInstances for usage and error information.
 func (c *AUTOSCALING) DetachInstances(input *DetachInstancesInput) (*DetachInstancesOutput, error) {
 	req, out := c.DetachInstancesRequest(input)
@@ -144,7 +144,7 @@ type DetachInstancesInput struct {
 
 	DecreaseDesiredCapacity *bool `type:"boolean"`
 
-	DetachOption *string `type:"string" enum:"EnumOfDetachOptionForDetachInstancesInput"`
+	DetachOption *string `type:"string"`
 
 	// InstanceIds is a required field
 	InstanceIds []*string `type:"list" required:"true"`
@@ -215,6 +215,8 @@ type DetachInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	ScalingActivityId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -227,10 +229,8 @@ func (s DetachInstancesOutput) GoString() string {
 	return s.String()
 }
 
-const (
-	// EnumOfDetachOptionForDetachInstancesInputNone is a EnumOfDetachOptionForDetachInstancesInput enum value
-	EnumOfDetachOptionForDetachInstancesInputNone = "none"
-
-	// EnumOfDetachOptionForDetachInstancesInputBoth is a EnumOfDetachOptionForDetachInstancesInput enum value
-	EnumOfDetachOptionForDetachInstancesInputBoth = "both"
-)
+// SetScalingActivityId sets the ScalingActivityId field's value.
+func (s *DetachInstancesOutput) SetScalingActivityId(v string) *DetachInstancesOutput {
+	s.ScalingActivityId = &v
+	return s
+}

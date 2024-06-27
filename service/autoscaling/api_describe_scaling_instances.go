@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeScalingInstancesCommonRequest(input *map[string]in
 	return
 }
 
-// DescribeScalingInstancesCommon API operation for AUTOSCALING.
+// DescribeScalingInstancesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingInstancesCommon for usage and error information.
 func (c *AUTOSCALING) DescribeScalingInstancesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeScalingInstancesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeScalingInstancesRequest(input *DescribeScalingInst
 	return
 }
 
-// DescribeScalingInstances API operation for AUTOSCALING.
+// DescribeScalingInstances API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeScalingInstances for usage and error information.
 func (c *AUTOSCALING) DescribeScalingInstances(input *DescribeScalingInstancesInput) (*DescribeScalingInstancesOutput, error) {
 	req, out := c.DescribeScalingInstancesRequest(input)
@@ -142,7 +142,7 @@ func (c *AUTOSCALING) DescribeScalingInstancesWithContext(ctx volcengine.Context
 type DescribeScalingInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	CreationType *string `type:"string" enum:"EnumOfCreationTypeForDescribeScalingInstancesInput"`
+	CreationType *string `type:"string"`
 
 	InstanceIds []*string `type:"list"`
 
@@ -154,7 +154,7 @@ type DescribeScalingInstancesInput struct {
 
 	ScalingGroupId *string `type:"string"`
 
-	Status *string `type:"string" enum:"EnumOfStatusForDescribeScalingInstancesInput"`
+	Status *string `type:"string"`
 }
 
 // String returns the string representation
@@ -374,40 +374,3 @@ func (s *ScalingInstanceForDescribeScalingInstancesOutput) SetZoneId(v string) *
 	s.ZoneId = &v
 	return s
 }
-
-const (
-	// EnumOfCreationTypeForDescribeScalingInstancesInputAutoCreated is a EnumOfCreationTypeForDescribeScalingInstancesInput enum value
-	EnumOfCreationTypeForDescribeScalingInstancesInputAutoCreated = "AutoCreated"
-
-	// EnumOfCreationTypeForDescribeScalingInstancesInputAttached is a EnumOfCreationTypeForDescribeScalingInstancesInput enum value
-	EnumOfCreationTypeForDescribeScalingInstancesInputAttached = "Attached"
-)
-
-const (
-	// EnumOfStatusForDescribeScalingInstancesInputInit is a EnumOfStatusForDescribeScalingInstancesInput enum value
-	EnumOfStatusForDescribeScalingInstancesInputInit = "Init"
-
-	// EnumOfStatusForDescribeScalingInstancesInputPending is a EnumOfStatusForDescribeScalingInstancesInput enum value
-	EnumOfStatusForDescribeScalingInstancesInputPending = "Pending"
-
-	// EnumOfStatusForDescribeScalingInstancesInputPendingWait is a EnumOfStatusForDescribeScalingInstancesInput enum value
-	EnumOfStatusForDescribeScalingInstancesInputPendingWait = "Pending:Wait"
-
-	// EnumOfStatusForDescribeScalingInstancesInputInService is a EnumOfStatusForDescribeScalingInstancesInput enum value
-	EnumOfStatusForDescribeScalingInstancesInputInService = "InService"
-
-	// EnumOfStatusForDescribeScalingInstancesInputError is a EnumOfStatusForDescribeScalingInstancesInput enum value
-	EnumOfStatusForDescribeScalingInstancesInputError = "Error"
-
-	// EnumOfStatusForDescribeScalingInstancesInputRemoving is a EnumOfStatusForDescribeScalingInstancesInput enum value
-	EnumOfStatusForDescribeScalingInstancesInputRemoving = "Removing"
-
-	// EnumOfStatusForDescribeScalingInstancesInputRemovingWait is a EnumOfStatusForDescribeScalingInstancesInput enum value
-	EnumOfStatusForDescribeScalingInstancesInputRemovingWait = "Removing:Wait"
-
-	// EnumOfStatusForDescribeScalingInstancesInputStopped is a EnumOfStatusForDescribeScalingInstancesInput enum value
-	EnumOfStatusForDescribeScalingInstancesInputStopped = "Stopped"
-
-	// EnumOfStatusForDescribeScalingInstancesInputProtected is a EnumOfStatusForDescribeScalingInstancesInput enum value
-	EnumOfStatusForDescribeScalingInstancesInputProtected = "Protected"
-)

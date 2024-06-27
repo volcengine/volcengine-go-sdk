@@ -46,13 +46,13 @@ func (c *AUTOSCALING) DescribeLifecycleActivitiesCommonRequest(input *map[string
 	return
 }
 
-// DescribeLifecycleActivitiesCommon API operation for AUTOSCALING.
+// DescribeLifecycleActivitiesCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeLifecycleActivitiesCommon for usage and error information.
 func (c *AUTOSCALING) DescribeLifecycleActivitiesCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.DescribeLifecycleActivitiesCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) DescribeLifecycleActivitiesRequest(input *DescribeLifecycl
 	return
 }
 
-// DescribeLifecycleActivities API operation for AUTOSCALING.
+// DescribeLifecycleActivities API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation DescribeLifecycleActivities for usage and error information.
 func (c *AUTOSCALING) DescribeLifecycleActivities(input *DescribeLifecycleActivitiesInput) (*DescribeLifecycleActivitiesOutput, error) {
 	req, out := c.DescribeLifecycleActivitiesRequest(input)
@@ -144,7 +144,7 @@ type DescribeLifecycleActivitiesInput struct {
 
 	InstanceId *string `type:"string"`
 
-	LifecycleActivityStatus *string `type:"string" enum:"EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInput"`
+	LifecycleActivityStatus *string `type:"string"`
 
 	PageNumber *int32 `type:"int32"`
 
@@ -302,14 +302,3 @@ func (s *LifecycleActivityForDescribeLifecycleActivitiesOutput) SetScalingActivi
 	s.ScalingActivityId = &v
 	return s
 }
-
-const (
-	// EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInputPending is a EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInput enum value
-	EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInputPending = "Pending"
-
-	// EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInputTimeout is a EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInput enum value
-	EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInputTimeout = "Timeout"
-
-	// EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInputCompleted is a EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInput enum value
-	EnumOfLifecycleActivityStatusForDescribeLifecycleActivitiesInputCompleted = "Completed"
-)

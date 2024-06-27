@@ -3,6 +3,7 @@ package model
 import (
 	"io"
 	"net/http"
+	"time"
 )
 
 const (
@@ -14,6 +15,9 @@ const (
 
 	InitialRetryDelay = 0.5
 	MaxRetryDelay     = 8.0
+
+	GrpcErrorRetryBaseDelay = 10 * time.Millisecond
+	GrpcErrorRetryMaxDelay  = 500 * time.Millisecond
 )
 
 type Usage struct {

@@ -46,13 +46,13 @@ func (c *AUTOSCALING) EnableScalingConfigurationCommonRequest(input *map[string]
 	return
 }
 
-// EnableScalingConfigurationCommon API operation for AUTOSCALING.
+// EnableScalingConfigurationCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation EnableScalingConfigurationCommon for usage and error information.
 func (c *AUTOSCALING) EnableScalingConfigurationCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.EnableScalingConfigurationCommonRequest(input)
@@ -111,13 +111,13 @@ func (c *AUTOSCALING) EnableScalingConfigurationRequest(input *EnableScalingConf
 	return
 }
 
-// EnableScalingConfiguration API operation for AUTOSCALING.
+// EnableScalingConfiguration API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation EnableScalingConfiguration for usage and error information.
 func (c *AUTOSCALING) EnableScalingConfiguration(input *EnableScalingConfigurationInput) (*EnableScalingConfigurationOutput, error) {
 	req, out := c.EnableScalingConfigurationRequest(input)

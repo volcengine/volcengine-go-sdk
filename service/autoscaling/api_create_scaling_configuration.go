@@ -48,13 +48,13 @@ func (c *AUTOSCALING) CreateScalingConfigurationCommonRequest(input *map[string]
 	return
 }
 
-// CreateScalingConfigurationCommon API operation for AUTOSCALING.
+// CreateScalingConfigurationCommon API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CreateScalingConfigurationCommon for usage and error information.
 func (c *AUTOSCALING) CreateScalingConfigurationCommon(input *map[string]interface{}) (*map[string]interface{}, error) {
 	req, out := c.CreateScalingConfigurationCommonRequest(input)
@@ -113,13 +113,13 @@ func (c *AUTOSCALING) CreateScalingConfigurationRequest(input *CreateScalingConf
 	return
 }
 
-// CreateScalingConfiguration API operation for AUTOSCALING.
+// CreateScalingConfiguration API operation for AUTO_SCALING.
 //
 // Returns volcengineerr.Error for service API and SDK errors. Use runtime type assertions
 // with volcengineerr.Error's Code and Message methods to get detailed information about
 // the error.
 //
-// See the VOLCENGINE API reference guide for AUTOSCALING's
+// See the VOLCENGINE API reference guide for AUTO_SCALING's
 // API operation CreateScalingConfiguration for usage and error information.
 func (c *AUTOSCALING) CreateScalingConfiguration(input *CreateScalingConfigurationInput) (*CreateScalingConfigurationOutput, error) {
 	req, out := c.CreateScalingConfigurationRequest(input)
@@ -160,8 +160,9 @@ type CreateScalingConfigurationInput struct {
 	// InstanceName is a required field
 	InstanceName *string `type:"string" required:"true"`
 
-	// InstanceTypes is a required field
-	InstanceTypes []*string `type:"list" required:"true"`
+	InstanceTypeOverrides []*InstanceTypeOverrideForCreateScalingConfigurationInput `type:"list"`
+
+	InstanceTypes []*string `type:"list"`
 
 	Ipv6AddressCount *int32 `type:"int32"`
 
@@ -177,12 +178,12 @@ type CreateScalingConfigurationInput struct {
 	// ScalingGroupId is a required field
 	ScalingGroupId *string `type:"string" required:"true"`
 
-	SecurityEnhancementStrategy *string `type:"string" enum:"EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInput"`
+	SecurityEnhancementStrategy *string `type:"string"`
 
 	// SecurityGroupIds is a required field
 	SecurityGroupIds []*string `type:"list" required:"true"`
 
-	SpotStrategy *string `type:"string" enum:"EnumOfSpotStrategyForCreateScalingConfigurationInput"`
+	SpotStrategy *string `type:"string"`
 
 	Tags *string `type:"string"`
 
@@ -212,9 +213,6 @@ func (s *CreateScalingConfigurationInput) Validate() error {
 	}
 	if s.InstanceName == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceName"))
-	}
-	if s.InstanceTypes == nil {
-		invalidParams.Add(request.NewErrParamRequired("InstanceTypes"))
 	}
 	if s.Password != nil && len(*s.Password) < 8 {
 		invalidParams.Add(request.NewErrParamMinLen("Password", 8))
@@ -299,6 +297,12 @@ func (s *CreateScalingConfigurationInput) SetInstanceDescription(v string) *Crea
 // SetInstanceName sets the InstanceName field's value.
 func (s *CreateScalingConfigurationInput) SetInstanceName(v string) *CreateScalingConfigurationInput {
 	s.InstanceName = &v
+	return s
+}
+
+// SetInstanceTypeOverrides sets the InstanceTypeOverrides field's value.
+func (s *CreateScalingConfigurationInput) SetInstanceTypeOverrides(v []*InstanceTypeOverrideForCreateScalingConfigurationInput) *CreateScalingConfigurationInput {
+	s.InstanceTypeOverrides = v
 	return s
 }
 
@@ -417,9 +421,13 @@ type EipForCreateScalingConfigurationInput struct {
 
 	BandwidthPackageId *string `type:"string"`
 
-	BillingType *string `type:"string" enum:"EnumOfEipBillingTypeForCreateScalingConfigurationInput"`
+	BillingType *string `type:"string"`
 
 	ISP *string `type:"string"`
+
+	SecurityProtectionInstanceId *int32 `type:"int32"`
+
+	SecurityProtectionTypes []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -453,6 +461,48 @@ func (s *EipForCreateScalingConfigurationInput) SetBillingType(v string) *EipFor
 // SetISP sets the ISP field's value.
 func (s *EipForCreateScalingConfigurationInput) SetISP(v string) *EipForCreateScalingConfigurationInput {
 	s.ISP = &v
+	return s
+}
+
+// SetSecurityProtectionInstanceId sets the SecurityProtectionInstanceId field's value.
+func (s *EipForCreateScalingConfigurationInput) SetSecurityProtectionInstanceId(v int32) *EipForCreateScalingConfigurationInput {
+	s.SecurityProtectionInstanceId = &v
+	return s
+}
+
+// SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
+func (s *EipForCreateScalingConfigurationInput) SetSecurityProtectionTypes(v []*string) *EipForCreateScalingConfigurationInput {
+	s.SecurityProtectionTypes = v
+	return s
+}
+
+type InstanceTypeOverrideForCreateScalingConfigurationInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceType *string `type:"string"`
+
+	PriceLimit *float64 `type:"float"`
+}
+
+// String returns the string representation
+func (s InstanceTypeOverrideForCreateScalingConfigurationInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceTypeOverrideForCreateScalingConfigurationInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *InstanceTypeOverrideForCreateScalingConfigurationInput) SetInstanceType(v string) *InstanceTypeOverrideForCreateScalingConfigurationInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetPriceLimit sets the PriceLimit field's value.
+func (s *InstanceTypeOverrideForCreateScalingConfigurationInput) SetPriceLimit(v float64) *InstanceTypeOverrideForCreateScalingConfigurationInput {
+	s.PriceLimit = &v
 	return s
 }
 
@@ -511,27 +561,3 @@ func (s *VolumeForCreateScalingConfigurationInput) SetVolumeType(v string) *Volu
 	s.VolumeType = &v
 	return s
 }
-
-const (
-	// EnumOfEipBillingTypeForCreateScalingConfigurationInputPostPaidByBandwidth is a EnumOfEipBillingTypeForCreateScalingConfigurationInput enum value
-	EnumOfEipBillingTypeForCreateScalingConfigurationInputPostPaidByBandwidth = "PostPaidByBandwidth"
-
-	// EnumOfEipBillingTypeForCreateScalingConfigurationInputPostPaidByTraffic is a EnumOfEipBillingTypeForCreateScalingConfigurationInput enum value
-	EnumOfEipBillingTypeForCreateScalingConfigurationInputPostPaidByTraffic = "PostPaidByTraffic"
-)
-
-const (
-	// EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInputActive is a EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInput enum value
-	EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInputActive = "Active"
-
-	// EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInputInActive is a EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInput enum value
-	EnumOfSecurityEnhancementStrategyForCreateScalingConfigurationInputInActive = "InActive"
-)
-
-const (
-	// EnumOfSpotStrategyForCreateScalingConfigurationInputNoSpot is a EnumOfSpotStrategyForCreateScalingConfigurationInput enum value
-	EnumOfSpotStrategyForCreateScalingConfigurationInputNoSpot = "NoSpot"
-
-	// EnumOfSpotStrategyForCreateScalingConfigurationInputSpotAsPriceGo is a EnumOfSpotStrategyForCreateScalingConfigurationInput enum value
-	EnumOfSpotStrategyForCreateScalingConfigurationInputSpotAsPriceGo = "SpotAsPriceGo"
-)

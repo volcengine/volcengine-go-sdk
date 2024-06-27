@@ -76,8 +76,8 @@ func Unmarshal(r *request.Request) {
 			if _, ok := reflect.TypeOf(r.Data).Elem().FieldByName("Metadata"); ok {
 				if volcengineResponse.ResponseMetadata != nil {
 					volcengineResponse.ResponseMetadata.HTTPCode = r.HTTPResponse.StatusCode
+					r.Metadata = *(volcengineResponse.ResponseMetadata)
 				}
-				r.Metadata = *(volcengineResponse.ResponseMetadata)
 				reflect.ValueOf(r.Data).Elem().FieldByName("Metadata").Set(reflect.ValueOf(volcengineResponse.ResponseMetadata))
 			}
 
@@ -128,6 +128,10 @@ func processBodyError(r *request.Request, volcengineResponse *response.Volcengin
 		fmt.Printf("Unmarshal err, %v\n", err)
 		r.Error = err
 		return true
+	}
+
+	if volcengineResponse.ResponseMetadata == nil {
+		return false
 	}
 
 	if volcengineResponse.ResponseMetadata.Error != nil && volcengineResponse.ResponseMetadata.Error.Code != "" {
