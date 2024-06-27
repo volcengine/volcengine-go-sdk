@@ -10,6 +10,7 @@ const (
 	defaultBaseUrl                 = "https://ark.cn-beijing.volces.com/api/v3"
 	defaultRegion                  = "cn-beijing"
 	defaultEmptyMessagesLimit uint = 300
+	defaultRetryTimes         int  = 2
 )
 
 type tokenInfo struct {
@@ -39,6 +40,7 @@ func NewClientConfig(apiKey, ak, sk string, setters ...configOption) ClientConfi
 		BaseURL:            defaultBaseUrl,
 		HTTPClient:         &http.Client{},
 		EmptyMessagesLimit: defaultEmptyMessagesLimit,
+		RetryTimes:         defaultRetryTimes,
 	}
 
 	for _, setter := range setters {
