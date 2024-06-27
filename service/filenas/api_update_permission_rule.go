@@ -260,6 +260,12 @@ func (s UpdatePermissionRuleOutput) GoString() string {
 const (
 	// EnumOfFileSystemTypeForUpdatePermissionRuleInputExtreme is a EnumOfFileSystemTypeForUpdatePermissionRuleInput enum value
 	EnumOfFileSystemTypeForUpdatePermissionRuleInputExtreme = "Extreme"
+
+	// EnumOfFileSystemTypeForUpdatePermissionRuleInputCapacity is a EnumOfFileSystemTypeForUpdatePermissionRuleInput enum value
+	EnumOfFileSystemTypeForUpdatePermissionRuleInputCapacity = "Capacity"
+
+	// EnumOfFileSystemTypeForUpdatePermissionRuleInputCache is a EnumOfFileSystemTypeForUpdatePermissionRuleInput enum value
+	EnumOfFileSystemTypeForUpdatePermissionRuleInputCache = "Cache"
 )
 
 const (

@@ -575,6 +575,9 @@ const (
 
 	// EnumOfFileSystemTypeForDescribeFileSystemsOutputCache is a EnumOfFileSystemTypeForDescribeFileSystemsOutput enum value
 	EnumOfFileSystemTypeForDescribeFileSystemsOutputCache = "Cache"
+
+	// EnumOfFileSystemTypeForDescribeFileSystemsOutputCapacity is a EnumOfFileSystemTypeForDescribeFileSystemsOutput enum value
+	EnumOfFileSystemTypeForDescribeFileSystemsOutputCapacity = "Capacity"
 )
 
 const (

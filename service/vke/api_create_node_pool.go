@@ -320,6 +320,8 @@ func (s *CreateNodePoolOutput) SetId(v string) *CreateNodePoolOutput {
 type DataVolumeForCreateNodePoolInput struct {
 	_ struct{} `type:"structure"`
 
+	FileSystem *string `type:"string" enum:"EnumOfFileSystemForCreateNodePoolInput"`
+
 	MountPoint *string `type:"string"`
 
 	Size *int32 `type:"int32"`
@@ -335,6 +337,12 @@ func (s DataVolumeForCreateNodePoolInput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForCreateNodePoolInput) GoString() string {
 	return s.String()
+}
+
+// SetFileSystem sets the FileSystem field's value.
+func (s *DataVolumeForCreateNodePoolInput) SetFileSystem(v string) *DataVolumeForCreateNodePoolInput {
+	s.FileSystem = &v
+	return s
 }
 
 // SetMountPoint sets the MountPoint field's value.
@@ -743,6 +751,14 @@ const (
 )
 
 const (
+	// EnumOfFileSystemForCreateNodePoolInputExt4 is a EnumOfFileSystemForCreateNodePoolInput enum value
+	EnumOfFileSystemForCreateNodePoolInputExt4 = "Ext4"
+
+	// EnumOfFileSystemForCreateNodePoolInputXfs is a EnumOfFileSystemForCreateNodePoolInput enum value
+	EnumOfFileSystemForCreateNodePoolInputXfs = "Xfs"
+)
+
+const (
 	// EnumOfInstanceChargeTypeForCreateNodePoolInputPostPaid is a EnumOfInstanceChargeTypeForCreateNodePoolInput enum value
 	EnumOfInstanceChargeTypeForCreateNodePoolInputPostPaid = "PostPaid"
 
@@ -769,13 +785,4 @@ const (
 
 	// EnumOfTypeForCreateNodePoolInputEssdFlexPl is a EnumOfTypeForCreateNodePoolInput enum value
 	EnumOfTypeForCreateNodePoolInputEssdFlexPl = "ESSD_FlexPL"
-
-	// EnumOfTypeForCreateNodePoolInputEssdPl1 is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputEssdPl1 = "ESSD_PL1"
-
-	// EnumOfTypeForCreateNodePoolInputEssd is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputEssd = "ESSD"
-
-	// EnumOfTypeForCreateNodePoolInputPtssd is a EnumOfTypeForCreateNodePoolInput enum value
-	EnumOfTypeForCreateNodePoolInputPtssd = "PTSSD"
 )

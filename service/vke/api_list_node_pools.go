@@ -268,6 +268,8 @@ func (s *ConvertTagForListNodePoolsOutput) SetValue(v string) *ConvertTagForList
 type DataVolumeForListNodePoolsOutput struct {
 	_ struct{} `type:"structure"`
 
+	FileSystem *string `type:"string"`
+
 	MountPoint *string `type:"string"`
 
 	Size *int32 `type:"int32"`
@@ -283,6 +285,12 @@ func (s DataVolumeForListNodePoolsOutput) String() string {
 // GoString returns the string representation
 func (s DataVolumeForListNodePoolsOutput) GoString() string {
 	return s.String()
+}
+
+// SetFileSystem sets the FileSystem field's value.
+func (s *DataVolumeForListNodePoolsOutput) SetFileSystem(v string) *DataVolumeForListNodePoolsOutput {
+	s.FileSystem = &v
+	return s
 }
 
 // SetMountPoint sets the MountPoint field's value.
