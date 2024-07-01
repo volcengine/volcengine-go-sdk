@@ -81,7 +81,6 @@ func main() {
 			fmt.Printf("Stream chat error: %v\n", err)
 			return
 		}
-
 		if len(recv.Choices) > 0 {
 			fmt.Print(recv.Choices[0].Delta.Content)
 			if recv.References != nil {

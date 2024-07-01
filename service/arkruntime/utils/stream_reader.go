@@ -11,8 +11,8 @@ import (
 )
 
 var (
-	headerData  = []byte("data: ")
-	errorPrefix = []byte(`data: {"error":`)
+	headerData  = []byte("data:")
+	errorPrefix = []byte(`{"error":`)
 )
 
 type ChatCompletionStreamReader struct {
@@ -67,8 +67,11 @@ func (stream *ChatCompletionStreamReader) processLines() (model.ChatCompletionSt
 			return model.ChatCompletionStreamResponse{}, readErr
 		}
 
+		// noSpaceLint is trimed with leading space
 		noSpaceLine := bytes.TrimSpace(rawLine)
-		if bytes.HasPrefix(noSpaceLine, errorPrefix) {
+		// trimedLine is trimed with header and followed space (if exists)
+		trimedLine := bytes.TrimSpace(bytes.TrimPrefix(noSpaceLine, headerData))
+		if bytes.HasPrefix(trimedLine, errorPrefix) {
 			hasErrorPrefix = true
 		}
 		if !bytes.HasPrefix(noSpaceLine, headerData) || hasErrorPrefix {
@@ -87,14 +90,13 @@ func (stream *ChatCompletionStreamReader) processLines() (model.ChatCompletionSt
 			continue
 		}
 
-		noPrefixLine := bytes.TrimPrefix(noSpaceLine, headerData)
-		if string(noPrefixLine) == "[DONE]" {
+		if string(trimedLine) == "[DONE]" {
 			stream.IsFinished = true
 			return model.ChatCompletionStreamResponse{}, io.EOF
 		}
 
 		var response model.ChatCompletionStreamResponse
-		unmarshalErr := stream.Unmarshaler.Unmarshal(noPrefixLine, &response)
+		unmarshalErr := stream.Unmarshaler.Unmarshal(trimedLine, &response)
 		if unmarshalErr != nil {
 			return model.ChatCompletionStreamResponse{}, unmarshalErr
 		}
@@ -119,8 +121,11 @@ func (stream *BotChatCompletionStreamReader) processLines() (model.BotChatComple
 			return model.BotChatCompletionStreamResponse{}, readErr
 		}
 
+		// noSpaceLint is trimed with leading space
 		noSpaceLine := bytes.TrimSpace(rawLine)
-		if bytes.HasPrefix(noSpaceLine, errorPrefix) {
+		// trimedLine is trimed with header and followed space (if exists)
+		trimedLine := bytes.TrimSpace(bytes.TrimPrefix(noSpaceLine, headerData))
+		if bytes.HasPrefix(trimedLine, errorPrefix) {
 			hasErrorPrefix = true
 		}
 		if !bytes.HasPrefix(noSpaceLine, headerData) || hasErrorPrefix {
@@ -139,14 +144,13 @@ func (stream *BotChatCompletionStreamReader) processLines() (model.BotChatComple
 			continue
 		}
 
-		noPrefixLine := bytes.TrimPrefix(noSpaceLine, headerData)
-		if string(noPrefixLine) == "[DONE]" {
+		if string(trimedLine) == "[DONE]" {
 			stream.IsFinished = true
 			return model.BotChatCompletionStreamResponse{}, io.EOF
 		}
 
 		var response model.BotChatCompletionStreamResponse
-		unmarshalErr := stream.Unmarshaler.Unmarshal(noPrefixLine, &response)
+		unmarshalErr := stream.Unmarshaler.Unmarshal(trimedLine, &response)
 		if unmarshalErr != nil {
 			return model.BotChatCompletionStreamResponse{}, unmarshalErr
 		}
@@ -177,4 +181,11 @@ func (stream *ChatCompletionStreamReader) unmarshalError() (errResp *model.Error
 
 func (stream *ChatCompletionStreamReader) Close() error {
 	return stream.Response.Body.Close()
+}
+
+func (stream *BotChatCompletionStreamReader) Close() error {
+	// fmt.Printf("%#v\n", stream)
+	// fmt.Printf("%#v\n", stream.Response)
+	// fmt.Printf("%#v\n", stream.Response.Body)
+	return stream.ChatCompletionStreamReader.Response.Body.Close()
 }

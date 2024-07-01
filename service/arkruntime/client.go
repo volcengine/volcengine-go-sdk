@@ -63,6 +63,10 @@ func newClientWithConfig(config ClientConfig) *Client {
 	}
 }
 
+func (c *Client) GetEndpointStsToken(ctx context.Context, endpointId string) (string, error) {
+	return c.GetResourceStsToken(ctx, resourceTypeEndpoint, endpointId)
+}
+
 func (c *Client) GetResourceStsToken(ctx context.Context, resourceType string, resourceId string) (string, error) {
 	err := c.refresh(ctx, resourceType, resourceId)
 	if err != nil {
@@ -162,7 +166,7 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 		header: make(http.Header),
 	}
 
-	errH := c.setCommonHeaders(ctx, args, endpointId)
+	errH := c.setCommonHeaders(ctx, args, resourceType, resourceId)
 	if errH != nil {
 		return nil, errH
 	}
@@ -173,10 +177,6 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 	req, err := c.requestBuilder.Build(ctx, method, url, args.body, args.header)
 	if err != nil {
 		return nil, err
-	}
-	errH := c.setCommonHeaders(ctx, req, args.body, resourceType, resourceId)
-	if errH != nil {
-		return nil, errH
 	}
 	return req, nil
 }
@@ -297,6 +297,7 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 }
 
 func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*utils.BotChatCompletionStreamReader, error) {
+	requestId := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
 	req.Header.Set("Cache-Control", "no-cache")
@@ -304,13 +305,24 @@ func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*uti
 
 	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
-		return &utils.BotChatCompletionStreamReader{}, err
+		return &utils.BotChatCompletionStreamReader{}, &model.RequestError{
+			HTTPStatusCode: -1,
+			Err:            err,
+			RequestId:      requestId,
+		}
 	}
 	if isFailureStatusCode(resp) {
 		return &utils.BotChatCompletionStreamReader{}, client.handleErrorResp(resp)
 	}
 	return &utils.BotChatCompletionStreamReader{
-		ChatCompletionStreamReader: utils.ChatCompletionStreamReader{},
+		ChatCompletionStreamReader: utils.ChatCompletionStreamReader{
+			EmptyMessagesLimit: client.config.EmptyMessagesLimit,
+			Reader:             bufio.NewReader(resp.Body),
+			Response:           resp,
+			ErrAccumulator:     utils.NewErrorAccumulator(),
+			Unmarshaler:        &utils.JSONUnmarshaler{},
+			HttpHeader:         model.HttpHeader(resp.Header),
+		},
 	}, nil
 }
 
