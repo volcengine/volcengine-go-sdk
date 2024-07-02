@@ -74,8 +74,12 @@ func WithRetryTimes(retryTimes int) configOption {
 
 func WithTimeout(timeout time.Duration) configOption {
 	return func(config *ClientConfig) {
-		config.HTTPClient = &http.Client{
-			Timeout: timeout,
-		}
+		config.HTTPClient.Timeout = timeout
+	}
+}
+
+func WithHTTPClient(client *http.Client) configOption {
+	return func(config *ClientConfig) {
+		config.HTTPClient = client
 	}
 }
