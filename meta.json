@@ -1,9 +1,4 @@
 {
-<<<<<<< HEAD
-	"lasted": "1.0.145",
-	"meta_commit": "87e242ce3d0c3f1f403f29f60ab1fea29c76ae48"
-=======
 	"lasted": "1.0.146",
 	"meta_commit": "9f71cd122293a3d2eef4bd1ceec60de8e5a96feb"
->>>>>>> 21de3dbb (update version and commitId)
 }
