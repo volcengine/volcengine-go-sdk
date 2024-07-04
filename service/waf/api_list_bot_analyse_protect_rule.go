@@ -396,9 +396,9 @@ type ListBotAnalyseProtectRuleOutput struct {
 
 	Count *int32 `type:"int32"`
 
-	Data []*DataForListBotAnalyseProtectRuleOutput `type:"list"`
+	CurrentPage *int32 `type:"int32"`
 
-	PageNumber *int32 `type:"int32"`
+	Data []*DataForListBotAnalyseProtectRuleOutput `type:"list"`
 
 	PageSize *int32 `type:"int32"`
 
@@ -421,15 +421,15 @@ func (s *ListBotAnalyseProtectRuleOutput) SetCount(v int32) *ListBotAnalyseProte
 	return s
 }
 
-// SetData sets the Data field's value.
-func (s *ListBotAnalyseProtectRuleOutput) SetData(v []*DataForListBotAnalyseProtectRuleOutput) *ListBotAnalyseProtectRuleOutput {
-	s.Data = v
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListBotAnalyseProtectRuleOutput) SetCurrentPage(v int32) *ListBotAnalyseProtectRuleOutput {
+	s.CurrentPage = &v
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *ListBotAnalyseProtectRuleOutput) SetPageNumber(v int32) *ListBotAnalyseProtectRuleOutput {
-	s.PageNumber = &v
+// SetData sets the Data field's value.
+func (s *ListBotAnalyseProtectRuleOutput) SetData(v []*DataForListBotAnalyseProtectRuleOutput) *ListBotAnalyseProtectRuleOutput {
+	s.Data = v
 	return s
 }
 

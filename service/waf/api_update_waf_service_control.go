@@ -148,9 +148,21 @@ type UpdateWafServiceControlInput struct {
 
 	ApiEnable *int32 `type:"int32"`
 
+	AutoCCEnable *int32 `type:"int32"`
+
 	BlackIpEnable *int32 `type:"int32"`
 
 	BlackLctEnable *int32 `type:"int32"`
+
+	BotDytokenEnable *string `type:"string"`
+
+	BotFrequencyEnable *int32 `type:"int32"`
+
+	BotRepeatEnable *int32 `type:"int32"`
+
+	BotSequenceDefaultAction *int32 `type:"int32"`
+
+	BotSequenceEnable *int32 `type:"int32"`
 
 	CcEnable *int32 `type:"int32"`
 
@@ -207,6 +219,12 @@ func (s *UpdateWafServiceControlInput) SetApiEnable(v int32) *UpdateWafServiceCo
 	return s
 }
 
+// SetAutoCCEnable sets the AutoCCEnable field's value.
+func (s *UpdateWafServiceControlInput) SetAutoCCEnable(v int32) *UpdateWafServiceControlInput {
+	s.AutoCCEnable = &v
+	return s
+}
+
 // SetBlackIpEnable sets the BlackIpEnable field's value.
 func (s *UpdateWafServiceControlInput) SetBlackIpEnable(v int32) *UpdateWafServiceControlInput {
 	s.BlackIpEnable = &v
@@ -216,6 +234,36 @@ func (s *UpdateWafServiceControlInput) SetBlackIpEnable(v int32) *UpdateWafServi
 // SetBlackLctEnable sets the BlackLctEnable field's value.
 func (s *UpdateWafServiceControlInput) SetBlackLctEnable(v int32) *UpdateWafServiceControlInput {
 	s.BlackLctEnable = &v
+	return s
+}
+
+// SetBotDytokenEnable sets the BotDytokenEnable field's value.
+func (s *UpdateWafServiceControlInput) SetBotDytokenEnable(v string) *UpdateWafServiceControlInput {
+	s.BotDytokenEnable = &v
+	return s
+}
+
+// SetBotFrequencyEnable sets the BotFrequencyEnable field's value.
+func (s *UpdateWafServiceControlInput) SetBotFrequencyEnable(v int32) *UpdateWafServiceControlInput {
+	s.BotFrequencyEnable = &v
+	return s
+}
+
+// SetBotRepeatEnable sets the BotRepeatEnable field's value.
+func (s *UpdateWafServiceControlInput) SetBotRepeatEnable(v int32) *UpdateWafServiceControlInput {
+	s.BotRepeatEnable = &v
+	return s
+}
+
+// SetBotSequenceDefaultAction sets the BotSequenceDefaultAction field's value.
+func (s *UpdateWafServiceControlInput) SetBotSequenceDefaultAction(v int32) *UpdateWafServiceControlInput {
+	s.BotSequenceDefaultAction = &v
+	return s
+}
+
+// SetBotSequenceEnable sets the BotSequenceEnable field's value.
+func (s *UpdateWafServiceControlInput) SetBotSequenceEnable(v int32) *UpdateWafServiceControlInput {
+	s.BotSequenceEnable = &v
 	return s
 }
 

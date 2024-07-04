@@ -372,11 +372,9 @@ type ListCustomBotConfigOutput struct {
 
 	Count *int32 `type:"int32"`
 
+	CurrentPage *int32 `type:"int32"`
+
 	Data []*DataForListCustomBotConfigOutput `type:"list"`
-
-	Page *int32 `type:"int32"`
-
-	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
 
@@ -399,21 +397,15 @@ func (s *ListCustomBotConfigOutput) SetCount(v int32) *ListCustomBotConfigOutput
 	return s
 }
 
+// SetCurrentPage sets the CurrentPage field's value.
+func (s *ListCustomBotConfigOutput) SetCurrentPage(v int32) *ListCustomBotConfigOutput {
+	s.CurrentPage = &v
+	return s
+}
+
 // SetData sets the Data field's value.
 func (s *ListCustomBotConfigOutput) SetData(v []*DataForListCustomBotConfigOutput) *ListCustomBotConfigOutput {
 	s.Data = v
-	return s
-}
-
-// SetPage sets the Page field's value.
-func (s *ListCustomBotConfigOutput) SetPage(v int32) *ListCustomBotConfigOutput {
-	s.Page = &v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *ListCustomBotConfigOutput) SetPageNumber(v int32) *ListCustomBotConfigOutput {
-	s.PageNumber = &v
 	return s
 }
 
