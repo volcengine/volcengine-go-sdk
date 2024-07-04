@@ -22,7 +22,7 @@ func (c *Client) CreateChatCompletion(
 	}
 
 	requestOptions := append(setters, withBody(request))
-	err = c.Do(ctx, http.MethodPost, c.fullURL(chatCompletionsSuffix), request.Model, &response, requestOptions...)
+	err = c.Do(ctx, http.MethodPost, c.fullURL(chatCompletionsSuffix), resourceTypeEndpoint, request.Model, &response, requestOptions...)
 	if err != nil {
 		return
 	}

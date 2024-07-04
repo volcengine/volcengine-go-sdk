@@ -45,4 +45,5 @@ var (
 	ErrChatCompletionStreamNotSupported = errors.New("streaming is not supported with this method, please use CreateChatCompletionStream")              //nolint:lll
 	ErrContentFieldsMisused             = errors.New("can't use both Content and MultiContent properties simultaneously")
 	ErrBodyWithoutEndpoint              = errors.New("can't fetch endpoint sts token without endpoint")
+	ErrBodyWithoutBot                   = errors.New("can't fetch bot sts token without bot id")
 )
