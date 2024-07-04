@@ -8,8 +8,4 @@ package volcengine
 const SDKName = "volcengine-go-sdk"
 
 // SDKVersion is the version of this SDK
-<<<<<<< HEAD
-const SDKVersion = "1.0.145"
-=======
 const SDKVersion = "1.0.146"
->>>>>>> 21de3dbb (update version and commitId)
