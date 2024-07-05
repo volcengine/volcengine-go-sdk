@@ -11,6 +11,7 @@ const (
 	defaultRegion                  = "cn-beijing"
 	defaultEmptyMessagesLimit uint = 300
 	defaultRetryTimes         int  = 2
+	defaultTimeout                 = 10 * time.Minute
 )
 
 type tokenInfo struct {
@@ -33,12 +34,14 @@ type ClientConfig struct {
 
 func NewClientConfig(apiKey, ak, sk string, setters ...configOption) ClientConfig {
 	config := ClientConfig{
-		apiKey:             apiKey,
-		ak:                 ak,
-		sk:                 sk,
-		region:             defaultRegion,
-		BaseURL:            defaultBaseUrl,
-		HTTPClient:         &http.Client{},
+		apiKey:  apiKey,
+		ak:      ak,
+		sk:      sk,
+		region:  defaultRegion,
+		BaseURL: defaultBaseUrl,
+		HTTPClient: &http.Client{
+			Timeout: defaultTimeout,
+		},
 		EmptyMessagesLimit: defaultEmptyMessagesLimit,
 		RetryTimes:         defaultRetryTimes,
 	}

@@ -56,10 +56,9 @@ type TokenizationResponse struct {
 }
 
 type Tokenization struct {
-	Index         int      `json:"index"`
-	Object        string   `json:"object"`
-	Tokens        []string `json:"tokens"`
-	TotalTokens   int      `json:"total_tokens"`
-	TokenIDs      []int    `json:"token_ids"`
-	OffsetMapping [][]int  `json:"offset_mapping"`
+	Index         int     `json:"index"`
+	Object        string  `json:"object"`
+	TotalTokens   int     `json:"total_tokens"`
+	TokenIDs      []int   `json:"token_ids"`
+	OffsetMapping [][]int `json:"offset_mapping"`
 }
