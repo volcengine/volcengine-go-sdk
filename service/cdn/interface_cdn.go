@@ -150,6 +150,14 @@ type CDNAPI interface {
 	DescribeCdnRegionAndIspWithContext(volcengine.Context, *DescribeCdnRegionAndIspInput, ...request.Option) (*DescribeCdnRegionAndIspOutput, error)
 	DescribeCdnRegionAndIspRequest(*DescribeCdnRegionAndIspInput) (*request.Request, *DescribeCdnRegionAndIspOutput)
 
+	DescribeCdnServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeCdnServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeCdnServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeCdnService(*DescribeCdnServiceInput) (*DescribeCdnServiceOutput, error)
+	DescribeCdnServiceWithContext(volcengine.Context, *DescribeCdnServiceInput, ...request.Option) (*DescribeCdnServiceOutput, error)
+	DescribeCdnServiceRequest(*DescribeCdnServiceInput) (*request.Request, *DescribeCdnServiceOutput)
+
 	DescribeCdnUpperIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeCdnUpperIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeCdnUpperIpCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -189,6 +197,110 @@ type CDNAPI interface {
 	DescribeContentTasks(*DescribeContentTasksInput) (*DescribeContentTasksOutput, error)
 	DescribeContentTasksWithContext(volcengine.Context, *DescribeContentTasksInput, ...request.Option) (*DescribeContentTasksOutput, error)
 	DescribeContentTasksRequest(*DescribeContentTasksInput) (*request.Request, *DescribeContentTasksOutput)
+
+	DescribeDistrictDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDistrictDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDistrictDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDistrictData(*DescribeDistrictDataInput) (*DescribeDistrictDataOutput, error)
+	DescribeDistrictDataWithContext(volcengine.Context, *DescribeDistrictDataInput, ...request.Option) (*DescribeDistrictDataOutput, error)
+	DescribeDistrictDataRequest(*DescribeDistrictDataInput) (*request.Request, *DescribeDistrictDataOutput)
+
+	DescribeDistrictRankingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDistrictRankingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDistrictRankingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDistrictRanking(*DescribeDistrictRankingInput) (*DescribeDistrictRankingOutput, error)
+	DescribeDistrictRankingWithContext(volcengine.Context, *DescribeDistrictRankingInput, ...request.Option) (*DescribeDistrictRankingOutput, error)
+	DescribeDistrictRankingRequest(*DescribeDistrictRankingInput) (*request.Request, *DescribeDistrictRankingOutput)
+
+	DescribeDistrictSummaryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDistrictSummaryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDistrictSummaryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDistrictSummary(*DescribeDistrictSummaryInput) (*DescribeDistrictSummaryOutput, error)
+	DescribeDistrictSummaryWithContext(volcengine.Context, *DescribeDistrictSummaryInput, ...request.Option) (*DescribeDistrictSummaryOutput, error)
+	DescribeDistrictSummaryRequest(*DescribeDistrictSummaryInput) (*request.Request, *DescribeDistrictSummaryOutput)
+
+	DescribeEdgeDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEdgeDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEdgeDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEdgeData(*DescribeEdgeDataInput) (*DescribeEdgeDataOutput, error)
+	DescribeEdgeDataWithContext(volcengine.Context, *DescribeEdgeDataInput, ...request.Option) (*DescribeEdgeDataOutput, error)
+	DescribeEdgeDataRequest(*DescribeEdgeDataInput) (*request.Request, *DescribeEdgeDataOutput)
+
+	DescribeEdgeRankingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEdgeRankingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEdgeRankingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEdgeRanking(*DescribeEdgeRankingInput) (*DescribeEdgeRankingOutput, error)
+	DescribeEdgeRankingWithContext(volcengine.Context, *DescribeEdgeRankingInput, ...request.Option) (*DescribeEdgeRankingOutput, error)
+	DescribeEdgeRankingRequest(*DescribeEdgeRankingInput) (*request.Request, *DescribeEdgeRankingOutput)
+
+	DescribeEdgeStatusCodeRankingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEdgeStatusCodeRankingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEdgeStatusCodeRankingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEdgeStatusCodeRanking(*DescribeEdgeStatusCodeRankingInput) (*DescribeEdgeStatusCodeRankingOutput, error)
+	DescribeEdgeStatusCodeRankingWithContext(volcengine.Context, *DescribeEdgeStatusCodeRankingInput, ...request.Option) (*DescribeEdgeStatusCodeRankingOutput, error)
+	DescribeEdgeStatusCodeRankingRequest(*DescribeEdgeStatusCodeRankingInput) (*request.Request, *DescribeEdgeStatusCodeRankingOutput)
+
+	DescribeEdgeSummaryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeEdgeSummaryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeEdgeSummaryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeEdgeSummary(*DescribeEdgeSummaryInput) (*DescribeEdgeSummaryOutput, error)
+	DescribeEdgeSummaryWithContext(volcengine.Context, *DescribeEdgeSummaryInput, ...request.Option) (*DescribeEdgeSummaryOutput, error)
+	DescribeEdgeSummaryRequest(*DescribeEdgeSummaryInput) (*request.Request, *DescribeEdgeSummaryOutput)
+
+	DescribeOriginDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeOriginDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeOriginDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeOriginData(*DescribeOriginDataInput) (*DescribeOriginDataOutput, error)
+	DescribeOriginDataWithContext(volcengine.Context, *DescribeOriginDataInput, ...request.Option) (*DescribeOriginDataOutput, error)
+	DescribeOriginDataRequest(*DescribeOriginDataInput) (*request.Request, *DescribeOriginDataOutput)
+
+	DescribeOriginRankingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeOriginRankingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeOriginRankingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeOriginRanking(*DescribeOriginRankingInput) (*DescribeOriginRankingOutput, error)
+	DescribeOriginRankingWithContext(volcengine.Context, *DescribeOriginRankingInput, ...request.Option) (*DescribeOriginRankingOutput, error)
+	DescribeOriginRankingRequest(*DescribeOriginRankingInput) (*request.Request, *DescribeOriginRankingOutput)
+
+	DescribeOriginStatusCodeRankingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeOriginStatusCodeRankingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeOriginStatusCodeRankingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeOriginStatusCodeRanking(*DescribeOriginStatusCodeRankingInput) (*DescribeOriginStatusCodeRankingOutput, error)
+	DescribeOriginStatusCodeRankingWithContext(volcengine.Context, *DescribeOriginStatusCodeRankingInput, ...request.Option) (*DescribeOriginStatusCodeRankingOutput, error)
+	DescribeOriginStatusCodeRankingRequest(*DescribeOriginStatusCodeRankingInput) (*request.Request, *DescribeOriginStatusCodeRankingOutput)
+
+	DescribeOriginSummaryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeOriginSummaryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeOriginSummaryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeOriginSummary(*DescribeOriginSummaryInput) (*DescribeOriginSummaryOutput, error)
+	DescribeOriginSummaryWithContext(volcengine.Context, *DescribeOriginSummaryInput, ...request.Option) (*DescribeOriginSummaryOutput, error)
+	DescribeOriginSummaryRequest(*DescribeOriginSummaryInput) (*request.Request, *DescribeOriginSummaryOutput)
+
+	DescribeStatisticalRankingCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeStatisticalRankingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeStatisticalRankingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeStatisticalRanking(*DescribeStatisticalRankingInput) (*DescribeStatisticalRankingOutput, error)
+	DescribeStatisticalRankingWithContext(volcengine.Context, *DescribeStatisticalRankingInput, ...request.Option) (*DescribeStatisticalRankingOutput, error)
+	DescribeStatisticalRankingRequest(*DescribeStatisticalRankingInput) (*request.Request, *DescribeStatisticalRankingOutput)
+
+	DescribeUserDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeUserDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeUserDataCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeUserData(*DescribeUserDataInput) (*DescribeUserDataOutput, error)
+	DescribeUserDataWithContext(volcengine.Context, *DescribeUserDataInput, ...request.Option) (*DescribeUserDataOutput, error)
+	DescribeUserDataRequest(*DescribeUserDataInput) (*request.Request, *DescribeUserDataOutput)
 
 	ListCdnCertInfoCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListCdnCertInfoCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

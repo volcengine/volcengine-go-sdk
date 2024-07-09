@@ -164,6 +164,8 @@ type DataForListCdnDomainsOutput struct {
 
 	DomainLock *DomainLockForListCdnDomainsOutput `type:"structure"`
 
+	FeatureConfig *FeatureConfigForListCdnDomainsOutput `type:"structure"`
+
 	HTTPS *bool `type:"boolean"`
 
 	IPv6 *bool `type:"boolean"`
@@ -248,6 +250,12 @@ func (s *DataForListCdnDomainsOutput) SetDomain(v string) *DataForListCdnDomains
 // SetDomainLock sets the DomainLock field's value.
 func (s *DataForListCdnDomainsOutput) SetDomainLock(v *DomainLockForListCdnDomainsOutput) *DataForListCdnDomainsOutput {
 	s.DomainLock = v
+	return s
+}
+
+// SetFeatureConfig sets the FeatureConfig field's value.
+func (s *DataForListCdnDomainsOutput) SetFeatureConfig(v *FeatureConfigForListCdnDomainsOutput) *DataForListCdnDomainsOutput {
+	s.FeatureConfig = v
 	return s
 }
 
@@ -347,12 +355,36 @@ func (s *DomainLockForListCdnDomainsOutput) SetStatus(v string) *DomainLockForLi
 	return s
 }
 
+type FeatureConfigForListCdnDomainsOutput struct {
+	_ struct{} `type:"structure"`
+
+	OriginV2 *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s FeatureConfigForListCdnDomainsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s FeatureConfigForListCdnDomainsOutput) GoString() string {
+	return s.String()
+}
+
+// SetOriginV2 sets the OriginV2 field's value.
+func (s *FeatureConfigForListCdnDomainsOutput) SetOriginV2(v bool) *FeatureConfigForListCdnDomainsOutput {
+	s.OriginV2 = &v
+	return s
+}
+
 type ListCdnDomainsInput struct {
 	_ struct{} `type:"structure"`
 
 	Domain *string `type:"string"`
 
 	ExactMatch *bool `type:"boolean"`
+
+	FeatureConfig *bool `type:"boolean"`
 
 	HTTPS *bool `type:"boolean"`
 
@@ -398,6 +430,12 @@ func (s *ListCdnDomainsInput) SetDomain(v string) *ListCdnDomainsInput {
 // SetExactMatch sets the ExactMatch field's value.
 func (s *ListCdnDomainsInput) SetExactMatch(v bool) *ListCdnDomainsInput {
 	s.ExactMatch = &v
+	return s
+}
+
+// SetFeatureConfig sets the FeatureConfig field's value.
+func (s *ListCdnDomainsInput) SetFeatureConfig(v bool) *ListCdnDomainsInput {
+	s.FeatureConfig = &v
 	return s
 }
 

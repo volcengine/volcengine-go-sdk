@@ -189,6 +189,28 @@ func (s *AccessActionForAddCdnDomainInput) SetRuleType(v string) *AccessActionFo
 	return s
 }
 
+type ActionsForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	OriginLines []*OriginLineForAddCdnDomainInput `type:"list"`
+}
+
+// String returns the string representation
+func (s ActionsForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionsForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetOriginLines sets the OriginLines field's value.
+func (s *ActionsForAddCdnDomainInput) SetOriginLines(v []*OriginLineForAddCdnDomainInput) *ActionsForAddCdnDomainInput {
+	s.OriginLines = v
+	return s
+}
+
 type AddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
@@ -205,6 +227,8 @@ type AddCdnDomainInput struct {
 	CacheKey []*CacheKeyForAddCdnDomainInput `type:"list"`
 
 	Compression *CompressionForAddCdnDomainInput `type:"structure"`
+
+	ConditionalOrigin *ConditionalOriginForAddCdnDomainInput `type:"structure"`
 
 	CustomErrorPage *CustomErrorPageForAddCdnDomainInput `type:"structure"`
 
@@ -237,6 +261,8 @@ type AddCdnDomainInput struct {
 
 	OriginArg []*OriginArgForAddCdnDomainInput `type:"list"`
 
+	OriginCertCheck *OriginCertCheckForAddCdnDomainInput `type:"structure"`
+
 	OriginHost *string `type:"string"`
 
 	OriginIPv6 *string `type:"string"`
@@ -244,6 +270,8 @@ type AddCdnDomainInput struct {
 	OriginProtocol *string `type:"string"`
 
 	OriginRange *bool `type:"boolean"`
+
+	OriginRetry *OriginRetryForAddCdnDomainInput `type:"structure"`
 
 	OriginRewrite *OriginRewriteForAddCdnDomainInput `type:"structure"`
 
@@ -353,6 +381,12 @@ func (s *AddCdnDomainInput) SetCompression(v *CompressionForAddCdnDomainInput) *
 	return s
 }
 
+// SetConditionalOrigin sets the ConditionalOrigin field's value.
+func (s *AddCdnDomainInput) SetConditionalOrigin(v *ConditionalOriginForAddCdnDomainInput) *AddCdnDomainInput {
+	s.ConditionalOrigin = v
+	return s
+}
+
 // SetCustomErrorPage sets the CustomErrorPage field's value.
 func (s *AddCdnDomainInput) SetCustomErrorPage(v *CustomErrorPageForAddCdnDomainInput) *AddCdnDomainInput {
 	s.CustomErrorPage = v
@@ -443,6 +477,12 @@ func (s *AddCdnDomainInput) SetOriginArg(v []*OriginArgForAddCdnDomainInput) *Ad
 	return s
 }
 
+// SetOriginCertCheck sets the OriginCertCheck field's value.
+func (s *AddCdnDomainInput) SetOriginCertCheck(v *OriginCertCheckForAddCdnDomainInput) *AddCdnDomainInput {
+	s.OriginCertCheck = v
+	return s
+}
+
 // SetOriginHost sets the OriginHost field's value.
 func (s *AddCdnDomainInput) SetOriginHost(v string) *AddCdnDomainInput {
 	s.OriginHost = &v
@@ -464,6 +504,12 @@ func (s *AddCdnDomainInput) SetOriginProtocol(v string) *AddCdnDomainInput {
 // SetOriginRange sets the OriginRange field's value.
 func (s *AddCdnDomainInput) SetOriginRange(v bool) *AddCdnDomainInput {
 	s.OriginRange = &v
+	return s
+}
+
+// SetOriginRetry sets the OriginRetry field's value.
+func (s *AddCdnDomainInput) SetOriginRetry(v *OriginRetryForAddCdnDomainInput) *AddCdnDomainInput {
+	s.OriginRetry = v
 	return s
 }
 
@@ -1211,6 +1257,36 @@ func (s *CacheKeyForAddCdnDomainInput) SetCondition(v *ConditionForAddCdnDomainI
 	return s
 }
 
+type CertCheckForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	CertInfoList []*CertInfoListForAddCdnDomainInput `type:"list"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s CertCheckForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CertCheckForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetCertInfoList sets the CertInfoList field's value.
+func (s *CertCheckForAddCdnDomainInput) SetCertInfoList(v []*CertInfoListForAddCdnDomainInput) *CertCheckForAddCdnDomainInput {
+	s.CertInfoList = v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *CertCheckForAddCdnDomainInput) SetSwitch(v bool) *CertCheckForAddCdnDomainInput {
+	s.Switch = &v
+	return s
+}
+
 type CertInfoForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
@@ -1223,6 +1299,8 @@ type CertInfoForAddCdnDomainInput struct {
 	Desc *string `type:"string"`
 
 	EffectiveTime *int64 `type:"int64"`
+
+	EncryType *string `type:"string"`
 
 	ExpireTime *int64 `type:"int64"`
 
@@ -1269,6 +1347,12 @@ func (s *CertInfoForAddCdnDomainInput) SetEffectiveTime(v int64) *CertInfoForAdd
 	return s
 }
 
+// SetEncryType sets the EncryType field's value.
+func (s *CertInfoForAddCdnDomainInput) SetEncryType(v string) *CertInfoForAddCdnDomainInput {
+	s.EncryType = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *CertInfoForAddCdnDomainInput) SetExpireTime(v int64) *CertInfoForAddCdnDomainInput {
 	s.ExpireTime = &v
@@ -1293,6 +1377,8 @@ type CertInfoListForAddCdnDomainInput struct {
 	Desc *string `type:"string"`
 
 	EffectiveTime *int64 `type:"int64"`
+
+	EncryType *string `type:"string"`
 
 	ExpireTime *int64 `type:"int64"`
 
@@ -1339,6 +1425,12 @@ func (s *CertInfoListForAddCdnDomainInput) SetEffectiveTime(v int64) *CertInfoLi
 	return s
 }
 
+// SetEncryType sets the EncryType field's value.
+func (s *CertInfoListForAddCdnDomainInput) SetEncryType(v string) *CertInfoListForAddCdnDomainInput {
+	s.EncryType = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *CertInfoListForAddCdnDomainInput) SetExpireTime(v int64) *CertInfoListForAddCdnDomainInput {
 	s.ExpireTime = &v
@@ -1356,6 +1448,10 @@ type CertificateForAddCdnDomainInput struct {
 
 	Certificate *string `type:"string"`
 
+	EncryptionCert *string `type:"string"`
+
+	EncryptionKey *string `type:"string"`
+
 	PrivateKey *string `type:"string"`
 }
 
@@ -1372,6 +1468,18 @@ func (s CertificateForAddCdnDomainInput) GoString() string {
 // SetCertificate sets the Certificate field's value.
 func (s *CertificateForAddCdnDomainInput) SetCertificate(v string) *CertificateForAddCdnDomainInput {
 	s.Certificate = &v
+	return s
+}
+
+// SetEncryptionCert sets the EncryptionCert field's value.
+func (s *CertificateForAddCdnDomainInput) SetEncryptionCert(v string) *CertificateForAddCdnDomainInput {
+	s.EncryptionCert = &v
+	return s
+}
+
+// SetEncryptionKey sets the EncryptionKey field's value.
+func (s *CertificateForAddCdnDomainInput) SetEncryptionKey(v string) *CertificateForAddCdnDomainInput {
+	s.EncryptionKey = &v
 	return s
 }
 
@@ -1555,6 +1663,36 @@ func (s *ConditionForAddCdnDomainInput) SetConnective(v string) *ConditionForAdd
 	return s
 }
 
+type ConditionGroupForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	Condition *ConvertConditionForAddCdnDomainInput `type:"structure"`
+
+	IsGroup *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s ConditionGroupForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionGroupForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *ConditionGroupForAddCdnDomainInput) SetCondition(v *ConvertConditionForAddCdnDomainInput) *ConditionGroupForAddCdnDomainInput {
+	s.Condition = v
+	return s
+}
+
+// SetIsGroup sets the IsGroup field's value.
+func (s *ConditionGroupForAddCdnDomainInput) SetIsGroup(v bool) *ConditionGroupForAddCdnDomainInput {
+	s.IsGroup = &v
+	return s
+}
+
 type ConditionRuleForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
@@ -1609,6 +1747,36 @@ func (s *ConditionRuleForAddCdnDomainInput) SetValue(v string) *ConditionRuleFor
 	return s
 }
 
+type ConditionalOriginForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	OriginRules []*OriginRuleForAddCdnDomainInput `type:"list"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s ConditionalOriginForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionalOriginForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetOriginRules sets the OriginRules field's value.
+func (s *ConditionalOriginForAddCdnDomainInput) SetOriginRules(v []*OriginRuleForAddCdnDomainInput) *ConditionalOriginForAddCdnDomainInput {
+	s.OriginRules = v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *ConditionalOriginForAddCdnDomainInput) SetSwitch(v bool) *ConditionalOriginForAddCdnDomainInput {
+	s.Switch = &v
+	return s
+}
+
 type ConvertCacheActionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
@@ -1652,6 +1820,214 @@ func (s *ConvertCacheActionForAddCdnDomainInput) SetIgnoreCase(v bool) *ConvertC
 // SetTtl sets the Ttl field's value.
 func (s *ConvertCacheActionForAddCdnDomainInput) SetTtl(v int64) *ConvertCacheActionForAddCdnDomainInput {
 	s.Ttl = &v
+	return s
+}
+
+type ConvertConditionForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	Object *string `type:"string"`
+
+	Operator *string `type:"string"`
+
+	Value []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s ConvertConditionForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConditionForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetObject sets the Object field's value.
+func (s *ConvertConditionForAddCdnDomainInput) SetObject(v string) *ConvertConditionForAddCdnDomainInput {
+	s.Object = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ConvertConditionForAddCdnDomainInput) SetOperator(v string) *ConvertConditionForAddCdnDomainInput {
+	s.Operator = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConvertConditionForAddCdnDomainInput) SetValue(v []*string) *ConvertConditionForAddCdnDomainInput {
+	s.Value = v
+	return s
+}
+
+type ConvertConvertConditionForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	ConditionGroups []*ConditionGroupForAddCdnDomainInput `type:"list"`
+
+	Connective *string `type:"string"`
+
+	IsGroup *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s ConvertConvertConditionForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertConditionForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetConditionGroups sets the ConditionGroups field's value.
+func (s *ConvertConvertConditionForAddCdnDomainInput) SetConditionGroups(v []*ConditionGroupForAddCdnDomainInput) *ConvertConvertConditionForAddCdnDomainInput {
+	s.ConditionGroups = v
+	return s
+}
+
+// SetConnective sets the Connective field's value.
+func (s *ConvertConvertConditionForAddCdnDomainInput) SetConnective(v string) *ConvertConvertConditionForAddCdnDomainInput {
+	s.Connective = &v
+	return s
+}
+
+// SetIsGroup sets the IsGroup field's value.
+func (s *ConvertConvertConditionForAddCdnDomainInput) SetIsGroup(v bool) *ConvertConvertConditionForAddCdnDomainInput {
+	s.IsGroup = &v
+	return s
+}
+
+type ConvertOriginLineForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	Address *string `type:"string"`
+
+	BucketName *string `type:"string"`
+
+	HttpPort *string `type:"string"`
+
+	HttpsPort *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	OriginHost *string `type:"string"`
+
+	OriginType *string `type:"string"`
+
+	PrivateBucketAccess *bool `type:"boolean"`
+
+	PrivateBucketAuth *PrivateBucketAuthForAddCdnDomainInput `type:"structure"`
+
+	Region *string `type:"string"`
+
+	Weight *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertOriginLineForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertOriginLineForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetAddress(v string) *ConvertOriginLineForAddCdnDomainInput {
+	s.Address = &v
+	return s
+}
+
+// SetBucketName sets the BucketName field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetBucketName(v string) *ConvertOriginLineForAddCdnDomainInput {
+	s.BucketName = &v
+	return s
+}
+
+// SetHttpPort sets the HttpPort field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetHttpPort(v string) *ConvertOriginLineForAddCdnDomainInput {
+	s.HttpPort = &v
+	return s
+}
+
+// SetHttpsPort sets the HttpsPort field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetHttpsPort(v string) *ConvertOriginLineForAddCdnDomainInput {
+	s.HttpsPort = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetInstanceType(v string) *ConvertOriginLineForAddCdnDomainInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetOriginHost sets the OriginHost field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetOriginHost(v string) *ConvertOriginLineForAddCdnDomainInput {
+	s.OriginHost = &v
+	return s
+}
+
+// SetOriginType sets the OriginType field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetOriginType(v string) *ConvertOriginLineForAddCdnDomainInput {
+	s.OriginType = &v
+	return s
+}
+
+// SetPrivateBucketAccess sets the PrivateBucketAccess field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetPrivateBucketAccess(v bool) *ConvertOriginLineForAddCdnDomainInput {
+	s.PrivateBucketAccess = &v
+	return s
+}
+
+// SetPrivateBucketAuth sets the PrivateBucketAuth field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetPrivateBucketAuth(v *PrivateBucketAuthForAddCdnDomainInput) *ConvertOriginLineForAddCdnDomainInput {
+	s.PrivateBucketAuth = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetRegion(v string) *ConvertOriginLineForAddCdnDomainInput {
+	s.Region = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ConvertOriginLineForAddCdnDomainInput) SetWeight(v string) *ConvertOriginLineForAddCdnDomainInput {
+	s.Weight = &v
+	return s
+}
+
+type ConvertTimeoutActionForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	HttpTimeout *int64 `type:"int64"`
+
+	TcpTimeout *int64 `type:"int64"`
+}
+
+// String returns the string representation
+func (s ConvertTimeoutActionForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertTimeoutActionForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetHttpTimeout sets the HttpTimeout field's value.
+func (s *ConvertTimeoutActionForAddCdnDomainInput) SetHttpTimeout(v int64) *ConvertTimeoutActionForAddCdnDomainInput {
+	s.HttpTimeout = &v
+	return s
+}
+
+// SetTcpTimeout sets the TcpTimeout field's value.
+func (s *ConvertTimeoutActionForAddCdnDomainInput) SetTcpTimeout(v int64) *ConvertTimeoutActionForAddCdnDomainInput {
+	s.TcpTimeout = &v
 	return s
 }
 
@@ -2064,6 +2440,8 @@ func (s *ForcedRedirectForAddCdnDomainInput) SetStatusCode(v string) *ForcedRedi
 type HTTPSForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
+	CertCheck *CertCheckForAddCdnDomainInput `type:"structure"`
+
 	CertInfo *CertInfoForAddCdnDomainInput `type:"structure"`
 
 	CertInfoList []*CertInfoListForAddCdnDomainInput `type:"list"`
@@ -2091,6 +2469,12 @@ func (s HTTPSForAddCdnDomainInput) String() string {
 // GoString returns the string representation
 func (s HTTPSForAddCdnDomainInput) GoString() string {
 	return s.String()
+}
+
+// SetCertCheck sets the CertCheck field's value.
+func (s *HTTPSForAddCdnDomainInput) SetCertCheck(v *CertCheckForAddCdnDomainInput) *HTTPSForAddCdnDomainInput {
+	s.CertCheck = v
+	return s
 }
 
 // SetCertInfo sets the CertInfo field's value.
@@ -2544,7 +2928,7 @@ func (s *OriginAccessRuleForAddCdnDomainInput) SetSwitch(v bool) *OriginAccessRu
 type OriginActionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
-	OriginLines []*OriginLineForAddCdnDomainInput `type:"list"`
+	OriginLines []*ConvertOriginLineForAddCdnDomainInput `type:"list"`
 }
 
 // String returns the string representation
@@ -2558,7 +2942,7 @@ func (s OriginActionForAddCdnDomainInput) GoString() string {
 }
 
 // SetOriginLines sets the OriginLines field's value.
-func (s *OriginActionForAddCdnDomainInput) SetOriginLines(v []*OriginLineForAddCdnDomainInput) *OriginActionForAddCdnDomainInput {
+func (s *OriginActionForAddCdnDomainInput) SetOriginLines(v []*ConvertOriginLineForAddCdnDomainInput) *OriginActionForAddCdnDomainInput {
 	s.OriginLines = v
 	return s
 }
@@ -2653,6 +3037,28 @@ func (s *OriginArgForAddCdnDomainInput) SetOriginArgAction(v *OriginArgActionFor
 	return s
 }
 
+type OriginCertCheckForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s OriginCertCheckForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginCertCheckForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *OriginCertCheckForAddCdnDomainInput) SetSwitch(v bool) *OriginCertCheckForAddCdnDomainInput {
+	s.Switch = &v
+	return s
+}
+
 type OriginForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
@@ -2695,16 +3101,6 @@ type OriginLineForAddCdnDomainInput struct {
 	InstanceType *string `type:"string"`
 
 	OriginHost *string `type:"string"`
-
-	OriginType *string `type:"string"`
-
-	PrivateBucketAccess *bool `type:"boolean"`
-
-	PrivateBucketAuth *PrivateBucketAuthForAddCdnDomainInput `type:"structure"`
-
-	Region *string `type:"string"`
-
-	Weight *string `type:"string"`
 }
 
 // String returns the string representation
@@ -2747,33 +3143,33 @@ func (s *OriginLineForAddCdnDomainInput) SetOriginHost(v string) *OriginLineForA
 	return s
 }
 
-// SetOriginType sets the OriginType field's value.
-func (s *OriginLineForAddCdnDomainInput) SetOriginType(v string) *OriginLineForAddCdnDomainInput {
-	s.OriginType = &v
+type OriginRetryForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	StatusCode *string `type:"string"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s OriginRetryForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginRetryForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetStatusCode sets the StatusCode field's value.
+func (s *OriginRetryForAddCdnDomainInput) SetStatusCode(v string) *OriginRetryForAddCdnDomainInput {
+	s.StatusCode = &v
 	return s
 }
 
-// SetPrivateBucketAccess sets the PrivateBucketAccess field's value.
-func (s *OriginLineForAddCdnDomainInput) SetPrivateBucketAccess(v bool) *OriginLineForAddCdnDomainInput {
-	s.PrivateBucketAccess = &v
-	return s
-}
-
-// SetPrivateBucketAuth sets the PrivateBucketAuth field's value.
-func (s *OriginLineForAddCdnDomainInput) SetPrivateBucketAuth(v *PrivateBucketAuthForAddCdnDomainInput) *OriginLineForAddCdnDomainInput {
-	s.PrivateBucketAuth = v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *OriginLineForAddCdnDomainInput) SetRegion(v string) *OriginLineForAddCdnDomainInput {
-	s.Region = &v
-	return s
-}
-
-// SetWeight sets the Weight field's value.
-func (s *OriginLineForAddCdnDomainInput) SetWeight(v string) *OriginLineForAddCdnDomainInput {
-	s.Weight = &v
+// SetSwitch sets the Switch field's value.
+func (s *OriginRetryForAddCdnDomainInput) SetSwitch(v bool) *OriginRetryForAddCdnDomainInput {
+	s.Switch = &v
 	return s
 }
 
@@ -2864,6 +3260,36 @@ func (s *OriginRewriteRuleForAddCdnDomainInput) SetCondition(v *ConditionForAddC
 // SetOriginRewriteAction sets the OriginRewriteAction field's value.
 func (s *OriginRewriteRuleForAddCdnDomainInput) SetOriginRewriteAction(v *OriginRewriteActionForAddCdnDomainInput) *OriginRewriteRuleForAddCdnDomainInput {
 	s.OriginRewriteAction = v
+	return s
+}
+
+type OriginRuleForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	Actions *ActionsForAddCdnDomainInput `type:"structure"`
+
+	Condition *ConvertConvertConditionForAddCdnDomainInput `type:"structure"`
+}
+
+// String returns the string representation
+func (s OriginRuleForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginRuleForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetActions sets the Actions field's value.
+func (s *OriginRuleForAddCdnDomainInput) SetActions(v *ActionsForAddCdnDomainInput) *OriginRuleForAddCdnDomainInput {
+	s.Actions = v
+	return s
+}
+
+// SetCondition sets the Condition field's value.
+func (s *OriginRuleForAddCdnDomainInput) SetCondition(v *ConvertConvertConditionForAddCdnDomainInput) *OriginRuleForAddCdnDomainInput {
+	s.Condition = v
 	return s
 }
 
@@ -3944,6 +4370,8 @@ func (s *SignParamForAddCdnDomainInput) SetUrlParam(v *SignCapRuleForAddCdnDomai
 type SignedUrlAuthActionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
+	AuthAlgorithm *string `type:"string"`
+
 	BackupSecretKey *string `type:"string"`
 
 	CustomVariableRules *CustomVariableRulesForAddCdnDomainInput `type:"structure"`
@@ -3983,6 +4411,12 @@ func (s SignedUrlAuthActionForAddCdnDomainInput) String() string {
 // GoString returns the string representation
 func (s SignedUrlAuthActionForAddCdnDomainInput) GoString() string {
 	return s.String()
+}
+
+// SetAuthAlgorithm sets the AuthAlgorithm field's value.
+func (s *SignedUrlAuthActionForAddCdnDomainInput) SetAuthAlgorithm(v string) *SignedUrlAuthActionForAddCdnDomainInput {
+	s.AuthAlgorithm = &v
+	return s
 }
 
 // SetBackupSecretKey sets the BackupSecretKey field's value.
@@ -4271,36 +4705,6 @@ func (s *TimeOutActionForAddCdnDomainInput) SetTime(v int64) *TimeOutActionForAd
 	return s
 }
 
-type TimeoutActionForAddCdnDomainInput struct {
-	_ struct{} `type:"structure"`
-
-	HttpTimeout *int64 `type:"int64"`
-
-	TcpTimeout *int64 `type:"int64"`
-}
-
-// String returns the string representation
-func (s TimeoutActionForAddCdnDomainInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TimeoutActionForAddCdnDomainInput) GoString() string {
-	return s.String()
-}
-
-// SetHttpTimeout sets the HttpTimeout field's value.
-func (s *TimeoutActionForAddCdnDomainInput) SetHttpTimeout(v int64) *TimeoutActionForAddCdnDomainInput {
-	s.HttpTimeout = &v
-	return s
-}
-
-// SetTcpTimeout sets the TcpTimeout field's value.
-func (s *TimeoutActionForAddCdnDomainInput) SetTcpTimeout(v int64) *TimeoutActionForAddCdnDomainInput {
-	s.TcpTimeout = &v
-	return s
-}
-
 type TimeoutForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4336,7 +4740,7 @@ type TimeoutRuleForAddCdnDomainInput struct {
 
 	Condition *ConditionForAddCdnDomainInput `type:"structure"`
 
-	TimeoutAction *TimeoutActionForAddCdnDomainInput `type:"structure"`
+	TimeoutAction *ConvertTimeoutActionForAddCdnDomainInput `type:"structure"`
 }
 
 // String returns the string representation
@@ -4356,7 +4760,7 @@ func (s *TimeoutRuleForAddCdnDomainInput) SetCondition(v *ConditionForAddCdnDoma
 }
 
 // SetTimeoutAction sets the TimeoutAction field's value.
-func (s *TimeoutRuleForAddCdnDomainInput) SetTimeoutAction(v *TimeoutActionForAddCdnDomainInput) *TimeoutRuleForAddCdnDomainInput {
+func (s *TimeoutRuleForAddCdnDomainInput) SetTimeoutAction(v *ConvertTimeoutActionForAddCdnDomainInput) *TimeoutRuleForAddCdnDomainInput {
 	s.TimeoutAction = v
 	return s
 }
@@ -4367,6 +4771,8 @@ type TosAuthInformationForAddCdnDomainInput struct {
 	AccessKeyId *string `type:"string"`
 
 	AccessKeySecret *string `type:"string"`
+
+	AccountKey *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4388,6 +4794,12 @@ func (s *TosAuthInformationForAddCdnDomainInput) SetAccessKeyId(v string) *TosAu
 // SetAccessKeySecret sets the AccessKeySecret field's value.
 func (s *TosAuthInformationForAddCdnDomainInput) SetAccessKeySecret(v string) *TosAuthInformationForAddCdnDomainInput {
 	s.AccessKeySecret = &v
+	return s
+}
+
+// SetAccountKey sets the AccountKey field's value.
+func (s *TosAuthInformationForAddCdnDomainInput) SetAccountKey(v string) *TosAuthInformationForAddCdnDomainInput {
+	s.AccountKey = &v
 	return s
 }
 
