@@ -208,8 +208,6 @@ type GetFunctionInput struct {
 
 	// Id is a required field
 	Id *string `type:"string" required:"true"`
-
-	TopParam *TopParamForGetFunctionInput `type:"structure"`
 }
 
 // String returns the string representation
@@ -241,12 +239,6 @@ func (s *GetFunctionInput) SetId(v string) *GetFunctionInput {
 	return s
 }
 
-// SetTopParam sets the TopParam field's value.
-func (s *GetFunctionInput) SetTopParam(v *TopParamForGetFunctionInput) *GetFunctionInput {
-	s.TopParam = v
-	return s
-}
-
 type GetFunctionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -257,8 +249,6 @@ type GetFunctionOutput struct {
 	CodeSizeLimit *int32 `type:"int32"`
 
 	CreationTime *string `type:"string"`
-
-	DebugInstanceEnable *bool `type:"boolean"`
 
 	Description *string `type:"string"`
 
@@ -286,8 +276,6 @@ type GetFunctionOutput struct {
 
 	RequestTimeout *int32 `type:"int32"`
 
-	ResourcePoolId *string `type:"string"`
-
 	Runtime *string `type:"string"`
 
 	SourceLocation *string `type:"string"`
@@ -299,8 +287,6 @@ type GetFunctionOutput struct {
 	TosMountConfig *TosMountConfigForGetFunctionOutput `type:"structure"`
 
 	TriggersCount *int32 `type:"int32"`
-
-	UseStatus *string `type:"string"`
 
 	VpcConfig *VpcConfigForGetFunctionOutput `type:"structure"`
 }
@@ -330,12 +316,6 @@ func (s *GetFunctionOutput) SetCodeSizeLimit(v int32) *GetFunctionOutput {
 // SetCreationTime sets the CreationTime field's value.
 func (s *GetFunctionOutput) SetCreationTime(v string) *GetFunctionOutput {
 	s.CreationTime = &v
-	return s
-}
-
-// SetDebugInstanceEnable sets the DebugInstanceEnable field's value.
-func (s *GetFunctionOutput) SetDebugInstanceEnable(v bool) *GetFunctionOutput {
-	s.DebugInstanceEnable = &v
 	return s
 }
 
@@ -417,12 +397,6 @@ func (s *GetFunctionOutput) SetRequestTimeout(v int32) *GetFunctionOutput {
 	return s
 }
 
-// SetResourcePoolId sets the ResourcePoolId field's value.
-func (s *GetFunctionOutput) SetResourcePoolId(v string) *GetFunctionOutput {
-	s.ResourcePoolId = &v
-	return s
-}
-
 // SetRuntime sets the Runtime field's value.
 func (s *GetFunctionOutput) SetRuntime(v string) *GetFunctionOutput {
 	s.Runtime = &v
@@ -456,12 +430,6 @@ func (s *GetFunctionOutput) SetTosMountConfig(v *TosMountConfigForGetFunctionOut
 // SetTriggersCount sets the TriggersCount field's value.
 func (s *GetFunctionOutput) SetTriggersCount(v int32) *GetFunctionOutput {
 	s.TriggersCount = &v
-	return s
-}
-
-// SetUseStatus sets the UseStatus field's value.
-func (s *GetFunctionOutput) SetUseStatus(v string) *GetFunctionOutput {
-	s.UseStatus = &v
 	return s
 }
 
@@ -652,108 +620,6 @@ func (s *TlsConfigForGetFunctionOutput) SetTlsProjectId(v string) *TlsConfigForG
 // SetTlsTopicId sets the TlsTopicId field's value.
 func (s *TlsConfigForGetFunctionOutput) SetTlsTopicId(v string) *TlsConfigForGetFunctionOutput {
 	s.TlsTopicId = &v
-	return s
-}
-
-type TopParamForGetFunctionInput struct {
-	_ struct{} `type:"structure"`
-
-	AccountId *int64 `type:"int64"`
-
-	DestService *string `type:"string"`
-
-	IsInternal *string `type:"string"`
-
-	Psm *string `type:"string"`
-
-	RealIp *string `type:"string"`
-
-	Region *string `type:"string"`
-
-	RequestId *string `type:"string"`
-
-	RoleId *int64 `type:"int64"`
-
-	Site *string `type:"string"`
-
-	SourceService *string `type:"string"`
-
-	UserId *int64 `type:"int64"`
-}
-
-// String returns the string representation
-func (s TopParamForGetFunctionInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TopParamForGetFunctionInput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *TopParamForGetFunctionInput) SetAccountId(v int64) *TopParamForGetFunctionInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetDestService sets the DestService field's value.
-func (s *TopParamForGetFunctionInput) SetDestService(v string) *TopParamForGetFunctionInput {
-	s.DestService = &v
-	return s
-}
-
-// SetIsInternal sets the IsInternal field's value.
-func (s *TopParamForGetFunctionInput) SetIsInternal(v string) *TopParamForGetFunctionInput {
-	s.IsInternal = &v
-	return s
-}
-
-// SetPsm sets the Psm field's value.
-func (s *TopParamForGetFunctionInput) SetPsm(v string) *TopParamForGetFunctionInput {
-	s.Psm = &v
-	return s
-}
-
-// SetRealIp sets the RealIp field's value.
-func (s *TopParamForGetFunctionInput) SetRealIp(v string) *TopParamForGetFunctionInput {
-	s.RealIp = &v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *TopParamForGetFunctionInput) SetRegion(v string) *TopParamForGetFunctionInput {
-	s.Region = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *TopParamForGetFunctionInput) SetRequestId(v string) *TopParamForGetFunctionInput {
-	s.RequestId = &v
-	return s
-}
-
-// SetRoleId sets the RoleId field's value.
-func (s *TopParamForGetFunctionInput) SetRoleId(v int64) *TopParamForGetFunctionInput {
-	s.RoleId = &v
-	return s
-}
-
-// SetSite sets the Site field's value.
-func (s *TopParamForGetFunctionInput) SetSite(v string) *TopParamForGetFunctionInput {
-	s.Site = &v
-	return s
-}
-
-// SetSourceService sets the SourceService field's value.
-func (s *TopParamForGetFunctionInput) SetSourceService(v string) *TopParamForGetFunctionInput {
-	s.SourceService = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *TopParamForGetFunctionInput) SetUserId(v int64) *TopParamForGetFunctionInput {
-	s.UserId = &v
 	return s
 }
 

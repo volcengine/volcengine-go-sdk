@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VEFAAS.
 //    func myFunc(svc VEFAASAPI) bool {
-//        // Make svc.CreateFunction request
+//        // Make svc.AbortRelease request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type VEFAASAPI interface {
+	AbortReleaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AbortReleaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AbortReleaseCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AbortRelease(*AbortReleaseInput) (*AbortReleaseOutput, error)
+	AbortReleaseWithContext(volcengine.Context, *AbortReleaseInput, ...request.Option) (*AbortReleaseOutput, error)
+	AbortReleaseRequest(*AbortReleaseInput) (*request.Request, *AbortReleaseOutput)
+
 	CreateFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFunctionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -54,6 +62,70 @@ type VEFAASAPI interface {
 	GetFunctionWithContext(volcengine.Context, *GetFunctionInput, ...request.Option) (*GetFunctionOutput, error)
 	GetFunctionRequest(*GetFunctionInput) (*request.Request, *GetFunctionOutput)
 
+	GetFunctionInstanceLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetFunctionInstanceLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetFunctionInstanceLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetFunctionInstanceLogs(*GetFunctionInstanceLogsInput) (*GetFunctionInstanceLogsOutput, error)
+	GetFunctionInstanceLogsWithContext(volcengine.Context, *GetFunctionInstanceLogsInput, ...request.Option) (*GetFunctionInstanceLogsOutput, error)
+	GetFunctionInstanceLogsRequest(*GetFunctionInstanceLogsInput) (*request.Request, *GetFunctionInstanceLogsOutput)
+
+	GetReleaseStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetReleaseStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetReleaseStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetReleaseStatus(*GetReleaseStatusInput) (*GetReleaseStatusOutput, error)
+	GetReleaseStatusWithContext(volcengine.Context, *GetReleaseStatusInput, ...request.Option) (*GetReleaseStatusOutput, error)
+	GetReleaseStatusRequest(*GetReleaseStatusInput) (*request.Request, *GetReleaseStatusOutput)
+
+	GetRevisionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetRevisionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetRevisionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetRevision(*GetRevisionInput) (*GetRevisionOutput, error)
+	GetRevisionWithContext(volcengine.Context, *GetRevisionInput, ...request.Option) (*GetRevisionOutput, error)
+	GetRevisionRequest(*GetRevisionInput) (*request.Request, *GetRevisionOutput)
+
+	ListFunctionInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListFunctionInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListFunctionInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListFunctionInstances(*ListFunctionInstancesInput) (*ListFunctionInstancesOutput, error)
+	ListFunctionInstancesWithContext(volcengine.Context, *ListFunctionInstancesInput, ...request.Option) (*ListFunctionInstancesOutput, error)
+	ListFunctionInstancesRequest(*ListFunctionInstancesInput) (*request.Request, *ListFunctionInstancesOutput)
+
+	ListFunctionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListFunctionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListFunctionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListFunctions(*ListFunctionsInput) (*ListFunctionsOutput, error)
+	ListFunctionsWithContext(volcengine.Context, *ListFunctionsInput, ...request.Option) (*ListFunctionsOutput, error)
+	ListFunctionsRequest(*ListFunctionsInput) (*request.Request, *ListFunctionsOutput)
+
+	ListReleaseRecordsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListReleaseRecordsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListReleaseRecordsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListReleaseRecords(*ListReleaseRecordsInput) (*ListReleaseRecordsOutput, error)
+	ListReleaseRecordsWithContext(volcengine.Context, *ListReleaseRecordsInput, ...request.Option) (*ListReleaseRecordsOutput, error)
+	ListReleaseRecordsRequest(*ListReleaseRecordsInput) (*request.Request, *ListReleaseRecordsOutput)
+
+	ListRevisionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRevisionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRevisionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRevisions(*ListRevisionsInput) (*ListRevisionsOutput, error)
+	ListRevisionsWithContext(volcengine.Context, *ListRevisionsInput, ...request.Option) (*ListRevisionsOutput, error)
+	ListRevisionsRequest(*ListRevisionsInput) (*request.Request, *ListRevisionsOutput)
+
+	ReleaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ReleaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ReleaseCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	Release(*ReleaseInput) (*ReleaseOutput, error)
+	ReleaseWithContext(volcengine.Context, *ReleaseInput, ...request.Option) (*ReleaseOutput, error)
+	ReleaseRequest(*ReleaseInput) (*request.Request, *ReleaseOutput)
+
 	UpdateFunctionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateFunctionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateFunctionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +133,14 @@ type VEFAASAPI interface {
 	UpdateFunction(*UpdateFunctionInput) (*UpdateFunctionOutput, error)
 	UpdateFunctionWithContext(volcengine.Context, *UpdateFunctionInput, ...request.Option) (*UpdateFunctionOutput, error)
 	UpdateFunctionRequest(*UpdateFunctionInput) (*request.Request, *UpdateFunctionOutput)
+
+	UpdateReleaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateReleaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateReleaseCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateRelease(*UpdateReleaseInput) (*UpdateReleaseOutput, error)
+	UpdateReleaseWithContext(volcengine.Context, *UpdateReleaseInput, ...request.Option) (*UpdateReleaseOutput, error)
+	UpdateReleaseRequest(*UpdateReleaseInput) (*request.Request, *UpdateReleaseOutput)
 }
 
 var _ VEFAASAPI = (*VEFAAS)(nil)
