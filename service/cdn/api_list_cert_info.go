@@ -182,6 +182,8 @@ type CertInfoForListCertInfoOutput struct {
 
 	CertName *string `type:"string"`
 
+	CertType *string `type:"string"`
+
 	ConfiguredDomain *string `type:"string"`
 
 	ConfiguredDomainDetail []*ConfiguredDomainDetailForListCertInfoOutput `type:"list"`
@@ -191,6 +193,8 @@ type CertInfoForListCertInfoOutput struct {
 	DnsName *string `type:"string"`
 
 	EffectiveTime *int64 `type:"int64"`
+
+	EncryType *string `type:"string"`
 
 	ExpireTime *int64 `type:"int64"`
 
@@ -227,6 +231,12 @@ func (s *CertInfoForListCertInfoOutput) SetCertName(v string) *CertInfoForListCe
 	return s
 }
 
+// SetCertType sets the CertType field's value.
+func (s *CertInfoForListCertInfoOutput) SetCertType(v string) *CertInfoForListCertInfoOutput {
+	s.CertType = &v
+	return s
+}
+
 // SetConfiguredDomain sets the ConfiguredDomain field's value.
 func (s *CertInfoForListCertInfoOutput) SetConfiguredDomain(v string) *CertInfoForListCertInfoOutput {
 	s.ConfiguredDomain = &v
@@ -254,6 +264,12 @@ func (s *CertInfoForListCertInfoOutput) SetDnsName(v string) *CertInfoForListCer
 // SetEffectiveTime sets the EffectiveTime field's value.
 func (s *CertInfoForListCertInfoOutput) SetEffectiveTime(v int64) *CertInfoForListCertInfoOutput {
 	s.EffectiveTime = &v
+	return s
+}
+
+// SetEncryType sets the EncryType field's value.
+func (s *CertInfoForListCertInfoOutput) SetEncryType(v string) *CertInfoForListCertInfoOutput {
+	s.EncryType = &v
 	return s
 }
 
@@ -310,7 +326,11 @@ type ListCertInfoInput struct {
 
 	CertId *string `type:"string"`
 
+	CertType *string `type:"string"`
+
 	ConfiguredDomain *string `type:"string"`
+
+	EncryType *string `type:"string"`
 
 	FuzzyMatch *bool `type:"boolean"`
 
@@ -357,9 +377,21 @@ func (s *ListCertInfoInput) SetCertId(v string) *ListCertInfoInput {
 	return s
 }
 
+// SetCertType sets the CertType field's value.
+func (s *ListCertInfoInput) SetCertType(v string) *ListCertInfoInput {
+	s.CertType = &v
+	return s
+}
+
 // SetConfiguredDomain sets the ConfiguredDomain field's value.
 func (s *ListCertInfoInput) SetConfiguredDomain(v string) *ListCertInfoInput {
 	s.ConfiguredDomain = &v
+	return s
+}
+
+// SetEncryType sets the EncryType field's value.
+func (s *ListCertInfoInput) SetEncryType(v string) *ListCertInfoInput {
+	s.EncryType = &v
 	return s
 }
 
