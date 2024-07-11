@@ -147,6 +147,8 @@ type DescribeCdnRegionAndIspInput struct {
 	_ struct{} `type:"structure"`
 
 	Area *string `type:"string"`
+
+	Lang *string `type:"string"`
 }
 
 // String returns the string representation
@@ -162,6 +164,12 @@ func (s DescribeCdnRegionAndIspInput) GoString() string {
 // SetArea sets the Area field's value.
 func (s *DescribeCdnRegionAndIspInput) SetArea(v string) *DescribeCdnRegionAndIspInput {
 	s.Area = &v
+	return s
+}
+
+// SetLang sets the Lang field's value.
+func (s *DescribeCdnRegionAndIspInput) SetLang(v string) *DescribeCdnRegionAndIspInput {
+	s.Lang = &v
 	return s
 }
 
