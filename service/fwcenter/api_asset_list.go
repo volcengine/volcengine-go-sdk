@@ -285,8 +285,6 @@ type DataForAssetListOutput struct {
 	Region *string `type:"string" json:"region"`
 
 	Type *string `type:"string" json:"type"`
-
-	Updatetime *int32 `type:"int32" json:"updatetime"`
 }
 
 // String returns the string representation
@@ -344,11 +342,5 @@ func (s *DataForAssetListOutput) SetRegion(v string) *DataForAssetListOutput {
 // SetType sets the Type field's value.
 func (s *DataForAssetListOutput) SetType(v string) *DataForAssetListOutput {
 	s.Type = &v
-	return s
-}
-
-// SetUpdatetime sets the Updatetime field's value.
-func (s *DataForAssetListOutput) SetUpdatetime(v int32) *DataForAssetListOutput {
-	s.Updatetime = &v
 	return s
 }
