@@ -319,7 +319,19 @@ type UpdateDomainInput struct {
 
 	BackendGroups []*BackendGroupForUpdateDomainInput `type:"list"`
 
+	BotDytokenEnable *int32 `type:"int32"`
+
+	BotFrequencyEnable *int32 `type:"int32"`
+
+	BotRepeatEnable *int32 `type:"int32"`
+
+	BotSequenceDefaultAction *int32 `type:"int32"`
+
+	BotSequenceEnable *int32 `type:"int32"`
+
 	CertificateID *int32 `type:"int32"`
+
+	CertificatePlatform *string `type:"string"`
 
 	ClientIPLocation *int32 `type:"int32"`
 
@@ -364,6 +376,8 @@ type UpdateDomainInput struct {
 
 	PublicRealServer *int32 `type:"int32"`
 
+	RedirectHTTPS *bool `type:"boolean"`
+
 	// Region is a required field
 	Region *string `type:"string" required:"true"`
 
@@ -372,6 +386,8 @@ type UpdateDomainInput struct {
 	SSLProtocols []*string `type:"list"`
 
 	TLSEnable *int32 `type:"int32"`
+
+	VolcCertificateID *string `type:"string"`
 
 	VpcID *string `type:"string"`
 }
@@ -417,9 +433,45 @@ func (s *UpdateDomainInput) SetBackendGroups(v []*BackendGroupForUpdateDomainInp
 	return s
 }
 
+// SetBotDytokenEnable sets the BotDytokenEnable field's value.
+func (s *UpdateDomainInput) SetBotDytokenEnable(v int32) *UpdateDomainInput {
+	s.BotDytokenEnable = &v
+	return s
+}
+
+// SetBotFrequencyEnable sets the BotFrequencyEnable field's value.
+func (s *UpdateDomainInput) SetBotFrequencyEnable(v int32) *UpdateDomainInput {
+	s.BotFrequencyEnable = &v
+	return s
+}
+
+// SetBotRepeatEnable sets the BotRepeatEnable field's value.
+func (s *UpdateDomainInput) SetBotRepeatEnable(v int32) *UpdateDomainInput {
+	s.BotRepeatEnable = &v
+	return s
+}
+
+// SetBotSequenceDefaultAction sets the BotSequenceDefaultAction field's value.
+func (s *UpdateDomainInput) SetBotSequenceDefaultAction(v int32) *UpdateDomainInput {
+	s.BotSequenceDefaultAction = &v
+	return s
+}
+
+// SetBotSequenceEnable sets the BotSequenceEnable field's value.
+func (s *UpdateDomainInput) SetBotSequenceEnable(v int32) *UpdateDomainInput {
+	s.BotSequenceEnable = &v
+	return s
+}
+
 // SetCertificateID sets the CertificateID field's value.
 func (s *UpdateDomainInput) SetCertificateID(v int32) *UpdateDomainInput {
 	s.CertificateID = &v
+	return s
+}
+
+// SetCertificatePlatform sets the CertificatePlatform field's value.
+func (s *UpdateDomainInput) SetCertificatePlatform(v string) *UpdateDomainInput {
+	s.CertificatePlatform = &v
 	return s
 }
 
@@ -549,6 +601,12 @@ func (s *UpdateDomainInput) SetPublicRealServer(v int32) *UpdateDomainInput {
 	return s
 }
 
+// SetRedirectHTTPS sets the RedirectHTTPS field's value.
+func (s *UpdateDomainInput) SetRedirectHTTPS(v bool) *UpdateDomainInput {
+	s.RedirectHTTPS = &v
+	return s
+}
+
 // SetRegion sets the Region field's value.
 func (s *UpdateDomainInput) SetRegion(v string) *UpdateDomainInput {
 	s.Region = &v
@@ -570,6 +628,12 @@ func (s *UpdateDomainInput) SetSSLProtocols(v []*string) *UpdateDomainInput {
 // SetTLSEnable sets the TLSEnable field's value.
 func (s *UpdateDomainInput) SetTLSEnable(v int32) *UpdateDomainInput {
 	s.TLSEnable = &v
+	return s
+}
+
+// SetVolcCertificateID sets the VolcCertificateID field's value.
+func (s *UpdateDomainInput) SetVolcCertificateID(v string) *UpdateDomainInput {
+	s.VolcCertificateID = &v
 	return s
 }
 
