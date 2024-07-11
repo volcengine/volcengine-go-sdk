@@ -195,6 +195,12 @@ type DescribeCertConfigInput struct {
 	// CertId is a required field
 	CertId *string `type:"string" required:"true"`
 
+	CertId2 *string `type:"string"`
+
+	CertType *string `type:"string"`
+
+	EncryType *string `type:"string"`
+
 	Status *string `type:"string"`
 }
 
@@ -224,6 +230,24 @@ func (s *DescribeCertConfigInput) Validate() error {
 // SetCertId sets the CertId field's value.
 func (s *DescribeCertConfigInput) SetCertId(v string) *DescribeCertConfigInput {
 	s.CertId = &v
+	return s
+}
+
+// SetCertId2 sets the CertId2 field's value.
+func (s *DescribeCertConfigInput) SetCertId2(v string) *DescribeCertConfigInput {
+	s.CertId2 = &v
+	return s
+}
+
+// SetCertType sets the CertType field's value.
+func (s *DescribeCertConfigInput) SetCertType(v string) *DescribeCertConfigInput {
+	s.CertType = &v
+	return s
+}
+
+// SetEncryType sets the EncryType field's value.
+func (s *DescribeCertConfigInput) SetEncryType(v string) *DescribeCertConfigInput {
+	s.EncryType = &v
 	return s
 }
 

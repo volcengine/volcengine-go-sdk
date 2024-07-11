@@ -189,6 +189,28 @@ func (s *AccessActionForDescribeCdnConfigOutput) SetRuleType(v string) *AccessAc
 	return s
 }
 
+type ActionsForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	OriginLines []*OriginLineForDescribeCdnConfigOutput `type:"list"`
+}
+
+// String returns the string representation
+func (s ActionsForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionsForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetOriginLines sets the OriginLines field's value.
+func (s *ActionsForDescribeCdnConfigOutput) SetOriginLines(v []*OriginLineForDescribeCdnConfigOutput) *ActionsForDescribeCdnConfigOutput {
+	s.OriginLines = v
+	return s
+}
+
 type AreaAccessRuleForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -803,6 +825,36 @@ func (s *CacheKeyForDescribeCdnConfigOutput) SetCondition(v *ConditionForDescrib
 	return s
 }
 
+type CertCheckForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	CertInfoList []*CertInfoListForDescribeCdnConfigOutput `type:"list"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s CertCheckForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CertCheckForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetCertInfoList sets the CertInfoList field's value.
+func (s *CertCheckForDescribeCdnConfigOutput) SetCertInfoList(v []*CertInfoListForDescribeCdnConfigOutput) *CertCheckForDescribeCdnConfigOutput {
+	s.CertInfoList = v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *CertCheckForDescribeCdnConfigOutput) SetSwitch(v bool) *CertCheckForDescribeCdnConfigOutput {
+	s.Switch = &v
+	return s
+}
+
 type CertInfoForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -815,6 +867,8 @@ type CertInfoForDescribeCdnConfigOutput struct {
 	Desc *string `type:"string"`
 
 	EffectiveTime *int64 `type:"int64"`
+
+	EncryType *string `type:"string"`
 
 	ExpireTime *int64 `type:"int64"`
 
@@ -861,6 +915,12 @@ func (s *CertInfoForDescribeCdnConfigOutput) SetEffectiveTime(v int64) *CertInfo
 	return s
 }
 
+// SetEncryType sets the EncryType field's value.
+func (s *CertInfoForDescribeCdnConfigOutput) SetEncryType(v string) *CertInfoForDescribeCdnConfigOutput {
+	s.EncryType = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *CertInfoForDescribeCdnConfigOutput) SetExpireTime(v int64) *CertInfoForDescribeCdnConfigOutput {
 	s.ExpireTime = &v
@@ -885,6 +945,8 @@ type CertInfoListForDescribeCdnConfigOutput struct {
 	Desc *string `type:"string"`
 
 	EffectiveTime *int64 `type:"int64"`
+
+	EncryType *string `type:"string"`
 
 	ExpireTime *int64 `type:"int64"`
 
@@ -931,6 +993,12 @@ func (s *CertInfoListForDescribeCdnConfigOutput) SetEffectiveTime(v int64) *Cert
 	return s
 }
 
+// SetEncryType sets the EncryType field's value.
+func (s *CertInfoListForDescribeCdnConfigOutput) SetEncryType(v string) *CertInfoListForDescribeCdnConfigOutput {
+	s.EncryType = &v
+	return s
+}
+
 // SetExpireTime sets the ExpireTime field's value.
 func (s *CertInfoListForDescribeCdnConfigOutput) SetExpireTime(v int64) *CertInfoListForDescribeCdnConfigOutput {
 	s.ExpireTime = &v
@@ -948,6 +1016,10 @@ type CertificateForDescribeCdnConfigOutput struct {
 
 	Certificate *string `type:"string"`
 
+	EncryptionCert *string `type:"string"`
+
+	EncryptionKey *string `type:"string"`
+
 	PrivateKey *string `type:"string"`
 }
 
@@ -964,6 +1036,18 @@ func (s CertificateForDescribeCdnConfigOutput) GoString() string {
 // SetCertificate sets the Certificate field's value.
 func (s *CertificateForDescribeCdnConfigOutput) SetCertificate(v string) *CertificateForDescribeCdnConfigOutput {
 	s.Certificate = &v
+	return s
+}
+
+// SetEncryptionCert sets the EncryptionCert field's value.
+func (s *CertificateForDescribeCdnConfigOutput) SetEncryptionCert(v string) *CertificateForDescribeCdnConfigOutput {
+	s.EncryptionCert = &v
+	return s
+}
+
+// SetEncryptionKey sets the EncryptionKey field's value.
+func (s *CertificateForDescribeCdnConfigOutput) SetEncryptionKey(v string) *CertificateForDescribeCdnConfigOutput {
+	s.EncryptionKey = &v
 	return s
 }
 
@@ -1147,6 +1231,36 @@ func (s *ConditionForDescribeCdnConfigOutput) SetConnective(v string) *Condition
 	return s
 }
 
+type ConditionGroupForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	Condition *ConvertConditionForDescribeCdnConfigOutput `type:"structure"`
+
+	IsGroup *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s ConditionGroupForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionGroupForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetCondition sets the Condition field's value.
+func (s *ConditionGroupForDescribeCdnConfigOutput) SetCondition(v *ConvertConditionForDescribeCdnConfigOutput) *ConditionGroupForDescribeCdnConfigOutput {
+	s.Condition = v
+	return s
+}
+
+// SetIsGroup sets the IsGroup field's value.
+func (s *ConditionGroupForDescribeCdnConfigOutput) SetIsGroup(v bool) *ConditionGroupForDescribeCdnConfigOutput {
+	s.IsGroup = &v
+	return s
+}
+
 type ConditionRuleForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -1201,6 +1315,36 @@ func (s *ConditionRuleForDescribeCdnConfigOutput) SetValue(v string) *ConditionR
 	return s
 }
 
+type ConditionalOriginForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	OriginRules []*OriginRuleForDescribeCdnConfigOutput `type:"list"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s ConditionalOriginForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConditionalOriginForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetOriginRules sets the OriginRules field's value.
+func (s *ConditionalOriginForDescribeCdnConfigOutput) SetOriginRules(v []*OriginRuleForDescribeCdnConfigOutput) *ConditionalOriginForDescribeCdnConfigOutput {
+	s.OriginRules = v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *ConditionalOriginForDescribeCdnConfigOutput) SetSwitch(v bool) *ConditionalOriginForDescribeCdnConfigOutput {
+	s.Switch = &v
+	return s
+}
+
 type ConvertCacheActionForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -1244,6 +1388,214 @@ func (s *ConvertCacheActionForDescribeCdnConfigOutput) SetIgnoreCase(v bool) *Co
 // SetTtl sets the Ttl field's value.
 func (s *ConvertCacheActionForDescribeCdnConfigOutput) SetTtl(v int64) *ConvertCacheActionForDescribeCdnConfigOutput {
 	s.Ttl = &v
+	return s
+}
+
+type ConvertConditionForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	Object *string `type:"string"`
+
+	Operator *string `type:"string"`
+
+	Value []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s ConvertConditionForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConditionForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetObject sets the Object field's value.
+func (s *ConvertConditionForDescribeCdnConfigOutput) SetObject(v string) *ConvertConditionForDescribeCdnConfigOutput {
+	s.Object = &v
+	return s
+}
+
+// SetOperator sets the Operator field's value.
+func (s *ConvertConditionForDescribeCdnConfigOutput) SetOperator(v string) *ConvertConditionForDescribeCdnConfigOutput {
+	s.Operator = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ConvertConditionForDescribeCdnConfigOutput) SetValue(v []*string) *ConvertConditionForDescribeCdnConfigOutput {
+	s.Value = v
+	return s
+}
+
+type ConvertConvertConditionForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	ConditionGroups []*ConditionGroupForDescribeCdnConfigOutput `type:"list"`
+
+	Connective *string `type:"string"`
+
+	IsGroup *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s ConvertConvertConditionForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertConvertConditionForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetConditionGroups sets the ConditionGroups field's value.
+func (s *ConvertConvertConditionForDescribeCdnConfigOutput) SetConditionGroups(v []*ConditionGroupForDescribeCdnConfigOutput) *ConvertConvertConditionForDescribeCdnConfigOutput {
+	s.ConditionGroups = v
+	return s
+}
+
+// SetConnective sets the Connective field's value.
+func (s *ConvertConvertConditionForDescribeCdnConfigOutput) SetConnective(v string) *ConvertConvertConditionForDescribeCdnConfigOutput {
+	s.Connective = &v
+	return s
+}
+
+// SetIsGroup sets the IsGroup field's value.
+func (s *ConvertConvertConditionForDescribeCdnConfigOutput) SetIsGroup(v bool) *ConvertConvertConditionForDescribeCdnConfigOutput {
+	s.IsGroup = &v
+	return s
+}
+
+type ConvertOriginLineForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	Address *string `type:"string"`
+
+	BucketName *string `type:"string"`
+
+	HttpPort *string `type:"string"`
+
+	HttpsPort *string `type:"string"`
+
+	InstanceType *string `type:"string"`
+
+	OriginHost *string `type:"string"`
+
+	OriginType *string `type:"string"`
+
+	PrivateBucketAccess *bool `type:"boolean"`
+
+	PrivateBucketAuth *PrivateBucketAuthForDescribeCdnConfigOutput `type:"structure"`
+
+	Region *string `type:"string"`
+
+	Weight *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConvertOriginLineForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertOriginLineForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetAddress(v string) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.Address = &v
+	return s
+}
+
+// SetBucketName sets the BucketName field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetBucketName(v string) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.BucketName = &v
+	return s
+}
+
+// SetHttpPort sets the HttpPort field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetHttpPort(v string) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.HttpPort = &v
+	return s
+}
+
+// SetHttpsPort sets the HttpsPort field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetHttpsPort(v string) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.HttpsPort = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetInstanceType(v string) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetOriginHost sets the OriginHost field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetOriginHost(v string) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.OriginHost = &v
+	return s
+}
+
+// SetOriginType sets the OriginType field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetOriginType(v string) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.OriginType = &v
+	return s
+}
+
+// SetPrivateBucketAccess sets the PrivateBucketAccess field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetPrivateBucketAccess(v bool) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.PrivateBucketAccess = &v
+	return s
+}
+
+// SetPrivateBucketAuth sets the PrivateBucketAuth field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetPrivateBucketAuth(v *PrivateBucketAuthForDescribeCdnConfigOutput) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.PrivateBucketAuth = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetRegion(v string) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.Region = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ConvertOriginLineForDescribeCdnConfigOutput) SetWeight(v string) *ConvertOriginLineForDescribeCdnConfigOutput {
+	s.Weight = &v
+	return s
+}
+
+type ConvertTimeoutActionForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	HttpTimeout *int64 `type:"int64"`
+
+	TcpTimeout *int64 `type:"int64"`
+}
+
+// String returns the string representation
+func (s ConvertTimeoutActionForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConvertTimeoutActionForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetHttpTimeout sets the HttpTimeout field's value.
+func (s *ConvertTimeoutActionForDescribeCdnConfigOutput) SetHttpTimeout(v int64) *ConvertTimeoutActionForDescribeCdnConfigOutput {
+	s.HttpTimeout = &v
+	return s
+}
+
+// SetTcpTimeout sets the TcpTimeout field's value.
+func (s *ConvertTimeoutActionForDescribeCdnConfigOutput) SetTcpTimeout(v int64) *ConvertTimeoutActionForDescribeCdnConfigOutput {
+	s.TcpTimeout = &v
 	return s
 }
 
@@ -1524,6 +1876,8 @@ type DomainConfigForDescribeCdnConfigOutput struct {
 
 	Compression *CompressionForDescribeCdnConfigOutput `type:"structure"`
 
+	ConditionalOrigin *ConditionalOriginForDescribeCdnConfigOutput `type:"structure"`
+
 	CreateTime *int64 `type:"int64"`
 
 	CustomErrorPage *CustomErrorPageForDescribeCdnConfigOutput `type:"structure"`
@@ -1560,6 +1914,8 @@ type DomainConfigForDescribeCdnConfigOutput struct {
 
 	OriginArg []*OriginArgForDescribeCdnConfigOutput `type:"list"`
 
+	OriginCertCheck *OriginCertCheckForDescribeCdnConfigOutput `type:"structure"`
+
 	OriginHost *string `type:"string"`
 
 	OriginIPv6 *string `type:"string"`
@@ -1567,6 +1923,8 @@ type DomainConfigForDescribeCdnConfigOutput struct {
 	OriginProtocol *string `type:"string"`
 
 	OriginRange *bool `type:"boolean"`
+
+	OriginRetry *OriginRetryForDescribeCdnConfigOutput `type:"structure"`
 
 	OriginRewrite *OriginRewriteForDescribeCdnConfigOutput `type:"structure"`
 
@@ -1670,6 +2028,12 @@ func (s *DomainConfigForDescribeCdnConfigOutput) SetCname(v string) *DomainConfi
 // SetCompression sets the Compression field's value.
 func (s *DomainConfigForDescribeCdnConfigOutput) SetCompression(v *CompressionForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
 	s.Compression = v
+	return s
+}
+
+// SetConditionalOrigin sets the ConditionalOrigin field's value.
+func (s *DomainConfigForDescribeCdnConfigOutput) SetConditionalOrigin(v *ConditionalOriginForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
+	s.ConditionalOrigin = v
 	return s
 }
 
@@ -1781,6 +2145,12 @@ func (s *DomainConfigForDescribeCdnConfigOutput) SetOriginArg(v []*OriginArgForD
 	return s
 }
 
+// SetOriginCertCheck sets the OriginCertCheck field's value.
+func (s *DomainConfigForDescribeCdnConfigOutput) SetOriginCertCheck(v *OriginCertCheckForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
+	s.OriginCertCheck = v
+	return s
+}
+
 // SetOriginHost sets the OriginHost field's value.
 func (s *DomainConfigForDescribeCdnConfigOutput) SetOriginHost(v string) *DomainConfigForDescribeCdnConfigOutput {
 	s.OriginHost = &v
@@ -1802,6 +2172,12 @@ func (s *DomainConfigForDescribeCdnConfigOutput) SetOriginProtocol(v string) *Do
 // SetOriginRange sets the OriginRange field's value.
 func (s *DomainConfigForDescribeCdnConfigOutput) SetOriginRange(v bool) *DomainConfigForDescribeCdnConfigOutput {
 	s.OriginRange = &v
+	return s
+}
+
+// SetOriginRetry sets the OriginRetry field's value.
+func (s *DomainConfigForDescribeCdnConfigOutput) SetOriginRetry(v *OriginRetryForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
+	s.OriginRetry = v
 	return s
 }
 
@@ -2184,6 +2560,8 @@ func (s *ForcedRedirectForDescribeCdnConfigOutput) SetStatusCode(v string) *Forc
 type HTTPSForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
+	CertCheck *CertCheckForDescribeCdnConfigOutput `type:"structure"`
+
 	CertInfo *CertInfoForDescribeCdnConfigOutput `type:"structure"`
 
 	CertInfoList []*CertInfoListForDescribeCdnConfigOutput `type:"list"`
@@ -2211,6 +2589,12 @@ func (s HTTPSForDescribeCdnConfigOutput) String() string {
 // GoString returns the string representation
 func (s HTTPSForDescribeCdnConfigOutput) GoString() string {
 	return s.String()
+}
+
+// SetCertCheck sets the CertCheck field's value.
+func (s *HTTPSForDescribeCdnConfigOutput) SetCertCheck(v *CertCheckForDescribeCdnConfigOutput) *HTTPSForDescribeCdnConfigOutput {
+	s.CertCheck = v
+	return s
 }
 
 // SetCertInfo sets the CertInfo field's value.
@@ -2936,7 +3320,7 @@ func (s *OriginAccessRuleForDescribeCdnConfigOutput) SetSwitch(v bool) *OriginAc
 type OriginActionForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
-	OriginLines []*OriginLineForDescribeCdnConfigOutput `type:"list"`
+	OriginLines []*ConvertOriginLineForDescribeCdnConfigOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -2950,7 +3334,7 @@ func (s OriginActionForDescribeCdnConfigOutput) GoString() string {
 }
 
 // SetOriginLines sets the OriginLines field's value.
-func (s *OriginActionForDescribeCdnConfigOutput) SetOriginLines(v []*OriginLineForDescribeCdnConfigOutput) *OriginActionForDescribeCdnConfigOutput {
+func (s *OriginActionForDescribeCdnConfigOutput) SetOriginLines(v []*ConvertOriginLineForDescribeCdnConfigOutput) *OriginActionForDescribeCdnConfigOutput {
 	s.OriginLines = v
 	return s
 }
@@ -3045,6 +3429,28 @@ func (s *OriginArgForDescribeCdnConfigOutput) SetOriginArgAction(v *OriginArgAct
 	return s
 }
 
+type OriginCertCheckForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s OriginCertCheckForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginCertCheckForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *OriginCertCheckForDescribeCdnConfigOutput) SetSwitch(v bool) *OriginCertCheckForDescribeCdnConfigOutput {
+	s.Switch = &v
+	return s
+}
+
 type OriginForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3087,16 +3493,6 @@ type OriginLineForDescribeCdnConfigOutput struct {
 	InstanceType *string `type:"string"`
 
 	OriginHost *string `type:"string"`
-
-	OriginType *string `type:"string"`
-
-	PrivateBucketAccess *bool `type:"boolean"`
-
-	PrivateBucketAuth *PrivateBucketAuthForDescribeCdnConfigOutput `type:"structure"`
-
-	Region *string `type:"string"`
-
-	Weight *string `type:"string"`
 }
 
 // String returns the string representation
@@ -3139,33 +3535,33 @@ func (s *OriginLineForDescribeCdnConfigOutput) SetOriginHost(v string) *OriginLi
 	return s
 }
 
-// SetOriginType sets the OriginType field's value.
-func (s *OriginLineForDescribeCdnConfigOutput) SetOriginType(v string) *OriginLineForDescribeCdnConfigOutput {
-	s.OriginType = &v
+type OriginRetryForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	StatusCode *string `type:"string"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s OriginRetryForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginRetryForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetStatusCode sets the StatusCode field's value.
+func (s *OriginRetryForDescribeCdnConfigOutput) SetStatusCode(v string) *OriginRetryForDescribeCdnConfigOutput {
+	s.StatusCode = &v
 	return s
 }
 
-// SetPrivateBucketAccess sets the PrivateBucketAccess field's value.
-func (s *OriginLineForDescribeCdnConfigOutput) SetPrivateBucketAccess(v bool) *OriginLineForDescribeCdnConfigOutput {
-	s.PrivateBucketAccess = &v
-	return s
-}
-
-// SetPrivateBucketAuth sets the PrivateBucketAuth field's value.
-func (s *OriginLineForDescribeCdnConfigOutput) SetPrivateBucketAuth(v *PrivateBucketAuthForDescribeCdnConfigOutput) *OriginLineForDescribeCdnConfigOutput {
-	s.PrivateBucketAuth = v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *OriginLineForDescribeCdnConfigOutput) SetRegion(v string) *OriginLineForDescribeCdnConfigOutput {
-	s.Region = &v
-	return s
-}
-
-// SetWeight sets the Weight field's value.
-func (s *OriginLineForDescribeCdnConfigOutput) SetWeight(v string) *OriginLineForDescribeCdnConfigOutput {
-	s.Weight = &v
+// SetSwitch sets the Switch field's value.
+func (s *OriginRetryForDescribeCdnConfigOutput) SetSwitch(v bool) *OriginRetryForDescribeCdnConfigOutput {
+	s.Switch = &v
 	return s
 }
 
@@ -3256,6 +3652,36 @@ func (s *OriginRewriteRuleForDescribeCdnConfigOutput) SetCondition(v *ConditionF
 // SetOriginRewriteAction sets the OriginRewriteAction field's value.
 func (s *OriginRewriteRuleForDescribeCdnConfigOutput) SetOriginRewriteAction(v *OriginRewriteActionForDescribeCdnConfigOutput) *OriginRewriteRuleForDescribeCdnConfigOutput {
 	s.OriginRewriteAction = v
+	return s
+}
+
+type OriginRuleForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	Actions *ActionsForDescribeCdnConfigOutput `type:"structure"`
+
+	Condition *ConvertConvertConditionForDescribeCdnConfigOutput `type:"structure"`
+}
+
+// String returns the string representation
+func (s OriginRuleForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OriginRuleForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetActions sets the Actions field's value.
+func (s *OriginRuleForDescribeCdnConfigOutput) SetActions(v *ActionsForDescribeCdnConfigOutput) *OriginRuleForDescribeCdnConfigOutput {
+	s.Actions = v
+	return s
+}
+
+// SetCondition sets the Condition field's value.
+func (s *OriginRuleForDescribeCdnConfigOutput) SetCondition(v *ConvertConvertConditionForDescribeCdnConfigOutput) *OriginRuleForDescribeCdnConfigOutput {
+	s.Condition = v
 	return s
 }
 
@@ -4306,6 +4732,8 @@ func (s *SignParamForDescribeCdnConfigOutput) SetUrlParam(v *SignCapRuleForDescr
 type SignedUrlAuthActionForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
+	AuthAlgorithm *string `type:"string"`
+
 	BackupSecretKey *string `type:"string"`
 
 	CustomVariableRules *CustomVariableRulesForDescribeCdnConfigOutput `type:"structure"`
@@ -4345,6 +4773,12 @@ func (s SignedUrlAuthActionForDescribeCdnConfigOutput) String() string {
 // GoString returns the string representation
 func (s SignedUrlAuthActionForDescribeCdnConfigOutput) GoString() string {
 	return s.String()
+}
+
+// SetAuthAlgorithm sets the AuthAlgorithm field's value.
+func (s *SignedUrlAuthActionForDescribeCdnConfigOutput) SetAuthAlgorithm(v string) *SignedUrlAuthActionForDescribeCdnConfigOutput {
+	s.AuthAlgorithm = &v
+	return s
 }
 
 // SetBackupSecretKey sets the BackupSecretKey field's value.
@@ -4633,36 +5067,6 @@ func (s *TimeOutActionForDescribeCdnConfigOutput) SetTime(v int64) *TimeOutActio
 	return s
 }
 
-type TimeoutActionForDescribeCdnConfigOutput struct {
-	_ struct{} `type:"structure"`
-
-	HttpTimeout *int64 `type:"int64"`
-
-	TcpTimeout *int64 `type:"int64"`
-}
-
-// String returns the string representation
-func (s TimeoutActionForDescribeCdnConfigOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TimeoutActionForDescribeCdnConfigOutput) GoString() string {
-	return s.String()
-}
-
-// SetHttpTimeout sets the HttpTimeout field's value.
-func (s *TimeoutActionForDescribeCdnConfigOutput) SetHttpTimeout(v int64) *TimeoutActionForDescribeCdnConfigOutput {
-	s.HttpTimeout = &v
-	return s
-}
-
-// SetTcpTimeout sets the TcpTimeout field's value.
-func (s *TimeoutActionForDescribeCdnConfigOutput) SetTcpTimeout(v int64) *TimeoutActionForDescribeCdnConfigOutput {
-	s.TcpTimeout = &v
-	return s
-}
-
 type TimeoutForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -4698,7 +5102,7 @@ type TimeoutRuleForDescribeCdnConfigOutput struct {
 
 	Condition *ConditionForDescribeCdnConfigOutput `type:"structure"`
 
-	TimeoutAction *TimeoutActionForDescribeCdnConfigOutput `type:"structure"`
+	TimeoutAction *ConvertTimeoutActionForDescribeCdnConfigOutput `type:"structure"`
 }
 
 // String returns the string representation
@@ -4718,7 +5122,7 @@ func (s *TimeoutRuleForDescribeCdnConfigOutput) SetCondition(v *ConditionForDesc
 }
 
 // SetTimeoutAction sets the TimeoutAction field's value.
-func (s *TimeoutRuleForDescribeCdnConfigOutput) SetTimeoutAction(v *TimeoutActionForDescribeCdnConfigOutput) *TimeoutRuleForDescribeCdnConfigOutput {
+func (s *TimeoutRuleForDescribeCdnConfigOutput) SetTimeoutAction(v *ConvertTimeoutActionForDescribeCdnConfigOutput) *TimeoutRuleForDescribeCdnConfigOutput {
 	s.TimeoutAction = v
 	return s
 }
@@ -4729,6 +5133,8 @@ type TosAuthInformationForDescribeCdnConfigOutput struct {
 	AccessKeyId *string `type:"string"`
 
 	AccessKeySecret *string `type:"string"`
+
+	AccountKey *string `type:"string"`
 }
 
 // String returns the string representation
@@ -4750,6 +5156,12 @@ func (s *TosAuthInformationForDescribeCdnConfigOutput) SetAccessKeyId(v string) 
 // SetAccessKeySecret sets the AccessKeySecret field's value.
 func (s *TosAuthInformationForDescribeCdnConfigOutput) SetAccessKeySecret(v string) *TosAuthInformationForDescribeCdnConfigOutput {
 	s.AccessKeySecret = &v
+	return s
+}
+
+// SetAccountKey sets the AccountKey field's value.
+func (s *TosAuthInformationForDescribeCdnConfigOutput) SetAccountKey(v string) *TosAuthInformationForDescribeCdnConfigOutput {
+	s.AccountKey = &v
 	return s
 }
 

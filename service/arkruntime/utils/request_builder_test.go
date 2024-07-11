@@ -13,7 +13,7 @@ var errTestMarshallerFailed = errors.New("test marshaller failed")
 
 type failingMarshaller struct{}
 
-func (*failingMarshaller) Marshal(_ any) ([]byte, error) {
+func (*failingMarshaller) Marshal(_ interface{}) ([]byte, error) {
 	return []byte{}, errTestMarshallerFailed
 }
 

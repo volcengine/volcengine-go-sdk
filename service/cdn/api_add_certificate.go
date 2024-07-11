@@ -146,10 +146,18 @@ func (c *CDN) AddCertificateWithContext(ctx volcengine.Context, input *AddCertif
 type AddCertificateInput struct {
 	_ struct{} `type:"structure"`
 
+	CertType *string `type:"string"`
+
 	// Certificate is a required field
 	Certificate *string `type:"string" required:"true"`
 
 	Desc *string `type:"string"`
+
+	EncryType *string `type:"string"`
+
+	EncryptionCert *string `type:"string"`
+
+	EncryptionKey *string `type:"string"`
 
 	// PrivateKey is a required field
 	PrivateKey *string `type:"string" required:"true"`
@@ -185,6 +193,12 @@ func (s *AddCertificateInput) Validate() error {
 	return nil
 }
 
+// SetCertType sets the CertType field's value.
+func (s *AddCertificateInput) SetCertType(v string) *AddCertificateInput {
+	s.CertType = &v
+	return s
+}
+
 // SetCertificate sets the Certificate field's value.
 func (s *AddCertificateInput) SetCertificate(v string) *AddCertificateInput {
 	s.Certificate = &v
@@ -194,6 +208,24 @@ func (s *AddCertificateInput) SetCertificate(v string) *AddCertificateInput {
 // SetDesc sets the Desc field's value.
 func (s *AddCertificateInput) SetDesc(v string) *AddCertificateInput {
 	s.Desc = &v
+	return s
+}
+
+// SetEncryType sets the EncryType field's value.
+func (s *AddCertificateInput) SetEncryType(v string) *AddCertificateInput {
+	s.EncryType = &v
+	return s
+}
+
+// SetEncryptionCert sets the EncryptionCert field's value.
+func (s *AddCertificateInput) SetEncryptionCert(v string) *AddCertificateInput {
+	s.EncryptionCert = &v
+	return s
+}
+
+// SetEncryptionKey sets the EncryptionKey field's value.
+func (s *AddCertificateInput) SetEncryptionKey(v string) *AddCertificateInput {
+	s.EncryptionKey = &v
 	return s
 }
 
