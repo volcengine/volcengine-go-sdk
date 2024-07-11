@@ -26,7 +26,7 @@ type Client struct {
 	requestBuilder utils.RequestBuilder
 
 	arkClient               *ark.ARK
-	endpointStsTokens       sync.Map
+	resourceStsTokens       sync.Map
 	rwLock                  *sync.RWMutex
 	advisoryRefreshTimeout  int
 	mandatoryRefreshTimeout int
@@ -56,7 +56,7 @@ func newClientWithConfig(config ClientConfig) *Client {
 		config:                  config,
 		requestBuilder:          utils.NewRequestBuilder(),
 		arkClient:               arkClient,
-		endpointStsTokens:       sync.Map{},
+		resourceStsTokens:       sync.Map{},
 		rwLock:                  &sync.RWMutex{},
 		advisoryRefreshTimeout:  model.DefaultAdvisoryRefreshTimeout,
 		mandatoryRefreshTimeout: model.DefaultMandatoryRefreshTimeout,
@@ -64,60 +64,64 @@ func newClientWithConfig(config ClientConfig) *Client {
 }
 
 func (c *Client) GetEndpointStsToken(ctx context.Context, endpointId string) (string, error) {
-	err := c.refresh(ctx, endpointId)
+	return c.GetResourceStsToken(ctx, resourceTypeEndpoint, endpointId)
+}
+
+func (c *Client) GetResourceStsToken(ctx context.Context, resourceType string, resourceId string) (string, error) {
+	err := c.refresh(ctx, resourceType, resourceId)
 	if err != nil {
 		return "", err
 	}
 
-	token, ok := c.endpointStsTokens.Load(endpointId)
+	token, ok := c.resourceStsTokens.Load(fmt.Sprintf(stsTokenKeyPattern, resourceType, resourceId))
 	if ok {
 		return token.(tokenInfo).token, nil
 	}
 	return "", nil
 }
 
-func (c *Client) refresh(ctx context.Context, endpointId string) error {
-	if !c.needRefresh(endpointId, c.advisoryRefreshTimeout) {
+func (c *Client) refresh(ctx context.Context, resourceType string, resourceId string) error {
+	if !c.needRefresh(resourceType, resourceId, c.advisoryRefreshTimeout) {
 		return nil
 	}
 
 	if c.rwLock.TryLock() {
 		defer c.rwLock.Unlock()
-		if !c.needRefresh(endpointId, c.advisoryRefreshTimeout) {
+		if !c.needRefresh(resourceType, resourceId, c.advisoryRefreshTimeout) {
 			return nil
 		}
 
-		isMandatoryRefresh := c.needRefresh(endpointId, c.mandatoryRefreshTimeout)
-		return c.protectedRefresh(ctx, endpointId, isMandatoryRefresh)
-	} else if c.needRefresh(endpointId, c.mandatoryRefreshTimeout) {
+		isMandatoryRefresh := c.needRefresh(resourceType, resourceId, c.mandatoryRefreshTimeout)
+		return c.protectedRefresh(ctx, resourceType, resourceId, isMandatoryRefresh)
+	} else if c.needRefresh(resourceType, resourceId, c.mandatoryRefreshTimeout) {
 		c.rwLock.Lock()
 		defer c.rwLock.Unlock()
-		if !c.needRefresh(endpointId, c.mandatoryRefreshTimeout) {
+		if !c.needRefresh(resourceType, resourceId, c.mandatoryRefreshTimeout) {
 			return nil
 		}
-		return c.protectedRefresh(ctx, endpointId, true)
+		return c.protectedRefresh(ctx, resourceType, resourceId, true)
 	}
 	return nil
 }
 
-func (c *Client) needRefresh(endpointId string, refreshIn int) bool {
+func (c *Client) needRefresh(resourceType string, resourceId string, refreshIn int) bool {
 	delta := c.advisoryRefreshTimeout
 	if refreshIn > 0 {
 		delta = refreshIn
 	}
 
-	token, ok := c.endpointStsTokens.Load(endpointId)
+	token, ok := c.resourceStsTokens.Load(fmt.Sprintf(stsTokenKeyPattern, resourceType, resourceId))
 	if ok {
 		return token.(tokenInfo).expiredTime-time.Now().Unix() < int64(delta)
 	}
 	return true
 }
 
-func (c *Client) protectedRefresh(ctx context.Context, endpointId string, isMandatory bool) error {
+func (c *Client) protectedRefresh(ctx context.Context, resourceType string, resourceId string, isMandatory bool) error {
 	resp, err := c.arkClient.GetApiKeyWithContext(ctx, &ark.GetApiKeyInput{
 		DurationSeconds: volcengine.Int32(model.DefaultStsTimeout),
-		ResourceIds:     []*string{volcengine.String(endpointId)},
-		ResourceType:    volcengine.String("endpoint"),
+		ResourceIds:     []*string{volcengine.String(resourceId)},
+		ResourceType:    volcengine.String(resourceType),
 	})
 	if err != nil {
 		if isMandatory {
@@ -126,7 +130,7 @@ func (c *Client) protectedRefresh(ctx context.Context, endpointId string, isMand
 			return nil
 		}
 	}
-	c.endpointStsTokens.Store(endpointId, tokenInfo{*resp.ApiKey, int64(*resp.ExpiredTime)})
+	c.resourceStsTokens.Store(fmt.Sprintf(stsTokenKeyPattern, resourceType, resourceId), tokenInfo{*resp.ApiKey, int64(*resp.ExpiredTime)})
 	return nil
 }
 
@@ -155,14 +159,14 @@ func WithCustomHeader(key, value string) requestOption {
 	}
 }
 
-func (c *Client) newRequest(ctx context.Context, method, url, endpointId string, setters ...requestOption) (*http.Request, error) {
+func (c *Client) newRequest(ctx context.Context, method, url, resourceType, resourceId string, setters ...requestOption) (*http.Request, error) {
 	// Default Options
 	args := &requestOptions{
 		body:   nil,
 		header: make(http.Header),
 	}
 
-	errH := c.setCommonHeaders(ctx, args, endpointId)
+	errH := c.setCommonHeaders(ctx, args, resourceType, resourceId)
 	if errH != nil {
 		return nil, errH
 	}
@@ -218,7 +222,7 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 	return err
 }
 
-func (c *Client) Do(ctx context.Context, method, url, endpointId string, v model.Response, setters ...requestOption) (err error) {
+func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId string, v model.Response, setters ...requestOption) (err error) {
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
@@ -229,7 +233,7 @@ func (c *Client) Do(ctx context.Context, method, url, endpointId string, v model
 		},
 		func() bool { return true },
 		func() error {
-			req, innerErr := c.newRequest(ctx, method, url, endpointId, setters...)
+			req, innerErr := c.newRequest(ctx, method, url, resourceType, resourceId, setters...)
 			if innerErr != nil {
 				return innerErr
 			}
@@ -292,7 +296,37 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 	}, nil
 }
 
-func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url, endpointId string, setters ...requestOption) (streamReader *utils.ChatCompletionStreamReader, err error) {
+func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*utils.BotChatCompletionStreamReader, error) {
+	requestId := req.Header.Get(model.ClientRequestHeader)
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Accept", "text/event-stream")
+	req.Header.Set("Cache-Control", "no-cache")
+	req.Header.Set("Connection", "keep-alive")
+
+	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
+	if err != nil {
+		return &utils.BotChatCompletionStreamReader{}, &model.RequestError{
+			HTTPStatusCode: -1,
+			Err:            err,
+			RequestId:      requestId,
+		}
+	}
+	if isFailureStatusCode(resp) {
+		return &utils.BotChatCompletionStreamReader{}, client.handleErrorResp(resp)
+	}
+	return &utils.BotChatCompletionStreamReader{
+		ChatCompletionStreamReader: utils.ChatCompletionStreamReader{
+			EmptyMessagesLimit: client.config.EmptyMessagesLimit,
+			Reader:             bufio.NewReader(resp.Body),
+			Response:           resp,
+			ErrAccumulator:     utils.NewErrorAccumulator(),
+			Unmarshaler:        &utils.JSONUnmarshaler{},
+			HttpHeader:         model.HttpHeader(resp.Header),
+		},
+	}, nil
+}
+
+func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, url, botId string, setters ...requestOption) (streamReader *utils.BotChatCompletionStreamReader, err error) {
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
@@ -303,7 +337,33 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 		},
 		func() bool { return true },
 		func() error {
-			req, innerErr := c.newRequest(ctx, method, url, endpointId, setters...)
+			req, innerErr := c.newRequest(ctx, method, url, resourceTypeBot, botId, setters...)
+			if innerErr != nil {
+				return innerErr
+			}
+
+			streamReader, err = sendBotChatCompletionRequestStream(c, req)
+			return err
+		},
+		nil,
+		needRetryError,
+	)
+
+	return
+}
+
+func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url, resourceId string, setters ...requestOption) (streamReader *utils.ChatCompletionStreamReader, err error) {
+	err = utils.Retry(
+		ctx,
+		utils.RetryPolicy{
+			MaxAttempts:       c.config.RetryTimes,
+			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
+			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
+			BackoffMultiplier: 1.2,
+		},
+		func() bool { return true },
+		func() error {
+			req, innerErr := c.newRequest(ctx, method, url, resourceTypeEndpoint, resourceId, setters...)
 			if innerErr != nil {
 				return innerErr
 			}
@@ -318,18 +378,20 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 	return
 }
 
-func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, endpointId string) error {
+func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, resourceType string, resourceId string) error {
 	args.header.Set(model.ClientRequestHeader, utils.GenRequestId())
 
 	if len(c.config.apiKey) > 0 {
 		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", c.config.apiKey))
 	} else {
-		if !strings.HasPrefix(endpointId, "ep-") {
+		if resourceTypeEndpoint == resourceType && !strings.HasPrefix(resourceId, "ep-") {
 			return model.ErrBodyWithoutEndpoint
+		} else if resourceTypeBot == resourceType && !strings.HasPrefix(resourceId, "bot-") {
+			return model.ErrBodyWithoutBot
 		}
-		token, err := c.GetEndpointStsToken(ctx, endpointId)
+		token, err := c.GetResourceStsToken(ctx, resourceType, resourceId)
 		if err != nil {
-			return fmt.Errorf("failed to get endpoint sts token. err=%v", err)
+			return fmt.Errorf("failed to get resource sts token. err=%v", err)
 		}
 		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
 	}

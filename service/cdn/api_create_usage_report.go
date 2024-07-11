@@ -153,6 +153,8 @@ type CreateUsageReportInput struct {
 	// BillingRegion is a required field
 	BillingRegion *string `type:"string" required:"true"`
 
+	CalculationMethod *string `type:"string"`
+
 	Domain *string `type:"string"`
 
 	// EndTime is a required field
@@ -160,6 +162,8 @@ type CreateUsageReportInput struct {
 
 	// ExportType is a required field
 	ExportType *string `type:"string" required:"true"`
+
+	FreeTimeTrafficCompute *bool `type:"boolean"`
 
 	Metric *string `type:"string"`
 
@@ -170,6 +174,8 @@ type CreateUsageReportInput struct {
 	TaskName *string `type:"string" required:"true"`
 
 	TimeZone *string `type:"string"`
+
+	TlsTopic *string `type:"string"`
 }
 
 // String returns the string representation
@@ -225,6 +231,12 @@ func (s *CreateUsageReportInput) SetBillingRegion(v string) *CreateUsageReportIn
 	return s
 }
 
+// SetCalculationMethod sets the CalculationMethod field's value.
+func (s *CreateUsageReportInput) SetCalculationMethod(v string) *CreateUsageReportInput {
+	s.CalculationMethod = &v
+	return s
+}
+
 // SetDomain sets the Domain field's value.
 func (s *CreateUsageReportInput) SetDomain(v string) *CreateUsageReportInput {
 	s.Domain = &v
@@ -240,6 +252,12 @@ func (s *CreateUsageReportInput) SetEndTime(v int64) *CreateUsageReportInput {
 // SetExportType sets the ExportType field's value.
 func (s *CreateUsageReportInput) SetExportType(v string) *CreateUsageReportInput {
 	s.ExportType = &v
+	return s
+}
+
+// SetFreeTimeTrafficCompute sets the FreeTimeTrafficCompute field's value.
+func (s *CreateUsageReportInput) SetFreeTimeTrafficCompute(v bool) *CreateUsageReportInput {
+	s.FreeTimeTrafficCompute = &v
 	return s
 }
 
@@ -264,6 +282,12 @@ func (s *CreateUsageReportInput) SetTaskName(v string) *CreateUsageReportInput {
 // SetTimeZone sets the TimeZone field's value.
 func (s *CreateUsageReportInput) SetTimeZone(v string) *CreateUsageReportInput {
 	s.TimeZone = &v
+	return s
+}
+
+// SetTlsTopic sets the TlsTopic field's value.
+func (s *CreateUsageReportInput) SetTlsTopic(v string) *CreateUsageReportInput {
+	s.TlsTopic = &v
 	return s
 }
 

@@ -22,12 +22,12 @@ func (c *Client) CreateEmbeddings(
 
 	requestOptions := append(setters, withBody(baseReq))
 	if baseReq.EncodingFormat != model.EmbeddingEncodingFormatBase64 {
-		err = c.Do(ctx, http.MethodPost, c.fullURL(embeddingsSuffix), baseReq.Model, &res, requestOptions...)
+		err = c.Do(ctx, http.MethodPost, c.fullURL(embeddingsSuffix), resourceTypeEndpoint, baseReq.Model, &res, requestOptions...)
 		return
 	}
 
 	base64Response := &model.EmbeddingResponseBase64{}
-	err = c.Do(ctx, http.MethodPost, c.fullURL(embeddingsSuffix), baseReq.Model, base64Response, requestOptions...)
+	err = c.Do(ctx, http.MethodPost, c.fullURL(embeddingsSuffix), resourceTypeEndpoint, baseReq.Model, base64Response, requestOptions...)
 	if err != nil {
 		return
 	}
