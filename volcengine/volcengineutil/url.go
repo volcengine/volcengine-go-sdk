@@ -66,7 +66,7 @@ var defaultEndpoint = map[string]*ServiceEndpointInfo{
 
 func GetDefaultEndpointByServiceInfo(service string, regionCode string) (*string, volcengineerr.Error) {
 	defaultEndpointInfo, sExist := defaultEndpoint[service]
-	if sExist == false {
+	if !sExist {
 		return &endpoint, nil
 	}
 
