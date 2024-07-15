@@ -38,6 +38,14 @@ type WAFAPI interface {
 	AddIpGroupWithContext(volcengine.Context, *AddIpGroupInput, ...request.Option) (*AddIpGroupOutput, error)
 	AddIpGroupRequest(*AddIpGroupInput) (*request.Request, *AddIpGroupOutput)
 
+	CheckLLMPromptCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckLLMPromptCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckLLMPromptCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckLLMPrompt(*CheckLLMPromptInput) (*CheckLLMPromptOutput, error)
+	CheckLLMPromptWithContext(volcengine.Context, *CheckLLMPromptInput, ...request.Option) (*CheckLLMPromptOutput, error)
+	CheckLLMPromptRequest(*CheckLLMPromptInput) (*request.Request, *CheckLLMPromptOutput)
+
 	CreateAllowRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAllowRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAllowRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
