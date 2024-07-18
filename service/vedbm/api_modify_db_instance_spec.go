@@ -146,13 +146,14 @@ func (c *VEDBM) ModifyDBInstanceSpecWithContext(ctx volcengine.Context, input *M
 type ModifyDBInstanceSpecInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	NodeNumber *int32 `type:"int32"`
+	// NodeNumber is a required field
+	NodeNumber *int32 `min:"2" max:"16" type:"int32" required:"true"`
 
-	NodeSpec *string `type:"string"`
-
-	ZoneNodeInfos []*ZoneNodeInfoForModifyDBInstanceSpecInput `type:"list"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,6 +164,31 @@ func (s ModifyDBInstanceSpecInput) String() string {
 // GoString returns the string representation
 func (s ModifyDBInstanceSpecInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDBInstanceSpecInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceSpecInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.NodeNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
+	}
+	if s.NodeNumber != nil && *s.NodeNumber < 2 {
+		invalidParams.Add(request.NewErrParamMinValue("NodeNumber", 2))
+	}
+	if s.NodeNumber != nil && *s.NodeNumber > 16 {
+		invalidParams.Add(request.NewErrParamMaxValue("NodeNumber", 16))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -180,12 +206,6 @@ func (s *ModifyDBInstanceSpecInput) SetNodeNumber(v int32) *ModifyDBInstanceSpec
 // SetNodeSpec sets the NodeSpec field's value.
 func (s *ModifyDBInstanceSpecInput) SetNodeSpec(v string) *ModifyDBInstanceSpecInput {
 	s.NodeSpec = &v
-	return s
-}
-
-// SetZoneNodeInfos sets the ZoneNodeInfos field's value.
-func (s *ModifyDBInstanceSpecInput) SetZoneNodeInfos(v []*ZoneNodeInfoForModifyDBInstanceSpecInput) *ModifyDBInstanceSpecInput {
-	s.ZoneNodeInfos = v
 	return s
 }
 
@@ -218,35 +238,5 @@ func (s *ModifyDBInstanceSpecOutput) SetInstanceId(v string) *ModifyDBInstanceSp
 // SetOrderId sets the OrderId field's value.
 func (s *ModifyDBInstanceSpecOutput) SetOrderId(v string) *ModifyDBInstanceSpecOutput {
 	s.OrderId = &v
-	return s
-}
-
-type ZoneNodeInfoForModifyDBInstanceSpecInput struct {
-	_ struct{} `type:"structure"`
-
-	ZoneId *string `type:"string"`
-
-	ZoneNodeNumber *int32 `type:"int32"`
-}
-
-// String returns the string representation
-func (s ZoneNodeInfoForModifyDBInstanceSpecInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ZoneNodeInfoForModifyDBInstanceSpecInput) GoString() string {
-	return s.String()
-}
-
-// SetZoneId sets the ZoneId field's value.
-func (s *ZoneNodeInfoForModifyDBInstanceSpecInput) SetZoneId(v string) *ZoneNodeInfoForModifyDBInstanceSpecInput {
-	s.ZoneId = &v
-	return s
-}
-
-// SetZoneNodeNumber sets the ZoneNodeNumber field's value.
-func (s *ZoneNodeInfoForModifyDBInstanceSpecInput) SetZoneNodeNumber(v int32) *ZoneNodeInfoForModifyDBInstanceSpecInput {
-	s.ZoneNodeNumber = &v
 	return s
 }

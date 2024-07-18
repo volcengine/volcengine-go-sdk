@@ -146,7 +146,8 @@ func (c *VEDBM) RestartDBInstanceWithContext(ctx volcengine.Context, input *Rest
 type RestartDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s RestartDBInstanceInput) String() string {
 // GoString returns the string representation
 func (s RestartDBInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RestartDBInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RestartDBInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

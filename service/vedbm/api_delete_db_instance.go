@@ -146,7 +146,10 @@ func (c *VEDBM) DeleteDBInstanceWithContext(ctx volcengine.Context, input *Delet
 type DeleteDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	DataKeepPolicy *string `type:"string" enum:"EnumOfDataKeepPolicyForDeleteDBInstanceInput"`
+
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +160,25 @@ func (s DeleteDBInstanceInput) String() string {
 // GoString returns the string representation
 func (s DeleteDBInstanceInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteDBInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteDBInstanceInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDataKeepPolicy sets the DataKeepPolicy field's value.
+func (s *DeleteDBInstanceInput) SetDataKeepPolicy(v string) *DeleteDBInstanceInput {
+	s.DataKeepPolicy = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -180,3 +202,14 @@ func (s DeleteDBInstanceOutput) String() string {
 func (s DeleteDBInstanceOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfDataKeepPolicyForDeleteDBInstanceInputAll is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
+	EnumOfDataKeepPolicyForDeleteDBInstanceInputAll = "All"
+
+	// EnumOfDataKeepPolicyForDeleteDBInstanceInputLast is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
+	EnumOfDataKeepPolicyForDeleteDBInstanceInputLast = "Last"
+
+	// EnumOfDataKeepPolicyForDeleteDBInstanceInputNone is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
+	EnumOfDataKeepPolicyForDeleteDBInstanceInputNone = "None"
+)
