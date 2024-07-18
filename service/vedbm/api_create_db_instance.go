@@ -146,29 +146,40 @@ func (c *VEDBM) CreateDBInstanceWithContext(ctx volcengine.Context, input *Creat
 type CreateDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
-	ChargeType *string `type:"string"`
+	AutoRenew *bool `type:"boolean"`
 
-	CreateType *string `type:"string"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true" enum:"EnumOfChargeTypeForCreateDBInstanceInput"`
 
-	DBEngineVersion *string `type:"string"`
+	// DBEngineVersion is a required field
+	DBEngineVersion *string `type:"string" required:"true" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
 
 	DBTimeZone *string `type:"string"`
 
 	InstanceName *string `type:"string"`
 
-	LowerCaseTableNames *string `type:"string"`
+	LowerCaseTableNames *string `type:"string" enum:"EnumOfLowerCaseTableNamesForCreateDBInstanceInput"`
 
-	NodeNumber *int32 `type:"int32"`
+	// NodeNumber is a required field
+	NodeNumber *int32 `min:"2" max:"16" type:"int32" required:"true"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
+
+	Number *int32 `type:"int32"`
+
+	Period *int32 `type:"int32"`
+
+	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
+
+	PrePaidStorageInGB *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
-	StoragePoolName *string `type:"string"`
+	StorageChargeType *string `type:"string" enum:"EnumOfStorageChargeTypeForCreateDBInstanceInput"`
 
-	StoragePoolType *string `type:"string"`
-
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 
 	SuperAccountName *string `type:"string"`
 
@@ -176,11 +187,11 @@ type CreateDBInstanceInput struct {
 
 	Tags []*TagForCreateDBInstanceInput `type:"list"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
-	ZoneIds *string `type:"string"`
-
-	ZoneNodeInfos []*ZoneNodeInfoForCreateDBInstanceInput `type:"list"`
+	// ZoneIds is a required field
+	ZoneIds *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -193,15 +204,52 @@ func (s CreateDBInstanceInput) GoString() string {
 	return s.String()
 }
 
-// SetChargeType sets the ChargeType field's value.
-func (s *CreateDBInstanceInput) SetChargeType(v string) *CreateDBInstanceInput {
-	s.ChargeType = &v
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDBInstanceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDBInstanceInput"}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+	if s.DBEngineVersion == nil {
+		invalidParams.Add(request.NewErrParamRequired("DBEngineVersion"))
+	}
+	if s.NodeNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
+	}
+	if s.NodeNumber != nil && *s.NodeNumber < 2 {
+		invalidParams.Add(request.NewErrParamMinValue("NodeNumber", 2))
+	}
+	if s.NodeNumber != nil && *s.NodeNumber > 16 {
+		invalidParams.Add(request.NewErrParamMaxValue("NodeNumber", 16))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.ZoneIds == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneIds"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAutoRenew sets the AutoRenew field's value.
+func (s *CreateDBInstanceInput) SetAutoRenew(v bool) *CreateDBInstanceInput {
+	s.AutoRenew = &v
 	return s
 }
 
-// SetCreateType sets the CreateType field's value.
-func (s *CreateDBInstanceInput) SetCreateType(v string) *CreateDBInstanceInput {
-	s.CreateType = &v
+// SetChargeType sets the ChargeType field's value.
+func (s *CreateDBInstanceInput) SetChargeType(v string) *CreateDBInstanceInput {
+	s.ChargeType = &v
 	return s
 }
 
@@ -241,21 +289,39 @@ func (s *CreateDBInstanceInput) SetNodeSpec(v string) *CreateDBInstanceInput {
 	return s
 }
 
+// SetNumber sets the Number field's value.
+func (s *CreateDBInstanceInput) SetNumber(v int32) *CreateDBInstanceInput {
+	s.Number = &v
+	return s
+}
+
+// SetPeriod sets the Period field's value.
+func (s *CreateDBInstanceInput) SetPeriod(v int32) *CreateDBInstanceInput {
+	s.Period = &v
+	return s
+}
+
+// SetPeriodUnit sets the PeriodUnit field's value.
+func (s *CreateDBInstanceInput) SetPeriodUnit(v string) *CreateDBInstanceInput {
+	s.PeriodUnit = &v
+	return s
+}
+
+// SetPrePaidStorageInGB sets the PrePaidStorageInGB field's value.
+func (s *CreateDBInstanceInput) SetPrePaidStorageInGB(v int32) *CreateDBInstanceInput {
+	s.PrePaidStorageInGB = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *CreateDBInstanceInput) SetProjectName(v string) *CreateDBInstanceInput {
 	s.ProjectName = &v
 	return s
 }
 
-// SetStoragePoolName sets the StoragePoolName field's value.
-func (s *CreateDBInstanceInput) SetStoragePoolName(v string) *CreateDBInstanceInput {
-	s.StoragePoolName = &v
-	return s
-}
-
-// SetStoragePoolType sets the StoragePoolType field's value.
-func (s *CreateDBInstanceInput) SetStoragePoolType(v string) *CreateDBInstanceInput {
-	s.StoragePoolType = &v
+// SetStorageChargeType sets the StorageChargeType field's value.
+func (s *CreateDBInstanceInput) SetStorageChargeType(v string) *CreateDBInstanceInput {
+	s.StorageChargeType = &v
 	return s
 }
 
@@ -292,12 +358,6 @@ func (s *CreateDBInstanceInput) SetVpcId(v string) *CreateDBInstanceInput {
 // SetZoneIds sets the ZoneIds field's value.
 func (s *CreateDBInstanceInput) SetZoneIds(v string) *CreateDBInstanceInput {
 	s.ZoneIds = &v
-	return s
-}
-
-// SetZoneNodeInfos sets the ZoneNodeInfos field's value.
-func (s *CreateDBInstanceInput) SetZoneNodeInfos(v []*ZoneNodeInfoForCreateDBInstanceInput) *CreateDBInstanceInput {
-	s.ZoneNodeInfos = v
 	return s
 }
 
@@ -363,32 +423,39 @@ func (s *TagForCreateDBInstanceInput) SetValue(v string) *TagForCreateDBInstance
 	return s
 }
 
-type ZoneNodeInfoForCreateDBInstanceInput struct {
-	_ struct{} `type:"structure"`
+const (
+	// EnumOfChargeTypeForCreateDBInstanceInputPostPaid is a EnumOfChargeTypeForCreateDBInstanceInput enum value
+	EnumOfChargeTypeForCreateDBInstanceInputPostPaid = "PostPaid"
 
-	ZoneId *string `type:"string"`
+	// EnumOfChargeTypeForCreateDBInstanceInputPrePaid is a EnumOfChargeTypeForCreateDBInstanceInput enum value
+	EnumOfChargeTypeForCreateDBInstanceInputPrePaid = "PrePaid"
+)
 
-	ZoneNodeNumber *int32 `type:"int32"`
-}
+const (
+	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
+	EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 = "MySQL_8_0"
+)
 
-// String returns the string representation
-func (s ZoneNodeInfoForCreateDBInstanceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
+const (
+	// EnumOfLowerCaseTableNamesForCreateDBInstanceInput1 is a EnumOfLowerCaseTableNamesForCreateDBInstanceInput enum value
+	EnumOfLowerCaseTableNamesForCreateDBInstanceInput1 = "1"
 
-// GoString returns the string representation
-func (s ZoneNodeInfoForCreateDBInstanceInput) GoString() string {
-	return s.String()
-}
+	// EnumOfLowerCaseTableNamesForCreateDBInstanceInput0 is a EnumOfLowerCaseTableNamesForCreateDBInstanceInput enum value
+	EnumOfLowerCaseTableNamesForCreateDBInstanceInput0 = "0"
+)
 
-// SetZoneId sets the ZoneId field's value.
-func (s *ZoneNodeInfoForCreateDBInstanceInput) SetZoneId(v string) *ZoneNodeInfoForCreateDBInstanceInput {
-	s.ZoneId = &v
-	return s
-}
+const (
+	// EnumOfPeriodUnitForCreateDBInstanceInputMonth is a EnumOfPeriodUnitForCreateDBInstanceInput enum value
+	EnumOfPeriodUnitForCreateDBInstanceInputMonth = "Month"
 
-// SetZoneNodeNumber sets the ZoneNodeNumber field's value.
-func (s *ZoneNodeInfoForCreateDBInstanceInput) SetZoneNodeNumber(v int32) *ZoneNodeInfoForCreateDBInstanceInput {
-	s.ZoneNodeNumber = &v
-	return s
-}
+	// EnumOfPeriodUnitForCreateDBInstanceInputYear is a EnumOfPeriodUnitForCreateDBInstanceInput enum value
+	EnumOfPeriodUnitForCreateDBInstanceInputYear = "Year"
+)
+
+const (
+	// EnumOfStorageChargeTypeForCreateDBInstanceInputPostPaid is a EnumOfStorageChargeTypeForCreateDBInstanceInput enum value
+	EnumOfStorageChargeTypeForCreateDBInstanceInputPostPaid = "PostPaid"
+
+	// EnumOfStorageChargeTypeForCreateDBInstanceInputPrePaid is a EnumOfStorageChargeTypeForCreateDBInstanceInput enum value
+	EnumOfStorageChargeTypeForCreateDBInstanceInputPrePaid = "PrePaid"
+)

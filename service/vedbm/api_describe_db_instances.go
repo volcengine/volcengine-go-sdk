@@ -152,9 +152,9 @@ type ChargeDetailForDescribeDBInstancesOutput struct {
 
 	ChargeStartTime *string `type:"string"`
 
-	ChargeStatus *string `type:"string"`
+	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeDBInstancesOutput"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
 
 	OrderId *string `type:"string"`
 
@@ -224,25 +224,25 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetOverdueTime(v string) *Cha
 type DescribeDBInstancesInput struct {
 	_ struct{} `type:"structure"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesInput"`
 
 	CreateTimeEnd *string `type:"string"`
 
 	CreateTimeStart *string `type:"string"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstancesInput"`
 
 	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesInput"`
 
 	NodeSpec *string `type:"string"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `min:"1" type:"int32"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `min:"1" max:"1000" type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -259,6 +259,25 @@ func (s DescribeDBInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstancesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeDBInstancesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstancesInput"}
+	if s.PageNumber != nil && *s.PageNumber < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageNumber", 1))
+	}
+	if s.PageSize != nil && *s.PageSize < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
+	}
+	if s.PageSize != nil && *s.PageSize > 1000 {
+		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetChargeType sets the ChargeType field's value.
@@ -378,7 +397,7 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	CreateTime *string `type:"string"`
 
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstancesOutput"`
 
 	InstanceId *string `type:"string"`
 
@@ -393,6 +412,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 	ProjectName *string `type:"string"`
 
 	RegionId *string `type:"string"`
+
+	StorageChargeType *string `type:"string" enum:"EnumOfStorageChargeTypeForDescribeDBInstancesOutput"`
 
 	StorageUsedGiB *float64 `type:"double"`
 
@@ -479,6 +500,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetRegionId(v string) *InstanceFo
 	return s
 }
 
+// SetStorageChargeType sets the StorageChargeType field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetStorageChargeType(v string) *InstanceForDescribeDBInstancesOutput {
+	s.StorageChargeType = &v
+	return s
+}
+
 // SetStorageUsedGiB sets the StorageUsedGiB field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetStorageUsedGiB(v float64) *InstanceForDescribeDBInstancesOutput {
 	s.StorageUsedGiB = &v
@@ -530,7 +557,7 @@ type NodeForDescribeDBInstancesOutput struct {
 
 	NodeSpec *string `type:"string"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" enum:"EnumOfNodeTypeForDescribeDBInstancesOutput"`
 
 	VCPU *int32 `type:"int32" json:"vCPU"`
 
@@ -642,3 +669,109 @@ func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBIn
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfChargeStatusForDescribeDBInstancesOutputNormal is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputNormal = "Normal"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputOverdue is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputOverdue = "Overdue"
+)
+
+const (
+	// EnumOfChargeTypeForDescribeDBInstancesInputPostPaid is a EnumOfChargeTypeForDescribeDBInstancesInput enum value
+	EnumOfChargeTypeForDescribeDBInstancesInputPostPaid = "PostPaid"
+
+	// EnumOfChargeTypeForDescribeDBInstancesInputPrePaid is a EnumOfChargeTypeForDescribeDBInstancesInput enum value
+	EnumOfChargeTypeForDescribeDBInstancesInputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfChargeTypeForDescribeDBInstancesOutputPostPaid is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfChargeTypeForDescribeDBInstancesOutputPostPaid = "PostPaid"
+
+	// EnumOfChargeTypeForDescribeDBInstancesOutputPrePaid is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfChargeTypeForDescribeDBInstancesOutputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfDBEngineVersionForDescribeDBInstancesInputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesInputMySql80 = "MySQL_8_0"
+)
+
+const (
+	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql80 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesOutputMySql80 = "MySQL_8_0"
+)
+
+const (
+	// EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid = "WaitingPaid"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRunning is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRunning = "Running"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputCreating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputCreating = "Creating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputScaling is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputScaling = "Scaling"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRestarting = "Restarting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRestoring = "Restoring"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading = "Upgrading"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputPrimaryChanging is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputPrimaryChanging = "PrimaryChanging"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputUnavailable is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputUnavailable = "Unavailable"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputDeleting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputDeleting = "Deleting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputDeleted is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputDeleted = "Deleted"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed = "CreateFailed"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputClosing is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputClosing = "Closing"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputExpired is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputExpired = "Expired"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputOwing is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputOwing = "Owing"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputResuming is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputResuming = "Resuming"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining = "AllowListMaintaining"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputError is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputError = "Error"
+)
+
+const (
+	// EnumOfNodeTypeForDescribeDBInstancesOutputPrimary is a EnumOfNodeTypeForDescribeDBInstancesOutput enum value
+	EnumOfNodeTypeForDescribeDBInstancesOutputPrimary = "Primary"
+
+	// EnumOfNodeTypeForDescribeDBInstancesOutputReadOnly is a EnumOfNodeTypeForDescribeDBInstancesOutput enum value
+	EnumOfNodeTypeForDescribeDBInstancesOutputReadOnly = "ReadOnly"
+)
+
+const (
+	// EnumOfStorageChargeTypeForDescribeDBInstancesOutputPostPaid is a EnumOfStorageChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfStorageChargeTypeForDescribeDBInstancesOutputPostPaid = "PostPaid"
+
+	// EnumOfStorageChargeTypeForDescribeDBInstancesOutputPrePaid is a EnumOfStorageChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfStorageChargeTypeForDescribeDBInstancesOutputPrePaid = "PrePaid"
+)

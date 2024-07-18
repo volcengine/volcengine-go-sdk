@@ -148,21 +148,23 @@ type ModifyDBEndpointInput struct {
 
 	AutoAddNewNodes *bool `type:"boolean"`
 
-	ConsistLevel *string `type:"string"`
+	ConsistLevel *string `type:"string" enum:"EnumOfConsistLevelForModifyDBEndpointInput"`
 
 	ConsistTimeout *int32 `type:"int32"`
 
-	ConsistTimeoutAction *string `type:"string"`
+	ConsistTimeoutAction *string `type:"string" enum:"EnumOfConsistTimeoutActionForModifyDBEndpointInput"`
 
 	Description *string `type:"string"`
 
 	DistributedTransaction *bool `type:"boolean"`
 
-	EndpointId *string `type:"string"`
+	// EndpointId is a required field
+	EndpointId *string `type:"string" required:"true"`
 
 	EndpointName *string `type:"string"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	MasterAcceptReadRequests *bool `type:"boolean"`
 
@@ -179,6 +181,22 @@ func (s ModifyDBEndpointInput) String() string {
 // GoString returns the string representation
 func (s ModifyDBEndpointInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDBEndpointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDBEndpointInput"}
+	if s.EndpointId == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndpointId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
@@ -268,3 +286,22 @@ func (s ModifyDBEndpointOutput) String() string {
 func (s ModifyDBEndpointOutput) GoString() string {
 	return s.String()
 }
+
+const (
+	// EnumOfConsistLevelForModifyDBEndpointInputEventual is a EnumOfConsistLevelForModifyDBEndpointInput enum value
+	EnumOfConsistLevelForModifyDBEndpointInputEventual = "Eventual"
+
+	// EnumOfConsistLevelForModifyDBEndpointInputSession is a EnumOfConsistLevelForModifyDBEndpointInput enum value
+	EnumOfConsistLevelForModifyDBEndpointInputSession = "Session"
+
+	// EnumOfConsistLevelForModifyDBEndpointInputGlobal is a EnumOfConsistLevelForModifyDBEndpointInput enum value
+	EnumOfConsistLevelForModifyDBEndpointInputGlobal = "Global"
+)
+
+const (
+	// EnumOfConsistTimeoutActionForModifyDBEndpointInputReturnError is a EnumOfConsistTimeoutActionForModifyDBEndpointInput enum value
+	EnumOfConsistTimeoutActionForModifyDBEndpointInputReturnError = "ReturnError"
+
+	// EnumOfConsistTimeoutActionForModifyDBEndpointInputReadMaster is a EnumOfConsistTimeoutActionForModifyDBEndpointInput enum value
+	EnumOfConsistTimeoutActionForModifyDBEndpointInputReadMaster = "ReadMaster"
+)
