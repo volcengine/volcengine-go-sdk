@@ -661,108 +661,6 @@ func (s *TlsConfigForUpdateFunctionOutput) SetTlsTopicId(v string) *TlsConfigFor
 	return s
 }
 
-type TopParamForUpdateFunctionInput struct {
-	_ struct{} `type:"structure"`
-
-	AccountId *int64 `type:"int64"`
-
-	DestService *string `type:"string"`
-
-	IsInternal *string `type:"string"`
-
-	Psm *string `type:"string"`
-
-	RealIp *string `type:"string"`
-
-	Region *string `type:"string"`
-
-	RequestId *string `type:"string"`
-
-	RoleId *int64 `type:"int64"`
-
-	Site *string `type:"string"`
-
-	SourceService *string `type:"string"`
-
-	UserId *int64 `type:"int64"`
-}
-
-// String returns the string representation
-func (s TopParamForUpdateFunctionInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TopParamForUpdateFunctionInput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *TopParamForUpdateFunctionInput) SetAccountId(v int64) *TopParamForUpdateFunctionInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetDestService sets the DestService field's value.
-func (s *TopParamForUpdateFunctionInput) SetDestService(v string) *TopParamForUpdateFunctionInput {
-	s.DestService = &v
-	return s
-}
-
-// SetIsInternal sets the IsInternal field's value.
-func (s *TopParamForUpdateFunctionInput) SetIsInternal(v string) *TopParamForUpdateFunctionInput {
-	s.IsInternal = &v
-	return s
-}
-
-// SetPsm sets the Psm field's value.
-func (s *TopParamForUpdateFunctionInput) SetPsm(v string) *TopParamForUpdateFunctionInput {
-	s.Psm = &v
-	return s
-}
-
-// SetRealIp sets the RealIp field's value.
-func (s *TopParamForUpdateFunctionInput) SetRealIp(v string) *TopParamForUpdateFunctionInput {
-	s.RealIp = &v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *TopParamForUpdateFunctionInput) SetRegion(v string) *TopParamForUpdateFunctionInput {
-	s.Region = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *TopParamForUpdateFunctionInput) SetRequestId(v string) *TopParamForUpdateFunctionInput {
-	s.RequestId = &v
-	return s
-}
-
-// SetRoleId sets the RoleId field's value.
-func (s *TopParamForUpdateFunctionInput) SetRoleId(v int64) *TopParamForUpdateFunctionInput {
-	s.RoleId = &v
-	return s
-}
-
-// SetSite sets the Site field's value.
-func (s *TopParamForUpdateFunctionInput) SetSite(v string) *TopParamForUpdateFunctionInput {
-	s.Site = &v
-	return s
-}
-
-// SetSourceService sets the SourceService field's value.
-func (s *TopParamForUpdateFunctionInput) SetSourceService(v string) *TopParamForUpdateFunctionInput {
-	s.SourceService = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *TopParamForUpdateFunctionInput) SetUserId(v int64) *TopParamForUpdateFunctionInput {
-	s.UserId = &v
-	return s
-}
-
 type TosMountConfigForUpdateFunctionInput struct {
 	_ struct{} `type:"structure"`
 
@@ -842,8 +740,6 @@ func (s *TosMountConfigForUpdateFunctionOutput) SetMountPoints(v []*MountPointFo
 type UpdateFunctionInput struct {
 	_ struct{} `type:"structure"`
 
-	DebugInstanceEnable *bool `type:"boolean"`
-
 	Description *string `type:"string"`
 
 	Envs []*EnvForUpdateFunctionInput `type:"list"`
@@ -863,6 +759,8 @@ type UpdateFunctionInput struct {
 
 	RequestTimeout *int32 `type:"int32"`
 
+	Runtime *string `type:"string"`
+
 	Source *string `type:"string"`
 
 	SourceAccessConfig *SourceAccessConfigForUpdateFunctionInput `type:"structure"`
@@ -870,8 +768,6 @@ type UpdateFunctionInput struct {
 	SourceType *string `type:"string"`
 
 	TlsConfig *TlsConfigForUpdateFunctionInput `type:"structure"`
-
-	TopParam *TopParamForUpdateFunctionInput `type:"structure"`
 
 	TosMountConfig *TosMountConfigForUpdateFunctionInput `type:"structure"`
 
@@ -899,12 +795,6 @@ func (s *UpdateFunctionInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetDebugInstanceEnable sets the DebugInstanceEnable field's value.
-func (s *UpdateFunctionInput) SetDebugInstanceEnable(v bool) *UpdateFunctionInput {
-	s.DebugInstanceEnable = &v
-	return s
 }
 
 // SetDescription sets the Description field's value.
@@ -961,6 +851,12 @@ func (s *UpdateFunctionInput) SetRequestTimeout(v int32) *UpdateFunctionInput {
 	return s
 }
 
+// SetRuntime sets the Runtime field's value.
+func (s *UpdateFunctionInput) SetRuntime(v string) *UpdateFunctionInput {
+	s.Runtime = &v
+	return s
+}
+
 // SetSource sets the Source field's value.
 func (s *UpdateFunctionInput) SetSource(v string) *UpdateFunctionInput {
 	s.Source = &v
@@ -982,12 +878,6 @@ func (s *UpdateFunctionInput) SetSourceType(v string) *UpdateFunctionInput {
 // SetTlsConfig sets the TlsConfig field's value.
 func (s *UpdateFunctionInput) SetTlsConfig(v *TlsConfigForUpdateFunctionInput) *UpdateFunctionInput {
 	s.TlsConfig = v
-	return s
-}
-
-// SetTopParam sets the TopParam field's value.
-func (s *UpdateFunctionInput) SetTopParam(v *TopParamForUpdateFunctionInput) *UpdateFunctionInput {
-	s.TopParam = v
 	return s
 }
 
@@ -1013,8 +903,6 @@ type UpdateFunctionOutput struct {
 	CodeSizeLimit *int32 `type:"int32"`
 
 	CreationTime *string `type:"string"`
-
-	DebugInstanceEnable *bool `type:"boolean"`
 
 	Description *string `type:"string"`
 
@@ -1042,8 +930,6 @@ type UpdateFunctionOutput struct {
 
 	RequestTimeout *int32 `type:"int32"`
 
-	ResourcePoolId *string `type:"string"`
-
 	Runtime *string `type:"string"`
 
 	SourceLocation *string `type:"string"`
@@ -1055,8 +941,6 @@ type UpdateFunctionOutput struct {
 	TosMountConfig *TosMountConfigForUpdateFunctionOutput `type:"structure"`
 
 	TriggersCount *int32 `type:"int32"`
-
-	UseStatus *string `type:"string"`
 
 	VpcConfig *VpcConfigForUpdateFunctionOutput `type:"structure"`
 }
@@ -1086,12 +970,6 @@ func (s *UpdateFunctionOutput) SetCodeSizeLimit(v int32) *UpdateFunctionOutput {
 // SetCreationTime sets the CreationTime field's value.
 func (s *UpdateFunctionOutput) SetCreationTime(v string) *UpdateFunctionOutput {
 	s.CreationTime = &v
-	return s
-}
-
-// SetDebugInstanceEnable sets the DebugInstanceEnable field's value.
-func (s *UpdateFunctionOutput) SetDebugInstanceEnable(v bool) *UpdateFunctionOutput {
-	s.DebugInstanceEnable = &v
 	return s
 }
 
@@ -1173,12 +1051,6 @@ func (s *UpdateFunctionOutput) SetRequestTimeout(v int32) *UpdateFunctionOutput 
 	return s
 }
 
-// SetResourcePoolId sets the ResourcePoolId field's value.
-func (s *UpdateFunctionOutput) SetResourcePoolId(v string) *UpdateFunctionOutput {
-	s.ResourcePoolId = &v
-	return s
-}
-
 // SetRuntime sets the Runtime field's value.
 func (s *UpdateFunctionOutput) SetRuntime(v string) *UpdateFunctionOutput {
 	s.Runtime = &v
@@ -1212,12 +1084,6 @@ func (s *UpdateFunctionOutput) SetTosMountConfig(v *TosMountConfigForUpdateFunct
 // SetTriggersCount sets the TriggersCount field's value.
 func (s *UpdateFunctionOutput) SetTriggersCount(v int32) *UpdateFunctionOutput {
 	s.TriggersCount = &v
-	return s
-}
-
-// SetUseStatus sets the UseStatus field's value.
-func (s *UpdateFunctionOutput) SetUseStatus(v string) *UpdateFunctionOutput {
-	s.UseStatus = &v
 	return s
 }
 

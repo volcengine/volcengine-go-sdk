@@ -148,8 +148,6 @@ type DeleteFunctionInput struct {
 
 	// Id is a required field
 	Id *string `type:"string" required:"true"`
-
-	TopParam *TopParamForDeleteFunctionInput `type:"structure"`
 }
 
 // String returns the string representation
@@ -181,12 +179,6 @@ func (s *DeleteFunctionInput) SetId(v string) *DeleteFunctionInput {
 	return s
 }
 
-// SetTopParam sets the TopParam field's value.
-func (s *DeleteFunctionInput) SetTopParam(v *TopParamForDeleteFunctionInput) *DeleteFunctionInput {
-	s.TopParam = v
-	return s
-}
-
 type DeleteFunctionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -201,106 +193,4 @@ func (s DeleteFunctionOutput) String() string {
 // GoString returns the string representation
 func (s DeleteFunctionOutput) GoString() string {
 	return s.String()
-}
-
-type TopParamForDeleteFunctionInput struct {
-	_ struct{} `type:"structure"`
-
-	AccountId *int64 `type:"int64"`
-
-	DestService *string `type:"string"`
-
-	IsInternal *string `type:"string"`
-
-	Psm *string `type:"string"`
-
-	RealIp *string `type:"string"`
-
-	Region *string `type:"string"`
-
-	RequestId *string `type:"string"`
-
-	RoleId *int64 `type:"int64"`
-
-	Site *string `type:"string"`
-
-	SourceService *string `type:"string"`
-
-	UserId *int64 `type:"int64"`
-}
-
-// String returns the string representation
-func (s TopParamForDeleteFunctionInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TopParamForDeleteFunctionInput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *TopParamForDeleteFunctionInput) SetAccountId(v int64) *TopParamForDeleteFunctionInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetDestService sets the DestService field's value.
-func (s *TopParamForDeleteFunctionInput) SetDestService(v string) *TopParamForDeleteFunctionInput {
-	s.DestService = &v
-	return s
-}
-
-// SetIsInternal sets the IsInternal field's value.
-func (s *TopParamForDeleteFunctionInput) SetIsInternal(v string) *TopParamForDeleteFunctionInput {
-	s.IsInternal = &v
-	return s
-}
-
-// SetPsm sets the Psm field's value.
-func (s *TopParamForDeleteFunctionInput) SetPsm(v string) *TopParamForDeleteFunctionInput {
-	s.Psm = &v
-	return s
-}
-
-// SetRealIp sets the RealIp field's value.
-func (s *TopParamForDeleteFunctionInput) SetRealIp(v string) *TopParamForDeleteFunctionInput {
-	s.RealIp = &v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *TopParamForDeleteFunctionInput) SetRegion(v string) *TopParamForDeleteFunctionInput {
-	s.Region = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *TopParamForDeleteFunctionInput) SetRequestId(v string) *TopParamForDeleteFunctionInput {
-	s.RequestId = &v
-	return s
-}
-
-// SetRoleId sets the RoleId field's value.
-func (s *TopParamForDeleteFunctionInput) SetRoleId(v int64) *TopParamForDeleteFunctionInput {
-	s.RoleId = &v
-	return s
-}
-
-// SetSite sets the Site field's value.
-func (s *TopParamForDeleteFunctionInput) SetSite(v string) *TopParamForDeleteFunctionInput {
-	s.Site = &v
-	return s
-}
-
-// SetSourceService sets the SourceService field's value.
-func (s *TopParamForDeleteFunctionInput) SetSourceService(v string) *TopParamForDeleteFunctionInput {
-	s.SourceService = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *TopParamForDeleteFunctionInput) SetUserId(v int64) *TopParamForDeleteFunctionInput {
-	s.UserId = &v
-	return s
 }

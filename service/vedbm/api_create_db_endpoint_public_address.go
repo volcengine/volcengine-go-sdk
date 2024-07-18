@@ -146,11 +146,14 @@ func (c *VEDBM) CreateDBEndpointPublicAddressWithContext(ctx volcengine.Context,
 type CreateDBEndpointPublicAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	EipId *string `type:"string"`
+	// EipId is a required field
+	EipId *string `type:"string" required:"true"`
 
-	EndpointId *string `type:"string"`
+	// EndpointId is a required field
+	EndpointId *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -161,6 +164,25 @@ func (s CreateDBEndpointPublicAddressInput) String() string {
 // GoString returns the string representation
 func (s CreateDBEndpointPublicAddressInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDBEndpointPublicAddressInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDBEndpointPublicAddressInput"}
+	if s.EipId == nil {
+		invalidParams.Add(request.NewErrParamRequired("EipId"))
+	}
+	if s.EndpointId == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndpointId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEipId sets the EipId field's value.

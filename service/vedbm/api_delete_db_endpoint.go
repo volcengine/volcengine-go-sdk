@@ -146,9 +146,11 @@ func (c *VEDBM) DeleteDBEndpointWithContext(ctx volcengine.Context, input *Delet
 type DeleteDBEndpointInput struct {
 	_ struct{} `type:"structure"`
 
-	EndpointId *string `type:"string"`
+	// EndpointId is a required field
+	EndpointId *string `type:"string" required:"true"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,6 +161,22 @@ func (s DeleteDBEndpointInput) String() string {
 // GoString returns the string representation
 func (s DeleteDBEndpointInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteDBEndpointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteDBEndpointInput"}
+	if s.EndpointId == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndpointId"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetEndpointId sets the EndpointId field's value.
