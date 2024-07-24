@@ -150,7 +150,7 @@ type BackupForDescribeBackupsOutput struct {
 
 	BackupFileName *string `type:"string"`
 
-	BackupFileSize *int32 `type:"int32"`
+	BackupFileSize *int64 `type:"int64"`
 
 	BackupId *string `type:"string"`
 
@@ -175,6 +175,8 @@ type BackupForDescribeBackupsOutput struct {
 	ErrorMessage *string `type:"string"`
 
 	ExpiredTime *string `type:"string"`
+
+	IsEncrypted *bool `type:"boolean"`
 
 	IsExpired *bool `type:"boolean"`
 }
@@ -202,7 +204,7 @@ func (s *BackupForDescribeBackupsOutput) SetBackupFileName(v string) *BackupForD
 }
 
 // SetBackupFileSize sets the BackupFileSize field's value.
-func (s *BackupForDescribeBackupsOutput) SetBackupFileSize(v int32) *BackupForDescribeBackupsOutput {
+func (s *BackupForDescribeBackupsOutput) SetBackupFileSize(v int64) *BackupForDescribeBackupsOutput {
 	s.BackupFileSize = &v
 	return s
 }
@@ -279,6 +281,12 @@ func (s *BackupForDescribeBackupsOutput) SetExpiredTime(v string) *BackupForDesc
 	return s
 }
 
+// SetIsEncrypted sets the IsEncrypted field's value.
+func (s *BackupForDescribeBackupsOutput) SetIsEncrypted(v bool) *BackupForDescribeBackupsOutput {
+	s.IsEncrypted = &v
+	return s
+}
+
 // SetIsExpired sets the IsExpired field's value.
 func (s *BackupForDescribeBackupsOutput) SetIsExpired(v bool) *BackupForDescribeBackupsOutput {
 	s.IsExpired = &v
@@ -329,6 +337,8 @@ type DescribeBackupsInput struct {
 	BackupStatus *string `type:"string"`
 
 	BackupType *string `type:"string"`
+
+	CreateType *string `type:"string"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -394,6 +404,12 @@ func (s *DescribeBackupsInput) SetBackupStatus(v string) *DescribeBackupsInput {
 // SetBackupType sets the BackupType field's value.
 func (s *DescribeBackupsInput) SetBackupType(v string) *DescribeBackupsInput {
 	s.BackupType = &v
+	return s
+}
+
+// SetCreateType sets the CreateType field's value.
+func (s *DescribeBackupsInput) SetCreateType(v string) *DescribeBackupsInput {
+	s.CreateType = &v
 	return s
 }
 

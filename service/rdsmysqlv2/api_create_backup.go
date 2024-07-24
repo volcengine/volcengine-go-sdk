@@ -147,6 +147,8 @@ type BackupMetaForCreateBackupInput struct {
 	_ struct{} `type:"structure"`
 
 	DBName *string `type:"string"`
+
+	TableNames []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -162,6 +164,12 @@ func (s BackupMetaForCreateBackupInput) GoString() string {
 // SetDBName sets the DBName field's value.
 func (s *BackupMetaForCreateBackupInput) SetDBName(v string) *BackupMetaForCreateBackupInput {
 	s.DBName = &v
+	return s
+}
+
+// SetTableNames sets the TableNames field's value.
+func (s *BackupMetaForCreateBackupInput) SetTableNames(v []*string) *BackupMetaForCreateBackupInput {
+	s.TableNames = v
 	return s
 }
 
@@ -229,6 +237,8 @@ type CreateBackupOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	BackupId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -239,4 +249,10 @@ func (s CreateBackupOutput) String() string {
 // GoString returns the string representation
 func (s CreateBackupOutput) GoString() string {
 	return s.String()
+}
+
+// SetBackupId sets the BackupId field's value.
+func (s *CreateBackupOutput) SetBackupId(v string) *CreateBackupOutput {
+	s.BackupId = &v
+	return s
 }

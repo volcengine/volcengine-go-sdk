@@ -150,7 +150,7 @@ type ChargeItemPriceForDescribeDBInstancePriceDetailOutput struct {
 
 	ChargeItemType *string `type:"string"`
 
-	ChargeItemValue *int32 `type:"int32"`
+	ChargeItemValue *int64 `type:"int64"`
 
 	DiscountPrice *float64 `type:"double"`
 
@@ -182,7 +182,7 @@ func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetChargeItemTyp
 }
 
 // SetChargeItemValue sets the ChargeItemValue field's value.
-func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetChargeItemValue(v int32) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
+func (s *ChargeItemPriceForDescribeDBInstancePriceDetailOutput) SetChargeItemValue(v int64) *ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
 	s.ChargeItemValue = &v
 	return s
 }

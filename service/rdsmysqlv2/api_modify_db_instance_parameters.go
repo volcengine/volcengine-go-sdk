@@ -146,8 +146,12 @@ func (c *RDSMYSQLV2) ModifyDBInstanceParametersWithContext(ctx volcengine.Contex
 type ModifyDBInstanceParametersInput struct {
 	_ struct{} `type:"structure"`
 
+	CustomNodeIds []*string `type:"list"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
+
+	ParamApplyScope *string `type:"string"`
 
 	Parameters []*ParameterForModifyDBInstanceParametersInput `type:"list"`
 }
@@ -175,9 +179,21 @@ func (s *ModifyDBInstanceParametersInput) Validate() error {
 	return nil
 }
 
+// SetCustomNodeIds sets the CustomNodeIds field's value.
+func (s *ModifyDBInstanceParametersInput) SetCustomNodeIds(v []*string) *ModifyDBInstanceParametersInput {
+	s.CustomNodeIds = v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *ModifyDBInstanceParametersInput) SetInstanceId(v string) *ModifyDBInstanceParametersInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetParamApplyScope sets the ParamApplyScope field's value.
+func (s *ModifyDBInstanceParametersInput) SetParamApplyScope(v string) *ModifyDBInstanceParametersInput {
+	s.ParamApplyScope = &v
 	return s
 }
 

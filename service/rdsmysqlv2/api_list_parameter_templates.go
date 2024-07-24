@@ -246,7 +246,7 @@ type TemplateInfoForListParameterTemplatesOutput struct {
 
 	NeedRestart *bool `type:"boolean"`
 
-	ParameterNum *int32 `type:"int32"`
+	ParameterNum *int64 `type:"int64"`
 
 	ProjectName *string `type:"string"`
 
@@ -298,7 +298,7 @@ func (s *TemplateInfoForListParameterTemplatesOutput) SetNeedRestart(v bool) *Te
 }
 
 // SetParameterNum sets the ParameterNum field's value.
-func (s *TemplateInfoForListParameterTemplatesOutput) SetParameterNum(v int32) *TemplateInfoForListParameterTemplatesOutput {
+func (s *TemplateInfoForListParameterTemplatesOutput) SetParameterNum(v int64) *TemplateInfoForListParameterTemplatesOutput {
 	s.ParameterNum = &v
 	return s
 }
