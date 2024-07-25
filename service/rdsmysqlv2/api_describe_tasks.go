@@ -178,7 +178,7 @@ type DataForDescribeTasksOutput struct {
 
 	ConfigInfos []*ConfigInfoForDescribeTasksOutput `type:"list"`
 
-	CostTimeMS *int32 `type:"int32"`
+	CostTimeMS *int64 `type:"int64"`
 
 	CreateTime *string `type:"string"`
 
@@ -224,7 +224,7 @@ func (s *DataForDescribeTasksOutput) SetConfigInfos(v []*ConfigInfoForDescribeTa
 }
 
 // SetCostTimeMS sets the CostTimeMS field's value.
-func (s *DataForDescribeTasksOutput) SetCostTimeMS(v int32) *DataForDescribeTasksOutput {
+func (s *DataForDescribeTasksOutput) SetCostTimeMS(v int64) *DataForDescribeTasksOutput {
 	s.CostTimeMS = &v
 	return s
 }

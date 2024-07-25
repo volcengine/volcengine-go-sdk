@@ -149,6 +149,8 @@ type DescribeDBInstanceParametersInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
+	NodeId *string `type:"string"`
+
 	ParameterName *string `type:"string"`
 }
 
@@ -178,6 +180,12 @@ func (s *DescribeDBInstanceParametersInput) Validate() error {
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeDBInstanceParametersInput) SetInstanceId(v string) *DescribeDBInstanceParametersInput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetNodeId sets the NodeId field's value.
+func (s *DescribeDBInstanceParametersInput) SetNodeId(v string) *DescribeDBInstanceParametersInput {
+	s.NodeId = &v
 	return s
 }
 

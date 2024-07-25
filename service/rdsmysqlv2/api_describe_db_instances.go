@@ -340,11 +340,17 @@ type DescribeDBInstancesInput struct {
 
 	InstanceStatus *string `type:"string"`
 
+	InstanceType *string `type:"string"`
+
+	NodeSpec *string `type:"string"`
+
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
 
 	ZoneId *string `type:"string"`
 }
@@ -401,6 +407,18 @@ func (s *DescribeDBInstancesInput) SetInstanceStatus(v string) *DescribeDBInstan
 	return s
 }
 
+// SetInstanceType sets the InstanceType field's value.
+func (s *DescribeDBInstancesInput) SetInstanceType(v string) *DescribeDBInstancesInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetNodeSpec sets the NodeSpec field's value.
+func (s *DescribeDBInstancesInput) SetNodeSpec(v string) *DescribeDBInstancesInput {
+	s.NodeSpec = &v
+	return s
+}
+
 // SetPageNumber sets the PageNumber field's value.
 func (s *DescribeDBInstancesInput) SetPageNumber(v int32) *DescribeDBInstancesInput {
 	s.PageNumber = &v
@@ -416,6 +434,12 @@ func (s *DescribeDBInstancesInput) SetPageSize(v int32) *DescribeDBInstancesInpu
 // SetProjectName sets the ProjectName field's value.
 func (s *DescribeDBInstancesInput) SetProjectName(v string) *DescribeDBInstancesInput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeDBInstancesInput) SetTagFilters(v []*TagFilterForDescribeDBInstancesInput) *DescribeDBInstancesInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -482,7 +506,13 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	MaintenanceWindow *MaintenanceWindowForDescribeDBInstancesOutput `type:"structure"`
 
+	NodeCPUUsedPercentage *float64 `type:"float"`
+
+	NodeMemoryUsedPercentage *float64 `type:"float"`
+
 	NodeNumber *int32 `type:"int32"`
+
+	NodeSpaceUsedPercentage *float64 `type:"float"`
 
 	NodeSpec *string `type:"string"`
 
@@ -496,11 +526,15 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	SubnetId *string `type:"string"`
 
+	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
+
 	TimeZone *string `type:"string"`
 
 	VpcId *string `type:"string"`
 
 	ZoneId *string `type:"string"`
+
+	ZoneIds []*string `type:"list"`
 }
 
 // String returns the string representation
@@ -579,9 +613,27 @@ func (s *InstanceForDescribeDBInstancesOutput) SetMaintenanceWindow(v *Maintenan
 	return s
 }
 
+// SetNodeCPUUsedPercentage sets the NodeCPUUsedPercentage field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetNodeCPUUsedPercentage(v float64) *InstanceForDescribeDBInstancesOutput {
+	s.NodeCPUUsedPercentage = &v
+	return s
+}
+
+// SetNodeMemoryUsedPercentage sets the NodeMemoryUsedPercentage field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetNodeMemoryUsedPercentage(v float64) *InstanceForDescribeDBInstancesOutput {
+	s.NodeMemoryUsedPercentage = &v
+	return s
+}
+
 // SetNodeNumber sets the NodeNumber field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetNodeNumber(v int32) *InstanceForDescribeDBInstancesOutput {
 	s.NodeNumber = &v
+	return s
+}
+
+// SetNodeSpaceUsedPercentage sets the NodeSpaceUsedPercentage field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetNodeSpaceUsedPercentage(v float64) *InstanceForDescribeDBInstancesOutput {
+	s.NodeSpaceUsedPercentage = &v
 	return s
 }
 
@@ -621,6 +673,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetSubnetId(v string) *InstanceFo
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetTags(v []*TagForDescribeDBInstancesOutput) *InstanceForDescribeDBInstancesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTimeZone sets the TimeZone field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetTimeZone(v string) *InstanceForDescribeDBInstancesOutput {
 	s.TimeZone = &v
@@ -639,12 +697,16 @@ func (s *InstanceForDescribeDBInstancesOutput) SetZoneId(v string) *InstanceForD
 	return s
 }
 
+// SetZoneIds sets the ZoneIds field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetZoneIds(v []*string) *InstanceForDescribeDBInstancesOutput {
+	s.ZoneIds = v
+	return s
+}
+
 type MaintenanceWindowForDescribeDBInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	DayKind *string `type:"string"`
-
-	DayOfMonth []*int32 `type:"list"`
 
 	DayOfWeek []*string `type:"list"`
 
@@ -667,12 +729,6 @@ func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayKind(v string) *Ma
 	return s
 }
 
-// SetDayOfMonth sets the DayOfMonth field's value.
-func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayOfMonth(v []*int32) *MaintenanceWindowForDescribeDBInstancesOutput {
-	s.DayOfMonth = v
-	return s
-}
-
 // SetDayOfWeek sets the DayOfWeek field's value.
 func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayOfWeek(v []*string) *MaintenanceWindowForDescribeDBInstancesOutput {
 	s.DayOfWeek = v
@@ -682,5 +738,65 @@ func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetDayOfWeek(v []*string
 // SetMaintenanceTime sets the MaintenanceTime field's value.
 func (s *MaintenanceWindowForDescribeDBInstancesOutput) SetMaintenanceTime(v string) *MaintenanceWindowForDescribeDBInstancesOutput {
 	s.MaintenanceTime = &v
+	return s
+}
+
+type TagFilterForDescribeDBInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeDBInstancesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeDBInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeDBInstancesInput) SetKey(v string) *TagFilterForDescribeDBInstancesInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForDescribeDBInstancesInput {
+	s.Value = &v
+	return s
+}
+
+type TagForDescribeDBInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeDBInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeDBInstancesOutput) SetKey(v string) *TagForDescribeDBInstancesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBInstancesOutput {
+	s.Value = &v
 	return s
 }
