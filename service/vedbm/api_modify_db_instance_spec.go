@@ -150,10 +150,12 @@ type ModifyDBInstanceSpecInput struct {
 	InstanceId *string `type:"string" required:"true"`
 
 	// NodeNumber is a required field
-	NodeNumber *int32 `min:"2" max:"16" type:"int32" required:"true"`
+	NodeNumber *int32 `type:"int32" required:"true"`
 
 	// NodeSpec is a required field
-	NodeSpec *string `type:"string" required:"true"`
+	NodeSpec *string `type:"string" required:"true" enum:"EnumOfNodeSpecForModifyDBInstanceSpecInput"`
+
+	PrePaidStorageInGB *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -174,12 +176,6 @@ func (s *ModifyDBInstanceSpecInput) Validate() error {
 	}
 	if s.NodeNumber == nil {
 		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
-	}
-	if s.NodeNumber != nil && *s.NodeNumber < 2 {
-		invalidParams.Add(request.NewErrParamMinValue("NodeNumber", 2))
-	}
-	if s.NodeNumber != nil && *s.NodeNumber > 16 {
-		invalidParams.Add(request.NewErrParamMaxValue("NodeNumber", 16))
 	}
 	if s.NodeSpec == nil {
 		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
@@ -206,6 +202,12 @@ func (s *ModifyDBInstanceSpecInput) SetNodeNumber(v int32) *ModifyDBInstanceSpec
 // SetNodeSpec sets the NodeSpec field's value.
 func (s *ModifyDBInstanceSpecInput) SetNodeSpec(v string) *ModifyDBInstanceSpecInput {
 	s.NodeSpec = &v
+	return s
+}
+
+// SetPrePaidStorageInGB sets the PrePaidStorageInGB field's value.
+func (s *ModifyDBInstanceSpecInput) SetPrePaidStorageInGB(v int32) *ModifyDBInstanceSpecInput {
+	s.PrePaidStorageInGB = &v
 	return s
 }
 
@@ -240,3 +242,53 @@ func (s *ModifyDBInstanceSpecOutput) SetOrderId(v string) *ModifyDBInstanceSpecO
 	s.OrderId = &v
 	return s
 }
+
+const (
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX4Large is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX4Large = "vedb.mysql.x4.large"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX8Large is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX8Large = "vedb.mysql.x8.large"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX4Xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX8Xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX42xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX82xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX44xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX84xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX86xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX48xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX88xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG4Large is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG4Large = "vedb.mysql.g4.large"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG4Xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG4Xlarge = "vedb.mysql.g4.xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG42xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG82xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG82xlarge = "vedb.mysql.g8.2xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG44xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
+)

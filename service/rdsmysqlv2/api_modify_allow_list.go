@@ -166,6 +166,8 @@ type ModifyAllowListInput struct {
 
 	SecurityGroupIds []*string `type:"list"`
 
+	UpdateSecurityGroup *bool `type:"boolean"`
+
 	UserAllowList *string `type:"string"`
 }
 
@@ -246,6 +248,12 @@ func (s *ModifyAllowListInput) SetSecurityGroupBindInfos(v []*SecurityGroupBindI
 // SetSecurityGroupIds sets the SecurityGroupIds field's value.
 func (s *ModifyAllowListInput) SetSecurityGroupIds(v []*string) *ModifyAllowListInput {
 	s.SecurityGroupIds = v
+	return s
+}
+
+// SetUpdateSecurityGroup sets the UpdateSecurityGroup field's value.
+func (s *ModifyAllowListInput) SetUpdateSecurityGroup(v bool) *ModifyAllowListInput {
+	s.UpdateSecurityGroup = &v
 	return s
 }
 

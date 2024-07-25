@@ -219,6 +219,8 @@ type CreateDBInstanceInput struct {
 
 	LowerCaseTableNames *string `type:"string"`
 
+	MaintenanceWindow *MaintenanceWindowForCreateDBInstanceInput `type:"structure"`
+
 	NodeInfo []*NodeInfoForCreateDBInstanceInput `type:"list"`
 
 	Port *int32 `type:"int32"`
@@ -328,6 +330,12 @@ func (s *CreateDBInstanceInput) SetInstanceType(v string) *CreateDBInstanceInput
 // SetLowerCaseTableNames sets the LowerCaseTableNames field's value.
 func (s *CreateDBInstanceInput) SetLowerCaseTableNames(v string) *CreateDBInstanceInput {
 	s.LowerCaseTableNames = &v
+	return s
+}
+
+// SetMaintenanceWindow sets the MaintenanceWindow field's value.
+func (s *CreateDBInstanceInput) SetMaintenanceWindow(v *MaintenanceWindowForCreateDBInstanceInput) *CreateDBInstanceInput {
+	s.MaintenanceWindow = v
 	return s
 }
 
@@ -444,6 +452,44 @@ func (s *InstanceTagForCreateDBInstanceInput) SetKey(v string) *InstanceTagForCr
 // SetValue sets the Value field's value.
 func (s *InstanceTagForCreateDBInstanceInput) SetValue(v string) *InstanceTagForCreateDBInstanceInput {
 	s.Value = &v
+	return s
+}
+
+type MaintenanceWindowForCreateDBInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	DayKind *string `type:"string"`
+
+	DayOfWeek []*string `type:"list"`
+
+	MaintenanceTime *string `type:"string"`
+}
+
+// String returns the string representation
+func (s MaintenanceWindowForCreateDBInstanceInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaintenanceWindowForCreateDBInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetDayKind sets the DayKind field's value.
+func (s *MaintenanceWindowForCreateDBInstanceInput) SetDayKind(v string) *MaintenanceWindowForCreateDBInstanceInput {
+	s.DayKind = &v
+	return s
+}
+
+// SetDayOfWeek sets the DayOfWeek field's value.
+func (s *MaintenanceWindowForCreateDBInstanceInput) SetDayOfWeek(v []*string) *MaintenanceWindowForCreateDBInstanceInput {
+	s.DayOfWeek = v
+	return s
+}
+
+// SetMaintenanceTime sets the MaintenanceTime field's value.
+func (s *MaintenanceWindowForCreateDBInstanceInput) SetMaintenanceTime(v string) *MaintenanceWindowForCreateDBInstanceInput {
+	s.MaintenanceTime = &v
 	return s
 }
 

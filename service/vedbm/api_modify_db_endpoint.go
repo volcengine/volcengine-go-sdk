@@ -170,7 +170,7 @@ type ModifyDBEndpointInput struct {
 
 	Nodes *string `type:"string"`
 
-	ReadWriteMode *string `type:"string"`
+	ReadWriteMode *string `type:"string" enum:"EnumOfReadWriteModeForModifyDBEndpointInput"`
 }
 
 // String returns the string representation
@@ -304,4 +304,12 @@ const (
 
 	// EnumOfConsistTimeoutActionForModifyDBEndpointInputReadMaster is a EnumOfConsistTimeoutActionForModifyDBEndpointInput enum value
 	EnumOfConsistTimeoutActionForModifyDBEndpointInputReadMaster = "ReadMaster"
+)
+
+const (
+	// EnumOfReadWriteModeForModifyDBEndpointInputReadWrite is a EnumOfReadWriteModeForModifyDBEndpointInput enum value
+	EnumOfReadWriteModeForModifyDBEndpointInputReadWrite = "ReadWrite"
+
+	// EnumOfReadWriteModeForModifyDBEndpointInputReadOnly is a EnumOfReadWriteModeForModifyDBEndpointInput enum value
+	EnumOfReadWriteModeForModifyDBEndpointInputReadOnly = "ReadOnly"
 )

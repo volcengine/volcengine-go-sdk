@@ -206,7 +206,9 @@ type GetBackupDownloadLinkOutput struct {
 
 	BackupType *string `type:"string"`
 
-	DownloadProgress *int32 `type:"int32"`
+	DownloadProgress *int64 `type:"int64"`
+
+	InnerBackupDownloadLink *string `type:"string"`
 
 	InstanceId *string `type:"string"`
 
@@ -254,8 +256,14 @@ func (s *GetBackupDownloadLinkOutput) SetBackupType(v string) *GetBackupDownload
 }
 
 // SetDownloadProgress sets the DownloadProgress field's value.
-func (s *GetBackupDownloadLinkOutput) SetDownloadProgress(v int32) *GetBackupDownloadLinkOutput {
+func (s *GetBackupDownloadLinkOutput) SetDownloadProgress(v int64) *GetBackupDownloadLinkOutput {
 	s.DownloadProgress = &v
+	return s
+}
+
+// SetInnerBackupDownloadLink sets the InnerBackupDownloadLink field's value.
+func (s *GetBackupDownloadLinkOutput) SetInnerBackupDownloadLink(v string) *GetBackupDownloadLinkOutput {
+	s.InnerBackupDownloadLink = &v
 	return s
 }
 

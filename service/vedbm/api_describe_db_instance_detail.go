@@ -226,8 +226,6 @@ type ChargeDetailForDescribeDBInstanceDetailOutput struct {
 
 	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
 
-	OrderId *string `type:"string"`
-
 	OverdueReclaimTime *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
@@ -270,12 +268,6 @@ func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetChargeStatus(v string
 // SetChargeType sets the ChargeType field's value.
 func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetChargeType(v string) *ChargeDetailForDescribeDBInstanceDetailOutput {
 	s.ChargeType = &v
-	return s
-}
-
-// SetOrderId sets the OrderId field's value.
-func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetOrderId(v string) *ChargeDetailForDescribeDBInstanceDetailOutput {
-	s.OrderId = &v
 	return s
 }
 
@@ -512,7 +504,7 @@ type InstanceDetailForDescribeDBInstanceDetailOutput struct {
 
 	InstanceName *string `type:"string"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstanceDetailOutput"`
 
 	InstanceStructures []*InstanceStructureForDescribeDBInstanceDetailOutput `type:"list"`
 
@@ -526,11 +518,11 @@ type InstanceDetailForDescribeDBInstanceDetailOutput struct {
 
 	RegionId *string `type:"string"`
 
-	SpecFamily *string `type:"string"`
+	SpecFamily *string `type:"string" enum:"EnumOfSpecFamilyForDescribeDBInstanceDetailOutput"`
 
 	StorageChargeType *string `type:"string" enum:"EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutput"`
 
-	StorageUsedGiB *float64 `type:"float"`
+	StorageUsedGiB *float64 `type:"double"`
 
 	SubnetId *string `type:"string"`
 
@@ -664,7 +656,7 @@ type InstanceStructureForDescribeDBInstanceDetailOutput struct {
 
 	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list"`
 
-	SubInstanceType *string `type:"string"`
+	SubInstanceType *string `type:"string" enum:"EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutput"`
 
 	ZoneIds *string `type:"string"`
 }
@@ -750,7 +742,7 @@ type NodeForDescribeDBInstanceDetailOutput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" enum:"EnumOfNodeSpecForDescribeDBInstanceDetailOutput"`
 
 	NodeType *string `type:"string" enum:"EnumOfNodeTypeForDescribeDBInstanceDetailOutput"`
 
@@ -841,6 +833,9 @@ const (
 
 	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
 	EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputShutdown is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputShutdown = "Shutdown"
 )
 
 const (
@@ -918,11 +913,117 @@ const (
 )
 
 const (
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputWaitingPaid = "WaitingPaid"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRunning is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRunning = "Running"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreating is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreating = "Creating"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputScaling is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputScaling = "Scaling"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestarting is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestarting = "Restarting"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestoring is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputRestoring = "Restoring"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUpgrading is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUpgrading = "Upgrading"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputPrimaryChanging is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputPrimaryChanging = "PrimaryChanging"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUnavailable is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputUnavailable = "Unavailable"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleting is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleting = "Deleting"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleted is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputDeleted = "Deleted"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputCreateFailed = "CreateFailed"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputClosing is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputClosing = "Closing"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputExpired is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputExpired = "Expired"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputOwing is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputOwing = "Owing"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputResuming is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputResuming = "Resuming"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAllowListMaintaining = "AllowListMaintaining"
+
+	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputError is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputError = "Error"
+)
+
+const (
 	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPrivate is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
 	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPrivate = "Private"
 
 	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPublic is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
 	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPublic = "Public"
+)
+
+const (
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX4Large is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX4Large = "vedb.mysql.x4.large"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX8Large is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX8Large = "vedb.mysql.x8.large"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX4Xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX8Xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX42xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX82xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX44xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX84xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX86xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX48xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX88xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG4Large is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG4Large = "vedb.mysql.g4.large"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG4Xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG4Xlarge = "vedb.mysql.g4.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG42xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG82xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG82xlarge = "vedb.mysql.g8.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG44xlarge is a EnumOfNodeSpecForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeSpecForDescribeDBInstanceDetailOutputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
 )
 
 const (
@@ -938,7 +1039,15 @@ const (
 	EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadWrite = "ReadWrite"
 
 	// EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadOnly is a EnumOfReadWriteModeForDescribeDBInstanceDetailOutput enum value
-	EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadOnly = " ReadOnly"
+	EnumOfReadWriteModeForDescribeDBInstanceDetailOutputReadOnly = "ReadOnly"
+)
+
+const (
+	// EnumOfSpecFamilyForDescribeDBInstanceDetailOutputGeneral is a EnumOfSpecFamilyForDescribeDBInstanceDetailOutput enum value
+	EnumOfSpecFamilyForDescribeDBInstanceDetailOutputGeneral = "General"
+
+	// EnumOfSpecFamilyForDescribeDBInstanceDetailOutputExclusive is a EnumOfSpecFamilyForDescribeDBInstanceDetailOutput enum value
+	EnumOfSpecFamilyForDescribeDBInstanceDetailOutputExclusive = "Exclusive"
 )
 
 const (
@@ -947,4 +1056,9 @@ const (
 
 	// EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutputPrePaid is a EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutput enum value
 	EnumOfStorageChargeTypeForDescribeDBInstanceDetailOutputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutputPrimary is a EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfSubInstanceTypeForDescribeDBInstanceDetailOutputPrimary = "Primary"
 )

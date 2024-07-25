@@ -184,6 +184,8 @@ type DescribeDBInstanceSSLOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	Address *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	IsValid *bool `type:"boolean"`
@@ -203,6 +205,12 @@ func (s DescribeDBInstanceSSLOutput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstanceSSLOutput) GoString() string {
 	return s.String()
+}
+
+// SetAddress sets the Address field's value.
+func (s *DescribeDBInstanceSSLOutput) SetAddress(v string) *DescribeDBInstanceSSLOutput {
+	s.Address = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.

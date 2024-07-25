@@ -154,7 +154,9 @@ type BinlogFileForDescribeBinlogFilesOutput struct {
 
 	FileName *string `type:"string"`
 
-	FileSize *int32 `type:"int32"`
+	FileSize *int64 `type:"int64"`
+
+	IsEncrypted *bool `type:"boolean"`
 
 	NodeId *string `type:"string"`
 
@@ -196,8 +198,14 @@ func (s *BinlogFileForDescribeBinlogFilesOutput) SetFileName(v string) *BinlogFi
 }
 
 // SetFileSize sets the FileSize field's value.
-func (s *BinlogFileForDescribeBinlogFilesOutput) SetFileSize(v int32) *BinlogFileForDescribeBinlogFilesOutput {
+func (s *BinlogFileForDescribeBinlogFilesOutput) SetFileSize(v int64) *BinlogFileForDescribeBinlogFilesOutput {
 	s.FileSize = &v
+	return s
+}
+
+// SetIsEncrypted sets the IsEncrypted field's value.
+func (s *BinlogFileForDescribeBinlogFilesOutput) SetIsEncrypted(v bool) *BinlogFileForDescribeBinlogFilesOutput {
+	s.IsEncrypted = &v
 	return s
 }
 
