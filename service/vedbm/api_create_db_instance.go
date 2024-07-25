@@ -158,13 +158,13 @@ type CreateDBInstanceInput struct {
 
 	InstanceName *string `type:"string"`
 
-	LowerCaseTableNames *string `type:"string" enum:"EnumOfLowerCaseTableNamesForCreateDBInstanceInput"`
+	LowerCaseTableNames *string `type:"string"`
 
 	// NodeNumber is a required field
-	NodeNumber *int32 `min:"2" max:"16" type:"int32" required:"true"`
+	NodeNumber *int32 `type:"int32" required:"true"`
 
 	// NodeSpec is a required field
-	NodeSpec *string `type:"string" required:"true"`
+	NodeSpec *string `type:"string" required:"true" enum:"EnumOfNodeSpecForCreateDBInstanceInput"`
 
 	Number *int32 `type:"int32"`
 
@@ -215,12 +215,6 @@ func (s *CreateDBInstanceInput) Validate() error {
 	}
 	if s.NodeNumber == nil {
 		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
-	}
-	if s.NodeNumber != nil && *s.NodeNumber < 2 {
-		invalidParams.Add(request.NewErrParamMinValue("NodeNumber", 2))
-	}
-	if s.NodeNumber != nil && *s.NodeNumber > 16 {
-		invalidParams.Add(request.NewErrParamMaxValue("NodeNumber", 16))
 	}
 	if s.NodeSpec == nil {
 		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
@@ -437,11 +431,53 @@ const (
 )
 
 const (
-	// EnumOfLowerCaseTableNamesForCreateDBInstanceInput1 is a EnumOfLowerCaseTableNamesForCreateDBInstanceInput enum value
-	EnumOfLowerCaseTableNamesForCreateDBInstanceInput1 = "1"
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX4Large is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX4Large = "vedb.mysql.x4.large"
 
-	// EnumOfLowerCaseTableNamesForCreateDBInstanceInput0 is a EnumOfLowerCaseTableNamesForCreateDBInstanceInput enum value
-	EnumOfLowerCaseTableNamesForCreateDBInstanceInput0 = "0"
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX8Large is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX8Large = "vedb.mysql.x8.large"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX4Xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX8Xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX42xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX82xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX44xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX84xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX86xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX48xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX88xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG4Large is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG4Large = "vedb.mysql.g4.large"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG4Xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG4Xlarge = "vedb.mysql.g4.xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG42xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG82xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG82xlarge = "vedb.mysql.g8.2xlarge"
+
+	// EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG44xlarge is a EnumOfNodeSpecForCreateDBInstanceInput enum value
+	EnumOfNodeSpecForCreateDBInstanceInputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
 )
 
 const (
