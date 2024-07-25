@@ -126,6 +126,14 @@ type VEDBMAPI interface {
 	DescribeDBAccountsWithContext(volcengine.Context, *DescribeDBAccountsInput, ...request.Option) (*DescribeDBAccountsOutput, error)
 	DescribeDBAccountsRequest(*DescribeDBAccountsInput) (*request.Request, *DescribeDBAccountsOutput)
 
+	DescribeDBEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBEndpoint(*DescribeDBEndpointInput) (*DescribeDBEndpointOutput, error)
+	DescribeDBEndpointWithContext(volcengine.Context, *DescribeDBEndpointInput, ...request.Option) (*DescribeDBEndpointOutput, error)
+	DescribeDBEndpointRequest(*DescribeDBEndpointInput) (*request.Request, *DescribeDBEndpointOutput)
+
 	DescribeDBInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

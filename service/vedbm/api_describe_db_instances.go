@@ -156,8 +156,6 @@ type ChargeDetailForDescribeDBInstancesOutput struct {
 
 	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
 
-	OrderId *string `type:"string"`
-
 	OverdueReclaimTime *string `type:"string"`
 
 	OverdueTime *string `type:"string"`
@@ -203,12 +201,6 @@ func (s *ChargeDetailForDescribeDBInstancesOutput) SetChargeType(v string) *Char
 	return s
 }
 
-// SetOrderId sets the OrderId field's value.
-func (s *ChargeDetailForDescribeDBInstancesOutput) SetOrderId(v string) *ChargeDetailForDescribeDBInstancesOutput {
-	s.OrderId = &v
-	return s
-}
-
 // SetOverdueReclaimTime sets the OverdueReclaimTime field's value.
 func (s *ChargeDetailForDescribeDBInstancesOutput) SetOverdueReclaimTime(v string) *ChargeDetailForDescribeDBInstancesOutput {
 	s.OverdueReclaimTime = &v
@@ -238,11 +230,11 @@ type DescribeDBInstancesInput struct {
 
 	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesInput"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" enum:"EnumOfNodeSpecForDescribeDBInstancesInput"`
 
 	PageNumber *int32 `min:"1" type:"int32"`
 
-	PageSize *int32 `min:"1" max:"1000" type:"int32"`
+	PageSize *int32 `type:"int32"`
 
 	ProjectName *string `type:"string"`
 
@@ -266,12 +258,6 @@ func (s *DescribeDBInstancesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstancesInput"}
 	if s.PageNumber != nil && *s.PageNumber < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("PageNumber", 1))
-	}
-	if s.PageSize != nil && *s.PageSize < 1 {
-		invalidParams.Add(request.NewErrParamMinValue("PageSize", 1))
-	}
-	if s.PageSize != nil && *s.PageSize > 1000 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 1000))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -421,8 +407,6 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
 
-	TenantId *string `type:"string"`
-
 	TimeZone *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -524,12 +508,6 @@ func (s *InstanceForDescribeDBInstancesOutput) SetTags(v []*TagForDescribeDBInst
 	return s
 }
 
-// SetTenantId sets the TenantId field's value.
-func (s *InstanceForDescribeDBInstancesOutput) SetTenantId(v string) *InstanceForDescribeDBInstancesOutput {
-	s.TenantId = &v
-	return s
-}
-
 // SetTimeZone sets the TimeZone field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetTimeZone(v string) *InstanceForDescribeDBInstancesOutput {
 	s.TimeZone = &v
@@ -555,7 +533,7 @@ type NodeForDescribeDBInstancesOutput struct {
 
 	NodeId *string `type:"string"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" enum:"EnumOfNodeSpecForDescribeDBInstancesOutput"`
 
 	NodeType *string `type:"string" enum:"EnumOfNodeTypeForDescribeDBInstancesOutput"`
 
@@ -676,6 +654,9 @@ const (
 
 	// EnumOfChargeStatusForDescribeDBInstancesOutputOverdue is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
 	EnumOfChargeStatusForDescribeDBInstancesOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputShutdown is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputShutdown = "Shutdown"
 )
 
 const (
@@ -758,6 +739,106 @@ const (
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputError is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputError = "Error"
+)
+
+const (
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Large is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Large = "vedb.mysql.x4.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Large is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Large = "vedb.mysql.x8.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX42xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX82xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX44xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX84xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX86xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX48xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX88xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG4Large is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG4Large = "vedb.mysql.g4.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG4Xlarge = "vedb.mysql.g4.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG42xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG82xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG82xlarge = "vedb.mysql.g8.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG44xlarge is a EnumOfNodeSpecForDescribeDBInstancesInput enum value
+	EnumOfNodeSpecForDescribeDBInstancesInputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
+)
+
+const (
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Large is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Large = "vedb.mysql.x4.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Large is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Large = "vedb.mysql.x8.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX42xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX82xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX44xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX84xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX86xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX48xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX88xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG4Large is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG4Large = "vedb.mysql.g4.large"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG4Xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG4Xlarge = "vedb.mysql.g4.xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG42xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG82xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG82xlarge = "vedb.mysql.g8.2xlarge"
+
+	// EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG44xlarge is a EnumOfNodeSpecForDescribeDBInstancesOutput enum value
+	EnumOfNodeSpecForDescribeDBInstancesOutputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
 )
 
 const (
