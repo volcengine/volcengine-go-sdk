@@ -1,9 +1,5 @@
 package volcengineutil
 
-import (
-	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
-)
-
 // Copy from https://github.com/aws/aws-sdk-go
 // May have been modified by Beijing Volcanoengine Technology Ltd.
 
@@ -55,31 +51,43 @@ type ServiceEndpointInfo struct {
 	RegionEndpointMap
 }
 
-var defaultEndpoint = map[string]*ServiceEndpointInfo{
-	"iam": {
-		Service:           "iam",
-		IsGlobal:          true,
-		GlobalEndpoint:    "iam" + endpointSuffix,
-		RegionEndpointMap: nil,
-	},
-}
+var defaultEndpoint = map[string]*ServiceEndpointInfo{}
 
-func GetDefaultEndpointByServiceInfo(service string, regionCode string) (*string, volcengineerr.Error) {
+// GetDefaultEndpointByServiceInfo retrieves the default endpoint for a given service and region.
+//
+// This function takes in the service name and region code, and returns a pointer to the default
+// endpoint string. It checks if the service has a global endpoint or a region-specific endpoint.
+// If neither is found, it returns a pointer to the default endpoint.
+//
+// Parameters:
+// - service: The name of the service for which to retrieve the endpoint.
+// - regionCode: The region code to look up the region-specific endpoint.
+//
+// Returns:
+// - *string: A pointer to the endpoint string. It could be a global endpoint, a region-specific
+// endpoint, or a default endpoint if the specified service or region does not have a defined endpoint.
+//
+// Example:
+//   endpoint := GetDefaultEndpointByServiceInfo("exampleService", "cn-beijing")
+//
+// Note: Ensure the `defaultEndpoint` map is properly populated with service and region endpoint
+// information before calling this function.
+func GetDefaultEndpointByServiceInfo(service string, regionCode string) *string {
 	defaultEndpointInfo, sExist := defaultEndpoint[service]
 	if !sExist {
-		return &endpoint, nil
+		return &endpoint
 	}
 
 	isGlobal := defaultEndpointInfo.IsGlobal
 	if isGlobal {
-		return &defaultEndpointInfo.GlobalEndpoint, nil
+		return &defaultEndpointInfo.GlobalEndpoint
 	}
 
 	regionEndpointMp := defaultEndpointInfo.RegionEndpointMap
 	regionEndpointStr, rExist := regionEndpointMp[regionCode]
 	if !rExist {
-		return &endpoint, nil
+		return &endpoint
 	}
 
-	return &regionEndpointStr, nil
+	return &regionEndpointStr
 }

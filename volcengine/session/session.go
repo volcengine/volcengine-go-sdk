@@ -553,10 +553,7 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 	region := volcengine.StringValue(s.Config.Region)
 
 	if s.Config.Endpoint == nil {
-		endpoint, endpointErr := volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region)
-		if endpointErr != nil {
-			panic(endpointErr)
-		}
+		endpoint := volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region)
 		s.Config.Endpoint = endpoint
 	}
 
