@@ -160,6 +160,8 @@ type DescribeSubnetsInput struct {
 
 	SubnetName *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeSubnetsInput `type:"list"`
+
 	VpcId *string `type:"string"`
 
 	ZoneId *string `type:"string"`
@@ -239,6 +241,12 @@ func (s *DescribeSubnetsInput) SetSubnetIds(v []*string) *DescribeSubnetsInput {
 // SetSubnetName sets the SubnetName field's value.
 func (s *DescribeSubnetsInput) SetSubnetName(v string) *DescribeSubnetsInput {
 	s.SubnetName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeSubnetsInput) SetTagFilters(v []*TagFilterForDescribeSubnetsInput) *DescribeSubnetsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -495,5 +503,35 @@ func (s *SubnetForDescribeSubnetsOutput) SetVpcId(v string) *SubnetForDescribeSu
 // SetZoneId sets the ZoneId field's value.
 func (s *SubnetForDescribeSubnetsOutput) SetZoneId(v string) *SubnetForDescribeSubnetsOutput {
 	s.ZoneId = &v
+	return s
+}
+
+type TagFilterForDescribeSubnetsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeSubnetsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeSubnetsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeSubnetsInput) SetKey(v string) *TagFilterForDescribeSubnetsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeSubnetsInput) SetValues(v []*string) *TagFilterForDescribeSubnetsInput {
+	s.Values = v
 	return s
 }
