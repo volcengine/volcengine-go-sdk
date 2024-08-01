@@ -146,7 +146,8 @@ func (c *MONGODB) DeleteAllowListWithContext(ctx volcengine.Context, input *Dele
 type DeleteAllowListInput struct {
 	_ struct{} `type:"structure"`
 
-	AllowListId *string `type:"string"`
+	// AllowListId is a required field
+	AllowListId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DeleteAllowListInput) String() string {
 // GoString returns the string representation
 func (s DeleteAllowListInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteAllowListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteAllowListInput"}
+	if s.AllowListId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllowListId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAllowListId sets the AllowListId field's value.

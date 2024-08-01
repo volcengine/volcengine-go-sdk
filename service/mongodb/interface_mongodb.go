@@ -54,6 +54,14 @@ type MONGODBAPI interface {
 	CreateAllowListWithContext(volcengine.Context, *CreateAllowListInput, ...request.Option) (*CreateAllowListOutput, error)
 	CreateAllowListRequest(*CreateAllowListInput) (*request.Request, *CreateAllowListOutput)
 
+	CreateBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateBackupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateBackup(*CreateBackupInput) (*CreateBackupOutput, error)
+	CreateBackupWithContext(volcengine.Context, *CreateBackupInput, ...request.Option) (*CreateBackupOutput, error)
+	CreateBackupRequest(*CreateBackupInput) (*request.Request, *CreateBackupOutput)
+
 	CreateDBEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDBEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDBEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -118,6 +126,14 @@ type MONGODBAPI interface {
 	DescribeAvailabilityZonesWithContext(volcengine.Context, *DescribeAvailabilityZonesInput, ...request.Option) (*DescribeAvailabilityZonesOutput, error)
 	DescribeAvailabilityZonesRequest(*DescribeAvailabilityZonesInput) (*request.Request, *DescribeAvailabilityZonesOutput)
 
+	DescribeBackupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBackupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBackupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBackups(*DescribeBackupsInput) (*DescribeBackupsOutput, error)
+	DescribeBackupsWithContext(volcengine.Context, *DescribeBackupsInput, ...request.Option) (*DescribeBackupsOutput, error)
+	DescribeBackupsRequest(*DescribeBackupsInput) (*request.Request, *DescribeBackupsOutput)
+
 	DescribeDBAccountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBAccountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBAccountsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -133,6 +149,22 @@ type MONGODBAPI interface {
 	DescribeDBEndpoint(*DescribeDBEndpointInput) (*DescribeDBEndpointOutput, error)
 	DescribeDBEndpointWithContext(volcengine.Context, *DescribeDBEndpointInput, ...request.Option) (*DescribeDBEndpointOutput, error)
 	DescribeDBEndpointRequest(*DescribeDBEndpointInput) (*request.Request, *DescribeDBEndpointOutput)
+
+	DescribeDBInstanceBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceBackupPolicy(*DescribeDBInstanceBackupPolicyInput) (*DescribeDBInstanceBackupPolicyOutput, error)
+	DescribeDBInstanceBackupPolicyWithContext(volcengine.Context, *DescribeDBInstanceBackupPolicyInput, ...request.Option) (*DescribeDBInstanceBackupPolicyOutput, error)
+	DescribeDBInstanceBackupPolicyRequest(*DescribeDBInstanceBackupPolicyInput) (*request.Request, *DescribeDBInstanceBackupPolicyOutput)
+
+	DescribeDBInstanceBackupURLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBInstanceBackupURLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBInstanceBackupURLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBInstanceBackupURL(*DescribeDBInstanceBackupURLInput) (*DescribeDBInstanceBackupURLOutput, error)
+	DescribeDBInstanceBackupURLWithContext(volcengine.Context, *DescribeDBInstanceBackupURLInput, ...request.Option) (*DescribeDBInstanceBackupURLOutput, error)
+	DescribeDBInstanceBackupURLRequest(*DescribeDBInstanceBackupURLInput) (*request.Request, *DescribeDBInstanceBackupURLOutput)
 
 	DescribeDBInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -182,6 +214,22 @@ type MONGODBAPI interface {
 	DescribeNodeSpecsWithContext(volcengine.Context, *DescribeNodeSpecsInput, ...request.Option) (*DescribeNodeSpecsOutput, error)
 	DescribeNodeSpecsRequest(*DescribeNodeSpecsInput) (*request.Request, *DescribeNodeSpecsOutput)
 
+	DescribeNormalLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeNormalLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeNormalLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeNormalLogs(*DescribeNormalLogsInput) (*DescribeNormalLogsOutput, error)
+	DescribeNormalLogsWithContext(volcengine.Context, *DescribeNormalLogsInput, ...request.Option) (*DescribeNormalLogsOutput, error)
+	DescribeNormalLogsRequest(*DescribeNormalLogsInput) (*request.Request, *DescribeNormalLogsOutput)
+
+	DescribeRecoverableTimeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeRecoverableTimeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeRecoverableTimeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeRecoverableTime(*DescribeRecoverableTimeInput) (*DescribeRecoverableTimeOutput, error)
+	DescribeRecoverableTimeWithContext(volcengine.Context, *DescribeRecoverableTimeInput, ...request.Option) (*DescribeRecoverableTimeOutput, error)
+	DescribeRecoverableTimeRequest(*DescribeRecoverableTimeInput) (*request.Request, *DescribeRecoverableTimeOutput)
+
 	DescribeRegionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeRegionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeRegionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -189,6 +237,14 @@ type MONGODBAPI interface {
 	DescribeRegions(*DescribeRegionsInput) (*DescribeRegionsOutput, error)
 	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
 	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
+
+	DescribeSlowLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSlowLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSlowLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSlowLogs(*DescribeSlowLogsInput) (*DescribeSlowLogsOutput, error)
+	DescribeSlowLogsWithContext(volcengine.Context, *DescribeSlowLogsInput, ...request.Option) (*DescribeSlowLogsOutput, error)
+	DescribeSlowLogsRequest(*DescribeSlowLogsInput) (*request.Request, *DescribeSlowLogsOutput)
 
 	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -205,6 +261,14 @@ type MONGODBAPI interface {
 	ModifyAllowList(*ModifyAllowListInput) (*ModifyAllowListOutput, error)
 	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
 	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
+
+	ModifyDBInstanceBackupURLCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceBackupURLCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceBackupURLCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceBackupURL(*ModifyDBInstanceBackupURLInput) (*ModifyDBInstanceBackupURLOutput, error)
+	ModifyDBInstanceBackupURLWithContext(volcengine.Context, *ModifyDBInstanceBackupURLInput, ...request.Option) (*ModifyDBInstanceBackupURLOutput, error)
+	ModifyDBInstanceBackupURLRequest(*ModifyDBInstanceBackupURLInput) (*request.Request, *ModifyDBInstanceBackupURLOutput)
 
 	ModifyDBInstanceChargeTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceChargeTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -269,6 +333,22 @@ type MONGODBAPI interface {
 	RestartDBInstance(*RestartDBInstanceInput) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
+
+	RestoreToNewInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestoreToNewInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestoreToNewInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestoreToNewInstance(*RestoreToNewInstanceInput) (*RestoreToNewInstanceOutput, error)
+	RestoreToNewInstanceWithContext(volcengine.Context, *RestoreToNewInstanceInput, ...request.Option) (*RestoreToNewInstanceOutput, error)
+	RestoreToNewInstanceRequest(*RestoreToNewInstanceInput) (*request.Request, *RestoreToNewInstanceOutput)
+
+	SwitchDBMasterCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SwitchDBMasterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SwitchDBMasterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SwitchDBMaster(*SwitchDBMasterInput) (*SwitchDBMasterOutput, error)
+	SwitchDBMasterWithContext(volcengine.Context, *SwitchDBMasterInput, ...request.Option) (*SwitchDBMasterOutput, error)
+	SwitchDBMasterRequest(*SwitchDBMasterInput) (*request.Request, *SwitchDBMasterOutput)
 }
 
 var _ MONGODBAPI = (*MONGODB)(nil)

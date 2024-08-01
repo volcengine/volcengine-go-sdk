@@ -146,7 +146,8 @@ func (c *MONGODB) DescribeAvailabilityZonesWithContext(ctx volcengine.Context, i
 type DescribeAvailabilityZonesInput struct {
 	_ struct{} `type:"structure"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -157,6 +158,19 @@ func (s DescribeAvailabilityZonesInput) String() string {
 // GoString returns the string representation
 func (s DescribeAvailabilityZonesInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAvailabilityZonesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAvailabilityZonesInput"}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetRegionId sets the RegionId field's value.

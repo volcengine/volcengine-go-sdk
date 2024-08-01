@@ -148,9 +148,9 @@ type DBInstanceForDescribeDBInstancesOutput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	ChargeStatus *string `type:"string"`
+	ChargeStatus *string `type:"string" enum:"EnumOfChargeStatusForDescribeDBInstancesOutput"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForDescribeDBInstancesOutput"`
 
 	ClosedTime *string `type:"string"`
 
@@ -158,9 +158,7 @@ type DBInstanceForDescribeDBInstancesOutput struct {
 
 	CreateTime *string `type:"string"`
 
-	DBEngine *string `type:"string"`
-
-	DBEngineVersion *string `type:"string"`
+	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForDescribeDBInstancesOutput"`
 
 	DBEngineVersionStr *string `type:"string"`
 
@@ -170,17 +168,23 @@ type DBInstanceForDescribeDBInstancesOutput struct {
 
 	InstanceName *string `type:"string"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesOutput"`
 
-	InstanceType *string `type:"string"`
+	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForDescribeDBInstancesOutput"`
 
 	MongosId *string `type:"string"`
+
+	PrivateEndpoint *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
 	ReclaimTime *string `type:"string"`
 
+	StorageType *string `type:"string" enum:"EnumOfStorageTypeForDescribeDBInstancesOutput"`
+
 	SubnetId *string `type:"string"`
+
+	Tags []*TagForDescribeDBInstancesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 
@@ -235,12 +239,6 @@ func (s *DBInstanceForDescribeDBInstancesOutput) SetCreateTime(v string) *DBInst
 	return s
 }
 
-// SetDBEngine sets the DBEngine field's value.
-func (s *DBInstanceForDescribeDBInstancesOutput) SetDBEngine(v string) *DBInstanceForDescribeDBInstancesOutput {
-	s.DBEngine = &v
-	return s
-}
-
 // SetDBEngineVersion sets the DBEngineVersion field's value.
 func (s *DBInstanceForDescribeDBInstancesOutput) SetDBEngineVersion(v string) *DBInstanceForDescribeDBInstancesOutput {
 	s.DBEngineVersion = &v
@@ -289,6 +287,12 @@ func (s *DBInstanceForDescribeDBInstancesOutput) SetMongosId(v string) *DBInstan
 	return s
 }
 
+// SetPrivateEndpoint sets the PrivateEndpoint field's value.
+func (s *DBInstanceForDescribeDBInstancesOutput) SetPrivateEndpoint(v string) *DBInstanceForDescribeDBInstancesOutput {
+	s.PrivateEndpoint = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *DBInstanceForDescribeDBInstancesOutput) SetProjectName(v string) *DBInstanceForDescribeDBInstancesOutput {
 	s.ProjectName = &v
@@ -301,9 +305,21 @@ func (s *DBInstanceForDescribeDBInstancesOutput) SetReclaimTime(v string) *DBIns
 	return s
 }
 
+// SetStorageType sets the StorageType field's value.
+func (s *DBInstanceForDescribeDBInstancesOutput) SetStorageType(v string) *DBInstanceForDescribeDBInstancesOutput {
+	s.StorageType = &v
+	return s
+}
+
 // SetSubnetId sets the SubnetId field's value.
 func (s *DBInstanceForDescribeDBInstancesOutput) SetSubnetId(v string) *DBInstanceForDescribeDBInstancesOutput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DBInstanceForDescribeDBInstancesOutput) SetTags(v []*TagForDescribeDBInstancesOutput) *DBInstanceForDescribeDBInstancesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -338,7 +354,7 @@ type DescribeDBInstancesInput struct {
 
 	InstanceId *string `type:"string"`
 
-	InstanceName *string `max:"64" type:"string"`
+	InstanceName *string `type:"string"`
 
 	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesInput"`
 
@@ -347,6 +363,8 @@ type DescribeDBInstancesInput struct {
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
+
+	ProjectName *string `type:"string"`
 
 	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
 
@@ -367,19 +385,6 @@ func (s DescribeDBInstancesInput) String() string {
 // GoString returns the string representation
 func (s DescribeDBInstancesInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeDBInstancesInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeDBInstancesInput"}
-	if s.InstanceName != nil && len(*s.InstanceName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("InstanceName", 64, *s.InstanceName))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetCreateEndTime sets the CreateEndTime field's value.
@@ -439,6 +444,12 @@ func (s *DescribeDBInstancesInput) SetPageNumber(v int32) *DescribeDBInstancesIn
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeDBInstancesInput) SetPageSize(v int32) *DescribeDBInstancesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeDBInstancesInput) SetProjectName(v string) *DescribeDBInstancesInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -534,6 +545,70 @@ func (s *TagFilterForDescribeDBInstancesInput) SetValue(v string) *TagFilterForD
 	return s
 }
 
+type TagForDescribeDBInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeDBInstancesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeDBInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeDBInstancesOutput) SetKey(v string) *TagForDescribeDBInstancesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeDBInstancesOutput) SetValue(v string) *TagForDescribeDBInstancesOutput {
+	s.Value = &v
+	return s
+}
+
+const (
+	// EnumOfChargeStatusForDescribeDBInstancesOutputNormal is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputNormal = "Normal"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputOverdue is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputWaitingPaid is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputWaitingPaid = "WaitingPaid"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputUnDeploy is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputUnDeploy = "UnDeploy"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputRenewing is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputRenewing = "Renewing"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputOwing is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputOwing = "Owing"
+
+	// EnumOfChargeStatusForDescribeDBInstancesOutputUnsubscribing is a EnumOfChargeStatusForDescribeDBInstancesOutput enum value
+	EnumOfChargeStatusForDescribeDBInstancesOutputUnsubscribing = "Unsubscribing"
+)
+
+const (
+	// EnumOfChargeTypeForDescribeDBInstancesOutputNotEnabled is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfChargeTypeForDescribeDBInstancesOutputNotEnabled = "NotEnabled"
+
+	// EnumOfChargeTypeForDescribeDBInstancesOutputPostPaid is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfChargeTypeForDescribeDBInstancesOutputPostPaid = "PostPaid"
+
+	// EnumOfChargeTypeForDescribeDBInstancesOutputPrepaid is a EnumOfChargeTypeForDescribeDBInstancesOutput enum value
+	EnumOfChargeTypeForDescribeDBInstancesOutputPrepaid = "Prepaid"
+)
+
 const (
 	// EnumOfDBEngineForDescribeDBInstancesInputMongoDb is a EnumOfDBEngineForDescribeDBInstancesInput enum value
 	EnumOfDBEngineForDescribeDBInstancesInputMongoDb = "MongoDB"
@@ -543,46 +618,87 @@ const (
 	// EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb40 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
 	EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb40 = "MongoDB_4_0"
 
+	// EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb42 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb42 = "MongoDB_4_2"
+
+	// EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb44 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb44 = "MongoDB_4_4"
+
 	// EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb50 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
 	EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb50 = "MongoDB_5_0"
+
+	// EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb60 is a EnumOfDBEngineVersionForDescribeDBInstancesInput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesInputMongoDb60 = "MongoDB_6_0"
 )
 
 const (
-	// EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining = "AllowListMaintaining"
+	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb40 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb40 = "MongoDB_4_0"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputClosed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputClosed = "Closed"
+	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb42 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb42 = "MongoDB_4_2"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputClosing is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputClosing = "Closing"
+	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb44 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb44 = "MongoDB_4_4"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed = "CreateFailed"
+	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb50 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb50 = "MongoDB_5_0"
 
+	// EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb60 is a EnumOfDBEngineVersionForDescribeDBInstancesOutput enum value
+	EnumOfDBEngineVersionForDescribeDBInstancesOutputMongoDb60 = "MongoDB_6_0"
+)
+
+const (
 	// EnumOfInstanceStatusForDescribeDBInstancesInputCreating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputCreating = "Creating"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputDeleted is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputDeleted = "Deleted"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRunning is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRunning = "Running"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputDeleting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputDeleting = "Deleting"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputDestroyed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputDestroyed = "Destroyed"
-
 	// EnumOfInstanceStatusForDescribeDBInstancesInputDestroying is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputDestroying = "Destroying"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputError is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputError = "Error"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRestarting = "Restarting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRebuilding is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRebuilding = "Rebuilding"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputUpdating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputUpdating = "Updating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputMigrating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputMigrating = "Migrating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRestoring = "Restoring"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputImporting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputImporting = "Importing"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputMigrating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputMigrating = "Migrating"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputError is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputError = "Error"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputScaling is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputScaling = "Scaling"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading = "Upgrading"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputDeleted is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputDeleted = "Deleted"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputRecycled is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputRecycled = "Recycled"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputClosed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputClosed = "Closed"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputCreateFailed = "CreateFailed"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputNetCreating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputNetCreating = "NetCreating"
@@ -590,41 +706,26 @@ const (
 	// EnumOfInstanceStatusForDescribeDBInstancesInputNetReleasing is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputNetReleasing = "NetReleasing"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputNetworkMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputNetworkMaintaining = "NetworkMaintaining"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid = "WaitingPaid"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRebuilding is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRebuilding = "Rebuilding"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputReclaiming is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputReclaiming = "Reclaiming"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRecycled is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRecycled = "Recycled"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputClosing is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputClosing = "Closing"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputReleased is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputReleased = "Released"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRestarting = "Restarting"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputDestroyed is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputDestroyed = "Destroyed"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRestoring = "Restoring"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputReclaiming is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputReclaiming = "Reclaiming"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputResuming is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputResuming = "Resuming"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputRunning is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputRunning = "Running"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputSslupdating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputSslupdating = "SSLUpdating"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputScaling is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputScaling = "Scaling"
-
-	// EnumOfInstanceStatusForDescribeDBInstancesInputTdemaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputTdemaintaining = "TDEMaintaining"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputAllowListMaintaining = "AllowListMaintaining"
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputTaskFailedAvailable is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputTaskFailedAvailable = "TaskFailed_Available"
@@ -632,14 +733,121 @@ const (
 	// EnumOfInstanceStatusForDescribeDBInstancesInputUnavailable is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputUnavailable = "Unavailable"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputUpdating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputUpdating = "Updating"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputNetworkMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputNetworkMaintaining = "NetworkMaintaining"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputUpgrading = "Upgrading"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputTdemaintaining is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputTdemaintaining = "TDEMaintaining"
 
-	// EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
-	EnumOfInstanceStatusForDescribeDBInstancesInputWaitingPaid = "WaitingPaid"
+	// EnumOfInstanceStatusForDescribeDBInstancesInputSslupdating is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputSslupdating = "SSLUpdating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputSwitchMastering is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputSwitchMastering = "SwitchMastering"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesInputTemporary is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesInputTemporary = "Temporary"
+)
+
+const (
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputCreating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputCreating = "Creating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRunning is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRunning = "Running"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputDeleting is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputDeleting = "Deleting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputDestroying is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputDestroying = "Destroying"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRestarting = "Restarting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRebuilding is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRebuilding = "Rebuilding"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputUpdating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputUpdating = "Updating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputMigrating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputMigrating = "Migrating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRestoring = "Restoring"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputImporting is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputImporting = "Importing"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputError is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputError = "Error"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputScaling is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputScaling = "Scaling"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputUpgrading = "Upgrading"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputDeleted is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputDeleted = "Deleted"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRecycled is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRecycled = "Recycled"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputClosed is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputClosed = "Closed"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputCreateFailed = "CreateFailed"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputNetCreating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputNetCreating = "NetCreating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputNetReleasing is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputNetReleasing = "NetReleasing"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputWaitingPaid = "WaitingPaid"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputClosing is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputClosing = "Closing"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputReleased is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputReleased = "Released"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputDestroyed is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputDestroyed = "Destroyed"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputReclaiming is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputReclaiming = "Reclaiming"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputResuming is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputResuming = "Resuming"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputAllowListMaintaining = "AllowListMaintaining"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputTaskFailedAvailable is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputTaskFailedAvailable = "TaskFailed_Available"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputUnavailable is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputUnavailable = "Unavailable"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputNetworkMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputNetworkMaintaining = "NetworkMaintaining"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputTdemaintaining is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputTdemaintaining = "TDEMaintaining"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputSslupdating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputSslupdating = "SSLUpdating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputSwitchMastering is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputSwitchMastering = "SwitchMastering"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputTemporary is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputTemporary = "Temporary"
 )
 
 const (
@@ -648,4 +856,35 @@ const (
 
 	// EnumOfInstanceTypeForDescribeDBInstancesInputShardedCluster is a EnumOfInstanceTypeForDescribeDBInstancesInput enum value
 	EnumOfInstanceTypeForDescribeDBInstancesInputShardedCluster = "ShardedCluster"
+)
+
+const (
+	// EnumOfInstanceTypeForDescribeDBInstancesOutputReplicaSet is a EnumOfInstanceTypeForDescribeDBInstancesOutput enum value
+	EnumOfInstanceTypeForDescribeDBInstancesOutputReplicaSet = "ReplicaSet"
+
+	// EnumOfInstanceTypeForDescribeDBInstancesOutputShardedCluster is a EnumOfInstanceTypeForDescribeDBInstancesOutput enum value
+	EnumOfInstanceTypeForDescribeDBInstancesOutputShardedCluster = "ShardedCluster"
+)
+
+const (
+	// EnumOfStorageTypeForDescribeDBInstancesOutputLocalSsd is a EnumOfStorageTypeForDescribeDBInstancesOutput enum value
+	EnumOfStorageTypeForDescribeDBInstancesOutputLocalSsd = "LocalSSD"
+
+	// EnumOfStorageTypeForDescribeDBInstancesOutputLocalHdd is a EnumOfStorageTypeForDescribeDBInstancesOutput enum value
+	EnumOfStorageTypeForDescribeDBInstancesOutputLocalHdd = "LocalHDD"
+
+	// EnumOfStorageTypeForDescribeDBInstancesOutputEssdFlexPl is a EnumOfStorageTypeForDescribeDBInstancesOutput enum value
+	EnumOfStorageTypeForDescribeDBInstancesOutputEssdFlexPl = "ESSD_FlexPL"
+
+	// EnumOfStorageTypeForDescribeDBInstancesOutputEssdPl0 is a EnumOfStorageTypeForDescribeDBInstancesOutput enum value
+	EnumOfStorageTypeForDescribeDBInstancesOutputEssdPl0 = "ESSD_PL0"
+
+	// EnumOfStorageTypeForDescribeDBInstancesOutputEssdPl1 is a EnumOfStorageTypeForDescribeDBInstancesOutput enum value
+	EnumOfStorageTypeForDescribeDBInstancesOutputEssdPl1 = "ESSD_PL1"
+
+	// EnumOfStorageTypeForDescribeDBInstancesOutputEssdPl2 is a EnumOfStorageTypeForDescribeDBInstancesOutput enum value
+	EnumOfStorageTypeForDescribeDBInstancesOutputEssdPl2 = "ESSD_PL2"
+
+	// EnumOfStorageTypeForDescribeDBInstancesOutputEssd is a EnumOfStorageTypeForDescribeDBInstancesOutput enum value
+	EnumOfStorageTypeForDescribeDBInstancesOutputEssd = "ESSD"
 )

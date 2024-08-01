@@ -264,9 +264,11 @@ type InstanceParameterForDescribeDBInstanceParametersOutput struct {
 
 	ParameterDescription *string `type:"string"`
 
-	ParameterRole *string `type:"string"`
+	ParameterNames *string `type:"string"`
 
-	ParameterType *string `type:"string"`
+	ParameterRole *string `type:"string" enum:"EnumOfParameterRoleForDescribeDBInstanceParametersOutput"`
+
+	ParameterType *string `type:"string" enum:"EnumOfParameterTypeForDescribeDBInstanceParametersOutput"`
 
 	ParameterValue *string `type:"string"`
 }
@@ -311,6 +313,12 @@ func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetParameterDes
 	return s
 }
 
+// SetParameterNames sets the ParameterNames field's value.
+func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetParameterNames(v string) *InstanceParameterForDescribeDBInstanceParametersOutput {
+	s.ParameterNames = &v
+	return s
+}
+
 // SetParameterRole sets the ParameterRole field's value.
 func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetParameterRole(v string) *InstanceParameterForDescribeDBInstanceParametersOutput {
 	s.ParameterRole = &v
@@ -330,11 +338,8 @@ func (s *InstanceParameterForDescribeDBInstanceParametersOutput) SetParameterVal
 }
 
 const (
-	// EnumOfParameterRoleForDescribeDBInstanceParametersInputConfigServer is a EnumOfParameterRoleForDescribeDBInstanceParametersInput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersInputConfigServer = "ConfigServer"
-
-	// EnumOfParameterRoleForDescribeDBInstanceParametersInputMongos is a EnumOfParameterRoleForDescribeDBInstanceParametersInput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersInputMongos = "Mongos"
+	// EnumOfParameterRoleForDescribeDBInstanceParametersInputUnknown is a EnumOfParameterRoleForDescribeDBInstanceParametersInput enum value
+	EnumOfParameterRoleForDescribeDBInstanceParametersInputUnknown = "Unknown"
 
 	// EnumOfParameterRoleForDescribeDBInstanceParametersInputNode is a EnumOfParameterRoleForDescribeDBInstanceParametersInput enum value
 	EnumOfParameterRoleForDescribeDBInstanceParametersInputNode = "Node"
@@ -342,6 +347,46 @@ const (
 	// EnumOfParameterRoleForDescribeDBInstanceParametersInputShard is a EnumOfParameterRoleForDescribeDBInstanceParametersInput enum value
 	EnumOfParameterRoleForDescribeDBInstanceParametersInputShard = "Shard"
 
-	// EnumOfParameterRoleForDescribeDBInstanceParametersInputUnknown is a EnumOfParameterRoleForDescribeDBInstanceParametersInput enum value
-	EnumOfParameterRoleForDescribeDBInstanceParametersInputUnknown = "Unknown"
+	// EnumOfParameterRoleForDescribeDBInstanceParametersInputConfigServer is a EnumOfParameterRoleForDescribeDBInstanceParametersInput enum value
+	EnumOfParameterRoleForDescribeDBInstanceParametersInputConfigServer = "ConfigServer"
+
+	// EnumOfParameterRoleForDescribeDBInstanceParametersInputMongos is a EnumOfParameterRoleForDescribeDBInstanceParametersInput enum value
+	EnumOfParameterRoleForDescribeDBInstanceParametersInputMongos = "Mongos"
+)
+
+const (
+	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputUnknown is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterRoleForDescribeDBInstanceParametersOutputUnknown = "Unknown"
+
+	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputNode is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterRoleForDescribeDBInstanceParametersOutputNode = "Node"
+
+	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputShard is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterRoleForDescribeDBInstanceParametersOutputShard = "Shard"
+
+	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputConfigServer is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterRoleForDescribeDBInstanceParametersOutputConfigServer = "ConfigServer"
+
+	// EnumOfParameterRoleForDescribeDBInstanceParametersOutputMongos is a EnumOfParameterRoleForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterRoleForDescribeDBInstanceParametersOutputMongos = "Mongos"
+)
+
+const (
+	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputUnknown is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterTypeForDescribeDBInstanceParametersOutputUnknown = "Unknown"
+
+	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputString is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterTypeForDescribeDBInstanceParametersOutputString = "String"
+
+	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputInteger is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterTypeForDescribeDBInstanceParametersOutputInteger = "Integer"
+
+	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputBoolean is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterTypeForDescribeDBInstanceParametersOutputBoolean = "Boolean"
+
+	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputList is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterTypeForDescribeDBInstanceParametersOutputList = "List"
+
+	// EnumOfParameterTypeForDescribeDBInstanceParametersOutputFloat is a EnumOfParameterTypeForDescribeDBInstanceParametersOutput enum value
+	EnumOfParameterTypeForDescribeDBInstanceParametersOutputFloat = "Float"
 )
