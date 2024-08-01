@@ -149,6 +149,8 @@ type BatchDeployCertInput struct {
 	// CertId is a required field
 	CertId *string `type:"string" required:"true"`
 
+	CertId2 *string `type:"string"`
+
 	// Domain is a required field
 	Domain *string `type:"string" required:"true"`
 }
@@ -182,6 +184,12 @@ func (s *BatchDeployCertInput) Validate() error {
 // SetCertId sets the CertId field's value.
 func (s *BatchDeployCertInput) SetCertId(v string) *BatchDeployCertInput {
 	s.CertId = &v
+	return s
+}
+
+// SetCertId2 sets the CertId2 field's value.
+func (s *BatchDeployCertInput) SetCertId2(v string) *BatchDeployCertInput {
+	s.CertId2 = &v
 	return s
 }
 

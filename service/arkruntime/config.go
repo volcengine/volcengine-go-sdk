@@ -14,6 +14,12 @@ const (
 	defaultTimeout                 = 10 * time.Minute
 )
 
+const (
+	resourceTypeEndpoint = "endpoint"
+	resourceTypeBot      = "bot"
+	stsTokenKeyPattern   = "%s#%s"
+)
+
 type tokenInfo struct {
 	token       string
 	expiredTime int64

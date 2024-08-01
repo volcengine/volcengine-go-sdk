@@ -230,6 +230,22 @@ type RDSMYSQLV2API interface {
 	DescribeAvailableCrossRegionWithContext(volcengine.Context, *DescribeAvailableCrossRegionInput, ...request.Option) (*DescribeAvailableCrossRegionOutput, error)
 	DescribeAvailableCrossRegionRequest(*DescribeAvailableCrossRegionInput) (*request.Request, *DescribeAvailableCrossRegionOutput)
 
+	DescribeBackupDecryptionKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBackupDecryptionKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBackupDecryptionKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBackupDecryptionKey(*DescribeBackupDecryptionKeyInput) (*DescribeBackupDecryptionKeyOutput, error)
+	DescribeBackupDecryptionKeyWithContext(volcengine.Context, *DescribeBackupDecryptionKeyInput, ...request.Option) (*DescribeBackupDecryptionKeyOutput, error)
+	DescribeBackupDecryptionKeyRequest(*DescribeBackupDecryptionKeyInput) (*request.Request, *DescribeBackupDecryptionKeyOutput)
+
+	DescribeBackupEncryptionStatusCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeBackupEncryptionStatusCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeBackupEncryptionStatusCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeBackupEncryptionStatus(*DescribeBackupEncryptionStatusInput) (*DescribeBackupEncryptionStatusOutput, error)
+	DescribeBackupEncryptionStatusWithContext(volcengine.Context, *DescribeBackupEncryptionStatusInput, ...request.Option) (*DescribeBackupEncryptionStatusOutput, error)
+	DescribeBackupEncryptionStatusRequest(*DescribeBackupEncryptionStatusInput) (*request.Request, *DescribeBackupEncryptionStatusOutput)
+
 	DescribeBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeBackupPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -485,6 +501,14 @@ type RDSMYSQLV2API interface {
 	ModifyAllowList(*ModifyAllowListInput) (*ModifyAllowListOutput, error)
 	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
 	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
+
+	ModifyBackupEncryptionPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyBackupEncryptionPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyBackupEncryptionPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyBackupEncryptionPolicy(*ModifyBackupEncryptionPolicyInput) (*ModifyBackupEncryptionPolicyOutput, error)
+	ModifyBackupEncryptionPolicyWithContext(volcengine.Context, *ModifyBackupEncryptionPolicyInput, ...request.Option) (*ModifyBackupEncryptionPolicyOutput, error)
+	ModifyBackupEncryptionPolicyRequest(*ModifyBackupEncryptionPolicyInput) (*request.Request, *ModifyBackupEncryptionPolicyOutput)
 
 	ModifyBackupPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyBackupPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

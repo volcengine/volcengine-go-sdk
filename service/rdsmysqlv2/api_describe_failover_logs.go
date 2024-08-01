@@ -146,12 +146,16 @@ func (c *RDSMYSQLV2) DescribeFailoverLogsWithContext(ctx volcengine.Context, inp
 type DescribeFailoverLogsInput struct {
 	_ struct{} `type:"structure"`
 
+	EndTime *string `type:"string"`
+
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
 	Limit *int32 `type:"int32"`
 
 	Offset *int32 `type:"int32"`
+
+	StartTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -177,6 +181,12 @@ func (s *DescribeFailoverLogsInput) Validate() error {
 	return nil
 }
 
+// SetEndTime sets the EndTime field's value.
+func (s *DescribeFailoverLogsInput) SetEndTime(v string) *DescribeFailoverLogsInput {
+	s.EndTime = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeFailoverLogsInput) SetInstanceId(v string) *DescribeFailoverLogsInput {
 	s.InstanceId = &v
@@ -192,6 +202,12 @@ func (s *DescribeFailoverLogsInput) SetLimit(v int32) *DescribeFailoverLogsInput
 // SetOffset sets the Offset field's value.
 func (s *DescribeFailoverLogsInput) SetOffset(v int32) *DescribeFailoverLogsInput {
 	s.Offset = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *DescribeFailoverLogsInput) SetStartTime(v string) *DescribeFailoverLogsInput {
+	s.StartTime = &v
 	return s
 }
 

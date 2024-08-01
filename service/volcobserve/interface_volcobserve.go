@@ -46,6 +46,14 @@ type VOLCOBSERVEAPI interface {
 	CreateContactsWithContext(volcengine.Context, *CreateContactsInput, ...request.Option) (*CreateContactsOutput, error)
 	CreateContactsRequest(*CreateContactsInput) (*request.Request, *CreateContactsOutput)
 
+	CreateEventRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateEventRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateEventRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateEventRule(*CreateEventRuleInput) (*CreateEventRuleOutput, error)
+	CreateEventRuleWithContext(volcengine.Context, *CreateEventRuleInput, ...request.Option) (*CreateEventRuleOutput, error)
+	CreateEventRuleRequest(*CreateEventRuleInput) (*request.Request, *CreateEventRuleOutput)
+
 	CreateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateObjectGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +61,22 @@ type VOLCOBSERVEAPI interface {
 	CreateObjectGroup(*CreateObjectGroupInput) (*CreateObjectGroupOutput, error)
 	CreateObjectGroupWithContext(volcengine.Context, *CreateObjectGroupInput, ...request.Option) (*CreateObjectGroupOutput, error)
 	CreateObjectGroupRequest(*CreateObjectGroupInput) (*request.Request, *CreateObjectGroupOutput)
+
+	CreateRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateRule(*CreateRuleInput) (*CreateRuleOutput, error)
+	CreateRuleWithContext(volcengine.Context, *CreateRuleInput, ...request.Option) (*CreateRuleOutput, error)
+	CreateRuleRequest(*CreateRuleInput) (*request.Request, *CreateRuleOutput)
+
+	CreateWebhookCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateWebhookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateWebhookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateWebhook(*CreateWebhookInput) (*CreateWebhookOutput, error)
+	CreateWebhookWithContext(volcengine.Context, *CreateWebhookInput, ...request.Option) (*CreateWebhookOutput, error)
+	CreateWebhookRequest(*CreateWebhookInput) (*request.Request, *CreateWebhookOutput)
 
 	DeleteContactGroupByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteContactGroupByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -70,6 +94,14 @@ type VOLCOBSERVEAPI interface {
 	DeleteContactsByIdsWithContext(volcengine.Context, *DeleteContactsByIdsInput, ...request.Option) (*DeleteContactsByIdsOutput, error)
 	DeleteContactsByIdsRequest(*DeleteContactsByIdsInput) (*request.Request, *DeleteContactsByIdsOutput)
 
+	DeleteEventRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteEventRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteEventRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteEventRule(*DeleteEventRuleInput) (*DeleteEventRuleOutput, error)
+	DeleteEventRuleWithContext(volcengine.Context, *DeleteEventRuleInput, ...request.Option) (*DeleteEventRuleOutput, error)
+	DeleteEventRuleRequest(*DeleteEventRuleInput) (*request.Request, *DeleteEventRuleOutput)
+
 	DeleteObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteObjectGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +109,38 @@ type VOLCOBSERVEAPI interface {
 	DeleteObjectGroup(*DeleteObjectGroupInput) (*DeleteObjectGroupOutput, error)
 	DeleteObjectGroupWithContext(volcengine.Context, *DeleteObjectGroupInput, ...request.Option) (*DeleteObjectGroupOutput, error)
 	DeleteObjectGroupRequest(*DeleteObjectGroupInput) (*request.Request, *DeleteObjectGroupOutput)
+
+	DeleteRulesByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteRulesByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteRulesByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteRulesByIds(*DeleteRulesByIdsInput) (*DeleteRulesByIdsOutput, error)
+	DeleteRulesByIdsWithContext(volcengine.Context, *DeleteRulesByIdsInput, ...request.Option) (*DeleteRulesByIdsOutput, error)
+	DeleteRulesByIdsRequest(*DeleteRulesByIdsInput) (*request.Request, *DeleteRulesByIdsOutput)
+
+	DeleteWebhooksByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteWebhooksByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteWebhooksByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteWebhooksByIds(*DeleteWebhooksByIdsInput) (*DeleteWebhooksByIdsOutput, error)
+	DeleteWebhooksByIdsWithContext(volcengine.Context, *DeleteWebhooksByIdsInput, ...request.Option) (*DeleteWebhooksByIdsOutput, error)
+	DeleteWebhooksByIdsRequest(*DeleteWebhooksByIdsInput) (*request.Request, *DeleteWebhooksByIdsOutput)
+
+	DisableEventRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisableEventRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisableEventRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisableEventRule(*DisableEventRuleInput) (*DisableEventRuleOutput, error)
+	DisableEventRuleWithContext(volcengine.Context, *DisableEventRuleInput, ...request.Option) (*DisableEventRuleOutput, error)
+	DisableEventRuleRequest(*DisableEventRuleInput) (*request.Request, *DisableEventRuleOutput)
+
+	EnableEventRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	EnableEventRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	EnableEventRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	EnableEventRule(*EnableEventRuleInput) (*EnableEventRuleOutput, error)
+	EnableEventRuleWithContext(volcengine.Context, *EnableEventRuleInput, ...request.Option) (*EnableEventRuleOutput, error)
+	EnableEventRuleRequest(*EnableEventRuleInput) (*request.Request, *EnableEventRuleOutput)
 
 	GetMetricDataCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GetMetricDataCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -93,6 +157,14 @@ type VOLCOBSERVEAPI interface {
 	GetTopData(*GetTopDataInput) (*GetTopDataOutput, error)
 	GetTopDataWithContext(volcengine.Context, *GetTopDataInput, ...request.Option) (*GetTopDataOutput, error)
 	GetTopDataRequest(*GetTopDataInput) (*request.Request, *GetTopDataOutput)
+
+	ListAlertGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAlertGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAlertGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAlertGroup(*ListAlertGroupInput) (*ListAlertGroupOutput, error)
+	ListAlertGroupWithContext(volcengine.Context, *ListAlertGroupInput, ...request.Option) (*ListAlertGroupOutput, error)
+	ListAlertGroupRequest(*ListAlertGroupInput) (*request.Request, *ListAlertGroupOutput)
 
 	ListContactGroupByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListContactGroupByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -126,6 +198,14 @@ type VOLCOBSERVEAPI interface {
 	ListContactsByIdsWithContext(volcengine.Context, *ListContactsByIdsInput, ...request.Option) (*ListContactsByIdsOutput, error)
 	ListContactsByIdsRequest(*ListContactsByIdsInput) (*request.Request, *ListContactsByIdsOutput)
 
+	ListEventRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListEventRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListEventRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListEventRules(*ListEventRulesInput) (*ListEventRulesOutput, error)
+	ListEventRulesWithContext(volcengine.Context, *ListEventRulesInput, ...request.Option) (*ListEventRulesOutput, error)
+	ListEventRulesRequest(*ListEventRulesInput) (*request.Request, *ListEventRulesOutput)
+
 	ListEventsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListEventsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListEventsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -141,6 +221,54 @@ type VOLCOBSERVEAPI interface {
 	ListObjectGroups(*ListObjectGroupsInput) (*ListObjectGroupsOutput, error)
 	ListObjectGroupsWithContext(volcengine.Context, *ListObjectGroupsInput, ...request.Option) (*ListObjectGroupsOutput, error)
 	ListObjectGroupsRequest(*ListObjectGroupsInput) (*request.Request, *ListObjectGroupsOutput)
+
+	ListRulesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRulesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRulesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRules(*ListRulesInput) (*ListRulesOutput, error)
+	ListRulesWithContext(volcengine.Context, *ListRulesInput, ...request.Option) (*ListRulesOutput, error)
+	ListRulesRequest(*ListRulesInput) (*request.Request, *ListRulesOutput)
+
+	ListRulesByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListRulesByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListRulesByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListRulesByIds(*ListRulesByIdsInput) (*ListRulesByIdsOutput, error)
+	ListRulesByIdsWithContext(volcengine.Context, *ListRulesByIdsInput, ...request.Option) (*ListRulesByIdsOutput, error)
+	ListRulesByIdsRequest(*ListRulesByIdsInput) (*request.Request, *ListRulesByIdsOutput)
+
+	ListSendAlertCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSendAlertCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSendAlertCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSendAlert(*ListSendAlertInput) (*ListSendAlertOutput, error)
+	ListSendAlertWithContext(volcengine.Context, *ListSendAlertInput, ...request.Option) (*ListSendAlertOutput, error)
+	ListSendAlertRequest(*ListSendAlertInput) (*request.Request, *ListSendAlertOutput)
+
+	ListWebhooksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListWebhooksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListWebhooksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListWebhooks(*ListWebhooksInput) (*ListWebhooksOutput, error)
+	ListWebhooksWithContext(volcengine.Context, *ListWebhooksInput, ...request.Option) (*ListWebhooksOutput, error)
+	ListWebhooksRequest(*ListWebhooksInput) (*request.Request, *ListWebhooksOutput)
+
+	ListWebhooksByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListWebhooksByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListWebhooksByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListWebhooksByIds(*ListWebhooksByIdsInput) (*ListWebhooksByIdsOutput, error)
+	ListWebhooksByIdsWithContext(volcengine.Context, *ListWebhooksByIdsInput, ...request.Option) (*ListWebhooksByIdsOutput, error)
+	ListWebhooksByIdsRequest(*ListWebhooksByIdsInput) (*request.Request, *ListWebhooksByIdsOutput)
+
+	SetStateOfRulesByIdsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetStateOfRulesByIdsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetStateOfRulesByIdsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetStateOfRulesByIds(*SetStateOfRulesByIdsInput) (*SetStateOfRulesByIdsOutput, error)
+	SetStateOfRulesByIdsWithContext(volcengine.Context, *SetStateOfRulesByIdsInput, ...request.Option) (*SetStateOfRulesByIdsOutput, error)
+	SetStateOfRulesByIdsRequest(*SetStateOfRulesByIdsInput) (*request.Request, *SetStateOfRulesByIdsOutput)
 
 	UpdateContactGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateContactGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -174,6 +302,14 @@ type VOLCOBSERVEAPI interface {
 	UpdateContactsWithContactGroupsWithContext(volcengine.Context, *UpdateContactsWithContactGroupsInput, ...request.Option) (*UpdateContactsWithContactGroupsOutput, error)
 	UpdateContactsWithContactGroupsRequest(*UpdateContactsWithContactGroupsInput) (*request.Request, *UpdateContactsWithContactGroupsOutput)
 
+	UpdateEventRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateEventRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateEventRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateEventRule(*UpdateEventRuleInput) (*UpdateEventRuleOutput, error)
+	UpdateEventRuleWithContext(volcengine.Context, *UpdateEventRuleInput, ...request.Option) (*UpdateEventRuleOutput, error)
+	UpdateEventRuleRequest(*UpdateEventRuleInput) (*request.Request, *UpdateEventRuleOutput)
+
 	UpdateObjectGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateObjectGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	UpdateObjectGroupCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -181,6 +317,22 @@ type VOLCOBSERVEAPI interface {
 	UpdateObjectGroup(*UpdateObjectGroupInput) (*UpdateObjectGroupOutput, error)
 	UpdateObjectGroupWithContext(volcengine.Context, *UpdateObjectGroupInput, ...request.Option) (*UpdateObjectGroupOutput, error)
 	UpdateObjectGroupRequest(*UpdateObjectGroupInput) (*request.Request, *UpdateObjectGroupOutput)
+
+	UpdateRuleCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateRuleCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateRuleCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateRule(*UpdateRuleInput) (*UpdateRuleOutput, error)
+	UpdateRuleWithContext(volcengine.Context, *UpdateRuleInput, ...request.Option) (*UpdateRuleOutput, error)
+	UpdateRuleRequest(*UpdateRuleInput) (*request.Request, *UpdateRuleOutput)
+
+	UpdateWebhookCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateWebhookCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateWebhookCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateWebhook(*UpdateWebhookInput) (*UpdateWebhookOutput, error)
+	UpdateWebhookWithContext(volcengine.Context, *UpdateWebhookInput, ...request.Option) (*UpdateWebhookOutput, error)
+	UpdateWebhookRequest(*UpdateWebhookInput) (*request.Request, *UpdateWebhookOutput)
 }
 
 var _ VOLCOBSERVEAPI = (*VOLCOBSERVE)(nil)

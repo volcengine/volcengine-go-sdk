@@ -254,7 +254,7 @@ type BasicInfoForDescribeDBInstanceDetailOutput struct {
 
 	RegionId *string `type:"string"`
 
-	StorageSpace *int32 `type:"int32"`
+	StorageSpace *int64 `type:"int64"`
 
 	StorageType *string `type:"string"`
 
@@ -376,7 +376,7 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetRegionId(v string) *Basi
 }
 
 // SetStorageSpace sets the StorageSpace field's value.
-func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetStorageSpace(v int32) *BasicInfoForDescribeDBInstanceDetailOutput {
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetStorageSpace(v int64) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.StorageSpace = &v
 	return s
 }

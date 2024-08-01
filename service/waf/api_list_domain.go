@@ -304,11 +304,23 @@ type DataForListDomainOutput struct {
 
 	BlackLctEnable *int32 `type:"int32"`
 
+	BotDytokenEnable *int32 `type:"int32"`
+
+	BotFrequencyEnable *int32 `type:"int32"`
+
+	BotRepeatEnable *int32 `type:"int32"`
+
+	BotSequenceDefaultAction *int32 `type:"int32"`
+
+	BotSequenceEnable *int32 `type:"int32"`
+
 	CcEnable *int32 `type:"int32"`
 
 	CertificateID *int32 `type:"int32"`
 
 	CertificateName *string `type:"string"`
+
+	CertificatePlatform *string `type:"string"`
 
 	ClbInstanceIDs *string `type:"string"`
 
@@ -400,6 +412,8 @@ type DataForListDomainOutput struct {
 
 	UpdateTime *string `type:"string"`
 
+	VolcCertificateID *string `type:"string"`
+
 	VpcID *string `type:"string"`
 
 	WafEnable *int32 `type:"int32"`
@@ -481,6 +495,36 @@ func (s *DataForListDomainOutput) SetBlackLctEnable(v int32) *DataForListDomainO
 	return s
 }
 
+// SetBotDytokenEnable sets the BotDytokenEnable field's value.
+func (s *DataForListDomainOutput) SetBotDytokenEnable(v int32) *DataForListDomainOutput {
+	s.BotDytokenEnable = &v
+	return s
+}
+
+// SetBotFrequencyEnable sets the BotFrequencyEnable field's value.
+func (s *DataForListDomainOutput) SetBotFrequencyEnable(v int32) *DataForListDomainOutput {
+	s.BotFrequencyEnable = &v
+	return s
+}
+
+// SetBotRepeatEnable sets the BotRepeatEnable field's value.
+func (s *DataForListDomainOutput) SetBotRepeatEnable(v int32) *DataForListDomainOutput {
+	s.BotRepeatEnable = &v
+	return s
+}
+
+// SetBotSequenceDefaultAction sets the BotSequenceDefaultAction field's value.
+func (s *DataForListDomainOutput) SetBotSequenceDefaultAction(v int32) *DataForListDomainOutput {
+	s.BotSequenceDefaultAction = &v
+	return s
+}
+
+// SetBotSequenceEnable sets the BotSequenceEnable field's value.
+func (s *DataForListDomainOutput) SetBotSequenceEnable(v int32) *DataForListDomainOutput {
+	s.BotSequenceEnable = &v
+	return s
+}
+
 // SetCcEnable sets the CcEnable field's value.
 func (s *DataForListDomainOutput) SetCcEnable(v int32) *DataForListDomainOutput {
 	s.CcEnable = &v
@@ -496,6 +540,12 @@ func (s *DataForListDomainOutput) SetCertificateID(v int32) *DataForListDomainOu
 // SetCertificateName sets the CertificateName field's value.
 func (s *DataForListDomainOutput) SetCertificateName(v string) *DataForListDomainOutput {
 	s.CertificateName = &v
+	return s
+}
+
+// SetCertificatePlatform sets the CertificatePlatform field's value.
+func (s *DataForListDomainOutput) SetCertificatePlatform(v string) *DataForListDomainOutput {
+	s.CertificatePlatform = &v
 	return s
 }
 
@@ -769,6 +819,12 @@ func (s *DataForListDomainOutput) SetUpdateTime(v string) *DataForListDomainOutp
 	return s
 }
 
+// SetVolcCertificateID sets the VolcCertificateID field's value.
+func (s *DataForListDomainOutput) SetVolcCertificateID(v string) *DataForListDomainOutput {
+	s.VolcCertificateID = &v
+	return s
+}
+
 // SetVpcID sets the VpcID field's value.
 func (s *DataForListDomainOutput) SetVpcID(v string) *DataForListDomainOutput {
 	s.VpcID = &v
@@ -801,6 +857,8 @@ func (s *DataForListDomainOutput) SetWhiteFieldEnable(v int32) *DataForListDomai
 
 type ListDomainInput struct {
 	_ struct{} `type:"structure"`
+
+	ALBInstanceID *string `type:"string"`
 
 	// AccurateQuery is a required field
 	AccurateQuery *int32 `type:"int32" required:"true"`
@@ -847,6 +905,12 @@ func (s *ListDomainInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetALBInstanceID sets the ALBInstanceID field's value.
+func (s *ListDomainInput) SetALBInstanceID(v string) *ListDomainInput {
+	s.ALBInstanceID = &v
+	return s
 }
 
 // SetAccurateQuery sets the AccurateQuery field's value.

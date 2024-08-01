@@ -148,11 +148,11 @@ type CreateDBEndpointInput struct {
 
 	AutoAddNewNodes *bool `type:"boolean"`
 
-	ConsistLevel *string `type:"string"`
+	ConsistLevel *string `type:"string" enum:"EnumOfConsistLevelForCreateDBEndpointInput"`
 
 	ConsistTimeout *int32 `type:"int32"`
 
-	ConsistTimeoutAction *string `type:"string"`
+	ConsistTimeoutAction *string `type:"string" enum:"EnumOfConsistTimeoutActionForCreateDBEndpointInput"`
 
 	Description *string `type:"string"`
 
@@ -160,15 +160,18 @@ type CreateDBEndpointInput struct {
 
 	EndpointName *string `type:"string"`
 
-	EndpointType *string `type:"string"`
+	// EndpointType is a required field
+	EndpointType *string `type:"string" required:"true" enum:"EnumOfEndpointTypeForCreateDBEndpointInput"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
 	MasterAcceptReadRequests *bool `type:"boolean"`
 
-	Nodes *string `type:"string"`
+	// Nodes is a required field
+	Nodes *string `type:"string" required:"true"`
 
-	ReadWriteMode *string `type:"string"`
+	ReadWriteMode *string `type:"string" enum:"EnumOfReadWriteModeForCreateDBEndpointInput"`
 }
 
 // String returns the string representation
@@ -179,6 +182,25 @@ func (s CreateDBEndpointInput) String() string {
 // GoString returns the string representation
 func (s CreateDBEndpointInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateDBEndpointInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateDBEndpointInput"}
+	if s.EndpointType == nil {
+		invalidParams.Add(request.NewErrParamRequired("EndpointType"))
+	}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.Nodes == nil {
+		invalidParams.Add(request.NewErrParamRequired("Nodes"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoAddNewNodes sets the AutoAddNewNodes field's value.
@@ -276,3 +298,35 @@ func (s *CreateDBEndpointOutput) SetEndpointId(v string) *CreateDBEndpointOutput
 	s.EndpointId = &v
 	return s
 }
+
+const (
+	// EnumOfConsistLevelForCreateDBEndpointInputEventual is a EnumOfConsistLevelForCreateDBEndpointInput enum value
+	EnumOfConsistLevelForCreateDBEndpointInputEventual = "Eventual"
+
+	// EnumOfConsistLevelForCreateDBEndpointInputSession is a EnumOfConsistLevelForCreateDBEndpointInput enum value
+	EnumOfConsistLevelForCreateDBEndpointInputSession = "Session"
+
+	// EnumOfConsistLevelForCreateDBEndpointInputGlobal is a EnumOfConsistLevelForCreateDBEndpointInput enum value
+	EnumOfConsistLevelForCreateDBEndpointInputGlobal = "Global"
+)
+
+const (
+	// EnumOfConsistTimeoutActionForCreateDBEndpointInputReturnError is a EnumOfConsistTimeoutActionForCreateDBEndpointInput enum value
+	EnumOfConsistTimeoutActionForCreateDBEndpointInputReturnError = "ReturnError"
+
+	// EnumOfConsistTimeoutActionForCreateDBEndpointInputReadMaster is a EnumOfConsistTimeoutActionForCreateDBEndpointInput enum value
+	EnumOfConsistTimeoutActionForCreateDBEndpointInputReadMaster = "ReadMaster"
+)
+
+const (
+	// EnumOfEndpointTypeForCreateDBEndpointInputCustom is a EnumOfEndpointTypeForCreateDBEndpointInput enum value
+	EnumOfEndpointTypeForCreateDBEndpointInputCustom = "Custom"
+)
+
+const (
+	// EnumOfReadWriteModeForCreateDBEndpointInputReadWrite is a EnumOfReadWriteModeForCreateDBEndpointInput enum value
+	EnumOfReadWriteModeForCreateDBEndpointInputReadWrite = "ReadWrite"
+
+	// EnumOfReadWriteModeForCreateDBEndpointInputReadOnly is a EnumOfReadWriteModeForCreateDBEndpointInput enum value
+	EnumOfReadWriteModeForCreateDBEndpointInputReadOnly = "ReadOnly"
+)

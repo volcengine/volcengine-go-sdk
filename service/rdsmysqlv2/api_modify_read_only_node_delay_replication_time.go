@@ -147,7 +147,7 @@ type ModifyReadOnlyNodeDelayReplicationTimeInput struct {
 	_ struct{} `type:"structure"`
 
 	// DelayReplicationTime is a required field
-	DelayReplicationTime *int32 `type:"int32" required:"true"`
+	DelayReplicationTime *int64 `type:"int64" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -188,7 +188,7 @@ func (s *ModifyReadOnlyNodeDelayReplicationTimeInput) Validate() error {
 }
 
 // SetDelayReplicationTime sets the DelayReplicationTime field's value.
-func (s *ModifyReadOnlyNodeDelayReplicationTimeInput) SetDelayReplicationTime(v int32) *ModifyReadOnlyNodeDelayReplicationTimeInput {
+func (s *ModifyReadOnlyNodeDelayReplicationTimeInput) SetDelayReplicationTime(v int64) *ModifyReadOnlyNodeDelayReplicationTimeInput {
 	s.DelayReplicationTime = &v
 	return s
 }

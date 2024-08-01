@@ -196,7 +196,7 @@ type DescribeReadOnlyNodeDelayOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	DelayReplicationTime *int32 `type:"int32"`
+	DelayReplicationTime *int64 `type:"int64"`
 
 	NodeId *string `type:"string"`
 }
@@ -212,7 +212,7 @@ func (s DescribeReadOnlyNodeDelayOutput) GoString() string {
 }
 
 // SetDelayReplicationTime sets the DelayReplicationTime field's value.
-func (s *DescribeReadOnlyNodeDelayOutput) SetDelayReplicationTime(v int32) *DescribeReadOnlyNodeDelayOutput {
+func (s *DescribeReadOnlyNodeDelayOutput) SetDelayReplicationTime(v int64) *DescribeReadOnlyNodeDelayOutput {
 	s.DelayReplicationTime = &v
 	return s
 }

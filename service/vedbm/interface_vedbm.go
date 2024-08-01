@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VEDBM.
 //    func myFunc(svc VEDBMAPI) bool {
-//        // Make svc.CreateDBEndpoint request
+//        // Make svc.AddTagsToResource request
 //    }
 //
 //    func main() {
@@ -30,6 +30,22 @@ import (
 //    }
 //
 type VEDBMAPI interface {
+	AddTagsToResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddTagsToResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddTagsToResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddTagsToResource(*AddTagsToResourceInput) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
+	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
+
+	CreateDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDBAccount(*CreateDBAccountInput) (*CreateDBAccountOutput, error)
+	CreateDBAccountWithContext(volcengine.Context, *CreateDBAccountInput, ...request.Option) (*CreateDBAccountOutput, error)
+	CreateDBAccountRequest(*CreateDBAccountInput) (*request.Request, *CreateDBAccountOutput)
+
 	CreateDBEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDBEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDBEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +69,22 @@ type VEDBMAPI interface {
 	CreateDBInstance(*CreateDBInstanceInput) (*CreateDBInstanceOutput, error)
 	CreateDBInstanceWithContext(volcengine.Context, *CreateDBInstanceInput, ...request.Option) (*CreateDBInstanceOutput, error)
 	CreateDBInstanceRequest(*CreateDBInstanceInput) (*request.Request, *CreateDBInstanceOutput)
+
+	CreateDatabaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateDatabaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateDatabaseCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateDatabase(*CreateDatabaseInput) (*CreateDatabaseOutput, error)
+	CreateDatabaseWithContext(volcengine.Context, *CreateDatabaseInput, ...request.Option) (*CreateDatabaseOutput, error)
+	CreateDatabaseRequest(*CreateDatabaseInput) (*request.Request, *CreateDatabaseOutput)
+
+	DeleteDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDBAccount(*DeleteDBAccountInput) (*DeleteDBAccountOutput, error)
+	DeleteDBAccountWithContext(volcengine.Context, *DeleteDBAccountInput, ...request.Option) (*DeleteDBAccountOutput, error)
+	DeleteDBAccountRequest(*DeleteDBAccountInput) (*request.Request, *DeleteDBAccountOutput)
 
 	DeleteDBEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDBEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -78,6 +110,30 @@ type VEDBMAPI interface {
 	DeleteDBInstanceWithContext(volcengine.Context, *DeleteDBInstanceInput, ...request.Option) (*DeleteDBInstanceOutput, error)
 	DeleteDBInstanceRequest(*DeleteDBInstanceInput) (*request.Request, *DeleteDBInstanceOutput)
 
+	DeleteDatabaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteDatabaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteDatabaseCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteDatabase(*DeleteDatabaseInput) (*DeleteDatabaseOutput, error)
+	DeleteDatabaseWithContext(volcengine.Context, *DeleteDatabaseInput, ...request.Option) (*DeleteDatabaseOutput, error)
+	DeleteDatabaseRequest(*DeleteDatabaseInput) (*request.Request, *DeleteDatabaseOutput)
+
+	DescribeDBAccountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBAccountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBAccountsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBAccounts(*DescribeDBAccountsInput) (*DescribeDBAccountsOutput, error)
+	DescribeDBAccountsWithContext(volcengine.Context, *DescribeDBAccountsInput, ...request.Option) (*DescribeDBAccountsOutput, error)
+	DescribeDBAccountsRequest(*DescribeDBAccountsInput) (*request.Request, *DescribeDBAccountsOutput)
+
+	DescribeDBEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDBEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDBEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDBEndpoint(*DescribeDBEndpointInput) (*DescribeDBEndpointOutput, error)
+	DescribeDBEndpointWithContext(volcengine.Context, *DescribeDBEndpointInput, ...request.Option) (*DescribeDBEndpointOutput, error)
+	DescribeDBEndpointRequest(*DescribeDBEndpointInput) (*request.Request, *DescribeDBEndpointOutput)
+
 	DescribeDBInstanceDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstanceDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -93,6 +149,22 @@ type VEDBMAPI interface {
 	DescribeDBInstances(*DescribeDBInstancesInput) (*DescribeDBInstancesOutput, error)
 	DescribeDBInstancesWithContext(volcengine.Context, *DescribeDBInstancesInput, ...request.Option) (*DescribeDBInstancesOutput, error)
 	DescribeDBInstancesRequest(*DescribeDBInstancesInput) (*request.Request, *DescribeDBInstancesOutput)
+
+	DescribeDatabasesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeDatabasesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeDatabasesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeDatabases(*DescribeDatabasesInput) (*DescribeDatabasesOutput, error)
+	DescribeDatabasesWithContext(volcengine.Context, *DescribeDatabasesInput, ...request.Option) (*DescribeDatabasesOutput, error)
+	DescribeDatabasesRequest(*DescribeDatabasesInput) (*request.Request, *DescribeDatabasesOutput)
+
+	GrantDBAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GrantDBAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GrantDBAccountPrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GrantDBAccountPrivilege(*GrantDBAccountPrivilegeInput) (*GrantDBAccountPrivilegeOutput, error)
+	GrantDBAccountPrivilegeWithContext(volcengine.Context, *GrantDBAccountPrivilegeInput, ...request.Option) (*GrantDBAccountPrivilegeOutput, error)
+	GrantDBAccountPrivilegeRequest(*GrantDBAccountPrivilegeInput) (*request.Request, *GrantDBAccountPrivilegeOutput)
 
 	ModifyDBEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -118,6 +190,30 @@ type VEDBMAPI interface {
 	ModifyDBInstanceSpecWithContext(volcengine.Context, *ModifyDBInstanceSpecInput, ...request.Option) (*ModifyDBInstanceSpecOutput, error)
 	ModifyDBInstanceSpecRequest(*ModifyDBInstanceSpecInput) (*request.Request, *ModifyDBInstanceSpecOutput)
 
+	RemoveTagsFromResourceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RemoveTagsFromResourceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RemoveTagsFromResource(*RemoveTagsFromResourceInput) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceWithContext(volcengine.Context, *RemoveTagsFromResourceInput, ...request.Option) (*RemoveTagsFromResourceOutput, error)
+	RemoveTagsFromResourceRequest(*RemoveTagsFromResourceInput) (*request.Request, *RemoveTagsFromResourceOutput)
+
+	ResetAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResetAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResetAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResetAccount(*ResetAccountInput) (*ResetAccountOutput, error)
+	ResetAccountWithContext(volcengine.Context, *ResetAccountInput, ...request.Option) (*ResetAccountOutput, error)
+	ResetAccountRequest(*ResetAccountInput) (*request.Request, *ResetAccountOutput)
+
+	ResetDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ResetDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ResetDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ResetDBAccount(*ResetDBAccountInput) (*ResetDBAccountOutput, error)
+	ResetDBAccountWithContext(volcengine.Context, *ResetDBAccountInput, ...request.Option) (*ResetDBAccountOutput, error)
+	ResetDBAccountRequest(*ResetDBAccountInput) (*request.Request, *ResetDBAccountOutput)
+
 	RestartDBInstanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RestartDBInstanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RestartDBInstanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +221,14 @@ type VEDBMAPI interface {
 	RestartDBInstance(*RestartDBInstanceInput) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceWithContext(volcengine.Context, *RestartDBInstanceInput, ...request.Option) (*RestartDBInstanceOutput, error)
 	RestartDBInstanceRequest(*RestartDBInstanceInput) (*request.Request, *RestartDBInstanceOutput)
+
+	RevokeDBAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RevokeDBAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RevokeDBAccountPrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RevokeDBAccountPrivilege(*RevokeDBAccountPrivilegeInput) (*RevokeDBAccountPrivilegeOutput, error)
+	RevokeDBAccountPrivilegeWithContext(volcengine.Context, *RevokeDBAccountPrivilegeInput, ...request.Option) (*RevokeDBAccountPrivilegeOutput, error)
+	RevokeDBAccountPrivilegeRequest(*RevokeDBAccountPrivilegeInput) (*request.Request, *RevokeDBAccountPrivilegeOutput)
 }
 
 var _ VEDBMAPI = (*VEDBM)(nil)

@@ -254,6 +254,8 @@ type UsageReportsDetailForListUsageReportsOutput struct {
 
 	BillingRegion *string `type:"string"`
 
+	CalculationMethod *string `type:"string"`
+
 	CreateTime *int64 `type:"int64"`
 
 	DownLoadUrl *string `type:"string"`
@@ -300,6 +302,12 @@ func (s *UsageReportsDetailForListUsageReportsOutput) SetBillingCode(v string) *
 // SetBillingRegion sets the BillingRegion field's value.
 func (s *UsageReportsDetailForListUsageReportsOutput) SetBillingRegion(v string) *UsageReportsDetailForListUsageReportsOutput {
 	s.BillingRegion = &v
+	return s
+}
+
+// SetCalculationMethod sets the CalculationMethod field's value.
+func (s *UsageReportsDetailForListUsageReportsOutput) SetCalculationMethod(v string) *UsageReportsDetailForListUsageReportsOutput {
+	s.CalculationMethod = &v
 	return s
 }
 

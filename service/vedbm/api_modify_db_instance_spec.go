@@ -146,13 +146,16 @@ func (c *VEDBM) ModifyDBInstanceSpecWithContext(ctx volcengine.Context, input *M
 type ModifyDBInstanceSpecInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceId *string `type:"string"`
+	// InstanceId is a required field
+	InstanceId *string `type:"string" required:"true"`
 
-	NodeNumber *int32 `type:"int32"`
+	// NodeNumber is a required field
+	NodeNumber *int32 `type:"int32" required:"true"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true" enum:"EnumOfNodeSpecForModifyDBInstanceSpecInput"`
 
-	ZoneNodeInfos []*ZoneNodeInfoForModifyDBInstanceSpecInput `type:"list"`
+	PrePaidStorageInGB *int32 `type:"int32"`
 }
 
 // String returns the string representation
@@ -163,6 +166,25 @@ func (s ModifyDBInstanceSpecInput) String() string {
 // GoString returns the string representation
 func (s ModifyDBInstanceSpecInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDBInstanceSpecInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceSpecInput"}
+	if s.InstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.NodeNumber == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeNumber"))
+	}
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -183,9 +205,9 @@ func (s *ModifyDBInstanceSpecInput) SetNodeSpec(v string) *ModifyDBInstanceSpecI
 	return s
 }
 
-// SetZoneNodeInfos sets the ZoneNodeInfos field's value.
-func (s *ModifyDBInstanceSpecInput) SetZoneNodeInfos(v []*ZoneNodeInfoForModifyDBInstanceSpecInput) *ModifyDBInstanceSpecInput {
-	s.ZoneNodeInfos = v
+// SetPrePaidStorageInGB sets the PrePaidStorageInGB field's value.
+func (s *ModifyDBInstanceSpecInput) SetPrePaidStorageInGB(v int32) *ModifyDBInstanceSpecInput {
+	s.PrePaidStorageInGB = &v
 	return s
 }
 
@@ -221,32 +243,52 @@ func (s *ModifyDBInstanceSpecOutput) SetOrderId(v string) *ModifyDBInstanceSpecO
 	return s
 }
 
-type ZoneNodeInfoForModifyDBInstanceSpecInput struct {
-	_ struct{} `type:"structure"`
+const (
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX4Large is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX4Large = "vedb.mysql.x4.large"
 
-	ZoneId *string `type:"string"`
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX8Large is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX8Large = "vedb.mysql.x8.large"
 
-	ZoneNodeNumber *int32 `type:"int32"`
-}
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX4Xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX4Xlarge = "vedb.mysql.x4.xlarge"
 
-// String returns the string representation
-func (s ZoneNodeInfoForModifyDBInstanceSpecInput) String() string {
-	return volcengineutil.Prettify(s)
-}
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX8Xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX8Xlarge = "vedb.mysql.x8.xlarge"
 
-// GoString returns the string representation
-func (s ZoneNodeInfoForModifyDBInstanceSpecInput) GoString() string {
-	return s.String()
-}
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX42xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX42xlarge = "vedb.mysql.x4.2xlarge"
 
-// SetZoneId sets the ZoneId field's value.
-func (s *ZoneNodeInfoForModifyDBInstanceSpecInput) SetZoneId(v string) *ZoneNodeInfoForModifyDBInstanceSpecInput {
-	s.ZoneId = &v
-	return s
-}
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX82xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX82xlarge = "vedb.mysql.x8.2xlarge"
 
-// SetZoneNodeNumber sets the ZoneNodeNumber field's value.
-func (s *ZoneNodeInfoForModifyDBInstanceSpecInput) SetZoneNodeNumber(v int32) *ZoneNodeInfoForModifyDBInstanceSpecInput {
-	s.ZoneNodeNumber = &v
-	return s
-}
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX44xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX44xlarge = "vedb.mysql.x4.4xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX84xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX84xlarge = "vedb.mysql.x8.4xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX86xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX86xlarge = "vedb.mysql.x8.6xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX48xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX48xlarge = "vedb.mysql.x4.8xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX88xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlX88xlarge = "vedb.mysql.x8.8xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG4Large is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG4Large = "vedb.mysql.g4.large"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG4Xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG4Xlarge = "vedb.mysql.g4.xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG42xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG42xlarge = "vedb.mysql.g4.2xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG82xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG82xlarge = "vedb.mysql.g8.2xlarge"
+
+	// EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG44xlarge is a EnumOfNodeSpecForModifyDBInstanceSpecInput enum value
+	EnumOfNodeSpecForModifyDBInstanceSpecInputVedbMysqlG44xlarge = "vedb.mysql.g4.4xlarge"
+)

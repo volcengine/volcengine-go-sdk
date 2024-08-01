@@ -54,6 +54,9 @@ func StsAssumeRole(p *StsAssumeRoleProvider) (*Credentials, *StsAssumeRoleTime, 
 	if statusCode >= 300 || statusCode < 200 {
 		return nil, nil, fmt.Errorf("AssumeRole error,httpcode is %v and reqId is %s", statusCode, reqId)
 	}
+	if output == nil || output.Result == nil || output.Result.Credentials == nil {
+		return nil, nil, fmt.Errorf("AssumeRole response error,httpcode is %v and reqId is %s", statusCode, reqId)
+	}
 	return NewCredentials(&StaticProvider{Value: Value{
 			AccessKeyID:     output.Result.Credentials.AccessKeyId,
 			SecretAccessKey: output.Result.Credentials.SecretAccessKey,
