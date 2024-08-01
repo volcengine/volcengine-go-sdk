@@ -91,23 +91,28 @@ type FunctionCall struct {
 }
 
 type ChatCompletionRequest struct {
-	Model            string                   `json:"model"`
-	Messages         []*ChatCompletionMessage `json:"messages"`
-	MaxTokens        int                      `json:"max_tokens,omitempty"`
-	Temperature      float32                  `json:"temperature,omitempty"`
-	TopP             float32                  `json:"top_p,omitempty"`
-	Stream           bool                     `json:"stream,omitempty"`
-	Stop             []string                 `json:"stop,omitempty"`
-	FrequencyPenalty float32                  `json:"frequency_penalty,omitempty"`
-	LogitBias        map[string]int           `json:"logit_bias,omitempty"`
-	LogProbs         bool                     `json:"logprobs,omitempty"`
-	TopLogProbs      int                      `json:"top_logprobs,omitempty"`
-	User             string                   `json:"user,omitempty"`
-	Functions        []*FunctionDefinition    `json:"functions,omitempty"`
-	FunctionCall     interface{}              `json:"function_call,omitempty"`
-	Tools            []*Tool                  `json:"tools,omitempty"`
-	ToolChoice       interface{}              `json:"tool_choice,omitempty"`
-	StreamOptions    *StreamOptions           `json:"stream_options,omitempty"`
+	Model             string                   `json:"model"`
+	Messages          []*ChatCompletionMessage `json:"messages"`
+	MaxTokens         int                      `json:"max_tokens,omitempty"`
+	Temperature       float32                  `json:"temperature,omitempty"`
+	TopP              float32                  `json:"top_p,omitempty"`
+	Stream            bool                     `json:"stream,omitempty"`
+	Stop              []string                 `json:"stop,omitempty"`
+	FrequencyPenalty  float32                  `json:"frequency_penalty,omitempty"`
+	LogitBias         map[string]int           `json:"logit_bias,omitempty"`
+	LogProbs          bool                     `json:"logprobs,omitempty"`
+	TopLogProbs       int                      `json:"top_logprobs,omitempty"`
+	User              string                   `json:"user,omitempty"`
+	Functions         []*FunctionDefinition    `json:"functions,omitempty"`
+	FunctionCall      interface{}              `json:"function_call,omitempty"`
+	Tools             []*Tool                  `json:"tools,omitempty"`
+	ToolChoice        interface{}              `json:"tool_choice,omitempty"`
+	StreamOptions     *StreamOptions           `json:"stream_options,omitempty"`
+	PresencePenalty   float32                  `json:"presence_penalty,omitempty"`
+	RepetitionPenalty float32                  `json:"repetition_penalty,omitempty"`
+	N                 int                      `json:"n,omitempty"`
+	ResponseFormat    *ResponseFormat          `json:"response_format,omitempty"`
+	MaxPromptTokens   int                      `json:"max_prompt_tokens,omitempty"`
 }
 
 type StreamOptions struct {
@@ -168,6 +173,11 @@ type LogProb struct {
 type LogProbs struct {
 	// Content is a list of message content tokens with log probability information.
 	Content []*LogProb `json:"content"`
+}
+
+type ResponseFormat struct {
+	Type   string      `json:"type"`
+	Schema interface{} `json:"schema,omitempty"`
 }
 
 type FinishReason string
