@@ -8,17 +8,7 @@ import (
 )
 
 type RetryPolicy struct {
-	// MaxAttempts is the maximum number of attempts, including the original RPC.
-	//
-	// This field is required and must be two or greater.
-	MaxAttempts int
-
-	// Exponential backoff parameters. The initial retry attempt will occur at
-	// random(0, initialBackoff). In general, the nth attempt will occur at
-	// random(0,
-	//   min(initialBackoff*backoffMultiplier**(n-1), maxBackoff)).
-	//
-	// These fields are required and must be greater than zero.
+	MaxAttempts       int
 	InitialBackoff    time.Duration
 	MaxBackoff        time.Duration
 	BackoffMultiplier float64
@@ -50,12 +40,13 @@ func Retry(ctx context.Context,
 		}
 
 		// need retry
-		fact := math.Pow(rp.BackoffMultiplier, float64(numRetriesSincePushback))
-		cur := float64(rp.InitialBackoff) * fact
-		if max := float64(rp.MaxBackoff); cur > max {
-			cur = max
+		if numRetriesSincePushback == rp.MaxAttempts {
+			break
 		}
-		dur := time.Duration(rand.Int63n(int64(cur)))
+		nbRetries := numRetriesSincePushback + 1
+		sleepSeconds := math.Min(rp.InitialBackoff.Seconds()*math.Pow(2.0, float64(nbRetries)), rp.MaxBackoff.Seconds())
+		jitter := 1.0 - 0.25*rand.Float64()
+		dur := time.Duration(sleepSeconds*jitter) * time.Second
 
 		t := time.NewTimer(dur)
 		select {

@@ -405,7 +405,7 @@ func isFailureStatusCode(resp *http.Response) bool {
 func needRetryError(err error) bool {
 	apiErr := &model.APIError{}
 	if errors.As(err, &apiErr) {
-		return apiErr.HTTPStatusCode > http.StatusInternalServerError
+		return apiErr.HTTPStatusCode > http.StatusInternalServerError || apiErr.HTTPStatusCode == http.StatusTooManyRequests
 	} else if errors.Is(err, io.EOF) {
 		return true
 	}
