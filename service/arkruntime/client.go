@@ -227,8 +227,8 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 		ctx,
 		utils.RetryPolicy{
 			MaxAttempts:    c.config.RetryTimes,
-			InitialBackoff: model.GrpcErrorRetryBaseDelay,
-			MaxBackoff:     model.GrpcErrorRetryMaxDelay,
+			InitialBackoff: model.ErrorRetryBaseDelay,
+			MaxBackoff:     model.ErrorRetryMaxDelay,
 		},
 		func() bool { return true },
 		func() error {
@@ -330,8 +330,8 @@ func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, u
 		ctx,
 		utils.RetryPolicy{
 			MaxAttempts:    c.config.RetryTimes,
-			InitialBackoff: model.GrpcErrorRetryBaseDelay,
-			MaxBackoff:     model.GrpcErrorRetryMaxDelay,
+			InitialBackoff: model.ErrorRetryBaseDelay,
+			MaxBackoff:     model.ErrorRetryMaxDelay,
 		},
 		func() bool { return true },
 		func() error {
@@ -355,8 +355,8 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 		ctx,
 		utils.RetryPolicy{
 			MaxAttempts:    c.config.RetryTimes,
-			InitialBackoff: model.GrpcErrorRetryBaseDelay,
-			MaxBackoff:     model.GrpcErrorRetryMaxDelay,
+			InitialBackoff: model.ErrorRetryBaseDelay,
+			MaxBackoff:     model.ErrorRetryMaxDelay,
 		},
 		func() bool { return true },
 		func() error {

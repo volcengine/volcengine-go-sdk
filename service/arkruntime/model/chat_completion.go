@@ -133,6 +133,12 @@ type Tool struct {
 	Function *FunctionDefinition `json:"function,omitempty"`
 }
 
+const (
+	ToolChoiceStringTypeAuto     = "auto"
+	ToolChoiceStringTypeNone     = "none"
+	ToolChoiceStringTypeRequired = "required"
+)
+
 type ToolChoice struct {
 	Type     ToolType           `json:"type"`
 	Function FunctionDefinition `json:"function,omitempty"`
@@ -174,10 +180,17 @@ type LogProbs struct {
 	Content []*LogProb `json:"content"`
 }
 
+type ResponseFormatType string
+
 type ResponseFormat struct {
-	Type   string      `json:"type"`
-	Schema interface{} `json:"schema,omitempty"`
+	Type   ResponseFormatType `json:"type"`
+	Schema interface{}        `json:"schema,omitempty"`
 }
+
+const (
+	ResponseFormatJsonObject ResponseFormatType = "json_object"
+	ResponseFormatText       ResponseFormatType = "text"
+)
 
 type FinishReason string
 
