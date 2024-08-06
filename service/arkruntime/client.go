@@ -226,10 +226,9 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
-			MaxAttempts:       c.config.RetryTimes,
-			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
-			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
-			BackoffMultiplier: 1.2,
+			MaxAttempts:    c.config.RetryTimes,
+			InitialBackoff: model.GrpcErrorRetryBaseDelay,
+			MaxBackoff:     model.GrpcErrorRetryMaxDelay,
 		},
 		func() bool { return true },
 		func() error {
@@ -330,10 +329,9 @@ func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, u
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
-			MaxAttempts:       c.config.RetryTimes,
-			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
-			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
-			BackoffMultiplier: 1.2,
+			MaxAttempts:    c.config.RetryTimes,
+			InitialBackoff: model.GrpcErrorRetryBaseDelay,
+			MaxBackoff:     model.GrpcErrorRetryMaxDelay,
 		},
 		func() bool { return true },
 		func() error {
@@ -356,10 +354,9 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
-			MaxAttempts:       c.config.RetryTimes,
-			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
-			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
-			BackoffMultiplier: 1.2,
+			MaxAttempts:    c.config.RetryTimes,
+			InitialBackoff: model.GrpcErrorRetryBaseDelay,
+			MaxBackoff:     model.GrpcErrorRetryMaxDelay,
 		},
 		func() bool { return true },
 		func() error {

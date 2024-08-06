@@ -8,10 +8,9 @@ import (
 )
 
 type RetryPolicy struct {
-	MaxAttempts       int
-	InitialBackoff    time.Duration
-	MaxBackoff        time.Duration
-	BackoffMultiplier float64
+	MaxAttempts    int
+	InitialBackoff time.Duration
+	MaxBackoff     time.Duration
 }
 
 func Retry(ctx context.Context,
