@@ -17,7 +17,7 @@ func (c *Client) CreateTokenization(
 	baseReq := conv.Convert()
 
 	requestOptions := append(setters, withBody(baseReq))
-	err = c.Do(ctx, http.MethodPost, c.fullURL(tokenizationSuffix), baseReq.Model, &res, requestOptions...)
+	err = c.Do(ctx, http.MethodPost, c.fullURL(tokenizationSuffix), resourceTypeEndpoint, baseReq.Model, &res, requestOptions...)
 	if err != nil {
 		return
 	}
