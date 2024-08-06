@@ -111,7 +111,6 @@ type ChatCompletionRequest struct {
 	RepetitionPenalty float32                  `json:"repetition_penalty,omitempty"`
 	N                 int                      `json:"n,omitempty"`
 	ResponseFormat    *ResponseFormat          `json:"response_format,omitempty"`
-	MaxPromptTokens   int                      `json:"max_prompt_tokens,omitempty"`
 }
 
 type StreamOptions struct {
