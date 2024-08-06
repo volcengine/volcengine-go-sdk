@@ -103,7 +103,6 @@ type ChatCompletionRequest struct {
 	LogProbs          bool                     `json:"logprobs,omitempty"`
 	TopLogProbs       int                      `json:"top_logprobs,omitempty"`
 	User              string                   `json:"user,omitempty"`
-	Functions         []*FunctionDefinition    `json:"functions,omitempty"`
 	FunctionCall      interface{}              `json:"function_call,omitempty"`
 	Tools             []*Tool                  `json:"tools,omitempty"`
 	ToolChoice        interface{}              `json:"tool_choice,omitempty"`
