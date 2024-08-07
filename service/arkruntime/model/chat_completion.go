@@ -140,7 +140,11 @@ const (
 
 type ToolChoice struct {
 	Type     ToolType           `json:"type"`
-	Function FunctionDefinition `json:"function,omitempty"`
+	Function ToolChoiceFunction `json:"function,omitempty"`
+}
+
+type ToolChoiceFunction struct {
+	Name string `json:"name"`
 }
 
 type FunctionDefinition struct {
