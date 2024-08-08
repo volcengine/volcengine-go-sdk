@@ -11,6 +11,7 @@ const (
 	defaultRegion                  = "cn-beijing"
 	defaultEmptyMessagesLimit uint = 300
 	defaultRetryTimes         int  = 2
+	defaultTimeout                 = 10 * time.Minute
 )
 
 const (
@@ -39,12 +40,14 @@ type ClientConfig struct {
 
 func NewClientConfig(apiKey, ak, sk string, setters ...configOption) ClientConfig {
 	config := ClientConfig{
-		apiKey:             apiKey,
-		ak:                 ak,
-		sk:                 sk,
-		region:             defaultRegion,
-		BaseURL:            defaultBaseUrl,
-		HTTPClient:         &http.Client{},
+		apiKey:  apiKey,
+		ak:      ak,
+		sk:      sk,
+		region:  defaultRegion,
+		BaseURL: defaultBaseUrl,
+		HTTPClient: &http.Client{
+			Timeout: defaultTimeout,
+		},
 		EmptyMessagesLimit: defaultEmptyMessagesLimit,
 		RetryTimes:         defaultRetryTimes,
 	}
@@ -80,8 +83,12 @@ func WithRetryTimes(retryTimes int) configOption {
 
 func WithTimeout(timeout time.Duration) configOption {
 	return func(config *ClientConfig) {
-		config.HTTPClient = &http.Client{
-			Timeout: timeout,
-		}
+		config.HTTPClient.Timeout = timeout
+	}
+}
+
+func WithHTTPClient(client *http.Client) configOption {
+	return func(config *ClientConfig) {
+		config.HTTPClient = client
 	}
 }

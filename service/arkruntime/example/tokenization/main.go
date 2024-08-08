@@ -16,17 +16,17 @@ func main() {
 	)
 	ctx := context.Background()
 
-	fmt.Println("----- embeddings request -----")
-	req := model.EmbeddingRequestStrings{
-		Input: []string{
+	fmt.Println("----- tokenization request -----")
+	req := model.TokenizationRequestStrings{
+		Text: []string{
 			"花椰菜又称菜花、花菜，是一种常见的蔬菜。",
 		},
 		Model: "${YOUR_ENDPOINT_ID}",
 	}
 
-	resp, err := client.CreateEmbeddings(ctx, req)
+	resp, err := client.CreateTokenization(ctx, req)
 	if err != nil {
-		fmt.Printf("embeddings error: %v\n", err)
+		fmt.Printf("tokenization error: %v\n", err)
 		return
 	}
 
