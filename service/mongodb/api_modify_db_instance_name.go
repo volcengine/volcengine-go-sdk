@@ -149,7 +149,8 @@ type ModifyDBInstanceNameInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	InstanceNewName *string `max:"64" type:"string"`
+	// InstanceNewName is a required field
+	InstanceNewName *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -168,8 +169,8 @@ func (s *ModifyDBInstanceNameInput) Validate() error {
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}
-	if s.InstanceNewName != nil && len(*s.InstanceNewName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("InstanceNewName", 64, *s.InstanceNewName))
+	if s.InstanceNewName == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceNewName"))
 	}
 
 	if invalidParams.Len() > 0 {

@@ -16,8 +16,8 @@ const (
 	InitialRetryDelay = 0.5
 	MaxRetryDelay     = 8.0
 
-	GrpcErrorRetryBaseDelay = 10 * time.Millisecond
-	GrpcErrorRetryMaxDelay  = 500 * time.Millisecond
+	ErrorRetryBaseDelay = 500 * time.Millisecond
+	ErrorRetryMaxDelay  = 8 * time.Second
 )
 
 type Usage struct {

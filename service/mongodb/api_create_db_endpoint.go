@@ -228,14 +228,14 @@ func (s CreateDBEndpointOutput) GoString() string {
 }
 
 const (
-	// EnumOfNetworkTypeForCreateDBEndpointInputInnerPlb is a EnumOfNetworkTypeForCreateDBEndpointInput enum value
-	EnumOfNetworkTypeForCreateDBEndpointInputInnerPlb = "InnerPLB"
-
 	// EnumOfNetworkTypeForCreateDBEndpointInputPrivate is a EnumOfNetworkTypeForCreateDBEndpointInput enum value
 	EnumOfNetworkTypeForCreateDBEndpointInputPrivate = "Private"
 
 	// EnumOfNetworkTypeForCreateDBEndpointInputPublic is a EnumOfNetworkTypeForCreateDBEndpointInput enum value
 	EnumOfNetworkTypeForCreateDBEndpointInputPublic = "Public"
+
+	// EnumOfNetworkTypeForCreateDBEndpointInputInnerPlb is a EnumOfNetworkTypeForCreateDBEndpointInput enum value
+	EnumOfNetworkTypeForCreateDBEndpointInputInnerPlb = "InnerPLB"
 
 	// EnumOfNetworkTypeForCreateDBEndpointInputStorageInner is a EnumOfNetworkTypeForCreateDBEndpointInput enum value
 	EnumOfNetworkTypeForCreateDBEndpointInputStorageInner = "StorageInner"

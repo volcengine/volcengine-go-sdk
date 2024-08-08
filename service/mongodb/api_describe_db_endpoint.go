@@ -152,7 +152,7 @@ type DBAddressForDescribeDBEndpointOutput struct {
 
 	AddressPort *string `type:"string"`
 
-	AddressType *string `type:"string"`
+	AddressType *string `type:"string" enum:"EnumOfAddressTypeForDescribeDBEndpointOutput"`
 
 	EipId *string `type:"string"`
 
@@ -214,9 +214,9 @@ type DBEndpointForDescribeDBEndpointOutput struct {
 
 	EndpointStr *string `type:"string"`
 
-	EndpointType *string `type:"string"`
+	EndpointType *string `type:"string" enum:"EnumOfEndpointTypeForDescribeDBEndpointOutput"`
 
-	NetworkType *string `type:"string"`
+	NetworkType *string `type:"string" enum:"EnumOfNetworkTypeForDescribeDBEndpointOutput"`
 
 	ObjectId *string `type:"string"`
 
@@ -342,3 +342,45 @@ func (s *DescribeDBEndpointOutput) SetDBEndpoints(v []*DBEndpointForDescribeDBEn
 	s.DBEndpoints = v
 	return s
 }
+
+const (
+	// EnumOfAddressTypeForDescribeDBEndpointOutputPrimary is a EnumOfAddressTypeForDescribeDBEndpointOutput enum value
+	EnumOfAddressTypeForDescribeDBEndpointOutputPrimary = "Primary"
+
+	// EnumOfAddressTypeForDescribeDBEndpointOutputSecondary is a EnumOfAddressTypeForDescribeDBEndpointOutput enum value
+	EnumOfAddressTypeForDescribeDBEndpointOutputSecondary = "Secondary"
+
+	// EnumOfAddressTypeForDescribeDBEndpointOutputHidden is a EnumOfAddressTypeForDescribeDBEndpointOutput enum value
+	EnumOfAddressTypeForDescribeDBEndpointOutputHidden = "Hidden"
+
+	// EnumOfAddressTypeForDescribeDBEndpointOutputReadyOnly is a EnumOfAddressTypeForDescribeDBEndpointOutput enum value
+	EnumOfAddressTypeForDescribeDBEndpointOutputReadyOnly = "ReadyOnly"
+)
+
+const (
+	// EnumOfEndpointTypeForDescribeDBEndpointOutputReplicaSet is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
+	EnumOfEndpointTypeForDescribeDBEndpointOutputReplicaSet = "ReplicaSet"
+
+	// EnumOfEndpointTypeForDescribeDBEndpointOutputShard is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
+	EnumOfEndpointTypeForDescribeDBEndpointOutputShard = "Shard"
+
+	// EnumOfEndpointTypeForDescribeDBEndpointOutputConfigServer is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
+	EnumOfEndpointTypeForDescribeDBEndpointOutputConfigServer = "ConfigServer"
+
+	// EnumOfEndpointTypeForDescribeDBEndpointOutputMongos is a EnumOfEndpointTypeForDescribeDBEndpointOutput enum value
+	EnumOfEndpointTypeForDescribeDBEndpointOutputMongos = "Mongos"
+)
+
+const (
+	// EnumOfNetworkTypeForDescribeDBEndpointOutputPrivate is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
+	EnumOfNetworkTypeForDescribeDBEndpointOutputPrivate = "Private"
+
+	// EnumOfNetworkTypeForDescribeDBEndpointOutputPublic is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
+	EnumOfNetworkTypeForDescribeDBEndpointOutputPublic = "Public"
+
+	// EnumOfNetworkTypeForDescribeDBEndpointOutputInnerPlb is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
+	EnumOfNetworkTypeForDescribeDBEndpointOutputInnerPlb = "InnerPLB"
+
+	// EnumOfNetworkTypeForDescribeDBEndpointOutputStorageInner is a EnumOfNetworkTypeForDescribeDBEndpointOutput enum value
+	EnumOfNetworkTypeForDescribeDBEndpointOutputStorageInner = "StorageInner"
+)

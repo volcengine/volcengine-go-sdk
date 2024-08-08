@@ -143,6 +143,68 @@ func (c *MONGODB) DescribeNodeSpecsWithContext(ctx volcengine.Context, input *De
 	return out, req.Send()
 }
 
+type ConfigServerNodeSpecForDescribeNodeSpecsOutput struct {
+	_ struct{} `type:"structure"`
+
+	CpuNum *float64 `type:"double"`
+
+	MaxConn *int64 `type:"int64"`
+
+	MaxStorage *int64 `type:"int64"`
+
+	MemInGb *float64 `type:"double"`
+
+	MinStorage *int64 `type:"int64"`
+
+	SpecName *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ConfigServerNodeSpecForDescribeNodeSpecsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConfigServerNodeSpecForDescribeNodeSpecsOutput) GoString() string {
+	return s.String()
+}
+
+// SetCpuNum sets the CpuNum field's value.
+func (s *ConfigServerNodeSpecForDescribeNodeSpecsOutput) SetCpuNum(v float64) *ConfigServerNodeSpecForDescribeNodeSpecsOutput {
+	s.CpuNum = &v
+	return s
+}
+
+// SetMaxConn sets the MaxConn field's value.
+func (s *ConfigServerNodeSpecForDescribeNodeSpecsOutput) SetMaxConn(v int64) *ConfigServerNodeSpecForDescribeNodeSpecsOutput {
+	s.MaxConn = &v
+	return s
+}
+
+// SetMaxStorage sets the MaxStorage field's value.
+func (s *ConfigServerNodeSpecForDescribeNodeSpecsOutput) SetMaxStorage(v int64) *ConfigServerNodeSpecForDescribeNodeSpecsOutput {
+	s.MaxStorage = &v
+	return s
+}
+
+// SetMemInGb sets the MemInGb field's value.
+func (s *ConfigServerNodeSpecForDescribeNodeSpecsOutput) SetMemInGb(v float64) *ConfigServerNodeSpecForDescribeNodeSpecsOutput {
+	s.MemInGb = &v
+	return s
+}
+
+// SetMinStorage sets the MinStorage field's value.
+func (s *ConfigServerNodeSpecForDescribeNodeSpecsOutput) SetMinStorage(v int64) *ConfigServerNodeSpecForDescribeNodeSpecsOutput {
+	s.MinStorage = &v
+	return s
+}
+
+// SetSpecName sets the SpecName field's value.
+func (s *ConfigServerNodeSpecForDescribeNodeSpecsOutput) SetSpecName(v string) *ConfigServerNodeSpecForDescribeNodeSpecsOutput {
+	s.SpecName = &v
+	return s
+}
+
 type DescribeNodeSpecsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -170,6 +232,8 @@ type DescribeNodeSpecsOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	ConfigServerNodeSpecs []*ConfigServerNodeSpecForDescribeNodeSpecsOutput `type:"list"`
+
 	MongosNodeSpecs []*MongosNodeSpecForDescribeNodeSpecsOutput `type:"list"`
 
 	NodeSpecs []*NodeSpecForDescribeNodeSpecsOutput `type:"list"`
@@ -185,6 +249,12 @@ func (s DescribeNodeSpecsOutput) String() string {
 // GoString returns the string representation
 func (s DescribeNodeSpecsOutput) GoString() string {
 	return s.String()
+}
+
+// SetConfigServerNodeSpecs sets the ConfigServerNodeSpecs field's value.
+func (s *DescribeNodeSpecsOutput) SetConfigServerNodeSpecs(v []*ConfigServerNodeSpecForDescribeNodeSpecsOutput) *DescribeNodeSpecsOutput {
+	s.ConfigServerNodeSpecs = v
+	return s
 }
 
 // SetMongosNodeSpecs sets the MongosNodeSpecs field's value.
@@ -262,6 +332,8 @@ type NodeSpecForDescribeNodeSpecsOutput struct {
 
 	MemInGb *float64 `type:"double"`
 
+	MinStorage *int64 `type:"int64"`
+
 	SpecName *string `type:"string"`
 }
 
@@ -299,6 +371,12 @@ func (s *NodeSpecForDescribeNodeSpecsOutput) SetMemInGb(v float64) *NodeSpecForD
 	return s
 }
 
+// SetMinStorage sets the MinStorage field's value.
+func (s *NodeSpecForDescribeNodeSpecsOutput) SetMinStorage(v int64) *NodeSpecForDescribeNodeSpecsOutput {
+	s.MinStorage = &v
+	return s
+}
+
 // SetSpecName sets the SpecName field's value.
 func (s *NodeSpecForDescribeNodeSpecsOutput) SetSpecName(v string) *NodeSpecForDescribeNodeSpecsOutput {
 	s.SpecName = &v
@@ -315,6 +393,8 @@ type ShardNodeSpecForDescribeNodeSpecsOutput struct {
 	MaxStorage *int64 `type:"int64"`
 
 	MemInGb *float64 `type:"double"`
+
+	MinStorage *int64 `type:"int64"`
 
 	SpecName *string `type:"string"`
 }
@@ -350,6 +430,12 @@ func (s *ShardNodeSpecForDescribeNodeSpecsOutput) SetMaxStorage(v int64) *ShardN
 // SetMemInGb sets the MemInGb field's value.
 func (s *ShardNodeSpecForDescribeNodeSpecsOutput) SetMemInGb(v float64) *ShardNodeSpecForDescribeNodeSpecsOutput {
 	s.MemInGb = &v
+	return s
+}
+
+// SetMinStorage sets the MinStorage field's value.
+func (s *ShardNodeSpecForDescribeNodeSpecsOutput) SetMinStorage(v int64) *ShardNodeSpecForDescribeNodeSpecsOutput {
+	s.MinStorage = &v
 	return s
 }
 

@@ -184,7 +184,8 @@ func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetVPC(v string) *A
 type DescribeAllowListDetailInput struct {
 	_ struct{} `type:"structure"`
 
-	AllowListId *string `type:"string"`
+	// AllowListId is a required field
+	AllowListId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -195,6 +196,19 @@ func (s DescribeAllowListDetailInput) String() string {
 // GoString returns the string representation
 func (s DescribeAllowListDetailInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAllowListDetailInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAllowListDetailInput"}
+	if s.AllowListId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllowListId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAllowListId sets the AllowListId field's value.

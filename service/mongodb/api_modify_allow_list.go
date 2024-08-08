@@ -150,9 +150,11 @@ type ModifyAllowListInput struct {
 
 	AllowListDesc *string `type:"string"`
 
-	AllowListId *string `type:"string"`
+	// AllowListId is a required field
+	AllowListId *string `type:"string" required:"true"`
 
-	AllowListName *string `type:"string"`
+	// AllowListName is a required field
+	AllowListName *string `type:"string" required:"true"`
 
 	ApplyInstanceNum *int64 `type:"int64"`
 
@@ -167,6 +169,22 @@ func (s ModifyAllowListInput) String() string {
 // GoString returns the string representation
 func (s ModifyAllowListInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyAllowListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyAllowListInput"}
+	if s.AllowListId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllowListId"))
+	}
+	if s.AllowListName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllowListName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAllowList sets the AllowList field's value.
@@ -222,11 +240,11 @@ func (s ModifyAllowListOutput) GoString() string {
 }
 
 const (
-	// EnumOfModifyModeForModifyAllowListInputAppend is a EnumOfModifyModeForModifyAllowListInput enum value
-	EnumOfModifyModeForModifyAllowListInputAppend = "Append"
-
 	// EnumOfModifyModeForModifyAllowListInputCover is a EnumOfModifyModeForModifyAllowListInput enum value
 	EnumOfModifyModeForModifyAllowListInputCover = "Cover"
+
+	// EnumOfModifyModeForModifyAllowListInputAppend is a EnumOfModifyModeForModifyAllowListInput enum value
+	EnumOfModifyModeForModifyAllowListInputAppend = "Append"
 
 	// EnumOfModifyModeForModifyAllowListInputDelete is a EnumOfModifyModeForModifyAllowListInput enum value
 	EnumOfModifyModeForModifyAllowListInputDelete = "Delete"

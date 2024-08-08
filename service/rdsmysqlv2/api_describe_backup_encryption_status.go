@@ -183,6 +183,10 @@ type DescribeBackupEncryptionStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	DataEncryptionStatus *string `type:"string"`
+
+	LogEncryptionStatus *string `type:"string"`
 }
 
 // String returns the string representation
@@ -193,4 +197,16 @@ func (s DescribeBackupEncryptionStatusOutput) String() string {
 // GoString returns the string representation
 func (s DescribeBackupEncryptionStatusOutput) GoString() string {
 	return s.String()
+}
+
+// SetDataEncryptionStatus sets the DataEncryptionStatus field's value.
+func (s *DescribeBackupEncryptionStatusOutput) SetDataEncryptionStatus(v string) *DescribeBackupEncryptionStatusOutput {
+	s.DataEncryptionStatus = &v
+	return s
+}
+
+// SetLogEncryptionStatus sets the LogEncryptionStatus field's value.
+func (s *DescribeBackupEncryptionStatusOutput) SetLogEncryptionStatus(v string) *DescribeBackupEncryptionStatusOutput {
+	s.LogEncryptionStatus = &v
+	return s
 }

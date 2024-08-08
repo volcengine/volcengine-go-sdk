@@ -328,6 +328,8 @@ type PrefixListForDescribePrefixListsOutput struct {
 
 	PrefixListName *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
@@ -388,6 +390,12 @@ func (s *PrefixListForDescribePrefixListsOutput) SetPrefixListId(v string) *Pref
 // SetPrefixListName sets the PrefixListName field's value.
 func (s *PrefixListForDescribePrefixListsOutput) SetPrefixListName(v string) *PrefixListForDescribePrefixListsOutput {
 	s.PrefixListName = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *PrefixListForDescribePrefixListsOutput) SetProjectName(v string) *PrefixListForDescribePrefixListsOutput {
+	s.ProjectName = &v
 	return s
 }
 

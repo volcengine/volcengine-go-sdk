@@ -250,11 +250,8 @@ func (s *ParametersObjectForModifyDBInstanceParametersInput) SetParameterValue(v
 }
 
 const (
-	// EnumOfParameterRoleForModifyDBInstanceParametersInputConfigServer is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
-	EnumOfParameterRoleForModifyDBInstanceParametersInputConfigServer = "ConfigServer"
-
-	// EnumOfParameterRoleForModifyDBInstanceParametersInputMongos is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
-	EnumOfParameterRoleForModifyDBInstanceParametersInputMongos = "Mongos"
+	// EnumOfParameterRoleForModifyDBInstanceParametersInputUnknown is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
+	EnumOfParameterRoleForModifyDBInstanceParametersInputUnknown = "Unknown"
 
 	// EnumOfParameterRoleForModifyDBInstanceParametersInputNode is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
 	EnumOfParameterRoleForModifyDBInstanceParametersInputNode = "Node"
@@ -262,6 +259,9 @@ const (
 	// EnumOfParameterRoleForModifyDBInstanceParametersInputShard is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
 	EnumOfParameterRoleForModifyDBInstanceParametersInputShard = "Shard"
 
-	// EnumOfParameterRoleForModifyDBInstanceParametersInputUnknown is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
-	EnumOfParameterRoleForModifyDBInstanceParametersInputUnknown = "Unknown"
+	// EnumOfParameterRoleForModifyDBInstanceParametersInputConfigServer is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
+	EnumOfParameterRoleForModifyDBInstanceParametersInputConfigServer = "ConfigServer"
+
+	// EnumOfParameterRoleForModifyDBInstanceParametersInputMongos is a EnumOfParameterRoleForModifyDBInstanceParametersInput enum value
+	EnumOfParameterRoleForModifyDBInstanceParametersInputMongos = "Mongos"
 )

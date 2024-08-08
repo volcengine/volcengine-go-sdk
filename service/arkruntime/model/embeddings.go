@@ -20,10 +20,12 @@ type Embedding struct {
 
 // EmbeddingResponse is the response from a Create embeddings request.
 type EmbeddingResponse struct {
-	Object string      `json:"object"`
-	Data   []Embedding `json:"data"`
-	Model  string      `json:"model"`
-	Usage  Usage       `json:"usage"`
+	ID      string      `json:"id"`
+	Created int         `json:"created"`
+	Object  string      `json:"object"`
+	Data    []Embedding `json:"data"`
+	Model   string      `json:"model"`
+	Usage   Usage       `json:"usage"`
 
 	HttpHeader
 }

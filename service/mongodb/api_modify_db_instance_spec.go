@@ -149,7 +149,8 @@ type ModifyDBInstanceSpecInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForModifyDBInstanceSpecInput"`
+	// InstanceType is a required field
+	InstanceType *string `type:"string" required:"true" enum:"EnumOfInstanceTypeForModifyDBInstanceSpecInput"`
 
 	MongosNodeNumber *int32 `type:"int32"`
 
@@ -177,6 +178,9 @@ func (s *ModifyDBInstanceSpecInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceSpecInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.InstanceType == nil {
+		invalidParams.Add(request.NewErrParamRequired("InstanceType"))
 	}
 
 	if invalidParams.Len() > 0 {

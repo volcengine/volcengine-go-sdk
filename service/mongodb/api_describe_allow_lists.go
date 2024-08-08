@@ -210,7 +210,8 @@ type DescribeAllowListsInput struct {
 
 	InstanceId *string `type:"string"`
 
-	RegionId *string `type:"string"`
+	// RegionId is a required field
+	RegionId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -221,6 +222,19 @@ func (s DescribeAllowListsInput) String() string {
 // GoString returns the string representation
 func (s DescribeAllowListsInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeAllowListsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeAllowListsInput"}
+	if s.RegionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("RegionId"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

@@ -195,7 +195,7 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 	res, err := c.config.HTTPClient.Do(req)
 	if err != nil {
 		return &model.RequestError{
-			HTTPStatusCode: -1,
+			HTTPStatusCode: 500,
 			Err:            err,
 			RequestId:      requestId,
 		}
@@ -226,10 +226,9 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
-			MaxAttempts:       c.config.RetryTimes,
-			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
-			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
-			BackoffMultiplier: 1.2,
+			MaxAttempts:    c.config.RetryTimes,
+			InitialBackoff: model.ErrorRetryBaseDelay,
+			MaxBackoff:     model.ErrorRetryMaxDelay,
 		},
 		func() bool { return true },
 		func() error {
@@ -251,7 +250,7 @@ func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, 
 	resp, err := c.config.HTTPClient.Do(req) //nolint:bodyclose // body should be closed by outer function
 	if err != nil {
 		err = &model.RequestError{
-			HTTPStatusCode: -1,
+			HTTPStatusCode: 500,
 			Err:            err,
 			RequestId:      requestId,
 		}
@@ -278,7 +277,7 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
 		return &utils.ChatCompletionStreamReader{}, &model.RequestError{
-			HTTPStatusCode: -1,
+			HTTPStatusCode: 500,
 			Err:            err,
 			RequestId:      requestId,
 		}
@@ -306,7 +305,7 @@ func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*uti
 	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
 		return &utils.BotChatCompletionStreamReader{}, &model.RequestError{
-			HTTPStatusCode: -1,
+			HTTPStatusCode: 500,
 			Err:            err,
 			RequestId:      requestId,
 		}
@@ -330,10 +329,9 @@ func (c *Client) BotChatCompletionRequestStreamDo(ctx context.Context, method, u
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
-			MaxAttempts:       c.config.RetryTimes,
-			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
-			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
-			BackoffMultiplier: 1.2,
+			MaxAttempts:    c.config.RetryTimes,
+			InitialBackoff: model.ErrorRetryBaseDelay,
+			MaxBackoff:     model.ErrorRetryMaxDelay,
 		},
 		func() bool { return true },
 		func() error {
@@ -356,10 +354,9 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 	err = utils.Retry(
 		ctx,
 		utils.RetryPolicy{
-			MaxAttempts:       c.config.RetryTimes,
-			InitialBackoff:    model.GrpcErrorRetryBaseDelay,
-			MaxBackoff:        model.GrpcErrorRetryMaxDelay,
-			BackoffMultiplier: 1.2,
+			MaxAttempts:    c.config.RetryTimes,
+			InitialBackoff: model.ErrorRetryBaseDelay,
+			MaxBackoff:     model.ErrorRetryMaxDelay,
 		},
 		func() bool { return true },
 		func() error {
@@ -404,10 +401,13 @@ func isFailureStatusCode(resp *http.Response) bool {
 
 func needRetryError(err error) bool {
 	apiErr := &model.APIError{}
+	reqErr := &model.RequestError{}
 	if errors.As(err, &apiErr) {
-		return apiErr.HTTPStatusCode > http.StatusInternalServerError
+		return apiErr.HTTPStatusCode >= http.StatusInternalServerError || apiErr.HTTPStatusCode == http.StatusTooManyRequests
 	} else if errors.Is(err, io.EOF) {
 		return true
+	} else if errors.As(err, &reqErr) {
+		return reqErr.HTTPStatusCode >= http.StatusInternalServerError
 	}
 	return false
 }
