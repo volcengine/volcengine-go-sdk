@@ -156,7 +156,7 @@ type AclForDescribeAclsOutput struct {
 
 	ProjectName *string `type:"string"`
 
-	ServiceManaged *string `type:"string"`
+	ServiceManaged *bool `type:"boolean"`
 
 	Status *string `type:"string"`
 
@@ -218,7 +218,7 @@ func (s *AclForDescribeAclsOutput) SetProjectName(v string) *AclForDescribeAclsO
 }
 
 // SetServiceManaged sets the ServiceManaged field's value.
-func (s *AclForDescribeAclsOutput) SetServiceManaged(v string) *AclForDescribeAclsOutput {
+func (s *AclForDescribeAclsOutput) SetServiceManaged(v bool) *AclForDescribeAclsOutput {
 	s.ServiceManaged = &v
 	return s
 }
