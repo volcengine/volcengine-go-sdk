@@ -195,6 +195,10 @@ type DescribeBackupDecryptionKeyOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	DecryptionKey *string `type:"string"`
+
+	Iv *string `type:"string"`
 }
 
 // String returns the string representation
@@ -205,4 +209,16 @@ func (s DescribeBackupDecryptionKeyOutput) String() string {
 // GoString returns the string representation
 func (s DescribeBackupDecryptionKeyOutput) GoString() string {
 	return s.String()
+}
+
+// SetDecryptionKey sets the DecryptionKey field's value.
+func (s *DescribeBackupDecryptionKeyOutput) SetDecryptionKey(v string) *DescribeBackupDecryptionKeyOutput {
+	s.DecryptionKey = &v
+	return s
+}
+
+// SetIv sets the Iv field's value.
+func (s *DescribeBackupDecryptionKeyOutput) SetIv(v string) *DescribeBackupDecryptionKeyOutput {
+	s.Iv = &v
+	return s
 }
