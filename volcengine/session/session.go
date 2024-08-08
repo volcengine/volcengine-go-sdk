@@ -130,10 +130,6 @@ func NewSession(cfgs ...*volcengine.Config) (*Session, error) {
 	opts := Options{}
 	opts.Config.MergeIn(cfgs...)
 
-	if opts.Config.Endpoint == nil {
-		opts.Config.Endpoint = volcengine.String(volcengineutil.NewEndpoint().GetEndpoint())
-	}
-
 	//merge config region and endpoint info to sts
 	if opts.Config.Credentials == nil {
 		return NewSessionWithOptions(opts)
@@ -555,6 +551,11 @@ func (s *Session) clientConfigWithErr(serviceName string, cfgs ...*volcengine.Co
 	var err error
 
 	region := volcengine.StringValue(s.Config.Region)
+
+	if s.Config.Endpoint == nil {
+		endpoint := volcengineutil.GetDefaultEndpointByServiceInfo(serviceName, region)
+		s.Config.Endpoint = endpoint
+	}
 
 	if endpoint := volcengine.StringValue(s.Config.Endpoint); len(endpoint) != 0 {
 		resolved.URL = endpoints.AddScheme(endpoint, volcengine.BoolValue(s.Config.DisableSSL))
