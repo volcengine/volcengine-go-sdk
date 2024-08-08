@@ -146,11 +146,13 @@ func (c *MONGODB) CreateAllowListWithContext(ctx volcengine.Context, input *Crea
 type CreateAllowListInput struct {
 	_ struct{} `type:"structure"`
 
-	AllowList *string `type:"string"`
+	// AllowList is a required field
+	AllowList *string `type:"string" required:"true"`
 
 	AllowListDesc *string `type:"string"`
 
-	AllowListName *string `type:"string"`
+	// AllowListName is a required field
+	AllowListName *string `type:"string" required:"true"`
 
 	AllowListType *string `type:"string"`
 }
@@ -163,6 +165,22 @@ func (s CreateAllowListInput) String() string {
 // GoString returns the string representation
 func (s CreateAllowListInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateAllowListInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateAllowListInput"}
+	if s.AllowList == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllowList"))
+	}
+	if s.AllowListName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllowListName"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAllowList sets the AllowList field's value.

@@ -146,9 +146,11 @@ func (c *MONGODB) ResetDBAccountWithContext(ctx volcengine.Context, input *Reset
 type ResetDBAccountInput struct {
 	_ struct{} `type:"structure"`
 
-	AccountName *string `type:"string"`
+	// AccountName is a required field
+	AccountName *string `type:"string" required:"true"`
 
-	AccountPassword *string `type:"string"`
+	// AccountPassword is a required field
+	AccountPassword *string `type:"string" required:"true"`
 
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
@@ -167,6 +169,12 @@ func (s ResetDBAccountInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ResetDBAccountInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ResetDBAccountInput"}
+	if s.AccountName == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountName"))
+	}
+	if s.AccountPassword == nil {
+		invalidParams.Add(request.NewErrParamRequired("AccountPassword"))
+	}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
 	}

@@ -149,7 +149,8 @@ type ModifyDBInstanceSSLInput struct {
 	// InstanceId is a required field
 	InstanceId *string `type:"string" required:"true"`
 
-	SSLAction *string `type:"string" enum:"EnumOfSSLActionForModifyDBInstanceSSLInput"`
+	// SSLAction is a required field
+	SSLAction *string `type:"string" required:"true" enum:"EnumOfSSLActionForModifyDBInstanceSSLInput"`
 }
 
 // String returns the string representation
@@ -167,6 +168,9 @@ func (s *ModifyDBInstanceSSLInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceSSLInput"}
 	if s.InstanceId == nil {
 		invalidParams.Add(request.NewErrParamRequired("InstanceId"))
+	}
+	if s.SSLAction == nil {
+		invalidParams.Add(request.NewErrParamRequired("SSLAction"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -204,11 +208,11 @@ func (s ModifyDBInstanceSSLOutput) GoString() string {
 }
 
 const (
-	// EnumOfSSLActionForModifyDBInstanceSSLInputClose is a EnumOfSSLActionForModifyDBInstanceSSLInput enum value
-	EnumOfSSLActionForModifyDBInstanceSSLInputClose = "Close"
-
 	// EnumOfSSLActionForModifyDBInstanceSSLInputOpen is a EnumOfSSLActionForModifyDBInstanceSSLInput enum value
 	EnumOfSSLActionForModifyDBInstanceSSLInputOpen = "Open"
+
+	// EnumOfSSLActionForModifyDBInstanceSSLInputClose is a EnumOfSSLActionForModifyDBInstanceSSLInput enum value
+	EnumOfSSLActionForModifyDBInstanceSSLInputClose = "Close"
 
 	// EnumOfSSLActionForModifyDBInstanceSSLInputUpdate is a EnumOfSSLActionForModifyDBInstanceSSLInput enum value
 	EnumOfSSLActionForModifyDBInstanceSSLInputUpdate = "Update"

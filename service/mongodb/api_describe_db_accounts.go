@@ -150,7 +150,7 @@ type AccountForDescribeDBAccountsOutput struct {
 
 	AccountPrivileges []*AccountPrivilegeForDescribeDBAccountsOutput `type:"list"`
 
-	AccountType *string `type:"string"`
+	AccountType *string `type:"string" enum:"EnumOfAccountTypeForDescribeDBAccountsOutput"`
 }
 
 // String returns the string representation
@@ -302,3 +302,8 @@ func (s *DescribeDBAccountsOutput) SetTotal(v int32) *DescribeDBAccountsOutput {
 	s.Total = &v
 	return s
 }
+
+const (
+	// EnumOfAccountTypeForDescribeDBAccountsOutputSuper is a EnumOfAccountTypeForDescribeDBAccountsOutput enum value
+	EnumOfAccountTypeForDescribeDBAccountsOutputSuper = "Super"
+)

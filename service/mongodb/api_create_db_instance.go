@@ -146,6 +146,8 @@ func (c *MONGODB) CreateDBInstanceWithContext(ctx volcengine.Context, input *Cre
 type CreateDBInstanceInput struct {
 	_ struct{} `type:"structure"`
 
+	AllowListIds []*string `type:"list"`
+
 	AutoRenew *bool `type:"boolean"`
 
 	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForCreateDBInstanceInput"`
@@ -156,7 +158,7 @@ type CreateDBInstanceInput struct {
 
 	DBEngineVersion *string `type:"string" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
 
-	InstanceName *string `max:"64" type:"string"`
+	InstanceName *string `type:"string"`
 
 	InstanceType *string `type:"string" enum:"EnumOfInstanceTypeForCreateDBInstanceInput"`
 
@@ -166,7 +168,8 @@ type CreateDBInstanceInput struct {
 
 	NodeNumber *int32 `type:"int32"`
 
-	NodeSpec *string `type:"string"`
+	// NodeSpec is a required field
+	NodeSpec *string `type:"string" required:"true"`
 
 	Period *int32 `type:"int32"`
 
@@ -176,9 +179,11 @@ type CreateDBInstanceInput struct {
 
 	ShardNumber *int32 `type:"int32"`
 
-	StorageSpaceGB *int32 `type:"int32"`
+	// StorageSpaceGB is a required field
+	StorageSpaceGB *int32 `type:"int32" required:"true"`
 
-	SubnetId *string `type:"string"`
+	// SubnetId is a required field
+	SubnetId *string `type:"string" required:"true"`
 
 	SuperAccountName *string `type:"string"`
 
@@ -186,9 +191,11 @@ type CreateDBInstanceInput struct {
 
 	Tags []*TagForCreateDBInstanceInput `type:"list"`
 
-	VpcId *string `type:"string"`
+	// VpcId is a required field
+	VpcId *string `type:"string" required:"true"`
 
-	ZoneId *string `type:"string"`
+	// ZoneId is a required field
+	ZoneId *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -204,14 +211,32 @@ func (s CreateDBInstanceInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *CreateDBInstanceInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "CreateDBInstanceInput"}
-	if s.InstanceName != nil && len(*s.InstanceName) > 64 {
-		invalidParams.Add(request.NewErrParamMaxLen("InstanceName", 64, *s.InstanceName))
+	if s.NodeSpec == nil {
+		invalidParams.Add(request.NewErrParamRequired("NodeSpec"))
+	}
+	if s.StorageSpaceGB == nil {
+		invalidParams.Add(request.NewErrParamRequired("StorageSpaceGB"))
+	}
+	if s.SubnetId == nil {
+		invalidParams.Add(request.NewErrParamRequired("SubnetId"))
+	}
+	if s.VpcId == nil {
+		invalidParams.Add(request.NewErrParamRequired("VpcId"))
+	}
+	if s.ZoneId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ZoneId"))
 	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetAllowListIds sets the AllowListIds field's value.
+func (s *CreateDBInstanceInput) SetAllowListIds(v []*string) *CreateDBInstanceInput {
+	s.AllowListIds = v
+	return s
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -428,8 +453,17 @@ const (
 	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb40 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb40 = "MongoDB_4_0"
 
+	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb42 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
+	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb42 = "MongoDB_4_2"
+
+	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb44 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
+	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb44 = "MongoDB_4_4"
+
 	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb50 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb50 = "MongoDB_5_0"
+
+	// EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb60 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
+	EnumOfDBEngineVersionForCreateDBInstanceInputMongoDb60 = "MongoDB_6_0"
 )
 
 const (
@@ -441,9 +475,9 @@ const (
 )
 
 const (
-	// EnumOfPeriodUnitForCreateDBInstanceInputMonth is a EnumOfPeriodUnitForCreateDBInstanceInput enum value
-	EnumOfPeriodUnitForCreateDBInstanceInputMonth = "Month"
-
 	// EnumOfPeriodUnitForCreateDBInstanceInputYear is a EnumOfPeriodUnitForCreateDBInstanceInput enum value
 	EnumOfPeriodUnitForCreateDBInstanceInputYear = "Year"
+
+	// EnumOfPeriodUnitForCreateDBInstanceInputMonth is a EnumOfPeriodUnitForCreateDBInstanceInput enum value
+	EnumOfPeriodUnitForCreateDBInstanceInputMonth = "Month"
 )

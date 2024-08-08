@@ -148,13 +148,16 @@ type ModifyDBInstanceChargeTypeInput struct {
 
 	AutoRenew *bool `type:"boolean"`
 
-	ChargeType *string `type:"string" enum:"EnumOfChargeTypeForModifyDBInstanceChargeTypeInput"`
+	// ChargeType is a required field
+	ChargeType *string `type:"string" required:"true" enum:"EnumOfChargeTypeForModifyDBInstanceChargeTypeInput"`
 
 	InstanceIds []*string `type:"list"`
 
-	Period *int32 `type:"int32"`
+	// Period is a required field
+	Period *int32 `type:"int32" required:"true"`
 
-	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput"`
+	// PeriodUnit is a required field
+	PeriodUnit *string `type:"string" required:"true" enum:"EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput"`
 }
 
 // String returns the string representation
@@ -165,6 +168,25 @@ func (s ModifyDBInstanceChargeTypeInput) String() string {
 // GoString returns the string representation
 func (s ModifyDBInstanceChargeTypeInput) GoString() string {
 	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ModifyDBInstanceChargeTypeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ModifyDBInstanceChargeTypeInput"}
+	if s.ChargeType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ChargeType"))
+	}
+	if s.Period == nil {
+		invalidParams.Add(request.NewErrParamRequired("Period"))
+	}
+	if s.PeriodUnit == nil {
+		invalidParams.Add(request.NewErrParamRequired("PeriodUnit"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
 }
 
 // SetAutoRenew sets the AutoRenew field's value.
@@ -241,9 +263,9 @@ const (
 )
 
 const (
-	// EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputMonth is a EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput enum value
-	EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputMonth = "Month"
-
 	// EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputYear is a EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput enum value
 	EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputYear = "Year"
+
+	// EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputMonth is a EnumOfPeriodUnitForModifyDBInstanceChargeTypeInput enum value
+	EnumOfPeriodUnitForModifyDBInstanceChargeTypeInputMonth = "Month"
 )
