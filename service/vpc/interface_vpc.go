@@ -134,6 +134,14 @@ type VPCAPI interface {
 	CancelBandwidthPackageEipBandwidthWithContext(volcengine.Context, *CancelBandwidthPackageEipBandwidthInput, ...request.Option) (*CancelBandwidthPackageEipBandwidthOutput, error)
 	CancelBandwidthPackageEipBandwidthRequest(*CancelBandwidthPackageEipBandwidthInput) (*request.Request, *CancelBandwidthPackageEipBandwidthOutput)
 
+	ConvertEipAddressBillingTypeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ConvertEipAddressBillingTypeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ConvertEipAddressBillingTypeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ConvertEipAddressBillingType(*ConvertEipAddressBillingTypeInput) (*ConvertEipAddressBillingTypeOutput, error)
+	ConvertEipAddressBillingTypeWithContext(volcengine.Context, *ConvertEipAddressBillingTypeInput, ...request.Option) (*ConvertEipAddressBillingTypeOutput, error)
+	ConvertEipAddressBillingTypeRequest(*ConvertEipAddressBillingTypeInput) (*request.Request, *ConvertEipAddressBillingTypeOutput)
+
 	CreateBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateBandwidthPackageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
