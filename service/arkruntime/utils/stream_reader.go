@@ -62,7 +62,7 @@ func (stream *ChatCompletionStreamReader) processLines() (model.ChatCompletionSt
 		if readErr != nil || hasErrorPrefix {
 			respErr := stream.unmarshalError()
 			if respErr != nil {
-				return model.ChatCompletionStreamResponse{}, fmt.Errorf("error, %w", respErr.Error)
+				return model.ChatCompletionStreamResponse{}, respErr.Error
 			}
 			return model.ChatCompletionStreamResponse{}, readErr
 		}
