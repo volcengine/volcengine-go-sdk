@@ -22,13 +22,13 @@ const opDescribeTosRestoreTaskDetailCommon = "DescribeTosRestoreTaskDetail"
 // See DescribeTosRestoreTaskDetailCommon for more information on using the DescribeTosRestoreTaskDetailCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTosRestoreTaskDetailCommonRequest method.
-//	req, resp := client.DescribeTosRestoreTaskDetailCommonRequest(params)
+//    // Example sending a request using the DescribeTosRestoreTaskDetailCommonRequest method.
+//    req, resp := client.DescribeTosRestoreTaskDetailCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeTosRestoreTaskDetailCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTosRestoreTaskDetailCommon,
@@ -89,13 +89,13 @@ const opDescribeTosRestoreTaskDetail = "DescribeTosRestoreTaskDetail"
 // See DescribeTosRestoreTaskDetail for more information on using the DescribeTosRestoreTaskDetail
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTosRestoreTaskDetailRequest method.
-//	req, resp := client.DescribeTosRestoreTaskDetailRequest(params)
+//    // Example sending a request using the DescribeTosRestoreTaskDetailRequest method.
+//    req, resp := client.DescribeTosRestoreTaskDetailRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeTosRestoreTaskDetailRequest(input *DescribeTosRestoreTaskDetailInput) (req *request.Request, output *DescribeTosRestoreTaskDetailOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTosRestoreTaskDetail,
@@ -146,11 +146,9 @@ func (c *RDSMSSQL) DescribeTosRestoreTaskDetailWithContext(ctx volcengine.Contex
 type DescribeTosRestoreTaskDetailInput struct {
 	_ struct{} `type:"structure"`
 
-	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32"`
 
-	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32"`
 
 	// RestoreTaskId is a required field
 	RestoreTaskId *string `type:"string" required:"true"`
@@ -169,12 +167,6 @@ func (s DescribeTosRestoreTaskDetailInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *DescribeTosRestoreTaskDetailInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "DescribeTosRestoreTaskDetailInput"}
-	if s.PageNumber == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
-	}
-	if s.PageSize == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageSize"))
-	}
 	if s.RestoreTaskId == nil {
 		invalidParams.Add(request.NewErrParamRequired("RestoreTaskId"))
 	}

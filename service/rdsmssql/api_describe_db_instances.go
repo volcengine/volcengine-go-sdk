@@ -22,13 +22,13 @@ const opDescribeDBInstancesCommon = "DescribeDBInstances"
 // See DescribeDBInstancesCommon for more information on using the DescribeDBInstancesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstancesCommonRequest method.
-//	req, resp := client.DescribeDBInstancesCommonRequest(params)
+//    // Example sending a request using the DescribeDBInstancesCommonRequest method.
+//    req, resp := client.DescribeDBInstancesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeDBInstancesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstancesCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstances = "DescribeDBInstances"
 // See DescribeDBInstances for more information on using the DescribeDBInstances
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstancesRequest method.
-//	req, resp := client.DescribeDBInstancesRequest(params)
+//    // Example sending a request using the DescribeDBInstancesRequest method.
+//    req, resp := client.DescribeDBInstancesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeDBInstancesRequest(input *DescribeDBInstancesInput) (req *request.Request, output *DescribeDBInstancesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstances,
@@ -240,6 +240,8 @@ type DescribeDBInstancesInput struct {
 
 	DBEngineVersion *string `type:"string"`
 
+	InstanceCategory *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
@@ -251,6 +253,8 @@ type DescribeDBInstancesInput struct {
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
+
+	PrimaryInstanceId *string `type:"string"`
 
 	TagFilters []*TagFilterForDescribeDBInstancesInput `type:"list"`
 
@@ -291,6 +295,12 @@ func (s *DescribeDBInstancesInput) SetDBEngineVersion(v string) *DescribeDBInsta
 	return s
 }
 
+// SetInstanceCategory sets the InstanceCategory field's value.
+func (s *DescribeDBInstancesInput) SetInstanceCategory(v string) *DescribeDBInstancesInput {
+	s.InstanceCategory = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *DescribeDBInstancesInput) SetInstanceId(v string) *DescribeDBInstancesInput {
 	s.InstanceId = &v
@@ -324,6 +334,12 @@ func (s *DescribeDBInstancesInput) SetPageNumber(v int32) *DescribeDBInstancesIn
 // SetPageSize sets the PageSize field's value.
 func (s *DescribeDBInstancesInput) SetPageSize(v int32) *DescribeDBInstancesInput {
 	s.PageSize = &v
+	return s
+}
+
+// SetPrimaryInstanceId sets the PrimaryInstanceId field's value.
+func (s *DescribeDBInstancesInput) SetPrimaryInstanceId(v string) *DescribeDBInstancesInput {
+	s.PrimaryInstanceId = &v
 	return s
 }
 
@@ -380,6 +396,8 @@ type InstancesInfoForDescribeDBInstancesOutput struct {
 
 	DBEngineVersion *string `type:"string"`
 
+	InstanceCategory *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	InstanceName *string `type:"string"`
@@ -394,7 +412,11 @@ type InstancesInfoForDescribeDBInstancesOutput struct {
 
 	Port *string `type:"string"`
 
+	PrimaryInstanceId *string `type:"string"`
+
 	ProjectName *string `type:"string"`
+
+	ReadOnlyNumber *int32 `type:"int32"`
 
 	RegionId *string `type:"string"`
 
@@ -441,6 +463,12 @@ func (s *InstancesInfoForDescribeDBInstancesOutput) SetDBEngineVersion(v string)
 	return s
 }
 
+// SetInstanceCategory sets the InstanceCategory field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceCategory(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.InstanceCategory = &v
+	return s
+}
+
 // SetInstanceId sets the InstanceId field's value.
 func (s *InstancesInfoForDescribeDBInstancesOutput) SetInstanceId(v string) *InstancesInfoForDescribeDBInstancesOutput {
 	s.InstanceId = &v
@@ -483,9 +511,21 @@ func (s *InstancesInfoForDescribeDBInstancesOutput) SetPort(v string) *Instances
 	return s
 }
 
+// SetPrimaryInstanceId sets the PrimaryInstanceId field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetPrimaryInstanceId(v string) *InstancesInfoForDescribeDBInstancesOutput {
+	s.PrimaryInstanceId = &v
+	return s
+}
+
 // SetProjectName sets the ProjectName field's value.
 func (s *InstancesInfoForDescribeDBInstancesOutput) SetProjectName(v string) *InstancesInfoForDescribeDBInstancesOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetReadOnlyNumber sets the ReadOnlyNumber field's value.
+func (s *InstancesInfoForDescribeDBInstancesOutput) SetReadOnlyNumber(v int32) *InstancesInfoForDescribeDBInstancesOutput {
+	s.ReadOnlyNumber = &v
 	return s
 }
 

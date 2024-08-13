@@ -22,13 +22,13 @@ const opCreateTosRestoreCommon = "CreateTosRestore"
 // See CreateTosRestoreCommon for more information on using the CreateTosRestoreCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateTosRestoreCommonRequest method.
-//	req, resp := client.CreateTosRestoreCommonRequest(params)
+//    // Example sending a request using the CreateTosRestoreCommonRequest method.
+//    req, resp := client.CreateTosRestoreCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) CreateTosRestoreCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateTosRestoreCommon,
@@ -89,13 +89,13 @@ const opCreateTosRestore = "CreateTosRestore"
 // See CreateTosRestore for more information on using the CreateTosRestore
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateTosRestoreRequest method.
-//	req, resp := client.CreateTosRestoreRequest(params)
+//    // Example sending a request using the CreateTosRestoreRequest method.
+//    req, resp := client.CreateTosRestoreRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) CreateTosRestoreRequest(input *CreateTosRestoreInput) (req *request.Request, output *CreateTosRestoreOutput) {
 	op := &request.Operation{
 		Name:       opCreateTosRestore,

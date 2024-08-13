@@ -22,13 +22,13 @@ const opDescribeDBInstanceDetailCommon = "DescribeDBInstanceDetail"
 // See DescribeDBInstanceDetailCommon for more information on using the DescribeDBInstanceDetailCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceDetailCommonRequest method.
-//	req, resp := client.DescribeDBInstanceDetailCommonRequest(params)
+//    // Example sending a request using the DescribeDBInstanceDetailCommonRequest method.
+//    req, resp := client.DescribeDBInstanceDetailCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeDBInstanceDetailCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceDetailCommon,
@@ -89,13 +89,13 @@ const opDescribeDBInstanceDetail = "DescribeDBInstanceDetail"
 // See DescribeDBInstanceDetail for more information on using the DescribeDBInstanceDetail
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeDBInstanceDetailRequest method.
-//	req, resp := client.DescribeDBInstanceDetailRequest(params)
+//    // Example sending a request using the DescribeDBInstanceDetailRequest method.
+//    req, resp := client.DescribeDBInstanceDetailRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeDBInstanceDetailRequest(input *DescribeDBInstanceDetailInput) (req *request.Request, output *DescribeDBInstanceDetailOutput) {
 	op := &request.Operation{
 		Name:       opDescribeDBInstanceDetail,

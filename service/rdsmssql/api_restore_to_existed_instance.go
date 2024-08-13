@@ -22,13 +22,13 @@ const opRestoreToExistedInstanceCommon = "RestoreToExistedInstance"
 // See RestoreToExistedInstanceCommon for more information on using the RestoreToExistedInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreToExistedInstanceCommonRequest method.
-//	req, resp := client.RestoreToExistedInstanceCommonRequest(params)
+//    // Example sending a request using the RestoreToExistedInstanceCommonRequest method.
+//    req, resp := client.RestoreToExistedInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) RestoreToExistedInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opRestoreToExistedInstanceCommon,
@@ -89,13 +89,13 @@ const opRestoreToExistedInstance = "RestoreToExistedInstance"
 // See RestoreToExistedInstance for more information on using the RestoreToExistedInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the RestoreToExistedInstanceRequest method.
-//	req, resp := client.RestoreToExistedInstanceRequest(params)
+//    // Example sending a request using the RestoreToExistedInstanceRequest method.
+//    req, resp := client.RestoreToExistedInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) RestoreToExistedInstanceRequest(input *RestoreToExistedInstanceInput) (req *request.Request, output *RestoreToExistedInstanceOutput) {
 	op := &request.Operation{
 		Name:       opRestoreToExistedInstance,
