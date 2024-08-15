@@ -222,6 +222,8 @@ type DescribeDBInstanceDetailOutput struct {
 
 	CreateTime *string `type:"string"`
 
+	DataLayout *string `type:"string"`
+
 	DeletionProtection *string `type:"string"`
 
 	EngineVersion *string `type:"string"`
@@ -235,6 +237,8 @@ type DescribeDBInstanceDetailOutput struct {
 	InstanceName *string `type:"string"`
 
 	MaintenanceTime *string `type:"string"`
+
+	MaxConnections *int32 `type:"int32"`
 
 	MultiAZ *string `type:"string"`
 
@@ -301,6 +305,12 @@ func (s *DescribeDBInstanceDetailOutput) SetCreateTime(v string) *DescribeDBInst
 	return s
 }
 
+// SetDataLayout sets the DataLayout field's value.
+func (s *DescribeDBInstanceDetailOutput) SetDataLayout(v string) *DescribeDBInstanceDetailOutput {
+	s.DataLayout = &v
+	return s
+}
+
 // SetDeletionProtection sets the DeletionProtection field's value.
 func (s *DescribeDBInstanceDetailOutput) SetDeletionProtection(v string) *DescribeDBInstanceDetailOutput {
 	s.DeletionProtection = &v
@@ -340,6 +350,12 @@ func (s *DescribeDBInstanceDetailOutput) SetInstanceName(v string) *DescribeDBIn
 // SetMaintenanceTime sets the MaintenanceTime field's value.
 func (s *DescribeDBInstanceDetailOutput) SetMaintenanceTime(v string) *DescribeDBInstanceDetailOutput {
 	s.MaintenanceTime = &v
+	return s
+}
+
+// SetMaxConnections sets the MaxConnections field's value.
+func (s *DescribeDBInstanceDetailOutput) SetMaxConnections(v int32) *DescribeDBInstanceDetailOutput {
+	s.MaxConnections = &v
 	return s
 }
 

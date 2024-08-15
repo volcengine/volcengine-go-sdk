@@ -366,6 +366,14 @@ type REDISAPI interface {
 	ModifyDBInstanceDeletionProtectionPolicyWithContext(volcengine.Context, *ModifyDBInstanceDeletionProtectionPolicyInput, ...request.Option) (*ModifyDBInstanceDeletionProtectionPolicyOutput, error)
 	ModifyDBInstanceDeletionProtectionPolicyRequest(*ModifyDBInstanceDeletionProtectionPolicyInput) (*request.Request, *ModifyDBInstanceDeletionProtectionPolicyOutput)
 
+	ModifyDBInstanceMaxConnCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyDBInstanceMaxConnCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyDBInstanceMaxConnCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyDBInstanceMaxConn(*ModifyDBInstanceMaxConnInput) (*ModifyDBInstanceMaxConnOutput, error)
+	ModifyDBInstanceMaxConnWithContext(volcengine.Context, *ModifyDBInstanceMaxConnInput, ...request.Option) (*ModifyDBInstanceMaxConnOutput, error)
+	ModifyDBInstanceMaxConnRequest(*ModifyDBInstanceMaxConnInput) (*request.Request, *ModifyDBInstanceMaxConnOutput)
+
 	ModifyDBInstanceNameCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBInstanceNameCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyDBInstanceNameCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

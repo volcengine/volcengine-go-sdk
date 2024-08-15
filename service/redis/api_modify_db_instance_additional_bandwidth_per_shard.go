@@ -203,6 +203,8 @@ type ModifyDBInstanceAdditionalBandwidthPerShardOutput struct {
 	_ struct{} `type:"structure"`
 
 	Metadata *response.ResponseMetadata
+
+	OrderNO *string `type:"string"`
 }
 
 // String returns the string representation
@@ -213,4 +215,10 @@ func (s ModifyDBInstanceAdditionalBandwidthPerShardOutput) String() string {
 // GoString returns the string representation
 func (s ModifyDBInstanceAdditionalBandwidthPerShardOutput) GoString() string {
 	return s.String()
+}
+
+// SetOrderNO sets the OrderNO field's value.
+func (s *ModifyDBInstanceAdditionalBandwidthPerShardOutput) SetOrderNO(v string) *ModifyDBInstanceAdditionalBandwidthPerShardOutput {
+	s.OrderNO = &v
+	return s
 }
