@@ -38,6 +38,14 @@ type BILLINGAPI interface {
 	CancelInvitationWithContext(volcengine.Context, *CancelInvitationInput, ...request.Option) (*CancelInvitationOutput, error)
 	CancelInvitationRequest(*CancelInvitationInput) (*request.Request, *CancelInvitationOutput)
 
+	CancelOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelOrder(*CancelOrderInput) (*CancelOrderOutput, error)
+	CancelOrderWithContext(volcengine.Context, *CancelOrderInput, ...request.Option) (*CancelOrderOutput, error)
+	CancelOrderRequest(*CancelOrderInput) (*request.Request, *CancelOrderOutput)
+
 	CreateFinancialRelationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateFinancialRelationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateFinancialRelationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -53,6 +61,14 @@ type BILLINGAPI interface {
 	DeleteFinancialRelation(*DeleteFinancialRelationInput) (*DeleteFinancialRelationOutput, error)
 	DeleteFinancialRelationWithContext(volcengine.Context, *DeleteFinancialRelationInput, ...request.Option) (*DeleteFinancialRelationOutput, error)
 	DeleteFinancialRelationRequest(*DeleteFinancialRelationInput) (*request.Request, *DeleteFinancialRelationOutput)
+
+	GetOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetOrder(*GetOrderInput) (*GetOrderOutput, error)
+	GetOrderWithContext(volcengine.Context, *GetOrderInput, ...request.Option) (*GetOrderOutput, error)
+	GetOrderRequest(*GetOrderInput) (*request.Request, *GetOrderOutput)
 
 	HandleInvitationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	HandleInvitationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -85,6 +101,14 @@ type BILLINGAPI interface {
 	ListAmortizedCostBillMonthly(*ListAmortizedCostBillMonthlyInput) (*ListAmortizedCostBillMonthlyOutput, error)
 	ListAmortizedCostBillMonthlyWithContext(volcengine.Context, *ListAmortizedCostBillMonthlyInput, ...request.Option) (*ListAmortizedCostBillMonthlyOutput, error)
 	ListAmortizedCostBillMonthlyRequest(*ListAmortizedCostBillMonthlyInput) (*request.Request, *ListAmortizedCostBillMonthlyOutput)
+
+	ListAvailableInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListAvailableInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListAvailableInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListAvailableInstances(*ListAvailableInstancesInput) (*ListAvailableInstancesOutput, error)
+	ListAvailableInstancesWithContext(volcengine.Context, *ListAvailableInstancesInput, ...request.Option) (*ListAvailableInstancesOutput, error)
+	ListAvailableInstancesRequest(*ListAvailableInstancesInput) (*request.Request, *ListAvailableInstancesOutput)
 
 	ListBillCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListBillCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -134,6 +158,22 @@ type BILLINGAPI interface {
 	ListInvitationWithContext(volcengine.Context, *ListInvitationInput, ...request.Option) (*ListInvitationOutput, error)
 	ListInvitationRequest(*ListInvitationInput) (*request.Request, *ListInvitationOutput)
 
+	ListOrderProductDetailsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListOrderProductDetailsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListOrderProductDetailsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListOrderProductDetails(*ListOrderProductDetailsInput) (*ListOrderProductDetailsOutput, error)
+	ListOrderProductDetailsWithContext(volcengine.Context, *ListOrderProductDetailsInput, ...request.Option) (*ListOrderProductDetailsOutput, error)
+	ListOrderProductDetailsRequest(*ListOrderProductDetailsInput) (*request.Request, *ListOrderProductDetailsOutput)
+
+	ListOrdersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListOrdersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListOrdersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListOrders(*ListOrdersInput) (*ListOrdersOutput, error)
+	ListOrdersWithContext(volcengine.Context, *ListOrdersInput, ...request.Option) (*ListOrdersOutput, error)
+	ListOrdersRequest(*ListOrdersInput) (*request.Request, *ListOrdersOutput)
+
 	ListSplitBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSplitBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSplitBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -141,6 +181,14 @@ type BILLINGAPI interface {
 	ListSplitBillDetail(*ListSplitBillDetailInput) (*ListSplitBillDetailOutput, error)
 	ListSplitBillDetailWithContext(volcengine.Context, *ListSplitBillDetailInput, ...request.Option) (*ListSplitBillDetailOutput, error)
 	ListSplitBillDetailRequest(*ListSplitBillDetailInput) (*request.Request, *ListSplitBillDetailOutput)
+
+	PayOrderCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PayOrderCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PayOrderCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PayOrder(*PayOrderInput) (*PayOrderOutput, error)
+	PayOrderWithContext(volcengine.Context, *PayOrderInput, ...request.Option) (*PayOrderOutput, error)
+	PayOrderRequest(*PayOrderInput) (*request.Request, *PayOrderOutput)
 
 	QueryBalanceAcctCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	QueryBalanceAcctCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

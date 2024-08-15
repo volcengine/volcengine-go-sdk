@@ -222,6 +222,8 @@ type DescribeEnterpriseDBInstanceDetailOutput struct {
 
 	CreateTime *string `type:"string"`
 
+	DataLayout *string `type:"string"`
+
 	DeletionProtection *string `type:"string"`
 
 	EngineVersion *string `type:"string"`
@@ -294,6 +296,12 @@ func (s *DescribeEnterpriseDBInstanceDetailOutput) SetChargeType(v string) *Desc
 // SetCreateTime sets the CreateTime field's value.
 func (s *DescribeEnterpriseDBInstanceDetailOutput) SetCreateTime(v string) *DescribeEnterpriseDBInstanceDetailOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetDataLayout sets the DataLayout field's value.
+func (s *DescribeEnterpriseDBInstanceDetailOutput) SetDataLayout(v string) *DescribeEnterpriseDBInstanceDetailOutput {
+	s.DataLayout = &v
 	return s
 }
 
@@ -452,6 +460,8 @@ type VisitAddrForDescribeEnterpriseDBInstanceDetailOutput struct {
 
 	AddrType *string `type:"string"`
 
+	EipId *string `type:"string"`
+
 	IPAddress *string `type:"string"`
 
 	Port *string `type:"string"`
@@ -472,6 +482,12 @@ func (s VisitAddrForDescribeEnterpriseDBInstanceDetailOutput) GoString() string 
 // SetAddrType sets the AddrType field's value.
 func (s *VisitAddrForDescribeEnterpriseDBInstanceDetailOutput) SetAddrType(v string) *VisitAddrForDescribeEnterpriseDBInstanceDetailOutput {
 	s.AddrType = &v
+	return s
+}
+
+// SetEipId sets the EipId field's value.
+func (s *VisitAddrForDescribeEnterpriseDBInstanceDetailOutput) SetEipId(v string) *VisitAddrForDescribeEnterpriseDBInstanceDetailOutput {
+	s.EipId = &v
 	return s
 }
 

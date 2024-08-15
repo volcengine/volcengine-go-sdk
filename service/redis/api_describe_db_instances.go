@@ -178,6 +178,8 @@ type DescribeDBInstancesInput struct {
 
 	ChargeType *string `type:"string"`
 
+	DataLayout *string `type:"string"`
+
 	EngineVersion *string `type:"string"`
 
 	InstanceId *string `type:"string"`
@@ -240,6 +242,12 @@ func (s *DescribeDBInstancesInput) Validate() error {
 // SetChargeType sets the ChargeType field's value.
 func (s *DescribeDBInstancesInput) SetChargeType(v string) *DescribeDBInstancesInput {
 	s.ChargeType = &v
+	return s
+}
+
+// SetDataLayout sets the DataLayout field's value.
+func (s *DescribeDBInstancesInput) SetDataLayout(v string) *DescribeDBInstancesInput {
+	s.DataLayout = &v
 	return s
 }
 
@@ -362,6 +370,8 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	CreateTime *string `type:"string"`
 
+	DataLayout *string `type:"string"`
+
 	DeletionProtection *string `type:"string"`
 
 	EngineVersion *string `type:"string"`
@@ -424,6 +434,12 @@ func (s *InstanceForDescribeDBInstancesOutput) SetChargeType(v string) *Instance
 // SetCreateTime sets the CreateTime field's value.
 func (s *InstanceForDescribeDBInstancesOutput) SetCreateTime(v string) *InstanceForDescribeDBInstancesOutput {
 	s.CreateTime = &v
+	return s
+}
+
+// SetDataLayout sets the DataLayout field's value.
+func (s *InstanceForDescribeDBInstancesOutput) SetDataLayout(v string) *InstanceForDescribeDBInstancesOutput {
+	s.DataLayout = &v
 	return s
 }
 
