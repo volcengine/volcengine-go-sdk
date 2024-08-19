@@ -236,7 +236,7 @@ func (s *ListProjectsOutput) SetTotal(v int32) *ListProjectsOutput {
 type ProjectForListProjectsOutput struct {
 	_ struct{} `type:"structure"`
 
-	AccountID *string `type:"string"`
+	AccountID *int64 `type:"int64"`
 
 	CreateDate *string `type:"string"`
 
@@ -268,7 +268,7 @@ func (s ProjectForListProjectsOutput) GoString() string {
 }
 
 // SetAccountID sets the AccountID field's value.
-func (s *ProjectForListProjectsOutput) SetAccountID(v string) *ProjectForListProjectsOutput {
+func (s *ProjectForListProjectsOutput) SetAccountID(v int64) *ProjectForListProjectsOutput {
 	s.AccountID = &v
 	return s
 }
