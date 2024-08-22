@@ -38,6 +38,22 @@ type VEDBMAPI interface {
 	AddTagsToResourceWithContext(volcengine.Context, *AddTagsToResourceInput, ...request.Option) (*AddTagsToResourceOutput, error)
 	AddTagsToResourceRequest(*AddTagsToResourceInput) (*request.Request, *AddTagsToResourceOutput)
 
+	AssociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateAllowList(*AssociateAllowListInput) (*AssociateAllowListOutput, error)
+	AssociateAllowListWithContext(volcengine.Context, *AssociateAllowListInput, ...request.Option) (*AssociateAllowListOutput, error)
+	AssociateAllowListRequest(*AssociateAllowListInput) (*request.Request, *AssociateAllowListOutput)
+
+	CreateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateAllowList(*CreateAllowListInput) (*CreateAllowListOutput, error)
+	CreateAllowListWithContext(volcengine.Context, *CreateAllowListInput, ...request.Option) (*CreateAllowListOutput, error)
+	CreateAllowListRequest(*CreateAllowListInput) (*request.Request, *CreateAllowListOutput)
+
 	CreateDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateDBAccountCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -77,6 +93,14 @@ type VEDBMAPI interface {
 	CreateDatabase(*CreateDatabaseInput) (*CreateDatabaseOutput, error)
 	CreateDatabaseWithContext(volcengine.Context, *CreateDatabaseInput, ...request.Option) (*CreateDatabaseOutput, error)
 	CreateDatabaseRequest(*CreateDatabaseInput) (*request.Request, *CreateDatabaseOutput)
+
+	DeleteAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteAllowList(*DeleteAllowListInput) (*DeleteAllowListOutput, error)
+	DeleteAllowListWithContext(volcengine.Context, *DeleteAllowListInput, ...request.Option) (*DeleteAllowListOutput, error)
+	DeleteAllowListRequest(*DeleteAllowListInput) (*request.Request, *DeleteAllowListOutput)
 
 	DeleteDBAccountCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteDBAccountCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -118,6 +142,22 @@ type VEDBMAPI interface {
 	DeleteDatabaseWithContext(volcengine.Context, *DeleteDatabaseInput, ...request.Option) (*DeleteDatabaseOutput, error)
 	DeleteDatabaseRequest(*DeleteDatabaseInput) (*request.Request, *DeleteDatabaseOutput)
 
+	DescribeAllowListDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowListDetail(*DescribeAllowListDetailInput) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailWithContext(volcengine.Context, *DescribeAllowListDetailInput, ...request.Option) (*DescribeAllowListDetailOutput, error)
+	DescribeAllowListDetailRequest(*DescribeAllowListDetailInput) (*request.Request, *DescribeAllowListDetailOutput)
+
+	DescribeAllowListsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeAllowListsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeAllowListsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeAllowLists(*DescribeAllowListsInput) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsWithContext(volcengine.Context, *DescribeAllowListsInput, ...request.Option) (*DescribeAllowListsOutput, error)
+	DescribeAllowListsRequest(*DescribeAllowListsInput) (*request.Request, *DescribeAllowListsOutput)
+
 	DescribeDBAccountsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBAccountsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBAccountsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -158,6 +198,14 @@ type VEDBMAPI interface {
 	DescribeDatabasesWithContext(volcengine.Context, *DescribeDatabasesInput, ...request.Option) (*DescribeDatabasesOutput, error)
 	DescribeDatabasesRequest(*DescribeDatabasesInput) (*request.Request, *DescribeDatabasesOutput)
 
+	DisassociateAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DisassociateAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DisassociateAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DisassociateAllowList(*DisassociateAllowListInput) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListWithContext(volcengine.Context, *DisassociateAllowListInput, ...request.Option) (*DisassociateAllowListOutput, error)
+	DisassociateAllowListRequest(*DisassociateAllowListInput) (*request.Request, *DisassociateAllowListOutput)
+
 	GrantDBAccountPrivilegeCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	GrantDBAccountPrivilegeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	GrantDBAccountPrivilegeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -165,6 +213,14 @@ type VEDBMAPI interface {
 	GrantDBAccountPrivilege(*GrantDBAccountPrivilegeInput) (*GrantDBAccountPrivilegeOutput, error)
 	GrantDBAccountPrivilegeWithContext(volcengine.Context, *GrantDBAccountPrivilegeInput, ...request.Option) (*GrantDBAccountPrivilegeOutput, error)
 	GrantDBAccountPrivilegeRequest(*GrantDBAccountPrivilegeInput) (*request.Request, *GrantDBAccountPrivilegeOutput)
+
+	ModifyAllowListCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyAllowListCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyAllowListCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyAllowList(*ModifyAllowListInput) (*ModifyAllowListOutput, error)
+	ModifyAllowListWithContext(volcengine.Context, *ModifyAllowListInput, ...request.Option) (*ModifyAllowListOutput, error)
+	ModifyAllowListRequest(*ModifyAllowListInput) (*request.Request, *ModifyAllowListOutput)
 
 	ModifyDBEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

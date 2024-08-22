@@ -307,9 +307,9 @@ const (
 )
 
 const (
-	// EnumOfReadWriteModeForModifyDBEndpointInputReadWrite is a EnumOfReadWriteModeForModifyDBEndpointInput enum value
-	EnumOfReadWriteModeForModifyDBEndpointInputReadWrite = "ReadWrite"
-
 	// EnumOfReadWriteModeForModifyDBEndpointInputReadOnly is a EnumOfReadWriteModeForModifyDBEndpointInput enum value
 	EnumOfReadWriteModeForModifyDBEndpointInputReadOnly = "ReadOnly"
+
+	// EnumOfReadWriteModeForModifyDBEndpointInputReadWrite is a EnumOfReadWriteModeForModifyDBEndpointInput enum value
+	EnumOfReadWriteModeForModifyDBEndpointInputReadWrite = "ReadWrite"
 )

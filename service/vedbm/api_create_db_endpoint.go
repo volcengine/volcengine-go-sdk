@@ -324,9 +324,9 @@ const (
 )
 
 const (
-	// EnumOfReadWriteModeForCreateDBEndpointInputReadWrite is a EnumOfReadWriteModeForCreateDBEndpointInput enum value
-	EnumOfReadWriteModeForCreateDBEndpointInputReadWrite = "ReadWrite"
-
 	// EnumOfReadWriteModeForCreateDBEndpointInputReadOnly is a EnumOfReadWriteModeForCreateDBEndpointInput enum value
 	EnumOfReadWriteModeForCreateDBEndpointInputReadOnly = "ReadOnly"
+
+	// EnumOfReadWriteModeForCreateDBEndpointInputReadWrite is a EnumOfReadWriteModeForCreateDBEndpointInput enum value
+	EnumOfReadWriteModeForCreateDBEndpointInputReadWrite = "ReadWrite"
 )

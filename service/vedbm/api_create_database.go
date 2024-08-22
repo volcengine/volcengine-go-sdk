@@ -229,6 +229,8 @@ type DatabasesPrivilegeForCreateDatabaseInput struct {
 	AccountName *string `type:"string"`
 
 	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForCreateDatabaseInput"`
+
+	AccountPrivilegeDetail *string `type:"string"`
 }
 
 // String returns the string representation
@@ -253,6 +255,12 @@ func (s *DatabasesPrivilegeForCreateDatabaseInput) SetAccountPrivilege(v string)
 	return s
 }
 
+// SetAccountPrivilegeDetail sets the AccountPrivilegeDetail field's value.
+func (s *DatabasesPrivilegeForCreateDatabaseInput) SetAccountPrivilegeDetail(v string) *DatabasesPrivilegeForCreateDatabaseInput {
+	s.AccountPrivilegeDetail = &v
+	return s
+}
+
 const (
 	// EnumOfAccountPrivilegeForCreateDatabaseInputReadWrite is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
 	EnumOfAccountPrivilegeForCreateDatabaseInputReadWrite = "ReadWrite"
@@ -265,6 +273,9 @@ const (
 
 	// EnumOfAccountPrivilegeForCreateDatabaseInputDmlonly is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
 	EnumOfAccountPrivilegeForCreateDatabaseInputDmlonly = "DMLOnly"
+
+	// EnumOfAccountPrivilegeForCreateDatabaseInputCustom is a EnumOfAccountPrivilegeForCreateDatabaseInput enum value
+	EnumOfAccountPrivilegeForCreateDatabaseInputCustom = "Custom"
 )
 
 const (
