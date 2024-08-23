@@ -180,6 +180,8 @@ type DeleteVpcEndpointOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	PreOrderNumbers []*string `type:"list"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -191,6 +193,12 @@ func (s DeleteVpcEndpointOutput) String() string {
 // GoString returns the string representation
 func (s DeleteVpcEndpointOutput) GoString() string {
 	return s.String()
+}
+
+// SetPreOrderNumbers sets the PreOrderNumbers field's value.
+func (s *DeleteVpcEndpointOutput) SetPreOrderNumbers(v []*string) *DeleteVpcEndpointOutput {
+	s.PreOrderNumbers = v
+	return s
 }
 
 // SetRequestId sets the RequestId field's value.

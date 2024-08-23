@@ -348,6 +348,8 @@ type ZoneForDescribeVpcEndpointConnectionsOutput struct {
 
 	NetworkInterfaceId *string `type:"string"`
 
+	NetworkInterfaceIpv6 *string `type:"string"`
+
 	ResourceId *string `type:"string"`
 
 	ServiceStatus *string `type:"string"`
@@ -380,6 +382,12 @@ func (s *ZoneForDescribeVpcEndpointConnectionsOutput) SetNetworkInterfaceIP(v st
 // SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
 func (s *ZoneForDescribeVpcEndpointConnectionsOutput) SetNetworkInterfaceId(v string) *ZoneForDescribeVpcEndpointConnectionsOutput {
 	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNetworkInterfaceIpv6 sets the NetworkInterfaceIpv6 field's value.
+func (s *ZoneForDescribeVpcEndpointConnectionsOutput) SetNetworkInterfaceIpv6(v string) *ZoneForDescribeVpcEndpointConnectionsOutput {
+	s.NetworkInterfaceIpv6 = &v
 	return s
 }
 

@@ -196,9 +196,17 @@ type DescribeVpcEndpointAttributesOutput struct {
 
 	EndpointId *string `type:"string"`
 
+	EndpointIndex *int32 `type:"int32"`
+
 	EndpointName *string `type:"string"`
 
 	EndpointType *string `type:"string"`
+
+	IpAddressVersions []*string `type:"list"`
+
+	IpAddressVersionsN []*string `type:"list" json:"IpAddressVersions.N"`
+
+	Payer *string `type:"string"`
 
 	PrivateDNSEnabled *bool `type:"boolean"`
 
@@ -279,6 +287,12 @@ func (s *DescribeVpcEndpointAttributesOutput) SetEndpointId(v string) *DescribeV
 	return s
 }
 
+// SetEndpointIndex sets the EndpointIndex field's value.
+func (s *DescribeVpcEndpointAttributesOutput) SetEndpointIndex(v int32) *DescribeVpcEndpointAttributesOutput {
+	s.EndpointIndex = &v
+	return s
+}
+
 // SetEndpointName sets the EndpointName field's value.
 func (s *DescribeVpcEndpointAttributesOutput) SetEndpointName(v string) *DescribeVpcEndpointAttributesOutput {
 	s.EndpointName = &v
@@ -288,6 +302,24 @@ func (s *DescribeVpcEndpointAttributesOutput) SetEndpointName(v string) *Describ
 // SetEndpointType sets the EndpointType field's value.
 func (s *DescribeVpcEndpointAttributesOutput) SetEndpointType(v string) *DescribeVpcEndpointAttributesOutput {
 	s.EndpointType = &v
+	return s
+}
+
+// SetIpAddressVersions sets the IpAddressVersions field's value.
+func (s *DescribeVpcEndpointAttributesOutput) SetIpAddressVersions(v []*string) *DescribeVpcEndpointAttributesOutput {
+	s.IpAddressVersions = v
+	return s
+}
+
+// SetIpAddressVersionsN sets the IpAddressVersionsN field's value.
+func (s *DescribeVpcEndpointAttributesOutput) SetIpAddressVersionsN(v []*string) *DescribeVpcEndpointAttributesOutput {
+	s.IpAddressVersionsN = v
+	return s
+}
+
+// SetPayer sets the Payer field's value.
+func (s *DescribeVpcEndpointAttributesOutput) SetPayer(v string) *DescribeVpcEndpointAttributesOutput {
+	s.Payer = &v
 	return s
 }
 
@@ -368,9 +400,15 @@ type EndpointForDescribeVpcEndpointAttributesOutput struct {
 
 	EndpointId *string `type:"string"`
 
+	EndpointIndex *int32 `type:"int32"`
+
 	EndpointName *string `type:"string"`
 
 	EndpointType *string `type:"string"`
+
+	IpAddressVersions []*string `type:"list"`
+
+	Payer *string `type:"string"`
 
 	PrivateDNSEnabled *bool `type:"boolean"`
 
@@ -443,6 +481,12 @@ func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetEndpointId(v string)
 	return s
 }
 
+// SetEndpointIndex sets the EndpointIndex field's value.
+func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetEndpointIndex(v int32) *EndpointForDescribeVpcEndpointAttributesOutput {
+	s.EndpointIndex = &v
+	return s
+}
+
 // SetEndpointName sets the EndpointName field's value.
 func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetEndpointName(v string) *EndpointForDescribeVpcEndpointAttributesOutput {
 	s.EndpointName = &v
@@ -452,6 +496,18 @@ func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetEndpointName(v strin
 // SetEndpointType sets the EndpointType field's value.
 func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetEndpointType(v string) *EndpointForDescribeVpcEndpointAttributesOutput {
 	s.EndpointType = &v
+	return s
+}
+
+// SetIpAddressVersions sets the IpAddressVersions field's value.
+func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetIpAddressVersions(v []*string) *EndpointForDescribeVpcEndpointAttributesOutput {
+	s.IpAddressVersions = v
+	return s
+}
+
+// SetPayer sets the Payer field's value.
+func (s *EndpointForDescribeVpcEndpointAttributesOutput) SetPayer(v string) *EndpointForDescribeVpcEndpointAttributesOutput {
+	s.Payer = &v
 	return s
 }
 

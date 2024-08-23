@@ -147,6 +147,8 @@ type AddZoneToVpcEndpointInput struct {
 
 	PrivateIpAddress *string `type:"string"`
 
+	PrivateIpv6Address *string `type:"string"`
+
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
 
@@ -192,6 +194,12 @@ func (s *AddZoneToVpcEndpointInput) SetEndpointId(v string) *AddZoneToVpcEndpoin
 // SetPrivateIpAddress sets the PrivateIpAddress field's value.
 func (s *AddZoneToVpcEndpointInput) SetPrivateIpAddress(v string) *AddZoneToVpcEndpointInput {
 	s.PrivateIpAddress = &v
+	return s
+}
+
+// SetPrivateIpv6Address sets the PrivateIpv6Address field's value.
+func (s *AddZoneToVpcEndpointInput) SetPrivateIpv6Address(v string) *AddZoneToVpcEndpointInput {
+	s.PrivateIpv6Address = &v
 	return s
 }
 

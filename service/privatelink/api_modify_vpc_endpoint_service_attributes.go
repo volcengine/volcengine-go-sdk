@@ -146,9 +146,13 @@ type ModifyVpcEndpointServiceAttributesInput struct {
 
 	Description *string `type:"string"`
 
+	IpAddressVersions []*string `type:"list"`
+
 	PrivateDNSEnabled *string `type:"string"`
 
 	PrivateDNSName *string `type:"string"`
+
+	PrivateDNSType *string `type:"string"`
 
 	// ServiceId is a required field
 	ServiceId *string `type:"string" required:"true"`
@@ -189,6 +193,12 @@ func (s *ModifyVpcEndpointServiceAttributesInput) SetDescription(v string) *Modi
 	return s
 }
 
+// SetIpAddressVersions sets the IpAddressVersions field's value.
+func (s *ModifyVpcEndpointServiceAttributesInput) SetIpAddressVersions(v []*string) *ModifyVpcEndpointServiceAttributesInput {
+	s.IpAddressVersions = v
+	return s
+}
+
 // SetPrivateDNSEnabled sets the PrivateDNSEnabled field's value.
 func (s *ModifyVpcEndpointServiceAttributesInput) SetPrivateDNSEnabled(v string) *ModifyVpcEndpointServiceAttributesInput {
 	s.PrivateDNSEnabled = &v
@@ -198,6 +208,12 @@ func (s *ModifyVpcEndpointServiceAttributesInput) SetPrivateDNSEnabled(v string)
 // SetPrivateDNSName sets the PrivateDNSName field's value.
 func (s *ModifyVpcEndpointServiceAttributesInput) SetPrivateDNSName(v string) *ModifyVpcEndpointServiceAttributesInput {
 	s.PrivateDNSName = &v
+	return s
+}
+
+// SetPrivateDNSType sets the PrivateDNSType field's value.
+func (s *ModifyVpcEndpointServiceAttributesInput) SetPrivateDNSType(v string) *ModifyVpcEndpointServiceAttributesInput {
+	s.PrivateDNSType = &v
 	return s
 }
 
