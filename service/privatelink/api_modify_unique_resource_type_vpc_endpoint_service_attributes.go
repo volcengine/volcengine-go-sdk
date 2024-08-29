@@ -146,6 +146,8 @@ type ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput struct {
 
 	Description *string `type:"string"`
 
+	IpAddressVersions []*string `type:"list"`
+
 	Resource *ResourceForModifyUniqueResourceTypeVpcEndpointServiceAttributesInput `type:"structure"`
 
 	// ServiceId is a required field
@@ -188,6 +190,12 @@ func (s *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput) SetAutoAccep
 // SetDescription sets the Description field's value.
 func (s *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput) SetDescription(v string) *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput {
 	s.Description = &v
+	return s
+}
+
+// SetIpAddressVersions sets the IpAddressVersions field's value.
+func (s *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput) SetIpAddressVersions(v []*string) *ModifyUniqueResourceTypeVpcEndpointServiceAttributesInput {
+	s.IpAddressVersions = v
 	return s
 }
 

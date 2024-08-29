@@ -148,6 +148,8 @@ type CreateVpcEndpointInput struct {
 
 	EndpointName *string `type:"string"`
 
+	IpAddressVersions []*string `type:"list"`
+
 	PrivateDNSEnabled *string `type:"string"`
 
 	ProjectName *string `type:"string"`
@@ -215,6 +217,12 @@ func (s *CreateVpcEndpointInput) SetEndpointName(v string) *CreateVpcEndpointInp
 	return s
 }
 
+// SetIpAddressVersions sets the IpAddressVersions field's value.
+func (s *CreateVpcEndpointInput) SetIpAddressVersions(v []*string) *CreateVpcEndpointInput {
+	s.IpAddressVersions = v
+	return s
+}
+
 // SetPrivateDNSEnabled sets the PrivateDNSEnabled field's value.
 func (s *CreateVpcEndpointInput) SetPrivateDNSEnabled(v string) *CreateVpcEndpointInput {
 	s.PrivateDNSEnabled = &v
@@ -270,6 +278,8 @@ type CreateVpcEndpointOutput struct {
 
 	EndpointId *string `type:"string"`
 
+	PreOrderNumbers []*string `type:"list"`
+
 	RequestId *string `type:"string"`
 }
 
@@ -286,6 +296,12 @@ func (s CreateVpcEndpointOutput) GoString() string {
 // SetEndpointId sets the EndpointId field's value.
 func (s *CreateVpcEndpointOutput) SetEndpointId(v string) *CreateVpcEndpointOutput {
 	s.EndpointId = &v
+	return s
+}
+
+// SetPreOrderNumbers sets the PreOrderNumbers field's value.
+func (s *CreateVpcEndpointOutput) SetPreOrderNumbers(v []*string) *CreateVpcEndpointOutput {
+	s.PreOrderNumbers = v
 	return s
 }
 
@@ -330,6 +346,8 @@ type ZoneForCreateVpcEndpointInput struct {
 
 	PrivateIpAddress *string `type:"string"`
 
+	PrivateIpv6Address *string `type:"string"`
+
 	SubnetId *string `type:"string"`
 
 	ZoneId *string `type:"string"`
@@ -348,6 +366,12 @@ func (s ZoneForCreateVpcEndpointInput) GoString() string {
 // SetPrivateIpAddress sets the PrivateIpAddress field's value.
 func (s *ZoneForCreateVpcEndpointInput) SetPrivateIpAddress(v string) *ZoneForCreateVpcEndpointInput {
 	s.PrivateIpAddress = &v
+	return s
+}
+
+// SetPrivateIpv6Address sets the PrivateIpv6Address field's value.
+func (s *ZoneForCreateVpcEndpointInput) SetPrivateIpv6Address(v string) *ZoneForCreateVpcEndpointInput {
+	s.PrivateIpv6Address = &v
 	return s
 }
 

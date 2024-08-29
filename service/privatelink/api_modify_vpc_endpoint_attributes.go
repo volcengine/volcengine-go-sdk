@@ -149,6 +149,8 @@ type ModifyVpcEndpointAttributesInput struct {
 
 	EndpointName *string `type:"string"`
 
+	IpAddressVersions []*string `type:"list"`
+
 	PrivateDNSEnabled *bool `type:"boolean"`
 }
 
@@ -190,6 +192,12 @@ func (s *ModifyVpcEndpointAttributesInput) SetEndpointId(v string) *ModifyVpcEnd
 // SetEndpointName sets the EndpointName field's value.
 func (s *ModifyVpcEndpointAttributesInput) SetEndpointName(v string) *ModifyVpcEndpointAttributesInput {
 	s.EndpointName = &v
+	return s
+}
+
+// SetIpAddressVersions sets the IpAddressVersions field's value.
+func (s *ModifyVpcEndpointAttributesInput) SetIpAddressVersions(v []*string) *ModifyVpcEndpointAttributesInput {
+	s.IpAddressVersions = v
 	return s
 }
 

@@ -144,6 +144,10 @@ type DescribeVpcEndpointSecurityGroupsInput struct {
 
 	// EndpointId is a required field
 	EndpointId *string `type:"string" required:"true"`
+
+	PageNumber *string `type:"string"`
+
+	PageSize *string `type:"string"`
 }
 
 // String returns the string representation
@@ -172,6 +176,18 @@ func (s *DescribeVpcEndpointSecurityGroupsInput) Validate() error {
 // SetEndpointId sets the EndpointId field's value.
 func (s *DescribeVpcEndpointSecurityGroupsInput) SetEndpointId(v string) *DescribeVpcEndpointSecurityGroupsInput {
 	s.EndpointId = &v
+	return s
+}
+
+// SetPageNumber sets the PageNumber field's value.
+func (s *DescribeVpcEndpointSecurityGroupsInput) SetPageNumber(v string) *DescribeVpcEndpointSecurityGroupsInput {
+	s.PageNumber = &v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *DescribeVpcEndpointSecurityGroupsInput) SetPageSize(v string) *DescribeVpcEndpointSecurityGroupsInput {
+	s.PageSize = &v
 	return s
 }
 

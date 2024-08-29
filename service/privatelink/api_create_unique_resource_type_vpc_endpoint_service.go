@@ -148,6 +148,8 @@ type CreateUniqueResourceTypeVpcEndpointServiceInput struct {
 
 	Description *string `type:"string"`
 
+	IpAddressVersions []*string `type:"list"`
+
 	ProjectName *string `type:"string"`
 
 	// Resource is a required field
@@ -207,6 +209,12 @@ func (s *CreateUniqueResourceTypeVpcEndpointServiceInput) SetClientToken(v strin
 // SetDescription sets the Description field's value.
 func (s *CreateUniqueResourceTypeVpcEndpointServiceInput) SetDescription(v string) *CreateUniqueResourceTypeVpcEndpointServiceInput {
 	s.Description = &v
+	return s
+}
+
+// SetIpAddressVersions sets the IpAddressVersions field's value.
+func (s *CreateUniqueResourceTypeVpcEndpointServiceInput) SetIpAddressVersions(v []*string) *CreateUniqueResourceTypeVpcEndpointServiceInput {
+	s.IpAddressVersions = v
 	return s
 }
 

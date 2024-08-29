@@ -154,6 +154,8 @@ type CreateDBInstanceInput struct {
 	// DBEngineVersion is a required field
 	DBEngineVersion *string `type:"string" required:"true" enum:"EnumOfDBEngineVersionForCreateDBInstanceInput"`
 
+	DBMinorVersion *string `type:"string" enum:"EnumOfDBMinorVersionForCreateDBInstanceInput"`
+
 	DBTimeZone *string `type:"string"`
 
 	InstanceName *string `type:"string"`
@@ -171,6 +173,8 @@ type CreateDBInstanceInput struct {
 	Period *int32 `type:"int32"`
 
 	PeriodUnit *string `type:"string" enum:"EnumOfPeriodUnitForCreateDBInstanceInput"`
+
+	Port *int32 `type:"int32"`
 
 	PrePaidStorageInGB *int32 `type:"int32"`
 
@@ -253,6 +257,12 @@ func (s *CreateDBInstanceInput) SetDBEngineVersion(v string) *CreateDBInstanceIn
 	return s
 }
 
+// SetDBMinorVersion sets the DBMinorVersion field's value.
+func (s *CreateDBInstanceInput) SetDBMinorVersion(v string) *CreateDBInstanceInput {
+	s.DBMinorVersion = &v
+	return s
+}
+
 // SetDBTimeZone sets the DBTimeZone field's value.
 func (s *CreateDBInstanceInput) SetDBTimeZone(v string) *CreateDBInstanceInput {
 	s.DBTimeZone = &v
@@ -298,6 +308,12 @@ func (s *CreateDBInstanceInput) SetPeriod(v int32) *CreateDBInstanceInput {
 // SetPeriodUnit sets the PeriodUnit field's value.
 func (s *CreateDBInstanceInput) SetPeriodUnit(v string) *CreateDBInstanceInput {
 	s.PeriodUnit = &v
+	return s
+}
+
+// SetPort sets the Port field's value.
+func (s *CreateDBInstanceInput) SetPort(v int32) *CreateDBInstanceInput {
+	s.Port = &v
 	return s
 }
 
@@ -428,6 +444,17 @@ const (
 const (
 	// EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 is a EnumOfDBEngineVersionForCreateDBInstanceInput enum value
 	EnumOfDBEngineVersionForCreateDBInstanceInputMySql80 = "MySQL_8_0"
+)
+
+const (
+	// EnumOfDBMinorVersionForCreateDBInstanceInput30 is a EnumOfDBMinorVersionForCreateDBInstanceInput enum value
+	EnumOfDBMinorVersionForCreateDBInstanceInput30 = "3.0"
+
+	// EnumOfDBMinorVersionForCreateDBInstanceInput31 is a EnumOfDBMinorVersionForCreateDBInstanceInput enum value
+	EnumOfDBMinorVersionForCreateDBInstanceInput31 = "3.1"
+
+	// EnumOfDBMinorVersionForCreateDBInstanceInput32 is a EnumOfDBMinorVersionForCreateDBInstanceInput enum value
+	EnumOfDBMinorVersionForCreateDBInstanceInput32 = "3.2"
 )
 
 const (

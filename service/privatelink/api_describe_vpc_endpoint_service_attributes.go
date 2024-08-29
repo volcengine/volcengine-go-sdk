@@ -182,15 +182,25 @@ type DescribeVpcEndpointServiceAttributesOutput struct {
 
 	AutoAcceptEnabled *bool `type:"boolean"`
 
+	BillingType *int32 `type:"int32"`
+
+	BusinessStatus *string `type:"string"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	IpAddressVersions []*string `type:"list"`
+
+	Payer *string `type:"string"`
 
 	PrivateDNSEnabled *bool `type:"boolean"`
 
 	PrivateDNSName *string `type:"string"`
 
 	PrivateDNSNameConfiguration *PrivateDNSNameConfigurationForDescribeVpcEndpointServiceAttributesOutput `type:"structure"`
+
+	PrivateDNSType *string `type:"string"`
 
 	ProjectName *string `type:"string"`
 
@@ -201,6 +211,8 @@ type DescribeVpcEndpointServiceAttributesOutput struct {
 	ServiceId *string `type:"string"`
 
 	ServiceName *string `type:"string"`
+
+	ServiceOwner *string `type:"string"`
 
 	ServiceResourceType *string `type:"string"`
 
@@ -215,6 +227,8 @@ type DescribeVpcEndpointServiceAttributesOutput struct {
 	WildcardDomainEnabled *bool `type:"boolean"`
 
 	ZoneIds []*string `type:"list"`
+
+	ZoneIdsN []*string `type:"list" json:"ZoneIds.N"`
 }
 
 // String returns the string representation
@@ -233,6 +247,18 @@ func (s *DescribeVpcEndpointServiceAttributesOutput) SetAutoAcceptEnabled(v bool
 	return s
 }
 
+// SetBillingType sets the BillingType field's value.
+func (s *DescribeVpcEndpointServiceAttributesOutput) SetBillingType(v int32) *DescribeVpcEndpointServiceAttributesOutput {
+	s.BillingType = &v
+	return s
+}
+
+// SetBusinessStatus sets the BusinessStatus field's value.
+func (s *DescribeVpcEndpointServiceAttributesOutput) SetBusinessStatus(v string) *DescribeVpcEndpointServiceAttributesOutput {
+	s.BusinessStatus = &v
+	return s
+}
+
 // SetCreationTime sets the CreationTime field's value.
 func (s *DescribeVpcEndpointServiceAttributesOutput) SetCreationTime(v string) *DescribeVpcEndpointServiceAttributesOutput {
 	s.CreationTime = &v
@@ -242,6 +268,18 @@ func (s *DescribeVpcEndpointServiceAttributesOutput) SetCreationTime(v string) *
 // SetDescription sets the Description field's value.
 func (s *DescribeVpcEndpointServiceAttributesOutput) SetDescription(v string) *DescribeVpcEndpointServiceAttributesOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIpAddressVersions sets the IpAddressVersions field's value.
+func (s *DescribeVpcEndpointServiceAttributesOutput) SetIpAddressVersions(v []*string) *DescribeVpcEndpointServiceAttributesOutput {
+	s.IpAddressVersions = v
+	return s
+}
+
+// SetPayer sets the Payer field's value.
+func (s *DescribeVpcEndpointServiceAttributesOutput) SetPayer(v string) *DescribeVpcEndpointServiceAttributesOutput {
+	s.Payer = &v
 	return s
 }
 
@@ -260,6 +298,12 @@ func (s *DescribeVpcEndpointServiceAttributesOutput) SetPrivateDNSName(v string)
 // SetPrivateDNSNameConfiguration sets the PrivateDNSNameConfiguration field's value.
 func (s *DescribeVpcEndpointServiceAttributesOutput) SetPrivateDNSNameConfiguration(v *PrivateDNSNameConfigurationForDescribeVpcEndpointServiceAttributesOutput) *DescribeVpcEndpointServiceAttributesOutput {
 	s.PrivateDNSNameConfiguration = v
+	return s
+}
+
+// SetPrivateDNSType sets the PrivateDNSType field's value.
+func (s *DescribeVpcEndpointServiceAttributesOutput) SetPrivateDNSType(v string) *DescribeVpcEndpointServiceAttributesOutput {
+	s.PrivateDNSType = &v
 	return s
 }
 
@@ -290,6 +334,12 @@ func (s *DescribeVpcEndpointServiceAttributesOutput) SetServiceId(v string) *Des
 // SetServiceName sets the ServiceName field's value.
 func (s *DescribeVpcEndpointServiceAttributesOutput) SetServiceName(v string) *DescribeVpcEndpointServiceAttributesOutput {
 	s.ServiceName = &v
+	return s
+}
+
+// SetServiceOwner sets the ServiceOwner field's value.
+func (s *DescribeVpcEndpointServiceAttributesOutput) SetServiceOwner(v string) *DescribeVpcEndpointServiceAttributesOutput {
+	s.ServiceOwner = &v
 	return s
 }
 
@@ -332,6 +382,12 @@ func (s *DescribeVpcEndpointServiceAttributesOutput) SetWildcardDomainEnabled(v 
 // SetZoneIds sets the ZoneIds field's value.
 func (s *DescribeVpcEndpointServiceAttributesOutput) SetZoneIds(v []*string) *DescribeVpcEndpointServiceAttributesOutput {
 	s.ZoneIds = v
+	return s
+}
+
+// SetZoneIdsN sets the ZoneIdsN field's value.
+func (s *DescribeVpcEndpointServiceAttributesOutput) SetZoneIdsN(v []*string) *DescribeVpcEndpointServiceAttributesOutput {
+	s.ZoneIdsN = v
 	return s
 }
 

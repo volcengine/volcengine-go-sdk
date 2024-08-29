@@ -46,6 +46,14 @@ type PRIVATELINKAPI interface {
 	AddZoneToVpcEndpointWithContext(volcengine.Context, *AddZoneToVpcEndpointInput, ...request.Option) (*AddZoneToVpcEndpointOutput, error)
 	AddZoneToVpcEndpointRequest(*AddZoneToVpcEndpointInput) (*request.Request, *AddZoneToVpcEndpointOutput)
 
+	AssignPrivateIpAddressesToVpcLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssignPrivateIpAddressesToVpcLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssignPrivateIpAddressesToVpcLinkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssignPrivateIpAddressesToVpcLink(*AssignPrivateIpAddressesToVpcLinkInput) (*AssignPrivateIpAddressesToVpcLinkOutput, error)
+	AssignPrivateIpAddressesToVpcLinkWithContext(volcengine.Context, *AssignPrivateIpAddressesToVpcLinkInput, ...request.Option) (*AssignPrivateIpAddressesToVpcLinkOutput, error)
+	AssignPrivateIpAddressesToVpcLinkRequest(*AssignPrivateIpAddressesToVpcLinkInput) (*request.Request, *AssignPrivateIpAddressesToVpcLinkOutput)
+
 	AttachResourceToVpcEndpointServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AttachResourceToVpcEndpointServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AttachResourceToVpcEndpointServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -61,6 +69,22 @@ type PRIVATELINKAPI interface {
 	AttachSecurityGroupToVpcEndpoint(*AttachSecurityGroupToVpcEndpointInput) (*AttachSecurityGroupToVpcEndpointOutput, error)
 	AttachSecurityGroupToVpcEndpointWithContext(volcengine.Context, *AttachSecurityGroupToVpcEndpointInput, ...request.Option) (*AttachSecurityGroupToVpcEndpointOutput, error)
 	AttachSecurityGroupToVpcEndpointRequest(*AttachSecurityGroupToVpcEndpointInput) (*request.Request, *AttachSecurityGroupToVpcEndpointOutput)
+
+	AttachSecurityGroupsToPrivateLinkGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AttachSecurityGroupsToPrivateLinkGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AttachSecurityGroupsToPrivateLinkGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AttachSecurityGroupsToPrivateLinkGateway(*AttachSecurityGroupsToPrivateLinkGatewayInput) (*AttachSecurityGroupsToPrivateLinkGatewayOutput, error)
+	AttachSecurityGroupsToPrivateLinkGatewayWithContext(volcengine.Context, *AttachSecurityGroupsToPrivateLinkGatewayInput, ...request.Option) (*AttachSecurityGroupsToPrivateLinkGatewayOutput, error)
+	AttachSecurityGroupsToPrivateLinkGatewayRequest(*AttachSecurityGroupsToPrivateLinkGatewayInput) (*request.Request, *AttachSecurityGroupsToPrivateLinkGatewayOutput)
+
+	CreatePrivateLinkGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreatePrivateLinkGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreatePrivateLinkGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreatePrivateLinkGateway(*CreatePrivateLinkGatewayInput) (*CreatePrivateLinkGatewayOutput, error)
+	CreatePrivateLinkGatewayWithContext(volcengine.Context, *CreatePrivateLinkGatewayInput, ...request.Option) (*CreatePrivateLinkGatewayOutput, error)
+	CreatePrivateLinkGatewayRequest(*CreatePrivateLinkGatewayInput) (*request.Request, *CreatePrivateLinkGatewayOutput)
 
 	CreateUniqueResourceTypeVpcEndpointServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateUniqueResourceTypeVpcEndpointServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -94,6 +118,22 @@ type PRIVATELINKAPI interface {
 	CreateVpcGatewayEndpointWithContext(volcengine.Context, *CreateVpcGatewayEndpointInput, ...request.Option) (*CreateVpcGatewayEndpointOutput, error)
 	CreateVpcGatewayEndpointRequest(*CreateVpcGatewayEndpointInput) (*request.Request, *CreateVpcGatewayEndpointOutput)
 
+	CreateVpcLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateVpcLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateVpcLinkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateVpcLink(*CreateVpcLinkInput) (*CreateVpcLinkOutput, error)
+	CreateVpcLinkWithContext(volcengine.Context, *CreateVpcLinkInput, ...request.Option) (*CreateVpcLinkOutput, error)
+	CreateVpcLinkRequest(*CreateVpcLinkInput) (*request.Request, *CreateVpcLinkOutput)
+
+	DeletePrivateLinkGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeletePrivateLinkGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeletePrivateLinkGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeletePrivateLinkGateway(*DeletePrivateLinkGatewayInput) (*DeletePrivateLinkGatewayOutput, error)
+	DeletePrivateLinkGatewayWithContext(volcengine.Context, *DeletePrivateLinkGatewayInput, ...request.Option) (*DeletePrivateLinkGatewayOutput, error)
+	DeletePrivateLinkGatewayRequest(*DeletePrivateLinkGatewayInput) (*request.Request, *DeletePrivateLinkGatewayOutput)
+
 	DeleteVpcEndpointCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteVpcEndpointCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteVpcEndpointCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -118,6 +158,14 @@ type PRIVATELINKAPI interface {
 	DeleteVpcGatewayEndpointWithContext(volcengine.Context, *DeleteVpcGatewayEndpointInput, ...request.Option) (*DeleteVpcGatewayEndpointOutput, error)
 	DeleteVpcGatewayEndpointRequest(*DeleteVpcGatewayEndpointInput) (*request.Request, *DeleteVpcGatewayEndpointOutput)
 
+	DeleteVpcLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteVpcLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteVpcLinkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteVpcLink(*DeleteVpcLinkInput) (*DeleteVpcLinkOutput, error)
+	DeleteVpcLinkWithContext(volcengine.Context, *DeleteVpcLinkInput, ...request.Option) (*DeleteVpcLinkOutput, error)
+	DeleteVpcLinkRequest(*DeleteVpcLinkInput) (*request.Request, *DeleteVpcLinkOutput)
+
 	DescribePrivateLinkAvailableZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribePrivateLinkAvailableZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribePrivateLinkAvailableZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -125,6 +173,38 @@ type PRIVATELINKAPI interface {
 	DescribePrivateLinkAvailableZones(*DescribePrivateLinkAvailableZonesInput) (*DescribePrivateLinkAvailableZonesOutput, error)
 	DescribePrivateLinkAvailableZonesWithContext(volcengine.Context, *DescribePrivateLinkAvailableZonesInput, ...request.Option) (*DescribePrivateLinkAvailableZonesOutput, error)
 	DescribePrivateLinkAvailableZonesRequest(*DescribePrivateLinkAvailableZonesInput) (*request.Request, *DescribePrivateLinkAvailableZonesOutput)
+
+	DescribePrivateLinkGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateLinkGatewayAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateLinkGatewayAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateLinkGatewayAttributes(*DescribePrivateLinkGatewayAttributesInput) (*DescribePrivateLinkGatewayAttributesOutput, error)
+	DescribePrivateLinkGatewayAttributesWithContext(volcengine.Context, *DescribePrivateLinkGatewayAttributesInput, ...request.Option) (*DescribePrivateLinkGatewayAttributesOutput, error)
+	DescribePrivateLinkGatewayAttributesRequest(*DescribePrivateLinkGatewayAttributesInput) (*request.Request, *DescribePrivateLinkGatewayAttributesOutput)
+
+	DescribePrivateLinkGatewayAvailableZonesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateLinkGatewayAvailableZonesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateLinkGatewayAvailableZonesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateLinkGatewayAvailableZones(*DescribePrivateLinkGatewayAvailableZonesInput) (*DescribePrivateLinkGatewayAvailableZonesOutput, error)
+	DescribePrivateLinkGatewayAvailableZonesWithContext(volcengine.Context, *DescribePrivateLinkGatewayAvailableZonesInput, ...request.Option) (*DescribePrivateLinkGatewayAvailableZonesOutput, error)
+	DescribePrivateLinkGatewayAvailableZonesRequest(*DescribePrivateLinkGatewayAvailableZonesInput) (*request.Request, *DescribePrivateLinkGatewayAvailableZonesOutput)
+
+	DescribePrivateLinkGatewaySecurityGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateLinkGatewaySecurityGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateLinkGatewaySecurityGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateLinkGatewaySecurityGroups(*DescribePrivateLinkGatewaySecurityGroupsInput) (*DescribePrivateLinkGatewaySecurityGroupsOutput, error)
+	DescribePrivateLinkGatewaySecurityGroupsWithContext(volcengine.Context, *DescribePrivateLinkGatewaySecurityGroupsInput, ...request.Option) (*DescribePrivateLinkGatewaySecurityGroupsOutput, error)
+	DescribePrivateLinkGatewaySecurityGroupsRequest(*DescribePrivateLinkGatewaySecurityGroupsInput) (*request.Request, *DescribePrivateLinkGatewaySecurityGroupsOutput)
+
+	DescribePrivateLinkGatewaysCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribePrivateLinkGatewaysCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribePrivateLinkGatewaysCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribePrivateLinkGateways(*DescribePrivateLinkGatewaysInput) (*DescribePrivateLinkGatewaysOutput, error)
+	DescribePrivateLinkGatewaysWithContext(volcengine.Context, *DescribePrivateLinkGatewaysInput, ...request.Option) (*DescribePrivateLinkGatewaysOutput, error)
+	DescribePrivateLinkGatewaysRequest(*DescribePrivateLinkGatewaysInput) (*request.Request, *DescribePrivateLinkGatewaysOutput)
 
 	DescribeVpcEndpointAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeVpcEndpointAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -230,6 +310,22 @@ type PRIVATELINKAPI interface {
 	DescribeVpcGatewayEndpointsWithContext(volcengine.Context, *DescribeVpcGatewayEndpointsInput, ...request.Option) (*DescribeVpcGatewayEndpointsOutput, error)
 	DescribeVpcGatewayEndpointsRequest(*DescribeVpcGatewayEndpointsInput) (*request.Request, *DescribeVpcGatewayEndpointsOutput)
 
+	DescribeVpcLinkAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeVpcLinkAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeVpcLinkAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeVpcLinkAttributes(*DescribeVpcLinkAttributesInput) (*DescribeVpcLinkAttributesOutput, error)
+	DescribeVpcLinkAttributesWithContext(volcengine.Context, *DescribeVpcLinkAttributesInput, ...request.Option) (*DescribeVpcLinkAttributesOutput, error)
+	DescribeVpcLinkAttributesRequest(*DescribeVpcLinkAttributesInput) (*request.Request, *DescribeVpcLinkAttributesOutput)
+
+	DescribeVpcLinksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeVpcLinksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeVpcLinksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeVpcLinks(*DescribeVpcLinksInput) (*DescribeVpcLinksOutput, error)
+	DescribeVpcLinksWithContext(volcengine.Context, *DescribeVpcLinksInput, ...request.Option) (*DescribeVpcLinksOutput, error)
+	DescribeVpcLinksRequest(*DescribeVpcLinksInput) (*request.Request, *DescribeVpcLinksOutput)
+
 	DetachResourceFromVpcEndpointServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DetachResourceFromVpcEndpointServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DetachResourceFromVpcEndpointServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -245,6 +341,14 @@ type PRIVATELINKAPI interface {
 	DetachSecurityGroupFromVpcEndpoint(*DetachSecurityGroupFromVpcEndpointInput) (*DetachSecurityGroupFromVpcEndpointOutput, error)
 	DetachSecurityGroupFromVpcEndpointWithContext(volcengine.Context, *DetachSecurityGroupFromVpcEndpointInput, ...request.Option) (*DetachSecurityGroupFromVpcEndpointOutput, error)
 	DetachSecurityGroupFromVpcEndpointRequest(*DetachSecurityGroupFromVpcEndpointInput) (*request.Request, *DetachSecurityGroupFromVpcEndpointOutput)
+
+	DetachSecurityGroupsFromPrivateLinkGatewayCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DetachSecurityGroupsFromPrivateLinkGatewayCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DetachSecurityGroupsFromPrivateLinkGatewayCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DetachSecurityGroupsFromPrivateLinkGateway(*DetachSecurityGroupsFromPrivateLinkGatewayInput) (*DetachSecurityGroupsFromPrivateLinkGatewayOutput, error)
+	DetachSecurityGroupsFromPrivateLinkGatewayWithContext(volcengine.Context, *DetachSecurityGroupsFromPrivateLinkGatewayInput, ...request.Option) (*DetachSecurityGroupsFromPrivateLinkGatewayOutput, error)
+	DetachSecurityGroupsFromPrivateLinkGatewayRequest(*DetachSecurityGroupsFromPrivateLinkGatewayInput) (*request.Request, *DetachSecurityGroupsFromPrivateLinkGatewayOutput)
 
 	DisableVpcEndpointConnectionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableVpcEndpointConnectionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -269,6 +373,14 @@ type PRIVATELINKAPI interface {
 	ListTagsForResources(*ListTagsForResourcesInput) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesWithContext(volcengine.Context, *ListTagsForResourcesInput, ...request.Option) (*ListTagsForResourcesOutput, error)
 	ListTagsForResourcesRequest(*ListTagsForResourcesInput) (*request.Request, *ListTagsForResourcesOutput)
+
+	ModifyPrivateLinkGatewayAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyPrivateLinkGatewayAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyPrivateLinkGatewayAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyPrivateLinkGatewayAttributes(*ModifyPrivateLinkGatewayAttributesInput) (*ModifyPrivateLinkGatewayAttributesOutput, error)
+	ModifyPrivateLinkGatewayAttributesWithContext(volcengine.Context, *ModifyPrivateLinkGatewayAttributesInput, ...request.Option) (*ModifyPrivateLinkGatewayAttributesOutput, error)
+	ModifyPrivateLinkGatewayAttributesRequest(*ModifyPrivateLinkGatewayAttributesInput) (*request.Request, *ModifyPrivateLinkGatewayAttributesOutput)
 
 	ModifyUniqueResourceTypeVpcEndpointServiceAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyUniqueResourceTypeVpcEndpointServiceAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -310,6 +422,14 @@ type PRIVATELINKAPI interface {
 	ModifyVpcGatewayEndpointAttributesWithContext(volcengine.Context, *ModifyVpcGatewayEndpointAttributesInput, ...request.Option) (*ModifyVpcGatewayEndpointAttributesOutput, error)
 	ModifyVpcGatewayEndpointAttributesRequest(*ModifyVpcGatewayEndpointAttributesInput) (*request.Request, *ModifyVpcGatewayEndpointAttributesOutput)
 
+	ModifyVpcLinkAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyVpcLinkAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyVpcLinkAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVpcLinkAttributes(*ModifyVpcLinkAttributesInput) (*ModifyVpcLinkAttributesOutput, error)
+	ModifyVpcLinkAttributesWithContext(volcengine.Context, *ModifyVpcLinkAttributesInput, ...request.Option) (*ModifyVpcLinkAttributesOutput, error)
+	ModifyVpcLinkAttributesRequest(*ModifyVpcLinkAttributesInput) (*request.Request, *ModifyVpcLinkAttributesOutput)
+
 	RemovePermissionFromVpcEndpointServiceCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RemovePermissionFromVpcEndpointServiceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	RemovePermissionFromVpcEndpointServiceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -333,6 +453,14 @@ type PRIVATELINKAPI interface {
 	TagResources(*TagResourcesInput) (*TagResourcesOutput, error)
 	TagResourcesWithContext(volcengine.Context, *TagResourcesInput, ...request.Option) (*TagResourcesOutput, error)
 	TagResourcesRequest(*TagResourcesInput) (*request.Request, *TagResourcesOutput)
+
+	UnAssignPrivateIpAddressesFromVpcLinkCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UnAssignPrivateIpAddressesFromVpcLinkCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UnAssignPrivateIpAddressesFromVpcLinkCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UnAssignPrivateIpAddressesFromVpcLink(*UnAssignPrivateIpAddressesFromVpcLinkInput) (*UnAssignPrivateIpAddressesFromVpcLinkOutput, error)
+	UnAssignPrivateIpAddressesFromVpcLinkWithContext(volcengine.Context, *UnAssignPrivateIpAddressesFromVpcLinkInput, ...request.Option) (*UnAssignPrivateIpAddressesFromVpcLinkOutput, error)
+	UnAssignPrivateIpAddressesFromVpcLinkRequest(*UnAssignPrivateIpAddressesFromVpcLinkInput) (*request.Request, *UnAssignPrivateIpAddressesFromVpcLinkOutput)
 
 	UntagResourcesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UntagResourcesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

@@ -145,6 +145,8 @@ type EnableVpcEndpointConnectionInput struct {
 	// EndpointId is a required field
 	EndpointId *string `type:"string" required:"true"`
 
+	ResourcesAllocate []*ResourcesAllocateForEnableVpcEndpointConnectionInput `type:"list"`
+
 	// ServiceId is a required field
 	ServiceId *string `type:"string" required:"true"`
 }
@@ -181,6 +183,12 @@ func (s *EnableVpcEndpointConnectionInput) SetEndpointId(v string) *EnableVpcEnd
 	return s
 }
 
+// SetResourcesAllocate sets the ResourcesAllocate field's value.
+func (s *EnableVpcEndpointConnectionInput) SetResourcesAllocate(v []*ResourcesAllocateForEnableVpcEndpointConnectionInput) *EnableVpcEndpointConnectionInput {
+	s.ResourcesAllocate = v
+	return s
+}
+
 // SetServiceId sets the ServiceId field's value.
 func (s *EnableVpcEndpointConnectionInput) SetServiceId(v string) *EnableVpcEndpointConnectionInput {
 	s.ServiceId = &v
@@ -208,5 +216,35 @@ func (s EnableVpcEndpointConnectionOutput) GoString() string {
 // SetRequestId sets the RequestId field's value.
 func (s *EnableVpcEndpointConnectionOutput) SetRequestId(v string) *EnableVpcEndpointConnectionOutput {
 	s.RequestId = &v
+	return s
+}
+
+type ResourcesAllocateForEnableVpcEndpointConnectionInput struct {
+	_ struct{} `type:"structure"`
+
+	ResourceId *string `type:"string"`
+
+	ZoneId *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ResourcesAllocateForEnableVpcEndpointConnectionInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourcesAllocateForEnableVpcEndpointConnectionInput) GoString() string {
+	return s.String()
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *ResourcesAllocateForEnableVpcEndpointConnectionInput) SetResourceId(v string) *ResourcesAllocateForEnableVpcEndpointConnectionInput {
+	s.ResourceId = &v
+	return s
+}
+
+// SetZoneId sets the ZoneId field's value.
+func (s *ResourcesAllocateForEnableVpcEndpointConnectionInput) SetZoneId(v string) *ResourcesAllocateForEnableVpcEndpointConnectionInput {
+	s.ZoneId = &v
 	return s
 }
