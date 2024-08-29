@@ -241,9 +241,13 @@ type KeyringForDescribeKeyringsOutput struct {
 
 	ID *string `type:"string"`
 
+	KeyCount *string `type:"string"`
+
 	KeyringName *string `type:"string"`
 
 	KeyringType *string `type:"string"`
+
+	TRN *string `type:"string"`
 
 	UID *string `type:"string"`
 
@@ -278,6 +282,12 @@ func (s *KeyringForDescribeKeyringsOutput) SetID(v string) *KeyringForDescribeKe
 	return s
 }
 
+// SetKeyCount sets the KeyCount field's value.
+func (s *KeyringForDescribeKeyringsOutput) SetKeyCount(v string) *KeyringForDescribeKeyringsOutput {
+	s.KeyCount = &v
+	return s
+}
+
 // SetKeyringName sets the KeyringName field's value.
 func (s *KeyringForDescribeKeyringsOutput) SetKeyringName(v string) *KeyringForDescribeKeyringsOutput {
 	s.KeyringName = &v
@@ -287,6 +297,12 @@ func (s *KeyringForDescribeKeyringsOutput) SetKeyringName(v string) *KeyringForD
 // SetKeyringType sets the KeyringType field's value.
 func (s *KeyringForDescribeKeyringsOutput) SetKeyringType(v string) *KeyringForDescribeKeyringsOutput {
 	s.KeyringType = &v
+	return s
+}
+
+// SetTRN sets the TRN field's value.
+func (s *KeyringForDescribeKeyringsOutput) SetTRN(v string) *KeyringForDescribeKeyringsOutput {
+	s.TRN = &v
 	return s
 }
 

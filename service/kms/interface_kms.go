@@ -118,6 +118,14 @@ type KMSAPI interface {
 	DeleteKeyMaterialWithContext(volcengine.Context, *DeleteKeyMaterialInput, ...request.Option) (*DeleteKeyMaterialOutput, error)
 	DeleteKeyMaterialRequest(*DeleteKeyMaterialInput) (*request.Request, *DeleteKeyMaterialOutput)
 
+	DeleteKeyringCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteKeyringCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteKeyringCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteKeyring(*DeleteKeyringInput) (*DeleteKeyringOutput, error)
+	DeleteKeyringWithContext(volcengine.Context, *DeleteKeyringInput, ...request.Option) (*DeleteKeyringOutput, error)
+	DeleteKeyringRequest(*DeleteKeyringInput) (*request.Request, *DeleteKeyringOutput)
+
 	DescribeKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})

@@ -158,6 +158,8 @@ type KeyringForQueryKeyringOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	TRN *string `type:"string"`
+
 	UID *string `type:"string"`
 
 	UpdateDate *int64 `type:"int64"`
@@ -206,6 +208,12 @@ func (s *KeyringForQueryKeyringOutput) SetKeyringType(v string) *KeyringForQuery
 // SetProjectName sets the ProjectName field's value.
 func (s *KeyringForQueryKeyringOutput) SetProjectName(v string) *KeyringForQueryKeyringOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetTRN sets the TRN field's value.
+func (s *KeyringForQueryKeyringOutput) SetTRN(v string) *KeyringForQueryKeyringOutput {
+	s.TRN = &v
 	return s
 }
 
