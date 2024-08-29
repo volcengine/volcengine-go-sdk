@@ -148,19 +148,27 @@ type CreateVpcEndpointServiceInput struct {
 
 	Description *string `type:"string"`
 
+	IpAddressVersions []*string `type:"list"`
+
+	Payer *string `type:"string"`
+
 	PrivateDNSEnabled *bool `type:"boolean"`
 
 	PrivateDNSName *string `type:"string"`
 
-	ProjectName *string `type:"string"`
+	PrivateDNSType *string `type:"string"`
 
-	ResourceIds []*ResourceIdForCreateVpcEndpointServiceInput `type:"list"`
+	ProjectName *string `type:"string"`
 
 	Resources []*ResourceForCreateVpcEndpointServiceInput `type:"list"`
 
 	ServiceNameSuffix *string `type:"string"`
 
+	ServiceOwner *string `type:"string"`
+
 	ServiceResourceType *string `type:"string"`
+
+	ServiceType *string `type:"string"`
 
 	Tags []*TagForCreateVpcEndpointServiceInput `type:"list"`
 
@@ -195,6 +203,18 @@ func (s *CreateVpcEndpointServiceInput) SetDescription(v string) *CreateVpcEndpo
 	return s
 }
 
+// SetIpAddressVersions sets the IpAddressVersions field's value.
+func (s *CreateVpcEndpointServiceInput) SetIpAddressVersions(v []*string) *CreateVpcEndpointServiceInput {
+	s.IpAddressVersions = v
+	return s
+}
+
+// SetPayer sets the Payer field's value.
+func (s *CreateVpcEndpointServiceInput) SetPayer(v string) *CreateVpcEndpointServiceInput {
+	s.Payer = &v
+	return s
+}
+
 // SetPrivateDNSEnabled sets the PrivateDNSEnabled field's value.
 func (s *CreateVpcEndpointServiceInput) SetPrivateDNSEnabled(v bool) *CreateVpcEndpointServiceInput {
 	s.PrivateDNSEnabled = &v
@@ -207,15 +227,15 @@ func (s *CreateVpcEndpointServiceInput) SetPrivateDNSName(v string) *CreateVpcEn
 	return s
 }
 
-// SetProjectName sets the ProjectName field's value.
-func (s *CreateVpcEndpointServiceInput) SetProjectName(v string) *CreateVpcEndpointServiceInput {
-	s.ProjectName = &v
+// SetPrivateDNSType sets the PrivateDNSType field's value.
+func (s *CreateVpcEndpointServiceInput) SetPrivateDNSType(v string) *CreateVpcEndpointServiceInput {
+	s.PrivateDNSType = &v
 	return s
 }
 
-// SetResourceIds sets the ResourceIds field's value.
-func (s *CreateVpcEndpointServiceInput) SetResourceIds(v []*ResourceIdForCreateVpcEndpointServiceInput) *CreateVpcEndpointServiceInput {
-	s.ResourceIds = v
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateVpcEndpointServiceInput) SetProjectName(v string) *CreateVpcEndpointServiceInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -231,9 +251,21 @@ func (s *CreateVpcEndpointServiceInput) SetServiceNameSuffix(v string) *CreateVp
 	return s
 }
 
+// SetServiceOwner sets the ServiceOwner field's value.
+func (s *CreateVpcEndpointServiceInput) SetServiceOwner(v string) *CreateVpcEndpointServiceInput {
+	s.ServiceOwner = &v
+	return s
+}
+
 // SetServiceResourceType sets the ServiceResourceType field's value.
 func (s *CreateVpcEndpointServiceInput) SetServiceResourceType(v string) *CreateVpcEndpointServiceInput {
 	s.ServiceResourceType = &v
+	return s
+}
+
+// SetServiceType sets the ServiceType field's value.
+func (s *CreateVpcEndpointServiceInput) SetServiceType(v string) *CreateVpcEndpointServiceInput {
+	s.ServiceType = &v
 	return s
 }
 
@@ -315,28 +347,6 @@ func (s *ResourceForCreateVpcEndpointServiceInput) SetResourceId(v string) *Reso
 
 // SetZoneIds sets the ZoneIds field's value.
 func (s *ResourceForCreateVpcEndpointServiceInput) SetZoneIds(v []*string) *ResourceForCreateVpcEndpointServiceInput {
-	s.ZoneIds = v
-	return s
-}
-
-type ResourceIdForCreateVpcEndpointServiceInput struct {
-	_ struct{} `type:"structure"`
-
-	ZoneIds []*string `type:"list"`
-}
-
-// String returns the string representation
-func (s ResourceIdForCreateVpcEndpointServiceInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ResourceIdForCreateVpcEndpointServiceInput) GoString() string {
-	return s.String()
-}
-
-// SetZoneIds sets the ZoneIds field's value.
-func (s *ResourceIdForCreateVpcEndpointServiceInput) SetZoneIds(v []*string) *ResourceIdForCreateVpcEndpointServiceInput {
 	s.ZoneIds = v
 	return s
 }

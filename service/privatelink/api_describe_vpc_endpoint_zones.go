@@ -250,9 +250,13 @@ func (s *DescribeVpcEndpointZonesOutput) SetTotalCount(v int32) *DescribeVpcEndp
 type EndpointZoneForDescribeVpcEndpointZonesOutput struct {
 	_ struct{} `type:"structure"`
 
+	Ipv6ServiceStatus *string `type:"string"`
+
 	NetworkInterfaceIP *string `type:"string"`
 
 	NetworkInterfaceId *string `type:"string"`
+
+	NetworkInterfaceIpv6 *string `type:"string"`
 
 	ServiceStatus *string `type:"string"`
 
@@ -275,6 +279,12 @@ func (s EndpointZoneForDescribeVpcEndpointZonesOutput) GoString() string {
 	return s.String()
 }
 
+// SetIpv6ServiceStatus sets the Ipv6ServiceStatus field's value.
+func (s *EndpointZoneForDescribeVpcEndpointZonesOutput) SetIpv6ServiceStatus(v string) *EndpointZoneForDescribeVpcEndpointZonesOutput {
+	s.Ipv6ServiceStatus = &v
+	return s
+}
+
 // SetNetworkInterfaceIP sets the NetworkInterfaceIP field's value.
 func (s *EndpointZoneForDescribeVpcEndpointZonesOutput) SetNetworkInterfaceIP(v string) *EndpointZoneForDescribeVpcEndpointZonesOutput {
 	s.NetworkInterfaceIP = &v
@@ -284,6 +294,12 @@ func (s *EndpointZoneForDescribeVpcEndpointZonesOutput) SetNetworkInterfaceIP(v 
 // SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
 func (s *EndpointZoneForDescribeVpcEndpointZonesOutput) SetNetworkInterfaceId(v string) *EndpointZoneForDescribeVpcEndpointZonesOutput {
 	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNetworkInterfaceIpv6 sets the NetworkInterfaceIpv6 field's value.
+func (s *EndpointZoneForDescribeVpcEndpointZonesOutput) SetNetworkInterfaceIpv6(v string) *EndpointZoneForDescribeVpcEndpointZonesOutput {
+	s.NetworkInterfaceIpv6 = &v
 	return s
 }
 
