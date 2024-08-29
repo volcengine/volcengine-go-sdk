@@ -692,11 +692,11 @@ func (s *InstanceStructureForDescribeDBInstanceDetailOutput) SetZoneIds(v string
 type MaintenanceWindowForDescribeDBInstanceDetailOutput struct {
 	_ struct{} `type:"structure"`
 
-	DayKind *string `type:"string" enum:"EnumOfDayKindForDescribeDBInstanceDetailOutput"`
+	DayKind *int32 `type:"int32"`
 
 	DayOfMonth []*int32 `type:"list"`
 
-	DayOfWeek []*string `type:"list"`
+	DayOfWeek []*int32 `type:"list"`
 
 	MaintenanceTime *string `type:"string"`
 }
@@ -712,7 +712,7 @@ func (s MaintenanceWindowForDescribeDBInstanceDetailOutput) GoString() string {
 }
 
 // SetDayKind sets the DayKind field's value.
-func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayKind(v string) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
+func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayKind(v int32) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
 	s.DayKind = &v
 	return s
 }
@@ -724,7 +724,7 @@ func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayOfMonth(v []*
 }
 
 // SetDayOfWeek sets the DayOfWeek field's value.
-func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayOfWeek(v []*string) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
+func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayOfWeek(v []*int32) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
 	s.DayOfWeek = v
 	return s
 }
@@ -871,37 +871,6 @@ const (
 )
 
 const (
-	// EnumOfDayKindForDescribeDBInstanceDetailOutputWeek is a EnumOfDayKindForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayKindForDescribeDBInstanceDetailOutputWeek = "Week"
-
-	// EnumOfDayKindForDescribeDBInstanceDetailOutputMonth is a EnumOfDayKindForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayKindForDescribeDBInstanceDetailOutputMonth = "Month"
-)
-
-const (
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSunday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSunday = "Sunday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputMonday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputMonday = "Monday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputTuesday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputTuesday = "Tuesday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputWednesday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputWednesday = "Wednesday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputThursday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputThursday = "Thursday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputFriday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputFriday = "Friday"
-
-	// EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSaturday is a EnumOfDayOfWeekListForDescribeDBInstanceDetailOutput enum value
-	EnumOfDayOfWeekListForDescribeDBInstanceDetailOutputSaturday = "Saturday"
-)
-
-const (
 	// EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCluster is a EnumOfEndpointTypeForDescribeDBInstanceDetailOutput enum value
 	EnumOfEndpointTypeForDescribeDBInstanceDetailOutputCluster = "Cluster"
 
@@ -963,9 +932,6 @@ const (
 
 	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
 	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputAllowListMaintaining = "AllowListMaintaining"
-
-	// EnumOfInstanceStatusForDescribeDBInstanceDetailOutputError is a EnumOfInstanceStatusForDescribeDBInstanceDetailOutput enum value
-	EnumOfInstanceStatusForDescribeDBInstanceDetailOutputError = "Error"
 )
 
 const (

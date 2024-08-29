@@ -389,7 +389,7 @@ type InstanceForDescribeDBInstancesOutput struct {
 
 	InstanceName *string `type:"string"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceStatus *string `type:"string" enum:"EnumOfInstanceStatusForDescribeDBInstancesOutput"`
 
 	Nodes []*NodeForDescribeDBInstancesOutput `type:"list"`
 
@@ -739,6 +739,59 @@ const (
 
 	// EnumOfInstanceStatusForDescribeDBInstancesInputError is a EnumOfInstanceStatusForDescribeDBInstancesInput enum value
 	EnumOfInstanceStatusForDescribeDBInstancesInputError = "Error"
+)
+
+const (
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputWaitingPaid is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputWaitingPaid = "WaitingPaid"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRunning is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRunning = "Running"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputCreating is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputCreating = "Creating"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputScaling is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputScaling = "Scaling"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRestarting is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRestarting = "Restarting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputRestoring is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputRestoring = "Restoring"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputUpgrading is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputUpgrading = "Upgrading"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputPrimaryChanging is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputPrimaryChanging = "PrimaryChanging"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputUnavailable is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputUnavailable = "Unavailable"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputDeleting is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputDeleting = "Deleting"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputDeleted is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputDeleted = "Deleted"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputCreateFailed is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputCreateFailed = "CreateFailed"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputClosing is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputClosing = "Closing"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputExpired is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputExpired = "Expired"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputOwing is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputOwing = "Owing"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputResuming is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputResuming = "Resuming"
+
+	// EnumOfInstanceStatusForDescribeDBInstancesOutputAllowListMaintaining is a EnumOfInstanceStatusForDescribeDBInstancesOutput enum value
+	EnumOfInstanceStatusForDescribeDBInstancesOutputAllowListMaintaining = "AllowListMaintaining"
 )
 
 const (

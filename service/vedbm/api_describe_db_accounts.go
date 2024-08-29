@@ -186,6 +186,8 @@ type AccountPrivilegeForDescribeDBAccountsOutput struct {
 
 	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForDescribeDBAccountsOutput"`
 
+	AccountPrivilegeDetail *string `type:"string"`
+
 	DBName *string `type:"string"`
 }
 
@@ -202,6 +204,12 @@ func (s AccountPrivilegeForDescribeDBAccountsOutput) GoString() string {
 // SetAccountPrivilege sets the AccountPrivilege field's value.
 func (s *AccountPrivilegeForDescribeDBAccountsOutput) SetAccountPrivilege(v string) *AccountPrivilegeForDescribeDBAccountsOutput {
 	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeDetail sets the AccountPrivilegeDetail field's value.
+func (s *AccountPrivilegeForDescribeDBAccountsOutput) SetAccountPrivilegeDetail(v string) *AccountPrivilegeForDescribeDBAccountsOutput {
+	s.AccountPrivilegeDetail = &v
 	return s
 }
 
@@ -315,6 +323,9 @@ const (
 
 	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputDmlonly is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
 	EnumOfAccountPrivilegeForDescribeDBAccountsOutputDmlonly = "DMLOnly"
+
+	// EnumOfAccountPrivilegeForDescribeDBAccountsOutputCustom is a EnumOfAccountPrivilegeForDescribeDBAccountsOutput enum value
+	EnumOfAccountPrivilegeForDescribeDBAccountsOutputCustom = "Custom"
 )
 
 const (

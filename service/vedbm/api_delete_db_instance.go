@@ -204,12 +204,12 @@ func (s DeleteDBInstanceOutput) GoString() string {
 }
 
 const (
+	// EnumOfDataKeepPolicyForDeleteDBInstanceInputNone is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
+	EnumOfDataKeepPolicyForDeleteDBInstanceInputNone = "None"
+
 	// EnumOfDataKeepPolicyForDeleteDBInstanceInputAll is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
 	EnumOfDataKeepPolicyForDeleteDBInstanceInputAll = "All"
 
 	// EnumOfDataKeepPolicyForDeleteDBInstanceInputLast is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
 	EnumOfDataKeepPolicyForDeleteDBInstanceInputLast = "Last"
-
-	// EnumOfDataKeepPolicyForDeleteDBInstanceInputNone is a EnumOfDataKeepPolicyForDeleteDBInstanceInput enum value
-	EnumOfDataKeepPolicyForDeleteDBInstanceInputNone = "None"
 )

@@ -187,6 +187,8 @@ type DatabasesPrivilegeForDescribeDatabasesOutput struct {
 	AccountName *string `type:"string"`
 
 	AccountPrivilege *string `type:"string" enum:"EnumOfAccountPrivilegeForDescribeDatabasesOutput"`
+
+	AccountPrivilegeDetail *string `type:"string"`
 }
 
 // String returns the string representation
@@ -208,6 +210,12 @@ func (s *DatabasesPrivilegeForDescribeDatabasesOutput) SetAccountName(v string) 
 // SetAccountPrivilege sets the AccountPrivilege field's value.
 func (s *DatabasesPrivilegeForDescribeDatabasesOutput) SetAccountPrivilege(v string) *DatabasesPrivilegeForDescribeDatabasesOutput {
 	s.AccountPrivilege = &v
+	return s
+}
+
+// SetAccountPrivilegeDetail sets the AccountPrivilegeDetail field's value.
+func (s *DatabasesPrivilegeForDescribeDatabasesOutput) SetAccountPrivilegeDetail(v string) *DatabasesPrivilegeForDescribeDatabasesOutput {
+	s.AccountPrivilegeDetail = &v
 	return s
 }
 
@@ -315,6 +323,9 @@ const (
 
 	// EnumOfAccountPrivilegeForDescribeDatabasesOutputDmlonly is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
 	EnumOfAccountPrivilegeForDescribeDatabasesOutputDmlonly = "DMLOnly"
+
+	// EnumOfAccountPrivilegeForDescribeDatabasesOutputCustom is a EnumOfAccountPrivilegeForDescribeDatabasesOutput enum value
+	EnumOfAccountPrivilegeForDescribeDatabasesOutputCustom = "Custom"
 )
 
 const (
