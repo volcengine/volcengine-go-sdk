@@ -258,6 +258,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	RequestId *string `type:"string"`
 
+	SniAutoMatch *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	SubnetId *string `type:"string"`
@@ -271,6 +273,10 @@ type DescribeLoadBalancerAttributesOutput struct {
 	UpdateTime *string `type:"string"`
 
 	VpcId *string `type:"string"`
+
+	WafInstanceId *string `type:"string"`
+
+	WafProtectionEnabled *string `type:"string"`
 
 	ZoneMappings []*ZoneMappingForDescribeLoadBalancerAttributesOutput `type:"list"`
 }
@@ -429,6 +435,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetRequestId(v string) *DescribeL
 	return s
 }
 
+// SetSniAutoMatch sets the SniAutoMatch field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetSniAutoMatch(v string) *DescribeLoadBalancerAttributesOutput {
+	s.SniAutoMatch = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetStatus(v string) *DescribeLoadBalancerAttributesOutput {
 	s.Status = &v
@@ -468,6 +480,18 @@ func (s *DescribeLoadBalancerAttributesOutput) SetUpdateTime(v string) *Describe
 // SetVpcId sets the VpcId field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetVpcId(v string) *DescribeLoadBalancerAttributesOutput {
 	s.VpcId = &v
+	return s
+}
+
+// SetWafInstanceId sets the WafInstanceId field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetWafInstanceId(v string) *DescribeLoadBalancerAttributesOutput {
+	s.WafInstanceId = &v
+	return s
+}
+
+// SetWafProtectionEnabled sets the WafProtectionEnabled field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetWafProtectionEnabled(v string) *DescribeLoadBalancerAttributesOutput {
+	s.WafProtectionEnabled = &v
 	return s
 }
 

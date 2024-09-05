@@ -204,6 +204,8 @@ type DescribeServerGroupAttributesOutput struct {
 
 	StickySessionConfig *StickySessionConfigForDescribeServerGroupAttributesOutput `type:"structure"`
 
+	Tags []*TagForDescribeServerGroupAttributesOutput `type:"list"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -286,6 +288,12 @@ func (s *DescribeServerGroupAttributesOutput) SetStatus(v string) *DescribeServe
 // SetStickySessionConfig sets the StickySessionConfig field's value.
 func (s *DescribeServerGroupAttributesOutput) SetStickySessionConfig(v *StickySessionConfigForDescribeServerGroupAttributesOutput) *DescribeServerGroupAttributesOutput {
 	s.StickySessionConfig = v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *DescribeServerGroupAttributesOutput) SetTags(v []*TagForDescribeServerGroupAttributesOutput) *DescribeServerGroupAttributesOutput {
+	s.Tags = v
 	return s
 }
 
@@ -518,5 +526,35 @@ func (s *StickySessionConfigForDescribeServerGroupAttributesOutput) SetStickySes
 // SetStickySessionType sets the StickySessionType field's value.
 func (s *StickySessionConfigForDescribeServerGroupAttributesOutput) SetStickySessionType(v string) *StickySessionConfigForDescribeServerGroupAttributesOutput {
 	s.StickySessionType = &v
+	return s
+}
+
+type TagForDescribeServerGroupAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeServerGroupAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeServerGroupAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeServerGroupAttributesOutput) SetKey(v string) *TagForDescribeServerGroupAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeServerGroupAttributesOutput) SetValue(v string) *TagForDescribeServerGroupAttributesOutput {
+	s.Value = &v
 	return s
 }

@@ -194,6 +194,8 @@ type DescribeListenerAttributesOutput struct {
 
 	CertificateSource *string `type:"string"`
 
+	ClientAddressTransmissionProtocol *string `type:"string"`
+
 	CreateTime *string `type:"string"`
 
 	CustomizedCfgId *string `type:"string"`
@@ -229,6 +231,8 @@ type DescribeListenerAttributesOutput struct {
 	ServerGroups []*ServerGroupForDescribeListenerAttributesOutput `type:"list"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeListenerAttributesOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -282,6 +286,12 @@ func (s *DescribeListenerAttributesOutput) SetCertificateId(v string) *DescribeL
 // SetCertificateSource sets the CertificateSource field's value.
 func (s *DescribeListenerAttributesOutput) SetCertificateSource(v string) *DescribeListenerAttributesOutput {
 	s.CertificateSource = &v
+	return s
+}
+
+// SetClientAddressTransmissionProtocol sets the ClientAddressTransmissionProtocol field's value.
+func (s *DescribeListenerAttributesOutput) SetClientAddressTransmissionProtocol(v string) *DescribeListenerAttributesOutput {
+	s.ClientAddressTransmissionProtocol = &v
 	return s
 }
 
@@ -393,6 +403,12 @@ func (s *DescribeListenerAttributesOutput) SetStatus(v string) *DescribeListener
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeListenerAttributesOutput) SetTags(v []*TagForDescribeListenerAttributesOutput) *DescribeListenerAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *DescribeListenerAttributesOutput) SetUpdateTime(v string) *DescribeListenerAttributesOutput {
 	s.UpdateTime = &v
@@ -413,6 +429,8 @@ type DomainExtensionForDescribeListenerAttributesOutput struct {
 	DomainExtensionId *string `type:"string"`
 
 	ListenerId *string `type:"string"`
+
+	San *string `type:"string"`
 }
 
 // String returns the string representation
@@ -461,6 +479,12 @@ func (s *DomainExtensionForDescribeListenerAttributesOutput) SetListenerId(v str
 	return s
 }
 
+// SetSan sets the San field's value.
+func (s *DomainExtensionForDescribeListenerAttributesOutput) SetSan(v string) *DomainExtensionForDescribeListenerAttributesOutput {
+	s.San = &v
+	return s
+}
+
 type ServerGroupForDescribeListenerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -488,5 +512,35 @@ func (s *ServerGroupForDescribeListenerAttributesOutput) SetServerGroupId(v stri
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *ServerGroupForDescribeListenerAttributesOutput) SetServerGroupName(v string) *ServerGroupForDescribeListenerAttributesOutput {
 	s.ServerGroupName = &v
+	return s
+}
+
+type TagForDescribeListenerAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeListenerAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeListenerAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeListenerAttributesOutput) SetKey(v string) *TagForDescribeListenerAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeListenerAttributesOutput) SetValue(v string) *TagForDescribeListenerAttributesOutput {
+	s.Value = &v
 	return s
 }
