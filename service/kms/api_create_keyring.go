@@ -249,6 +249,8 @@ type KeyringForCreateKeyringOutput struct {
 
 	KeyringType *string `type:"string"`
 
+	TRN *string `type:"string"`
+
 	UID *string `type:"string"`
 
 	UpdateDate *int64 `type:"int64"`
@@ -291,6 +293,12 @@ func (s *KeyringForCreateKeyringOutput) SetKeyringName(v string) *KeyringForCrea
 // SetKeyringType sets the KeyringType field's value.
 func (s *KeyringForCreateKeyringOutput) SetKeyringType(v string) *KeyringForCreateKeyringOutput {
 	s.KeyringType = &v
+	return s
+}
+
+// SetTRN sets the TRN field's value.
+func (s *KeyringForCreateKeyringOutput) SetTRN(v string) *KeyringForCreateKeyringOutput {
+	s.TRN = &v
 	return s
 }
 
