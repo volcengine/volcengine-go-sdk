@@ -174,6 +174,22 @@ type BILLINGAPI interface {
 	ListOrdersWithContext(volcengine.Context, *ListOrdersInput, ...request.Option) (*ListOrdersOutput, error)
 	ListOrdersRequest(*ListOrdersInput) (*request.Request, *ListOrdersOutput)
 
+	ListPackageUsageDetailsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListPackageUsageDetailsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListPackageUsageDetailsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListPackageUsageDetails(*ListPackageUsageDetailsInput) (*ListPackageUsageDetailsOutput, error)
+	ListPackageUsageDetailsWithContext(volcengine.Context, *ListPackageUsageDetailsInput, ...request.Option) (*ListPackageUsageDetailsOutput, error)
+	ListPackageUsageDetailsRequest(*ListPackageUsageDetailsInput) (*request.Request, *ListPackageUsageDetailsOutput)
+
+	ListResourcePackagesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListResourcePackagesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListResourcePackagesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListResourcePackages(*ListResourcePackagesInput) (*ListResourcePackagesOutput, error)
+	ListResourcePackagesWithContext(volcengine.Context, *ListResourcePackagesInput, ...request.Option) (*ListResourcePackagesOutput, error)
+	ListResourcePackagesRequest(*ListResourcePackagesInput) (*request.Request, *ListResourcePackagesOutput)
+
 	ListSplitBillDetailCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListSplitBillDetailCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListSplitBillDetailCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
