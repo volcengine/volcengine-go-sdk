@@ -364,6 +364,8 @@ type ObjectSourceConfigForQueryDataMigrateTaskOutput struct {
 
 	BucketAccessConfig *BucketAccessConfigForQueryDataMigrateTaskOutput `type:"structure"`
 
+	IsExcluded *bool `type:"boolean"`
+
 	KeyListFile *string `type:"string"`
 
 	PrefixList []*string `type:"list"`
@@ -371,6 +373,8 @@ type ObjectSourceConfigForQueryDataMigrateTaskOutput struct {
 	PrefixListFile *string `type:"string"`
 
 	ScanWithDelimiter *bool `type:"boolean"`
+
+	StartTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -386,6 +390,12 @@ func (s ObjectSourceConfigForQueryDataMigrateTaskOutput) GoString() string {
 // SetBucketAccessConfig sets the BucketAccessConfig field's value.
 func (s *ObjectSourceConfigForQueryDataMigrateTaskOutput) SetBucketAccessConfig(v *BucketAccessConfigForQueryDataMigrateTaskOutput) *ObjectSourceConfigForQueryDataMigrateTaskOutput {
 	s.BucketAccessConfig = v
+	return s
+}
+
+// SetIsExcluded sets the IsExcluded field's value.
+func (s *ObjectSourceConfigForQueryDataMigrateTaskOutput) SetIsExcluded(v bool) *ObjectSourceConfigForQueryDataMigrateTaskOutput {
+	s.IsExcluded = &v
 	return s
 }
 
@@ -410,6 +420,12 @@ func (s *ObjectSourceConfigForQueryDataMigrateTaskOutput) SetPrefixListFile(v st
 // SetScanWithDelimiter sets the ScanWithDelimiter field's value.
 func (s *ObjectSourceConfigForQueryDataMigrateTaskOutput) SetScanWithDelimiter(v bool) *ObjectSourceConfigForQueryDataMigrateTaskOutput {
 	s.ScanWithDelimiter = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *ObjectSourceConfigForQueryDataMigrateTaskOutput) SetStartTime(v string) *ObjectSourceConfigForQueryDataMigrateTaskOutput {
+	s.StartTime = &v
 	return s
 }
 
