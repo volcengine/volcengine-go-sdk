@@ -246,6 +246,8 @@ type UserForListUsersForGroupOutput struct {
 
 	DisplayName *string `type:"string"`
 
+	Id *int32 `type:"int32"`
+
 	JoinDate *string `type:"string"`
 
 	UserName *string `type:"string"`
@@ -270,6 +272,12 @@ func (s *UserForListUsersForGroupOutput) SetDescription(v string) *UserForListUs
 // SetDisplayName sets the DisplayName field's value.
 func (s *UserForListUsersForGroupOutput) SetDisplayName(v string) *UserForListUsersForGroupOutput {
 	s.DisplayName = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *UserForListUsersForGroupOutput) SetId(v int32) *UserForListUsersForGroupOutput {
+	s.Id = &v
 	return s
 }
 

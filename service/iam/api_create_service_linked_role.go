@@ -144,6 +144,8 @@ type CreateServiceLinkedRoleInput struct {
 
 	// ServiceName is a required field
 	ServiceName *string `type:"string" required:"true"`
+
+	Tags []*TagForCreateServiceLinkedRoleInput `type:"list"`
 }
 
 // String returns the string representation
@@ -175,6 +177,12 @@ func (s *CreateServiceLinkedRoleInput) SetServiceName(v string) *CreateServiceLi
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateServiceLinkedRoleInput) SetTags(v []*TagForCreateServiceLinkedRoleInput) *CreateServiceLinkedRoleInput {
+	s.Tags = v
+	return s
+}
+
 type CreateServiceLinkedRoleOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -189,4 +197,34 @@ func (s CreateServiceLinkedRoleOutput) String() string {
 // GoString returns the string representation
 func (s CreateServiceLinkedRoleOutput) GoString() string {
 	return s.String()
+}
+
+type TagForCreateServiceLinkedRoleInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateServiceLinkedRoleInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateServiceLinkedRoleInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateServiceLinkedRoleInput) SetKey(v string) *TagForCreateServiceLinkedRoleInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateServiceLinkedRoleInput) SetValue(v string) *TagForCreateServiceLinkedRoleInput {
+	s.Value = &v
+	return s
 }

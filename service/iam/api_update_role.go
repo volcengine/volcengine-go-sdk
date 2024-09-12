@@ -146,6 +146,8 @@ type UpdateRoleInput struct {
 
 	DisplayName *string `type:"string"`
 
+	MaxSessionDuration *int32 `type:"int32"`
+
 	NewRoleName *string `type:"string"`
 
 	// RoleName is a required field
@@ -190,6 +192,12 @@ func (s *UpdateRoleInput) SetDescription(v string) *UpdateRoleInput {
 // SetDisplayName sets the DisplayName field's value.
 func (s *UpdateRoleInput) SetDisplayName(v string) *UpdateRoleInput {
 	s.DisplayName = &v
+	return s
+}
+
+// SetMaxSessionDuration sets the MaxSessionDuration field's value.
+func (s *UpdateRoleInput) SetMaxSessionDuration(v int32) *UpdateRoleInput {
+	s.MaxSessionDuration = &v
 	return s
 }
 

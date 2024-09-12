@@ -142,8 +142,11 @@ func (c *IAM) GetUserWithContext(ctx volcengine.Context, input *GetUserInput, op
 type GetUserInput struct {
 	_ struct{} `type:"structure"`
 
-	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	AccessKeyID *string `type:"string"`
+
+	ID *int64 `type:"int64"`
+
+	UserName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -156,17 +159,16 @@ func (s GetUserInput) GoString() string {
 	return s.String()
 }
 
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *GetUserInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "GetUserInput"}
-	if s.UserName == nil {
-		invalidParams.Add(request.NewErrParamRequired("UserName"))
-	}
+// SetAccessKeyID sets the AccessKeyID field's value.
+func (s *GetUserInput) SetAccessKeyID(v string) *GetUserInput {
+	s.AccessKeyID = &v
+	return s
+}
 
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
+// SetID sets the ID field's value.
+func (s *GetUserInput) SetID(v int64) *GetUserInput {
+	s.ID = &v
+	return s
 }
 
 // SetUserName sets the UserName field's value.
