@@ -207,6 +207,44 @@ func (s *DescribeRulesOutput) SetRules(v []*RuleForDescribeRulesOutput) *Describ
 	return s
 }
 
+type ForwardGroupConfigForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ServerGroupTuples []*ServerGroupTupleForDescribeRulesOutput `type:"list"`
+
+	StickySessionEnabled *string `type:"string"`
+
+	StickySessionTimeout *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s ForwardGroupConfigForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ForwardGroupConfigForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetServerGroupTuples sets the ServerGroupTuples field's value.
+func (s *ForwardGroupConfigForDescribeRulesOutput) SetServerGroupTuples(v []*ServerGroupTupleForDescribeRulesOutput) *ForwardGroupConfigForDescribeRulesOutput {
+	s.ServerGroupTuples = v
+	return s
+}
+
+// SetStickySessionEnabled sets the StickySessionEnabled field's value.
+func (s *ForwardGroupConfigForDescribeRulesOutput) SetStickySessionEnabled(v string) *ForwardGroupConfigForDescribeRulesOutput {
+	s.StickySessionEnabled = &v
+	return s
+}
+
+// SetStickySessionTimeout sets the StickySessionTimeout field's value.
+func (s *ForwardGroupConfigForDescribeRulesOutput) SetStickySessionTimeout(v int64) *ForwardGroupConfigForDescribeRulesOutput {
+	s.StickySessionTimeout = &v
+	return s
+}
+
 type RedirectConfigForDescribeRulesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -290,6 +328,8 @@ type RuleForDescribeRulesOutput struct {
 
 	Domain *string `type:"string"`
 
+	ForwardGroupConfig *ForwardGroupConfigForDescribeRulesOutput `type:"structure"`
+
 	RedirectConfig *RedirectConfigForDescribeRulesOutput `type:"structure"`
 
 	RewriteConfig *RewriteConfigForDescribeRulesOutput `type:"structure"`
@@ -328,6 +368,12 @@ func (s *RuleForDescribeRulesOutput) SetDescription(v string) *RuleForDescribeRu
 // SetDomain sets the Domain field's value.
 func (s *RuleForDescribeRulesOutput) SetDomain(v string) *RuleForDescribeRulesOutput {
 	s.Domain = &v
+	return s
+}
+
+// SetForwardGroupConfig sets the ForwardGroupConfig field's value.
+func (s *RuleForDescribeRulesOutput) SetForwardGroupConfig(v *ForwardGroupConfigForDescribeRulesOutput) *RuleForDescribeRulesOutput {
+	s.ForwardGroupConfig = v
 	return s
 }
 
@@ -382,5 +428,35 @@ func (s *RuleForDescribeRulesOutput) SetTrafficLimitQPS(v int64) *RuleForDescrib
 // SetUrl sets the Url field's value.
 func (s *RuleForDescribeRulesOutput) SetUrl(v string) *RuleForDescribeRulesOutput {
 	s.Url = &v
+	return s
+}
+
+type ServerGroupTupleForDescribeRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ServerGroupId *string `type:"string"`
+
+	Weight *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s ServerGroupTupleForDescribeRulesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ServerGroupTupleForDescribeRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ServerGroupTupleForDescribeRulesOutput) SetServerGroupId(v string) *ServerGroupTupleForDescribeRulesOutput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ServerGroupTupleForDescribeRulesOutput) SetWeight(v int64) *ServerGroupTupleForDescribeRulesOutput {
+	s.Weight = &v
 	return s
 }

@@ -142,8 +142,6 @@ func (c *IAM) GetSecurityConfigWithContext(ctx volcengine.Context, input *GetSec
 type GetSecurityConfigInput struct {
 	_ struct{} `type:"structure"`
 
-	Origin *string `type:"string"`
-
 	// UserName is a required field
 	UserName *string `type:"string" required:"true"`
 }
@@ -169,12 +167,6 @@ func (s *GetSecurityConfigInput) Validate() error {
 		return invalidParams
 	}
 	return nil
-}
-
-// SetOrigin sets the Origin field's value.
-func (s *GetSecurityConfigInput) SetOrigin(v string) *GetSecurityConfigInput {
-	s.Origin = &v
-	return s
 }
 
 // SetUserName sets the UserName field's value.

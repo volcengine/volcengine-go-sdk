@@ -226,4 +226,10 @@ func (s *UntagResourcesOutput) SetRequestId(v string) *UntagResourcesOutput {
 const (
 	// ResourceTypeForUntagResourcesInputLoadbalancer is a ResourceTypeForUntagResourcesInput enum value
 	ResourceTypeForUntagResourcesInputLoadbalancer = "loadbalancer"
+
+	// ResourceTypeForUntagResourcesInputListener is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputListener = "listener"
+
+	// ResourceTypeForUntagResourcesInputServergroup is a ResourceTypeForUntagResourcesInput enum value
+	ResourceTypeForUntagResourcesInputServergroup = "servergroup"
 )

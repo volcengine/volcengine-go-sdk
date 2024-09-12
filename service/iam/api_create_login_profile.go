@@ -151,6 +151,10 @@ type CreateLoginProfileInput struct {
 
 	SafeAuthExemptDuration *int32 `type:"int32"`
 
+	SafeAuthExemptRequired *int32 `type:"int32"`
+
+	SafeAuthExemptUnit *int32 `type:"int32"`
+
 	SafeAuthFlag *bool `type:"boolean"`
 
 	SafeAuthType *string `type:"string"`
@@ -206,6 +210,18 @@ func (s *CreateLoginProfileInput) SetPasswordResetRequired(v bool) *CreateLoginP
 // SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
 func (s *CreateLoginProfileInput) SetSafeAuthExemptDuration(v int32) *CreateLoginProfileInput {
 	s.SafeAuthExemptDuration = &v
+	return s
+}
+
+// SetSafeAuthExemptRequired sets the SafeAuthExemptRequired field's value.
+func (s *CreateLoginProfileInput) SetSafeAuthExemptRequired(v int32) *CreateLoginProfileInput {
+	s.SafeAuthExemptRequired = &v
+	return s
+}
+
+// SetSafeAuthExemptUnit sets the SafeAuthExemptUnit field's value.
+func (s *CreateLoginProfileInput) SetSafeAuthExemptUnit(v int32) *CreateLoginProfileInput {
+	s.SafeAuthExemptUnit = &v
 	return s
 }
 
@@ -269,6 +285,16 @@ type LoginProfileForCreateLoginProfileOutput struct {
 	PasswordExpireAt *int32 `type:"int32"`
 
 	PasswordResetRequired *bool `type:"boolean"`
+
+	SafeAuthExemptDuration *int32 `type:"int32"`
+
+	SafeAuthExemptRequired *int32 `type:"int32"`
+
+	SafeAuthExemptUnit *int32 `type:"int32"`
+
+	SafeAuthFlag *bool `type:"boolean"`
+
+	SafeAuthType *string `type:"string"`
 
 	Status *string `type:"string"`
 
@@ -334,6 +360,36 @@ func (s *LoginProfileForCreateLoginProfileOutput) SetPasswordExpireAt(v int32) *
 // SetPasswordResetRequired sets the PasswordResetRequired field's value.
 func (s *LoginProfileForCreateLoginProfileOutput) SetPasswordResetRequired(v bool) *LoginProfileForCreateLoginProfileOutput {
 	s.PasswordResetRequired = &v
+	return s
+}
+
+// SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetSafeAuthExemptDuration(v int32) *LoginProfileForCreateLoginProfileOutput {
+	s.SafeAuthExemptDuration = &v
+	return s
+}
+
+// SetSafeAuthExemptRequired sets the SafeAuthExemptRequired field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetSafeAuthExemptRequired(v int32) *LoginProfileForCreateLoginProfileOutput {
+	s.SafeAuthExemptRequired = &v
+	return s
+}
+
+// SetSafeAuthExemptUnit sets the SafeAuthExemptUnit field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetSafeAuthExemptUnit(v int32) *LoginProfileForCreateLoginProfileOutput {
+	s.SafeAuthExemptUnit = &v
+	return s
+}
+
+// SetSafeAuthFlag sets the SafeAuthFlag field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetSafeAuthFlag(v bool) *LoginProfileForCreateLoginProfileOutput {
+	s.SafeAuthFlag = &v
+	return s
+}
+
+// SetSafeAuthType sets the SafeAuthType field's value.
+func (s *LoginProfileForCreateLoginProfileOutput) SetSafeAuthType(v string) *LoginProfileForCreateLoginProfileOutput {
+	s.SafeAuthType = &v
 	return s
 }
 

@@ -150,6 +150,15 @@ type ModifyLoadBalancerAttributesInput struct {
 	LoadBalancerId *string `type:"string" required:"true"`
 
 	LoadBalancerName *string `type:"string"`
+
+	// WafInstanceId is a required field
+	WafInstanceId *string `type:"string" required:"true"`
+
+	// WafProtectedDomain is a required field
+	WafProtectedDomain *string `type:"string" required:"true"`
+
+	// WafProtectionEnabled is a required field
+	WafProtectionEnabled *string `type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -167,6 +176,15 @@ func (s *ModifyLoadBalancerAttributesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifyLoadBalancerAttributesInput"}
 	if s.LoadBalancerId == nil {
 		invalidParams.Add(request.NewErrParamRequired("LoadBalancerId"))
+	}
+	if s.WafInstanceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("WafInstanceId"))
+	}
+	if s.WafProtectedDomain == nil {
+		invalidParams.Add(request.NewErrParamRequired("WafProtectedDomain"))
+	}
+	if s.WafProtectionEnabled == nil {
+		invalidParams.Add(request.NewErrParamRequired("WafProtectionEnabled"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -196,6 +214,24 @@ func (s *ModifyLoadBalancerAttributesInput) SetLoadBalancerId(v string) *ModifyL
 // SetLoadBalancerName sets the LoadBalancerName field's value.
 func (s *ModifyLoadBalancerAttributesInput) SetLoadBalancerName(v string) *ModifyLoadBalancerAttributesInput {
 	s.LoadBalancerName = &v
+	return s
+}
+
+// SetWafInstanceId sets the WafInstanceId field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetWafInstanceId(v string) *ModifyLoadBalancerAttributesInput {
+	s.WafInstanceId = &v
+	return s
+}
+
+// SetWafProtectedDomain sets the WafProtectedDomain field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetWafProtectedDomain(v string) *ModifyLoadBalancerAttributesInput {
+	s.WafProtectedDomain = &v
+	return s
+}
+
+// SetWafProtectionEnabled sets the WafProtectionEnabled field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetWafProtectionEnabled(v string) *ModifyLoadBalancerAttributesInput {
+	s.WafProtectionEnabled = &v
 	return s
 }
 

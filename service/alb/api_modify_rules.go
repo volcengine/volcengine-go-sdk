@@ -141,6 +141,74 @@ func (c *ALB) ModifyRulesWithContext(ctx volcengine.Context, input *ModifyRulesI
 	return out, req.Send()
 }
 
+type ForwardGroupConfigForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	ServerGroupTuples []*ForwardGroupConfigServerGroupTupleForModifyRulesInput `type:"list"`
+
+	StickySessionEnabled *string `type:"string"`
+
+	StickySessionTimeout *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s ForwardGroupConfigForModifyRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ForwardGroupConfigForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetServerGroupTuples sets the ServerGroupTuples field's value.
+func (s *ForwardGroupConfigForModifyRulesInput) SetServerGroupTuples(v []*ForwardGroupConfigServerGroupTupleForModifyRulesInput) *ForwardGroupConfigForModifyRulesInput {
+	s.ServerGroupTuples = v
+	return s
+}
+
+// SetStickySessionEnabled sets the StickySessionEnabled field's value.
+func (s *ForwardGroupConfigForModifyRulesInput) SetStickySessionEnabled(v string) *ForwardGroupConfigForModifyRulesInput {
+	s.StickySessionEnabled = &v
+	return s
+}
+
+// SetStickySessionTimeout sets the StickySessionTimeout field's value.
+func (s *ForwardGroupConfigForModifyRulesInput) SetStickySessionTimeout(v int64) *ForwardGroupConfigForModifyRulesInput {
+	s.StickySessionTimeout = &v
+	return s
+}
+
+type ForwardGroupConfigServerGroupTupleForModifyRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	ServerGroupId *string `type:"string"`
+
+	Weight *int64 `type:"integer"`
+}
+
+// String returns the string representation
+func (s ForwardGroupConfigServerGroupTupleForModifyRulesInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ForwardGroupConfigServerGroupTupleForModifyRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetServerGroupId sets the ServerGroupId field's value.
+func (s *ForwardGroupConfigServerGroupTupleForModifyRulesInput) SetServerGroupId(v string) *ForwardGroupConfigServerGroupTupleForModifyRulesInput {
+	s.ServerGroupId = &v
+	return s
+}
+
+// SetWeight sets the Weight field's value.
+func (s *ForwardGroupConfigServerGroupTupleForModifyRulesInput) SetWeight(v int64) *ForwardGroupConfigServerGroupTupleForModifyRulesInput {
+	s.Weight = &v
+	return s
+}
+
 type ModifyRulesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -326,6 +394,8 @@ type RuleForModifyRulesInput struct {
 
 	Description *string `type:"string"`
 
+	ForwardGroupConfig *ForwardGroupConfigForModifyRulesInput `type:"structure"`
+
 	RedirectConfig *RedirectConfigForModifyRulesInput `type:"structure"`
 
 	RewriteConfig *RewriteConfigForModifyRulesInput `type:"structure"`
@@ -375,6 +445,12 @@ func (s *RuleForModifyRulesInput) Validate() error {
 // SetDescription sets the Description field's value.
 func (s *RuleForModifyRulesInput) SetDescription(v string) *RuleForModifyRulesInput {
 	s.Description = &v
+	return s
+}
+
+// SetForwardGroupConfig sets the ForwardGroupConfig field's value.
+func (s *RuleForModifyRulesInput) SetForwardGroupConfig(v *ForwardGroupConfigForModifyRulesInput) *RuleForModifyRulesInput {
+	s.ForwardGroupConfig = v
 	return s
 }
 

@@ -160,6 +160,8 @@ type CACertificateForDescribeCACertificatesOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	San *string `type:"string"`
+
 	Status *string `type:"string"`
 }
 
@@ -224,6 +226,12 @@ func (s *CACertificateForDescribeCACertificatesOutput) SetListeners(v []*string)
 // SetProjectName sets the ProjectName field's value.
 func (s *CACertificateForDescribeCACertificatesOutput) SetProjectName(v string) *CACertificateForDescribeCACertificatesOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSan sets the San field's value.
+func (s *CACertificateForDescribeCACertificatesOutput) SetSan(v string) *CACertificateForDescribeCACertificatesOutput {
+	s.San = &v
 	return s
 }
 

@@ -147,6 +147,8 @@ type UpdateAccessKeyInput struct {
 
 	// Status is a required field
 	Status *string `type:"string" required:"true"`
+
+	UserName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -184,6 +186,12 @@ func (s *UpdateAccessKeyInput) SetAccessKeyId(v string) *UpdateAccessKeyInput {
 // SetStatus sets the Status field's value.
 func (s *UpdateAccessKeyInput) SetStatus(v string) *UpdateAccessKeyInput {
 	s.Status = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *UpdateAccessKeyInput) SetUserName(v string) *UpdateAccessKeyInput {
+	s.UserName = &v
 	return s
 }
 
