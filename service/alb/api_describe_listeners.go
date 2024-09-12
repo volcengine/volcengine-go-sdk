@@ -155,6 +155,8 @@ type DescribeListenersInput struct {
 	ProjectName *string `type:"string"`
 
 	Protocol *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeListenersInput `type:"list"`
 }
 
 // String returns the string representation
@@ -206,6 +208,12 @@ func (s *DescribeListenersInput) SetProjectName(v string) *DescribeListenersInpu
 // SetProtocol sets the Protocol field's value.
 func (s *DescribeListenersInput) SetProtocol(v string) *DescribeListenersInput {
 	s.Protocol = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeListenersInput) SetTagFilters(v []*TagFilterForDescribeListenersInput) *DescribeListenersInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -344,6 +352,8 @@ type ListenerForDescribeListenersOutput struct {
 
 	CertificateSource *string `type:"string"`
 
+	ClientAddressTransmissionProtocol *string `type:"string"`
+
 	CreateTime *string `type:"string"`
 
 	CustomizedCfgId *string `type:"string"`
@@ -377,6 +387,8 @@ type ListenerForDescribeListenersOutput struct {
 	ServerGroups []*ServerGroupForDescribeListenersOutput `type:"list"`
 
 	Status *string `type:"string"`
+
+	Tags []*TagForDescribeListenersOutput `type:"list"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -430,6 +442,12 @@ func (s *ListenerForDescribeListenersOutput) SetCertificateId(v string) *Listene
 // SetCertificateSource sets the CertificateSource field's value.
 func (s *ListenerForDescribeListenersOutput) SetCertificateSource(v string) *ListenerForDescribeListenersOutput {
 	s.CertificateSource = &v
+	return s
+}
+
+// SetClientAddressTransmissionProtocol sets the ClientAddressTransmissionProtocol field's value.
+func (s *ListenerForDescribeListenersOutput) SetClientAddressTransmissionProtocol(v string) *ListenerForDescribeListenersOutput {
+	s.ClientAddressTransmissionProtocol = &v
 	return s
 }
 
@@ -535,6 +553,12 @@ func (s *ListenerForDescribeListenersOutput) SetStatus(v string) *ListenerForDes
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *ListenerForDescribeListenersOutput) SetTags(v []*TagForDescribeListenersOutput) *ListenerForDescribeListenersOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *ListenerForDescribeListenersOutput) SetUpdateTime(v string) *ListenerForDescribeListenersOutput {
 	s.UpdateTime = &v
@@ -568,5 +592,65 @@ func (s *ServerGroupForDescribeListenersOutput) SetServerGroupId(v string) *Serv
 // SetServerGroupName sets the ServerGroupName field's value.
 func (s *ServerGroupForDescribeListenersOutput) SetServerGroupName(v string) *ServerGroupForDescribeListenersOutput {
 	s.ServerGroupName = &v
+	return s
+}
+
+type TagFilterForDescribeListenersInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeListenersInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeListenersInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeListenersInput) SetKey(v string) *TagFilterForDescribeListenersInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeListenersInput) SetValues(v []*string) *TagFilterForDescribeListenersInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeListenersOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeListenersOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeListenersOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeListenersOutput) SetKey(v string) *TagForDescribeListenersOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeListenersOutput) SetValue(v string) *TagForDescribeListenersOutput {
+	s.Value = &v
 	return s
 }

@@ -218,6 +218,8 @@ type ModifyListenerAttributesInput struct {
 
 	CertificateSource *string `type:"string"`
 
+	ClientAddressTransmissionProtocol *string `type:"string"`
+
 	CustomizedCfgId *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -308,6 +310,12 @@ func (s *ModifyListenerAttributesInput) SetCertificateId(v string) *ModifyListen
 // SetCertificateSource sets the CertificateSource field's value.
 func (s *ModifyListenerAttributesInput) SetCertificateSource(v string) *ModifyListenerAttributesInput {
 	s.CertificateSource = &v
+	return s
+}
+
+// SetClientAddressTransmissionProtocol sets the ClientAddressTransmissionProtocol field's value.
+func (s *ModifyListenerAttributesInput) SetClientAddressTransmissionProtocol(v string) *ModifyListenerAttributesInput {
+	s.ClientAddressTransmissionProtocol = &v
 	return s
 }
 

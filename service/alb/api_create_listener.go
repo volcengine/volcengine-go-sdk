@@ -156,6 +156,8 @@ type CreateListenerInput struct {
 
 	CertificateSource *string `type:"string"`
 
+	ClientAddressTransmissionProtocol *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	DomainExtensions []*DomainExtensionForCreateListenerInput `type:"list"`
@@ -181,6 +183,8 @@ type CreateListenerInput struct {
 
 	// ServerGroupId is a required field
 	ServerGroupId *string `type:"string" required:"true"`
+
+	Tags []*TagForCreateListenerInput `type:"list"`
 }
 
 // String returns the string representation
@@ -263,6 +267,12 @@ func (s *CreateListenerInput) SetCertificateSource(v string) *CreateListenerInpu
 	return s
 }
 
+// SetClientAddressTransmissionProtocol sets the ClientAddressTransmissionProtocol field's value.
+func (s *CreateListenerInput) SetClientAddressTransmissionProtocol(v string) *CreateListenerInput {
+	s.ClientAddressTransmissionProtocol = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateListenerInput) SetDescription(v string) *CreateListenerInput {
 	s.Description = &v
@@ -326,6 +336,12 @@ func (s *CreateListenerInput) SetProxyProtocolDisabled(v string) *CreateListener
 // SetServerGroupId sets the ServerGroupId field's value.
 func (s *CreateListenerInput) SetServerGroupId(v string) *CreateListenerInput {
 	s.ServerGroupId = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateListenerInput) SetTags(v []*TagForCreateListenerInput) *CreateListenerInput {
+	s.Tags = v
 	return s
 }
 
@@ -404,5 +420,35 @@ func (s *DomainExtensionForCreateListenerInput) SetCertificateSource(v string) *
 // SetDomain sets the Domain field's value.
 func (s *DomainExtensionForCreateListenerInput) SetDomain(v string) *DomainExtensionForCreateListenerInput {
 	s.Domain = &v
+	return s
+}
+
+type TagForCreateListenerInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateListenerInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateListenerInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateListenerInput) SetKey(v string) *TagForCreateListenerInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateListenerInput) SetValue(v string) *TagForCreateListenerInput {
+	s.Value = &v
 	return s
 }

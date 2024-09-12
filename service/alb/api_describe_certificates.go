@@ -160,6 +160,8 @@ type CertificateForDescribeCertificatesOutput struct {
 
 	ProjectName *string `type:"string"`
 
+	San *string `type:"string"`
+
 	Status *string `type:"string"`
 }
 
@@ -224,6 +226,12 @@ func (s *CertificateForDescribeCertificatesOutput) SetListeners(v []*string) *Ce
 // SetProjectName sets the ProjectName field's value.
 func (s *CertificateForDescribeCertificatesOutput) SetProjectName(v string) *CertificateForDescribeCertificatesOutput {
 	s.ProjectName = &v
+	return s
+}
+
+// SetSan sets the San field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetSan(v string) *CertificateForDescribeCertificatesOutput {
+	s.San = &v
 	return s
 }
 

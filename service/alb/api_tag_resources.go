@@ -282,4 +282,10 @@ func (s *TagResourcesOutput) SetRequestId(v string) *TagResourcesOutput {
 const (
 	// ResourceTypeForTagResourcesInputLoadbalancer is a ResourceTypeForTagResourcesInput enum value
 	ResourceTypeForTagResourcesInputLoadbalancer = "loadbalancer"
+
+	// ResourceTypeForTagResourcesInputListener is a ResourceTypeForTagResourcesInput enum value
+	ResourceTypeForTagResourcesInputListener = "listener"
+
+	// ResourceTypeForTagResourcesInputServergroup is a ResourceTypeForTagResourcesInput enum value
+	ResourceTypeForTagResourcesInputServergroup = "servergroup"
 )
