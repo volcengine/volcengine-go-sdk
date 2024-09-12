@@ -237,9 +237,15 @@ func (s *CreatePolicyOutput) SetPolicy(v *PolicyForCreatePolicyOutput) *CreatePo
 type PolicyForCreatePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
+	AttachmentCount *int32 `type:"int32"`
+
+	Category *string `type:"string"`
+
 	CreateDate *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	IsServiceRolePolicy *int32 `type:"int32"`
 
 	PolicyDocument *string `type:"string"`
 
@@ -262,6 +268,18 @@ func (s PolicyForCreatePolicyOutput) GoString() string {
 	return s.String()
 }
 
+// SetAttachmentCount sets the AttachmentCount field's value.
+func (s *PolicyForCreatePolicyOutput) SetAttachmentCount(v int32) *PolicyForCreatePolicyOutput {
+	s.AttachmentCount = &v
+	return s
+}
+
+// SetCategory sets the Category field's value.
+func (s *PolicyForCreatePolicyOutput) SetCategory(v string) *PolicyForCreatePolicyOutput {
+	s.Category = &v
+	return s
+}
+
 // SetCreateDate sets the CreateDate field's value.
 func (s *PolicyForCreatePolicyOutput) SetCreateDate(v string) *PolicyForCreatePolicyOutput {
 	s.CreateDate = &v
@@ -271,6 +289,12 @@ func (s *PolicyForCreatePolicyOutput) SetCreateDate(v string) *PolicyForCreatePo
 // SetDescription sets the Description field's value.
 func (s *PolicyForCreatePolicyOutput) SetDescription(v string) *PolicyForCreatePolicyOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIsServiceRolePolicy sets the IsServiceRolePolicy field's value.
+func (s *PolicyForCreatePolicyOutput) SetIsServiceRolePolicy(v int32) *PolicyForCreatePolicyOutput {
+	s.IsServiceRolePolicy = &v
 	return s
 }
 

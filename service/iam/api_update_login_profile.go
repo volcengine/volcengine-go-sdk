@@ -158,6 +158,16 @@ type LoginProfileForUpdateLoginProfileOutput struct {
 
 	PasswordResetRequired *bool `type:"boolean"`
 
+	SafeAuthExemptDuration *int32 `type:"int32"`
+
+	SafeAuthExemptRequired *int32 `type:"int32"`
+
+	SafeAuthExemptUnit *int32 `type:"int32"`
+
+	SafeAuthFlag *bool `type:"boolean"`
+
+	SafeAuthType *string `type:"string"`
+
 	Status *string `type:"string"`
 
 	UpdateDate *string `type:"string"`
@@ -225,6 +235,36 @@ func (s *LoginProfileForUpdateLoginProfileOutput) SetPasswordResetRequired(v boo
 	return s
 }
 
+// SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetSafeAuthExemptDuration(v int32) *LoginProfileForUpdateLoginProfileOutput {
+	s.SafeAuthExemptDuration = &v
+	return s
+}
+
+// SetSafeAuthExemptRequired sets the SafeAuthExemptRequired field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetSafeAuthExemptRequired(v int32) *LoginProfileForUpdateLoginProfileOutput {
+	s.SafeAuthExemptRequired = &v
+	return s
+}
+
+// SetSafeAuthExemptUnit sets the SafeAuthExemptUnit field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetSafeAuthExemptUnit(v int32) *LoginProfileForUpdateLoginProfileOutput {
+	s.SafeAuthExemptUnit = &v
+	return s
+}
+
+// SetSafeAuthFlag sets the SafeAuthFlag field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetSafeAuthFlag(v bool) *LoginProfileForUpdateLoginProfileOutput {
+	s.SafeAuthFlag = &v
+	return s
+}
+
+// SetSafeAuthType sets the SafeAuthType field's value.
+func (s *LoginProfileForUpdateLoginProfileOutput) SetSafeAuthType(v string) *LoginProfileForUpdateLoginProfileOutput {
+	s.SafeAuthType = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *LoginProfileForUpdateLoginProfileOutput) SetStatus(v string) *LoginProfileForUpdateLoginProfileOutput {
 	s.Status = &v
@@ -259,6 +299,10 @@ type UpdateLoginProfileInput struct {
 	PasswordResetRequired *bool `type:"boolean"`
 
 	SafeAuthExemptDuration *int32 `type:"int32"`
+
+	SafeAuthExemptRequired *int32 `type:"int32"`
+
+	SafeAuthExemptUnit *int32 `type:"int32"`
 
 	SafeAuthFlag *bool `type:"boolean"`
 
@@ -312,6 +356,18 @@ func (s *UpdateLoginProfileInput) SetPasswordResetRequired(v bool) *UpdateLoginP
 // SetSafeAuthExemptDuration sets the SafeAuthExemptDuration field's value.
 func (s *UpdateLoginProfileInput) SetSafeAuthExemptDuration(v int32) *UpdateLoginProfileInput {
 	s.SafeAuthExemptDuration = &v
+	return s
+}
+
+// SetSafeAuthExemptRequired sets the SafeAuthExemptRequired field's value.
+func (s *UpdateLoginProfileInput) SetSafeAuthExemptRequired(v int32) *UpdateLoginProfileInput {
+	s.SafeAuthExemptRequired = &v
+	return s
+}
+
+// SetSafeAuthExemptUnit sets the SafeAuthExemptUnit field's value.
+func (s *UpdateLoginProfileInput) SetSafeAuthExemptUnit(v int32) *UpdateLoginProfileInput {
+	s.SafeAuthExemptUnit = &v
 	return s
 }
 

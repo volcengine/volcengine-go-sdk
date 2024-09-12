@@ -5,8 +5,6 @@ package iam
 import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/request"
-	"github.com/volcengine/volcengine-go-sdk/volcengine/response"
-	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineutil"
 )
 
 const opSendCodeForChangeSecureContactInfoCommon = "SendCodeForChangeSecureContactInfo"
@@ -137,50 +135,4 @@ func (c *IAM) SendCodeForChangeSecureContactInfoWithContext(ctx volcengine.Conte
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
-}
-
-type SendCodeForChangeSecureContactInfoInput struct {
-	_ struct{} `type:"structure"`
-
-	NewEmail *string `type:"string"`
-
-	NewMobilePhone *string `type:"string"`
-}
-
-// String returns the string representation
-func (s SendCodeForChangeSecureContactInfoInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s SendCodeForChangeSecureContactInfoInput) GoString() string {
-	return s.String()
-}
-
-// SetNewEmail sets the NewEmail field's value.
-func (s *SendCodeForChangeSecureContactInfoInput) SetNewEmail(v string) *SendCodeForChangeSecureContactInfoInput {
-	s.NewEmail = &v
-	return s
-}
-
-// SetNewMobilePhone sets the NewMobilePhone field's value.
-func (s *SendCodeForChangeSecureContactInfoInput) SetNewMobilePhone(v string) *SendCodeForChangeSecureContactInfoInput {
-	s.NewMobilePhone = &v
-	return s
-}
-
-type SendCodeForChangeSecureContactInfoOutput struct {
-	_ struct{} `type:"structure"`
-
-	Metadata *response.ResponseMetadata
-}
-
-// String returns the string representation
-func (s SendCodeForChangeSecureContactInfoOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s SendCodeForChangeSecureContactInfoOutput) GoString() string {
-	return s.String()
 }

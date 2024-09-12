@@ -206,6 +206,12 @@ type RoleForGetRoleOutput struct {
 
 	Description *string `type:"string"`
 
+	DisplayName *string `type:"string"`
+
+	IsServiceLinkedRole *int32 `type:"int32"`
+
+	MaxSessionDuration *int32 `type:"int32"`
+
 	RoleId *int32 `type:"int32"`
 
 	RoleName *string `type:"string"`
@@ -213,6 +219,8 @@ type RoleForGetRoleOutput struct {
 	Trn *string `type:"string"`
 
 	TrustPolicyDocument *string `type:"string"`
+
+	UpdateDate *string `type:"string"`
 }
 
 // String returns the string representation
@@ -237,6 +245,24 @@ func (s *RoleForGetRoleOutput) SetDescription(v string) *RoleForGetRoleOutput {
 	return s
 }
 
+// SetDisplayName sets the DisplayName field's value.
+func (s *RoleForGetRoleOutput) SetDisplayName(v string) *RoleForGetRoleOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetIsServiceLinkedRole sets the IsServiceLinkedRole field's value.
+func (s *RoleForGetRoleOutput) SetIsServiceLinkedRole(v int32) *RoleForGetRoleOutput {
+	s.IsServiceLinkedRole = &v
+	return s
+}
+
+// SetMaxSessionDuration sets the MaxSessionDuration field's value.
+func (s *RoleForGetRoleOutput) SetMaxSessionDuration(v int32) *RoleForGetRoleOutput {
+	s.MaxSessionDuration = &v
+	return s
+}
+
 // SetRoleId sets the RoleId field's value.
 func (s *RoleForGetRoleOutput) SetRoleId(v int32) *RoleForGetRoleOutput {
 	s.RoleId = &v
@@ -258,5 +284,11 @@ func (s *RoleForGetRoleOutput) SetTrn(v string) *RoleForGetRoleOutput {
 // SetTrustPolicyDocument sets the TrustPolicyDocument field's value.
 func (s *RoleForGetRoleOutput) SetTrustPolicyDocument(v string) *RoleForGetRoleOutput {
 	s.TrustPolicyDocument = &v
+	return s
+}
+
+// SetUpdateDate sets the UpdateDate field's value.
+func (s *RoleForGetRoleOutput) SetUpdateDate(v string) *RoleForGetRoleOutput {
+	s.UpdateDate = &v
 	return s
 }

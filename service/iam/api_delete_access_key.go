@@ -144,6 +144,8 @@ type DeleteAccessKeyInput struct {
 
 	// AccessKeyId is a required field
 	AccessKeyId *string `type:"string" required:"true"`
+
+	UserName *string `type:"string"`
 }
 
 // String returns the string representation
@@ -172,6 +174,12 @@ func (s *DeleteAccessKeyInput) Validate() error {
 // SetAccessKeyId sets the AccessKeyId field's value.
 func (s *DeleteAccessKeyInput) SetAccessKeyId(v string) *DeleteAccessKeyInput {
 	s.AccessKeyId = &v
+	return s
+}
+
+// SetUserName sets the UserName field's value.
+func (s *DeleteAccessKeyInput) SetUserName(v string) *DeleteAccessKeyInput {
+	s.UserName = &v
 	return s
 }
 

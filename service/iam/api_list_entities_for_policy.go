@@ -142,8 +142,7 @@ func (c *IAM) ListEntitiesForPolicyWithContext(ctx volcengine.Context, input *Li
 type ListEntitiesForPolicyInput struct {
 	_ struct{} `type:"structure"`
 
-	// EntityFilter is a required field
-	EntityFilter *string `type:"string" required:"true"`
+	EntityFilter *string `type:"string"`
 
 	Limit *int32 `type:"int32"`
 
@@ -153,7 +152,7 @@ type ListEntitiesForPolicyInput struct {
 	PolicyName *string `type:"string" required:"true"`
 
 	// PolicyType is a required field
-	PolicyType *string `type:"string" required:"true"`
+	PolicyType *string `type:"string" required:"true" enum:"EnumOfPolicyTypeForListEntitiesForPolicyInput"`
 }
 
 // String returns the string representation
@@ -169,9 +168,6 @@ func (s ListEntitiesForPolicyInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListEntitiesForPolicyInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListEntitiesForPolicyInput"}
-	if s.EntityFilter == nil {
-		invalidParams.Add(request.NewErrParamRequired("EntityFilter"))
-	}
 	if s.PolicyName == nil {
 		invalidParams.Add(request.NewErrParamRequired("PolicyName"))
 	}
@@ -286,6 +282,10 @@ type PolicyRoleForListEntitiesForPolicyOutput struct {
 
 	Description *string `type:"string"`
 
+	DisplayName *string `type:"string"`
+
+	Id *int32 `type:"int32"`
+
 	PolicyScope []*PolicyScopeForListEntitiesForPolicyOutput `type:"list"`
 
 	RoleName *string `type:"string"`
@@ -310,6 +310,18 @@ func (s *PolicyRoleForListEntitiesForPolicyOutput) SetAttachDate(v string) *Poli
 // SetDescription sets the Description field's value.
 func (s *PolicyRoleForListEntitiesForPolicyOutput) SetDescription(v string) *PolicyRoleForListEntitiesForPolicyOutput {
 	s.Description = &v
+	return s
+}
+
+// SetDisplayName sets the DisplayName field's value.
+func (s *PolicyRoleForListEntitiesForPolicyOutput) SetDisplayName(v string) *PolicyRoleForListEntitiesForPolicyOutput {
+	s.DisplayName = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *PolicyRoleForListEntitiesForPolicyOutput) SetId(v int32) *PolicyRoleForListEntitiesForPolicyOutput {
+	s.Id = &v
 	return s
 }
 
@@ -380,6 +392,8 @@ type PolicyUserForListEntitiesForPolicyOutput struct {
 
 	DisplayName *string `type:"string"`
 
+	Id *int32 `type:"int32"`
+
 	PolicyScope []*PolicyScopeForListEntitiesForPolicyOutput `type:"list"`
 
 	UserName *string `type:"string"`
@@ -413,6 +427,12 @@ func (s *PolicyUserForListEntitiesForPolicyOutput) SetDisplayName(v string) *Pol
 	return s
 }
 
+// SetId sets the Id field's value.
+func (s *PolicyUserForListEntitiesForPolicyOutput) SetId(v int32) *PolicyUserForListEntitiesForPolicyOutput {
+	s.Id = &v
+	return s
+}
+
 // SetPolicyScope sets the PolicyScope field's value.
 func (s *PolicyUserForListEntitiesForPolicyOutput) SetPolicyScope(v []*PolicyScopeForListEntitiesForPolicyOutput) *PolicyUserForListEntitiesForPolicyOutput {
 	s.PolicyScope = v
@@ -433,6 +453,8 @@ type PolicyUserGroupForListEntitiesForPolicyOutput struct {
 	Description *string `type:"string"`
 
 	DisplayName *string `type:"string"`
+
+	Id *int32 `type:"int32"`
 
 	PolicyScope []*PolicyScopeForListEntitiesForPolicyOutput `type:"list"`
 
@@ -467,6 +489,12 @@ func (s *PolicyUserGroupForListEntitiesForPolicyOutput) SetDisplayName(v string)
 	return s
 }
 
+// SetId sets the Id field's value.
+func (s *PolicyUserGroupForListEntitiesForPolicyOutput) SetId(v int32) *PolicyUserGroupForListEntitiesForPolicyOutput {
+	s.Id = &v
+	return s
+}
+
 // SetPolicyScope sets the PolicyScope field's value.
 func (s *PolicyUserGroupForListEntitiesForPolicyOutput) SetPolicyScope(v []*PolicyScopeForListEntitiesForPolicyOutput) *PolicyUserGroupForListEntitiesForPolicyOutput {
 	s.PolicyScope = v
@@ -478,3 +506,11 @@ func (s *PolicyUserGroupForListEntitiesForPolicyOutput) SetUserGroupName(v strin
 	s.UserGroupName = &v
 	return s
 }
+
+const (
+	// EnumOfPolicyTypeForListEntitiesForPolicyInputSystem is a EnumOfPolicyTypeForListEntitiesForPolicyInput enum value
+	EnumOfPolicyTypeForListEntitiesForPolicyInputSystem = "System"
+
+	// EnumOfPolicyTypeForListEntitiesForPolicyInputCustom is a EnumOfPolicyTypeForListEntitiesForPolicyInput enum value
+	EnumOfPolicyTypeForListEntitiesForPolicyInputCustom = "Custom"
+)
