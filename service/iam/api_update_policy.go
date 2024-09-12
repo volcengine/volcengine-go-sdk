@@ -142,9 +142,15 @@ func (c *IAM) UpdatePolicyWithContext(ctx volcengine.Context, input *UpdatePolic
 type PolicyForUpdatePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
+	AttachmentCount *int32 `type:"int32"`
+
+	Category *string `type:"string"`
+
 	CreateDate *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	IsServiceRolePolicy *int32 `type:"int32"`
 
 	PolicyDocument *string `type:"string"`
 
@@ -167,6 +173,18 @@ func (s PolicyForUpdatePolicyOutput) GoString() string {
 	return s.String()
 }
 
+// SetAttachmentCount sets the AttachmentCount field's value.
+func (s *PolicyForUpdatePolicyOutput) SetAttachmentCount(v int32) *PolicyForUpdatePolicyOutput {
+	s.AttachmentCount = &v
+	return s
+}
+
+// SetCategory sets the Category field's value.
+func (s *PolicyForUpdatePolicyOutput) SetCategory(v string) *PolicyForUpdatePolicyOutput {
+	s.Category = &v
+	return s
+}
+
 // SetCreateDate sets the CreateDate field's value.
 func (s *PolicyForUpdatePolicyOutput) SetCreateDate(v string) *PolicyForUpdatePolicyOutput {
 	s.CreateDate = &v
@@ -176,6 +194,12 @@ func (s *PolicyForUpdatePolicyOutput) SetCreateDate(v string) *PolicyForUpdatePo
 // SetDescription sets the Description field's value.
 func (s *PolicyForUpdatePolicyOutput) SetDescription(v string) *PolicyForUpdatePolicyOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIsServiceRolePolicy sets the IsServiceRolePolicy field's value.
+func (s *PolicyForUpdatePolicyOutput) SetIsServiceRolePolicy(v int32) *PolicyForUpdatePolicyOutput {
+	s.IsServiceRolePolicy = &v
 	return s
 }
 

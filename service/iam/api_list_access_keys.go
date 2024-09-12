@@ -139,7 +139,7 @@ func (c *IAM) ListAccessKeysWithContext(ctx volcengine.Context, input *ListAcces
 	return out, req.Send()
 }
 
-type AccessKeyMetadatumForListAccessKeysOutput struct {
+type AccessKeyMetadataForListAccessKeysOutput struct {
 	_ struct{} `type:"structure"`
 
 	AccessKeyId *string `type:"string"`
@@ -154,41 +154,41 @@ type AccessKeyMetadatumForListAccessKeysOutput struct {
 }
 
 // String returns the string representation
-func (s AccessKeyMetadatumForListAccessKeysOutput) String() string {
+func (s AccessKeyMetadataForListAccessKeysOutput) String() string {
 	return volcengineutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s AccessKeyMetadatumForListAccessKeysOutput) GoString() string {
+func (s AccessKeyMetadataForListAccessKeysOutput) GoString() string {
 	return s.String()
 }
 
 // SetAccessKeyId sets the AccessKeyId field's value.
-func (s *AccessKeyMetadatumForListAccessKeysOutput) SetAccessKeyId(v string) *AccessKeyMetadatumForListAccessKeysOutput {
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetAccessKeyId(v string) *AccessKeyMetadataForListAccessKeysOutput {
 	s.AccessKeyId = &v
 	return s
 }
 
 // SetCreateDate sets the CreateDate field's value.
-func (s *AccessKeyMetadatumForListAccessKeysOutput) SetCreateDate(v string) *AccessKeyMetadatumForListAccessKeysOutput {
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetCreateDate(v string) *AccessKeyMetadataForListAccessKeysOutput {
 	s.CreateDate = &v
 	return s
 }
 
 // SetStatus sets the Status field's value.
-func (s *AccessKeyMetadatumForListAccessKeysOutput) SetStatus(v string) *AccessKeyMetadatumForListAccessKeysOutput {
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetStatus(v string) *AccessKeyMetadataForListAccessKeysOutput {
 	s.Status = &v
 	return s
 }
 
 // SetUpdateDate sets the UpdateDate field's value.
-func (s *AccessKeyMetadatumForListAccessKeysOutput) SetUpdateDate(v string) *AccessKeyMetadatumForListAccessKeysOutput {
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetUpdateDate(v string) *AccessKeyMetadataForListAccessKeysOutput {
 	s.UpdateDate = &v
 	return s
 }
 
 // SetUserName sets the UserName field's value.
-func (s *AccessKeyMetadatumForListAccessKeysOutput) SetUserName(v string) *AccessKeyMetadatumForListAccessKeysOutput {
+func (s *AccessKeyMetadataForListAccessKeysOutput) SetUserName(v string) *AccessKeyMetadataForListAccessKeysOutput {
 	s.UserName = &v
 	return s
 }
@@ -220,7 +220,7 @@ type ListAccessKeysOutput struct {
 
 	Metadata *response.ResponseMetadata
 
-	AccessKeyMetadata []*AccessKeyMetadatumForListAccessKeysOutput `type:"list"`
+	AccessKeyMetadata []*AccessKeyMetadataForListAccessKeysOutput `type:"list"`
 }
 
 // String returns the string representation
@@ -234,7 +234,7 @@ func (s ListAccessKeysOutput) GoString() string {
 }
 
 // SetAccessKeyMetadata sets the AccessKeyMetadata field's value.
-func (s *ListAccessKeysOutput) SetAccessKeyMetadata(v []*AccessKeyMetadatumForListAccessKeysOutput) *ListAccessKeysOutput {
+func (s *ListAccessKeysOutput) SetAccessKeyMetadata(v []*AccessKeyMetadataForListAccessKeysOutput) *ListAccessKeysOutput {
 	s.AccessKeyMetadata = v
 	return s
 }

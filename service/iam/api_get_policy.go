@@ -146,7 +146,7 @@ type GetPolicyInput struct {
 	PolicyName *string `type:"string" required:"true"`
 
 	// PolicyType is a required field
-	PolicyType *string `type:"string" required:"true"`
+	PolicyType *string `type:"string" required:"true" enum:"EnumOfPolicyTypeForGetPolicyInput"`
 }
 
 // String returns the string representation
@@ -214,9 +214,15 @@ func (s *GetPolicyOutput) SetPolicy(v *PolicyForGetPolicyOutput) *GetPolicyOutpu
 type PolicyForGetPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
+	AttachmentCount *int32 `type:"int32"`
+
+	Category *string `type:"string"`
+
 	CreateDate *string `type:"string"`
 
 	Description *string `type:"string"`
+
+	IsServiceRolePolicy *int32 `type:"int32"`
 
 	PolicyDocument *string `type:"string"`
 
@@ -239,6 +245,18 @@ func (s PolicyForGetPolicyOutput) GoString() string {
 	return s.String()
 }
 
+// SetAttachmentCount sets the AttachmentCount field's value.
+func (s *PolicyForGetPolicyOutput) SetAttachmentCount(v int32) *PolicyForGetPolicyOutput {
+	s.AttachmentCount = &v
+	return s
+}
+
+// SetCategory sets the Category field's value.
+func (s *PolicyForGetPolicyOutput) SetCategory(v string) *PolicyForGetPolicyOutput {
+	s.Category = &v
+	return s
+}
+
 // SetCreateDate sets the CreateDate field's value.
 func (s *PolicyForGetPolicyOutput) SetCreateDate(v string) *PolicyForGetPolicyOutput {
 	s.CreateDate = &v
@@ -248,6 +266,12 @@ func (s *PolicyForGetPolicyOutput) SetCreateDate(v string) *PolicyForGetPolicyOu
 // SetDescription sets the Description field's value.
 func (s *PolicyForGetPolicyOutput) SetDescription(v string) *PolicyForGetPolicyOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIsServiceRolePolicy sets the IsServiceRolePolicy field's value.
+func (s *PolicyForGetPolicyOutput) SetIsServiceRolePolicy(v int32) *PolicyForGetPolicyOutput {
+	s.IsServiceRolePolicy = &v
 	return s
 }
 
@@ -280,3 +304,11 @@ func (s *PolicyForGetPolicyOutput) SetUpdateDate(v string) *PolicyForGetPolicyOu
 	s.UpdateDate = &v
 	return s
 }
+
+const (
+	// EnumOfPolicyTypeForGetPolicyInputSystem is a EnumOfPolicyTypeForGetPolicyInput enum value
+	EnumOfPolicyTypeForGetPolicyInputSystem = "System"
+
+	// EnumOfPolicyTypeForGetPolicyInputCustom is a EnumOfPolicyTypeForGetPolicyInput enum value
+	EnumOfPolicyTypeForGetPolicyInputCustom = "Custom"
+)

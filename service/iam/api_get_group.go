@@ -212,6 +212,8 @@ type UserGroupForGetGroupOutput struct {
 
 	UpdateDate *string `type:"string"`
 
+	UserGroupID *int32 `type:"int32"`
+
 	UserGroupName *string `type:"string"`
 }
 
@@ -252,6 +254,12 @@ func (s *UserGroupForGetGroupOutput) SetDisplayName(v string) *UserGroupForGetGr
 // SetUpdateDate sets the UpdateDate field's value.
 func (s *UserGroupForGetGroupOutput) SetUpdateDate(v string) *UserGroupForGetGroupOutput {
 	s.UpdateDate = &v
+	return s
+}
+
+// SetUserGroupID sets the UserGroupID field's value.
+func (s *UserGroupForGetGroupOutput) SetUserGroupID(v int32) *UserGroupForGetGroupOutput {
+	s.UserGroupID = &v
 	return s
 }
 
