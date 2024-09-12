@@ -533,6 +533,8 @@ type ObjectSourceConfigForCreateDataMigrateTaskInput struct {
 
 	BucketAccessConfig *BucketAccessConfigForCreateDataMigrateTaskInput `type:"structure"`
 
+	IsExcluded *bool `type:"boolean"`
+
 	KeyListFile *string `type:"string"`
 
 	PrefixList []*string `type:"list"`
@@ -540,6 +542,8 @@ type ObjectSourceConfigForCreateDataMigrateTaskInput struct {
 	PrefixListFile *string `type:"string"`
 
 	ScanWithDelimiter *bool `type:"boolean"`
+
+	StartTime *string `type:"string"`
 }
 
 // String returns the string representation
@@ -555,6 +559,12 @@ func (s ObjectSourceConfigForCreateDataMigrateTaskInput) GoString() string {
 // SetBucketAccessConfig sets the BucketAccessConfig field's value.
 func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetBucketAccessConfig(v *BucketAccessConfigForCreateDataMigrateTaskInput) *ObjectSourceConfigForCreateDataMigrateTaskInput {
 	s.BucketAccessConfig = v
+	return s
+}
+
+// SetIsExcluded sets the IsExcluded field's value.
+func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetIsExcluded(v bool) *ObjectSourceConfigForCreateDataMigrateTaskInput {
+	s.IsExcluded = &v
 	return s
 }
 
@@ -579,6 +589,12 @@ func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetPrefixListFile(v st
 // SetScanWithDelimiter sets the ScanWithDelimiter field's value.
 func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetScanWithDelimiter(v bool) *ObjectSourceConfigForCreateDataMigrateTaskInput {
 	s.ScanWithDelimiter = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *ObjectSourceConfigForCreateDataMigrateTaskInput) SetStartTime(v string) *ObjectSourceConfigForCreateDataMigrateTaskInput {
+	s.StartTime = &v
 	return s
 }
 
