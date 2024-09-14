@@ -156,9 +156,9 @@ type BackupForDescribeBackupsOutput struct {
 
 	EndTime *string `type:"string"`
 
-	InstanceDetail *InstanceDetailForDescribeBackupsOutput `type:"structure"`
-
 	InstanceId *string `type:"string"`
+
+	InstanceInfo *InstanceInfoForDescribeBackupsOutput `type:"structure"`
 
 	ProjectName *string `type:"string"`
 
@@ -211,15 +211,15 @@ func (s *BackupForDescribeBackupsOutput) SetEndTime(v string) *BackupForDescribe
 	return s
 }
 
-// SetInstanceDetail sets the InstanceDetail field's value.
-func (s *BackupForDescribeBackupsOutput) SetInstanceDetail(v *InstanceDetailForDescribeBackupsOutput) *BackupForDescribeBackupsOutput {
-	s.InstanceDetail = v
-	return s
-}
-
 // SetInstanceId sets the InstanceId field's value.
 func (s *BackupForDescribeBackupsOutput) SetInstanceId(v string) *BackupForDescribeBackupsOutput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceInfo sets the InstanceInfo field's value.
+func (s *BackupForDescribeBackupsOutput) SetInstanceInfo(v *InstanceInfoForDescribeBackupsOutput) *BackupForDescribeBackupsOutput {
+	s.InstanceInfo = v
 	return s
 }
 
@@ -256,6 +256,8 @@ func (s *BackupForDescribeBackupsOutput) SetTTL(v int32) *BackupForDescribeBacku
 type DescribeBackupsInput struct {
 	_ struct{} `type:"structure"`
 
+	BackupPointId *string `type:"string"`
+
 	BackupPointName *string `type:"string"`
 
 	BackupStrategyList []*string `type:"list"`
@@ -283,6 +285,12 @@ func (s DescribeBackupsInput) String() string {
 // GoString returns the string representation
 func (s DescribeBackupsInput) GoString() string {
 	return s.String()
+}
+
+// SetBackupPointId sets the BackupPointId field's value.
+func (s *DescribeBackupsInput) SetBackupPointId(v string) *DescribeBackupsInput {
+	s.BackupPointId = &v
+	return s
 }
 
 // SetBackupPointName sets the BackupPointName field's value.
@@ -529,6 +537,178 @@ func (s *InstanceDetailForDescribeBackupsOutput) SetZoneIds(v []*string) *Instan
 	return s
 }
 
+type InstanceInfoForDescribeBackupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	AccountId *int64 `type:"int64"`
+
+	ChargeType *string `type:"string"`
+
+	DeletionProtection *string `type:"string"`
+
+	EngineVersion *string `type:"string"`
+
+	ExpiredTime *string `type:"string"`
+
+	InstanceDetail *InstanceDetailForDescribeBackupsOutput `type:"structure"`
+
+	InstanceId *string `type:"string"`
+
+	InstanceName *string `type:"string"`
+
+	NetworkType *string `type:"string"`
+
+	RegionId *string `type:"string"`
+
+	ShardCapacity *float64 `type:"double"`
+
+	ShardList []*ShardListForDescribeBackupsOutput `type:"list"`
+
+	ShardNumber *int32 `type:"int32"`
+
+	VpcId *string `type:"string"`
+
+	ZoneIds []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s InstanceInfoForDescribeBackupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceInfoForDescribeBackupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetAccountId(v int64) *InstanceInfoForDescribeBackupsOutput {
+	s.AccountId = &v
+	return s
+}
+
+// SetChargeType sets the ChargeType field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetChargeType(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.ChargeType = &v
+	return s
+}
+
+// SetDeletionProtection sets the DeletionProtection field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetDeletionProtection(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.DeletionProtection = &v
+	return s
+}
+
+// SetEngineVersion sets the EngineVersion field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetEngineVersion(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.EngineVersion = &v
+	return s
+}
+
+// SetExpiredTime sets the ExpiredTime field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetExpiredTime(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.ExpiredTime = &v
+	return s
+}
+
+// SetInstanceDetail sets the InstanceDetail field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetInstanceDetail(v *InstanceDetailForDescribeBackupsOutput) *InstanceInfoForDescribeBackupsOutput {
+	s.InstanceDetail = v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetInstanceId(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceName sets the InstanceName field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetInstanceName(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.InstanceName = &v
+	return s
+}
+
+// SetNetworkType sets the NetworkType field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetNetworkType(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.NetworkType = &v
+	return s
+}
+
+// SetRegionId sets the RegionId field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetRegionId(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.RegionId = &v
+	return s
+}
+
+// SetShardCapacity sets the ShardCapacity field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetShardCapacity(v float64) *InstanceInfoForDescribeBackupsOutput {
+	s.ShardCapacity = &v
+	return s
+}
+
+// SetShardList sets the ShardList field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetShardList(v []*ShardListForDescribeBackupsOutput) *InstanceInfoForDescribeBackupsOutput {
+	s.ShardList = v
+	return s
+}
+
+// SetShardNumber sets the ShardNumber field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetShardNumber(v int32) *InstanceInfoForDescribeBackupsOutput {
+	s.ShardNumber = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetVpcId(v string) *InstanceInfoForDescribeBackupsOutput {
+	s.VpcId = &v
+	return s
+}
+
+// SetZoneIds sets the ZoneIds field's value.
+func (s *InstanceInfoForDescribeBackupsOutput) SetZoneIds(v []*string) *InstanceInfoForDescribeBackupsOutput {
+	s.ZoneIds = v
+	return s
+}
+
+type ShardListForDescribeBackupsOutput struct {
+	_ struct{} `type:"structure"`
+
+	ShardIndex *int32 `type:"int32"`
+
+	SlotMap []*string `type:"list"`
+
+	SlotsNumber *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s ShardListForDescribeBackupsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ShardListForDescribeBackupsOutput) GoString() string {
+	return s.String()
+}
+
+// SetShardIndex sets the ShardIndex field's value.
+func (s *ShardListForDescribeBackupsOutput) SetShardIndex(v int32) *ShardListForDescribeBackupsOutput {
+	s.ShardIndex = &v
+	return s
+}
+
+// SetSlotMap sets the SlotMap field's value.
+func (s *ShardListForDescribeBackupsOutput) SetSlotMap(v []*string) *ShardListForDescribeBackupsOutput {
+	s.SlotMap = v
+	return s
+}
+
+// SetSlotsNumber sets the SlotsNumber field's value.
+func (s *ShardListForDescribeBackupsOutput) SetSlotsNumber(v int32) *ShardListForDescribeBackupsOutput {
+	s.SlotsNumber = &v
+	return s
+}
+
 type VpcInfoForDescribeBackupsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -590,6 +770,9 @@ const (
 const (
 	// EnumOfScopeForDescribeBackupsInputOneInstance is a EnumOfScopeForDescribeBackupsInput enum value
 	EnumOfScopeForDescribeBackupsInputOneInstance = "OneInstance"
+
+	// EnumOfScopeForDescribeBackupsInputDestroyedInstances is a EnumOfScopeForDescribeBackupsInput enum value
+	EnumOfScopeForDescribeBackupsInputDestroyedInstances = "DestroyedInstances"
 
 	// EnumOfScopeForDescribeBackupsInputAccountInstances is a EnumOfScopeForDescribeBackupsInput enum value
 	EnumOfScopeForDescribeBackupsInputAccountInstances = "AccountInstances"
