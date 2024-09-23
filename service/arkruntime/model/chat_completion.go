@@ -90,6 +90,18 @@ type FunctionCall struct {
 	Arguments string `json:"arguments,omitempty"`
 }
 
+type ChatRequest interface {
+	json.Marshaler
+	WithStream(stream bool) ChatRequest
+	IsStream() bool
+	GetModel() string
+}
+
+// ChatCompletionRequest[Deprecated] - When making a request using this struct, only non-zero fields take effect.
+// This means that if your field value is 0, an empty string (""), false, or
+// other zero values, it will not be sent to the server.
+// The server will handle these fields according to their default values.
+// If you need to specify a zero value, please use CreateChatCompletionRequest.
 type ChatCompletionRequest struct {
 	Model             string                   `json:"model"`
 	Messages          []*ChatCompletionMessage `json:"messages"`
@@ -111,6 +123,79 @@ type ChatCompletionRequest struct {
 	RepetitionPenalty float32                  `json:"repetition_penalty,omitempty"`
 	N                 int                      `json:"n,omitempty"`
 	ResponseFormat    *ResponseFormat          `json:"response_format,omitempty"`
+}
+
+func (r ChatCompletionRequest) MarshalJSON() ([]byte, error) {
+	type Alias ChatCompletionRequest
+	return json.Marshal(&struct {
+		*Alias
+	}{
+		Alias: (*Alias)(&r),
+	})
+}
+
+func (r ChatCompletionRequest) WithStream(stream bool) ChatRequest {
+	r.Stream = stream
+	return r
+}
+
+func (r ChatCompletionRequest) IsStream() bool {
+	return r.Stream
+}
+
+func (r ChatCompletionRequest) GetModel() string {
+	return r.Model
+}
+
+// CreateChatCompletionRequest - When making a request using this struct, if your field value is 0,
+// an empty string (""), false, or other zero values, it will be sent to
+// the server. The server will handle these fields according to the specified values.
+type CreateChatCompletionRequest struct {
+	Model             string                   `json:"model"`
+	Messages          []*ChatCompletionMessage `json:"messages"`
+	MaxTokens         *int                     `json:"max_tokens,omitempty"`
+	Temperature       *float32                 `json:"temperature,omitempty"`
+	TopP              *float32                 `json:"top_p,omitempty"`
+	Stream            *bool                    `json:"stream,omitempty"`
+	Stop              []string                 `json:"stop,omitempty"`
+	FrequencyPenalty  *float32                 `json:"frequency_penalty,omitempty"`
+	LogitBias         map[string]int           `json:"logit_bias,omitempty"`
+	LogProbs          *bool                    `json:"logprobs,omitempty"`
+	TopLogProbs       *int                     `json:"top_logprobs,omitempty"`
+	User              *string                  `json:"user,omitempty"`
+	FunctionCall      interface{}              `json:"function_call,omitempty"`
+	Tools             []*Tool                  `json:"tools,omitempty"`
+	ToolChoice        interface{}              `json:"tool_choice,omitempty"`
+	StreamOptions     *StreamOptions           `json:"stream_options,omitempty"`
+	PresencePenalty   *float32                 `json:"presence_penalty,omitempty"`
+	RepetitionPenalty *float32                 `json:"repetition_penalty,omitempty"`
+	N                 *int                     `json:"n,omitempty"`
+	ResponseFormat    *ResponseFormat          `json:"response_format,omitempty"`
+}
+
+func (r CreateChatCompletionRequest) MarshalJSON() ([]byte, error) {
+	type Alias CreateChatCompletionRequest
+	return json.Marshal(&struct {
+		*Alias
+	}{
+		Alias: (*Alias)(&r),
+	})
+}
+
+func (r CreateChatCompletionRequest) WithStream(stream bool) ChatRequest {
+	r.Stream = &stream
+	return r
+}
+
+func (r CreateChatCompletionRequest) IsStream() bool {
+	if r.Stream == nil {
+		return false
+	}
+	return *r.Stream
+}
+
+func (r CreateChatCompletionRequest) GetModel() string {
+	return r.Model
 }
 
 type StreamOptions struct {
