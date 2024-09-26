@@ -13,16 +13,16 @@ const chatCompletionsSuffix = "/chat/completions"
 // CreateChatCompletion — API call to Create a completion for the chat message.
 func (c *Client) CreateChatCompletion(
 	ctx context.Context,
-	request model.ChatCompletionRequest,
+	request model.ChatRequest,
 	setters ...requestOption,
 ) (response model.ChatCompletionResponse, err error) {
-	if request.Stream {
+	if request.IsStream() {
 		err = model.ErrChatCompletionStreamNotSupported
 		return
 	}
 
 	requestOptions := append(setters, withBody(request))
-	err = c.Do(ctx, http.MethodPost, c.fullURL(chatCompletionsSuffix), resourceTypeEndpoint, request.Model, &response, requestOptions...)
+	err = c.Do(ctx, http.MethodPost, c.fullURL(chatCompletionsSuffix), resourceTypeEndpoint, request.GetModel(), &response, requestOptions...)
 	if err != nil {
 		return
 	}
@@ -35,14 +35,14 @@ func (c *Client) CreateChatCompletion(
 // stream terminated by a data: [DONE] message.
 func (c *Client) CreateChatCompletionStream(
 	ctx context.Context,
-	request model.ChatCompletionRequest,
+	request model.ChatRequest,
 	setters ...requestOption,
 ) (stream *utils.ChatCompletionStreamReader, err error) {
-	request.Stream = true
+	request = request.WithStream(true)
 
 	requestOptions := append(setters, withBody(request))
 
-	resp, err := c.ChatCompletionRequestStreamDo(ctx, http.MethodPost, c.fullURL(chatCompletionsSuffix), request.Model, requestOptions...)
+	resp, err := c.ChatCompletionRequestStreamDo(ctx, http.MethodPost, c.fullURL(chatCompletionsSuffix), request.GetModel(), requestOptions...)
 	if err != nil {
 		return
 	}
