@@ -22,13 +22,13 @@ const opCreateDBInstanceCommon = "CreateDBInstance"
 // See CreateDBInstanceCommon for more information on using the CreateDBInstanceCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBInstanceCommonRequest method.
-//	req, resp := client.CreateDBInstanceCommonRequest(params)
+//    // Example sending a request using the CreateDBInstanceCommonRequest method.
+//    req, resp := client.CreateDBInstanceCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) CreateDBInstanceCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opCreateDBInstanceCommon,
@@ -89,13 +89,13 @@ const opCreateDBInstance = "CreateDBInstance"
 // See CreateDBInstance for more information on using the CreateDBInstance
 // API call, and error handling.
 //
-//	// Example sending a request using the CreateDBInstanceRequest method.
-//	req, resp := client.CreateDBInstanceRequest(params)
+//    // Example sending a request using the CreateDBInstanceRequest method.
+//    req, resp := client.CreateDBInstanceRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) CreateDBInstanceRequest(input *CreateDBInstanceInput) (req *request.Request, output *CreateDBInstanceOutput) {
 	op := &request.Operation{
 		Name:       opCreateDBInstance,

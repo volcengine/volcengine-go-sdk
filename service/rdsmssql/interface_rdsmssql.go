@@ -16,18 +16,19 @@ import (
 // RDSMSSQLAPI provides an interface to enable mocking the
 // rdsmssql.RDSMSSQL service client's API operation,
 //
-//	// volcengine sdk func uses an SDK service client to make a request to
-//	// RDS_MSSQL.
-//	func myFunc(svc RDSMSSQLAPI) bool {
-//	    // Make svc.CreateBackup request
-//	}
+//    // volcengine sdk func uses an SDK service client to make a request to
+//    // RDS_MSSQL.
+//    func myFunc(svc RDSMSSQLAPI) bool {
+//        // Make svc.CreateBackup request
+//    }
 //
-//	func main() {
-//	    sess := session.New()
-//	    svc := rdsmssql.New(sess)
+//    func main() {
+//        sess := session.New()
+//        svc := rdsmssql.New(sess)
 //
-//	    myFunc(svc)
-//	}
+//        myFunc(svc)
+//    }
+//
 type RDSMSSQLAPI interface {
 	CreateBackupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateBackupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

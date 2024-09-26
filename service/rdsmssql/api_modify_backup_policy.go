@@ -22,13 +22,13 @@ const opModifyBackupPolicyCommon = "ModifyBackupPolicy"
 // See ModifyBackupPolicyCommon for more information on using the ModifyBackupPolicyCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBackupPolicyCommonRequest method.
-//	req, resp := client.ModifyBackupPolicyCommonRequest(params)
+//    // Example sending a request using the ModifyBackupPolicyCommonRequest method.
+//    req, resp := client.ModifyBackupPolicyCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) ModifyBackupPolicyCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opModifyBackupPolicyCommon,
@@ -89,13 +89,13 @@ const opModifyBackupPolicy = "ModifyBackupPolicy"
 // See ModifyBackupPolicy for more information on using the ModifyBackupPolicy
 // API call, and error handling.
 //
-//	// Example sending a request using the ModifyBackupPolicyRequest method.
-//	req, resp := client.ModifyBackupPolicyRequest(params)
+//    // Example sending a request using the ModifyBackupPolicyRequest method.
+//    req, resp := client.ModifyBackupPolicyRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) ModifyBackupPolicyRequest(input *ModifyBackupPolicyInput) (req *request.Request, output *ModifyBackupPolicyOutput) {
 	op := &request.Operation{
 		Name:       opModifyBackupPolicy,

@@ -22,13 +22,13 @@ const opDownloadBackupCommon = "DownloadBackup"
 // See DownloadBackupCommon for more information on using the DownloadBackupCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DownloadBackupCommonRequest method.
-//	req, resp := client.DownloadBackupCommonRequest(params)
+//    // Example sending a request using the DownloadBackupCommonRequest method.
+//    req, resp := client.DownloadBackupCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DownloadBackupCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDownloadBackupCommon,
@@ -89,13 +89,13 @@ const opDownloadBackup = "DownloadBackup"
 // See DownloadBackup for more information on using the DownloadBackup
 // API call, and error handling.
 //
-//	// Example sending a request using the DownloadBackupRequest method.
-//	req, resp := client.DownloadBackupRequest(params)
+//    // Example sending a request using the DownloadBackupRequest method.
+//    req, resp := client.DownloadBackupRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DownloadBackupRequest(input *DownloadBackupInput) (req *request.Request, output *DownloadBackupOutput) {
 	op := &request.Operation{
 		Name:       opDownloadBackup,
