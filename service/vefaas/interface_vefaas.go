@@ -86,6 +86,14 @@ type VEFAASAPI interface {
 	GetRevisionWithContext(volcengine.Context, *GetRevisionInput, ...request.Option) (*GetRevisionOutput, error)
 	GetRevisionRequest(*GetRevisionInput) (*request.Request, *GetRevisionOutput)
 
+	GetRocketMQTriggerCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetRocketMQTriggerCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetRocketMQTriggerCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetRocketMQTrigger(*GetRocketMQTriggerInput) (*GetRocketMQTriggerOutput, error)
+	GetRocketMQTriggerWithContext(volcengine.Context, *GetRocketMQTriggerInput, ...request.Option) (*GetRocketMQTriggerOutput, error)
+	GetRocketMQTriggerRequest(*GetRocketMQTriggerInput) (*request.Request, *GetRocketMQTriggerOutput)
+
 	ListFunctionInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListFunctionInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ListFunctionInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -117,6 +125,14 @@ type VEFAASAPI interface {
 	ListRevisions(*ListRevisionsInput) (*ListRevisionsOutput, error)
 	ListRevisionsWithContext(volcengine.Context, *ListRevisionsInput, ...request.Option) (*ListRevisionsOutput, error)
 	ListRevisionsRequest(*ListRevisionsInput) (*request.Request, *ListRevisionsOutput)
+
+	ListTriggersCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListTriggersCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListTriggersCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListTriggers(*ListTriggersInput) (*ListTriggersOutput, error)
+	ListTriggersWithContext(volcengine.Context, *ListTriggersInput, ...request.Option) (*ListTriggersOutput, error)
+	ListTriggersRequest(*ListTriggersInput) (*request.Request, *ListTriggersOutput)
 
 	ReleaseCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ReleaseCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
