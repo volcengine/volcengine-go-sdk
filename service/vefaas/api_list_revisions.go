@@ -450,8 +450,6 @@ type ListRevisionsInput struct {
 	PageNumber *int32 `type:"int32"`
 
 	PageSize *int32 `type:"int32"`
-
-	TopParam *TopParamForListRevisionsInput `type:"structure"`
 }
 
 // String returns the string representation
@@ -498,12 +496,6 @@ func (s *ListRevisionsInput) SetPageNumber(v int32) *ListRevisionsInput {
 // SetPageSize sets the PageSize field's value.
 func (s *ListRevisionsInput) SetPageSize(v int32) *ListRevisionsInput {
 	s.PageSize = &v
-	return s
-}
-
-// SetTopParam sets the TopParam field's value.
-func (s *ListRevisionsInput) SetTopParam(v *TopParamForListRevisionsInput) *ListRevisionsInput {
-	s.TopParam = v
 	return s
 }
 
@@ -720,108 +712,6 @@ func (s *TlsConfigForListRevisionsOutput) SetTlsProjectId(v string) *TlsConfigFo
 // SetTlsTopicId sets the TlsTopicId field's value.
 func (s *TlsConfigForListRevisionsOutput) SetTlsTopicId(v string) *TlsConfigForListRevisionsOutput {
 	s.TlsTopicId = &v
-	return s
-}
-
-type TopParamForListRevisionsInput struct {
-	_ struct{} `type:"structure"`
-
-	AccountId *int64 `type:"int64"`
-
-	DestService *string `type:"string"`
-
-	IsInternal *string `type:"string"`
-
-	Psm *string `type:"string"`
-
-	RealIp *string `type:"string"`
-
-	Region *string `type:"string"`
-
-	RequestId *string `type:"string"`
-
-	RoleId *int64 `type:"int64"`
-
-	Site *string `type:"string"`
-
-	SourceService *string `type:"string"`
-
-	UserId *int64 `type:"int64"`
-}
-
-// String returns the string representation
-func (s TopParamForListRevisionsInput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s TopParamForListRevisionsInput) GoString() string {
-	return s.String()
-}
-
-// SetAccountId sets the AccountId field's value.
-func (s *TopParamForListRevisionsInput) SetAccountId(v int64) *TopParamForListRevisionsInput {
-	s.AccountId = &v
-	return s
-}
-
-// SetDestService sets the DestService field's value.
-func (s *TopParamForListRevisionsInput) SetDestService(v string) *TopParamForListRevisionsInput {
-	s.DestService = &v
-	return s
-}
-
-// SetIsInternal sets the IsInternal field's value.
-func (s *TopParamForListRevisionsInput) SetIsInternal(v string) *TopParamForListRevisionsInput {
-	s.IsInternal = &v
-	return s
-}
-
-// SetPsm sets the Psm field's value.
-func (s *TopParamForListRevisionsInput) SetPsm(v string) *TopParamForListRevisionsInput {
-	s.Psm = &v
-	return s
-}
-
-// SetRealIp sets the RealIp field's value.
-func (s *TopParamForListRevisionsInput) SetRealIp(v string) *TopParamForListRevisionsInput {
-	s.RealIp = &v
-	return s
-}
-
-// SetRegion sets the Region field's value.
-func (s *TopParamForListRevisionsInput) SetRegion(v string) *TopParamForListRevisionsInput {
-	s.Region = &v
-	return s
-}
-
-// SetRequestId sets the RequestId field's value.
-func (s *TopParamForListRevisionsInput) SetRequestId(v string) *TopParamForListRevisionsInput {
-	s.RequestId = &v
-	return s
-}
-
-// SetRoleId sets the RoleId field's value.
-func (s *TopParamForListRevisionsInput) SetRoleId(v int64) *TopParamForListRevisionsInput {
-	s.RoleId = &v
-	return s
-}
-
-// SetSite sets the Site field's value.
-func (s *TopParamForListRevisionsInput) SetSite(v string) *TopParamForListRevisionsInput {
-	s.Site = &v
-	return s
-}
-
-// SetSourceService sets the SourceService field's value.
-func (s *TopParamForListRevisionsInput) SetSourceService(v string) *TopParamForListRevisionsInput {
-	s.SourceService = &v
-	return s
-}
-
-// SetUserId sets the UserId field's value.
-func (s *TopParamForListRevisionsInput) SetUserId(v int64) *TopParamForListRevisionsInput {
-	s.UserId = &v
 	return s
 }
 
