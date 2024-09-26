@@ -22,13 +22,13 @@ const opDescribeTosRestoreTasksCommon = "DescribeTosRestoreTasks"
 // See DescribeTosRestoreTasksCommon for more information on using the DescribeTosRestoreTasksCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTosRestoreTasksCommonRequest method.
-//	req, resp := client.DescribeTosRestoreTasksCommonRequest(params)
+//    // Example sending a request using the DescribeTosRestoreTasksCommonRequest method.
+//    req, resp := client.DescribeTosRestoreTasksCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeTosRestoreTasksCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeTosRestoreTasksCommon,
@@ -89,13 +89,13 @@ const opDescribeTosRestoreTasks = "DescribeTosRestoreTasks"
 // See DescribeTosRestoreTasks for more information on using the DescribeTosRestoreTasks
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeTosRestoreTasksRequest method.
-//	req, resp := client.DescribeTosRestoreTasksRequest(params)
+//    // Example sending a request using the DescribeTosRestoreTasksRequest method.
+//    req, resp := client.DescribeTosRestoreTasksRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeTosRestoreTasksRequest(input *DescribeTosRestoreTasksInput) (req *request.Request, output *DescribeTosRestoreTasksOutput) {
 	op := &request.Operation{
 		Name:       opDescribeTosRestoreTasks,
@@ -150,11 +150,9 @@ type DescribeTosRestoreTasksInput struct {
 
 	InstanceName *string `type:"string"`
 
-	// PageNumber is a required field
-	PageNumber *int32 `type:"int32" required:"true"`
+	PageNumber *int32 `type:"int32"`
 
-	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32"`
 
 	QueryEndTime *string `type:"string"`
 
@@ -169,22 +167,6 @@ func (s DescribeTosRestoreTasksInput) String() string {
 // GoString returns the string representation
 func (s DescribeTosRestoreTasksInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeTosRestoreTasksInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeTosRestoreTasksInput"}
-	if s.PageNumber == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageNumber"))
-	}
-	if s.PageSize == nil {
-		invalidParams.Add(request.NewErrParamRequired("PageSize"))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetInstanceId sets the InstanceId field's value.

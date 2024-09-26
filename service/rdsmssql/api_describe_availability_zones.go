@@ -22,13 +22,13 @@ const opDescribeAvailabilityZonesCommon = "DescribeAvailabilityZones"
 // See DescribeAvailabilityZonesCommon for more information on using the DescribeAvailabilityZonesCommon
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailabilityZonesCommonRequest method.
-//	req, resp := client.DescribeAvailabilityZonesCommonRequest(params)
+//    // Example sending a request using the DescribeAvailabilityZonesCommonRequest method.
+//    req, resp := client.DescribeAvailabilityZonesCommonRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeAvailabilityZonesCommonRequest(input *map[string]interface{}) (req *request.Request, output *map[string]interface{}) {
 	op := &request.Operation{
 		Name:       opDescribeAvailabilityZonesCommon,
@@ -89,13 +89,13 @@ const opDescribeAvailabilityZones = "DescribeAvailabilityZones"
 // See DescribeAvailabilityZones for more information on using the DescribeAvailabilityZones
 // API call, and error handling.
 //
-//	// Example sending a request using the DescribeAvailabilityZonesRequest method.
-//	req, resp := client.DescribeAvailabilityZonesRequest(params)
+//    // Example sending a request using the DescribeAvailabilityZonesRequest method.
+//    req, resp := client.DescribeAvailabilityZonesRequest(params)
 //
-//	err := req.Send()
-//	if err == nil { // resp is now filled
-//	    fmt.Println(resp)
-//	}
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
 func (c *RDSMSSQL) DescribeAvailabilityZonesRequest(input *DescribeAvailabilityZonesInput) (req *request.Request, output *DescribeAvailabilityZonesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAvailabilityZones,
