@@ -22,6 +22,14 @@ type RequestError struct {
 	RequestId      string `json:"request_id"`
 }
 
+func NewRequestError(httpStatusCode int, rawErr error, requestID string) *RequestError {
+	return &RequestError{
+		HTTPStatusCode: httpStatusCode,
+		Err:            rawErr,
+		RequestId:      requestID,
+	}
+}
+
 type ErrorResponse struct {
 	Error *APIError `json:"error,omitempty"`
 }
