@@ -384,7 +384,8 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 }
 
 func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, resourceType string, resourceId string) error {
-	args.header.Set(model.ClientRequestHeader, utils.GenRequestId())
+	requestID := utils.GenRequestId()
+	args.header.Set(model.ClientRequestHeader, requestID)
 
 	if len(c.config.apiKey) > 0 {
 		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", c.config.apiKey))
@@ -396,7 +397,11 @@ func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, res
 		}
 		token, err := c.GetResourceStsToken(ctx, resourceType, resourceId)
 		if err != nil {
-			return fmt.Errorf("failed to get resource sts token. err=%v", err)
+			return &model.RequestError{
+				HTTPStatusCode: 400,
+				Err:            fmt.Errorf("failed to get resource sts token. err=%w", err),
+				RequestId:      requestID,
+			}
 		}
 		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
 	}
