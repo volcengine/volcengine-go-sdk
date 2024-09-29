@@ -187,7 +187,7 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 	}
 	req, err := c.requestBuilder.Build(ctx, method, url, args.body, args.header)
 	if err != nil {
-		return nil, model.NewRequestError(500, err, requestID)
+		return nil, model.NewRequestError(http.StatusBadRequest, err, requestID)
 	}
 	return req, nil
 }
@@ -205,7 +205,7 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 
 	res, err := c.config.HTTPClient.Do(req)
 	if err != nil {
-		return model.NewRequestError(500, err, requestID)
+		return model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
 
 	defer res.Body.Close()
@@ -256,7 +256,7 @@ func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, 
 	requestID := req.Header.Get(model.ClientRequestHeader)
 	resp, err := c.config.HTTPClient.Do(req) //nolint:bodyclose // body should be closed by outer function
 	if err != nil {
-		err = model.NewRequestError(500, err, requestID)
+		err = model.NewRequestError(http.StatusInternalServerError, err, requestID)
 		return
 	}
 
@@ -279,7 +279,7 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 
 	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
-		return &utils.ChatCompletionStreamReader{}, model.NewRequestError(500, err, requestID)
+		return &utils.ChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
 	if isFailureStatusCode(resp) {
 		return &utils.ChatCompletionStreamReader{}, client.handleErrorResp(resp)
@@ -303,7 +303,7 @@ func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*uti
 
 	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
-		return &utils.BotChatCompletionStreamReader{}, model.NewRequestError(500, err, requestID)
+		return &utils.BotChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
 	if isFailureStatusCode(resp) {
 		return &utils.BotChatCompletionStreamReader{}, client.handleErrorResp(resp)
