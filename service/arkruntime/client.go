@@ -376,16 +376,16 @@ func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, res
 		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", c.config.apiKey))
 	} else {
 		if resourceTypeEndpoint == resourceType && !strings.HasPrefix(resourceId, "ep-") {
-			return model.NewRequestError(400, model.ErrBodyWithoutEndpoint, requestID)
+			return model.NewRequestError(http.StatusBadRequest, model.ErrBodyWithoutEndpoint, requestID)
 		} else if resourceTypeBot == resourceType && !strings.HasPrefix(resourceId, "bot-") {
-			return model.NewRequestError(400, model.ErrBodyWithoutBot, requestID)
+			return model.NewRequestError(http.StatusBadRequest, model.ErrBodyWithoutBot, requestID)
 		}
 		token, err := c.GetResourceStsToken(ctx, resourceType, resourceId)
 		if err != nil {
 			if volcErr, ok := err.(volcengineerr.RequestFailure); ok {
 				return model.NewRequestError(volcErr.StatusCode(), fmt.Errorf("failed to get resource sts token. err=%w", volcErr), volcErr.RequestID())
 			}
-			return model.NewRequestError(400, fmt.Errorf("failed to get resource sts token. err=%w", err), requestID)
+			return model.NewRequestError(http.StatusInternalServerError, fmt.Errorf("failed to get resource sts token. err=%w", err), requestID)
 		}
 		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
 	}
