@@ -252,6 +252,8 @@ type ItemForListRevisionsOutput struct {
 
 	InitializerSec *int32 `type:"int32"`
 
+	InstanceType *string `type:"string"`
+
 	MaxConcurrency *int32 `type:"int32"`
 
 	MaxReplicas *int32 `type:"int32"`
@@ -340,6 +342,12 @@ func (s *ItemForListRevisionsOutput) SetId(v string) *ItemForListRevisionsOutput
 // SetInitializerSec sets the InitializerSec field's value.
 func (s *ItemForListRevisionsOutput) SetInitializerSec(v int32) *ItemForListRevisionsOutput {
 	s.InitializerSec = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *ItemForListRevisionsOutput) SetInstanceType(v string) *ItemForListRevisionsOutput {
+	s.InstanceType = &v
 	return s
 }
 

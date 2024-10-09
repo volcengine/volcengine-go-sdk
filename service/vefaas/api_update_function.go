@@ -757,9 +757,9 @@ type UpdateFunctionInput struct {
 
 	NasStorage *NasStorageForUpdateFunctionInput `type:"structure"`
 
-	RequestTimeout *int32 `type:"int32"`
+	ProjectName *string `type:"string"`
 
-	Runtime *string `type:"string"`
+	RequestTimeout *int32 `type:"int32"`
 
 	Source *string `type:"string"`
 
@@ -845,15 +845,15 @@ func (s *UpdateFunctionInput) SetNasStorage(v *NasStorageForUpdateFunctionInput)
 	return s
 }
 
-// SetRequestTimeout sets the RequestTimeout field's value.
-func (s *UpdateFunctionInput) SetRequestTimeout(v int32) *UpdateFunctionInput {
-	s.RequestTimeout = &v
+// SetProjectName sets the ProjectName field's value.
+func (s *UpdateFunctionInput) SetProjectName(v string) *UpdateFunctionInput {
+	s.ProjectName = &v
 	return s
 }
 
-// SetRuntime sets the Runtime field's value.
-func (s *UpdateFunctionInput) SetRuntime(v string) *UpdateFunctionInput {
-	s.Runtime = &v
+// SetRequestTimeout sets the RequestTimeout field's value.
+func (s *UpdateFunctionInput) SetRequestTimeout(v int32) *UpdateFunctionInput {
+	s.RequestTimeout = &v
 	return s
 }
 
@@ -902,6 +902,8 @@ type UpdateFunctionOutput struct {
 
 	CodeSizeLimit *int32 `type:"int32"`
 
+	Command *string `type:"string"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -927,6 +929,8 @@ type UpdateFunctionOutput struct {
 	NasStorage *NasStorageForUpdateFunctionOutput `type:"structure"`
 
 	Owner *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	RequestTimeout *int32 `type:"int32"`
 
@@ -964,6 +968,12 @@ func (s *UpdateFunctionOutput) SetCodeSize(v int32) *UpdateFunctionOutput {
 // SetCodeSizeLimit sets the CodeSizeLimit field's value.
 func (s *UpdateFunctionOutput) SetCodeSizeLimit(v int32) *UpdateFunctionOutput {
 	s.CodeSizeLimit = &v
+	return s
+}
+
+// SetCommand sets the Command field's value.
+func (s *UpdateFunctionOutput) SetCommand(v string) *UpdateFunctionOutput {
+	s.Command = &v
 	return s
 }
 
@@ -1042,6 +1052,12 @@ func (s *UpdateFunctionOutput) SetNasStorage(v *NasStorageForUpdateFunctionOutpu
 // SetOwner sets the Owner field's value.
 func (s *UpdateFunctionOutput) SetOwner(v string) *UpdateFunctionOutput {
 	s.Owner = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *UpdateFunctionOutput) SetProjectName(v string) *UpdateFunctionOutput {
+	s.ProjectName = &v
 	return s
 }
 
