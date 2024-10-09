@@ -154,6 +154,8 @@ type DescribeEipAddressesInput struct {
 
 	ISP *string `type:"string" enum:"ISPForDescribeEipAddressesInput"`
 
+	IpAddressPoolId *string `type:"string"`
+
 	MaxResults *int64 `min:"1" max:"100" type:"integer"`
 
 	Name *string `type:"string"`
@@ -241,6 +243,12 @@ func (s *DescribeEipAddressesInput) SetEipAddresses(v []*string) *DescribeEipAdd
 // SetISP sets the ISP field's value.
 func (s *DescribeEipAddressesInput) SetISP(v string) *DescribeEipAddressesInput {
 	s.ISP = &v
+	return s
+}
+
+// SetIpAddressPoolId sets the IpAddressPoolId field's value.
+func (s *DescribeEipAddressesInput) SetIpAddressPoolId(v string) *DescribeEipAddressesInput {
+	s.IpAddressPoolId = &v
 	return s
 }
 
@@ -391,6 +399,8 @@ type EipAddressForDescribeEipAddressesOutput struct {
 
 	InstanceType *string `type:"string"`
 
+	IpAddressPoolId *string `type:"string"`
+
 	LockReason *string `type:"string"`
 
 	Name *string `type:"string"`
@@ -495,6 +505,12 @@ func (s *EipAddressForDescribeEipAddressesOutput) SetInstanceId(v string) *EipAd
 // SetInstanceType sets the InstanceType field's value.
 func (s *EipAddressForDescribeEipAddressesOutput) SetInstanceType(v string) *EipAddressForDescribeEipAddressesOutput {
 	s.InstanceType = &v
+	return s
+}
+
+// SetIpAddressPoolId sets the IpAddressPoolId field's value.
+func (s *EipAddressForDescribeEipAddressesOutput) SetIpAddressPoolId(v string) *EipAddressForDescribeEipAddressesOutput {
+	s.IpAddressPoolId = &v
 	return s
 }
 

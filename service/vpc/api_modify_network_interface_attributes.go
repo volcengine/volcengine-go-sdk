@@ -142,12 +142,16 @@ func (c *VPC) ModifyNetworkInterfaceAttributesWithContext(ctx volcengine.Context
 type ModifyNetworkInterfaceAttributesInput struct {
 	_ struct{} `type:"structure"`
 
+	DeleteOnTermination *bool `type:"boolean"`
+
 	Description *string `min:"1" max:"255" type:"string"`
 
 	// NetworkInterfaceId is a required field
 	NetworkInterfaceId *string `type:"string" required:"true"`
 
 	NetworkInterfaceName *string `min:"1" max:"128" type:"string"`
+
+	PortSecurityEnabled *bool `type:"boolean"`
 
 	SecurityGroupIds []*string `type:"list"`
 }
@@ -187,6 +191,12 @@ func (s *ModifyNetworkInterfaceAttributesInput) Validate() error {
 	return nil
 }
 
+// SetDeleteOnTermination sets the DeleteOnTermination field's value.
+func (s *ModifyNetworkInterfaceAttributesInput) SetDeleteOnTermination(v bool) *ModifyNetworkInterfaceAttributesInput {
+	s.DeleteOnTermination = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *ModifyNetworkInterfaceAttributesInput) SetDescription(v string) *ModifyNetworkInterfaceAttributesInput {
 	s.Description = &v
@@ -202,6 +212,12 @@ func (s *ModifyNetworkInterfaceAttributesInput) SetNetworkInterfaceId(v string) 
 // SetNetworkInterfaceName sets the NetworkInterfaceName field's value.
 func (s *ModifyNetworkInterfaceAttributesInput) SetNetworkInterfaceName(v string) *ModifyNetworkInterfaceAttributesInput {
 	s.NetworkInterfaceName = &v
+	return s
+}
+
+// SetPortSecurityEnabled sets the PortSecurityEnabled field's value.
+func (s *ModifyNetworkInterfaceAttributesInput) SetPortSecurityEnabled(v bool) *ModifyNetworkInterfaceAttributesInput {
+	s.PortSecurityEnabled = &v
 	return s
 }
 

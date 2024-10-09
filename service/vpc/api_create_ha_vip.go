@@ -152,6 +152,8 @@ type CreateHaVipInput struct {
 
 	// SubnetId is a required field
 	SubnetId *string `type:"string" required:"true"`
+
+	Tags []*TagForCreateHaVipInput `type:"list"`
 }
 
 // String returns the string representation
@@ -219,6 +221,12 @@ func (s *CreateHaVipInput) SetSubnetId(v string) *CreateHaVipInput {
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateHaVipInput) SetTags(v []*TagForCreateHaVipInput) *CreateHaVipInput {
+	s.Tags = v
+	return s
+}
+
 type CreateHaVipOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -256,5 +264,35 @@ func (s *CreateHaVipOutput) SetIpAddress(v string) *CreateHaVipOutput {
 // SetRequestId sets the RequestId field's value.
 func (s *CreateHaVipOutput) SetRequestId(v string) *CreateHaVipOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForCreateHaVipInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateHaVipInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateHaVipInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateHaVipInput) SetKey(v string) *TagForCreateHaVipInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateHaVipInput) SetValue(v string) *TagForCreateHaVipInput {
+	s.Value = &v
 	return s
 }

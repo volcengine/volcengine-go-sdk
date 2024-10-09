@@ -19,7 +19,7 @@ import (
 //    // volcengine sdk func uses an SDK service client to make a request to
 //    // VPC.
 //    func myFunc(svc VPCAPI) bool {
-//        // Make svc.AddBandwidthPackageIp request
+//        // Make svc.ActiveFlowLog request
 //    }
 //
 //    func main() {
@@ -30,6 +30,14 @@ import (
 //    }
 //
 type VPCAPI interface {
+	ActiveFlowLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ActiveFlowLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ActiveFlowLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ActiveFlowLog(*ActiveFlowLogInput) (*ActiveFlowLogOutput, error)
+	ActiveFlowLogWithContext(volcengine.Context, *ActiveFlowLogInput, ...request.Option) (*ActiveFlowLogOutput, error)
+	ActiveFlowLogRequest(*ActiveFlowLogInput) (*request.Request, *ActiveFlowLogOutput)
+
 	AddBandwidthPackageIpCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AddBandwidthPackageIpCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	AddBandwidthPackageIpCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -37,6 +45,14 @@ type VPCAPI interface {
 	AddBandwidthPackageIp(*AddBandwidthPackageIpInput) (*AddBandwidthPackageIpOutput, error)
 	AddBandwidthPackageIpWithContext(volcengine.Context, *AddBandwidthPackageIpInput, ...request.Option) (*AddBandwidthPackageIpOutput, error)
 	AddBandwidthPackageIpRequest(*AddBandwidthPackageIpInput) (*request.Request, *AddBandwidthPackageIpOutput)
+
+	AddIpAddressPoolCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddIpAddressPoolCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddIpAddressPoolCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddIpAddressPoolCidrBlock(*AddIpAddressPoolCidrBlockInput) (*AddIpAddressPoolCidrBlockOutput, error)
+	AddIpAddressPoolCidrBlockWithContext(volcengine.Context, *AddIpAddressPoolCidrBlockInput, ...request.Option) (*AddIpAddressPoolCidrBlockOutput, error)
+	AddIpAddressPoolCidrBlockRequest(*AddIpAddressPoolCidrBlockInput) (*request.Request, *AddIpAddressPoolCidrBlockOutput)
 
 	AllocateEipAddressCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	AllocateEipAddressCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -150,6 +166,14 @@ type VPCAPI interface {
 	CreateBandwidthPackageWithContext(volcengine.Context, *CreateBandwidthPackageInput, ...request.Option) (*CreateBandwidthPackageOutput, error)
 	CreateBandwidthPackageRequest(*CreateBandwidthPackageInput) (*request.Request, *CreateBandwidthPackageOutput)
 
+	CreateFlowLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateFlowLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateFlowLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateFlowLog(*CreateFlowLogInput) (*CreateFlowLogOutput, error)
+	CreateFlowLogWithContext(volcengine.Context, *CreateFlowLogInput, ...request.Option) (*CreateFlowLogOutput, error)
+	CreateFlowLogRequest(*CreateFlowLogInput) (*request.Request, *CreateFlowLogOutput)
+
 	CreateHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateHaVipCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +181,14 @@ type VPCAPI interface {
 	CreateHaVip(*CreateHaVipInput) (*CreateHaVipOutput, error)
 	CreateHaVipWithContext(volcengine.Context, *CreateHaVipInput, ...request.Option) (*CreateHaVipOutput, error)
 	CreateHaVipRequest(*CreateHaVipInput) (*request.Request, *CreateHaVipOutput)
+
+	CreateIpAddressPoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateIpAddressPoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateIpAddressPoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateIpAddressPool(*CreateIpAddressPoolInput) (*CreateIpAddressPoolOutput, error)
+	CreateIpAddressPoolWithContext(volcengine.Context, *CreateIpAddressPoolInput, ...request.Option) (*CreateIpAddressPoolOutput, error)
+	CreateIpAddressPoolRequest(*CreateIpAddressPoolInput) (*request.Request, *CreateIpAddressPoolOutput)
 
 	CreateNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -222,6 +254,14 @@ type VPCAPI interface {
 	CreateVpcWithContext(volcengine.Context, *CreateVpcInput, ...request.Option) (*CreateVpcOutput, error)
 	CreateVpcRequest(*CreateVpcInput) (*request.Request, *CreateVpcOutput)
 
+	DeactiveFlowLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeactiveFlowLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeactiveFlowLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeactiveFlowLog(*DeactiveFlowLogInput) (*DeactiveFlowLogOutput, error)
+	DeactiveFlowLogWithContext(volcengine.Context, *DeactiveFlowLogInput, ...request.Option) (*DeactiveFlowLogOutput, error)
+	DeactiveFlowLogRequest(*DeactiveFlowLogInput) (*request.Request, *DeactiveFlowLogOutput)
+
 	DeleteBandwidthPackageCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteBandwidthPackageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteBandwidthPackageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -230,6 +270,14 @@ type VPCAPI interface {
 	DeleteBandwidthPackageWithContext(volcengine.Context, *DeleteBandwidthPackageInput, ...request.Option) (*DeleteBandwidthPackageOutput, error)
 	DeleteBandwidthPackageRequest(*DeleteBandwidthPackageInput) (*request.Request, *DeleteBandwidthPackageOutput)
 
+	DeleteFlowLogCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteFlowLogCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteFlowLogCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteFlowLog(*DeleteFlowLogInput) (*DeleteFlowLogOutput, error)
+	DeleteFlowLogWithContext(volcengine.Context, *DeleteFlowLogInput, ...request.Option) (*DeleteFlowLogOutput, error)
+	DeleteFlowLogRequest(*DeleteFlowLogInput) (*request.Request, *DeleteFlowLogOutput)
+
 	DeleteHaVipCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteHaVipCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DeleteHaVipCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -237,6 +285,22 @@ type VPCAPI interface {
 	DeleteHaVip(*DeleteHaVipInput) (*DeleteHaVipOutput, error)
 	DeleteHaVipWithContext(volcengine.Context, *DeleteHaVipInput, ...request.Option) (*DeleteHaVipOutput, error)
 	DeleteHaVipRequest(*DeleteHaVipInput) (*request.Request, *DeleteHaVipOutput)
+
+	DeleteIpAddressPoolCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIpAddressPoolCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIpAddressPoolCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIpAddressPool(*DeleteIpAddressPoolInput) (*DeleteIpAddressPoolOutput, error)
+	DeleteIpAddressPoolWithContext(volcengine.Context, *DeleteIpAddressPoolInput, ...request.Option) (*DeleteIpAddressPoolOutput, error)
+	DeleteIpAddressPoolRequest(*DeleteIpAddressPoolInput) (*request.Request, *DeleteIpAddressPoolOutput)
+
+	DeleteIpAddressPoolCidrBlockCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteIpAddressPoolCidrBlockCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteIpAddressPoolCidrBlockCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteIpAddressPoolCidrBlock(*DeleteIpAddressPoolCidrBlockInput) (*DeleteIpAddressPoolCidrBlockOutput, error)
+	DeleteIpAddressPoolCidrBlockWithContext(volcengine.Context, *DeleteIpAddressPoolCidrBlockInput, ...request.Option) (*DeleteIpAddressPoolCidrBlockOutput, error)
+	DeleteIpAddressPoolCidrBlockRequest(*DeleteIpAddressPoolCidrBlockInput) (*request.Request, *DeleteIpAddressPoolCidrBlockOutput)
 
 	DeleteNetworkAclCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteNetworkAclCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -326,6 +390,14 @@ type VPCAPI interface {
 	DescribeEipAddressesWithContext(volcengine.Context, *DescribeEipAddressesInput, ...request.Option) (*DescribeEipAddressesOutput, error)
 	DescribeEipAddressesRequest(*DescribeEipAddressesInput) (*request.Request, *DescribeEipAddressesOutput)
 
+	DescribeFlowLogsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeFlowLogsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeFlowLogsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeFlowLogs(*DescribeFlowLogsInput) (*DescribeFlowLogsOutput, error)
+	DescribeFlowLogsWithContext(volcengine.Context, *DescribeFlowLogsInput, ...request.Option) (*DescribeFlowLogsOutput, error)
+	DescribeFlowLogsRequest(*DescribeFlowLogsInput) (*request.Request, *DescribeFlowLogsOutput)
+
 	DescribeHaVipsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeHaVipsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeHaVipsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -333,6 +405,30 @@ type VPCAPI interface {
 	DescribeHaVips(*DescribeHaVipsInput) (*DescribeHaVipsOutput, error)
 	DescribeHaVipsWithContext(volcengine.Context, *DescribeHaVipsInput, ...request.Option) (*DescribeHaVipsOutput, error)
 	DescribeHaVipsRequest(*DescribeHaVipsInput) (*request.Request, *DescribeHaVipsOutput)
+
+	DescribeIpAddressPoolAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpAddressPoolAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpAddressPoolAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpAddressPoolAttributes(*DescribeIpAddressPoolAttributesInput) (*DescribeIpAddressPoolAttributesOutput, error)
+	DescribeIpAddressPoolAttributesWithContext(volcengine.Context, *DescribeIpAddressPoolAttributesInput, ...request.Option) (*DescribeIpAddressPoolAttributesOutput, error)
+	DescribeIpAddressPoolAttributesRequest(*DescribeIpAddressPoolAttributesInput) (*request.Request, *DescribeIpAddressPoolAttributesOutput)
+
+	DescribeIpAddressPoolCidrBlocksCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpAddressPoolCidrBlocksCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpAddressPoolCidrBlocksCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpAddressPoolCidrBlocks(*DescribeIpAddressPoolCidrBlocksInput) (*DescribeIpAddressPoolCidrBlocksOutput, error)
+	DescribeIpAddressPoolCidrBlocksWithContext(volcengine.Context, *DescribeIpAddressPoolCidrBlocksInput, ...request.Option) (*DescribeIpAddressPoolCidrBlocksOutput, error)
+	DescribeIpAddressPoolCidrBlocksRequest(*DescribeIpAddressPoolCidrBlocksInput) (*request.Request, *DescribeIpAddressPoolCidrBlocksOutput)
+
+	DescribeIpAddressPoolsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeIpAddressPoolsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeIpAddressPoolsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeIpAddressPools(*DescribeIpAddressPoolsInput) (*DescribeIpAddressPoolsOutput, error)
+	DescribeIpAddressPoolsWithContext(volcengine.Context, *DescribeIpAddressPoolsInput, ...request.Option) (*DescribeIpAddressPoolsOutput, error)
+	DescribeIpAddressPoolsRequest(*DescribeIpAddressPoolsInput) (*request.Request, *DescribeIpAddressPoolsOutput)
 
 	DescribeNetworkAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeNetworkAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -542,6 +638,14 @@ type VPCAPI interface {
 	ModifyEipAddressAttributesWithContext(volcengine.Context, *ModifyEipAddressAttributesInput, ...request.Option) (*ModifyEipAddressAttributesOutput, error)
 	ModifyEipAddressAttributesRequest(*ModifyEipAddressAttributesInput) (*request.Request, *ModifyEipAddressAttributesOutput)
 
+	ModifyFlowLogAttributeCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyFlowLogAttributeCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyFlowLogAttributeCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyFlowLogAttribute(*ModifyFlowLogAttributeInput) (*ModifyFlowLogAttributeOutput, error)
+	ModifyFlowLogAttributeWithContext(volcengine.Context, *ModifyFlowLogAttributeInput, ...request.Option) (*ModifyFlowLogAttributeOutput, error)
+	ModifyFlowLogAttributeRequest(*ModifyFlowLogAttributeInput) (*request.Request, *ModifyFlowLogAttributeOutput)
+
 	ModifyHaVipAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyHaVipAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ModifyHaVipAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -549,6 +653,14 @@ type VPCAPI interface {
 	ModifyHaVipAttributes(*ModifyHaVipAttributesInput) (*ModifyHaVipAttributesOutput, error)
 	ModifyHaVipAttributesWithContext(volcengine.Context, *ModifyHaVipAttributesInput, ...request.Option) (*ModifyHaVipAttributesOutput, error)
 	ModifyHaVipAttributesRequest(*ModifyHaVipAttributesInput) (*request.Request, *ModifyHaVipAttributesOutput)
+
+	ModifyIpAddressPoolAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyIpAddressPoolAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyIpAddressPoolAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyIpAddressPoolAttributes(*ModifyIpAddressPoolAttributesInput) (*ModifyIpAddressPoolAttributesOutput, error)
+	ModifyIpAddressPoolAttributesWithContext(volcengine.Context, *ModifyIpAddressPoolAttributesInput, ...request.Option) (*ModifyIpAddressPoolAttributesOutput, error)
+	ModifyIpAddressPoolAttributesRequest(*ModifyIpAddressPoolAttributesInput) (*request.Request, *ModifyIpAddressPoolAttributesOutput)
 
 	ModifyNetworkAclAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyNetworkAclAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
