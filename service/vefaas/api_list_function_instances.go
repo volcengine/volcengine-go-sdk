@@ -146,6 +146,8 @@ func (c *VEFAAS) ListFunctionInstancesWithContext(ctx volcengine.Context, input 
 type ItemForListFunctionInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
+	AvailabilityZone *string `type:"string"`
+
 	CreationTime *string `type:"string"`
 
 	Id *string `type:"string"`
@@ -165,6 +167,12 @@ func (s ItemForListFunctionInstancesOutput) String() string {
 // GoString returns the string representation
 func (s ItemForListFunctionInstancesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAvailabilityZone sets the AvailabilityZone field's value.
+func (s *ItemForListFunctionInstancesOutput) SetAvailabilityZone(v string) *ItemForListFunctionInstancesOutput {
+	s.AvailabilityZone = &v
+	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.
