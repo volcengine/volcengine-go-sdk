@@ -18,6 +18,7 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
 	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
+	"github.com/volcengine/volcengine-go-sdk/volcengine/volcengineerr"
 )
 
 type Client struct {
@@ -167,13 +168,15 @@ func WithCustomHeaders(m map[string]string) requestOption {
 	}
 }
 
-func (c *Client) newRequest(ctx context.Context, method, url, resourceType, resourceId string, setters ...requestOption) (*http.Request, error) {
+func (c *Client) newRequest(ctx context.Context, method, url, resourceType, resourceId string, setters ...requestOption) (*http.Request, *model.RequestError) {
 	// Default Options
 	args := &requestOptions{
 		body:   nil,
 		header: make(http.Header),
 	}
 
+	requestID := utils.GenRequestId()
+	args.header.Set(model.ClientRequestHeader, requestID)
 	errH := c.setCommonHeaders(ctx, args, resourceType, resourceId)
 	if errH != nil {
 		return nil, errH
@@ -184,13 +187,13 @@ func (c *Client) newRequest(ctx context.Context, method, url, resourceType, reso
 	}
 	req, err := c.requestBuilder.Build(ctx, method, url, args.body, args.header)
 	if err != nil {
-		return nil, err
+		return nil, model.NewRequestError(http.StatusBadRequest, err, requestID)
 	}
 	return req, nil
 }
 
 func (c *Client) sendRequest(req *http.Request, v model.Response) error {
-	requestId := req.Header.Get(model.ClientRequestHeader)
+	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Accept", "application/json")
 
 	// Check whether Content-Type is already set, Upload Files API requires
@@ -202,11 +205,7 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 
 	res, err := c.config.HTTPClient.Do(req)
 	if err != nil {
-		return &model.RequestError{
-			HTTPStatusCode: 500,
-			Err:            err,
-			RequestId:      requestId,
-		}
+		return model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
 
 	defer res.Body.Close()
@@ -224,7 +223,7 @@ func (c *Client) sendRequest(req *http.Request, v model.Response) error {
 		err = &model.RequestError{
 			HTTPStatusCode: res.StatusCode,
 			Err:            err,
-			RequestId:      requestId,
+			RequestId:      requestID,
 		}
 	}
 	return err
@@ -254,14 +253,10 @@ func (c *Client) Do(ctx context.Context, method, url, resourceType, resourceId s
 }
 
 func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, err error) {
-	requestId := req.Header.Get(model.ClientRequestHeader)
+	requestID := req.Header.Get(model.ClientRequestHeader)
 	resp, err := c.config.HTTPClient.Do(req) //nolint:bodyclose // body should be closed by outer function
 	if err != nil {
-		err = &model.RequestError{
-			HTTPStatusCode: 500,
-			Err:            err,
-			RequestId:      requestId,
-		}
+		err = model.NewRequestError(http.StatusInternalServerError, err, requestID)
 		return
 	}
 
@@ -276,7 +271,7 @@ func (c *Client) sendRequestRaw(req *http.Request) (response model.RawResponse, 
 }
 
 func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.ChatCompletionStreamReader, error) {
-	requestId := req.Header.Get(model.ClientRequestHeader)
+	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
 	req.Header.Set("Cache-Control", "no-cache")
@@ -284,11 +279,7 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 
 	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
-		return &utils.ChatCompletionStreamReader{}, &model.RequestError{
-			HTTPStatusCode: 500,
-			Err:            err,
-			RequestId:      requestId,
-		}
+		return &utils.ChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
 	if isFailureStatusCode(resp) {
 		return &utils.ChatCompletionStreamReader{}, client.handleErrorResp(resp)
@@ -304,7 +295,7 @@ func sendChatCompletionRequestStream(client *Client, req *http.Request) (*utils.
 }
 
 func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*utils.BotChatCompletionStreamReader, error) {
-	requestId := req.Header.Get(model.ClientRequestHeader)
+	requestID := req.Header.Get(model.ClientRequestHeader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "text/event-stream")
 	req.Header.Set("Cache-Control", "no-cache")
@@ -312,11 +303,7 @@ func sendBotChatCompletionRequestStream(client *Client, req *http.Request) (*uti
 
 	resp, err := client.config.HTTPClient.Do(req) //nolint:bodyclose // body is closed in stream.Close()
 	if err != nil {
-		return &utils.BotChatCompletionStreamReader{}, &model.RequestError{
-			HTTPStatusCode: 500,
-			Err:            err,
-			RequestId:      requestId,
-		}
+		return &utils.BotChatCompletionStreamReader{}, model.NewRequestError(http.StatusInternalServerError, err, requestID)
 	}
 	if isFailureStatusCode(resp) {
 		return &utils.BotChatCompletionStreamReader{}, client.handleErrorResp(resp)
@@ -383,20 +370,22 @@ func (c *Client) ChatCompletionRequestStreamDo(ctx context.Context, method, url,
 	return
 }
 
-func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, resourceType string, resourceId string) error {
-	args.header.Set(model.ClientRequestHeader, utils.GenRequestId())
-
+func (c *Client) setCommonHeaders(ctx context.Context, args *requestOptions, resourceType string, resourceId string) *model.RequestError {
+	requestID := args.header.Get(model.ClientRequestHeader)
 	if len(c.config.apiKey) > 0 {
 		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", c.config.apiKey))
 	} else {
 		if resourceTypeEndpoint == resourceType && !strings.HasPrefix(resourceId, "ep-") {
-			return model.ErrBodyWithoutEndpoint
+			return model.NewRequestError(http.StatusBadRequest, model.ErrBodyWithoutEndpoint, requestID)
 		} else if resourceTypeBot == resourceType && !strings.HasPrefix(resourceId, "bot-") {
-			return model.ErrBodyWithoutBot
+			return model.NewRequestError(http.StatusBadRequest, model.ErrBodyWithoutBot, requestID)
 		}
 		token, err := c.GetResourceStsToken(ctx, resourceType, resourceId)
 		if err != nil {
-			return fmt.Errorf("failed to get resource sts token. err=%v", err)
+			if volcErr, ok := err.(volcengineerr.RequestFailure); ok {
+				return model.NewRequestError(volcErr.StatusCode(), fmt.Errorf("failed to get resource sts token. err=%w", volcErr), volcErr.RequestID())
+			}
+			return model.NewRequestError(http.StatusInternalServerError, fmt.Errorf("failed to get resource sts token. err=%w", err), requestID)
 		}
 		args.header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
 	}
@@ -447,15 +436,11 @@ func (c *Client) fullURL(suffix string) string {
 }
 
 func (c *Client) handleErrorResp(resp *http.Response) error {
-	requestId := resp.Header.Get(model.ClientRequestHeader)
+	requestID := resp.Header.Get(model.ClientRequestHeader)
 	var errRes model.ErrorResponse
 	err := json.NewDecoder(resp.Body).Decode(&errRes)
 	if err != nil || errRes.Error == nil {
-		reqErr := &model.RequestError{
-			HTTPStatusCode: resp.StatusCode,
-			Err:            err,
-			RequestId:      requestId,
-		}
+		reqErr := model.NewRequestError(resp.StatusCode, err, requestID)
 		if errRes.Error != nil {
 			reqErr.Err = errRes.Error
 		}
@@ -463,6 +448,6 @@ func (c *Client) handleErrorResp(resp *http.Response) error {
 	}
 
 	errRes.Error.HTTPStatusCode = resp.StatusCode
-	errRes.Error.RequestId = requestId
+	errRes.Error.RequestId = requestID
 	return errRes.Error
 }
