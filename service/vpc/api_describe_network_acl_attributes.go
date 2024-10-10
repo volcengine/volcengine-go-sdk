@@ -384,6 +384,8 @@ type NetworkAclAttributeForDescribeNetworkAclAttributesOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeNetworkAclAttributesOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -453,6 +455,12 @@ func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetStatus(v s
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetTags(v []*TagForDescribeNetworkAclAttributesOutput) *NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *NetworkAclAttributeForDescribeNetworkAclAttributesOutput) SetUpdateTime(v string) *NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
 	s.UpdateTime = &v
@@ -492,5 +500,35 @@ func (s *ResourceForDescribeNetworkAclAttributesOutput) SetResourceId(v string) 
 // SetStatus sets the Status field's value.
 func (s *ResourceForDescribeNetworkAclAttributesOutput) SetStatus(v string) *ResourceForDescribeNetworkAclAttributesOutput {
 	s.Status = &v
+	return s
+}
+
+type TagForDescribeNetworkAclAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeNetworkAclAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeNetworkAclAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeNetworkAclAttributesOutput) SetKey(v string) *TagForDescribeNetworkAclAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeNetworkAclAttributesOutput) SetValue(v string) *TagForDescribeNetworkAclAttributesOutput {
+	s.Value = &v
 	return s
 }

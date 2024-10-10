@@ -156,6 +156,8 @@ type DescribeRouteTableListInput struct {
 
 	RouteTableName *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeRouteTableListInput `type:"list"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -221,6 +223,12 @@ func (s *DescribeRouteTableListInput) SetRouteTableId(v string) *DescribeRouteTa
 // SetRouteTableName sets the RouteTableName field's value.
 func (s *DescribeRouteTableListInput) SetRouteTableName(v string) *DescribeRouteTableListInput {
 	s.RouteTableName = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeRouteTableListInput) SetTagFilters(v []*TagFilterForDescribeRouteTableListInput) *DescribeRouteTableListInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -313,6 +321,8 @@ type RouterTableListForDescribeRouteTableListOutput struct {
 
 	SubnetIds []*string `type:"list"`
 
+	Tags []*TagForDescribeRouteTableListOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -378,6 +388,12 @@ func (s *RouterTableListForDescribeRouteTableListOutput) SetSubnetIds(v []*strin
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *RouterTableListForDescribeRouteTableListOutput) SetTags(v []*TagForDescribeRouteTableListOutput) *RouterTableListForDescribeRouteTableListOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *RouterTableListForDescribeRouteTableListOutput) SetUpdateTime(v string) *RouterTableListForDescribeRouteTableListOutput {
 	s.UpdateTime = &v
@@ -393,5 +409,65 @@ func (s *RouterTableListForDescribeRouteTableListOutput) SetVpcId(v string) *Rou
 // SetVpcName sets the VpcName field's value.
 func (s *RouterTableListForDescribeRouteTableListOutput) SetVpcName(v string) *RouterTableListForDescribeRouteTableListOutput {
 	s.VpcName = &v
+	return s
+}
+
+type TagFilterForDescribeRouteTableListInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeRouteTableListInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeRouteTableListInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeRouteTableListInput) SetKey(v string) *TagFilterForDescribeRouteTableListInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeRouteTableListInput) SetValues(v []*string) *TagFilterForDescribeRouteTableListInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeRouteTableListOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeRouteTableListOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeRouteTableListOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeRouteTableListOutput) SetKey(v string) *TagForDescribeRouteTableListOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeRouteTableListOutput) SetValue(v string) *TagForDescribeRouteTableListOutput {
+	s.Value = &v
 	return s
 }

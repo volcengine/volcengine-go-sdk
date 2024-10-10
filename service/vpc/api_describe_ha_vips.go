@@ -162,6 +162,8 @@ type DescribeHaVipsInput struct {
 
 	SubnetId *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeHaVipsInput `type:"list"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -251,6 +253,12 @@ func (s *DescribeHaVipsInput) SetStatus(v string) *DescribeHaVipsInput {
 // SetSubnetId sets the SubnetId field's value.
 func (s *DescribeHaVipsInput) SetSubnetId(v string) *DescribeHaVipsInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeHaVipsInput) SetTagFilters(v []*TagFilterForDescribeHaVipsInput) *DescribeHaVipsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -355,6 +363,8 @@ type HaVipForDescribeHaVipsOutput struct {
 
 	SubnetId *string `type:"string"`
 
+	Tags []*TagForDescribeHaVipsOutput `type:"list"`
+
 	UpdatedAt *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -454,6 +464,12 @@ func (s *HaVipForDescribeHaVipsOutput) SetSubnetId(v string) *HaVipForDescribeHa
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *HaVipForDescribeHaVipsOutput) SetTags(v []*TagForDescribeHaVipsOutput) *HaVipForDescribeHaVipsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdatedAt sets the UpdatedAt field's value.
 func (s *HaVipForDescribeHaVipsOutput) SetUpdatedAt(v string) *HaVipForDescribeHaVipsOutput {
 	s.UpdatedAt = &v
@@ -463,5 +479,65 @@ func (s *HaVipForDescribeHaVipsOutput) SetUpdatedAt(v string) *HaVipForDescribeH
 // SetVpcId sets the VpcId field's value.
 func (s *HaVipForDescribeHaVipsOutput) SetVpcId(v string) *HaVipForDescribeHaVipsOutput {
 	s.VpcId = &v
+	return s
+}
+
+type TagFilterForDescribeHaVipsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeHaVipsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeHaVipsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeHaVipsInput) SetKey(v string) *TagFilterForDescribeHaVipsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeHaVipsInput) SetValues(v []*string) *TagFilterForDescribeHaVipsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeHaVipsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeHaVipsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeHaVipsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeHaVipsOutput) SetKey(v string) *TagForDescribeHaVipsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeHaVipsOutput) SetValue(v string) *TagForDescribeHaVipsOutput {
+	s.Value = &v
 	return s
 }

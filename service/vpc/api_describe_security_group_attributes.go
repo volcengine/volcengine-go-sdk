@@ -220,6 +220,8 @@ type DescribeSecurityGroupAttributesOutput struct {
 
 	Metadata *response.ResponseMetadata
 
+	AccountId *string `type:"string"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -255,6 +257,12 @@ func (s DescribeSecurityGroupAttributesOutput) String() string {
 // GoString returns the string representation
 func (s DescribeSecurityGroupAttributesOutput) GoString() string {
 	return s.String()
+}
+
+// SetAccountId sets the AccountId field's value.
+func (s *DescribeSecurityGroupAttributesOutput) SetAccountId(v string) *DescribeSecurityGroupAttributesOutput {
+	s.AccountId = &v
+	return s
 }
 
 // SetCreationTime sets the CreationTime field's value.

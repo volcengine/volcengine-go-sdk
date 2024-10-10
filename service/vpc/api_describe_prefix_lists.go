@@ -152,8 +152,7 @@ type DescribePrefixListsInput struct {
 
 	PageSize *int64 `type:"integer"`
 
-	// PrefixListIds is a required field
-	PrefixListIds []*string `type:"list" required:"true"`
+	PrefixListIds []*string `type:"list"`
 
 	PrefixListName *string `type:"string"`
 
@@ -180,9 +179,6 @@ func (s *DescribePrefixListsInput) Validate() error {
 	}
 	if s.MaxResults != nil && *s.MaxResults > 100 {
 		invalidParams.Add(request.NewErrParamMaxValue("MaxResults", 100))
-	}
-	if s.PrefixListIds == nil {
-		invalidParams.Add(request.NewErrParamRequired("PrefixListIds"))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -332,6 +328,8 @@ type PrefixListForDescribePrefixListsOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribePrefixListsOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -405,6 +403,12 @@ func (s *PrefixListForDescribePrefixListsOutput) SetStatus(v string) *PrefixList
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *PrefixListForDescribePrefixListsOutput) SetTags(v []*TagForDescribePrefixListsOutput) *PrefixListForDescribePrefixListsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *PrefixListForDescribePrefixListsOutput) SetUpdateTime(v string) *PrefixListForDescribePrefixListsOutput {
 	s.UpdateTime = &v
@@ -438,5 +442,35 @@ func (s *TagFilterForDescribePrefixListsInput) SetKey(v string) *TagFilterForDes
 // SetValues sets the Values field's value.
 func (s *TagFilterForDescribePrefixListsInput) SetValues(v []*string) *TagFilterForDescribePrefixListsInput {
 	s.Values = v
+	return s
+}
+
+type TagForDescribePrefixListsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribePrefixListsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribePrefixListsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribePrefixListsOutput) SetKey(v string) *TagForDescribePrefixListsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribePrefixListsOutput) SetValue(v string) *TagForDescribePrefixListsOutput {
+	s.Value = &v
 	return s
 }

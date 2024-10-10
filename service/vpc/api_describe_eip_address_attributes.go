@@ -206,6 +206,10 @@ type DescribeEipAddressAttributesOutput struct {
 
 	InstanceType *string `type:"string"`
 
+	IpAddressPoolId *string `type:"string"`
+
+	IsBlocked *bool `type:"boolean"`
+
 	LockReason *string `type:"string"`
 
 	Name *string `type:"string"`
@@ -219,6 +223,8 @@ type DescribeEipAddressAttributesOutput struct {
 	RequestId *string `type:"string"`
 
 	SecurityProtectionTypes []*string `type:"list"`
+
+	ServiceManaged *bool `type:"boolean"`
 
 	Status *string `type:"string"`
 
@@ -315,6 +321,18 @@ func (s *DescribeEipAddressAttributesOutput) SetInstanceType(v string) *Describe
 	return s
 }
 
+// SetIpAddressPoolId sets the IpAddressPoolId field's value.
+func (s *DescribeEipAddressAttributesOutput) SetIpAddressPoolId(v string) *DescribeEipAddressAttributesOutput {
+	s.IpAddressPoolId = &v
+	return s
+}
+
+// SetIsBlocked sets the IsBlocked field's value.
+func (s *DescribeEipAddressAttributesOutput) SetIsBlocked(v bool) *DescribeEipAddressAttributesOutput {
+	s.IsBlocked = &v
+	return s
+}
+
 // SetLockReason sets the LockReason field's value.
 func (s *DescribeEipAddressAttributesOutput) SetLockReason(v string) *DescribeEipAddressAttributesOutput {
 	s.LockReason = &v
@@ -354,6 +372,12 @@ func (s *DescribeEipAddressAttributesOutput) SetRequestId(v string) *DescribeEip
 // SetSecurityProtectionTypes sets the SecurityProtectionTypes field's value.
 func (s *DescribeEipAddressAttributesOutput) SetSecurityProtectionTypes(v []*string) *DescribeEipAddressAttributesOutput {
 	s.SecurityProtectionTypes = v
+	return s
+}
+
+// SetServiceManaged sets the ServiceManaged field's value.
+func (s *DescribeEipAddressAttributesOutput) SetServiceManaged(v bool) *DescribeEipAddressAttributesOutput {
+	s.ServiceManaged = &v
 	return s
 }
 
