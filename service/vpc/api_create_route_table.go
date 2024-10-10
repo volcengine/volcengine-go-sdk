@@ -150,6 +150,8 @@ type CreateRouteTableInput struct {
 
 	RouteTableName *string `min:"1" max:"128" type:"string"`
 
+	Tags []*TagForCreateRouteTableInput `type:"list"`
+
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 }
@@ -213,6 +215,12 @@ func (s *CreateRouteTableInput) SetRouteTableName(v string) *CreateRouteTableInp
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateRouteTableInput) SetTags(v []*TagForCreateRouteTableInput) *CreateRouteTableInput {
+	s.Tags = v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *CreateRouteTableInput) SetVpcId(v string) *CreateRouteTableInput {
 	s.VpcId = &v
@@ -248,5 +256,35 @@ func (s *CreateRouteTableOutput) SetRequestId(v string) *CreateRouteTableOutput 
 // SetRouteTableId sets the RouteTableId field's value.
 func (s *CreateRouteTableOutput) SetRouteTableId(v string) *CreateRouteTableOutput {
 	s.RouteTableId = &v
+	return s
+}
+
+type TagForCreateRouteTableInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateRouteTableInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateRouteTableInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateRouteTableInput) SetKey(v string) *TagForCreateRouteTableInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateRouteTableInput) SetValue(v string) *TagForCreateRouteTableInput {
+	s.Value = &v
 	return s
 }

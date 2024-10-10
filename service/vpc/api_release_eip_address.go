@@ -144,6 +144,8 @@ type ReleaseEipAddressInput struct {
 
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
+
+	ClientToken *string `type:"string"`
 }
 
 // String returns the string representation
@@ -172,6 +174,12 @@ func (s *ReleaseEipAddressInput) Validate() error {
 // SetAllocationId sets the AllocationId field's value.
 func (s *ReleaseEipAddressInput) SetAllocationId(v string) *ReleaseEipAddressInput {
 	s.AllocationId = &v
+	return s
+}
+
+// SetClientToken sets the ClientToken field's value.
+func (s *ReleaseEipAddressInput) SetClientToken(v string) *ReleaseEipAddressInput {
+	s.ClientToken = &v
 	return s
 }
 

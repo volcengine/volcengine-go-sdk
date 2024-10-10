@@ -160,6 +160,8 @@ type DescribeSubnetsInput struct {
 
 	SubnetName *string `type:"string"`
 
+	SubnetOwnerId *string `type:"string"`
+
 	TagFilters []*TagFilterForDescribeSubnetsInput `type:"list"`
 
 	VpcId *string `type:"string"`
@@ -241,6 +243,12 @@ func (s *DescribeSubnetsInput) SetSubnetIds(v []*string) *DescribeSubnetsInput {
 // SetSubnetName sets the SubnetName field's value.
 func (s *DescribeSubnetsInput) SetSubnetName(v string) *DescribeSubnetsInput {
 	s.SubnetName = &v
+	return s
+}
+
+// SetSubnetOwnerId sets the SubnetOwnerId field's value.
+func (s *DescribeSubnetsInput) SetSubnetOwnerId(v string) *DescribeSubnetsInput {
+	s.SubnetOwnerId = &v
 	return s
 }
 
@@ -385,6 +393,8 @@ type SubnetForDescribeSubnetsOutput struct {
 
 	SubnetName *string `type:"string"`
 
+	Tags []*TagForDescribeSubnetsOutput `type:"list"`
+
 	TotalIpv4Count *int64 `type:"integer"`
 
 	UpdateTime *string `type:"string"`
@@ -482,6 +492,12 @@ func (s *SubnetForDescribeSubnetsOutput) SetSubnetName(v string) *SubnetForDescr
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *SubnetForDescribeSubnetsOutput) SetTags(v []*TagForDescribeSubnetsOutput) *SubnetForDescribeSubnetsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTotalIpv4Count sets the TotalIpv4Count field's value.
 func (s *SubnetForDescribeSubnetsOutput) SetTotalIpv4Count(v int64) *SubnetForDescribeSubnetsOutput {
 	s.TotalIpv4Count = &v
@@ -533,5 +549,35 @@ func (s *TagFilterForDescribeSubnetsInput) SetKey(v string) *TagFilterForDescrib
 // SetValues sets the Values field's value.
 func (s *TagFilterForDescribeSubnetsInput) SetValues(v []*string) *TagFilterForDescribeSubnetsInput {
 	s.Values = v
+	return s
+}
+
+type TagForDescribeSubnetsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeSubnetsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeSubnetsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeSubnetsOutput) SetKey(v string) *TagForDescribeSubnetsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeSubnetsOutput) SetValue(v string) *TagForDescribeSubnetsOutput {
+	s.Value = &v
 	return s
 }

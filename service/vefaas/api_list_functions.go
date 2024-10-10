@@ -236,6 +236,8 @@ type ItemForListFunctionsOutput struct {
 
 	Owner *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RequestTimeout *int32 `type:"int32"`
 
 	Runtime *string `type:"string"`
@@ -243,6 +245,8 @@ type ItemForListFunctionsOutput struct {
 	SourceLocation *string `type:"string"`
 
 	SourceType *string `type:"string"`
+
+	Tags []*TagForListFunctionsOutput `type:"list"`
 
 	TlsConfig *TlsConfigForListFunctionsOutput `type:"structure"`
 
@@ -353,6 +357,12 @@ func (s *ItemForListFunctionsOutput) SetOwner(v string) *ItemForListFunctionsOut
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ItemForListFunctionsOutput) SetProjectName(v string) *ItemForListFunctionsOutput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRequestTimeout sets the RequestTimeout field's value.
 func (s *ItemForListFunctionsOutput) SetRequestTimeout(v int32) *ItemForListFunctionsOutput {
 	s.RequestTimeout = &v
@@ -374,6 +384,12 @@ func (s *ItemForListFunctionsOutput) SetSourceLocation(v string) *ItemForListFun
 // SetSourceType sets the SourceType field's value.
 func (s *ItemForListFunctionsOutput) SetSourceType(v string) *ItemForListFunctionsOutput {
 	s.SourceType = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ItemForListFunctionsOutput) SetTags(v []*TagForListFunctionsOutput) *ItemForListFunctionsOutput {
+	s.Tags = v
 	return s
 }
 
@@ -606,6 +622,36 @@ func (s *NasStorageForListFunctionsOutput) SetEnableNas(v bool) *NasStorageForLi
 // SetNasConfigs sets the NasConfigs field's value.
 func (s *NasStorageForListFunctionsOutput) SetNasConfigs(v []*NasConfigForListFunctionsOutput) *NasStorageForListFunctionsOutput {
 	s.NasConfigs = v
+	return s
+}
+
+type TagForListFunctionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForListFunctionsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForListFunctionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForListFunctionsOutput) SetKey(v string) *TagForListFunctionsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForListFunctionsOutput) SetValue(v string) *TagForListFunctionsOutput {
+	s.Value = &v
 	return s
 }
 

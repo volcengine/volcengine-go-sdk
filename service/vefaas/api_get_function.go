@@ -248,6 +248,8 @@ type GetFunctionOutput struct {
 
 	CodeSizeLimit *int32 `type:"int32"`
 
+	Command *string `type:"string"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -273,6 +275,8 @@ type GetFunctionOutput struct {
 	NasStorage *NasStorageForGetFunctionOutput `type:"structure"`
 
 	Owner *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	RequestTimeout *int32 `type:"int32"`
 
@@ -310,6 +314,12 @@ func (s *GetFunctionOutput) SetCodeSize(v int32) *GetFunctionOutput {
 // SetCodeSizeLimit sets the CodeSizeLimit field's value.
 func (s *GetFunctionOutput) SetCodeSizeLimit(v int32) *GetFunctionOutput {
 	s.CodeSizeLimit = &v
+	return s
+}
+
+// SetCommand sets the Command field's value.
+func (s *GetFunctionOutput) SetCommand(v string) *GetFunctionOutput {
+	s.Command = &v
 	return s
 }
 
@@ -388,6 +398,12 @@ func (s *GetFunctionOutput) SetNasStorage(v *NasStorageForGetFunctionOutput) *Ge
 // SetOwner sets the Owner field's value.
 func (s *GetFunctionOutput) SetOwner(v string) *GetFunctionOutput {
 	s.Owner = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *GetFunctionOutput) SetProjectName(v string) *GetFunctionOutput {
+	s.ProjectName = &v
 	return s
 }
 

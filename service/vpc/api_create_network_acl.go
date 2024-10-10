@@ -150,6 +150,8 @@ type CreateNetworkAclInput struct {
 
 	ProjectName *string `type:"string"`
 
+	Tags []*TagForCreateNetworkAclInput `type:"list"`
+
 	// VpcId is a required field
 	VpcId *string `type:"string" required:"true"`
 }
@@ -213,6 +215,12 @@ func (s *CreateNetworkAclInput) SetProjectName(v string) *CreateNetworkAclInput 
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateNetworkAclInput) SetTags(v []*TagForCreateNetworkAclInput) *CreateNetworkAclInput {
+	s.Tags = v
+	return s
+}
+
 // SetVpcId sets the VpcId field's value.
 func (s *CreateNetworkAclInput) SetVpcId(v string) *CreateNetworkAclInput {
 	s.VpcId = &v
@@ -248,5 +256,35 @@ func (s *CreateNetworkAclOutput) SetNetworkAclId(v string) *CreateNetworkAclOutp
 // SetRequestId sets the RequestId field's value.
 func (s *CreateNetworkAclOutput) SetRequestId(v string) *CreateNetworkAclOutput {
 	s.RequestId = &v
+	return s
+}
+
+type TagForCreateNetworkAclInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateNetworkAclInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateNetworkAclInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateNetworkAclInput) SetKey(v string) *TagForCreateNetworkAclInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateNetworkAclInput) SetValue(v string) *TagForCreateNetworkAclInput {
+	s.Value = &v
 	return s
 }

@@ -197,6 +197,8 @@ type DescribeVpcsInput struct {
 	VpcIds []*string `type:"list"`
 
 	VpcName *string `type:"string"`
+
+	VpcOwnerId *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -279,6 +281,12 @@ func (s *DescribeVpcsInput) SetVpcIds(v []*string) *DescribeVpcsInput {
 // SetVpcName sets the VpcName field's value.
 func (s *DescribeVpcsInput) SetVpcName(v string) *DescribeVpcsInput {
 	s.VpcName = &v
+	return s
+}
+
+// SetVpcOwnerId sets the VpcOwnerId field's value.
+func (s *DescribeVpcsInput) SetVpcOwnerId(v int64) *DescribeVpcsInput {
+	s.VpcOwnerId = &v
 	return s
 }
 

@@ -146,6 +146,10 @@ func (c *VEFAAS) CreateFunctionWithContext(ctx volcengine.Context, input *Create
 type CreateFunctionInput struct {
 	_ struct{} `type:"structure"`
 
+	Command *string `type:"string"`
+
+	CpuStrategy *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	Envs []*EnvForCreateFunctionInput `type:"list"`
@@ -153,6 +157,8 @@ type CreateFunctionInput struct {
 	ExclusiveMode *bool `type:"boolean"`
 
 	InitializerSec *int32 `type:"int32"`
+
+	InstanceType *string `type:"string"`
 
 	MaxConcurrency *int32 `type:"int32"`
 
@@ -162,6 +168,8 @@ type CreateFunctionInput struct {
 	Name *string `type:"string" required:"true"`
 
 	NasStorage *NasStorageForCreateFunctionInput `type:"structure"`
+
+	ProjectName *string `type:"string"`
 
 	RequestTimeout *int32 `type:"int32"`
 
@@ -207,6 +215,18 @@ func (s *CreateFunctionInput) Validate() error {
 	return nil
 }
 
+// SetCommand sets the Command field's value.
+func (s *CreateFunctionInput) SetCommand(v string) *CreateFunctionInput {
+	s.Command = &v
+	return s
+}
+
+// SetCpuStrategy sets the CpuStrategy field's value.
+func (s *CreateFunctionInput) SetCpuStrategy(v string) *CreateFunctionInput {
+	s.CpuStrategy = &v
+	return s
+}
+
 // SetDescription sets the Description field's value.
 func (s *CreateFunctionInput) SetDescription(v string) *CreateFunctionInput {
 	s.Description = &v
@@ -231,6 +251,12 @@ func (s *CreateFunctionInput) SetInitializerSec(v int32) *CreateFunctionInput {
 	return s
 }
 
+// SetInstanceType sets the InstanceType field's value.
+func (s *CreateFunctionInput) SetInstanceType(v string) *CreateFunctionInput {
+	s.InstanceType = &v
+	return s
+}
+
 // SetMaxConcurrency sets the MaxConcurrency field's value.
 func (s *CreateFunctionInput) SetMaxConcurrency(v int32) *CreateFunctionInput {
 	s.MaxConcurrency = &v
@@ -252,6 +278,12 @@ func (s *CreateFunctionInput) SetName(v string) *CreateFunctionInput {
 // SetNasStorage sets the NasStorage field's value.
 func (s *CreateFunctionInput) SetNasStorage(v *NasStorageForCreateFunctionInput) *CreateFunctionInput {
 	s.NasStorage = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateFunctionInput) SetProjectName(v string) *CreateFunctionInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -312,6 +344,8 @@ type CreateFunctionOutput struct {
 
 	CodeSizeLimit *int32 `type:"int32"`
 
+	Command *string `type:"string"`
+
 	CreationTime *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -337,6 +371,8 @@ type CreateFunctionOutput struct {
 	NasStorage *NasStorageForCreateFunctionOutput `type:"structure"`
 
 	Owner *string `type:"string"`
+
+	ProjectName *string `type:"string"`
 
 	RequestTimeout *int32 `type:"int32"`
 
@@ -374,6 +410,12 @@ func (s *CreateFunctionOutput) SetCodeSize(v int32) *CreateFunctionOutput {
 // SetCodeSizeLimit sets the CodeSizeLimit field's value.
 func (s *CreateFunctionOutput) SetCodeSizeLimit(v int32) *CreateFunctionOutput {
 	s.CodeSizeLimit = &v
+	return s
+}
+
+// SetCommand sets the Command field's value.
+func (s *CreateFunctionOutput) SetCommand(v string) *CreateFunctionOutput {
+	s.Command = &v
 	return s
 }
 
@@ -452,6 +494,12 @@ func (s *CreateFunctionOutput) SetNasStorage(v *NasStorageForCreateFunctionOutpu
 // SetOwner sets the Owner field's value.
 func (s *CreateFunctionOutput) SetOwner(v string) *CreateFunctionOutput {
 	s.Owner = &v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateFunctionOutput) SetProjectName(v string) *CreateFunctionOutput {
+	s.ProjectName = &v
 	return s
 }
 

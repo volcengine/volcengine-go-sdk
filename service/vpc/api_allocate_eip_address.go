@@ -142,7 +142,7 @@ func (c *VPC) AllocateEipAddressWithContext(ctx volcengine.Context, input *Alloc
 type AllocateEipAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	Bandwidth *int64 `min:"1" max:"500" type:"integer"`
+	Bandwidth *int64 `min:"1" type:"integer"`
 
 	BandwidthPackageId *string `type:"string"`
 
@@ -153,6 +153,10 @@ type AllocateEipAddressInput struct {
 	Description *string `min:"1" max:"255" type:"string"`
 
 	ISP *string `type:"string" enum:"ISPForAllocateEipAddressInput"`
+
+	IpAddress *string `type:"string"`
+
+	IpAddressPoolId *string `type:"string"`
 
 	Name *string `min:"1" max:"128" type:"string"`
 
@@ -165,6 +169,8 @@ type AllocateEipAddressInput struct {
 	RenewPeriodTimes *int64 `type:"integer"`
 
 	RenewType *int64 `min:"1" max:"3" type:"integer"`
+
+	SecurityProtectionInstanceId *int64 `type:"integer"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 
@@ -186,9 +192,6 @@ func (s *AllocateEipAddressInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "AllocateEipAddressInput"}
 	if s.Bandwidth != nil && *s.Bandwidth < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 500 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 500))
 	}
 	if s.BillingType != nil && *s.BillingType < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("BillingType", 1))
@@ -263,6 +266,18 @@ func (s *AllocateEipAddressInput) SetISP(v string) *AllocateEipAddressInput {
 	return s
 }
 
+// SetIpAddress sets the IpAddress field's value.
+func (s *AllocateEipAddressInput) SetIpAddress(v string) *AllocateEipAddressInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetIpAddressPoolId sets the IpAddressPoolId field's value.
+func (s *AllocateEipAddressInput) SetIpAddressPoolId(v string) *AllocateEipAddressInput {
+	s.IpAddressPoolId = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *AllocateEipAddressInput) SetName(v string) *AllocateEipAddressInput {
 	s.Name = &v
@@ -296,6 +311,12 @@ func (s *AllocateEipAddressInput) SetRenewPeriodTimes(v int64) *AllocateEipAddre
 // SetRenewType sets the RenewType field's value.
 func (s *AllocateEipAddressInput) SetRenewType(v int64) *AllocateEipAddressInput {
 	s.RenewType = &v
+	return s
+}
+
+// SetSecurityProtectionInstanceId sets the SecurityProtectionInstanceId field's value.
+func (s *AllocateEipAddressInput) SetSecurityProtectionInstanceId(v int64) *AllocateEipAddressInput {
+	s.SecurityProtectionInstanceId = &v
 	return s
 }
 

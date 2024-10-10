@@ -143,7 +143,7 @@ type CreateBandwidthPackageInput struct {
 	_ struct{} `type:"structure"`
 
 	// Bandwidth is a required field
-	Bandwidth *int64 `min:"2" max:"5000" type:"integer" required:"true"`
+	Bandwidth *int64 `min:"2" type:"integer" required:"true"`
 
 	BandwidthPackageName *string `min:"1" max:"128" type:"string"`
 
@@ -184,9 +184,6 @@ func (s *CreateBandwidthPackageInput) Validate() error {
 	}
 	if s.Bandwidth != nil && *s.Bandwidth < 2 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 2))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 5000 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 5000))
 	}
 	if s.BandwidthPackageName != nil && len(*s.BandwidthPackageName) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("BandwidthPackageName", 1))

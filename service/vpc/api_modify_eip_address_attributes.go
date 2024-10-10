@@ -145,7 +145,7 @@ type ModifyEipAddressAttributesInput struct {
 	// AllocationId is a required field
 	AllocationId *string `type:"string" required:"true"`
 
-	Bandwidth *int64 `min:"1" max:"1000" type:"integer"`
+	Bandwidth *int64 `min:"1" type:"integer"`
 
 	Description *string `min:"1" max:"255" type:"string"`
 
@@ -172,9 +172,6 @@ func (s *ModifyEipAddressAttributesInput) Validate() error {
 	}
 	if s.Bandwidth != nil && *s.Bandwidth < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("Bandwidth", 1))
-	}
-	if s.Bandwidth != nil && *s.Bandwidth > 1000 {
-		invalidParams.Add(request.NewErrParamMaxValue("Bandwidth", 1000))
 	}
 	if s.Description != nil && len(*s.Description) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Description", 1))

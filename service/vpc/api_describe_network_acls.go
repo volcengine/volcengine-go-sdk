@@ -158,6 +158,8 @@ type DescribeNetworkAclsInput struct {
 
 	SubnetId *string `type:"string"`
 
+	TagFilters []*TagFilterForDescribeNetworkAclsInput `type:"list"`
+
 	VpcId *string `type:"string"`
 }
 
@@ -235,6 +237,12 @@ func (s *DescribeNetworkAclsInput) SetProjectName(v string) *DescribeNetworkAcls
 // SetSubnetId sets the SubnetId field's value.
 func (s *DescribeNetworkAclsInput) SetSubnetId(v string) *DescribeNetworkAclsInput {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeNetworkAclsInput) SetTagFilters(v []*TagFilterForDescribeNetworkAclsInput) *DescribeNetworkAclsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -485,6 +493,8 @@ type NetworkAclForDescribeNetworkAclsOutput struct {
 
 	Status *string `type:"string"`
 
+	Tags []*TagForDescribeNetworkAclsOutput `type:"list"`
+
 	UpdateTime *string `type:"string"`
 
 	VpcId *string `type:"string"`
@@ -554,6 +564,12 @@ func (s *NetworkAclForDescribeNetworkAclsOutput) SetStatus(v string) *NetworkAcl
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *NetworkAclForDescribeNetworkAclsOutput) SetTags(v []*TagForDescribeNetworkAclsOutput) *NetworkAclForDescribeNetworkAclsOutput {
+	s.Tags = v
+	return s
+}
+
 // SetUpdateTime sets the UpdateTime field's value.
 func (s *NetworkAclForDescribeNetworkAclsOutput) SetUpdateTime(v string) *NetworkAclForDescribeNetworkAclsOutput {
 	s.UpdateTime = &v
@@ -593,5 +609,65 @@ func (s *ResourceForDescribeNetworkAclsOutput) SetResourceId(v string) *Resource
 // SetStatus sets the Status field's value.
 func (s *ResourceForDescribeNetworkAclsOutput) SetStatus(v string) *ResourceForDescribeNetworkAclsOutput {
 	s.Status = &v
+	return s
+}
+
+type TagFilterForDescribeNetworkAclsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeNetworkAclsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeNetworkAclsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeNetworkAclsInput) SetKey(v string) *TagFilterForDescribeNetworkAclsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagFilterForDescribeNetworkAclsInput) SetValues(v []*string) *TagFilterForDescribeNetworkAclsInput {
+	s.Values = v
+	return s
+}
+
+type TagForDescribeNetworkAclsOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeNetworkAclsOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeNetworkAclsOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeNetworkAclsOutput) SetKey(v string) *TagForDescribeNetworkAclsOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeNetworkAclsOutput) SetValue(v string) *TagForDescribeNetworkAclsOutput {
+	s.Value = &v
 	return s
 }

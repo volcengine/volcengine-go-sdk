@@ -208,6 +208,8 @@ type DescribeSubnetAttributesOutput struct {
 
 	SubnetName *string `type:"string"`
 
+	Tags []*TagForDescribeSubnetAttributesOutput `type:"list"`
+
 	TotalIpv4Count *int64 `type:"integer"`
 
 	UpdateTime *string `type:"string"`
@@ -311,6 +313,12 @@ func (s *DescribeSubnetAttributesOutput) SetSubnetName(v string) *DescribeSubnet
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *DescribeSubnetAttributesOutput) SetTags(v []*TagForDescribeSubnetAttributesOutput) *DescribeSubnetAttributesOutput {
+	s.Tags = v
+	return s
+}
+
 // SetTotalIpv4Count sets the TotalIpv4Count field's value.
 func (s *DescribeSubnetAttributesOutput) SetTotalIpv4Count(v int64) *DescribeSubnetAttributesOutput {
 	s.TotalIpv4Count = &v
@@ -362,5 +370,35 @@ func (s *RouteTableForDescribeSubnetAttributesOutput) SetRouteTableId(v string) 
 // SetRouteTableType sets the RouteTableType field's value.
 func (s *RouteTableForDescribeSubnetAttributesOutput) SetRouteTableType(v string) *RouteTableForDescribeSubnetAttributesOutput {
 	s.RouteTableType = &v
+	return s
+}
+
+type TagForDescribeSubnetAttributesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForDescribeSubnetAttributesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForDescribeSubnetAttributesOutput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForDescribeSubnetAttributesOutput) SetKey(v string) *TagForDescribeSubnetAttributesOutput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForDescribeSubnetAttributesOutput) SetValue(v string) *TagForDescribeSubnetAttributesOutput {
+	s.Value = &v
 	return s
 }
