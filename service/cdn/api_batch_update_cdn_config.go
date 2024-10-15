@@ -498,6 +498,8 @@ type BatchUpdateCdnConfigInput struct {
 
 	MethodDeniedRule *MethodDeniedRuleForBatchUpdateCdnConfigInput `type:"structure"`
 
+	MultiRange *MultiRangeForBatchUpdateCdnConfigInput `type:"structure"`
+
 	NegativeCache []*NegativeCacheForBatchUpdateCdnConfigInput `type:"list"`
 
 	Origin []*OriginForBatchUpdateCdnConfigInput `type:"list"`
@@ -537,6 +539,8 @@ type BatchUpdateCdnConfigInput struct {
 	RequestHeader []*RequestHeaderForBatchUpdateCdnConfigInput `type:"list"`
 
 	ResponseHeader []*ResponseHeaderForBatchUpdateCdnConfigInput `type:"list"`
+
+	RewriteHLS *RewriteHLSForBatchUpdateCdnConfigInput `type:"structure"`
 
 	ServiceRegion *string `type:"string"`
 
@@ -681,6 +685,12 @@ func (s *BatchUpdateCdnConfigInput) SetMethodDeniedRule(v *MethodDeniedRuleForBa
 	return s
 }
 
+// SetMultiRange sets the MultiRange field's value.
+func (s *BatchUpdateCdnConfigInput) SetMultiRange(v *MultiRangeForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
+	s.MultiRange = v
+	return s
+}
+
 // SetNegativeCache sets the NegativeCache field's value.
 func (s *BatchUpdateCdnConfigInput) SetNegativeCache(v []*NegativeCacheForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
 	s.NegativeCache = v
@@ -798,6 +808,12 @@ func (s *BatchUpdateCdnConfigInput) SetRequestHeader(v []*RequestHeaderForBatchU
 // SetResponseHeader sets the ResponseHeader field's value.
 func (s *BatchUpdateCdnConfigInput) SetResponseHeader(v []*ResponseHeaderForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
 	s.ResponseHeader = v
+	return s
+}
+
+// SetRewriteHLS sets the RewriteHLS field's value.
+func (s *BatchUpdateCdnConfigInput) SetRewriteHLS(v *RewriteHLSForBatchUpdateCdnConfigInput) *BatchUpdateCdnConfigInput {
+	s.RewriteHLS = v
 	return s
 }
 
@@ -2807,6 +2823,28 @@ func (s *MethodDeniedRuleForBatchUpdateCdnConfigInput) SetSwitch(v bool) *Method
 	return s
 }
 
+type MultiRangeForBatchUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s MultiRangeForBatchUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MultiRangeForBatchUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *MultiRangeForBatchUpdateCdnConfigInput) SetSwitch(v bool) *MultiRangeForBatchUpdateCdnConfigInput {
+	s.Switch = &v
+	return s
+}
+
 type NegativeCacheForBatchUpdateCdnConfigInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3188,6 +3226,8 @@ func (s *OriginRetryForBatchUpdateCdnConfigInput) SetSwitch(v bool) *OriginRetry
 type OriginRewriteActionForBatchUpdateCdnConfigInput struct {
 	_ struct{} `type:"structure"`
 
+	RewriteType *string `type:"string"`
+
 	SourcePath *string `type:"string"`
 
 	TargetPath *string `type:"string"`
@@ -3201,6 +3241,12 @@ func (s OriginRewriteActionForBatchUpdateCdnConfigInput) String() string {
 // GoString returns the string representation
 func (s OriginRewriteActionForBatchUpdateCdnConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetRewriteType sets the RewriteType field's value.
+func (s *OriginRewriteActionForBatchUpdateCdnConfigInput) SetRewriteType(v string) *OriginRewriteActionForBatchUpdateCdnConfigInput {
+	s.RewriteType = &v
+	return s
 }
 
 // SetSourcePath sets the SourcePath field's value.
@@ -4194,6 +4240,36 @@ func (s *ResponseHeaderInstanceForBatchUpdateCdnConfigInput) SetValue(v string) 
 // SetValueType sets the ValueType field's value.
 func (s *ResponseHeaderInstanceForBatchUpdateCdnConfigInput) SetValueType(v string) *ResponseHeaderInstanceForBatchUpdateCdnConfigInput {
 	s.ValueType = &v
+	return s
+}
+
+type RewriteHLSForBatchUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	SignName *string `type:"string"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s RewriteHLSForBatchUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RewriteHLSForBatchUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetSignName sets the SignName field's value.
+func (s *RewriteHLSForBatchUpdateCdnConfigInput) SetSignName(v string) *RewriteHLSForBatchUpdateCdnConfigInput {
+	s.SignName = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *RewriteHLSForBatchUpdateCdnConfigInput) SetSwitch(v bool) *RewriteHLSForBatchUpdateCdnConfigInput {
+	s.Switch = &v
 	return s
 }
 

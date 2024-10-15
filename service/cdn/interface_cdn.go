@@ -54,6 +54,14 @@ type CDNAPI interface {
 	AddResourceTagsWithContext(volcengine.Context, *AddResourceTagsInput, ...request.Option) (*AddResourceTagsOutput, error)
 	AddResourceTagsRequest(*AddResourceTagsInput) (*request.Request, *AddResourceTagsOutput)
 
+	AddSharedConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AddSharedConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AddSharedConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AddSharedConfig(*AddSharedConfigInput) (*AddSharedConfigOutput, error)
+	AddSharedConfigWithContext(volcengine.Context, *AddSharedConfigInput, ...request.Option) (*AddSharedConfigOutput, error)
+	AddSharedConfigRequest(*AddSharedConfigInput) (*request.Request, *AddSharedConfigOutput)
+
 	BatchDeployCertCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	BatchDeployCertCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	BatchDeployCertCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +109,14 @@ type CDNAPI interface {
 	DeleteResourceTags(*DeleteResourceTagsInput) (*DeleteResourceTagsOutput, error)
 	DeleteResourceTagsWithContext(volcengine.Context, *DeleteResourceTagsInput, ...request.Option) (*DeleteResourceTagsOutput, error)
 	DeleteResourceTagsRequest(*DeleteResourceTagsInput) (*request.Request, *DeleteResourceTagsOutput)
+
+	DeleteSharedConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteSharedConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteSharedConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteSharedConfig(*DeleteSharedConfigInput) (*DeleteSharedConfigOutput, error)
+	DeleteSharedConfigWithContext(volcengine.Context, *DeleteSharedConfigInput, ...request.Option) (*DeleteSharedConfigOutput, error)
+	DeleteSharedConfigRequest(*DeleteSharedConfigInput) (*request.Request, *DeleteSharedConfigOutput)
 
 	DeleteUsageReportCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteUsageReportCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -286,6 +302,14 @@ type CDNAPI interface {
 	DescribeOriginSummaryWithContext(volcengine.Context, *DescribeOriginSummaryInput, ...request.Option) (*DescribeOriginSummaryOutput, error)
 	DescribeOriginSummaryRequest(*DescribeOriginSummaryInput) (*request.Request, *DescribeOriginSummaryOutput)
 
+	DescribeSharedConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSharedConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSharedConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSharedConfig(*DescribeSharedConfigInput) (*DescribeSharedConfigOutput, error)
+	DescribeSharedConfigWithContext(volcengine.Context, *DescribeSharedConfigInput, ...request.Option) (*DescribeSharedConfigOutput, error)
+	DescribeSharedConfigRequest(*DescribeSharedConfigInput) (*request.Request, *DescribeSharedConfigOutput)
+
 	DescribeStatisticalRankingCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeStatisticalRankingCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeStatisticalRankingCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -333,6 +357,14 @@ type CDNAPI interface {
 	ListResourceTags(*ListResourceTagsInput) (*ListResourceTagsOutput, error)
 	ListResourceTagsWithContext(volcengine.Context, *ListResourceTagsInput, ...request.Option) (*ListResourceTagsOutput, error)
 	ListResourceTagsRequest(*ListResourceTagsInput) (*request.Request, *ListResourceTagsOutput)
+
+	ListSharedConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ListSharedConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ListSharedConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ListSharedConfig(*ListSharedConfigInput) (*ListSharedConfigOutput, error)
+	ListSharedConfigWithContext(volcengine.Context, *ListSharedConfigInput, ...request.Option) (*ListSharedConfigOutput, error)
+	ListSharedConfigRequest(*ListSharedConfigInput) (*request.Request, *ListSharedConfigOutput)
 
 	ListUsageReportsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ListUsageReportsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -405,6 +437,14 @@ type CDNAPI interface {
 	UpdateResourceTags(*UpdateResourceTagsInput) (*UpdateResourceTagsOutput, error)
 	UpdateResourceTagsWithContext(volcengine.Context, *UpdateResourceTagsInput, ...request.Option) (*UpdateResourceTagsOutput, error)
 	UpdateResourceTagsRequest(*UpdateResourceTagsInput) (*request.Request, *UpdateResourceTagsOutput)
+
+	UpdateSharedConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateSharedConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateSharedConfigCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateSharedConfig(*UpdateSharedConfigInput) (*UpdateSharedConfigOutput, error)
+	UpdateSharedConfigWithContext(volcengine.Context, *UpdateSharedConfigInput, ...request.Option) (*UpdateSharedConfigOutput, error)
+	UpdateSharedConfigRequest(*UpdateSharedConfigInput) (*request.Request, *UpdateSharedConfigOutput)
 }
 
 var _ CDNAPI = (*CDN)(nil)

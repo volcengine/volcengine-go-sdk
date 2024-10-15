@@ -1906,6 +1906,8 @@ type DomainConfigForDescribeCdnConfigOutput struct {
 
 	MethodDeniedRule *MethodDeniedRuleForDescribeCdnConfigOutput `type:"structure"`
 
+	MultiRange *MultiRangeForDescribeCdnConfigOutput `type:"structure"`
+
 	NegativeCache []*NegativeCacheForDescribeCdnConfigOutput `type:"list"`
 
 	Origin []*OriginForDescribeCdnConfigOutput `type:"list"`
@@ -1947,6 +1949,8 @@ type DomainConfigForDescribeCdnConfigOutput struct {
 	RequestHeader []*RequestHeaderForDescribeCdnConfigOutput `type:"list"`
 
 	ResponseHeader []*ResponseHeaderForDescribeCdnConfigOutput `type:"list"`
+
+	RewriteHLS *RewriteHLSForDescribeCdnConfigOutput `type:"structure"`
 
 	ServiceRegion *string `type:"string"`
 
@@ -2121,6 +2125,12 @@ func (s *DomainConfigForDescribeCdnConfigOutput) SetMethodDeniedRule(v *MethodDe
 	return s
 }
 
+// SetMultiRange sets the MultiRange field's value.
+func (s *DomainConfigForDescribeCdnConfigOutput) SetMultiRange(v *MultiRangeForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
+	s.MultiRange = v
+	return s
+}
+
 // SetNegativeCache sets the NegativeCache field's value.
 func (s *DomainConfigForDescribeCdnConfigOutput) SetNegativeCache(v []*NegativeCacheForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
 	s.NegativeCache = v
@@ -2244,6 +2254,12 @@ func (s *DomainConfigForDescribeCdnConfigOutput) SetRequestHeader(v []*RequestHe
 // SetResponseHeader sets the ResponseHeader field's value.
 func (s *DomainConfigForDescribeCdnConfigOutput) SetResponseHeader(v []*ResponseHeaderForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
 	s.ResponseHeader = v
+	return s
+}
+
+// SetRewriteHLS sets the RewriteHLS field's value.
+func (s *DomainConfigForDescribeCdnConfigOutput) SetRewriteHLS(v *RewriteHLSForDescribeCdnConfigOutput) *DomainConfigForDescribeCdnConfigOutput {
+	s.RewriteHLS = v
 	return s
 }
 
@@ -3020,6 +3036,8 @@ type ModuleLockConfigForDescribeCdnConfigOutput struct {
 
 	OriginAccessRuleLocked *bool `type:"boolean"`
 
+	OriginArgLocked *bool `type:"boolean"`
+
 	OriginLocked *bool `type:"boolean"`
 
 	OriginRewriteLocked *bool `type:"boolean"`
@@ -3115,6 +3133,12 @@ func (s *ModuleLockConfigForDescribeCdnConfigOutput) SetOriginAccessRuleLocked(v
 	return s
 }
 
+// SetOriginArgLocked sets the OriginArgLocked field's value.
+func (s *ModuleLockConfigForDescribeCdnConfigOutput) SetOriginArgLocked(v bool) *ModuleLockConfigForDescribeCdnConfigOutput {
+	s.OriginArgLocked = &v
+	return s
+}
+
 // SetOriginLocked sets the OriginLocked field's value.
 func (s *ModuleLockConfigForDescribeCdnConfigOutput) SetOriginLocked(v bool) *ModuleLockConfigForDescribeCdnConfigOutput {
 	s.OriginLocked = &v
@@ -3184,6 +3208,28 @@ func (s *ModuleLockConfigForDescribeCdnConfigOutput) SetSignUrlAuthLocked(v bool
 // SetUAAccessRuleLocked sets the UAAccessRuleLocked field's value.
 func (s *ModuleLockConfigForDescribeCdnConfigOutput) SetUAAccessRuleLocked(v bool) *ModuleLockConfigForDescribeCdnConfigOutput {
 	s.UAAccessRuleLocked = &v
+	return s
+}
+
+type MultiRangeForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s MultiRangeForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MultiRangeForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *MultiRangeForDescribeCdnConfigOutput) SetSwitch(v bool) *MultiRangeForDescribeCdnConfigOutput {
+	s.Switch = &v
 	return s
 }
 
@@ -3568,6 +3614,8 @@ func (s *OriginRetryForDescribeCdnConfigOutput) SetSwitch(v bool) *OriginRetryFo
 type OriginRewriteActionForDescribeCdnConfigOutput struct {
 	_ struct{} `type:"structure"`
 
+	RewriteType *string `type:"string"`
+
 	SourcePath *string `type:"string"`
 
 	TargetPath *string `type:"string"`
@@ -3581,6 +3629,12 @@ func (s OriginRewriteActionForDescribeCdnConfigOutput) String() string {
 // GoString returns the string representation
 func (s OriginRewriteActionForDescribeCdnConfigOutput) GoString() string {
 	return s.String()
+}
+
+// SetRewriteType sets the RewriteType field's value.
+func (s *OriginRewriteActionForDescribeCdnConfigOutput) SetRewriteType(v string) *OriginRewriteActionForDescribeCdnConfigOutput {
+	s.RewriteType = &v
+	return s
 }
 
 // SetSourcePath sets the SourcePath field's value.
@@ -4574,6 +4628,36 @@ func (s *ResponseHeaderInstanceForDescribeCdnConfigOutput) SetValue(v string) *R
 // SetValueType sets the ValueType field's value.
 func (s *ResponseHeaderInstanceForDescribeCdnConfigOutput) SetValueType(v string) *ResponseHeaderInstanceForDescribeCdnConfigOutput {
 	s.ValueType = &v
+	return s
+}
+
+type RewriteHLSForDescribeCdnConfigOutput struct {
+	_ struct{} `type:"structure"`
+
+	SignName *string `type:"string"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s RewriteHLSForDescribeCdnConfigOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RewriteHLSForDescribeCdnConfigOutput) GoString() string {
+	return s.String()
+}
+
+// SetSignName sets the SignName field's value.
+func (s *RewriteHLSForDescribeCdnConfigOutput) SetSignName(v string) *RewriteHLSForDescribeCdnConfigOutput {
+	s.SignName = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *RewriteHLSForDescribeCdnConfigOutput) SetSwitch(v bool) *RewriteHLSForDescribeCdnConfigOutput {
+	s.Switch = &v
 	return s
 }
 

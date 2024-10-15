@@ -198,6 +198,8 @@ type ServiceInfoForDescribeCdnServiceOutput struct {
 
 	InstanceCategory *string `type:"string"`
 
+	InstanceNo *string `type:"string"`
+
 	InstanceType *string `type:"string"`
 
 	MetricType *string `type:"string"`
@@ -258,6 +260,12 @@ func (s *ServiceInfoForDescribeCdnServiceOutput) SetCreateTime(v string) *Servic
 // SetInstanceCategory sets the InstanceCategory field's value.
 func (s *ServiceInfoForDescribeCdnServiceOutput) SetInstanceCategory(v string) *ServiceInfoForDescribeCdnServiceOutput {
 	s.InstanceCategory = &v
+	return s
+}
+
+// SetInstanceNo sets the InstanceNo field's value.
+func (s *ServiceInfoForDescribeCdnServiceOutput) SetInstanceNo(v string) *ServiceInfoForDescribeCdnServiceOutput {
+	s.InstanceNo = &v
 	return s
 }
 
