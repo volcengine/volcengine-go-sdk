@@ -160,6 +160,8 @@ type CertificateForDescribeCertificatesOutput struct {
 
 	ServiceManaged *bool `type:"boolean"`
 
+	SubjectAlternativeNames []*string `type:"list"`
+
 	Tags []*TagForDescribeCertificatesOutput `type:"list"`
 }
 
@@ -224,6 +226,12 @@ func (s *CertificateForDescribeCertificatesOutput) SetProjectName(v string) *Cer
 // SetServiceManaged sets the ServiceManaged field's value.
 func (s *CertificateForDescribeCertificatesOutput) SetServiceManaged(v bool) *CertificateForDescribeCertificatesOutput {
 	s.ServiceManaged = &v
+	return s
+}
+
+// SetSubjectAlternativeNames sets the SubjectAlternativeNames field's value.
+func (s *CertificateForDescribeCertificatesOutput) SetSubjectAlternativeNames(v []*string) *CertificateForDescribeCertificatesOutput {
+	s.SubjectAlternativeNames = v
 	return s
 }
 

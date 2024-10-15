@@ -368,6 +368,8 @@ type LoadBalancerForDescribeLoadBalancersOutput struct {
 
 	BusinessStatus *string `type:"string"`
 
+	BypassSecurityGroupEnabled *string `type:"string"`
+
 	CreateTime *string `type:"string"`
 
 	DeletedTime *string `type:"string"`
@@ -458,6 +460,12 @@ func (s *LoadBalancerForDescribeLoadBalancersOutput) SetAddressIpVersion(v strin
 // SetBusinessStatus sets the BusinessStatus field's value.
 func (s *LoadBalancerForDescribeLoadBalancersOutput) SetBusinessStatus(v string) *LoadBalancerForDescribeLoadBalancersOutput {
 	s.BusinessStatus = &v
+	return s
+}
+
+// SetBypassSecurityGroupEnabled sets the BypassSecurityGroupEnabled field's value.
+func (s *LoadBalancerForDescribeLoadBalancersOutput) SetBypassSecurityGroupEnabled(v string) *LoadBalancerForDescribeLoadBalancersOutput {
+	s.BypassSecurityGroupEnabled = &v
 	return s
 }
 
