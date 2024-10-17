@@ -70,6 +70,22 @@ type KMSAPI interface {
 	AsymmetricVerifyWithContext(volcengine.Context, *AsymmetricVerifyInput, ...request.Option) (*AsymmetricVerifyOutput, error)
 	AsymmetricVerifyRequest(*AsymmetricVerifyInput) (*request.Request, *AsymmetricVerifyOutput)
 
+	BackupSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BackupSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BackupSecretCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BackupSecret(*BackupSecretInput) (*BackupSecretOutput, error)
+	BackupSecretWithContext(volcengine.Context, *BackupSecretInput, ...request.Option) (*BackupSecretOutput, error)
+	BackupSecretRequest(*BackupSecretInput) (*request.Request, *BackupSecretOutput)
+
+	BatchGetSecretValueCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	BatchGetSecretValueCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	BatchGetSecretValueCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	BatchGetSecretValue(*BatchGetSecretValueInput) (*BatchGetSecretValueOutput, error)
+	BatchGetSecretValueWithContext(volcengine.Context, *BatchGetSecretValueInput, ...request.Option) (*BatchGetSecretValueOutput, error)
+	BatchGetSecretValueRequest(*BatchGetSecretValueInput) (*request.Request, *BatchGetSecretValueOutput)
+
 	CancelArchiveKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CancelArchiveKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CancelArchiveKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -86,6 +102,14 @@ type KMSAPI interface {
 	CancelKeyDeletionWithContext(volcengine.Context, *CancelKeyDeletionInput, ...request.Option) (*CancelKeyDeletionOutput, error)
 	CancelKeyDeletionRequest(*CancelKeyDeletionInput) (*request.Request, *CancelKeyDeletionOutput)
 
+	CancelSecretDeletionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CancelSecretDeletionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CancelSecretDeletionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CancelSecretDeletion(*CancelSecretDeletionInput) (*CancelSecretDeletionOutput, error)
+	CancelSecretDeletionWithContext(volcengine.Context, *CancelSecretDeletionInput, ...request.Option) (*CancelSecretDeletionOutput, error)
+	CancelSecretDeletionRequest(*CancelSecretDeletionInput) (*request.Request, *CancelSecretDeletionOutput)
+
 	CreateKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateKeyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -101,6 +125,14 @@ type KMSAPI interface {
 	CreateKeyring(*CreateKeyringInput) (*CreateKeyringOutput, error)
 	CreateKeyringWithContext(volcengine.Context, *CreateKeyringInput, ...request.Option) (*CreateKeyringOutput, error)
 	CreateKeyringRequest(*CreateKeyringInput) (*request.Request, *CreateKeyringOutput)
+
+	CreateSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateSecretCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateSecret(*CreateSecretInput) (*CreateSecretOutput, error)
+	CreateSecretWithContext(volcengine.Context, *CreateSecretInput, ...request.Option) (*CreateSecretOutput, error)
+	CreateSecretRequest(*CreateSecretInput) (*request.Request, *CreateSecretOutput)
 
 	DecryptCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DecryptCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -157,6 +189,30 @@ type KMSAPI interface {
 	DescribeRegions(*DescribeRegionsInput) (*DescribeRegionsOutput, error)
 	DescribeRegionsWithContext(volcengine.Context, *DescribeRegionsInput, ...request.Option) (*DescribeRegionsOutput, error)
 	DescribeRegionsRequest(*DescribeRegionsInput) (*request.Request, *DescribeRegionsOutput)
+
+	DescribeSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSecretCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSecret(*DescribeSecretInput) (*DescribeSecretOutput, error)
+	DescribeSecretWithContext(volcengine.Context, *DescribeSecretInput, ...request.Option) (*DescribeSecretOutput, error)
+	DescribeSecretRequest(*DescribeSecretInput) (*request.Request, *DescribeSecretOutput)
+
+	DescribeSecretVersionsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSecretVersionsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSecretVersionsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSecretVersions(*DescribeSecretVersionsInput) (*DescribeSecretVersionsOutput, error)
+	DescribeSecretVersionsWithContext(volcengine.Context, *DescribeSecretVersionsInput, ...request.Option) (*DescribeSecretVersionsOutput, error)
+	DescribeSecretVersionsRequest(*DescribeSecretVersionsInput) (*request.Request, *DescribeSecretVersionsOutput)
+
+	DescribeSecretsCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSecretsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSecretsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSecrets(*DescribeSecretsInput) (*DescribeSecretsOutput, error)
+	DescribeSecretsWithContext(volcengine.Context, *DescribeSecretsInput, ...request.Option) (*DescribeSecretsOutput, error)
+	DescribeSecretsRequest(*DescribeSecretsInput) (*request.Request, *DescribeSecretsOutput)
 
 	DisableKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DisableKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -222,6 +278,14 @@ type KMSAPI interface {
 	GetPublicKeyWithContext(volcengine.Context, *GetPublicKeyInput, ...request.Option) (*GetPublicKeyOutput, error)
 	GetPublicKeyRequest(*GetPublicKeyInput) (*request.Request, *GetPublicKeyOutput)
 
+	GetSecretValueCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	GetSecretValueCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	GetSecretValueCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	GetSecretValue(*GetSecretValueInput) (*GetSecretValueOutput, error)
+	GetSecretValueWithContext(volcengine.Context, *GetSecretValueInput, ...request.Option) (*GetSecretValueOutput, error)
+	GetSecretValueRequest(*GetSecretValueInput) (*request.Request, *GetSecretValueOutput)
+
 	ImportKeyMaterialCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ImportKeyMaterialCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ImportKeyMaterialCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -246,6 +310,22 @@ type KMSAPI interface {
 	ReEncryptWithContext(volcengine.Context, *ReEncryptInput, ...request.Option) (*ReEncryptOutput, error)
 	ReEncryptRequest(*ReEncryptInput) (*request.Request, *ReEncryptOutput)
 
+	RestoreSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RestoreSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RestoreSecretCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RestoreSecret(*RestoreSecretInput) (*RestoreSecretOutput, error)
+	RestoreSecretWithContext(volcengine.Context, *RestoreSecretInput, ...request.Option) (*RestoreSecretOutput, error)
+	RestoreSecretRequest(*RestoreSecretInput) (*request.Request, *RestoreSecretOutput)
+
+	RotateSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	RotateSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	RotateSecretCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	RotateSecret(*RotateSecretInput) (*RotateSecretOutput, error)
+	RotateSecretWithContext(volcengine.Context, *RotateSecretInput, ...request.Option) (*RotateSecretOutput, error)
+	RotateSecretRequest(*RotateSecretInput) (*request.Request, *RotateSecretOutput)
+
 	ScheduleKeyDeletionCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ScheduleKeyDeletionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	ScheduleKeyDeletionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -253,6 +333,22 @@ type KMSAPI interface {
 	ScheduleKeyDeletion(*ScheduleKeyDeletionInput) (*ScheduleKeyDeletionOutput, error)
 	ScheduleKeyDeletionWithContext(volcengine.Context, *ScheduleKeyDeletionInput, ...request.Option) (*ScheduleKeyDeletionOutput, error)
 	ScheduleKeyDeletionRequest(*ScheduleKeyDeletionInput) (*request.Request, *ScheduleKeyDeletionOutput)
+
+	ScheduleSecretDeletionCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ScheduleSecretDeletionCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ScheduleSecretDeletionCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ScheduleSecretDeletion(*ScheduleSecretDeletionInput) (*ScheduleSecretDeletionOutput, error)
+	ScheduleSecretDeletionWithContext(volcengine.Context, *ScheduleSecretDeletionInput, ...request.Option) (*ScheduleSecretDeletionOutput, error)
+	ScheduleSecretDeletionRequest(*ScheduleSecretDeletionInput) (*request.Request, *ScheduleSecretDeletionOutput)
+
+	SetSecretValueCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	SetSecretValueCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	SetSecretValueCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	SetSecretValue(*SetSecretValueInput) (*SetSecretValueOutput, error)
+	SetSecretValueWithContext(volcengine.Context, *SetSecretValueInput, ...request.Option) (*SetSecretValueOutput, error)
+	SetSecretValueRequest(*SetSecretValueInput) (*request.Request, *SetSecretValueOutput)
 
 	UpdateKeyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	UpdateKeyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -269,6 +365,22 @@ type KMSAPI interface {
 	UpdateKeyring(*UpdateKeyringInput) (*UpdateKeyringOutput, error)
 	UpdateKeyringWithContext(volcengine.Context, *UpdateKeyringInput, ...request.Option) (*UpdateKeyringOutput, error)
 	UpdateKeyringRequest(*UpdateKeyringInput) (*request.Request, *UpdateKeyringOutput)
+
+	UpdateSecretCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateSecretCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateSecretCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateSecret(*UpdateSecretInput) (*UpdateSecretOutput, error)
+	UpdateSecretWithContext(volcengine.Context, *UpdateSecretInput, ...request.Option) (*UpdateSecretOutput, error)
+	UpdateSecretRequest(*UpdateSecretInput) (*request.Request, *UpdateSecretOutput)
+
+	UpdateSecretRotationPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	UpdateSecretRotationPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	UpdateSecretRotationPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	UpdateSecretRotationPolicy(*UpdateSecretRotationPolicyInput) (*UpdateSecretRotationPolicyOutput, error)
+	UpdateSecretRotationPolicyWithContext(volcengine.Context, *UpdateSecretRotationPolicyInput, ...request.Option) (*UpdateSecretRotationPolicyOutput, error)
+	UpdateSecretRotationPolicyRequest(*UpdateSecretRotationPolicyInput) (*request.Request, *UpdateSecretRotationPolicyOutput)
 }
 
 var _ KMSAPI = (*KMS)(nil)
