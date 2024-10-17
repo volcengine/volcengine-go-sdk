@@ -22,7 +22,7 @@ import (
 )
 
 type Client struct {
-	config ClientConfig
+	config clientConfig
 
 	requestBuilder utils.RequestBuilder
 
@@ -33,18 +33,18 @@ type Client struct {
 	mandatoryRefreshTimeout int
 }
 
-func NewClientWithApiKey(apiKey string, setters ...configOption) *Client {
+func NewClientWithApiKey(apiKey string, setters ...ConfigOption) *Client {
 	config := NewClientConfig(apiKey, "", "", setters...)
 	return newClientWithConfig(config)
 }
 
-func NewClientWithAkSk(ak, sk string, setters ...configOption) *Client {
+func NewClientWithAkSk(ak, sk string, setters ...ConfigOption) *Client {
 	config := NewClientConfig("", ak, sk, setters...)
 	return newClientWithConfig(config)
 }
 
 // NewClientWithConfig creates new API client for specified config.
-func newClientWithConfig(config ClientConfig) *Client {
+func newClientWithConfig(config clientConfig) *Client {
 	var arkClient *ark.ARK
 	arkConfig := volcengine.NewConfig().
 		WithCredentials(credentials.NewStaticCredentials(config.ak, config.sk, "")).

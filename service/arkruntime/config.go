@@ -26,7 +26,7 @@ type tokenInfo struct {
 }
 
 // ClientConfig is a configuration of a client.
-type ClientConfig struct {
+type clientConfig struct {
 	apiKey string
 	ak     string
 	sk     string
@@ -38,8 +38,8 @@ type ClientConfig struct {
 	RetryTimes         int
 }
 
-func NewClientConfig(apiKey, ak, sk string, setters ...configOption) ClientConfig {
-	config := ClientConfig{
+func NewClientConfig(apiKey, ak, sk string, setters ...ConfigOption) clientConfig {
+	config := clientConfig{
 		apiKey:  apiKey,
 		ak:      ak,
 		sk:      sk,
@@ -58,16 +58,16 @@ func NewClientConfig(apiKey, ak, sk string, setters ...configOption) ClientConfi
 	return config
 }
 
-type configOption func(*ClientConfig)
+type ConfigOption func(*clientConfig)
 
-func WithRegion(region string) configOption {
-	return func(config *ClientConfig) {
+func WithRegion(region string) ConfigOption {
+	return func(config *clientConfig) {
 		config.region = region
 	}
 }
 
-func WithBaseUrl(url string) configOption {
-	return func(config *ClientConfig) {
+func WithBaseUrl(url string) ConfigOption {
+	return func(config *clientConfig) {
 		config.BaseURL = url
 		if strings.HasSuffix(url, "/") {
 			config.BaseURL = strings.TrimSuffix(url, "/")
@@ -75,20 +75,20 @@ func WithBaseUrl(url string) configOption {
 	}
 }
 
-func WithRetryTimes(retryTimes int) configOption {
-	return func(config *ClientConfig) {
+func WithRetryTimes(retryTimes int) ConfigOption {
+	return func(config *clientConfig) {
 		config.RetryTimes = retryTimes
 	}
 }
 
-func WithTimeout(timeout time.Duration) configOption {
-	return func(config *ClientConfig) {
+func WithTimeout(timeout time.Duration) ConfigOption {
+	return func(config *clientConfig) {
 		config.HTTPClient.Timeout = timeout
 	}
 }
 
-func WithHTTPClient(client *http.Client) configOption {
-	return func(config *ClientConfig) {
+func WithHTTPClient(client *http.Client) ConfigOption {
+	return func(config *clientConfig) {
 		config.HTTPClient = client
 	}
 }

@@ -284,6 +284,8 @@ func (s *MetricDataListForDescribeOriginDataOutput) SetValues(v []*ValueForDescr
 type ValueForDescribeOriginDataOutput struct {
 	_ struct{} `type:"structure"`
 
+	Item *string `type:"string"`
+
 	TimeStamp *int64 `type:"int64"`
 
 	Value *float64 `type:"double"`
@@ -297,6 +299,12 @@ func (s ValueForDescribeOriginDataOutput) String() string {
 // GoString returns the string representation
 func (s ValueForDescribeOriginDataOutput) GoString() string {
 	return s.String()
+}
+
+// SetItem sets the Item field's value.
+func (s *ValueForDescribeOriginDataOutput) SetItem(v string) *ValueForDescribeOriginDataOutput {
+	s.Item = &v
+	return s
 }
 
 // SetTimeStamp sets the TimeStamp field's value.

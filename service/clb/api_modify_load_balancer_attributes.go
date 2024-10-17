@@ -146,6 +146,8 @@ type ModifyLoadBalancerAttributesInput struct {
 
 	AllowedPorts []*string `type:"list"`
 
+	BypassSecurityGroupEnabled *string `type:"string"`
+
 	Description *string `type:"string"`
 
 	EniIpv6Address *string `type:"string"`
@@ -196,6 +198,12 @@ func (s *ModifyLoadBalancerAttributesInput) SetAddressIpVersion(v string) *Modif
 // SetAllowedPorts sets the AllowedPorts field's value.
 func (s *ModifyLoadBalancerAttributesInput) SetAllowedPorts(v []*string) *ModifyLoadBalancerAttributesInput {
 	s.AllowedPorts = v
+	return s
+}
+
+// SetBypassSecurityGroupEnabled sets the BypassSecurityGroupEnabled field's value.
+func (s *ModifyLoadBalancerAttributesInput) SetBypassSecurityGroupEnabled(v string) *ModifyLoadBalancerAttributesInput {
+	s.BypassSecurityGroupEnabled = &v
 	return s
 }
 

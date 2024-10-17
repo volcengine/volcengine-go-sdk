@@ -150,6 +150,8 @@ type DescribeCdnUpperIpInput struct {
 	Domain *string `type:"string" required:"true"`
 
 	IpVersion *string `type:"string"`
+
+	RsIp *bool `type:"boolean"`
 }
 
 // String returns the string representation
@@ -184,6 +186,12 @@ func (s *DescribeCdnUpperIpInput) SetDomain(v string) *DescribeCdnUpperIpInput {
 // SetIpVersion sets the IpVersion field's value.
 func (s *DescribeCdnUpperIpInput) SetIpVersion(v string) *DescribeCdnUpperIpInput {
 	s.IpVersion = &v
+	return s
+}
+
+// SetRsIp sets the RsIp field's value.
+func (s *DescribeCdnUpperIpInput) SetRsIp(v bool) *DescribeCdnUpperIpInput {
+	s.RsIp = &v
 	return s
 }
 

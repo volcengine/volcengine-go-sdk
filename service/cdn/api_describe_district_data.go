@@ -324,6 +324,8 @@ func (s *MetricDataListForDescribeDistrictDataOutput) SetValues(v []*ValueForDes
 type ValueForDescribeDistrictDataOutput struct {
 	_ struct{} `type:"structure"`
 
+	Item *string `type:"string"`
+
 	TimeStamp *int64 `type:"int64"`
 
 	Value *float64 `type:"double"`
@@ -337,6 +339,12 @@ func (s ValueForDescribeDistrictDataOutput) String() string {
 // GoString returns the string representation
 func (s ValueForDescribeDistrictDataOutput) GoString() string {
 	return s.String()
+}
+
+// SetItem sets the Item field's value.
+func (s *ValueForDescribeDistrictDataOutput) SetItem(v string) *ValueForDescribeDistrictDataOutput {
+	s.Item = &v
+	return s
 }
 
 // SetTimeStamp sets the TimeStamp field's value.
