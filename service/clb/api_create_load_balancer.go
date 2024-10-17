@@ -146,6 +146,8 @@ type CreateLoadBalancerInput struct {
 
 	AllowedPorts []*string `type:"list"`
 
+	BypassSecurityGroupEnabled *string `type:"string"`
+
 	ClientToken *string `type:"string"`
 
 	Description *string `type:"string"`
@@ -232,6 +234,12 @@ func (s *CreateLoadBalancerInput) SetAddressIpVersion(v string) *CreateLoadBalan
 // SetAllowedPorts sets the AllowedPorts field's value.
 func (s *CreateLoadBalancerInput) SetAllowedPorts(v []*string) *CreateLoadBalancerInput {
 	s.AllowedPorts = v
+	return s
+}
+
+// SetBypassSecurityGroupEnabled sets the BypassSecurityGroupEnabled field's value.
+func (s *CreateLoadBalancerInput) SetBypassSecurityGroupEnabled(v string) *CreateLoadBalancerInput {
+	s.BypassSecurityGroupEnabled = &v
 	return s
 }
 

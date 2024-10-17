@@ -220,6 +220,8 @@ type DescribeLoadBalancerAttributesOutput struct {
 
 	BusinessStatus *string `type:"string"`
 
+	BypassSecurityGroupEnabled *string `type:"string"`
+
 	CreateTime *string `type:"string"`
 
 	DeletedTime *string `type:"string"`
@@ -336,6 +338,12 @@ func (s *DescribeLoadBalancerAttributesOutput) SetAllowedPorts(v []*string) *Des
 // SetBusinessStatus sets the BusinessStatus field's value.
 func (s *DescribeLoadBalancerAttributesOutput) SetBusinessStatus(v string) *DescribeLoadBalancerAttributesOutput {
 	s.BusinessStatus = &v
+	return s
+}
+
+// SetBypassSecurityGroupEnabled sets the BypassSecurityGroupEnabled field's value.
+func (s *DescribeLoadBalancerAttributesOutput) SetBypassSecurityGroupEnabled(v string) *DescribeLoadBalancerAttributesOutput {
+	s.BypassSecurityGroupEnabled = &v
 	return s
 }
 
