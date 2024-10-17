@@ -2363,6 +2363,28 @@ func (s *MethodDeniedRuleForUpdateCdnConfigInput) SetSwitch(v bool) *MethodDenie
 	return s
 }
 
+type MultiRangeForUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s MultiRangeForUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MultiRangeForUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *MultiRangeForUpdateCdnConfigInput) SetSwitch(v bool) *MultiRangeForUpdateCdnConfigInput {
+	s.Switch = &v
+	return s
+}
+
 type NegativeCacheForUpdateCdnConfigInput struct {
 	_ struct{} `type:"structure"`
 
@@ -2744,6 +2766,8 @@ func (s *OriginRetryForUpdateCdnConfigInput) SetSwitch(v bool) *OriginRetryForUp
 type OriginRewriteActionForUpdateCdnConfigInput struct {
 	_ struct{} `type:"structure"`
 
+	RewriteType *string `type:"string"`
+
 	SourcePath *string `type:"string"`
 
 	TargetPath *string `type:"string"`
@@ -2757,6 +2781,12 @@ func (s OriginRewriteActionForUpdateCdnConfigInput) String() string {
 // GoString returns the string representation
 func (s OriginRewriteActionForUpdateCdnConfigInput) GoString() string {
 	return s.String()
+}
+
+// SetRewriteType sets the RewriteType field's value.
+func (s *OriginRewriteActionForUpdateCdnConfigInput) SetRewriteType(v string) *OriginRewriteActionForUpdateCdnConfigInput {
+	s.RewriteType = &v
+	return s
 }
 
 // SetSourcePath sets the SourcePath field's value.
@@ -3753,6 +3783,36 @@ func (s *ResponseHeaderInstanceForUpdateCdnConfigInput) SetValueType(v string) *
 	return s
 }
 
+type RewriteHLSForUpdateCdnConfigInput struct {
+	_ struct{} `type:"structure"`
+
+	SignName *string `type:"string"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s RewriteHLSForUpdateCdnConfigInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RewriteHLSForUpdateCdnConfigInput) GoString() string {
+	return s.String()
+}
+
+// SetSignName sets the SignName field's value.
+func (s *RewriteHLSForUpdateCdnConfigInput) SetSignName(v string) *RewriteHLSForUpdateCdnConfigInput {
+	s.SignName = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *RewriteHLSForUpdateCdnConfigInput) SetSwitch(v bool) *RewriteHLSForUpdateCdnConfigInput {
+	s.Switch = &v
+	return s
+}
+
 type RewriteM3u8RuleForUpdateCdnConfigInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4437,6 +4497,8 @@ type UpdateCdnConfigInput struct {
 
 	MethodDeniedRule *MethodDeniedRuleForUpdateCdnConfigInput `type:"structure"`
 
+	MultiRange *MultiRangeForUpdateCdnConfigInput `type:"structure"`
+
 	NegativeCache []*NegativeCacheForUpdateCdnConfigInput `type:"list"`
 
 	Origin []*OriginForUpdateCdnConfigInput `type:"list"`
@@ -4476,6 +4538,8 @@ type UpdateCdnConfigInput struct {
 	RequestHeader []*RequestHeaderForUpdateCdnConfigInput `type:"list"`
 
 	ResponseHeader []*ResponseHeaderForUpdateCdnConfigInput `type:"list"`
+
+	RewriteHLS *RewriteHLSForUpdateCdnConfigInput `type:"structure"`
 
 	ServiceRegion *string `type:"string"`
 
@@ -4627,6 +4691,12 @@ func (s *UpdateCdnConfigInput) SetMethodDeniedRule(v *MethodDeniedRuleForUpdateC
 	return s
 }
 
+// SetMultiRange sets the MultiRange field's value.
+func (s *UpdateCdnConfigInput) SetMultiRange(v *MultiRangeForUpdateCdnConfigInput) *UpdateCdnConfigInput {
+	s.MultiRange = v
+	return s
+}
+
 // SetNegativeCache sets the NegativeCache field's value.
 func (s *UpdateCdnConfigInput) SetNegativeCache(v []*NegativeCacheForUpdateCdnConfigInput) *UpdateCdnConfigInput {
 	s.NegativeCache = v
@@ -4744,6 +4814,12 @@ func (s *UpdateCdnConfigInput) SetRequestHeader(v []*RequestHeaderForUpdateCdnCo
 // SetResponseHeader sets the ResponseHeader field's value.
 func (s *UpdateCdnConfigInput) SetResponseHeader(v []*ResponseHeaderForUpdateCdnConfigInput) *UpdateCdnConfigInput {
 	s.ResponseHeader = v
+	return s
+}
+
+// SetRewriteHLS sets the RewriteHLS field's value.
+func (s *UpdateCdnConfigInput) SetRewriteHLS(v *RewriteHLSForUpdateCdnConfigInput) *UpdateCdnConfigInput {
+	s.RewriteHLS = v
 	return s
 }
 

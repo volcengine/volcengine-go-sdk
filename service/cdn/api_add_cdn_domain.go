@@ -253,6 +253,8 @@ type AddCdnDomainInput struct {
 
 	MethodDeniedRule *MethodDeniedRuleForAddCdnDomainInput `type:"structure"`
 
+	MultiRange *MultiRangeForAddCdnDomainInput `type:"structure"`
+
 	NegativeCache []*NegativeCacheForAddCdnDomainInput `type:"list"`
 
 	Origin []*OriginForAddCdnDomainInput `type:"list"`
@@ -296,6 +298,8 @@ type AddCdnDomainInput struct {
 	ResourceTags []*ResourceTagForAddCdnDomainInput `type:"list"`
 
 	ResponseHeader []*ResponseHeaderForAddCdnDomainInput `type:"list"`
+
+	RewriteHLS *RewriteHLSForAddCdnDomainInput `type:"structure"`
 
 	ServiceRegion *string `type:"string"`
 
@@ -453,6 +457,12 @@ func (s *AddCdnDomainInput) SetMethodDeniedRule(v *MethodDeniedRuleForAddCdnDoma
 	return s
 }
 
+// SetMultiRange sets the MultiRange field's value.
+func (s *AddCdnDomainInput) SetMultiRange(v *MultiRangeForAddCdnDomainInput) *AddCdnDomainInput {
+	s.MultiRange = v
+	return s
+}
+
 // SetNegativeCache sets the NegativeCache field's value.
 func (s *AddCdnDomainInput) SetNegativeCache(v []*NegativeCacheForAddCdnDomainInput) *AddCdnDomainInput {
 	s.NegativeCache = v
@@ -582,6 +592,12 @@ func (s *AddCdnDomainInput) SetResourceTags(v []*ResourceTagForAddCdnDomainInput
 // SetResponseHeader sets the ResponseHeader field's value.
 func (s *AddCdnDomainInput) SetResponseHeader(v []*ResponseHeaderForAddCdnDomainInput) *AddCdnDomainInput {
 	s.ResponseHeader = v
+	return s
+}
+
+// SetRewriteHLS sets the RewriteHLS field's value.
+func (s *AddCdnDomainInput) SetRewriteHLS(v *RewriteHLSForAddCdnDomainInput) *AddCdnDomainInput {
+	s.RewriteHLS = v
 	return s
 }
 
@@ -2795,6 +2811,28 @@ func (s *MethodDeniedRuleForAddCdnDomainInput) SetSwitch(v bool) *MethodDeniedRu
 	return s
 }
 
+type MultiRangeForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s MultiRangeForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MultiRangeForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *MultiRangeForAddCdnDomainInput) SetSwitch(v bool) *MultiRangeForAddCdnDomainInput {
+	s.Switch = &v
+	return s
+}
+
 type NegativeCacheForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3176,6 +3214,8 @@ func (s *OriginRetryForAddCdnDomainInput) SetSwitch(v bool) *OriginRetryForAddCd
 type OriginRewriteActionForAddCdnDomainInput struct {
 	_ struct{} `type:"structure"`
 
+	RewriteType *string `type:"string"`
+
 	SourcePath *string `type:"string"`
 
 	TargetPath *string `type:"string"`
@@ -3189,6 +3229,12 @@ func (s OriginRewriteActionForAddCdnDomainInput) String() string {
 // GoString returns the string representation
 func (s OriginRewriteActionForAddCdnDomainInput) GoString() string {
 	return s.String()
+}
+
+// SetRewriteType sets the RewriteType field's value.
+func (s *OriginRewriteActionForAddCdnDomainInput) SetRewriteType(v string) *OriginRewriteActionForAddCdnDomainInput {
+	s.RewriteType = &v
+	return s
 }
 
 // SetSourcePath sets the SourcePath field's value.
@@ -4212,6 +4258,36 @@ func (s *ResponseHeaderInstanceForAddCdnDomainInput) SetValue(v string) *Respons
 // SetValueType sets the ValueType field's value.
 func (s *ResponseHeaderInstanceForAddCdnDomainInput) SetValueType(v string) *ResponseHeaderInstanceForAddCdnDomainInput {
 	s.ValueType = &v
+	return s
+}
+
+type RewriteHLSForAddCdnDomainInput struct {
+	_ struct{} `type:"structure"`
+
+	SignName *string `type:"string"`
+
+	Switch *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s RewriteHLSForAddCdnDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RewriteHLSForAddCdnDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetSignName sets the SignName field's value.
+func (s *RewriteHLSForAddCdnDomainInput) SetSignName(v string) *RewriteHLSForAddCdnDomainInput {
+	s.SignName = &v
+	return s
+}
+
+// SetSwitch sets the Switch field's value.
+func (s *RewriteHLSForAddCdnDomainInput) SetSwitch(v bool) *RewriteHLSForAddCdnDomainInput {
+	s.Switch = &v
 	return s
 }
 

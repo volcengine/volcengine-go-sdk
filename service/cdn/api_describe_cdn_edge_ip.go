@@ -155,6 +155,8 @@ type DescribeCdnEdgeIpInput struct {
 
 	Region *string `type:"string"`
 
+	RsIp *bool `type:"boolean"`
+
 	Status *string `type:"string"`
 }
 
@@ -202,6 +204,12 @@ func (s *DescribeCdnEdgeIpInput) SetIsp(v string) *DescribeCdnEdgeIpInput {
 // SetRegion sets the Region field's value.
 func (s *DescribeCdnEdgeIpInput) SetRegion(v string) *DescribeCdnEdgeIpInput {
 	s.Region = &v
+	return s
+}
+
+// SetRsIp sets the RsIp field's value.
+func (s *DescribeCdnEdgeIpInput) SetRsIp(v bool) *DescribeCdnEdgeIpInput {
+	s.RsIp = &v
 	return s
 }
 
