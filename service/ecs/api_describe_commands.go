@@ -278,7 +278,11 @@ type DescribeCommandsInput struct {
 
 	PageSize *int32 `type:"int32"`
 
+	ProjectName *string `type:"string"`
+
 	Provider *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeCommandsInput `type:"list"`
 
 	Type *string `type:"string"`
 }
@@ -323,9 +327,21 @@ func (s *DescribeCommandsInput) SetPageSize(v int32) *DescribeCommandsInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeCommandsInput) SetProjectName(v string) *DescribeCommandsInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetProvider sets the Provider field's value.
 func (s *DescribeCommandsInput) SetProvider(v string) *DescribeCommandsInput {
 	s.Provider = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeCommandsInput) SetTagFilters(v []*TagFilterForDescribeCommandsInput) *DescribeCommandsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -466,5 +482,35 @@ func (s *ParameterDefinitionForDescribeCommandsOutput) SetRequired(v bool) *Para
 // SetType sets the Type field's value.
 func (s *ParameterDefinitionForDescribeCommandsOutput) SetType(v string) *ParameterDefinitionForDescribeCommandsOutput {
 	s.Type = &v
+	return s
+}
+
+type TagFilterForDescribeCommandsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeCommandsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeCommandsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeCommandsInput) SetKey(v string) *TagFilterForDescribeCommandsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagFilterForDescribeCommandsInput) SetValue(v string) *TagFilterForDescribeCommandsInput {
+	s.Value = &v
 	return s
 }

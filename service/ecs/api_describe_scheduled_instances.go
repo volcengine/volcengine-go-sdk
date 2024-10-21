@@ -302,7 +302,7 @@ type EipAddressForDescribeScheduledInstancesOutput struct {
 
 	ReleaseWithInstance *bool `type:"boolean"`
 
-	SecurityProtectionInstanceId *int64 `type:"int64"`
+	SecurityProtectionInstanceId *string `type:"string"`
 
 	SecurityProtectionTypes []*string `type:"list"`
 }
@@ -348,7 +348,7 @@ func (s *EipAddressForDescribeScheduledInstancesOutput) SetReleaseWithInstance(v
 }
 
 // SetSecurityProtectionInstanceId sets the SecurityProtectionInstanceId field's value.
-func (s *EipAddressForDescribeScheduledInstancesOutput) SetSecurityProtectionInstanceId(v int64) *EipAddressForDescribeScheduledInstancesOutput {
+func (s *EipAddressForDescribeScheduledInstancesOutput) SetSecurityProtectionInstanceId(v string) *EipAddressForDescribeScheduledInstancesOutput {
 	s.SecurityProtectionInstanceId = &v
 	return s
 }
@@ -376,9 +376,9 @@ type InstanceConfigForDescribeScheduledInstancesOutput struct {
 
 	KeyPairName *string `type:"string"`
 
-	ProjectName *string `type:"string"`
+	NetworkInterfacesRes []*NetworkInterfacesReForDescribeScheduledInstancesOutput `type:"list"`
 
-	ScheduledNetworkInterfacesOpenRes *ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput `type:"structure"`
+	ProjectName *string `type:"string"`
 
 	Tags []*TagForDescribeScheduledInstancesOutput `type:"list"`
 
@@ -439,15 +439,15 @@ func (s *InstanceConfigForDescribeScheduledInstancesOutput) SetKeyPairName(v str
 	return s
 }
 
-// SetProjectName sets the ProjectName field's value.
-func (s *InstanceConfigForDescribeScheduledInstancesOutput) SetProjectName(v string) *InstanceConfigForDescribeScheduledInstancesOutput {
-	s.ProjectName = &v
+// SetNetworkInterfacesRes sets the NetworkInterfacesRes field's value.
+func (s *InstanceConfigForDescribeScheduledInstancesOutput) SetNetworkInterfacesRes(v []*NetworkInterfacesReForDescribeScheduledInstancesOutput) *InstanceConfigForDescribeScheduledInstancesOutput {
+	s.NetworkInterfacesRes = v
 	return s
 }
 
-// SetScheduledNetworkInterfacesOpenRes sets the ScheduledNetworkInterfacesOpenRes field's value.
-func (s *InstanceConfigForDescribeScheduledInstancesOutput) SetScheduledNetworkInterfacesOpenRes(v *ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput) *InstanceConfigForDescribeScheduledInstancesOutput {
-	s.ScheduledNetworkInterfacesOpenRes = v
+// SetProjectName sets the ProjectName field's value.
+func (s *InstanceConfigForDescribeScheduledInstancesOutput) SetProjectName(v string) *InstanceConfigForDescribeScheduledInstancesOutput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -662,28 +662,6 @@ func (s *ScheduledInstanceInfoForDescribeScheduledInstancesOutput) SetUpdatedAt(
 // SetZoneId sets the ZoneId field's value.
 func (s *ScheduledInstanceInfoForDescribeScheduledInstancesOutput) SetZoneId(v string) *ScheduledInstanceInfoForDescribeScheduledInstancesOutput {
 	s.ZoneId = &v
-	return s
-}
-
-type ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput struct {
-	_ struct{} `type:"structure"`
-
-	NetworkInterfacesRes []*NetworkInterfacesReForDescribeScheduledInstancesOutput `type:"list"`
-}
-
-// String returns the string representation
-func (s ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput) String() string {
-	return volcengineutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput) GoString() string {
-	return s.String()
-}
-
-// SetNetworkInterfacesRes sets the NetworkInterfacesRes field's value.
-func (s *ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput) SetNetworkInterfacesRes(v []*NetworkInterfacesReForDescribeScheduledInstancesOutput) *ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput {
-	s.NetworkInterfacesRes = v
 	return s
 }
 

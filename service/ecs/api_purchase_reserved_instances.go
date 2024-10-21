@@ -150,6 +150,8 @@ type PurchaseReservedInstancesInput struct {
 
 	ClientToken *string `type:"string"`
 
+	Description *string `type:"string"`
+
 	HpcClusterId *string `type:"string"`
 
 	InstanceCount *int32 `type:"int32"`
@@ -230,6 +232,12 @@ func (s *PurchaseReservedInstancesInput) SetAutoRenewPeriod(v int32) *PurchaseRe
 // SetClientToken sets the ClientToken field's value.
 func (s *PurchaseReservedInstancesInput) SetClientToken(v string) *PurchaseReservedInstancesInput {
 	s.ClientToken = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *PurchaseReservedInstancesInput) SetDescription(v string) *PurchaseReservedInstancesInput {
+	s.Description = &v
 	return s
 }
 

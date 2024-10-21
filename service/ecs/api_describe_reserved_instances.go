@@ -294,6 +294,8 @@ type ReservedInstanceForDescribeReservedInstancesOutput struct {
 
 	CreatedAt *string `type:"string"`
 
+	Description *string `type:"string"`
+
 	ExpiredAt *string `type:"string"`
 
 	HpcClusterId *string `type:"string"`
@@ -338,6 +340,12 @@ func (s ReservedInstanceForDescribeReservedInstancesOutput) GoString() string {
 // SetCreatedAt sets the CreatedAt field's value.
 func (s *ReservedInstanceForDescribeReservedInstancesOutput) SetCreatedAt(v string) *ReservedInstanceForDescribeReservedInstancesOutput {
 	s.CreatedAt = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ReservedInstanceForDescribeReservedInstancesOutput) SetDescription(v string) *ReservedInstanceForDescribeReservedInstancesOutput {
+	s.Description = &v
 	return s
 }
 

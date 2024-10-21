@@ -154,6 +154,10 @@ type CreateCommandInput struct {
 
 	ParameterDefinitions []*ParameterDefinitionForCreateCommandInput `type:"list"`
 
+	ProjectName *string `type:"string"`
+
+	Tags []*TagForCreateCommandInput `type:"list"`
+
 	Timeout *int32 `type:"int32"`
 
 	// Type is a required field
@@ -220,6 +224,18 @@ func (s *CreateCommandInput) SetName(v string) *CreateCommandInput {
 // SetParameterDefinitions sets the ParameterDefinitions field's value.
 func (s *CreateCommandInput) SetParameterDefinitions(v []*ParameterDefinitionForCreateCommandInput) *CreateCommandInput {
 	s.ParameterDefinitions = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateCommandInput) SetProjectName(v string) *CreateCommandInput {
+	s.ProjectName = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *CreateCommandInput) SetTags(v []*TagForCreateCommandInput) *CreateCommandInput {
+	s.Tags = v
 	return s
 }
 
@@ -354,5 +370,35 @@ func (s *ParameterDefinitionForCreateCommandInput) SetRequired(v bool) *Paramete
 // SetType sets the Type field's value.
 func (s *ParameterDefinitionForCreateCommandInput) SetType(v string) *ParameterDefinitionForCreateCommandInput {
 	s.Type = &v
+	return s
+}
+
+type TagForCreateCommandInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateCommandInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateCommandInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateCommandInput) SetKey(v string) *TagForCreateCommandInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateCommandInput) SetValue(v string) *TagForCreateCommandInput {
+	s.Value = &v
 	return s
 }

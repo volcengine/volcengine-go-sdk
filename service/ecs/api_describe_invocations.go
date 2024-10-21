@@ -158,7 +158,11 @@ type DescribeInvocationsInput struct {
 
 	PageSize *int32 `type:"int32"`
 
+	ProjectName *string `type:"string"`
+
 	RepeatMode *string `type:"string"`
+
+	TagFilters []*TagFilterForDescribeInvocationsInput `type:"list"`
 }
 
 // String returns the string representation
@@ -219,9 +223,21 @@ func (s *DescribeInvocationsInput) SetPageSize(v int32) *DescribeInvocationsInpu
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DescribeInvocationsInput) SetProjectName(v string) *DescribeInvocationsInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRepeatMode sets the RepeatMode field's value.
 func (s *DescribeInvocationsInput) SetRepeatMode(v string) *DescribeInvocationsInput {
 	s.RepeatMode = &v
+	return s
+}
+
+// SetTagFilters sets the TagFilters field's value.
+func (s *DescribeInvocationsInput) SetTagFilters(v []*TagFilterForDescribeInvocationsInput) *DescribeInvocationsInput {
+	s.TagFilters = v
 	return s
 }
 
@@ -554,5 +570,35 @@ func (s *ParameterDefinitionForDescribeInvocationsOutput) SetRequired(v bool) *P
 // SetType sets the Type field's value.
 func (s *ParameterDefinitionForDescribeInvocationsOutput) SetType(v string) *ParameterDefinitionForDescribeInvocationsOutput {
 	s.Type = &v
+	return s
+}
+
+type TagFilterForDescribeInvocationsInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagFilterForDescribeInvocationsInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagFilterForDescribeInvocationsInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagFilterForDescribeInvocationsInput) SetKey(v string) *TagFilterForDescribeInvocationsInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagFilterForDescribeInvocationsInput) SetValue(v string) *TagFilterForDescribeInvocationsInput {
+	s.Value = &v
 	return s
 }

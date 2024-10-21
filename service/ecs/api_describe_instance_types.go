@@ -142,6 +142,8 @@ func (c *ECS) DescribeInstanceTypesWithContext(ctx volcengine.Context, input *De
 type DescribeInstanceTypesInput struct {
 	_ struct{} `type:"structure"`
 
+	ImageId *string `type:"string"`
+
 	InstanceTypeIds []*string `type:"list"`
 
 	InstanceTypes []*string `type:"list"`
@@ -159,6 +161,12 @@ func (s DescribeInstanceTypesInput) String() string {
 // GoString returns the string representation
 func (s DescribeInstanceTypesInput) GoString() string {
 	return s.String()
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *DescribeInstanceTypesInput) SetImageId(v string) *DescribeInstanceTypesInput {
+	s.ImageId = &v
+	return s
 }
 
 // SetInstanceTypeIds sets the InstanceTypeIds field's value.

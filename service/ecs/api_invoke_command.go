@@ -158,9 +158,13 @@ type InvokeCommandInput struct {
 
 	Parameters *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RecurrenceEndTime *string `type:"string"`
 
 	RepeatMode *string `type:"string"`
+
+	Tags []*TagForInvokeCommandInput `type:"list"`
 
 	Timeout *int32 `type:"int32"`
 
@@ -237,6 +241,12 @@ func (s *InvokeCommandInput) SetParameters(v string) *InvokeCommandInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *InvokeCommandInput) SetProjectName(v string) *InvokeCommandInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRecurrenceEndTime sets the RecurrenceEndTime field's value.
 func (s *InvokeCommandInput) SetRecurrenceEndTime(v string) *InvokeCommandInput {
 	s.RecurrenceEndTime = &v
@@ -246,6 +256,12 @@ func (s *InvokeCommandInput) SetRecurrenceEndTime(v string) *InvokeCommandInput 
 // SetRepeatMode sets the RepeatMode field's value.
 func (s *InvokeCommandInput) SetRepeatMode(v string) *InvokeCommandInput {
 	s.RepeatMode = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *InvokeCommandInput) SetTags(v []*TagForInvokeCommandInput) *InvokeCommandInput {
+	s.Tags = v
 	return s
 }
 
@@ -288,5 +304,35 @@ func (s InvokeCommandOutput) GoString() string {
 // SetInvocationId sets the InvocationId field's value.
 func (s *InvokeCommandOutput) SetInvocationId(v string) *InvokeCommandOutput {
 	s.InvocationId = &v
+	return s
+}
+
+type TagForInvokeCommandInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForInvokeCommandInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForInvokeCommandInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForInvokeCommandInput) SetKey(v string) *TagForInvokeCommandInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForInvokeCommandInput) SetValue(v string) *TagForInvokeCommandInput {
+	s.Value = &v
 	return s
 }
