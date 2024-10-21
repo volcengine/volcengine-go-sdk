@@ -144,6 +144,8 @@ type ModifySnapshotAttributeInput struct {
 
 	Description *string `type:"string"`
 
+	RetentionDays *int32 `min:"1" max:"65536" type:"int32"`
+
 	// SnapshotId is a required field
 	SnapshotId *string `type:"string" required:"true"`
 
@@ -163,6 +165,12 @@ func (s ModifySnapshotAttributeInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ModifySnapshotAttributeInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ModifySnapshotAttributeInput"}
+	if s.RetentionDays != nil && *s.RetentionDays < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("RetentionDays", 1))
+	}
+	if s.RetentionDays != nil && *s.RetentionDays > 65536 {
+		invalidParams.Add(request.NewErrParamMaxValue("RetentionDays", 65536))
+	}
 	if s.SnapshotId == nil {
 		invalidParams.Add(request.NewErrParamRequired("SnapshotId"))
 	}
@@ -176,6 +184,12 @@ func (s *ModifySnapshotAttributeInput) Validate() error {
 // SetDescription sets the Description field's value.
 func (s *ModifySnapshotAttributeInput) SetDescription(v string) *ModifySnapshotAttributeInput {
 	s.Description = &v
+	return s
+}
+
+// SetRetentionDays sets the RetentionDays field's value.
+func (s *ModifySnapshotAttributeInput) SetRetentionDays(v int32) *ModifySnapshotAttributeInput {
+	s.RetentionDays = &v
 	return s
 }
 
