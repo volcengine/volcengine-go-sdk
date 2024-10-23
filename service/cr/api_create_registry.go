@@ -144,12 +144,18 @@ func (c *CR) CreateRegistryWithContext(ctx volcengine.Context, input *CreateRegi
 }
 
 type CreateRegistryInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ClientToken *string `type:"string"`
+	ClientToken *string `type:"string" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
+
+	Project *string `type:"string" json:",omitempty"`
+
+	ResourceTags []*ResourceTagForCreateRegistryInput `type:"list" json:",omitempty"`
+
+	Type *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -187,8 +193,26 @@ func (s *CreateRegistryInput) SetName(v string) *CreateRegistryInput {
 	return s
 }
 
+// SetProject sets the Project field's value.
+func (s *CreateRegistryInput) SetProject(v string) *CreateRegistryInput {
+	s.Project = &v
+	return s
+}
+
+// SetResourceTags sets the ResourceTags field's value.
+func (s *CreateRegistryInput) SetResourceTags(v []*ResourceTagForCreateRegistryInput) *CreateRegistryInput {
+	s.ResourceTags = v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *CreateRegistryInput) SetType(v string) *CreateRegistryInput {
+	s.Type = &v
+	return s
+}
+
 type CreateRegistryOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -201,4 +225,34 @@ func (s CreateRegistryOutput) String() string {
 // GoString returns the string representation
 func (s CreateRegistryOutput) GoString() string {
 	return s.String()
+}
+
+type ResourceTagForCreateRegistryInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Key *string `type:"string" json:",omitempty"`
+
+	Value *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s ResourceTagForCreateRegistryInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceTagForCreateRegistryInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *ResourceTagForCreateRegistryInput) SetKey(v string) *ResourceTagForCreateRegistryInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ResourceTagForCreateRegistryInput) SetValue(v string) *ResourceTagForCreateRegistryInput {
+	s.Value = &v
+	return s
 }
