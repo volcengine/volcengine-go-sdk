@@ -372,6 +372,8 @@ type TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput struct 
 
 	Description *string `type:"string"`
 
+	Ipv6Enabled *bool `type:"boolean"`
+
 	Status *string `type:"string"`
 
 	Tags []*TagForDescribeTransitRouterVpcAttachmentsOutput `type:"list"`
@@ -418,6 +420,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) Se
 // SetDescription sets the Description field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) SetDescription(v string) *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIpv6Enabled sets the Ipv6Enabled field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput) SetIpv6Enabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterVpcAttachmentsOutput {
+	s.Ipv6Enabled = &v
 	return s
 }
 
