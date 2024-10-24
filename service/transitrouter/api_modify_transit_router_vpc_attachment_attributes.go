@@ -178,6 +178,8 @@ type ModifyTransitRouterVpcAttachmentAttributesInput struct {
 
 	Description *string `type:"string"`
 
+	Ipv6Enabled *bool `type:"boolean"`
+
 	// TransitRouterAttachmentId is a required field
 	TransitRouterAttachmentId *string `type:"string" required:"true"`
 
@@ -222,6 +224,12 @@ func (s *ModifyTransitRouterVpcAttachmentAttributesInput) SetAutoPublishRouteEna
 // SetDescription sets the Description field's value.
 func (s *ModifyTransitRouterVpcAttachmentAttributesInput) SetDescription(v string) *ModifyTransitRouterVpcAttachmentAttributesInput {
 	s.Description = &v
+	return s
+}
+
+// SetIpv6Enabled sets the Ipv6Enabled field's value.
+func (s *ModifyTransitRouterVpcAttachmentAttributesInput) SetIpv6Enabled(v bool) *ModifyTransitRouterVpcAttachmentAttributesInput {
+	s.Ipv6Enabled = &v
 	return s
 }
 

@@ -153,6 +153,8 @@ type CreateTransitRouterVpnAttachmentInput struct {
 	// TransitRouterId is a required field
 	TransitRouterId *string `type:"string" required:"true"`
 
+	TransitRouterRouteTableId *string `type:"string"`
+
 	// VpnConnectionId is a required field
 	VpnConnectionId *string `type:"string" required:"true"`
 
@@ -216,6 +218,12 @@ func (s *CreateTransitRouterVpnAttachmentInput) SetTransitRouterAttachmentName(v
 // SetTransitRouterId sets the TransitRouterId field's value.
 func (s *CreateTransitRouterVpnAttachmentInput) SetTransitRouterId(v string) *CreateTransitRouterVpnAttachmentInput {
 	s.TransitRouterId = &v
+	return s
+}
+
+// SetTransitRouterRouteTableId sets the TransitRouterRouteTableId field's value.
+func (s *CreateTransitRouterVpnAttachmentInput) SetTransitRouterRouteTableId(v string) *CreateTransitRouterVpnAttachmentInput {
+	s.TransitRouterRouteTableId = &v
 	return s
 }
 

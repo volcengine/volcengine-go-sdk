@@ -356,6 +356,10 @@ type TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput struct
 
 	TransitRouterRouteTableId *string `type:"string"`
 
+	TransitRouterTrafficQosMarkingPolicyId *string `type:"string"`
+
+	TransitRouterTrafficQosQueuePolicyId *string `type:"string"`
+
 	UpdateTime *string `type:"string"`
 }
 
@@ -450,6 +454,18 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) S
 // SetTransitRouterRouteTableId sets the TransitRouterRouteTableId field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetTransitRouterRouteTableId(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
 	s.TransitRouterRouteTableId = &v
+	return s
+}
+
+// SetTransitRouterTrafficQosMarkingPolicyId sets the TransitRouterTrafficQosMarkingPolicyId field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetTransitRouterTrafficQosMarkingPolicyId(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
+	s.TransitRouterTrafficQosMarkingPolicyId = &v
+	return s
+}
+
+// SetTransitRouterTrafficQosQueuePolicyId sets the TransitRouterTrafficQosQueuePolicyId field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput) SetTransitRouterTrafficQosQueuePolicyId(v string) *TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput {
+	s.TransitRouterTrafficQosQueuePolicyId = &v
 	return s
 }
 

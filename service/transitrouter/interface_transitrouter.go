@@ -62,6 +62,22 @@ type TRANSITROUTERAPI interface {
 	AssociateTransitRouterRoutePolicyToRouteTableWithContext(volcengine.Context, *AssociateTransitRouterRoutePolicyToRouteTableInput, ...request.Option) (*AssociateTransitRouterRoutePolicyToRouteTableOutput, error)
 	AssociateTransitRouterRoutePolicyToRouteTableRequest(*AssociateTransitRouterRoutePolicyToRouteTableInput) (*request.Request, *AssociateTransitRouterRoutePolicyToRouteTableOutput)
 
+	AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateTransitRouterTrafficQosMarkingPolicyToAttachment(*AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentInput) (*AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentOutput, error)
+	AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentWithContext(volcengine.Context, *AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentInput, ...request.Option) (*AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentOutput, error)
+	AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentRequest(*AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentInput) (*request.Request, *AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentOutput)
+
+	AssociateTransitRouterTrafficQosQueuePolicyToAttachmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	AssociateTransitRouterTrafficQosQueuePolicyToAttachmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	AssociateTransitRouterTrafficQosQueuePolicyToAttachmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	AssociateTransitRouterTrafficQosQueuePolicyToAttachment(*AssociateTransitRouterTrafficQosQueuePolicyToAttachmentInput) (*AssociateTransitRouterTrafficQosQueuePolicyToAttachmentOutput, error)
+	AssociateTransitRouterTrafficQosQueuePolicyToAttachmentWithContext(volcengine.Context, *AssociateTransitRouterTrafficQosQueuePolicyToAttachmentInput, ...request.Option) (*AssociateTransitRouterTrafficQosQueuePolicyToAttachmentOutput, error)
+	AssociateTransitRouterTrafficQosQueuePolicyToAttachmentRequest(*AssociateTransitRouterTrafficQosQueuePolicyToAttachmentInput) (*request.Request, *AssociateTransitRouterTrafficQosQueuePolicyToAttachmentOutput)
+
 	CreateTransitRouterCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTransitRouterCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateTransitRouterCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -149,6 +165,38 @@ type TRANSITROUTERAPI interface {
 	CreateTransitRouterRouteTable(*CreateTransitRouterRouteTableInput) (*CreateTransitRouterRouteTableOutput, error)
 	CreateTransitRouterRouteTableWithContext(volcengine.Context, *CreateTransitRouterRouteTableInput, ...request.Option) (*CreateTransitRouterRouteTableOutput, error)
 	CreateTransitRouterRouteTableRequest(*CreateTransitRouterRouteTableInput) (*request.Request, *CreateTransitRouterRouteTableOutput)
+
+	CreateTransitRouterTrafficQosMarkingEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTransitRouterTrafficQosMarkingEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTransitRouterTrafficQosMarkingEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTransitRouterTrafficQosMarkingEntry(*CreateTransitRouterTrafficQosMarkingEntryInput) (*CreateTransitRouterTrafficQosMarkingEntryOutput, error)
+	CreateTransitRouterTrafficQosMarkingEntryWithContext(volcengine.Context, *CreateTransitRouterTrafficQosMarkingEntryInput, ...request.Option) (*CreateTransitRouterTrafficQosMarkingEntryOutput, error)
+	CreateTransitRouterTrafficQosMarkingEntryRequest(*CreateTransitRouterTrafficQosMarkingEntryInput) (*request.Request, *CreateTransitRouterTrafficQosMarkingEntryOutput)
+
+	CreateTransitRouterTrafficQosMarkingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTransitRouterTrafficQosMarkingPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTransitRouterTrafficQosMarkingPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTransitRouterTrafficQosMarkingPolicy(*CreateTransitRouterTrafficQosMarkingPolicyInput) (*CreateTransitRouterTrafficQosMarkingPolicyOutput, error)
+	CreateTransitRouterTrafficQosMarkingPolicyWithContext(volcengine.Context, *CreateTransitRouterTrafficQosMarkingPolicyInput, ...request.Option) (*CreateTransitRouterTrafficQosMarkingPolicyOutput, error)
+	CreateTransitRouterTrafficQosMarkingPolicyRequest(*CreateTransitRouterTrafficQosMarkingPolicyInput) (*request.Request, *CreateTransitRouterTrafficQosMarkingPolicyOutput)
+
+	CreateTransitRouterTrafficQosQueueEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTransitRouterTrafficQosQueueEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTransitRouterTrafficQosQueueEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTransitRouterTrafficQosQueueEntry(*CreateTransitRouterTrafficQosQueueEntryInput) (*CreateTransitRouterTrafficQosQueueEntryOutput, error)
+	CreateTransitRouterTrafficQosQueueEntryWithContext(volcengine.Context, *CreateTransitRouterTrafficQosQueueEntryInput, ...request.Option) (*CreateTransitRouterTrafficQosQueueEntryOutput, error)
+	CreateTransitRouterTrafficQosQueueEntryRequest(*CreateTransitRouterTrafficQosQueueEntryInput) (*request.Request, *CreateTransitRouterTrafficQosQueueEntryOutput)
+
+	CreateTransitRouterTrafficQosQueuePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CreateTransitRouterTrafficQosQueuePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CreateTransitRouterTrafficQosQueuePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CreateTransitRouterTrafficQosQueuePolicy(*CreateTransitRouterTrafficQosQueuePolicyInput) (*CreateTransitRouterTrafficQosQueuePolicyOutput, error)
+	CreateTransitRouterTrafficQosQueuePolicyWithContext(volcengine.Context, *CreateTransitRouterTrafficQosQueuePolicyInput, ...request.Option) (*CreateTransitRouterTrafficQosQueuePolicyOutput, error)
+	CreateTransitRouterTrafficQosQueuePolicyRequest(*CreateTransitRouterTrafficQosQueuePolicyInput) (*request.Request, *CreateTransitRouterTrafficQosQueuePolicyOutput)
 
 	CreateTransitRouterVpcAttachmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateTransitRouterVpcAttachmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -253,6 +301,38 @@ type TRANSITROUTERAPI interface {
 	DeleteTransitRouterRouteTable(*DeleteTransitRouterRouteTableInput) (*DeleteTransitRouterRouteTableOutput, error)
 	DeleteTransitRouterRouteTableWithContext(volcengine.Context, *DeleteTransitRouterRouteTableInput, ...request.Option) (*DeleteTransitRouterRouteTableOutput, error)
 	DeleteTransitRouterRouteTableRequest(*DeleteTransitRouterRouteTableInput) (*request.Request, *DeleteTransitRouterRouteTableOutput)
+
+	DeleteTransitRouterTrafficQosMarkingEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTransitRouterTrafficQosMarkingEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTransitRouterTrafficQosMarkingEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTransitRouterTrafficQosMarkingEntry(*DeleteTransitRouterTrafficQosMarkingEntryInput) (*DeleteTransitRouterTrafficQosMarkingEntryOutput, error)
+	DeleteTransitRouterTrafficQosMarkingEntryWithContext(volcengine.Context, *DeleteTransitRouterTrafficQosMarkingEntryInput, ...request.Option) (*DeleteTransitRouterTrafficQosMarkingEntryOutput, error)
+	DeleteTransitRouterTrafficQosMarkingEntryRequest(*DeleteTransitRouterTrafficQosMarkingEntryInput) (*request.Request, *DeleteTransitRouterTrafficQosMarkingEntryOutput)
+
+	DeleteTransitRouterTrafficQosMarkingPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTransitRouterTrafficQosMarkingPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTransitRouterTrafficQosMarkingPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTransitRouterTrafficQosMarkingPolicy(*DeleteTransitRouterTrafficQosMarkingPolicyInput) (*DeleteTransitRouterTrafficQosMarkingPolicyOutput, error)
+	DeleteTransitRouterTrafficQosMarkingPolicyWithContext(volcengine.Context, *DeleteTransitRouterTrafficQosMarkingPolicyInput, ...request.Option) (*DeleteTransitRouterTrafficQosMarkingPolicyOutput, error)
+	DeleteTransitRouterTrafficQosMarkingPolicyRequest(*DeleteTransitRouterTrafficQosMarkingPolicyInput) (*request.Request, *DeleteTransitRouterTrafficQosMarkingPolicyOutput)
+
+	DeleteTransitRouterTrafficQosQueueEntryCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTransitRouterTrafficQosQueueEntryCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTransitRouterTrafficQosQueueEntryCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTransitRouterTrafficQosQueueEntry(*DeleteTransitRouterTrafficQosQueueEntryInput) (*DeleteTransitRouterTrafficQosQueueEntryOutput, error)
+	DeleteTransitRouterTrafficQosQueueEntryWithContext(volcengine.Context, *DeleteTransitRouterTrafficQosQueueEntryInput, ...request.Option) (*DeleteTransitRouterTrafficQosQueueEntryOutput, error)
+	DeleteTransitRouterTrafficQosQueueEntryRequest(*DeleteTransitRouterTrafficQosQueueEntryInput) (*request.Request, *DeleteTransitRouterTrafficQosQueueEntryOutput)
+
+	DeleteTransitRouterTrafficQosQueuePolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DeleteTransitRouterTrafficQosQueuePolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DeleteTransitRouterTrafficQosQueuePolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DeleteTransitRouterTrafficQosQueuePolicy(*DeleteTransitRouterTrafficQosQueuePolicyInput) (*DeleteTransitRouterTrafficQosQueuePolicyOutput, error)
+	DeleteTransitRouterTrafficQosQueuePolicyWithContext(volcengine.Context, *DeleteTransitRouterTrafficQosQueuePolicyInput, ...request.Option) (*DeleteTransitRouterTrafficQosQueuePolicyOutput, error)
+	DeleteTransitRouterTrafficQosQueuePolicyRequest(*DeleteTransitRouterTrafficQosQueuePolicyInput) (*request.Request, *DeleteTransitRouterTrafficQosQueuePolicyOutput)
 
 	DeleteTransitRouterVpcAttachmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DeleteTransitRouterVpcAttachmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -390,6 +470,38 @@ type TRANSITROUTERAPI interface {
 	DescribeTransitRouterRouteTablesWithContext(volcengine.Context, *DescribeTransitRouterRouteTablesInput, ...request.Option) (*DescribeTransitRouterRouteTablesOutput, error)
 	DescribeTransitRouterRouteTablesRequest(*DescribeTransitRouterRouteTablesInput) (*request.Request, *DescribeTransitRouterRouteTablesOutput)
 
+	DescribeTransitRouterTrafficQosMarkingEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTransitRouterTrafficQosMarkingEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTransitRouterTrafficQosMarkingEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTransitRouterTrafficQosMarkingEntries(*DescribeTransitRouterTrafficQosMarkingEntriesInput) (*DescribeTransitRouterTrafficQosMarkingEntriesOutput, error)
+	DescribeTransitRouterTrafficQosMarkingEntriesWithContext(volcengine.Context, *DescribeTransitRouterTrafficQosMarkingEntriesInput, ...request.Option) (*DescribeTransitRouterTrafficQosMarkingEntriesOutput, error)
+	DescribeTransitRouterTrafficQosMarkingEntriesRequest(*DescribeTransitRouterTrafficQosMarkingEntriesInput) (*request.Request, *DescribeTransitRouterTrafficQosMarkingEntriesOutput)
+
+	DescribeTransitRouterTrafficQosMarkingPoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTransitRouterTrafficQosMarkingPoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTransitRouterTrafficQosMarkingPoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTransitRouterTrafficQosMarkingPolicies(*DescribeTransitRouterTrafficQosMarkingPoliciesInput) (*DescribeTransitRouterTrafficQosMarkingPoliciesOutput, error)
+	DescribeTransitRouterTrafficQosMarkingPoliciesWithContext(volcengine.Context, *DescribeTransitRouterTrafficQosMarkingPoliciesInput, ...request.Option) (*DescribeTransitRouterTrafficQosMarkingPoliciesOutput, error)
+	DescribeTransitRouterTrafficQosMarkingPoliciesRequest(*DescribeTransitRouterTrafficQosMarkingPoliciesInput) (*request.Request, *DescribeTransitRouterTrafficQosMarkingPoliciesOutput)
+
+	DescribeTransitRouterTrafficQosQueueEntriesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTransitRouterTrafficQosQueueEntriesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTransitRouterTrafficQosQueueEntriesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTransitRouterTrafficQosQueueEntries(*DescribeTransitRouterTrafficQosQueueEntriesInput) (*DescribeTransitRouterTrafficQosQueueEntriesOutput, error)
+	DescribeTransitRouterTrafficQosQueueEntriesWithContext(volcengine.Context, *DescribeTransitRouterTrafficQosQueueEntriesInput, ...request.Option) (*DescribeTransitRouterTrafficQosQueueEntriesOutput, error)
+	DescribeTransitRouterTrafficQosQueueEntriesRequest(*DescribeTransitRouterTrafficQosQueueEntriesInput) (*request.Request, *DescribeTransitRouterTrafficQosQueueEntriesOutput)
+
+	DescribeTransitRouterTrafficQosQueuePoliciesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeTransitRouterTrafficQosQueuePoliciesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeTransitRouterTrafficQosQueuePoliciesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeTransitRouterTrafficQosQueuePolicies(*DescribeTransitRouterTrafficQosQueuePoliciesInput) (*DescribeTransitRouterTrafficQosQueuePoliciesOutput, error)
+	DescribeTransitRouterTrafficQosQueuePoliciesWithContext(volcengine.Context, *DescribeTransitRouterTrafficQosQueuePoliciesInput, ...request.Option) (*DescribeTransitRouterTrafficQosQueuePoliciesOutput, error)
+	DescribeTransitRouterTrafficQosQueuePoliciesRequest(*DescribeTransitRouterTrafficQosQueuePoliciesInput) (*request.Request, *DescribeTransitRouterTrafficQosQueuePoliciesOutput)
+
 	DescribeTransitRouterVpcAttachmentsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTransitRouterVpcAttachmentsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeTransitRouterVpcAttachmentsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -445,6 +557,22 @@ type TRANSITROUTERAPI interface {
 	DissociateTransitRouterRoutePolicyFromRouteTable(*DissociateTransitRouterRoutePolicyFromRouteTableInput) (*DissociateTransitRouterRoutePolicyFromRouteTableOutput, error)
 	DissociateTransitRouterRoutePolicyFromRouteTableWithContext(volcengine.Context, *DissociateTransitRouterRoutePolicyFromRouteTableInput, ...request.Option) (*DissociateTransitRouterRoutePolicyFromRouteTableOutput, error)
 	DissociateTransitRouterRoutePolicyFromRouteTableRequest(*DissociateTransitRouterRoutePolicyFromRouteTableInput) (*request.Request, *DissociateTransitRouterRoutePolicyFromRouteTableOutput)
+
+	DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DissociateTransitRouterTrafficQosMarkingPolicyFromAttachment(*DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentInput) (*DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentOutput, error)
+	DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentWithContext(volcengine.Context, *DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentInput, ...request.Option) (*DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentOutput, error)
+	DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentRequest(*DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentInput) (*request.Request, *DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentOutput)
+
+	DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DissociateTransitRouterTrafficQosQueuePolicyFromAttachment(*DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentInput) (*DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentOutput, error)
+	DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentWithContext(volcengine.Context, *DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentInput, ...request.Option) (*DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentOutput, error)
+	DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentRequest(*DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentInput) (*request.Request, *DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentOutput)
 
 	EnableTransitRouterRouteTablePropagationCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	EnableTransitRouterRouteTablePropagationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -573,6 +701,38 @@ type TRANSITROUTERAPI interface {
 	ModifyTransitRouterRouteTableAttributes(*ModifyTransitRouterRouteTableAttributesInput) (*ModifyTransitRouterRouteTableAttributesOutput, error)
 	ModifyTransitRouterRouteTableAttributesWithContext(volcengine.Context, *ModifyTransitRouterRouteTableAttributesInput, ...request.Option) (*ModifyTransitRouterRouteTableAttributesOutput, error)
 	ModifyTransitRouterRouteTableAttributesRequest(*ModifyTransitRouterRouteTableAttributesInput) (*request.Request, *ModifyTransitRouterRouteTableAttributesOutput)
+
+	ModifyTransitRouterTrafficQosMarkingPolicyAssociationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosMarkingPolicyAssociationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosMarkingPolicyAssociationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTransitRouterTrafficQosMarkingPolicyAssociation(*ModifyTransitRouterTrafficQosMarkingPolicyAssociationInput) (*ModifyTransitRouterTrafficQosMarkingPolicyAssociationOutput, error)
+	ModifyTransitRouterTrafficQosMarkingPolicyAssociationWithContext(volcengine.Context, *ModifyTransitRouterTrafficQosMarkingPolicyAssociationInput, ...request.Option) (*ModifyTransitRouterTrafficQosMarkingPolicyAssociationOutput, error)
+	ModifyTransitRouterTrafficQosMarkingPolicyAssociationRequest(*ModifyTransitRouterTrafficQosMarkingPolicyAssociationInput) (*request.Request, *ModifyTransitRouterTrafficQosMarkingPolicyAssociationOutput)
+
+	ModifyTransitRouterTrafficQosMarkingPolicyAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosMarkingPolicyAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosMarkingPolicyAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTransitRouterTrafficQosMarkingPolicyAttributes(*ModifyTransitRouterTrafficQosMarkingPolicyAttributesInput) (*ModifyTransitRouterTrafficQosMarkingPolicyAttributesOutput, error)
+	ModifyTransitRouterTrafficQosMarkingPolicyAttributesWithContext(volcengine.Context, *ModifyTransitRouterTrafficQosMarkingPolicyAttributesInput, ...request.Option) (*ModifyTransitRouterTrafficQosMarkingPolicyAttributesOutput, error)
+	ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest(*ModifyTransitRouterTrafficQosMarkingPolicyAttributesInput) (*request.Request, *ModifyTransitRouterTrafficQosMarkingPolicyAttributesOutput)
+
+	ModifyTransitRouterTrafficQosQueuePolicyAssociationCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosQueuePolicyAssociationCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosQueuePolicyAssociationCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTransitRouterTrafficQosQueuePolicyAssociation(*ModifyTransitRouterTrafficQosQueuePolicyAssociationInput) (*ModifyTransitRouterTrafficQosQueuePolicyAssociationOutput, error)
+	ModifyTransitRouterTrafficQosQueuePolicyAssociationWithContext(volcengine.Context, *ModifyTransitRouterTrafficQosQueuePolicyAssociationInput, ...request.Option) (*ModifyTransitRouterTrafficQosQueuePolicyAssociationOutput, error)
+	ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest(*ModifyTransitRouterTrafficQosQueuePolicyAssociationInput) (*request.Request, *ModifyTransitRouterTrafficQosQueuePolicyAssociationOutput)
+
+	ModifyTransitRouterTrafficQosQueuePolicyAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosQueuePolicyAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyTransitRouterTrafficQosQueuePolicyAttributesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyTransitRouterTrafficQosQueuePolicyAttributes(*ModifyTransitRouterTrafficQosQueuePolicyAttributesInput) (*ModifyTransitRouterTrafficQosQueuePolicyAttributesOutput, error)
+	ModifyTransitRouterTrafficQosQueuePolicyAttributesWithContext(volcengine.Context, *ModifyTransitRouterTrafficQosQueuePolicyAttributesInput, ...request.Option) (*ModifyTransitRouterTrafficQosQueuePolicyAttributesOutput, error)
+	ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest(*ModifyTransitRouterTrafficQosQueuePolicyAttributesInput) (*request.Request, *ModifyTransitRouterTrafficQosQueuePolicyAttributesOutput)
 
 	ModifyTransitRouterVpcAttachmentAttributesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyTransitRouterVpcAttachmentAttributesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

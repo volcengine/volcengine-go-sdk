@@ -157,6 +157,10 @@ type DescribeTransitRouterAttachmentsInput struct {
 	TransitRouterForwardPolicyTableId *string `type:"string"`
 
 	TransitRouterId *string `type:"string"`
+
+	TransitRouterTrafficQosMarkingPolicyId *string `type:"string"`
+
+	TransitRouterTrafficQosQueuePolicyId *string `type:"string"`
 }
 
 // String returns the string representation
@@ -214,6 +218,18 @@ func (s *DescribeTransitRouterAttachmentsInput) SetTransitRouterForwardPolicyTab
 // SetTransitRouterId sets the TransitRouterId field's value.
 func (s *DescribeTransitRouterAttachmentsInput) SetTransitRouterId(v string) *DescribeTransitRouterAttachmentsInput {
 	s.TransitRouterId = &v
+	return s
+}
+
+// SetTransitRouterTrafficQosMarkingPolicyId sets the TransitRouterTrafficQosMarkingPolicyId field's value.
+func (s *DescribeTransitRouterAttachmentsInput) SetTransitRouterTrafficQosMarkingPolicyId(v string) *DescribeTransitRouterAttachmentsInput {
+	s.TransitRouterTrafficQosMarkingPolicyId = &v
+	return s
+}
+
+// SetTransitRouterTrafficQosQueuePolicyId sets the TransitRouterTrafficQosQueuePolicyId field's value.
+func (s *DescribeTransitRouterAttachmentsInput) SetTransitRouterTrafficQosQueuePolicyId(v string) *DescribeTransitRouterAttachmentsInput {
+	s.TransitRouterTrafficQosQueuePolicyId = &v
 	return s
 }
 
@@ -340,6 +356,8 @@ type TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput struct {
 
 	Description *string `type:"string"`
 
+	Ipv6Enabled *bool `type:"boolean"`
+
 	OverdueTime *string `type:"string"`
 
 	ResourceId *string `type:"string"`
@@ -359,6 +377,10 @@ type TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput struct {
 	TransitRouterId *string `type:"string"`
 
 	TransitRouterRouteTableId *string `type:"string"`
+
+	TransitRouterTrafficQosMarkingPolicyId *string `type:"string"`
+
+	TransitRouterTrafficQosQueuePolicyId *string `type:"string"`
 
 	UpdateTime *string `type:"string"`
 }
@@ -406,6 +428,12 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetDe
 // SetDescription sets the Description field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetDescription(v string) *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
 	s.Description = &v
+	return s
+}
+
+// SetIpv6Enabled sets the Ipv6Enabled field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetIpv6Enabled(v bool) *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
+	s.Ipv6Enabled = &v
 	return s
 }
 
@@ -466,6 +494,18 @@ func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetTr
 // SetTransitRouterRouteTableId sets the TransitRouterRouteTableId field's value.
 func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetTransitRouterRouteTableId(v string) *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
 	s.TransitRouterRouteTableId = &v
+	return s
+}
+
+// SetTransitRouterTrafficQosMarkingPolicyId sets the TransitRouterTrafficQosMarkingPolicyId field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetTransitRouterTrafficQosMarkingPolicyId(v string) *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
+	s.TransitRouterTrafficQosMarkingPolicyId = &v
+	return s
+}
+
+// SetTransitRouterTrafficQosQueuePolicyId sets the TransitRouterTrafficQosQueuePolicyId field's value.
+func (s *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput) SetTransitRouterTrafficQosQueuePolicyId(v string) *TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
+	s.TransitRouterTrafficQosQueuePolicyId = &v
 	return s
 }
 
