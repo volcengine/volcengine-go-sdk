@@ -141,6 +141,36 @@ func (c *STORAGEEBS) DescribeVolumesWithContext(ctx volcengine.Context, input *D
 	return out, req.Send()
 }
 
+type BaselinePerformanceForDescribeVolumesOutput struct {
+	_ struct{} `type:"structure"`
+
+	IOPS *int32 `type:"int32"`
+
+	Throughput *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s BaselinePerformanceForDescribeVolumesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BaselinePerformanceForDescribeVolumesOutput) GoString() string {
+	return s.String()
+}
+
+// SetIOPS sets the IOPS field's value.
+func (s *BaselinePerformanceForDescribeVolumesOutput) SetIOPS(v int32) *BaselinePerformanceForDescribeVolumesOutput {
+	s.IOPS = &v
+	return s
+}
+
+// SetThroughput sets the Throughput field's value.
+func (s *BaselinePerformanceForDescribeVolumesOutput) SetThroughput(v int32) *BaselinePerformanceForDescribeVolumesOutput {
+	s.Throughput = &v
+	return s
+}
+
 type DescribeVolumesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -299,6 +329,44 @@ func (s *DescribeVolumesOutput) SetVolumes(v []*VolumeForDescribeVolumesOutput) 
 	return s
 }
 
+type ExtraPerformanceForDescribeVolumesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ExtraPerformanceTypeId *string `type:"string"`
+
+	IOPS *int32 `type:"int32"`
+
+	Throughput *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s ExtraPerformanceForDescribeVolumesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExtraPerformanceForDescribeVolumesOutput) GoString() string {
+	return s.String()
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *ExtraPerformanceForDescribeVolumesOutput) SetExtraPerformanceTypeId(v string) *ExtraPerformanceForDescribeVolumesOutput {
+	s.ExtraPerformanceTypeId = &v
+	return s
+}
+
+// SetIOPS sets the IOPS field's value.
+func (s *ExtraPerformanceForDescribeVolumesOutput) SetIOPS(v int32) *ExtraPerformanceForDescribeVolumesOutput {
+	s.IOPS = &v
+	return s
+}
+
+// SetThroughput sets the Throughput field's value.
+func (s *ExtraPerformanceForDescribeVolumesOutput) SetThroughput(v int32) *ExtraPerformanceForDescribeVolumesOutput {
+	s.Throughput = &v
+	return s
+}
+
 type TagFilterForDescribeVolumesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -359,12 +427,44 @@ func (s *TagForDescribeVolumesOutput) SetValue(v string) *TagForDescribeVolumesO
 	return s
 }
 
+type TotalPerformanceForDescribeVolumesOutput struct {
+	_ struct{} `type:"structure"`
+
+	IOPS *int32 `type:"int32"`
+
+	Throughput *int32 `type:"int32"`
+}
+
+// String returns the string representation
+func (s TotalPerformanceForDescribeVolumesOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TotalPerformanceForDescribeVolumesOutput) GoString() string {
+	return s.String()
+}
+
+// SetIOPS sets the IOPS field's value.
+func (s *TotalPerformanceForDescribeVolumesOutput) SetIOPS(v int32) *TotalPerformanceForDescribeVolumesOutput {
+	s.IOPS = &v
+	return s
+}
+
+// SetThroughput sets the Throughput field's value.
+func (s *TotalPerformanceForDescribeVolumesOutput) SetThroughput(v int32) *TotalPerformanceForDescribeVolumesOutput {
+	s.Throughput = &v
+	return s
+}
+
 type VolumeForDescribeVolumesOutput struct {
 	_ struct{} `type:"structure"`
 
 	AutoSnapshotPolicyId *string `type:"string"`
 
 	AutoSnapshotPolicyName *string `type:"string"`
+
+	BaselinePerformance *BaselinePerformanceForDescribeVolumesOutput `type:"structure"`
 
 	BillingType *int32 `type:"int32"`
 
@@ -379,6 +479,8 @@ type VolumeForDescribeVolumesOutput struct {
 	ErrorDetail *string `type:"string"`
 
 	ExpiredTime *string `type:"string"`
+
+	ExtraPerformance *ExtraPerformanceForDescribeVolumesOutput `type:"structure"`
 
 	ExtraPerformanceIOPS *int32 `type:"int32"`
 
@@ -412,6 +514,8 @@ type VolumeForDescribeVolumesOutput struct {
 
 	Tags []*TagForDescribeVolumesOutput `type:"list"`
 
+	TotalPerformance *TotalPerformanceForDescribeVolumesOutput `type:"structure"`
+
 	TradeStatus *int32 `type:"int32"`
 
 	UpdatedAt *string `type:"string"`
@@ -444,6 +548,12 @@ func (s *VolumeForDescribeVolumesOutput) SetAutoSnapshotPolicyId(v string) *Volu
 // SetAutoSnapshotPolicyName sets the AutoSnapshotPolicyName field's value.
 func (s *VolumeForDescribeVolumesOutput) SetAutoSnapshotPolicyName(v string) *VolumeForDescribeVolumesOutput {
 	s.AutoSnapshotPolicyName = &v
+	return s
+}
+
+// SetBaselinePerformance sets the BaselinePerformance field's value.
+func (s *VolumeForDescribeVolumesOutput) SetBaselinePerformance(v *BaselinePerformanceForDescribeVolumesOutput) *VolumeForDescribeVolumesOutput {
+	s.BaselinePerformance = v
 	return s
 }
 
@@ -486,6 +596,12 @@ func (s *VolumeForDescribeVolumesOutput) SetErrorDetail(v string) *VolumeForDesc
 // SetExpiredTime sets the ExpiredTime field's value.
 func (s *VolumeForDescribeVolumesOutput) SetExpiredTime(v string) *VolumeForDescribeVolumesOutput {
 	s.ExpiredTime = &v
+	return s
+}
+
+// SetExtraPerformance sets the ExtraPerformance field's value.
+func (s *VolumeForDescribeVolumesOutput) SetExtraPerformance(v *ExtraPerformanceForDescribeVolumesOutput) *VolumeForDescribeVolumesOutput {
+	s.ExtraPerformance = v
 	return s
 }
 
@@ -582,6 +698,12 @@ func (s *VolumeForDescribeVolumesOutput) SetStatus(v string) *VolumeForDescribeV
 // SetTags sets the Tags field's value.
 func (s *VolumeForDescribeVolumesOutput) SetTags(v []*TagForDescribeVolumesOutput) *VolumeForDescribeVolumesOutput {
 	s.Tags = v
+	return s
+}
+
+// SetTotalPerformance sets the TotalPerformance field's value.
+func (s *VolumeForDescribeVolumesOutput) SetTotalPerformance(v *TotalPerformanceForDescribeVolumesOutput) *VolumeForDescribeVolumesOutput {
+	s.TotalPerformance = v
 	return s
 }
 
