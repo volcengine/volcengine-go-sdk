@@ -642,6 +642,12 @@ type VolumeForCreateScheduledInstancesInput struct {
 
 	DeleteWithInstance *bool `type:"boolean"`
 
+	ExtraPerformanceIOPS *int32 `type:"int32"`
+
+	ExtraPerformanceThroughputMB *int32 `type:"int32"`
+
+	ExtraPerformanceTypeId *string `type:"string"`
+
 	// Size is a required field
 	Size *int32 `type:"int32" required:"true"`
 
@@ -676,6 +682,24 @@ func (s *VolumeForCreateScheduledInstancesInput) Validate() error {
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
 func (s *VolumeForCreateScheduledInstancesInput) SetDeleteWithInstance(v bool) *VolumeForCreateScheduledInstancesInput {
 	s.DeleteWithInstance = &v
+	return s
+}
+
+// SetExtraPerformanceIOPS sets the ExtraPerformanceIOPS field's value.
+func (s *VolumeForCreateScheduledInstancesInput) SetExtraPerformanceIOPS(v int32) *VolumeForCreateScheduledInstancesInput {
+	s.ExtraPerformanceIOPS = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMB sets the ExtraPerformanceThroughputMB field's value.
+func (s *VolumeForCreateScheduledInstancesInput) SetExtraPerformanceThroughputMB(v int32) *VolumeForCreateScheduledInstancesInput {
+	s.ExtraPerformanceThroughputMB = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *VolumeForCreateScheduledInstancesInput) SetExtraPerformanceTypeId(v string) *VolumeForCreateScheduledInstancesInput {
+	s.ExtraPerformanceTypeId = &v
 	return s
 }
 

@@ -214,6 +214,8 @@ func (s *EipAddressForRunInstancesInput) SetSecurityProtectionTypes(v []*string)
 type NetworkInterfaceForRunInstancesInput struct {
 	_ struct{} `type:"structure"`
 
+	Ipv6AddressCount *int32 `type:"int32"`
+
 	PrimaryIpAddress *string `type:"string"`
 
 	PrivateIpAddresses []*string `type:"list"`
@@ -245,6 +247,12 @@ func (s *NetworkInterfaceForRunInstancesInput) Validate() error {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetIpv6AddressCount sets the Ipv6AddressCount field's value.
+func (s *NetworkInterfaceForRunInstancesInput) SetIpv6AddressCount(v int32) *NetworkInterfaceForRunInstancesInput {
+	s.Ipv6AddressCount = &v
+	return s
 }
 
 // SetPrimaryIpAddress sets the PrimaryIpAddress field's value.
@@ -736,6 +744,12 @@ type VolumeForRunInstancesInput struct {
 
 	DeleteWithInstance *string `type:"string"`
 
+	ExtraPerformanceIOPS *int32 `type:"int32"`
+
+	ExtraPerformanceThroughputMB *int32 `type:"int32"`
+
+	ExtraPerformanceTypeId *string `type:"string"`
+
 	// Size is a required field
 	Size *int32 `type:"int32" required:"true"`
 
@@ -770,6 +784,24 @@ func (s *VolumeForRunInstancesInput) Validate() error {
 // SetDeleteWithInstance sets the DeleteWithInstance field's value.
 func (s *VolumeForRunInstancesInput) SetDeleteWithInstance(v string) *VolumeForRunInstancesInput {
 	s.DeleteWithInstance = &v
+	return s
+}
+
+// SetExtraPerformanceIOPS sets the ExtraPerformanceIOPS field's value.
+func (s *VolumeForRunInstancesInput) SetExtraPerformanceIOPS(v int32) *VolumeForRunInstancesInput {
+	s.ExtraPerformanceIOPS = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMB sets the ExtraPerformanceThroughputMB field's value.
+func (s *VolumeForRunInstancesInput) SetExtraPerformanceThroughputMB(v int32) *VolumeForRunInstancesInput {
+	s.ExtraPerformanceThroughputMB = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *VolumeForRunInstancesInput) SetExtraPerformanceTypeId(v string) *VolumeForRunInstancesInput {
+	s.ExtraPerformanceTypeId = &v
 	return s
 }
 

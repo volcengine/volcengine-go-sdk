@@ -196,6 +196,8 @@ type DescribeInstancesInput struct {
 
 	InstanceTypes []*string `type:"list"`
 
+	Ipv6Addresses []*string `type:"list"`
+
 	KeyPairName *string `type:"string"`
 
 	MaxResults *int32 `type:"int32"`
@@ -296,6 +298,12 @@ func (s *DescribeInstancesInput) SetInstanceTypeIds(v []*string) *DescribeInstan
 // SetInstanceTypes sets the InstanceTypes field's value.
 func (s *DescribeInstancesInput) SetInstanceTypes(v []*string) *DescribeInstancesInput {
 	s.InstanceTypes = v
+	return s
+}
+
+// SetIpv6Addresses sets the Ipv6Addresses field's value.
+func (s *DescribeInstancesInput) SetIpv6Addresses(v []*string) *DescribeInstancesInput {
+	s.Ipv6Addresses = v
 	return s
 }
 
