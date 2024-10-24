@@ -54,6 +54,14 @@ type STORAGEEBSAPI interface {
 	CancelAutoSnapshotPolicyWithContext(volcengine.Context, *CancelAutoSnapshotPolicyInput, ...request.Option) (*CancelAutoSnapshotPolicyOutput, error)
 	CancelAutoSnapshotPolicyRequest(*CancelAutoSnapshotPolicyInput) (*request.Request, *CancelAutoSnapshotPolicyOutput)
 
+	CheckUserRscPermitCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	CheckUserRscPermitCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	CheckUserRscPermitCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	CheckUserRscPermit(*CheckUserRscPermitInput) (*CheckUserRscPermitOutput, error)
+	CheckUserRscPermitWithContext(volcengine.Context, *CheckUserRscPermitInput, ...request.Option) (*CheckUserRscPermitOutput, error)
+	CheckUserRscPermitRequest(*CheckUserRscPermitInput) (*request.Request, *CheckUserRscPermitOutput)
+
 	CreateAutoSnapshotPolicyCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	CreateAutoSnapshotPolicyCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	CreateAutoSnapshotPolicyCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -142,6 +150,14 @@ type STORAGEEBSAPI interface {
 	DescribeAutoSnapshotPolicyWithContext(volcengine.Context, *DescribeAutoSnapshotPolicyInput, ...request.Option) (*DescribeAutoSnapshotPolicyOutput, error)
 	DescribeAutoSnapshotPolicyRequest(*DescribeAutoSnapshotPolicyInput) (*request.Request, *DescribeAutoSnapshotPolicyOutput)
 
+	DescribeReservedStorageCapacityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeReservedStorageCapacityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeReservedStorageCapacityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeReservedStorageCapacity(*DescribeReservedStorageCapacityInput) (*DescribeReservedStorageCapacityOutput, error)
+	DescribeReservedStorageCapacityWithContext(volcengine.Context, *DescribeReservedStorageCapacityInput, ...request.Option) (*DescribeReservedStorageCapacityOutput, error)
+	DescribeReservedStorageCapacityRequest(*DescribeReservedStorageCapacityInput) (*request.Request, *DescribeReservedStorageCapacityOutput)
+
 	DescribeSnapshotGroupsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeSnapshotGroupsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeSnapshotGroupsCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -157,6 +173,14 @@ type STORAGEEBSAPI interface {
 	DescribeSnapshots(*DescribeSnapshotsInput) (*DescribeSnapshotsOutput, error)
 	DescribeSnapshotsWithContext(volcengine.Context, *DescribeSnapshotsInput, ...request.Option) (*DescribeSnapshotsOutput, error)
 	DescribeSnapshotsRequest(*DescribeSnapshotsInput) (*request.Request, *DescribeSnapshotsOutput)
+
+	DescribeSnapshotsUsageCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	DescribeSnapshotsUsageCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	DescribeSnapshotsUsageCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	DescribeSnapshotsUsage(*DescribeSnapshotsUsageInput) (*DescribeSnapshotsUsageOutput, error)
+	DescribeSnapshotsUsageWithContext(volcengine.Context, *DescribeSnapshotsUsageInput, ...request.Option) (*DescribeSnapshotsUsageOutput, error)
+	DescribeSnapshotsUsageRequest(*DescribeSnapshotsUsageInput) (*request.Request, *DescribeSnapshotsUsageOutput)
 
 	DescribeTagsCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeTagsCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
@@ -237,6 +261,30 @@ type STORAGEEBSAPI interface {
 	ModifyVolumeChargeType(*ModifyVolumeChargeTypeInput) (*ModifyVolumeChargeTypeOutput, error)
 	ModifyVolumeChargeTypeWithContext(volcengine.Context, *ModifyVolumeChargeTypeInput, ...request.Option) (*ModifyVolumeChargeTypeOutput, error)
 	ModifyVolumeChargeTypeRequest(*ModifyVolumeChargeTypeInput) (*request.Request, *ModifyVolumeChargeTypeOutput)
+
+	ModifyVolumeExtraPerformanceCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyVolumeExtraPerformanceCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyVolumeExtraPerformanceCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVolumeExtraPerformance(*ModifyVolumeExtraPerformanceInput) (*ModifyVolumeExtraPerformanceOutput, error)
+	ModifyVolumeExtraPerformanceWithContext(volcengine.Context, *ModifyVolumeExtraPerformanceInput, ...request.Option) (*ModifyVolumeExtraPerformanceOutput, error)
+	ModifyVolumeExtraPerformanceRequest(*ModifyVolumeExtraPerformanceInput) (*request.Request, *ModifyVolumeExtraPerformanceOutput)
+
+	ModifyVolumeSpecCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	ModifyVolumeSpecCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	ModifyVolumeSpecCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	ModifyVolumeSpec(*ModifyVolumeSpecInput) (*ModifyVolumeSpecOutput, error)
+	ModifyVolumeSpecWithContext(volcengine.Context, *ModifyVolumeSpecInput, ...request.Option) (*ModifyVolumeSpecOutput, error)
+	ModifyVolumeSpecRequest(*ModifyVolumeSpecInput) (*request.Request, *ModifyVolumeSpecOutput)
+
+	PurchaseReservedStorageCapacityCommon(*map[string]interface{}) (*map[string]interface{}, error)
+	PurchaseReservedStorageCapacityCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
+	PurchaseReservedStorageCapacityCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
+
+	PurchaseReservedStorageCapacity(*PurchaseReservedStorageCapacityInput) (*PurchaseReservedStorageCapacityOutput, error)
+	PurchaseReservedStorageCapacityWithContext(volcengine.Context, *PurchaseReservedStorageCapacityInput, ...request.Option) (*PurchaseReservedStorageCapacityOutput, error)
+	PurchaseReservedStorageCapacityRequest(*PurchaseReservedStorageCapacityInput) (*request.Request, *PurchaseReservedStorageCapacityOutput)
 
 	RollbackSnapshotGroupCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	RollbackSnapshotGroupCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
