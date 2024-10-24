@@ -154,6 +154,8 @@ type CreateAutoSnapshotPolicyInput struct {
 	// RetentionDays is a required field
 	RetentionDays *int32 `type:"int32" required:"true"`
 
+	Tags []*TagForCreateAutoSnapshotPolicyInput `type:"list"`
+
 	// TimePoints is a required field
 	TimePoints []*string `type:"list" required:"true"`
 }
@@ -217,6 +219,12 @@ func (s *CreateAutoSnapshotPolicyInput) SetRetentionDays(v int32) *CreateAutoSna
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateAutoSnapshotPolicyInput) SetTags(v []*TagForCreateAutoSnapshotPolicyInput) *CreateAutoSnapshotPolicyInput {
+	s.Tags = v
+	return s
+}
+
 // SetTimePoints sets the TimePoints field's value.
 func (s *CreateAutoSnapshotPolicyInput) SetTimePoints(v []*string) *CreateAutoSnapshotPolicyInput {
 	s.TimePoints = v
@@ -244,5 +252,35 @@ func (s CreateAutoSnapshotPolicyOutput) GoString() string {
 // SetAutoSnapshotPolicyId sets the AutoSnapshotPolicyId field's value.
 func (s *CreateAutoSnapshotPolicyOutput) SetAutoSnapshotPolicyId(v string) *CreateAutoSnapshotPolicyOutput {
 	s.AutoSnapshotPolicyId = &v
+	return s
+}
+
+type TagForCreateAutoSnapshotPolicyInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForCreateAutoSnapshotPolicyInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForCreateAutoSnapshotPolicyInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForCreateAutoSnapshotPolicyInput) SetKey(v string) *TagForCreateAutoSnapshotPolicyInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForCreateAutoSnapshotPolicyInput) SetValue(v string) *TagForCreateAutoSnapshotPolicyInput {
+	s.Value = &v
 	return s
 }

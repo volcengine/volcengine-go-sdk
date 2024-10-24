@@ -157,9 +157,13 @@ type RunCommandInput struct {
 
 	LaunchTime *string `type:"string"`
 
+	ProjectName *string `type:"string"`
+
 	RecurrenceEndTime *string `type:"string"`
 
 	RepeatMode *string `type:"string"`
+
+	Tags []*TagForRunCommandInput `type:"list"`
 
 	Timeout *int32 `type:"int32"`
 
@@ -239,6 +243,12 @@ func (s *RunCommandInput) SetLaunchTime(v string) *RunCommandInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *RunCommandInput) SetProjectName(v string) *RunCommandInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRecurrenceEndTime sets the RecurrenceEndTime field's value.
 func (s *RunCommandInput) SetRecurrenceEndTime(v string) *RunCommandInput {
 	s.RecurrenceEndTime = &v
@@ -248,6 +258,12 @@ func (s *RunCommandInput) SetRecurrenceEndTime(v string) *RunCommandInput {
 // SetRepeatMode sets the RepeatMode field's value.
 func (s *RunCommandInput) SetRepeatMode(v string) *RunCommandInput {
 	s.RepeatMode = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *RunCommandInput) SetTags(v []*TagForRunCommandInput) *RunCommandInput {
+	s.Tags = v
 	return s
 }
 
@@ -296,5 +312,35 @@ func (s RunCommandOutput) GoString() string {
 // SetInvocationId sets the InvocationId field's value.
 func (s *RunCommandOutput) SetInvocationId(v string) *RunCommandOutput {
 	s.InvocationId = &v
+	return s
+}
+
+type TagForRunCommandInput struct {
+	_ struct{} `type:"structure"`
+
+	Key *string `type:"string"`
+
+	Value *string `type:"string"`
+}
+
+// String returns the string representation
+func (s TagForRunCommandInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagForRunCommandInput) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagForRunCommandInput) SetKey(v string) *TagForRunCommandInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagForRunCommandInput) SetValue(v string) *TagForRunCommandInput {
+	s.Value = &v
 	return s
 }

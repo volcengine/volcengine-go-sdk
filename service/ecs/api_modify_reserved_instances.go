@@ -229,6 +229,8 @@ type ModifyReservedInstancesInput struct {
 	// Configurations is a required field
 	Configurations []*ConfigurationForModifyReservedInstancesInput `type:"list" required:"true"`
 
+	Description *string `type:"string"`
+
 	ProjectName *string `type:"string"`
 
 	RegionId *string `type:"string"`
@@ -310,6 +312,12 @@ func (s *ModifyReservedInstancesInput) SetClientToken(v string) *ModifyReservedI
 // SetConfigurations sets the Configurations field's value.
 func (s *ModifyReservedInstancesInput) SetConfigurations(v []*ConfigurationForModifyReservedInstancesInput) *ModifyReservedInstancesInput {
 	s.Configurations = v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyReservedInstancesInput) SetDescription(v string) *ModifyReservedInstancesInput {
+	s.Description = &v
 	return s
 }
 

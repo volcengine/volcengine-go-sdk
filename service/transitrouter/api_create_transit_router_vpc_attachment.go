@@ -201,6 +201,8 @@ type CreateTransitRouterVpcAttachmentInput struct {
 
 	Description *string `type:"string"`
 
+	Ipv6Enabled *bool `type:"boolean"`
+
 	Tags []*TagForCreateTransitRouterVpcAttachmentInput `type:"list"`
 
 	TransitRouterAttachmentName *string `type:"string"`
@@ -272,6 +274,12 @@ func (s *CreateTransitRouterVpcAttachmentInput) SetClientToken(v string) *Create
 // SetDescription sets the Description field's value.
 func (s *CreateTransitRouterVpcAttachmentInput) SetDescription(v string) *CreateTransitRouterVpcAttachmentInput {
 	s.Description = &v
+	return s
+}
+
+// SetIpv6Enabled sets the Ipv6Enabled field's value.
+func (s *CreateTransitRouterVpcAttachmentInput) SetIpv6Enabled(v bool) *CreateTransitRouterVpcAttachmentInput {
+	s.Ipv6Enabled = &v
 	return s
 }
 

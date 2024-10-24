@@ -356,9 +356,15 @@ type ImageForDescribeImagesOutput struct {
 
 	ImageOwnerId *string `type:"string"`
 
+	IsInstallRunCommandAgent *bool `type:"boolean"`
+
 	IsLTS *bool `type:"boolean"`
 
 	IsSupportCloudInit *bool `type:"boolean"`
+
+	Kernel *string `type:"string"`
+
+	LicenseType *string `type:"string"`
 
 	OsName *string `type:"string"`
 
@@ -445,6 +451,12 @@ func (s *ImageForDescribeImagesOutput) SetImageOwnerId(v string) *ImageForDescri
 	return s
 }
 
+// SetIsInstallRunCommandAgent sets the IsInstallRunCommandAgent field's value.
+func (s *ImageForDescribeImagesOutput) SetIsInstallRunCommandAgent(v bool) *ImageForDescribeImagesOutput {
+	s.IsInstallRunCommandAgent = &v
+	return s
+}
+
 // SetIsLTS sets the IsLTS field's value.
 func (s *ImageForDescribeImagesOutput) SetIsLTS(v bool) *ImageForDescribeImagesOutput {
 	s.IsLTS = &v
@@ -454,6 +466,18 @@ func (s *ImageForDescribeImagesOutput) SetIsLTS(v bool) *ImageForDescribeImagesO
 // SetIsSupportCloudInit sets the IsSupportCloudInit field's value.
 func (s *ImageForDescribeImagesOutput) SetIsSupportCloudInit(v bool) *ImageForDescribeImagesOutput {
 	s.IsSupportCloudInit = &v
+	return s
+}
+
+// SetKernel sets the Kernel field's value.
+func (s *ImageForDescribeImagesOutput) SetKernel(v string) *ImageForDescribeImagesOutput {
+	s.Kernel = &v
+	return s
+}
+
+// SetLicenseType sets the LicenseType field's value.
+func (s *ImageForDescribeImagesOutput) SetLicenseType(v string) *ImageForDescribeImagesOutput {
+	s.LicenseType = &v
 	return s
 }
 

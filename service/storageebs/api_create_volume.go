@@ -148,6 +148,12 @@ type CreateVolumeInput struct {
 
 	Description *string `type:"string"`
 
+	ExtraPerformanceIOPS *int32 `type:"int32"`
+
+	ExtraPerformanceThroughputMB *int32 `type:"int32"`
+
+	ExtraPerformanceTypeId *string `type:"string"`
+
 	InstanceId *string `type:"string"`
 
 	Kind *string `type:"string"`
@@ -210,6 +216,24 @@ func (s *CreateVolumeInput) SetClientToken(v string) *CreateVolumeInput {
 // SetDescription sets the Description field's value.
 func (s *CreateVolumeInput) SetDescription(v string) *CreateVolumeInput {
 	s.Description = &v
+	return s
+}
+
+// SetExtraPerformanceIOPS sets the ExtraPerformanceIOPS field's value.
+func (s *CreateVolumeInput) SetExtraPerformanceIOPS(v int32) *CreateVolumeInput {
+	s.ExtraPerformanceIOPS = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMB sets the ExtraPerformanceThroughputMB field's value.
+func (s *CreateVolumeInput) SetExtraPerformanceThroughputMB(v int32) *CreateVolumeInput {
+	s.ExtraPerformanceThroughputMB = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *CreateVolumeInput) SetExtraPerformanceTypeId(v string) *CreateVolumeInput {
+	s.ExtraPerformanceTypeId = &v
 	return s
 }
 

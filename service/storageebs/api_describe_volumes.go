@@ -144,6 +144,8 @@ func (c *STORAGEEBS) DescribeVolumesWithContext(ctx volcengine.Context, input *D
 type DescribeVolumesInput struct {
 	_ struct{} `type:"structure"`
 
+	BillingType *int32 `type:"int32"`
+
 	InstanceId *string `type:"string"`
 
 	Kind *string `type:"string"`
@@ -175,6 +177,12 @@ func (s DescribeVolumesInput) String() string {
 // GoString returns the string representation
 func (s DescribeVolumesInput) GoString() string {
 	return s.String()
+}
+
+// SetBillingType sets the BillingType field's value.
+func (s *DescribeVolumesInput) SetBillingType(v int32) *DescribeVolumesInput {
+	s.BillingType = &v
+	return s
 }
 
 // SetInstanceId sets the InstanceId field's value.
@@ -372,6 +380,12 @@ type VolumeForDescribeVolumesOutput struct {
 
 	ExpiredTime *string `type:"string"`
 
+	ExtraPerformanceIOPS *int32 `type:"int32"`
+
+	ExtraPerformanceThroughputMB *int32 `type:"int32"`
+
+	ExtraPerformanceTypeId *string `type:"string"`
+
 	ImageId *string `type:"string"`
 
 	InstanceId *string `type:"string"`
@@ -472,6 +486,24 @@ func (s *VolumeForDescribeVolumesOutput) SetErrorDetail(v string) *VolumeForDesc
 // SetExpiredTime sets the ExpiredTime field's value.
 func (s *VolumeForDescribeVolumesOutput) SetExpiredTime(v string) *VolumeForDescribeVolumesOutput {
 	s.ExpiredTime = &v
+	return s
+}
+
+// SetExtraPerformanceIOPS sets the ExtraPerformanceIOPS field's value.
+func (s *VolumeForDescribeVolumesOutput) SetExtraPerformanceIOPS(v int32) *VolumeForDescribeVolumesOutput {
+	s.ExtraPerformanceIOPS = &v
+	return s
+}
+
+// SetExtraPerformanceThroughputMB sets the ExtraPerformanceThroughputMB field's value.
+func (s *VolumeForDescribeVolumesOutput) SetExtraPerformanceThroughputMB(v int32) *VolumeForDescribeVolumesOutput {
+	s.ExtraPerformanceThroughputMB = &v
+	return s
+}
+
+// SetExtraPerformanceTypeId sets the ExtraPerformanceTypeId field's value.
+func (s *VolumeForDescribeVolumesOutput) SetExtraPerformanceTypeId(v string) *VolumeForDescribeVolumesOutput {
+	s.ExtraPerformanceTypeId = &v
 	return s
 }
 
