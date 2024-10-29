@@ -150,10 +150,6 @@ type DescribeIpAddressPoolsInput struct {
 
 	NextToken *string `type:"string"`
 
-	PageNumber *int64 `type:"integer"`
-
-	PageSize *int64 `max:"100" type:"integer"`
-
 	ProjectName *string `type:"string"`
 
 	Status *string `type:"string"`
@@ -169,19 +165,6 @@ func (s DescribeIpAddressPoolsInput) String() string {
 // GoString returns the string representation
 func (s DescribeIpAddressPoolsInput) GoString() string {
 	return s.String()
-}
-
-// Validate inspects the fields of the type to determine if they are valid.
-func (s *DescribeIpAddressPoolsInput) Validate() error {
-	invalidParams := request.ErrInvalidParams{Context: "DescribeIpAddressPoolsInput"}
-	if s.PageSize != nil && *s.PageSize > 100 {
-		invalidParams.Add(request.NewErrParamMaxValue("PageSize", 100))
-	}
-
-	if invalidParams.Len() > 0 {
-		return invalidParams
-	}
-	return nil
 }
 
 // SetISP sets the ISP field's value.
@@ -205,18 +188,6 @@ func (s *DescribeIpAddressPoolsInput) SetMaxResults(v int64) *DescribeIpAddressP
 // SetNextToken sets the NextToken field's value.
 func (s *DescribeIpAddressPoolsInput) SetNextToken(v string) *DescribeIpAddressPoolsInput {
 	s.NextToken = &v
-	return s
-}
-
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeIpAddressPoolsInput) SetPageNumber(v int64) *DescribeIpAddressPoolsInput {
-	s.PageNumber = &v
-	return s
-}
-
-// SetPageSize sets the PageSize field's value.
-func (s *DescribeIpAddressPoolsInput) SetPageSize(v int64) *DescribeIpAddressPoolsInput {
-	s.PageSize = &v
 	return s
 }
 
@@ -247,11 +218,7 @@ type DescribeIpAddressPoolsOutput struct {
 
 	NextToken *string `type:"string"`
 
-	PageNumber *int64 `type:"integer"`
-
 	RequestId *string `type:"string"`
-
-	TotalCount *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -276,21 +243,9 @@ func (s *DescribeIpAddressPoolsOutput) SetNextToken(v string) *DescribeIpAddress
 	return s
 }
 
-// SetPageNumber sets the PageNumber field's value.
-func (s *DescribeIpAddressPoolsOutput) SetPageNumber(v int64) *DescribeIpAddressPoolsOutput {
-	s.PageNumber = &v
-	return s
-}
-
 // SetRequestId sets the RequestId field's value.
 func (s *DescribeIpAddressPoolsOutput) SetRequestId(v string) *DescribeIpAddressPoolsOutput {
 	s.RequestId = &v
-	return s
-}
-
-// SetTotalCount sets the TotalCount field's value.
-func (s *DescribeIpAddressPoolsOutput) SetTotalCount(v int64) *DescribeIpAddressPoolsOutput {
-	s.TotalCount = &v
 	return s
 }
 
