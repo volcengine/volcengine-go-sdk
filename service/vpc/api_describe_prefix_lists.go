@@ -318,7 +318,7 @@ type PrefixListForDescribePrefixListsOutput struct {
 
 	IpVersion *string `type:"string"`
 
-	MaxEntries *string `type:"string"`
+	MaxEntries *int64 `type:"integer"`
 
 	PrefixListId *string `type:"string"`
 
@@ -374,7 +374,7 @@ func (s *PrefixListForDescribePrefixListsOutput) SetIpVersion(v string) *PrefixL
 }
 
 // SetMaxEntries sets the MaxEntries field's value.
-func (s *PrefixListForDescribePrefixListsOutput) SetMaxEntries(v string) *PrefixListForDescribePrefixListsOutput {
+func (s *PrefixListForDescribePrefixListsOutput) SetMaxEntries(v int64) *PrefixListForDescribePrefixListsOutput {
 	s.MaxEntries = &v
 	return s
 }
