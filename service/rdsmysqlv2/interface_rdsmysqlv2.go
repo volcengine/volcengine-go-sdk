@@ -334,14 +334,6 @@ type RDSMYSQLV2API interface {
 	DescribeDBInstanceSpecsWithContext(volcengine.Context, *DescribeDBInstanceSpecsInput, ...request.Option) (*DescribeDBInstanceSpecsOutput, error)
 	DescribeDBInstanceSpecsRequest(*DescribeDBInstanceSpecsInput) (*request.Request, *DescribeDBInstanceSpecsOutput)
 
-	DescribeDBInstanceTDECommon(*map[string]interface{}) (*map[string]interface{}, error)
-	DescribeDBInstanceTDECommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	DescribeDBInstanceTDECommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	DescribeDBInstanceTDE(*DescribeDBInstanceTDEInput) (*DescribeDBInstanceTDEOutput, error)
-	DescribeDBInstanceTDEWithContext(volcengine.Context, *DescribeDBInstanceTDEInput, ...request.Option) (*DescribeDBInstanceTDEOutput, error)
-	DescribeDBInstanceTDERequest(*DescribeDBInstanceTDEInput) (*request.Request, *DescribeDBInstanceTDEOutput)
-
 	DescribeDBInstancesCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
 	DescribeDBInstancesCommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
@@ -621,14 +613,6 @@ type RDSMYSQLV2API interface {
 	ModifyDBInstanceSyncMode(*ModifyDBInstanceSyncModeInput) (*ModifyDBInstanceSyncModeOutput, error)
 	ModifyDBInstanceSyncModeWithContext(volcengine.Context, *ModifyDBInstanceSyncModeInput, ...request.Option) (*ModifyDBInstanceSyncModeOutput, error)
 	ModifyDBInstanceSyncModeRequest(*ModifyDBInstanceSyncModeInput) (*request.Request, *ModifyDBInstanceSyncModeOutput)
-
-	ModifyDBInstanceTDECommon(*map[string]interface{}) (*map[string]interface{}, error)
-	ModifyDBInstanceTDECommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)
-	ModifyDBInstanceTDECommonRequest(*map[string]interface{}) (*request.Request, *map[string]interface{})
-
-	ModifyDBInstanceTDE(*ModifyDBInstanceTDEInput) (*ModifyDBInstanceTDEOutput, error)
-	ModifyDBInstanceTDEWithContext(volcengine.Context, *ModifyDBInstanceTDEInput, ...request.Option) (*ModifyDBInstanceTDEOutput, error)
-	ModifyDBInstanceTDERequest(*ModifyDBInstanceTDEInput) (*request.Request, *ModifyDBInstanceTDEOutput)
 
 	ModifyDBProxyConfigCommon(*map[string]interface{}) (*map[string]interface{}, error)
 	ModifyDBProxyConfigCommonWithContext(volcengine.Context, *map[string]interface{}, ...request.Option) (*map[string]interface{}, error)

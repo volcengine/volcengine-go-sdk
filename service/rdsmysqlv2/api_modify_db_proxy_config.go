@@ -144,12 +144,12 @@ func (c *RDSMYSQLV2) ModifyDBProxyConfigWithContext(ctx volcengine.Context, inpu
 }
 
 type ModifyDBProxyConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ConnectionPoolType *string `type:"string"`
+	ConnectionPoolType *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -188,7 +188,7 @@ func (s *ModifyDBProxyConfigInput) SetInstanceId(v string) *ModifyDBProxyConfigI
 }
 
 type ModifyDBProxyConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

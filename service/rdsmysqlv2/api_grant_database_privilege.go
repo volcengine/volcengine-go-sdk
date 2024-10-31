@@ -144,15 +144,15 @@ func (c *RDSMYSQLV2) GrantDatabasePrivilegeWithContext(ctx volcengine.Context, i
 }
 
 type DatabasePrivilegeForGrantDatabasePrivilegeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	AccountPrivilege *string `type:"string"`
+	AccountPrivilege *string `type:"string" json:",omitempty"`
 
-	AccountPrivilegeDetail *string `type:"string"`
+	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,15 +190,15 @@ func (s *DatabasePrivilegeForGrantDatabasePrivilegeInput) SetHost(v string) *Dat
 }
 
 type GrantDatabasePrivilegeInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// DBName is a required field
-	DBName *string `type:"string" required:"true"`
+	DBName *string `type:"string" json:",omitempty" required:"true"`
 
-	DatabasePrivileges []*DatabasePrivilegeForGrantDatabasePrivilegeInput `type:"list"`
+	DatabasePrivileges []*DatabasePrivilegeForGrantDatabasePrivilegeInput `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -246,7 +246,7 @@ func (s *GrantDatabasePrivilegeInput) SetInstanceId(v string) *GrantDatabasePriv
 }
 
 type GrantDatabasePrivilegeOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

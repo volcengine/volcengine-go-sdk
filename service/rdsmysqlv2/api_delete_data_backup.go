@@ -144,13 +144,13 @@ func (c *RDSMYSQLV2) DeleteDataBackupWithContext(ctx volcengine.Context, input *
 }
 
 type DeleteDataBackupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BackupId is a required field
-	BackupId *string `type:"string" required:"true"`
+	BackupId *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ func (s *DeleteDataBackupInput) SetInstanceId(v string) *DeleteDataBackupInput {
 }
 
 type DeleteDataBackupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

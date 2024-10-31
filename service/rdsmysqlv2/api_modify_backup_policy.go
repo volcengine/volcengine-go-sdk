@@ -144,32 +144,32 @@ func (c *RDSMYSQLV2) ModifyBackupPolicyWithContext(ctx volcengine.Context, input
 }
 
 type ModifyBackupPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BinlogFileCountsEnable *bool `type:"boolean"`
+	BinlogFileCountsEnable *bool `type:"boolean" json:",omitempty"`
 
-	BinlogLimitCount *int32 `type:"int32"`
+	BinlogLimitCount *int32 `type:"int32" json:",omitempty"`
 
-	BinlogLocalRetentionHour *int32 `type:"int32"`
+	BinlogLocalRetentionHour *int32 `type:"int32" json:",omitempty"`
 
-	BinlogSpaceLimitEnable *bool `type:"boolean"`
+	BinlogSpaceLimitEnable *bool `type:"boolean" json:",omitempty"`
 
-	BinlogStoragePercentage *int32 `type:"int32"`
+	BinlogStoragePercentage *int32 `type:"int32" json:",omitempty"`
 
-	DataBackupRetentionDay *int32 `type:"int32"`
+	DataBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 
-	DataFullBackupPeriods []*string `type:"list"`
+	DataFullBackupPeriods []*string `type:"list" json:",omitempty"`
 
-	DataFullBackupTime *string `type:"string"`
+	DataFullBackupTime *string `type:"string" json:",omitempty"`
 
-	DataIncrBackupPeriods []*string `type:"list"`
+	DataIncrBackupPeriods []*string `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	LockDdlTime *int32 `type:"int32"`
+	LockDdlTime *int32 `type:"int32" json:",omitempty"`
 
-	LogBackupRetentionDay *int32 `type:"int32"`
+	LogBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -268,33 +268,33 @@ func (s *ModifyBackupPolicyInput) SetLogBackupRetentionDay(v int32) *ModifyBacku
 }
 
 type ModifyBackupPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BinlogFileCountsEnable *bool `type:"boolean"`
+	BinlogFileCountsEnable *bool `type:"boolean" json:",omitempty"`
 
-	BinlogLimitCount *int32 `type:"int32"`
+	BinlogLimitCount *int32 `type:"int32" json:",omitempty"`
 
-	BinlogLocalRetentionHour *int32 `type:"int32"`
+	BinlogLocalRetentionHour *int32 `type:"int32" json:",omitempty"`
 
-	BinlogSpaceLimitEnable *bool `type:"boolean"`
+	BinlogSpaceLimitEnable *bool `type:"boolean" json:",omitempty"`
 
-	BinlogStoragePercentage *int32 `type:"int32"`
+	BinlogStoragePercentage *int32 `type:"int32" json:",omitempty"`
 
-	DataBackupRetentionDay *int32 `type:"int32"`
+	DataBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 
-	DataFullBackupPeriods []*string `type:"list"`
+	DataFullBackupPeriods []*string `type:"list" json:",omitempty"`
 
-	DataFullBackupTime *string `type:"string"`
+	DataFullBackupTime *string `type:"string" json:",omitempty"`
 
-	DataIncrBackupPeriods []*string `type:"list"`
+	DataIncrBackupPeriods []*string `type:"list" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	LockDdlTime *int32 `type:"int32"`
+	LockDdlTime *int32 `type:"int32" json:",omitempty"`
 
-	LogBackupRetentionDay *int32 `type:"int32"`
+	LogBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

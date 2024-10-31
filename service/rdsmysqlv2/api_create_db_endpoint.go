@@ -144,23 +144,23 @@ func (c *RDSMYSQLV2) CreateDBEndpointWithContext(ctx volcengine.Context, input *
 }
 
 type CreateDBEndpointInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoAddNewNodes *bool `type:"boolean"`
+	AutoAddNewNodes *bool `type:"boolean" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EndpointName *string `type:"string"`
+	EndpointName *string `type:"string" json:",omitempty"`
 
 	// EndpointType is a required field
-	EndpointType *string `type:"string" required:"true"`
+	EndpointType *string `type:"string" json:",omitempty" required:"true"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	Nodes *string `type:"string"`
+	Nodes *string `type:"string" json:",omitempty"`
 
-	ReadWriteMode *string `type:"string"`
+	ReadWriteMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -232,13 +232,13 @@ func (s *CreateDBEndpointInput) SetReadWriteMode(v string) *CreateDBEndpointInpu
 }
 
 type CreateDBEndpointOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	EndpointId *string `type:"string"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

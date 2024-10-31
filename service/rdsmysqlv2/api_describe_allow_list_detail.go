@@ -144,13 +144,13 @@ func (c *RDSMYSQLV2) DescribeAllowListDetailWithContext(ctx volcengine.Context, 
 }
 
 type AssociatedInstanceForDescribeAllowListDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	VPC *string `type:"string"`
+	VPC *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -182,10 +182,10 @@ func (s *AssociatedInstanceForDescribeAllowListDetailOutput) SetVPC(v string) *A
 }
 
 type DescribeAllowListDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AllowListId is a required field
-	AllowListId *string `type:"string" required:"true"`
+	AllowListId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -218,27 +218,27 @@ func (s *DescribeAllowListDetailInput) SetAllowListId(v string) *DescribeAllowLi
 }
 
 type DescribeAllowListDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowList *string `type:"string"`
+	AllowList *string `type:"string" json:",omitempty"`
 
-	AllowListCategory *string `type:"string"`
+	AllowListCategory *string `type:"string" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
-	AllowListId *string `type:"string"`
+	AllowListId *string `type:"string" json:",omitempty"`
 
-	AllowListName *string `type:"string"`
+	AllowListName *string `type:"string" json:",omitempty"`
 
-	AllowListType *string `type:"string"`
+	AllowListType *string `type:"string" json:",omitempty"`
 
-	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list"`
+	AssociatedInstances []*AssociatedInstanceForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
 
-	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListDetailOutput `type:"list"`
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForDescribeAllowListDetailOutput `type:"list" json:",omitempty"`
 
-	UserAllowList *string `type:"string"`
+	UserAllowList *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -306,15 +306,15 @@ func (s *DescribeAllowListDetailOutput) SetUserAllowList(v string) *DescribeAllo
 }
 
 type SecurityGroupBindInfoForDescribeAllowListDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BindMode *string `type:"string"`
+	BindMode *string `type:"string" json:",omitempty"`
 
-	IpList []*string `type:"list"`
+	IpList []*string `type:"list" json:",omitempty"`
 
-	SecurityGroupId *string `type:"string"`
+	SecurityGroupId *string `type:"string" json:",omitempty"`
 
-	SecurityGroupName *string `type:"string"`
+	SecurityGroupName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

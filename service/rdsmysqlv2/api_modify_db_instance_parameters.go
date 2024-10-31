@@ -144,16 +144,16 @@ func (c *RDSMYSQLV2) ModifyDBInstanceParametersWithContext(ctx volcengine.Contex
 }
 
 type ModifyDBInstanceParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomNodeIds []*string `type:"list"`
+	CustomNodeIds []*string `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	ParamApplyScope *string `type:"string"`
+	ParamApplyScope *string `type:"string" json:",omitempty" enum:"EnumOfParamApplyScopeForModifyDBInstanceParametersInput"`
 
-	Parameters []*ParameterForModifyDBInstanceParametersInput `type:"list"`
+	Parameters []*ParameterForModifyDBInstanceParametersInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -204,7 +204,7 @@ func (s *ModifyDBInstanceParametersInput) SetParameters(v []*ParameterForModifyD
 }
 
 type ModifyDBInstanceParametersOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -220,21 +220,11 @@ func (s ModifyDBInstanceParametersOutput) GoString() string {
 }
 
 type ParameterForModifyDBInstanceParametersInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CheckingCode *string `type:"string"`
+	ParameterName *string `type:"string" json:",omitempty"`
 
-	Expression *string `type:"string"`
-
-	ForceRestart *bool `type:"boolean"`
-
-	ParameterDefaultValue *string `type:"string"`
-
-	ParameterDescription *string `type:"string"`
-
-	ParameterName *string `type:"string"`
-
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -245,36 +235,6 @@ func (s ParameterForModifyDBInstanceParametersInput) String() string {
 // GoString returns the string representation
 func (s ParameterForModifyDBInstanceParametersInput) GoString() string {
 	return s.String()
-}
-
-// SetCheckingCode sets the CheckingCode field's value.
-func (s *ParameterForModifyDBInstanceParametersInput) SetCheckingCode(v string) *ParameterForModifyDBInstanceParametersInput {
-	s.CheckingCode = &v
-	return s
-}
-
-// SetExpression sets the Expression field's value.
-func (s *ParameterForModifyDBInstanceParametersInput) SetExpression(v string) *ParameterForModifyDBInstanceParametersInput {
-	s.Expression = &v
-	return s
-}
-
-// SetForceRestart sets the ForceRestart field's value.
-func (s *ParameterForModifyDBInstanceParametersInput) SetForceRestart(v bool) *ParameterForModifyDBInstanceParametersInput {
-	s.ForceRestart = &v
-	return s
-}
-
-// SetParameterDefaultValue sets the ParameterDefaultValue field's value.
-func (s *ParameterForModifyDBInstanceParametersInput) SetParameterDefaultValue(v string) *ParameterForModifyDBInstanceParametersInput {
-	s.ParameterDefaultValue = &v
-	return s
-}
-
-// SetParameterDescription sets the ParameterDescription field's value.
-func (s *ParameterForModifyDBInstanceParametersInput) SetParameterDescription(v string) *ParameterForModifyDBInstanceParametersInput {
-	s.ParameterDescription = &v
-	return s
 }
 
 // SetParameterName sets the ParameterName field's value.
@@ -288,3 +248,17 @@ func (s *ParameterForModifyDBInstanceParametersInput) SetParameterValue(v string
 	s.ParameterValue = &v
 	return s
 }
+
+const (
+	// EnumOfParamApplyScopeForModifyDBInstanceParametersInputAllNode is a EnumOfParamApplyScopeForModifyDBInstanceParametersInput enum value
+	EnumOfParamApplyScopeForModifyDBInstanceParametersInputAllNode = "AllNode"
+
+	// EnumOfParamApplyScopeForModifyDBInstanceParametersInputOnlyMasterSlaveNode is a EnumOfParamApplyScopeForModifyDBInstanceParametersInput enum value
+	EnumOfParamApplyScopeForModifyDBInstanceParametersInputOnlyMasterSlaveNode = "OnlyMasterSlaveNode"
+
+	// EnumOfParamApplyScopeForModifyDBInstanceParametersInputOnlyReadOnlyNode is a EnumOfParamApplyScopeForModifyDBInstanceParametersInput enum value
+	EnumOfParamApplyScopeForModifyDBInstanceParametersInputOnlyReadOnlyNode = "OnlyReadOnlyNode"
+
+	// EnumOfParamApplyScopeForModifyDBInstanceParametersInputCustomNode is a EnumOfParamApplyScopeForModifyDBInstanceParametersInput enum value
+	EnumOfParamApplyScopeForModifyDBInstanceParametersInputCustomNode = "CustomNode"
+)

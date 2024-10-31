@@ -144,23 +144,23 @@ func (c *RDSMYSQLV2) DescribeDBInstanceDetailWithContext(ctx volcengine.Context,
 }
 
 type AddressForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	DNSVisibility *bool `type:"boolean"`
+	DNSVisibility *bool `type:"boolean" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	EipId *string `type:"string"`
+	EipId *string `type:"string" json:",omitempty"`
 
-	IPAddress *string `type:"string"`
+	IPAddress *string `type:"string" json:",omitempty"`
 
-	InternetProtocol *string `type:"string"`
+	InternetProtocol *string `type:"string" json:",omitempty" enum:"EnumOfInternetProtocolForDescribeDBInstanceDetailOutput"`
 
-	NetworkType *string `type:"string"`
+	NetworkType *string `type:"string" json:",omitempty" enum:"EnumOfNetworkTypeForDescribeDBInstanceDetailOutput"`
 
-	Port *string `type:"string"`
+	Port *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -222,57 +222,63 @@ func (s *AddressForDescribeDBInstanceDetailOutput) SetSubnetId(v string) *Addres
 }
 
 type BasicInfoForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListVersion *string `type:"string"`
+	AllowListVersion *string `type:"string" json:",omitempty"`
 
-	BackupUse *float64 `type:"double"`
+	BackupUse *float64 `type:"double" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	BasicBackupBinlogSize *int64 `type:"int64" json:",omitempty"`
 
-	DBEngineVersion *string `type:"string"`
+	BasicBackupDataSize *int64 `type:"int64" json:",omitempty"`
 
-	DataSyncMode *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	DBEngineVersion *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	DataSyncMode *string `type:"string" json:",omitempty"`
 
-	InstanceStatus *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceType *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	LowerCaseTableNames *string `type:"string"`
+	InstanceStatus *string `type:"string" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	InstanceType *string `type:"string" json:",omitempty"`
 
-	NodeNumber *string `type:"string"`
+	LowerCaseTableNames *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	MaintenanceWindow *MaintenanceWindowForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	NodeNumber *string `type:"string" json:",omitempty"`
 
-	StorageSpace *int64 `type:"int64"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	StorageType *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	StorageUse *float64 `type:"double"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	SubnetId *string `type:"string"`
+	StorageSpace *int64 `type:"int64" json:",omitempty"`
 
-	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list"`
+	StorageType *string `type:"string" json:",omitempty"`
 
-	TimeZone *string `type:"string"`
+	StorageUse *float64 `type:"double" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	SubnetId *string `type:"string" json:",omitempty"`
 
-	VCPU *int32 `type:"int32"`
+	Tags []*TagForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	VpcId *string `type:"string"`
+	TimeZone *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
+
+	VCPU *int32 `type:"int32" json:",omitempty"`
+
+	VpcId *string `type:"string" json:",omitempty"`
+
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -294,6 +300,18 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetAllowListVersion(v strin
 // SetBackupUse sets the BackupUse field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBackupUse(v float64) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.BackupUse = &v
+	return s
+}
+
+// SetBasicBackupBinlogSize sets the BasicBackupBinlogSize field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBasicBackupBinlogSize(v int64) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.BasicBackupBinlogSize = &v
+	return s
+}
+
+// SetBasicBackupDataSize sets the BasicBackupDataSize field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetBasicBackupDataSize(v int64) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.BasicBackupDataSize = &v
 	return s
 }
 
@@ -342,6 +360,12 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetInstanceType(v string) *
 // SetLowerCaseTableNames sets the LowerCaseTableNames field's value.
 func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetLowerCaseTableNames(v string) *BasicInfoForDescribeDBInstanceDetailOutput {
 	s.LowerCaseTableNames = &v
+	return s
+}
+
+// SetMaintenanceWindow sets the MaintenanceWindow field's value.
+func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetMaintenanceWindow(v *MaintenanceWindowForDescribeDBInstanceDetailOutput) *BasicInfoForDescribeDBInstanceDetailOutput {
+	s.MaintenanceWindow = v
 	return s
 }
 
@@ -436,29 +460,29 @@ func (s *BasicInfoForDescribeDBInstanceDetailOutput) SetZoneId(v string) *BasicI
 }
 
 type ChargeDetailForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeEndTime *string `type:"string"`
+	ChargeEndTime *string `type:"string" json:",omitempty"`
 
-	ChargeStartTime *string `type:"string"`
+	ChargeStartTime *string `type:"string" json:",omitempty"`
 
-	ChargeStatus *string `type:"string"`
+	ChargeStatus *string `type:"string" json:",omitempty" enum:"EnumOfChargeStatusForDescribeDBInstanceDetailOutput"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty" enum:"EnumOfChargeTypeForDescribeDBInstanceDetailOutput"`
 
-	OverdueReclaimTime *string `type:"string"`
+	OverdueReclaimTime *string `type:"string" json:",omitempty"`
 
-	OverdueTime *string `type:"string"`
+	OverdueTime *string `type:"string" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty" enum:"EnumOfPeriodUnitForDescribeDBInstanceDetailOutput"`
 
-	TempModifyEndTime *string `type:"string"`
+	TempModifyEndTime *string `type:"string" json:",omitempty"`
 
-	TempModifyStartTime *string `type:"string"`
+	TempModifyStartTime *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -538,10 +562,10 @@ func (s *ChargeDetailForDescribeDBInstanceDetailOutput) SetTempModifyStartTime(v
 }
 
 type DescribeDBInstanceDetailInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -574,17 +598,17 @@ func (s *DescribeDBInstanceDetailInput) SetInstanceId(v string) *DescribeDBInsta
 }
 
 type DescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BasicInfo *BasicInfoForDescribeDBInstanceDetailOutput `type:"structure"`
+	BasicInfo *BasicInfoForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	ChargeDetail *ChargeDetailForDescribeDBInstanceDetailOutput `type:"structure"`
+	ChargeDetail *ChargeDetailForDescribeDBInstanceDetailOutput `type:"structure" json:",omitempty"`
 
-	Endpoints []*EndpointForDescribeDBInstanceDetailOutput `type:"list"`
+	Endpoints []*EndpointForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list"`
+	Nodes []*NodeForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -622,27 +646,29 @@ func (s *DescribeDBInstanceDetailOutput) SetNodes(v []*NodeForDescribeDBInstance
 }
 
 type EndpointForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Addresses []*AddressForDescribeDBInstanceDetailOutput `type:"list"`
+	Addresses []*AddressForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
 
-	AutoAddNewNodes *string `type:"string"`
+	AutoAddNewNodes *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	EnableReadOnly *string `type:"string"`
+	EnableReadOnly *string `type:"string" json:",omitempty"`
 
-	EnableReadWriteSplitting *string `type:"string"`
+	EnableReadWriteSplitting *string `type:"string" json:",omitempty"`
 
-	EndpointId *string `type:"string"`
+	EndpointId *string `type:"string" json:",omitempty"`
 
-	EndpointName *string `type:"string"`
+	EndpointName *string `type:"string" json:",omitempty"`
 
-	EndpointType *string `type:"string"`
+	EndpointType *string `type:"string" json:",omitempty"`
 
-	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput `type:"list"`
+	IdleConnectionReclaim *bool `type:"boolean" json:",omitempty"`
 
-	ReadWriteMode *string `type:"string"`
+	ReadOnlyNodeWeight []*ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput `type:"list" json:",omitempty"`
+
+	ReadWriteMode *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -703,6 +729,12 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetEndpointType(v string) *E
 	return s
 }
 
+// SetIdleConnectionReclaim sets the IdleConnectionReclaim field's value.
+func (s *EndpointForDescribeDBInstanceDetailOutput) SetIdleConnectionReclaim(v bool) *EndpointForDescribeDBInstanceDetailOutput {
+	s.IdleConnectionReclaim = &v
+	return s
+}
+
 // SetReadOnlyNodeWeight sets the ReadOnlyNodeWeight field's value.
 func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadOnlyNodeWeight(v []*ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput) *EndpointForDescribeDBInstanceDetailOutput {
 	s.ReadOnlyNodeWeight = v
@@ -715,30 +747,68 @@ func (s *EndpointForDescribeDBInstanceDetailOutput) SetReadWriteMode(v string) *
 	return s
 }
 
+type MaintenanceWindowForDescribeDBInstanceDetailOutput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	DayKind *string `type:"string" json:",omitempty"`
+
+	DayOfWeek []*string `type:"list" json:",omitempty"`
+
+	MaintenanceTime *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s MaintenanceWindowForDescribeDBInstanceDetailOutput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s MaintenanceWindowForDescribeDBInstanceDetailOutput) GoString() string {
+	return s.String()
+}
+
+// SetDayKind sets the DayKind field's value.
+func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayKind(v string) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
+	s.DayKind = &v
+	return s
+}
+
+// SetDayOfWeek sets the DayOfWeek field's value.
+func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetDayOfWeek(v []*string) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
+	s.DayOfWeek = v
+	return s
+}
+
+// SetMaintenanceTime sets the MaintenanceTime field's value.
+func (s *MaintenanceWindowForDescribeDBInstanceDetailOutput) SetMaintenanceTime(v string) *MaintenanceWindowForDescribeDBInstanceDetailOutput {
+	s.MaintenanceTime = &v
+	return s
+}
+
 type NodeForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CreateTime *string `type:"string"`
+	CreateTime *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Memory *int32 `type:"int32"`
+	Memory *int32 `type:"int32" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeStatus *string `type:"string"`
+	NodeStatus *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	RegionId *string `type:"string"`
+	RegionId *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	VCPU *int32 `type:"int32"`
+	VCPU *int32 `type:"int32" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -818,13 +888,13 @@ func (s *NodeForDescribeDBInstanceDetailOutput) SetZoneId(v string) *NodeForDesc
 }
 
 type ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" json:",omitempty" enum:"EnumOfNodeTypeForDescribeDBInstanceDetailOutput"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -856,11 +926,11 @@ func (s *ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput) SetWeight(v int32)
 }
 
 type TagForDescribeDBInstanceDetailOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -884,3 +954,72 @@ func (s *TagForDescribeDBInstanceDetailOutput) SetValue(v string) *TagForDescrib
 	s.Value = &v
 	return s
 }
+
+const (
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputNormal = "Normal"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputOverdue = "Overdue"
+
+	// EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnpaid is a EnumOfChargeStatusForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeStatusForDescribeDBInstanceDetailOutputUnpaid = "Unpaid"
+)
+
+const (
+	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputNotEnabled is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeTypeForDescribeDBInstanceDetailOutputNotEnabled = "NotEnabled"
+
+	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputPostPaid is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeTypeForDescribeDBInstanceDetailOutputPostPaid = "PostPaid"
+
+	// EnumOfChargeTypeForDescribeDBInstanceDetailOutputPrePaid is a EnumOfChargeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfChargeTypeForDescribeDBInstanceDetailOutputPrePaid = "PrePaid"
+)
+
+const (
+	// EnumOfInternetProtocolForDescribeDBInstanceDetailOutputIpv4 is a EnumOfInternetProtocolForDescribeDBInstanceDetailOutput enum value
+	EnumOfInternetProtocolForDescribeDBInstanceDetailOutputIpv4 = "IPv4"
+
+	// EnumOfInternetProtocolForDescribeDBInstanceDetailOutputIpv6 is a EnumOfInternetProtocolForDescribeDBInstanceDetailOutput enum value
+	EnumOfInternetProtocolForDescribeDBInstanceDetailOutputIpv6 = "IPv6"
+
+	// EnumOfInternetProtocolForDescribeDBInstanceDetailOutputDualStack is a EnumOfInternetProtocolForDescribeDBInstanceDetailOutput enum value
+	EnumOfInternetProtocolForDescribeDBInstanceDetailOutputDualStack = "DualStack"
+)
+
+const (
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPrivate is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPrivate = "Private"
+
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPublic is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputPublic = "Public"
+
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputInner is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputInner = "Inner"
+
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputIngress is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputIngress = "Ingress"
+
+	// EnumOfNetworkTypeForDescribeDBInstanceDetailOutputCarma is a EnumOfNetworkTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNetworkTypeForDescribeDBInstanceDetailOutputCarma = "Carma"
+)
+
+const (
+	// EnumOfNodeTypeForDescribeDBInstanceDetailOutputPrimary is a EnumOfNodeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeTypeForDescribeDBInstanceDetailOutputPrimary = "Primary"
+
+	// EnumOfNodeTypeForDescribeDBInstanceDetailOutputSecondary is a EnumOfNodeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeTypeForDescribeDBInstanceDetailOutputSecondary = "Secondary"
+
+	// EnumOfNodeTypeForDescribeDBInstanceDetailOutputReadOnly is a EnumOfNodeTypeForDescribeDBInstanceDetailOutput enum value
+	EnumOfNodeTypeForDescribeDBInstanceDetailOutputReadOnly = "ReadOnly"
+)
+
+const (
+	// EnumOfPeriodUnitForDescribeDBInstanceDetailOutputMonth is a EnumOfPeriodUnitForDescribeDBInstanceDetailOutput enum value
+	EnumOfPeriodUnitForDescribeDBInstanceDetailOutputMonth = "Month"
+
+	// EnumOfPeriodUnitForDescribeDBInstanceDetailOutputYear is a EnumOfPeriodUnitForDescribeDBInstanceDetailOutput enum value
+	EnumOfPeriodUnitForDescribeDBInstanceDetailOutputYear = "Year"
+)

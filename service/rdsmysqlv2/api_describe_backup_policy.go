@@ -144,10 +144,10 @@ func (c *RDSMYSQLV2) DescribeBackupPolicyWithContext(ctx volcengine.Context, inp
 }
 
 type DescribeBackupPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,33 +180,33 @@ func (s *DescribeBackupPolicyInput) SetInstanceId(v string) *DescribeBackupPolic
 }
 
 type DescribeBackupPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BinlogFileCountsEnable *bool `type:"boolean"`
+	BinlogFileCountsEnable *bool `type:"boolean" json:",omitempty"`
 
-	BinlogLimitCount *int32 `type:"int32"`
+	BinlogLimitCount *int32 `type:"int32" json:",omitempty"`
 
-	BinlogLocalRetentionHour *int32 `type:"int32"`
+	BinlogLocalRetentionHour *int32 `type:"int32" json:",omitempty"`
 
-	BinlogSpaceLimitEnable *bool `type:"boolean"`
+	BinlogSpaceLimitEnable *bool `type:"boolean" json:",omitempty"`
 
-	BinlogStoragePercentage *int32 `type:"int32"`
+	BinlogStoragePercentage *int32 `type:"int32" json:",omitempty"`
 
-	DataBackupRetentionDay *int32 `type:"int32"`
+	DataBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 
-	DataFullBackupPeriods []*string `type:"list"`
+	DataFullBackupPeriods []*string `type:"list" json:",omitempty"`
 
-	DataFullBackupTime *string `type:"string"`
+	DataFullBackupTime *string `type:"string" json:",omitempty"`
 
-	DataIncrBackupPeriods []*string `type:"list"`
+	DataIncrBackupPeriods []*string `type:"list" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	LockDdlTime *int32 `type:"int32"`
+	LockDDLTime *int32 `type:"int32" json:",omitempty"`
 
-	LogBackupRetentionDay *int32 `type:"int32"`
+	LogBackupRetentionDay *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -279,9 +279,9 @@ func (s *DescribeBackupPolicyOutput) SetInstanceId(v string) *DescribeBackupPoli
 	return s
 }
 
-// SetLockDdlTime sets the LockDdlTime field's value.
-func (s *DescribeBackupPolicyOutput) SetLockDdlTime(v int32) *DescribeBackupPolicyOutput {
-	s.LockDdlTime = &v
+// SetLockDDLTime sets the LockDDLTime field's value.
+func (s *DescribeBackupPolicyOutput) SetLockDDLTime(v int32) *DescribeBackupPolicyOutput {
+	s.LockDDLTime = &v
 	return s
 }
 

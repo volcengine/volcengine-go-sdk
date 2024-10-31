@@ -144,19 +144,19 @@ func (c *RDSMYSQLV2) CreateDatabaseWithContext(ctx volcengine.Context, input *Cr
 }
 
 type CreateDatabaseInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CharacterSetName *string `type:"string"`
+	CharacterSetName *string `type:"string" json:",omitempty"`
 
-	DBDesc *string `type:"string"`
+	DBDesc *string `type:"string" json:",omitempty"`
 
 	// DBName is a required field
-	DBName *string `type:"string" required:"true"`
+	DBName *string `type:"string" json:",omitempty" required:"true"`
 
-	DatabasePrivileges []*DatabasePrivilegeForCreateDatabaseInput `type:"list"`
+	DatabasePrivileges []*DatabasePrivilegeForCreateDatabaseInput `type:"list" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -216,7 +216,7 @@ func (s *CreateDatabaseInput) SetInstanceId(v string) *CreateDatabaseInput {
 }
 
 type CreateDatabaseOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -232,15 +232,15 @@ func (s CreateDatabaseOutput) GoString() string {
 }
 
 type DatabasePrivilegeForCreateDatabaseInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccountName *string `type:"string"`
+	AccountName *string `type:"string" json:",omitempty"`
 
-	AccountPrivilege *string `type:"string"`
+	AccountPrivilege *string `type:"string" json:",omitempty"`
 
-	AccountPrivilegeDetail *string `type:"string"`
+	AccountPrivilegeDetail *string `type:"string" json:",omitempty"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

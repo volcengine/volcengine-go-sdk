@@ -144,31 +144,31 @@ func (c *RDSMYSQLV2) ModifyAllowListWithContext(ctx volcengine.Context, input *M
 }
 
 type ModifyAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowList *string `type:"string"`
+	AllowList *string `type:"string" json:",omitempty"`
 
-	AllowListCategory *string `type:"string"`
+	AllowListCategory *string `type:"string" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	// AllowListId is a required field
-	AllowListId *string `type:"string" required:"true"`
+	AllowListId *string `type:"string" json:",omitempty" required:"true"`
 
 	// AllowListName is a required field
-	AllowListName *string `type:"string" required:"true"`
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	ApplyInstanceNum *int32 `type:"int32"`
+	ApplyInstanceNum *int32 `type:"int32" json:",omitempty"`
 
-	ModifyMode *string `type:"string"`
+	ModifyMode *string `type:"string" json:",omitempty"`
 
-	SecurityGroupBindInfos []*SecurityGroupBindInfoForModifyAllowListInput `type:"list"`
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForModifyAllowListInput `type:"list" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	UpdateSecurityGroup *bool `type:"boolean"`
+	UpdateSecurityGroup *bool `type:"boolean" json:",omitempty"`
 
-	UserAllowList *string `type:"string"`
+	UserAllowList *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -264,7 +264,7 @@ func (s *ModifyAllowListInput) SetUserAllowList(v string) *ModifyAllowListInput 
 }
 
 type ModifyAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }
@@ -280,15 +280,15 @@ func (s ModifyAllowListOutput) GoString() string {
 }
 
 type SecurityGroupBindInfoForModifyAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BindMode *string `type:"string"`
+	BindMode *string `type:"string" json:",omitempty"`
 
-	IpList []*string `type:"list"`
+	IpList []*string `type:"list" json:",omitempty"`
 
-	SecurityGroupId *string `type:"string"`
+	SecurityGroupId *string `type:"string" json:",omitempty"`
 
-	SecurityGroupName *string `type:"string"`
+	SecurityGroupName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

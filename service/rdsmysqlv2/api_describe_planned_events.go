@@ -144,19 +144,19 @@ func (c *RDSMYSQLV2) DescribePlannedEventsWithContext(ctx volcengine.Context, in
 }
 
 type DescribePlannedEventsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BeginTime *string `type:"string"`
+	BeginTime *string `type:"string" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
-	EventId *string `type:"string"`
+	EventId *string `type:"string" json:",omitempty"`
 
-	EventType []*string `type:"list"`
+	EventType []*string `type:"list" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	Status []*string `type:"list"`
+	Status []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -206,13 +206,13 @@ func (s *DescribePlannedEventsInput) SetStatus(v []*string) *DescribePlannedEven
 }
 
 type DescribePlannedEventsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	PlannedEvents []*PlannedEventForDescribePlannedEventsOutput `type:"list"`
+	PlannedEvents []*PlannedEventForDescribePlannedEventsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -238,41 +238,41 @@ func (s *DescribePlannedEventsOutput) SetTotal(v int32) *DescribePlannedEventsOu
 }
 
 type PlannedEventForDescribePlannedEventsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BusinessImpact *string `type:"string"`
+	BusinessImpact *string `type:"string" json:",omitempty"`
 
-	DBEngine *string `type:"string"`
+	DBEngine *string `type:"string" json:",omitempty"`
 
-	EventAction *string `type:"string"`
+	EventAction *string `type:"string" json:",omitempty"`
 
-	EventID *string `type:"string"`
+	EventID *string `type:"string" json:",omitempty"`
 
-	EventName *string `type:"string"`
+	EventName *string `type:"string" json:",omitempty"`
 
-	EventType *string `type:"string"`
+	EventType *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	IsUrgent *bool `type:"boolean"`
+	IsUrgent *bool `type:"boolean" json:",omitempty"`
 
-	MaxDelayTime *string `type:"string"`
+	MaxDelayTime *string `type:"string" json:",omitempty"`
 
-	OriginBeginTime *string `type:"string"`
+	OriginBeginTime *string `type:"string" json:",omitempty"`
 
-	PlannedBeginTime *string `type:"string"`
+	PlannedBeginTime *string `type:"string" json:",omitempty"`
 
-	PlannedEndTime *string `type:"string"`
+	PlannedEndTime *string `type:"string" json:",omitempty"`
 
-	PlannedEventDescription *string `type:"string"`
+	PlannedEventDescription *string `type:"string" json:",omitempty"`
 
-	PlannedEventReason *string `type:"string"`
+	PlannedEventReason *string `type:"string" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	Status *string `type:"string"`
+	Status *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

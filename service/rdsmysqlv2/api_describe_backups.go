@@ -144,41 +144,41 @@ func (c *RDSMYSQLV2) DescribeBackupsWithContext(ctx volcengine.Context, input *D
 }
 
 type BackupForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupEndTime *string `type:"string"`
+	BackupEndTime *string `type:"string" json:",omitempty"`
 
-	BackupFileName *string `type:"string"`
+	BackupFileName *string `type:"string" json:",omitempty"`
 
-	BackupFileSize *int64 `type:"int64"`
+	BackupFileSize *int64 `type:"int64" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupMethod *string `type:"string"`
+	BackupMethod *string `type:"string" json:",omitempty"`
 
-	BackupRegion *string `type:"string"`
+	BackupRegion *string `type:"string" json:",omitempty"`
 
-	BackupStartTime *string `type:"string"`
+	BackupStartTime *string `type:"string" json:",omitempty"`
 
-	BackupStatus *string `type:"string"`
+	BackupStatus *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" json:",omitempty"`
 
-	ConsistentTime *string `type:"string"`
+	ConsistentTime *string `type:"string" json:",omitempty"`
 
-	CreateType *string `type:"string"`
+	CreateType *string `type:"string" json:",omitempty"`
 
-	DBTableInfos []*DBTableInfoForDescribeBackupsOutput `type:"list"`
+	DBTableInfos []*DBTableInfoForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
-	DownloadStatus *string `type:"string"`
+	DownloadStatus *string `type:"string" json:",omitempty"`
 
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `type:"string" json:",omitempty"`
 
-	ExpiredTime *string `type:"string"`
+	ExpiredTime *string `type:"string" json:",omitempty"`
 
-	IsEncrypted *bool `type:"boolean"`
+	IsEncrypted *bool `type:"boolean" json:",omitempty"`
 
-	IsExpired *bool `type:"boolean"`
+	IsExpired *bool `type:"boolean" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -294,11 +294,11 @@ func (s *BackupForDescribeBackupsOutput) SetIsExpired(v bool) *BackupForDescribe
 }
 
 type DBTableInfoForDescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Database *string `type:"string"`
+	Database *string `type:"string" json:",omitempty"`
 
-	Tables []*string `type:"list"`
+	Tables []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -324,28 +324,28 @@ func (s *DBTableInfoForDescribeBackupsOutput) SetTables(v []*string) *DBTableInf
 }
 
 type DescribeBackupsInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BackupEndTime *string `type:"string"`
+	BackupEndTime *string `type:"string" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	BackupMethod *string `type:"string"`
+	BackupMethod *string `type:"string" json:",omitempty"`
 
-	BackupStartTime *string `type:"string"`
+	BackupStartTime *string `type:"string" json:",omitempty"`
 
-	BackupStatus *string `type:"string"`
+	BackupStatus *string `type:"string" json:",omitempty"`
 
-	BackupType *string `type:"string"`
+	BackupType *string `type:"string" json:",omitempty"`
 
-	CreateType *string `type:"string"`
+	CreateType *string `type:"string" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -432,13 +432,13 @@ func (s *DescribeBackupsInput) SetPageSize(v int32) *DescribeBackupsInput {
 }
 
 type DescribeBackupsOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Backups []*BackupForDescribeBackupsOutput `type:"list"`
+	Backups []*BackupForDescribeBackupsOutput `type:"list" json:",omitempty"`
 
-	Total *int32 `type:"int32"`
+	Total *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

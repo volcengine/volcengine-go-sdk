@@ -144,10 +144,10 @@ func (c *RDSMYSQLV2) DescribeCrossBackupPolicyWithContext(ctx volcengine.Context
 }
 
 type DescribeCrossBackupPolicyInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -180,19 +180,19 @@ func (s *DescribeCrossBackupPolicyInput) SetInstanceId(v string) *DescribeCrossB
 }
 
 type DescribeCrossBackupPolicyOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	BackupEnabled *bool `type:"boolean"`
+	BackupEnabled *bool `type:"boolean" json:",omitempty"`
 
-	CrossBackupRegion *string `type:"string"`
+	CrossBackupRegion *string `type:"string" json:",omitempty"`
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	LogBackupEnabled *bool `type:"boolean"`
+	LogBackupEnabled *bool `type:"boolean" json:",omitempty"`
 
-	Retention *int32 `type:"int32"`
+	Retention *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

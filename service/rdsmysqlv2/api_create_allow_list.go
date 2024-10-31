@@ -144,24 +144,24 @@ func (c *RDSMYSQLV2) CreateAllowListWithContext(ctx volcengine.Context, input *C
 }
 
 type CreateAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowList *string `type:"string"`
+	AllowList *string `type:"string" json:",omitempty"`
 
-	AllowListCategory *string `type:"string"`
+	AllowListCategory *string `type:"string" json:",omitempty"`
 
-	AllowListDesc *string `type:"string"`
+	AllowListDesc *string `type:"string" json:",omitempty"`
 
 	// AllowListName is a required field
-	AllowListName *string `type:"string" required:"true"`
+	AllowListName *string `type:"string" json:",omitempty" required:"true"`
 
-	AllowListType *string `type:"string"`
+	AllowListType *string `type:"string" json:",omitempty"`
 
-	SecurityGroupBindInfos []*SecurityGroupBindInfoForCreateAllowListInput `type:"list"`
+	SecurityGroupBindInfos []*SecurityGroupBindInfoForCreateAllowListInput `type:"list" json:",omitempty"`
 
-	SecurityGroupIds []*string `type:"list"`
+	SecurityGroupIds []*string `type:"list" json:",omitempty"`
 
-	UserAllowList *string `type:"string"`
+	UserAllowList *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -236,11 +236,11 @@ func (s *CreateAllowListInput) SetUserAllowList(v string) *CreateAllowListInput 
 }
 
 type CreateAllowListOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AllowListId *string `type:"string"`
+	AllowListId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -260,15 +260,15 @@ func (s *CreateAllowListOutput) SetAllowListId(v string) *CreateAllowListOutput 
 }
 
 type SecurityGroupBindInfoForCreateAllowListInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	BindMode *string `type:"string"`
+	BindMode *string `type:"string" json:",omitempty"`
 
-	IpList []*string `type:"list"`
+	IpList []*string `type:"list" json:",omitempty"`
 
-	SecurityGroupId *string `type:"string"`
+	SecurityGroupId *string `type:"string" json:",omitempty"`
 
-	SecurityGroupName *string `type:"string"`
+	SecurityGroupName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation

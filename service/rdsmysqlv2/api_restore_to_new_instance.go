@@ -144,17 +144,17 @@ func (c *RDSMYSQLV2) RestoreToNewInstanceWithContext(ctx volcengine.Context, inp
 }
 
 type ChargeInfoForRestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `type:"boolean" json:",omitempty"`
 
-	ChargeType *string `type:"string"`
+	ChargeType *string `type:"string" json:",omitempty"`
 
-	Number *int32 `type:"int32"`
+	Number *int32 `type:"int32" json:",omitempty"`
 
-	Period *int32 `type:"int32"`
+	Period *int32 `type:"int32" json:",omitempty"`
 
-	PeriodUnit *string `type:"string"`
+	PeriodUnit *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,11 +198,11 @@ func (s *ChargeInfoForRestoreToNewInstanceInput) SetPeriodUnit(v string) *Charge
 }
 
 type InstanceTagForRestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Key *string `type:"string"`
+	Key *string `type:"string" json:",omitempty"`
 
-	Value *string `type:"string"`
+	Value *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,17 +228,17 @@ func (s *InstanceTagForRestoreToNewInstanceInput) SetValue(v string) *InstanceTa
 }
 
 type NodeInfoForRestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	NodeId *string `type:"string"`
+	NodeId *string `type:"string" json:",omitempty"`
 
-	NodeOperateType *string `type:"string"`
+	NodeOperateType *string `type:"string" json:",omitempty"`
 
-	NodeSpec *string `type:"string"`
+	NodeSpec *string `type:"string" json:",omitempty"`
 
-	NodeType *string `type:"string"`
+	NodeType *string `type:"string" json:",omitempty"`
 
-	ZoneId *string `type:"string"`
+	ZoneId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -282,41 +282,41 @@ func (s *NodeInfoForRestoreToNewInstanceInput) SetZoneId(v string) *NodeInfoForR
 }
 
 type RestoreToNewInstanceInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AllowListIds []*string `type:"list"`
+	AllowListIds []*string `type:"list" json:",omitempty"`
 
-	BackupId *string `type:"string"`
+	BackupId *string `type:"string" json:",omitempty"`
 
-	ChargeInfo *ChargeInfoForRestoreToNewInstanceInput `type:"structure"`
+	ChargeInfo *ChargeInfoForRestoreToNewInstanceInput `type:"structure" json:",omitempty"`
 
-	DBParamGroupId *string `type:"string"`
+	DBParamGroupId *string `type:"string" json:",omitempty"`
 
-	InstanceName *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	InstanceTags []*InstanceTagForRestoreToNewInstanceInput `type:"list"`
+	InstanceTags []*InstanceTagForRestoreToNewInstanceInput `type:"list" json:",omitempty"`
 
-	NodeInfo []*NodeInfoForRestoreToNewInstanceInput `type:"list"`
+	NodeInfo []*NodeInfoForRestoreToNewInstanceInput `type:"list" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	ProjectName *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	RestoreTime *string `type:"string"`
+	RestoreTime *string `type:"string" json:",omitempty"`
 
 	// SrcInstanceId is a required field
-	SrcInstanceId *string `type:"string" required:"true"`
+	SrcInstanceId *string `type:"string" json:",omitempty" required:"true"`
 
-	StorageSpace *int32 `type:"int32"`
+	StorageSpace *int32 `type:"int32" json:",omitempty"`
 
 	// StorageType is a required field
-	StorageType *string `type:"string" required:"true"`
+	StorageType *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfStorageTypeForRestoreToNewInstanceInput"`
 
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `type:"string" json:",omitempty" required:"true"`
 
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -442,13 +442,13 @@ func (s *RestoreToNewInstanceInput) SetVpcId(v string) *RestoreToNewInstanceInpu
 }
 
 type RestoreToNewInstanceOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	InstanceId *string `type:"string"`
+	InstanceId *string `type:"string" json:",omitempty"`
 
-	OrderId *string `type:"string"`
+	OrderId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -472,3 +472,17 @@ func (s *RestoreToNewInstanceOutput) SetOrderId(v string) *RestoreToNewInstanceO
 	s.OrderId = &v
 	return s
 }
+
+const (
+	// EnumOfStorageTypeForRestoreToNewInstanceInputLocalSsd is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputLocalSsd = "LocalSSD"
+
+	// EnumOfStorageTypeForRestoreToNewInstanceInputCloudStorage is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputCloudStorage = "CloudStorage"
+
+	// EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl1 is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl1 = "ESSDPL1"
+
+	// EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl2 is a EnumOfStorageTypeForRestoreToNewInstanceInput enum value
+	EnumOfStorageTypeForRestoreToNewInstanceInputEssdpl2 = "ESSDPL2"
+)
