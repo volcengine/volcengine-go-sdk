@@ -144,43 +144,43 @@ func (c *WAF) ListBlockRuleWithContext(ctx volcengine.Context, input *ListBlockR
 }
 
 type DataForListBlockRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	AddSrc *int32 `type:"int32"`
+	AddSrc *int32 `type:"int32" json:",omitempty"`
 
-	Advanced *int32 `type:"int32"`
+	Advanced *int32 `type:"int32" json:",omitempty"`
 
-	ClientIp *string `type:"string"`
+	ClientIp *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Enable *int32 `type:"int32"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
-	GroupId *int32 `type:"int32"`
+	GroupId *int32 `type:"int32" json:",omitempty"`
 
-	Host *string `type:"string"`
+	Host *string `type:"string" json:",omitempty"`
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 
-	IpAddType *int32 `type:"int32"`
+	IpAddType *int32 `type:"int32" json:",omitempty"`
 
-	IpGroups []*IpGroupForListBlockRuleOutput `type:"list"`
+	IpGroups []*IpGroupForListBlockRuleOutput `type:"list" json:",omitempty"`
 
-	IpType *int32 `type:"int32"`
+	IpType *int32 `type:"int32" json:",omitempty"`
 
-	IsolationId *string `type:"string"`
+	IsolationId *string `type:"string" json:",omitempty"`
 
-	JsConfId *int32 `type:"int32"`
+	JsConfId *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	RuleTag *string `type:"string"`
+	RuleTag *string `type:"string" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	Url *string `type:"string"`
+	Url *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -302,11 +302,11 @@ func (s *DataForListBlockRuleOutput) SetUrl(v string) *DataForListBlockRuleOutpu
 }
 
 type IpGroupForListBlockRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IpGroupId *int32 `type:"int32"`
+	IpGroupId *int32 `type:"int32" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -332,14 +332,16 @@ func (s *IpGroupForListBlockRuleOutput) SetName(v string) *IpGroupForListBlockRu
 }
 
 type ListBlockRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	Page *int32 `type:"int32"`
+	Page *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -383,20 +385,26 @@ func (s *ListBlockRuleInput) SetPageSize(v int32) *ListBlockRuleInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListBlockRuleInput) SetProjectName(v string) *ListBlockRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 type ListBlockRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	CurrentPage *int32 `type:"int32"`
+	CurrentPage *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForListBlockRuleOutput `type:"list"`
+	Data []*DataForListBlockRuleOutput `type:"list" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

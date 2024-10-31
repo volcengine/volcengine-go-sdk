@@ -144,15 +144,15 @@ func (c *WAF) UpdateDomainWithContext(ctx volcengine.Context, input *UpdateDomai
 }
 
 type BackendForUpdateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IP *string `type:"string"`
+	IP *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Protocol *string `type:"string"`
+	Protocol *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,13 +190,13 @@ func (s *BackendForUpdateDomainInput) SetWeight(v int32) *BackendForUpdateDomain
 }
 
 type BackendGroupForUpdateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPort []*int32 `type:"list"`
+	AccessPort []*int32 `type:"list" json:",omitempty"`
 
-	Backends []*BackendForUpdateDomainInput `type:"list"`
+	Backends []*BackendForUpdateDomainInput `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,17 +228,23 @@ func (s *BackendGroupForUpdateDomainInput) SetName(v string) *BackendGroupForUpd
 }
 
 type CloudAccessConfigForUpdateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessProtocol *string `type:"string"`
+	AccessProtocol *string `type:"string" json:",omitempty"`
 
-	InstanceID *string `type:"string"`
+	DefenceMode *int32 `type:"int32" json:",omitempty"`
 
-	ListenerID *string `type:"string"`
+	InstanceID *string `type:"string" json:",omitempty"`
 
-	Port *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	Protocol *string `type:"string"`
+	ListenerID *string `type:"string" json:",omitempty"`
+
+	LostAssociationFromALB *int32 `type:"int32" json:",omitempty"`
+
+	Port *string `type:"string" json:",omitempty"`
+
+	Protocol *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -257,15 +263,33 @@ func (s *CloudAccessConfigForUpdateDomainInput) SetAccessProtocol(v string) *Clo
 	return s
 }
 
+// SetDefenceMode sets the DefenceMode field's value.
+func (s *CloudAccessConfigForUpdateDomainInput) SetDefenceMode(v int32) *CloudAccessConfigForUpdateDomainInput {
+	s.DefenceMode = &v
+	return s
+}
+
 // SetInstanceID sets the InstanceID field's value.
 func (s *CloudAccessConfigForUpdateDomainInput) SetInstanceID(v string) *CloudAccessConfigForUpdateDomainInput {
 	s.InstanceID = &v
 	return s
 }
 
+// SetInstanceName sets the InstanceName field's value.
+func (s *CloudAccessConfigForUpdateDomainInput) SetInstanceName(v string) *CloudAccessConfigForUpdateDomainInput {
+	s.InstanceName = &v
+	return s
+}
+
 // SetListenerID sets the ListenerID field's value.
 func (s *CloudAccessConfigForUpdateDomainInput) SetListenerID(v string) *CloudAccessConfigForUpdateDomainInput {
 	s.ListenerID = &v
+	return s
+}
+
+// SetLostAssociationFromALB sets the LostAssociationFromALB field's value.
+func (s *CloudAccessConfigForUpdateDomainInput) SetLostAssociationFromALB(v int32) *CloudAccessConfigForUpdateDomainInput {
+	s.LostAssociationFromALB = &v
 	return s
 }
 
@@ -281,12 +305,80 @@ func (s *CloudAccessConfigForUpdateDomainInput) SetProtocol(v string) *CloudAcce
 	return s
 }
 
+type HeadersConfigForUpdateDomainInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Enable *int32 `type:"int32" json:",omitempty"`
+
+	ExcludedKeyList []*string `type:"list" json:",omitempty"`
+
+	StatisticalKeyList []*string `type:"list" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s HeadersConfigForUpdateDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s HeadersConfigForUpdateDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetEnable sets the Enable field's value.
+func (s *HeadersConfigForUpdateDomainInput) SetEnable(v int32) *HeadersConfigForUpdateDomainInput {
+	s.Enable = &v
+	return s
+}
+
+// SetExcludedKeyList sets the ExcludedKeyList field's value.
+func (s *HeadersConfigForUpdateDomainInput) SetExcludedKeyList(v []*string) *HeadersConfigForUpdateDomainInput {
+	s.ExcludedKeyList = v
+	return s
+}
+
+// SetStatisticalKeyList sets the StatisticalKeyList field's value.
+func (s *HeadersConfigForUpdateDomainInput) SetStatisticalKeyList(v []*string) *HeadersConfigForUpdateDomainInput {
+	s.StatisticalKeyList = v
+	return s
+}
+
+type LLMPathInfoForUpdateDomainInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	Path *string `type:"string" json:",omitempty"`
+
+	TokenLocation *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LLMPathInfoForUpdateDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LLMPathInfoForUpdateDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetPath sets the Path field's value.
+func (s *LLMPathInfoForUpdateDomainInput) SetPath(v string) *LLMPathInfoForUpdateDomainInput {
+	s.Path = &v
+	return s
+}
+
+// SetTokenLocation sets the TokenLocation field's value.
+func (s *LLMPathInfoForUpdateDomainInput) SetTokenLocation(v string) *LLMPathInfoForUpdateDomainInput {
+	s.TokenLocation = &v
+	return s
+}
+
 type ProtocolPortsForUpdateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HTTP []*int32 `type:"list"`
+	HTTP []*int32 `type:"list" json:",omitempty"`
 
-	HTTPS []*int32 `type:"list"`
+	HTTPS []*int32 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -311,85 +403,121 @@ func (s *ProtocolPortsForUpdateDomainInput) SetHTTPS(v []*int32) *ProtocolPortsF
 	return s
 }
 
+type TLSFieldsConfigForUpdateDomainInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	HeadersConfig *HeadersConfigForUpdateDomainInput `type:"structure" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s TLSFieldsConfigForUpdateDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TLSFieldsConfigForUpdateDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetHeadersConfig sets the HeadersConfig field's value.
+func (s *TLSFieldsConfigForUpdateDomainInput) SetHeadersConfig(v *HeadersConfigForUpdateDomainInput) *TLSFieldsConfigForUpdateDomainInput {
+	s.HeadersConfig = v
+	return s
+}
+
 type UpdateDomainInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// AccessMode is a required field
-	AccessMode *int32 `type:"int32" required:"true"`
+	AccessMode *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	BackendGroups []*BackendGroupForUpdateDomainInput `type:"list"`
+	BackendGroups []*BackendGroupForUpdateDomainInput `type:"list" json:",omitempty"`
 
-	BotDytokenEnable *int32 `type:"int32"`
+	BotDytokenEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotFrequencyEnable *int32 `type:"int32"`
+	BotFrequencyEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotRepeatEnable *int32 `type:"int32"`
+	BotRepeatEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotSequenceDefaultAction *int32 `type:"int32"`
+	BotSequenceDefaultAction *int32 `type:"int32" json:",omitempty"`
 
-	BotSequenceEnable *int32 `type:"int32"`
+	BotSequenceEnable *int32 `type:"int32" json:",omitempty"`
 
-	CertificateID *int32 `type:"int32"`
+	CertificateID *int32 `type:"int32" json:",omitempty"`
 
-	CertificatePlatform *string `type:"string"`
+	CertificatePlatform *string `type:"string" json:",omitempty"`
 
-	ClientIPLocation *int32 `type:"int32"`
+	ClientIPLocation *int32 `type:"int32" json:",omitempty"`
 
-	ClientMaxBodySize *int32 `type:"int32"`
+	ClientMaxBodySize *int32 `type:"int32" json:",omitempty"`
 
-	CloudAccessConfig []*CloudAccessConfigForUpdateDomainInput `type:"list"`
+	CloudAccessConfig []*CloudAccessConfigForUpdateDomainInput `type:"list" json:",omitempty"`
 
-	CustomHeader []*string `type:"list"`
+	CustomHeader []*string `type:"list" json:",omitempty"`
+
+	CustomSNI *string `type:"string" json:",omitempty"`
 
 	// Domain is a required field
-	Domain *string `type:"string" required:"true"`
+	Domain *string `type:"string" json:",omitempty" required:"true"`
 
-	EnableHTTP2 *int32 `type:"int32"`
+	EnableCustomRedirect *int32 `type:"int32" json:",omitempty"`
 
-	EnableIPv6 *int32 `type:"int32"`
+	EnableHTTP2 *int32 `type:"int32" json:",omitempty"`
 
-	KeepAliveRequest *int32 `type:"int32"`
+	EnableIPv6 *int32 `type:"int32" json:",omitempty"`
 
-	KeepAliveTimeOut *int32 `type:"int32"`
+	EnableSNI *int32 `type:"int32" json:",omitempty"`
 
-	LBAlgorithm *string `type:"string"`
+	KeepAliveRequest *int32 `type:"int32" json:",omitempty"`
 
-	ProtocolFollow *int32 `type:"int32"`
+	KeepAliveTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	ProtocolPorts *ProtocolPortsForUpdateDomainInput `type:"structure"`
+	LBAlgorithm *string `type:"string" json:",omitempty"`
 
-	Protocols []*string `type:"list"`
+	LLMAvailable *bool `type:"boolean" json:",omitempty"`
 
-	ProxyConfig *int32 `type:"int32"`
+	LLMPathInfo []*LLMPathInfoForUpdateDomainInput `type:"list" json:",omitempty"`
 
-	ProxyConnectTimeOut *int32 `type:"int32"`
+	ProjectName *string `type:"string" json:",omitempty"`
 
-	ProxyKeepAlive *int32 `type:"int32"`
+	ProtocolFollow *int32 `type:"int32" json:",omitempty"`
 
-	ProxyKeepAliveTimeOut *int32 `type:"int32"`
+	ProtocolPorts *ProtocolPortsForUpdateDomainInput `type:"structure" json:",omitempty"`
 
-	ProxyReadTimeOut *int32 `type:"int32"`
+	Protocols []*string `type:"list" json:",omitempty"`
 
-	ProxyRetry *int32 `type:"int32"`
+	ProxyConfig *int32 `type:"int32" json:",omitempty"`
 
-	ProxyWriteTimeOut *int32 `type:"int32"`
+	ProxyConnectTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	PublicRealServer *int32 `type:"int32"`
+	ProxyKeepAlive *int32 `type:"int32" json:",omitempty"`
 
-	RedirectHTTPS *bool `type:"boolean"`
+	ProxyKeepAliveTimeOut *int32 `type:"int32" json:",omitempty"`
+
+	ProxyReadTimeOut *int32 `type:"int32" json:",omitempty"`
+
+	ProxyRetry *int32 `type:"int32" json:",omitempty"`
+
+	ProxyWriteTimeOut *int32 `type:"int32" json:",omitempty"`
+
+	PublicRealServer *int32 `type:"int32" json:",omitempty"`
+
+	RedirectHTTPS *bool `type:"boolean" json:",omitempty"`
 
 	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *string `type:"string" json:",omitempty" required:"true"`
 
-	SSLCiphers []*string `type:"list"`
+	SSLCiphers []*string `type:"list" json:",omitempty"`
 
-	SSLProtocols []*string `type:"list"`
+	SSLProtocols []*string `type:"list" json:",omitempty"`
 
-	TLSEnable *int32 `type:"int32"`
+	TLSEnable *int32 `type:"int32" json:",omitempty"`
 
-	VolcCertificateID *string `type:"string"`
+	TLSFieldsConfig *TLSFieldsConfigForUpdateDomainInput `type:"structure" json:",omitempty"`
 
-	VpcID *string `type:"string"`
+	VolcCertificateID *string `type:"string" json:",omitempty"`
+
+	VpcID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -499,9 +627,21 @@ func (s *UpdateDomainInput) SetCustomHeader(v []*string) *UpdateDomainInput {
 	return s
 }
 
+// SetCustomSNI sets the CustomSNI field's value.
+func (s *UpdateDomainInput) SetCustomSNI(v string) *UpdateDomainInput {
+	s.CustomSNI = &v
+	return s
+}
+
 // SetDomain sets the Domain field's value.
 func (s *UpdateDomainInput) SetDomain(v string) *UpdateDomainInput {
 	s.Domain = &v
+	return s
+}
+
+// SetEnableCustomRedirect sets the EnableCustomRedirect field's value.
+func (s *UpdateDomainInput) SetEnableCustomRedirect(v int32) *UpdateDomainInput {
+	s.EnableCustomRedirect = &v
 	return s
 }
 
@@ -514,6 +654,12 @@ func (s *UpdateDomainInput) SetEnableHTTP2(v int32) *UpdateDomainInput {
 // SetEnableIPv6 sets the EnableIPv6 field's value.
 func (s *UpdateDomainInput) SetEnableIPv6(v int32) *UpdateDomainInput {
 	s.EnableIPv6 = &v
+	return s
+}
+
+// SetEnableSNI sets the EnableSNI field's value.
+func (s *UpdateDomainInput) SetEnableSNI(v int32) *UpdateDomainInput {
+	s.EnableSNI = &v
 	return s
 }
 
@@ -532,6 +678,24 @@ func (s *UpdateDomainInput) SetKeepAliveTimeOut(v int32) *UpdateDomainInput {
 // SetLBAlgorithm sets the LBAlgorithm field's value.
 func (s *UpdateDomainInput) SetLBAlgorithm(v string) *UpdateDomainInput {
 	s.LBAlgorithm = &v
+	return s
+}
+
+// SetLLMAvailable sets the LLMAvailable field's value.
+func (s *UpdateDomainInput) SetLLMAvailable(v bool) *UpdateDomainInput {
+	s.LLMAvailable = &v
+	return s
+}
+
+// SetLLMPathInfo sets the LLMPathInfo field's value.
+func (s *UpdateDomainInput) SetLLMPathInfo(v []*LLMPathInfoForUpdateDomainInput) *UpdateDomainInput {
+	s.LLMPathInfo = v
+	return s
+}
+
+// SetProjectName sets the ProjectName field's value.
+func (s *UpdateDomainInput) SetProjectName(v string) *UpdateDomainInput {
+	s.ProjectName = &v
 	return s
 }
 
@@ -631,6 +795,12 @@ func (s *UpdateDomainInput) SetTLSEnable(v int32) *UpdateDomainInput {
 	return s
 }
 
+// SetTLSFieldsConfig sets the TLSFieldsConfig field's value.
+func (s *UpdateDomainInput) SetTLSFieldsConfig(v *TLSFieldsConfigForUpdateDomainInput) *UpdateDomainInput {
+	s.TLSFieldsConfig = v
+	return s
+}
+
 // SetVolcCertificateID sets the VolcCertificateID field's value.
 func (s *UpdateDomainInput) SetVolcCertificateID(v string) *UpdateDomainInput {
 	s.VolcCertificateID = &v
@@ -644,7 +814,7 @@ func (s *UpdateDomainInput) SetVpcID(v string) *UpdateDomainInput {
 }
 
 type UpdateDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,11 +144,11 @@ func (c *WAF) CreateBotAnalyseProtectRuleWithContext(ctx volcengine.Context, inp
 }
 
 type AccurateGroupForCreateBotAnalyseProtectRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateRules []*AccurateRuleForCreateBotAnalyseProtectRuleInput `type:"list"`
+	AccurateRules []*AccurateRuleForCreateBotAnalyseProtectRuleInput `type:"list" json:",omitempty"`
 
-	Logic *int32 `type:"int32"`
+	Logic *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,17 +174,17 @@ func (s *AccurateGroupForCreateBotAnalyseProtectRuleInput) SetLogic(v int32) *Ac
 }
 
 type AccurateRuleForCreateBotAnalyseProtectRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpObj *string `type:"string"`
+	HttpObj *string `type:"string" json:",omitempty"`
 
-	ObjType *int32 `type:"int32"`
+	ObjType *int32 `type:"int32" json:",omitempty"`
 
-	Opretar *int32 `type:"int32"`
+	Opretar *int32 `type:"int32" json:",omitempty"`
 
-	Property *int32 `type:"int32"`
+	Property *int32 `type:"int32" json:",omitempty"`
 
-	ValueString *string `type:"string"`
+	ValueString *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,50 +228,52 @@ func (s *AccurateRuleForCreateBotAnalyseProtectRuleInput) SetValueString(v strin
 }
 
 type CreateBotAnalyseProtectRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateGroup []*AccurateGroupForCreateBotAnalyseProtectRuleInput `type:"list"`
+	AccurateGroup []*AccurateGroupForCreateBotAnalyseProtectRuleInput `type:"list" json:",omitempty"`
 
-	ActionAfterVerification *int32 `type:"int32"`
+	ActionAfterVerification *int32 `type:"int32" json:",omitempty"`
 
 	// ActionType is a required field
-	ActionType *int32 `type:"int32" required:"true"`
+	ActionType *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// EffectTime is a required field
-	EffectTime *int32 `type:"int32" required:"true"`
+	EffectTime *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Enable is a required field
-	Enable *int32 `type:"int32" required:"true"`
+	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ExemptionTime *int32 `type:"int32"`
+	ExemptionTime *int32 `type:"int32" json:",omitempty"`
 
 	// Field is a required field
-	Field *string `type:"string" required:"true"`
+	Field *string `type:"string" json:",omitempty" required:"true"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	// Path is a required field
-	Path *string `type:"string" required:"true"`
+	Path *string `type:"string" json:",omitempty" required:"true"`
 
-	PathThreshold *int32 `type:"int32"`
+	PathThreshold *int32 `type:"int32" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// RulePriority is a required field
-	RulePriority *int32 `type:"int32" required:"true"`
+	RulePriority *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	SingleProportion *string `type:"string"`
+	SingleProportion *string `type:"string" json:",omitempty"`
 
 	// SingleThreshold is a required field
-	SingleThreshold *int32 `type:"int32" required:"true"`
+	SingleThreshold *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// StatisticalDuration is a required field
-	StatisticalDuration *int32 `type:"int32" required:"true"`
+	StatisticalDuration *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// StatisticalType is a required field
-	StatisticalType *int32 `type:"int32" required:"true"`
+	StatisticalType *int32 `type:"int32" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -393,6 +395,12 @@ func (s *CreateBotAnalyseProtectRuleInput) SetPathThreshold(v int32) *CreateBotA
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateBotAnalyseProtectRuleInput) SetProjectName(v string) *CreateBotAnalyseProtectRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRulePriority sets the RulePriority field's value.
 func (s *CreateBotAnalyseProtectRuleInput) SetRulePriority(v int32) *CreateBotAnalyseProtectRuleInput {
 	s.RulePriority = &v
@@ -424,11 +432,11 @@ func (s *CreateBotAnalyseProtectRuleInput) SetStatisticalType(v int32) *CreateBo
 }
 
 type CreateBotAnalyseProtectRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

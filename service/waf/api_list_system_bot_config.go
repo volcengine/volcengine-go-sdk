@@ -144,17 +144,17 @@ func (c *WAF) ListSystemBotConfigWithContext(ctx volcengine.Context, input *List
 }
 
 type DataForListSystemBotConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	BotType *string `type:"string"`
+	BotType *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Enable *int32 `type:"int32"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
-	RuleTag *string `type:"string"`
+	RuleTag *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -198,10 +198,12 @@ func (s *DataForListSystemBotConfigOutput) SetRuleTag(v string) *DataForListSyst
 }
 
 type ListSystemBotConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -233,12 +235,18 @@ func (s *ListSystemBotConfigInput) SetHost(v string) *ListSystemBotConfigInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListSystemBotConfigInput) SetProjectName(v string) *ListSystemBotConfigInput {
+	s.ProjectName = &v
+	return s
+}
+
 type ListSystemBotConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListSystemBotConfigOutput `type:"list"`
+	Data []*DataForListSystemBotConfigOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

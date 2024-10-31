@@ -144,9 +144,11 @@ func (c *WAF) DeleteIpGroupWithContext(ctx volcengine.Context, input *DeleteIpGr
 }
 
 type DeleteIpGroupInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IpGroupIds []*int32 `type:"list"`
+	IpGroupIds []*int32 `type:"list" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -165,8 +167,14 @@ func (s *DeleteIpGroupInput) SetIpGroupIds(v []*int32) *DeleteIpGroupInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteIpGroupInput) SetProjectName(v string) *DeleteIpGroupInput {
+	s.ProjectName = &v
+	return s
+}
+
 type DeleteIpGroupOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

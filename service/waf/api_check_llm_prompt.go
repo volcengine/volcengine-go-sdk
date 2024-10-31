@@ -144,21 +144,21 @@ func (c *WAF) CheckLLMPromptWithContext(ctx volcengine.Context, input *CheckLLMP
 }
 
 type CheckLLMPromptInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Content is a required field
-	Content *string `type:"string" required:"true"`
+	Content *string `type:"string" json:",omitempty" required:"true"`
 
 	// ContentType is a required field
-	ContentType *int32 `type:"int32" required:"true"`
+	ContentType *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	MsgClass *int32 `type:"int32"`
+	MsgClass *int32 `type:"int32" json:",omitempty"`
 
 	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -224,13 +224,13 @@ func (s *CheckLLMPromptInput) SetRegion(v string) *CheckLLMPromptInput {
 }
 
 type CheckLLMPromptOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Decision *DecisionForCheckLLMPromptOutput `type:"structure"`
+	Decision *DecisionForCheckLLMPromptOutput `type:"structure" json:",omitempty"`
 
-	MsgID *string `type:"string"`
+	MsgID *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -256,13 +256,13 @@ func (s *CheckLLMPromptOutput) SetMsgID(v string) *CheckLLMPromptOutput {
 }
 
 type DecisionForCheckLLMPromptOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ErrCode *int32 `type:"int32"`
+	ErrCode *int32 `type:"int32" json:",omitempty"`
 
-	ErrMsg *string `type:"string"`
+	ErrMsg *string `type:"string" json:",omitempty"`
 
-	Labels []*string `type:"list"`
+	Labels []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

@@ -144,11 +144,11 @@ func (c *WAF) CreateCustomPageWithContext(ctx volcengine.Context, input *CreateC
 }
 
 type AccurateForCreateCustomPageInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateRules []*AccurateRuleForCreateCustomPageInput `type:"list"`
+	AccurateRules []*AccurateRuleForCreateCustomPageInput `type:"list" json:",omitempty"`
 
-	Logic *int32 `type:"int32"`
+	Logic *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,17 +174,17 @@ func (s *AccurateForCreateCustomPageInput) SetLogic(v int32) *AccurateForCreateC
 }
 
 type AccurateRuleForCreateCustomPageInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpObj *string `type:"string"`
+	HttpObj *string `type:"string" json:",omitempty"`
 
-	ObjType *int32 `type:"int32"`
+	ObjType *int32 `type:"int32" json:",omitempty"`
 
-	Opretar *int32 `type:"int32"`
+	Opretar *int32 `type:"int32" json:",omitempty"`
 
-	Property *int32 `type:"int32"`
+	Property *int32 `type:"int32" json:",omitempty"`
 
-	ValueString *string `type:"string"`
+	ValueString *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,43 +228,45 @@ func (s *AccurateRuleForCreateCustomPageInput) SetValueString(v string) *Accurat
 }
 
 type CreateCustomPageInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accurate *AccurateForCreateCustomPageInput `type:"structure"`
+	Accurate *AccurateForCreateCustomPageInput `type:"structure" json:",omitempty"`
 
-	Advanced *int32 `type:"int32"`
+	Advanced *int32 `type:"int32" json:",omitempty"`
 
-	Body *string `type:"string"`
+	Body *string `type:"string" json:",omitempty"`
 
 	// ClientIp is a required field
-	ClientIp *string `type:"string" required:"true"`
+	ClientIp *string `type:"string" json:",omitempty" required:"true"`
 
 	// Code is a required field
-	Code *int32 `type:"int32" required:"true"`
+	Code *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ContentType *string `type:"string"`
+	ContentType *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
 	// Enable is a required field
-	Enable *int32 `type:"int32" required:"true"`
+	Enable *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	// PageMode is a required field
-	PageMode *int32 `type:"int32" required:"true"`
+	PageMode *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Policy is a required field
-	Policy *int32 `type:"int32" required:"true"`
+	Policy *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	RedirectUrl *string `type:"string"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	RedirectUrl *string `type:"string" json:",omitempty"`
 
 	// Url is a required field
-	Url *string `type:"string" required:"true"`
+	Url *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -383,6 +385,12 @@ func (s *CreateCustomPageInput) SetPolicy(v int32) *CreateCustomPageInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateCustomPageInput) SetProjectName(v string) *CreateCustomPageInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetRedirectUrl sets the RedirectUrl field's value.
 func (s *CreateCustomPageInput) SetRedirectUrl(v string) *CreateCustomPageInput {
 	s.RedirectUrl = &v
@@ -396,11 +404,11 @@ func (s *CreateCustomPageInput) SetUrl(v string) *CreateCustomPageInput {
 }
 
 type CreateCustomPageOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

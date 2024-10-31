@@ -144,15 +144,15 @@ func (c *WAF) ListDomainWithContext(ctx volcengine.Context, input *ListDomainInp
 }
 
 type BackendForListDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	IP *string `type:"string"`
+	IP *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	Protocol *string `type:"string"`
+	Protocol *string `type:"string" json:",omitempty"`
 
-	Weight *int32 `type:"int32"`
+	Weight *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -190,13 +190,13 @@ func (s *BackendForListDomainOutput) SetWeight(v int32) *BackendForListDomainOut
 }
 
 type BackendGroupForListDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessPort []*int32 `type:"list"`
+	AccessPort []*int32 `type:"list" json:",omitempty"`
 
-	Backends []*BackendForListDomainOutput `type:"list"`
+	Backends []*BackendForListDomainOutput `type:"list" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,17 +228,23 @@ func (s *BackendGroupForListDomainOutput) SetName(v string) *BackendGroupForList
 }
 
 type CloudAccessConfigForListDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessProtocol *string `type:"string"`
+	AccessProtocol *string `type:"string" json:",omitempty"`
 
-	InstanceID *string `type:"string"`
+	DefenceMode *int32 `type:"int32" json:",omitempty"`
 
-	ListenerID *string `type:"string"`
+	InstanceID *string `type:"string" json:",omitempty"`
 
-	Port *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	Protocol *string `type:"string"`
+	ListenerID *string `type:"string" json:",omitempty"`
+
+	LostAssociationFromALB *int32 `type:"int32" json:",omitempty"`
+
+	Port *string `type:"string" json:",omitempty"`
+
+	Protocol *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -257,15 +263,33 @@ func (s *CloudAccessConfigForListDomainOutput) SetAccessProtocol(v string) *Clou
 	return s
 }
 
+// SetDefenceMode sets the DefenceMode field's value.
+func (s *CloudAccessConfigForListDomainOutput) SetDefenceMode(v int32) *CloudAccessConfigForListDomainOutput {
+	s.DefenceMode = &v
+	return s
+}
+
 // SetInstanceID sets the InstanceID field's value.
 func (s *CloudAccessConfigForListDomainOutput) SetInstanceID(v string) *CloudAccessConfigForListDomainOutput {
 	s.InstanceID = &v
 	return s
 }
 
+// SetInstanceName sets the InstanceName field's value.
+func (s *CloudAccessConfigForListDomainOutput) SetInstanceName(v string) *CloudAccessConfigForListDomainOutput {
+	s.InstanceName = &v
+	return s
+}
+
 // SetListenerID sets the ListenerID field's value.
 func (s *CloudAccessConfigForListDomainOutput) SetListenerID(v string) *CloudAccessConfigForListDomainOutput {
 	s.ListenerID = &v
+	return s
+}
+
+// SetLostAssociationFromALB sets the LostAssociationFromALB field's value.
+func (s *CloudAccessConfigForListDomainOutput) SetLostAssociationFromALB(v int32) *CloudAccessConfigForListDomainOutput {
+	s.LostAssociationFromALB = &v
 	return s
 }
 
@@ -282,147 +306,147 @@ func (s *CloudAccessConfigForListDomainOutput) SetProtocol(v string) *CloudAcces
 }
 
 type DataForListDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessMode *int32 `type:"int32"`
+	AccessMode *int32 `type:"int32" json:",omitempty"`
 
-	AdvancedDefenseIP *string `type:"string"`
+	AdvancedDefenseIP *string `type:"string" json:",omitempty"`
 
-	AdvancedDefenseIPv6 *string `type:"string"`
+	AdvancedDefenseIPv6 *string `type:"string" json:",omitempty"`
 
-	ApiEnable *int32 `type:"int32"`
+	ApiEnable *int32 `type:"int32" json:",omitempty"`
 
-	AttackStatus *int32 `type:"int32"`
+	AttackStatus *int32 `type:"int32" json:",omitempty"`
 
-	AutoCCEnable *int32 `type:"int32"`
+	AutoCCEnable *int32 `type:"int32" json:",omitempty"`
 
-	AutomaticBlackEnable *int32 `type:"int32"`
+	AutomaticBlackEnable *int32 `type:"int32" json:",omitempty"`
 
-	BackendGroups []*BackendGroupForListDomainOutput `type:"list"`
+	BackendGroups []*BackendGroupForListDomainOutput `type:"list" json:",omitempty"`
 
-	BlackIpEnable *int32 `type:"int32"`
+	BlackIpEnable *int32 `type:"int32" json:",omitempty"`
 
-	BlackLctEnable *int32 `type:"int32"`
+	BlackLctEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotDytokenEnable *int32 `type:"int32"`
+	BotDytokenEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotFrequencyEnable *int32 `type:"int32"`
+	BotFrequencyEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotRepeatEnable *int32 `type:"int32"`
+	BotRepeatEnable *int32 `type:"int32" json:",omitempty"`
 
-	BotSequenceDefaultAction *int32 `type:"int32"`
+	BotSequenceDefaultAction *int32 `type:"int32" json:",omitempty"`
 
-	BotSequenceEnable *int32 `type:"int32"`
+	BotSequenceEnable *int32 `type:"int32" json:",omitempty"`
 
-	CcEnable *int32 `type:"int32"`
+	CcEnable *int32 `type:"int32" json:",omitempty"`
 
-	CertificateID *int32 `type:"int32"`
+	CertificateID *int32 `type:"int32" json:",omitempty"`
 
-	CertificateName *string `type:"string"`
+	CertificateName *string `type:"string" json:",omitempty"`
 
-	CertificatePlatform *string `type:"string"`
+	CertificatePlatform *string `type:"string" json:",omitempty"`
 
-	ClbInstanceIDs *string `type:"string"`
+	ClbInstanceIDs *string `type:"string" json:",omitempty"`
 
-	ClbListenerId *string `type:"string"`
+	ClbListenerId *string `type:"string" json:",omitempty"`
 
-	ClbPoolId *string `type:"string"`
+	ClbPoolId *string `type:"string" json:",omitempty"`
 
-	ClbServerId *string `type:"string"`
+	ClbServerId *string `type:"string" json:",omitempty"`
 
-	ClientIPLocation *string `type:"string"`
+	ClientIPLocation *string `type:"string" json:",omitempty"`
 
-	ClientMaxBodySize *int32 `type:"int32"`
+	ClientMaxBodySize *int32 `type:"int32" json:",omitempty"`
 
-	CloudAccessConfig []*CloudAccessConfigForListDomainOutput `type:"list"`
+	CloudAccessConfig []*CloudAccessConfigForListDomainOutput `type:"list" json:",omitempty"`
 
-	Cname *string `type:"string"`
+	Cname *string `type:"string" json:",omitempty"`
 
-	CustomBotEnable *int32 `type:"int32"`
+	CustomBotEnable *int32 `type:"int32" json:",omitempty"`
 
-	CustomHeader []*string `type:"list"`
+	CustomHeader []*string `type:"list" json:",omitempty"`
 
-	CustomRspEnable *int32 `type:"int32"`
+	CustomRspEnable *int32 `type:"int32" json:",omitempty"`
 
-	DefenceMode *int32 `type:"int32"`
+	DefenceMode *int32 `type:"int32" json:",omitempty"`
 
-	DlpEnable *int32 `type:"int32"`
+	DlpEnable *int32 `type:"int32" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	EnableHTTP2 *int32 `type:"int32"`
+	EnableHTTP2 *int32 `type:"int32" json:",omitempty"`
 
-	EnableIPv6 *int32 `type:"int32"`
+	EnableIPv6 *int32 `type:"int32" json:",omitempty"`
 
-	KeepAliveRequest *int32 `type:"int32"`
+	KeepAliveRequest *int32 `type:"int32" json:",omitempty"`
 
-	KeepAliveTimeOut *int32 `type:"int32"`
+	KeepAliveTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	LBAlgorithm *string `type:"string"`
+	LBAlgorithm *string `type:"string" json:",omitempty"`
 
-	Port *int32 `type:"int32"`
+	Port *int32 `type:"int32" json:",omitempty"`
 
-	ProtocolFollow *int32 `type:"int32"`
+	ProtocolFollow *int32 `type:"int32" json:",omitempty"`
 
-	ProtocolPorts *ProtocolPortsForListDomainOutput `type:"structure"`
+	ProtocolPorts *ProtocolPortsForListDomainOutput `type:"structure" json:",omitempty"`
 
-	Protocols []*string `type:"list"`
+	Protocols []*string `type:"list" json:",omitempty"`
 
-	ProxyConfig *int32 `type:"int32"`
+	ProxyConfig *int32 `type:"int32" json:",omitempty"`
 
-	ProxyConnectTimeOut *int32 `type:"int32"`
+	ProxyConnectTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	ProxyKeepAlive *int32 `type:"int32"`
+	ProxyKeepAlive *int32 `type:"int32" json:",omitempty"`
 
-	ProxyKeepAliveTimeOut *int32 `type:"int32"`
+	ProxyKeepAliveTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	ProxyReadTimeOut *int32 `type:"int32"`
+	ProxyReadTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	ProxyRetry *int32 `type:"int32"`
+	ProxyRetry *int32 `type:"int32" json:",omitempty"`
 
-	ProxyWriteTimeOut *int32 `type:"int32"`
+	ProxyWriteTimeOut *int32 `type:"int32" json:",omitempty"`
 
-	PublicRealServer *int32 `type:"int32"`
+	PublicRealServer *int32 `type:"int32" json:",omitempty"`
 
-	RedirectHTTPS *bool `type:"boolean"`
+	RedirectHTTPS *bool `type:"boolean" json:",omitempty"`
 
-	Region *string `type:"string"`
+	Region *string `type:"string" json:",omitempty"`
 
-	RspAbnormalEnable *int32 `type:"int32"`
+	RspAbnormalEnable *int32 `type:"int32" json:",omitempty"`
 
-	SSLCiphers []*string `type:"list"`
+	SSLCiphers []*string `type:"list" json:",omitempty"`
 
-	SSLProtocols []*string `type:"list"`
+	SSLProtocols []*string `type:"list" json:",omitempty"`
 
-	ServerIps *string `type:"string"`
+	ServerIps *string `type:"string" json:",omitempty"`
 
-	SrcIps *string `type:"string"`
+	SrcIps *string `type:"string" json:",omitempty"`
 
-	SrcProtocol *string `type:"string"`
+	SrcProtocol *string `type:"string" json:",omitempty"`
 
-	Status *int32 `type:"int32"`
+	Status *int32 `type:"int32" json:",omitempty"`
 
-	SystemBotEnable *int32 `type:"int32"`
+	SystemBotEnable *int32 `type:"int32" json:",omitempty"`
 
-	TCPListenerConfig []*TCPListenerConfigForListDomainOutput `type:"list"`
+	TCPListenerConfig []*TCPListenerConfigForListDomainOutput `type:"list" json:",omitempty"`
 
-	TLSEnable *int32 `type:"int32"`
+	TLSEnable *int32 `type:"int32" json:",omitempty"`
 
-	TamperProofEnable *int32 `type:"int32"`
+	TamperProofEnable *int32 `type:"int32" json:",omitempty"`
 
-	UpdateTime *string `type:"string"`
+	UpdateTime *string `type:"string" json:",omitempty"`
 
-	VolcCertificateID *string `type:"string"`
+	VolcCertificateID *string `type:"string" json:",omitempty"`
 
-	VpcID *string `type:"string"`
+	VpcID *string `type:"string" json:",omitempty"`
 
-	WafEnable *int32 `type:"int32"`
+	WafEnable *int32 `type:"int32" json:",omitempty"`
 
-	WafWhiteReqEnable *int32 `type:"int32"`
+	WafWhiteReqEnable *int32 `type:"int32" json:",omitempty"`
 
-	WhiteEnable *int32 `type:"int32"`
+	WhiteEnable *int32 `type:"int32" json:",omitempty"`
 
-	WhiteFieldEnable *int32 `type:"int32"`
+	WhiteFieldEnable *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -855,24 +879,84 @@ func (s *DataForListDomainOutput) SetWhiteFieldEnable(v int32) *DataForListDomai
 	return s
 }
 
-type ListDomainInput struct {
-	_ struct{} `type:"structure"`
+type LBInfoForListDomainInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ALBInstanceID *string `type:"string"`
+	AccessMode *int32 `type:"int32" json:",omitempty"`
+
+	LBInstanceID *string `type:"string" json:",omitempty"`
+}
+
+// String returns the string representation
+func (s LBInfoForListDomainInput) String() string {
+	return volcengineutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LBInfoForListDomainInput) GoString() string {
+	return s.String()
+}
+
+// SetAccessMode sets the AccessMode field's value.
+func (s *LBInfoForListDomainInput) SetAccessMode(v int32) *LBInfoForListDomainInput {
+	s.AccessMode = &v
+	return s
+}
+
+// SetLBInstanceID sets the LBInstanceID field's value.
+func (s *LBInfoForListDomainInput) SetLBInstanceID(v string) *LBInfoForListDomainInput {
+	s.LBInstanceID = &v
+	return s
+}
+
+type ListDomainInput struct {
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	AccessMode []*int32 `type:"list" json:",omitempty"`
 
 	// AccurateQuery is a required field
-	AccurateQuery *int32 `type:"int32" required:"true"`
+	AccurateQuery *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	Domain *string `type:"string"`
+	AttackStatus []*int32 `type:"list" json:",omitempty"`
+
+	ClientIp *string `type:"string" json:",omitempty"`
+
+	DefenceMode []*int32 `type:"list" json:",omitempty"`
+
+	Domain *string `type:"string" json:",omitempty"`
+
+	DomainOrPath *string `type:"string" json:",omitempty"`
+
+	LBInfo []*LBInfoForListDomainInput `type:"list" json:",omitempty"`
 
 	// Page is a required field
-	Page *int32 `type:"int32" required:"true"`
+	Page *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// PageSize is a required field
-	PageSize *int32 `type:"int32" required:"true"`
+	PageSize *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	PublicRealServer []*int32 `type:"list" json:",omitempty"`
 
 	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *string `type:"string" json:",omitempty" required:"true"`
+
+	SortByCreateTime *string `type:"string" json:",omitempty"`
+
+	SortByDomainName *string `type:"string" json:",omitempty"`
+
+	SortByUpdateTime *string `type:"string" json:",omitempty"`
+
+	Status []*int32 `type:"list" json:",omitempty"`
+
+	TLSEnable []*int32 `type:"list" json:",omitempty"`
+
+	VpcId *string `type:"string" json:",omitempty"`
+
+	VpcName *string `type:"string" json:",omitempty"`
+
+	VpcOwnerId *string `type:"string" json:",omitempty"`
+
+	VpcOwnerName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -907,9 +991,9 @@ func (s *ListDomainInput) Validate() error {
 	return nil
 }
 
-// SetALBInstanceID sets the ALBInstanceID field's value.
-func (s *ListDomainInput) SetALBInstanceID(v string) *ListDomainInput {
-	s.ALBInstanceID = &v
+// SetAccessMode sets the AccessMode field's value.
+func (s *ListDomainInput) SetAccessMode(v []*int32) *ListDomainInput {
+	s.AccessMode = v
 	return s
 }
 
@@ -919,9 +1003,39 @@ func (s *ListDomainInput) SetAccurateQuery(v int32) *ListDomainInput {
 	return s
 }
 
+// SetAttackStatus sets the AttackStatus field's value.
+func (s *ListDomainInput) SetAttackStatus(v []*int32) *ListDomainInput {
+	s.AttackStatus = v
+	return s
+}
+
+// SetClientIp sets the ClientIp field's value.
+func (s *ListDomainInput) SetClientIp(v string) *ListDomainInput {
+	s.ClientIp = &v
+	return s
+}
+
+// SetDefenceMode sets the DefenceMode field's value.
+func (s *ListDomainInput) SetDefenceMode(v []*int32) *ListDomainInput {
+	s.DefenceMode = v
+	return s
+}
+
 // SetDomain sets the Domain field's value.
 func (s *ListDomainInput) SetDomain(v string) *ListDomainInput {
 	s.Domain = &v
+	return s
+}
+
+// SetDomainOrPath sets the DomainOrPath field's value.
+func (s *ListDomainInput) SetDomainOrPath(v string) *ListDomainInput {
+	s.DomainOrPath = &v
+	return s
+}
+
+// SetLBInfo sets the LBInfo field's value.
+func (s *ListDomainInput) SetLBInfo(v []*LBInfoForListDomainInput) *ListDomainInput {
+	s.LBInfo = v
 	return s
 }
 
@@ -937,26 +1051,86 @@ func (s *ListDomainInput) SetPageSize(v int32) *ListDomainInput {
 	return s
 }
 
+// SetPublicRealServer sets the PublicRealServer field's value.
+func (s *ListDomainInput) SetPublicRealServer(v []*int32) *ListDomainInput {
+	s.PublicRealServer = v
+	return s
+}
+
 // SetRegion sets the Region field's value.
 func (s *ListDomainInput) SetRegion(v string) *ListDomainInput {
 	s.Region = &v
 	return s
 }
 
+// SetSortByCreateTime sets the SortByCreateTime field's value.
+func (s *ListDomainInput) SetSortByCreateTime(v string) *ListDomainInput {
+	s.SortByCreateTime = &v
+	return s
+}
+
+// SetSortByDomainName sets the SortByDomainName field's value.
+func (s *ListDomainInput) SetSortByDomainName(v string) *ListDomainInput {
+	s.SortByDomainName = &v
+	return s
+}
+
+// SetSortByUpdateTime sets the SortByUpdateTime field's value.
+func (s *ListDomainInput) SetSortByUpdateTime(v string) *ListDomainInput {
+	s.SortByUpdateTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ListDomainInput) SetStatus(v []*int32) *ListDomainInput {
+	s.Status = v
+	return s
+}
+
+// SetTLSEnable sets the TLSEnable field's value.
+func (s *ListDomainInput) SetTLSEnable(v []*int32) *ListDomainInput {
+	s.TLSEnable = v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *ListDomainInput) SetVpcId(v string) *ListDomainInput {
+	s.VpcId = &v
+	return s
+}
+
+// SetVpcName sets the VpcName field's value.
+func (s *ListDomainInput) SetVpcName(v string) *ListDomainInput {
+	s.VpcName = &v
+	return s
+}
+
+// SetVpcOwnerId sets the VpcOwnerId field's value.
+func (s *ListDomainInput) SetVpcOwnerId(v string) *ListDomainInput {
+	s.VpcOwnerId = &v
+	return s
+}
+
+// SetVpcOwnerName sets the VpcOwnerName field's value.
+func (s *ListDomainInput) SetVpcOwnerName(v string) *ListDomainInput {
+	s.VpcOwnerName = &v
+	return s
+}
+
 type ListDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Count *int32 `type:"int32"`
+	Count *int32 `type:"int32" json:",omitempty"`
 
-	Data []*DataForListDomainOutput `type:"list"`
+	Data []*DataForListDomainOutput `type:"list" json:",omitempty"`
 
-	PageNumber *int32 `type:"int32"`
+	PageNumber *int32 `type:"int32" json:",omitempty"`
 
-	PageSize *int32 `type:"int32"`
+	PageSize *int32 `type:"int32" json:",omitempty"`
 
-	TotalCount *int32 `type:"int32"`
+	TotalCount *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1000,11 +1174,11 @@ func (s *ListDomainOutput) SetTotalCount(v int32) *ListDomainOutput {
 }
 
 type ProtocolPortsForListDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HTTP []*int32 `type:"list"`
+	HTTP []*int32 `type:"list" json:",omitempty"`
 
-	HTTPS []*int32 `type:"list"`
+	HTTPS []*int32 `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1030,17 +1204,23 @@ func (s *ProtocolPortsForListDomainOutput) SetHTTPS(v []*int32) *ProtocolPortsFo
 }
 
 type TCPListenerConfigForListDomainOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccessProtocol *string `type:"string"`
+	AccessProtocol *string `type:"string" json:",omitempty"`
 
-	InstanceID *string `type:"string"`
+	DefenceMode *int32 `type:"int32" json:",omitempty"`
 
-	ListenerID *string `type:"string"`
+	InstanceID *string `type:"string" json:",omitempty"`
 
-	Port *string `type:"string"`
+	InstanceName *string `type:"string" json:",omitempty"`
 
-	Protocol *string `type:"string"`
+	ListenerID *string `type:"string" json:",omitempty"`
+
+	LostAssociationFromALB *int32 `type:"int32" json:",omitempty"`
+
+	Port *string `type:"string" json:",omitempty"`
+
+	Protocol *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -1059,15 +1239,33 @@ func (s *TCPListenerConfigForListDomainOutput) SetAccessProtocol(v string) *TCPL
 	return s
 }
 
+// SetDefenceMode sets the DefenceMode field's value.
+func (s *TCPListenerConfigForListDomainOutput) SetDefenceMode(v int32) *TCPListenerConfigForListDomainOutput {
+	s.DefenceMode = &v
+	return s
+}
+
 // SetInstanceID sets the InstanceID field's value.
 func (s *TCPListenerConfigForListDomainOutput) SetInstanceID(v string) *TCPListenerConfigForListDomainOutput {
 	s.InstanceID = &v
 	return s
 }
 
+// SetInstanceName sets the InstanceName field's value.
+func (s *TCPListenerConfigForListDomainOutput) SetInstanceName(v string) *TCPListenerConfigForListDomainOutput {
+	s.InstanceName = &v
+	return s
+}
+
 // SetListenerID sets the ListenerID field's value.
 func (s *TCPListenerConfigForListDomainOutput) SetListenerID(v string) *TCPListenerConfigForListDomainOutput {
 	s.ListenerID = &v
+	return s
+}
+
+// SetLostAssociationFromALB sets the LostAssociationFromALB field's value.
+func (s *TCPListenerConfigForListDomainOutput) SetLostAssociationFromALB(v int32) *TCPListenerConfigForListDomainOutput {
+	s.LostAssociationFromALB = &v
 	return s
 }
 

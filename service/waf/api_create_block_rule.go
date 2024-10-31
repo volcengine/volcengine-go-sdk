@@ -144,11 +144,11 @@ func (c *WAF) CreateBlockRuleWithContext(ctx volcengine.Context, input *CreateBl
 }
 
 type AccurateForCreateBlockRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	AccurateRules []*AccurateRuleForCreateBlockRuleInput `type:"list"`
+	AccurateRules []*AccurateRuleForCreateBlockRuleInput `type:"list" json:",omitempty"`
 
-	Logic *int32 `type:"int32"`
+	Logic *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,17 +174,17 @@ func (s *AccurateForCreateBlockRuleInput) SetLogic(v int32) *AccurateForCreateBl
 }
 
 type AccurateRuleForCreateBlockRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	HttpObj *string `type:"string"`
+	HttpObj *string `type:"string" json:",omitempty"`
 
-	ObjType *int32 `type:"int32"`
+	ObjType *int32 `type:"int32" json:",omitempty"`
 
-	Opretar *int32 `type:"int32"`
+	Opretar *int32 `type:"int32" json:",omitempty"`
 
-	Property *int32 `type:"int32"`
+	Property *int32 `type:"int32" json:",omitempty"`
 
-	ValueString *string `type:"string"`
+	ValueString *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -228,34 +228,36 @@ func (s *AccurateRuleForCreateBlockRuleInput) SetValueString(v string) *Accurate
 }
 
 type CreateBlockRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Accurate *AccurateForCreateBlockRuleInput `type:"structure"`
+	Accurate *AccurateForCreateBlockRuleInput `type:"structure" json:",omitempty"`
 
 	// Action is a required field
-	Action *string `type:"string" required:"true" enum:"EnumOfActionForCreateBlockRuleInput"`
+	Action *string `type:"string" json:",omitempty" required:"true" enum:"EnumOfActionForCreateBlockRuleInput"`
 
 	// Advanced is a required field
-	Advanced *int32 `type:"int32" required:"true"`
+	Advanced *int32 `type:"int32" json:",omitempty" required:"true"`
 
-	ClientIp *string `type:"string"`
+	ClientIp *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	Enable *int32 `type:"int32"`
+	Enable *int32 `type:"int32" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	IpAddType *int32 `type:"int32"`
+	IpAddType *int32 `type:"int32" json:",omitempty"`
 
-	IpGroupId []*int32 `type:"list"`
+	IpGroupId []*int32 `type:"list" json:",omitempty"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// Url is a required field
-	Url *string `type:"string" required:"true"`
+	Url *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -353,6 +355,12 @@ func (s *CreateBlockRuleInput) SetName(v string) *CreateBlockRuleInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *CreateBlockRuleInput) SetProjectName(v string) *CreateBlockRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetUrl sets the Url field's value.
 func (s *CreateBlockRuleInput) SetUrl(v string) *CreateBlockRuleInput {
 	s.Url = &v
@@ -360,11 +368,11 @@ func (s *CreateBlockRuleInput) SetUrl(v string) *CreateBlockRuleInput {
 }
 
 type CreateBlockRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation

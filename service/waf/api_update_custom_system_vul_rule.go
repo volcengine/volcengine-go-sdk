@@ -144,11 +144,11 @@ func (c *WAF) UpdateCustomSystemVulRuleWithContext(ctx volcengine.Context, input
 }
 
 type SystemRuleSwitchForUpdateCustomSystemVulRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	CustomSystemRuleSwitch *int32 `type:"int32"`
+	CustomSystemRuleSwitch *int32 `type:"int32" json:",omitempty"`
 
-	RuleID *int32 `type:"int32"`
+	RuleID *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -174,12 +174,14 @@ func (s *SystemRuleSwitchForUpdateCustomSystemVulRuleInput) SetRuleID(v int32) *
 }
 
 type UpdateCustomSystemVulRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
-	SystemRuleSwitch []*SystemRuleSwitchForUpdateCustomSystemVulRuleInput `type:"list"`
+	ProjectName *string `type:"string" json:",omitempty"`
+
+	SystemRuleSwitch []*SystemRuleSwitchForUpdateCustomSystemVulRuleInput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -211,6 +213,12 @@ func (s *UpdateCustomSystemVulRuleInput) SetHost(v string) *UpdateCustomSystemVu
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *UpdateCustomSystemVulRuleInput) SetProjectName(v string) *UpdateCustomSystemVulRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetSystemRuleSwitch sets the SystemRuleSwitch field's value.
 func (s *UpdateCustomSystemVulRuleInput) SetSystemRuleSwitch(v []*SystemRuleSwitchForUpdateCustomSystemVulRuleInput) *UpdateCustomSystemVulRuleInput {
 	s.SystemRuleSwitch = v
@@ -218,7 +226,7 @@ func (s *UpdateCustomSystemVulRuleInput) SetSystemRuleSwitch(v []*SystemRuleSwit
 }
 
 type UpdateCustomSystemVulRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

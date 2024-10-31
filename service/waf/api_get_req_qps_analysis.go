@@ -144,14 +144,14 @@ func (c *WAF) GetReqQPSAnalysisWithContext(ctx volcengine.Context, input *GetReq
 }
 
 type GetReqQPSAnalysisInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	Domain *string `type:"string"`
+	Domain *string `type:"string" json:",omitempty"`
 
-	EndTime *string `type:"string"`
+	EndTime *string `type:"string" json:",omitempty"`
 
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -196,13 +196,13 @@ func (s *GetReqQPSAnalysisInput) SetStartTime(v string) *GetReqQPSAnalysisInput 
 }
 
 type GetReqQPSAnalysisOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	AverageQPS *float64 `type:"float"`
+	AverageQPS *float64 `type:"float" json:",omitempty"`
 
-	PeakQPS *float64 `type:"float"`
+	PeakQPS *float64 `type:"float" json:",omitempty"`
 }
 
 // String returns the string representation

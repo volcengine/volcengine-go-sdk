@@ -144,35 +144,35 @@ func (c *WAF) ListWafServiceCertificateWithContext(ctx volcengine.Context, input
 }
 
 type DataForListWafServiceCertificateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
-	ApplicableDomains *string `type:"string"`
+	ApplicableDomains *string `type:"string" json:",omitempty"`
 
-	ClbCertificateId *string `type:"string"`
+	ClbCertificateId *string `type:"string" json:",omitempty"`
 
-	Description *string `type:"string"`
+	Description *string `type:"string" json:",omitempty"`
 
-	ExpireTime *string `type:"string"`
+	ExpireTime *string `type:"string" json:",omitempty"`
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 
-	InsertTime *string `type:"string"`
+	InsertTime *string `type:"string" json:",omitempty"`
 
-	IsolationId *string `type:"string"`
+	IsolationId *string `type:"string" json:",omitempty"`
 
-	Name *string `type:"string"`
+	Name *string `type:"string" json:",omitempty"`
 
-	Operator *string `type:"string"`
+	Operator *string `type:"string" json:",omitempty"`
 
-	Optsrc *string `type:"string"`
+	Optsrc *string `type:"string" json:",omitempty"`
 
-	PrivateKey *string `type:"string"`
+	PrivateKey *string `type:"string" json:",omitempty"`
 
-	PublicKey *string `type:"string"`
+	PublicKey *string `type:"string" json:",omitempty"`
 
-	User *string `type:"string"`
+	User *string `type:"string" json:",omitempty"`
 
-	VolcCertificateId *string `type:"string"`
+	VolcCertificateId *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -270,7 +270,9 @@ func (s *DataForListWafServiceCertificateOutput) SetVolcCertificateId(v string) 
 }
 
 type ListWafServiceCertificateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -283,12 +285,18 @@ func (s ListWafServiceCertificateInput) GoString() string {
 	return s.String()
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListWafServiceCertificateInput) SetProjectName(v string) *ListWafServiceCertificateInput {
+	s.ProjectName = &v
+	return s
+}
+
 type ListWafServiceCertificateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Data []*DataForListWafServiceCertificateOutput `type:"list"`
+	Data []*DataForListWafServiceCertificateOutput `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

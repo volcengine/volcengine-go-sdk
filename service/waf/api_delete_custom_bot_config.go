@@ -144,13 +144,15 @@ func (c *WAF) DeleteCustomBotConfigWithContext(ctx volcengine.Context, input *De
 }
 
 type DeleteCustomBotConfigInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// BotID is a required field
-	BotID *int32 `type:"int32" required:"true"`
+	BotID *int32 `type:"int32" json:",omitempty" required:"true"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -191,8 +193,14 @@ func (s *DeleteCustomBotConfigInput) SetHost(v string) *DeleteCustomBotConfigInp
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteCustomBotConfigInput) SetProjectName(v string) *DeleteCustomBotConfigInput {
+	s.ProjectName = &v
+	return s
+}
+
 type DeleteCustomBotConfigOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

@@ -144,13 +144,15 @@ func (c *WAF) DeleteCustomPageWithContext(ctx volcengine.Context, input *DeleteC
 }
 
 type DeleteCustomPageInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
 
 	// Id is a required field
-	Id *int32 `type:"int32" required:"true"`
+	Id *int32 `type:"int32" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -191,8 +193,14 @@ func (s *DeleteCustomPageInput) SetId(v int32) *DeleteCustomPageInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *DeleteCustomPageInput) SetProjectName(v string) *DeleteCustomPageInput {
+	s.ProjectName = &v
+	return s
+}
+
 type DeleteCustomPageOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 }

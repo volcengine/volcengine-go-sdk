@@ -144,10 +144,12 @@ func (c *WAF) ListAreaBlockRuleWithContext(ctx volcengine.Context, input *ListAr
 }
 
 type ListAreaBlockRuleInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 }
 
 // String returns the string representation
@@ -179,18 +181,24 @@ func (s *ListAreaBlockRuleInput) SetHost(v string) *ListAreaBlockRuleInput {
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *ListAreaBlockRuleInput) SetProjectName(v string) *ListAreaBlockRuleInput {
+	s.ProjectName = &v
+	return s
+}
+
 type ListAreaBlockRuleOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Action *string `type:"string"`
+	Action *string `type:"string" json:",omitempty"`
 
-	Country []*string `type:"list"`
+	Country []*string `type:"list" json:",omitempty"`
 
-	RuleTag *string `type:"string"`
+	RuleTag *string `type:"string" json:",omitempty"`
 
-	SubRegion []*string `type:"list"`
+	SubRegion []*string `type:"list" json:",omitempty"`
 }
 
 // String returns the string representation

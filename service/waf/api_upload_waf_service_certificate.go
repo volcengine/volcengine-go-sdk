@@ -144,19 +144,21 @@ func (c *WAF) UploadWafServiceCertificateWithContext(ctx volcengine.Context, inp
 }
 
 type UploadWafServiceCertificateInput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	// Description is a required field
-	Description *string `type:"string" required:"true"`
+	Description *string `type:"string" json:",omitempty" required:"true"`
 
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `type:"string" json:",omitempty" required:"true"`
 
 	// PrivateKey is a required field
-	PrivateKey *string `type:"string" required:"true"`
+	PrivateKey *string `type:"string" json:",omitempty" required:"true"`
+
+	ProjectName *string `type:"string" json:",omitempty"`
 
 	// PublicKey is a required field
-	PublicKey *string `type:"string" required:"true"`
+	PublicKey *string `type:"string" json:",omitempty" required:"true"`
 }
 
 // String returns the string representation
@@ -209,6 +211,12 @@ func (s *UploadWafServiceCertificateInput) SetPrivateKey(v string) *UploadWafSer
 	return s
 }
 
+// SetProjectName sets the ProjectName field's value.
+func (s *UploadWafServiceCertificateInput) SetProjectName(v string) *UploadWafServiceCertificateInput {
+	s.ProjectName = &v
+	return s
+}
+
 // SetPublicKey sets the PublicKey field's value.
 func (s *UploadWafServiceCertificateInput) SetPublicKey(v string) *UploadWafServiceCertificateInput {
 	s.PublicKey = &v
@@ -216,11 +224,11 @@ func (s *UploadWafServiceCertificateInput) SetPublicKey(v string) *UploadWafServ
 }
 
 type UploadWafServiceCertificateOutput struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" json:",omitempty"`
 
 	Metadata *response.ResponseMetadata
 
-	Id *int32 `type:"int32"`
+	Id *int32 `type:"int32" json:",omitempty"`
 }
 
 // String returns the string representation
